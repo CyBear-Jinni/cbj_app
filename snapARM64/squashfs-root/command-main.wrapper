@@ -1,2 +1,0 @@
-#!/bin/sh
-exec "$SNAP/dart-sdk/bin/dart" "$SNAP/main.dart.aot" "$@"
