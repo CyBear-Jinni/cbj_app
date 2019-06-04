@@ -1,0 +1,2 @@
+#!/bin/sh
+exec "$SNAP/dart-sdk/bin/dartaotruntime" "main.dart.aot" "$@"

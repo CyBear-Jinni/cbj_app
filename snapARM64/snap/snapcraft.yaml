@@ -12,9 +12,9 @@ description: |
   #confinement: strict # use 'strict' once you have the right plugs and slots
 
 
-  #grade: dangerous # must be 'stable' to release into candidate/stable channels
-#confinement: devmode 
-confinement: classic
+grade: devel # must be 'stable' to release into candidate/stable channels
+confinement: devmode
+#confinement: classic
 architectures: [all]
 
 parts:
@@ -24,7 +24,7 @@ parts:
 
 apps:
   main:
-    command: ls $SNAP/dart-sdk/bin/dartaotruntime $SNAP/main.dart.aot
+    command: dart-sdk/bin/dart $SNAP/main.dart.aot
   lss1:
     command: ls
     #lss1:
