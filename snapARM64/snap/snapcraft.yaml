@@ -24,13 +24,4 @@ parts:
 
 apps:
   main:
-    command: dart-sdk/bin/dart $SNAP/main.dart.aot
-  lss1:
-    command: ls
-    #lss1:
-          #command: $SNAP/dart-sdk/bin/dartaotruntime main.dart.aot
-    #lss2:
-          #    command: usr/sbin/$SNAP/dart-sdk/bin/dartaotruntime main.dart.aot
-  lss3:
-    command: ls $SNAP
-
+    command: dart-sdk/bin/dartaotruntime $SNAP/main.dart.aot
