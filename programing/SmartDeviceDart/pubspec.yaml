@@ -1,8 +1,8 @@
 name: SmartDeviceDart
 description: A sample command-line application.
-# version: 1.0.0
-# homepage: https://www.example.com
-# author: guy <email@example.com>
+version: 1.0.0
+homepage: https://www.example.com
+author: guy <email@example.com>
 
 environment:
   sdk: '>=2.2.0 <3.0.0'
