@@ -10,12 +10,10 @@ class NetworkManager {
   // Listening for connection on specified port and returning HttpRequest when connection was establish
   static Future<HttpRequest> PortListening() async {
 
-      HttpServer server = await HttpServer.bind(InternetAddress.anyIPv4, 4141);
-//    print("Serving at ${server.address}:${server.port}");
+      HttpServer server = await HttpServer.bind(InternetAddress.anyIPv6, 4141);
+      print("Meybe listening at http://${await printIps()}:${server.port}");
 
       await for (HttpRequest req in await server) {
-        print('req' + req.uri.pathSegments.toString());
-
         return req;
       };
 
@@ -40,7 +38,7 @@ class NetworkManager {
   // Get Ip info
   static Future<String> printIps() async {
     for (var interface in await NetworkInterface.list()) {
-      print('== Interface: ${interface.name} ==');
+//      print('== Interface: ${interface.name} ==');
       for (var addr in interface.addresses) {
 //        print(
 //            '${addr.address} ${addr.host} ${addr.isLoopback} ${addr.rawAddress} ${addr.type.name}');
