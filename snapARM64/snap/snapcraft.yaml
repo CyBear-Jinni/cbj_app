@@ -20,7 +20,7 @@ architectures: [all]
 parts:
   smart-home :
     plugin: dump
-    source: .
+    source: ../programing/
     override-build: |
       snapcraftctl build
            
@@ -38,4 +38,5 @@ parts:
 
 apps:
   smart-home :
-    command: dart-sdk/bin/dartaotruntime $SNAP/main.dart.aot
+    command: dart-sdk/bin/dart $SNAP/SmartDeviceDart/bin/main.dart
+    #command: dart-sdk/bin/dartaotruntime $SNAP/main.dart.aot
