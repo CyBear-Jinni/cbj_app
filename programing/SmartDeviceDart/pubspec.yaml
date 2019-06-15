@@ -8,8 +8,8 @@ environment:
   sdk: '>=2.2.0 <3.0.0'
 
 dependencies:
-  rpi_gpio: ^0.5.0
-#  cloud_firestore:
+  rpi_gpio:
+  firebase: ^5.0.3
 
 
 dev_dependencies:

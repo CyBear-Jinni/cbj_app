@@ -1,4 +1,4 @@
-
+import 'dart:ffi';
 import 'dart:io';
 import 'dart:async';
 
@@ -7,47 +7,38 @@ import 'dart:async';
 class NetworkManager {
 
 
-//
-//  lisenNow() async {
-//    var server = await HttpServer.bind(InternetAddress.anyIPv4, 4141);
-//    print("Serving at ${server.address}:${server.port}");
-//
-//    await for (var request in server) {
-//      print(request.toString());
-//      request.response
-//        ..headers.contentType = new ContentType("text", "plain", charset: "utf-8")
-//        ..write('Hello, world')
-//        ..close();
-//    }
-//  }
+  // Listening for connection on specified port and returning HttpRequest when connection was establish
+  static Future<HttpRequest> PortListening() async {
 
-
-  Future PortListening() async {
-//    String ip = await printIps();
-//    print('Ip is');
-//    print(ip);
-
-    await runZoned(() async {
       HttpServer server = await HttpServer.bind(InternetAddress.anyIPv4, 4141);
-      await for (HttpRequest req in server) {
+//    print("Serving at ${server.address}:${server.port}");
+
+      await for (HttpRequest req in await server) {
         print('req' + req.uri.pathSegments.toString());
-        req.response
-        ..headers.contentType = new ContentType("text", "plain", charset: "utf-8")
-        ..write('Hello, world');
-        await req.response.close();
-//        return req.uri.pathSegments.toString();
+
+        return req;
       };
-    });
+
+    return null;
+  }
+
+  // Getting HttpRequest and a string and send back the string the the connected device
+  static void SendResponse(HttpRequest req, String response) async {
+    req.response
+      ..headers.contentType = new ContentType("text", "plain", charset: "utf-8")
+      ..write(response);
+    await req.response.close();
   }
 
 
 
 
-  handleMsg(msg) {
-    print('Message received: $msg');
-  }
 
-  Future<String> printIps() async {
+
+
+
+  // Get Ip info
+  static Future<String> printIps() async {
     for (var interface in await NetworkInterface.list()) {
       print('== Interface: ${interface.name} ==');
       for (var addr in interface.addresses) {
