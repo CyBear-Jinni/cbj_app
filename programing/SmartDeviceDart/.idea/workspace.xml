@@ -1,331 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/bin/shered/NetworkManager.dart" line="19" />
+    <bookmark url="file://$PROJECT_DIR$/bin/shered/NetworkManager.dart" line="17" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1e26d5e-a8e9-4a67-800b-493445f371bc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../deviceSmartSnap/snap/.directory" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/shered/dataBase/fireBase.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/BlindsObject.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/DynamicLightObject.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/LightObject.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/ThermostatObject.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/smartDeviceBaseObjcet.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../snap/.directory" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/shered/NetworkManager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/bin/shered/NetworkManager.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/smartDevice/SmartDeviceMain.dart" beforeDir="false" afterPath="$PROJECT_DIR$/bin/smartDevice/SmartDeviceMain.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/README" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/dart2aot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/dartanalyzer" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/dartaotruntime" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/dartdoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/dartfmt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/pub" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/analysis_server.dart.snapshot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/dartanalyzer.dart.snapshot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/dartdoc.dart.snapshot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/dartfmt.dart.snapshot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/gen_kernel.dart.snapshot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/pub.dart.snapshot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/resources/URI.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/resources/css/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/resources/css/bootstrap.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/resources/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/resources/favicon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/resources/github.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/resources/highlight.pack.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/resources/play_button.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/resources/readme.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/resources/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/resources/sdk_footer_text.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/resources/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/resources/typeahead.bundle.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/templates/404error.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/templates/_accessor_getter.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/templates/_accessor_setter.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/templates/_callable.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/templates/_callable_multiline.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/templates/_categorization.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/templates/_class.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/templates/_constant.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/templates/_documentation.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/templates/_features.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/templates/_footer.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/templates/_head.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/templates/_library.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/templates/_mixin.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/templates/_name_summary.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/templates/_packages.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/templates/_property.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/templates/_search_sidebar.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/templates/_sidebar_for_category.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/templates/_sidebar_for_class.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/templates/_sidebar_for_enum.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/templates/_sidebar_for_library.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/templates/_source_code.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/templates/_source_link.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/templates/category.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/templates/class.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/templates/constant.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/templates/constructor.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/templates/enum.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/templates/function.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/templates/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/templates/library.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/templates/method.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/templates/mixin.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/templates/property.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/templates/top_level_constant.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/templates/top_level_property.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/snapshots/resources/dartdoc/templates/typedef.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/bin/utils/gen_snapshot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/dartdoc_options.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/include/dart_api.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/include/dart_native_api.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/include/dart_tools_api.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_chrome/dart2js/chrome_dart2js.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_http/crypto.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_http/http.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_http/http_date.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_http/http_headers.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_http/http_impl.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_http/http_parser.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_http/http_session.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_http/http_sources.gni" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_http/overrides.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_http/websocket.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_http/websocket_impl.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/abiversions/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/js_runtime/lib/annotations.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/js_runtime/lib/async_patch.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/js_runtime/lib/cli_patch.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/js_runtime/lib/collection_patch.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/js_runtime/lib/constant_map.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/js_runtime/lib/convert_patch.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/js_runtime/lib/core_patch.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/js_runtime/lib/developer_patch.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/js_runtime/lib/foreign_helper.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/js_runtime/lib/instantiation.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/js_runtime/lib/interceptors.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/js_runtime/lib/internal_patch.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/js_runtime/lib/io_patch.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/js_runtime/lib/isolate_patch.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/js_runtime/lib/js_array.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/js_runtime/lib/js_helper.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/js_runtime/lib/js_names.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/js_runtime/lib/js_number.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/js_runtime/lib/js_primitives.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/js_runtime/lib/js_rti.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/js_runtime/lib/js_string.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/js_runtime/lib/linked_hash_map.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/js_runtime/lib/math_patch.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/js_runtime/lib/mirrors_patch_cfe.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/js_runtime/lib/native_helper.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/js_runtime/lib/native_typed_data.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/js_runtime/lib/preambles/README" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/js_runtime/lib/preambles/d8.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/js_runtime/lib/preambles/jsshell.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/js_runtime/lib/regexp_helper.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/js_runtime/lib/shared/async_await_error_codes.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/js_runtime/lib/shared/embedded_names.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/js_runtime/lib/string_helper.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/js_runtime/lib/typed_data_patch.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/js_runtime/pubspec.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/libraries.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/sdk_library_metadata/lib/libraries.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/sdk_library_metadata/pubspec.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/strong.sum" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/_internal/vm_platform_strong.dill" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/api_readme.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/async/async.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/async/async_error.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/async/async_sources.gni" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/async/broadcast_stream_controller.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/async/deferred_load.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/async/future.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/async/future_impl.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/async/schedule_microtask.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/async/stream.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/async/stream_controller.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/async/stream_impl.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/async/stream_pipe.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/async/stream_transformers.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/async/timer.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/async/zone.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/cli/cli.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/cli/cli_sources.gni" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/cli/wait_for.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/collection/collection.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/collection/collection_sources.gni" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/collection/collections.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/collection/hash_map.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/collection/hash_set.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/collection/iterable.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/collection/iterator.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/collection/linked_hash_map.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/collection/linked_hash_set.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/collection/linked_list.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/collection/list.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/collection/maps.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/collection/queue.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/collection/set.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/collection/splay_tree.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/convert/ascii.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/convert/base64.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/convert/byte_conversion.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/convert/chunked_conversion.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/convert/codec.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/convert/convert.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/convert/convert_sources.gni" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/convert/converter.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/convert/encoding.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/convert/html_escape.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/convert/json.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/convert/latin1.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/convert/line_splitter.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/convert/string_conversion.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/convert/utf.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/core/annotations.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/core/bigint.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/core/bool.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/core/comparable.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/core/core.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/core/core_sources.gni" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/core/date_time.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/core/double.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/core/duration.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/core/errors.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/core/exceptions.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/core/expando.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/core/function.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/core/identical.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/core/int.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/core/invocation.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/core/iterable.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/core/iterator.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/core/list.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/core/map.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/core/null.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/core/num.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/core/object.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/core/pattern.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/core/print.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/core/regexp.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/core/set.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/core/sink.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/core/stacktrace.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/core/stopwatch.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/core/string.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/core/string_buffer.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/core/string_sink.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/core/symbol.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/core/type.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/core/uri.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/developer/developer.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/developer/developer_sources.gni" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/developer/extension.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/developer/profiler.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/developer/service.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/developer/timeline.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/ffi/annotations.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/ffi/dynamic_library.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/ffi/ffi.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/ffi/ffi_sources.gni" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/ffi/native_type.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/html/dart2js/html_dart2js.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/html/dartium/nativewrappers.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/html/html_common/conversions.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/html/html_common/conversions_dart2js.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/html/html_common/css_class_set.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/html/html_common/device.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/html/html_common/filtered_element_list.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/html/html_common/html_common.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/html/html_common/html_common_dart2js.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/html/html_common/lists.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/html/html_common/metadata.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/indexed_db/dart2js/indexed_db_dart2js.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/internal/async_cast.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/internal/cast.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/internal/internal.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/internal/internal_sources.gni" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/internal/iterable.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/internal/linked_list.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/internal/list.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/internal/patch.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/internal/print.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/internal/sort.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/internal/symbol.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/io/bytes_builder.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/io/common.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/io/data_transformer.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/io/directory.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/io/directory_impl.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/io/embedder_config.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/io/eventhandler.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/io/file.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/io/file_impl.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/io/file_system_entity.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/io/io.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/io/io_resource_info.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/io/io_service.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/io/io_sink.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/io/io_sources.gni" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/io/link.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/io/namespace_impl.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/io/overrides.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/io/platform.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/io/platform_impl.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/io/process.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/io/secure_server_socket.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/io/secure_socket.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/io/security_context.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/io/service_object.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/io/socket.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/io/stdio.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/io/string_transformer.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/io/sync_socket.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/isolate/capability.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/isolate/isolate.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/isolate/isolate_sources.gni" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/js/_js.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/js/_js_client.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/js/_js_server.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/js/dart2js/js_dart2js.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/js_util/dart2js/js_util_dart2js.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/libraries.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/math/jenkins_smi_hash.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/math/math.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/math/math_sources.gni" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/math/point.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/math/random.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/math/rectangle.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/mirrors/mirrors.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/mirrors/mirrors_sources.gni" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/profiler/profiler.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/profiler/profiler_sources.gni" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/svg/dart2js/svg_dart2js.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/typed_data/typed_data.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/typed_data/typed_data_sources.gni" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/typed_data/unmodifiable_typed_data.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/web_audio/dart2js/web_audio_dart2js.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/web_gl/dart2js/web_gl_dart2js.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/lib/web_sql/dart2js/web_sql_dart2js.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/revision" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/dart-sdk/version" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapARM64/snap/snapcraft.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../snap/snapcraft.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapSh/.directory" beforeDir="false" afterPath="$PROJECT_DIR$/../../deviceSmartSnap/.directory" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapSh/lightOn.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../../deviceSmartSnap/lightOn.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapSh/off.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../deviceSmartSnap/off.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapSh/on.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../deviceSmartSnap/on.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../snapSh/snap/snapcraft.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../deviceSmartSnap/snap/snapcraft.yaml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -340,10 +23,19 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bin/main.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bin/smartDevice/SmartDeviceMain.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
+            <state relative-caret-position="300">
+              <caret line="20" column="59" lean-forward="true" selection-start-line="20" selection-start-column="59" selection-end-line="20" selection-end-column="59" />
               <folding>
                 <element signature="e#2#19#0" expanded="true" />
               </folding>
@@ -351,38 +43,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bin/shered/NetworkManager.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="32" selection-start-line="32" selection-end-line="32" />
+            <state relative-caret-position="225">
+              <caret line="15" column="51" lean-forward="true" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="51" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/bin/shered/dataBase/fireBase.dart">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pubspec.yaml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bin/main.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#125#142#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -417,8 +84,6 @@
         <option value="$PROJECT_DIR$/bin/secondFile.dart" />
         <option value="$PROJECT_DIR$/ba.sh" />
         <option value="$PROJECT_DIR$/lib/DeviceClass.dart" />
-        <option value="$PROJECT_DIR$/lib/SmartDeviceDart.dart" />
-        <option value="$PROJECT_DIR$/test/SmartDeviceDart_test.dart" />
         <option value="$PROJECT_DIR$/bin/smartRouter/SmartRouterMain.dart" />
         <option value="$PROJECT_DIR$/bin/smartDevice/NetworkManager.dart" />
         <option value="$PROJECT_DIR$/bin/shered/PortListening.dart" />
@@ -427,11 +92,14 @@
         <option value="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/Blinds.dart" />
         <option value="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/ThermostatObject.dart" />
         <option value="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/smartDeviceBaseObjcet.dart" />
-        <option value="$PROJECT_DIR$/bin/shered/NetworkManager.dart" />
-        <option value="$PROJECT_DIR$/bin/smartDevice/SmartDeviceMain.dart" />
-        <option value="$PROJECT_DIR$/bin/main.dart" />
         <option value="$PROJECT_DIR$/pubspec.yaml" />
         <option value="$PROJECT_DIR$/bin/shered/dataBase/fireBase.dart" />
+        <option value="$PROJECT_DIR$/lib/main.dart" />
+        <option value="$PROJECT_DIR$/test/SmartDeviceDart_test.dart" />
+        <option value="$PROJECT_DIR$/lib/SmartDeviceDart.dart" />
+        <option value="$PROJECT_DIR$/bin/main.dart" />
+        <option value="$PROJECT_DIR$/bin/smartDevice/SmartDeviceMain.dart" />
+        <option value="$PROJECT_DIR$/bin/shered/NetworkManager.dart" />
       </list>
     </option>
   </component>
@@ -464,21 +132,12 @@
             <path>
               <item name="SmartDeviceDart" type="b2602c69:ProjectViewProjectNode" />
               <item name="SmartDeviceDart" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
-              <item name="shered" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SmartDeviceDart" type="b2602c69:ProjectViewProjectNode" />
               <item name="SmartDeviceDart" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
-              <item name="shered" type="462c0819:PsiDirectoryNode" />
-              <item name="dataBase" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartDeviceDart" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartDeviceDart" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
-              <item name="smartDevice" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -495,6 +154,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib" />
+      <recent name="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects" />
       <recent name="$PROJECT_DIR$/bin/shered" />
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -512,7 +173,7 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="main.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+    <configuration name="main.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" nameIsGenerated="true">
       <option name="filePath" value="$PROJECT_DIR$/bin/main.dart" />
       <option name="workingDirectory" value="$PROJECT_DIR$" />
       <method v="2" />
@@ -544,7 +205,7 @@
     <frame x="1722" y="0" width="1882" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19365427" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19365427" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -553,7 +214,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3340336" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3340336" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39810926" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -562,7 +223,7 @@
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3277311" />
       <window_info anchor="bottom" id="Dart Analysis" order="10" weight="0.197479" />
-      <window_info anchor="bottom" id="Messages" order="11" visible="true" weight="0.32668066" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32668066" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -638,16 +299,6 @@
     <entry file="file://$PROJECT_DIR$/bin/secondFile.dart" />
     <entry file="file://$PROJECT_DIR$/ba.sh" />
     <entry file="file://$PROJECT_DIR$/lib/DeviceClass.dart" />
-    <entry file="file://$PROJECT_DIR$/lib/SmartDeviceDart.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/rpi_gpio-0.5.0/lib/gpio.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -657,16 +308,6 @@
     </entry>
     <entry file="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/rpi_gpio-0.5.0/lib/src/gpio_const.dart">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/SmartDeviceDart_test.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/rpi_gpio-0.5.0/lib/rpi_gpio.dart">
       <provider selected="true" editor-type-id="text-editor">
@@ -712,35 +353,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/smartDevice/SmartDeviceMain.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="e#2#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/shered/NetworkManager.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/main.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#125#142#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pubspec.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -749,7 +361,55 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bin/shered/dataBase/fireBase.dart">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/SmartDeviceDart.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/SmartDeviceDart_test.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="14" selection-start-column="14" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/main.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/smartDevice/SmartDeviceMain.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="59" lean-forward="true" selection-start-line="20" selection-start-column="59" selection-end-line="20" selection-end-column="59" />
+          <folding>
+            <element signature="e#2#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/shered/NetworkManager.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="51" lean-forward="true" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
 </project>

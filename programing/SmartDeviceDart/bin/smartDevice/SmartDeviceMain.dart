@@ -10,7 +10,7 @@ class SmartDeviceMain{
 
 
   SmartDeviceMain(){
-    print("Start");
+    print("Smart device is activaited");
     waitForConnection();
   }
 
@@ -19,6 +19,8 @@ class SmartDeviceMain{
 
     while(true) {
       HttpRequest connectedDevice = await NetworkManager.PortListening();
+
+      print('req' + connectedDevice.uri.pathSegments.toString());
 
       NetworkManager.SendResponse(connectedDevice, "Hello World");
     }
