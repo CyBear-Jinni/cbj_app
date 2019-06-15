@@ -1,4 +1,4 @@
-name: smart-home # you probably want to 'snapcraft register <name>'
+name: mainb # you probably want to 'snapcraft register <name>'
 base: core18 # the base snap is the execution environment for this snap
 version: '0.1' # just for humans, typically '1.2+git' or '1.3.2'
 summary: Single-line elevator pitch for your amazing snap # 79 char long summary
@@ -18,24 +18,52 @@ confinement: devmode
 architectures: [all]
 
 parts:
-  smart-home :
+  mainb:
     plugin: dump
     source: .
     override-build: |
       snapcraftctl build
            
-  
-      wget https://storage.googleapis.com/dart-archive/channels/stable/release/2.3.1/sdk/dartsdk-linux-arm64-release.zip
-      rm -r dart-sdk
-      unzip dartsdk-*
-      rm dartsdk-*.zip
-    #stage-packages:
+      rm -r WiringNP
+      pwd
+      ls
+      git clone https://github.com/friendlyarm/WiringNP
+      pwd
+      #ls
+      cd WiringNP/
+      chmod 755 build
+      ls
+      pwd
+      ./build
+      #echo 'start gpio'
+      #gpio
+      #stage-packages:
       #- make
       #- g++
-    build-packages:
-      - wget
-      - unzip
+    build-environment:
+      - gpio: gpio
 
+    build-packages:
+      - git
+                  
+      
 apps:
-  smart-home :
-    command: dart-sdk/bin/dartaotruntime $SNAP/main.dart.aot
+  mainb:
+    command: ./lightOn.sh
+  onn:
+    command: gpio
+    
+    
+    #environment:
+            #PATH: "$PATH:/usr/local/bin/"
+            #OLDPWD: "$OLDPWD:/root/WiringNP/"
+            #OLDPWD: "$OLDPWD"
+      #gpio: "$gpio:/usr/local/bin/"
+      #gpio: "$PATH:/usr/local/bin/"
+      #gpio: "$PATH"
+  try1:
+    command: ls $SNAP/WiringNP/
+  try2:
+    command: chmod 755 $SNAP/WiringNP/build
+  try3:
+    command: $SNAP/WiringNP/build
