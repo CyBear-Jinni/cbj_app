@@ -12,7 +12,6 @@ class NetworkManager {
 
       HttpServer server = await HttpServer.bind(InternetAddress.anyIPv6, 4141);
       print("Meybe listening at http://${await printIps()}:${server.port}");
-
       await for (HttpRequest req in await server) {
         return req;
       };
@@ -35,19 +34,20 @@ class NetworkManager {
 
 
 
-  // Get Ip info
-  static Future<String> printIps() async {
-    for (var interface in await NetworkInterface.list()) {
-//      print('== Interface: ${interface.name} ==');
-      for (var addr in interface.addresses) {
-//        print(
-//            '${addr.address} ${addr.host} ${addr.isLoopback} ${addr.rawAddress} ${addr.type.name}');
-        return addr.address;
-      }
-    }
-    return null;
-  }
 }
 
 
 
+
+// Get Ip info
+Future<String> printIps() async {
+  for (var interface in await NetworkInterface.list()) {
+//      print('== Interface: ${interface.name} ==');
+    for (var addr in interface.addresses) {
+//        print(
+//            '${addr.address} ${addr.host} ${addr.isLoopback} ${addr.rawAddress} ${addr.type.name}');
+      return addr.address;
+    }
+  }
+  return null;
+}
