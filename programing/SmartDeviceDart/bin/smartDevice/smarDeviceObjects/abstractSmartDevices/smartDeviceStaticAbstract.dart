@@ -4,6 +4,8 @@ import 'smartDeviceBaseAbstract.dart';
 
 abstract class SmartDeviceStatic extends SmartDeviceBaseAbstract{
 
+  double howMuchToMove;
+
   SmartDeviceStatic(String macAddress, String deviceName) : super(macAddress, deviceName);
 
 }

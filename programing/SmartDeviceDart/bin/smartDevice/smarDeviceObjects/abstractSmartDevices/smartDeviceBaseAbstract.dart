@@ -8,8 +8,12 @@ import '../../../shered/permissions/permissionsManager.dart';
 // The super base class of all the smart device class and smart device abstract classes
 abstract class SmartDeviceBaseAbstract{
   String deviceName; // Default name of the device to show in the app
-  final String macAddress;
-  Map<String, PermissionsManager> devicePermissions;
+  final String macAddress;  // Mac address of the physical device
+  Map<String, PermissionsManager> devicePermissions;  // Permissions of all the users to this device
+  double watts;  // Power consumption of the device
+  DateTime computerActiveTime;  // How much time the computer is on since last boot
+  DateTime activeTimeTotal;  // How much time the smart device was active (Doing action) total
+  Map<DateTime, Function> activitiesLog; //  log of all the actions the device was and will do
 
   SmartDeviceBaseAbstract(this.macAddress, this.deviceName);
 
