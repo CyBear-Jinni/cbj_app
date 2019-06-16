@@ -3,6 +3,7 @@ enum DeviceType {
   DynamicLight, // Light with brightness 0% to 100%
   Blinds,
   Thermostat,
+  Fan,
   AirConditioner,
   Camera,
   Fridge,
@@ -13,7 +14,7 @@ enum DeviceType {
   RCCar,
   Speakers,
   Roomba, // Cleaning robot
-  Irrigation,
+  Irrigation,   // Give water to plants
   SmartBed,
   AnimalTracker,
   SmartCar,

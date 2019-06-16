@@ -1,17 +1,17 @@
 import 'dart:io';
-import '../shered/NetworkManager.dart';
-import 'smarDeviceObjects/LightObject.dart';
-import 'smarDeviceObjects/SmartDeviceAbstractObject.dart';
+import '../shered/networkManager.dart';
+import 'smarDeviceObjects/simpleDevices/lightObject.dart';
+import 'smarDeviceObjects/abstractSmartDevices/smartDeviceBaseAbstract.dart';
 
 class SmartDeviceMain{
 
-  List<SmartDeviceAbstractObject> smartDevicesList;
+  List<SmartDeviceBaseAbstract> smartDevicesList;
 
 
 
   SmartDeviceMain() {
     print("Smart device is activaited");
-    smartDevicesList = new List<SmartDeviceAbstractObject>();
+    smartDevicesList = new List<SmartDeviceBaseAbstract>();
     SmartDeviceMainAsync();
   }
 
@@ -34,8 +34,6 @@ class SmartDeviceMain{
     await smartDevicesList.add(new LightObject("30:23:a2:G3:34", "Guy silling light"));
     await smartDevicesList.add(new LightObject("30:23:a2:G3:34", "Guy bed light"));
     await smartDevicesList.add(new LightObject("30:23:a2:G3:34", "Guy electronic table light"));
-
-
 
   }
 
@@ -60,7 +58,7 @@ class SmartDeviceMain{
     if(pathSegments.length < 3) return pathSegments.length.toString() + " is not enough parameter";
     if(int.tryParse(pathSegments[1]) == null) return 'Second parameter need to be number';
     int deviceNumber = int.tryParse(pathSegments[1]);
-    if(deviceNumber > smartDevicesList.length)  return 'Device ${deviceNumber} is not exist';
+    if(deviceNumber >= smartDevicesList.length)  return 'Device ${deviceNumber} is not exist';
 
     String smartDeviceResponse = await smartDevicesList[deviceNumber].action(pathSegments[2]);
 
