@@ -1,14 +1,17 @@
 import 'dart:io';
 
-import '../../shered/NetworkManager.dart';
-import '../../shered/enums.dart';
+import '../../../shered/networkManager.dart';
+import '../../../shered/enums.dart';
+import '../../../shered/permissions/permissionsManager.dart';
 
-abstract class SmartDeviceAbstractObject{
+
+// The super base class of all the smart device class and smart device abstract classes
+abstract class SmartDeviceBaseAbstract{
   String deviceName; // Default name of the device to show in the app
-  DeviceType deviceType;
   final String macAddress;
+  Map<String, PermissionsManager> devicePermissions;
 
-  SmartDeviceAbstractObject(this.deviceType, this.macAddress, this.deviceName);
+  SmartDeviceBaseAbstract(this.macAddress, this.deviceName);
 
 
   // Method that decide what to do with incoming action
@@ -29,15 +32,16 @@ abstract class SmartDeviceAbstractObject{
     return 'Your wish does not exist';
   }
 
-  String TurnOn(){
-    return 'Turn on sucsessfuly';
-  }
+  // Get smart device type
+  DeviceType getDeviceType() => null;
+
+  // Turn on the light of the device
+  String TurnOn() => 'Turn on sucsessfuly';
 
 
 
-  String TurnOff(){
-    return 'Turn on sucsessfuly';
-  }
+  // Turn off the light of the device
+  String TurnOff() => 'Turn on sucsessfuly';
 
 
 

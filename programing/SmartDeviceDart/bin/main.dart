@@ -1,8 +1,8 @@
 
-//import 'package:SmartDeviceDart/SmartDeviceDart.dart' as SmartDeviceDart;
+//import 'package:SmartDeviceDart/smartDeviceDart.dart' as SmartDeviceDart;
 
 
-import 'smartDevice/SmartDeviceManager.dart';
+import 'smartDevice/smartDeviceManager.dart';
 
 
 main(List<String> arguments) {

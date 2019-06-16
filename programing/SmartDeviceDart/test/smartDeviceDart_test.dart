@@ -1,4 +1,4 @@
-import 'package:SmartDeviceDart/SmartDeviceDart.dart';
+import 'package:SmartDeviceDart/smartDeviceDart.dart';
 import 'package:test/test.dart';
 
 //void main() {
