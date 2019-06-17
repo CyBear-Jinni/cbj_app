@@ -1,7 +1,9 @@
 import 'dart:io';
 import '../shered/networkManager.dart';
+import 'smarDeviceObjects/dinamicDevices/dynamicLightObject.dart';
 import 'smarDeviceObjects/simpleDevices/lightObject.dart';
 import 'smarDeviceObjects/abstractSmartDevices/smartDeviceBaseAbstract.dart';
+import 'smarDeviceObjects/staticDevices/blindsObject.dart';
 
 class SmartDeviceMain{
 
@@ -32,8 +34,8 @@ class SmartDeviceMain{
   void setAllDevices() async{
 
     await smartDevicesList.add(new LightObject("30:23:a2:G3:34", "Guy silling light"));
-    await smartDevicesList.add(new LightObject("30:23:a2:G3:34", "Guy bed light"));
-    await smartDevicesList.add(new LightObject("30:23:a2:G3:34", "Guy electronic table light"));
+    await smartDevicesList.add(new Blinds("30:23:a2:G3:34", "Guy bed light"));
+    await smartDevicesList.add(new DynamicLight("30:23:a2:G3:34", "Guy electronic table light"));
 
   }
 
@@ -45,6 +47,7 @@ class SmartDeviceMain{
       String smartDeviceResponse = await processTheResponse(connectedDevice.uri.pathSegments);
 
       NetworkManager.SendResponse(connectedDevice, smartDeviceResponse);
+
     }
   }
 
@@ -60,7 +63,7 @@ class SmartDeviceMain{
     int deviceNumber = int.tryParse(pathSegments[1]);
     if(deviceNumber >= smartDevicesList.length)  return 'Device ${deviceNumber} is not exist';
 
-    String smartDeviceResponse = await smartDevicesList[deviceNumber].action(pathSegments[2]);
+    String smartDeviceResponse = await smartDevicesList[deviceNumber].ExecuteWish(pathSegments[2]);
 
 
     return smartDeviceResponse;
