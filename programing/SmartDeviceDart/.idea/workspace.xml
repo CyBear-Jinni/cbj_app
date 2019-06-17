@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/bin/shered/networkManager.dart" line="16" />
+    <bookmark url="file://$PROJECT_DIR$/bin/shered/networkManager.dart" line="15" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1e26d5e-a8e9-4a67-800b-493445f371bc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/bin/shered/deviceInformation.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/shered/wishClasses/dynamicWish.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/shered/wishClasses/offWish.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/shered/wishClasses/onWish.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/shered/enums.dart" beforeDir="false" afterPath="$PROJECT_DIR$/bin/shered/enums.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/shered/networkManager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/bin/shered/networkManager.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/abstractSmartDevices/smartDeviceBaseAbstract.dart" beforeDir="false" afterPath="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/abstractSmartDevices/smartDeviceBaseAbstract.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/abstractSmartDevices/smartDeviceDynamicAbstract.dart" beforeDir="false" afterPath="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/abstractSmartDevices/smartDeviceDynamicAbstract.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/abstractSmartDevices/smartDeviceSimpleAbstract.dart" beforeDir="false" afterPath="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/abstractSmartDevices/smartDeviceSimpleAbstract.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/abstractSmartDevices/smartDeviceStaticAbstract.dart" beforeDir="false" afterPath="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/abstractSmartDevices/smartDeviceStaticAbstract.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/smartRouter/smartRouterMain.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/dinamicDevices/dynamicLightObject.dart" beforeDir="false" afterPath="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/dinamicDevices/dynamicLightObject.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/smartDevice/smartDeviceManager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/bin/smartDevice/smartDeviceManager.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../snap/snapcraft.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../snap/snapcraft.yaml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,33 +33,12 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bin/smartDevice/smartDeviceManager.dart">
+        <entry file="file://$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/abstractSmartDevices/smartDeviceSimpleAbstract.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+            <state relative-caret-position="195">
+              <caret line="13" column="69" selection-start-line="13" selection-start-column="69" selection-end-line="13" selection-end-column="69" />
               <folding>
-                <element signature="e#0#17#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/abstractSmartDevices/smartDeviceDynamicAbstract.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/abstractSmartDevices/smartDeviceBaseAbstract.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="60" lean-forward="true" selection-start-line="17" selection-start-column="60" selection-end-line="17" selection-end-column="60" />
-              <folding>
-                <element signature="e#0#17#0" expanded="true" />
+                <element signature="e#0#36#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -60,17 +47,83 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/abstractSmartDevices/smartDeviceStaticAbstract.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+            <state relative-caret-position="297">
+              <caret line="25" column="41" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
+              <folding>
+                <element signature="e#0#36#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/abstractSmartDevices/smartDeviceBaseAbstract.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="244">
+              <caret line="77" column="28" lean-forward="true" selection-start-line="77" selection-start-column="28" selection-end-line="77" selection-end-column="28" />
+              <folding>
+                <element signature="e#0#17#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bin/shered/enums.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="465">
+              <caret line="37" column="10" selection-start-line="37" selection-start-column="2" selection-end-line="37" selection-end-column="10" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/abstractSmartDevices/smartDeviceSimpleAbstract.dart">
+        <entry file="file://$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/abstractSmartDevices/smartDeviceDynamicAbstract.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+            <state relative-caret-position="340">
+              <caret line="24" column="25" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#36#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/dinamicDevices/dynamicLightObject.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="1" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/staticDevices/blindsObject.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bin/smartDevice/smartDeviceManager.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="222">
+              <caret line="37" column="47" selection-start-line="37" selection-start-column="47" selection-end-line="37" selection-end-column="47" />
+              <folding>
+                <element signature="e#0#17#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bin/shered/networkManager.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="312">
+              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
             </state>
           </provider>
         </entry>
@@ -95,6 +148,10 @@
       <find>printIps</find>
       <find>logi</find>
       <find>lo</find>
+      <find>TurnOn</find>
+      <find>Device information</find>
+      <find>Your Wish</find>
+      <find>SMovement</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -103,16 +160,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/bin/smartRouter/SmartRouterMain.dart" />
-        <option value="$PROJECT_DIR$/bin/smartDevice/NetworkManager.dart" />
-        <option value="$PROJECT_DIR$/bin/shered/PortListening.dart" />
-        <option value="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/Lamp.dart" />
-        <option value="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/DynamicLight.dart" />
-        <option value="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/Blinds.dart" />
-        <option value="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/ThermostatObject.dart" />
-        <option value="$PROJECT_DIR$/pubspec.yaml" />
-        <option value="$PROJECT_DIR$/bin/shered/dataBase/fireBase.dart" />
-        <option value="$PROJECT_DIR$/lib/main.dart" />
         <option value="$PROJECT_DIR$/test/SmartDeviceDart_test.dart" />
         <option value="$PROJECT_DIR$/lib/SmartDeviceDart.dart" />
         <option value="$PROJECT_DIR$/bin/main.dart" />
@@ -139,7 +186,6 @@
         <option value="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/abstractSmartDevices/SmartDeviceSimpleAbstract.dart" />
         <option value="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/abstractSmartDevices/SmartDeviceBaseClassAbstract.dart" />
         <option value="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/abstractSmartDevices/SmartDeviceDynamicAbstract.dart" />
-        <option value="$PROJECT_DIR$/bin/shered/enums.dart" />
         <option value="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/dinamicDevices/DynamicFanObject.dart" />
         <option value="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/dinamicDevices/SpeakerObject.dart" />
         <option value="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/simpleDevices/simpleLightObject.dart" />
@@ -147,13 +193,24 @@
         <option value="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/simpleDevices/thermostat.dart" />
         <option value="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/dinamicDevices/speakerObject.dart" />
         <option value="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/dinamicDevices/fanObject.dart" />
-        <option value="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/dinamicDevices/dynamicLightObject.dart" />
         <option value="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/staticDevices/blindsObject.dart" />
-        <option value="$PROJECT_DIR$/bin/smartDevice/smartDeviceManager.dart" />
-        <option value="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/abstractSmartDevices/smartDeviceStaticAbstract.dart" />
-        <option value="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/abstractSmartDevices/smartDeviceDynamicAbstract.dart" />
-        <option value="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/abstractSmartDevices/smartDeviceBaseAbstract.dart" />
+        <option value="$PROJECT_DIR$/.dart_tool/pub/bin/rpi_gpio/build_lib.dart.snapshot.dart2" />
+        <option value="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/dinamicDevices/dynamicLightObject.dart" />
+        <option value="$PROJECT_DIR$/bin/shered/networkManager.dart" />
+        <option value="$PROJECT_DIR$/bin/shered/wishManager/offWish.dart" />
+        <option value="$PROJECT_DIR$/bin/shered/wishManager/onWish.dart" />
+        <option value="$PROJECT_DIR$/bin/shered/deviceType.dart" />
+        <option value="$PROJECT_DIR$/bin/shered/deviceInformation.dart" />
+        <option value="$PROJECT_DIR$/bin/shered/wishManager/dynamicWish.dart" />
+        <option value="$PROJECT_DIR$/bin/shered/wishClasses/onWish.dart" />
+        <option value="$PROJECT_DIR$/bin/shered/wishClasses/offWish.dart" />
+        <option value="$PROJECT_DIR$/bin/shered/wishClasses/dynamicWish.dart" />
         <option value="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/abstractSmartDevices/smartDeviceSimpleAbstract.dart" />
+        <option value="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/abstractSmartDevices/smartDeviceStaticAbstract.dart" />
+        <option value="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/abstractSmartDevices/smartDeviceBaseAbstract.dart" />
+        <option value="$PROJECT_DIR$/bin/shered/enums.dart" />
+        <option value="$PROJECT_DIR$/bin/smartDevice/smartDeviceManager.dart" />
+        <option value="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/abstractSmartDevices/smartDeviceDynamicAbstract.dart" />
       </list>
     </option>
   </component>
@@ -169,7 +226,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -181,6 +237,19 @@
               <item name="SmartDeviceDart" type="b2602c69:ProjectViewProjectNode" />
               <item name="SmartDeviceDart" type="462c0819:PsiDirectoryNode" />
               <item name="bin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SmartDeviceDart" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SmartDeviceDart" type="462c0819:PsiDirectoryNode" />
+              <item name="bin" type="462c0819:PsiDirectoryNode" />
+              <item name="shered" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SmartDeviceDart" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SmartDeviceDart" type="462c0819:PsiDirectoryNode" />
+              <item name="bin" type="462c0819:PsiDirectoryNode" />
+              <item name="shered" type="462c0819:PsiDirectoryNode" />
+              <item name="wishClasses" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SmartDeviceDart" type="b2602c69:ProjectViewProjectNode" />
@@ -209,12 +278,21 @@
               <item name="bin" type="462c0819:PsiDirectoryNode" />
               <item name="smartDevice" type="462c0819:PsiDirectoryNode" />
               <item name="smarDeviceObjects" type="462c0819:PsiDirectoryNode" />
+              <item name="dinamicDevices" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SmartDeviceDart" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SmartDeviceDart" type="462c0819:PsiDirectoryNode" />
+              <item name="bin" type="462c0819:PsiDirectoryNode" />
+              <item name="smartDevice" type="462c0819:PsiDirectoryNode" />
+              <item name="smarDeviceObjects" type="462c0819:PsiDirectoryNode" />
               <item name="staticDevices" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -276,10 +354,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1726" y="0" width="1874" height="1080" extended-state="6" />
-    <editor active="true" />
+    <frame x="1726" y="0" width="1874" height="1084" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22757111" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23030634" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -288,7 +365,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32983193" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.34453782" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.34453782" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39810926" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -405,13 +482,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bin/shered/dataBase/fireBase.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -436,13 +506,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/main.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Programs/flutter/bin/cache/dart-sdk/lib/html/dart2js/html_dart2js.dart">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -453,58 +516,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/shered/networkManager.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/shered/permissions/DevicesPermissions.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="48" selection-start-line="3" selection-start-column="48" selection-end-line="3" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/shered/permissions/UserObject.dart">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/shered/permissions/DevicePermissions.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/shered/permissions/permissions.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="47" lean-forward="true" selection-start-line="2" selection-start-column="47" selection-end-line="2" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/shered/permissions/DevicesPermissions.dart" />
+    <entry file="file://$PROJECT_DIR$/bin/shered/permissions/UserObject.dart" />
+    <entry file="file://$PROJECT_DIR$/bin/shered/permissions/DevicePermissions.dart" />
     <entry file="file://$PROJECT_DIR$/bin/shered/permissions/permissionsManager.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/shered/enums.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="9" lean-forward="true" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/dinamicDevices/dynamicLightObject.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -528,9 +546,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/thermostatObject.dart">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/thermostatObject.dart" />
     <entry file="file://$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/simpleDevices/thermostatObject.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -538,50 +554,144 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/smartRouter/smartRouterMain.dart">
+    <entry file="file://$PROJECT_DIR$/bin/smartRouter/smartRouterMain.dart" />
+    <entry file="file://$PROJECT_DIR$/.dart_tool/pub/bin/rpi_gpio/build_lib.dart.snapshot.dart2">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/staticDevices/blindsObject.dart">
+    <entry file="file://$PROJECT_DIR$/.dart_tool/pub/bin/sdk-version">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/abstractSmartDevices/smartDeviceStaticAbstract.dart">
+    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+        <state relative-caret-position="165">
+          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/smartDevice/smartDeviceManager.dart">
+    <entry file="file://$PROJECT_DIR$/pubspec.lock">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+        <state relative-caret-position="4755">
+          <caret line="359" column="21" lean-forward="true" selection-start-line="359" selection-start-column="21" selection-end-line="359" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/main.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/shered/permissions/permissions.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/shered/deviceInformation.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/shered/wishClasses/offWish.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/shered/wishClasses/dynamicWish.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="27" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/shered/wishClasses/onWish.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="18" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/abstractSmartDevices/smartDeviceSimpleAbstract.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="69" selection-start-line="13" selection-start-column="69" selection-end-line="13" selection-end-column="69" />
           <folding>
-            <element signature="e#0#17#0" expanded="true" />
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/abstractSmartDevices/smartDeviceStaticAbstract.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="25" column="41" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/abstractSmartDevices/smartDeviceBaseAbstract.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="60" lean-forward="true" selection-start-line="17" selection-start-column="60" selection-end-line="17" selection-end-column="60" />
+        <state relative-caret-position="244">
+          <caret line="77" column="28" lean-forward="true" selection-start-line="77" selection-start-column="28" selection-end-line="77" selection-end-column="28" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/abstractSmartDevices/smartDeviceDynamicAbstract.dart">
+    <entry file="file://$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/staticDevices/blindsObject.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="30">
+          <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/abstractSmartDevices/smartDeviceSimpleAbstract.dart">
+    <entry file="file://$PROJECT_DIR$/bin/smartDevice/smartDeviceManager.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+        <state relative-caret-position="222">
+          <caret line="37" column="47" selection-start-line="37" selection-start-column="47" selection-end-line="37" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/shered/networkManager.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/dinamicDevices/dynamicLightObject.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="1" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/shered/enums.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="37" column="10" selection-start-line="37" selection-start-column="2" selection-end-line="37" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/abstractSmartDevices/smartDeviceDynamicAbstract.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="24" column="25" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

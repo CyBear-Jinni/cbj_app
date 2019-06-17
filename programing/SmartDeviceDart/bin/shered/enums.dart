@@ -25,13 +25,16 @@ class EnumHelper {
     return deviceType.toString().replaceAll('DeviceType.', '');
   }
 
-  static String pWishToString(PossibleWishes deviceType) {
-    return deviceType.toString().replaceAll('PossibleWishes.', '');
+  static String pWishToString(WishEnum deviceType) {
+    return deviceType.toString().replaceAll('WishEnum.', '');
   }
 }
 
-
-enum PossibleWishes{
-  TurnOn,
-  TurnOff,
+// List of all the wishes that can be made
+enum WishEnum{
+  SOn,  // Turn the device on
+  SOff, // Turn the device off
+  SDynamic,  // Set Dynamic Value
+  ODynamic,  // Open connection to change dynamic value
+  SMovement,  // Open connection to change dynamic value
 }
