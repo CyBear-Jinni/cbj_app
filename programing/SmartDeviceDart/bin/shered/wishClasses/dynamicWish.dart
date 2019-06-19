@@ -1,10 +1,14 @@
-
 import '../deviceInformation.dart';
 
-class DynamicWish{
-
-  static String SetDynamic(DeviceInformation deviceInformation){
-    return deviceInformation.isRemote? SetDynamicRemote(deviceInformation): SetDynamicLocal(deviceInformation);
+class DynamicWish {
+  static String SetDynamic(DeviceInformation deviceInformation) {
+    switch (deviceInformation.runtimeType) {
+      case RemoteDevice:
+        return SetDynamicRemote(deviceInformation);
+      case LocalDevice:
+        return SetDynamicLocal(deviceInformation);
+    }
+    return 'DeviceBase type not supported';
   }
 
   // One time per request change of the local dynamic value
@@ -17,14 +21,11 @@ class DynamicWish{
     return 'Response from remote device dynamic sucsessful';
   }
 
-
-
-  static String OpenDynamic(DeviceInformation deviceInformation){
+  static String OpenDynamic(DeviceInformation deviceInformation) {
     return "Response open dynamic not supported yet";
   }
 
 // TODO: Open connection for fluid local dynamic value change
-
 
 // TODO: Open connection for fluid remote dynamic value change
 
