@@ -3,22 +3,22 @@ import 'dart:io';
 
 class NetworkManager {
   // Listening for connection on specified port and returning HttpRequest when connection was establish
-  static Future<HttpRequest> PortListening() async {
-    HttpServer server = await HttpServer.bind(InternetAddress.anyIPv6, 4141);
-    print("Meybe listening at http://${await printIps()}:${server.port}");
-    await for (HttpRequest req in await server) {
-      return req;
-    }
-    ;
-
-    return null;
-  }
+//  static Future<HttpRequest> PortListening() async {
+//    HttpServer server = await HttpServer.bind(InternetAddress.anyIPv6, 4141);
+//    print("Maybe listening at http://${await printIps()}:${server.port}");
+//    await for (HttpRequest req in server) {
+//      return req;
+//    }
+//    ;
+//
+//    return null;
+//  }
 
   // Getting HttpRequest and a string and send back the string the the connected device
   static void SendResponse(HttpRequest req, String response) async {
     req.response
       ..headers.contentType = new ContentType("text", "plain", charset: "utf-8")
-      ..write(response);
+      ..write( response);
     await req.response.close();
   }
 }

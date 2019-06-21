@@ -18,6 +18,10 @@ confinement: devmode
 architectures: [all]
 
 parts:
+  setup:
+    plugin: python
+    python-version: python3
+    python-packages: [RPi.GPIO]
   mainb:
     plugin: dump
     source: .
@@ -48,6 +52,10 @@ parts:
                   
       
 apps:
+  myprogram:
+    command: bin/myprogram
+    daemon: simple
+    plugs: [gpio-memory-control]
   mainb:
     command: ./lightOn.sh
   onn:
