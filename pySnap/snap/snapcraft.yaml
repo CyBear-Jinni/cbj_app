@@ -22,49 +22,17 @@ parts:
     plugin: python
     python-version: python3
     python-packages: [RPi.GPIO]
-  mainb:
+  smart-home :
     plugin: dump
     source: .
-    override-build: |
-      git clone https://github.com/friendlyarm/WiringNP
-      cd WiringNP/
-      chmod 755 build
-      ./build
-      #echo 'start gpio'
-      #gpio
-      snapcraftctl build
 
-      #stage-packages:
-      #- make
-      #- g++
-    #build-environment:
-    #  - gpio: gpio
-
-    build-packages:
-      - git
-                  
-      
-apps:
-  myprogram:
-    command: bin/myprogram
-    daemon: simple
-    #plugs: [gpio-memory-control]
+    stage-packages:
+      - python3
+         
+    
+    
+    
+apps:    
   mainb:
-    command: ./lightOn.sh
-  onn:
-    command: gpio
-    
-    
-    #environment:
-            #PATH: "$PATH:/usr/local/bin/"
-            #OLDPWD: "$OLDPWD:/root/WiringNP/"
-            #OLDPWD: "$OLDPWD"
-      #gpio: "$gpio:/usr/local/bin/"
-      #gpio: "$PATH:/usr/local/bin/"
-      #gpio: "$PATH"
-  try1:
-    command: WiringNP/gpio/gpio
-  #try2:
-  #  command: chmod 755 $SNAP/WiringNP/build
-  try3:
-    command: WiringNP/build
+    command: lightOn.sh $SNAP
+# $SNAP/
