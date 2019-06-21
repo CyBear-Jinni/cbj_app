@@ -16,11 +16,14 @@ grade: devel # must be 'stable' to release into candidate/stable channels
 confinement: devmode
 #confinement: classic
 architectures: [all]
-
+#architectures: [arm]
+#architectures:
+#  - build-on: armhf
+#    run-on: armhf
 parts:
   setup:
     plugin: python
-    python-version: python3
+    python-version: python2
     python-packages: [RPi.GPIO]
 
   smart-home :
@@ -31,12 +34,16 @@ parts:
       # sdk url: https://dart.dev/tools/sdk/archive
       unzip dartsdk-*.zip
       rm dartsdk-*.zip
-      dart-sdk/bin/pub get
+      #cd SmartDeviceDart
+      #../dart-sdk/bin/pub get
+      #cd ..
+      #dart-sdk/bin/dart2aot SmartDeviceDart/bin/main.dart main.dart.aot
+      
+      #rm -r SmartDeviceDart
       snapcraftctl build
   
     stage-packages:
       - python3
-    #stage-packages:
       #- make
       #- g++
     build-packages:
@@ -45,5 +52,5 @@ parts:
 
 apps:
   smart-home :
-    command: dart-sdk/bin/dart $SNAP/SmartDeviceDart/bin/main.dart  $SNAP
+    command: dart-sdk/bin/dart $SNAP/SmartDeviceDart/bin/main.dart $SNAP
     #command: dart-sdk/bin/dartaotruntime $SNAP/main.dart.aot

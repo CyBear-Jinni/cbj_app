@@ -1,25 +1,17 @@
 import 'dart:io';
 
-import 'package:process_run/shell.dart';
+import 'smartDevice/smartDeviceManager.dart';
 
 main(List<String> arguments) {
   print('Device is now ON');
-  command(arguments[0]);
-  //SmartDeviceMain();
+  //commandP(arguments[0]);
+  SmartDeviceMain();
 }
 
-Future command(String path) async {
-  var shell = Shell();
-
-  List<ProcessResult> out = await shell.run('''
-  ls
-  python3 $path/on.py
-  pwd
-  ''');
-  print('out');
-  print(out);
-  print('out2');
-  print(out[0].stdout);
-  print('out3');
-  print(out[1].stdout);
+// function to start python script inside the path (snap location)
+void commandP(String path) async {
+  await Process.start('python', [path + '/on.py']).then((process) {
+    stdout.addStream(process.stdout);
+    stderr.addStream(process.stderr);
+  });
 }

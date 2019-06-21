@@ -8,13 +8,8 @@ description: |
   we live in tweetspace and your description wants to look good in the snap
   store.
 
-  #grade: stable # must be 'stable' to release into candidate/stable channels
-  #confinement: strict # use 'strict' once you have the right plugs and slots
-
-
 grade: devel # must be 'stable' to release into candidate/stable channels
-confinement: devmode
-#confinement: classic
+confinement: devmode    // classic
 architectures: [all]
 
 parts:
@@ -22,17 +17,14 @@ parts:
     plugin: python
     python-version: python3
     python-packages: [RPi.GPIO]
+    stage-packages:
+      - python3
   smart-home :
     plugin: dump
     source: .
 
-    stage-packages:
-      - python3
-         
-    
-    
     
 apps:    
   mainb:
     command: lightOn.sh $SNAP
-# $SNAP/
+
