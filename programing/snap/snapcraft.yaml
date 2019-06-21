@@ -18,17 +18,24 @@ confinement: devmode
 architectures: [all]
 
 parts:
+  setup:
+    plugin: python
+    python-version: python3
+    python-packages: [RPi.GPIO]
+
   smart-home :
     plugin: dump
     source: .
     override-build: |
       wget https://storage.googleapis.com/dart-archive/channels/stable/release/2.3.1/sdk/dartsdk-linux-arm64-release.zip
       # sdk url: https://dart.dev/tools/sdk/archive
-      #rm -r dart-sdk
-      unzip dartsdk-*
+      unzip dartsdk-*.zip
       rm dartsdk-*.zip
-      
+      dart-sdk/bin/pub get
       snapcraftctl build
+  
+    stage-packages:
+      - python3
     #stage-packages:
       #- make
       #- g++
@@ -38,5 +45,5 @@ parts:
 
 apps:
   smart-home :
-    command: dart-sdk/bin/dart $SNAP/SmartDeviceDart/bin/main.dart
+    command: dart-sdk/bin/dart $SNAP/SmartDeviceDart/bin/main.dart  $SNAP
     #command: dart-sdk/bin/dartaotruntime $SNAP/main.dart.aot
