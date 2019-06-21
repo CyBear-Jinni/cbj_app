@@ -212,13 +212,6 @@
             </list>
           </value>
         </entry>
-        <entry key="process_run">
-          <value>
-            <list>
-              <option value="$USER_HOME$/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/process_run-0.10.1/lib" />
-            </list>
-          </value>
-        </entry>
         <entry key="pub_semver">
           <value>
             <list>
@@ -399,7 +392,6 @@
       <root url="file://$USER_HOME$/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.6.2/lib" />
       <root url="file://$USER_HOME$/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/pedantic-1.7.0/lib" />
       <root url="file://$USER_HOME$/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/pool-1.4.0/lib" />
-      <root url="file://$USER_HOME$/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/process_run-0.10.1/lib" />
       <root url="file://$USER_HOME$/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/pub_semver-1.4.2/lib" />
       <root url="file://$USER_HOME$/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/rpi_gpio-0.5.0/lib" />
       <root url="file://$USER_HOME$/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/shelf-0.7.5/lib" />
