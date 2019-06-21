@@ -64,7 +64,7 @@ abstract class SmartDeviceBaseAbstract {
     }
     OffWish.SetOff(deviceInformation);
     onOff = false;
-    return 'Turn on sucsessfuly';
+    return 'Turn off sucsessfuly';
   }
 
   // More functions

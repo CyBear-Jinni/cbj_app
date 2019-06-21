@@ -22,14 +22,13 @@ parts:
     plugin: dump
     source: .
     override-build: |
-      snapcraftctl build
-           
-  
       wget https://storage.googleapis.com/dart-archive/channels/stable/release/2.3.1/sdk/dartsdk-linux-arm64-release.zip
       # sdk url: https://dart.dev/tools/sdk/archive
-      rm -r dart-sdk
+      #rm -r dart-sdk
       unzip dartsdk-*
       rm dartsdk-*.zip
+      
+      snapcraftctl build
     #stage-packages:
       #- make
       #- g++
