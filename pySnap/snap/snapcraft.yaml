@@ -9,16 +9,31 @@ description: |
   store.
 
 grade: devel # must be 'stable' to release into candidate/stable channels
-confinement: devmode    // classic
-architectures: [all]
-
+confinement: devmode    # classic
+architectures: [armhf] # [all]
 parts:
   setup:
     plugin: python
     python-version: python3
-    python-packages: [RPi.GPIO]
+    override-build: |
+      git clone https://github.com/chainsx/RPi.GPIO.NP
+      #cd NPi.GPIO
+      cd RPi.GPIO.NP
+      sudo python3 setup.py install
+      
+      python3 setup.py install
+      cd 
+      
+      snapcraftctl build
+      
+    source: .
+    #python-packages: [NPi.GPIO]
+    build-packages:
+      - git
+      - python3
     stage-packages:
       - python3
+      
   smart-home :
     plugin: dump
     source: .

@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import RPi.GPIO as GPIO
 
 pin = 7
