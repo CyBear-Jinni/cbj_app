@@ -5,12 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1e26d5e-a8e9-4a67-800b-493445f371bc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../deviceSmartSnap/lightOn.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../../deviceSmartSnap/lightOn.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../deviceSmartSnap/snap/snapcraft.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../deviceSmartSnap/snap/snapcraft.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../snap/.snapcraft.yaml.kate-swp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../off.py" beforeDir="false" afterPath="$PROJECT_DIR$/../off.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../on.py" beforeDir="false" afterPath="$PROJECT_DIR$/../on.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../snap/snapcraft.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../snap/snapcraft.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pySnap/off.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../pySnap/off.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pySnap/on.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../pySnap/on.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pySnap/snap/snapcraft.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../pySnap/snap/snapcraft.yaml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,11 +31,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bin/main.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-              <folding>
-                <element signature="e#0#17#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="225">
+              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
@@ -148,6 +149,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -238,7 +240,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -304,7 +305,7 @@
     <frame x="1726" y="0" width="1874" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15262581" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15426695" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -673,20 +674,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/bin/main.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pubspec.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/main.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
