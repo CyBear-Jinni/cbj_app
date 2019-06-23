@@ -1,14 +1,16 @@
 name: SmartDeviceDart
 description: A sample command-line application.
-# version: 1.0.0
-# homepage: https://www.example.com
-# author: guy <email@example.com>
+version: 1.0.0
+homepage: https://www.example.com
+author: guy <email@example.com>
 
 environment:
   sdk: '>=2.2.0 <3.0.0'
 
 dependencies:
-  firebase: ^5.0.0
+  rpi_gpio:
+  firebase: ^5.0.3
+
 
 dev_dependencies:
   pedantic: ^1.0.0

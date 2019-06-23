@@ -1,0 +1,59 @@
+name: mainb # you probably want to 'snapcraft register <name>'
+base: core18 # the base snap is the execution environment for this snap
+version: '0.1' # just for humans, typically '1.2+git' or '1.3.2'
+summary: Single-line elevator pitch for your amazing snap # 79 char long summary
+description: |
+  This is my-snap's description. You have a paragraph or two to tell the
+  most important story about your snap. Keep it under 100 words though,
+  we live in tweetspace and your description wants to look good in the snap
+  store.
+
+  #grade: stable # must be 'stable' to release into candidate/stable channels
+  #confinement: strict # use 'strict' once you have the right plugs and slots
+
+
+grade: devel # must be 'stable' to release into candidate/stable channels
+confinement: devmode
+#confinement: classic
+architectures: [all]
+
+parts:
+  mainb:
+    plugin: dump
+    source: .
+    override-build: |
+      git clone https://github.com/friendlyarm/WiringNP
+      cd WiringNP/
+      chmod 755 build
+      ./build
+      #echo 'start gpio'
+      #gpio
+      snapcraftctl build
+
+      #stage-packages:
+      #- make
+      #- g++
+    #build-environment:
+    #  - gpio: gpio
+
+    build-packages:
+      - git
+                  
+      
+apps:
+  mainb:
+    command: lightOn.sh $SNAP
+    
+    #environment:
+            #PATH: "$PATH:/usr/local/bin/"
+            #OLDPWD: "$OLDPWD:/root/WiringNP/"
+            #OLDPWD: "$OLDPWD"
+      #gpio: "$gpio:/usr/local/bin/"
+      #gpio: "$PATH:/usr/local/bin/"
+      #gpio: "$PATH"
+  try1:
+    command: WiringNP/gpio/gpio
+  #try2:
+  #  command: chmod 755 $SNAP/WiringNP/build
+  try3:
+    command: WiringNP/build
