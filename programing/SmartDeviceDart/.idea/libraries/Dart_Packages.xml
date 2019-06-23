@@ -219,13 +219,6 @@
             </list>
           </value>
         </entry>
-        <entry key="rpi_gpio">
-          <value>
-            <list>
-              <option value="$USER_HOME$/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/rpi_gpio-0.5.0/lib" />
-            </list>
-          </value>
-        </entry>
         <entry key="shelf">
           <value>
             <list>
@@ -393,7 +386,6 @@
       <root url="file://$USER_HOME$/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/pedantic-1.7.0/lib" />
       <root url="file://$USER_HOME$/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/pool-1.4.0/lib" />
       <root url="file://$USER_HOME$/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/pub_semver-1.4.2/lib" />
-      <root url="file://$USER_HOME$/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/rpi_gpio-0.5.0/lib" />
       <root url="file://$USER_HOME$/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/shelf-0.7.5/lib" />
       <root url="file://$USER_HOME$/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/shelf_packages_handler-1.0.4/lib" />
       <root url="file://$USER_HOME$/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/shelf_static-0.2.8/lib" />
