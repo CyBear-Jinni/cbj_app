@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import '../controllolingPins.dart';
 import '../deviceInformation.dart';
 
 class OffWish {
@@ -16,6 +17,7 @@ class OffWish {
 
   // Turn this device off
   static String SetOffLocal(LocalDevice deviceInformation) {
+    pinOff(7);
     return 'Response from this device off sucsessful';
   }
 

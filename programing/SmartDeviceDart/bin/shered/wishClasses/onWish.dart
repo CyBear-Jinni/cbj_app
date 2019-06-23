@@ -2,6 +2,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import '../controllolingPins.dart';
 import '../deviceInformation.dart';
 
 class OnWish {
@@ -17,6 +18,7 @@ class OnWish {
 
   // Turn this device on
   static String SetOnLocal(LocalDevice deviceInformation) {
+    PinOn(7);
     return 'Response from this device on sucsessful';
   }
 
