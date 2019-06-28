@@ -53,7 +53,7 @@ parts:
       cd SmartDeviceDart
       #../dart-sdk/bin/pub get
       cd ..
-      dart-sdk/bin/dart2aot SmartDeviceDart/bin/main.dart main.dart.aot
+      dart-sdk/bin/dart2aot SmartDeviceDart/bin/main.dart main.aot
       
       #rm -r SmartDeviceDart
       snapcraftctl build
@@ -65,6 +65,6 @@ parts:
 apps:
   smart-home :
     #command: dart-sdk/bin/dart $SNAP/SmartDeviceDart/bin/main.dart $SNAP
-    command: dart-sdk/bin/dartaotruntime $SNAP/main.dart.aot $SNAP
+    command: dart-sdk/bin/dartaotruntime $SNAP/main.aot $SNAP
     daemon: simple
-    plugs: [network, network-bind]
+    plugs: [network, network-bind, gpio, hardware-observe]
