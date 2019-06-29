@@ -2,11 +2,6 @@
 import 'dart:io';
 
 void PinOn(int pinNumber) async {
-//  await Process.start('python3', [Pythons.pythonFilesLocation + '/on.py'])
-//      .then((process) {
-//    stdout.addStream(process.stdout);
-//    stderr.addStream(process.stderr);
-//  });
   List<String> pythonCommends = new List();
   pythonCommends.add('-c');
   pythonCommends.add('import RPi.GPIO as GPIO; pin = ' +
@@ -16,11 +11,6 @@ void PinOn(int pinNumber) async {
 }
 
 void pinOff(int pinNumber) async {
-//  await Process.start('python3', [Pythons.pythonFilesLocation + '/off.py'])
-//      .then((process) {
-//    stdout.addStream(process.stdout);
-//    stderr.addStream(process.stderr);
-//  });
   List<String> pythonCommends = new List();
   pythonCommends.add('-c');
   pythonCommends.add('import RPi.GPIO as GPIO; pin = ' +
