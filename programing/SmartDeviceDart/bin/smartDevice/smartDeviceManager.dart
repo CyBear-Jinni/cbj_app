@@ -1,11 +1,12 @@
 import 'dart:io';
 
 import '../shered/deviceInformation.dart';
+import '../shered/enums.dart';
 import '../shered/networkManager.dart';
-import 'smarDeviceObjects/abstractSmartDevices/smartDeviceBaseAbstract.dart';
-import 'smarDeviceObjects/dinamicDevices/dynamicLightObject.dart';
-import 'smarDeviceObjects/simpleDevices/lightObject.dart';
-import 'smarDeviceObjects/staticDevices/blindsObject.dart';
+import 'smartDeviceObjects/abstractSmartDevices/smartDeviceBaseAbstract.dart';
+import 'smartDeviceObjects/dinamicDevices/dynamicLightObject.dart';
+import 'smartDeviceObjects/simpleDevices/lightObject.dart';
+import 'smartDeviceObjects/staticDevices/blindsObject.dart';
 
 class SmartDeviceMain {
   List<SmartDeviceBaseAbstract> smartDevicesList;
@@ -20,6 +21,8 @@ class SmartDeviceMain {
     await setAllDevices(); // Setting up all the device from the memory
 
     waitForConnection(); // Start listen for in incoming connections from the internet
+
+    buttonPressed(); // Listen for button press
   }
 
   // TODO: Pull the saved devices into the app variables
@@ -30,7 +33,7 @@ class SmartDeviceMain {
     await smartDevicesList
         .add(new LightObject("30:23:a2:G3:34", "Guy silling light"));
 //    smartDevicesList[0].deviceInformation =
-//        new RemoteDevice('mac Adress', 'Guy lamp', '10.0.0.21');
+//        new RemoteDevice('mac Address', 'Guy lamp', '10.0.0.21');
     smartDevicesList[0].deviceInformation =
         new LocalDevice('mac Adress', 'Guy lamp');
     await smartDevicesList.add(new Blinds("30:23:a2:G3:34", "Guy bed light"));
@@ -73,5 +76,44 @@ class SmartDeviceMain {
         await smartDevicesList[deviceNumber].ExecuteWish(pathSegments[2]);
 
     return smartDeviceResponse;
+  }
+
+  void buttonPressed() async {
+    List<String> pythonCommends = new List();
+    pythonCommends.add('-c');
+    pythonCommends.add('''
+import RPi.GPIO as GPIO
+import time
+
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(12, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)#Button to GPIO23
+
+try:
+    while True:
+         button_state = GPIO.input(12)
+         if button_state == True:
+             print('Button Pressed...')
+             time.sleep(0.3)
+             exit()
+         else:
+             time.sleep(0.13)
+except:
+    GPIO.cleanup()
+''');
+    while (true) {
+      await Process.start('python3', pythonCommends).then((process) async {
+        await process.exitCode.then((exitCode) {
+          print('exit code: $exitCode');
+          if (smartDevicesList[0].onOff) {
+            smartDevicesList[0].WishInBaseClass(WishEnum.SOff);
+          } else {
+            smartDevicesList[0].WishInBaseClass(WishEnum.SOn);
+          }
+        });
+      }).catchError((handleError) {
+        print(handleError.toString());
+      });
+      print('Done');
+    }
   }
 }
