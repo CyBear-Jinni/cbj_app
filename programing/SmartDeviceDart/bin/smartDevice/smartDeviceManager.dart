@@ -79,21 +79,24 @@ class SmartDeviceMain {
   }
 
   void buttonPressed() async {
+    int buttonPinNumber = 12;
     List<String> pythonCommends = new List();
     pythonCommends.add('-c');
     pythonCommends.add('''
 import RPi.GPIO as GPIO
 import time
-
+buttonPinNumber = int(''' +
+        buttonPinNumber.toString() +
+        ''')
 GPIO.setmode(GPIO.BOARD)
-GPIO.setup(12, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)#Button to GPIO23
+GPIO.setup(buttonPinNumber, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 try:
     while True:
-         button_state = GPIO.input(12)
-         if button_state == True:
+         button_state = GPIO.input(buttonPinNumber)
+         if button_state:
              print('Button Pressed...')
-             time.sleep(0.3)
+             time.sleep(0.2)
              exit()
          else:
              time.sleep(0.13)
