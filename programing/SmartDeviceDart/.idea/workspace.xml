@@ -5,12 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1e26d5e-a8e9-4a67-800b-493445f371bc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/bin/shered/dataBase/cloudFireStore.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/shered/dataBase/dataBaseController.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/shered/dataBase/realtimeDatabase.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/android/local.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/shered/dataBase/fireBase.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/shered/dataBase/cloudFireStore.dart" beforeDir="false" afterPath="$PROJECT_DIR$/bin/shered/dataBase/cloudFireStore.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/shered/dataBase/dataBaseController.dart" beforeDir="false" afterPath="$PROJECT_DIR$/bin/shered/dataBase/dataBaseController.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/shered/dataBase/realtimeDatabase.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/smartDevice/smartDeviceManager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/bin/smartDevice/smartDeviceManager.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -25,11 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bin/main.dart">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
-              <caret line="4" column="14" lean-forward="true" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+              <caret line="4" column="4" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -37,8 +40,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bin/shered/dataBase/dataBaseController.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="55" selection-start-line="17" selection-start-column="55" selection-end-line="17" selection-end-column="55" />
+            <state relative-caret-position="480">
+              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+              <folding>
+                <element signature="e#0#20#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -46,11 +52,77 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bin/shered/dataBase/cloudFireStore.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="7" lean-forward="true" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
+            <state relative-caret-position="705">
+              <caret line="57" column="25" lean-forward="true" selection-start-line="57" selection-start-column="25" selection-end-line="57" selection-end-column="25" />
               <folding>
-                <element signature="e#0#22#0" expanded="true" />
+                <element signature="e#0#20#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/bin/smartDevice/smartDeviceManager.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="20" column="39" lean-forward="true" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
+              <folding>
+                <element signature="e#0#17#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Programmes/flutter/bin/cache/dart-sdk/lib/_http/http.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-5">
+              <caret line="133" column="15" selection-start-line="133" selection-start-column="15" selection-end-line="133" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Programmes/flutter/.pub-cache/hosted/pub.dartlang.org/firedart-0.5.0+1/lib/firestore/models.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="310">
+              <caret line="107" column="6" selection-start-line="107" selection-start-column="6" selection-end-line="107" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Programmes/flutter/.pub-cache/hosted/pub.dartlang.org/firedart-0.5.0+1/lib/auth/firebase_auth.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="347">
+              <caret line="57" column="33" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Programmes/flutter/bin/cache/dart-sdk/lib/async/zone.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="185">
+              <caret line="1111" column="28" selection-start-line="1111" selection-start-column="28" selection-end-line="1111" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Programmes/flutter/bin/cache/dart-sdk/lib/async/schedule_microtask.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="185">
+              <caret line="40" column="20" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Programmes/flutter/bin/cache/dart-sdk/lib/async/stream.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="310">
+              <caret line="375" column="24" selection-start-line="375" selection-start-column="24" selection-end-line="375" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -80,7 +152,6 @@
       <find>Your Wish</find>
       <find>SMovement</find>
       <find>OnWish</find>
-      <find>var</find>
       <find>10.0.0.21</find>
       <find>isRemote</find>
       <find>SendResponse</find>
@@ -94,7 +165,12 @@
       <find>onOff</find>
       <find>Your wish does not exist on</find>
       <find>Stream</find>
+      <find>$3</find>
+      <find>var</find>
     </findStrings>
+    <replaceStrings>
+      <replace>int</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -102,9 +178,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/bin/shered/permissions/Permissions.dart" />
-        <option value="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/SmartDeviceAbstractObject.dart" />
-        <option value="$PROJECT_DIR$/bin/shered/permissions/PermissionsManager.dart" />
         <option value="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/SimpleDevices/LightObject.dart" />
         <option value="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/abstractSmartDevices/SmartDeviceAbstractObject.dart" />
         <option value="$PROJECT_DIR$/bin/smartDevice/SmartDeviceManager.dart" />
@@ -142,23 +215,27 @@
         <option value="$PROJECT_DIR$/bin/shered/wishClasses/offWish.dart" />
         <option value="$PROJECT_DIR$/test/smartDeviceDart_test.dart" />
         <option value="$PROJECT_DIR$/bin/shered/controllolingPins.dart" />
-        <option value="$PROJECT_DIR$/bin/smartDevice/smartDeviceManager.dart" />
         <option value="$PROJECT_DIR$/bin/shered/enums.dart" />
         <option value="$PROJECT_DIR$/bin/smartDevice/smartDeviceObjects/abstractSmartDevices/smartDeviceBaseAbstract.dart" />
-        <option value="$PROJECT_DIR$/pubspec.yaml" />
         <option value="$PROJECT_DIR$/bin/shered/dataBase/fireBase.dart" />
         <option value="$USER_HOME$/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/firebase-5.0.3/lib/firebase_io.dart" />
         <option value="$PROJECT_DIR$/bin/shered/dataBase/realtimeDatabase.dart" />
         <option value="$PROJECT_DIR$/bin/shered/dataBase/CloudFireStore.dart" />
-        <option value="$PROJECT_DIR$/bin/shered/dataBase/dataBaseController.dart" />
+        <option value="$PROJECT_DIR$/bin/shered/dataBase/FireBase/fireBaseClass.dart" />
+        <option value="$PROJECT_DIR$/bin/google/firestore/v1/firestore.pbgrpc.dart" />
+        <option value="$PROJECT_DIR$/bin/shered/dataBase/fireBase/fireBaseClass.dart" />
+        <option value="$PROJECT_DIR$/pubspec.yaml" />
         <option value="$PROJECT_DIR$/bin/shered/dataBase/cloudFireStore.dart" />
+        <option value="$PROJECT_DIR$/bin/shered/dataBase/dataBaseController.dart" />
         <option value="$PROJECT_DIR$/bin/main.dart" />
+        <option value="$PROJECT_DIR$/bin/smartDevice/smartDeviceManager.dart" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="width" value="1680" />
-    <option name="height" value="1050" />
+    <option name="x" value="2181" />
+    <option name="width" value="1242" />
+    <option name="height" value="716" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -232,17 +309,20 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Programs/flutter/bin/cache/dart-sdk" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.smartKeys" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Programmes/flutter/bin/cache/dart-sdk" />
+    <property name="settings.editor.selected.configurable" value="dart.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/bin/shered/dataBase" />
       <recent name="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects" />
       <recent name="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/abstractSmartDevices" />
       <recent name="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/SimpleDevices/dinamicDevices" />
       <recent name="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/SimpleDevices" />
-      <recent name="$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/staticDevices" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/bin" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -287,10 +367,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1680" height="1050" extended-state="6" />
+    <frame x="1724" y="0" width="1876" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21970624" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20338058" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -300,16 +380,16 @@
       <window_info id="Resources Explorer" order="7" weight="0.12199125" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32983193" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.39262474" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3908046" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39696312" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32878152" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.22268908" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.22222222" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3277311" />
       <window_info anchor="bottom" id="Dart Analysis" order="10" weight="0.197479" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.31561822" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.3155695" />
       <window_info anchor="bottom" id="Flutter Performance" order="12" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -321,6 +401,7 @@
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Flutter Inspector" order="8" />
       <window_info anchor="right" id="Flutter Outline" order="9" />
+      <window_info active="true" anchor="right" id="Assistant" order="10" visible="true" weight="0.29825518" />
     </layout>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -364,45 +445,6 @@
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/bin/shered/permissions/UserObject.dart" />
-    <entry file="file://$PROJECT_DIR$/bin/shered/permissions/DevicePermissions.dart" />
-    <entry file="file://$PROJECT_DIR$/bin/shered/permissions/permissionsManager.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="6" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/smartDevice/smartDeviceObjects/dinamicDevices/fanObject.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/smartDevice/smartDeviceObjects/dinamicDevices/speakerObject.dart">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/smartDevice/smarDeviceObjects/thermostatObject.dart" />
-    <entry file="file://$PROJECT_DIR$/bin/smartDevice/smartDeviceObjects/simpleDevices/thermostatObject.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="1" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/smartRouter/smartRouterMain.dart" />
-    <entry file="file://$PROJECT_DIR$/.dart_tool/pub/bin/rpi_gpio/build_lib.dart.snapshot.dart2" />
-    <entry file="file://$PROJECT_DIR$/.dart_tool/pub/bin/sdk-version">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pubspec.lock">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4755">
-          <caret line="359" column="21" lean-forward="true" selection-start-line="359" selection-start-column="21" selection-end-line="359" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bin/shered/permissions/permissions.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -437,34 +479,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Programs/flutter/bin/cache/dart-sdk/lib/core/object.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="113" column="20" selection-start-line="113" selection-start-column="20" selection-end-line="113" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Programs/flutter/bin/cache/dart-sdk/lib/io/socket.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="191" column="22" selection-start-line="191" selection-start-column="7" selection-end-line="191" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/firebase-5.0.3/lib/firebase_io.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="31" column="16" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Programs/flutter/bin/cache/dart-sdk/lib/async/schedule_microtask.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="40" column="20" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Programs/flutter/bin/cache/dart-sdk/lib/core/object.dart" />
+    <entry file="file://$USER_HOME$/Programs/flutter/bin/cache/dart-sdk/lib/io/socket.dart" />
+    <entry file="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/firebase-5.0.3/lib/firebase_io.dart" />
+    <entry file="file://$USER_HOME$/Programs/flutter/bin/cache/dart-sdk/lib/async/schedule_microtask.dart" />
     <entry file="file://$PROJECT_DIR$/bin/shered/pythons.dart" />
     <entry file="file://$PROJECT_DIR$/bin/shered/wishClasses/onWish.dart">
       <provider selected="true" editor-type-id="text-editor">
@@ -476,13 +494,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Programs/flutter/bin/cache/dart-sdk/lib/io/io_sink.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="167" column="6" selection-start-line="167" selection-start-column="6" selection-end-line="167" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Programs/flutter/bin/cache/dart-sdk/lib/io/io_sink.dart" />
     <entry file="file://$PROJECT_DIR$/lib/smartDeviceDart.dart" />
     <entry file="file://$PROJECT_DIR$/test/smartDeviceDart_test.dart">
       <provider selected="true" editor-type-id="text-editor">
@@ -524,16 +536,6 @@
           <caret line="6" selection-start-line="6" selection-end-line="40" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/smartDevice/smartDeviceManager.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1005">
-          <caret line="75" column="49" selection-start-line="75" selection-start-column="49" selection-end-line="75" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -582,88 +584,102 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Programs/flutter/bin/cache/dart-sdk/lib/html/dart2js/html_dart2js.dart">
+    <entry file="file://$USER_HOME$/Programs/flutter/bin/cache/dart-sdk/lib/html/dart2js/html_dart2js.dart" />
+    <entry file="file://$USER_HOME$/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.12.0+2/lib/src/base_client.dart" />
+    <entry file="file://$USER_HOME$/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.12.0+2/lib/src/io_client.dart" />
+    <entry file="file://$USER_HOME$/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.12.0+2/lib/http.dart" />
+    <entry file="file://$USER_HOME$/Programs/flutter/bin/cache/dart-sdk/lib/convert/json.dart" />
+    <entry file="file://$USER_HOME$/Programs/flutter/bin/cache/dart-sdk/lib/async/zone.dart" />
+    <entry file="file://$USER_HOME$/Programs/flutter/bin/cache/dart-sdk/lib/async/future_impl.dart" />
+    <entry file="file://$USER_HOME$/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/firebase-5.0.3/lib/firebase_io.dart" />
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$USER_HOME$/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.12.0+2/lib/src/base_client.dart">
+    <entry file="file://$PROJECT_DIR$/bin/google/firestore/v1/firestore.pbenum.dart" />
+    <entry file="file://$PROJECT_DIR$/bin/google/firestore/v1/firestore.pbgrpc.dart" />
+    <entry file="file://$PROJECT_DIR$/bin/google/firestore/v1/firestore.pb.dart" />
+    <entry file="file://$PROJECT_DIR$/bin/shered/dataBase/cloudFireStore.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2062">
-          <caret line="18" column="15" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.12.0+2/lib/src/io_client.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.12.0+2/lib/http.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="45" column="4" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="4" />
+        <state relative-caret-position="570">
+          <caret line="38" column="8" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="8" />
           <folding>
-            <element signature="e#0#7239#0" expanded="true" />
+            <element signature="e#0#20#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Programs/flutter/bin/cache/dart-sdk/lib/convert/json.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7350">
-          <caret line="492" column="35" selection-start-line="492" selection-start-column="35" selection-end-line="492" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Programs/flutter/bin/cache/dart-sdk/lib/async/zone.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20640">
-          <caret line="1378" column="53" selection-start-line="1378" selection-start-column="53" selection-end-line="1378" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Programs/flutter/bin/cache/dart-sdk/lib/async/future_impl.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1845">
-          <caret line="125" column="17" selection-start-line="125" selection-start-column="17" selection-end-line="125" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/firebase-5.0.3/lib/firebase_io.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="31" column="30" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bin/shered/dataBase/realtimeDatabase.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="6" column="31" lean-forward="true" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
+          <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/shered/dataBase/dataBaseController.dart">
+    <entry file="file://$USER_HOME$/Programmes/flutter/bin/cache/dart-sdk/lib/async/schedule_microtask.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="55" selection-start-line="17" selection-start-column="55" selection-end-line="17" selection-end-column="55" />
+        <state relative-caret-position="185">
+          <caret line="40" column="20" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Programmes/flutter/bin/cache/dart-sdk/lib/async/zone.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="1111" column="28" selection-start-line="1111" selection-start-column="28" selection-end-line="1111" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Programmes/flutter/.pub-cache/hosted/pub.dartlang.org/firedart-0.5.0+1/lib/auth/firebase_auth.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="57" column="33" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Programmes/flutter/bin/cache/dart-sdk/lib/_http/http.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5">
+          <caret line="133" column="15" selection-start-line="133" selection-start-column="15" selection-end-line="133" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Programmes/flutter/bin/cache/dart-sdk/lib/async/stream.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="375" column="24" selection-start-line="375" selection-start-column="24" selection-end-line="375" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Programmes/flutter/.pub-cache/hosted/pub.dartlang.org/firedart-0.5.0+1/lib/firestore/models.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="107" column="6" selection-start-line="107" selection-start-column="6" selection-end-line="107" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bin/shered/dataBase/cloudFireStore.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="7" lean-forward="true" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
+        <state relative-caret-position="705">
+          <caret line="57" column="25" lean-forward="true" selection-start-line="57" selection-start-column="25" selection-end-line="57" selection-end-column="25" />
           <folding>
-            <element signature="e#0#22#0" expanded="true" />
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/shered/dataBase/dataBaseController.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -671,7 +687,17 @@
     <entry file="file://$PROJECT_DIR$/bin/main.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
-          <caret line="4" column="14" lean-forward="true" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+          <caret line="4" column="4" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/smartDevice/smartDeviceManager.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="39" lean-forward="true" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

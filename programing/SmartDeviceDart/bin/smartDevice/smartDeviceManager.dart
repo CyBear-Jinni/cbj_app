@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import '../shered/dataBase/dataBaseController.dart';
 import '../shered/deviceInformation.dart';
 import '../shered/enums.dart';
 import '../shered/networkManager.dart';
@@ -13,14 +14,16 @@ class SmartDeviceMain {
 
   SmartDeviceMain() {
     print("Smart device is activaited");
-    smartDevicesList = new List<SmartDeviceBaseAbstract>();
+    smartDevicesList = List<SmartDeviceBaseAbstract>();
     SmartDeviceMainAsync();
   }
 
   Future SmartDeviceMainAsync() async {
     await setAllDevices(); // Setting up all the device from the memory
 
-    waitForConnection(); // Start listen for in incoming connections from the internet
+    listenToDataBase(); // Listen to changes in the database for this device
+
+    waitForConnection(); // Start listen for in incoming connections from the local internet (LAN/Wifi)
 
     buttonPressed(); // Listen for button press
   }
@@ -31,14 +34,14 @@ class SmartDeviceMain {
 //    await new Future.delayed(const Duration(seconds: 10), () => "1");
 
     await smartDevicesList
-        .add(new LightObject("30:23:a2:G3:34", "Guy silling light"));
+        .add(LightObject("30:23:a2:G3:34", "Guy silling light"));
 //    smartDevicesList[0].deviceInformation =
 //        new RemoteDevice('mac Address', 'Guy lamp', '10.0.0.21');
     smartDevicesList[0].deviceInformation =
-        new LocalDevice('mac Adress', 'Guy lamp');
-    await smartDevicesList.add(new Blinds("30:23:a2:G3:34", "Guy bed light"));
+        LocalDevice('mac Adress', 'Guy lamp');
+    await smartDevicesList.add(Blinds("30:23:a2:G3:34", "Guy bed light"));
     await smartDevicesList
-        .add(new DynamicLight("30:23:a2:G3:34", "Guy electronic table light"));
+        .add(DynamicLight("30:23:a2:G3:34", "Guy electronic table light"));
   }
 
   // Listening to port and getting deciding what to do with the response
@@ -50,8 +53,7 @@ class SmartDeviceMain {
           await processTheResponse(req.uri.pathSegments);
 
       NetworkManager.SendResponse(req, smartDeviceResponse);
-    }
-    ;
+    };
   }
 
   // Process Response to device
@@ -76,6 +78,13 @@ class SmartDeviceMain {
         await smartDevicesList[deviceNumber].ExecuteWish(pathSegments[2]);
 
     return smartDeviceResponse;
+  }
+
+  // Listen to changes in the database for this device
+  void listenToDataBase(){
+    DataBaseController dataBaseController = DataBaseController();
+    dataBaseController.listenToChangeOfDataInPath("").listen((onData) =>
+        onData.listen((data2) => data2.listen((document) =>  print("updated: $document"))));
   }
 
   void buttonPressed() async {
