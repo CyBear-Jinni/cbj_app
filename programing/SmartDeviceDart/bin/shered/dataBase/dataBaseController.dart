@@ -29,4 +29,12 @@ class DataBaseController {
   Future<String> setData(String dataPath, Object objectToInsert) async {
     return null;
   }
+
+  Future<String> getValueOfLamp(Document document, String keyName) async {
+//    print("updated: $document");
+    String tempDocumentAsString =  document.toString();
+    String tempFields = tempDocumentAsString.substring(tempDocumentAsString.indexOf('{') +1, tempDocumentAsString.length -1);
+    List<String> valuseAsList = tempFields.split(',');
+    return await valuseAsList[0].split(': ')[1];
+  }
 }
