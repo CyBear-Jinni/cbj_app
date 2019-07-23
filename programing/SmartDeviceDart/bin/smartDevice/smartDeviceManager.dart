@@ -21,11 +21,12 @@ class SmartDeviceMain {
   Future SmartDeviceMainAsync() async {
     await setAllDevices(); // Setting up all the device from the memory
 
-    listenToDataBase(); // Listen to changes in the database for this device
+    listenToDataBase("smartDevices/guyRoom"); // Listen to changes in the database for this device
 
     waitForConnection(); // Start listen for in incoming connections from the local internet (LAN/Wifi)
 
-    buttonPressed(); // Listen for button press
+    // TODO; un comment the line below
+   // buttonPressed(); // Listen for button press
   }
 
   // TODO: Pull the saved devices into the app variables
@@ -63,8 +64,9 @@ class SmartDeviceMain {
     //    deviceUniqueNumber: the unique number of the device on the same mac address, can be multiple unique numbers on the same physical device (macAddress)
     //    action: What the device need to do
     //    10.0.0.10:4141/macAddress/deviceUniqueNumber/action
-    if (pathSegments.length < 3)
+    if (pathSegments.length < 3){
       return pathSegments.length.toString() + " is not enough parameter";
+    }
     else if (int.tryParse(pathSegments[1]) == null) {
       return 'Second parameter need to be number';
     }
@@ -81,15 +83,29 @@ class SmartDeviceMain {
   }
 
   // Listen to changes in the database for this device
-  void listenToDataBase(){
+  void listenToDataBase(String dataPath){
     DataBaseController dataBaseController = DataBaseController();
-    dataBaseController.listenToChangeOfDataInPath("").listen((onData) =>
-        onData.listen((data2) => data2.listen((document) =>  print("updated: $document"))));
+    dataBaseController.listenToChangeOfDataInPath(dataPath).listen((onData) =>
+        onData.listen((data2) => data2.listen((document) async { String value = await dataBaseController.getValueOfLamp(document, "ceilingLamp");
+        if (value == 'true'){
+          print('Ok');
+          String smartDeviceResponse =
+          await smartDevicesList[0].WishInBaseClass(WishEnum.SOn);
+          print(smartDeviceResponse);
+
+        }
+        else{
+          print('Go home');
+          String smartDeviceResponse =
+          await smartDevicesList[0].WishInBaseClass(WishEnum.SOff);
+          print(smartDeviceResponse);
+        }
+        })));
   }
 
   void buttonPressed() async {
     int buttonPinNumber = 12;
-    List<String> pythonCommends = new List();
+    List<String> pythonCommends = List();
     pythonCommends.add('-c');
     pythonCommends.add('''
 import RPi.GPIO as GPIO
