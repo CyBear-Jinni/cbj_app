@@ -4,10 +4,10 @@ import '../shered/dataBase/dataBaseController.dart';
 import '../shered/deviceInformation.dart';
 import '../shered/enums.dart';
 import '../shered/networkManager.dart';
-import 'smartDeviceObjects/abstractSmartDevices/smartDeviceBaseAbstract.dart';
-import 'smartDeviceObjects/dinamicDevices/dynamicLightObject.dart';
-import 'smartDeviceObjects/simpleDevices/lightObject.dart';
-import 'smartDeviceObjects/staticDevices/blindsObject.dart';
+import 'smart_device_objects/abstract_smart_devices/smart_device_base_abstract.dart';
+import 'smart_device_objects/dinamic_devices/dynamic_light_object.dart';
+import 'smart_device_objects/simple_devices/light_object.dart';
+import 'smart_device_objects/static_devices/blinds_object.dart';
 
 class SmartDeviceMain {
   List<SmartDeviceBaseAbstract> smartDevicesList;
