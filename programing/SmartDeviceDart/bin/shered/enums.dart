@@ -14,7 +14,7 @@ enum DeviceType {
   RCCar,
   Speakers,
   Roomba, // Cleaning robot
-  Irrigation,   // Give water to plants
+  Irrigation, // Give water to plants
   SmartBed,
   AnimalTracker,
   SmartCar,
@@ -31,10 +31,11 @@ class EnumHelper {
 }
 
 // List of all the wishes that can be made
-enum WishEnum{
-  SOn,  // Turn the device on
+enum WishEnum {
+  SOn, // Turn the device on
   SOff, // Turn the device off
-  SDynamic,  // Set Dynamic Value
-  ODynamic,  // Open connection to change dynamic value
-  SMovement,  // Open connection to change dynamic value
+  SDynamic, // Set Dynamic Value
+  ODynamic, // Open connection to change dynamic value
+  SMovement, // Open connection to change dynamic value
+  GState, // Get device state on/off
 }

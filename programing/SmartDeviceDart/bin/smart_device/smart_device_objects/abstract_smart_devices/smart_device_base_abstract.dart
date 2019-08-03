@@ -45,6 +45,8 @@ abstract class SmartDeviceBaseAbstract {
     return null;
   }
 
+  String getDeviceState() => onOff.toString();
+
   // Setters
 
   // Turn on the device basic action
@@ -94,6 +96,8 @@ abstract class SmartDeviceBaseAbstract {
         return _SetOff();
       case WishEnum.SOn:
         return _SetOn();
+      case WishEnum.GState:
+        return getDeviceState();
       default:
         return 'Your wish does not exist for this class';
     }
