@@ -2,7 +2,7 @@
 import 'dart:io';
 
 void PinOn(int pinNumber) async {
-  List<String> pythonCommends = new List();
+  List<String> pythonCommends = List();
   pythonCommends.add('-c');
   pythonCommends.add('import RPi.GPIO as GPIO; pin = ' +
       pinNumber.toString() +
@@ -11,7 +11,7 @@ void PinOn(int pinNumber) async {
 }
 
 void pinOff(int pinNumber) async {
-  List<String> pythonCommends = new List();
+  List<String> pythonCommends = List();
   pythonCommends.add('-c');
   pythonCommends.add('import RPi.GPIO as GPIO; pin = ' +
       pinNumber.toString() +

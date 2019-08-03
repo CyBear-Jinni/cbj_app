@@ -44,9 +44,9 @@ parts:
     plugin: dump
     source: .
     override-build: |
-      wget https://storage.googleapis.com/dart-archive/channels/stable/release/2.3.1/sdk/dartsdk-linux-arm64-release.zip  # For arm64
+      wget https://storage.googleapis.com/dart-archive/channels/stable/release/2.4.0/sdk/dartsdk-linux-arm64-release.zip  # For arm64
       
-      #wget https://storage.googleapis.com/dart-archive/channels/stable/release/2.3.1/sdk/dartsdk-linux-x64-release.zip    # For linux intel 64
+      #wget https://storage.googleapis.com/dart-archive/channels/stable/release/2.4.0/sdk/dartsdk-linux-x64-release.zip    # For linux intel 64
       # sdk url: https://dart.dev/tools/sdk/archive
       unzip dartsdk-*.zip
       rm dartsdk-*.zip
