@@ -44,14 +44,16 @@ parts:
     plugin: dump
     source: .
     override-build: |
-      wget https://storage.googleapis.com/dart-archive/channels/stable/release/2.3.1/sdk/dartsdk-linux-arm64-release.zip
+      wget https://storage.googleapis.com/dart-archive/channels/stable/release/2.4.0/sdk/dartsdk-linux-arm64-release.zip  # For arm64
+      
+      #wget https://storage.googleapis.com/dart-archive/channels/stable/release/2.4.0/sdk/dartsdk-linux-x64-release.zip    # For linux intel 64
       # sdk url: https://dart.dev/tools/sdk/archive
       unzip dartsdk-*.zip
       rm dartsdk-*.zip
-      #cd SmartDeviceDart
+      cd SmartDeviceDart
       #../dart-sdk/bin/pub get
-      #cd ..
-      #dart-sdk/bin/dart2aot SmartDeviceDart/bin/main.dart main.dart.aot
+      cd ..
+      dart-sdk/bin/dart2aot SmartDeviceDart/bin/main.dart main.aot
       
       #rm -r SmartDeviceDart
       snapcraftctl build
@@ -62,5 +64,7 @@ parts:
 
 apps:
   smart-home :
-    command: dart-sdk/bin/dart $SNAP/SmartDeviceDart/bin/main.dart $SNAP
-    #command: dart-sdk/bin/dartaotruntime $SNAP/main.dart.aot
+    #command: dart-sdk/bin/dart $SNAP/SmartDeviceDart/bin/main.dart $SNAP
+    command: dart-sdk/bin/dartaotruntime $SNAP/main.aot $SNAP
+    daemon: simple
+    plugs: [network, network-bind, gpio, hardware-observe]

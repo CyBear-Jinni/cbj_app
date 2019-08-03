@@ -1,5 +1,5 @@
 import '../../../shered/enums.dart';
-import 'smartDeviceBaseAbstract.dart';
+import 'smart_device_base_abstract.dart';
 
 // Abstract class for smart devices with on time property
 abstract class SmartDeviceSimple extends SmartDeviceBaseAbstract {

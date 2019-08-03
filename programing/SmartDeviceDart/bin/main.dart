@@ -1,8 +1,6 @@
-import 'shered/pythons.dart';
-import 'smartDevice/smartDeviceManager.dart';
+import 'smart_device/smart_device_manager.dart';
 
-main(List<String> arguments) {
+main(List<String> arguments) async {
   print('Device is now ON');
-  Pythons.pythonFilesLocation = arguments[0];
   SmartDeviceMain();
 }

@@ -1,5 +1,5 @@
 import '../../../shered/enums.dart';
-import 'smartDeviceBaseAbstract.dart';
+import 'smart_device_base_abstract.dart';
 
 // Abstract class for devices with property of how much to move and without how much time the device is doing action without stopping
 abstract class SmartDeviceStatic extends SmartDeviceBaseAbstract {

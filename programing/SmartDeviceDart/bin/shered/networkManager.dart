@@ -17,7 +17,7 @@ class NetworkManager {
   // Getting HttpRequest and a string and send back the string the the connected device
   static void SendResponse(HttpRequest req, String response) async {
     req.response
-      ..headers.contentType = new ContentType("text", "plain", charset: "utf-8")
+      ..headers.contentType = ContentType("text", "plain", charset: "utf-8")
       ..write( response);
     await req.response.close();
   }
