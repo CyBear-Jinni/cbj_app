@@ -5,7 +5,7 @@ homepage: https://www.example.com
 author: guy <email@example.com>
 
 environment:
-  sdk: '>=2.2.0 <3.0.0'
+  sdk: '>=2.1.0 <3.0.0'
 
 dependencies:
   firedart: ^0.6.1

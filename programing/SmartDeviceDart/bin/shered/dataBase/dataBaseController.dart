@@ -34,7 +34,7 @@ class DataBaseController {
 //    print("updated: $document");
     String tempDocumentAsString =  document.toString();
     String tempFields = tempDocumentAsString.substring(tempDocumentAsString.indexOf('{') +1, tempDocumentAsString.length -1);
-    List<String> valuseAsList = tempFields.split(',');
-    return await valuseAsList[0].split(': ')[1];
+    List<String> valuesAsList = tempFields.split(',');
+    return await valuesAsList[0].split(': ')[1];
   }
 }
