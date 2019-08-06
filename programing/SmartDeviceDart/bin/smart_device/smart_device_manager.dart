@@ -26,7 +26,7 @@ class SmartDeviceMain {
     waitForConnection(); // Start listen for in incoming connections from the local internet (LAN/Wifi)
 
     buttonPressed(); // Listen for button press
-  } 
+  }
 
   // TODO: Pull the saved devices into the app variables
   // Setting all the devices from saved data
