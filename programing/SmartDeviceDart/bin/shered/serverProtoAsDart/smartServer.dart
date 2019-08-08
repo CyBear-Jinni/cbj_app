@@ -15,15 +15,8 @@ class SmartServer extends SmartServerServiceBase{
   }
 
   @override
-  Future<HelloReply> sayHello(ServiceCall call, HelloRequest request) async{
-    print('wo hello');
-    return HelloReply()..message = 'Hello, ${request.name}!';
+  Future<SmartDeviceStatus> getStatus(ServiceCall call, SmartDevice request) async {
+    print('Getting status of device ' + request.toString());
+    return SmartDeviceStatus()..onOffState = true;
   }
-
-  @override
-  Future<HelloReply> sayHelloAgain(ServiceCall call, HelloRequest request) async{
-    print('By By hello');
-    return HelloReply()..message = 'Hello again, ${request.name}!';
-  }
-
 }
