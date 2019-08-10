@@ -17,14 +17,14 @@ class CloudManager{
     dataBaseController.listenToChangeOfDataInPath(dataPath).listen((onData) =>
         onData.listen((data2) => data2.listen((document) async { String value = await dataBaseController.getValueOfLamp(document, "ceilingLamp");
         if (value == 'true'){
-          print('Ok');
+          print('cloud firestore is true');
           String smartDeviceResponse =
           await smartDevice.WishInBaseClass(WishEnum.SOn);
           print(smartDeviceResponse);
 
         }
         else{
-          print('Go home');
+          print('cloud firestore is false');
           String smartDeviceResponse =
           await smartDevice.WishInBaseClass(WishEnum.SOff);
           print(smartDeviceResponse);

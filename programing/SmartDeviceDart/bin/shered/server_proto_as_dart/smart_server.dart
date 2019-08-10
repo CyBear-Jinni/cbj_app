@@ -29,7 +29,7 @@ class SmartServer extends SmartServerServiceBase{
 
   @override
   Future<CommendStatus> setOffDevice(ServiceCall call, SmartDevice request) async {
-    print('Turn device' + request.name + ' off');
+    print('Turn device ' + request.name + ' off');
     SmartDeviceBaseAbstract smartDevice = smartDevicesList[int.parse(request.name)];
     smartDevice.WishInBaseClass(WishEnum.SOff);
     print('Device state is ' + smartDevice.onOff.toString());
@@ -38,7 +38,7 @@ class SmartServer extends SmartServerServiceBase{
 
   @override
   Future<CommendStatus> setOnDevice(ServiceCall call, SmartDevice request) async {
-    print('Turn device' + request.name + ' on');
+    print('Turn device ' + request.name + ' on');
     SmartDeviceBaseAbstract smartDevice = smartDevicesList[int.parse(request.name)];
     smartDevice.WishInBaseClass(WishEnum.SOn);
     print('Device state is ' + smartDevice.onOff.toString());
