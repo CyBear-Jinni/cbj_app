@@ -1,5 +1,5 @@
 import '../../../shered/enums.dart';
-import '../../../shered/wishClasses/dynamicWish.dart';
+import '../../../shered/wish_classes/dynamic_wish.dart';
 import 'smart_device_simple_abstract.dart';
 
 // Abstract class for smart devices class with dynamic property

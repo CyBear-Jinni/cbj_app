@@ -1,6 +1,6 @@
 ///
 //  Generated code. Do not modify.
-//  source: SmartConnection.proto
+//  source: smart_connection.proto
 //
 // @dart = 2.3
 // ignore_for_file: camel_case_types,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type
@@ -59,5 +59,31 @@ class SmartDeviceStatus extends $pb.GeneratedMessage {
   set onOffState($core.bool v) { $_setBool(0, v); }
   $core.bool hasOnOffState() => $_has(0);
   void clearOnOffState() => clearField(2);
+}
+
+class CommendStatus extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('CommendStatus', package: const $pb.PackageName('SmartConnection'))
+    ..aOB(3, 'success')
+    ..hasRequiredFields = false
+  ;
+
+  CommendStatus._() : super();
+  factory CommendStatus() => create();
+  factory CommendStatus.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory CommendStatus.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  CommendStatus clone() => CommendStatus()..mergeFromMessage(this);
+  CommendStatus copyWith(void Function(CommendStatus) updates) => super.copyWith((message) => updates(message as CommendStatus));
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static CommendStatus create() => CommendStatus._();
+  CommendStatus createEmptyInstance() => create();
+  static $pb.PbList<CommendStatus> createRepeated() => $pb.PbList<CommendStatus>();
+  static CommendStatus getDefault() => _defaultInstance ??= create()..freeze();
+  static CommendStatus _defaultInstance;
+
+  $core.bool get success => $_get(0, false);
+  set success($core.bool v) { $_setBool(0, v); }
+  $core.bool hasSuccess() => $_has(0);
+  void clearSuccess() => clearField(3);
 }
 

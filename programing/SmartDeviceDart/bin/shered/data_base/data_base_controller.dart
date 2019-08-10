@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:firedart/firestore/models.dart';
 
-import 'cloudFireStore.dart';
+import 'cloud_fire_store.dart';
 
 class DataBaseController {
   CloudFireStore _cloudFireStore;

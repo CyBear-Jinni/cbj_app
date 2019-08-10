@@ -1,11 +1,11 @@
 import 'dart:io';
 
-import '../../../shered/deviceInformation.dart';
+import '../../../shered/device_information.dart';
 import '../../../shered/enums.dart';
-import '../../../shered/networkManager.dart';
-import '../../../shered/permissions/permissionsManager.dart';
-import '../../../shered/wishClasses/offWish.dart';
-import '../../../shered/wishClasses/onWish.dart';
+import '../../../shered/permissions/permissions_manager.dart';
+import '../../../shered/server_proto_as_dart/smart_server.dart';
+import '../../../shered/wish_classes/off_wish.dart';
+import '../../../shered/wish_classes/on_wish.dart';
 
 // The super base class of all the smart device class and smart device abstract classes
 abstract class SmartDeviceBaseAbstract {
@@ -32,7 +32,7 @@ abstract class SmartDeviceBaseAbstract {
   DeviceType getDeviceType() => null;
 
   Future<String> getIp() async {
-    String a = await printIps();
+    String a = await getIps();
     return a;
   }
 
@@ -45,7 +45,7 @@ abstract class SmartDeviceBaseAbstract {
     return null;
   }
 
-  String getDeviceState() => onOff.toString();
+  bool getDeviceState() => onOff;
 
   // Setters
 
@@ -97,7 +97,7 @@ abstract class SmartDeviceBaseAbstract {
       case WishEnum.SOn:
         return _SetOn();
       case WishEnum.GState:
-        return getDeviceState();
+        return getDeviceState().toString();
       default:
         return 'Your wish does not exist for this class';
     }
