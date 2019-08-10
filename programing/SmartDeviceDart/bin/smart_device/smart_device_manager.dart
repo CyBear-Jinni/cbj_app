@@ -25,13 +25,12 @@ class SmartDeviceMain {
 
     waitForConnection(); // Start listen for in incoming connections from the local internet (LAN/Wifi)
 
-    buttonPressed(); // Listen for button press
+//    buttonPressed(); // Listen for button press
   }
 
   // TODO: Pull the saved devices into the app variables
   // Setting all the devices from saved data
   void setAllDevices() async {
-//    await new Future.delayed(const Duration(seconds: 10), () => "1");
 
     await smartDevicesList
         .add(LightObject("30:23:a2:G3:34", "Guy silling light"));
