@@ -1,4 +1,4 @@
-import '../deviceInformation.dart';
+import '../device_information.dart';
 
 class DynamicWish {
   static String SetDynamic(DeviceInformation deviceInformation) {
