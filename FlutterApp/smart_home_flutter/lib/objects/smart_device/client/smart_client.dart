@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:grpc/grpc.dart';
 
-import './smart_connection.pb.dart';
-import './smart_connection.pbgrpc.dart';
+import 'protoc_as_dart/smart_connection.pb.dart';
+import 'protoc_as_dart/smart_connection.pbgrpc.dart';
 
 
 class SmartClient {
