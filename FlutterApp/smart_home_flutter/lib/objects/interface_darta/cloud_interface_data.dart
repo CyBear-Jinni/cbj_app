@@ -19,7 +19,7 @@ final List<SmartDevice> room1DevicesList = [
 ];
 
 final List<SmartDevice> rom2DevicesList = [
-  SmartDevice(DeviceType.Light, "Kitchen main", "10.0.0.5"),
+  SmartDevice(DeviceType.Light, "Kitchen main", "10.0.0.11"),
   SmartDevice(DeviceType.Light, "Kitchen table", "10.0.0.6"),
   SmartDevice(DeviceType.Light, "Kitchen main", "10.0.0.30")
 ];
