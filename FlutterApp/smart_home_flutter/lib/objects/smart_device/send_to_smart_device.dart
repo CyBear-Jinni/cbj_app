@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
-import 'client_proto_as_dart/smart_client.dart';
+import 'package:smart_home_flutter/objects/smart_device/client/smart_client.dart';
 
 String connect(String ip) {
   HttpClient()
