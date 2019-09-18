@@ -10,15 +10,15 @@ class SmartDevice {
 
   SmartDevice(this.deviceType, this.name, String ip, [this.roomName]) {
     if (legitIp(ip)) {
-      // Checks if regex contained only valid ip and nothing else
+      //  Checks if regex contained only valid ip and nothing else
       this.ip = ip;
     } else {
       throw ('Incorrect formet of IP');
     }
   }
 
-  // Get
-  // ignore: missing_return
+  //  Get
+  //  ignore: missing_return
   Future<bool> getDeviceState() async {
     String deviceStateString = await getDeviceStateRequest(ip);
     print("Go on little one: " + deviceStateString);
@@ -30,13 +30,13 @@ class SmartDevice {
     print("Were did you Go on little one");
   }
 
-  // Set
+  //  Set
   Future<String> setLightState(bool state) async{
     return state ? await turnOn(ip) : await turnOff(ip);
   }
 
   static bool legitIp(String ip) {
-    String tempRegExIp = regexpIP(ip); // save to string a valid ip
+    String tempRegExIp = regexpIP(ip);  //  save to string a valid ip
     return ip.length == tempRegExIp.length;
   }
 

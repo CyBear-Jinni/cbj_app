@@ -32,7 +32,7 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+        //  TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.example.smart_home_flutter"
         minSdkVersion 16
         targetSdkVersion 29
@@ -40,15 +40,15 @@ android {
         versionName flutterVersionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
-        // Enable multidex for apps with over 64K methods
+        //  Enable multidex for apps with over 64K methods
         multiDexEnabled true
 
     }
 
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
+            //  TODO: Add your own signing config for the release build.
+            //  Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.debug
         }
     }
@@ -63,10 +63,10 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
-    // Enable multidex for apps with over 64K methods
+    //  Enable multidex for apps with over 64K methods
     implementation 'com.android.support:multidex:1.0.3'
 
     implementation 'com.google.firebase:firebase-firestore:20.2.0'
     implementation 'com.google.firebase:firebase-core:17.0.1'
 }
-apply plugin: 'com.google.gms.google-services'  // Google Play services Gradle plugin
+apply plugin: 'com.google.gms.google-services'  //  Google Play services Gradle plugin
