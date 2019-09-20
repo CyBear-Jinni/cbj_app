@@ -8,7 +8,7 @@ import 'protoc_as_dart/smart_connection.pbgrpc.dart';
 
 class SmartClient {
 
-  // Get the status of smart device
+  //  Get the status of smart device
   static Future<String> getSmartDeviceStatus(String ip) async {
     final ClientChannel channel = createSmartServerClient(ip);
     final SmartServerClient stub = SmartServerClient(channel);
@@ -24,7 +24,7 @@ class SmartClient {
     return response.onOffState.toString();
   }
 
-  // Turn smart device on
+  //  Turn smart device on
   static Future<String> setSmartDeviceOn(String ip) async {
     final ClientChannel channel = createSmartServerClient(ip);
     final SmartServerClient stub = SmartServerClient(channel);
@@ -40,7 +40,7 @@ class SmartClient {
     return response.success.toString();
   }
 
-  // Turn smart device off
+  //  Turn smart device off
   static Future<String> setSmartDeviceOff(String ip) async {
     final ClientChannel channel = createSmartServerClient(ip);
     final SmartServerClient stub = SmartServerClient(channel);
