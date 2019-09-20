@@ -15,7 +15,7 @@ class SmartDevicePage extends StatefulWidget {
 }
 
 class _SmartDevicePage extends State<SmartDevicePage> {
-  bool _isLoading = true; // state is loading
+  bool _isLoading = true; //  state is loading
   bool _switchState = false;
   SmartDevice _device;
 
@@ -26,7 +26,7 @@ class _SmartDevicePage extends State<SmartDevicePage> {
     getDeviceState();
   }
 
-  // Send request to device to retrieve his state on or off
+  //  Send request to device to retrieve his state on or off
   Future getDeviceState() async {
     bool deviceState = await _device.getDeviceState();
     print('This is device state: ' + deviceState.toString());
@@ -50,7 +50,7 @@ class _SmartDevicePage extends State<SmartDevicePage> {
     return Column(
             children: <Widget>[
               Text(
-                _device.name, // Show device name
+                _device.name, //  Show device name
                 style: TextStyle(
                   fontSize: 20.0,
                   color: Theme.of(context).textTheme.body2.color,

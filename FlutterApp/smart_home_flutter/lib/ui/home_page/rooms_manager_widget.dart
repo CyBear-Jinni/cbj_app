@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smart_home_flutter/objects/interface_darta/cloud_interface_data.dart';
 import 'package:smart_home_flutter/ui/home_page/smart_device_widget.dart';
 
-// This class show all the rooms in the house and quick access to the light switch from the rom_widget page
+//  This class show all the rooms in the house and quick access to the light switch from the rom_widget page
 class RoomsManagerWidget extends StatelessWidget {
   Widget _buildItemList(BuildContext context, int index) {
     return Container(

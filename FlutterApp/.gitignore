@@ -1,13 +1,20 @@
-# See https://www.dartlang.org/guides/libraries/private-files
+# Cache and build files
+.packages
+.pub/
+build/
+ios/.generated/
+pubspec.lock
+.flutter-plugins
+.gradle
+.dart_tool
 
-# Files and directories created by pub
-# .dart_tool/
-# .packages
-# .pub/
-# build/
-# If you're building an application, you may want to check-in your pubspec.lock
-# pubspec.lock
+# IDE local settings
+.atom/
+.idea
+.vscode/
 
-# Directory created by dartdoc
-# If you don't generate documentation locally you can remove this line.
-# doc/api/
+# Test token
+token.json
+
+# MacOS garbage
+.DS_Store

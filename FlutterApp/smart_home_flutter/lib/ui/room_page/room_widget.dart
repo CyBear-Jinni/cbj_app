@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-// This class is quick shortcut toggles of specific room
+//  This class is quick shortcut toggles of specific room
 class RoomWidget extends StatelessWidget {
   final Function updateProduct;
   final Function deleteProduct;
