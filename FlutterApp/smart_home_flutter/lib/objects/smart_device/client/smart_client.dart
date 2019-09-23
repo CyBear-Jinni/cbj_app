@@ -5,9 +5,7 @@ import 'package:grpc/grpc.dart';
 import 'protoc_as_dart/smart_connection.pb.dart';
 import 'protoc_as_dart/smart_connection.pbgrpc.dart';
 
-
 class SmartClient {
-
   //  Get the status of smart device
   static Future<String> getSmartDeviceStatus(String ip) async {
     final ClientChannel channel = createSmartServerClient(ip);
@@ -16,7 +14,6 @@ class SmartClient {
     try {
       response = await stub.getStatus(SmartDevice()..name = "0");
       print('Greeter client received: ${response.onOffState}');
-
     } catch (e) {
       print('Caught error: $e');
     }
@@ -32,7 +29,6 @@ class SmartClient {
     try {
       response = await stub.setOnDevice(SmartDevice()..name = "0");
       print('Greeter client received: ${response.success}');
-
     } catch (e) {
       print('Caught error: $e');
     }
@@ -48,7 +44,6 @@ class SmartClient {
     try {
       response = await stub.setOffDevice(SmartDevice()..name = "0");
       print('Greeter client received: ${response.success}');
-
     } catch (e) {
       print('Caught error: $e');
     }
@@ -56,10 +51,10 @@ class SmartClient {
     return response.success.toString();
   }
 
-  static ClientChannel createSmartServerClient(String ip){
+  static ClientChannel createSmartServerClient(String ip) {
     return ClientChannel(ip,
         port: 50051,
-        options: const ChannelOptions(credentials: ChannelCredentials.insecure()));
+        options:
+        const ChannelOptions(credentials: ChannelCredentials.insecure()));
   }
 }
-

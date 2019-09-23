@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class FormWidget extends StatefulWidget {
-
   @override
   State<StatefulWidget> createState() {
     return _FormWidget();
@@ -15,7 +14,7 @@ class _FormWidget extends State<FormWidget> {
   @override
   Widget build(BuildContext context) {
     void _submitForm() {
-      if (!autoValidation){
+      if (!autoValidation) {
         setState(() {
           autoValidation = true;
         });
@@ -51,7 +50,6 @@ class _FormWidget extends State<FormWidget> {
       decoration: InputDecoration(
         hintText: 'Email',
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(32.0),
         ),

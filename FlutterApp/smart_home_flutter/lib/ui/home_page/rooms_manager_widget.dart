@@ -20,9 +20,9 @@ class RoomsManagerWidget extends StatelessWidget {
             alignment: Alignment.centerLeft,
             child: FlatButton(
               onPressed: () => Navigator.pushNamed(
-                    context,
-                    '/roomRage/' + index.toString(),
-                  ),
+                context,
+                '/roomRage/' + index.toString(),
+              ),
               color: Colors.transparent,
               child: Text(
                 rooms[index].getRoomName(),

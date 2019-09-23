@@ -25,4 +25,3 @@ const CommendStatus$json = const {
     const {'1': 'success', '3': 3, '4': 1, '5': 8, '10': 'success'},
   ],
 };
-
