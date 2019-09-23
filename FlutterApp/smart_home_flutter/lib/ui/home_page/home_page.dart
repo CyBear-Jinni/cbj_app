@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:smart_home_flutter/database/firebase/cloud_firestore/firestore_class.dart';
 import 'package:smart_home_flutter/ui/home_page/tabs/lamps_widgets/lamps_widgets.dart';
 import 'package:smart_home_flutter/ui/home_page/tabs/presets_widgets/presets_widgets.dart';
 import 'package:smart_home_flutter/ui/home_page/tabs/smart_devices_widgets/smart_devices_widgets.dart';

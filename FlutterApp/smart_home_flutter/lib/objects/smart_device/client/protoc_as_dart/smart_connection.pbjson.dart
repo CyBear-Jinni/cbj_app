@@ -2,8 +2,8 @@
 //  Generated code. Do not modify.
 //  source: smart_connection.proto
 //
-//  @dart = 2.3
-//  ignore_for_file: camel_case_types,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type
+// @dart = 2.3
+// ignore_for_file: camel_case_types,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type
 
 const SmartDevice$json = const {
   '1': 'SmartDevice',
@@ -25,4 +25,3 @@ const CommendStatus$json = const {
     const {'1': 'success', '3': 3, '4': 1, '5': 8, '10': 'success'},
   ],
 };
-

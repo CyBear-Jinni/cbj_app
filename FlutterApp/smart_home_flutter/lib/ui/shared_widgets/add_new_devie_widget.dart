@@ -6,17 +6,13 @@ import 'package:smart_home_flutter/objects/smart_device/smart_device_objcet.dart
 import 'light_page.dart';
 
 class AddNewDeviceWidgetPopup extends StatefulWidget {
-
-
   @override
   State<StatefulWidget> createState() {
-
     return _AddNewDeviceWidgetPopup();
   }
 }
 
-class _AddNewDeviceWidgetPopup extends State<AddNewDeviceWidgetPopup>{
-
+class _AddNewDeviceWidgetPopup extends State<AddNewDeviceWidgetPopup> {
   static DeviceType _deviceType = DeviceType.Light;
   static String _roomName;
   static String _deviceName;
@@ -36,7 +32,7 @@ class _AddNewDeviceWidgetPopup extends State<AddNewDeviceWidgetPopup>{
           }
           return null;
         },
-          onSaved: (roomName) => _roomName = roomName,
+        onSaved: (roomName) => _roomName = roomName,
         decoration: InputDecoration(
           labelText: 'Room name:',
         ),
@@ -74,12 +70,9 @@ class _AddNewDeviceWidgetPopup extends State<AddNewDeviceWidgetPopup>{
     ],
   );
 
-
-
-
   @override
   Widget build(BuildContext context) {
-    return    Form(
+    return Form(
       key: _formKey,
       child: AlertDialog(
         title: Text('Add Smart Device'),
@@ -95,11 +88,10 @@ class _AddNewDeviceWidgetPopup extends State<AddNewDeviceWidgetPopup>{
           ),
           FlatButton(
             child: Text('Add'),
-            onPressed:
-                () {
-                _formKey.currentState.save();
+            onPressed: () {
+              _formKey.currentState.save();
               rooms[0].getDevices()[0] =
-              SmartDevice(_deviceType,  _deviceName, _ip, _roomName);
+                  SmartDevice(_deviceType, _deviceName, _ip, _roomName);
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -109,7 +101,8 @@ class _AddNewDeviceWidgetPopup extends State<AddNewDeviceWidgetPopup>{
             },
           ),
         ],
-      ),);
+      ),
+    );
   }
 }
 

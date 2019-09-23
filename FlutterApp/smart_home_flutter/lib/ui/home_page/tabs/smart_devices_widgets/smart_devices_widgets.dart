@@ -25,7 +25,10 @@ class SmartDevicesWidgets extends StatelessWidget {
                     image: _simbolsImageList[element], fit: BoxFit.cover),
               ),
               child: Container(
-                decoration: BoxDecoration(borderRadius: BorderRadius.circular(30), color: Colors.black54,),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    color: Colors.black54,
+                  ),
                   alignment: Alignment.center,
                   child: DecoratedBox(
                     decoration: BoxDecoration(color: Colors.black54),
@@ -67,10 +70,16 @@ class SmartDevicesWidgets extends StatelessWidget {
               fontSize: 23.0,
               color: Theme.of(context).textTheme.body1.color,
               decoration: TextDecoration.underline),
-        ),        Container(
+        ),
+        Container(
           height: 20,
         ),
-        FlatButton(child: Text("Press mee if you can") ,onPressed: (){FireStoreClass();},),
+        FlatButton(
+          child: Text("Press mee if you can"),
+          onPressed: () {
+            FireStoreClass();
+          },
+        ),
         Expanded(
           child: GridView(
             children: smartDevice(context),

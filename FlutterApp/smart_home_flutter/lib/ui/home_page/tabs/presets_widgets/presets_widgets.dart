@@ -24,8 +24,10 @@ class PresetsWidgets extends StatelessWidget {
   final List<MaterialColor> colorList = Colors.primaries;
 
   List<Widget> presets(BuildContext context) {
-    return _presetsList.map((element) => Container(
-      margin: EdgeInsets.fromLTRB(2, 0, 2, 16),
+    return _presetsList
+        .map((element) =>
+        Container(
+          margin: EdgeInsets.fromLTRB(2, 0, 2, 16),
               child: RaisedButton(
                 color: colorList[_presetsList.indexOf(element)],
                 shape: RoundedRectangleBorder(
@@ -68,7 +70,8 @@ class PresetsWidgets extends StatelessWidget {
               fontSize: 23.0,
               color: Theme.of(context).textTheme.body1.color,
               decoration: TextDecoration.underline),
-        ),        Container(
+        ),
+        Container(
           height: 20,
         ),
         Expanded(
