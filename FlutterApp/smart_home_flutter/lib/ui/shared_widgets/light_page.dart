@@ -19,11 +19,15 @@ class LightPage extends StatelessWidget {
         ),
         child: Column(
           children: <Widget>[
-            SizedBox(width: 180, height: 300,),
+            SizedBox(
+              width: 180,
+              height: 300,
+            ),
             Text('This is firebase'),
-            SizedBox(height: 30,),
+            SizedBox(
+              height: 30,
+            ),
             Text('Device with ip: ' + rooms[0].getDevices()[0].ip),
-
             Container(
               width: 170,
               child: SmartDevicePage(rooms[0].getDevices()[0]),

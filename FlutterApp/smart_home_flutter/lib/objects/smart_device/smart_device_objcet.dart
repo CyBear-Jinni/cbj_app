@@ -31,12 +31,12 @@ class SmartDevice {
   }
 
   //  Set
-  Future<String> setLightState(bool state) async{
+  Future<String> setLightState(bool state) async {
     return state ? await turnOn(ip) : await turnOff(ip);
   }
 
   static bool legitIp(String ip) {
-    String tempRegExIp = regexpIP(ip);  //  save to string a valid ip
+    String tempRegExIp = regexpIP(ip); //  Save to string a valid ip
     return ip.length == tempRegExIp.length;
   }
 

@@ -6,11 +6,12 @@
 // ignore_for_file: camel_case_types,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type
 
 import 'dart:async' as $async;
-
 import 'dart:core' as $core;
 
 import 'package:grpc/service_api.dart' as $grpc;
+
 import 'smart_connection.pb.dart' as $0;
+
 export 'smart_connection.pb.dart';
 
 class SmartServerClient extends $grpc.Client {
@@ -102,8 +103,10 @@ abstract class SmartServerServiceBase extends $grpc.Service {
 
   $async.Future<$0.SmartDeviceStatus> getStatus(
       $grpc.ServiceCall call, $0.SmartDevice request);
+
   $async.Future<$0.CommendStatus> setOnDevice(
       $grpc.ServiceCall call, $0.SmartDevice request);
+
   $async.Future<$0.CommendStatus> setOffDevice(
       $grpc.ServiceCall call, $0.SmartDevice request);
 }

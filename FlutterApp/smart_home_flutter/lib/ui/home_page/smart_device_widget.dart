@@ -48,23 +48,26 @@ class _SmartDevicePage extends State<SmartDevicePage> {
   @override
   Widget build(BuildContext context) {
     return Column(
-            children: <Widget>[
-              Text(
-                _device.name, //  Show device name
-                style: TextStyle(
-                  fontSize: 20.0,
-                  color: Theme.of(context).textTheme.body2.color,
-                ),
-              ),
-              _isLoading
-                  ? Padding(
+      children: <Widget>[
+        Text(
+          _device.name, //  Show device name
+          style: TextStyle(
+            fontSize: 20.0,
+            color: Theme
+                .of(context)
+                .textTheme
+                .body2
+                .color,
+          ),
+        ),
+        _isLoading
+            ? Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Center(
                   child: CircularProgressIndicator(),
                 ),
               )
-                  :
-              Transform.scale(
+            : Transform.scale(
                 scale: 1.5,
                 child: Switch(
                   activeColor: Colors.yellow,
@@ -73,7 +76,7 @@ class _SmartDevicePage extends State<SmartDevicePage> {
                   onChanged: (bool value) => _onChange(value),
                 ),
               ),
-            ],
-          );
+      ],
+    );
   }
 }
