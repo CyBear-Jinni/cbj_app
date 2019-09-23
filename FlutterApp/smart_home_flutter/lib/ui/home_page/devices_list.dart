@@ -6,6 +6,7 @@ class DevicesList extends StatefulWidget {
   final List<SmartDevice> devices;
   int howMuchToShow;
   final Axis axis;
+
   DevicesList(this.devices, {this.howMuchToShow, this.axis = Axis.vertical}) {
     if (this.devices != null && howMuchToShow == null) {
       this.howMuchToShow = this.devices.length;

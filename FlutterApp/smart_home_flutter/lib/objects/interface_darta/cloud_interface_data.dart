@@ -1,8 +1,6 @@
+import 'package:smart_home_flutter/objects/enums.dart';
 import 'package:smart_home_flutter/objects/smart_device/smart_device_objcet.dart';
 import 'package:smart_home_flutter/objects/smart_device/smart_room_object.dart';
-
-import 'package:smart_home_flutter/objects/enums.dart';
-
 
 final List<SmartRoomObject> rooms = [room1, room2, room3, room4];
 
@@ -13,9 +11,9 @@ SmartRoomObject room4 = SmartRoomObject("Saar", rom4DevicesList);
 SmartRoomObject room5 = SmartRoomObject("Sami", rom5DevicesList);
 
 final List<SmartDevice> room1DevicesList = [
-   SmartDevice(DeviceType.Light, "Guy main", "10.0.0.20"),
+  SmartDevice(DeviceType.Light, "Guy main", "10.0.0.20"),
   SmartDevice(DeviceType.Light, "Guy bed", "10.0.0.21"),
-   SmartDevice(DeviceType.Light, "Guy desk", "10.0.0.30")
+  SmartDevice(DeviceType.Light, "Guy desk", "10.0.0.30")
 ];
 
 final List<SmartDevice> rom2DevicesList = [
