@@ -12,3 +12,7 @@ pubspec.lock
 # If you don't generate documentation locally you can remove this line.
 doc/api/
 smart_home_flutter/gen/
+/SmartDevice/parts/
+/SmartDevice/prime/
+/SmartDevice/stage/
+/SmartDevice/*.snap
