@@ -18,9 +18,9 @@ String connect(String ip) {
   return 'Cannt connect to device';
 }
 
-// Get
+//  Get
 
-// Request device state, on or off
+//  Request device state, on or off
 Future<String> getDeviceStateRequest(String ip) async {
   return await SmartClient.getSmartDeviceStatus(ip);
 }

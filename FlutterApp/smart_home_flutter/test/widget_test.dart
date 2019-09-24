@@ -26,4 +26,8 @@ void main() {
     expect(find.text('0'), findsNothing);
     expect(find.text('1'), findsOneWidget);
   });
+
+  test('calculate', () {
+    expect(42, 42);
+  });
 }
