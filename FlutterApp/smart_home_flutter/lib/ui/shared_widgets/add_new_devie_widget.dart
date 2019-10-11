@@ -58,7 +58,7 @@ class _AddNewDeviceWidgetPopup extends State<AddNewDeviceWidgetPopup> {
           if (value.isEmpty) {
             return 'IP is required';
           }
-          if (SmartDevice.legitIp(value)) {
+          if (SmartDeviceObject.legitIp(value)) {
             return 'IP syntax is incorrect';
           }
           return null;
@@ -90,8 +90,8 @@ class _AddNewDeviceWidgetPopup extends State<AddNewDeviceWidgetPopup> {
             child: Text('Add'),
             onPressed: () {
               _formKey.currentState.save();
-              rooms[0].getDevices()[0] =
-                  SmartDevice(_deviceType, _deviceName, _ip, _roomName);
+              rooms[0].getLights()[0] =
+                  SmartDeviceObject(_deviceType, _deviceName, _ip, _roomName);
               Navigator.push(
                 context,
                 MaterialPageRoute(

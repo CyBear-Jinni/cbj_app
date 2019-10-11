@@ -27,10 +27,10 @@ class LightPage extends StatelessWidget {
             SizedBox(
               height: 30,
             ),
-            Text('Device with ip: ' + rooms[0].getDevices()[0].ip),
+            Text('Device with ip: ' + rooms[0].getLights()[0].ip),
             Container(
               width: 170,
-              child: SmartDevicePage(rooms[0].getDevices()[0]),
+              child: SmartDevicePage(rooms[0].getLights()[0]),
             ),
           ],
         ),

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:smart_home_flutter/database/firebase/cloud_firestore/firestore_class.dart';
 import 'package:smart_home_flutter/ui/home_page/tabs/smart_devices_widgets/settings_page_of_smart_devices.dart';
 
 class SmartDevicesWidgets extends StatelessWidget {
-  final Map<String, AssetImage> _simbolsImageList = {
+  final Map<String, AssetImage> _symbolsImageList = {
     "conditioner": AssetImage('assets/simbols/air_conditioner.jpg'),
     "blinds": AssetImage('assets/simbols/blinds.jpg'),
     "medical device": AssetImage('assets/simbols/doctor.jpg'),
@@ -14,7 +15,7 @@ class SmartDevicesWidgets extends StatelessWidget {
   final List<MaterialColor> colorList = Colors.primaries;
 
   List<Widget> smartDevice(BuildContext context) {
-    return _simbolsImageList.keys
+    return _symbolsImageList.keys
         .map((element) => GestureDetector(
             child: Container(
               margin: EdgeInsets.fromLTRB(5, 0, 5, 10),
@@ -22,7 +23,7 @@ class SmartDevicesWidgets extends StatelessWidget {
                 borderRadius: BorderRadius.circular(30),
                 color: Colors.black,
                 image: DecorationImage(
-                    image: _simbolsImageList[element], fit: BoxFit.cover),
+                    image: _symbolsImageList[element], fit: BoxFit.cover),
               ),
               child: Container(
                   decoration: BoxDecoration(
@@ -40,7 +41,22 @@ class SmartDevicesWidgets extends StatelessWidget {
                   )),
             ),
             onTap: () {
-              print("you clicked my");
+              print("you clicked " + element.toString());
+              Fluttertoast.showToast(
+                  msg: element.toString(),
+                  toastLength: Toast.LENGTH_SHORT,
+                  gravity: ToastGravity.CENTER,
+                  timeInSecForIos: 1,
+                  backgroundColor: Colors.red,
+                  textColor: Colors.white,
+                  fontSize: 16.0
+              );
+              if (element.toString() == "blinds") {
+                Navigator.pushNamed(
+                  context,
+                  '/devices/' + element.toString(),
+                );
+              }
             }))
         .toList();
   }

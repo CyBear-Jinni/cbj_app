@@ -3,7 +3,7 @@ import 'package:smart_home_flutter/objects/smart_device/smart_device_objcet.dart
 import 'package:smart_home_flutter/ui/home_page/smart_device_widget.dart';
 
 class DevicesList extends StatefulWidget {
-  final List<SmartDevice> devices;
+  final List<SmartDeviceObject> devices;
   int howMuchToShow;
   final Axis axis;
 
@@ -20,7 +20,7 @@ class DevicesList extends StatefulWidget {
 }
 
 class _DevicesList extends State<DevicesList> {
-  List<SmartDevice> _devices;
+  List<SmartDeviceObject> _devices;
   int _howMuchToShow;
   Axis _axis;
 

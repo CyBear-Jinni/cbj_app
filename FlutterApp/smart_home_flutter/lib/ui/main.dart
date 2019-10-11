@@ -3,6 +3,7 @@ import 'package:smart_home_flutter/objects/interface_darta/cloud_interface_data.
 import 'package:smart_home_flutter/ui/room_page/room_page.dart';
 
 import 'home_page/home_page.dart';
+import 'home_page/tabs/smart_devices_widgets/blinds/blinds_page.dart';
 import 'login_page/login_page.dart';
 
 void main() {
@@ -44,6 +45,12 @@ class MyApp extends StatelessWidget {
           return MaterialPageRoute(
               builder: (BuildContext context) =>
                   RoomPage(rooms[int.parse(pathElements[2])].getRoomName()));
+        } else if (pathElements[1] == 'devices') {
+          if (pathElements[2] == 'blinds') {
+            return MaterialPageRoute(
+                builder: (BuildContext context) =>
+                    BlindsPage());
+          }
         }
         return null;
       },
