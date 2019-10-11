@@ -2,13 +2,13 @@ import 'package:smart_home_flutter/objects/smart_device/send_to_smart_device.dar
 
 import '../enums.dart';
 
-class SmartDevice {
+class SmartDeviceObject {
   DeviceType deviceType;
   String roomName;
   String name;
   String ip;
 
-  SmartDevice(this.deviceType, this.name, String ip, [this.roomName]) {
+  SmartDeviceObject(this.deviceType, this.name, String ip, [this.roomName]) {
     if (legitIp(ip)) {
       //  Checks if regex contained only valid ip and nothing else
       this.ip = ip;

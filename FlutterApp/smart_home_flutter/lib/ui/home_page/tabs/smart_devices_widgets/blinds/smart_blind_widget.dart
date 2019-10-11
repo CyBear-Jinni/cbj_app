@@ -1,28 +1,34 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:smart_home_flutter/objects/smart_device/smart_blinds_object.dart';
 import 'package:smart_home_flutter/objects/smart_device/smart_device_objcet.dart';
 
-class SmartDevicePage extends StatefulWidget {
+class SmartBlindPage extends StatefulWidget {
   final SmartDeviceObject device;
+  SmartBlindsObject smartBlindsObject;
 
-  SmartDevicePage(this.device);
+  SmartBlindPage(this.device) {
+    smartBlindsObject = device as SmartBlindsObject;
+  }
 
   @override
   State<StatefulWidget> createState() {
-    return _SmartDevicePage();
+    return _SmartBlindPage();
   }
 }
 
-class _SmartDevicePage extends State<SmartDevicePage> {
+class _SmartBlindPage extends State<SmartBlindPage> {
   bool _isLoading = true; //  state is loading
   bool _switchState = false;
   SmartDeviceObject _device;
+  SmartBlindsObject _smartBlindsObject;
 
   @override
   void initState() {
     super.initState();
     this._device = widget.device;
+    this._smartBlindsObject = widget.smartBlindsObject;
     getDeviceState();
   }
 
@@ -53,28 +59,31 @@ class _SmartDevicePage extends State<SmartDevicePage> {
           _device.name, //  Show device name
           style: TextStyle(
             fontSize: 20.0,
-            color: Theme
-                .of(context)
-                .textTheme
-                .body2
-                .color,
+            color: Theme.of(context).textTheme.body2.color,
           ),
         ),
-        _isLoading
+        false
             ? Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Center(
                   child: CircularProgressIndicator(),
                 ),
               )
-            : Transform.scale(
-                scale: 1.5,
-                child: Switch(
-                  activeColor: Colors.yellow,
-                  inactiveThumbColor: Colors.black87,
-                  value: _switchState,
-                  onChanged: (bool value) => _onChange(value),
-                ),
+            : Row(
+                children: <Widget>[
+                  FlatButton(
+                      color: Colors.brown,
+                      child: Text("Down"),
+                      onPressed: () => _smartBlindsObject.blindsDown()),
+                  FlatButton(
+                      color: Colors.grey,
+                      child: Text("Stop"),
+                      onPressed: () => _smartBlindsObject.blindsStop()),
+                  FlatButton(
+                      color: Colors.amber,
+                      child: Text("Up"),
+                      onPressed: () => _smartBlindsObject.blindsUp()),
+                ],
               ),
       ],
     );

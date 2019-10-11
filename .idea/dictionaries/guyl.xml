@@ -3,6 +3,7 @@
     <words>
       <w>dartsdk</w>
       <w>gpio</w>
+      <w>protoc</w>
       <w>roomba</w>
       <w>snapcraft</w>
     </words>

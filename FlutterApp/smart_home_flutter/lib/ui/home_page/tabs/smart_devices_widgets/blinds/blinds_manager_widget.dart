@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:smart_home_flutter/objects/interface_darta/cloud_interface_data.dart';
-import 'package:smart_home_flutter/ui/home_page/smart_device_widget.dart';
+import 'package:smart_home_flutter/ui/home_page/tabs/smart_devices_widgets/blinds/smart_blind_widget.dart';
 
 //  This class show all the rooms in the house and quick access to the light switch from the rom_widget page
-class RoomsManagerWidget extends StatelessWidget {
+class BlindsManagerWidget extends StatelessWidget {
   Widget _buildItemList(BuildContext context, int index) {
+    if (rooms[index].blindsInTheRoom == null) return null;
     return Container(
       margin: EdgeInsets.only(bottom: 15),
       decoration: BoxDecoration(
@@ -19,10 +21,18 @@ class RoomsManagerWidget extends StatelessWidget {
           Container(
             alignment: Alignment.centerLeft,
             child: FlatButton(
-              onPressed: () => Navigator.pushNamed(
-                context,
-                '/roomRage/' + index.toString(),
-              ),
+              onPressed: () => Fluttertoast.showToast(
+                  msg: "Move to blinds full settings page",
+                  toastLength: Toast.LENGTH_SHORT,
+                  gravity: ToastGravity.CENTER,
+                  timeInSecForIos: 1,
+                  backgroundColor: Colors.green,
+                  textColor: Colors.white,
+                  fontSize: 16.0),
+//                  Navigator.pushNamed(
+//                context,
+//                '/roomRage/' + index.toString(),
+//              ),
               color: Colors.transparent,
               child: Text(
                 rooms[index].getRoomName(),
@@ -38,16 +48,11 @@ class RoomsManagerWidget extends StatelessWidget {
             padding: EdgeInsets.all(5),
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Container(
-                width: 170,
-                child: SmartDevicePage(rooms[index].getLights()[0]),
+                child: SmartBlindPage(rooms[index].getBlinds()[0]),
               ),
-              Container(
-                width: 170,
-                child: SmartDevicePage(rooms[index].getLights()[1]),
-              )
             ],
           ),
         ],

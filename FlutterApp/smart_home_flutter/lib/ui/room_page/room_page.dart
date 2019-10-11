@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smart_home_flutter/ui/room_page/room_widget.dart';
 
 class RoomPage extends StatelessWidget {
-  String roomName;
+  final String roomName;
 
   RoomPage(this.roomName);
 
