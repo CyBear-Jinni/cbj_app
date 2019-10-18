@@ -6,7 +6,7 @@ import 'package:smart_home_flutter/objects/smart_device/smart_room_object.dart';
 final List<SmartRoomObject> rooms = [room1, room2, room3, room4];
 
 SmartRoomObject room1 = SmartRoomObject(
-    "Guy", room1blindsList, blindsInTheRoom: room1blindsList);
+    "Guy", room1DevicesList, blindsInTheRoom: room1blindsList);
 SmartRoomObject room2 = SmartRoomObject("Kitchen", rom2DevicesList);
 SmartRoomObject room3 = SmartRoomObject("Outside", rom3DevicesList);
 SmartRoomObject room4 = SmartRoomObject("Bar", rom4DevicesList);
