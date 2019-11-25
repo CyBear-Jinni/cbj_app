@@ -20,6 +20,9 @@
       <excludeFolder url="file://$MODULE_DIR$/FlutterApp/smart_home_flutter/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/FlutterApp/smart_home_flutter/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/FlutterApp/smart_home_flutter/build" />
+      <excludeFolder url="file://$MODULE_DIR$/NetworkManager/NetworkManagerDart/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/NetworkManager/NetworkManagerDart/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/NetworkManager/NetworkManagerDart/build" />
       <excludeFolder url="file://$MODULE_DIR$/SmartDevice/SmartDeviceDart/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/SmartDevice/SmartDeviceDart/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/SmartDevice/SmartDeviceDart/build" />

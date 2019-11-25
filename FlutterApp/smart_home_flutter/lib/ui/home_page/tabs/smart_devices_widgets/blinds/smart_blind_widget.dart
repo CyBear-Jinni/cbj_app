@@ -64,27 +64,65 @@ class _SmartBlindPage extends State<SmartBlindPage> {
         ),
         false
             ? Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Center(
-                  child: CircularProgressIndicator(),
-                ),
-              )
+          padding: const EdgeInsets.all(8.0),
+          child: Center(
+            child: CircularProgressIndicator(),
+          ),
+        )
             : Row(
-                children: <Widget>[
-                  FlatButton(
-                      color: Colors.brown,
-                      child: Text("Down"),
-                      onPressed: () => _smartBlindsObject.blindsDown()),
-                  FlatButton(
-                      color: Colors.grey,
-                      child: Text("Stop"),
-                      onPressed: () => _smartBlindsObject.blindsStop()),
-                  FlatButton(
-                      color: Colors.amber,
-                      child: Text("Up"),
-                      onPressed: () => _smartBlindsObject.blindsUp()),
-                ],
-              ),
+          children: <Widget>[
+            FlatButton(
+                color: Colors.brown,
+                child: Tab(
+                  icon: Icon(Icons.arrow_downward, color: Theme
+                      .of(context)
+                      .textTheme
+                      .body1
+                      .color),
+                  child: Text("Down", style: TextStyle(color: Theme
+                      .of(context)
+                      .textTheme
+                      .body1
+                      .color,
+                      fontSize: 16),
+                  ),
+                ),
+                onPressed: () => _smartBlindsObject.blindsDown()),
+            SizedBox(width: 4,),
+            FlatButton(
+                color: Colors.grey,
+                child: Tab(
+                  icon: Icon(Icons.pan_tool, color: Theme
+                      .of(context)
+                      .textTheme
+                      .body1
+                      .color),
+                  child: Text("Stop", style: TextStyle(color: Theme
+                      .of(context)
+                      .textTheme
+                      .body1
+                      .color,
+                      fontSize: 16),),),
+                onPressed: () => _smartBlindsObject.blindsStop()),
+            SizedBox(width: 4,),
+            FlatButton(
+                color: Colors.amber,
+                child: Tab(
+                  icon: Icon(Icons.arrow_upward, color: Theme
+                      .of(context)
+                      .textTheme
+                      .body1
+                      .color),
+                  child: Text("Up", style: TextStyle(color: Theme
+                      .of(context)
+                      .textTheme
+                      .body1
+                      .color,
+                      fontSize: 16),),),
+                onPressed: () => _smartBlindsObject.blindsUp()),
+            SizedBox(width: 4,),
+          ],
+        ),
       ],
     );
   }
