@@ -7,14 +7,16 @@
     <bookmark url="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/manage_physical_components/devices_pin_configuration/pin_information.dart" line="22" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96c5fe8c-119f-4135-b3fa-611215ac658f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+    <list default="true" id="96c5fe8c-119f-4135-b3fa-611215ac658f" name="Default Changelist" comment="Push just to check the changes on the laptop">
+      <change afterPath="$PROJECT_DIR$/NetworkManager/NetworkManagerDart/.directory" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NetworkManager/scripts/bashScripts/nmcliScript.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NetworkManager/snap/.directory" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NetworkManager/snap/.snapcraft/state" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NetworkManager/NetworkManagerDart/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/NetworkManager/NetworkManagerDart/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NetworkManager/NetworkManagerDart/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/NetworkManager/NetworkManagerDart/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NetworkManager/NetworkManagerDart/bin/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/NetworkManager/NetworkManagerDart/bin/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NetworkManager/NetworkManagerDart/lib/director.dart" beforeDir="false" afterPath="$PROJECT_DIR$/NetworkManager/NetworkManagerDart/lib/director.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NetworkManager/NetworkManagerDart/lib/network_actions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/NetworkManager/NetworkManagerDart/lib/network_actions.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NetworkManager/NetworkManagerDart/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/NetworkManager/NetworkManagerDart/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NetworkManager/snap/snapcraft.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/NetworkManager/snap/snapcraft.yaml" afterDir="false" />
     </list>
     <ignored path="SmartDevice/parts/smart-home/install/WiringNP/" />
     <ignored path="SmartDevice/prime/WiringNP/" />
@@ -36,11 +38,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NetworkManager/NetworkManagerDart/lib/network_actions.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="51" column="60" lean-forward="true" selection-start-line="51" selection-start-column="60" selection-end-line="51" selection-end-column="60" />
+            <state relative-caret-position="316">
+              <caret line="125" column="58" selection-start-line="125" selection-start-column="58" selection-end-line="125" selection-end-column="58" />
               <folding>
                 <element signature="e#91#111#0" expanded="true" />
               </folding>
@@ -49,21 +51,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NetworkManager/NetworkManagerDart/pubspec.yaml">
+        <entry file="file://$PROJECT_DIR$/NetworkManager/scripts/bashScripts/nmcliScript.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="12" selection-start-line="12" selection-end-line="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Programmes/flutter/.pub-cache/hosted/pub.dartlang.org/data_connection_checker-0.3.4/lib/data_connection_checker.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#10983#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="210">
+              <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -71,26 +62,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/manage_physical_components/controlloling_pins.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="17" selection-end-column="13" />
+            <state relative-caret-position="189">
+              <caret line="12" column="35" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/server/smart_server.dart">
+        <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/bin/main.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/pubspec.yaml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+            <state relative-caret-position="126">
+              <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#91#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -98,34 +83,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NetworkManager/NetworkManagerDart/bin/main.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            <state relative-caret-position="105">
+              <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/data_base/cloud_fire_store.dart">
+        <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/shared_variables.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
-              <folding>
-                <element signature="e#0#20#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="168">
+              <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Programmes/flutter/.pub-cache/hosted/pub.dartlang.org/firedart-0.6.1/lib/firedart.dart">
-          <provider selected="true" editor-type-id="text-editor" />
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/NetworkManager/snap/snapcraft.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="343">
+              <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NetworkManager/NetworkManagerDart/lib/director.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
+            <state relative-caret-position="241">
+              <caret line="28" column="83" selection-start-line="28" selection-start-column="83" selection-end-line="28" selection-end-column="83" />
             </state>
           </provider>
         </entry>
@@ -141,12 +127,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>, createEmptyInstance: create</find>
-      <find>deviceStatus</find>
-      <find>$core.bool get onOffS</find>
-      <find>@$pb.TagNumber(2)</find>
-      <find>11</find>
-      <find>$core.bool get onOffState =&gt;</find>
       <find>$core.bool get success =&gt;</find>
       <find>class SmartDevice</find>
       <find>SmartClient</find>
@@ -171,6 +151,12 @@
       <find>Process.</find>
       <find>getAvailableNetworksList</find>
       <find>getConnectedNetworkName</find>
+      <find>unicod</find>
+      <find>ibgio-2.0</find>
+      <find>ibgio</find>
+      <find>nstat</find>
+      <find>network-manager</find>
+      <find>turnOn</find>
     </findStrings>
     <replaceStrings>
       <replace>v: 0</replace>
@@ -184,8 +170,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/SmartDevice/snap/snapcraft.yaml" />
-        <option value="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/login_page/form_widget.dart" />
         <option value="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/room_page/room_page.dart" />
         <option value="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/main.dart" />
         <option value="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/tabs/smart_devices_widgets/blinds/blinds_page.dart" />
@@ -230,18 +214,20 @@
         <option value="$PROJECT_DIR$/NetworkManager/NetworkManagerDart/lib/networkActions.dart" />
         <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/shared_variables.dart" />
         <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/pubspec.yaml" />
-        <option value="$PROJECT_DIR$/NetworkManager/NetworkManagerDart/bin/main.dart" />
         <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/data_base/cloud_fire_store.dart" />
-        <option value="$PROJECT_DIR$/NetworkManager/NetworkManagerDart/lib/director.dart" />
         <option value="$PROJECT_DIR$/NetworkManager/NetworkManagerDart/pubspec.yaml" />
+        <option value="$PROJECT_DIR$/NetworkManager/NetworkManagerDart/bin/main.dart" />
+        <option value="$PROJECT_DIR$/NetworkManager/NetworkManagerDart/lib/director.dart" />
         <option value="$PROJECT_DIR$/NetworkManager/NetworkManagerDart/lib/network_actions.dart" />
+        <option value="$PROJECT_DIR$/NetworkManager/scripts/bashScripts/nmcliScript.sh" />
+        <option value="$PROJECT_DIR$/NetworkManager/snap/snapcraft.yaml" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1904" />
-    <option name="width" value="1242" />
-    <option name="height" value="716" />
+    <option name="x" value="1648" />
+    <option name="width" value="1868" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -249,6 +235,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -284,6 +271,25 @@
             <path>
               <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
               <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
+              <item name="NetworkManager" type="462c0819:PsiDirectoryNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
+              <item name="NetworkManager" type="462c0819:PsiDirectoryNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
+              <item name="bashScripts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
+              <item name="NetworkManager" type="462c0819:PsiDirectoryNode" />
+              <item name="snap" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
               <item name="SmartDevice" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -291,6 +297,13 @@
               <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
               <item name="SmartDevice" type="462c0819:PsiDirectoryNode" />
               <item name="SmartDeviceDart" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
+              <item name="SmartDevice" type="462c0819:PsiDirectoryNode" />
+              <item name="SmartDeviceDart" type="462c0819:PsiDirectoryNode" />
+              <item name="bin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
@@ -314,33 +327,7 @@
               <item name="SmartDeviceDart" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
               <item name="shered" type="462c0819:PsiDirectoryNode" />
-              <item name="data_base" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDevice" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDeviceDart" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="shered" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDevice" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDeviceDart" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="smart_device" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDevice" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDeviceDart" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="smart_device" type="462c0819:PsiDirectoryNode" />
-              <item name="smart_device_objects" type="462c0819:PsiDirectoryNode" />
+              <item name="manage_physical_components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
@@ -350,6 +337,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -530,8 +518,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -540,7 +526,7 @@
     <property name="add_unversioned_files" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Programmes/flutter/bin/cache/dart-sdk" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/NetworkManager/scripts/bashScripts" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -549,10 +535,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/NetworkManager/scripts/bashScripts" />
+      <recent name="$PROJECT_DIR$/NetworkManager" />
       <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/wish_classes" />
       <recent name="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/tabs/smart_devices_widgets/blinds" />
       <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib" />
-      <recent name="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/client/protoc_as_dart" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device" />
@@ -573,7 +560,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Dart Command Line App.Network Manager">
+  <component name="RunManager" selected="Bash.nmcliScript.sh">
+    <configuration name="nmcliScript.sh" type="BashConfigurationType" factoryName="Bash" temporary="true">
+      <module name="SmartHome" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="INTERPRETER_PATH" value="/bin/bash" />
+      <option name="PROJECT_INTERPRETER" value="false" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/NetworkManager/scripts/bashScripts" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/NetworkManager/scripts/bashScripts/nmcliScript.sh" />
+      <option name="PARAMETERS" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Network Manager" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="filePath" value="$PROJECT_DIR$/NetworkManager/NetworkManagerDart/bin/main.dart" />
       <method v="2" />
@@ -602,6 +602,7 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Bash.nmcliScript.sh" />
       <item itemvalue="Dart Command Line App.Network Manager" />
       <item itemvalue="Dart Command Line App.Smart Device" />
       <item itemvalue="Dart Test.Test SmartDevice all" />
@@ -609,6 +610,11 @@
       <item itemvalue="Dart Test.tests in SmartDeviceDart" />
       <item itemvalue="Flutter.Smart App" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Bash.nmcliScript.sh" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -754,7 +760,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574881622871</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Fix connected network does not being updated after connecting to admin network">
+      <created>1575038369948</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1575038369948</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -799,11 +812,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1724" y="0" width="1876" height="1080" extended-state="6" />
-    <editor active="true" />
+    <frame x="1720" y="0" width="1884" height="1084" extended-state="6" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.15485278" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.15430753" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -811,18 +823,18 @@
       <window_info id="Capture Tool" order="6" />
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info id="Build Variants" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="0" sideWeight="0.5436205" weight="0.3368644" />
+      <window_info anchor="bottom" id="Run" order="0" sideWeight="0.54212457" weight="0.3358862" />
       <window_info anchor="bottom" id="TODO" order="1" sideWeight="0.49890947" weight="0.3291536" />
       <window_info anchor="bottom" id="Debug" order="2" weight="0.56991524" />
       <window_info anchor="bottom" id="Terminal" order="3" sideWeight="0.49945474" weight="0.23728813" />
-      <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.5010905" side_tool="true" weight="0.4033438" />
+      <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.50272626" side_tool="true" visible="true" weight="0.32838982" />
       <window_info anchor="bottom" id="Flutter Performance" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="6" sideWeight="0.49890947" weight="0.4033438" />
       <window_info anchor="bottom" id="Android Profiler" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Dart Analysis" order="8" sideWeight="0.49945474" weight="0.32687652" />
       <window_info anchor="bottom" id="Logcat" order="9" sideWeight="0.49945474" weight="0.3291536" />
       <window_info anchor="bottom" id="Find" order="10" weight="0.32887974" />
-      <window_info active="true" anchor="bottom" id="Messages" order="11" sideWeight="0.49781898" visible="true" weight="0.32838982" />
+      <window_info active="true" anchor="bottom" id="Messages" order="11" sideWeight="0.4972737" visible="true" weight="0.32838982" />
       <window_info anchor="bottom" id="Thumbnails" order="12" sideWeight="0.49945474" weight="0.3291536" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
       <window_info anchor="right" id="Theme Preview" order="1" />
@@ -929,53 +941,14 @@
     <MESSAGE value="Fix blinds was set in light list" />
     <MESSAGE value="Adding new project to mange the network connection in the smart device" />
     <MESSAGE value="The program will show available wif-fi networks when the internet disconnects." />
-    <option name="LAST_COMMIT_MESSAGE" value="The program will show available wif-fi networks when the internet disconnects." />
+    <MESSAGE value="Fix connected network does not being updated after connecting to admin network" />
+    <MESSAGE value="Push just to check the changes on the laptop" />
+    <option name="LAST_COMMIT_MESSAGE" value="Push just to check the changes on the laptop" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/manage_physical_components/devices_pin_configuration/pin_information.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/wish_classes/off_wish.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="11" column="56" selection-start-line="11" selection-start-column="56" selection-end-line="11" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#114#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Programmes/flutter/bin/cache/dart-sdk/lib/core/object.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="863">
-          <caret line="113" column="20" selection-start-line="113" selection-start-column="20" selection-end-line="113" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_objects/abstract_smart_devices/smart_device_base_abstract.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="38" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_objects/abstract_smart_devices/smart_device_static_abstract.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="4" column="53" lean-forward="true" selection-start-line="4" selection-start-column="53" selection-end-line="4" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/device_information.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
@@ -1180,13 +1153,6 @@
     <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/emptyConsoleApplicationDart.dart">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/bin/main.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="38" selection-start-column="38" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/NetworkManager/NetworkManagerDart/lib/network_manager_dart.dart" />
     <entry file="file://$PROJECT_DIR$/NetworkManager/NetworkManagerDart/lib/server/connector_with_device.dart">
       <provider selected="true" editor-type-id="text-editor">
@@ -1216,9 +1182,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/shared_variables.dart">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_manager.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="924">
@@ -1236,23 +1199,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NetworkManager/NetworkManagerDart/lib/network_actions.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="51" column="60" lean-forward="true" selection-start-line="51" selection-start-column="60" selection-end-line="51" selection-end-column="60" />
-          <folding>
-            <element signature="e#91#111#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NetworkManager/NetworkManagerDart/pubspec.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Programmes/flutter/.pub-cache/hosted/pub.dartlang.org/data_connection_checker-0.3.4/lib/data_connection_checker.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1262,12 +1208,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/manage_physical_components/controlloling_pins.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/NetworkManager/scripts/bashScripts/dartSdkDownload.sh">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NetworkManager/scripts/cScripts/turnOn.c">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/server/smart_server.dart">
       <provider selected="true" editor-type-id="text-editor">
@@ -1280,13 +1225,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NetworkManager/NetworkManagerDart/bin/main.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
@@ -1303,10 +1241,79 @@
     <entry file="file://$USER_HOME$/Programmes/flutter/.pub-cache/hosted/pub.dartlang.org/firedart-0.6.1/lib/firedart.dart">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/NetworkManager/NetworkManagerDart/pubspec.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NetworkManager/scripts/bashScripts/compileAllCFiles.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="4" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/manage_physical_components/controlloling_pins.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="12" column="35" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/bin/main.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#91#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NetworkManager/NetworkManagerDart/bin/main.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/NetworkManager/NetworkManagerDart/lib/director.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
+        <state relative-caret-position="241">
+          <caret line="28" column="83" selection-start-line="28" selection-start-column="83" selection-end-line="28" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/shared_variables.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NetworkManager/scripts/bashScripts/nmcliScript.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NetworkManager/NetworkManagerDart/lib/network_actions.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="125" column="58" selection-start-line="125" selection-start-column="58" selection-end-line="125" selection-end-column="58" />
+          <folding>
+            <element signature="e#91#111#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NetworkManager/snap/snapcraft.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
         </state>
       </provider>
     </entry>
