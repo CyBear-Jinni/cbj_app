@@ -6,16 +6,19 @@ import 'home_page/home_page.dart';
 import 'home_page/tabs/smart_devices_widgets/blinds/blinds_page.dart';
 import 'login_page/login_page.dart';
 
+
 void main() {
 //  debugPaintSizeEnabled = true;
   runApp(MyApp());
 }
+
 
 class MyApp extends StatelessWidget {
   final routes = <String, WidgetBuilder>{
     LoginPage.tag: (context) => LoginPage(),
 //    HomePage.tag: (context) => HomePage(),
   };
+
 
   @override
   Widget build(BuildContext context) {

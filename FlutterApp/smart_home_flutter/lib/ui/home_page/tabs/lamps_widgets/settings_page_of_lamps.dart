@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:smart_home_flutter/ui/shared_widgets/add_new_devie_widget.dart';
 
+
 class SettingsPageOfLamps extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     Widget tile(int index) {

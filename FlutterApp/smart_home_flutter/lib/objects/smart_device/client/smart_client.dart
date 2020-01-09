@@ -5,6 +5,7 @@ import 'package:grpc/grpc.dart';
 import 'protoc_as_dart/smart_connection.pb.dart';
 import 'protoc_as_dart/smart_connection.pbgrpc.dart';
 
+
 class SmartClient {
   //  Get the status of smart device
   static Future<String> getSmartDeviceStatus(String ip) async {
@@ -50,6 +51,7 @@ class SmartClient {
     await channel.shutdown();
     return response.success.toString();
   }
+
 
   //  Blinds
 

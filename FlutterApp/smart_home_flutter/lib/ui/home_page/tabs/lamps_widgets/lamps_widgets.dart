@@ -3,7 +3,9 @@ import 'package:smart_home_flutter/ui/home_page/tabs/lamps_widgets/settings_page
 
 import '../../rooms_manager_widget.dart';
 
+
 class LampsWidgets extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return Column(

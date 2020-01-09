@@ -4,13 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:smart_home_flutter/objects/smart_device/smart_blinds_object.dart';
 import 'package:smart_home_flutter/objects/smart_device/smart_device_objcet.dart';
 
+
 class SmartBlindPage extends StatefulWidget {
   final SmartDeviceObject device;
   SmartBlindsObject smartBlindsObject;
 
+
   SmartBlindPage(this.device) {
     smartBlindsObject = device as SmartBlindsObject;
   }
+
 
   @override
   State<StatefulWidget> createState() {
@@ -18,11 +21,13 @@ class SmartBlindPage extends StatefulWidget {
   }
 }
 
+
 class _SmartBlindPage extends State<SmartBlindPage> {
   bool _isLoading = true; //  state is loading
   bool _switchState = false;
   SmartDeviceObject _device;
   SmartBlindsObject _smartBlindsObject;
+
 
   @override
   void initState() {
@@ -43,6 +48,7 @@ class _SmartBlindPage extends State<SmartBlindPage> {
     });
   }
 
+
   void _onChange(bool value) {
     print('OnChange ' + value.toString());
     _device.setLightState(value);
@@ -50,6 +56,7 @@ class _SmartBlindPage extends State<SmartBlindPage> {
       _switchState = value;
     });
   }
+
 
   @override
   Widget build(BuildContext context) {

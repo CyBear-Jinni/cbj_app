@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:smart_home_flutter/ui/room_page/room_widget.dart';
 
+
 class RoomPage extends StatelessWidget {
   final String roomName;
 
+
   RoomPage(this.roomName);
+
 
   @override
   Widget build(BuildContext context) {
