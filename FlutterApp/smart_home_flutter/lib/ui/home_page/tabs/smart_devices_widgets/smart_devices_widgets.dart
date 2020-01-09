@@ -3,6 +3,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:smart_home_flutter/database/firebase/cloud_firestore/firestore_class.dart';
 import 'package:smart_home_flutter/ui/home_page/tabs/smart_devices_widgets/settings_page_of_smart_devices.dart';
 
+
 class SmartDevicesWidgets extends StatelessWidget {
   final Map<String, AssetImage> _symbolsImageList = {
     "conditioner": AssetImage('assets/simbols/air_conditioner.jpg'),
@@ -13,6 +14,7 @@ class SmartDevicesWidgets extends StatelessWidget {
   };
 
   final List<MaterialColor> colorList = Colors.primaries;
+
 
   List<Widget> smartDevice(BuildContext context) {
     return _symbolsImageList.keys
@@ -60,6 +62,7 @@ class SmartDevicesWidgets extends StatelessWidget {
             }))
         .toList();
   }
+
 
   @override
   Widget build(BuildContext context) {

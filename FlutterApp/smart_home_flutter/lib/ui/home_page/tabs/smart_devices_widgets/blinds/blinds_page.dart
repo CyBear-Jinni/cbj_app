@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'blinds_manager_widget.dart';
 
+
 class BlindsPage extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

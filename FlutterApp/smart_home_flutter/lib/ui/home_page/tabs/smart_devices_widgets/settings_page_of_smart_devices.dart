@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+
 class SettingsPageSmartDevices extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

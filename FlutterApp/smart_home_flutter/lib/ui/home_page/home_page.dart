@@ -3,7 +3,9 @@ import 'package:smart_home_flutter/ui/home_page/tabs/lamps_widgets/lamps_widgets
 import 'package:smart_home_flutter/ui/home_page/tabs/presets_widgets/presets_widgets.dart';
 import 'package:smart_home_flutter/ui/home_page/tabs/smart_devices_widgets/smart_devices_widgets.dart';
 
+
 class HomePage extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return Container(

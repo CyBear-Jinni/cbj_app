@@ -6,7 +6,9 @@ class RoomWidget extends StatelessWidget {
   final Function deleteProduct;
   final List<Map<String, dynamic>> products;
 
+
   RoomWidget(this.products, this.updateProduct, this.deleteProduct);
+
 
   @override
   Widget build(BuildContext context) {

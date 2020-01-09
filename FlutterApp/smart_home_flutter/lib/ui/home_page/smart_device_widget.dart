@@ -6,6 +6,7 @@ import 'package:smart_home_flutter/objects/smart_device/smart_device_objcet.dart
 class SmartDevicePage extends StatefulWidget {
   final SmartDeviceObject device;
 
+
   SmartDevicePage(this.device);
 
   @override
@@ -18,6 +19,7 @@ class _SmartDevicePage extends State<SmartDevicePage> {
   bool _isLoading = true; //  state is loading
   bool _switchState = false;
   SmartDeviceObject _device;
+
 
   @override
   void initState() {
@@ -37,6 +39,7 @@ class _SmartDevicePage extends State<SmartDevicePage> {
     });
   }
 
+
   void _onChange(bool value) {
     print('OnChange ' + value.toString());
     _device.setLightState(value);
@@ -44,6 +47,7 @@ class _SmartDevicePage extends State<SmartDevicePage> {
       _switchState = value;
     });
   }
+
 
   @override
   Widget build(BuildContext context) {

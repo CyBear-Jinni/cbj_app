@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smart_home_flutter/ui/home_page/tabs/presets_widgets/settings_page_of_presets.dart';
 
+
 class PresetsWidgets extends StatelessWidget {
   final List<String> _presetsList = [
     'Welcome home',
@@ -22,6 +23,7 @@ class PresetsWidgets extends StatelessWidget {
     'Party mode6',
   ];
   final List<MaterialColor> colorList = Colors.primaries;
+
 
   List<Widget> presets(BuildContext context) {
     return _presetsList
@@ -45,6 +47,7 @@ class PresetsWidgets extends StatelessWidget {
             ))
         .toList();
   }
+
 
   @override
   Widget build(BuildContext context) {

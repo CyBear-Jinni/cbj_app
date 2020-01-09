@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+
 class FireStoreClass {
   FireStoreClass() {
     Firestore.instance

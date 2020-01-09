@@ -5,7 +5,9 @@ import 'package:smart_home_flutter/objects/smart_device/smart_device_objcet.dart
 
 import 'light_page.dart';
 
+
 class AddNewDeviceWidgetPopup extends StatefulWidget {
+
   @override
   State<StatefulWidget> createState() {
     return _AddNewDeviceWidgetPopup();
@@ -19,6 +21,7 @@ class _AddNewDeviceWidgetPopup extends State<AddNewDeviceWidgetPopup> {
   static String _ip;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
 
   Widget addNewDeviceWidget = ListBody(
     children: <Widget>[
@@ -70,6 +73,7 @@ class _AddNewDeviceWidgetPopup extends State<AddNewDeviceWidgetPopup> {
     ],
   );
 
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -106,7 +110,9 @@ class _AddNewDeviceWidgetPopup extends State<AddNewDeviceWidgetPopup> {
   }
 }
 
+
 class DropDownMenu extends StatefulWidget {
+
   @override
   State<StatefulWidget> createState() {
     return _DropDownMenu();
