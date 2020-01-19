@@ -4,73 +4,272 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96c5fe8c-119f-4135-b3fa-611215ac658f" name="Default Changelist" comment="l">
+    <list default="true" id="96c5fe8c-119f-4135-b3fa-611215ac658f" name="Default Changelist" comment="New roles, after import and between functions there will be 2 new lines (comments do not included) afte class creation there will be one new line if there is function and no new line otherwise">
+      <change afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/python_class.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/database/firebase/cloud_firestore/firestore_class.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/database/firebase/cloud_firestore/firestore_class.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/enums.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/enums.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/interface_darta/cloud_interface_data.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/interface_darta/cloud_interface_data.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/client/smart_client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/client/smart_client.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/send_to_smart_device.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/send_to_smart_device.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/smart_blinds_object.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/smart_blinds_object.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/smart_device_objcet.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/smart_device_objcet.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/smart_room_object.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/smart_room_object.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/devices_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/devices_list.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/home_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/home_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/rooms_manager_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/rooms_manager_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/smart_device_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/smart_device_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/tabs/lamps_widgets/lamps_widgets.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/tabs/lamps_widgets/lamps_widgets.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/tabs/lamps_widgets/settings_page_of_lamps.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/tabs/lamps_widgets/settings_page_of_lamps.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/tabs/presets_widgets/presets_widgets.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/tabs/presets_widgets/presets_widgets.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/tabs/presets_widgets/settings_page_of_presets.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/tabs/presets_widgets/settings_page_of_presets.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/tabs/smart_devices_widgets/blinds/blinds_manager_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/tabs/smart_devices_widgets/blinds/blinds_manager_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/tabs/smart_devices_widgets/blinds/blinds_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/tabs/smart_devices_widgets/blinds/blinds_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/tabs/smart_devices_widgets/blinds/smart_blind_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/tabs/smart_devices_widgets/blinds/smart_blind_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/tabs/smart_devices_widgets/settings_page_of_smart_devices.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/tabs/smart_devices_widgets/settings_page_of_smart_devices.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/tabs/smart_devices_widgets/smart_devices_widgets.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/tabs/smart_devices_widgets/smart_devices_widgets.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/login_page/form_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/login_page/form_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/login_page/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/login_page/login_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/room_page/room_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/room_page/room_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/room_page/room_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/room_page/room_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/shared_widgets/add_new_devie_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/shared_widgets/add_new_devie_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/shared_widgets/light_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/shared_widgets/light_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NetworkManager/NetworkManagerDart/bin/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/NetworkManager/NetworkManagerDart/bin/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NetworkManager/NetworkManagerDart/lib/director.dart" beforeDir="false" afterPath="$PROJECT_DIR$/NetworkManager/NetworkManagerDart/lib/director.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NetworkManager/NetworkManagerDart/lib/network_actions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/NetworkManager/NetworkManagerDart/lib/network_actions.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/bin/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/bin/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/emptyConsoleApplicationDart.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/emptyConsoleApplicationDart.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/data_base/cloud_fire_store.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/data_base/cloud_fire_store.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/data_base/cloud_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/data_base/cloud_manager.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/data_base/data_base_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/data_base/data_base_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/device_information.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/device_information.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/enums.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/enums.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/manage_physical_components/button_object.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/manage_physical_components/button_object.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/manage_physical_components/controlloling_pins.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/manage_physical_components/controlloling_pins.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/manage_physical_components/device_pin_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/manage_physical_components/device_pin_manager.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/manage_physical_components/devices_pin_configuration/device_configuration_base_class.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/manage_physical_components/devices_pin_configuration/device_configuration_base_class.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/manage_physical_components/devices_pin_configuration/nano_pi_duo2_configuration.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/manage_physical_components/devices_pin_configuration/nano_pi_duo2_configuration.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/manage_physical_components/devices_pin_configuration/nano_pi_neo2_configuration.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/manage_physical_components/devices_pin_configuration/nano_pi_neo2_configuration.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/manage_physical_components/devices_pin_configuration/nano_pi_neo_configuration.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/manage_physical_components/devices_pin_configuration/nano_pi_neo_configuration.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/manage_physical_components/devices_pin_configuration/pin_information.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/manage_physical_components/devices_pin_configuration/pin_information.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/permissions/permissions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/permissions/permissions.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/permissions/permissions_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/permissions/permissions_manager.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/server/smart_server.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/server/smart_server.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/shared_variables.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/shared_variables.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/wish_classes/blinds_wish.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/wish_classes/blinds_wish.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/wish_classes/dynamic_wish.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/wish_classes/dynamic_wish.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/wish_classes/off_wish.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/wish_classes/off_wish.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/wish_classes/on_wish.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/wish_classes/on_wish.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_manager.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_objects/abstract_smart_devices/smart_device_base_abstract.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_objects/abstract_smart_devices/smart_device_base_abstract.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_objects/abstract_smart_devices/smart_device_dynamic_abstract.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_objects/abstract_smart_devices/smart_device_dynamic_abstract.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_objects/abstract_smart_devices/smart_device_simple_abstract.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_objects/abstract_smart_devices/smart_device_simple_abstract.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_objects/abstract_smart_devices/smart_device_static_abstract.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_objects/abstract_smart_devices/smart_device_static_abstract.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_objects/dinamic_devices/dynamic_light_object.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_objects/dinamic_devices/dynamic_light_object.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_objects/dinamic_devices/fan_object.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_objects/dinamic_devices/fan_object.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_objects/dinamic_devices/speaker_object.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_objects/dinamic_devices/speaker_object.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_objects/simple_devices/light_object.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_objects/simple_devices/light_object.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_objects/simple_devices/thermostat_object.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_objects/simple_devices/thermostat_object.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_objects/static_devices/blinds_object.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_objects/static_devices/blinds_object.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/bashScripts/compileAllCFiles.sh" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/scripts/bashScripts/compileAllCFiles.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/.idea/copyright/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/assets/snowboy/alexa.umdl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/assets/snowboy/common.res" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/assets/snowboy/ding.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/ic_launcher-web.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/res/drawable/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/res/layout/main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/src/ai/kitt/snowboy/AppResCopy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/src/ai/kitt/snowboy/Constants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/src/ai/kitt/snowboy/Demo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/src/ai/kitt/snowboy/MsgEnum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/src/ai/kitt/snowboy/SnowboyDetect.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/src/ai/kitt/snowboy/SnowboyVad.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/src/ai/kitt/snowboy/audio/AudioDataReceivedListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/src/ai/kitt/snowboy/audio/AudioDataSaver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/src/ai/kitt/snowboy/audio/PlaybackThread.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/src/ai/kitt/snowboy/audio/RecordingThread.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/src/ai/kitt/snowboy/snowboyJNI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/src/main/jniLibs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/C++/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/C++/demo.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/C++/demo.mk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/C++/demo2.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/C++/install_portaudio.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/C++/patches/portaudio.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/C++/resources" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/C/demo.c" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/C/demo.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Go/detect/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Go/detect/readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Go/listen/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Go/listen/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Java/Demo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Java/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Java/java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Java/jniLibs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Java/resources" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Node/file.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Node/microphone.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Node/resources" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Perl/Snowboy.dylib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Perl/Snowboy.pm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Perl/Snowboy.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Perl/cpanfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Perl/resources" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Perl/snowboy_RESTful_train.pl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Perl/snowboy_googlevoice.pl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Perl/snowboy_unit_test.pl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Python/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Python/_snowboydetect.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Python/demo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Python/demo2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Python/demo3.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Python/demo4.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Python/demo_arecord.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Python/demo_threaded.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Python/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Python/resources" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Python/snowboydecoder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Python/snowboydecoder_arecord.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Python/snowboydetect.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Python/snowboythreaded.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Python3/_snowboydetect.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Python3/demo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Python3/demo2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Python3/demo3.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Python3/demo4.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Python3/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Python3/resources" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Python3/snowboydecoder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/Python3/snowboydetect.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/REST_API/training_service.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/REST_API/training_service.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Podfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Podfile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudio.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudio.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioDevice.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioDevice.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioDisplayLink.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioDisplayLink.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioFFT.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioFFT.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioFile.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioFile.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioFloatConverter.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioFloatConverter.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioFloatData.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioFloatData.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioOSX.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioPlayer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioPlayer.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioPlot.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioPlot.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioPlotGL.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioPlotGL.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioUtilities.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioUtilities.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioiOS.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZMicrophone.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZMicrophone.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZOutput.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZOutput.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZPlot.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZPlot.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZRecorder.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZRecorder.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/TPCircularBuffer.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/TPCircularBuffer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/EZAudio/EZAudio.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/EZAudio/EZAudioDevice.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/EZAudio/EZAudioDisplayLink.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/EZAudio/EZAudioFFT.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/EZAudio/EZAudioFile.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/EZAudio/EZAudioFloatConverter.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/EZAudio/EZAudioFloatData.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/EZAudio/EZAudioOSX.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/EZAudio/EZAudioPlayer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/EZAudio/EZAudioPlot.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/EZAudio/EZAudioPlotGL.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/EZAudio/EZAudioUtilities.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/EZAudio/EZAudioiOS.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/EZAudio/EZMicrophone.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/EZAudio/EZOutput.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/EZAudio/EZPlot.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/EZAudio/EZRecorder.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/EZAudio/TPCircularBuffer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/TPCircularBuffer/TPCircularBuffer+AudioBufferList.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/TPCircularBuffer/TPCircularBuffer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/EZAudio/EZAudio.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/EZAudio/EZAudioDevice.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/EZAudio/EZAudioDisplayLink.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/EZAudio/EZAudioFFT.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/EZAudio/EZAudioFile.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/EZAudio/EZAudioFloatConverter.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/EZAudio/EZAudioFloatData.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/EZAudio/EZAudioOSX.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/EZAudio/EZAudioPlayer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/EZAudio/EZAudioPlot.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/EZAudio/EZAudioPlotGL.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/EZAudio/EZAudioUtilities.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/EZAudio/EZAudioiOS.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/EZAudio/EZMicrophone.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/EZAudio/EZOutput.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/EZAudio/EZPlot.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/EZAudio/EZRecorder.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/EZAudio/TPCircularBuffer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/TPCircularBuffer/TPCircularBuffer+AudioBufferList.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/TPCircularBuffer/TPCircularBuffer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Manifest.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Pods.xcodeproj/project.pbxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Pods.xcodeproj/xcuserdata/patrickquinn.xcuserdatad/xcschemes/EZAudio.xcscheme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Pods.xcodeproj/xcuserdata/patrickquinn.xcuserdatad/xcschemes/Pods-SnowboyTest.xcscheme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Pods.xcodeproj/xcuserdata/patrickquinn.xcuserdatad/xcschemes/TPCircularBuffer.xcscheme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Pods.xcodeproj/xcuserdata/patrickquinn.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/TPCircularBuffer/README.markdown" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/TPCircularBuffer/TPCircularBuffer+AudioBufferList.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/TPCircularBuffer/TPCircularBuffer+AudioBufferList.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/TPCircularBuffer/TPCircularBuffer.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/TPCircularBuffer/TPCircularBuffer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Target Support Files/EZAudio/EZAudio-dummy.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Target Support Files/EZAudio/EZAudio-prefix.pch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Target Support Files/EZAudio/EZAudio.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Target Support Files/Pods-SnowboyTest/Pods-SnowboyTest-acknowledgements.markdown" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Target Support Files/Pods-SnowboyTest/Pods-SnowboyTest-acknowledgements.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Target Support Files/Pods-SnowboyTest/Pods-SnowboyTest-dummy.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Target Support Files/Pods-SnowboyTest/Pods-SnowboyTest-frameworks.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Target Support Files/Pods-SnowboyTest/Pods-SnowboyTest-resources.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Target Support Files/Pods-SnowboyTest/Pods-SnowboyTest.debug.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Target Support Files/Pods-SnowboyTest/Pods-SnowboyTest.release.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Target Support Files/TPCircularBuffer/TPCircularBuffer-dummy.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Target Support Files/TPCircularBuffer/TPCircularBuffer-prefix.pch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Target Support Files/TPCircularBuffer/TPCircularBuffer.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest.xcodeproj/project.pbxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest.xcodeproj/project.xcworkspace/xcuserdata/patrickquinn.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest.xcodeproj/xcuserdata/patrickquinn.xcuserdatad/xcschemes/SnowboyTest.xcscheme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest.xcodeproj/xcuserdata/patrickquinn.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest.xcworkspace/xcuserdata/patrickquinn.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest/AppDelegate.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest/AppDelegate.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest/Assets.xcassets/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest/Assets.xcassets/banner.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest/Assets.xcassets/banner.imageset/snowboy-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest/Assets.xcassets/banner.imageset/snowboy-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest/Assets.xcassets/banner.imageset/snowboy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest/Base.lproj/LaunchScreen.storyboard" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest/Base.lproj/Main.storyboard" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest/ViewController.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest/ViewController.mm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest/alexa.umdl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest/common.res" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest/libsnowboy-detect.a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest/main.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest/snowboy-detect.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTestTests/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTestTests/SnowboyTestTests.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTestUITests/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTestUITests/SnowboyTestUITests.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Swift3/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTest.xcodeproj/project.pbxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTest.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTest.xcodeproj/project.xcworkspace/xcuserdata/shengbi.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTest.xcodeproj/xcuserdata/shengbi.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTest.xcodeproj/xcuserdata/shengbi.xcuserdatad/xcschemes/SnowboyTest.xcscheme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTest.xcodeproj/xcuserdata/shengbi.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTest/AppDelegate.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTest/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTest/Base.lproj/LaunchScreen.storyboard" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTest/Base.lproj/Main.storyboard" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTest/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTest/SnowboyTest-Bridging-Header.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTest/SnowboyTest.xcdatamodeld/.xccurrentversion" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTest/SnowboyTest.xcdatamodeld/SnowboyTest.xcdatamodel/contents" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTest/SnowboyWrapper.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTest/SnowboyWrapper.mm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTest/ViewController.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTestTests/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTestTests/SnowboyTestTests.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTestUITests/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTestUITests/SnowboyTestUITests.swift" beforeDir="false" />
     </list>
     <ignored path="SmartDevice/parts/smart-home/install/WiringNP/" />
     <ignored path="SmartDevice/prime/WiringNP/" />
@@ -93,90 +292,50 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="3ff890a4" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/tabs/lamps_widgets/settings_page_of_lamps.dart">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_manager.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1890">
+            <state relative-caret-position="569">
+              <caret line="92" column="45" lean-forward="true" selection-start-line="92" selection-start-column="45" selection-end-line="92" selection-end-column="45" />
               <folding>
-                <element signature="e#0#39#0" expanded="true" />
+                <element signature="e#0#17#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/tabs/lamps_widgets/lamps_widgets.dart">
+        <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/bin/main.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-457">
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="21">
+              <caret line="1" column="62" selection-start-line="1" selection-start-column="62" selection-end-line="1" selection-end-column="62" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/enums.dart">
+        <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/shared_variables.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
+            <state relative-caret-position="273">
+              <caret line="13" column="16" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/smart_room_object.dart">
+        <entry file="file://$PROJECT_DIR$/SmartDevice/scripts/cScripts/buttonPress.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-              <folding>
-                <element signature="e#0#82#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="399">
+              <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/smart_device_objcet.dart">
+        <entry file="file://$USER_HOME$/Programmes/flutter/bin/cache/dart-sdk/lib/io/process.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#83#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/smart_blinds_object.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#55#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/send_to_smart_device.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#20#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/client/smart_client.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1780">
-              <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-              <folding>
-                <element signature="e#0#20#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="176">
+              <caret line="410" column="40" selection-start-line="410" selection-start-column="40" selection-end-line="410" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -184,7 +343,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/interface_darta/cloud_interface_data.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-504">
+            <state relative-caret-position="483">
+              <caret line="23" column="50" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="50" />
               <folding>
                 <element signature="e#0#55#0" expanded="true" />
               </folding>
@@ -192,9 +352,38 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/database/firebase/cloud_firestore/firestore_class.dart">
-          <provider selected="true" editor-type-id="text-editor" />
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/python_class.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="21">
+              <caret line="1" column="22" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SmartDevice/scripts/bashScripts/compileAllCFiles.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="462">
+              <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/C/demo.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3654" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/manage_physical_components/button_object.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-141">
+              <caret line="73" column="59" selection-start-line="73" selection-start-column="59" selection-end-line="73" selection-end-column="59" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -208,36 +397,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Future.</find>
-      <find>Process</find>
-      <find>Process.</find>
-      <find>getAvailableNetworksList</find>
-      <find>getConnectedNetworkName</find>
-      <find>unicod</find>
-      <find>ibgio-2.0</find>
-      <find>ibgio</find>
-      <find>nstat</find>
-      <find>network-manager</find>
-      <find>turnOn</find>
-      <find>nmcli</find>
-      <find>ld</find>
-      <find>connectToAdminWhenExist</find>
-      <find>stdlib.h</find>
-      <find>This is the pin</find>
-      <find>21</find>
+      <find>listen</find>
+      <find>dev_index</find>
+      <find>Record</find>
+      <find>sr.</find>
+      <find>show_devices</find>
+      <find>wav</find>
+      <find>record_secs</find>
+      <find>google_recognition</find>
+      <find>sphinx_recognition</find>
+      <find>turnOff</find>
+      <find>argv</find>
+      <find>https://pub.dartlang.org</find>
+      <find>Future.delayed</find>
+      <find>execute</find>
+      <find>ExecuteWish</find>
+      <find>process</find>
+      <find>listenToDataBase</find>
+      <find>LightOb</find>
+      <find>smartDevicesList</find>
       <find>10.0.0.21</find>
-      <find>Error physical device is null</find>
-      <find>10.0.0.</find>
-      <find>emptyConsole</find>
-      <find>Blinds</find>
-      <find>room1DevicesList</find>
-      <find>nm</find>
-      <find>tristate</find>
-      <find>47435</find>
-      <find>onOffState</find>
-      <find>getDeviceState</find>
-      <find>dela</find>
-      <find>delay</find>
+      <find>RecognitionClass</find>
+      <find>butt</find>
+      <find>printf</find>
+      <find>listenToVoiceCommand</find>
+      <find>GotVoice</find>
+      <find>Recived voice command</find>
+      <find>await Process.run(</find>
+      <find>buttonPress</find>
+      <find>Next</find>
+      <find>what</find>
     </findStrings>
     <replaceStrings>
       <replace>v: 0</replace>
@@ -251,19 +440,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/main.dart" />
-        <option value="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/room_page/room_widget.dart" />
-        <option value="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/smart_device_widget.dart" />
-        <option value="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/rooms_manager_widget.dart" />
-        <option value="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/home_page.dart" />
-        <option value="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/devices_list.dart" />
-        <option value="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/tabs/smart_devices_widgets/settings_page_of_smart_devices.dart" />
-        <option value="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/tabs/smart_devices_widgets/blinds/smart_blind_widget.dart" />
-        <option value="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/tabs/smart_devices_widgets/blinds/blinds_page.dart" />
-        <option value="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/tabs/smart_devices_widgets/blinds/blinds_manager_widget.dart" />
-        <option value="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/tabs/presets_widgets/settings_page_of_presets.dart" />
-        <option value="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/tabs/presets_widgets/presets_widgets.dart" />
-        <option value="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/tabs/lamps_widgets/settings_page_of_lamps.dart" />
         <option value="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/tabs/lamps_widgets/lamps_widgets.dart" />
         <option value="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/smart_room_object.dart" />
         <option value="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/smart_device_objcet.dart" />
@@ -284,32 +460,45 @@
         <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/manage_physical_components/devices_pin_configuration/nano_pi_neo2_configuration.dart" />
         <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/emptyConsoleApplicationDart.dart" />
         <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/shared_variables.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/enums.dart" />
         <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/wish_classes/on_wish.dart" />
         <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/wish_classes/off_wish.dart" />
         <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/wish_classes/dynamic_wish.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/wish_classes/blinds_wish.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/server/smart_server.dart" />
         <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/permissions/permissions_manager.dart" />
         <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/device_information.dart" />
         <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/permissions/permissions.dart" />
         <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/manage_physical_components/controlloling_pins.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/manage_physical_components/button_object.dart" />
         <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/manage_physical_components/devices_pin_configuration/pin_information.dart" />
         <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/manage_physical_components/devices_pin_configuration/nano_pi_neo_configuration.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/bin/main.dart" />
         <option value="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/login_page/login_page.dart" />
         <option value="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/tabs/smart_devices_widgets/smart_devices_widgets.dart" />
         <option value="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/enums.dart" />
         <option value="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/client/smart_client.dart" />
+        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/python_class.dart" />
+        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_objects/static_devices/blinds_object.dart" />
+        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_objects/simple_devices/light_object.dart" />
+        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_objects/abstract_smart_devices/smart_device_dynamic_abstract.dart" />
+        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_objects/abstract_smart_devices/smart_device_simple_abstract.dart" />
+        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/server/smart_server.dart" />
+        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_objects/abstract_smart_devices/smart_device_static_abstract.dart" />
+        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/wish_classes/blinds_wish.dart" />
+        <option value="$PROJECT_DIR$/SmartDevice/scripts/cScripts/buttonPress.c" />
+        <option value="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboyC/demo.c" />
+        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/enums.dart" />
+        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_objects/abstract_smart_devices/smart_device_base_abstract.dart" />
+        <option value="$PROJECT_DIR$/NetworkManager/NetworkManagerDart/lib/network_actions.dart" />
+        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/manage_physical_components/button_object.dart" />
+        <option value="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/C/demo.c" />
+        <option value="$PROJECT_DIR$/SmartDevice/scripts/bashScripts/compileAllCFiles.sh" />
+        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/bin/main.dart" />
+        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_manager.dart" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2297" />
-    <option name="y" value="453" />
-    <option name="width" value="1112" />
-    <option name="height" value="696" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1945" />
+    <option name="y" value="344" />
+    <option name="width" value="1102" />
+    <option name="height" value="695" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -317,212 +506,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="FlutterApp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="FlutterApp" type="462c0819:PsiDirectoryNode" />
-              <item name="smart_home_flutter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="FlutterApp" type="462c0819:PsiDirectoryNode" />
-              <item name="smart_home_flutter" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="FlutterApp" type="462c0819:PsiDirectoryNode" />
-              <item name="smart_home_flutter" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="FlutterApp" type="462c0819:PsiDirectoryNode" />
-              <item name="smart_home_flutter" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="firebase" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="FlutterApp" type="462c0819:PsiDirectoryNode" />
-              <item name="smart_home_flutter" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="firebase" type="462c0819:PsiDirectoryNode" />
-              <item name="cloud_firestore" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="FlutterApp" type="462c0819:PsiDirectoryNode" />
-              <item name="smart_home_flutter" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="objects" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="FlutterApp" type="462c0819:PsiDirectoryNode" />
-              <item name="smart_home_flutter" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="objects" type="462c0819:PsiDirectoryNode" />
-              <item name="interface_darta" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="FlutterApp" type="462c0819:PsiDirectoryNode" />
-              <item name="smart_home_flutter" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="objects" type="462c0819:PsiDirectoryNode" />
-              <item name="smart_device" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="FlutterApp" type="462c0819:PsiDirectoryNode" />
-              <item name="smart_home_flutter" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="objects" type="462c0819:PsiDirectoryNode" />
-              <item name="smart_device" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="FlutterApp" type="462c0819:PsiDirectoryNode" />
-              <item name="smart_home_flutter" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="FlutterApp" type="462c0819:PsiDirectoryNode" />
-              <item name="smart_home_flutter" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="home_page" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="FlutterApp" type="462c0819:PsiDirectoryNode" />
-              <item name="smart_home_flutter" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="home_page" type="462c0819:PsiDirectoryNode" />
-              <item name="tabs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="FlutterApp" type="462c0819:PsiDirectoryNode" />
-              <item name="smart_home_flutter" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="home_page" type="462c0819:PsiDirectoryNode" />
-              <item name="tabs" type="462c0819:PsiDirectoryNode" />
-              <item name="lamps_widgets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="FlutterApp" type="462c0819:PsiDirectoryNode" />
-              <item name="smart_home_flutter" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="home_page" type="462c0819:PsiDirectoryNode" />
-              <item name="tabs" type="462c0819:PsiDirectoryNode" />
-              <item name="presets_widgets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="FlutterApp" type="462c0819:PsiDirectoryNode" />
-              <item name="smart_home_flutter" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="login_page" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="FlutterApp" type="462c0819:PsiDirectoryNode" />
-              <item name="smart_home_flutter" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="shared_widgets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="NetworkManager" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="NetworkManager" type="462c0819:PsiDirectoryNode" />
-              <item name="NetworkManagerDart" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="NetworkManager" type="462c0819:PsiDirectoryNode" />
-              <item name="NetworkManagerDart" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="NetworkManager" type="462c0819:PsiDirectoryNode" />
-              <item name="NetworkManagerDart" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="NetworkManager" type="462c0819:PsiDirectoryNode" />
-              <item name="NetworkManagerDart" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="data_base" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="NetworkManager" type="462c0819:PsiDirectoryNode" />
-              <item name="NetworkManagerDart" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="ProtoFiles" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="AndroidView" />
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -703,7 +687,98 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
+              <item name="SmartDevice" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
+              <item name="SmartDevice" type="462c0819:PsiDirectoryNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
+              <item name="SmartDevice" type="462c0819:PsiDirectoryNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
+              <item name="bashScripts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
+              <item name="SmartDevice" type="462c0819:PsiDirectoryNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
+              <item name="cScripts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
+              <item name="SmartDevice" type="462c0819:PsiDirectoryNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
+              <item name="cScripts" type="462c0819:PsiDirectoryNode" />
+              <item name="snowboy" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
+              <item name="SmartDevice" type="462c0819:PsiDirectoryNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
+              <item name="cScripts" type="462c0819:PsiDirectoryNode" />
+              <item name="snowboy" type="462c0819:PsiDirectoryNode" />
+              <item name="examples" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
+              <item name="SmartDevice" type="462c0819:PsiDirectoryNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
+              <item name="cScripts" type="462c0819:PsiDirectoryNode" />
+              <item name="snowboy" type="462c0819:PsiDirectoryNode" />
+              <item name="examples" type="462c0819:PsiDirectoryNode" />
+              <item name="C" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
+              <item name="SmartDevice" type="462c0819:PsiDirectoryNode" />
+              <item name="SmartDeviceDart" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
+              <item name="SmartDevice" type="462c0819:PsiDirectoryNode" />
+              <item name="SmartDeviceDart" type="462c0819:PsiDirectoryNode" />
+              <item name="bin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
+              <item name="SmartDevice" type="462c0819:PsiDirectoryNode" />
+              <item name="SmartDeviceDart" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
+              <item name="SmartDevice" type="462c0819:PsiDirectoryNode" />
+              <item name="SmartDeviceDart" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="smart_device" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -712,26 +787,26 @@
     <property name="add_unversioned_files" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/NetworkManager/scripts/bashScripts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/SmartDevice/scripts/cScripts" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/SmartDevice/scripts/cScripts" />
+      <recent name="$PROJECT_DIR$/NetworkManager/scripts/bashScripts" />
+      <recent name="$PROJECT_DIR$/NetworkManager" />
+      <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/wish_classes" />
+      <recent name="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/tabs/smart_devices_widgets/blinds" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device" />
       <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/permissions" />
       <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib" />
       <recent name="$PROJECT_DIR$/SmartDevice/scripts" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/NetworkManager/scripts/bashScripts" />
-      <recent name="$PROJECT_DIR$/NetworkManager" />
-      <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/wish_classes" />
-      <recent name="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/tabs/smart_devices_widgets/blinds" />
-      <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -766,6 +841,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Smart Device" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+      <option name="arguments" value="&quot;$PROJECT_DIR$/SmartDevice&quot;" />
       <option name="filePath" value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/bin/main.dart" />
       <method v="2" />
     </configuration>
@@ -954,7 +1030,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575038369948</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="New roles, after import and between functions there will be 2 new lines (comments do not included) afte class creation there will be one new line if there is function and no new line otherwise">
+      <created>1578608362679</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1578608362679</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -999,7 +1082,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1720" y="0" width="1884" height="1084" extended-state="6" />
+    <frame x="1724" y="0" width="1876" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
@@ -1011,17 +1094,17 @@
       <window_info id="Capture Tool" order="6" />
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info id="Build Variants" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="0" sideWeight="0.53435117" weight="0.35699153" />
-      <window_info anchor="bottom" id="TODO" order="1" sideWeight="0.49890947" weight="0.3291536" />
+      <window_info anchor="bottom" id="Run" order="0" sideWeight="0.5201745" weight="0.40466103" />
+      <window_info anchor="bottom" id="TODO" order="1" sideWeight="0.49890947" weight="0.32838982" />
       <window_info anchor="bottom" id="Debug" order="2" sideWeight="0.6892039" weight="0.47033897" />
-      <window_info anchor="bottom" id="Terminal" order="3" sideWeight="0.49890947" weight="0.23728813" />
-      <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.46619412" side_tool="true" visible="true" weight="0.39724576" />
+      <window_info anchor="bottom" id="Terminal" order="3" sideWeight="0.49454743" weight="0.59322035" />
+      <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.47982553" side_tool="true" weight="0.40466103" />
       <window_info anchor="bottom" id="Flutter Performance" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="6" sideWeight="0.49836424" weight="0.4036017" />
       <window_info anchor="bottom" id="Android Profiler" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Dart Analysis" order="8" sideWeight="0.49945474" weight="0.32687652" />
+      <window_info anchor="bottom" id="Dart Analysis" order="8" sideWeight="0.49945474" weight="0.32627118" />
       <window_info anchor="bottom" id="Logcat" order="9" sideWeight="0.49945474" weight="0.3291536" />
-      <window_info anchor="bottom" id="Find" order="10" weight="0.32887974" />
+      <window_info anchor="bottom" id="Find" order="10" sideWeight="0.49890947" weight="0.32838982" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.4972737" weight="0.32838982" />
       <window_info anchor="bottom" id="Thumbnails" order="12" sideWeight="0.49945474" weight="0.3291536" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
@@ -1101,7 +1184,8 @@
     <MESSAGE value="The program will show available wif-fi networks when the internet disconnects." />
     <MESSAGE value="Fix connected network does not being updated after connecting to admin network" />
     <MESSAGE value="Push just to check the changes on the laptop" />
-    <option name="LAST_COMMIT_MESSAGE" value="Push just to check the changes on the laptop" />
+    <MESSAGE value="New roles, after import and between functions there will be 2 new lines (comments do not included) afte class creation there will be one new line if there is function and no new line otherwise" />
+    <option name="LAST_COMMIT_MESSAGE" value="New roles, after import and between functions there will be 2 new lines (comments do not included) afte class creation there will be one new line if there is function and no new line otherwise" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1118,268 +1202,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/device_information.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="79" selection-start-line="2" selection-start-column="79" selection-end-line="2" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/enums.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="861">
-          <caret line="41" column="18" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/shared_variables.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/emptyConsoleApplicationDart.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/permissions/permissions_manager.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/permissions/permissions.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="48" selection-start-line="2" selection-start-column="48" selection-end-line="2" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/manage_physical_components/device_pin_manager.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-126">
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/manage_physical_components/controlloling_pins.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/manage_physical_components/button_object.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1892">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/manage_physical_components/devices_pin_configuration/pin_information.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/manage_physical_components/devices_pin_configuration/nano_pi_neo_configuration.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/manage_physical_components/devices_pin_configuration/nano_pi_neo2_configuration.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4664">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/manage_physical_components/devices_pin_configuration/nano_pi_duo2_configuration.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5714">
-          <caret line="5" column="2" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/manage_physical_components/devices_pin_configuration/device_configuration_base_class.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="45" selection-start-line="5" selection-start-column="45" selection-end-line="5" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/data_base/data_base_controller.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-212">
-          <caret line="18" column="3" lean-forward="true" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/data_base/cloud_manager.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="e#0#104#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/data_base/cloud_fire_store.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1041">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/bin/main.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-          <folding>
-            <element signature="e#0#91#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NetworkManager/NetworkManagerDart/lib/network_actions.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2564">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NetworkManager/NetworkManagerDart/lib/director.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-485">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NetworkManager/NetworkManagerDart/lib/server/connector_with_device.dart">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NetworkManager/NetworkManagerDart/lib/data_base/data_base_manager.dart">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NetworkManager/NetworkManagerDart/bin/main.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/main.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-730">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/shared_widgets/light_page.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-394">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/shared_widgets/add_new_devie_widget.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-861">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/room_page/room_widget.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1087">
-          <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/room_page/room_page.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-919">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/login_page/login_page.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/login_page/form_widget.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/smart_device_widget.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1234">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/ui/home_page/rooms_manager_widget.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="131">
@@ -1482,17 +1304,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/enums.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/smart_room_object.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="168">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
           <folding>
             <element signature="e#0#82#0" expanded="true" />
           </folding>
@@ -1508,15 +1323,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/smart_blinds_object.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#55#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/send_to_smart_device.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1526,9 +1332,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/smart_blinds_object.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/manage_physical_components/controlloling_pins.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="29" column="61" selection-start-line="29" selection-start-column="61" selection-end-line="29" selection-end-column="61" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/client/smart_client.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1780">
+        <state relative-caret-position="63">
           <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
@@ -1536,17 +1361,243 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/database/firebase/cloud_firestore/firestore_class.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SmartDevice/scripts/bashScripts/dartSdkDownload.sh">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/manage_physical_components/device_pin_manager.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1174">
+          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/wish_classes/on_wish.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Programmes/flutter/bin/cache/dart-sdk/lib/async/future.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="308" column="17" selection-start-line="308" selection-start-column="17" selection-end-line="308" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Programmes/flutter/bin/cache/dart-sdk/lib/core/annotations.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="113" column="13" selection-start-line="113" selection-start-column="13" selection-end-line="113" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_objects/abstract_smart_devices/smart_device_static_abstract.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-298">
+          <caret line="4" column="67" selection-start-line="4" selection-start-column="67" selection-end-line="4" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_objects/abstract_smart_devices/smart_device_dynamic_abstract.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-84">
+          <caret line="5" column="58" selection-start-line="5" selection-start-column="58" selection-end-line="5" selection-end-column="58" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NetworkManager/NetworkManagerDart/pubspec.yaml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/pubspec.yaml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_objects/static_devices/blinds_object.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="38" column="65" selection-start-line="38" selection-start-column="65" selection-end-line="38" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/wish_classes/blinds_wish.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+          <folding>
+            <element signature="e#0#101#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SmartDevice/snap/snapcraft.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboyC/demo.c" />
+    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/server/smart_server.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_objects/simple_devices/light_object.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="6" column="2" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_objects/abstract_smart_devices/smart_device_simple_abstract.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_objects/abstract_smart_devices/smart_device_base_abstract.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2793">
+          <caret line="144" column="9" selection-start-line="144" selection-start-column="9" selection-end-line="144" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/wish_classes/off_wish.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/enums.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="27" column="2" selection-start-line="27" selection-start-column="2" selection-end-line="27" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/data_base/cloud_manager.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NetworkManager/NetworkManagerDart/lib/network_actions.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="438">
+          <caret line="112" column="73" selection-start-line="112" selection-start-column="73" selection-end-line="112" selection-end-column="118" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/enums.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/interface_darta/cloud_interface_data.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-504">
+        <state relative-caret-position="483">
+          <caret line="23" column="50" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="50" />
           <folding>
             <element signature="e#0#55#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/database/firebase/cloud_firestore/firestore_class.dart">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/python_class.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" column="22" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Programmes/flutter/bin/cache/dart-sdk/lib/io/process.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="410" column="40" selection-start-line="410" selection-start-column="40" selection-end-line="410" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/shared_variables.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="13" column="16" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SmartDevice/scripts/cScripts/buttonPress.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/shered/manage_physical_components/button_object.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-141">
+          <caret line="73" column="59" selection-start-line="73" selection-start-column="59" selection-end-line="73" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SmartDevice/scripts/bashScripts/compileAllCFiles.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/C/demo.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3654" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/bin/main.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" column="62" selection-start-line="1" selection-start-column="62" selection-end-line="1" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/smart_device/smart_device_manager.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="569">
+          <caret line="92" column="45" lean-forward="true" selection-start-line="92" selection-start-column="45" selection-end-line="92" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">
@@ -1576,6 +1627,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
+          <last-edited>Android</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1598,6 +1650,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
+          <last-edited>1.8</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1609,10 +1662,12 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
+          <last-edited>SmartHome</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -1620,6 +1675,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+          <last-edited>Dart Packages</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
