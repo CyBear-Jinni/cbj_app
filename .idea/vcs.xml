@@ -9,5 +9,6 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/SmartDevice/scripts/cScripts2/snowboy" vcs="Git" />
   </component>
 </project>
