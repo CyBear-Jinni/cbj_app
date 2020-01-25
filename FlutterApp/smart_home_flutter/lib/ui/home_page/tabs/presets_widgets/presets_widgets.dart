@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:smart_home_flutter/ui/home_page/tabs/presets_widgets/settings_page_of_presets.dart';
 
 
@@ -59,7 +60,7 @@ class PresetsWidgets extends StatelessWidget {
         Container(
           alignment: Alignment.centerRight,
           child: IconButton(
-            icon: Icon(Icons.settings,
+            icon: Icon(FontAwesomeIcons.cog,
                 color: Theme.of(context).textTheme.body1.color),
             onPressed: () => Navigator.push(
                 context,

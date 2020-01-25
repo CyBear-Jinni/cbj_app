@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:smart_home_flutter/ui/shared_widgets/add_new_devie_widget.dart';
 
 
@@ -23,7 +24,7 @@ class SettingsPageOfLamps extends StatelessWidget {
             ),
             trailing: IconButton(
               icon: Icon(
-                Icons.edit,
+                FontAwesomeIcons.pen,
                 color: Theme.of(context).textTheme.body1.color,
               ),
               onPressed: () {},
@@ -55,15 +56,15 @@ class SettingsPageOfLamps extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 IconButton(
-                  icon: Icon(Icons.arrow_back,
+                  icon: Icon(FontAwesomeIcons.arrowLeft,
                       color: Theme.of(context).textTheme.body1.color),
                   onPressed: () => Navigator.pop(context),
                 ),
                 IconButton(
                   icon: Icon(
-                    Icons.add,
+                    FontAwesomeIcons.plus,
                     color: Colors.green,
-                    size: 35,
+                    size: 25,
                   ),
                   onPressed: () {
                     showDialog(

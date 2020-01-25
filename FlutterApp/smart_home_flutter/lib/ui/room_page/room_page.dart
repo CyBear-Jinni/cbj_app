@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:smart_home_flutter/ui/room_page/room_widget.dart';
 
 
@@ -31,7 +32,7 @@ class RoomPage extends StatelessWidget {
             Container(
               alignment: Alignment.centerLeft,
               child: IconButton(
-                icon: Icon(Icons.arrow_back,
+                icon: Icon(FontAwesomeIcons.arrowLeft,
                     color: Theme.of(context).textTheme.body1.color),
                 onPressed: () => Navigator.pop(context),
               ),
@@ -45,15 +46,15 @@ class RoomPage extends StatelessWidget {
             ),
             RoomWidget(
               [
-                {'title': 'Smart device 1', 'price': 12},
-                {'title': 'Smart device 2', 'price': 15},
-                {'title': 'Smart device 3', 'price': 16},
-                {'title': 'Smart device 4', 'price': 6},
-                {'title': 'Smart device 5', 'price': 14},
-                {'title': 'Smart device 6', 'price': 17},
-                {'title': 'Smart device 7', 'price': 999},
-                {'title': 'Smart device 8', 'price': 233},
-                {'title': 'Smart device 9', 'price': 24},
+                {'title': 'Smart device 1', 'number': 12},
+                {'title': 'Smart device 2', 'number': 15},
+                {'title': 'Smart device 3', 'number': 16},
+                {'title': 'Smart device 4', 'number': 6},
+                {'title': 'Smart device 5', 'number': 14},
+                {'title': 'Smart device 6', 'number': 17},
+                {'title': 'Smart device 7', 'number': 999},
+                {'title': 'Smart device 8', 'number': 233},
+                {'title': 'Smart device 9', 'number': 24},
               ],
               () {},
               () {},

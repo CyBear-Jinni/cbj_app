@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:smart_home_flutter/objects/smart_device/smart_blinds_object.dart';
 import 'package:smart_home_flutter/objects/smart_device/smart_device_objcet.dart';
 
@@ -81,7 +82,7 @@ class _SmartBlindPage extends State<SmartBlindPage> {
             FlatButton(
                 color: Colors.brown,
                 child: Tab(
-                  icon: Icon(Icons.arrow_downward, color: Theme
+                  icon: Icon(FontAwesomeIcons.arrowDown, color: Theme
                       .of(context)
                       .textTheme
                       .body1
@@ -99,7 +100,7 @@ class _SmartBlindPage extends State<SmartBlindPage> {
             FlatButton(
                 color: Colors.grey,
                 child: Tab(
-                  icon: Icon(Icons.pan_tool, color: Theme
+                  icon: Icon(FontAwesomeIcons.solidHandPaper, color: Theme
                       .of(context)
                       .textTheme
                       .body1
@@ -115,7 +116,7 @@ class _SmartBlindPage extends State<SmartBlindPage> {
             FlatButton(
                 color: Colors.amber,
                 child: Tab(
-                  icon: Icon(Icons.arrow_upward, color: Theme
+                  icon: Icon(FontAwesomeIcons.arrowUp, color: Theme
                       .of(context)
                       .textTheme
                       .body1
