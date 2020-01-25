@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
 class SettingsPagePresets extends StatelessWidget {
@@ -23,7 +24,7 @@ class SettingsPagePresets extends StatelessWidget {
             Container(
               alignment: Alignment.centerLeft,
               child: IconButton(
-                icon: Icon(Icons.arrow_back,
+                icon: Icon(FontAwesomeIcons.arrowLeft,
                     color: Theme.of(context).textTheme.body1.color),
                 onPressed: () => Navigator.pop(context),
               ),

@@ -1,12 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:smart_home_flutter/ui/home_page/tabs/lamps_widgets/settings_page_of_lamps.dart';
 
-import '../../rooms_manager_widget.dart';
-
-
-class LampsWidgets extends StatelessWidget {
-
+class HistoryTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -19,14 +15,11 @@ class LampsWidgets extends StatelessWidget {
           child: IconButton(
             icon: Icon(FontAwesomeIcons.cog,
                 color: Theme.of(context).textTheme.body1.color),
-            onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (BuildContext context) => SettingsPageOfLamps())),
+            onPressed: () => Navigator.push(context, MaterialPageRoute()),
           ),
         ),
         Text(
-          'Lamps Page',
+          'Actions History',
           style: TextStyle(
               fontSize: 23.0,
               color: Theme.of(context).textTheme.body1.color,
@@ -35,7 +28,7 @@ class LampsWidgets extends StatelessWidget {
         Container(
           height: 20,
         ),
-        RoomsManagerWidget()
+        Text("Empty history")
       ],
     );
   }

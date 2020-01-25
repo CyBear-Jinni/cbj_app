@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'blinds_manager_widget.dart';
 
@@ -25,7 +26,7 @@ class BlindsPage extends StatelessWidget {
             Container(
               alignment: Alignment.centerLeft,
               child: IconButton(
-                icon: Icon(Icons.arrow_back,
+                icon: Icon(FontAwesomeIcons.arrowLeft,
                     color: Theme.of(context).textTheme.body1.color),
                 onPressed: () => Navigator.pop(context),
               ),

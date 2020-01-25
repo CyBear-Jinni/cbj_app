@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 //  This class is quick shortcut toggles of specific room
 class RoomWidget extends StatelessWidget {
@@ -42,12 +43,12 @@ class RoomWidget extends StatelessWidget {
                 style: TextStyle(color: Colors.white),
               ),
               subtitle: Text(
-                '\$${products[index]['price'].toString()}',
+                products[index]['number'].toString(),
                 style: TextStyle(color: Colors.white),
               ),
               trailing: IconButton(
                 color: Colors.white,
-                icon: Icon(Icons.edit),
+                icon: Icon(FontAwesomeIcons.pen),
                 onPressed: () {},
               ),
             ),
