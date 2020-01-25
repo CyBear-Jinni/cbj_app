@@ -62,6 +62,7 @@ class _SmartBlindPage extends State<SmartBlindPage> {
   @override
   Widget build(BuildContext context) {
     return Column(
+
       children: <Widget>[
         Text(
           _device.name, //  Show device name
@@ -70,6 +71,8 @@ class _SmartBlindPage extends State<SmartBlindPage> {
             color: Theme.of(context).textTheme.body2.color,
           ),
         ),
+        SizedBox(height: 20,),
+
         false
             ? Padding(
           padding: const EdgeInsets.all(8.0),
@@ -79,6 +82,7 @@ class _SmartBlindPage extends State<SmartBlindPage> {
         )
             : Row(
           children: <Widget>[
+            SizedBox(width: 10,),
             FlatButton(
                 color: Colors.brown,
                 child: Tab(
@@ -96,7 +100,7 @@ class _SmartBlindPage extends State<SmartBlindPage> {
                   ),
                 ),
                 onPressed: () => _smartBlindsObject.blindsDown()),
-            SizedBox(width: 4,),
+            SizedBox(width: 10,),
             FlatButton(
                 color: Colors.grey,
                 child: Tab(
@@ -112,7 +116,7 @@ class _SmartBlindPage extends State<SmartBlindPage> {
                       .color,
                       fontSize: 16),),),
                 onPressed: () => _smartBlindsObject.blindsStop()),
-            SizedBox(width: 4,),
+            SizedBox(width: 10,),
             FlatButton(
                 color: Colors.amber,
                 child: Tab(
@@ -128,9 +132,10 @@ class _SmartBlindPage extends State<SmartBlindPage> {
                       .color,
                       fontSize: 16),),),
                 onPressed: () => _smartBlindsObject.blindsUp()),
-            SizedBox(width: 4,),
+            SizedBox(width: 10,),
           ],
         ),
+        SizedBox(height: 20,),
       ],
     );
   }

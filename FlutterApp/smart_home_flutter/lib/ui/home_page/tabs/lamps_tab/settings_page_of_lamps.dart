@@ -42,10 +42,28 @@ class SettingsPageOfLamps extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         padding: EdgeInsets.all(5.0),
         decoration: BoxDecoration(
-          gradient: LinearGradient(colors: [
-            Theme.of(context).primaryColor,
-            Theme.of(context).accentColor,
-          ]),
+          gradient: LinearGradient(
+            // Where the linear gradient begins and ends
+            begin: Alignment.topRight,
+            end: Alignment.bottomCenter,
+            // Add one stop for each color. Stops should increase from 0 to 1
+            stops: [0, 0, 0, 1],
+            colors: [
+
+              Theme
+                  .of(context)
+                  .primaryColor,
+              Theme
+                  .of(context)
+                  .accentColor,
+
+              Theme
+                  .of(context)
+                  .accentColor,
+              Theme
+                  .of(context)
+                  .primaryColor
+            ],),
         ),
         child: Column(
           children: <Widget>[
@@ -78,7 +96,7 @@ class SettingsPageOfLamps extends StatelessWidget {
               ],
             ),
             Text(
-              'Settings Page',
+              'Lamps Settings Page',
               style: TextStyle(
                   fontSize: 23.0,
                   color: Theme.of(context).textTheme.body1.color,

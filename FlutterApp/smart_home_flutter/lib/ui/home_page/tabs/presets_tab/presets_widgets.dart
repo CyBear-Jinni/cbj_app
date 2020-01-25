@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:smart_home_flutter/ui/home_page/tabs/presets_widgets/settings_page_of_presets.dart';
+import 'package:smart_home_flutter/ui/home_page/tabs/presets_tab/settings_page_of_presets.dart';
 
 
 class PresetsWidgets extends StatelessWidget {
@@ -31,21 +31,25 @@ class PresetsWidgets extends StatelessWidget {
         .map((element) =>
         Container(
           margin: EdgeInsets.fromLTRB(2, 0, 2, 16),
-              child: RaisedButton(
-                color: colorList[_presetsList.indexOf(element)],
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30)),
-                child: Text(
-                  element,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 22,
-                    color: Theme.of(context).textTheme.body1.color,
-                  ),
-                ),
-                onPressed: () {},
+          child: RaisedButton(
+            color: colorList[_presetsList.indexOf(element)],
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30)),
+            child: Text(
+              element,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 22,
+                color: Theme
+                    .of(context)
+                    .textTheme
+                    .body1
+                    .color,
               ),
-            ))
+            ),
+            onPressed: () {},
+          ),
+        ))
         .toList();
   }
 
@@ -61,18 +65,28 @@ class PresetsWidgets extends StatelessWidget {
           alignment: Alignment.centerRight,
           child: IconButton(
             icon: Icon(FontAwesomeIcons.cog,
-                color: Theme.of(context).textTheme.body1.color),
-            onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (BuildContext context) => SettingsPagePresets())),
+                color: Theme
+                    .of(context)
+                    .textTheme
+                    .body1
+                    .color),
+            onPressed: () =>
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (BuildContext context) =>
+                            SettingsPageOfPresets())),
           ),
         ),
         Text(
           'Welcome to your smart home',
           style: TextStyle(
               fontSize: 23.0,
-              color: Theme.of(context).textTheme.body1.color,
+              color: Theme
+                  .of(context)
+                  .textTheme
+                  .body1
+                  .color,
               decoration: TextDecoration.underline),
         ),
         Container(
@@ -82,7 +96,7 @@ class PresetsWidgets extends StatelessWidget {
           child: GridView(
             children: presets(context),
             gridDelegate:
-                SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
           ),
         ),
       ],
