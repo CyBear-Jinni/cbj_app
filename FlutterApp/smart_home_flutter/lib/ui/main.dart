@@ -3,7 +3,7 @@ import 'package:smart_home_flutter/objects/interface_darta/cloud_interface_data.
 import 'package:smart_home_flutter/ui/room_page/room_page.dart';
 
 import 'home_page/home_page.dart';
-import 'home_page/tabs/smart_devices_widgets/blinds/blinds_page.dart';
+import 'home_page/tabs/smart_devices_tab/blinds/blinds_page.dart';
 import 'login_page/login_page.dart';
 
 
@@ -27,8 +27,8 @@ class MyApp extends StatelessWidget {
 //      darkTheme: ThemeData(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        accentColor: Colors.lightBlueAccent,
+        primarySwatch: Colors.indigo,
+        accentColor: Colors.blueAccent,
         textTheme: TextTheme(
           body1: TextStyle(color: Colors.white),
           body2: TextStyle(color: Colors.white70),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:smart_home_flutter/database/firebase/cloud_firestore/firestore_class.dart';
-import 'package:smart_home_flutter/ui/home_page/tabs/smart_devices_widgets/settings_page_of_smart_devices.dart';
+import 'package:smart_home_flutter/ui/home_page/tabs/smart_devices_tab/settings_page_of_smart_devices.dart';
 
 
 class SmartDevicesWidgets extends StatelessWidget {
