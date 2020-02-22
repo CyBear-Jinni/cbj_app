@@ -614,6 +614,7 @@
           <value>
             <list>
               <option value="$USER_HOME$/Programmes/flutter/.pub-cache/hosted/pub.dartlang.org/quiver-2.0.5/lib" />
+              <option value="$USER_HOME$/Programmes/flutter/.pub-cache/hosted/pub.dartlang.org/quiver-2.1.2+1/lib" />
             </list>
           </value>
         </entry>
@@ -985,6 +986,7 @@
       <root url="file://$USER_HOME$/Programmes/flutter/.pub-cache/hosted/pub.dartlang.org/pub_semver-1.4.3/lib" />
       <root url="file://$USER_HOME$/Programmes/flutter/.pub-cache/hosted/pub.dartlang.org/pubspec_parse-0.1.5/lib" />
       <root url="file://$USER_HOME$/Programmes/flutter/.pub-cache/hosted/pub.dartlang.org/quiver-2.0.5/lib" />
+      <root url="file://$USER_HOME$/Programmes/flutter/.pub-cache/hosted/pub.dartlang.org/quiver-2.1.2+1/lib" />
       <root url="file://$USER_HOME$/Programmes/flutter/.pub-cache/hosted/pub.dartlang.org/rxdart-0.23.1/lib" />
       <root url="file://$USER_HOME$/Programmes/flutter/.pub-cache/hosted/pub.dartlang.org/shelf-0.7.5/lib" />
       <root url="file://$USER_HOME$/Programmes/flutter/.pub-cache/hosted/pub.dartlang.org/shelf_packages_handler-1.0.4/lib" />
