@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:smart_home_flutter/ui/home_page/tabs/presets_tab/settings_page_of_presets.dart';
+import 'package:smart_home_flutter/features/home_page/tabs/presets_tab/settings_page_of_presets.dart';
 
 
 class PresetsWidgets extends StatelessWidget {
