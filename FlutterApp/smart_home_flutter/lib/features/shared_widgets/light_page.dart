@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:smart_home_flutter/features/home_page/smart_device_widget.dart';
 import 'package:smart_home_flutter/objects/interface_darta/cloud_interface_data.dart';
-import 'package:smart_home_flutter/ui/home_page/smart_device_widget.dart';
 
 
 class LightPage extends StatelessWidget {

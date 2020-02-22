@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:smart_home_flutter/features/home_page/tabs/smart_devices_tab/blinds/blinds_page.dart';
+import 'package:smart_home_flutter/features/room_page/room_page.dart';
+import 'package:smart_home_flutter/injection.dart';
 import 'package:smart_home_flutter/objects/interface_darta/cloud_interface_data.dart';
-import 'package:smart_home_flutter/ui/room_page/room_page.dart';
 
-import 'home_page/home_page.dart';
-import 'home_page/tabs/smart_devices_tab/blinds/blinds_page.dart';
-import 'login_page/login_page.dart';
+import 'features/home_page/home_page.dart';
+import 'features/login_page/login_page.dart';
+
 
 
 void main() {
 //  debugPaintSizeEnabled = true;
+  configureInjection(Env.prod);
   runApp(MyApp());
 }
 

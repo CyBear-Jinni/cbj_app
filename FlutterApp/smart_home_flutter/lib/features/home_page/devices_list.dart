@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:smart_home_flutter/features/home_page/smart_device_widget.dart';
 import 'package:smart_home_flutter/objects/smart_device/smart_device_objcet.dart';
-import 'package:smart_home_flutter/ui/home_page/smart_device_widget.dart';
 
 
 class DevicesList extends StatefulWidget {

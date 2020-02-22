@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:smart_home_flutter/ui/shared_widgets/add_new_devie_widget.dart';
+import 'package:smart_home_flutter/features/shared_widgets/add_new_devie_widget.dart';
 
 
 class SettingsPageOfLamps extends StatelessWidget {

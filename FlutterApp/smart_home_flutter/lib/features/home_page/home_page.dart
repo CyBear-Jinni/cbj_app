@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:smart_home_flutter/ui/home_page/tabs/history_tab/history_tab.dart';
-import 'package:smart_home_flutter/ui/home_page/tabs/lamps_tab/lamps_widgets.dart';
-import 'package:smart_home_flutter/ui/home_page/tabs/presets_tab/presets_widgets.dart';
-import 'package:smart_home_flutter/ui/home_page/tabs/smart_devices_tab/smart_devices_widgets.dart';
-
+import 'package:smart_home_flutter/features/home_page/tabs/history_tab/history_tab.dart';
+import 'package:smart_home_flutter/features/home_page/tabs/lamps_tab/lamps_widgets.dart';
+import 'package:smart_home_flutter/features/home_page/tabs/presets_tab/presets_widgets.dart';
+import 'package:smart_home_flutter/features/home_page/tabs/smart_devices_tab/smart_devices_widgets.dart';
 class HomePage extends StatelessWidget {
 
   @override
