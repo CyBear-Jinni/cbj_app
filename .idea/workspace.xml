@@ -4,42 +4,56 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96c5fe8c-119f-4135-b3fa-611215ac658f" name="Default Changelist" comment="Starting the move to architecture and injection for the flutter app">
-      <change afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/animel_test/american_cow.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/animel_test/fake_cow.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/animel_test/lem.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/animel_test/mock_cow_animal.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/animel_test/try_it_now.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/pins_datasource/button_object_local_abstract.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/pins_datasource/button_object_local_fake.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/injection.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/cow_animal_test.dart" afterDir="false" />
+    <list default="true" id="96c5fe8c-119f-4135-b3fa-611215ac658f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/microphone/microphone_voice_command.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/repositories/VoiceCommand.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/repositories/voice_command_abstract.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/injection.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/injection.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/bin/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/bin/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/manage_physical_components/button_object.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/pins_datasource/button_object_local.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/manage_physical_components/controlloling_pins.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/pins_datasource/controlloling_pins_local.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/wish_classes/off_wish.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/wish_classes/off_wish.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/wish_classes/on_wish.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/wish_classes/on_wish.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/repositories/python_class.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/python_class_local.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/animel_test/cow.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/animel_test/cow.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/data_base/cloud_fire_store.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/fire_store/cloud_fire_store.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/data_base/cloud_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/fire_store/cloud_manager.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/data_base/data_base_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/fire_store/data_base_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/enums.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/models/enums.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/error/failures.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/error/failures.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/manage_physical_components/device_pin_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/manage_physical_components/device_pin_manager.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/manage_physical_components/devices_pin_configuration/device_configuration_base_class.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/manage_physical_components/devices_pin_configuration/device_configuration_base_class.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/manage_physical_components/devices_pin_configuration/nano_pi_duo2_configuration.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/manage_physical_components/devices_pin_configuration/nano_pi_duo2_configuration.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/manage_physical_components/devices_pin_configuration/nano_pi_neo2_configuration.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/manage_physical_components/devices_pin_configuration/nano_pi_neo2_configuration.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/manage_physical_components/devices_pin_configuration/nano_pi_neo_configuration.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/manage_physical_components/devices_pin_configuration/nano_pi_neo_configuration.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/manage_physical_components/devices_pin_configuration/pin_information.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/manage_physical_components/devices_pin_configuration/pin_information.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/server/protoc_as_dart/smart_connection.pb.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/server/protoc_as_dart/smart_connection.pb.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/server/protoc_as_dart/smart_connection.pbenum.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/server/protoc_as_dart/smart_connection.pbenum.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/server/protoc_as_dart/smart_connection.pbgrpc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/server/protoc_as_dart/smart_connection.pbgrpc.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/server/protoc_as_dart/smart_connection.pbjson.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/server/protoc_as_dart/smart_connection.pbjson.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/server/smart_server.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/server/smart_server.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/wish_classes/blinds_wish.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities/wish_classes/blinds_wish.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/wish_classes/dynamic_wish.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities/wish_classes/dynamic_wish.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/wish_classes/off_wish.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities/wish_classes/off_wish.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/wish_classes/on_wish.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities/wish_classes/on_wish.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/pins_datasource/button_object_local.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/manage_physical_components/pins_datasource/button_object_local.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/pins_datasource/button_object_local_abstract.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/manage_physical_components/pins_datasource/button_object_local_abstract.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/pins_datasource/button_object_local_fake.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/manage_physical_components/pins_datasource/button_object_local_fake.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/pins_datasource/controlloling_pins_local.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/manage_physical_components/pins_datasource/controlloling_pins_local.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/python_class_local.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/manage_physical_components/python_class_local.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/repositories/smart_device_base_abstract.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/repositories/smart_device_base_abstract.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/smart_device_objects/static_devices/blinds_object.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/smart_device_objects/static_devices/blinds_object.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/repositories/smart_device_dynamic_abstract.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/repositories/smart_device_dynamic_abstract.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/repositories/smart_device_simple_abstract.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/repositories/smart_device_simple_abstract.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/repositories/smart_device_static_abstract.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/repositories/smart_device_static_abstract.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/usecases/smart_device_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/usecases/smart_device_manager.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/smart_device_objects/dinamic_devices/dynamic_light_object.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities/smart_device_objects/dinamic_devices/dynamic_light_object.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/smart_device_objects/dinamic_devices/fan_object.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities/smart_device_objects/dinamic_devices/fan_object.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/smart_device_objects/dinamic_devices/speaker_object.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities/smart_device_objects/dinamic_devices/speaker_object.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/smart_device_objects/simple_devices/light_object.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities/smart_device_objects/simple_devices/light_object.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/smart_device_objects/simple_devices/thermostat_object.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities/smart_device_objects/simple_devices/thermostat_object.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/smart_device_objects/static_devices/blinds_object.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities/smart_device_objects/static_devices/blinds_object.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/injection.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/injection.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/pubspec.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/controlloling_pins_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/controlloling_pins_test.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/on_wish_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/on_wish_test.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/smart_server_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/smart_server_test.dart" afterDir="false" />
     </list>
-    <ignored path="SmartDevice/parts/smart-home/install/WiringNP/" />
-    <ignored path="SmartDevice/prime/WiringNP/" />
-    <ignored path="SmartDevice/stage/WiringNP/" />
-    <ignored path="SmartDevice/parts/smart-home/" />
-    <ignored path="SmartDevice/prime/" />
-    <ignored path="SmartDevice/snap/.snapcraft/state" />
-    <ignored path="SmartDevice/stage/" />
-    <ignored mask="*.snap" />
-    <ignored path="SmartDevice/snap/.snapcraft/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,58 +63,6 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/pins_datasource/button_object_local_abstract.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="18" column="50" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="50" />
-              <folding>
-                <element signature="e#0#112#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/pins_datasource/button_object_local.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
-              <folding>
-                <element signature="e#0#17#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/pins_datasource/button_object_local_fake.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-              <folding>
-                <element signature="e#2#114#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/repositories/smart_device_simple_abstract.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="2" column="41" lean-forward="true" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
-              <folding>
-                <element signature="e#0#49#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -108,470 +70,13 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>v</find>
-      <find>if( v</find>
-      <find>pinNumber.v</find>
-      <find>OffWish.SetOff</find>
-      <find>onDuration = 0;</find>
-      <find>getIp</find>
-      <find>DeviceInformation(1</find>
-      <find>macAddress</find>
-      <find>DeviceInformation</find>
-      <find>String</find>
-      <find>1.9.1</find>
-      <find>GetProjectRootDirectoryPath</find>
-      <find>GetGpioPin</find>
-      <find>SmartDeviceBaseAbstract</find>
-      <find>abstrac</find>
-      <find>abstract class</find>
-      <find>InjectableGenerator</find>
-      <find>cow</find>
-      <find>AnimalAbstract</find>
-      <find>when</find>
-      <find>MockCat</find>
-      <find>Fake</find>
-      <find>abstract</find>
-      <find>fake</find>
-      <find>turnOn</find>
-      <find>pinOff</find>
-      <find>PinInformation</find>
-      <find>ButtonObject_local_abstract</find>
-      <find>ButtonObjectLocal</find>
-      <find>ButtonObjectLocal()</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>v: 0</replace>
-      <replace>getSmartDeviceBaseAbstract(request);</replace>
-    </replaceStrings>
-    <dirStrings>
-      <dir>$PROJECT_DIR$/SmartDevice</dir>
-    </dirStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/core/usecases/usecase.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/usecases/smart_device_manager.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/manage_physical_components/device_pin_manager.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/smart_device_objects/simple_devices/thermostat_object.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/smart_device_objects/simple_devices/light_object.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/smart_device_objects/dinamic_devices/speaker_object.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/smart_device_objects/dinamic_devices/fan_object.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/smart_device_objects/dinamic_devices/dynamic_light_object.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/data_base/cloud_manager.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/manage_physical_components/button_object.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/server/smart_server.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/usecases/usecase.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/smart_device_dart_test.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/bin/abstract_animle.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/pubspec.yaml" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/bin/animel_test/lem.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/bin/animel_test/american cow.dart" />
-        <option value="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/animel_test/cow.dart" />
-        <option value="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/animel_test/american_cow.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/animel_test/american_cow.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/bin/injection.iconfig.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/bin/animel_test/abstract_animle.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/bin/animel_test/cow.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/bin/animel_test/american_cow.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/bin/injection.dart" />
-        <option value="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/injection.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/animel_test/mock_test.dart" />
-        <option value="$PROJECT_DIR$/FlutterApp/smart_home_flutter/test/exaple_test.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/animel_test/try_it_now.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/animel_test/lem.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/animel_test/cow.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/injection.iconfig.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/mock_cow_animal.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/catTest.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/animel_test/mock_cow_animal.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/animel_test/fake_cow.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/cow_animal_test.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/bin/main.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/pins_datasource/controlloling_pins_local.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/wish_classes/on_wish.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/wish_classes/off_wish.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/controlloling_pins_test.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/on_wish_test.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/pins_datasource/button_object_local_a.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/animel_test/abstract_animle.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/pins_datasource/button_object_local.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/pins_datasource/button_object_local_abstract.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/injection.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/smart_device_objects/static_devices/blinds_object.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/repositories/smart_device_base_abstract.dart" />
-        <option value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/pins_datasource/button_object_local_fake.dart" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2662" />
-    <option name="width" value="942" />
-    <option name="height" value="1084" />
-  </component>
+  <component name="ProjectId" id="1YJJs3oIkLyIYwkyNiNe8sPt50T" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
-  </component>
-  <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
-      <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="SmartHome" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Documents/programing/git/SmartHome" type="442cc68d:ScopeViewTreeModel$RootNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Documents/programing/git/SmartHome" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name=".idea" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Documents/programing/git/SmartHome" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="FlutterApp" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Documents/programing/git/SmartHome" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="ProtoFiles" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Documents/programing/git/SmartHome" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="ProtoFiles" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="protos" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Documents/programing/git/SmartHome" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="SmartDevice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Documents/programing/git/SmartHome" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="SmartDevice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="SmartDeviceDart" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Documents/programing/git/SmartHome" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="SmartDevice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="SmartDeviceDart" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="bin" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Documents/programing/git/SmartHome" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="SmartDevice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="SmartDeviceDart" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="bin" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="shered" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Documents/programing/git/SmartHome" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="SmartDevice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="SmartDeviceDart" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="bin" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="shered" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="data_base" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Documents/programing/git/SmartHome" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="SmartDevice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="SmartDeviceDart" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="bin" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="shered" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="manage_physical_components" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Documents/programing/git/SmartHome" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="SmartDevice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="SmartDeviceDart" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="bin" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="shered" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="manage_physical_components" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="devices_pin_configuration" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Documents/programing/git/SmartHome" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="SmartDevice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="SmartDeviceDart" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="bin" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="shered" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="permissions" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Documents/programing/git/SmartHome" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="SmartDevice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="SmartDeviceDart" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="bin" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="shered" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="server" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Documents/programing/git/SmartHome" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="SmartDevice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="SmartDeviceDart" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="bin" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="shered" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="server" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="protoc_as_dart" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Documents/programing/git/SmartHome" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="SmartDevice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="SmartDeviceDart" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="bin" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="shered" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="wish_classes" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Documents/programing/git/SmartHome" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="SmartDevice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="SmartDeviceDart" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="bin" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="smart_device" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Documents/programing/git/SmartHome" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="SmartDevice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="SmartDeviceDart" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="bin" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="smart_device" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="smart_device_objects" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Documents/programing/git/SmartHome" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="SmartDevice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="SmartDeviceDart" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="bin" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="smart_device" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="smart_device_objects" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="abstract_smart_devices" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Documents/programing/git/SmartHome" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="SmartDevice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="SmartDeviceDart" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="bin" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="smart_device" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="smart_device_objects" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="dinamic_devices" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Documents/programing/git/SmartHome" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="SmartDevice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="SmartDeviceDart" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="bin" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="smart_device" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="smart_device_objects" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="simple_devices" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Documents/programing/git/SmartHome" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="SmartDevice" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="SmartDeviceDart" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="bin" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="smart_device" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="smart_device_objects" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="static_devices" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDevice" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDevice" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDeviceDart" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDevice" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDeviceDart" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDevice" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDeviceDart" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDevice" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDeviceDart" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="animel_test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDevice" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDeviceDart" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDevice" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDeviceDart" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="manage_physical_components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDevice" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDeviceDart" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="features" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDevice" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDeviceDart" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="features" type="462c0819:PsiDirectoryNode" />
-              <item name="smart_device" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDevice" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDeviceDart" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="features" type="462c0819:PsiDirectoryNode" />
-              <item name="smart_device" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDevice" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDeviceDart" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="features" type="462c0819:PsiDirectoryNode" />
-              <item name="smart_device" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="datasources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDevice" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDeviceDart" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="features" type="462c0819:PsiDirectoryNode" />
-              <item name="smart_device" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="datasources" type="462c0819:PsiDirectoryNode" />
-              <item name="pins_datasource" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDevice" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDeviceDart" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="features" type="462c0819:PsiDirectoryNode" />
-              <item name="smart_device" type="462c0819:PsiDirectoryNode" />
-              <item name="domain" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDevice" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDeviceDart" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="features" type="462c0819:PsiDirectoryNode" />
-              <item name="smart_device" type="462c0819:PsiDirectoryNode" />
-              <item name="domain" type="462c0819:PsiDirectoryNode" />
-              <item name="repositories" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDevice" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDeviceDart" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="features" type="462c0819:PsiDirectoryNode" />
-              <item name="smart_device" type="462c0819:PsiDirectoryNode" />
-              <item name="smart_device_objects" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDevice" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDeviceDart" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="features" type="462c0819:PsiDirectoryNode" />
-              <item name="smart_device" type="462c0819:PsiDirectoryNode" />
-              <item name="smart_device_objects" type="462c0819:PsiDirectoryNode" />
-              <item name="static_devices" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDevice" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDeviceDart" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartHome" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartHome" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartDevice" type="462c0819:PsiDirectoryNode" />
-              <item name="snap" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -579,7 +84,7 @@
     <property name="add_unversioned_files" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/SmartDevice" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -595,11 +100,11 @@
       <recent name="$PROJECT_DIR$/FlutterApp/smart_home_flutter/android/app/src/main/res/drawable" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/manage_physical_components" />
-      <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/pins_datasource" />
+      <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/repositories" />
+      <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities" />
+      <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/models" />
+      <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/manage_physical_components" />
       <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources" />
-      <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/animel_test" />
-      <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -667,27 +172,6 @@
       <option name="filePath" value="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/main.dart" />
       <method v="2" />
     </configuration>
-    <list>
-      <item itemvalue="Dart Command Line App.Network Manager" />
-      <item itemvalue="Dart Command Line App.Smart Device" />
-      <item itemvalue="Dart Test.Test SmartDevice all" />
-      <item itemvalue="Dart Test.Tests FlutterApp all" />
-      <item itemvalue="Dart Test.PinInformation in controlloling_pins_test.dart" />
-      <item itemvalue="Dart Test.Cow legs in cow_animal_test.dart" />
-      <item itemvalue="Dart Test.How about some stubbing? in catTest.dart" />
-      <item itemvalue="Dart Test.tests in cow_animal_test.dart" />
-      <item itemvalue="Dart Test.tests in catTest.dart" />
-      <item itemvalue="Flutter.Smart App" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Dart Test.Cow legs in cow_animal_test.dart" />
-        <item itemvalue="Dart Test.tests in catTest.dart" />
-        <item itemvalue="Dart Test.tests in cow_animal_test.dart" />
-        <item itemvalue="Dart Test.How about some stubbing? in catTest.dart" />
-        <item itemvalue="Dart Test.PinInformation in controlloling_pins_test.dart" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -917,7 +401,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582378582420</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Made the">
+      <created>1582400896755</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1582400896755</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -961,73 +452,6 @@
       <is-autoscroll-to-source value="true" />
     </todo-panel>
   </component>
-  <component name="ToolWindowManager">
-    <frame x="1720" y="0" width="1884" height="1084" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.25899673" />
-      <window_info id="Structure" order="2" side_tool="true" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="Designer" order="4" />
-      <window_info id="Resources Explorer" order="5" weight="0.32988003" />
-      <window_info id="Capture Tool" order="6" />
-      <window_info id="Favorites" order="7" side_tool="true" />
-      <window_info id="Build Variants" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="0" sideWeight="0.51635766" weight="0.3845339" />
-      <window_info anchor="bottom" id="TODO" order="1" sideWeight="0.49890947" weight="0.32838982" />
-      <window_info anchor="bottom" id="Debug" order="2" sideWeight="0.6892039" weight="0.3167373" />
-      <window_info anchor="bottom" id="Terminal" order="3" sideWeight="0.4940022" weight="0.3019068" />
-      <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.493895" side_tool="true" weight="0.32822758" />
-      <window_info anchor="bottom" id="Flutter Performance" order="5" side_tool="true" weight="0.32944915" />
-      <window_info anchor="bottom" id="Version Control" order="6" sideWeight="0.50915754" weight="0.3884026" />
-      <window_info anchor="bottom" id="Android Profiler" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Dart Analysis" order="8" sideWeight="0.49945474" weight="0.32603937" />
-      <window_info anchor="bottom" id="Logcat" order="9" sideWeight="0.49945474" weight="0.32822758" />
-      <window_info anchor="bottom" id="Find" order="10" sideWeight="0.49890947" weight="0.32838982" />
-      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.506105" weight="0.3273305" />
-      <window_info anchor="bottom" id="Thumbnails" order="12" sideWeight="0.49945474" weight="0.3291536" />
-      <window_info anchor="right" id="Capture Analysis" order="0" />
-      <window_info anchor="right" id="Theme Preview" order="1" />
-      <window_info anchor="right" id="Flutter Inspector" order="2" weight="0.32988003" />
-      <window_info anchor="right" id="Flutter Outline" order="3" weight="0.26990184" />
-      <window_info anchor="right" id="Palette&#9;" order="4" />
-      <window_info anchor="right" id="Device File Explorer" order="5" side_tool="true" />
-      <window_info anchor="right" id="Hierarchy" order="6" weight="0.32988003" />
-      <window_info anchor="right" id="Assistant" order="7" weight="0.36935288" />
-      <window_info anchor="right" id="Preview" order="8" weight="0.32988003" />
-    </layout>
-    <layout-to-restore>
-      <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.40807176" />
-      <window_info id="Structure" order="2" side_tool="true" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="Designer" order="4" />
-      <window_info id="Resources Explorer" order="5" weight="0.32988003" />
-      <window_info id="Capture Tool" order="6" />
-      <window_info id="Favorites" order="7" side_tool="true" />
-      <window_info id="Build Variants" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="0" sideWeight="0.5436205" weight="0.31870428" />
-      <window_info anchor="bottom" id="TODO" order="1" sideWeight="0.49890947" weight="0.3291536" />
-      <window_info anchor="bottom" id="Debug" order="2" weight="0.5705329" />
-      <window_info anchor="bottom" id="Terminal" order="3" sideWeight="0.49945474" weight="0.3291536" />
-      <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.5010905" side_tool="true" weight="0.4033438" />
-      <window_info anchor="bottom" id="Flutter Performance" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="6" sideWeight="0.49890947" weight="0.4033438" />
-      <window_info anchor="bottom" id="Dart Analysis" order="7" sideWeight="0.49945474" weight="0.32810867" />
-      <window_info anchor="bottom" id="Android Profiler" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Logcat" order="9" sideWeight="0.49945474" weight="0.3291536" />
-      <window_info anchor="bottom" id="Find" order="10" weight="0.3291536" />
-      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49781898" weight="0.3291536" />
-      <window_info anchor="bottom" id="Thumbnails" order="12" sideWeight="0.49945474" weight="0.3291536" />
-      <window_info anchor="right" id="Capture Analysis" order="0" />
-      <window_info anchor="right" id="Theme Preview" order="1" />
-      <window_info anchor="right" id="Flutter Inspector" order="2" />
-      <window_info anchor="right" id="Flutter Outline" order="3" />
-      <window_info anchor="right" id="Palette&#9;" order="4" />
-      <window_info anchor="right" id="Device File Explorer" order="5" side_tool="true" />
-    </layout-to-restore>
-  </component>
   <component name="UpdateCopyrightCheckinHandler">
     <option name="UPDATE_COPYRIGHT" value="true" />
   </component>
@@ -1047,20 +471,7 @@
         <entry key="MAIN">
           <value>
             <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
-              <option name="COLUMN_ORDER">
-                <list>
-                  <option value="0" />
-                  <option value="1" />
-                  <option value="2" />
-                  <option value="3" />
-                </list>
-              </option>
+              <option name="COLUMN_ORDER" />
             </State>
           </value>
         </entry>
@@ -1087,7 +498,6 @@
       <path value="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy" />
       <path value="$PROJECT_DIR$/SmartDevice/scripts/cScripts2/snowboy" />
     </ignored-roots>
-    <MESSAGE value="Add script to automatically compile all c files when snapcraft" />
     <MESSAGE value="Add script to automatically compile all c files when snapcraft sh file didn't commit last time" />
     <MESSAGE value="Reformat code, Rearrange code, Optimize imports, Preform code analysis, Check TODO, Cleanup, Update copyright." />
     <MESSAGE value="More reformat code, Rearrange code, Optimize imports, Preform code analysis, Check TODO, Cleanup, Update copyright." />
@@ -1112,400 +522,11 @@
     <MESSAGE value="Add splash screen logo, add tests" />
     <MESSAGE value="Add second commit for the logo" />
     <MESSAGE value="Starting the move to architecture and injection for the flutter app" />
-    <option name="LAST_COMMIT_MESSAGE" value="Starting the move to architecture and injection for the flutter app" />
+    <MESSAGE value="Made the" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made the" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <default-breakpoints>
-        <breakpoint type="dart-exception">
-          <properties />
-        </breakpoint>
-      </default-breakpoints>
-    </breakpoint-manager>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/server/smart_server.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="14" column="15" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/pubspec.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="28" column="2" lean-forward="true" selection-start-line="28" selection-start-column="2" selection-end-line="29" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/snap/snapcraft.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="863">
-          <caret line="103" column="46" selection-start-line="103" selection-start-column="46" selection-end-line="103" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/smart_device_objects/dinamic_devices/fan_object.dart">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/emptyConsoleApplicationDart.dart" />
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/.directory">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/Programmes/flutter/bin/cache/dart-sdk/lib/isolate/isolate.dart">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/bin/animel_test/abstract_animle.iconfig.dart" />
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/usecases/usecase.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/animel_test/american_cow.dart" />
-    <entry file="file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/animel_test/cow.dart" />
-    <entry file="file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/injection.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/animel_test/mock_test.dart" />
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/animel_test/abstract_animle.iconfig.dart" />
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/animel_test/american_cow.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/smart_device_dart_test.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/smart_server_test.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/test/widget_test.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#1144#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/test/exaple_test.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="51" lean-forward="true" selection-start-line="1" selection-start-column="51" selection-end-line="1" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/animel_test/try_it_now.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/pubspec.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="31" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/animel_test/lem.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Programmes/flutter/.pub-cache/hosted/pub.dartlang.org/get_it-3.1.0/lib/get_it.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1974">
-          <caret line="96" column="4" selection-start-line="96" selection-start-column="4" selection-end-line="96" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/catTest.dart" />
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/device_information_test.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="62" selection-start-column="62" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/injection.iconfig.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/animel_test/fake_cow.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="19" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="19" />
-          <folding>
-            <element signature="e#1#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/cow_animal_test.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="29" column="8" lean-forward="true" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-          <folding>
-            <element signature="e#2#68#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Programmes/flutter/.pub-cache/hosted/pub.dartlang.org/mockito-4.1.1/lib/src/mock.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="188" column="21" lean-forward="true" selection-start-line="188" selection-start-column="21" selection-end-line="188" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/shared_variables.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/repositories/smart_device_dynamic_abstract.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="56" selection-start-line="6" selection-start-column="56" selection-end-line="6" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/usecases/smart_device_manager.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-126">
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/manage_physical_components/devices_pin_configuration/device_configuration_base_class.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-865">
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/python_class_local.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="15" column="49" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/wish_classes/on_wish.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="25" column="7" lean-forward="true" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#112#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/wish_classes/off_wish.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="24" column="7" lean-forward="true" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#112#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/manage_physical_components/device_pin_manager.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/controlloling_pins_test.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#112#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/on_wish_test.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#112#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/pins_datasource/controlloling_pins_local.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="7" column="20" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/animel_test/abstract_animle.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/animel_test/cow.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#1#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/animel_test/mock_cow_animal.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
-          <folding>
-            <element signature="e#1#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/bin/main.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="15" column="49" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="49" />
-          <folding>
-            <element signature="e#1#67#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/injection.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/smart_device_objects/static_devices/blinds_object.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="653">
-          <caret line="50" column="30" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/repositories/smart_device_base_abstract.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="716">
-          <caret line="176" column="8" lean-forward="true" selection-start-line="176" selection-start-column="8" selection-end-line="176" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/repositories/smart_device_simple_abstract.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="41" lean-forward="true" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/pins_datasource/button_object_local.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/pins_datasource/button_object_local_abstract.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="18" column="50" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="50" />
-          <folding>
-            <element signature="e#0#112#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/pins_datasource/button_object_local_fake.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#2#114#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
   </component>
   <component name="masterDetails">
     <states>
