@@ -1,3 +1,6 @@
+
+
+
 enum DeviceType {
   Light, // Light ON/OFF
   DynamicLight, // Light with brightness 0% to 100%
@@ -21,7 +24,9 @@ enum DeviceType {
   SmartPool,
 }
 
+
 class EnumHelper {
+
   static String dTToString(DeviceType deviceType) {
     return deviceType.toString().replaceAll('DeviceType.', '');
   }

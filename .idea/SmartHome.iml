@@ -20,6 +20,9 @@
       <excludeFolder url="file://$MODULE_DIR$/FlutterApp/smart_home_flutter/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/FlutterApp/smart_home_flutter/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/FlutterApp/smart_home_flutter/build" />
+      <excludeFolder url="file://$MODULE_DIR$/NetworkManager/NetworkManagerDart/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/NetworkManager/NetworkManagerDart/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/NetworkManager/NetworkManagerDart/build" />
       <excludeFolder url="file://$MODULE_DIR$/SmartDevice/SmartDeviceDart/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/SmartDevice/SmartDeviceDart/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/SmartDevice/SmartDeviceDart/build" />
@@ -27,7 +30,7 @@
     <orderEntry type="jdk" jdkName="Android API 29 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Dart SDK" level="project" />
-    <orderEntry type="library" name="Dart Packages" level="project" />
     <orderEntry type="library" name="Bundled Protobuf Distribution" level="application" />
+    <orderEntry type="library" name="Dart Packages" level="project" />
   </component>
 </module>
