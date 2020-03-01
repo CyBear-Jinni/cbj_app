@@ -31,6 +31,21 @@ class SmartServerClient extends $grpc.Client {
           '/SmartConnection.SmartServer/SetOffDevice',
           ($0.SmartDevice value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CommendStatus.fromBuffer(value));
+  static final _$setBlindsUp =
+  $grpc.ClientMethod<$0.SmartDevice, $0.CommendStatus>(
+      '/SmartConnection.SmartServer/setBlindsUp',
+          ($0.SmartDevice value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) => $0.CommendStatus.fromBuffer(value));
+  static final _$setBlindsDown =
+  $grpc.ClientMethod<$0.SmartDevice, $0.CommendStatus>(
+      '/SmartConnection.SmartServer/setBlindsDown',
+          ($0.SmartDevice value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) => $0.CommendStatus.fromBuffer(value));
+  static final _$setBlindsStop =
+  $grpc.ClientMethod<$0.SmartDevice, $0.CommendStatus>(
+      '/SmartConnection.SmartServer/setBlindsStop',
+          ($0.SmartDevice value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) => $0.CommendStatus.fromBuffer(value));
 
   SmartServerClient($grpc.ClientChannel channel, {$grpc.CallOptions options})
       : super(channel, options: options);
@@ -54,6 +69,30 @@ class SmartServerClient extends $grpc.Client {
       {$grpc.CallOptions options}) {
     final call = $createCall(
         _$setOffDevice, $async.Stream.fromIterable([request]),
+        options: options);
+    return $grpc.ResponseFuture(call);
+  }
+
+  $grpc.ResponseFuture<$0.CommendStatus> setBlindsUp($0.SmartDevice request,
+      {$grpc.CallOptions options}) {
+    final call = $createCall(
+        _$setBlindsUp, $async.Stream.fromIterable([request]),
+        options: options);
+    return $grpc.ResponseFuture(call);
+  }
+
+  $grpc.ResponseFuture<$0.CommendStatus> setBlindsDown($0.SmartDevice request,
+      {$grpc.CallOptions options}) {
+    final call = $createCall(
+        _$setBlindsDown, $async.Stream.fromIterable([request]),
+        options: options);
+    return $grpc.ResponseFuture(call);
+  }
+
+  $grpc.ResponseFuture<$0.CommendStatus> setBlindsStop($0.SmartDevice request,
+      {$grpc.CallOptions options}) {
+    final call = $createCall(
+        _$setBlindsStop, $async.Stream.fromIterable([request]),
         options: options);
     return $grpc.ResponseFuture(call);
   }
@@ -84,6 +123,27 @@ abstract class SmartServerServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.SmartDevice.fromBuffer(value),
         ($0.CommendStatus value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.SmartDevice, $0.CommendStatus>(
+        'setBlindsUp',
+        setBlindsUp_Pre,
+        false,
+        false,
+            ($core.List<$core.int> value) => $0.SmartDevice.fromBuffer(value),
+            ($0.CommendStatus value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.SmartDevice, $0.CommendStatus>(
+        'setBlindsDown',
+        setBlindsDown_Pre,
+        false,
+        false,
+            ($core.List<$core.int> value) => $0.SmartDevice.fromBuffer(value),
+            ($0.CommendStatus value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.SmartDevice, $0.CommendStatus>(
+        'setBlindsStop',
+        setBlindsStop_Pre,
+        false,
+        false,
+            ($core.List<$core.int> value) => $0.SmartDevice.fromBuffer(value),
+            ($0.CommendStatus value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.SmartDeviceStatus> getStatus_Pre(
@@ -101,12 +161,34 @@ abstract class SmartServerServiceBase extends $grpc.Service {
     return setOffDevice(call, await request);
   }
 
+  $async.Future<$0.CommendStatus> setBlindsUp_Pre($grpc.ServiceCall call,
+      $async.Future<$0.SmartDevice> request) async {
+    return setBlindsUp(call, await request);
+  }
+
+  $async.Future<$0.CommendStatus> setBlindsDown_Pre($grpc.ServiceCall call,
+      $async.Future<$0.SmartDevice> request) async {
+    return setBlindsDown(call, await request);
+  }
+
+  $async.Future<$0.CommendStatus> setBlindsStop_Pre($grpc.ServiceCall call,
+      $async.Future<$0.SmartDevice> request) async {
+    return setBlindsStop(call, await request);
+  }
+
   $async.Future<$0.SmartDeviceStatus> getStatus(
       $grpc.ServiceCall call, $0.SmartDevice request);
-
   $async.Future<$0.CommendStatus> setOnDevice(
       $grpc.ServiceCall call, $0.SmartDevice request);
-
   $async.Future<$0.CommendStatus> setOffDevice(
       $grpc.ServiceCall call, $0.SmartDevice request);
+
+  $async.Future<$0.CommendStatus> setBlindsUp($grpc.ServiceCall call,
+      $0.SmartDevice request);
+
+  $async.Future<$0.CommendStatus> setBlindsDown($grpc.ServiceCall call,
+      $0.SmartDevice request);
+
+  $async.Future<$0.CommendStatus> setBlindsStop($grpc.ServiceCall call,
+      $0.SmartDevice request);
 }
