@@ -4,13 +4,45 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96c5fe8c-119f-4135-b3fa-611215ac658f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/helper_methods.dart" afterDir="false" />
+    <list default="true" id="96c5fe8c-119f-4135-b3fa-611215ac658f" name="Default Changelist" comment="Continue changing the app to the new architecture">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/bin/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/bin/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/animel_test/cow.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/animel_test/cow.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/animel_test/lem.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/animel_test/lem.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/fire_store/cloud_fire_store.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/fire_store/cloud_fire_store.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/fire_store/cloud_fire_store_listen_to_changes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/fire_store/cloud_fire_store_listen_to_changes.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/fire_store/data_base_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/fire_store/data_base_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/manage_physical_components/device_pin_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/manage_physical_components/device_pin_manager.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/manage_physical_components/devices_pin_configuration/device_configuration_base_class.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/manage_physical_components/devices_pin_configuration/device_configuration_base_class.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/manage_physical_components/devices_pin_configuration/nano_pi_duo2_configuration.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/manage_physical_components/devices_pin_configuration/nano_pi_duo2_configuration.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/manage_physical_components/devices_pin_configuration/nano_pi_neo2_configuration.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/manage_physical_components/devices_pin_configuration/nano_pi_neo2_configuration.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/manage_physical_components/devices_pin_configuration/nano_pi_neo_configuration.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/manage_physical_components/devices_pin_configuration/nano_pi_neo_configuration.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/manage_physical_components/devices_pin_configuration/pin_information.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/manage_physical_components/devices_pin_configuration/pin_information.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/manage_physical_components/pins_datasource/getting_signals_from_pins/button_object_local.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/manage_physical_components/pins_datasource/getting_signals_from_pins/button_object_local.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/manage_physical_components/pins_datasource/getting_signals_from_pins/button_object_local_fake.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/manage_physical_components/pins_datasource/getting_signals_from_pins/button_object_local_fake.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/manage_physical_components/pins_datasource/sending_signals_to_pins/controlloling_pins_local.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/manage_physical_components/pins_datasource/sending_signals_to_pins/controlloling_pins_local.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/manage_physical_components/pins_datasource/sending_signals_to_pins/pin_on_off.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/manage_physical_components/pins_datasource/sending_signals_to_pins/pin_on_off.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/manage_physical_components/python_class_local.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/manage_physical_components/python_class_local.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/microphone/microphone_voice_command.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/microphone/microphone_voice_command.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/server/smart_server.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/server/smart_server.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/models/wish_classes_models/blinds_wish_models.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/models/wish_classes_models/blinds_wish_models.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/repositories/server_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/repositories/server_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities/my_singleton.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities/my_singleton.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities/smart_device_objects/simple_devices/light_object.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities/smart_device_objects/simple_devices/light_object.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities/smart_device_objects/static_devices/blinds_object.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities/smart_device_objects/static_devices/blinds_object.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities/wish_classes/blinds_wish.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities/wish_classes/blinds_wish.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities/wish_classes/dynamic_wish.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities/wish_classes/dynamic_wish.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities/wish_classes/off_wish.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities/wish_classes/off_wish.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/repositories/smart_device_base_abstract.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/repositories/smart_device_base_abstract.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/repositories/smart_device_dynamic_abstract.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/repositories/smart_device_dynamic_abstract.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/repositories/smart_device_simple_abstract.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/repositories/smart_device_simple_abstract.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/repositories/smart_device_static_abstract.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/repositories/smart_device_static_abstract.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/usecases/actions_to_preform.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/usecases/actions_to_preform.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/usecases/smart_device_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/usecases/smart_device_manager.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/controlloling_pins_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/controlloling_pins_test.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/cow_animal_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/cow_animal_test.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/device_information_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/device_information_test.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/on_wish_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/on_wish_test.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/smart_server_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/smart_server_test.dart" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,6 +54,7 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="3ff890a4" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -39,7 +72,6 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="add_unversioned_files" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
@@ -47,7 +79,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.YAML" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Dart" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -78,7 +110,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Dart Command Line App.Smart Device">
+  <component name="RunManager" selected="Dart Test.Cow legs in cow_animal_test.dart">
     <configuration name="Network Manager" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="arguments" value="&quot;.&quot;" />
       <option name="filePath" value="$PROJECT_DIR$/NetworkManager/NetworkManagerDart/bin/main.dart" />
@@ -143,6 +175,11 @@
       <item itemvalue="Dart Test.tests in cow_animal_test.dart" />
       <item itemvalue="Flutter.Smart App" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Dart Test.Cow legs in cow_animal_test.dart" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -407,40 +444,15 @@
       <option name="project" value="LOCAL" />
       <updated>1583582964337</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Continue changing the app to the new architecture">
+      <created>1583583739300</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1583583739300</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
-  </component>
-  <component name="TestHistory">
-    <history-entry file="Cow_legs_in_cow_animal_test_dart - 2020.02.22 at 20h 29m 08s.xml">
-      <configuration name="Cow legs in cow_animal_test.dart" configurationId="DartTestRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Cow_legs_in_cow_animal_test_dart - 2020.02.22 at 20h 29m 41s.xml">
-      <configuration name="Cow legs in cow_animal_test.dart" configurationId="DartTestRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Cow_legs_in_cow_animal_test_dart - 2020.02.22 at 20h 31m 04s.xml">
-      <configuration name="Cow legs in cow_animal_test.dart" configurationId="DartTestRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Cow_legs_in_cow_animal_test_dart - 2020.02.22 at 20h 32m 54s.xml">
-      <configuration name="Cow legs in cow_animal_test.dart" configurationId="DartTestRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Cow_legs_in_cow_animal_test_dart - 2020.02.22 at 20h 33m 04s.xml">
-      <configuration name="Cow legs in cow_animal_test.dart" configurationId="DartTestRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Cow_legs_in_cow_animal_test_dart - 2020.02.22 at 20h 33m 21s.xml">
-      <configuration name="Cow legs in cow_animal_test.dart" configurationId="DartTestRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Cow_legs_in_cow_animal_test_dart - 2020.02.22 at 20h 34m 01s.xml">
-      <configuration name="Cow legs in cow_animal_test.dart" configurationId="DartTestRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Cow_legs_in_cow_animal_test_dart - 2020.02.22 at 20h 34m 17s.xml">
-      <configuration name="Cow legs in cow_animal_test.dart" configurationId="DartTestRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Cow_legs_in_cow_animal_test_dart - 2020.02.22 at 20h 35m 04s.xml">
-      <configuration name="Cow legs in cow_animal_test.dart" configurationId="DartTestRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Cow_legs_in_cow_animal_test_dart - 2020.02.22 at 20h 35m 12s.xml">
-      <configuration name="Cow legs in cow_animal_test.dart" configurationId="DartTestRunConfigurationType" />
-    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -497,7 +509,6 @@
       <path value="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy" />
       <path value="$PROJECT_DIR$/SmartDevice/scripts/cScripts2/snowboy" />
     </ignored-roots>
-    <MESSAGE value="Add class to save all information on pin, fix bug in button press" />
     <MESSAGE value="Pins now controlled by pin number and not wPi number, fix button pin number is always 2" />
     <MESSAGE value="Listening to button press is now by pin and not onOff variable" />
     <MESSAGE value="Add button press logic for blinds, two button that cannot execute the logic at the same time." />
@@ -522,7 +533,8 @@
     <MESSAGE value="Remove flutter only library from SmartDeviceDart whitch is pure dart project" />
     <MESSAGE value="Updated dependencies versions" />
     <MESSAGE value="Continu changing the app to the new architecture" />
-    <option name="LAST_COMMIT_MESSAGE" value="Continu changing the app to the new architecture" />
+    <MESSAGE value="Continue changing the app to the new architecture" />
+    <option name="LAST_COMMIT_MESSAGE" value="Continue changing the app to the new architecture" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
