@@ -5,32 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96c5fe8c-119f-4135-b3fa-611215ac658f" name="Default Changelist" comment="Add the application folder">
-      <change afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/core/failures.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/demo" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/resources/.directory" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/resources/alexa/SnowboyAlexaDemo.apk" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/resources/alexa/alexa-avs-sample-app/alexa.umdl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/resources/alexa/alexa-avs-sample-app/avs-kittai.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/resources/alexa/alexa_02092017.umdl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/resources/common.res" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/resources/ding.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/resources/dong.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/resources/models/.directory" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/resources/models/computer.umdl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/resources/models/hey_extreme.umdl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/resources/models/jarvis.pmdl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/resources/models/jarvis.umdl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/resources/models/neoya.umdl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/resources/models/smart_mirror.umdl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/resources/models/snowboy.umdl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/resources/models/subex.umdl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/resources/models/view_glass.umdl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/resources/snowboy.raw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/resources/snowboy.wav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/bin/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/bin/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/smart_device_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/smart_device_manager.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/microphone/microphone_voice_command.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/microphone/microphone_voice_command.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/fire_store/cloud_fire_store.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/fire_store/cloud_fire_store.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/fire_store/cloud_fire_store_listen_to_changes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/fire_store/cloud_fire_store_listen_to_changes.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/fire_store/data_base_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/fire_store/data_base_controller.dart" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -481,7 +460,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584483103313</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Voice command stream is passed down back to the application">
+      <created>1584556153154</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1584556153154</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TodoView">
@@ -540,7 +526,6 @@
       <path value="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy" />
       <path value="$PROJECT_DIR$/SmartDevice/scripts/cScripts2/snowboy" />
     </ignored-roots>
-    <MESSAGE value="The program will show available wif-fi networks when the internet disconnects." />
     <MESSAGE value="Fix connected network does not being updated after connecting to admin network" />
     <MESSAGE value="Push just to check the changes on the laptop" />
     <MESSAGE value="New roles, after import and between functions there will be 2 new lines (comments do not included) afte class creation there will be one new line if there is function and no new line otherwise" />
@@ -565,13 +550,26 @@
     <MESSAGE value="Microphone to be closer to the new architecture" />
     <MESSAGE value="Change folder name from data to infrastructure" />
     <MESSAGE value="Add the application folder" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add the application folder" />
+    <MESSAGE value="Voice command stream is passed down back to the application" />
+    <option name="LAST_COMMIT_MESSAGE" value="Voice command stream is passed down back to the application" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/fire_store/cloud_fire_store_listen_to_changes.dart</url>
+          <line>13</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/fire_store/cloud_fire_store_listen_to_changes.dart</url>
+          <line>9</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="dart-exception" />
       </default-breakpoints>
