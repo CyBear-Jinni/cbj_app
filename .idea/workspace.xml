@@ -4,11 +4,66 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96c5fe8c-119f-4135-b3fa-611215ac658f" name="Default Changelist" comment="Add python code to do speech to text">
+    <list default="true" id="96c5fe8c-119f-4135-b3fa-611215ac658f" name="Default Changelist" comment="Record less time">
+      <change afterPath="$PROJECT_DIR$/SmartDevice/scripts/bashScripts/nativeExecutableMaker.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/microphone/python_speech_to_text.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/microphone/python_speech_to_text.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/pythonScripts/voiceAssistence/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/scripts/pythonScripts/voiceAssistence/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/bin/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/bin/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/smart_device_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/smart_device_manager.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities/smart_device_objects/static_devices/blinds_object.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities/smart_device_objects/static_devices/blinds_object.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities/wish_classes/off_wish.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities/wish_classes/off_wish.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities/wish_classes/on_wish.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities/wish_classes/on_wish.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/repositories/smart_device_base_abstract.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/repositories/smart_device_base_abstract.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/manage_physical_components/device_pin_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/manage_physical_components/device_pin_manager.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/manage_physical_components/devices_pin_configuration/device_configuration_base_class.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/manage_physical_components/devices_pin_configuration/device_configuration_base_class.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/controlloling_pins_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/controlloling_pins_test.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/on_wish_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/on_wish_test.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/bashScripts/dartSdkDownload.sh" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/scripts/bashScripts/dartSdkDownload.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/.directory" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/.travis.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/resources/.directory" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/resources/models/.directory" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/resources/models/jarvis.pmdl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/pythonScripts/voiceAssistence/venv/bin/pip3.7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/pythonScripts/voiceAssistence/venv/bin/python" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/pythonScripts/voiceAssistence/venv/bin/python3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/pythonScripts/voiceAssistence/venv/bin/python3.7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/pythonScripts/voiceAssistentJarvix/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/pythonScripts/voiceAssistentJarvix/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/pythonScripts/voiceAssistentJarvix/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/pythonScripts/voiceAssistentJarvix/.idea/voiceAssistent.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/pythonScripts/voiceAssistentJarvix/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/pythonScripts/voiceAssistentJarvix/_snowboydetect.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/pythonScripts/voiceAssistentJarvix/demo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/pythonScripts/voiceAssistentJarvix/jarvis(1).pmdl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/pythonScripts/voiceAssistentJarvix/jarvis.pmdl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/pythonScripts/voiceAssistentJarvix/resources/alexa/SnowboyAlexaDemo.apk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/pythonScripts/voiceAssistentJarvix/resources/alexa/alexa-avs-sample-app/alexa.umdl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/pythonScripts/voiceAssistentJarvix/resources/alexa/alexa-avs-sample-app/avs-kittai.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/pythonScripts/voiceAssistentJarvix/resources/alexa/alexa_02092017.umdl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/pythonScripts/voiceAssistentJarvix/resources/common.res" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/pythonScripts/voiceAssistentJarvix/resources/ding.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/pythonScripts/voiceAssistentJarvix/resources/dong.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/pythonScripts/voiceAssistentJarvix/resources/jarvis.umdl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/pythonScripts/voiceAssistentJarvix/resources/models/computer.umdl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/pythonScripts/voiceAssistentJarvix/resources/models/hey_extreme.umdl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/pythonScripts/voiceAssistentJarvix/resources/models/jarvis.umdl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/pythonScripts/voiceAssistentJarvix/resources/models/neoya.umdl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/pythonScripts/voiceAssistentJarvix/resources/models/smart_mirror.umdl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/pythonScripts/voiceAssistentJarvix/resources/models/snowboy.umdl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/pythonScripts/voiceAssistentJarvix/resources/models/subex.umdl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/pythonScripts/voiceAssistentJarvix/resources/models/view_glass.umdl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/pythonScripts/voiceAssistentJarvix/resources/snowboy.raw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/pythonScripts/voiceAssistentJarvix/resources/snowboy.umdl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/pythonScripts/voiceAssistentJarvix/resources/snowboy.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/pythonScripts/voiceAssistentJarvix/snowboy-detect-swig.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/pythonScripts/voiceAssistentJarvix/snowboy-detect-swig.i" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/pythonScripts/voiceAssistentJarvix/snowboy-detect-swig.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/pythonScripts/voiceAssistentJarvix/snowboydecoder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/pythonScripts/voiceAssistentJarvix/snowboydetect.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/snap/snapcraft.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/snap/snapcraft.yaml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -98,12 +153,6 @@
       <option name="testName" value="Cow legs" />
       <method v="2" />
     </configuration>
-    <configuration name="How about some stubbing? in catTest.dart" type="DartTestRunConfigurationType" factoryName="Dart Test" temporary="true" nameIsGenerated="true">
-      <option name="filePath" value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/catTest.dart" />
-      <option name="scope" value="GROUP_OR_TEST_BY_NAME" />
-      <option name="testName" value="How about some stubbing?" />
-      <method v="2" />
-    </configuration>
     <configuration name="PinInformation in controlloling_pins_test.dart" type="DartTestRunConfigurationType" factoryName="Dart Test" temporary="true" nameIsGenerated="true">
       <option name="filePath" value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/controlloling_pins_test.dart" />
       <option name="scope" value="GROUP_OR_TEST_BY_NAME" />
@@ -118,6 +167,12 @@
     <configuration name="Tests FlutterApp all" type="DartTestRunConfigurationType" factoryName="Dart Test">
       <option name="filePath" value="$PROJECT_DIR$/FlutterApp/smart_home_flutter/test" />
       <option name="scope" value="FOLDER" />
+      <method v="2" />
+    </configuration>
+    <configuration name="calculate in on_wish_test.dart" type="DartTestRunConfigurationType" factoryName="Dart Test" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/on_wish_test.dart" />
+      <option name="scope" value="GROUP_OR_TEST_BY_NAME" />
+      <option name="testName" value="calculate" />
       <method v="2" />
     </configuration>
     <configuration name="tests in catTest.dart" type="DartTestRunConfigurationType" factoryName="Dart Test" temporary="true" nameIsGenerated="true">
@@ -140,14 +195,15 @@
       <item itemvalue="Dart Test.Test SmartDevice all" />
       <item itemvalue="Dart Test.Tests FlutterApp all" />
       <item itemvalue="Dart Test.Cow legs in cow_animal_test.dart" />
-      <item itemvalue="Dart Test.How about some stubbing? in catTest.dart" />
       <item itemvalue="Dart Test.PinInformation in controlloling_pins_test.dart" />
       <item itemvalue="Dart Test.tests in catTest.dart" />
       <item itemvalue="Dart Test.tests in cow_animal_test.dart" />
+      <item itemvalue="Dart Test.calculate in on_wish_test.dart" />
       <item itemvalue="Flutter.Smart App" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Dart Test.calculate in on_wish_test.dart" />
         <item itemvalue="Dart Test.Cow legs in cow_animal_test.dart" />
       </list>
     </recent_temporary>
@@ -485,7 +541,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585323137084</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Record less time">
+      <created>1585815752680</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1585815752680</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
@@ -535,7 +598,6 @@
       <path value="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy" />
       <path value="$PROJECT_DIR$/SmartDevice/scripts/cScripts2/snowboy" />
     </ignored-roots>
-    <MESSAGE value="New roles, after import and between functions there will be 2 new lines (comments do not included) afte class creation there will be one new line if there is function and no new line otherwise" />
     <MESSAGE value="Adding change state of light by voice command 'jarvis'" />
     <MESSAGE value="Snapcraft demo.C file now get the location of the model from outside, add to the snap the dependencies for snowboy" />
     <MESSAGE value="Changing icons to font awesome icons, adding history tab, network manager will now not relay on OS to reconnect to the previous Wi-Fi after connection dropped off" />
@@ -560,7 +622,8 @@
     <MESSAGE value="Voice command stream is passed down back to the application" />
     <MESSAGE value="Remove redundant streams from fireStore listener" />
     <MESSAGE value="Add python code to do speech to text" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add python code to do speech to text" />
+    <MESSAGE value="Record less time" />
+    <option name="LAST_COMMIT_MESSAGE" value="Record less time" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
