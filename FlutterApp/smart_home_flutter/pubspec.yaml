@@ -23,9 +23,9 @@ dependencies:
   fluttertoast: ^3.1.3
   font_awesome_flutter: ^8.5.0
   provider: ^4.0.4
-  injectable: ^0.2.2
+  injectable: ^0.3.0
   # Service locator
-  get_it: ^3.1.0
+  get_it: ^4.0.0
   # Functional programming thingies, let you use multiple return types
   dartz: ^0.8.9
   # Bloc for state management, replace StatefulWidget
@@ -43,7 +43,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   build_runner:
-  injectable_generator: ^0.2.2
+  injectable_generator: ^0.3.0
   mockito: ^4.1.1
 
 flutter_icons:
