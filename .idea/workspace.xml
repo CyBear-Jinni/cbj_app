@@ -5,16 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96c5fe8c-119f-4135-b3fa-611215ac658f" name="Default Changelist" comment="Record less time">
+      <change afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/cloud_value_change/cloud_value_change_usecases.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/request_manager.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/cloud_value_change/cloud_fire_store_listen_to_changes.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/bin/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/bin/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities/wish_classes/off_wish.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities/wish_classes/off_wish.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities/wish_classes/on_wish.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities/wish_classes/on_wish.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/manage_physical_components/device_pin_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/manage_physical_components/device_pin_manager.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/manage_physical_components/pins_datasource/sending_signals_to_pins/controlloling_pins_local.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/manage_physical_components/pins_datasource/sending_signals_to_pins/controlloling_pins_local.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/injection.iconfig.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/injection.iconfig.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/controlloling_pins_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/controlloling_pins_test.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/on_wish_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/on_wish_test.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/usecases/usecase.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/usecases/usecase.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/smart_device_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/smart_device_manager.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/fire_store/cloud_fire_store.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/core/fire_store/cloud_fire_store.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/fire_store/cloud_fire_store_listen_to_changes.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/fire_store/data_base_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/core/fire_store/data_base_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/server/smart_server.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/smart_server.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/repositories/cloud_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/repositories/cloud_value_change/cloud_manager.dart" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,23 +58,23 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="aDefault" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application" />
-      <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/datasources/server" />
-      <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities" />
-      <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/repositories" />
-      <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/usecases" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/models" />
       <recent name="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib" />
       <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core" />
       <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device" />
       <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/core/fire_store" />
+      <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/core" />
+      <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/cloud_value_change" />
+      <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/repositories/cloud_value_change" />
+      <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/cloud_on_value_change" />
     </key>
   </component>
   <component name="RunDashboard">
