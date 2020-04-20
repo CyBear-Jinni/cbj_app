@@ -15,11 +15,13 @@ class SmartClient {
     try {
       response = await stub.getStatus(SmartDevice()..name = "0");
       print('Greeter client received: ${response.onOffState}');
+      await channel.shutdown();
+      return response.onOffState.toString();
     } catch (e) {
       print('Caught error: $e');
     }
     await channel.shutdown();
-    return response.onOffState.toString();
+    return 'error';
   }
 
   //  Turn smart device on
@@ -30,11 +32,13 @@ class SmartClient {
     try {
       response = await stub.setOnDevice(SmartDevice()..name = "0");
       print('Greeter client received: ${response.success}');
+      await channel.shutdown();
+      return response.success.toString();
     } catch (e) {
       print('Caught error: $e');
     }
     await channel.shutdown();
-    return response.success.toString();
+    return 'error';
   }
 
   //  Turn smart device off
@@ -45,11 +49,13 @@ class SmartClient {
     try {
       response = await stub.setOffDevice(SmartDevice()..name = "0");
       print('Greeter client received: ${response.success}');
+      await channel.shutdown();
+      return response.success.toString();
     } catch (e) {
       print('Caught error: $e');
     }
     await channel.shutdown();
-    return response.success.toString();
+    return 'error';
   }
 
 
@@ -64,11 +70,13 @@ class SmartClient {
       response = await stub.setBlindsUp(SmartDevice()
         ..name = "0");
       print('Greeter client received: ${response.success}');
+      await channel.shutdown();
+      return response.success.toString();
     } catch (e) {
       print('Caught error: $e');
     }
     await channel.shutdown();
-    return response.success.toString();
+    return 'error';
   }
 
   //  Turn smart blinds down
@@ -80,11 +88,13 @@ class SmartClient {
       response = await stub.setBlindsDown(SmartDevice()
         ..name = "0");
       print('Greeter client received: ${response.success}');
+      await channel.shutdown();
+      return response.success.toString();
     } catch (e) {
       print('Caught error: $e');
     }
     await channel.shutdown();
-    return response.success.toString();
+    return 'error';
   }
 
   //  Stop smart blinds
@@ -96,11 +106,13 @@ class SmartClient {
       response = await stub.setBlindsStop(SmartDevice()
         ..name = "0");
       print('Greeter client received: ${response.success}');
+      await channel.shutdown();
+      return response.success.toString();
     } catch (e) {
       print('Caught error: $e');
     }
     await channel.shutdown();
-    return response.success.toString();
+    return 'error';
   }
 
   static ClientChannel createSmartServerClient(String ip) {

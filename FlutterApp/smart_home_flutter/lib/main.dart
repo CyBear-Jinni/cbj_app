@@ -27,14 +27,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Smart home',
-//      darkTheme: ThemeData(),
+//      darkTheme: ThemeData(brightness: Brightness.dark),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
         accentColor: Colors.indigo,
         textTheme: TextTheme(
-          bodyText1: TextStyle(color: Colors.white),
-          bodyText2: TextStyle(color: Colors.white70),
+          body1: TextStyle(color: Colors.white),
+          body2: TextStyle(color: Colors.white70),
+//          bodyText1: TextStyle(color: Colors.white),
+//          bodyText2: TextStyle(color: Colors.white70),
+
           ),
         fontFamily: 'gidole_regular',
       ),
