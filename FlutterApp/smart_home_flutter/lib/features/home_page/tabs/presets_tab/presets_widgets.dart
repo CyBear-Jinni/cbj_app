@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:smart_home_flutter/features/home_page/tabs/presets_tab/preset_block_widget.dart';
 import 'package:smart_home_flutter/features/home_page/tabs/presets_tab/settings_page_of_presets.dart';
 
 
 class PresetsWidgets extends StatelessWidget {
-  final List<String> _presetsList = [
+  static final List<String> _presetsList = [
     'Welcome home',
     'Party mode',
     'Going out',
@@ -23,33 +24,12 @@ class PresetsWidgets extends StatelessWidget {
     'Party mode5',
     'Party mode6',
   ];
-  final List<MaterialColor> colorList = Colors.primaries;
 
 
   List<Widget> presets(BuildContext context) {
     return _presetsList
         .map((element) =>
-        Container(
-          margin: EdgeInsets.fromLTRB(2, 0, 2, 16),
-          child: RaisedButton(
-            color: colorList[_presetsList.indexOf(element)],
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30)),
-            child: Text(
-              element,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 22,
-                color: Theme
-                    .of(context)
-                    .textTheme
-                    .body1
-                    .color,
-              ),
-            ),
-            onPressed: () {},
-          ),
-        ))
+        PresetBlockWidget(element, _presetsList.indexOf(element)))
         .toList();
   }
 

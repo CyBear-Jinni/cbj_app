@@ -32,11 +32,13 @@ class _SmartDevicePage extends State<SmartDevicePage> {
   Future getDeviceState() async {
     bool deviceState = await _device.getDeviceState();
     print('This is device state: ' + deviceState.toString());
-    _onChange(deviceState);
-    setState(() {
-      _switchState = deviceState;
-      _isLoading = false;
-    });
+    if (mounted && deviceState != null) {
+      setState(() {
+        _switchState = deviceState;
+        _isLoading = false;
+      });
+      _onChange(deviceState);
+    }
   }
 
 
