@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smart_home_flutter/features/home_page/smart_device_widget.dart';
+import 'package:smart_home_flutter/features/home_page/tabs/lamps_tab/room_toggles_block.dart';
 import 'package:smart_home_flutter/objects/interface_darta/cloud_interface_data.dart';
 
 
@@ -7,54 +7,7 @@ import 'package:smart_home_flutter/objects/interface_darta/cloud_interface_data.
 class RoomsManagerWidget extends StatelessWidget {
 
   Widget _buildItemList(BuildContext context, int index) {
-    return Container(
-      margin: EdgeInsets.only(bottom: 15),
-      decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.2),
-        borderRadius: BorderRadius.circular(30.0),
-      ),
-      child: Column(
-        children: <Widget>[
-          Padding(
-            padding: EdgeInsets.all(10),
-          ),
-          Container(
-            alignment: Alignment.centerLeft,
-            child: FlatButton(
-              onPressed: () => Navigator.pushNamed(
-                context,
-                '/roomRage/' + index.toString(),
-              ),
-              color: Colors.transparent,
-              child: Text(
-                rooms[index].getRoomName(),
-                style: TextStyle(
-                  color: Theme.of(context).textTheme.body1.color,
-                  fontSize: 25,
-                  decoration: TextDecoration.underline,
-                ),
-              ),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(5),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              Container(
-                width: 170,
-                child: SmartDevicePage(rooms[index].getLights()[0]),
-              ),
-              Container(
-                width: 170,
-                child: SmartDevicePage(rooms[index].getLights()[1]),
-              )
-            ],
-          ),
-        ],
-      ),
-    );
+    return RoomTogglesBlock(rooms[index]);
   }
 
 
