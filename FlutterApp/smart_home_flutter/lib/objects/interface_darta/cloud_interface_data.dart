@@ -18,17 +18,17 @@ SmartRoomObject room5 = SmartRoomObject("Sami", room5DevicesList);
 final List<SmartDeviceObject> room1DevicesList = [
   SmartDeviceObject(DeviceType.Light, "Guy main", "10.0.0.23"),
   SmartDeviceObject(DeviceType.Light, "Guy bed", "10.0.0.24"),
-  SmartDeviceObject(DeviceType.Light, "Guy desk", "10.0.0.30")
+  SmartDeviceObject(DeviceType.Light, "Guy desk", "10.0.0.50")
 ];
 
 final List<SmartDeviceObject> room2DevicesList = [
   SmartDeviceObject(DeviceType.Light, "Kitchen main", "10.0.0.21"),
   SmartDeviceObject(DeviceType.Light, "Kitchen table", "10.0.0.22"),
-  SmartDeviceObject(DeviceType.Light, "Kitchen main", "10.0.0.30")
+  SmartDeviceObject(DeviceType.Light, "Kitchen main", "10.0.0.51")
 ];
 
 final List<SmartDeviceObject> room3DevicesList = [
-  SmartDeviceObject(DeviceType.Light, "Outside stairs", "10.0.0.17"),
+  SmartDeviceObject(DeviceType.Light, "Outside stairs", "10.0.0.30"),
   SmartDeviceObject(DeviceType.Light, "Outside light", "10.0.0.8"),
   SmartDeviceObject(DeviceType.Light, "Outside main", "10.0.0.14")
 ];
