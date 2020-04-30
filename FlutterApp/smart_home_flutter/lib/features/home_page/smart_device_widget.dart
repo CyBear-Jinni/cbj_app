@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_home_flutter/objects/smart_device/smart_device_objcet.dart';
 
@@ -16,8 +17,8 @@ class SmartDevicePage extends StatefulWidget {
 }
 
 class _SmartDevicePage extends State<SmartDevicePage> {
-  bool _isLoading = true; //  state is loading
   bool _switchState = false;
+  Future<bool> _switchStateF;
   SmartDeviceObject _device;
 
 
@@ -29,25 +30,20 @@ class _SmartDevicePage extends State<SmartDevicePage> {
   }
 
   //  Send request to device to retrieve his state on or off
-  Future getDeviceState() async {
-    bool deviceState = await _device.getDeviceState();
-    print('This is device state: ' + deviceState.toString());
-    if (mounted && deviceState != null) {
-      setState(() {
-        _switchState = deviceState;
-        _isLoading = false;
-      });
-      _onChange(deviceState);
-    }
+  Future<bool> getDeviceState() async {
+    _switchState = await _device.getDeviceState();
+    return _switchState;
   }
 
 
   void _onChange(bool value) {
     print('OnChange ' + value.toString());
     _device.setLightState(value);
-    setState(() {
-      _switchState = value;
-    });
+    if (mounted) {
+      setState(() {
+        _switchState = value;
+      });
+    }
   }
 
 
@@ -66,14 +62,11 @@ class _SmartDevicePage extends State<SmartDevicePage> {
                 .color,
           ),
         ),
-        _isLoading
-            ? Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Center(
-                  child: CircularProgressIndicator(),
-                ),
-              )
-            : Transform.scale(
+        FutureBuilder<bool>(
+          future: getDeviceState(),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return Transform.scale(
                 scale: 1.5,
                 child: Switch(
                   activeColor: Colors.yellow,
@@ -81,7 +74,20 @@ class _SmartDevicePage extends State<SmartDevicePage> {
                   value: _switchState,
                   onChanged: (bool value) => _onChange(value),
                 ),
-              ),
+              );
+            }
+            else {
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Center(
+                    child: CupertinoActivityIndicator(
+                      radius: 16,
+                    )
+                ),
+              );
+            }
+          },
+        )
       ],
     );
   }
