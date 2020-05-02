@@ -25,7 +25,7 @@ class SmartDeviceObject {
 
   //  ignore: missing_return
   Future<bool> getDeviceState() async {
-    String deviceStateString = await getDeviceStateRequest(ip);
+    String deviceStateString = await getDeviceStateRequest(this);
     print("Go on little one: " + deviceStateString);
     if (deviceStateString == 'true') {
       return true;
@@ -40,7 +40,7 @@ class SmartDeviceObject {
 
 
   Future<String> setLightState(bool state) async {
-    return state ? await turnOn(ip) : await turnOff(ip);
+    return state ? await turnOn(this) : await turnOff(this);
   }
 
 

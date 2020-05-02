@@ -4,10 +4,16 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96c5fe8c-119f-4135-b3fa-611215ac658f" name="Default Changelist" comment="Record less time">
+    <list default="true" id="96c5fe8c-119f-4135-b3fa-611215ac658f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/features/home_page/smart_device_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/features/home_page/smart_device_widget.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/interface_darta/cloud_interface_data.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/interface_darta/cloud_interface_data.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/client/smart_client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/client/smart_client.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/send_to_smart_device.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/send_to_smart_device.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/smart_blinds_object.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/smart_blinds_object.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/smart_device_objcet.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/smart_device_objcet.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/set_devices_u/set_devices_u.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/set_devices_u/set_devices_u.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/smart_server_u/smart_server_u.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/smart_server_u/smart_server_u.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/snap/snapcraft.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/snap/snapcraft.yaml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,7 +56,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="aDefault" />
-    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -81,7 +87,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Flutter.Smart App">
+  <component name="RunManager" selected="Dart Command Line App.Smart Device">
     <configuration name="Network Manager" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="arguments" value="&quot;.&quot;" />
       <option name="filePath" value="$PROJECT_DIR$/NetworkManager/NetworkManagerDart/bin/main.dart" />
@@ -92,44 +98,6 @@
       <option name="filePath" value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/bin/main.dart" />
       <method v="2" />
     </configuration>
-    <configuration name="Cow legs in cow_animal_test.dart" type="DartTestRunConfigurationType" factoryName="Dart Test" temporary="true" nameIsGenerated="true">
-      <option name="filePath" value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/cow_animal_test.dart" />
-      <option name="scope" value="GROUP_OR_TEST_BY_NAME" />
-      <option name="testName" value="Cow legs" />
-      <method v="2" />
-    </configuration>
-    <configuration name="PinInformation in controlloling_pins_test.dart" type="DartTestRunConfigurationType" factoryName="Dart Test" temporary="true" nameIsGenerated="true">
-      <option name="filePath" value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/controlloling_pins_test.dart" />
-      <option name="scope" value="GROUP_OR_TEST_BY_NAME" />
-      <option name="testName" value="PinInformation" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Test SmartDevice all" type="DartTestRunConfigurationType" factoryName="Dart Test">
-      <option name="filePath" value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test" />
-      <option name="scope" value="FOLDER" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Tests FlutterApp all" type="DartTestRunConfigurationType" factoryName="Dart Test">
-      <option name="filePath" value="$PROJECT_DIR$/FlutterApp/smart_home_flutter/test" />
-      <option name="scope" value="FOLDER" />
-      <method v="2" />
-    </configuration>
-    <configuration name="calculate in on_wish_test.dart" type="DartTestRunConfigurationType" factoryName="Dart Test" temporary="true" nameIsGenerated="true">
-      <option name="filePath" value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/on_wish_test.dart" />
-      <option name="scope" value="GROUP_OR_TEST_BY_NAME" />
-      <option name="testName" value="calculate" />
-      <method v="2" />
-    </configuration>
-    <configuration name="tests in catTest.dart" type="DartTestRunConfigurationType" factoryName="Dart Test" temporary="true" nameIsGenerated="true">
-      <option name="filePath" value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/catTest.dart" />
-      <option name="testName" value="catTest.dart" />
-      <method v="2" />
-    </configuration>
-    <configuration name="tests in cow_animal_test.dart" type="DartTestRunConfigurationType" factoryName="Dart Test" temporary="true" nameIsGenerated="true">
-      <option name="filePath" value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/test/cow_animal_test.dart" />
-      <option name="testName" value="cow_animal_test.dart" />
-      <method v="2" />
-    </configuration>
     <configuration name="Smart App" type="FlutterRunConfigurationType" factoryName="Flutter" singleton="false">
       <option name="filePath" value="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/main.dart" />
       <method v="2" />
@@ -137,24 +105,8 @@
     <list>
       <item itemvalue="Dart Command Line App.Network Manager" />
       <item itemvalue="Dart Command Line App.Smart Device" />
-      <item itemvalue="Dart Test.Test SmartDevice all" />
-      <item itemvalue="Dart Test.Tests FlutterApp all" />
-      <item itemvalue="Dart Test.calculate in on_wish_test.dart" />
-      <item itemvalue="Dart Test.Cow legs in cow_animal_test.dart" />
-      <item itemvalue="Dart Test.PinInformation in controlloling_pins_test.dart" />
-      <item itemvalue="Dart Test.tests in catTest.dart" />
-      <item itemvalue="Dart Test.tests in cow_animal_test.dart" />
       <item itemvalue="Flutter.Smart App" />
     </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Dart Test.tests in cow_animal_test.dart" />
-        <item itemvalue="Dart Test.tests in catTest.dart" />
-        <item itemvalue="Dart Test.PinInformation in controlloling_pins_test.dart" />
-        <item itemvalue="Dart Test.Cow legs in cow_animal_test.dart" />
-        <item itemvalue="Dart Test.calculate in on_wish_test.dart" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -496,7 +448,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585815752680</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Change to cupertino activity indicator">
+      <created>1588286002264</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1588286002265</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
@@ -546,7 +505,6 @@
       <path value="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy" />
       <path value="$PROJECT_DIR$/SmartDevice/scripts/cScripts2/snowboy" />
     </ignored-roots>
-    <MESSAGE value="Adding change state of light by voice command 'jarvis'" />
     <MESSAGE value="Snapcraft demo.C file now get the location of the model from outside, add to the snap the dependencies for snowboy" />
     <MESSAGE value="Changing icons to font awesome icons, adding history tab, network manager will now not relay on OS to reconnect to the previous Wi-Fi after connection dropped off" />
     <MESSAGE value="Committing snowboy" />
@@ -571,13 +529,81 @@
     <MESSAGE value="Remove redundant streams from fireStore listener" />
     <MESSAGE value="Add python code to do speech to text" />
     <MESSAGE value="Record less time" />
-    <option name="LAST_COMMIT_MESSAGE" value="Record less time" />
+    <MESSAGE value="Change to cupertino activity indicator" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change to cupertino activity indicator" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/smart_server_u/smart_server_u.dart</url>
+          <line>54</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/features/home_page/smart_device_widget.dart</url>
+          <line>39</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/send_to_smart_device.dart</url>
+          <line>32</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/client/smart_client.dart</url>
+          <line>29</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/smart_server_u/smart_server_u.dart</url>
+          <line>36</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/smart_server_u/smart_server_u.dart</url>
+          <line>108</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/smart_server_u/smart_server_u.dart</url>
+          <line>104</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/smart_device_objects_u/abstracts_devices/smart_device_static_abstract.dart</url>
+          <line>39</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/smart_device_objects_u/abstracts_devices/smart_device_base_abstract.dart</url>
+          <line>141</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/core_u/actions_to_preform.dart</url>
+          <line>6</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/smart_device_objects_u/abstracts_devices/smart_device_simple_abstract.dart</url>
+          <line>24</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/smart_server_u/smart_server_u.dart</url>
+          <line>106</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/smart_server_u/smart_server_u.dart</url>
+          <line>87</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="dart-exception" />
       </default-breakpoints>
