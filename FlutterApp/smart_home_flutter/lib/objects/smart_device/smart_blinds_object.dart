@@ -11,21 +11,21 @@ class SmartBlindsObject extends SmartDeviceObject {
 
 
   Future<String> blindsUp() async {
-    String deviceSuccessStatus = await SmartClient.setSmartBlindsUp(ip);
+    String deviceSuccessStatus = await SmartClient.setSmartBlindsUp(this);
     print('Blinds up status is: ' + deviceSuccessStatus.toString());
     return deviceSuccessStatus;
   }
 
 
   Future<String> blindsDown() async {
-    String deviceSuccessStatus = await SmartClient.setSmartBlindsDown(ip);
+    String deviceSuccessStatus = await SmartClient.setSmartBlindsDown(this);
     print('Blinds down status is: ' + deviceSuccessStatus.toString());
     return deviceSuccessStatus;
   }
 
 
   Future<String> blindsStop() async {
-    String deviceSuccessStatus = await SmartClient.setSmartBlindsStop(ip);
+    String deviceSuccessStatus = await SmartClient.setSmartBlindsStop(this);
     print('Blinds stop status is: ' + deviceSuccessStatus.toString());
     return deviceSuccessStatus;
   }
