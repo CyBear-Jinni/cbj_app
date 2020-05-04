@@ -1,4 +1,4 @@
-package com.example.smart_home_flutter;
+package com.CybearJinni;
 
 import android.os.Bundle;
 
