@@ -26,7 +26,6 @@ class _SmartDevicePage extends State<SmartDevicePage> {
   void initState() {
     super.initState();
     this._device = widget.device;
-    getDeviceState();
   }
 
   //  Send request to device to retrieve his state on or off
