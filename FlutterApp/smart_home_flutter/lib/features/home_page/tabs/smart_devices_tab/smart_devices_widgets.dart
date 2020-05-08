@@ -49,7 +49,6 @@ class SmartDevicesWidgets extends StatelessWidget {
                   msg: element.toString(),
                   toastLength: Toast.LENGTH_SHORT,
                   gravity: ToastGravity.CENTER,
-                  timeInSecForIos: 1,
                   backgroundColor: Colors.red,
                   textColor: Colors.white,
                   fontSize: 16.0
@@ -76,7 +75,11 @@ class SmartDevicesWidgets extends StatelessWidget {
           alignment: Alignment.centerRight,
           child: IconButton(
             icon: Icon(FontAwesomeIcons.cog,
-                color: Theme.of(context).textTheme.body1.color),
+                color: Theme
+                    .of(context)
+                    .textTheme
+                    .bodyText1
+                    .color),
             onPressed: () => Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -88,7 +91,11 @@ class SmartDevicesWidgets extends StatelessWidget {
           'Smart Devices page',
           style: TextStyle(
               fontSize: 23.0,
-              color: Theme.of(context).textTheme.body1.color,
+              color: Theme
+                  .of(context)
+                  .textTheme
+                  .bodyText1
+                  .color,
               decoration: TextDecoration.underline),
         ),
         Container(
@@ -98,7 +105,7 @@ class SmartDevicesWidgets extends StatelessWidget {
           child: Text("Press me if you can", style: TextStyle(color: Theme
               .of(context)
               .textTheme
-              .body1
+              .bodyText1
               .color,
               fontSize: 16),),
           onPressed: () {

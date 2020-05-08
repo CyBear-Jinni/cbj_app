@@ -33,10 +33,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.deepPurple,
         accentColor: Colors.indigo,
         textTheme: TextTheme(
-          body1: TextStyle(color: Colors.white),
-          body2: TextStyle(color: Colors.white70),
-//          bodyText1: TextStyle(color: Colors.white),
-//          bodyText2: TextStyle(color: Colors.white70),
+          bodyText1: TextStyle(color: Colors.white),
+          bodyText2: TextStyle(color: Colors.white70),
 
           ),
         fontFamily: 'gidole_regular',

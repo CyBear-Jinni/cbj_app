@@ -40,7 +40,7 @@ class _SmartBlindPage extends State<SmartBlindPage> {
 
   //  Send request to device to retrieve his state on or off
   Future getDeviceState() async {
-    bool deviceState = await _device.getDeviceState();
+    bool deviceState = await _device.getDeviceStateAsBool();
     print('This is device state: ' + deviceState.toString());
     _onChange(deviceState);
     setState(() {
@@ -68,7 +68,11 @@ class _SmartBlindPage extends State<SmartBlindPage> {
           _device.name, //  Show device name
           style: TextStyle(
             fontSize: 20.0,
-            color: Theme.of(context).textTheme.body2.color,
+            color: Theme
+                .of(context)
+                .textTheme
+                .bodyText2
+                .color,
           ),
         ),
         SizedBox(height: 20,),
@@ -89,12 +93,12 @@ class _SmartBlindPage extends State<SmartBlindPage> {
                   icon: Icon(FontAwesomeIcons.arrowDown, color: Theme
                       .of(context)
                       .textTheme
-                      .body1
+                      .bodyText1
                       .color),
                   child: Text("Down", style: TextStyle(color: Theme
                       .of(context)
                       .textTheme
-                      .body1
+                      .bodyText1
                       .color,
                       fontSize: 16),
                   ),
@@ -107,12 +111,12 @@ class _SmartBlindPage extends State<SmartBlindPage> {
                   icon: Icon(FontAwesomeIcons.solidHandPaper, color: Theme
                       .of(context)
                       .textTheme
-                      .body1
+                      .bodyText1
                       .color),
                   child: Text("Stop", style: TextStyle(color: Theme
                       .of(context)
                       .textTheme
-                      .body1
+                      .bodyText1
                       .color,
                       fontSize: 16),),),
                 onPressed: () => _smartBlindsObject.blindsStop()),
@@ -123,12 +127,12 @@ class _SmartBlindPage extends State<SmartBlindPage> {
                   icon: Icon(FontAwesomeIcons.arrowUp, color: Theme
                       .of(context)
                       .textTheme
-                      .body1
+                      .bodyText1
                       .color),
                   child: Text("Up", style: TextStyle(color: Theme
                       .of(context)
                       .textTheme
-                      .body1
+                      .bodyText1
                       .color,
                       fontSize: 16),),),
                 onPressed: () => _smartBlindsObject.blindsUp()),
