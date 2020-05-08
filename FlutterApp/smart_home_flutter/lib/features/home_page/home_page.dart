@@ -50,8 +50,16 @@ class HomePage extends StatelessWidget {
           ]),
           bottomNavigationBar: TabBar(
             indicatorColor: Colors.white,
-            unselectedLabelColor: Theme.of(context).textTheme.body2.color,
-            labelColor: Theme.of(context).textTheme.body1.color,
+            unselectedLabelColor: Theme
+                .of(context)
+                .textTheme
+                .bodyText2
+                .color,
+            labelColor: Theme
+                .of(context)
+                .textTheme
+                .bodyText1
+                .color,
             tabs: <Widget>[
               Tab(
                 icon: Icon(FontAwesomeIcons.history),

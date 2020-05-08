@@ -17,19 +17,22 @@ environment:
   sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
-  cloud_firestore: ^0.12.9
-  grpc: ^1.0.3
-  protobuf: ^0.13.15
-  fluttertoast: ^3.1.3
-  font_awesome_flutter: ^8.5.0
-  provider: ^4.0.4
+  cloud_firestore: ^0.13.5
+  grpc: ^2.1.3
+  protobuf: ^1.0.1
+  fluttertoast: ^4.0.1
+  font_awesome_flutter: ^8.8.1
+  provider: ^4.1.0
   injectable: ^0.3.0
   # Service locator
-  get_it: ^4.0.0
+  get_it: ^4.0.2
   # Functional programming thingies, let you use multiple return types
-  dartz: ^0.8.9
+  dartz: ^0.9.1
   # Bloc for state management, replace StatefulWidget
-  flutter_bloc: ^3.2.0
+  flutter_bloc: ^4.0.0
+  # Allow discover network connectivity
+  connectivity: ^0.4.8+5
+
 
   flutter:
     sdk: flutter

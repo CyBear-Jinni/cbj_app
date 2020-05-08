@@ -26,7 +26,6 @@ class BlindsManagerWidget extends StatelessWidget {
                   msg: "Move to blinds full settings page",
                   toastLength: Toast.LENGTH_SHORT,
                   gravity: ToastGravity.CENTER,
-                  timeInSecForIos: 1,
                   backgroundColor: Colors.green,
                   textColor: Colors.white,
                   fontSize: 16.0),
@@ -38,7 +37,11 @@ class BlindsManagerWidget extends StatelessWidget {
               child: Text(
                 rooms[index].getRoomName(),
                 style: TextStyle(
-                  color: Theme.of(context).textTheme.body1.color,
+                  color: Theme
+                      .of(context)
+                      .textTheme
+                      .bodyText1
+                      .color,
                   fontSize: 25,
                   decoration: TextDecoration.underline,
                 ),

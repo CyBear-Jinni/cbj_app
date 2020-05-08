@@ -18,7 +18,11 @@ class LampsWidgets extends StatelessWidget {
           alignment: Alignment.centerRight,
           child: IconButton(
             icon: Icon(FontAwesomeIcons.cog,
-                color: Theme.of(context).textTheme.body1.color),
+                color: Theme
+                    .of(context)
+                    .textTheme
+                    .bodyText1
+                    .color),
             onPressed: () => Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -29,7 +33,11 @@ class LampsWidgets extends StatelessWidget {
           'Lamps Page',
           style: TextStyle(
               fontSize: 23.0,
-              color: Theme.of(context).textTheme.body1.color,
+              color: Theme
+                  .of(context)
+                  .textTheme
+                  .bodyText1
+                  .color,
               decoration: TextDecoration.underline),
         ),
         Container(

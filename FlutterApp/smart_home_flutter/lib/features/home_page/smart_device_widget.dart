@@ -30,12 +30,12 @@ class _SmartDevicePage extends State<SmartDevicePage> {
 
   //  Send request to device to retrieve his state on or off
   Future<bool> getDeviceState() async {
-    _switchState = await _device.getDeviceState();
+    _switchState = await _device.getDeviceStateAsBool();
     return _switchState;
   }
 
 
-  void _onChange(bool value) {
+  Future<void> _onChange(bool value) async {
     print('OnChange ' + value.toString());
     _device.setLightState(value);
     if (mounted) {
@@ -44,7 +44,6 @@ class _SmartDevicePage extends State<SmartDevicePage> {
       });
     }
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +56,7 @@ class _SmartDevicePage extends State<SmartDevicePage> {
             color: Theme
                 .of(context)
                 .textTheme
-                .body2
+                .bodyText2
                 .color,
           ),
         ),
@@ -79,8 +78,7 @@ class _SmartDevicePage extends State<SmartDevicePage> {
               return Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Center(
-                    child: CupertinoActivityIndicator(
-                      radius: 16,
+                    child: CircularProgressIndicator(
                     )
                 ),
               );

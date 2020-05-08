@@ -5,7 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96c5fe8c-119f-4135-b3fa-611215ac658f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/database/firebase/cloud_firestore/firestore_class.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/database/firebase/cloud_firestore/firestore_class.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/features/home_page/home_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/features/home_page/home_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/features/home_page/smart_device_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/features/home_page/smart_device_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/features/home_page/tabs/history_tab/history_tab.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/features/home_page/tabs/history_tab/history_tab.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/features/home_page/tabs/history_tab/settings_page_of_history.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/features/home_page/tabs/history_tab/settings_page_of_history.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/features/home_page/tabs/lamps_tab/lamps_widgets.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/features/home_page/tabs/lamps_tab/lamps_widgets.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/features/home_page/tabs/lamps_tab/room_toggles_block.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/features/home_page/tabs/lamps_tab/room_toggles_block.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/features/home_page/tabs/lamps_tab/settings_page_of_lamps.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/features/home_page/tabs/lamps_tab/settings_page_of_lamps.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/features/home_page/tabs/presets_tab/preset_block_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/features/home_page/tabs/presets_tab/preset_block_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/features/home_page/tabs/presets_tab/presets_widgets.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/features/home_page/tabs/presets_tab/presets_widgets.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/features/home_page/tabs/presets_tab/settings_page_of_presets.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/features/home_page/tabs/presets_tab/settings_page_of_presets.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/features/home_page/tabs/smart_devices_tab/blinds/blinds_manager_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/features/home_page/tabs/smart_devices_tab/blinds/blinds_manager_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/features/home_page/tabs/smart_devices_tab/blinds/blinds_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/features/home_page/tabs/smart_devices_tab/blinds/blinds_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/features/home_page/tabs/smart_devices_tab/blinds/smart_blind_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/features/home_page/tabs/smart_devices_tab/blinds/smart_blind_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/features/home_page/tabs/smart_devices_tab/settings_page_of_smart_devices.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/features/home_page/tabs/smart_devices_tab/settings_page_of_smart_devices.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/features/home_page/tabs/smart_devices_tab/smart_devices_widgets.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/features/home_page/tabs/smart_devices_tab/smart_devices_widgets.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/features/room_page/room_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/features/room_page/room_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/interface_darta/cloud_interface_data.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/interface_darta/cloud_interface_data.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/smart_device_objcet.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/smart_device_objcet.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/smart_home_flutter/pubspec.yaml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,7 +70,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="aDefault" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -544,11 +565,6 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/features/home_page/smart_device_widget.dart</url>
-          <line>39</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
           <url>file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/send_to_smart_device.dart</url>
           <line>34</line>
           <option name="timeStamp" value="9" />
@@ -612,6 +628,41 @@
           <url>file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/main.dart</url>
           <line>53</line>
           <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/smart_device_objcet.dart</url>
+          <line>44</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/smart_device_objcet.dart</url>
+          <line>108</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/smart_device_objcet.dart</url>
+          <line>43</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/smart_device_objcet.dart</url>
+          <line>117</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/smart_device_objcet.dart</url>
+          <line>105</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/smart_device_objcet.dart</url>
+          <line>51</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/smart_device_objcet.dart</url>
+          <line>46</line>
+          <option name="timeStamp" value="50" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

@@ -16,28 +16,56 @@ class SettingsPageOfLamps extends StatelessWidget {
             ),
             title: Text(
               "Light " + index.toString(),
-              style: TextStyle(color: Theme.of(context).textTheme.body1.color),
+              style: TextStyle(color: Theme
+                  .of(context)
+                  .textTheme
+                  .bodyText1
+                  .color),
             ),
             subtitle: Text(
               "Room " + index.toString(),
-              style: TextStyle(color: Theme.of(context).textTheme.body1.color),
+              style: TextStyle(color: Theme
+                  .of(context)
+                  .textTheme
+                  .bodyText1
+                  .color),
             ),
             trailing: IconButton(
               icon: Icon(
                 FontAwesomeIcons.pen,
-                color: Theme.of(context).textTheme.body1.color,
+                color: Theme
+                    .of(context)
+                    .textTheme
+                    .bodyText1
+                    .color,
               ),
               onPressed: () {},
             ),
           ),
           Divider(
-            color: Theme.of(context).textTheme.body1.color,
+            color: Theme
+                .of(context)
+                .textTheme
+                .bodyText1
+                .color,
           ),
         ],
       );
     }
 
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add), //  FontAwesomeIcons.plus,
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AddNewDeviceWidgetPopup();
+            },
+          );
+        },
+      ),
       body: Container(
         width: MediaQuery.of(context).size.width,
         padding: EdgeInsets.all(5.0),
@@ -75,31 +103,39 @@ class SettingsPageOfLamps extends StatelessWidget {
               children: <Widget>[
                 IconButton(
                   icon: Icon(FontAwesomeIcons.arrowLeft,
-                      color: Theme.of(context).textTheme.body1.color),
+                      color: Theme
+                          .of(context)
+                          .textTheme
+                          .bodyText1
+                          .color),
                   onPressed: () => Navigator.pop(context),
                 ),
-                IconButton(
-                  icon: Icon(
-                    FontAwesomeIcons.plus,
-                    color: Colors.green,
-                    size: 25,
-                  ),
-                  onPressed: () {
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return AddNewDeviceWidgetPopup();
-                      },
-                    );
-                  },
-                ),
+//                IconButton(
+//                  icon: Icon(
+//                    FontAwesomeIcons.plus,
+//                    color: Colors.green,
+//                    size: 25,
+//                  ),
+//                  onPressed: () {
+//                    showDialog(
+//                      context: context,
+//                      builder: (BuildContext context) {
+//                        return AddNewDeviceWidgetPopup();
+//                      },
+//                    );
+//                  },
+//                ),
               ],
             ),
             Text(
               'Lamps Settings Page',
               style: TextStyle(
                   fontSize: 23.0,
-                  color: Theme.of(context).textTheme.body1.color,
+                  color: Theme
+                      .of(context)
+                      .textTheme
+                      .bodyText1
+                      .color,
                   decoration: TextDecoration.underline),
             ),
             Expanded(
