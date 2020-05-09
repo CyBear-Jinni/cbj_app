@@ -16,38 +16,22 @@ class SettingsPageOfLamps extends StatelessWidget {
             ),
             title: Text(
               "Light " + index.toString(),
-              style: TextStyle(color: Theme
-                  .of(context)
-                  .textTheme
-                  .bodyText1
-                  .color),
+              style: TextStyle(color: Theme.of(context).textTheme.bodyText1.color),
             ),
             subtitle: Text(
               "Room " + index.toString(),
-              style: TextStyle(color: Theme
-                  .of(context)
-                  .textTheme
-                  .bodyText1
-                  .color),
+              style: TextStyle(color: Theme.of(context).textTheme.bodyText1.color),
             ),
             trailing: IconButton(
               icon: Icon(
                 FontAwesomeIcons.pen,
-                color: Theme
-                    .of(context)
-                    .textTheme
-                    .bodyText1
-                    .color,
+                color: Theme.of(context).textTheme.bodyText1.color,
               ),
               onPressed: () {},
             ),
           ),
           Divider(
-            color: Theme
-                .of(context)
-                .textTheme
-                .bodyText1
-                .color,
+            color: Theme.of(context).textTheme.bodyText1.color,
           ),
         ],
       );
@@ -58,6 +42,7 @@ class SettingsPageOfLamps extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add), //  FontAwesomeIcons.plus,
         onPressed: () {
+
           showDialog(
             context: context,
             builder: (BuildContext context) {
@@ -103,11 +88,7 @@ class SettingsPageOfLamps extends StatelessWidget {
               children: <Widget>[
                 IconButton(
                   icon: Icon(FontAwesomeIcons.arrowLeft,
-                      color: Theme
-                          .of(context)
-                          .textTheme
-                          .bodyText1
-                          .color),
+                      color: Theme.of(context).textTheme.bodyText1.color),
                   onPressed: () => Navigator.pop(context),
                 ),
 //                IconButton(
@@ -131,11 +112,7 @@ class SettingsPageOfLamps extends StatelessWidget {
               'Lamps Settings Page',
               style: TextStyle(
                   fontSize: 23.0,
-                  color: Theme
-                      .of(context)
-                      .textTheme
-                      .bodyText1
-                      .color,
+                  color: Theme.of(context).textTheme.bodyText1.color,
                   decoration: TextDecoration.underline),
             ),
             Expanded(
