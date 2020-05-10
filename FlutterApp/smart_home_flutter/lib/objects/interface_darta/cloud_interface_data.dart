@@ -42,8 +42,8 @@ final List<SmartDeviceObject> room3DevicesList = [
 
 //  Bar
 final List<SmartDeviceObject> room4DevicesList = [
-  SmartDeviceObject(DeviceType.Light, 'Main', '10.0.0.10', 'Bar'),
-  SmartDeviceObject(DeviceType.Light, 'Bed', '10.0.0.10', 'Bar'),
+  SmartDeviceObject(DeviceType.Light, 'Main', '10.0.0.15', 'Bar'),
+  SmartDeviceObject(DeviceType.Light, 'Bed', '10.0.0.15', 'Bar'),
   SmartDeviceObject(DeviceType.Light, 'stairs', '10.0.0.19', 'Bar')
 ];
 
