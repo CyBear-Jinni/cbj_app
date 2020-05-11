@@ -9,7 +9,7 @@ final List<SmartRoomObject> rooms = [room1, room2, room3, room4];
 SmartRoomObject room1 = SmartRoomObject(
     "Guy", room1DevicesList, blindsInTheRoom: room1blindsList);
 SmartRoomObject room2 = SmartRoomObject('Kitchen', room2DevicesList);
-SmartRoomObject room3 = SmartRoomObject('Outside', room3DevicesList);
+SmartRoomObject room3 = SmartRoomObject('Outside North', room3DevicesList);
 SmartRoomObject room4 = SmartRoomObject('Bar', room4DevicesList);
 SmartRoomObject room5 = SmartRoomObject('Sami', room5DevicesList);
 
@@ -35,9 +35,9 @@ final List<SmartDeviceObject> room2DevicesList = [
 
 //  Outside
 final List<SmartDeviceObject> room3DevicesList = [
-  SmartDeviceObject(DeviceType.Light, 'Stairs', '10.0.0.30', 'Outside'),
-  SmartDeviceObject(DeviceType.Light, 'Storage', '10.0.0.30', 'Outside'),
-  SmartDeviceObject(DeviceType.Light, 'Main', '10.0.0.14', 'Outside')
+  SmartDeviceObject(DeviceType.Light, 'Stairs', '10.0.0.30', 'Outside North'),
+  SmartDeviceObject(DeviceType.Light, 'Storage', '10.0.0.30', 'Outside North'),
+  SmartDeviceObject(DeviceType.Light, 'Main', '10.0.0.14', 'Outside North')
 ];
 
 //  Bar
