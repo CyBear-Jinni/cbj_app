@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_home_flutter/objects/smart_device/smart_device_objcet.dart';
 
@@ -18,15 +19,36 @@ class SmartDevicePage extends StatefulWidget {
 
 class _SmartDevicePage extends State<SmartDevicePage> {
   bool _switchState = false;
-  Future<bool> _switchStateF;
   SmartDeviceObject _device;
+  bool _isLoading = true;
 
 
   @override
   void initState() {
     super.initState();
     this._device = widget.device;
+    getAndUpdateState();
+
+    WidgetsBinding.instance.addObserver(
+        new LifecycleEventHandler(resumeCallBack: getAndUpdateState));
   }
+
+
+  Future<void> getAndUpdateState() async {
+    try {
+      bool stateValue = await getDeviceState();
+      if (mounted) {
+        _isLoading = false;
+        setState(() {
+          _switchState = stateValue;
+        });
+      }
+    }
+    catch (exception) {
+      print('Error whan updating state after resume: ' + exception.toString());
+    }
+  }
+
 
   //  Send request to device to retrieve his state on or off
   Future<bool> getDeviceState() async {
@@ -60,32 +82,51 @@ class _SmartDevicePage extends State<SmartDevicePage> {
                 .color,
           ),
         ),
-        FutureBuilder<bool>(
-          future: getDeviceState(),
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              return Transform.scale(
-                scale: 1.5,
-                child: Switch(
-                  activeColor: Colors.yellow,
-                  inactiveThumbColor: Colors.black87,
-                  value: _switchState,
-                  onChanged: (bool value) => _onChange(value),
-                ),
-              );
-            }
-            else {
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Center(
-                    child: CircularProgressIndicator(
-                    )
-                ),
-              );
-            }
-          },
+        _isLoading
+            ? Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Center(
+              child: CircularProgressIndicator()
+          ),
+        ) : Transform.scale(
+          scale: 1.5,
+          child: Switch(
+            activeColor: Colors.yellow,
+            inactiveThumbColor: Colors.black87,
+            value: _switchState,
+            onChanged: (bool value) => _onChange(value),
+          ),
         )
       ],
     );
+  }
+}
+
+
+class LifecycleEventHandler extends WidgetsBindingObserver {
+  final AsyncCallback resumeCallBack;
+  final AsyncCallback suspendingCallBack;
+
+  LifecycleEventHandler({
+    this.resumeCallBack,
+    this.suspendingCallBack,
+  });
+
+  @override
+  Future<Null> didChangeAppLifecycleState(AppLifecycleState state) async {
+    switch (state) {
+      case AppLifecycleState.resumed:
+        if (resumeCallBack != null) {
+          await resumeCallBack();
+        }
+        break;
+      case AppLifecycleState.inactive:
+      case AppLifecycleState.paused:
+      case AppLifecycleState.detached:
+        if (suspendingCallBack != null) {
+          await suspendingCallBack();
+        }
+        break;
+    }
   }
 }
