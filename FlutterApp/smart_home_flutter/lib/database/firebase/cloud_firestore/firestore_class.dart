@@ -3,37 +3,44 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FireStoreClass {
 
+  String path = '/SmartHomes/GuyHome/Rooms/';
+  String restOfPath = '/DevicesInTheRoom/';
+  String deviceName = 'Stairs and Storage';
+
   Future<String> changeToOppositeSwitchState(String roomName,
-      String deviceName) async {
+      String smartInstanceName) async {
+    String fullPath = createDocumentFullPath(roomName);
+
     Firestore.instance
-        .collection('smartDevices')
-        .document(roomName)
+        .document(fullPath)
         .get()
         .then((DocumentSnapshot ds) {
-      Firestore.instance
-          .collection('smartDevices')
-          .document(roomName)
-          .updateData({deviceName: !ds.data[deviceName]});
+      Firestore.instance.document(fullPath)
+          .updateData({smartInstanceName: !ds.data[smartInstanceName]});
     });
-    return await getDeviceStatus(roomName, deviceName);
+    return await getDeviceStatus(roomName, smartInstanceName);
   }
 
-  Future<String> changeSwitchState(String roomName, String deviceName,
+  Future<String> changeSwitchState(String roomName, String smartInstanceName,
       bool value) async {
-    Firestore.instance
-        .collection('smartDevices')
-        .document(roomName)
-        .updateData({deviceName: value});
+    String fullPath = createDocumentFullPath(roomName);
 
-    return await getDeviceStatus(roomName, deviceName);
+    Firestore.instance.document(fullPath)
+        .updateData({smartInstanceName: value});
+
+    return await getDeviceStatus(roomName, smartInstanceName);
   }
 
-  Future<String> getDeviceStatus(String roomName, String deviceName) async {
-    DocumentSnapshot documentSnapshot = await Firestore.instance
-        .collection('smartDevices')
-        .document(roomName)
-        .get();
+  Future<String> getDeviceStatus(String roomName, String smartInstanceName) async {
+    String fullPath = createDocumentFullPath(roomName);
 
-    return documentSnapshot.data[deviceName].toString();
+    DocumentSnapshot documentSnapshot = await Firestore.instance
+        .document(fullPath).get();
+
+    return documentSnapshot.data[smartInstanceName].toString();
+  }
+
+  String createDocumentFullPath(String roomName){
+    return path + roomName + restOfPath + deviceName;
   }
 }
