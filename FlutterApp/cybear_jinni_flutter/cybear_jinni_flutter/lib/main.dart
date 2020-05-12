@@ -15,8 +15,8 @@ void main() {
 
 class MyApp extends StatelessWidget {
   final routes = <String, WidgetBuilder>{
-//    LoginPage.tag: (context) => LoginPage(),
-    "HomePage": (context) => HomePage(),
+    LoginPage.tag: (context) => LoginPage(),
+//    "HomePage": (context) => HomePage(),
   };
 
   @override
@@ -35,8 +35,8 @@ class MyApp extends StatelessWidget {
         fontFamily: 'gidole_regular',
       ),
       routes: {
-        '/': (BuildContext context) => HomePage(),
-        '/Login': (BuildContext context) => LoginPage(),
+        '/': (BuildContext context) => LoginPage(),
+        '/Home': (BuildContext context) => HomePage(),
 //        '/home_settings': (BuildContext context) => SettingsPage(),
       },
       onGenerateRoute: (RouteSettings settings) {

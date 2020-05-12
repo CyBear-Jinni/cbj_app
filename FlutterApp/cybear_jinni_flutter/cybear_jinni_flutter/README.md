@@ -1,4 +1,4 @@
-# cybearjinni
+# CybearJinni
 
 Cybear Jinni app to interact with your jinnis
 
