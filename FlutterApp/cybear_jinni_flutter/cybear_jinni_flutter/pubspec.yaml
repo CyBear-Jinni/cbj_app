@@ -1,4 +1,4 @@
-name: cybearjinni
+name: CybearJinni
 description: Cybear Jinni app to interact with your jinnis
 
 # The following line prevents the package from being accidentally published to
@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.5+5
+version: 1.0.6+6
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -38,7 +38,7 @@ dependencies:
   # Bloc for state management, replace StatefulWidget
   flutter_bloc: ^4.0.0
   # Allow discover network connectivity
-  connectivity: ^0.4.8+5
+  connectivity: ^0.4.8+6
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.3

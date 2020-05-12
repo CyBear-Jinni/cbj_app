@@ -1,5 +1,5 @@
-import 'package:cybearjinni/objects/smart_device/smart_blinds_object.dart';
-import 'package:cybearjinni/objects/smart_device/smart_device_objcet.dart';
+import 'package:CybearJinni/objects/smart_device/smart_blinds_object.dart';
+import 'package:CybearJinni/objects/smart_device/smart_device_objcet.dart';
 
 class SmartRoomObject {
   String _roomName;

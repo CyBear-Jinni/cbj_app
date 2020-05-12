@@ -1,4 +1,4 @@
-import 'package:cybearjinni/injection.iconfig.dart';
+import 'package:CybearJinni/injection.iconfig.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 

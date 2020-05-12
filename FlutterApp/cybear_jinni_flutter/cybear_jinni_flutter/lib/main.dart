@@ -1,7 +1,7 @@
-import 'package:cybearjinni/features/home_page/tabs/smart_devices_tab/blinds/blinds_page.dart';
-import 'package:cybearjinni/features/room_page/room_page.dart';
-import 'package:cybearjinni/injection.dart';
-import 'package:cybearjinni/objects/interface_darta/cloud_interface_data.dart';
+import 'package:CybearJinni/features/home_page/tabs/smart_devices_tab/blinds/blinds_page.dart';
+import 'package:CybearJinni/features/room_page/room_page.dart';
+import 'package:CybearJinni/injection.dart';
+import 'package:CybearJinni/objects/interface_darta/cloud_interface_data.dart';
 import 'package:flutter/material.dart';
 
 import 'features/home_page/home_page.dart';
@@ -15,8 +15,8 @@ void main() {
 
 class MyApp extends StatelessWidget {
   final routes = <String, WidgetBuilder>{
-    LoginPage.tag: (context) => LoginPage(),
-//    HomePage.tag: (context) => HomePage(),
+//    LoginPage.tag: (context) => LoginPage(),
+    "HomePage": (context) => HomePage(),
   };
 
   @override
@@ -35,8 +35,8 @@ class MyApp extends StatelessWidget {
         fontFamily: 'gidole_regular',
       ),
       routes: {
-        '/': (BuildContext context) => LoginPage(),
-        '/home': (BuildContext context) => HomePage(),
+        '/': (BuildContext context) => HomePage(),
+        '/Login': (BuildContext context) => LoginPage(),
 //        '/home_settings': (BuildContext context) => SettingsPage(),
       },
       onGenerateRoute: (RouteSettings settings) {

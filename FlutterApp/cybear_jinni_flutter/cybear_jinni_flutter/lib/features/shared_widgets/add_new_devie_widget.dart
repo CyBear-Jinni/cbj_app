@@ -1,6 +1,6 @@
-import 'package:cybearjinni/objects/enums.dart';
-import 'package:cybearjinni/objects/interface_darta//cloud_interface_data.dart';
-import 'package:cybearjinni/objects/smart_device/smart_device_objcet.dart';
+import 'package:CybearJinni/objects/enums.dart';
+import 'package:CybearJinni/objects/interface_darta//cloud_interface_data.dart';
+import 'package:CybearJinni/objects/smart_device/smart_device_objcet.dart';
 import 'package:flutter/material.dart';
 
 import 'light_page.dart';

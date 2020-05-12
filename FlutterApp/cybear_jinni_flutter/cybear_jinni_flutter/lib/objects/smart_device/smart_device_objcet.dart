@@ -1,8 +1,8 @@
 import 'dart:io';
 
+import 'package:CybearJinni/database/firebase/cloud_firestore/firestore_class.dart';
+import 'package:CybearJinni/objects/smart_device/send_to_smart_device.dart';
 import 'package:connectivity/connectivity.dart';
-import 'package:cybearjinni/database/firebase/cloud_firestore/firestore_class.dart';
-import 'package:cybearjinni/objects/smart_device/send_to_smart_device.dart';
 import 'package:flutter/services.dart';
 
 import '../enums.dart';
