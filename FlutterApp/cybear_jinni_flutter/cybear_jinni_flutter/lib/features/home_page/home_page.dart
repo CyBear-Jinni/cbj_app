@@ -1,4 +1,7 @@
+import 'package:CybearJinni/features/home_page/tabs/history_tab/history_tab.dart';
 import 'package:CybearJinni/features/home_page/tabs/lamps_tab/lamps_widgets.dart';
+import 'package:CybearJinni/features/home_page/tabs/presets_tab/presets_widgets.dart';
+import 'package:CybearJinni/features/home_page/tabs/smart_devices_tab/smart_devices_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -24,23 +27,43 @@ class HomePage extends StatelessWidget {
         ),
       ),
       child: DefaultTabController(
-        length: 1,
-        initialIndex: 0,
+        length: 4,
+        initialIndex: 1,
         child: Scaffold(
           backgroundColor: Colors.transparent,
           body: TabBarView(children: [
+            HistoryTab(),
+            PresetsWidgets(),
             LampsWidgets(),
+            SmartDevicesWidgets(),
           ]),
           bottomNavigationBar: TabBar(
             indicatorColor: Colors.white,
             unselectedLabelColor: Theme.of(context).textTheme.bodyText2.color,
             labelColor: Theme.of(context).textTheme.bodyText1.color,
             tabs: <Widget>[
-
+              Tab(
+                icon: Icon(FontAwesomeIcons.history),
+                child: Text(
+                  'History',
+                ),
+              ),
+              Tab(
+                icon: Icon(FontAwesomeIcons.cube),
+                child: Text(
+                  'Presets',
+                ),
+              ),
               Tab(
                 icon: Icon(FontAwesomeIcons.solidLightbulb),
                 child: Text(
                   'Lamps',
+                ),
+              ),
+              Tab(
+                icon: Icon(FontAwesomeIcons.satelliteDish),
+                child: Text(
+                  'Devices',
                 ),
               ),
             ],

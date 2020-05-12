@@ -3,7 +3,7 @@ import 'package:CybearJinni/objects/smart_device/smart_blinds_object.dart';
 import 'package:CybearJinni/objects/smart_device/smart_device_objcet.dart';
 import 'package:CybearJinni/objects/smart_device/smart_room_object.dart';
 
-final List<SmartRoomObject> rooms = [room3];
+final List<SmartRoomObject> rooms = [room1, room2, room3, room4];
 
 SmartRoomObject room1 =
     SmartRoomObject("Guy", room1DevicesList, blindsInTheRoom: room1blindsList);
@@ -32,6 +32,7 @@ final List<SmartDeviceObject> room2DevicesList = [
 final List<SmartDeviceObject> room3DevicesList = [
   SmartDeviceObject(DeviceType.Light, 'Stairs', '10.0.0.30', 'Outside North'),
   SmartDeviceObject(DeviceType.Light, 'Storage', '10.0.0.30', 'Outside North'),
+//  SmartDeviceObject(DeviceType.Light, 'Main', '10.0.0.14', 'Outside North')
 ];
 
 //  Bar
