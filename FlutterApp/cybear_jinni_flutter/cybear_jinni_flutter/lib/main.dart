@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         '/': (BuildContext context) => LoginPage(),
-        '/Home': (BuildContext context) => HomePage(),
+        '/home': (BuildContext context) => HomePage(),
 //        '/home_settings': (BuildContext context) => SettingsPage(),
       },
       onGenerateRoute: (RouteSettings settings) {
