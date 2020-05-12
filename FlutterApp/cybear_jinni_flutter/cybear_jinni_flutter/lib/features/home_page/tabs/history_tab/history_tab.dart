@@ -1,4 +1,4 @@
-import 'package:cybearjinni/features/home_page/tabs/history_tab/settings_page_of_history.dart';
+import 'package:CybearJinni/features/home_page/tabs/history_tab/settings_page_of_history.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';

@@ -1,5 +1,5 @@
-import 'package:cybearjinni/features/home_page/tabs/presets_tab/preset_block_widget.dart';
-import 'package:cybearjinni/features/home_page/tabs/presets_tab/settings_page_of_presets.dart';
+import 'package:CybearJinni/features/home_page/tabs/presets_tab/preset_block_widget.dart';
+import 'package:CybearJinni/features/home_page/tabs/presets_tab/settings_page_of_presets.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 

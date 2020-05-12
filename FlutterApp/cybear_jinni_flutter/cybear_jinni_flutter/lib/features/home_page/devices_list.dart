@@ -1,5 +1,5 @@
-import 'package:cybearjinni/features/home_page/smart_device_widget.dart';
-import 'package:cybearjinni/objects/smart_device/smart_device_objcet.dart';
+import 'package:CybearJinni/features/home_page/smart_device_widget.dart';
+import 'package:CybearJinni/objects/smart_device/smart_device_objcet.dart';
 import 'package:flutter/material.dart';
 
 class DevicesList extends StatefulWidget {

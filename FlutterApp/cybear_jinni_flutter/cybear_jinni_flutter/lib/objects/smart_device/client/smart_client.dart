@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:cybearjinni/objects/smart_device/smart_device_objcet.dart';
+import 'package:CybearJinni/objects/smart_device/smart_device_objcet.dart';
 import 'package:grpc/grpc.dart';
 
 import 'protoc_as_dart/smart_connection.pb.dart';

@@ -1,4 +1,4 @@
-import 'package:cybearjinni/features/shared_widgets/add_new_devie_widget.dart';
+import 'package:CybearJinni/features/shared_widgets/add_new_devie_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
