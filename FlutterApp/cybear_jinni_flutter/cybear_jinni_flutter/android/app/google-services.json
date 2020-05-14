@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "1078955020501",
+    "firebase_url": "https://***REMOVED***.firebaseio.com",
+    "project_id": "***REMOVED***",
+    "storage_bucket": "***REMOVED***.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1078955020501:android:7309141d21f176c465125c",
+        "android_client_info": {
+          "package_name": "com.CybearJinni"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1078955020501-le6so7nomd795sd65dkvcpi8ju54e2sv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "***REMOVED***"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1078955020501-kd62n5hilue7fgk8dk9plheh4jvpjr0b.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1078955020501-s7pnjbpma9qlia4skf2v6sjq239boqd9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.smarthome-flutter"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1078955020501:android:2d57cb46b006ba90",
+        "android_client_info": {
+          "package_name": "com.example.smart_home_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1078955020501-le6so7nomd795sd65dkvcpi8ju54e2sv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "***REMOVED***"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1078955020501-kd62n5hilue7fgk8dk9plheh4jvpjr0b.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1078955020501-s7pnjbpma9qlia4skf2v6sjq239boqd9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.smarthome-flutter"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

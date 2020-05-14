@@ -1,0 +1,23 @@
+
+play store key details:
+
+
+the command was: /snap/android-studio/88/android-studio/jre/bin/keytool -genkey -v -keystore ~/key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias key
+
+
+
+Details inside the key
+
+password: regular
+
+first and last name: Guy Luz
+
+organization unit: Cybear Jinni
+
+organization: Cybear Jinni
+
+city: [Unknown]
+
+State or Province: [Unknown]
+
+two letters country code: [Unknown]
