@@ -1,11 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="96c5fe8c-119f-4135-b3fa-611215ac658f" name="Default Changelist" comment="">
+    <list default="true" id="b1af5a3e-c592-4b69-9173-70c05a0177a7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assistant/Assistant/lib/core/shared_variables.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assistant/Assistant/lib/features/hot_key_word/application/usecases/hot_keyword_u/hot_keyword_u.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assistant/Assistant/lib/features/hot_key_word/domain/entities/hot_keyword_e/hot_keyword_e.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assistant/Assistant/lib/features/hot_key_word/infrastructure/datasources/core_d/microphone/microphone_c_script.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assistant/Assistant/lib/features/hot_key_word/infrastructure/datasources/core_d/microphone/python_class_local.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assistant/Assistant/lib/features/hot_key_word/infrastructure/datasources/core_d/microphone/python_speech_to_text.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assistant/Assistant/lib/features/hot_key_word/infrastructure/datasources/hot_keyword_d/hot_keyword_d.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assistant/Assistant/lib/features/hot_key_word/infrastructure/repositories/hot_keyword_r/hot_keyword_r.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/Assistant/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/Assistant/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/Assistant/bin/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/Assistant/bin/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/Assistant/lib/fail_attempts/googleApi.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/Assistant/lib/features/assistant/fail_attempts/googleApi.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/Assistant/lib/fail_attempts/my_assistant.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/Assistant/lib/features/assistant/fail_attempts/my_assistant.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/Assistant/lib/fail_attempts/recognize_response_expend.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/Assistant/lib/features/assistant/fail_attempts/recognize_response_expend.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/Assistant/lib/speechToText.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/Assistant/lib/features/assistant/speechToText.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/alexa/SnowboyAlexaDemo.apk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/alexa/alexa-avs-sample-app/alexa.umdl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/alexa/alexa-avs-sample-app/avs-kittai.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/alexa/alexa_02092017.umdl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/common.res" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/ding.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/dong.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/Hey jinni.pmdl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/Jinni.pmdl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/computer.umdl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/hey_extreme.umdl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/jarvis.pmdl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/jarvis.umdl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/neoya.umdl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/smart_mirror.umdl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/snowboy.umdl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/subex.umdl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/view_glass.umdl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/snowboy.raw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/snowboy.wav" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,57 +44,27 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DefaultGradleProjectSettings">
-    <option name="isMigrated" value="true" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Dart File" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="master" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RESET_MODE" value="HARD" />
   </component>
-  <component name="ProjectId" id="1YJJs3oIkLyIYwkyNiNe8sPt50T" />
+  <component name="ProjectId" id="1c7x4r7BLVYoVUWHZGNcuHoo2HU" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="add_unversioned_files" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
-    <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="run.code.analysis.last.selected.profile" value="aDefault" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Assistant/Assistant/lib/features/hot_key_word/infrastructure/datasources" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/core/fire_store" />
-      <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/core" />
-      <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/cloud_value_change" />
-      <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/repositories/cloud_value_change" />
-      <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/cloud_on_value_change" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/NetworkManager/scripts/bashScripts" />
-      <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/models" />
-      <recent name="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib" />
-      <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core" />
-      <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device" />
+      <recent name="$PROJECT_DIR$/Assistant/Assistant/lib/features/hot_key_word/infrastructure/datasources" />
+      <recent name="$PROJECT_DIR$/Assistant/Assistant/lib/features/hot_key_word/domain/entities" />
+      <recent name="$PROJECT_DIR$/Assistant/Assistant/lib/features/hot_key_word/infrastructure/repositories" />
+      <recent name="$PROJECT_DIR$/Assistant/Assistant/lib/features/hot_key_word/application/usecases" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Assistant/Assistant/lib/features/assistant" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -78,598 +79,40 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Flutter.Smart App">
-    <configuration name="Network Manager" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
-      <option name="arguments" value="&quot;.&quot;" />
-      <option name="filePath" value="$PROJECT_DIR$/NetworkManager/NetworkManagerDart/bin/main.dart" />
+  <component name="RunManager">
+    <configuration name="main.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/Assistant/Assistant/bin/main.dart" />
+      <option name="workingDirectory" value="$PROJECT_DIR$/Assistant/Assistant" />
       <method v="2" />
     </configuration>
-    <configuration name="Smart Device" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
-      <option name="arguments" value="&quot;$PROJECT_DIR$/SmartDevice&quot;" />
-      <option name="filePath" value="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/bin/main.dart" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Smart App" type="FlutterRunConfigurationType" factoryName="Flutter" singleton="false">
-      <option name="filePath" value="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/main.dart" />
-      <method v="2" />
-    </configuration>
-    <list>
-      <item itemvalue="Dart Command Line App.Network Manager" />
-      <item itemvalue="Dart Command Line App.Smart Device" />
-      <item itemvalue="Flutter.Smart App" />
-    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Dart Command Line App.main.dart" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="96c5fe8c-119f-4135-b3fa-611215ac658f" name="Default Changelist" comment="" />
-      <created>1568838815383</created>
+      <changelist id="b1af5a3e-c592-4b69-9173-70c05a0177a7" name="Default Changelist" comment="" />
+      <created>1589893245094</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1568838815383</updated>
+      <updated>1589893245094</updated>
     </task>
-    <task id="LOCAL-00005" summary="Snap do not include now the un compiled c files">
-      <created>1568969019441</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1568969019441</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Remove unused folder &quot;protoc_as_dart&quot; that out side of the projects">
-      <created>1569009431215</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1569009431215</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Add script to automatically compile all c files when snapcraft">
-      <created>1569263603559</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1569263603559</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Add script to automatically compile all c files when snapcraft sh file didn't commit last time">
-      <created>1569263773594</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1569263773594</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Reformat code, Rearrange code, Optimize imports, Preform code analysis, Check TODO, Cleanup, Update copyright.">
-      <created>1569265324021</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1569265324021</updated>
-    </task>
-    <task id="LOCAL-00010" summary="More reformat code, Rearrange code, Optimize imports, Preform code analysis, Check TODO, Cleanup, Update copyright.">
-      <created>1569266496467</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1569266496467</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Moved all files and folder to lib except main">
-      <created>1569343906102</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1569343906102</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Add class to save all information on pin, fix bug in button press">
-      <created>1569594402964</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1569594402964</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Pins now controlled by pin number and not wPi number, fix button pin number is always 2">
-      <created>1569699382332</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1569699382332</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Listening to button press is now by pin and not onOff variable">
-      <created>1569702198682</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1569702198682</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Add button press logic for blinds, two button that cannot execute the logic at the same time.">
-      <created>1569927986791</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1569927986791</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Add support for blinds">
-      <created>1570824906714</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1570824906714</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Fix blinds was set in light list">
-      <created>1571411047575</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1571411047576</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Adding new project to mange the network connection in the smart device">
-      <created>1574720313955</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1574720313955</updated>
-    </task>
-    <task id="LOCAL-00019" summary="The program will show available wif-fi networks when the internet disconnects.">
-      <created>1574881622871</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1574881622871</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Fix connected network does not being updated after connecting to admin network">
-      <created>1575038369948</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1575038369948</updated>
-    </task>
-    <task id="LOCAL-00021" summary="New roles, after import and between functions there will be 2 new lines (comments do not included) afte class creation there will be one new line if there is function and no new line otherwise">
-      <created>1578608362679</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1578608362679</updated>
-    </task>
-    <task id="LOCAL-00022" summary="Adding change state of light by voice command 'jarvis'">
-      <created>1579473489337</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1579473489337</updated>
-    </task>
-    <task id="LOCAL-00023" summary="Snapcraft demo.C file now get the location of the model from outside, add to the snap the dependencies for snowboy">
-      <created>1579866677359</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1579866677359</updated>
-    </task>
-    <task id="LOCAL-00024" summary="Changing icons to font awesome icons, adding history tab, network manager will now not relay on OS to reconnect to the previous Wi-Fi after connection dropped off">
-      <created>1579985890468</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1579985890469</updated>
-    </task>
-    <task id="LOCAL-00025" summary="Committing snowboy">
-      <created>1580326387485</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1580326387485</updated>
-    </task>
-    <task id="LOCAL-00026" summary="Committing (more) snowboy">
-      <created>1580326467508</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1580326467508</updated>
-    </task>
-    <task id="LOCAL-00027" summary="Fix network manager not reconnecting with wifiPassword, add read and write permissions to the dart-sdk folder for the new snap (install) version">
-      <created>1581011367060</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1581011367061</updated>
-    </task>
-    <task id="LOCAL-00028" summary="Add splash screen logo, add tests">
-      <created>1581319232428</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1581319232428</updated>
-    </task>
-    <task id="LOCAL-00029" summary="Add second commit for the logo">
-      <created>1581319414825</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1581319414825</updated>
-    </task>
-    <task id="LOCAL-00030" summary="Starting the move to architecture and injection for the flutter app">
-      <created>1582375729364</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1582375729364</updated>
-    </task>
-    <task id="LOCAL-00031" summary="Changing smart device project folder structure to be according to the new tdd architecture and adding the librarys for it.">
-      <created>1582378582420</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1582378582420</updated>
-    </task>
-    <task id="LOCAL-00032" summary="Made the">
-      <created>1582400896755</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1582400896755</updated>
-    </task>
-    <task id="LOCAL-00033" summary="Made the microhpone command support the injection">
-      <created>1582669250473</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1582669250473</updated>
-    </task>
-    <task id="LOCAL-00034" summary="Remove flutter only library from SmartDeviceDart whitch is pure dart project">
-      <created>1583499004122</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1583499004124</updated>
-    </task>
-    <task id="LOCAL-00035" summary="Updated dependencies versions">
-      <created>1583502487461</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1583502487461</updated>
-    </task>
-    <task id="LOCAL-00036" summary="Continu changing the app to the new architecture">
-      <created>1583582964337</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1583582964337</updated>
-    </task>
-    <task id="LOCAL-00037" summary="Continue changing the app to the new architecture">
-      <created>1583583739300</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1583583739300</updated>
-    </task>
-    <task id="LOCAL-00038" summary="Change indentation to 2, change alot of variables to var, and &quot;&quot; into ''">
-      <created>1583587275286</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1583587275286</updated>
-    </task>
-    <task id="LOCAL-00039" summary="change variables to var, and &quot;&quot; into ''">
-      <created>1583587539477</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1583587539477</updated>
-    </task>
-    <task id="LOCAL-00040" summary="Methods names start with lower case letter">
-      <created>1583588235741</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1583588235741</updated>
-    </task>
-    <task id="LOCAL-00041" summary="Microphone to be closer to the new architecture">
-      <created>1584388320134</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1584388320134</updated>
-    </task>
-    <task id="LOCAL-00042" summary="Change folder name from data to infrastructure">
-      <created>1584481922971</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1584481922971</updated>
-    </task>
-    <task id="LOCAL-00043" summary="Add the application folder">
-      <created>1584483103313</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1584483103313</updated>
-    </task>
-    <task id="LOCAL-00044" summary="Voice command stream is passed down back to the application">
-      <created>1584556153154</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1584556153154</updated>
-    </task>
-    <task id="LOCAL-00045" summary="Remove redundant streams from fireStore listener">
-      <created>1584559319439</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1584559319440</updated>
-    </task>
-    <task id="LOCAL-00046" summary="Add python code to do speech to text">
-      <created>1585323137084</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1585323137084</updated>
-    </task>
-    <task id="LOCAL-00047" summary="Record less time">
-      <created>1585815752680</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1585815752680</updated>
-    </task>
-    <task id="LOCAL-00048" summary="Change to cupertino activity indicator">
-      <created>1588286002264</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1588286002265</updated>
-    </task>
-    <task id="LOCAL-00049" summary="Requests between app and smart device now use device name.">
-      <created>1588381424027</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1588381424027</updated>
-    </task>
-    <task id="LOCAL-00050" summary="Fix little flutter bug to use the device room name to get the device room">
-      <created>1588455197516</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1588455197517</updated>
-    </task>
-    <task id="LOCAL-00051" summary="Add support for the app to toggle device state using firbase whan out of wifi connection">
-      <created>1588950882379</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1588950882380</updated>
-    </task>
-    <task id="LOCAL-00052" summary="Fix the bug, on release swich return back">
-      <created>1589202217265</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1589202217266</updated>
-    </task>
-    <task id="LOCAL-00053" summary="Upload Jarvis and Jinni models">
-      <created>1589889559373</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1589889559373</updated>
-    </task>
-    <option name="localTasksCounter" value="54" />
     <servers />
-  </component>
-  <component name="UpdateCopyrightCheckinHandler">
-    <option name="UPDATE_COPYRIGHT" value="true" />
-  </component>
-  <component name="Vcs.Log.History.Properties">
-    <option name="COLUMN_ORDER">
-      <list>
-        <option value="0" />
-        <option value="2" />
-        <option value="3" />
-        <option value="1" />
-      </list>
-    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="Branch">
-          <value>
-            <list />
-          </value>
-        </entry>
-        <entry key="User">
-          <value>
-            <list />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <ignored-roots>
-      <path value="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy" />
-      <path value="$PROJECT_DIR$/SmartDevice/scripts/cScripts2/snowboy" />
-    </ignored-roots>
-    <MESSAGE value="Add splash screen logo, add tests" />
-    <MESSAGE value="Add second commit for the logo" />
-    <MESSAGE value="Starting the move to architecture and injection for the flutter app" />
-    <MESSAGE value="Made the" />
-    <MESSAGE value="Made the microhpone command support the injection" />
-    <MESSAGE value="Remove flutter only library from SmartDeviceDart whitch is pure dart project" />
-    <MESSAGE value="Updated dependencies versions" />
-    <MESSAGE value="Continu changing the app to the new architecture" />
-    <MESSAGE value="Continue changing the app to the new architecture" />
-    <MESSAGE value="Change indentation to 2, change alot of variables to var, and &quot;&quot; into ''" />
-    <MESSAGE value="change variables to var, and &quot;&quot; into ''" />
-    <MESSAGE value="Methods names start with lower case letter" />
-    <MESSAGE value="Microphone to be closer to the new architecture" />
-    <MESSAGE value="Change folder name from data to infrastructure" />
-    <MESSAGE value="Add the application folder" />
-    <MESSAGE value="Voice command stream is passed down back to the application" />
-    <MESSAGE value="Remove redundant streams from fireStore listener" />
-    <MESSAGE value="Add python code to do speech to text" />
-    <MESSAGE value="Record less time" />
-    <MESSAGE value="Change to cupertino activity indicator" />
-    <MESSAGE value="Requests between app and smart device now use device name." />
-    <MESSAGE value="Fix little flutter bug to use the device room name to get the device room" />
-    <MESSAGE value="Add support for the app to toggle device state using firbase whan out of wifi connection" />
-    <MESSAGE value="Fix the bug, on release swich return back" />
-    <MESSAGE value="Upload Jarvis and Jinni models" />
-    <option name="LAST_COMMIT_MESSAGE" value="Upload Jarvis and Jinni models" />
-    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
-    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
-    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/smart_server_u/smart_server_u.dart</url>
-          <line>53</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/send_to_smart_device.dart</url>
-          <line>17</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/client/smart_client.dart</url>
-          <line>32</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/smart_server_u/smart_server_u.dart</url>
-          <line>35</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/smart_server_u/smart_server_u.dart</url>
-          <line>109</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/smart_server_u/smart_server_u.dart</url>
-          <line>105</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/smart_device_objects_u/abstracts_devices/smart_device_static_abstract.dart</url>
-          <line>44</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/smart_device_objects_u/abstracts_devices/smart_device_base_abstract.dart</url>
-          <line>141</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/core_u/actions_to_preform.dart</url>
-          <line>6</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/smart_device_objects_u/abstracts_devices/smart_device_simple_abstract.dart</url>
-          <line>30</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/smart_server_u/smart_server_u.dart</url>
-          <line>107</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/smart_server_u/smart_server_u.dart</url>
-          <line>86</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/main.dart</url>
-          <line>54</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/main.dart</url>
-          <line>53</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/features/home_page/smart_device_widget.dart</url>
-          <line>47</line>
-          <option name="timeStamp" value="61" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/smart_device_objcet.dart</url>
-          <line>34</line>
-          <option name="timeStamp" value="65" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/smart_device_objcet.dart</url>
-          <line>47</line>
-          <option name="timeStamp" value="67" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/smart_device_objcet.dart</url>
-          <line>44</line>
-          <option name="timeStamp" value="68" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/smart_device_objcet.dart</url>
-          <line>93</line>
-          <option name="timeStamp" value="69" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/client/smart_client.dart</url>
-          <line>17</line>
-          <option name="timeStamp" value="70" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/objects/smart_device/client/smart_client.dart</url>
-          <line>21</line>
-          <option name="timeStamp" value="71" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/features/home_page/smart_device_widget.dart</url>
-          <line>61</line>
-          <option name="timeStamp" value="72" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib/features/home_page/smart_device_widget.dart</url>
-          <line>64</line>
-          <option name="timeStamp" value="73" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/cloud_value_change_d/cloud_fire_store_listen_to_changes.dart</url>
-          <line>16</line>
-          <option name="timeStamp" value="75" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/core_d/fire_store/cloud_fire_store_d.dart</url>
-          <line>55</line>
-          <option name="timeStamp" value="76" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/core_d/fire_store/cloud_fire_store_d.dart</url>
-          <line>52</line>
-          <option name="timeStamp" value="77" />
-        </line-breakpoint>
-      </breakpoints>
-      <default-breakpoints>
-        <breakpoint type="dart-exception" />
-      </default-breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
