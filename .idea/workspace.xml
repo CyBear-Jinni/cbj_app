@@ -4,7 +4,9 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96c5fe8c-119f-4135-b3fa-611215ac658f" name="Default Changelist" comment="" />
+    <list default="true" id="96c5fe8c-119f-4135-b3fa-611215ac658f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,13 +109,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1568838815383</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Adding unversioned files to .gitignore file">
-      <created>1568968727940</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1568968727940</updated>
     </task>
     <task id="LOCAL-00005" summary="Snap do not include now the un compiled c files">
       <created>1568969019441</created>
@@ -451,7 +446,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589202217266</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Upload Jarvis and Jinni models">
+      <created>1589889559373</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1589889559373</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
@@ -501,7 +503,6 @@
       <path value="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy" />
       <path value="$PROJECT_DIR$/SmartDevice/scripts/cScripts2/snowboy" />
     </ignored-roots>
-    <MESSAGE value="Fix network manager not reconnecting with wifiPassword, add read and write permissions to the dart-sdk folder for the new snap (install) version" />
     <MESSAGE value="Add splash screen logo, add tests" />
     <MESSAGE value="Add second commit for the logo" />
     <MESSAGE value="Starting the move to architecture and injection for the flutter app" />
@@ -526,7 +527,8 @@
     <MESSAGE value="Fix little flutter bug to use the device room name to get the device room" />
     <MESSAGE value="Add support for the app to toggle device state using firbase whan out of wifi connection" />
     <MESSAGE value="Fix the bug, on release swich return back" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix the bug, on release swich return back" />
+    <MESSAGE value="Upload Jarvis and Jinni models" />
+    <option name="LAST_COMMIT_MESSAGE" value="Upload Jarvis and Jinni models" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
