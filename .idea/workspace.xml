@@ -2,41 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b1af5a3e-c592-4b69-9173-70c05a0177a7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assistant/Assistant/lib/core/shared_variables.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assistant/Assistant/lib/features/hot_key_word/application/usecases/hot_keyword_u/hot_keyword_u.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assistant/Assistant/lib/features/hot_key_word/domain/entities/hot_keyword_e/hot_keyword_e.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assistant/Assistant/lib/features/hot_key_word/infrastructure/datasources/core_d/microphone/microphone_c_script.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assistant/Assistant/lib/features/hot_key_word/infrastructure/datasources/core_d/microphone/python_class_local.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assistant/Assistant/lib/features/hot_key_word/infrastructure/datasources/core_d/microphone/python_speech_to_text.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assistant/Assistant/lib/features/hot_key_word/infrastructure/datasources/hot_keyword_d/hot_keyword_d.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assistant/Assistant/lib/features/hot_key_word/infrastructure/repositories/hot_keyword_r/hot_keyword_r.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assistant/Assistant/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/Assistant/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assistant/Assistant/bin/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/Assistant/bin/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assistant/Assistant/lib/fail_attempts/googleApi.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/Assistant/lib/features/assistant/fail_attempts/googleApi.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assistant/Assistant/lib/fail_attempts/my_assistant.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/Assistant/lib/features/assistant/fail_attempts/my_assistant.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assistant/Assistant/lib/fail_attempts/recognize_response_expend.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/Assistant/lib/features/assistant/fail_attempts/recognize_response_expend.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assistant/Assistant/lib/speechToText.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/Assistant/lib/features/assistant/speechToText.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/alexa/SnowboyAlexaDemo.apk" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/alexa/alexa-avs-sample-app/alexa.umdl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/alexa/alexa-avs-sample-app/avs-kittai.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/alexa/alexa_02092017.umdl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/common.res" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/ding.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/dong.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/Hey jinni.pmdl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/Jinni.pmdl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/computer.umdl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/hey_extreme.umdl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/jarvis.pmdl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/jarvis.umdl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/neoya.umdl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/smart_mirror.umdl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/snowboy.umdl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/subex.umdl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/view_glass.umdl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/snowboy.raw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/snowboy.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/C/demo.c" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/C/demo.c" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -109,7 +75,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
