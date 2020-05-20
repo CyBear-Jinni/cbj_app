@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b1af5a3e-c592-4b69-9173-70c05a0177a7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/C/demo.c" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/C/demo.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/Assistant/lib/features/hot_key_word/infrastructure/datasources/core_d/microphone/microphone_c_script.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/Assistant/lib/features/hot_key_word/infrastructure/datasources/core_d/microphone/microphone_c_script.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/bashScripts/compileAllCFiles.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/bashScripts/compileAllCFiles.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/bashScripts/nativeExecutableMaker.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/bashScripts/nativeExecutableMaker.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/snap/snapcraft.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/snap/snapcraft.yaml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -10,6 +14,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="3ff890a4" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
