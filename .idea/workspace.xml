@@ -1,12 +1,267 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b1af5a3e-c592-4b69-9173-70c05a0177a7" name="Default Changelist" comment="">
+    <list default="true" id="b1af5a3e-c592-4b69-9173-70c05a0177a7" name="Default Changelist" comment="Working state of assistent">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assistant/Assistant/lib/features/hot_key_word/infrastructure/datasources/core_d/microphone/microphone_c_script.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/Assistant/lib/features/hot_key_word/infrastructure/datasources/core_d/microphone/microphone_c_script.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assistant/scripts/bashScripts/compileAllCFiles.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/bashScripts/compileAllCFiles.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assistant/scripts/bashScripts/nativeExecutableMaker.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/bashScripts/nativeExecutableMaker.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/.travis.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/.idea/copyright/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/assets/snowboy/alexa.umdl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/assets/snowboy/common.res" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/assets/snowboy/ding.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/ic_launcher-web.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/res/drawable/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/res/layout/main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/src/ai/kitt/snowboy/AppResCopy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/src/ai/kitt/snowboy/Constants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/src/ai/kitt/snowboy/Demo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/src/ai/kitt/snowboy/MsgEnum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/src/ai/kitt/snowboy/SnowboyDetect.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/src/ai/kitt/snowboy/SnowboyVad.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/src/ai/kitt/snowboy/audio/AudioDataReceivedListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/src/ai/kitt/snowboy/audio/AudioDataSaver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/src/ai/kitt/snowboy/audio/PlaybackThread.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/src/ai/kitt/snowboy/audio/RecordingThread.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/src/ai/kitt/snowboy/snowboyJNI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Android/SnowboyAlexaDemo/src/main/jniLibs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/C++/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/C++/demo.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/C++/demo.mk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/C++/demo2.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/C++/install_portaudio.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/C++/patches/portaudio.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/C++/resources" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/C/demo.c" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/C/demo.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Go/detect/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Go/detect/readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Go/listen/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Go/listen/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Java/Demo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Java/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Java/java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Java/jniLibs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Java/resources" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Node/file.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Node/microphone.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Node/resources" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Perl/Snowboy.dylib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Perl/Snowboy.pm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Perl/Snowboy.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Perl/cpanfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Perl/resources" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Perl/snowboy_RESTful_train.pl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Perl/snowboy_googlevoice.pl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Perl/snowboy_unit_test.pl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Python/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Python/_snowboydetect.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Python/demo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Python/demo2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Python/demo3.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Python/demo4.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Python/demo_arecord.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Python/demo_threaded.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Python/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Python/resources" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Python/snowboydecoder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Python/snowboydecoder_arecord.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Python/snowboydetect.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Python/snowboythreaded.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Python3/_snowboydetect.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Python3/demo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Python3/demo2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Python3/demo3.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Python3/demo4.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Python3/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Python3/resources" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Python3/snowboydecoder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/Python3/snowboydetect.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/REST_API/training_service.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/REST_API/training_service.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Podfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Podfile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudio.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudio.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioDevice.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioDevice.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioDisplayLink.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioDisplayLink.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioFFT.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioFFT.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioFile.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioFile.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioFloatConverter.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioFloatConverter.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioFloatData.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioFloatData.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioOSX.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioPlayer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioPlayer.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioPlot.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioPlot.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioPlotGL.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioPlotGL.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioUtilities.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioUtilities.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZAudioiOS.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZMicrophone.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZMicrophone.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZOutput.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZOutput.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZPlot.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZPlot.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZRecorder.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/EZRecorder.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/TPCircularBuffer.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/EZAudio/TPCircularBuffer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/EZAudio/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/EZAudio/EZAudio.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/EZAudio/EZAudioDevice.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/EZAudio/EZAudioDisplayLink.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/EZAudio/EZAudioFFT.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/EZAudio/EZAudioFile.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/EZAudio/EZAudioFloatConverter.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/EZAudio/EZAudioFloatData.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/EZAudio/EZAudioOSX.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/EZAudio/EZAudioPlayer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/EZAudio/EZAudioPlot.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/EZAudio/EZAudioPlotGL.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/EZAudio/EZAudioUtilities.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/EZAudio/EZAudioiOS.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/EZAudio/EZMicrophone.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/EZAudio/EZOutput.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/EZAudio/EZPlot.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/EZAudio/EZRecorder.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/EZAudio/TPCircularBuffer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/TPCircularBuffer/TPCircularBuffer+AudioBufferList.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Private/TPCircularBuffer/TPCircularBuffer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/EZAudio/EZAudio.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/EZAudio/EZAudioDevice.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/EZAudio/EZAudioDisplayLink.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/EZAudio/EZAudioFFT.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/EZAudio/EZAudioFile.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/EZAudio/EZAudioFloatConverter.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/EZAudio/EZAudioFloatData.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/EZAudio/EZAudioOSX.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/EZAudio/EZAudioPlayer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/EZAudio/EZAudioPlot.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/EZAudio/EZAudioPlotGL.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/EZAudio/EZAudioUtilities.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/EZAudio/EZAudioiOS.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/EZAudio/EZMicrophone.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/EZAudio/EZOutput.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/EZAudio/EZPlot.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/EZAudio/EZRecorder.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/EZAudio/TPCircularBuffer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/TPCircularBuffer/TPCircularBuffer+AudioBufferList.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Headers/Public/TPCircularBuffer/TPCircularBuffer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Manifest.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Pods.xcodeproj/project.pbxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Pods.xcodeproj/xcuserdata/patrickquinn.xcuserdatad/xcschemes/EZAudio.xcscheme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Pods.xcodeproj/xcuserdata/patrickquinn.xcuserdatad/xcschemes/Pods-SnowboyTest.xcscheme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Pods.xcodeproj/xcuserdata/patrickquinn.xcuserdatad/xcschemes/TPCircularBuffer.xcscheme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Pods.xcodeproj/xcuserdata/patrickquinn.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/TPCircularBuffer/README.markdown" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/TPCircularBuffer/TPCircularBuffer+AudioBufferList.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/TPCircularBuffer/TPCircularBuffer+AudioBufferList.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/TPCircularBuffer/TPCircularBuffer.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/TPCircularBuffer/TPCircularBuffer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Target Support Files/EZAudio/EZAudio-dummy.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Target Support Files/EZAudio/EZAudio-prefix.pch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Target Support Files/EZAudio/EZAudio.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Target Support Files/Pods-SnowboyTest/Pods-SnowboyTest-acknowledgements.markdown" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Target Support Files/Pods-SnowboyTest/Pods-SnowboyTest-acknowledgements.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Target Support Files/Pods-SnowboyTest/Pods-SnowboyTest-dummy.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Target Support Files/Pods-SnowboyTest/Pods-SnowboyTest-frameworks.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Target Support Files/Pods-SnowboyTest/Pods-SnowboyTest-resources.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Target Support Files/Pods-SnowboyTest/Pods-SnowboyTest.debug.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Target Support Files/Pods-SnowboyTest/Pods-SnowboyTest.release.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Target Support Files/TPCircularBuffer/TPCircularBuffer-dummy.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Target Support Files/TPCircularBuffer/TPCircularBuffer-prefix.pch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/Pods/Target Support Files/TPCircularBuffer/TPCircularBuffer.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest.xcodeproj/project.pbxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest.xcodeproj/project.xcworkspace/xcuserdata/patrickquinn.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest.xcodeproj/xcuserdata/patrickquinn.xcuserdatad/xcschemes/SnowboyTest.xcscheme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest.xcodeproj/xcuserdata/patrickquinn.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest.xcworkspace/xcuserdata/patrickquinn.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest/AppDelegate.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest/AppDelegate.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest/Assets.xcassets/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest/Assets.xcassets/banner.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest/Assets.xcassets/banner.imageset/snowboy-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest/Assets.xcassets/banner.imageset/snowboy-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest/Assets.xcassets/banner.imageset/snowboy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest/Base.lproj/LaunchScreen.storyboard" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest/Base.lproj/Main.storyboard" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest/ViewController.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest/ViewController.mm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest/alexa.umdl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest/common.res" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest/libsnowboy-detect.a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest/main.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTest/snowboy-detect.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTestTests/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTestTests/SnowboyTestTests.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTestUITests/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Obj-C/SnowboyTestUITests/SnowboyTestUITests.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Swift3/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTest.xcodeproj/project.pbxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTest.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTest.xcodeproj/project.xcworkspace/xcuserdata/shengbi.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTest.xcodeproj/xcuserdata/shengbi.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTest.xcodeproj/xcuserdata/shengbi.xcuserdatad/xcschemes/SnowboyTest.xcscheme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTest.xcodeproj/xcuserdata/shengbi.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTest/AppDelegate.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTest/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTest/Base.lproj/LaunchScreen.storyboard" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTest/Base.lproj/Main.storyboard" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTest/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTest/SnowboyTest-Bridging-Header.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTest/SnowboyTest.xcdatamodeld/.xccurrentversion" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTest/SnowboyTest.xcdatamodeld/SnowboyTest.xcdatamodel/contents" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTest/SnowboyWrapper.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTest/SnowboyWrapper.mm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTest/ViewController.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTestTests/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTestTests/SnowboyTestTests.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTestUITests/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/iOS/Swift3/SnowboyTestUITests/SnowboyTestUITests.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/tsconfig.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assistant/snap/snapcraft.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/snap/snapcraft.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/core_u/smart_device_manager_u.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/core_u/smart_device_manager_u.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/hot_keyword_u/hot_keyword_u.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/hot_keyword_u/hot_keyword_u.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities/hot_keyword_e/hot_keyword_e.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities/hot_keyword_e/hot_keyword_e.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/core_d/microphone/microphone_c_script.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/core_d/microphone/microphone_c_script.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/hot_keyword_d/hot_keyword_d.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/hot_keyword_d/hot_keyword_d.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/repositories/hot_keyword_r/hot_keyword_r.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/repositories/hot_keyword_r/hot_keyword_r.dart" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,6 +279,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="dart.analysis.tool.window.force.activate" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Assistant/Assistant/lib/features/hot_key_word/infrastructure/datasources" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
@@ -50,12 +306,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Flutter.Android app">
     <configuration name="main.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" temporary="true" nameIsGenerated="true">
       <option name="filePath" value="$PROJECT_DIR$/Assistant/Assistant/bin/main.dart" />
       <option name="workingDirectory" value="$PROJECT_DIR$/Assistant/Assistant" />
       <method v="2" />
     </configuration>
+    <configuration name="Android app" type="FlutterRunConfigurationType" factoryName="Flutter">
+      <option name="filePath" value="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Dart Command Line App.main.dart" />
+      <item itemvalue="Flutter.Android app" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Dart Command Line App.main.dart" />
@@ -73,6 +337,14 @@
       <option name="presentableId" value="Default" />
       <updated>1589893245094</updated>
     </task>
+    <task id="LOCAL-00001" summary="Working state of assistent">
+      <created>1589966778535</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1589966778535</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -87,5 +359,13 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
+    <MESSAGE value="Working state of assistent" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working state of assistent" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>
