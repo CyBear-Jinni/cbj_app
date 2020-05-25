@@ -1,10 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b1af5a3e-c592-4b69-9173-70c05a0177a7" name="Default Changelist" comment="Working state of assistent">
+    <list default="true" id="b1af5a3e-c592-4b69-9173-70c05a0177a7" name="Default Changelist" comment="Activation key world now use Jinni, reverted smart device changes">
+      <change afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/C/resources/alexa/SnowboyAlexaDemo.apk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/C/resources/alexa/alexa-avs-sample-app/alexa.umdl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/C/resources/alexa/alexa-avs-sample-app/avs-kittai.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/C/resources/alexa/alexa_02092017.umdl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/C/resources/common.res" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/C/resources/ding.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/C/resources/dong.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/C/resources/models/Hey jinni.pmdl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/C/resources/models/Jinni.pmdl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/C/resources/models/computer.umdl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/C/resources/models/hey_extreme.umdl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/C/resources/models/jarvis.pmdl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/C/resources/models/jarvis.umdl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/C/resources/models/neoya.umdl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/C/resources/models/smart_mirror.umdl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/C/resources/models/snowboy.umdl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/C/resources/models/subex.umdl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/C/resources/models/view_glass.umdl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/C/resources/snowboy.raw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/C/resources/snowboy.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/core_u/smart_device_manager_u.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/core_u/smart_device_manager_u.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/C/demo.c" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/C/demo.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/MANIFEST.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/binding.gyp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/C/install_portaudio.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/C/install_portaudio.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/examples/C/resources" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/lib/aarch64-ubuntu1604/libsnowboy-detect.a" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/lib/aarch64-ubuntu1604/libsnowboy-detect.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/lib/android/armv7a/libsnowboy-detect.a" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/lib/android/armv7a/libsnowboy-detect.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/lib/android/armv8-aarch64/libsnowboy-detect.a" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/lib/android/armv8-aarch64/libsnowboy-detect.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/lib/ios/libsnowboy-detect.a" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/lib/ios/libsnowboy-detect.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/lib/osx/libsnowboy-detect.a" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/lib/osx/libsnowboy-detect.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/lib/rpi/libsnowboy-detect.a" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/lib/rpi/libsnowboy-detect.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/lib/ubuntu64/libsnowboy-detect.a" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/lib/ubuntu64/libsnowboy-detect.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/alexa/SnowboyAlexaDemo.apk" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/alexa/SnowboyAlexaDemo.apk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/alexa/alexa-avs-sample-app/alexa.umdl" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/alexa/alexa-avs-sample-app/alexa.umdl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/alexa/alexa_02092017.umdl" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/alexa/alexa_02092017.umdl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/common.res" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/common.res" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/ding.wav" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/ding.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/dong.wav" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/dong.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/Hey jinni.pmdl" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/Hey jinni.pmdl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/Jinni.pmdl" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/Jinni.pmdl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/computer.umdl" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/computer.umdl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/hey_extreme.umdl" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/hey_extreme.umdl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/jarvis.pmdl" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/jarvis.pmdl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/jarvis.umdl" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/jarvis.umdl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/neoya.umdl" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/neoya.umdl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/smart_mirror.umdl" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/smart_mirror.umdl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/snowboy.umdl" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/snowboy.umdl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/subex.umdl" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/subex.umdl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/view_glass.umdl" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/models/view_glass.umdl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/snowboy.raw" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/snowboy.raw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/snowboy.wav" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/resources/snowboy.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/scripts/install_swig.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/scripts/install_swig.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/scripts/publish-node.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/scripts/publish-node.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/swig/Android/install_ndk.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/swig/Android/install_ndk.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/swig/Android/install_openblas.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/swig/Android/install_openblas.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy/tsconfig.json" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,6 +82,7 @@
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Assistant/Assistant/lib/features/hot_key_word/infrastructure/datasources" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -87,7 +146,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589966778535</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Activation key world now use Jinni, reverted smart device changes">
+      <created>1590442097541</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1590442097541</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -105,8 +171,12 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/Assistant/scripts/cScripts/snowboy" />
+    </ignored-roots>
     <MESSAGE value="Working state of assistent" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working state of assistent" />
+    <MESSAGE value="Activation key world now use Jinni, reverted smart device changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Activation key world now use Jinni, reverted smart device changes" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
