@@ -17,6 +17,9 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/gen" isTestSource="false" generated="true" />
+      <excludeFolder url="file://$MODULE_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/build" />
       <excludeFolder url="file://$MODULE_DIR$/FlutterApp/smart_home_flutter/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/FlutterApp/smart_home_flutter/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/FlutterApp/smart_home_flutter/build" />
