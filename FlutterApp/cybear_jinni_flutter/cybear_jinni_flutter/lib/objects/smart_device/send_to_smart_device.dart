@@ -14,9 +14,10 @@ Future<List<SmartDeviceObject>> getAllDevices(String deviceIp) async {
   SmartDeviceObject smartDeviceObjectTemp;
   DeviceType deviceTypeTemp;
 
-  ResponseStream<SmartDevice> a = await SmartClient.getAllDevices(deviceIp);
+  ResponseStream<SmartDevice> smartDeviceResponseStream =
+      await SmartClient.getAllDevices(deviceIp);
 
-  await for (SmartDevice smartDevice in a) {
+  await for (SmartDevice smartDevice in smartDeviceResponseStream) {
     print('Device type: ' + smartDevice.deviceType.toString());
     deviceTypeTemp = EnumHelper.stringToDt(smartDevice.deviceType);
     smartDeviceObjectTemp =
