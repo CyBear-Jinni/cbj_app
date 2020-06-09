@@ -25,4 +25,13 @@ class EnumHelper {
   static String dTToString(DeviceType deviceType) {
     return deviceType.toString().replaceAll('DeviceType.', '');
   }
+
+  static DeviceType stringToDt(String deviceTypeAsString) {
+    for (DeviceType deviceType in DeviceType.values) {
+      if (dTToString(deviceType) == deviceTypeAsString) {
+        return deviceType;
+      }
+    }
+    return null;
+  }
 }

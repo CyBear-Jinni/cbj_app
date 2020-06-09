@@ -1,19 +1,27 @@
 import 'dart:async';
 
+import 'package:CybearJinni/objects/enums.dart';
 import 'package:CybearJinni/objects/smart_device/client/smart_client.dart';
-import 'package:CybearJinni/objects/smart_device/smart_device_objcet.dart';
+import 'package:CybearJinni/objects/smart_device/smart_device_object.dart';
 import 'package:grpc/grpc.dart';
 
 import 'client/protoc_as_dart/smart_connection.pb.dart';
 
 //  Get
 
-Future<List<SmartDevice>> getAllDevices(String deviceIp) async {
-  List<SmartDevice> smartDeviceList = List<SmartDevice>();
+Future<List<SmartDeviceObject>> getAllDevices(String deviceIp) async {
+  List<SmartDeviceObject> smartDeviceList = List<SmartDeviceObject>();
+  SmartDeviceObject smartDeviceObjectTemp;
+  DeviceType deviceTypeTemp;
+
   ResponseStream<SmartDevice> a = await SmartClient.getAllDevices(deviceIp);
+
   await for (SmartDevice smartDevice in a) {
     print('Device type: ' + smartDevice.deviceType.toString());
-    smartDeviceList.add(smartDevice);
+    deviceTypeTemp = EnumHelper.stringToDt(smartDevice.deviceType);
+    smartDeviceObjectTemp =
+        SmartDeviceObject(deviceTypeTemp, smartDevice.name, deviceIp);
+    smartDeviceList.add(smartDeviceObjectTemp);
   }
   return smartDeviceList;
 }
