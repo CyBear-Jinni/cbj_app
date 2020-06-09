@@ -12,9 +12,6 @@ class AddNewDeviceWidgetPopup extends StatefulWidget {
 }
 
 class _AddNewDeviceWidgetPopup extends State<AddNewDeviceWidgetPopup> {
-  static DeviceType _deviceType = DeviceType.Light;
-  static String _roomName;
-  static String _deviceName;
   static String _ip;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
