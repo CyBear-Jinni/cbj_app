@@ -28,7 +28,8 @@ class RoomWidget extends StatelessWidget {
           children: <Widget>[
             ListTile(
               leading: CircleAvatar(
-                backgroundImage: AssetImage('assets/logo.png'),
+                child: Icon(FontAwesomeIcons.solidLightbulb),
+//                backgroundImage: AssetImage('assets/logo.png'),
 //              backgroundImage: AssetImage(products[index]['image']),
               ),
               title: TextField(
