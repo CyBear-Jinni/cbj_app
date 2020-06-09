@@ -8,20 +8,23 @@
 const SmartDevice$json = const {
   '1': 'SmartDevice',
   '2': const [
-    const {'1': 'name', '3': 1, '4': 1, '5': 9, '10': 'name'},
+    const {'1': 'uuid', '3': 1, '4': 1, '5': 9, '10': 'uuid'},
+    const {'1': 'name', '3': 2, '4': 1, '5': 9, '10': 'name'},
+    const {'1': 'deviceType', '3': 3, '4': 1, '5': 9, '10': 'deviceType'},
   ],
 };
 
 const SmartDeviceStatus$json = const {
   '1': 'SmartDeviceStatus',
   '2': const [
-    const {'1': 'onOffState', '3': 2, '4': 1, '5': 8, '10': 'onOffState'},
+    const {'1': 'onOffState', '3': 4, '4': 1, '5': 8, '10': 'onOffState'},
   ],
 };
 
 const CommendStatus$json = const {
   '1': 'CommendStatus',
   '2': const [
-    const {'1': 'success', '3': 3, '4': 1, '5': 8, '10': 'success'},
+    const {'1': 'success', '3': 5, '4': 1, '5': 8, '10': 'success'},
   ],
 };
+

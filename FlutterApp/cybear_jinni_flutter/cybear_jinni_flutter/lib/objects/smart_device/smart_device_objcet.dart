@@ -48,7 +48,7 @@ class SmartDeviceObject {
     return 'Error getting device state';
   }
 
-  //  Not working, maybe not support android 10 yet
+  //  Not working, maybe not support android 10 yet https://github.com/flutter/flutter/issues/51529
   Future<String> getCurrentWifiName() async {
     String wifiName = '';
 
@@ -77,6 +77,7 @@ class SmartDeviceObject {
     } catch (exception) {
       print(exception.toString());
     }
+    print('Wifi name is: ' + wifiName);
     return wifiName;
   }
 
@@ -98,7 +99,9 @@ class SmartDeviceObject {
 
     //TODO: add check if the wifi that connected is the home wifi
     if (connectivityResult == ConnectivityResult.wifi) {
-      print('Connectd to wifi');
+//    if (connectivityResult == ConnectivityResult.wifi && await getCurrentWifiName() == '***REMOVED***') {
+      print('Connected to wifi');
+//      print('Wifi name: ' + await getCurrentWifiName());
       return await setLightStateLocal(state);
     } else if (connectivityResult == ConnectivityResult.mobile) {
       print('Connected to mobile network');
@@ -106,7 +109,7 @@ class SmartDeviceObject {
     } else {
       print('Not connected to a network');
     }
-    return 'Error seting light status';
+    return 'Error setting light status';
   }
 
   Future<String> setLightStateLocal(bool state) async {
