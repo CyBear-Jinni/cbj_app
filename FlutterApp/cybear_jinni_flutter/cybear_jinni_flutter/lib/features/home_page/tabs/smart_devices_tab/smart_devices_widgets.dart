@@ -47,7 +47,7 @@ class SmartDevicesWidgets extends StatelessWidget {
                   msg: element.toString(),
                   toastLength: Toast.LENGTH_SHORT,
                   gravity: ToastGravity.CENTER,
-                  backgroundColor: Colors.red,
+                  backgroundColor: Colors.blueGrey,
                   textColor: Colors.white,
                   fontSize: 16.0);
               if (element.toString() == "blinds") {

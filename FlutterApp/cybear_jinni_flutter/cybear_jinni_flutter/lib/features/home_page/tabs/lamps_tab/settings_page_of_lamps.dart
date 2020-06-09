@@ -3,6 +3,7 @@ import 'package:CybearJinni/objects/interface_darta/cloud_interface_data.dart';
 import 'package:CybearJinni/objects/smart_device/smart_device_object.dart';
 import 'package:CybearJinni/objects/smart_device/smart_room_object.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SettingsPageOfLamps extends StatelessWidget {
@@ -110,12 +111,13 @@ class SettingsPageOfLamps extends StatelessWidget {
                     size: 25,
                   ),
                   onPressed: () {
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return AddNewDeviceWidgetPopup();
-                      },
-                    );
+                    Fluttertoast.showToast(
+                        msg: 'Search',
+                        toastLength: Toast.LENGTH_SHORT,
+                        gravity: ToastGravity.CENTER,
+                        backgroundColor: Colors.blueGrey,
+                        textColor: Colors.white,
+                        fontSize: 16.0);
                   },
                 ),
               ],
