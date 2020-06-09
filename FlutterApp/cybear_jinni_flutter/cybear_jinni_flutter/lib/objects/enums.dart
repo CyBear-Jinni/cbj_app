@@ -27,6 +27,10 @@ class EnumHelper {
   }
 
   static DeviceType stringToDt(String deviceTypeAsString) {
+    if (deviceTypeAsString.contains('Object')) {
+      deviceTypeAsString =
+          deviceTypeAsString.substring(0, deviceTypeAsString.indexOf('Object'));
+    }
     for (DeviceType deviceType in DeviceType.values) {
       if (dTToString(deviceType) == deviceTypeAsString) {
         return deviceType;
