@@ -89,17 +89,6 @@ class SmartDevicesWidgets extends StatelessWidget {
         Container(
           height: 20,
         ),
-        FlatButton(
-          child: Text(
-            "Press me if you can",
-            style: TextStyle(
-                color: Theme.of(context).textTheme.bodyText1.color,
-                fontSize: 16),
-          ),
-          onPressed: () {
-            FireStoreClass();
-          },
-        ),
         Expanded(
           child: GridView(
             children: smartDevice(context),

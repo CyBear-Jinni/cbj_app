@@ -56,10 +56,8 @@ class SmartDevice extends $pb.GeneratedMessage {
   set uuid($core.String v) {
     $_setString(0, v);
   }
-
   @$pb.TagNumber(1)
   $core.bool hasUuid() => $_has(0);
-
   @$pb.TagNumber(1)
   void clearUuid() => clearField(1);
 
@@ -70,10 +68,8 @@ class SmartDevice extends $pb.GeneratedMessage {
   set name($core.String v) {
     $_setString(1, v);
   }
-
   @$pb.TagNumber(2)
   $core.bool hasName() => $_has(1);
-
   @$pb.TagNumber(2)
   void clearName() => clearField(2);
 
@@ -84,10 +80,8 @@ class SmartDevice extends $pb.GeneratedMessage {
   set deviceType($core.String v) {
     $_setString(2, v);
   }
-
   @$pb.TagNumber(3)
   $core.bool hasDeviceType() => $_has(2);
-
   @$pb.TagNumber(3)
   void clearDeviceType() => clearField(3);
 }
@@ -143,10 +137,8 @@ class SmartDeviceStatus extends $pb.GeneratedMessage {
   set onOffState($core.bool v) {
     $_setBool(0, v);
   }
-
   @$pb.TagNumber(4)
   $core.bool hasOnOffState() => $_has(0);
-
   @$pb.TagNumber(4)
   void clearOnOffState() => clearField(4);
 }
@@ -208,5 +200,84 @@ class CommendStatus extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(5)
   void clearSuccess() => clearField(5);
+}
+
+class SmartDeviceUpdateDetails extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('SmartDeviceUpdateDetails',
+      package: const $pb.PackageName('SmartConnection'),
+      createEmptyInstance: create)
+    ..aOM<SmartDevice>(6, 'smartDevice', protoName: 'smartDevice',
+        subBuilder: SmartDevice.create)
+    ..aOS(7, 'newName', protoName: 'newName')
+    ..hasRequiredFields = false
+  ;
+
+  SmartDeviceUpdateDetails._() : super();
+
+  factory SmartDeviceUpdateDetails() => create();
+
+  factory SmartDeviceUpdateDetails.fromBuffer($core.List<$core.int> i,
+      [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()
+        ..mergeFromBuffer(i, r);
+
+  factory SmartDeviceUpdateDetails.fromJson($core.String i,
+      [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()
+        ..mergeFromJson(i, r);
+
+  SmartDeviceUpdateDetails clone() =>
+      SmartDeviceUpdateDetails()
+        ..mergeFromMessage(this);
+
+  SmartDeviceUpdateDetails copyWith(
+      void Function(SmartDeviceUpdateDetails) updates) =>
+      super.copyWith((message) => updates(message as SmartDeviceUpdateDetails));
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static SmartDeviceUpdateDetails create() => SmartDeviceUpdateDetails._();
+
+  SmartDeviceUpdateDetails createEmptyInstance() => create();
+
+  static $pb.PbList<SmartDeviceUpdateDetails> createRepeated() =>
+      $pb.PbList<SmartDeviceUpdateDetails>();
+
+  @$core.pragma('dart2js:noInline')
+  static SmartDeviceUpdateDetails getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<SmartDeviceUpdateDetails>(create);
+  static SmartDeviceUpdateDetails _defaultInstance;
+
+  @$pb.TagNumber(6)
+  SmartDevice get smartDevice => $_getN(0);
+
+  @$pb.TagNumber(6)
+  set smartDevice(SmartDevice v) {
+    setField(6, v);
+  }
+
+  @$pb.TagNumber(6)
+  $core.bool hasSmartDevice() => $_has(0);
+
+  @$pb.TagNumber(6)
+  void clearSmartDevice() => clearField(6);
+
+  @$pb.TagNumber(6)
+  SmartDevice ensureSmartDevice() => $_ensure(0);
+
+  @$pb.TagNumber(7)
+  $core.String get newName => $_getSZ(1);
+
+  @$pb.TagNumber(7)
+  set newName($core.String v) {
+    $_setString(1, v);
+  }
+
+  @$pb.TagNumber(7)
+  $core.bool hasNewName() => $_has(1);
+
+  @$pb.TagNumber(7)
+  void clearNewName() => clearField(7);
 }
 

@@ -571,9 +571,10 @@
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
     <state x="2426" y="169" key="#xdebugger.evaluate/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1591370276483" />
-    <state x="2146" y="60" width="1034" height="984" key="CommitChangelistDialog2" timestamp="1591656065956">
-      <screen x="1680" y="0" width="1920" height="1080" />
+    <state x="408" y="84" width="1034" height="984" key="CommitChangelistDialog2" timestamp="1591819301788">
+      <screen x="0" y="27" width="1680" height="1023" />
     </state>
+    <state x="408" y="84" key="CommitChangelistDialog2/1680.0.1920.1080/0.27.1680.1023@0.27.1680.1023" timestamp="1591819301788" />
     <state x="2146" y="60" width="1034" height="984" key="CommitChangelistDialog2/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1591656065956" />
     <state width="473" height="646" key="DebuggerActiveHint" timestamp="1591370135883">
       <screen x="1680" y="0" width="1920" height="1080" />
