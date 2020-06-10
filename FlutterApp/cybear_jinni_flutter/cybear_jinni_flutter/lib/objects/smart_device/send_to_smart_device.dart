@@ -33,6 +33,11 @@ Future<String> getDeviceStateRequest(
   return await SmartClient.getSmartDeviceStatus(smartDeviceObject);
 }
 
+Future<String> updateDeviceName(
+    SmartDeviceObject smartDeviceObject, String newName) async {
+  return await SmartClient.updateDeviceName(smartDeviceObject, newName);
+}
+
 Future<String> turnOn(SmartDeviceObject smartDeviceObject) async {
   String deviceSuccessStatus =
       await SmartClient.setSmartDeviceOn(smartDeviceObject);

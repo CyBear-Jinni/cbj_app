@@ -28,3 +28,17 @@ const CommendStatus$json = const {
   ],
 };
 
+const SmartDeviceUpdateDetails$json = const {
+  '1': 'SmartDeviceUpdateDetails',
+  '2': const [
+    const {
+      '1': 'smartDevice',
+      '3': 6,
+      '4': 1,
+      '5': 11,
+      '6': '.SmartConnection.SmartDevice',
+      '10': 'smartDevice'
+    },
+    const {'1': 'newName', '3': 7, '4': 1, '5': 9, '10': 'newName'},
+  ],
+};
