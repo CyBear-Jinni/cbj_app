@@ -1,7 +1,9 @@
 import 'package:CybearJinni/features/home_page/smart_device_widget.dart';
 import 'package:CybearJinni/objects/enums.dart';
+import 'package:CybearJinni/objects/interface_darta/cloud_interface_data.dart';
 import 'package:CybearJinni/objects/smart_device/send_to_smart_device.dart';
 import 'package:CybearJinni/objects/smart_device/smart_device_object.dart';
+import 'package:CybearJinni/objects/smart_device/smart_room_object.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -117,14 +119,22 @@ class _ShowAllDevicesInTheSmartDevice
               ),
               RaisedButton(
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(24),
-                ),
-                onPressed: () {},
-                padding: EdgeInsets.all(12),
-                color: Colors.lightGreen,
-                child: Text('Add devices', style: TextStyle(
-                    color: Colors.white)),
-              ),
+                        borderRadius: BorderRadius.circular(24),
+                      ),
+                      onPressed: () {
+                        getAllTheDevices();
+                        final List<SmartDeviceObject> room2DevicesList =
+                            smartDeviceObjectList;
+                        SmartRoomObject newRoom =
+                            SmartRoomObject("New devices", room2DevicesList);
+                        rooms.add(newRoom);
+                        Navigator.pop(context);
+                      },
+                      padding: EdgeInsets.all(12),
+                      color: Colors.lightGreen,
+                      child: Text('Add devices',
+                          style: TextStyle(color: Colors.white)),
+                    ),
             ],),
         ],
       ),
@@ -242,6 +252,8 @@ class _NewDeviceWidget extends State<NewDeviceWidget> {
                 ),
                 onPressed: () {
                   updateDeviceName(_smartDeviceObject, myController.text);
+                  // TODO: Reload this page again (Navigator.popAndPushNamed(context, 'routeName');)
+                  //  to load the correct and updated values from the Smart Device, without it Add Devices will add the last values
                 },
                 padding: EdgeInsets.all(12),
                 color: Colors.blueAccent,
