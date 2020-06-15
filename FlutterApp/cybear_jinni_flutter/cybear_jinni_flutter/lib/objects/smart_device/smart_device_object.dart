@@ -4,6 +4,7 @@ import 'package:CybearJinni/database/firebase/cloud_firestore/firestore_class.da
 import 'package:CybearJinni/objects/smart_device/send_to_smart_device.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/services.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 import '../enums.dart';
 
@@ -36,11 +37,12 @@ class SmartDeviceObject {
     // TODO: network does not need to be created for each device in the network
     var connectivityResult = await (Connectivity().checkConnectivity());
 
-    //TODO: add check if the wifi that connected is the home wifi
-    if (connectivityResult == ConnectivityResult.wifi) {
+    if (connectivityResult == ConnectivityResult.wifi &&
+        await getCurrentWifiName() == homeWifiName) {
+      //  If current network is the network of the smart device set using the local method and not the remote
       return await getDeviceStatesLocal();
-    } else if (connectivityResult == ConnectivityResult.mobile) {
-      print('Connected to mobile network');
+    } else if (connectivityResult == ConnectivityResult.wifi ||
+        connectivityResult == ConnectivityResult.mobile) {
       return await getDeviceStatesRemote();
     } else {
       print('Not connected to a network');
@@ -57,7 +59,7 @@ class SmartDeviceObject {
 
       if (Platform.isIOS) {
         LocationAuthorizationStatus status =
-            await _connectivity.getLocationServiceAuthorization();
+        await _connectivity.getLocationServiceAuthorization();
         if (status == LocationAuthorizationStatus.notDetermined) {
           status = await _connectivity.requestLocationServiceAuthorization();
         }
@@ -67,8 +69,19 @@ class SmartDeviceObject {
         } else {
           wifiName = await _connectivity.getWifiName();
         }
-      } else {
+      } else if (Platform.isAndroid) {
+        var status = await Permission.location.status;
+        if (status.isUndetermined || status.isDenied || status.isRestricted) {
+          if (await Permission.location
+              .request()
+              .isGranted) {
+// Either the permission was already granted before or the user just granted it.
+          }
+        }
         wifiName = await _connectivity.getWifiName();
+      }
+      else {
+        print('Does not support this platform');
       }
     } on PlatformException catch (e) {
       print(e.toString());
@@ -77,7 +90,6 @@ class SmartDeviceObject {
     } catch (exception) {
       print(exception.toString());
     }
-    print('Wifi name is: ' + wifiName);
     return wifiName;
   }
 
@@ -97,14 +109,12 @@ class SmartDeviceObject {
     // TODO: network does not need to be created for each device in the network
     var connectivityResult = await (Connectivity().checkConnectivity());
 
-    //TODO: add check if the wifi that connected is the home wifi
-    if (connectivityResult == ConnectivityResult.wifi) {
-//    if (connectivityResult == ConnectivityResult.wifi && await getCurrentWifiName() == '***REMOVED***') {
-      print('Connected to wifi');
-//      print('Wifi name: ' + await getCurrentWifiName());
+    if (connectivityResult == ConnectivityResult.wifi &&
+        await getCurrentWifiName() ==
+            homeWifiName) { //  If current network is the network of the smart device set using the local method and not the remote
       return await setLightStateLocal(state);
-    } else if (connectivityResult == ConnectivityResult.mobile) {
-      print('Connected to mobile network');
+    } else if (connectivityResult == ConnectivityResult.wifi ||
+        connectivityResult == ConnectivityResult.mobile) {
       return await setLightStateRemote(state);
     } else {
       print('Not connected to a network');
