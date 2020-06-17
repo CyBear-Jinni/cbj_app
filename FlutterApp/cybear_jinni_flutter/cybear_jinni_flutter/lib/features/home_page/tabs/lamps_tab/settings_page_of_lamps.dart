@@ -1,26 +1,45 @@
 import 'package:CybearJinni/features/shared_widgets/add_new_devie_widget.dart';
+import 'package:CybearJinni/objects/interface_darta/cloud_interface_data.dart';
+import 'package:CybearJinni/objects/smart_device/smart_device_object.dart';
+import 'package:CybearJinni/objects/smart_device/smart_room_object.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SettingsPageOfLamps extends StatelessWidget {
+  final List<SmartDeviceObject> allSmartDeviceLightDevices =
+      List<SmartDeviceObject>();
+
+  SettingsPageOfLamps() {
+    for (SmartRoomObject smartRoomObject in rooms) {
+      for (SmartDeviceObject smartLightObject in smartRoomObject.getLights()) {
+        allSmartDeviceLightDevices.add(smartLightObject);
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    Widget tile(int index) {
+    Widget tile(String roomName, String lightName) {
       return Column(
         children: <Widget>[
           ListTile(
             leading: CircleAvatar(
-              backgroundImage: AssetImage('assets/logo.png'),
+              child: Icon(FontAwesomeIcons.solidLightbulb),
             ),
             title: Text(
-              "Light " + index.toString(),
+              "Name: " + lightName,
               style:
                   TextStyle(color: Theme.of(context).textTheme.bodyText1.color),
             ),
             subtitle: Text(
-              "Room " + index.toString(),
+              "Room: " + roomName,
               style:
-                  TextStyle(color: Theme.of(context).textTheme.bodyText1.color),
+              TextStyle(color: Theme
+                  .of(context)
+                  .textTheme
+                  .bodyText1
+                  .color),
             ),
             trailing: IconButton(
               icon: Icon(
@@ -78,24 +97,29 @@ class SettingsPageOfLamps extends StatelessWidget {
               children: <Widget>[
                 IconButton(
                   icon: Icon(FontAwesomeIcons.arrowLeft,
-                      color: Theme.of(context).textTheme.bodyText1.color),
+                      color: Theme
+                          .of(context)
+                          .textTheme
+                          .bodyText1
+                          .color),
                   onPressed: () => Navigator.pop(context),
                 ),
-//                IconButton(
-//                  icon: Icon(
-//                    FontAwesomeIcons.plus,
-//                    color: Colors.green,
-//                    size: 25,
-//                  ),
-//                  onPressed: () {
-//                    showDialog(
-//                      context: context,
-//                      builder: (BuildContext context) {
-//                        return AddNewDeviceWidgetPopup();
-//                      },
-//                    );
-//                  },
-//                ),
+                IconButton(
+                  icon: Icon(
+                    FontAwesomeIcons.search,
+                    color: Colors.white,
+                    size: 25,
+                  ),
+                  onPressed: () {
+                    Fluttertoast.showToast(
+                        msg: 'Search',
+                        toastLength: Toast.LENGTH_SHORT,
+                        gravity: ToastGravity.CENTER,
+                        backgroundColor: Colors.blueGrey,
+                        textColor: Colors.white,
+                        fontSize: 16.0);
+                  },
+                ),
               ],
             ),
             Text(
@@ -118,10 +142,11 @@ class SettingsPageOfLamps extends StatelessWidget {
                     background: Container(
                       color: Colors.red,
                     ),
-                    child: tile(index),
+                    child: tile(allSmartDeviceLightDevices[index].roomName,
+                        allSmartDeviceLightDevices[index].name),
                   );
                 },
-                itemCount: 10,
+                itemCount: allSmartDeviceLightDevices.length,
               ),
             ),
           ],

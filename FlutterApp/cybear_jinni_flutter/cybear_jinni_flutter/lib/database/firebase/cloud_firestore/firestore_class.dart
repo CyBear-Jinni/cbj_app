@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FireStoreClass {
-  String path = '/SmartHomes/GuyHome/Rooms/';
+  String path = '/SmartHomes/GuyHome/Devices/Lights/';
   String restOfPath = '/DevicesInTheRoom/';
   String deviceName = 'Stairs and Storage';
 
@@ -39,6 +39,7 @@ class FireStoreClass {
   }
 
   String createDocumentFullPath(String roomName) {
-    return path + roomName + restOfPath + deviceName;
+    return path;
+//    return path + roomName + restOfPath + deviceName;
   }
 }
