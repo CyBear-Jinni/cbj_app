@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="gray">#D2D2D2</color>
+    <color name="dark_gray">#ff838383</color>
+    <color name="transparent_black">#1A000000</color>
+    <color name="deepPurple">#FF673AB7</color>
+    <color name="indigo">#FF3F51B5</color>
+
+</resources>

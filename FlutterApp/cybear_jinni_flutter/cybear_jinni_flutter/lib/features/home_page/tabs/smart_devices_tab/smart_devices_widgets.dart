@@ -47,7 +47,7 @@ class SmartDevicesWidgets extends StatelessWidget {
                   msg: element.toString(),
                   toastLength: Toast.LENGTH_SHORT,
                   gravity: ToastGravity.CENTER,
-                  backgroundColor: Colors.red,
+                  backgroundColor: Colors.blueGrey,
                   textColor: Colors.white,
                   fontSize: 16.0);
               if (element.toString() == "blinds") {
@@ -88,17 +88,6 @@ class SmartDevicesWidgets extends StatelessWidget {
         ),
         Container(
           height: 20,
-        ),
-        FlatButton(
-          child: Text(
-            "Press me if you can",
-            style: TextStyle(
-                color: Theme.of(context).textTheme.bodyText1.color,
-                fontSize: 16),
-          ),
-          onPressed: () {
-            FireStoreClass();
-          },
         ),
         Expanded(
           child: GridView(

@@ -24,7 +24,7 @@ class LampsWidgets extends StatelessWidget {
           ),
         ),
         Text(
-          'Lamps Page',
+          '`Lamps Page',
           style: TextStyle(
               fontSize: 23.0,
               color: Theme.of(context).textTheme.bodyText1.color,

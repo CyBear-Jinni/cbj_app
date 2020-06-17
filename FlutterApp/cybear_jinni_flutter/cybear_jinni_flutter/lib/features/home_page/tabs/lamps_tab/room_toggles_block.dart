@@ -49,10 +49,11 @@ class RoomTogglesBlock extends StatelessWidget {
                 width: 170,
                 child: SmartDevicePage(_smartRoomObject.getLights()[0]),
               ),
+              _smartRoomObject.getLights().length > 1 ?
               Container(
                 width: 170,
                 child: SmartDevicePage(_smartRoomObject.getLights()[1]),
-              )
+              ): Container()
             ],
           ),
         ],

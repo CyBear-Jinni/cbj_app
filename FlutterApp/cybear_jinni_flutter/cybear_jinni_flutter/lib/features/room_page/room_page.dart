@@ -1,11 +1,31 @@
 import 'package:CybearJinni/features/room_page/room_widget.dart';
+import 'package:CybearJinni/objects/interface_darta/cloud_interface_data.dart';
+import 'package:CybearJinni/objects/smart_device/smart_device_object.dart';
+import 'package:CybearJinni/objects/smart_device/smart_room_object.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class RoomPage extends StatelessWidget {
   final String roomName;
+  SmartRoomObject thisSmartRoom;
+  final List<Map<String, dynamic>> productsInThisRoom =
+      List<Map<String, dynamic>>();
 
-  RoomPage(this.roomName);
+  RoomPage(this.roomName) {
+    for (SmartRoomObject smartRoomObject in rooms) {
+      if (smartRoomObject.getRoomName() == roomName) {
+        thisSmartRoom = smartRoomObject;
+        break;
+      }
+    }
+
+    thisSmartRoom.getLights().forEach((SmartDeviceObject element) {
+      productsInThisRoom.add({
+        'title': element.name,
+        'number': thisSmartRoom.getLights().indexOf(element)
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,20 +68,11 @@ class RoomPage extends StatelessWidget {
                   color: Theme.of(context).textTheme.bodyText1.color,
                   decoration: TextDecoration.underline),
             ),
+
             RoomWidget(
-              [
-                {'title': 'Smart device 1', 'number': 12},
-                {'title': 'Smart device 2', 'number': 15},
-                {'title': 'Smart device 3', 'number': 16},
-                {'title': 'Smart device 4', 'number': 6},
-                {'title': 'Smart device 5', 'number': 14},
-                {'title': 'Smart device 6', 'number': 17},
-                {'title': 'Smart device 7', 'number': 999},
-                {'title': 'Smart device 8', 'number': 233},
-                {'title': 'Smart device 9', 'number': 24},
-              ],
-              () {},
-              () {},
+              productsInThisRoom.toList(),
+                  () {},
+                  () {},
             ),
           ],
         ),
