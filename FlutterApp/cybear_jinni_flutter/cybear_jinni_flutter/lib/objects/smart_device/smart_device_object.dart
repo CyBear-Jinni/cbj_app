@@ -13,7 +13,7 @@ class SmartDeviceObject {
   String roomName;
   String name;
   String ip;
-  FireStoreClass _fireStoreClass;
+  FireStoreClass fireStoreClass;
   static const String homeWifiName = '***REMOVED***';
 
   SmartDeviceObject(this.deviceType, this.name, String ip, [this.roomName]) {
@@ -23,7 +23,7 @@ class SmartDeviceObject {
     } else {
       throw ('Incorrect formet of IP');
     }
-    _fireStoreClass = FireStoreClass();
+    fireStoreClass = FireStoreClass();
   }
 
   //  Get
@@ -100,7 +100,7 @@ class SmartDeviceObject {
   }
 
   Future<String> getDeviceStatesRemote() async {
-    return await _fireStoreClass.getDeviceStatus(roomName, name);
+    return await fireStoreClass.getDeviceStatus(roomName, name);
   }
 
   //  Set
@@ -127,7 +127,7 @@ class SmartDeviceObject {
   }
 
   Future<String> setLightStateRemote(bool state) async {
-    return (await _fireStoreClass.changeSwitchState(roomName, name, state))
+    return (await fireStoreClass.changeSwitchState(roomName, name, state))
         .toString();
   }
 
