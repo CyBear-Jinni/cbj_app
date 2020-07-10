@@ -1,3 +1,4 @@
+import 'package:CybearJinni/objects/enums.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FireStoreClass {
@@ -17,8 +18,8 @@ class FireStoreClass {
     return await getDeviceStatus(roomName, smartInstanceName);
   }
 
-  Future<String> changeSwitchState(
-      String roomName, String smartInstanceName, bool value) async {
+  Future<String> changeSwitchState(String roomName, String smartInstanceName,
+      bool value) async {
     String fullPath = createDocumentFullPath(roomName);
 
     Firestore.instance
@@ -28,12 +29,12 @@ class FireStoreClass {
     return await getDeviceStatus(roomName, smartInstanceName);
   }
 
-  Future<String> getDeviceStatus(
-      String roomName, String smartInstanceName) async {
+  Future<String> getDeviceStatus(String roomName,
+      String smartInstanceName) async {
     String fullPath = createDocumentFullPath(roomName);
 
     DocumentSnapshot documentSnapshot =
-        await Firestore.instance.document(fullPath).get();
+    await Firestore.instance.document(fullPath).get();
 
     return documentSnapshot.data[smartInstanceName].toString();
   }
@@ -41,5 +42,16 @@ class FireStoreClass {
   String createDocumentFullPath(String roomName) {
     return path;
 //    return path + roomName + restOfPath + deviceName;
+  }
+
+  Future<String> changeBlindsState(String roomName, String smartInstanceName,
+      WishEnum wish) async {
+    String fullPath = createDocumentFullPath(roomName);
+
+    Firestore.instance
+        .document(fullPath)
+        .updateData({smartInstanceName: EnumHelper.wishEnumToString(wish)});
+
+    return await getDeviceStatus(roomName, smartInstanceName);
   }
 }
