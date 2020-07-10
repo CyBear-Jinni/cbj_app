@@ -17,7 +17,7 @@ SmartRoomObject room5 = SmartRoomObject('Sami', room5DevicesList);
 //  Guy
 final List<SmartDeviceObject> room1DevicesList = [
   SmartDeviceObject(DeviceType.Light, 'Ceiling lamp', '10.0.0.23', 'Guy'),
-  SmartDeviceObject(DeviceType.Light, 'Bed', '10.0.0.24', 'Guy'),
+//  SmartDeviceObject(DeviceType.Light, 'Bed', '10.0.0.24', 'Guy'),
   SmartDeviceObject(DeviceType.Light, 'Desk', '10.0.0.50', 'Guy')
 ];
 
@@ -49,8 +49,8 @@ final List<SmartDeviceObject> room5DevicesList = [
   SmartDeviceObject(DeviceType.Light, 'Stairs', '10.0.0.16', 'Sami')
 ];
 
-//  Room BlindsonOffState
+//  Room BlindsOnOffState
 
 final List<SmartBlindsObject> room1blindsList = [
-  SmartBlindsObject(DeviceType.Blinds, 'South blinds', '10.0.0.24'),
+  SmartBlindsObject(DeviceType.Blinds, 'SouthBlinds', '10.0.0.24'),
 ];
