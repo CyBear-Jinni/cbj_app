@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:CybearJinni/objects/enums.dart';
 import 'package:CybearJinni/objects/smart_device/client/smart_client.dart';
+import 'package:CybearJinni/objects/smart_device/smart_blinds_object.dart';
 import 'package:CybearJinni/objects/smart_device/smart_device_object.dart';
 import 'package:grpc/grpc.dart';
 
@@ -12,6 +13,7 @@ import 'client/protoc_as_dart/smart_connection.pb.dart';
 Future<List<SmartDeviceObject>> getAllDevices(String deviceIp) async {
   List<SmartDeviceObject> smartDeviceList = List<SmartDeviceObject>();
   SmartDeviceObject smartDeviceObjectTemp;
+  SmartBlindsObject smartBlindsObjectTemp;
   DeviceType deviceTypeTemp;
 
   ResponseStream<SmartDevice> smartDeviceResponseStream =
@@ -20,9 +22,78 @@ Future<List<SmartDeviceObject>> getAllDevices(String deviceIp) async {
   await for (SmartDevice smartDevice in smartDeviceResponseStream) {
     print('Device type: ' + smartDevice.deviceType.toString());
     deviceTypeTemp = EnumHelper.stringToDt(smartDevice.deviceType);
-    smartDeviceObjectTemp =
-        SmartDeviceObject(deviceTypeTemp, smartDevice.name, deviceIp);
-    smartDeviceList.add(smartDeviceObjectTemp);
+    switch (deviceTypeTemp) {
+      case (DeviceType.Light):
+        smartDeviceObjectTemp =
+            SmartDeviceObject(deviceTypeTemp, smartDevice.name, deviceIp);
+        smartDeviceList.add(smartDeviceObjectTemp);
+        break;
+      case (DeviceType.Blinds):
+        smartBlindsObjectTemp =
+            SmartBlindsObject(deviceTypeTemp, smartDevice.name, deviceIp);
+        smartDeviceList.add(smartBlindsObjectTemp);
+        break;
+      case DeviceType.Light:
+        // TODO: Handle this case.
+        break;
+      case DeviceType.DynamicLight:
+        // TODO: Handle this case.
+        break;
+      case DeviceType.Blinds:
+        // TODO: Handle this case.
+        break;
+      case DeviceType.Thermostat:
+        // TODO: Handle this case.
+        break;
+      case DeviceType.Fan:
+        // TODO: Handle this case.
+        break;
+      case DeviceType.AirConditioner:
+        // TODO: Handle this case.
+        break;
+      case DeviceType.Camera:
+        // TODO: Handle this case.
+        break;
+      case DeviceType.Fridge:
+        // TODO: Handle this case.
+        break;
+      case DeviceType.Toaster:
+        // TODO: Handle this case.
+        break;
+      case DeviceType.CoffeeMachine:
+        // TODO: Handle this case.
+        break;
+      case DeviceType.SmartTV:
+        // TODO: Handle this case.
+        break;
+      case DeviceType.RCAirplane:
+        // TODO: Handle this case.
+        break;
+      case DeviceType.RCCar:
+        // TODO: Handle this case.
+        break;
+      case DeviceType.Speakers:
+        // TODO: Handle this case.
+        break;
+      case DeviceType.Roomba:
+        // TODO: Handle this case.
+        break;
+      case DeviceType.Irrigation:
+        // TODO: Handle this case.
+        break;
+      case DeviceType.SmartBed:
+        // TODO: Handle this case.
+        break;
+      case DeviceType.AnimalTracker:
+        // TODO: Handle this case.
+        break;
+      case DeviceType.SmartCar:
+        // TODO: Handle this case.
+        break;
+      case DeviceType.SmartPool:
+        // TODO: Handle this case.
+        break;
+    }
   }
   return smartDeviceList;
 }

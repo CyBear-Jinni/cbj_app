@@ -1,4 +1,5 @@
 import 'package:CybearJinni/features/home_page/smart_device_widget.dart';
+import 'package:CybearJinni/features/home_page/tabs/smart_devices_tab/blinds/smart_blind_widget.dart';
 import 'package:CybearJinni/objects/enums.dart';
 import 'package:CybearJinni/objects/interface_darta/cloud_interface_data.dart';
 import 'package:CybearJinni/objects/smart_device/send_to_smart_device.dart';
@@ -168,16 +169,79 @@ class _NewDeviceWidget extends State<NewDeviceWidget> {
     super.dispose();
   }
 
+  Widget drawSmartWidgetHelper(SmartDeviceObject smartDeviceObject) {
+    switch (_smartDeviceObject.deviceType) {
+      case DeviceType.Light:
+        // TODO: Handle this case.
+        break;
+      case DeviceType.DynamicLight:
+        // TODO: Handle this case.
+        break;
+      case DeviceType.Blinds:
+        return SmartBlindPage(_smartDeviceObject);
+        break;
+      case DeviceType.Thermostat:
+        // TODO: Handle this case.
+        break;
+      case DeviceType.Fan:
+        // TODO: Handle this case.
+        break;
+      case DeviceType.AirConditioner:
+        // TODO: Handle this case.
+        break;
+      case DeviceType.Camera:
+        // TODO: Handle this case.
+        break;
+      case DeviceType.Fridge:
+        // TODO: Handle this case.
+        break;
+      case DeviceType.Toaster:
+        // TODO: Handle this case.
+        break;
+      case DeviceType.CoffeeMachine:
+        // TODO: Handle this case.
+        break;
+      case DeviceType.SmartTV:
+        // TODO: Handle this case.
+        break;
+      case DeviceType.RCAirplane:
+        // TODO: Handle this case.
+        break;
+      case DeviceType.RCCar:
+        // TODO: Handle this case.
+        break;
+      case DeviceType.Speakers:
+        // TODO: Handle this case.
+        break;
+      case DeviceType.Roomba:
+        // TODO: Handle this case.
+        break;
+      case DeviceType.Irrigation:
+        // TODO: Handle this case.
+        break;
+      case DeviceType.SmartBed:
+        // TODO: Handle this case.
+        break;
+      case DeviceType.AnimalTracker:
+        // TODO: Handle this case.
+        break;
+      case DeviceType.SmartCar:
+        // TODO: Handle this case.
+        break;
+      case DeviceType.SmartPool:
+        // TODO: Handle this case.
+        break;
+    }
+    return Container();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return
-      Container(
-          margin: const EdgeInsets.only(bottom: 100),
-          padding: const EdgeInsets.fromLTRB(15, 5, 15, 15),
-          decoration: BoxDecoration(
-              border: Border.all(color: Colors.blueAccent)
-          ),
-          child: Column(
+    return Container(
+        margin: const EdgeInsets.only(bottom: 100),
+        padding: const EdgeInsets.fromLTRB(15, 5, 15, 15),
+        decoration: BoxDecoration(border: Border.all(color: Colors.blueAccent)),
+        child: Column(
             children: [
               Row(
                 children: [
@@ -192,6 +256,17 @@ class _NewDeviceWidget extends State<NewDeviceWidget> {
                         radius: 16,
                       ),
                     ),
+                  if(_smartDeviceObject.deviceType ==
+                      DeviceType.Blinds)
+                    Container(
+                      margin: const EdgeInsets.only(right: 5),
+                      child:
+                      CircleAvatar(
+                        child: Icon(
+                            FontAwesomeIcons.satelliteDish),
+                        radius: 16,
+                      ),
+                    ),
                   Text(
                     'Device type: ' + EnumHelper.dTToString(
                         _smartDeviceObject.deviceType),
@@ -202,12 +277,15 @@ class _NewDeviceWidget extends State<NewDeviceWidget> {
 //                color: Theme.of(context).textTheme.bodyText1.color,
                     ),
                   ),
+                  (_smartDeviceObject.deviceType == DeviceType.Light) ?
                   Container(
                     width: 100,
-                    child: SmartDevicePage(_smartDeviceObject),
-                  ),
+                    child: SmartDevicePage(
+                        _smartDeviceObject), // The actual render of the device
+                  ) : Container(),
                 ],
               ),
+              drawSmartWidgetHelper(_smartDeviceObject),
               TextFormField(
                 autofocus: false,
                 cursorColor: Colors.black,
