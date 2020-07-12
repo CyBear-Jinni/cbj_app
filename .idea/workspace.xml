@@ -6,73 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="96c5fe8c-119f-4135-b3fa-611215ac658f" name="Default Changelist" comment="Orgenazing a little bit the Assistent project">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/.npmignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/MANIFEST.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/README_ZH_CN.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/README_commercial.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/binding.gyp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/C/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/C/demo.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/C/demo.mk" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/C/install_portaudio.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/C/patches/portaudio.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/C/resources" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/C/snowboy-detect-c-wrapper.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/examples/C/snowboy-detect-c-wrapper.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/include/snowboy-detect.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/lib/aarch64-ubuntu1604/libsnowboy-detect.a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/lib/android/armv7a/libsnowboy-detect.a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/lib/android/armv8-aarch64/libsnowboy-detect.a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/lib/ios/libsnowboy-detect.a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/lib/node/SnowboyDetectNative.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/lib/node/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/lib/node/node-pre-gyp.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/lib/osx/libsnowboy-detect.a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/lib/rpi/libsnowboy-detect.a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/lib/ubuntu64/libsnowboy-detect.a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/resources/alexa/SnowboyAlexaDemo.apk" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/resources/alexa/alexa-avs-sample-app/alexa.umdl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/resources/alexa/alexa-avs-sample-app/avs-kittai.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/resources/alexa/alexa_02092017.umdl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/resources/common.res" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/resources/ding.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/resources/dong.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/resources/models/Jinni.pmdl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/resources/models/computer.umdl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/resources/models/hey_extreme.umdl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/resources/models/jarvis.pmdl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/resources/models/jarvis.umdl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/resources/models/neoya.umdl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/resources/models/smart_mirror.umdl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/resources/models/snowboy.umdl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/resources/models/subex.umdl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/resources/models/view_glass.umdl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/resources/snowboy.raw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/resources/snowboy.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/scripts/install_swig.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/scripts/publish-node.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/setup.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/swig/Android/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/swig/Android/install_ndk.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/swig/Android/install_openblas.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/swig/Android/snowboy-detect-swig.i" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/swig/Go/snowboy.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/swig/Go/snowboydetect.swigcxx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/swig/Java/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/swig/Java/snowboy-detect-swig.i" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/swig/Node/snowboy.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/swig/Perl/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/swig/Perl/snowboy-detect.i" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/swig/Python/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/swig/Python/snowboy-detect-swig.i" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/swig/Python3/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/swig/Python3/snowboy-detect-swig.i" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy/tsconfig.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,13 +119,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1568838815383</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Add script to automatically compile all c files when snapcraft">
-      <created>1569263603559</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1569263603559</updated>
     </task>
     <task id="LOCAL-00008" summary="Add script to automatically compile all c files when snapcraft sh file didn't commit last time">
       <created>1569263773594</created>
@@ -530,7 +456,14 @@
       <option name="project" value="LOCAL" />
       <updated>1594542801345</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="Orgenazing a little bit the Assistent project">
+      <created>1594542998626</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1594542998627</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
@@ -611,6 +544,10 @@
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="581" y="190" width="1079" height="770" key="#Project_Structure" timestamp="1594543186482">
+      <screen x="50" y="0" width="1870" height="1080" />
+    </state>
+    <state x="581" y="190" width="1079" height="770" key="#Project_Structure/50.0.1870.1080@50.0.1870.1080" timestamp="1594543186482" />
     <state x="675" y="320" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1594510394281">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
@@ -625,13 +562,13 @@
     </state>
     <state x="2426" y="169" key="#xdebugger.evaluate/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593556886204" />
     <state x="2426" y="169" key="#xdebugger.evaluate/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1591370276483" />
-    <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2" timestamp="1594542915110">
+    <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2" timestamp="1594543130706">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state x="2146" y="60" key="CommitChangelistDialog2/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593558571602" />
     <state x="408" y="66" width="925" height="984" key="CommitChangelistDialog2/1680.0.1920.1080/0.27.1680.1023@0.27.1680.1023" timestamp="1591826370733" />
     <state x="2146" y="60" width="1034" height="984" key="CommitChangelistDialog2/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592226188839" />
-    <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2/50.0.1870.1080@50.0.1870.1080" timestamp="1594542915110" />
+    <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2/50.0.1870.1080@50.0.1870.1080" timestamp="1594543130706" />
     <state width="707" height="646" key="DebuggerActiveHint" timestamp="1593600033477">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
@@ -700,11 +637,11 @@
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
     <state x="2162" y="163" key="SettingsEditor/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593255864532" />
-    <state x="618" y="284" width="800" height="536" key="Vcs.Push.Dialog.v2" timestamp="1594542739220">
+    <state x="618" y="284" width="800" height="536" key="Vcs.Push.Dialog.v2" timestamp="1594543135879">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state x="2263" y="284" width="800" height="536" key="Vcs.Push.Dialog.v2/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592226185587" />
-    <state x="618" y="284" key="Vcs.Push.Dialog.v2/50.0.1870.1080@50.0.1870.1080" timestamp="1594542739220" />
+    <state x="618" y="284" key="Vcs.Push.Dialog.v2/50.0.1870.1080@50.0.1870.1080" timestamp="1594543135879" />
     <state x="673" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1594542960148">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
