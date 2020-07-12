@@ -11,8 +11,11 @@ import 'package:protobuf/protobuf.dart' as $pb;
 
 class SmartDevice extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('SmartDevice',
-      package: const $pb.PackageName('SmartConnection'))
-    ..aOS(1, 'name')
+      package: const $pb.PackageName('SmartConnection'),
+      createEmptyInstance: create)
+    ..aOS(1, 'uuid')
+    ..aOS(2, 'name')
+    ..aOS(3, 'deviceType', protoName: 'deviceType')
     ..hasRequiredFields = false;
 
   SmartDevice._() : super();
@@ -42,39 +45,72 @@ class SmartDevice extends $pb.GeneratedMessage {
   static $pb.PbList<SmartDevice> createRepeated() => $pb.PbList<SmartDevice>();
 
   @$core.pragma('dart2js:noInline')
-  static SmartDevice getDefault() => _defaultInstance ??= create()..freeze();
+  static SmartDevice getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<SmartDevice>(create);
   static SmartDevice _defaultInstance;
 
-  $core.String get name => $_getS(0, '');
+  @$pb.TagNumber(1)
+  $core.String get uuid => $_getSZ(0);
 
-  set name($core.String v) {
+  @$pb.TagNumber(1)
+  set uuid($core.String v) {
     $_setString(0, v);
   }
+  @$pb.TagNumber(1)
+  $core.bool hasUuid() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearUuid() => clearField(1);
 
-  $core.bool hasName() => $_has(0);
+  @$pb.TagNumber(2)
+  $core.String get name => $_getSZ(1);
 
-  void clearName() => clearField(1);
+  @$pb.TagNumber(2)
+  set name($core.String v) {
+    $_setString(1, v);
+  }
+  @$pb.TagNumber(2)
+  $core.bool hasName() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearName() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get deviceType => $_getSZ(2);
+
+  @$pb.TagNumber(3)
+  set deviceType($core.String v) {
+    $_setString(2, v);
+  }
+  @$pb.TagNumber(3)
+  $core.bool hasDeviceType() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearDeviceType() => clearField(3);
 }
 
 class SmartDeviceStatus extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo('SmartDeviceStatus',
-      package: const $pb.PackageName('SmartConnection'))
-    ..aOB(2, 'onOffState')
-    ..hasRequiredFields = false;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      'SmartDeviceStatus', package: const $pb.PackageName('SmartConnection'),
+      createEmptyInstance: create)
+    ..aOB(4, 'onOffState', protoName: 'onOffState')
+    ..hasRequiredFields = false
+  ;
 
   SmartDeviceStatus._() : super();
 
   factory SmartDeviceStatus() => create();
 
   factory SmartDeviceStatus.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
+      [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()
+        ..mergeFromBuffer(i, r);
 
   factory SmartDeviceStatus.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
+      [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()
+        ..mergeFromJson(i, r);
 
-  SmartDeviceStatus clone() => SmartDeviceStatus()..mergeFromMessage(this);
+  SmartDeviceStatus clone() =>
+      SmartDeviceStatus()
+        ..mergeFromMessage(this);
 
   SmartDeviceStatus copyWith(void Function(SmartDeviceStatus) updates) =>
       super.copyWith((message) => updates(message as SmartDeviceStatus));
@@ -90,40 +126,48 @@ class SmartDeviceStatus extends $pb.GeneratedMessage {
       $pb.PbList<SmartDeviceStatus>();
 
   @$core.pragma('dart2js:noInline')
-  static SmartDeviceStatus getDefault() =>
-      _defaultInstance ??= create()..freeze();
+  static SmartDeviceStatus getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<SmartDeviceStatus>(create);
   static SmartDeviceStatus _defaultInstance;
 
-  $core.bool get onOffState => $_get(0, false);
+  @$pb.TagNumber(4)
+  $core.bool get onOffState => $_getBF(0);
 
+  @$pb.TagNumber(4)
   set onOffState($core.bool v) {
     $_setBool(0, v);
   }
-
+  @$pb.TagNumber(4)
   $core.bool hasOnOffState() => $_has(0);
-
-  void clearOnOffState() => clearField(2);
+  @$pb.TagNumber(4)
+  void clearOnOffState() => clearField(4);
 }
 
 class CommendStatus extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo('CommendStatus',
-      package: const $pb.PackageName('SmartConnection'))
-    ..aOB(3, 'success')
-    ..hasRequiredFields = false;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      'CommendStatus', package: const $pb.PackageName('SmartConnection'),
+      createEmptyInstance: create)
+    ..aOB(5, 'success')
+    ..hasRequiredFields = false
+  ;
 
   CommendStatus._() : super();
 
   factory CommendStatus() => create();
 
   factory CommendStatus.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
+      [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()
+        ..mergeFromBuffer(i, r);
 
   factory CommendStatus.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
+      [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()
+        ..mergeFromJson(i, r);
 
-  CommendStatus clone() => CommendStatus()..mergeFromMessage(this);
+  CommendStatus clone() =>
+      CommendStatus()
+        ..mergeFromMessage(this);
 
   CommendStatus copyWith(void Function(CommendStatus) updates) =>
       super.copyWith((message) => updates(message as CommendStatus));
@@ -139,16 +183,101 @@ class CommendStatus extends $pb.GeneratedMessage {
       $pb.PbList<CommendStatus>();
 
   @$core.pragma('dart2js:noInline')
-  static CommendStatus getDefault() => _defaultInstance ??= create()..freeze();
+  static CommendStatus getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<CommendStatus>(create);
   static CommendStatus _defaultInstance;
 
-  $core.bool get success => $_get(0, false);
+  @$pb.TagNumber(5)
+  $core.bool get success => $_getBF(0);
 
+  @$pb.TagNumber(5)
   set success($core.bool v) {
     $_setBool(0, v);
   }
 
+  @$pb.TagNumber(5)
   $core.bool hasSuccess() => $_has(0);
 
-  void clearSuccess() => clearField(3);
+  @$pb.TagNumber(5)
+  void clearSuccess() => clearField(5);
 }
+
+class SmartDeviceUpdateDetails extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('SmartDeviceUpdateDetails',
+      package: const $pb.PackageName('SmartConnection'),
+      createEmptyInstance: create)
+    ..aOM<SmartDevice>(6, 'smartDevice', protoName: 'smartDevice',
+        subBuilder: SmartDevice.create)
+    ..aOS(7, 'newName', protoName: 'newName')
+    ..hasRequiredFields = false
+  ;
+
+  SmartDeviceUpdateDetails._() : super();
+
+  factory SmartDeviceUpdateDetails() => create();
+
+  factory SmartDeviceUpdateDetails.fromBuffer($core.List<$core.int> i,
+      [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()
+        ..mergeFromBuffer(i, r);
+
+  factory SmartDeviceUpdateDetails.fromJson($core.String i,
+      [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()
+        ..mergeFromJson(i, r);
+
+  SmartDeviceUpdateDetails clone() =>
+      SmartDeviceUpdateDetails()
+        ..mergeFromMessage(this);
+
+  SmartDeviceUpdateDetails copyWith(
+      void Function(SmartDeviceUpdateDetails) updates) =>
+      super.copyWith((message) => updates(message as SmartDeviceUpdateDetails));
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static SmartDeviceUpdateDetails create() => SmartDeviceUpdateDetails._();
+
+  SmartDeviceUpdateDetails createEmptyInstance() => create();
+
+  static $pb.PbList<SmartDeviceUpdateDetails> createRepeated() =>
+      $pb.PbList<SmartDeviceUpdateDetails>();
+
+  @$core.pragma('dart2js:noInline')
+  static SmartDeviceUpdateDetails getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<SmartDeviceUpdateDetails>(create);
+  static SmartDeviceUpdateDetails _defaultInstance;
+
+  @$pb.TagNumber(6)
+  SmartDevice get smartDevice => $_getN(0);
+
+  @$pb.TagNumber(6)
+  set smartDevice(SmartDevice v) {
+    setField(6, v);
+  }
+
+  @$pb.TagNumber(6)
+  $core.bool hasSmartDevice() => $_has(0);
+
+  @$pb.TagNumber(6)
+  void clearSmartDevice() => clearField(6);
+
+  @$pb.TagNumber(6)
+  SmartDevice ensureSmartDevice() => $_ensure(0);
+
+  @$pb.TagNumber(7)
+  $core.String get newName => $_getSZ(1);
+
+  @$pb.TagNumber(7)
+  set newName($core.String v) {
+    $_setString(1, v);
+  }
+
+  @$pb.TagNumber(7)
+  $core.bool hasNewName() => $_has(1);
+
+  @$pb.TagNumber(7)
+  void clearNewName() => clearField(7);
+}
+

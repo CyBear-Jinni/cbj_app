@@ -1,9 +1,8 @@
+import 'package:CybearJinni/features/shared_widgets/insert_details_of_new_device.dart';
 import 'package:CybearJinni/objects/enums.dart';
-import 'package:CybearJinni/objects/interface_darta//cloud_interface_data.dart';
-import 'package:CybearJinni/objects/smart_device/smart_device_objcet.dart';
+import 'package:CybearJinni/objects/smart_device/smart_device_object.dart';
+import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
-
-import 'light_page.dart';
 
 class AddNewDeviceWidgetPopup extends StatefulWidget {
   @override
@@ -13,59 +12,44 @@ class AddNewDeviceWidgetPopup extends StatefulWidget {
 }
 
 class _AddNewDeviceWidgetPopup extends State<AddNewDeviceWidgetPopup> {
-  static DeviceType _deviceType = DeviceType.Light;
-  static String _roomName;
-  static String _deviceName;
   static String _ip;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
+  static Future<String> getMyWifiIp() async {
+    return Connectivity().getWifiIP();
+  }
+
+//  await (Connectivity().getWifiName());wifi network
   Widget addNewDeviceWidget = ListBody(
     children: <Widget>[
-      Text('Device type'),
-      DropDownMenu(),
-      TextFormField(
-        autofocus: false,
-        validator: (String value) {
-          if (value.isEmpty) {
-            return 'Room name is required';
+      FutureBuilder<String>(
+        future: getMyWifiIp(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            return TextFormField(
+              autofocus: false,
+              initialValue: snapshot.data.substring(
+                  0, snapshot.data.length - 1),
+              onSaved: (String ip) => _ip = ip,
+              keyboardType: TextInputType.number,
+              validator: (String value) {
+                if (value.isEmpty) {
+                  return 'IP is required';
+                }
+                if (SmartDeviceObject.legitIp(value)) {
+                  return 'IP syntax is incorrect';
+                }
+                return null;
+              },
+              decoration: InputDecoration(
+                labelText: 'IP ',
+              ),
+            );
+          } else {
+            return CircularProgressIndicator();
           }
-          return null;
         },
-        onSaved: (roomName) => _roomName = roomName,
-        decoration: InputDecoration(
-          labelText: 'Room name:',
-        ),
-      ),
-      TextFormField(
-        autofocus: false,
-        onSaved: (deviceName) => _deviceName = deviceName,
-        validator: (String value) {
-          if (value.isEmpty) {
-            return 'Device name is required';
-          }
-          return null;
-        },
-        decoration: InputDecoration(
-          labelText: 'Device name:',
-        ),
-      ),
-      TextFormField(
-        autofocus: false,
-        onSaved: (String ip) => _ip = ip,
-        keyboardType: TextInputType.number,
-        validator: (String value) {
-          if (value.isEmpty) {
-            return 'IP is required';
-          }
-          if (SmartDeviceObject.legitIp(value)) {
-            return 'IP syntax is incorrect';
-          }
-          return null;
-        },
-        decoration: InputDecoration(
-          labelText: 'IP',
-        ),
       ),
     ],
   );
@@ -90,12 +74,13 @@ class _AddNewDeviceWidgetPopup extends State<AddNewDeviceWidgetPopup> {
             child: Text('Add'),
             onPressed: () {
               _formKey.currentState.save();
-              rooms[0].getLights()[0] =
-                  SmartDeviceObject(_deviceType, _deviceName, _ip, _roomName);
+//              rooms[0].getLights()[0] =
+//                  SmartDeviceObject(_deviceType, _deviceName, _ip, _roomName);
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (BuildContext context) => LightPage()),
+                    builder: (BuildContext context) =>
+                        InsertDetailsOfNewDevice(_ip)),
                 //            Navigator.of(context).pop();
               );
             },

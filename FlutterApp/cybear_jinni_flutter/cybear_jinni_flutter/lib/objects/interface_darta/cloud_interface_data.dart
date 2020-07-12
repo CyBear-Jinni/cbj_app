@@ -1,6 +1,6 @@
 import 'package:CybearJinni/objects/enums.dart';
 import 'package:CybearJinni/objects/smart_device/smart_blinds_object.dart';
-import 'package:CybearJinni/objects/smart_device/smart_device_objcet.dart';
+import 'package:CybearJinni/objects/smart_device/smart_device_object.dart';
 import 'package:CybearJinni/objects/smart_device/smart_room_object.dart';
 
 final List<SmartRoomObject> rooms = [room1, room2, room3, room4];
@@ -17,14 +17,14 @@ SmartRoomObject room5 = SmartRoomObject('Sami', room5DevicesList);
 //  Guy
 final List<SmartDeviceObject> room1DevicesList = [
   SmartDeviceObject(DeviceType.Light, 'Ceiling lamp', '10.0.0.23', 'Guy'),
-  SmartDeviceObject(DeviceType.Light, 'Bed', '10.0.0.24', 'Guy'),
+//  SmartDeviceObject(DeviceType.Light, 'Bed', '10.0.0.24', 'Guy'),
   SmartDeviceObject(DeviceType.Light, 'Desk', '10.0.0.50', 'Guy')
 ];
 
 //  Kitchen
 final List<SmartDeviceObject> room2DevicesList = [
-  SmartDeviceObject(DeviceType.Light, 'Main', '10.0.0.21', 'Kitchen'),
-  SmartDeviceObject(DeviceType.Light, 'Table', '10.0.0.22', 'Kitchen'),
+  SmartDeviceObject(DeviceType.Light, 'Main', '10.0.0.10', 'Kitchen'),
+  SmartDeviceObject(DeviceType.Light, 'Table', '10.0.0.10', 'Kitchen'),
   SmartDeviceObject(DeviceType.Light, 'Main', '10.0.0.51', 'Kitchen')
 ];
 
@@ -49,8 +49,8 @@ final List<SmartDeviceObject> room5DevicesList = [
   SmartDeviceObject(DeviceType.Light, 'Stairs', '10.0.0.16', 'Sami')
 ];
 
-//  Room BlindsonOffState
+//  Room BlindsOnOffState
 
 final List<SmartBlindsObject> room1blindsList = [
-  SmartBlindsObject(DeviceType.Blinds, 'South blinds', '10.0.0.24'),
+  SmartBlindsObject(DeviceType.Blinds, 'SouthBlinds', '10.0.0.24'),
 ];
