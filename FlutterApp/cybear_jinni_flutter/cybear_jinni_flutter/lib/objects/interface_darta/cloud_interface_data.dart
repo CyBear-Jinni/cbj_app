@@ -9,8 +9,8 @@ SmartRoomObject room1 =
     SmartRoomObject("Guy", room1DevicesList, blindsInTheRoom: room1blindsList);
 SmartRoomObject room2 = SmartRoomObject('Kitchen', room2DevicesList);
 SmartRoomObject room3 = SmartRoomObject('Outside North', room3DevicesList);
-SmartRoomObject room4 = SmartRoomObject('Bar', room4DevicesList);
-SmartRoomObject room5 = SmartRoomObject('Sami', room5DevicesList);
+SmartRoomObject room4 = SmartRoomObject('Outside South', room4DevicesList);
+//SmartRoomObject room5 = SmartRoomObject('Bar', room5DevicesList);
 
 //  Room lights
 
@@ -35,19 +35,19 @@ final List<SmartDeviceObject> room3DevicesList = [
 //  SmartDeviceObject(DeviceType.Light, 'Main', '10.0.0.14', 'Outside North')
 ];
 
-//  Bar
+//  Sami
 final List<SmartDeviceObject> room4DevicesList = [
-  SmartDeviceObject(DeviceType.Light, 'Main', '10.0.0.15', 'Bar'),
-  SmartDeviceObject(DeviceType.Light, 'Bed', '10.0.0.15', 'Bar'),
-  SmartDeviceObject(DeviceType.Light, 'stairs', '10.0.0.19', 'Bar')
+  SmartDeviceObject(DeviceType.Light, 'Gate', '10.0.0.31', 'Outside South'),
 ];
 
-//  Sami
-final List<SmartDeviceObject> room5DevicesList = [
-  SmartDeviceObject(DeviceType.Light, 'Main', '10.0.0.11', 'Sami'),
-  SmartDeviceObject(DeviceType.Light, 'Bed', '10.0.0.12', 'Sami'),
-  SmartDeviceObject(DeviceType.Light, 'Stairs', '10.0.0.16', 'Sami')
-];
+
+////  Bar
+//final List<SmartDeviceObject> room5DevicesList = [
+//  SmartDeviceObject(DeviceType.Light, 'Main', '10.0.0.15', 'Bar'),
+//  SmartDeviceObject(DeviceType.Light, 'Bed', '10.0.0.15', 'Bar'),
+//  SmartDeviceObject(DeviceType.Light, 'stairs', '10.0.0.19', 'Bar')
+//];
+
 
 //  Room BlindsOnOffState
 
