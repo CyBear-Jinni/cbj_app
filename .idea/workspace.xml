@@ -4,13 +4,10 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96c5fe8c-119f-4135-b3fa-611215ac658f" name="Default Changelist" comment="">
+    <list default="true" id="96c5fe8c-119f-4135-b3fa-611215ac658f" name="Default Changelist" comment="Removed some of the Firebase info">
+      <change afterPath="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/android/app/google-services.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assistant/Assistant/lib/features/assistant/fail_attempts/googleApi.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/Assistant/lib/features/assistant/fail_attempts/googleApi.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assistant/Assistant/lib/features/assistant/fail_attempts/my_assistant.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assistant/Assistant/lib/features/assistant/fail_attempts/recognize_response_expend.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assistant/Assistant/lib/features/assistant/speechToText.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/Assistant/lib/features/assistant/speechToText.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/android/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/android/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +50,7 @@
     <property name="add_unversioned_files" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/android/app" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -62,19 +59,19 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/android/app" />
+      <recent name="$PROJECT_DIR$/NetworkManager/scripts/bashScripts" />
+      <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/models" />
+      <recent name="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib" />
+      <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/core/fire_store" />
       <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/core" />
       <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/cloud_value_change" />
       <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/repositories/cloud_value_change" />
       <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/cloud_on_value_change" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/NetworkManager/scripts/bashScripts" />
-      <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/data/models" />
-      <recent name="$PROJECT_DIR$/FlutterApp/smart_home_flutter/lib" />
-      <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core" />
-      <recent name="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -124,13 +121,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1568838815383</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Reformat code, Rearrange code, Optimize imports, Preform code analysis, Check TODO, Cleanup, Update copyright.">
-      <created>1569265324021</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1569265324021</updated>
     </task>
     <task id="LOCAL-00010" summary="More reformat code, Rearrange code, Optimize imports, Preform code analysis, Check TODO, Cleanup, Update copyright.">
       <created>1569266496467</created>
@@ -468,7 +458,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597088289577</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Removed some of the Firebase info">
+      <created>1597094305202</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1597094305202</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
@@ -518,7 +515,6 @@
       <path value="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy" />
       <path value="$PROJECT_DIR$/SmartDevice/scripts/cScripts2/snowboy" />
     </ignored-roots>
-    <MESSAGE value="Made the microhpone command support the injection" />
     <MESSAGE value="Remove flutter only library from SmartDeviceDart whitch is pure dart project" />
     <MESSAGE value="Updated dependencies versions" />
     <MESSAGE value="Continu changing the app to the new architecture" />
@@ -543,7 +539,8 @@
     <MESSAGE value="Fix saving blind object after restert and support controlling from the cloud, can now change name of blinds from the app and control the cloud when not connected to wifi" />
     <MESSAGE value="Orgenazing a little bit the Assistent project" />
     <MESSAGE value="Updating packages and start removing passwords from the project" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updating packages and start removing passwords from the project" />
+    <MESSAGE value="Removed some of the Firebase info" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed some of the Firebase info" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -567,13 +564,13 @@
     </state>
     <state x="2426" y="169" key="#xdebugger.evaluate/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593556886204" />
     <state x="2426" y="169" key="#xdebugger.evaluate/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1591370276483" />
-    <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2" timestamp="1597088289422">
+    <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2" timestamp="1597094333142">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state x="2146" y="60" key="CommitChangelistDialog2/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593558571602" />
     <state x="408" y="66" width="925" height="984" key="CommitChangelistDialog2/1680.0.1920.1080/0.27.1680.1023@0.27.1680.1023" timestamp="1591826370733" />
     <state x="2146" y="60" width="1034" height="984" key="CommitChangelistDialog2/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592226188839" />
-    <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2/50.0.1870.1080@50.0.1870.1080" timestamp="1597088289422" />
+    <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2/50.0.1870.1080@50.0.1870.1080" timestamp="1597094333142" />
     <state width="707" height="646" key="DebuggerActiveHint" timestamp="1593600033477">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
