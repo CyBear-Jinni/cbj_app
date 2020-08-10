@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96c5fe8c-119f-4135-b3fa-611215ac658f" name="Default Changelist" comment="Removed some of the Firebase info">
-      <change afterPath="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/android/app/google-services.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/android/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/android/.gitignore" afterDir="false" />
     </list>
@@ -121,13 +120,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1568838815383</updated>
-    </task>
-    <task id="LOCAL-00010" summary="More reformat code, Rearrange code, Optimize imports, Preform code analysis, Check TODO, Cleanup, Update copyright.">
-      <created>1569266496467</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1569266496467</updated>
     </task>
     <task id="LOCAL-00011" summary="Moved all files and folder to lib except main">
       <created>1569343906102</created>
@@ -465,7 +457,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597094305202</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="Removed some of the Firebase info">
+      <created>1597094449060</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1597094449060</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
@@ -559,18 +558,22 @@
     </state>
     <state x="2351" y="279" width="624" height="547" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1591445422000" />
     <state x="704" y="279" width="632" height="561" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/50.0.1870.1080@50.0.1870.1080" timestamp="1594424599795" />
+    <state x="719" y="277" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597095037164">
+      <screen x="50" y="0" width="1870" height="1080" />
+    </state>
+    <state x="719" y="277" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/50.0.1870.1080@50.0.1870.1080" timestamp="1597095037164" />
     <state x="2426" y="169" key="#xdebugger.evaluate" timestamp="1593556886204">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
     <state x="2426" y="169" key="#xdebugger.evaluate/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593556886204" />
     <state x="2426" y="169" key="#xdebugger.evaluate/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1591370276483" />
-    <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2" timestamp="1597094333142">
+    <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2" timestamp="1597094485719">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state x="2146" y="60" key="CommitChangelistDialog2/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593558571602" />
     <state x="408" y="66" width="925" height="984" key="CommitChangelistDialog2/1680.0.1920.1080/0.27.1680.1023@0.27.1680.1023" timestamp="1591826370733" />
     <state x="2146" y="60" width="1034" height="984" key="CommitChangelistDialog2/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592226188839" />
-    <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2/50.0.1870.1080@50.0.1870.1080" timestamp="1597094333142" />
+    <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2/50.0.1870.1080@50.0.1870.1080" timestamp="1597094485719" />
     <state width="707" height="646" key="DebuggerActiveHint" timestamp="1593600033477">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
@@ -644,11 +647,11 @@
     </state>
     <state x="2162" y="163" key="SettingsEditor/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593255864532" />
     <state x="519" y="163" key="SettingsEditor/50.0.1870.1080@50.0.1870.1080" timestamp="1595545967830" />
-    <state x="618" y="284" width="800" height="536" key="Vcs.Push.Dialog.v2" timestamp="1597094267228">
+    <state x="618" y="284" width="800" height="536" key="Vcs.Push.Dialog.v2" timestamp="1597094489951">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state x="2263" y="284" width="800" height="536" key="Vcs.Push.Dialog.v2/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592226185587" />
-    <state x="618" y="284" key="Vcs.Push.Dialog.v2/50.0.1870.1080@50.0.1870.1080" timestamp="1597094267228" />
+    <state x="618" y="284" key="Vcs.Push.Dialog.v2/50.0.1870.1080@50.0.1870.1080" timestamp="1597094489951" />
     <state x="146" y="90" width="1678" height="894" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1595682412306">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
@@ -672,13 +675,13 @@
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
     <state x="2196" y="185" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593593160791" />
-    <state x="572" y="219" width="1127" height="613" key="find.popup" timestamp="1597092141567">
+    <state x="572" y="219" width="1127" height="613" key="find.popup" timestamp="1597094943633">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state x="2216" y="219" width="1157" height="613" key="find.popup/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593614645076" />
     <state x="468" y="234" width="1122" height="580" key="find.popup/1680.0.1920.1080/0.27.1680.1023@0.27.1680.1023" timestamp="1591205677690" />
     <state x="2216" y="219" width="1157" height="613" key="find.popup/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592350706595" />
-    <state x="572" y="219" width="1127" height="613" key="find.popup/50.0.1870.1080@50.0.1870.1080" timestamp="1597092141567" />
+    <state x="572" y="219" width="1127" height="613" key="find.popup/50.0.1870.1080@50.0.1870.1080" timestamp="1597094943633" />
     <state x="738" y="160" key="git4idea.branch.GitSmartOperationDialog" timestamp="1594424609878">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
@@ -688,12 +691,12 @@
     </state>
     <state x="504" y="239" key="run.anything.popup/1680.0.1920.1080/0.27.1680.1023@0.27.1680.1023" timestamp="1591205603379" />
     <state x="2256" y="224" width="672" height="677" key="run.anything.popup/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1591370307091" />
-    <state x="684" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1597091893345">
+    <state x="684" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1597094575441">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state x="2331" y="257" width="672" height="678" key="search.everywhere.popup/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593599349634" />
     <state x="2331" y="257" width="672" height="678" key="search.everywhere.popup/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592350705595" />
-    <state x="684" y="257" width="672" height="678" key="search.everywhere.popup/50.0.1870.1080@50.0.1870.1080" timestamp="1597091893345" />
+    <state x="684" y="257" width="672" height="678" key="search.everywhere.popup/50.0.1870.1080@50.0.1870.1080" timestamp="1597094575441" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
