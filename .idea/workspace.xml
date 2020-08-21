@@ -7,7 +7,7 @@
     <list default="true" id="96c5fe8c-119f-4135-b3fa-611215ac658f" name="Default Changelist" comment="Add constant_credentials.dart to .gitignore">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/constant_credentials.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/constant_credentials.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,13 +121,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1568838815383</updated>
-    </task>
-    <task id="LOCAL-00026" summary="Committing (more) snowboy">
-      <created>1580326467508</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1580326467508</updated>
     </task>
     <task id="LOCAL-00027" summary="Fix network manager not reconnecting with wifiPassword, add read and write permissions to the dart-sdk folder for the new snap (install) version">
       <created>1581011367060</created>
@@ -465,7 +458,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598052515018</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="Add constant_credentials.dart to .gitignore">
+      <created>1598052701972</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1598052701972</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
@@ -568,13 +568,13 @@
     </state>
     <state x="2426" y="169" key="#xdebugger.evaluate/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593556886204" />
     <state x="2426" y="169" key="#xdebugger.evaluate/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1591370276483" />
-    <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2" timestamp="1598052576200">
+    <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2" timestamp="1598052752083">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state x="2146" y="60" key="CommitChangelistDialog2/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593558571602" />
     <state x="408" y="66" width="925" height="984" key="CommitChangelistDialog2/1680.0.1920.1080/0.27.1680.1023@0.27.1680.1023" timestamp="1591826370733" />
     <state x="2146" y="60" width="1034" height="984" key="CommitChangelistDialog2/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592226188839" />
-    <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2/50.0.1870.1080@50.0.1870.1080" timestamp="1598052576200" />
+    <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2/50.0.1870.1080@50.0.1870.1080" timestamp="1598052752083" />
     <state width="707" height="646" key="DebuggerActiveHint" timestamp="1593600033477">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
@@ -648,22 +648,22 @@
     </state>
     <state x="2162" y="163" key="SettingsEditor/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593255864532" />
     <state x="519" y="163" key="SettingsEditor/50.0.1870.1080@50.0.1870.1080" timestamp="1595545967830" />
-    <state x="618" y="284" width="800" height="536" key="Vcs.Push.Dialog.v2" timestamp="1598051657160">
+    <state x="618" y="284" width="800" height="536" key="Vcs.Push.Dialog.v2" timestamp="1598052714184">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state x="2263" y="284" width="800" height="536" key="Vcs.Push.Dialog.v2/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592226185587" />
-    <state x="618" y="284" key="Vcs.Push.Dialog.v2/50.0.1870.1080@50.0.1870.1080" timestamp="1598051657160" />
+    <state x="618" y="284" key="Vcs.Push.Dialog.v2/50.0.1870.1080@50.0.1870.1080" timestamp="1598052714184" />
     <state x="146" y="90" width="1678" height="894" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1595682412306">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state x="146" y="90" width="1678" height="894" key="com.intellij.history.integration.ui.views.FileHistoryDialog/50.0.1870.1080@50.0.1870.1080" timestamp="1595682412306" />
-    <state x="673" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1598052561136">
+    <state x="673" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1598052744684">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state x="2320" y="380" key="com.intellij.ide.util.TipDialog/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593598513221" />
     <state x="560" y="387" key="com.intellij.ide.util.TipDialog/1680.0.1920.1080/0.27.1680.1023@0.27.1680.1023" timestamp="1591825676699" />
     <state x="2320" y="380" key="com.intellij.ide.util.TipDialog/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1591868808304" />
-    <state x="673" y="380" key="com.intellij.ide.util.TipDialog/50.0.1870.1080@50.0.1870.1080" timestamp="1598052561136" />
+    <state x="673" y="380" key="com.intellij.ide.util.TipDialog/50.0.1870.1080@50.0.1870.1080" timestamp="1598052744684" />
     <state x="639" y="146" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1594511076487">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
