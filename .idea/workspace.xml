@@ -121,13 +121,6 @@
       <option name="presentableId" value="Default" />
       <updated>1568838815383</updated>
     </task>
-    <task id="LOCAL-00019" summary="The program will show available wif-fi networks when the internet disconnects.">
-      <created>1574881622871</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1574881622871</updated>
-    </task>
     <task id="LOCAL-00020" summary="Fix connected network does not being updated after connecting to admin network">
       <created>1575038369948</created>
       <option name="number" value="00020" />
@@ -464,7 +457,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598051971888</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="Add constant_credentials.dart to .gitignore">
+      <created>1598052190458</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1598052190459</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
@@ -567,13 +567,13 @@
     </state>
     <state x="2426" y="169" key="#xdebugger.evaluate/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593556886204" />
     <state x="2426" y="169" key="#xdebugger.evaluate/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1591370276483" />
-    <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2" timestamp="1598052022043">
+    <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2" timestamp="1598052329422">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state x="2146" y="60" key="CommitChangelistDialog2/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593558571602" />
     <state x="408" y="66" width="925" height="984" key="CommitChangelistDialog2/1680.0.1920.1080/0.27.1680.1023@0.27.1680.1023" timestamp="1591826370733" />
     <state x="2146" y="60" width="1034" height="984" key="CommitChangelistDialog2/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592226188839" />
-    <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2/50.0.1870.1080@50.0.1870.1080" timestamp="1598052022043" />
+    <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2/50.0.1870.1080@50.0.1870.1080" timestamp="1598052329422" />
     <state width="707" height="646" key="DebuggerActiveHint" timestamp="1593600033477">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
