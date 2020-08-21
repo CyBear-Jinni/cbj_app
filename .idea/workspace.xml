@@ -122,13 +122,6 @@
       <option name="presentableId" value="Default" />
       <updated>1568838815383</updated>
     </task>
-    <task id="LOCAL-00022" summary="Adding change state of light by voice command 'jarvis'">
-      <created>1579473489337</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1579473489337</updated>
-    </task>
     <task id="LOCAL-00023" summary="Snapcraft demo.C file now get the location of the model from outside, add to the snap the dependencies for snowboy">
       <created>1579866677359</created>
       <option name="number" value="00023" />
@@ -465,7 +458,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598052384873</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="Add constant_credentials.dart to .gitignore">
+      <created>1598052426953</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1598052426953</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
@@ -568,13 +568,13 @@
     </state>
     <state x="2426" y="169" key="#xdebugger.evaluate/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593556886204" />
     <state x="2426" y="169" key="#xdebugger.evaluate/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1591370276483" />
-    <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2" timestamp="1598052421461">
+    <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2" timestamp="1598052437606">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state x="2146" y="60" key="CommitChangelistDialog2/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593558571602" />
     <state x="408" y="66" width="925" height="984" key="CommitChangelistDialog2/1680.0.1920.1080/0.27.1680.1023@0.27.1680.1023" timestamp="1591826370733" />
     <state x="2146" y="60" width="1034" height="984" key="CommitChangelistDialog2/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592226188839" />
-    <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2/50.0.1870.1080@50.0.1870.1080" timestamp="1598052421461" />
+    <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2/50.0.1870.1080@50.0.1870.1080" timestamp="1598052437606" />
     <state width="707" height="646" key="DebuggerActiveHint" timestamp="1593600033477">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
@@ -676,13 +676,13 @@
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
     <state x="2196" y="185" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593593160791" />
-    <state x="572" y="219" width="1127" height="613" key="find.popup" timestamp="1598049977459">
+    <state x="572" y="219" width="1127" height="613" key="find.popup" timestamp="1598052455378">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state x="2216" y="219" width="1157" height="613" key="find.popup/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593614645076" />
     <state x="468" y="234" width="1122" height="580" key="find.popup/1680.0.1920.1080/0.27.1680.1023@0.27.1680.1023" timestamp="1591205677690" />
     <state x="2216" y="219" width="1157" height="613" key="find.popup/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592350706595" />
-    <state x="572" y="219" width="1127" height="613" key="find.popup/50.0.1870.1080@50.0.1870.1080" timestamp="1598049977459" />
+    <state x="572" y="219" width="1127" height="613" key="find.popup/50.0.1870.1080@50.0.1870.1080" timestamp="1598052455378" />
     <state x="738" y="160" key="git4idea.branch.GitSmartOperationDialog" timestamp="1594424609878">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
