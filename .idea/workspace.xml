@@ -4,10 +4,10 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96c5fe8c-119f-4135-b3fa-611215ac658f" name="Default Changelist" comment="Removed some of the Firebase info">
+    <list default="true" id="96c5fe8c-119f-4135-b3fa-611215ac658f" name="Default Changelist" comment="Removed my wifi ssid and password from the project">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NetworkManager/NetworkManagerDart/lib/director.dart" beforeDir="false" afterPath="$PROJECT_DIR$/NetworkManager/NetworkManagerDart/lib/director.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/Scripts_for_new_device/setup_new_smart_device.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Scripts_for_new_device/setup_new_smart_device.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/snap/snapcraft.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/snap/snapcraft.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +50,7 @@
     <property name="add_unversioned_files" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/android" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -121,13 +121,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1568838815383</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Add class to save all information on pin, fix bug in button press">
-      <created>1569594402964</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1569594402964</updated>
     </task>
     <task id="LOCAL-00013" summary="Pins now controlled by pin number and not wPi number, fix button pin number is always 2">
       <created>1569699382332</created>
@@ -465,7 +458,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597095046780</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="Removed my wifi ssid and password from the project">
+      <created>1597096079212</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1597096079213</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
@@ -515,7 +515,6 @@
       <path value="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy" />
       <path value="$PROJECT_DIR$/SmartDevice/scripts/cScripts2/snowboy" />
     </ignored-roots>
-    <MESSAGE value="Remove flutter only library from SmartDeviceDart whitch is pure dart project" />
     <MESSAGE value="Updated dependencies versions" />
     <MESSAGE value="Continu changing the app to the new architecture" />
     <MESSAGE value="Continue changing the app to the new architecture" />
@@ -540,7 +539,8 @@
     <MESSAGE value="Orgenazing a little bit the Assistent project" />
     <MESSAGE value="Updating packages and start removing passwords from the project" />
     <MESSAGE value="Removed some of the Firebase info" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed some of the Firebase info" />
+    <MESSAGE value="Removed my wifi ssid and password from the project" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed my wifi ssid and password from the project" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -568,13 +568,13 @@
     </state>
     <state x="2426" y="169" key="#xdebugger.evaluate/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593556886204" />
     <state x="2426" y="169" key="#xdebugger.evaluate/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1591370276483" />
-    <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2" timestamp="1597095065638">
+    <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2" timestamp="1598048759586">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state x="2146" y="60" key="CommitChangelistDialog2/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593558571602" />
     <state x="408" y="66" width="925" height="984" key="CommitChangelistDialog2/1680.0.1920.1080/0.27.1680.1023@0.27.1680.1023" timestamp="1591826370733" />
     <state x="2146" y="60" width="1034" height="984" key="CommitChangelistDialog2/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592226188839" />
-    <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2/50.0.1870.1080@50.0.1870.1080" timestamp="1597095065638" />
+    <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2/50.0.1870.1080@50.0.1870.1080" timestamp="1598048759586" />
     <state width="707" height="646" key="DebuggerActiveHint" timestamp="1593600033477">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
@@ -586,39 +586,39 @@
     <state x="137" y="145" key="DiffContextDialog/1680.0.1920.1080/0.27.1680.1023@0.27.1680.1023" timestamp="1591826275426" />
     <state x="1837" y="125" width="1663" height="855" key="DiffContextDialog/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1591656144915" />
     <state x="68" y="125" key="DiffContextDialog/50.0.1870.1080@50.0.1870.1080" timestamp="1595682362451" />
-    <state x="801" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1597087904039">
+    <state x="801" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1597417339733">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state x="2451" y="310" width="424" height="484" key="FileChooserDialogImpl/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1591371183331" />
-    <state x="801" y="310" key="FileChooserDialogImpl/50.0.1870.1080@50.0.1870.1080" timestamp="1597087904039" />
-    <state width="1824" height="243" key="GridCell.Tab.0.bottom" timestamp="1597092155069">
+    <state x="801" y="310" key="FileChooserDialogImpl/50.0.1870.1080@50.0.1870.1080" timestamp="1597417339733" />
+    <state width="1824" height="243" key="GridCell.Tab.0.bottom" timestamp="1598048767942">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state width="1824" height="254" key="GridCell.Tab.0.bottom/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593601384363" />
     <state width="813" height="272" key="GridCell.Tab.0.bottom/1680.0.1920.1080/0.27.1680.1023@0.27.1680.1023" timestamp="1591826437970" />
     <state width="908" height="290" key="GridCell.Tab.0.bottom/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592233593683" />
-    <state width="1824" height="243" key="GridCell.Tab.0.bottom/50.0.1870.1080@50.0.1870.1080" timestamp="1597092155069" />
-    <state width="1824" height="243" key="GridCell.Tab.0.center" timestamp="1597092155069">
+    <state width="1824" height="243" key="GridCell.Tab.0.bottom/50.0.1870.1080@50.0.1870.1080" timestamp="1598048767942" />
+    <state width="1824" height="243" key="GridCell.Tab.0.center" timestamp="1598048767942">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state width="1824" height="254" key="GridCell.Tab.0.center/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593601384363" />
     <state width="813" height="272" key="GridCell.Tab.0.center/1680.0.1920.1080/0.27.1680.1023@0.27.1680.1023" timestamp="1591826437970" />
     <state width="908" height="290" key="GridCell.Tab.0.center/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592233593682" />
-    <state width="1824" height="243" key="GridCell.Tab.0.center/50.0.1870.1080@50.0.1870.1080" timestamp="1597092155069" />
-    <state width="1824" height="243" key="GridCell.Tab.0.left" timestamp="1597092155069">
+    <state width="1824" height="243" key="GridCell.Tab.0.center/50.0.1870.1080@50.0.1870.1080" timestamp="1598048767942" />
+    <state width="1824" height="243" key="GridCell.Tab.0.left" timestamp="1598048767942">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state width="1824" height="254" key="GridCell.Tab.0.left/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593601384363" />
     <state width="813" height="272" key="GridCell.Tab.0.left/1680.0.1920.1080/0.27.1680.1023@0.27.1680.1023" timestamp="1591826437970" />
     <state width="908" height="290" key="GridCell.Tab.0.left/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592233593682" />
-    <state width="1824" height="243" key="GridCell.Tab.0.left/50.0.1870.1080@50.0.1870.1080" timestamp="1597092155069" />
-    <state width="1824" height="243" key="GridCell.Tab.0.right" timestamp="1597092155069">
+    <state width="1824" height="243" key="GridCell.Tab.0.left/50.0.1870.1080@50.0.1870.1080" timestamp="1598048767942" />
+    <state width="1824" height="243" key="GridCell.Tab.0.right" timestamp="1598048767942">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state width="1824" height="254" key="GridCell.Tab.0.right/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593601384363" />
     <state width="813" height="272" key="GridCell.Tab.0.right/1680.0.1920.1080/0.27.1680.1023@0.27.1680.1023" timestamp="1591826437970" />
     <state width="908" height="290" key="GridCell.Tab.0.right/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592233593683" />
-    <state width="1824" height="243" key="GridCell.Tab.0.right/50.0.1870.1080@50.0.1870.1080" timestamp="1597092155069" />
+    <state width="1824" height="243" key="GridCell.Tab.0.right/50.0.1870.1080@50.0.1870.1080" timestamp="1598048767942" />
     <state width="1824" height="254" key="GridCell.Tab.1.bottom" timestamp="1593790387663">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
@@ -639,31 +639,31 @@
     </state>
     <state width="1824" height="254" key="GridCell.Tab.1.right/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593601384363" />
     <state width="1824" height="254" key="GridCell.Tab.1.right/50.0.1870.1080@50.0.1870.1080" timestamp="1593790387663" />
-    <state x="623" y="148" width="727" height="778" key="NewModule_or_Project.wizard" timestamp="1597087971838">
+    <state x="623" y="148" width="727" height="778" key="NewModule_or_Project.wizard" timestamp="1597417364699">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
-    <state x="623" y="148" width="727" height="778" key="NewModule_or_Project.wizard/50.0.1870.1080@50.0.1870.1080" timestamp="1597087971838" />
+    <state x="623" y="148" width="727" height="778" key="NewModule_or_Project.wizard/50.0.1870.1080@50.0.1870.1080" timestamp="1597417364699" />
     <state x="519" y="163" key="SettingsEditor" timestamp="1595545967830">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state x="2162" y="163" key="SettingsEditor/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593255864532" />
     <state x="519" y="163" key="SettingsEditor/50.0.1870.1080@50.0.1870.1080" timestamp="1595545967830" />
-    <state x="618" y="284" width="800" height="536" key="Vcs.Push.Dialog.v2" timestamp="1597094489951">
+    <state x="618" y="284" width="800" height="536" key="Vcs.Push.Dialog.v2" timestamp="1597096082738">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state x="2263" y="284" width="800" height="536" key="Vcs.Push.Dialog.v2/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592226185587" />
-    <state x="618" y="284" key="Vcs.Push.Dialog.v2/50.0.1870.1080@50.0.1870.1080" timestamp="1597094489951" />
+    <state x="618" y="284" key="Vcs.Push.Dialog.v2/50.0.1870.1080@50.0.1870.1080" timestamp="1597096082738" />
     <state x="146" y="90" width="1678" height="894" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1595682412306">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state x="146" y="90" width="1678" height="894" key="com.intellij.history.integration.ui.views.FileHistoryDialog/50.0.1870.1080@50.0.1870.1080" timestamp="1595682412306" />
-    <state x="673" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1597094216269">
+    <state x="673" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1597417196773">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state x="2320" y="380" key="com.intellij.ide.util.TipDialog/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593598513221" />
     <state x="560" y="387" key="com.intellij.ide.util.TipDialog/1680.0.1920.1080/0.27.1680.1023@0.27.1680.1023" timestamp="1591825676699" />
     <state x="2320" y="380" key="com.intellij.ide.util.TipDialog/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1591868808304" />
-    <state x="673" y="380" key="com.intellij.ide.util.TipDialog/50.0.1870.1080@50.0.1870.1080" timestamp="1597094216269" />
+    <state x="673" y="380" key="com.intellij.ide.util.TipDialog/50.0.1870.1080@50.0.1870.1080" timestamp="1597417196773" />
     <state x="639" y="146" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1594511076487">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
@@ -676,17 +676,21 @@
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
     <state x="2196" y="185" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593593160791" />
-    <state x="572" y="219" width="1127" height="613" key="find.popup" timestamp="1597095905166">
+    <state x="572" y="219" width="1127" height="613" key="find.popup" timestamp="1597134958437">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state x="2216" y="219" width="1157" height="613" key="find.popup/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593614645076" />
     <state x="468" y="234" width="1122" height="580" key="find.popup/1680.0.1920.1080/0.27.1680.1023@0.27.1680.1023" timestamp="1591205677690" />
     <state x="2216" y="219" width="1157" height="613" key="find.popup/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592350706595" />
-    <state x="572" y="219" width="1127" height="613" key="find.popup/50.0.1870.1080@50.0.1870.1080" timestamp="1597095905166" />
+    <state x="572" y="219" width="1127" height="613" key="find.popup/50.0.1870.1080@50.0.1870.1080" timestamp="1597134958437" />
     <state x="738" y="160" key="git4idea.branch.GitSmartOperationDialog" timestamp="1594424609878">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state x="738" y="160" key="git4idea.branch.GitSmartOperationDialog/50.0.1870.1080@50.0.1870.1080" timestamp="1594424609878" />
+    <state x="692" y="304" key="git4idea.merge.GitPullDialog" timestamp="1597417292591">
+      <screen x="50" y="0" width="1870" height="1080" />
+    </state>
+    <state x="692" y="304" key="git4idea.merge.GitPullDialog/50.0.1870.1080@50.0.1870.1080" timestamp="1597417292591" />
     <state x="2256" y="224" width="672" height="677" key="run.anything.popup" timestamp="1591370307091">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
