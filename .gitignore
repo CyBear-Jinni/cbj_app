@@ -17,6 +17,6 @@ smart_home_flutter/gen/
 /SmartDevice/stage/
 /SmartDevice/*.snap
 # contains privet information
-/SmartDevice/SmartDeviceDart/lib/core/constant_credentials.dart
+/SmartDevice/SmartDeviceDart/lib/core/constant*
 /FlutterApp/smart_home_flutter/ios/Flutter/flutter_export_environment.sh
 /FlutterApp/smart_home_flutter/.flutter-plugins-dependencies
