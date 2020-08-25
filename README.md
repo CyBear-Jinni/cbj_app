@@ -29,5 +29,7 @@ into the values of the variables fireBaseProjectId and fireBaseWebApiKey respect
 
 
 The code is based on DDD (Domain-Driven Design) principles, you can learn it from [here](https://www.youtube.com/watch?v=RMiN59x3uH0&list=PLB6lc7nQ1n4iS5p-IezFFgqP6YvAJy84U).
+
 This is a diagram of the architecture
+
 <img src="https://resocoder.com/wp-content/uploads/2020/03/DDD-Flutter-Diagram-v3.svg" height="450">
