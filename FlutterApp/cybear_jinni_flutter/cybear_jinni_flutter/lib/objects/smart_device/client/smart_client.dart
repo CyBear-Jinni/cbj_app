@@ -27,6 +27,36 @@ class SmartClient {
     return null;
   }
 
+  static Future<String> setFirebaseAccountInformationFlutter(
+      SmartDeviceObject smartDeviceObject) async {
+    final ClientChannel channel = createSmartServerClient(smartDeviceObject.ip);
+    final SmartServerClient stub = SmartServerClient(channel);
+
+    String fireBaseProjectId =
+        '***REMOVED***'; // TODO: insert that from the firebase json and from the user credentials
+    String fireBaseApiKey = '***REMOVED***';
+    String userEmail = '***REMOVED***';
+    String userPassword = '***REMOVED***';
+
+    CommendStatus response;
+    try {
+      response =
+          await stub.setFirebaseAccountInformation(FirebaseAccountInformation()
+            ..fireBaseProjectId = fireBaseProjectId
+            ..fireBaseApiKey = fireBaseApiKey
+            ..userEmail = userEmail
+            ..userPassword = userPassword);
+      print(
+          'Firebase account information client received: ${response.success}');
+      await channel.shutdown();
+      return response.success.toString();
+    } catch (e) {
+      print('Caught error: $e');
+    }
+    await channel.shutdown();
+    return 'error';
+  }
+
   //  Get the status of smart device
   static Future<String> getSmartDeviceStatus(
       SmartDeviceObject smartDeviceObject) async {
@@ -48,12 +78,14 @@ class SmartClient {
 
   static Future<String> updateDeviceName(
       SmartDeviceObject smartDeviceObject, String newName) async {
+    setFirebaseAccountInformationFlutter(smartDeviceObject);
+
     final ClientChannel channel = createSmartServerClient(smartDeviceObject.ip);
     final SmartServerClient stub = SmartServerClient(channel);
     CommendStatus response;
     try {
       SmartDeviceUpdateDetails smartDeviceUpdateDetails =
-          SmartDeviceUpdateDetails();
+      SmartDeviceUpdateDetails();
       smartDeviceUpdateDetails.smartDevice = SmartDevice()
         ..name = smartDeviceObject.name;
       smartDeviceUpdateDetails.newName = newName;

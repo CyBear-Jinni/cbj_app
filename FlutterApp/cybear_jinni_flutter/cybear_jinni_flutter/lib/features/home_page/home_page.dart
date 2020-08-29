@@ -1,6 +1,6 @@
 import 'package:CybearJinni/features/home_page/tabs/history_tab/history_tab.dart';
 import 'package:CybearJinni/features/home_page/tabs/lamps_tab/lamps_widgets.dart';
-import 'package:CybearJinni/features/home_page/tabs/presets_tab/presets_widgets.dart';
+import 'package:CybearJinni/features/home_page/tabs/scene_tab/scenes_widgets.dart';
 import 'package:CybearJinni/features/home_page/tabs/smart_devices_tab/smart_devices_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -33,7 +33,7 @@ class HomePage extends StatelessWidget {
           backgroundColor: Colors.transparent,
           body: TabBarView(children: [
             HistoryTab(),
-            PresetsWidgets(),
+            ScenesWidgets(),
             LampsWidgets(),
             SmartDevicesWidgets(),
           ]),
@@ -51,7 +51,7 @@ class HomePage extends StatelessWidget {
               Tab(
                 icon: Icon(FontAwesomeIcons.cube),
                 child: Text(
-                  'Presets',
+                  'Scene',
                 ),
               ),
               Tab(
