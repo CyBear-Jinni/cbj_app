@@ -33,9 +33,10 @@ class SmartClient {
     final SmartServerClient stub = SmartServerClient(channel);
 
     String fireBaseProjectId =
-        '***REMOVED***'; // TODO: insert that from the firebase json and from the user credentials
+        '***REMOVED***'; // TODO: insert it from the firebase json
     String fireBaseApiKey = '***REMOVED***';
-    String userEmail = '***REMOVED***';
+    String userEmail =
+        '***REMOVED***'; // TODO: insert that from the user credentials
     String userPassword = '***REMOVED***';
 
     CommendStatus response;
