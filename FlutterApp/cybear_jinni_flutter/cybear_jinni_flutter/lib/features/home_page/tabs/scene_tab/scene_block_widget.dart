@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class PresetBlockWidget extends StatelessWidget {
+class SceneBlockWidget extends StatelessWidget {
   static final List<MaterialColor> colorList = Colors.primaries;
 
   String _element;
   int _elementIndex;
 
-  PresetBlockWidget(this._element, this._elementIndex);
+  SceneBlockWidget(this._element, this._elementIndex);
 
   @override
   Widget build(BuildContext context) {

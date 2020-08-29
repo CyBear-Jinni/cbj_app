@@ -20,6 +20,11 @@ class SmartServerClient extends $grpc.Client {
           '/SmartConnection.SmartServer/GetAllDevices',
           ($0.SmartDeviceStatus value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.SmartDevice.fromBuffer(value));
+  static final _$setFirebaseAccountInformation =
+      $grpc.ClientMethod<$0.FirebaseAccountInformation, $0.CommendStatus>(
+          '/SmartConnection.SmartServer/SetFirebaseAccountInformation',
+          ($0.FirebaseAccountInformation value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) => $0.CommendStatus.fromBuffer(value));
   static final _$getStatus =
       $grpc.ClientMethod<$0.SmartDevice, $0.SmartDeviceStatus>(
           '/SmartConnection.SmartServer/GetStatus',
@@ -67,6 +72,15 @@ class SmartServerClient extends $grpc.Client {
         _$getAllDevices, $async.Stream.fromIterable([request]),
         options: options);
     return $grpc.ResponseStream(call);
+  }
+
+  $grpc.ResponseFuture<$0.CommendStatus> setFirebaseAccountInformation(
+      $0.FirebaseAccountInformation request,
+      {$grpc.CallOptions options}) {
+    final call = $createCall(
+        _$setFirebaseAccountInformation, $async.Stream.fromIterable([request]),
+        options: options);
+    return $grpc.ResponseFuture(call);
   }
 
   $grpc.ResponseFuture<$0.SmartDeviceStatus> getStatus($0.SmartDevice request,
@@ -138,6 +152,15 @@ abstract class SmartServerServiceBase extends $grpc.Service {
             ($core.List<$core.int> value) =>
             $0.SmartDeviceStatus.fromBuffer(value),
             ($0.SmartDevice value) => value.writeToBuffer()));
+    $addMethod(
+        $grpc.ServiceMethod<$0.FirebaseAccountInformation, $0.CommendStatus>(
+            'SetFirebaseAccountInformation',
+            setFirebaseAccountInformation_Pre,
+            false,
+            false,
+                ($core.List<$core.int> value) =>
+                $0.FirebaseAccountInformation.fromBuffer(value),
+                ($0.CommendStatus value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.SmartDevice, $0.SmartDeviceStatus>(
         'GetStatus',
         getStatus_Pre,
@@ -196,6 +219,12 @@ abstract class SmartServerServiceBase extends $grpc.Service {
     yield* getAllDevices(call, await request);
   }
 
+  $async.Future<$0.CommendStatus> setFirebaseAccountInformation_Pre(
+      $grpc.ServiceCall call,
+      $async.Future<$0.FirebaseAccountInformation> request) async {
+    return setFirebaseAccountInformation(call, await request);
+  }
+
   $async.Future<$0.SmartDeviceStatus> getStatus_Pre($grpc.ServiceCall call,
       $async.Future<$0.SmartDevice> request) async {
     return getStatus(call, await request);
@@ -233,6 +262,9 @@ abstract class SmartServerServiceBase extends $grpc.Service {
 
   $async.Stream<$0.SmartDevice> getAllDevices($grpc.ServiceCall call,
       $0.SmartDeviceStatus request);
+
+  $async.Future<$0.CommendStatus> setFirebaseAccountInformation(
+      $grpc.ServiceCall call, $0.FirebaseAccountInformation request);
 
   $async.Future<$0.SmartDeviceStatus> getStatus($grpc.ServiceCall call,
       $0.SmartDevice request);

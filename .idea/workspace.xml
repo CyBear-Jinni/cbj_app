@@ -4,35 +4,27 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96c5fe8c-119f-4135-b3fa-611215ac658f" name="Default Changelist" comment="Updated project does not need Web Api Key, only regular Api Key">
-      <change afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/accounts_information_d/accounts_information_d.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+    <list default="true" id="96c5fe8c-119f-4135-b3fa-611215ac658f" name="Default Changelist" comment="First commit of inserting firebase information from the flutter app">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/objects/smart_device/send_to_smart_device.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/objects/smart_device/send_to_smart_device.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/database/firebase/cloud_firestore/firestore_class.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/database/firebase/cloud_firestore/firestore_class.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/features/home_page/home_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/features/home_page/home_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/features/home_page/tabs/presets_tab/preset_block_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/features/home_page/tabs/scene_tab/scene_block_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/features/home_page/tabs/presets_tab/presets_widgets.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/features/home_page/tabs/scene_tab/scenes_widgets.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/features/home_page/tabs/presets_tab/settings_page_of_presets.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/features/home_page/tabs/scene_tab/settings_page_of_scenes.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/objects/smart_device/client/protoc_as_dart/smart_connection.pb.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/objects/smart_device/client/protoc_as_dart/smart_connection.pb.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/objects/smart_device/client/protoc_as_dart/smart_connection.pbgrpc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/objects/smart_device/client/protoc_as_dart/smart_connection.pbgrpc.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/objects/smart_device/client/protoc_as_dart/smart_connection.pbjson.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/objects/smart_device/client/protoc_as_dart/smart_connection.pbjson.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/objects/smart_device/client/smart_client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/objects/smart_device/client/smart_client.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProtoFiles/proto_script.sh" beforeDir="false" afterPath="$PROJECT_DIR$/ProtoFiles/proto_script.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProtoFiles/protos/smart_connection.proto" beforeDir="false" afterPath="$PROJECT_DIR$/ProtoFiles/protos/smart_connection.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/cloud_value_change_u/cloud_value_change_u.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/cloud_value_change_u/cloud_value_change_u.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/core_u/smart_device_manager_u.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/core_u/smart_device_manager_u.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/hot_keyword_u/hot_keyword_u.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/local_db_u/local_db_u.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/local_db_u/local_db_u.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/smart_device_objects_u/abstracts_devices/smart_device_base_abstract.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/smart_device_objects_u/abstracts_devices/smart_device_base_abstract.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/my_singleton.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/my_singleton.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/smart_server_u/smart_server_u.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/smart_server_u/smart_server_u.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities/cloud_value_change_e/cloud_value_change_e.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities/cloud_value_change_e/cloud_value_change_e.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities/hot_keyword_e/hot_keyword_e.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities/local_db_e/local_db_e.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/domain/entities/local_db_e/local_db_e.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/cloud_value_change_d/cloud_fire_store_listen_to_changes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/cloud_value_change_d/cloud_fire_store_listen_to_changes.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/core_d/fire_store/cloud_fire_store_d.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/core_d/fire_store/cloud_fire_store_d.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/core_d/fire_store/remote_data_base_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/core_d/fire_store/remote_data_base_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/core_d/manage_physical_components/device_pin_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/core_d/manage_physical_components/device_pin_manager.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/core_d/microphone/microphone_c_script.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/hive_d/hive_d.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/hive_d/hive_d.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/hive_d/hive_objects_d/hive_devices_d.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/hive_d/hive_objects_d/hive_devices_d.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/hive_d/hive_objects_d/person.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/hive_d/hive_objects_d/person.g.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/hot_keyword_d/hot_keyword_d.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/local_db_d/local_db_d.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/local_db_d/local_db_d.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/repositories/cloud_value_change_r/cloud_value_change_r.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/repositories/cloud_value_change_r/cloud_value_change_r.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/repositories/hot_keyword_r/hot_keyword_r.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/repositories/local_db_r/local_db_r.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/repositories/local_db_r/local_db_r.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/smart_server_d/protoc_as_dart/smart_connection.pb.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/smart_server_d/protoc_as_dart/smart_connection.pb.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/smart_server_d/protoc_as_dart/smart_connection.pbgrpc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/smart_server_d/protoc_as_dart/smart_connection.pbgrpc.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/smart_server_d/protoc_as_dart/smart_connection.pbjson.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/smart_server_d/protoc_as_dart/smart_connection.pbjson.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/pubspec.yaml" afterDir="false" />
     </list>
     <list id="822e4cbb-e3ae-443e-b4f6-be1b1029cae3" name="Do not commit" comment="Do not commit">
       <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/constant_credentials.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/core/constant_credentials.dart" afterDir="false" />
@@ -157,13 +149,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1568838815383</updated>
-    </task>
-    <task id="LOCAL-00035" summary="Updated dependencies versions">
-      <created>1583502487461</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1583502487461</updated>
     </task>
     <task id="LOCAL-00036" summary="Continu changing the app to the new architecture">
       <created>1583582964337</created>
@@ -501,7 +486,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598430276487</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="First commit of inserting firebase information from the flutter app">
+      <created>1598624940693</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1598624940693</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
@@ -551,7 +543,6 @@
       <path value="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy" />
       <path value="$PROJECT_DIR$/SmartDevice/scripts/cScripts2/snowboy" />
     </ignored-roots>
-    <MESSAGE value="Microphone to be closer to the new architecture" />
     <MESSAGE value="Change folder name from data to infrastructure" />
     <MESSAGE value="Add the application folder" />
     <MESSAGE value="Voice command stream is passed down back to the application" />
@@ -576,7 +567,8 @@
     <MESSAGE value="Removed inserted text" />
     <MESSAGE value="Updated project does not need Web Api Key, only regular Api Key" />
     <MESSAGE value="Removed un used variable" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed un used variable" />
+    <MESSAGE value="First commit of inserting firebase information from the flutter app" />
+    <option name="LAST_COMMIT_MESSAGE" value="First commit of inserting firebase information from the flutter app" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -604,18 +596,19 @@
     </state>
     <state x="2426" y="169" key="#xdebugger.evaluate/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593556886204" />
     <state x="2426" y="169" key="#xdebugger.evaluate/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1591370276483" />
-    <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2" timestamp="1598622831590">
+    <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2" timestamp="1598628839360">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state x="2146" y="60" key="CommitChangelistDialog2/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593558571602" />
     <state x="408" y="66" width="925" height="984" key="CommitChangelistDialog2/1680.0.1920.1080/0.27.1680.1023@0.27.1680.1023" timestamp="1591826370733" />
     <state x="2146" y="60" width="1034" height="984" key="CommitChangelistDialog2/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592226188839" />
-    <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2/50.0.1870.1080@50.0.1870.1080" timestamp="1598622831590" />
-    <state width="707" height="646" key="DebuggerActiveHint" timestamp="1593600033477">
-      <screen x="1680" y="0" width="1920" height="1080" />
+    <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2/50.0.1870.1080@50.0.1870.1080" timestamp="1598628839360" />
+    <state width="689" height="646" key="DebuggerActiveHint" timestamp="1598641290855">
+      <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state width="707" height="646" key="DebuggerActiveHint/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593600033477" />
     <state width="473" height="646" key="DebuggerActiveHint/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592233341232" />
+    <state width="689" height="646" key="DebuggerActiveHint/50.0.1870.1080@50.0.1870.1080" timestamp="1598641290855" />
     <state x="46" y="-10" width="1878" height="1094" key="DiffContextDialog" timestamp="1598622830261">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
@@ -627,34 +620,34 @@
     </state>
     <state x="2451" y="310" width="424" height="484" key="FileChooserDialogImpl/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1591371183331" />
     <state x="801" y="310" key="FileChooserDialogImpl/50.0.1870.1080@50.0.1870.1080" timestamp="1597417339733" />
-    <state width="912" height="243" key="GridCell.Tab.0.bottom" timestamp="1598624567943">
+    <state width="1302" height="356" key="GridCell.Tab.0.bottom" timestamp="1598641303547">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state width="1824" height="254" key="GridCell.Tab.0.bottom/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593601384363" />
     <state width="813" height="272" key="GridCell.Tab.0.bottom/1680.0.1920.1080/0.27.1680.1023@0.27.1680.1023" timestamp="1591826437970" />
     <state width="908" height="290" key="GridCell.Tab.0.bottom/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592233593683" />
-    <state width="912" height="243" key="GridCell.Tab.0.bottom/50.0.1870.1080@50.0.1870.1080" timestamp="1598624567943" />
-    <state width="912" height="243" key="GridCell.Tab.0.center" timestamp="1598624567943">
+    <state width="1302" height="356" key="GridCell.Tab.0.bottom/50.0.1870.1080@50.0.1870.1080" timestamp="1598641303547" />
+    <state width="1302" height="356" key="GridCell.Tab.0.center" timestamp="1598641303547">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state width="1824" height="254" key="GridCell.Tab.0.center/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593601384363" />
     <state width="813" height="272" key="GridCell.Tab.0.center/1680.0.1920.1080/0.27.1680.1023@0.27.1680.1023" timestamp="1591826437970" />
     <state width="908" height="290" key="GridCell.Tab.0.center/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592233593682" />
-    <state width="912" height="243" key="GridCell.Tab.0.center/50.0.1870.1080@50.0.1870.1080" timestamp="1598624567943" />
-    <state width="912" height="243" key="GridCell.Tab.0.left" timestamp="1598624567943">
+    <state width="1302" height="356" key="GridCell.Tab.0.center/50.0.1870.1080@50.0.1870.1080" timestamp="1598641303547" />
+    <state width="1302" height="356" key="GridCell.Tab.0.left" timestamp="1598641303547">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state width="1824" height="254" key="GridCell.Tab.0.left/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593601384363" />
     <state width="813" height="272" key="GridCell.Tab.0.left/1680.0.1920.1080/0.27.1680.1023@0.27.1680.1023" timestamp="1591826437970" />
     <state width="908" height="290" key="GridCell.Tab.0.left/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592233593682" />
-    <state width="912" height="243" key="GridCell.Tab.0.left/50.0.1870.1080@50.0.1870.1080" timestamp="1598624567943" />
-    <state width="912" height="243" key="GridCell.Tab.0.right" timestamp="1598624567943">
+    <state width="1302" height="356" key="GridCell.Tab.0.left/50.0.1870.1080@50.0.1870.1080" timestamp="1598641303547" />
+    <state width="1302" height="356" key="GridCell.Tab.0.right" timestamp="1598641303547">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state width="1824" height="254" key="GridCell.Tab.0.right/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593601384363" />
     <state width="813" height="272" key="GridCell.Tab.0.right/1680.0.1920.1080/0.27.1680.1023@0.27.1680.1023" timestamp="1591826437970" />
     <state width="908" height="290" key="GridCell.Tab.0.right/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592233593683" />
-    <state width="912" height="243" key="GridCell.Tab.0.right/50.0.1870.1080@50.0.1870.1080" timestamp="1598624567943" />
+    <state width="1302" height="356" key="GridCell.Tab.0.right/50.0.1870.1080@50.0.1870.1080" timestamp="1598641303547" />
     <state width="1824" height="254" key="GridCell.Tab.1.bottom" timestamp="1593790387663">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
@@ -697,13 +690,13 @@
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state x="146" y="90" width="1678" height="894" key="com.intellij.history.integration.ui.views.FileHistoryDialog/50.0.1870.1080@50.0.1870.1080" timestamp="1595682412306" />
-    <state x="673" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1598624580354">
+    <state x="673" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1598703703381">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state x="2320" y="380" key="com.intellij.ide.util.TipDialog/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593598513221" />
     <state x="560" y="387" key="com.intellij.ide.util.TipDialog/1680.0.1920.1080/0.27.1680.1023@0.27.1680.1023" timestamp="1591825676699" />
     <state x="2320" y="380" key="com.intellij.ide.util.TipDialog/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1591868808304" />
-    <state x="673" y="380" key="com.intellij.ide.util.TipDialog/50.0.1870.1080@50.0.1870.1080" timestamp="1598624580354" />
+    <state x="673" y="380" key="com.intellij.ide.util.TipDialog/50.0.1870.1080@50.0.1870.1080" timestamp="1598703703381" />
     <state x="639" y="146" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1598609520411">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
@@ -716,13 +709,13 @@
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
     <state x="2196" y="185" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593593160791" />
-    <state x="571" y="216" width="1127" height="613" key="find.popup" timestamp="1598622862662">
+    <state x="568" y="214" width="1127" height="613" key="find.popup" timestamp="1598704059895">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state x="2216" y="219" width="1157" height="613" key="find.popup/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593614645076" />
     <state x="468" y="234" width="1122" height="580" key="find.popup/1680.0.1920.1080/0.27.1680.1023@0.27.1680.1023" timestamp="1591205677690" />
     <state x="2216" y="219" width="1157" height="613" key="find.popup/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592350706595" />
-    <state x="571" y="216" width="1127" height="613" key="find.popup/50.0.1870.1080@50.0.1870.1080" timestamp="1598622862662" />
+    <state x="568" y="214" width="1127" height="613" key="find.popup/50.0.1870.1080@50.0.1870.1080" timestamp="1598704059895" />
     <state x="738" y="160" key="git4idea.branch.GitSmartOperationDialog" timestamp="1594424609878">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
@@ -731,17 +724,18 @@
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state x="692" y="304" key="git4idea.merge.GitPullDialog/50.0.1870.1080@50.0.1870.1080" timestamp="1597417292591" />
-    <state x="2256" y="224" width="672" height="677" key="run.anything.popup" timestamp="1591370307091">
-      <screen x="1680" y="0" width="1920" height="1080" />
+    <state x="611" y="224" width="672" height="677" key="run.anything.popup" timestamp="1598640599738">
+      <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state x="504" y="239" key="run.anything.popup/1680.0.1920.1080/0.27.1680.1023@0.27.1680.1023" timestamp="1591205603379" />
     <state x="2256" y="224" width="672" height="677" key="run.anything.popup/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1591370307091" />
-    <state x="684" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1598052988118">
+    <state x="611" y="224" width="672" height="677" key="run.anything.popup/50.0.1870.1080@50.0.1870.1080" timestamp="1598640599738" />
+    <state x="684" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1598629720572">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state x="2331" y="257" width="672" height="678" key="search.everywhere.popup/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593599349634" />
     <state x="2331" y="257" width="672" height="678" key="search.everywhere.popup/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592350705595" />
-    <state x="684" y="257" width="672" height="678" key="search.everywhere.popup/50.0.1870.1080@50.0.1870.1080" timestamp="1598052988118" />
+    <state x="684" y="257" width="672" height="678" key="search.everywhere.popup/50.0.1870.1080@50.0.1870.1080" timestamp="1598629720572" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -772,19 +766,9 @@
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
-          <url>file://$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/objects/smart_device/client/smart_client.dart</url>
-          <line>37</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
           <url>file://$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/features/shared_widgets/insert_details_of_new_device.dart</url>
           <line>48</line>
           <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
-          <url>file://$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/objects/smart_device/client/smart_client.dart</url>
-          <line>39</line>
-          <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
           <url>file://$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/features/shared_widgets/insert_details_of_new_device.dart</url>
@@ -803,13 +787,28 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
           <url>file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/core_d/fire_store/remote_data_base_controller.dart</url>
-          <line>43</line>
+          <line>44</line>
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
           <url>file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/firedart-0.8.2/lib/firestore/firestore_gateway.dart</url>
           <line>107</line>
           <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/smart_server_u/smart_server_u.dart</url>
+          <line>189</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/objects/smart_device/client/smart_client.dart</url>
+          <line>76</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/objects/smart_device/client/smart_client.dart</url>
+          <line>45</line>
+          <option name="timeStamp" value="42" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

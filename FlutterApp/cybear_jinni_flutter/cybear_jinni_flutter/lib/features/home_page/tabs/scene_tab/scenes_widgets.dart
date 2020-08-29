@@ -1,10 +1,10 @@
-import 'package:CybearJinni/features/home_page/tabs/presets_tab/preset_block_widget.dart';
-import 'package:CybearJinni/features/home_page/tabs/presets_tab/settings_page_of_presets.dart';
+import 'package:CybearJinni/features/home_page/tabs/scene_tab/scene_block_widget.dart';
+import 'package:CybearJinni/features/home_page/tabs/scene_tab/settings_page_of_scenes.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class PresetsWidgets extends StatelessWidget {
-  static final List<String> _presetsList = [
+class ScenesWidgets extends StatelessWidget {
+  static final List<String> _scenesList = [
     'Welcome home',
     'Party mode',
     'Going out',
@@ -24,10 +24,10 @@ class PresetsWidgets extends StatelessWidget {
     'Party mode6',
   ];
 
-  List<Widget> presets(BuildContext context) {
-    return _presetsList
+  List<Widget> scenes(BuildContext context) {
+    return _scenesList
         .map((element) =>
-            PresetBlockWidget(element, _presetsList.indexOf(element)))
+            SceneBlockWidget(element, _scenesList.indexOf(element)))
         .toList();
   }
 
@@ -42,12 +42,17 @@ class PresetsWidgets extends StatelessWidget {
           alignment: Alignment.centerRight,
           child: IconButton(
             icon: Icon(FontAwesomeIcons.cog,
-                color: Theme.of(context).textTheme.bodyText1.color),
-            onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (BuildContext context) =>
-                        SettingsPageOfPresets())),
+                color: Theme
+                    .of(context)
+                    .textTheme
+                    .bodyText1
+                    .color),
+            onPressed: () =>
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (BuildContext context) =>
+                            SettingsPageOfScenes())),
           ),
         ),
         Text(
@@ -62,9 +67,9 @@ class PresetsWidgets extends StatelessWidget {
         ),
         Expanded(
           child: GridView(
-            children: presets(context),
+            children: scenes(context),
             gridDelegate:
-                SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
           ),
         ),
       ],
