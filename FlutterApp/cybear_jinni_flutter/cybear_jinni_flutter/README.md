@@ -1,6 +1,6 @@
-# CybearJinni
+# CyBearJinni
 
-Cybear Jinni app to interact with your jinnis
+CyBear Jinni app to interact with your jinnis
 
 ## Getting Started
 

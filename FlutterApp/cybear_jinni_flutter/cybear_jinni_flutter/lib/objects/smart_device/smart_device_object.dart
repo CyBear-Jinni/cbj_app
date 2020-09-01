@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:CybearJinni/database/firebase/cloud_firestore/firestore_class.dart';
-import 'package:CybearJinni/objects/smart_device/send_to_smart_device.dart';
+import 'package:CyBearJinni/database/firebase/cloud_firestore/firestore_class.dart';
+import 'package:CyBearJinni/objects/smart_device/send_to_smart_device.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/services.dart';
 import 'package:permission_handler/permission_handler.dart';
