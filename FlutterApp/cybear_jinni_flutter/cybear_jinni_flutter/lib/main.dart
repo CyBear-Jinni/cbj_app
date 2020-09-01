@@ -1,7 +1,7 @@
-import 'package:CybearJinni/features/home_page/tabs/smart_devices_tab/blinds/blinds_page.dart';
-import 'package:CybearJinni/features/room_page/room_page.dart';
-import 'package:CybearJinni/injection.dart';
-import 'package:CybearJinni/objects/interface_darta/cloud_interface_data.dart';
+import 'package:CyBearJinni/features/home_page/tabs/smart_devices_tab/blinds/blinds_page.dart';
+import 'package:CyBearJinni/features/room_page/room_page.dart';
+import 'package:CyBearJinni/injection.dart';
+import 'package:CyBearJinni/objects/interface_darta/cloud_interface_data.dart';
 import 'package:flutter/material.dart';
 
 import 'features/home_page/home_page.dart';

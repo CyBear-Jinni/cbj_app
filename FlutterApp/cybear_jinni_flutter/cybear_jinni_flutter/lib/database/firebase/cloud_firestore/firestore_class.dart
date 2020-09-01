@@ -1,4 +1,4 @@
-import 'package:CybearJinni/objects/enums.dart';
+import 'package:CyBearJinni/objects/enums.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FireStoreClass {
