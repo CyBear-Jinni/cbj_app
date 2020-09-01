@@ -15,17 +15,12 @@ Fill all the details according you ure app --> Download google-services.json
 Move google-services.json to 
 SmartHome/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/android/app/google-services.json
 
+2. Copy the following fields values from the google-services.json:
+ project_id, current_key 
+ into fireBaseProjectId and fireBaseApiKey respectively in the file smart_client.dart
+ Path to file: /home/guy/Documents/programming/git/SmartHome/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/objects/smart_device/client/smart_client.dart
 
-**Smart Device**
-
-1. Insert your FireBase Project Id and FireBase Api Key into constant_credentials.dart .
-Open the google-services.json from part one in the Flutter steps, and copy the values of the 
-variables from "project_id" and "current_key" into the into the values of the variables
-fireBaseProjectId and fireBaseApiKey respectively in the file
-SmartHome/SmartDevice/SmartDeviceDart/lib/core/constant_credentials.dart
-
-
-
+3. Insert userEmail and userPassword from the firebase into the file smart_client.dart
 
 
 The code is based on DDD (Domain-Driven Design) principles, you can learn it from [here](https://www.youtube.com/watch?v=RMiN59x3uH0&list=PLB6lc7nQ1n4iS5p-IezFFgqP6YvAJy84U).
