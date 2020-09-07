@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:CyBearJinni/core/constant_credentials.dart';
 import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
 import 'package:grpc/grpc.dart';
 
@@ -32,12 +33,10 @@ class SmartClient {
     final ClientChannel channel = createSmartServerClient(smartDeviceObject.ip);
     final SmartServerClient stub = SmartServerClient(channel);
 
-    String fireBaseProjectId =
-        '***REMOVED***'; // TODO: insert it from the firebase json
-    String fireBaseApiKey = '***REMOVED***';
-    String userEmail =
-        '***REMOVED***'; // TODO: insert that from the user credentials
-    String userPassword = '***REMOVED***';
+    String fireBaseProjectId = ConstantCredentials.fireBaseProjectId;
+    String fireBaseApiKey = ConstantCredentials.fireBaseApiKey;
+    String userEmail = ConstantCredentials.userEmail;
+    String userPassword = ConstantCredentials.userPassword;
 
     CommendStatus response;
     try {

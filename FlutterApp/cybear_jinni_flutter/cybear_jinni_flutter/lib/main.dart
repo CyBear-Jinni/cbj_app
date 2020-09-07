@@ -2,6 +2,7 @@ import 'package:CyBearJinni/features/home_page/tabs/smart_devices_tab/blinds/bli
 import 'package:CyBearJinni/features/room_page/room_page.dart';
 import 'package:CyBearJinni/injection.dart';
 import 'package:CyBearJinni/objects/interface_darta/cloud_interface_data.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'features/home_page/home_page.dart';
@@ -11,6 +12,7 @@ void main() {
 //  debugPaintSizeEnabled = true;
   configureInjection(Env.prod);
   runApp(MyApp());
+  Firebase.initializeApp();
 }
 
 class MyApp extends StatelessWidget {
