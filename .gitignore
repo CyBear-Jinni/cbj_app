@@ -19,4 +19,4 @@ smart_home_flutter/gen/
 /FlutterApp/smart_home_flutter/ios/Flutter/flutter_export_environment.sh
 /FlutterApp/smart_home_flutter/.flutter-plugins-dependencies
 
-/Files/googlePlayStore/key.jks
+/Files/googlePlayStore/*

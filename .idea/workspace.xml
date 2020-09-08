@@ -8,10 +8,6 @@
       <change afterPath="$PROJECT_DIR$/Files/googlePlayStore/key.jks" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/android/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/android/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/Scripts_for_new_device/setup_new_smart_device.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Scripts_for_new_device/setup_new_smart_device.sh" afterDir="false" />
     </list>
     <list id="822e4cbb-e3ae-443e-b4f6-be1b1029cae3" name="Do not commit" comment="Do not commit">
       <change beforePath="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/core/constant_credentials.dart" beforeDir="false" afterPath="$PROJECT_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/core/constant_credentials.dart" afterDir="false" />
@@ -137,13 +133,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1568838815383</updated>
-    </task>
-    <task id="LOCAL-00043" summary="Add the application folder">
-      <created>1584483103313</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1584483103313</updated>
     </task>
     <task id="LOCAL-00044" summary="Voice command stream is passed down back to the application">
       <created>1584556153154</created>
@@ -481,7 +470,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599473697565</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="Updating gradle version">
+      <created>1599567895506</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1599567895506</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
@@ -585,13 +581,13 @@
     <state x="2426" y="169" key="#xdebugger.evaluate/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593556886204" />
     <state x="2426" y="169" key="#xdebugger.evaluate/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1591370276483" />
     <state x="777" y="169" key="#xdebugger.evaluate/50.0.1870.1080@50.0.1870.1080" timestamp="1598707586032" />
-    <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2" timestamp="1599567815937">
+    <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2" timestamp="1599567907272">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state x="2146" y="60" key="CommitChangelistDialog2/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593558571602" />
     <state x="408" y="66" width="925" height="984" key="CommitChangelistDialog2/1680.0.1920.1080/0.27.1680.1023@0.27.1680.1023" timestamp="1591826370733" />
     <state x="2146" y="60" width="1034" height="984" key="CommitChangelistDialog2/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592226188839" />
-    <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2/50.0.1870.1080@50.0.1870.1080" timestamp="1599567815937" />
+    <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2/50.0.1870.1080@50.0.1870.1080" timestamp="1599567907272" />
     <state width="689" height="646" key="DebuggerActiveHint" timestamp="1598707398388">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
