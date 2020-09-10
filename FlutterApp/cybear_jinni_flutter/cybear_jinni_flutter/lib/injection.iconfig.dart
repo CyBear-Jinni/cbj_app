@@ -4,7 +4,7 @@
 // InjectableConfigGenerator
 // **************************************************************************
 
-import 'package:CybearJinni/infrastructure/mock_example.dart';
+import 'package:CyBearJinni/infrastructure/mock_example.dart';
 import 'package:get_it/get_it.dart';
 
 void $initGetIt(GetIt g, {String environment}) {

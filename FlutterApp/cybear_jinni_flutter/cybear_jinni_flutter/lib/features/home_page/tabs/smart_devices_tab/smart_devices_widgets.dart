@@ -1,5 +1,4 @@
-import 'package:CybearJinni/database/firebase/cloud_firestore/firestore_class.dart';
-import 'package:CybearJinni/features/home_page/tabs/smart_devices_tab/settings_page_of_smart_devices.dart';
+import 'package:CyBearJinni/features/home_page/tabs/smart_devices_tab/settings_page_of_smart_devices.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';

@@ -1,31 +1,33 @@
 # SmartHome
 
+**Structure of the project**
+The project is made out of two main parts: [SmartDevice](https://github.com/CyBear-Jinni/Smart-Home/tree/dev/SmartDevice), [FlutterApp](https://github.com/CyBear-Jinni/Smart-Home/tree/dev/FlutterApp).
 
-To get the project running on your machine please do the following:
+[FlutterApp](https://github.com/CyBear-Jinni/Smart-Home/tree/dev/FlutterApp) is (you guessed it) the flutter app.
+It is storing the code for the android and ios apps.
 
-**Flutter App**
+[SmartDevice](https://github.com/CyBear-Jinni/Smart-Home/tree/dev/SmartDevice) is the smart device software installed on physical device (now only NanoPi Duo2).
+It lets you control (for now) only lights and blinds using the app and physical buttons.
+This part will be published in the snap store in order to have easy way to update all the devices software versions with new features and security update.
 
+
+**To get the project running**
+Flutter App:
 1. Insert your Firebase configuration into your flutter app.
-Started by downloading google-services.json from Firebase console.
+   Started by downloading google-services.json from Firebase console.
 
-Location: https://console.firebase.google.com/  --> Select project --> Click on the left side cog -->
-Project settings (It will take you to the General tab) --> Click "Add app" --> choose "Android" -->
-Fill all the details according you ure app --> Download google-services.json
+   Location: https://console.firebase.google.com/  --> Select project --> Click on the left side cog -->
+   Project settings (It will take you to the General tab) --> Click "Add app" --> choose "Android" -->
+   Fill all the details according you ure app --> Download google-services.json
 
-Move google-services.json to 
-SmartHome/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/android/app/google-services.json
+   Move google-services.json to 
+   SmartHome/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/android/app/google-services.json
 
-
-**Smart Device**
-
-1. Insert your FireBase Project Id and FireBase Api Key into constant_credentials.dart .
-Open the google-services.json from part one in the Flutter steps, and copy the values of the 
-variables from "project_id" and "current_key" into the into the values of the variables
-fireBaseProjectId and fireBaseApiKey respectively in the file
-SmartHome/SmartDevice/SmartDeviceDart/lib/core/constant_credentials.dart
-
-
-
+2. Copy the following fields values from the google-services.json:
+   project_id, current_key 
+   into fireBaseProjectId and fireBaseApiKey respectively in the file constant_credentials.dart
+   Path to file: SmartHome/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/core/constant_credentials.dart
+   Don't forget to insert userEmail and userPassword from the firebase into the file as well.
 
 
 The code is based on DDD (Domain-Driven Design) principles, you can learn it from [here](https://www.youtube.com/watch?v=RMiN59x3uH0&list=PLB6lc7nQ1n4iS5p-IezFFgqP6YvAJy84U).

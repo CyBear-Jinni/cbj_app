@@ -1,9 +1,9 @@
 import 'dart:async';
 
-import 'package:CybearJinni/objects/enums.dart';
-import 'package:CybearJinni/objects/smart_device/client/smart_client.dart';
-import 'package:CybearJinni/objects/smart_device/smart_blinds_object.dart';
-import 'package:CybearJinni/objects/smart_device/smart_device_object.dart';
+import 'package:CyBearJinni/objects/enums.dart';
+import 'package:CyBearJinni/objects/smart_device/client/smart_client.dart';
+import 'package:CyBearJinni/objects/smart_device/smart_blinds_object.dart';
+import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
 import 'package:grpc/grpc.dart';
 
 import 'client/protoc_as_dart/smart_connection.pb.dart';
@@ -11,7 +11,7 @@ import 'client/protoc_as_dart/smart_connection.pb.dart';
 //  Get
 
 Future<List<SmartDeviceObject>> getAllDevices(String deviceIp) async {
-  List<SmartDeviceObject> smartDeviceList = List<SmartDeviceObject>();
+  List<SmartDeviceObject> smartDeviceObjectList = List<SmartDeviceObject>();
   SmartDeviceObject smartDeviceObjectTemp;
   SmartBlindsObject smartBlindsObjectTemp;
   DeviceType deviceTypeTemp;
@@ -23,24 +23,18 @@ Future<List<SmartDeviceObject>> getAllDevices(String deviceIp) async {
     print('Device type: ' + smartDevice.deviceType.toString());
     deviceTypeTemp = EnumHelper.stringToDt(smartDevice.deviceType);
     switch (deviceTypeTemp) {
-      case (DeviceType.Light):
+      case DeviceType.Light:
         smartDeviceObjectTemp =
             SmartDeviceObject(deviceTypeTemp, smartDevice.name, deviceIp);
-        smartDeviceList.add(smartDeviceObjectTemp);
-        break;
-      case (DeviceType.Blinds):
-        smartBlindsObjectTemp =
-            SmartBlindsObject(deviceTypeTemp, smartDevice.name, deviceIp);
-        smartDeviceList.add(smartBlindsObjectTemp);
-        break;
-      case DeviceType.Light:
-        // TODO: Handle this case.
-        break;
-      case DeviceType.DynamicLight:
-        // TODO: Handle this case.
+        smartDeviceObjectList.add(smartDeviceObjectTemp);
         break;
       case DeviceType.Blinds:
-        // TODO: Handle this case.
+        smartBlindsObjectTemp =
+            SmartBlindsObject(deviceTypeTemp, smartDevice.name, deviceIp);
+        smartDeviceObjectList.add(smartBlindsObjectTemp);
+        break;
+      case DeviceType.DynamicLight:
+      // TODO: Handle this case.
         break;
       case DeviceType.Thermostat:
         // TODO: Handle this case.
@@ -95,7 +89,7 @@ Future<List<SmartDeviceObject>> getAllDevices(String deviceIp) async {
         break;
     }
   }
-  return smartDeviceList;
+  return smartDeviceObjectList;
 }
 
 //  Request device state, on or off

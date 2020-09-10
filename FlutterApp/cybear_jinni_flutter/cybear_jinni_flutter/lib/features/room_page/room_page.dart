@@ -1,7 +1,7 @@
-import 'package:CybearJinni/features/room_page/room_widget.dart';
-import 'package:CybearJinni/objects/interface_darta/cloud_interface_data.dart';
-import 'package:CybearJinni/objects/smart_device/smart_device_object.dart';
-import 'package:CybearJinni/objects/smart_device/smart_room_object.dart';
+import 'package:CyBearJinni/features/room_page/room_widget.dart';
+import 'package:CyBearJinni/objects/interface_darta/cloud_interface_data.dart';
+import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
+import 'package:CyBearJinni/objects/smart_device/smart_room_object.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 

@@ -1,4 +1,4 @@
-package com.CybearJinni
+package com.CyBearJinni
 
 import io.flutter.embedding.android.FlutterActivity
 

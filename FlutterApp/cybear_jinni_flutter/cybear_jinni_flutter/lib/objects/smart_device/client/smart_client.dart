@@ -1,6 +1,7 @@
 import 'dart:async';
 
-import 'package:CybearJinni/objects/smart_device/smart_device_object.dart';
+import 'package:CyBearJinni/core/constant_credentials.dart';
+import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
 import 'package:grpc/grpc.dart';
 
 import 'protoc_as_dart/smart_connection.pb.dart';
@@ -27,6 +28,35 @@ class SmartClient {
     return null;
   }
 
+  static Future<String> setFirebaseAccountInformationFlutter(
+      SmartDeviceObject smartDeviceObject) async {
+    final ClientChannel channel = createSmartServerClient(smartDeviceObject.ip);
+    final SmartServerClient stub = SmartServerClient(channel);
+
+    String fireBaseProjectId = ConstantCredentials.fireBaseProjectId;
+    String fireBaseApiKey = ConstantCredentials.fireBaseApiKey;
+    String userEmail = ConstantCredentials.userEmail;
+    String userPassword = ConstantCredentials.userPassword;
+
+    CommendStatus response;
+    try {
+      response =
+          await stub.setFirebaseAccountInformation(FirebaseAccountInformation()
+            ..fireBaseProjectId = fireBaseProjectId
+            ..fireBaseApiKey = fireBaseApiKey
+            ..userEmail = userEmail
+            ..userPassword = userPassword);
+      print(
+          'Firebase account information client received: ${response.success}');
+      await channel.shutdown();
+      return response.success.toString();
+    } catch (e) {
+      print('Caught error: $e');
+    }
+    await channel.shutdown();
+    return 'error';
+  }
+
   //  Get the status of smart device
   static Future<String> getSmartDeviceStatus(
       SmartDeviceObject smartDeviceObject) async {
@@ -48,12 +78,14 @@ class SmartClient {
 
   static Future<String> updateDeviceName(
       SmartDeviceObject smartDeviceObject, String newName) async {
+    setFirebaseAccountInformationFlutter(smartDeviceObject);
+
     final ClientChannel channel = createSmartServerClient(smartDeviceObject.ip);
     final SmartServerClient stub = SmartServerClient(channel);
     CommendStatus response;
     try {
       SmartDeviceUpdateDetails smartDeviceUpdateDetails =
-          SmartDeviceUpdateDetails();
+      SmartDeviceUpdateDetails();
       smartDeviceUpdateDetails.smartDevice = SmartDevice()
         ..name = smartDeviceObject.name;
       smartDeviceUpdateDetails.newName = newName;

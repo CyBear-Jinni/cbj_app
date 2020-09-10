@@ -1,4 +1,4 @@
-import 'package:CybearJinni/features/home_page/tabs/lamps_tab/settings_page_of_lamps.dart';
+import 'package:CyBearJinni/features/home_page/tabs/lamps_tab/settings_page_of_lamps.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
