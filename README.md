@@ -4,12 +4,12 @@
 
 The project is made out of two main parts:
 
-- ### FlutterApp
+**FlutterApp**
 
 [FlutterApp](https://github.com/CyBear-Jinni/Smart-Home/tree/dev/FlutterApp) is (you guessed it) the flutter app.
 It is storing the code for the android and ios apps.
 
-SmartDevice
+**SmartDevice**
 
 [SmartDevice](https://github.com/CyBear-Jinni/Smart-Home/tree/dev/SmartDevice) is the smart device software installed on physical device (now only NanoPi Duo2).
 It lets you control (for now) only lights and blinds using the app and physical buttons.
