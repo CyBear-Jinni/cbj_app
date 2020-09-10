@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class SettingsPageOfPresets extends StatelessWidget {
+class SettingsPageOfScenes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,10 +37,14 @@ class SettingsPageOfPresets extends StatelessWidget {
               ),
             ),
             Text(
-              'Presets Settings Page',
+              'Scene Settings Page',
               style: TextStyle(
                   fontSize: 23.0,
-                  color: Theme.of(context).textTheme.bodyText1.color,
+                  color: Theme
+                      .of(context)
+                      .textTheme
+                      .bodyText1
+                      .color,
                   decoration: TextDecoration.underline),
             ),
           ],

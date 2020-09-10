@@ -1,4 +1,4 @@
-import 'package:CybearJinni/objects/enums.dart';
+import 'package:CyBearJinni/objects/enums.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FireStoreClass {
@@ -10,10 +10,10 @@ class FireStoreClass {
       String roomName, String smartInstanceName) async {
     String fullPath = createDocumentFullPath(roomName);
 
-    Firestore.instance.document(fullPath).get().then((DocumentSnapshot ds) {
-      Firestore.instance
-          .document(fullPath)
-          .updateData({smartInstanceName: !ds.data[smartInstanceName]});
+    FirebaseFirestore.instance.doc(fullPath).get().then((DocumentSnapshot ds) {
+      FirebaseFirestore.instance
+          .doc(fullPath)
+          .update({smartInstanceName: !ds.data()[smartInstanceName]});
     });
     return await getDeviceStatus(roomName, smartInstanceName);
   }
@@ -22,9 +22,7 @@ class FireStoreClass {
       bool value) async {
     String fullPath = createDocumentFullPath(roomName);
 
-    Firestore.instance
-        .document(fullPath)
-        .updateData({smartInstanceName: value});
+    FirebaseFirestore.instance.doc(fullPath).update({smartInstanceName: value});
 
     return await getDeviceStatus(roomName, smartInstanceName);
   }
@@ -34,9 +32,9 @@ class FireStoreClass {
     String fullPath = createDocumentFullPath(roomName);
 
     DocumentSnapshot documentSnapshot =
-    await Firestore.instance.document(fullPath).get();
+    await FirebaseFirestore.instance.doc(fullPath).get();
 
-    return documentSnapshot.data[smartInstanceName].toString();
+    return documentSnapshot.data()[smartInstanceName].toString();
   }
 
   String createDocumentFullPath(String roomName) {
@@ -48,9 +46,9 @@ class FireStoreClass {
       WishEnum wish) async {
     String fullPath = createDocumentFullPath(roomName);
 
-    Firestore.instance
-        .document(fullPath)
-        .updateData({smartInstanceName: EnumHelper.wishEnumToString(wish)});
+    FirebaseFirestore.instance
+        .doc(fullPath)
+        .update({smartInstanceName: EnumHelper.wishEnumToString(wish)});
 
     return await getDeviceStatus(roomName, smartInstanceName);
   }

@@ -1,5 +1,5 @@
-import 'package:CybearJinni/features/home_page/tabs/lamps_tab/room_toggles_block.dart';
-import 'package:CybearJinni/objects/interface_darta/cloud_interface_data.dart';
+import 'package:CyBearJinni/features/home_page/tabs/lamps_tab/room_toggles_block.dart';
+import 'package:CyBearJinni/objects/interface_darta/cloud_interface_data.dart';
 import 'package:flutter/material.dart';
 
 //  This class show all the rooms in the house and quick access to the light switch from the rom_widget page

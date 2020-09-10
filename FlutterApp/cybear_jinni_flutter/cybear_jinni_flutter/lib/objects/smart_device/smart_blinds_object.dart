@@ -1,5 +1,5 @@
-import 'package:CybearJinni/objects/enums.dart';
-import 'package:CybearJinni/objects/smart_device/smart_device_object.dart';
+import 'package:CyBearJinni/objects/enums.dart';
+import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
 import 'package:connectivity/connectivity.dart';
 
 import 'client/smart_client.dart';

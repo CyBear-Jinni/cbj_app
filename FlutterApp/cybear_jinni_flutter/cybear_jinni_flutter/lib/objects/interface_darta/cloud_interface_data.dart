@@ -1,7 +1,7 @@
-import 'package:CybearJinni/objects/enums.dart';
-import 'package:CybearJinni/objects/smart_device/smart_blinds_object.dart';
-import 'package:CybearJinni/objects/smart_device/smart_device_object.dart';
-import 'package:CybearJinni/objects/smart_device/smart_room_object.dart';
+import 'package:CyBearJinni/objects/enums.dart';
+import 'package:CyBearJinni/objects/smart_device/smart_blinds_object.dart';
+import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
+import 'package:CyBearJinni/objects/smart_device/smart_room_object.dart';
 
 final List<SmartRoomObject> rooms = [room1, room2, room3, room4];
 
