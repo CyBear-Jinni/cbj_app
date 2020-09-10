@@ -32,8 +32,6 @@ Flutter App:
    into fireBaseProjectId and fireBaseApiKey respectively in the file constant_credentials.dart
    Path to file: SmartHome/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/core/constant_credentials.dart
    Don't forget to insert userEmail and userPassword from the firebase into the file as well.
-  
----
 
 ## Architecture
 
