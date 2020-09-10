@@ -4,8 +4,6 @@
 
 The project is made out of two main parts:
 
----
-
 - ### FlutterApp
 
 [FlutterApp](https://github.com/CyBear-Jinni/Smart-Home/tree/dev/FlutterApp) is (you guessed it) the flutter app.
@@ -13,13 +11,15 @@ It is storing the code for the android and ios apps.
 
 ---
 
-- ### SmartDevice
+SmartDevice
 
 [SmartDevice](https://github.com/CyBear-Jinni/Smart-Home/tree/dev/SmartDevice) is the smart device software installed on physical device (now only NanoPi Duo2).
 It lets you control (for now) only lights and blinds using the app and physical buttons.
 This part will be published in the snap store in order to have easy way to update all the devices software versions with new features and security update.
 
-**To get the project running**
+---
+
+# To get the project running
 Flutter App:
 1. Insert your Firebase configuration into your flutter app.
    Started by downloading google-services.json from Firebase console.
