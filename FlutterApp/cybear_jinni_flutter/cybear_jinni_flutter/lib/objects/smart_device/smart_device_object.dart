@@ -14,14 +14,14 @@ class SmartDeviceObject {
   String name;
   String ip;
   FireStoreClass fireStoreClass;
-  static const String homeWifiName = '***REMOVED***';
+  static const String homeWifiName = ''; // Insert host name
 
   SmartDeviceObject(this.deviceType, this.name, String ip, [this.roomName]) {
     if (legitIp(ip)) {
       //  Checks if regex contained only valid ip and nothing else
       this.ip = ip;
     } else {
-      throw ('Incorrect formet of IP');
+      throw ('Incorrect format of IP');
     }
     fireStoreClass = FireStoreClass();
   }
