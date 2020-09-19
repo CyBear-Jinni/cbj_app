@@ -12,13 +12,13 @@ It is **not** "Home automation system" like the project [Home Assistant](https:/
 
 The project is made out of two main parts:
 
-###Phone app
+### Phone app
 
 [FlutterApp](https://github.com/CyBear-Jinni/Smart-Home/tree/master/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter) is (you guessed it) the flutter app.
 This is the android and ios app written in [Flutter](https://flutter.dev) that let you control all the devices using local Wi-Fi and remotely through Google [Cloud Firestore](https://firebase.google.com/docs/firestore).
 
 
-###Smart Device
+### Smart Device
 
 [SmartDevice](https://github.com/CyBear-Jinni/Smart-Home/tree/master/SmartDevice/SmartDeviceDart) is the smart device software installed on physical device (now only NanoPi Duo2).
 It lets you control (for now) only lights and blinds using physical buttons and the phone app.
@@ -27,13 +27,13 @@ This part will be published in the snap store in order to have easy way to updat
 
 ## To get the project running
 
-###Attention
+### Attention
 
 For now only NanoPi Duo2 is supported as smart-device.
 You need to buy and solder the parts into the device yourself.
 The app is not in the play store so you will need to upload it to your phone.
 
-###Smart device preparations:
+### Smart device preparations:
 
 Copy [the script](https://github.com/guyluz11/Smart-Home/blob/master/Scripts/Scripts_for_new_device/setup_new_smart_device.sh) to your device,
 change the values wifiSsid into the name of your Wi-Fi and wifiPassword into the Wi-Fi password, it is necessary so that your device will be able to connect to the Wi-Fi.
@@ -41,7 +41,7 @@ Now run the script and it will configure and install the program to your device.
 
 The device is now ready.
 
-###Phone app preparations:
+### Phone app preparations:
 
 What was left is to have the app on your phone.
 For now the app is not in the play store so jump to [Instructions for developers](#instructions-for-developers) part.
@@ -56,7 +56,7 @@ Now you can control your smart device from the phone app 😁.
 
 
 ## Instructions for developers
-###Flutter App:
+### Flutter App:
 1. Insert your Firebase configuration into your flutter app.
 
    Create a [firebase console project](https://console.firebase.google.com) for your home.
