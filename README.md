@@ -54,7 +54,7 @@ Connect your phone to home Wi-Fi.
 
 Now we need to link the smart device in the phone app.
 
-Go to: Lamps page --> Press the cog in the top right corner --> press the plus button --> insert the smart device IP and press Add.
+In the app go to: "Lamps" tab --> Press the cog in the top right corner --> Press the plus button --> Insert the smart device IP and press "Add" --> Change the device name and press the "Update" button --> Press the "Add devices".
 
 That's it.
 
