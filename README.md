@@ -48,8 +48,9 @@ For now the app is not in the play store so jump to [Instructions for developers
 
 ### Connecting the smart device to the phone app:
 
-Find the smart device Wi-Fi ip.
-Connect the phone to home Wi-Fi.
+Find the smart device Wi-Fi ip, it will be something like 10.0.0.12 .
+
+Connect your phone to home Wi-Fi.
 
 Now we need to link the smart device in the phone app.
 
