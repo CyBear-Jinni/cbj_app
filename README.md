@@ -27,7 +27,8 @@ This part will be published in the snap store in order to have easy way to updat
 
 ## To get the project running
 
-**Attention**
+**Attention:**
+
 For now only NanoPi Duo2 is supported as smart-device.
 You need to buy and solder the parts into the device yourself.
 The app is not in the play store so you will need to upload it to your phone.
