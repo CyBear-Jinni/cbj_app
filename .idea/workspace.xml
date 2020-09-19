@@ -4,13 +4,9 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96c5fe8c-119f-4135-b3fa-611215ac658f" name="Default Changelist" comment="Forgot to upload the lib files to make the snapcraft work in 4.3 version">
-      <change afterPath="$PROJECT_DIR$/SmartDevice/cybear-jinni_armhf.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/SmartHome.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SmartHome.iml" afterDir="false" />
+    <list default="true" id="96c5fe8c-119f-4135-b3fa-611215ac658f" name="Default Changelist" comment="Updated README.md">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/wish_classes_u/on_wish_u.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/wish_classes_u/on_wish_u.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/snap/snapcraft.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/snap/snapcraft.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <list id="822e4cbb-e3ae-443e-b4f6-be1b1029cae3" name="Do not commit" comment="Do not commit" />
     <option name="SHOW_DIALOG" value="false" />
@@ -137,13 +133,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1568838815383</updated>
-    </task>
-    <task id="LOCAL-00047" summary="Record less time">
-      <created>1585815752680</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1585815752680</updated>
     </task>
     <task id="LOCAL-00048" summary="Change to cupertino activity indicator">
       <created>1588286002264</created>
@@ -481,7 +470,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600124260829</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="Snap updated to have the product name CyBear Jinni">
+      <created>1600537675685</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1600537675686</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
@@ -531,7 +527,6 @@
       <path value="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy" />
       <path value="$PROJECT_DIR$/SmartDevice/scripts/cScripts2/snowboy" />
     </ignored-roots>
-    <MESSAGE value="Fix the bug, on release swich return back" />
     <MESSAGE value="Changing device name in the app now update the singleton in the smart device" />
     <MESSAGE value="Flutter app 'Add devices' button now add the smart device to the rooms list" />
     <MESSAGE value="Fix saving blind object after restert and support controlling from the cloud, can now change name of blinds from the app and control the cloud when not connected to wifi" />
@@ -556,7 +551,8 @@
     <MESSAGE value="Add to git ignore" />
     <MESSAGE value="Updating gradle version" />
     <MESSAGE value="Updating the snap to core20 and fix the remote-build not working" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updating the snap to core20 and fix the remote-build not working" />
+    <MESSAGE value="Snap updated to have the product name CyBear Jinni" />
+    <option name="LAST_COMMIT_MESSAGE" value="Snap updated to have the product name CyBear Jinni" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -583,11 +579,11 @@
     </state>
     <state x="2426" y="169" key="#xdebugger.evaluate/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593556886204" />
     <state x="777" y="169" key="#xdebugger.evaluate/50.0.1870.1080@50.0.1870.1080" timestamp="1598707586032" />
-    <state x="36" y="15" width="1878" height="1080" key="CommitChangelistDialog2" timestamp="1600537525856">
-      <screen x="0" y="15" width="1680" height="1050" />
+    <state x="1722" y="0" width="1680" height="1050" key="CommitChangelistDialog2" timestamp="1600543804283">
+      <screen x="1680" y="0" width="1920" height="1080" />
     </state>
-    <state x="36" y="15" key="CommitChangelistDialog2/1680.0.1920.1080/0.15.1680.1050@0.15.1680.1050" timestamp="1600537525856" />
-    <state x="1722" y="0" width="1878" height="1080" key="CommitChangelistDialog2/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600523661488" />
+    <state x="0" y="15" width="1680" height="1050" key="CommitChangelistDialog2/1680.0.1920.1080/0.15.1680.1050@0.15.1680.1050" timestamp="1600537675500" />
+    <state x="1722" y="0" width="1878" height="1080" key="CommitChangelistDialog2/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600543804283" />
     <state x="2146" y="60" width="1034" height="984" key="CommitChangelistDialog2/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592226188839" />
     <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2/50.0.1870.1080@50.0.1870.1080" timestamp="1600192445906" />
     <state width="689" height="646" key="DebuggerActiveHint" timestamp="1598707398388">
@@ -700,11 +696,11 @@
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
     <state x="2196" y="185" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593593160791" />
-    <state x="469" y="228" width="1013" height="596" key="find.popup" timestamp="1600537577299">
-      <screen x="0" y="15" width="1680" height="1050" />
+    <state x="2216" y="219" width="1157" height="613" key="find.popup" timestamp="1600540860319">
+      <screen x="1680" y="0" width="1920" height="1080" />
     </state>
     <state x="469" y="228" width="1013" height="596" key="find.popup/1680.0.1920.1080/0.15.1680.1050@0.15.1680.1050" timestamp="1600537577299" />
-    <state x="2216" y="219" width="1157" height="613" key="find.popup/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600427168230" />
+    <state x="2216" y="219" width="1157" height="613" key="find.popup/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600540860319" />
     <state x="2216" y="219" width="1157" height="613" key="find.popup/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592350706595" />
     <state x="568" y="214" width="1127" height="622" key="find.popup/50.0.1870.1080@50.0.1870.1080" timestamp="1600185424900" />
     <state x="738" y="160" key="git4idea.branch.GitSmartOperationDialog" timestamp="1594424609878">
