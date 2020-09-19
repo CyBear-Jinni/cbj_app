@@ -46,7 +46,10 @@ The device is now ready.
 What was left is to have the app on your phone.
 For now the app is not in the play store so jump to [Instructions for developers](#instructions-for-developers) part.
 
+### Connecting the smart device to the phone app:
+
 Now we need to link the smart device in the phone app.
+Find the smart device Wi-Fi ip.
 Connect the phone to home Wi-Fi.
 Go to: Lamps page --> Press the cog in the top right corner --> press the plus button --> insert the smart device IP and press Add.
 
