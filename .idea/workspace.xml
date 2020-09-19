@@ -4,15 +4,9 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96c5fe8c-119f-4135-b3fa-611215ac658f" name="Default Changelist" comment="Forgot to upload the lib files to make the snapcraft work in 4.3 version">
-      <change afterPath="$PROJECT_DIR$/SmartDevice/lib/libwiringPi.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SmartDevice/lib/libwiringPi.so.2.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SmartDevice/lib/libwiringPiDev.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SmartDevice/lib/libwiringPiDev.so.2.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SmartDevice/smart-home_armhf.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/SmartHome.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SmartHome.iml" afterDir="false" />
+    <list default="true" id="96c5fe8c-119f-4135-b3fa-611215ac658f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/snap/snapcraft.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/snap/snapcraft.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <list id="822e4cbb-e3ae-443e-b4f6-be1b1029cae3" name="Do not commit" comment="Do not commit" />
     <option name="SHOW_DIALOG" value="false" />
@@ -139,97 +133,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1568838815383</updated>
-    </task>
-    <task id="LOCAL-00047" summary="Record less time">
-      <created>1585815752680</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1585815752680</updated>
-    </task>
-    <task id="LOCAL-00048" summary="Change to cupertino activity indicator">
-      <created>1588286002264</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1588286002265</updated>
-    </task>
-    <task id="LOCAL-00049" summary="Requests between app and smart device now use device name.">
-      <created>1588381424027</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1588381424027</updated>
-    </task>
-    <task id="LOCAL-00050" summary="Fix little flutter bug to use the device room name to get the device room">
-      <created>1588455197516</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1588455197517</updated>
-    </task>
-    <task id="LOCAL-00051" summary="Add support for the app to toggle device state using firbase whan out of wifi connection">
-      <created>1588950882379</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1588950882380</updated>
-    </task>
-    <task id="LOCAL-00052" summary="Fix the bug, on release swich return back">
-      <created>1589202217265</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1589202217266</updated>
-    </task>
-    <task id="LOCAL-00053" summary="Changing device name in the app now update the singleton in the smart device">
-      <created>1591819383693</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1591819383694</updated>
-    </task>
-    <task id="LOCAL-00054" summary="Flutter app 'Add devices' button now add the smart device to the rooms list">
-      <created>1591826372009</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1591826372010</updated>
-    </task>
-    <task id="LOCAL-00055" summary="Orgenazing a little bit the Assistent project">
-      <created>1594542801345</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1594542801345</updated>
-    </task>
-    <task id="LOCAL-00056" summary="Orgenazing a little bit the Assistent project">
-      <created>1594542998626</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1594542998627</updated>
-    </task>
-    <task id="LOCAL-00057" summary="Updating packages and start removing passwords from the project">
-      <created>1597088289576</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1597088289577</updated>
-    </task>
-    <task id="LOCAL-00058" summary="Removed some of the Firebase info">
-      <created>1597094305202</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1597094305202</updated>
-    </task>
-    <task id="LOCAL-00059" summary="Removed some of the Firebase info">
-      <created>1597094449060</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1597094449060</updated>
     </task>
     <task id="LOCAL-00060" summary="Removed some of the Firebase info">
       <created>1597095046780</created>
@@ -483,7 +386,98 @@
       <option name="project" value="LOCAL" />
       <updated>1600124260829</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="Snap updated to have the product name CyBear Jinni">
+      <created>1600537675685</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1600537675686</updated>
+    </task>
+    <task id="LOCAL-00097" summary="Updated README.md">
+      <created>1600543807093</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1600543807093</updated>
+    </task>
+    <task id="LOCAL-00098" summary="Updated README.md">
+      <created>1600543908926</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1600543908927</updated>
+    </task>
+    <task id="LOCAL-00099" summary="Updated README.md">
+      <created>1600544652203</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1600544652203</updated>
+    </task>
+    <task id="LOCAL-00100" summary="Updated README.md">
+      <created>1600544764035</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1600544764035</updated>
+    </task>
+    <task id="LOCAL-00101" summary="Updated README.md">
+      <created>1600544816389</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1600544816389</updated>
+    </task>
+    <task id="LOCAL-00102" summary="Updated README.md">
+      <created>1600544844929</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1600544844929</updated>
+    </task>
+    <task id="LOCAL-00103" summary="Updated README.md">
+      <created>1600544865383</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1600544865383</updated>
+    </task>
+    <task id="LOCAL-00104" summary="Updated README.md">
+      <created>1600544913022</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1600544913022</updated>
+    </task>
+    <task id="LOCAL-00105" summary="Updated README.md">
+      <created>1600545822663</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1600545822663</updated>
+    </task>
+    <task id="LOCAL-00106" summary="Updated README.md">
+      <created>1600545894381</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1600545894382</updated>
+    </task>
+    <task id="LOCAL-00107" summary="Updated README.md">
+      <created>1600546307372</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1600546307372</updated>
+    </task>
+    <task id="LOCAL-00108" summary="Updated README.md">
+      <created>1600546398240</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1600546398240</updated>
+    </task>
+    <option name="localTasksCounter" value="109" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
@@ -533,8 +527,6 @@
       <path value="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy" />
       <path value="$PROJECT_DIR$/SmartDevice/scripts/cScripts2/snowboy" />
     </ignored-roots>
-    <MESSAGE value="Fix the bug, on release swich return back" />
-    <MESSAGE value="Changing device name in the app now update the singleton in the smart device" />
     <MESSAGE value="Flutter app 'Add devices' button now add the smart device to the rooms list" />
     <MESSAGE value="Fix saving blind object after restert and support controlling from the cloud, can now change name of blinds from the app and control the cloud when not connected to wifi" />
     <MESSAGE value="Orgenazing a little bit the Assistent project" />
@@ -558,7 +550,9 @@
     <MESSAGE value="Add to git ignore" />
     <MESSAGE value="Updating gradle version" />
     <MESSAGE value="Updating the snap to core20 and fix the remote-build not working" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updating the snap to core20 and fix the remote-build not working" />
+    <MESSAGE value="Snap updated to have the product name CyBear Jinni" />
+    <MESSAGE value="Updated README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated README.md" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -585,10 +579,11 @@
     </state>
     <state x="2426" y="169" key="#xdebugger.evaluate/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593556886204" />
     <state x="777" y="169" key="#xdebugger.evaluate/50.0.1870.1080@50.0.1870.1080" timestamp="1598707586032" />
-    <state x="2354" y="87" width="1246" height="720" key="CommitChangelistDialog2" timestamp="1600511288249">
+    <state x="1722" y="0" width="1680" height="1050" key="CommitChangelistDialog2" timestamp="1600546504037">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
-    <state x="2354" y="87" width="1246" height="720" key="CommitChangelistDialog2/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600511288249" />
+    <state x="0" y="15" width="1680" height="1050" key="CommitChangelistDialog2/1680.0.1920.1080/0.15.1680.1050@0.15.1680.1050" timestamp="1600537675500" />
+    <state x="1722" y="0" width="1878" height="1080" key="CommitChangelistDialog2/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600546504037" />
     <state x="2146" y="60" width="1034" height="984" key="CommitChangelistDialog2/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592226188839" />
     <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2/50.0.1870.1080@50.0.1870.1080" timestamp="1600192445906" />
     <state width="689" height="646" key="DebuggerActiveHint" timestamp="1598707398388">
@@ -606,27 +601,31 @@
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state x="801" y="310" key="FileChooserDialogImpl/50.0.1870.1080@50.0.1870.1080" timestamp="1600184337245" />
-    <state width="1824" height="211" key="GridCell.Tab.0.bottom" timestamp="1600510437499">
-      <screen x="1680" y="0" width="1920" height="1080" />
+    <state width="1634" height="201" key="GridCell.Tab.0.bottom" timestamp="1600532331716">
+      <screen x="0" y="15" width="1680" height="1050" />
     </state>
+    <state width="1634" height="201" key="GridCell.Tab.0.bottom/1680.0.1920.1080/0.15.1680.1050@0.15.1680.1050" timestamp="1600532331716" />
     <state width="1824" height="211" key="GridCell.Tab.0.bottom/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600510437499" />
     <state width="908" height="290" key="GridCell.Tab.0.bottom/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592233593683" />
     <state width="1824" height="255" key="GridCell.Tab.0.bottom/50.0.1870.1080@50.0.1870.1080" timestamp="1599988662630" />
-    <state width="1824" height="211" key="GridCell.Tab.0.center" timestamp="1600510437499">
-      <screen x="1680" y="0" width="1920" height="1080" />
+    <state width="1634" height="201" key="GridCell.Tab.0.center" timestamp="1600532331715">
+      <screen x="0" y="15" width="1680" height="1050" />
     </state>
+    <state width="1634" height="201" key="GridCell.Tab.0.center/1680.0.1920.1080/0.15.1680.1050@0.15.1680.1050" timestamp="1600532331715" />
     <state width="1824" height="211" key="GridCell.Tab.0.center/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600510437499" />
     <state width="908" height="290" key="GridCell.Tab.0.center/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592233593682" />
     <state width="1824" height="255" key="GridCell.Tab.0.center/50.0.1870.1080@50.0.1870.1080" timestamp="1599988662630" />
-    <state width="1824" height="211" key="GridCell.Tab.0.left" timestamp="1600510437498">
-      <screen x="1680" y="0" width="1920" height="1080" />
+    <state width="1634" height="201" key="GridCell.Tab.0.left" timestamp="1600532331715">
+      <screen x="0" y="15" width="1680" height="1050" />
     </state>
+    <state width="1634" height="201" key="GridCell.Tab.0.left/1680.0.1920.1080/0.15.1680.1050@0.15.1680.1050" timestamp="1600532331715" />
     <state width="1824" height="211" key="GridCell.Tab.0.left/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600510437498" />
     <state width="908" height="290" key="GridCell.Tab.0.left/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592233593682" />
     <state width="1824" height="255" key="GridCell.Tab.0.left/50.0.1870.1080@50.0.1870.1080" timestamp="1599988662630" />
-    <state width="1824" height="211" key="GridCell.Tab.0.right" timestamp="1600510437499">
-      <screen x="1680" y="0" width="1920" height="1080" />
+    <state width="1634" height="201" key="GridCell.Tab.0.right" timestamp="1600532331715">
+      <screen x="0" y="15" width="1680" height="1050" />
     </state>
+    <state width="1634" height="201" key="GridCell.Tab.0.right/1680.0.1920.1080/0.15.1680.1050@0.15.1680.1050" timestamp="1600532331715" />
     <state width="1824" height="211" key="GridCell.Tab.0.right/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600510437499" />
     <state width="908" height="290" key="GridCell.Tab.0.right/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592233593683" />
     <state width="1824" height="255" key="GridCell.Tab.0.right/50.0.1870.1080@50.0.1870.1080" timestamp="1599988662630" />
@@ -667,10 +666,10 @@
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state x="729" y="436" key="VCS.ChangelistChooser/50.0.1870.1080@50.0.1870.1080" timestamp="1599740299219" />
-    <state x="2263" y="284" width="808" height="537" key="Vcs.Push.Dialog.v2" timestamp="1600427184817">
+    <state x="2263" y="284" width="808" height="537" key="Vcs.Push.Dialog.v2" timestamp="1600546506138">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
-    <state x="2263" y="284" key="Vcs.Push.Dialog.v2/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600427184817" />
+    <state x="2263" y="284" key="Vcs.Push.Dialog.v2/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600546506138" />
     <state x="2263" y="284" width="800" height="536" key="Vcs.Push.Dialog.v2/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592226185587" />
     <state x="618" y="284" width="808" height="537" key="Vcs.Push.Dialog.v2/50.0.1870.1080@50.0.1870.1080" timestamp="1600124298655" />
     <state x="1779" y="90" width="1723" height="894" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1600440907174">
@@ -678,16 +677,16 @@
     </state>
     <state x="1779" y="90" width="1723" height="894" key="com.intellij.history.integration.ui.views.FileHistoryDialog/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600440907174" />
     <state x="146" y="90" width="1678" height="894" key="com.intellij.history.integration.ui.views.FileHistoryDialog/50.0.1870.1080@50.0.1870.1080" timestamp="1595682412306" />
-    <state x="2320" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1600507744067">
+    <state x="2320" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1600523536604">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
     <state x="560" y="384" key="com.intellij.ide.util.TipDialog/1680.0.1920.1080/0.15.1680.1050@0.15.1680.1050" timestamp="1600244368885" />
-    <state x="2320" y="380" key="com.intellij.ide.util.TipDialog/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600507744067" />
-    <state x="2320" y="380" key="com.intellij.ide.util.TipDialog/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1591868808304" />
+    <state x="2320" y="380" key="com.intellij.ide.util.TipDialog/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600523536604" />
     <state x="673" y="380" key="com.intellij.ide.util.TipDialog/50.0.1870.1080@50.0.1870.1080" timestamp="1600105308480" />
-    <state x="639" y="146" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1598717442975">
-      <screen x="50" y="0" width="1870" height="1080" />
+    <state x="529" y="157" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1600532233672">
+      <screen x="0" y="15" width="1680" height="1050" />
     </state>
+    <state x="529" y="157" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1680.0.1920.1080/0.15.1680.1050@0.15.1680.1050" timestamp="1600532233672" />
     <state x="639" y="146" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/50.0.1870.1080@50.0.1870.1080" timestamp="1598717442975" />
     <state x="776" y="443" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1599869984103">
       <screen x="50" y="0" width="1870" height="1080" />
@@ -697,10 +696,11 @@
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
     <state x="2196" y="185" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593593160791" />
-    <state x="2216" y="219" width="1157" height="613" key="find.popup" timestamp="1600427168230">
+    <state x="2216" y="219" width="1157" height="613" key="find.popup" timestamp="1600540860319">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
-    <state x="2216" y="219" width="1157" height="613" key="find.popup/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600427168230" />
+    <state x="469" y="228" width="1013" height="596" key="find.popup/1680.0.1920.1080/0.15.1680.1050@0.15.1680.1050" timestamp="1600537577299" />
+    <state x="2216" y="219" width="1157" height="613" key="find.popup/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600540860319" />
     <state x="2216" y="219" width="1157" height="613" key="find.popup/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592350706595" />
     <state x="568" y="214" width="1127" height="622" key="find.popup/50.0.1870.1080@50.0.1870.1080" timestamp="1600185424900" />
     <state x="738" y="160" key="git4idea.branch.GitSmartOperationDialog" timestamp="1594424609878">
