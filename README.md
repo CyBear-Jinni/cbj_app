@@ -4,7 +4,7 @@ Welcome
 
 This repository let you **create** your smart home devices.
 
-You can control does devices using physical buttons and from a smartphone app.
+You can control these devices using physical buttons and from a smartphone app.
 
 It is **not** "Home automation system" like the project [Home Assistant](https://www.home-assistant.io).
 
