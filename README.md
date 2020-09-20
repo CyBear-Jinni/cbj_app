@@ -82,7 +82,7 @@ Now you can control your smart device from the phone app 😁.
    Fill all the details according you app --> Download google-services.json .
 
    Move google-services.json into the flutter project to that location:
-   SmartHome/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/android/app/google-services.json .
+   Smart-Home/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/android/app/google-services.json .
 
 2. Copy the following fields values from the google-services.json:
 
@@ -94,7 +94,7 @@ Now you can control your smart device from the phone app 😁.
    
    the fields respectively.
    
-   Path to file: [SmartHome/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/core/constant_credentials.dart](https://github.com/CyBear-Jinni/Smart-Home/blob/master/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/core/constant_credentials.dart)
+   Path to file: [Smart-Home/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/core/constant_credentials.dart](https://github.com/CyBear-Jinni/Smart-Home/blob/master/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/core/constant_credentials.dart)
    
    In the same file insert the firebase account credentials (email and password) that we created earlier into the fields
    
