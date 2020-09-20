@@ -7,6 +7,7 @@
     <list default="true" id="96c5fe8c-119f-4135-b3fa-611215ac658f" name="Default Changelist" comment="Updated README.md">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartDevice/snap/snapcraft.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/snap/snapcraft.yaml" afterDir="false" />
     </list>
     <list id="822e4cbb-e3ae-443e-b4f6-be1b1029cae3" name="Do not commit" comment="Do not commit" />
     <option name="SHOW_DIALOG" value="false" />
@@ -133,13 +134,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1568838815383</updated>
-    </task>
-    <task id="LOCAL-00062" summary="Updated versions">
-      <created>1598048795842</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1598048795843</updated>
     </task>
     <task id="LOCAL-00063" summary="Created constant_credentials.dart and add instractions to smartDevice README.md">
       <created>1598051110178</created>
@@ -477,7 +471,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600546728919</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="Updated README.md">
+      <created>1600548986307</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1600548986307</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
@@ -579,11 +580,11 @@
     </state>
     <state x="2426" y="169" key="#xdebugger.evaluate/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593556886204" />
     <state x="777" y="169" key="#xdebugger.evaluate/50.0.1870.1080@50.0.1870.1080" timestamp="1598707586032" />
-    <state x="1722" y="0" width="1680" height="1050" key="CommitChangelistDialog2" timestamp="1600548529697">
+    <state x="1722" y="0" width="1680" height="1050" key="CommitChangelistDialog2" timestamp="1600595189809">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
     <state x="0" y="15" width="1680" height="1050" key="CommitChangelistDialog2/1680.0.1920.1080/0.15.1680.1050@0.15.1680.1050" timestamp="1600537675500" />
-    <state x="1722" y="0" width="1878" height="1080" key="CommitChangelistDialog2/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600548529697" />
+    <state x="1722" y="0" width="1878" height="1080" key="CommitChangelistDialog2/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600595189809" />
     <state x="2146" y="60" width="1034" height="984" key="CommitChangelistDialog2/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592226188839" />
     <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2/50.0.1870.1080@50.0.1870.1080" timestamp="1600192445906" />
     <state width="689" height="646" key="DebuggerActiveHint" timestamp="1598707398388">
@@ -677,11 +678,11 @@
     </state>
     <state x="1779" y="90" width="1723" height="894" key="com.intellij.history.integration.ui.views.FileHistoryDialog/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600440907174" />
     <state x="146" y="90" width="1678" height="894" key="com.intellij.history.integration.ui.views.FileHistoryDialog/50.0.1870.1080@50.0.1870.1080" timestamp="1595682412306" />
-    <state x="2320" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1600523536604">
+    <state x="2320" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1600594985837">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
     <state x="560" y="384" key="com.intellij.ide.util.TipDialog/1680.0.1920.1080/0.15.1680.1050@0.15.1680.1050" timestamp="1600244368885" />
-    <state x="2320" y="380" key="com.intellij.ide.util.TipDialog/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600523536604" />
+    <state x="2320" y="380" key="com.intellij.ide.util.TipDialog/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600594985837" />
     <state x="673" y="380" key="com.intellij.ide.util.TipDialog/50.0.1870.1080@50.0.1870.1080" timestamp="1600105308480" />
     <state x="529" y="157" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1600532233672">
       <screen x="0" y="15" width="1680" height="1050" />
