@@ -41,6 +41,8 @@ Copy [the script](https://github.com/guyluz11/Smart-Home/blob/master/Scripts/Scr
 change the values wifiSsid into the name of your Wi-Fi and wifiPassword into the Wi-Fi password, it is necessary so that your device will be able to connect to the Wi-Fi.
 Now run the script and it will configure and install the program to your device.
 
+It is recommended to lock the IP of the smart device in the router settings.
+
 The device is now ready.
 
 ### Phone app preparations:
