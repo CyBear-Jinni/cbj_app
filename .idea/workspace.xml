@@ -4,10 +4,9 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96c5fe8c-119f-4135-b3fa-611215ac658f" name="Default Changelist" comment="Updated README.md">
+    <list default="true" id="96c5fe8c-119f-4135-b3fa-611215ac658f" name="Default Changelist" comment="Updated README.md, change confinement of the snap to strict">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/snap/snapcraft.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/snap/snapcraft.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Scripts_for_new_device/setup_new_smart_device.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Scripts_for_new_device/setup_new_smart_device.sh" afterDir="false" />
     </list>
     <list id="822e4cbb-e3ae-443e-b4f6-be1b1029cae3" name="Do not commit" comment="Do not commit" />
     <option name="SHOW_DIALOG" value="false" />
@@ -134,13 +133,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1568838815383</updated>
-    </task>
-    <task id="LOCAL-00063" summary="Created constant_credentials.dart and add instractions to smartDevice README.md">
-      <created>1598051110178</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1598051110178</updated>
     </task>
     <task id="LOCAL-00064" summary="Created constant_credentials.dart and add instractions to smartDevice README.md">
       <created>1598051253322</created>
@@ -478,7 +470,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600548986307</updated>
     </task>
-    <option name="localTasksCounter" value="112" />
+    <task id="LOCAL-00112" summary="Updated README.md, change confinement of the snap to strict">
+      <created>1600602936701</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1600602936701</updated>
+    </task>
+    <option name="localTasksCounter" value="113" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
@@ -528,7 +527,6 @@
       <path value="$PROJECT_DIR$/SmartDevice/scripts/cScripts/snowboy" />
       <path value="$PROJECT_DIR$/SmartDevice/scripts/cScripts2/snowboy" />
     </ignored-roots>
-    <MESSAGE value="Flutter app 'Add devices' button now add the smart device to the rooms list" />
     <MESSAGE value="Fix saving blind object after restert and support controlling from the cloud, can now change name of blinds from the app and control the cloud when not connected to wifi" />
     <MESSAGE value="Orgenazing a little bit the Assistent project" />
     <MESSAGE value="Updating packages and start removing passwords from the project" />
@@ -553,7 +551,8 @@
     <MESSAGE value="Updating the snap to core20 and fix the remote-build not working" />
     <MESSAGE value="Snap updated to have the product name CyBear Jinni" />
     <MESSAGE value="Updated README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated README.md" />
+    <MESSAGE value="Updated README.md, change confinement of the snap to strict" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated README.md, change confinement of the snap to strict" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -580,11 +579,11 @@
     </state>
     <state x="2426" y="169" key="#xdebugger.evaluate/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593556886204" />
     <state x="777" y="169" key="#xdebugger.evaluate/50.0.1870.1080@50.0.1870.1080" timestamp="1598707586032" />
-    <state x="1722" y="0" width="1680" height="1050" key="CommitChangelistDialog2" timestamp="1600595189809">
+    <state x="1722" y="0" width="1680" height="1050" key="CommitChangelistDialog2" timestamp="1600641194452">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
     <state x="0" y="15" width="1680" height="1050" key="CommitChangelistDialog2/1680.0.1920.1080/0.15.1680.1050@0.15.1680.1050" timestamp="1600537675500" />
-    <state x="1722" y="0" width="1878" height="1080" key="CommitChangelistDialog2/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600595189809" />
+    <state x="1722" y="0" width="1878" height="1080" key="CommitChangelistDialog2/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600641194452" />
     <state x="2146" y="60" width="1034" height="984" key="CommitChangelistDialog2/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592226188839" />
     <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2/50.0.1870.1080@50.0.1870.1080" timestamp="1600192445906" />
     <state width="689" height="646" key="DebuggerActiveHint" timestamp="1598707398388">
@@ -593,10 +592,10 @@
     <state width="707" height="646" key="DebuggerActiveHint/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593600033477" />
     <state width="473" height="646" key="DebuggerActiveHint/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592233341232" />
     <state width="689" height="646" key="DebuggerActiveHint/50.0.1870.1080@50.0.1870.1080" timestamp="1598707398388" />
-    <state x="1733" y="-26" width="2147" height="1126" key="DiffContextDialog" timestamp="1600426961519">
+    <state x="1726" y="-10" width="1878" height="1094" key="DiffContextDialog" timestamp="1600641203204">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
-    <state x="1733" y="-26" width="2147" height="1126" key="DiffContextDialog/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600426961519" />
+    <state x="1726" y="-10" width="1878" height="1094" key="DiffContextDialog/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600641203204" />
     <state x="46" y="-10" width="1878" height="1094" maximized="true" key="DiffContextDialog/50.0.1870.1080@50.0.1870.1080" timestamp="1599471534050" />
     <state x="801" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1600184337245">
       <screen x="50" y="0" width="1870" height="1080" />
@@ -667,10 +666,10 @@
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state x="729" y="436" key="VCS.ChangelistChooser/50.0.1870.1080@50.0.1870.1080" timestamp="1599740299219" />
-    <state x="2263" y="284" width="808" height="537" key="Vcs.Push.Dialog.v2" timestamp="1600546731193">
+    <state x="2263" y="284" width="808" height="537" key="Vcs.Push.Dialog.v2" timestamp="1600641222388">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
-    <state x="2263" y="284" key="Vcs.Push.Dialog.v2/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600546731193" />
+    <state x="2263" y="284" key="Vcs.Push.Dialog.v2/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600641222388" />
     <state x="2263" y="284" width="800" height="536" key="Vcs.Push.Dialog.v2/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592226185587" />
     <state x="618" y="284" width="808" height="537" key="Vcs.Push.Dialog.v2/50.0.1870.1080@50.0.1870.1080" timestamp="1600124298655" />
     <state x="1779" y="90" width="1723" height="894" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1600440907174">
@@ -678,11 +677,11 @@
     </state>
     <state x="1779" y="90" width="1723" height="894" key="com.intellij.history.integration.ui.views.FileHistoryDialog/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600440907174" />
     <state x="146" y="90" width="1678" height="894" key="com.intellij.history.integration.ui.views.FileHistoryDialog/50.0.1870.1080@50.0.1870.1080" timestamp="1595682412306" />
-    <state x="2320" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1600594985837">
+    <state x="2320" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1600641189983">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
     <state x="560" y="384" key="com.intellij.ide.util.TipDialog/1680.0.1920.1080/0.15.1680.1050@0.15.1680.1050" timestamp="1600244368885" />
-    <state x="2320" y="380" key="com.intellij.ide.util.TipDialog/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600594985837" />
+    <state x="2320" y="380" key="com.intellij.ide.util.TipDialog/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600641189983" />
     <state x="673" y="380" key="com.intellij.ide.util.TipDialog/50.0.1870.1080@50.0.1870.1080" timestamp="1600105308480" />
     <state x="529" y="157" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1600532233672">
       <screen x="0" y="15" width="1680" height="1050" />
@@ -697,11 +696,11 @@
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
     <state x="2196" y="185" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593593160791" />
-    <state x="2216" y="219" width="1157" height="613" key="find.popup" timestamp="1600540860319">
+    <state x="2216" y="219" width="1157" height="613" key="find.popup" timestamp="1600641596589">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
     <state x="469" y="228" width="1013" height="596" key="find.popup/1680.0.1920.1080/0.15.1680.1050@0.15.1680.1050" timestamp="1600537577299" />
-    <state x="2216" y="219" width="1157" height="613" key="find.popup/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600540860319" />
+    <state x="2216" y="219" width="1157" height="613" key="find.popup/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600641596589" />
     <state x="2216" y="219" width="1157" height="613" key="find.popup/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592350706595" />
     <state x="568" y="214" width="1127" height="622" key="find.popup/50.0.1870.1080@50.0.1870.1080" timestamp="1600185424900" />
     <state x="738" y="160" key="git4idea.branch.GitSmartOperationDialog" timestamp="1594424609878">
