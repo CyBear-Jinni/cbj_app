@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96c5fe8c-119f-4135-b3fa-611215ac658f" name="Default Changelist" comment="Updated README.md, change confinement of the snap to strict">
+      <change beforePath="$PROJECT_DIR$/.idea/SmartHome.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SmartHome.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/Scripts_for_new_device/setup_new_smart_device.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Scripts_for_new_device/setup_new_smart_device.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NetworkManager/NetworkManagerDart/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/NetworkManager/NetworkManagerDart/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <list id="822e4cbb-e3ae-443e-b4f6-be1b1029cae3" name="Do not commit" comment="Do not commit" />
     <option name="SHOW_DIALOG" value="false" />
@@ -677,11 +680,11 @@
     </state>
     <state x="1779" y="90" width="1723" height="894" key="com.intellij.history.integration.ui.views.FileHistoryDialog/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600440907174" />
     <state x="146" y="90" width="1678" height="894" key="com.intellij.history.integration.ui.views.FileHistoryDialog/50.0.1870.1080@50.0.1870.1080" timestamp="1595682412306" />
-    <state x="2320" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1600641189983">
+    <state x="2320" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1600643221143">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
     <state x="560" y="384" key="com.intellij.ide.util.TipDialog/1680.0.1920.1080/0.15.1680.1050@0.15.1680.1050" timestamp="1600244368885" />
-    <state x="2320" y="380" key="com.intellij.ide.util.TipDialog/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600641189983" />
+    <state x="2320" y="380" key="com.intellij.ide.util.TipDialog/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600643221143" />
     <state x="673" y="380" key="com.intellij.ide.util.TipDialog/50.0.1870.1080@50.0.1870.1080" timestamp="1600105308480" />
     <state x="529" y="157" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1600532233672">
       <screen x="0" y="15" width="1680" height="1050" />
@@ -696,11 +699,11 @@
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
     <state x="2196" y="185" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593593160791" />
-    <state x="2216" y="219" width="1157" height="613" key="find.popup" timestamp="1600641596589">
+    <state x="2216" y="219" width="1157" height="613" key="find.popup" timestamp="1600643335078">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
     <state x="469" y="228" width="1013" height="596" key="find.popup/1680.0.1920.1080/0.15.1680.1050@0.15.1680.1050" timestamp="1600537577299" />
-    <state x="2216" y="219" width="1157" height="613" key="find.popup/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600641596589" />
+    <state x="2216" y="219" width="1157" height="613" key="find.popup/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600643335078" />
     <state x="2216" y="219" width="1157" height="613" key="find.popup/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592350706595" />
     <state x="568" y="214" width="1127" height="622" key="find.popup/50.0.1870.1080@50.0.1870.1080" timestamp="1600185424900" />
     <state x="738" y="160" key="git4idea.branch.GitSmartOperationDialog" timestamp="1594424609878">

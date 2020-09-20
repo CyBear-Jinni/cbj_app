@@ -37,7 +37,7 @@ This part will be published in the snap store in order to have easy way to updat
 
 ### Smart device preparations:
 
-Copy [the script](https://github.com/guyluz11/Smart-Home/blob/master/Scripts/Scripts_for_new_device/setup_new_smart_device.sh) to your device,
+Copy [the script](https://github.com/CyBear-Jinni/Smart-Home/blob/master/Scripts/Scripts_for_new_device/setup_new_smart_device.sh) to your device,
 change the values wifiSsid into the name of your Wi-Fi and wifiPassword into the Wi-Fi password, it is necessary so that your device will be able to connect to the Wi-Fi.
 Now run the script and it will configure and install the program to your device.
 
@@ -94,7 +94,7 @@ Now you can control your smart device from the phone app 😁.
    
    the fields respectively.
    
-   Path to file: [SmartHome/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/core/constant_credentials.dart](https://github.com/guyluz11/Smart-Home/blob/master/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/core/constant_credentials.dart)
+   Path to file: [SmartHome/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/core/constant_credentials.dart](https://github.com/CyBear-Jinni/Smart-Home/blob/master/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/core/constant_credentials.dart)
    
    In the same file insert the firebase account credentials (email and password) that we created earlier into the fields
    
