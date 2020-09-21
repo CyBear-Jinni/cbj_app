@@ -7,9 +7,7 @@
     <list default="true" id="96c5fe8c-119f-4135-b3fa-611215ac658f" name="Default Changelist" comment="Updated README.md, change confinement of the snap to strict">
       <change beforePath="$PROJECT_DIR$/.idea/SmartHome.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SmartHome.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assistant/Assistant/lib/features/hot_key_word/infrastructure/datasources/core_d/microphone/python_speech_to_text.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Assistant/Assistant/lib/features/hot_key_word/infrastructure/datasources/core_d/microphone/python_speech_to_text.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/core_d/microphone/python_speech_to_text.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/infrastructure/datasources/core_d/microphone/python_speech_to_text.dart" afterDir="false" />
     </list>
     <list id="822e4cbb-e3ae-443e-b4f6-be1b1029cae3" name="Do not commit" comment="Do not commit" />
     <option name="SHOW_DIALOG" value="false" />
@@ -711,11 +709,11 @@
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
     <state x="2196" y="185" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593593160791" />
-    <state x="2216" y="219" width="1157" height="613" key="find.popup" timestamp="1600644582713">
+    <state x="2214" y="219" width="1157" height="613" key="find.popup" timestamp="1600647389055">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
     <state x="469" y="228" width="1013" height="596" key="find.popup/1680.0.1920.1080/0.15.1680.1050@0.15.1680.1050" timestamp="1600537577299" />
-    <state x="2216" y="219" width="1157" height="613" key="find.popup/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600644582713" />
+    <state x="2214" y="219" width="1157" height="613" key="find.popup/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600647389055" />
     <state x="2216" y="219" width="1157" height="613" key="find.popup/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592350706595" />
     <state x="568" y="214" width="1127" height="622" key="find.popup/50.0.1870.1080@50.0.1870.1080" timestamp="1600185424900" />
     <state x="738" y="160" key="git4idea.branch.GitSmartOperationDialog" timestamp="1594424609878">
