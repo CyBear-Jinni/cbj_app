@@ -12,13 +12,13 @@ It is **not** "Home automation system" like the project [Home Assistant](https:/
 
 The project is made out of two main parts:
 
-### Phone app
+### Smart phone app
 
 [FlutterApp](https://github.com/CyBear-Jinni/Smart-Home/tree/master/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter) is (you guessed it) the flutter app.
 This is the android and ios app written in [Flutter](https://flutter.dev) that let you control all the devices using local Wi-Fi and remotely through Google [Cloud Firestore](https://firebase.google.com/docs/firestore).
 
 
-### Smart Device
+### Smart device
 
 [SmartDevice](https://github.com/CyBear-Jinni/Smart-Home/tree/master/SmartDevice/SmartDeviceDart) is the smart device software installed on physical device (now only NanoPi Duo2).
 It lets you control (for now) only lights and blinds using physical buttons and the phone app.
@@ -67,7 +67,7 @@ Now you can control your smart device from the phone app 😁.
 
 
 ## Instructions for developers
-### Flutter App:
+### Flutter app:
 1. Insert your Firebase configuration into your flutter app.
 
    * Create a [firebase console project](https://console.firebase.google.com) for your smart home.

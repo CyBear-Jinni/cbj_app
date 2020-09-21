@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96c5fe8c-119f-4135-b3fa-611215ac658f" name="Default Changelist" comment="Updated README.md, change confinement of the snap to strict">
-      <change beforePath="$PROJECT_DIR$/.idea/SmartHome.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SmartHome.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/button_object_u/button_object_local_u.dart" beforeDir="false" afterPath="$PROJECT_DIR$/SmartDevice/SmartDeviceDart/lib/features/smart_device/application/usecases/button_object_u/button_object_local_u.dart" afterDir="false" />
     </list>
     <list id="822e4cbb-e3ae-443e-b4f6-be1b1029cae3" name="Do not commit" comment="Do not commit" />
@@ -142,13 +141,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1568838815383</updated>
-    </task>
-    <task id="LOCAL-00064" summary="Created constant_credentials.dart and add instractions to smartDevice README.md">
-      <created>1598051253322</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1598051253322</updated>
     </task>
     <task id="LOCAL-00065" summary="Add constant_credentials.dart to .gitignore">
       <created>1598051425454</created>
@@ -486,7 +478,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600602936701</updated>
     </task>
-    <option name="localTasksCounter" value="113" />
+    <task id="LOCAL-00113" summary="Updated README.md, change confinement of the snap to strict">
+      <created>1600720423798</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1600720423799</updated>
+    </task>
+    <option name="localTasksCounter" value="114" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
@@ -593,11 +592,11 @@
     </state>
     <state x="2426" y="169" key="#xdebugger.evaluate/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593556886204" />
     <state x="777" y="169" key="#xdebugger.evaluate/50.0.1870.1080@50.0.1870.1080" timestamp="1598707586032" />
-    <state x="1722" y="0" width="1680" height="1050" key="CommitChangelistDialog2" timestamp="1600687164448">
+    <state x="1722" y="0" width="1680" height="1050" key="CommitChangelistDialog2" timestamp="1600720429750">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
     <state x="0" y="15" width="1680" height="1050" key="CommitChangelistDialog2/1680.0.1920.1080/0.15.1680.1050@0.15.1680.1050" timestamp="1600537675500" />
-    <state x="1722" y="0" width="1878" height="1080" key="CommitChangelistDialog2/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600687164448" />
+    <state x="1722" y="0" width="1878" height="1080" key="CommitChangelistDialog2/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600720429750" />
     <state x="2146" y="60" width="1034" height="984" key="CommitChangelistDialog2/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592226188839" />
     <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2/50.0.1870.1080@50.0.1870.1080" timestamp="1600192445906" />
     <state width="689" height="646" key="DebuggerActiveHint" timestamp="1598707398388">
@@ -681,10 +680,10 @@
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
     <state x="729" y="436" key="VCS.ChangelistChooser/50.0.1870.1080@50.0.1870.1080" timestamp="1599740299219" />
-    <state x="2263" y="284" width="808" height="537" key="Vcs.Push.Dialog.v2" timestamp="1600644375064">
+    <state x="2263" y="284" width="808" height="537" key="Vcs.Push.Dialog.v2" timestamp="1600720433367">
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
-    <state x="2263" y="284" key="Vcs.Push.Dialog.v2/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600644375064" />
+    <state x="2263" y="284" key="Vcs.Push.Dialog.v2/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600720433367" />
     <state x="2263" y="284" width="800" height="536" key="Vcs.Push.Dialog.v2/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592226185587" />
     <state x="618" y="284" width="808" height="537" key="Vcs.Push.Dialog.v2/50.0.1870.1080@50.0.1870.1080" timestamp="1600124298655" />
     <state x="1779" y="90" width="1723" height="894" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1600440907174">
