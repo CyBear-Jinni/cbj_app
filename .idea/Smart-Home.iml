@@ -3,6 +3,7 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/build" />
       <excludeFolder url="file://$MODULE_DIR$/SmartDevice/SmartDeviceDart/.pub" />
