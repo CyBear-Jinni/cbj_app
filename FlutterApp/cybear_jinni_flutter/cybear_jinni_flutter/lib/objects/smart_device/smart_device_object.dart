@@ -50,7 +50,7 @@ class SmartDeviceObject {
     return 'Error getting device state';
   }
 
-  //  Not working, maybe not support android 10 yet https://github.com/flutter/flutter/issues/51529
+  //  Does not work if you do not turn your location (not permission) on https://github.com/flutter/flutter/issues/51529 android 10+ rules
   Future<String> getCurrentWifiName() async {
     String wifiName = '';
 
@@ -95,7 +95,7 @@ class SmartDeviceObject {
 
   Future<String> getDeviceStatesLocal() async {
     String deviceStateString = await getDeviceStateRequest(this);
-    print("Go on little one: " + deviceStateString);
+    print('Go on little one: ' + deviceStateString);
     return deviceStateString;
   }
 
@@ -110,11 +110,13 @@ class SmartDeviceObject {
     var connectivityResult = await (Connectivity().checkConnectivity());
 
     if (connectivityResult == ConnectivityResult.wifi &&
-        await getCurrentWifiName() ==
-            homeWifiName) { //  If current network is the network of the smart device set using the local method and not the remote
+        await getCurrentWifiName() == homeWifiName) {
+      //  If current network is the network of the smart device set using the local method and not the remote
+      print('Set light state ' + state.toString() + ' local');
       return await setLightStateLocal(state);
     } else if (connectivityResult == ConnectivityResult.wifi ||
         connectivityResult == ConnectivityResult.mobile) {
+      print('Set light state ' + state.toString() + ' remote');
       return await setLightStateRemote(state);
     } else {
       print('Not connected to a network');
