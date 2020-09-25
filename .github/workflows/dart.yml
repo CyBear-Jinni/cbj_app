@@ -1,0 +1,24 @@
+name: Dart CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    container:
+      image:  google/dart:latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install dependencies
+      working-directory: FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter
+      run: pub get
+    - name: Run tests
+      working-directory: FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter
+      run: pub run test
