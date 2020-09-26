@@ -1,1 +1,92 @@
-# CyBear Jinni Smartphone App
+# CyBear Jinni App
+
+Welcome
+
+This repository is in charge of the CyBear Jinni App and is part of the [CyBear Jinni Smart Home](https://github.com/CyBear-Jinni/CBJ_Smart-Home.git) system.
+
+The CyBear Jinni App lets you control and manage the [CyBear Jinni smart devices](https://github.com/CyBear-Jinni/CBJ_Smart-Device.git) through your Android and IOS smartphones.
+
+The CBJ App is written in [Flutter](https://flutter.dev) and let you control all the CBJ Smart Devices using local Wi-Fi and remotely through Google [Cloud Firestore](https://firebase.google.com/docs/firestore).
+
+
+## To get the project running
+
+### Attention
+
+* The app is not in the play store so you will need to upload it to your phone with a little knowledge about [Flutter](https://flutter.dev).
+
+
+### Phone app preparations:
+
+We need to install the app to your phone.
+For now the app is not in the play store so jump to [Instructions for developers](#instructions-for-developers) part and do it manually.
+
+
+
+
+### Connecting the smart device to the phone app:
+
+Find the smart device Wi-Fi IP, it will be something like 10.0.0.12 .
+
+Connect the phone to your home Wi-Fi.
+
+Now we need to link the smart device inside the phone app.
+
+In the app go to: "Lamps" tab --> Press the cog in the top right corner --> Press the plus button --> Insert the smart device IP and press "Add" --> Change the device name and press the "Update" button --> Press the "Add devices".
+
+That's it.
+
+Now you can control your smart device from the phone app 😁.
+
+
+## Instructions for developers
+### Flutter app:
+1. Insert your Firebase configuration into your flutter app.
+
+   * Create a [firebase console project](https://console.firebase.google.com) for your smart home.
+   
+   * Add authentication user
+   
+   Location: [https://console.firebase.google.com](https://console.firebase.google.com) --> Select project --> In the left side navigation drawer under the "Develop" click the "Authentication" text --> Click the button "Add user" --> Fill email and password and press "Add user" button.
+   
+   * Download the google-services.json file from your Firebase console project.
+
+   Location: [https://console.firebase.google.com](https://console.firebase.google.com) --> Select project --> In the left side navigation drawer click on the cog at the top -->
+   Project settings (It will take you to the General tab) --> Click "Add app" --> choose "Android" -->
+   Fill all the details according you app --> Download google-services.json .
+
+   Move google-services.json into the flutter project to the [.../android/app/](https://github.com/CyBear-Jinni/Smart-Home/tree/master/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/android/app) folder.
+
+2. Copy the following fields values from the google-services.json:
+
+   project_id, current_key 
+   
+   into the file [constant_credentials.dart](https://github.com/CyBear-Jinni/Smart-Home/blob/master/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/core/constant_credentials.dart) to
+   
+   fireBaseProjectId, fireBaseApiKey
+   
+   fields respectively.
+      
+   In the [same file](https://github.com/CyBear-Jinni/Smart-Home/blob/master/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/lib/core/constant_credentials.dart) insert the firebase account credentials (email and password) that we created earlier into the fields
+   
+   userEmail, userPassword.
+   
+   Congratulations now deploy the app to your phone and you can connect to the smart devices with your own Cloud Firebase.
+
+## Architecture
+
+The code is based on DDD (Domain-Driven Design) principles, you can learn it from [here](https://www.youtube.com/watch?v=RMiN59x3uH0&list=PLB6lc7nQ1n4iS5p-IezFFgqP6YvAJy84U).
+
+**Architecture diagram:**
+
+<p align="center">
+<img src="https://resocoder.com/wp-content/uploads/2020/03/DDD-Flutter-Diagram-v3.svg" width="400">
+</p>
+
+
+## Disclaimers
+
+**Use at Your Own Risk,**
+**we do not take responsibility on any outcome using anything in this repo.**
+
+The project is under heavy work and may contain bugs and incorrect instructions.
