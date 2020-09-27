@@ -13,34 +13,39 @@ The CBJ App is written in [Flutter](https://flutter.dev) and let you control all
 
 ### Attention
 
-* The app is not in the play store so you will need to upload it to your phone with a little knowledge about [Flutter](https://flutter.dev).
+* The app is not in the play store so you will need to upload it to your smartphone with a little knowledge about [Flutter](https://flutter.dev).
 
 
-### Phone app preparations:
+### App preparations:
 
-We need to install the app to your phone.
-For now the app is not in the play store so jump to [Instructions for developers](#instructions-for-developers) part and do it manually.
+We need to install the app to your smartphone.
+
+For now the app is not in the play store so install the [flutter project](https://github.com/CyBear-Jinni/CBJ_App/tree/dev/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter) to your phone manually.
+
+[Instructions for developers](#instructions-for-developers) part is needed in order to connect the application to the smart devices, if you do not intend to do so than you can just run the app without extra steps.
 
 
 
 
-### Connecting the smart device to the phone app:
+### Connecting the smart device to the CyBear Jinni App:
 
 Find the smart device Wi-Fi IP, it will be something like 10.0.0.12 .
 
 Connect the phone to your home Wi-Fi.
 
-Now we need to link the smart device inside the phone app.
+Now we need to link the smart device from inside the phone app.
 
 In the app go to: "Lamps" tab --> Press the cog in the top right corner --> Press the plus button --> Insert the smart device IP and press "Add" --> Change the device name and press the "Update" button --> Press the "Add devices".
 
 That's it.
 
-Now you can control your smart device from the phone app 😁.
+Now you can control your smart device from the CyBear Jinni App 😁.
 
 
 ## Instructions for developers
-### Flutter app:
+
+* This part is only required if you are going to connect the application to the smart devices, if not you can just run the app without extra steps. 
+
 1. Insert your Firebase configuration into your flutter app.
 
    * Create a [firebase console project](https://console.firebase.google.com) for your smart home.
