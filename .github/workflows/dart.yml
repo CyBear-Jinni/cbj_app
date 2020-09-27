@@ -20,7 +20,9 @@ jobs:
         with:
           java-version: '12.x'
       - uses: subosito/flutter-action@v1
-        with:
-          working-directory: FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter
-      - run: flutter pub get
-      - run: flutter test
+      - name: Install dependencies
+        working-directory: SmartDevice/SmartDeviceDart
+        run: flutter pub get
+      - name: Run tests
+        working-directory: SmartDevice/SmartDeviceDart
+        run: flutter test
