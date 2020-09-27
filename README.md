@@ -19,7 +19,10 @@ The CBJ App is written in [Flutter](https://flutter.dev) and let you control all
 ### App preparations:
 
 We need to install the app to your smartphone.
-For now the app is not in the play store so jump to [Instructions for developers](#instructions-for-developers) part and do it manually.
+
+For now the app is not in the play store so install the [flutter project](https://github.com/CyBear-Jinni/CBJ_App/tree/dev/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter) to your phone manually.
+
+[Instructions for developers](#instructions-for-developers) part is needed in order to connect the application to the smart devices, if you do not intend to do so than you can just run the app without extra steps.
 
 
 
@@ -40,7 +43,9 @@ Now you can control your smart device from the CyBear Jinni App 😁.
 
 
 ## Instructions for developers
-### Flutter app:
+
+* This part is only required if you are going to connect the application to the smart devices, if not you can just run the app without extra steps. 
+
 1. Insert your Firebase configuration into your flutter app.
 
    * Create a [firebase console project](https://console.firebase.google.com) for your smart home.
