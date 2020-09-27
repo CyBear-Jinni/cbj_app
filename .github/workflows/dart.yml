@@ -21,7 +21,7 @@ jobs:
         java-version: '12.x'
     - uses: subosito/flutter-action@v1
       with:
-        flutter-version: '1.9.1+hotfix.6'
+        flutter-version: '1.20.3'
     - name: Install dependencies
       working-directory: FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/
       run: flutter pub get
