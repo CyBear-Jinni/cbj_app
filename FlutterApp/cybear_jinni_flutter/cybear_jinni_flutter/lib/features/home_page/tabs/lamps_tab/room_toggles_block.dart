@@ -26,7 +26,7 @@ class RoomTogglesBlock extends StatelessWidget {
             child: FlatButton(
               onPressed: () => Navigator.pushNamed(
                 context,
-                '/roomRage/' + _smartRoomObject.getRoomName(),
+                '/roomPage/' + _smartRoomObject.getRoomName(),
               ),
               color: Colors.transparent,
               child: Text(
