@@ -30,7 +30,7 @@ class BlindsManagerWidget extends StatelessWidget {
                   fontSize: 16.0),
 //                  Navigator.pushNamed(
 //                context,
-//                '/roomRage/' + index.toString(),
+//                '/roomPage/' + index.toString(),
 //              ),
               color: Colors.transparent,
               child: Text(
