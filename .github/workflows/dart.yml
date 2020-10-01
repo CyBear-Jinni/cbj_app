@@ -28,8 +28,6 @@ jobs:
       with:
         java-version: '12.x'
     - name: Install dependencies
-      working-directory: FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/
       run: flutter pub get
     - name: Run tests
-      working-directory: FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/
       run: flutter test
