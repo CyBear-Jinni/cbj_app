@@ -1,3 +1,4 @@
+import 'package:CyBearJinni/features/registration_page/registration_page.dart';
 import 'package:flutter/material.dart';
 
 import 'form_widget.dart';
@@ -14,6 +15,19 @@ class LoginPage extends StatelessWidget {
         radius: 48.0,
         child: Image.asset('assets/logo.png'),
       ),
+    );
+
+    final createNewAccount = FlatButton(
+      child: Text(
+        'Create new account',
+        style: TextStyle(color: Colors.black54),
+      ),
+      onPressed: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (BuildContext context) => RegistrationPage()));
+      },
     );
 
     final forgotPassword = FlatButton(
@@ -38,6 +52,7 @@ class LoginPage extends StatelessWidget {
               logo,
               SizedBox(height: 48.0),
               FormWidget(),
+              createNewAccount,
               forgotPassword,
             ],
           ),

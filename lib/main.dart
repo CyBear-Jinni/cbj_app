@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
         final List<String> pathElements = settings.name.split('/');
         if (pathElements[0] != '') {
           return null;
-        } else if (pathElements[1] == 'roomRage') {
+        } else if (pathElements[1] == 'roomPage') {
           return MaterialPageRoute(
               builder: (BuildContext context) => RoomPage(rooms
                   .firstWhere((room) => room.getRoomName() == pathElements[2])
