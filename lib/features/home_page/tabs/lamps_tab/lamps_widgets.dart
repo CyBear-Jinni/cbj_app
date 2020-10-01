@@ -1,8 +1,8 @@
-import 'package:CyBearJinni/features/home_page/tabs/lamps_tab/settings_page_of_lamps.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../rooms_manager_widget.dart';
+import 'settings_page_of_lamps.dart';
 
 class LampsWidgets extends StatelessWidget {
   @override

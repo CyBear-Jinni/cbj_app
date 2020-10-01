@@ -1,12 +1,13 @@
-import 'package:CyBearJinni/features/home_page/smart_device_widget.dart';
-import 'package:CyBearJinni/features/home_page/tabs/smart_devices_tab/blinds/smart_blind_widget.dart';
-import 'package:CyBearJinni/objects/enums.dart';
-import 'package:CyBearJinni/objects/interface_darta/cloud_interface_data.dart';
-import 'package:CyBearJinni/objects/smart_device/send_to_smart_device.dart';
-import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
-import 'package:CyBearJinni/objects/smart_device/smart_room_object.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import '../../objects/enums.dart';
+import '../../objects/interface_darta/cloud_interface_data.dart';
+import '../../objects/smart_device/send_to_smart_device.dart';
+import '../../objects/smart_device/smart_device_object.dart';
+import '../../objects/smart_device/smart_room_object.dart';
+import '../home_page/smart_device_widget.dart';
+import '../home_page/tabs/smart_devices_tab/blinds/smart_blind_widget.dart';
 
 class InsertDetailsOfNewDevice extends StatelessWidget {
   final String _ip;
@@ -86,7 +87,6 @@ class _ShowAllDevicesInTheSmartDevice
 
   List<Widget> listOfDevicesToShow() {
     List<Widget> widgetList = List<Widget>();
-    TextEditingController newDeviceTextFormFieldText;
     for (SmartDeviceObject smartDeviceObject in smartDeviceObjectList) {
       widgetList.add(NewDeviceWidget(smartDeviceObject));
     }

@@ -1,9 +1,10 @@
 import 'dart:async';
 
-import 'package:CyBearJinni/objects/smart_device/smart_blinds_object.dart';
-import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import '../../../../../objects/smart_device/smart_blinds_object.dart';
+import '../../../../../objects/smart_device/smart_device_object.dart';
 
 class SmartBlindPage extends StatefulWidget {
   final SmartDeviceObject device;
