@@ -1,23 +1,44 @@
-# See https://www.dartlang.org/guides/libraries/private-files
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
 
-# Files and directories created by pub
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
 .dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
 .packages
+.pub-cache/
 .pub/
-build/
-# If you're building an application, you may want to check-in your pubspec.lock
-pubspec.lock
+/build/
 
-# Directory created by dartdoc
-# If you don't generate documentation locally you can remove this line.
-doc/api/
-smart_home_flutter/gen/
-/SmartDevice/parts/
-/SmartDevice/prime/
-/SmartDevice/stage/
-/SmartDevice/*.snap
-/SmartDevice/*_armhf.txt
-/FlutterApp/smart_home_flutter/ios/Flutter/flutter_export_environment.sh
-/FlutterApp/smart_home_flutter/.flutter-plugins-dependencies
+# Web related
+lib/generated_plugin_registrant.dart
 
-/Files/googlePlayStore/
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Exceptions to above rules.
+!/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
