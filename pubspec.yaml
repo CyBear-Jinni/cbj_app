@@ -45,6 +45,8 @@ dependencies:
   cupertino_icons: ^1.0.0
   # Popup that ask for the requested permission
   permission_handler: ^5.0.1+1
+  # This package provides linter rules corresponding to the guidelines in Effective Dart.
+  effective_dart: ^1.2.4
 
 dev_dependencies:
   flutter_test:
