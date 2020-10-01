@@ -1,0 +1,35 @@
+name: Dart CI
+
+on:
+  push:
+    branches: [ master, dev ]
+  pull_request:
+    branches: [ master, dev ]
+  workflow_dispatch:
+
+env:
+  flutter_channel: 'stable' # or: 'dev' or 'beta'
+  flutter_version: '1.20.3'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      
+    - uses: subosito/flutter-action@v1
+      with:
+        channel: ${{ env.flutter_channel }}
+        flutter-version: ${{ env.flutter_version }}
+      
+    - uses: actions/setup-java@v1
+      with:
+        java-version: '12.x'
+    - name: Install dependencies
+      working-directory: FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/
+      run: flutter pub get
+    - name: Run tests
+      working-directory: FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter/
+      run: flutter test
