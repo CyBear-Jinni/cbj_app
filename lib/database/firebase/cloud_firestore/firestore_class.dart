@@ -1,5 +1,6 @@
-import 'package:CyBearJinni/objects/enums.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+
+import '../../../objects/enums.dart';
 
 class FireStoreClass {
   String path = '/SmartHomes/GuyHome/Devices/Lights/';

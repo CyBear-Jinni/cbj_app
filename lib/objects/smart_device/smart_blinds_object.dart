@@ -1,8 +1,8 @@
-import 'package:CyBearJinni/objects/enums.dart';
-import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
 import 'package:connectivity/connectivity.dart';
 
+import '../enums.dart';
 import 'client/smart_client.dart';
+import 'smart_device_object.dart';
 
 class SmartBlindsObject extends SmartDeviceObject {
   SmartBlindsObject(DeviceType deviceType, String name, String ip)
@@ -65,10 +65,6 @@ class SmartBlindsObject extends SmartDeviceObject {
 
     return 'Error getting device state';
 
-
-    String deviceSuccessStatus = await SmartClient.setSmartBlindsStop(this);
-    print('Blinds stop status is: ' + deviceSuccessStatus.toString());
-    return deviceSuccessStatus;
   }
 
 

@@ -1,7 +1,8 @@
-import 'package:CyBearJinni/features/home_page/tabs/smart_devices_tab/settings_page_of_smart_devices.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import 'settings_page_of_smart_devices.dart';
 
 class SmartDevicesWidgets extends StatelessWidget {
   final Map<String, AssetImage> _symbolsImageList = {
