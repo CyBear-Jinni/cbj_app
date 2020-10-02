@@ -30,7 +30,7 @@ We need to install the app to your smartphone.
 
 For now the app is not in the play store so install the [flutter project](https://github.com/CyBear-Jinni/CBJ_App/tree/dev/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter) to your phone manually.
 
-[Instructions for developers](#instructions-for-developers) part is needed in order to connect the application to the smart devices, if you do not intend to do so than you can just run the app without extra steps.
+Go through [Instructions for developers](#instructions-for-developers), this part is needed inorder to make the app work, we currently didn't made cloud Firestore for the project so you will need to create one for your smart home with the instractions here.
 
 
 
