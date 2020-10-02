@@ -45,6 +45,8 @@ dependencies:
   cupertino_icons: ^1.0.0
   # Popup that ask for the requested permission
   permission_handler: ^5.0.1+1
+  # Collection of lint rules for Dart and Flutter projects.
+  lint: ^1.3.0
 
 dev_dependencies:
   flutter_test:

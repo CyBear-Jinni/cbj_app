@@ -27,7 +27,7 @@ class ScenesWidgets extends StatelessWidget {
   List<Widget> scenes(BuildContext context) {
     return _scenesList
         .map((element) =>
-            SceneBlockWidget(element, _scenesList.indexOf(element)))
+        SceneBlockWidget(element, _scenesList.indexOf(element)))
         .toList();
   }
 
