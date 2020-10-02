@@ -33,7 +33,8 @@ class SmartDevice extends $pb.GeneratedMessage {
   SmartDevice clone() => SmartDevice()..mergeFromMessage(this);
 
   SmartDevice copyWith(void Function(SmartDevice) updates) =>
-      super.copyWith((message) => updates(message as SmartDevice));
+      super.copyWith((message) => updates(message as SmartDevice))
+          as SmartDevice;
 
   $pb.BuilderInfo get info_ => _i;
 
@@ -113,7 +114,8 @@ class SmartDeviceStatus extends $pb.GeneratedMessage {
         ..mergeFromMessage(this);
 
   SmartDeviceStatus copyWith(void Function(SmartDeviceStatus) updates) =>
-      super.copyWith((message) => updates(message as SmartDeviceStatus));
+      super.copyWith((message) => updates(message as SmartDeviceStatus))
+          as SmartDeviceStatus;
 
   $pb.BuilderInfo get info_ => _i;
 
@@ -170,7 +172,8 @@ class CommendStatus extends $pb.GeneratedMessage {
         ..mergeFromMessage(this);
 
   CommendStatus copyWith(void Function(CommendStatus) updates) =>
-      super.copyWith((message) => updates(message as CommendStatus));
+      super.copyWith((message) => updates(message as CommendStatus))
+          as CommendStatus;
 
   $pb.BuilderInfo get info_ => _i;
 
@@ -230,7 +233,8 @@ class SmartDeviceUpdateDetails extends $pb.GeneratedMessage {
 
   SmartDeviceUpdateDetails copyWith(
       void Function(SmartDeviceUpdateDetails) updates) =>
-      super.copyWith((message) => updates(message as SmartDeviceUpdateDetails));
+      super.copyWith((message) => updates(message as SmartDeviceUpdateDetails))
+          as SmartDeviceUpdateDetails;
 
   $pb.BuilderInfo get info_ => _i;
 
@@ -309,7 +313,8 @@ class FirebaseAccountInformation extends $pb.GeneratedMessage {
   FirebaseAccountInformation copyWith(
       void Function(FirebaseAccountInformation) updates) =>
       super.copyWith((message) =>
-          updates(message as FirebaseAccountInformation));
+          updates(
+              message as FirebaseAccountInformation)) as FirebaseAccountInformation;
 
   $pb.BuilderInfo get info_ => _i;
 
