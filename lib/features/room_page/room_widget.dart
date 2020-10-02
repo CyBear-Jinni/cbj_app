@@ -36,7 +36,7 @@ class RoomWidget extends StatelessWidget {
 //                enabled: false,
                 decoration: InputDecoration(
                   border: InputBorder.none,
-                  hintText: products[index]['title'],
+                  hintText: products[index]['title'].toString(),
                   hintStyle: TextStyle(color: Colors.white),
                 ),
                 style: TextStyle(color: Colors.white),
