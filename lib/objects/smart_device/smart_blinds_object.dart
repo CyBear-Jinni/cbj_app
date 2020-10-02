@@ -64,11 +64,6 @@ class SmartBlindsObject extends SmartDeviceObject {
     }
 
     return 'Error getting device state';
-
-
-    String deviceSuccessStatus = await SmartClient.setSmartBlindsStop(this);
-    print('Blinds stop status is: ' + deviceSuccessStatus.toString());
-    return deviceSuccessStatus;
   }
 
 

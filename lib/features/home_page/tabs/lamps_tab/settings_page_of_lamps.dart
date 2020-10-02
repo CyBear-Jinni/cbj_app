@@ -30,7 +30,11 @@ class SettingsPageOfLamps extends StatelessWidget {
             title: Text(
               "Name: " + lightName,
               style:
-                  TextStyle(color: Theme.of(context).textTheme.bodyText1.color),
+              TextStyle(color: Theme
+                  .of(context)
+                  .textTheme
+                  .bodyText1
+                  .color),
             ),
             subtitle: Text(
               "Room: " + roomName,
