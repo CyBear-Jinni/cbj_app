@@ -1,8 +1,7 @@
+import 'package:CyBearJinni/features/home_page/tabs/scene_tab/scene_block_widget.dart';
+import 'package:CyBearJinni/features/home_page/tabs/scene_tab/settings_page_of_scenes.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-import 'scene_block_widget.dart';
-import 'settings_page_of_scenes.dart';
 
 class ScenesWidgets extends StatelessWidget {
   static final List<String> _scenesList = [
@@ -28,7 +27,7 @@ class ScenesWidgets extends StatelessWidget {
   List<Widget> scenes(BuildContext context) {
     return _scenesList
         .map((element) =>
-            SceneBlockWidget(element, _scenesList.indexOf(element)))
+        SceneBlockWidget(element, _scenesList.indexOf(element)))
         .toList();
   }
 

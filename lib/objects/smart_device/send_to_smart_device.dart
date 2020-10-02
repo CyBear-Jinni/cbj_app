@@ -1,12 +1,12 @@
 import 'dart:async';
 
+import 'package:CyBearJinni/objects/enums.dart';
+import 'package:CyBearJinni/objects/smart_device/client/smart_client.dart';
+import 'package:CyBearJinni/objects/smart_device/smart_blinds_object.dart';
+import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
 import 'package:grpc/grpc.dart';
 
-import '../enums.dart';
 import 'client/protoc_as_dart/smart_connection.pb.dart';
-import 'client/smart_client.dart';
-import 'smart_blinds_object.dart';
-import 'smart_device_object.dart';
 
 //  Get
 

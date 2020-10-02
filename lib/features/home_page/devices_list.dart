@@ -1,7 +1,6 @@
+import 'package:CyBearJinni/features/home_page/smart_device_widget.dart';
+import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
 import 'package:flutter/material.dart';
-
-import '../../objects/smart_device/smart_device_object.dart';
-import 'smart_device_widget.dart';
 
 class DevicesList extends StatefulWidget {
   final List<SmartDeviceObject> devices;

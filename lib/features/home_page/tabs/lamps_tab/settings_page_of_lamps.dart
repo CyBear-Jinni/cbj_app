@@ -1,11 +1,10 @@
+import 'package:CyBearJinni/features/shared_widgets/add_new_devie_widget.dart';
+import 'package:CyBearJinni/objects/interface_darta/cloud_interface_data.dart';
+import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
+import 'package:CyBearJinni/objects/smart_device/smart_room_object.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-import '../../../../objects/interface_darta/cloud_interface_data.dart';
-import '../../../../objects/smart_device/smart_device_object.dart';
-import '../../../../objects/smart_device/smart_room_object.dart';
-import '../../../shared_widgets/add_new_devie_widget.dart';
 
 class SettingsPageOfLamps extends StatelessWidget {
   final List<SmartDeviceObject> allSmartDeviceLightDevices =
@@ -31,7 +30,11 @@ class SettingsPageOfLamps extends StatelessWidget {
             title: Text(
               "Name: " + lightName,
               style:
-                  TextStyle(color: Theme.of(context).textTheme.bodyText1.color),
+              TextStyle(color: Theme
+                  .of(context)
+                  .textTheme
+                  .bodyText1
+                  .color),
             ),
             subtitle: Text(
               "Room: " + roomName,

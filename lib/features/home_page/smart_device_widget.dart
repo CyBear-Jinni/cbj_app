@@ -1,10 +1,9 @@
 import 'dart:async';
 
+import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
-import '../../objects/smart_device/smart_device_object.dart';
 
 class SmartDevicePage extends StatefulWidget {
   final SmartDeviceObject device;

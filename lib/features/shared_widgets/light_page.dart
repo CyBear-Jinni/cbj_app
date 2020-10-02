@@ -1,7 +1,6 @@
+import 'package:CyBearJinni/features/home_page/smart_device_widget.dart';
+import 'package:CyBearJinni/objects/interface_darta/cloud_interface_data.dart';
 import 'package:flutter/material.dart';
-
-import '../../objects/interface_darta/cloud_interface_data.dart';
-import '../home_page/smart_device_widget.dart';
 
 class LightPage extends StatelessWidget {
   @override

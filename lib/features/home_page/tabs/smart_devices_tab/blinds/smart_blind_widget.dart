@@ -1,10 +1,9 @@
 import 'dart:async';
 
+import 'package:CyBearJinni/objects/smart_device/smart_blinds_object.dart';
+import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-import '../../../../../objects/smart_device/smart_blinds_object.dart';
-import '../../../../../objects/smart_device/smart_device_object.dart';
 
 class SmartBlindPage extends StatefulWidget {
   final SmartDeviceObject device;
@@ -67,58 +66,56 @@ class _SmartBlindPage extends State<SmartBlindPage> {
         SizedBox(
           height: 20,
         ),
-        false
-            ? Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Center(
-                  child: CircularProgressIndicator(),
+        // false
+        //     ? Padding(
+        //         padding: const EdgeInsets.all(8.0),
+        //         child: Center(
+        //           child: CircularProgressIndicator(),
+        //         ),
+        //       ) :
+        Row(
+          children: <Widget>[
+            SizedBox(
+              width: 10,
+            ),
+            FlatButton(
+                color: Colors.brown,
+                child: Tab(
+                  icon: Icon(FontAwesomeIcons.arrowDown,
+                      color: Theme.of(context).textTheme.bodyText1.color),
+                  child: Text(
+                    "Down",
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1.color,
+                        fontSize: 16),
+                  ),
                 ),
-              )
-            : Row(
-                children: <Widget>[
-                  SizedBox(
-                    width: 10,
+                onPressed: () => _smartBlindsObject.blindsDown()),
+            SizedBox(
+              width: 10,
+            ),
+            FlatButton(
+                color: Colors.grey,
+                child: Tab(
+                  icon: Icon(FontAwesomeIcons.solidHandPaper,
+                      color: Theme.of(context).textTheme.bodyText1.color),
+                  child: Text(
+                    "Stop",
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1.color,
+                        fontSize: 16),
                   ),
-                  FlatButton(
-                      color: Colors.brown,
-                      child: Tab(
-                        icon: Icon(FontAwesomeIcons.arrowDown,
-                            color: Theme.of(context).textTheme.bodyText1.color),
-                        child: Text(
-                          "Down",
-                          style: TextStyle(
-                              color:
-                                  Theme.of(context).textTheme.bodyText1.color,
-                              fontSize: 16),
-                        ),
-                      ),
-                      onPressed: () => _smartBlindsObject.blindsDown()),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  FlatButton(
-                      color: Colors.grey,
-                      child: Tab(
-                        icon: Icon(FontAwesomeIcons.solidHandPaper,
-                            color: Theme.of(context).textTheme.bodyText1.color),
-                        child: Text(
-                          "Stop",
-                          style: TextStyle(
-                              color:
-                                  Theme.of(context).textTheme.bodyText1.color,
-                              fontSize: 16),
-                        ),
-                      ),
-                      onPressed: () => _smartBlindsObject.blindsStop()),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  FlatButton(
-                      color: Colors.amber,
-                      child: Tab(
-                        icon: Icon(FontAwesomeIcons.arrowUp,
-                            color: Theme.of(context).textTheme.bodyText1.color),
-                        child: Text(
+                ),
+                onPressed: () => _smartBlindsObject.blindsStop()),
+            SizedBox(
+              width: 10,
+            ),
+            FlatButton(
+                color: Colors.amber,
+                child: Tab(
+                  icon: Icon(FontAwesomeIcons.arrowUp,
+                      color: Theme.of(context).textTheme.bodyText1.color),
+                  child: Text(
                           "Up",
                           style: TextStyle(
                               color:
