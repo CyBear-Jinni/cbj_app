@@ -1,8 +1,7 @@
+import 'package:CyBearJinni/features/home_page/tabs/smart_devices_tab/blinds/smart_blind_widget.dart';
+import 'package:CyBearJinni/objects/interface_darta/cloud_interface_data.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-
-import '../../../../../objects/interface_darta/cloud_interface_data.dart';
-import 'smart_blind_widget.dart';
 
 //  This class show all the rooms in the house and quick access to the light switch from the rom_widget page
 class BlindsManagerWidget extends StatelessWidget {

@@ -1,9 +1,8 @@
+import 'package:CyBearJinni/features/shared_widgets/insert_details_of_new_device.dart';
+import 'package:CyBearJinni/objects/enums.dart';
+import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
-
-import '../../objects/enums.dart';
-import '../../objects/smart_device/smart_device_object.dart';
-import 'insert_details_of_new_device.dart';
 
 class AddNewDeviceWidgetPopup extends StatefulWidget {
   @override

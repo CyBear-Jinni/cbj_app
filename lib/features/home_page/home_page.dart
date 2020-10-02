@@ -1,10 +1,9 @@
+import 'package:CyBearJinni/features/home_page/tabs/history_tab/history_tab.dart';
+import 'package:CyBearJinni/features/home_page/tabs/lamps_tab/lamps_widgets.dart';
+import 'package:CyBearJinni/features/home_page/tabs/scene_tab/scenes_widgets.dart';
+import 'package:CyBearJinni/features/home_page/tabs/smart_devices_tab/smart_devices_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-import 'tabs/history_tab/history_tab.dart';
-import 'tabs/lamps_tab/lamps_widgets.dart';
-import 'tabs/scene_tab/scenes_widgets.dart';
-import 'tabs/smart_devices_tab/smart_devices_widgets.dart';
 
 class HomePage extends StatelessWidget {
   @override
