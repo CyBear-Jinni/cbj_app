@@ -1,6 +1,4 @@
 <h1 align="center">CyBear Jinni App</h1>
-
-<div align="center">
   
 [<div align="center"><img alt="" height="300" src="https://user-images.githubusercontent.com/9304740/94843279-24a49900-0425-11eb-83f3-87e8ba40b1dc.png">](https://github.com/CyBear-Jinni/CBJ_Smart-Home)
 </div>
