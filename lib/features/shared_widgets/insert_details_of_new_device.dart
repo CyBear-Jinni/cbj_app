@@ -65,8 +65,7 @@ class ShowAllDevicesInTheSmartDevice extends StatefulWidget {
   }
 }
 
-class _ShowAllDevicesInTheSmartDevice
-    extends State<ShowAllDevicesInTheSmartDevice> {
+class _ShowAllDevicesInTheSmartDevice extends State<ShowAllDevicesInTheSmartDevice> {
   String _ip;
   bool _isLoading = true;
   List<SmartDeviceObject> smartDeviceObjectList;
@@ -86,7 +85,7 @@ class _ShowAllDevicesInTheSmartDevice
 
   List<Widget> listOfDevicesToShow() {
     List<Widget> widgetList = List<Widget>();
-    TextEditingController newDeviceTextFormFieldText;
+    // TextEditingController newDeviceTextFormFieldText;
     for (SmartDeviceObject smartDeviceObject in smartDeviceObjectList) {
       widgetList.add(NewDeviceWidget(smartDeviceObject));
     }
@@ -106,20 +105,20 @@ class _ShowAllDevicesInTheSmartDevice
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              RaisedButton(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(24),
-                ),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                padding: EdgeInsets.all(12),
-                color: Colors.redAccent,
-                child: Text('Cancel', style: TextStyle(
-                    color: Colors.white)),
-              ),
-              RaisedButton(
-                shape: RoundedRectangleBorder(
+                    RaisedButton(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(24),
+                      ),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      padding: EdgeInsets.all(12),
+                      color: Colors.redAccent,
+                      child:
+                          Text('Cancel', style: TextStyle(color: Colors.white)),
+                    ),
+                    RaisedButton(
+                      shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(24),
                       ),
                       onPressed: () {
@@ -136,10 +135,11 @@ class _ShowAllDevicesInTheSmartDevice
                       child: Text('Add devices',
                           style: TextStyle(color: Colors.white)),
                     ),
-            ],),
-        ],
-      ),
-    );
+                  ],
+                ),
+              ],
+            ),
+          );
   }
 }
 
@@ -172,64 +172,64 @@ class _NewDeviceWidget extends State<NewDeviceWidget> {
   Widget drawSmartWidgetHelper(SmartDeviceObject smartDeviceObject) {
     switch (_smartDeviceObject.deviceType) {
       case DeviceType.Light:
-        // TODO: Handle this case.
+      // TODO: Handle this case.
         break;
       case DeviceType.DynamicLight:
-        // TODO: Handle this case.
+      // TODO: Handle this case.
         break;
       case DeviceType.Blinds:
         return SmartBlindPage(_smartDeviceObject);
         break;
       case DeviceType.Thermostat:
-        // TODO: Handle this case.
+      // TODO: Handle this case.
         break;
       case DeviceType.Fan:
-        // TODO: Handle this case.
+      // TODO: Handle this case.
         break;
       case DeviceType.AirConditioner:
-        // TODO: Handle this case.
+      // TODO: Handle this case.
         break;
       case DeviceType.Camera:
-        // TODO: Handle this case.
+      // TODO: Handle this case.
         break;
       case DeviceType.Fridge:
-        // TODO: Handle this case.
+      // TODO: Handle this case.
         break;
       case DeviceType.Toaster:
-        // TODO: Handle this case.
+      // TODO: Handle this case.
         break;
       case DeviceType.CoffeeMachine:
-        // TODO: Handle this case.
+      // TODO: Handle this case.
         break;
       case DeviceType.SmartTV:
-        // TODO: Handle this case.
+      // TODO: Handle this case.
         break;
       case DeviceType.RCAirplane:
-        // TODO: Handle this case.
+      // TODO: Handle this case.
         break;
       case DeviceType.RCCar:
-        // TODO: Handle this case.
+      // TODO: Handle this case.
         break;
       case DeviceType.Speakers:
-        // TODO: Handle this case.
+      // TODO: Handle this case.
         break;
       case DeviceType.Roomba:
-        // TODO: Handle this case.
+      // TODO: Handle this case.
         break;
       case DeviceType.Irrigation:
-        // TODO: Handle this case.
+      // TODO: Handle this case.
         break;
       case DeviceType.SmartBed:
-        // TODO: Handle this case.
+      // TODO: Handle this case.
         break;
       case DeviceType.AnimalTracker:
-        // TODO: Handle this case.
+      // TODO: Handle this case.
         break;
       case DeviceType.SmartCar:
-        // TODO: Handle this case.
+      // TODO: Handle this case.
         break;
       case DeviceType.SmartPool:
-        // TODO: Handle this case.
+      // TODO: Handle this case.
         break;
     }
     return Container();
@@ -242,103 +242,103 @@ class _NewDeviceWidget extends State<NewDeviceWidget> {
         padding: const EdgeInsets.fromLTRB(15, 5, 15, 15),
         decoration: BoxDecoration(border: Border.all(color: Colors.blueAccent)),
         child: Column(
-            children: [
-              Row(
-                children: [
-                  if(_smartDeviceObject.deviceType ==
-                      DeviceType.Light)
-                    Container(
-                      margin: const EdgeInsets.only(right: 5),
-                      child:
-                      CircleAvatar(
-                        child: Icon(
-                            FontAwesomeIcons.solidLightbulb),
-                        radius: 16,
-                      ),
-                    ),
-                  if(_smartDeviceObject.deviceType ==
-                      DeviceType.Blinds)
-                    Container(
-                      margin: const EdgeInsets.only(right: 5),
-                      child:
-                      CircleAvatar(
-                        child: Icon(
-                            FontAwesomeIcons.satelliteDish),
-                        radius: 16,
-                      ),
-                    ),
-                  Text(
-                    'Device type: ' + EnumHelper.dTToString(
-                        _smartDeviceObject.deviceType),
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 20,
-                        color: Colors.white,
-                        backgroundColor: Colors.blueGrey
-//                color: Theme.of(context).textTheme.bodyText1.color,
+          children: [
+            Row(
+              children: [
+                if(_smartDeviceObject.deviceType ==
+                    DeviceType.Light)
+                  Container(
+                    margin: const EdgeInsets.only(right: 5),
+                    child:
+                    CircleAvatar(
+                      child: Icon(
+                          FontAwesomeIcons.solidLightbulb),
+                      radius: 16,
                     ),
                   ),
-                  (_smartDeviceObject.deviceType == DeviceType.Light) ?
+                if(_smartDeviceObject.deviceType ==
+                    DeviceType.Blinds)
                   Container(
-                    width: 100,
-                    child: SmartDevicePage(
-                        _smartDeviceObject), // The actual render of the device
-                  ) : Container(),
-                ],
-              ),
-              drawSmartWidgetHelper(_smartDeviceObject),
-              TextFormField(
-                autofocus: false,
-                cursorColor: Colors.black,
-                style: TextStyle(
-                  color: Colors.black,
-                  decorationColor: Colors.black,
+                    margin: const EdgeInsets.only(right: 5),
+                    child:
+                    CircleAvatar(
+                      child: Icon(
+                          FontAwesomeIcons.satelliteDish),
+                      radius: 16,
+                    ),
+                  ),
+                Text(
+                  'Device type: ' + EnumHelper.dTToString(
+                      _smartDeviceObject.deviceType),
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 20,
+                      color: Colors.white,
+                      backgroundColor: Colors.blueGrey
+//                color: Theme.of(context).textTheme.bodyText1.color,
+                  ),
                 ),
-                validator: (String value) {
-                  if (value.isEmpty) {
-                    return 'Room name is required';
-                  }
-                  return null;
-                },
+                (_smartDeviceObject.deviceType == DeviceType.Light) ?
+                Container(
+                  width: 100,
+                  child: SmartDevicePage(
+                      _smartDeviceObject), // The actual render of the device
+                ) : Container(),
+              ],
+            ),
+            drawSmartWidgetHelper(_smartDeviceObject),
+            TextFormField(
+              autofocus: false,
+              cursorColor: Colors.black,
+              style: TextStyle(
+                color: Colors.black,
+                decorationColor: Colors.black,
+              ),
+              validator: (String value) {
+                if (value.isEmpty) {
+                  return 'Room name is required';
+                }
+                return null;
+              },
 //              onSaved: (roomName) => _roomName = roomName,
-                decoration: InputDecoration(
-                    labelText: 'Room name:',
-                    labelStyle: TextStyle(
-                      color: Colors.black,
-                      decorationColor: Colors.black,
-                    )),
-              ),
-              TextFormField(
-                controller: myController,
-                autofocus: false,
+              decoration: InputDecoration(
+                  labelText: 'Room name:',
+                  labelStyle: TextStyle(
+                    color: Colors.black,
+                    decorationColor: Colors.black,
+                  )),
+            ),
+            TextFormField(
+              controller: myController,
+              autofocus: false,
 //              onSaved: (deviceName) => _deviceName = deviceName,
-                validator: (String value) {
-                  if (value.isEmpty) {
-                    return 'Device name is required';
-                  }
-                  return null;
-                },
-                decoration: InputDecoration(
-                  labelText: 'Device name:',
-                ),
+              validator: (String value) {
+                if (value.isEmpty) {
+                  return 'Device name is required';
+                }
+                return null;
+              },
+              decoration: InputDecoration(
+                labelText: 'Device name:',
               ),
-              SizedBox(
-                height: 20,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            RaisedButton(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(24),
               ),
-              RaisedButton(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(24),
-                ),
-                onPressed: () {
-                  updateDeviceName(_smartDeviceObject, myController.text);
-                  // TODO: Reload this page again (Navigator.popAndPushNamed(context, 'routeName');)
-                  //  to load the correct and updated values from the Smart Device, without it Add Devices will add the last values
-                },
-                padding: EdgeInsets.all(12),
-                color: Colors.blueAccent,
-                child: Text('Update', style: TextStyle(
-                    color: Colors.white)),
-              ),
-            ],
-          ));
+              onPressed: () {
+                updateDeviceName(_smartDeviceObject, myController.text);
+                // TODO: Reload this page again (Navigator.popAndPushNamed(context, 'routeName');)
+                //  to load the correct and updated values from the Smart Device, without it Add Devices will add the last values
+              },
+              padding: EdgeInsets.all(12),
+              color: Colors.blueAccent,
+              child: Text('Update', style: TextStyle(
+                  color: Colors.white)),
+            ),
+          ],
+        ));
   }
 }
