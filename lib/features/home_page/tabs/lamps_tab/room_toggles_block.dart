@@ -6,19 +6,19 @@ import 'package:flutter/material.dart';
 class RoomTogglesBlock extends StatelessWidget {
   final SmartRoomObject _smartRoomObject;
 
-  RoomTogglesBlock(this._smartRoomObject);
+  const RoomTogglesBlock(this._smartRoomObject);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 15),
+      margin: const EdgeInsets.only(bottom: 15),
       decoration: BoxDecoration(
         color: Colors.black.withOpacity(0.2),
         borderRadius: BorderRadius.circular(30.0),
       ),
       child: Column(
         children: <Widget>[
-          Padding(
+          const Padding(
             padding: EdgeInsets.all(10),
           ),
           Container(
@@ -26,7 +26,7 @@ class RoomTogglesBlock extends StatelessWidget {
             child: FlatButton(
               onPressed: () => Navigator.pushNamed(
                 context,
-                '/roomPage/' + _smartRoomObject.getRoomName(),
+                '/roomPage/${_smartRoomObject.getRoomName()}',
               ),
               color: Colors.transparent,
               child: Text(
@@ -39,21 +39,23 @@ class RoomTogglesBlock extends StatelessWidget {
               ),
             ),
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.all(5),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
-              Container(
+              SizedBox(
                 width: 170,
                 child: SmartDevicePage(_smartRoomObject.getLights()[0]),
               ),
-              _smartRoomObject.getLights().length > 1 ?
-              Container(
-                width: 170,
-                child: SmartDevicePage(_smartRoomObject.getLights()[1]),
-              ): Container()
+              if (_smartRoomObject.getLights().length > 1)
+                SizedBox(
+                  width: 170,
+                  child: SmartDevicePage(_smartRoomObject.getLights()[1]),
+                )
+              else
+                Container()
             ],
           ),
         ],
