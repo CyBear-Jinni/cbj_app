@@ -145,21 +145,21 @@
         <entry key="cloud_firestore">
           <value>
             <list>
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-0.14.0+2/lib" />
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-0.14.1+2/lib" />
             </list>
           </value>
         </entry>
         <entry key="cloud_firestore_platform_interface">
           <value>
             <list>
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_platform_interface-2.0.1/lib" />
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_platform_interface-2.1.1/lib" />
             </list>
           </value>
         </entry>
         <entry key="cloud_firestore_web">
           <value>
             <list>
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_web-0.2.0+1/lib" />
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_web-0.2.0+3/lib" />
             </list>
           </value>
         </entry>
@@ -306,7 +306,7 @@
         <entry key="flutter_launcher_icons">
           <value>
             <list>
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/flutter_launcher_icons-0.8.0/lib" />
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/flutter_launcher_icons-0.8.1/lib" />
             </list>
           </value>
         </entry>
@@ -753,9 +753,9 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/checked_yaml-1.0.2/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/cli_util-0.2.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/clock-1.0.1/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-0.14.0+2/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_platform_interface-2.0.1/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_web-0.2.0+1/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-0.14.1+2/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_platform_interface-2.1.1/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_web-0.2.0+3/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/code_builder-3.4.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/collection-1.14.13/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/connectivity-0.4.9+3/lib" />
@@ -775,7 +775,7 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-0.2.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/fixnum-0.10.11/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/flutter_bloc-6.0.5/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/flutter_launcher_icons-0.8.0/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/flutter_launcher_icons-0.8.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/fluttertoast-7.1.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/font_awesome_flutter-8.8.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/get_it-4.0.4/lib" />
