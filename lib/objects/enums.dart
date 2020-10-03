@@ -41,26 +41,27 @@ class EnumHelper {
   }
 
   static DeviceType stringToDt(String deviceTypeAsString) {
-    if (deviceTypeAsString.contains('Object')) {
-      deviceTypeAsString =
-          deviceTypeAsString.substring(0, deviceTypeAsString.indexOf('Object'));
+    String deviceTypeAsStringTemp = deviceTypeAsString;
+    if (deviceTypeAsStringTemp.contains('Object')) {
+      deviceTypeAsStringTemp = deviceTypeAsStringTemp.substring(
+          0, deviceTypeAsStringTemp.indexOf('Object'));
     }
-    for (DeviceType deviceType in DeviceType.values) {
-      if (dTToString(deviceType) == deviceTypeAsString) {
+    for (final DeviceType deviceType in DeviceType.values) {
+      if (dTToString(deviceType) == deviceTypeAsStringTemp) {
         return deviceType;
       }
     }
     return null;
   }
 
-  //  Convert wishEnum to string
+  ///  Convert wishEnum to string
   static String wishEnumToString(WishEnum wishEnum) {
     return wishEnum.toString().replaceAll('WishEnum.', '');
   }
 
-  //  Convert string to wishEnum
+  ///  Convert string to wishEnum
   static WishEnum stringToWishEnum(String wishEnumString) {
-    for (WishEnum wishEnum in WishEnum.values) {
+    for (final WishEnum wishEnum in WishEnum.values) {
       if (wishEnumToString(wishEnum) == wishEnumString) {
         return wishEnum;
       }

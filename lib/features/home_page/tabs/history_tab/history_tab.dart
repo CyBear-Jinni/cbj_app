@@ -8,7 +8,7 @@ class HistoryTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Padding(
+        const Padding(
           padding: EdgeInsets.only(top: 20),
         ),
         Container(
@@ -33,7 +33,7 @@ class HistoryTab extends StatelessWidget {
         Container(
           height: 20,
         ),
-        Text("Empty history")
+        const Text('Empty history')
       ],
     );
   }

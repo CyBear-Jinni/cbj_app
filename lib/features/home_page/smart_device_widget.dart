@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 class SmartDevicePage extends StatefulWidget {
   final SmartDeviceObject device;
 
-  SmartDevicePage(this.device);
+  const SmartDevicePage(this.device);
 
   @override
   State<StatefulWidget> createState() {
@@ -27,8 +27,8 @@ class _SmartDevicePage extends State<SmartDevicePage> {
     this._device = widget.device;
     getAndUpdateState();
 
-    WidgetsBinding.instance.addObserver(
-        new LifecycleEventHandler(resumeCallBack: getAndUpdateState));
+    WidgetsBinding.instance
+        .addObserver(LifecycleEventHandler(resumeCallBack: getAndUpdateState));
   }
 
   Future<void> getAndUpdateState() async {
@@ -41,18 +41,17 @@ class _SmartDevicePage extends State<SmartDevicePage> {
         });
       }
     } catch (exception) {
-      print('Error whan updating state after resume: ' + exception.toString());
+      print('Error whan updating state after resume: $exception');
     }
   }
 
   //  Send request to device to retrieve his state on or off
   Future<bool> getDeviceState() async {
-    _switchState = await _device.getDeviceStateAsBool();
-    return _switchState;
+    return _switchState = await _device.getDeviceStateAsBool();
   }
 
   Future<void> _onChange(bool value) async {
-    print('OnChange ' + value.toString());
+    print('OnChange $value');
     _device.setLightState(value);
     if (mounted) {
       setState(() {
@@ -72,20 +71,21 @@ class _SmartDevicePage extends State<SmartDevicePage> {
             color: Theme.of(context).textTheme.bodyText2.color,
           ),
         ),
-        _isLoading
-            ? Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Center(child: CircularProgressIndicator()),
-              )
-            : Transform.scale(
-                scale: 1.5,
-                child: Switch(
-                  activeColor: Colors.yellow,
-                  inactiveThumbColor: Colors.black87,
-                  value: _switchState,
-                  onChanged: (bool value) => _onChange(value),
-                ),
-              )
+        if (_isLoading)
+          const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Center(child: CircularProgressIndicator()),
+          )
+        else
+          Transform.scale(
+            scale: 1.5,
+            child: Switch(
+              activeColor: Colors.yellow,
+              inactiveThumbColor: Colors.black87,
+              value: _switchState,
+              onChanged: (bool value) => _onChange(value),
+            ),
+          )
       ],
     );
   }
