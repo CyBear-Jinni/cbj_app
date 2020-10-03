@@ -9,10 +9,13 @@ import 'package:flutter/material.dart';
 
 import 'features/home_page/home_page.dart';
 import 'features/login_page/login_page.dart';
+import 'features/shared_widgets/error_message.dart';
+import 'features/shared_widgets/loader.dart';
 
 void main() {
 //  debugPaintSizeEnabled = true;
   configureInjection(Env.prod);
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(
 
       /// Use https://lingohub.com/developers/supported-locales/language-designators-with-regions
@@ -26,10 +29,10 @@ void main() {
           path: 'assets/translations', // <-- change patch to your
           fallbackLocale: const Locale('en', 'US'),
           child: MyApp()));
-  Firebase.initializeApp();
 }
 
 class MyApp extends StatelessWidget {
+  final Future<FirebaseApp> _initialization = Firebase.initializeApp();
   final Map routes = <String, WidgetBuilder>{
     LoginPage.tag: (BuildContext context) => LoginPage(),
 //    "HomePage": (context) => HomePage(),
@@ -37,45 +40,59 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'CyBear Jinni App',
-      localizationsDelegates: context.localizationDelegates,
-      supportedLocales: context.supportedLocales,
-      locale: context.locale,
-//      darkTheme: ThemeData(brightness: Brightness.dark),
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
-        accentColor: Colors.indigo,
-        textTheme: const TextTheme(
-          bodyText1: TextStyle(color: Colors.white),
-          bodyText2: TextStyle(color: Colors.white70),
-        ),
-        fontFamily: 'gidole_regular',
-      ),
-      routes: <String, WidgetBuilder>{
-        '/': (BuildContext context) => LoginPage(),
-        '/home': (BuildContext context) => HomePage(),
-//        '/home_settings': (BuildContext context) => SettingsPage(),
-      },
-      onGenerateRoute: (RouteSettings settings) {
-        final List<String> pathElements = settings.name.split('/');
-        if (pathElements[0] != '') {
-          return null;
-        } else if (pathElements[1] == 'roomPage') {
-          return MaterialPageRoute(
-              builder: (BuildContext context) => RoomPage(rooms
-                  .firstWhere((SmartRoomObject room) =>
-                      room.getRoomName() == pathElements[2])
-                  .getRoomName()));
-        } else if (pathElements[1] == 'devices') {
-          if (pathElements[2] == 'blinds') {
-            return MaterialPageRoute(
-                builder: (BuildContext context) => BlindsPage());
+    return FutureBuilder(
+        // Initialize FlutterFire:
+        future: _initialization,
+        builder: (context, snapshot) {
+          if (snapshot.hasError) {
+            return ErrorMessage();
           }
+
+          if (snapshot.connectionState == ConnectionState.done) {
+            return MaterialApp(
+              title: 'CyBear Jinni App',
+              localizationsDelegates: context.localizationDelegates,
+              supportedLocales: context.supportedLocales,
+              locale: context.locale,
+        //      darkTheme: ThemeData(brightness: Brightness.dark),
+              debugShowCheckedModeBanner: false,
+              theme: ThemeData(
+                primarySwatch: Colors.deepPurple,
+                accentColor: Colors.indigo,
+                textTheme: const TextTheme(
+                  bodyText1: TextStyle(color: Colors.white),
+                  bodyText2: TextStyle(color: Colors.white70),
+                ),
+                fontFamily: 'gidole_regular',
+              ),
+              routes: <String, WidgetBuilder>{
+                '/': (BuildContext context) => LoginPage(),
+                '/home': (BuildContext context) => HomePage(),
+        //        '/home_settings': (BuildContext context) => SettingsPage(),
+              },
+              onGenerateRoute: (RouteSettings settings) {
+                final List<String> pathElements = settings.name.split('/');
+                if (pathElements[0] != '') {
+                  return null;
+                } else if (pathElements[1] == 'roomPage') {
+                  return MaterialPageRoute(
+                      builder: (BuildContext context) => RoomPage(rooms
+                          .firstWhere((SmartRoomObject room) =>
+                              room.getRoomName() == pathElements[2])
+                          .getRoomName()));
+                } else if (pathElements[1] == 'devices') {
+                  if (pathElements[2] == 'blinds') {
+                    return MaterialPageRoute(
+                        builder: (BuildContext context) => BlindsPage());
+                  }
+                }
+                return null;
+              },
+            );
+          }
+
+          return Loader();
         }
-        return null;
-      },
     );
   }
 }
