@@ -26,15 +26,13 @@ class _FormWidget extends State<FormWidget> {
       Navigator.pushNamed(context, '/home');
     }
 
-    final email = TextFormField(
+    final TextFormField email = TextFormField(
       keyboardType: TextInputType.emailAddress,
-      // initialValue: "guy@gmail.com",
-      autofocus: false,
       autovalidate: autoValidation,
       maxLength: 40,
       validator: (String value) {
         if (value.isEmpty) {
-          return "Email is required";
+          return 'Email is required';
         }
         if (value.contains(' ')) {
           return 'Email cannot contain spaces';
@@ -42,23 +40,21 @@ class _FormWidget extends State<FormWidget> {
         if (!RegExp(
                 r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
             .hasMatch(value)) {
-          return "Email is invalid";
+          return 'Email is invalid';
         }
         return null;
       },
       onSaved: (String value) => print('Check login to user'),
       decoration: InputDecoration(
         hintText: 'Email',
-        contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+        contentPadding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(32.0),
         ),
       ),
     );
 
-    final password = TextFormField(
-      autofocus: false,
-      // initialValue: "12345678",
+    final TextFormField password = TextFormField(
       obscureText: true,
       maxLength: 40,
       autovalidate: autoValidation,
@@ -70,30 +66,30 @@ class _FormWidget extends State<FormWidget> {
           return 'Password cannot contain spaces';
         }
         if (value.length <= 5) {
-          return "Password must be bigger than 5 characters";
+          return 'Password must be bigger than 5 characters';
         }
         return null;
       },
       decoration: InputDecoration(
         hintText: 'Password',
-        contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+        contentPadding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(32.0),
         ),
       ),
     );
 
-    final loginButton = Padding(
-      padding: EdgeInsets.symmetric(vertical: 16.0),
+    final Padding loginButton = Padding(
+      padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: RaisedButton(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(24),
         ),
         onPressed: _submitForm,
-        padding: EdgeInsets.all(12),
+        padding: const EdgeInsets.all(12),
         color: Theme.of(context).accentColor,
-        child:
-            Text('Create new account', style: TextStyle(color: Colors.white)),
+        child: const Text('Create new account',
+            style: TextStyle(color: Colors.white)),
       ),
     );
 
@@ -102,9 +98,9 @@ class _FormWidget extends State<FormWidget> {
       child: Column(
         children: <Widget>[
           email,
-          SizedBox(height: 25.0),
+          const SizedBox(height: 25.0),
           password,
-          SizedBox(height: 24.0),
+          const SizedBox(height: 24.0),
           loginButton,
         ],
       ),

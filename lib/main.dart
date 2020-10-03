@@ -2,6 +2,7 @@ import 'package:CyBearJinni/features/home_page/tabs/smart_devices_tab/blinds/bli
 import 'package:CyBearJinni/features/room_page/room_page.dart';
 import 'package:CyBearJinni/injection.dart';
 import 'package:CyBearJinni/objects/interface_darta/cloud_interface_data.dart';
+import 'package:CyBearJinni/objects/smart_device/smart_room_object.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -16,8 +17,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  final routes = <String, WidgetBuilder>{
-    LoginPage.tag: (context) => LoginPage(),
+  final Map routes = <String, WidgetBuilder>{
+    LoginPage.tag: (BuildContext context) => LoginPage(),
 //    "HomePage": (context) => HomePage(),
   };
 
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
         accentColor: Colors.indigo,
-        textTheme: TextTheme(
+        textTheme: const TextTheme(
           bodyText1: TextStyle(color: Colors.white),
           bodyText2: TextStyle(color: Colors.white70),
         ),
@@ -48,7 +49,8 @@ class MyApp extends StatelessWidget {
         } else if (pathElements[1] == 'roomPage') {
           return MaterialPageRoute(
               builder: (BuildContext context) => RoomPage(rooms
-                  .firstWhere((room) => room.getRoomName() == pathElements[2])
+                  .firstWhere((SmartRoomObject room) =>
+                      room.getRoomName() == pathElements[2])
                   .getRoomName()));
         } else if (pathElements[1] == 'devices') {
           if (pathElements[2] == 'blinds') {
