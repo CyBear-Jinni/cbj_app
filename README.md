@@ -54,16 +54,16 @@ The app currently support only Android.
 Instructions for developers can be found in the [Wiki page Instructions for developers](https://github.com/CyBear-Jinni/CBJ_App/wiki/Instructions-for-developers)  
 
 
+# Social Media Links
+
+If you have any questions feel free to ask in our Discord server 
+
+[<img src="https://cdn.icon-icons.com/icons2/2108/PNG/512/discord_icon_130958.png" height="80">](https://discord.gg/mUXfwUY)
+
+
 ## Disclaimers
 
 **Use at Your Own Risk,**
 **we do not take responsibility on any outcome using anything in this repo.**
 
 The project is under heavy work and may contain bugs and incorrect instructions.
-
-
-# Social Media Links
-
-If you have any questions feel free to ask in our Discord server 
-
-[<img src="https://cdn.icon-icons.com/icons2/2108/PNG/512/discord_icon_130958.png" height="80">](https://discord.gg/mUXfwUY)
