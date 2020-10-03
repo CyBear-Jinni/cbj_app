@@ -9,7 +9,7 @@ class LampsWidgets extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Padding(
+        const Padding(
           padding: EdgeInsets.only(top: 20),
         ),
         Container(
@@ -18,9 +18,11 @@ class LampsWidgets extends StatelessWidget {
             icon: Icon(FontAwesomeIcons.cog,
                 color: Theme.of(context).textTheme.bodyText1.color),
             onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (BuildContext context) => SettingsPageOfLamps())),
+              context,
+              MaterialPageRoute(
+                builder: (BuildContext context) => SettingsPageOfLamps(),
+              ),
+            ),
           ),
         ),
         Text(

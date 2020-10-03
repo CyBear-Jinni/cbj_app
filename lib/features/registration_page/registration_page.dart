@@ -7,7 +7,7 @@ class RegistrationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final logo = Hero(
+    final Hero logo = Hero(
       tag: 'hero',
       child: CircleAvatar(
         backgroundColor: Colors.transparent,
@@ -24,14 +24,14 @@ class RegistrationPage extends StatelessWidget {
         child: Scaffold(
           backgroundColor: Colors.white,
           body: Stack(
-            children: [
+            children: <Widget>[
               Center(
                 child: ListView(
                   shrinkWrap: true,
-                  padding: EdgeInsets.only(left: 24.0, right: 24.0),
+                  padding: const EdgeInsets.only(left: 24.0, right: 24.0),
                   children: <Widget>[
                     logo,
-                    SizedBox(height: 48.0),
+                    const SizedBox(height: 48.0),
                     FormWidget(),
                   ],
                 ),
@@ -40,7 +40,7 @@ class RegistrationPage extends StatelessWidget {
                 top: 16,
                 left: 8,
                 child: IconButton(
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.arrow_back,
                   ),
                   onPressed: () {

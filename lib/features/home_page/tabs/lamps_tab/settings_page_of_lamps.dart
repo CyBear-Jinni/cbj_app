@@ -7,16 +7,17 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SettingsPageOfLamps extends StatelessWidget {
-  final List<SmartDeviceObject> allSmartDeviceLightDevices =
-      List<SmartDeviceObject>();
-
   SettingsPageOfLamps() {
-    for (SmartRoomObject smartRoomObject in rooms) {
-      for (SmartDeviceObject smartLightObject in smartRoomObject.getLights()) {
+    for (final SmartRoomObject smartRoomObject in rooms) {
+      for (final SmartDeviceObject smartLightObject
+          in smartRoomObject.getLights()) {
         allSmartDeviceLightDevices.add(smartLightObject);
       }
     }
   }
+
+  final List<SmartDeviceObject> allSmartDeviceLightDevices =
+      <SmartDeviceObject>[];
 
   @override
   Widget build(BuildContext context) {
@@ -24,11 +25,11 @@ class SettingsPageOfLamps extends StatelessWidget {
       return Column(
         children: <Widget>[
           ListTile(
-            leading: CircleAvatar(
+            leading: const CircleAvatar(
               child: Icon(FontAwesomeIcons.solidLightbulb),
             ),
             title: Text(
-              "Name: " + lightName,
+              'Name: $lightName',
               style:
               TextStyle(color: Theme
                   .of(context)
@@ -37,7 +38,7 @@ class SettingsPageOfLamps extends StatelessWidget {
                   .color),
             ),
             subtitle: Text(
-              "Room: " + roomName,
+              'Room: $roomName',
               style:
               TextStyle(color: Theme
                   .of(context)
@@ -62,8 +63,7 @@ class SettingsPageOfLamps extends StatelessWidget {
 
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add), //  FontAwesomeIcons.plus,
+      floatingActionButton: FloatingActionButton( //  FontAwesomeIcons.plus,
         onPressed: () {
           showDialog(
             context: context,
@@ -72,28 +72,40 @@ class SettingsPageOfLamps extends StatelessWidget {
             },
           );
         },
+        child: const Icon(Icons.add),
       ),
       body: Container(
-        width: MediaQuery.of(context).size.width,
-        padding: EdgeInsets.all(5.0),
+        width: MediaQuery
+            .of(context)
+            .size
+            .width,
+        padding: const EdgeInsets.all(5.0),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             // Where the linear gradient begins and ends
             begin: Alignment.topRight,
             end: Alignment.bottomCenter,
             // Add one stop for each color. Stops should increase from 0 to 1
-            stops: [0, 0, 0, 1],
-            colors: [
-              Theme.of(context).primaryColor,
-              Theme.of(context).accentColor,
-              Theme.of(context).accentColor,
-              Theme.of(context).primaryColor
+            stops: const <double>[0, 0, 0, 1],
+            colors: <Color>[
+              Theme
+                  .of(context)
+                  .primaryColor,
+              Theme
+                  .of(context)
+                  .accentColor,
+              Theme
+                  .of(context)
+                  .accentColor,
+              Theme
+                  .of(context)
+                  .primaryColor
             ],
           ),
         ),
         child: Column(
           children: <Widget>[
-            Padding(
+            const Padding(
               padding: EdgeInsets.only(top: 20),
             ),
             Row(
@@ -109,7 +121,7 @@ class SettingsPageOfLamps extends StatelessWidget {
                   onPressed: () => Navigator.pop(context),
                 ),
                 IconButton(
-                  icon: Icon(
+                  icon: const Icon(
                     FontAwesomeIcons.search,
                     color: Colors.white,
                     size: 25,

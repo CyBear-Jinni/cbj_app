@@ -8,15 +8,15 @@ class LightPage extends StatelessWidget {
     return Scaffold(
       body: Container(
         width: MediaQuery.of(context).size.width,
-        padding: EdgeInsets.all(5.0),
+        padding: const EdgeInsets.all(5.0),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             // Where the linear gradient begins and ends
             begin: Alignment.topRight,
             end: Alignment.bottomCenter,
             // Add one stop for each color. Stops should increase from 0 to 1
-            stops: [0, 0, 0, 1],
-            colors: [
+            stops: const <double>[0, 0, 0, 1],
+            colors: <Color>[
               Theme.of(context).primaryColor,
               Theme.of(context).accentColor,
               Theme.of(context).accentColor,
@@ -26,16 +26,16 @@ class LightPage extends StatelessWidget {
         ),
         child: Column(
           children: <Widget>[
-            SizedBox(
+            const SizedBox(
               width: 180,
               height: 300,
             ),
-            Text('This is firebase'),
-            SizedBox(
+            const Text('This is firebase'),
+            const SizedBox(
               height: 30,
             ),
-            Text('Device with ip: ' + rooms[0].getLights()[0].ip),
-            Container(
+            Text('Device with ip: ${rooms[0].getLights()[0].ip}'),
+            SizedBox(
               width: 170,
               child: SmartDevicePage(rooms[0].getLights()[0]),
             ),
