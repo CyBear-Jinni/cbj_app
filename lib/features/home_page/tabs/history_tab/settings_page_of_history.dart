@@ -7,15 +7,15 @@ class SettingsPageOfHistory extends StatelessWidget {
     return Scaffold(
       body: Container(
         width: MediaQuery.of(context).size.width,
-        padding: EdgeInsets.all(5.0),
+        padding: const EdgeInsets.all(5.0),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             // Where the linear gradient begins and ends
             begin: Alignment.topRight,
             end: Alignment.bottomCenter,
             // Add one stop for each color. Stops should increase from 0 to 1
-            stops: [0, 0, 0, 1],
-            colors: [
+            stops: const <double>[0, 0, 0, 1],
+            colors: <Color>[
               Theme.of(context).primaryColor,
               Theme.of(context).accentColor,
               Theme.of(context).accentColor,
@@ -25,7 +25,7 @@ class SettingsPageOfHistory extends StatelessWidget {
         ),
         child: Column(
           children: <Widget>[
-            Padding(
+            const Padding(
               padding: EdgeInsets.only(top: 20),
             ),
             Container(
