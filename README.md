@@ -50,6 +50,7 @@ Now you can control your smart device from the CyBear Jinni App 😁.
 **Do not** use the default Firebase configuration for your Smart Device devices at home, it is only for testing and development purposes.
 The app currently support only Android.
 
+
 Instructions for developers can be found in the [Wiki page Instructions for developers](https://github.com/CyBear-Jinni/CBJ_App/wiki/Instructions-for-developers)  
 
 
