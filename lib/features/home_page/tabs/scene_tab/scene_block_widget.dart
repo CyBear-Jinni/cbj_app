@@ -4,18 +4,19 @@ import 'package:flutter/material.dart';
 class SceneBlockWidget extends StatelessWidget {
   static final List<MaterialColor> colorList = Colors.primaries;
 
-  String _element;
-  int _elementIndex;
+  final String _element;
+  final int _elementIndex;
 
   SceneBlockWidget(this._element, this._elementIndex);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.fromLTRB(2, 0, 2, 16),
+      margin: const EdgeInsets.fromLTRB(2, 0, 2, 16),
       child: RaisedButton(
         color: colorList[_elementIndex],
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+        onPressed: () {},
         child: Text(
           _element,
           textAlign: TextAlign.center,
@@ -24,7 +25,6 @@ class SceneBlockWidget extends StatelessWidget {
             color: Theme.of(context).textTheme.bodyText1.color,
           ),
         ),
-        onPressed: () {},
       ),
     );
   }

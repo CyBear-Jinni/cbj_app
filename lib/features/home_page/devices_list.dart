@@ -39,7 +39,7 @@ class _DevicesList extends State<DevicesList> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       scrollDirection: _axis,
       itemBuilder: _buildItemList,
       itemCount: _howMuchToShow,

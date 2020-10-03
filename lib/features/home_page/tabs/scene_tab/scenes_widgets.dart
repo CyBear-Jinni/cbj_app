@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ScenesWidgets extends StatelessWidget {
-  static final List<String> _scenesList = [
+  static final List<String> _scenesList = <String>[
     'Welcome home',
     'Party mode',
     'Going out',
@@ -26,8 +26,8 @@ class ScenesWidgets extends StatelessWidget {
 
   List<Widget> scenes(BuildContext context) {
     return _scenesList
-        .map((element) =>
-        SceneBlockWidget(element, _scenesList.indexOf(element)))
+        .map((String element) =>
+            SceneBlockWidget(element, _scenesList.indexOf(element)))
         .toList();
   }
 
@@ -35,7 +35,7 @@ class ScenesWidgets extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Padding(
+        const Padding(
           padding: EdgeInsets.only(top: 20),
         ),
         Container(
@@ -67,9 +67,9 @@ class ScenesWidgets extends StatelessWidget {
         ),
         Expanded(
           child: GridView(
-            children: scenes(context),
             gridDelegate:
-            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+            const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+            children: scenes(context),
           ),
         ),
       ],

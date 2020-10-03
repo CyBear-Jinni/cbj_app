@@ -25,12 +25,12 @@ class _AddNewDeviceWidgetPopup extends State<AddNewDeviceWidgetPopup> {
     children: <Widget>[
       FutureBuilder<String>(
         future: getMyWifiIp(),
-        builder: (context, snapshot) {
+        builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             return TextFormField(
               autofocus: false,
-              initialValue: snapshot.data.substring(
-                  0, snapshot.data.length - 1),
+              initialValue:
+                  snapshot.data.substring(0, snapshot.data.length - 1),
               onSaved: (String ip) => _ip = ip,
               keyboardType: TextInputType.number,
               validator: (String value) {
@@ -42,12 +42,12 @@ class _AddNewDeviceWidgetPopup extends State<AddNewDeviceWidgetPopup> {
                 }
                 return null;
               },
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'IP ',
               ),
             );
           } else {
-            return CircularProgressIndicator();
+            return const CircularProgressIndicator();
           }
         },
       ),
