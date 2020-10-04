@@ -1,6 +1,5 @@
+import 'package:CyBearJinni/features/registration_page/form_widget.dart';
 import 'package:flutter/material.dart';
-
-import 'form_widget.dart';
 
 class RegistrationPage extends StatelessWidget {
   static String tag = 'registration-page';

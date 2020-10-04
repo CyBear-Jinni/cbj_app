@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class FormWidget extends StatefulWidget {
@@ -87,9 +88,12 @@ class _FormWidget extends State<FormWidget> {
         ),
         onPressed: _submitForm,
         padding: const EdgeInsets.all(12),
-        color: Theme.of(context).accentColor,
-        child: const Text('Create new account',
-            style: TextStyle(color: Colors.white)),
+        color: Theme
+            .of(context)
+            .accentColor,
+        child: const Text('Create_new_account',
+            style: TextStyle(color: Colors.white))
+            .tr(),
       ),
     );
 

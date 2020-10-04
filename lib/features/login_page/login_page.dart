@@ -1,7 +1,7 @@
+import 'package:CyBearJinni/features/login_page/form_widget.dart';
 import 'package:CyBearJinni/features/registration_page/registration_page.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-
-import 'form_widget.dart';
 
 class LoginPage extends StatelessWidget {
   static String tag = 'login-page';
@@ -25,9 +25,9 @@ class LoginPage extends StatelessWidget {
                 builder: (BuildContext context) => RegistrationPage()));
       },
       child: const Text(
-        'Create new account',
+        'Create_new_account',
         style: TextStyle(color: Colors.black54),
-      ),
+      ).tr(),
     );
 
     final FlatButton forgotPassword = FlatButton(
