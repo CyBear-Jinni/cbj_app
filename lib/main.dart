@@ -3,6 +3,7 @@ import 'package:CyBearJinni/features/room_page/room_page.dart';
 import 'package:CyBearJinni/injection.dart';
 import 'package:CyBearJinni/objects/interface_darta/cloud_interface_data.dart';
 import 'package:CyBearJinni/objects/smart_device/smart_room_object.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,19 @@ import 'features/login_page/login_page.dart';
 void main() {
 //  debugPaintSizeEnabled = true;
   configureInjection(Env.prod);
-  runApp(MyApp());
+  runApp(
+
+      /// Use https://lingohub.com/developers/supported-locales/language-designators-with-regions
+      /// Or https://www.contentstack.com/docs/developers/multilingual-content/list-of-supported-languages/
+      /// To find your language letters, and add the file letters below
+      EasyLocalization(
+          supportedLocales: const <Locale>[
+        Locale('en', 'US'),
+        Locale('he', 'IL')
+      ],
+          path: 'assets/translations', // <-- change patch to your
+          fallbackLocale: const Locale('en', 'US'),
+          child: MyApp()));
   Firebase.initializeApp();
 }
 
@@ -25,7 +38,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Smart home',
+      title: 'Smart Home',
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
 //      darkTheme: ThemeData(brightness: Brightness.dark),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -37,7 +53,7 @@ class MyApp extends StatelessWidget {
         ),
         fontFamily: 'gidole_regular',
       ),
-      routes: {
+      routes: <String, WidgetBuilder>{
         '/': (BuildContext context) => LoginPage(),
         '/home': (BuildContext context) => HomePage(),
 //        '/home_settings': (BuildContext context) => SettingsPage(),
