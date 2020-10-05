@@ -24,7 +24,7 @@ class _SmartDevicePage extends State<SmartDevicePage> {
   @override
   void initState() {
     super.initState();
-    this._device = widget.device;
+    _device = widget.device;
     getAndUpdateState();
 
     WidgetsBinding.instance
@@ -33,7 +33,7 @@ class _SmartDevicePage extends State<SmartDevicePage> {
 
   Future<void> getAndUpdateState() async {
     try {
-      bool stateValue = await getDeviceState();
+      final bool stateValue = await getDeviceState();
       if (mounted) {
         _isLoading = false;
         setState(() {
@@ -41,7 +41,7 @@ class _SmartDevicePage extends State<SmartDevicePage> {
         });
       }
     } catch (exception) {
-      print('Error whan updating state after resume: $exception');
+      print('Error when updating state after resume: $exception');
     }
   }
 

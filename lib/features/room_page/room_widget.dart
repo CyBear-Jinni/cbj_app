@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -36,13 +37,13 @@ class RoomWidget extends StatelessWidget {
 //                enabled: false,
                 decoration: InputDecoration(
                   border: InputBorder.none,
-                  hintText: products[index]['title'].toString(),
+                  hintText: products[index]['title'.tr()].toString(),
                   hintStyle: const TextStyle(color: Colors.white),
                 ),
                 style: const TextStyle(color: Colors.white),
               ),
               subtitle: Text(
-                products[index]['number'].toString(),
+                products[index]['number'.tr()].toString(),
                 style: const TextStyle(color: Colors.white),
               ),
               trailing: IconButton(
