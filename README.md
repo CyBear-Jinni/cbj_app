@@ -2,7 +2,7 @@
 
 <div align="center">
   
-[![dart CI](https://github.com/CyBear-Jinni/CBJ_App/workflows/Dart%20CI/badge.svg)](https://github.com/CyBear-Jinni/CBJ_App/actions?query=workflow%3A%22Dart+CI%22) [![style: lint](https://img.shields.io/badge/lint-1.3.0-blue)](https://pub.dev/packages/lint) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.png?v=103)](https://en.wikipedia.org/wiki/Open_source)
+[![dart CI](https://github.com/CyBear-Jinni/CBJ_App/workflows/Dart%20CI/badge.svg)](https://github.com/CyBear-Jinni/CBJ_App/actions?query=workflow%3A%22Dart+CI%22) [![style: lint](https://img.shields.io/badge/lint-1.3.0-blue)](https://pub.dev/packages/lint) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [<img src="https://badges.frapsoft.com/os/v1/open-source-200x33.png?v=103" height="20">](https://en.wikipedia.org/wiki/Open_source) 
 </div>
 
 [<div align="center"><img alt="CyBear Jinni image" height="400" src="https://user-images.githubusercontent.com/62209650/95081236-8e6cbd80-0719-11eb-99b9-8efc34e711b0.png">](https://github.com/CyBear-Jinni/CBJ_Smart-Home)
