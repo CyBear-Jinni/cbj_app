@@ -1,15 +1,16 @@
 import 'package:CyBearJinni/features/home_page/tabs/smart_devices_tab/settings_page_of_smart_devices.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SmartDevicesWidgets extends StatelessWidget {
   final Map<String, AssetImage> _symbolsImageList = {
-    'conditioner': const AssetImage('assets/simbols/air_conditioner.jpg'),
-    'blinds': const AssetImage('assets/simbols/blinds.jpg'),
-    'medical device': const AssetImage('assets/simbols/doctor.jpg'),
-    'smart phone': const AssetImage('assets/simbols/phone1.jpg'),
-    'smart speekers': const AssetImage('assets/simbols/speekers.jpg'),
+    'Conditioner'.tr(): const AssetImage('assets/symbols/air_conditioner.jpg'),
+    'Blinds'.tr(): const AssetImage('assets/symbols/blinds.jpg'),
+    'Medical Device': const AssetImage('assets/symbols/doctor.jpg'),
+    'Smart_Phone': const AssetImage('assets/symbols/phone1.jpg'),
+    'Smart_speakers': const AssetImage('assets/symbols/speakers.jpg'),
   };
 
   final List<MaterialColor> colorList = Colors.primaries;
@@ -18,7 +19,7 @@ class SmartDevicesWidgets extends StatelessWidget {
     return _symbolsImageList.keys
         .map((String element) => GestureDetector(
               onTap: () {
-                print("you clicked " + element.toString());
+                print('you clicked $element');
                 Fluttertoast.showToast(
                     msg: element.toString(),
                     toastLength: Toast.LENGTH_SHORT,
@@ -26,15 +27,15 @@ class SmartDevicesWidgets extends StatelessWidget {
                     backgroundColor: Colors.blueGrey,
                     textColor: Colors.white,
                     fontSize: 16.0);
-                if (element.toString() == "blinds") {
+                if (element.toString() == 'Blinds'.tr()) {
                   Navigator.pushNamed(
                     context,
-                    '/devices/' + element.toString(),
+                    '/devices/$element',
                   );
                 }
               },
               child: Container(
-                margin: EdgeInsets.fromLTRB(5, 0, 5, 10),
+                margin: const EdgeInsets.fromLTRB(5, 0, 5, 10),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
                   color: Colors.black,
@@ -48,10 +49,10 @@ class SmartDevicesWidgets extends StatelessWidget {
                     ),
                     alignment: Alignment.center,
                     child: DecoratedBox(
-                      decoration: BoxDecoration(color: Colors.black54),
+                      decoration: const BoxDecoration(color: Colors.black54),
                       child: Text(
                         element,
-                        style: TextStyle(fontSize: 27),
+                        style: const TextStyle(fontSize: 27),
                         textAlign: TextAlign.center,
                       ),
                     )),
@@ -71,37 +72,28 @@ class SmartDevicesWidgets extends StatelessWidget {
           alignment: Alignment.centerRight,
           child: IconButton(
             icon: Icon(FontAwesomeIcons.cog,
-                color: Theme
-                    .of(context)
-                    .textTheme
-                    .bodyText1
-                    .color),
-            onPressed: () =>
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (BuildContext context) =>
-                            SettingsPageSmartDevices())),
+                color: Theme.of(context).textTheme.bodyText1.color),
+            onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (BuildContext context) =>
+                        SettingsPageSmartDevices())),
           ),
         ),
         Text(
-          'Smart Devices page',
+          'Smart_Devices_page',
           style: TextStyle(
               fontSize: 23.0,
-              color: Theme
-                  .of(context)
-                  .textTheme
-                  .bodyText1
-                  .color,
+              color: Theme.of(context).textTheme.bodyText1.color,
               decoration: TextDecoration.underline),
-        ),
+        ).tr(),
         Container(
           height: 20,
         ),
         Expanded(
           child: GridView(
-            gridDelegate:
-            const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2),
             children: smartDevice(context),
           ),
         ),
