@@ -1,7 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-//  This class is quick shortcut toggles of specific room
+///  This class is quick shortcut toggles of specific room
 class RoomWidget extends StatelessWidget {
   final Function updateProduct;
   final Function deleteProduct;
@@ -27,7 +28,7 @@ class RoomWidget extends StatelessWidget {
         child: Column(
           children: <Widget>[
             ListTile(
-              leading: CircleAvatar(
+              leading: const CircleAvatar(
                 child: Icon(FontAwesomeIcons.solidLightbulb),
 //                backgroundImage: AssetImage('assets/logo.png'),
 //              backgroundImage: AssetImage(products[index]['image']),
@@ -36,22 +37,22 @@ class RoomWidget extends StatelessWidget {
 //                enabled: false,
                 decoration: InputDecoration(
                   border: InputBorder.none,
-                  hintText: products[index]['title'].toString(),
-                  hintStyle: TextStyle(color: Colors.white),
+                  hintText: products[index]['title'.tr()].toString(),
+                  hintStyle: const TextStyle(color: Colors.white),
                 ),
-                style: TextStyle(color: Colors.white),
+                style: const TextStyle(color: Colors.white),
               ),
               subtitle: Text(
-                products[index]['number'].toString(),
-                style: TextStyle(color: Colors.white),
+                products[index]['number'.tr()].toString(),
+                style: const TextStyle(color: Colors.white),
               ),
               trailing: IconButton(
                 color: Colors.white,
-                icon: Icon(FontAwesomeIcons.pen),
+                icon: const Icon(FontAwesomeIcons.pen),
                 onPressed: () {},
               ),
             ),
-            Divider()
+            const Divider()
           ],
         ),
       );

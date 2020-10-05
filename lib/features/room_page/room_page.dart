@@ -2,6 +2,7 @@ import 'package:CyBearJinni/features/room_page/room_widget.dart';
 import 'package:CyBearJinni/objects/interface_darta/cloud_interface_data.dart';
 import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
 import 'package:CyBearJinni/objects/smart_device/smart_room_object.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -9,7 +10,7 @@ class RoomPage extends StatelessWidget {
   final String roomName;
   SmartRoomObject thisSmartRoom;
   final List<Map<String, dynamic>> productsInThisRoom =
-      List<Map<String, dynamic>>();
+      <Map<String, dynamic>>[];
 
   RoomPage(this.roomName) {
     for (SmartRoomObject smartRoomObject in rooms) {
@@ -21,7 +22,7 @@ class RoomPage extends StatelessWidget {
 
     thisSmartRoom.getLights().forEach((SmartDeviceObject element) {
       productsInThisRoom.add({
-        'title': element.name,
+        'title'.tr(): element.name,
         'number': thisSmartRoom.getLights().indexOf(element)
       });
     });
@@ -31,26 +32,37 @@ class RoomPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        width: MediaQuery.of(context).size.width,
-        padding: EdgeInsets.all(5.0),
+        width: MediaQuery
+            .of(context)
+            .size
+            .width,
+        padding: const EdgeInsets.all(5.0),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             // Where the linear gradient begins and ends
             begin: Alignment.topRight,
             end: Alignment.bottomCenter,
             // Add one stop for each color. Stops should increase from 0 to 1
-            stops: [0, 0, 0, 1],
-            colors: [
-              Theme.of(context).primaryColor,
-              Theme.of(context).accentColor,
-              Theme.of(context).accentColor,
-              Theme.of(context).primaryColor
+            stops: const <double>[0, 0, 0, 1],
+            colors: <Color>[
+              Theme
+                  .of(context)
+                  .primaryColor,
+              Theme
+                  .of(context)
+                  .accentColor,
+              Theme
+                  .of(context)
+                  .accentColor,
+              Theme
+                  .of(context)
+                  .primaryColor
             ],
           ),
         ),
         child: Column(
           children: <Widget>[
-            Padding(
+            const Padding(
               padding: EdgeInsets.only(top: 20),
             ),
             Container(

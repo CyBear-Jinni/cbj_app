@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class FormWidget extends StatefulWidget {
@@ -26,74 +27,73 @@ class _FormWidget extends State<FormWidget> {
       Navigator.pushNamed(context, '/home');
     }
 
-    final email = TextFormField(
+    final TextFormField email = TextFormField(
       keyboardType: TextInputType.emailAddress,
-      // initialValue: "guy@gmail.com",
-      autofocus: false,
       autovalidate: autoValidation,
       maxLength: 40,
       validator: (String value) {
         if (value.isEmpty) {
-          return "Email is required";
+          return 'Email_is_required'.tr();
         }
         if (value.contains(' ')) {
-          return 'Email cannot contain spaces';
+          return 'Email_cannot_contain_spaces'.tr();
         }
         if (!RegExp(
                 r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
             .hasMatch(value)) {
-          return "Email is invalid";
+          return 'Email_is_invalid'.tr();
         }
         return null;
       },
       onSaved: (String value) => print('Check login to user'),
       decoration: InputDecoration(
-        hintText: 'Email',
-        contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+        hintText: 'Email'.tr(),
+        contentPadding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(32.0),
         ),
       ),
     );
 
-    final password = TextFormField(
-      autofocus: false,
-      // initialValue: "12345678",
+    final TextFormField password = TextFormField(
       obscureText: true,
       maxLength: 40,
       autovalidate: autoValidation,
       validator: (String value) {
         if (value.isEmpty) {
-          return 'Password is required';
+          return 'Password_is_required'.tr();
         }
         if (value.contains(' ')) {
-          return 'Password cannot contain spaces';
+          return 'Password_cannot_contain_spaces'.tr();
         }
         if (value.length <= 5) {
-          return "Password must be bigger than 5 characters";
+          return 'Password_must_be_bigger_than__characters'.tr();
         }
         return null;
       },
       decoration: InputDecoration(
-        hintText: 'Password',
-        contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+        hintText: 'Password'.tr(),
+        contentPadding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(32.0),
         ),
       ),
     );
 
-    final loginButton = Padding(
-      padding: EdgeInsets.symmetric(vertical: 16.0),
+    final Padding loginButton = Padding(
+      padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: RaisedButton(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(24),
         ),
         onPressed: _submitForm,
-        padding: EdgeInsets.all(12),
-        color: Theme.of(context).accentColor,
-        child:
-            Text('Create new account', style: TextStyle(color: Colors.white)),
+        padding: const EdgeInsets.all(12),
+        color: Theme
+            .of(context)
+            .accentColor,
+        child: const Text('Create_new_account',
+            style: TextStyle(color: Colors.white))
+            .tr(),
       ),
     );
 
@@ -102,9 +102,9 @@ class _FormWidget extends State<FormWidget> {
       child: Column(
         children: <Widget>[
           email,
-          SizedBox(height: 25.0),
+          const SizedBox(height: 25.0),
           password,
-          SizedBox(height: 24.0),
+          const SizedBox(height: 24.0),
           loginButton,
         ],
       ),

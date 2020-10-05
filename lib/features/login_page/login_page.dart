@@ -1,14 +1,14 @@
+import 'package:CyBearJinni/features/login_page/form_widget.dart';
 import 'package:CyBearJinni/features/registration_page/registration_page.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-
-import 'form_widget.dart';
 
 class LoginPage extends StatelessWidget {
   static String tag = 'login-page';
 
   @override
   Widget build(BuildContext context) {
-    final logo = Hero(
+    final Hero logo = Hero(
       tag: 'hero',
       child: CircleAvatar(
         backgroundColor: Colors.transparent,
@@ -17,25 +17,25 @@ class LoginPage extends StatelessWidget {
       ),
     );
 
-    final createNewAccount = FlatButton(
-      child: Text(
-        'Create new account',
-        style: TextStyle(color: Colors.black54),
-      ),
+    final FlatButton createNewAccount = FlatButton(
       onPressed: () {
         Navigator.push(
             context,
             MaterialPageRoute(
                 builder: (BuildContext context) => RegistrationPage()));
       },
+      child: const Text(
+        'Create_new_account',
+        style: TextStyle(color: Colors.black54),
+      ).tr(),
     );
 
-    final forgotPassword = FlatButton(
-      child: Text(
-        'Forgot password?',
-        style: TextStyle(color: Colors.black54),
-      ),
+    final FlatButton forgotPassword = FlatButton(
       onPressed: () {},
+      child: const Text(
+        'Forgot_password?',
+        style: TextStyle(color: Colors.black54),
+      ).tr(),
     );
 
     return GestureDetector(
@@ -47,10 +47,10 @@ class LoginPage extends StatelessWidget {
         body: Center(
           child: ListView(
             shrinkWrap: true,
-            padding: EdgeInsets.only(left: 24.0, right: 24.0),
+            padding: const EdgeInsets.only(left: 24.0, right: 24.0),
             children: <Widget>[
               logo,
-              SizedBox(height: 48.0),
+              const SizedBox(height: 48.0),
               FormWidget(),
               createNewAccount,
               forgotPassword,
