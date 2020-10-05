@@ -2,6 +2,7 @@ import 'package:CyBearJinni/features/shared_widgets/add_new_devie_widget.dart';
 import 'package:CyBearJinni/objects/interface_darta/cloud_interface_data.dart';
 import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
 import 'package:CyBearJinni/objects/smart_device/smart_room_object.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -29,23 +30,15 @@ class SettingsPageOfLamps extends StatelessWidget {
               child: Icon(FontAwesomeIcons.solidLightbulb),
             ),
             title: Text(
-              'Name: $lightName',
+              'Name:_',
               style:
-              TextStyle(color: Theme
-                  .of(context)
-                  .textTheme
-                  .bodyText1
-                  .color),
-            ),
+                  TextStyle(color: Theme.of(context).textTheme.bodyText1.color),
+            ).tr(args: <String>[lightName]),
             subtitle: Text(
-              'Room: $roomName',
+              'Room:_',
               style:
-              TextStyle(color: Theme
-                  .of(context)
-                  .textTheme
-                  .bodyText1
-                  .color),
-            ),
+                  TextStyle(color: Theme.of(context).textTheme.bodyText1.color),
+            ).tr(args: <String>[roomName]),
             trailing: IconButton(
               icon: Icon(
                 FontAwesomeIcons.pen,
@@ -139,12 +132,16 @@ class SettingsPageOfLamps extends StatelessWidget {
               ],
             ),
             Text(
-              'Lamps Settings Page',
+              'Lamps_Settings_Page',
               style: TextStyle(
                   fontSize: 23.0,
-                  color: Theme.of(context).textTheme.bodyText1.color,
+                  color: Theme
+                      .of(context)
+                      .textTheme
+                      .bodyText1
+                      .color,
                   decoration: TextDecoration.underline),
-            ),
+            ).tr(),
             Expanded(
               child: ListView.builder(
                 itemBuilder: (BuildContext context, int index) {

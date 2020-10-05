@@ -1,5 +1,6 @@
 import 'package:CyBearJinni/features/home_page/smart_device_widget.dart';
 import 'package:CyBearJinni/objects/interface_darta/cloud_interface_data.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class LightPage extends StatelessWidget {
@@ -30,11 +31,12 @@ class LightPage extends StatelessWidget {
               width: 180,
               height: 300,
             ),
-            const Text('This is firebase'),
+            const Text('This_is_firebase').tr(),
             const SizedBox(
               height: 30,
             ),
-            Text('Device with ip: ${rooms[0].getLights()[0].ip}'),
+            const Text('Device_with_ip:_')
+                .tr(args: <String>[rooms[0].getLights()[0].ip]),
             SizedBox(
               width: 170,
               child: SmartDevicePage(rooms[0].getLights()[0]),
