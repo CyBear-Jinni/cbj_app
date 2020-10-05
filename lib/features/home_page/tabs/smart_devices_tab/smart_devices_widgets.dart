@@ -6,11 +6,12 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SmartDevicesWidgets extends StatelessWidget {
   final Map<String, AssetImage> _symbolsImageList = {
-    'Conditioner'.tr(): const AssetImage('assets/symbols/air_conditioner.jpg'),
+    'Air_Conditioners'.tr():
+        const AssetImage('assets/symbols/air_conditioner.jpg'),
     'Blinds'.tr(): const AssetImage('assets/symbols/blinds.jpg'),
-    'Medical Device': const AssetImage('assets/symbols/doctor.jpg'),
-    'Smart_Phone': const AssetImage('assets/symbols/phone1.jpg'),
-    'Smart_speakers': const AssetImage('assets/symbols/speakers.jpg'),
+    'Medical_Device'.tr(): const AssetImage('assets/symbols/doctor.jpg'),
+    'Smart_Phone'.tr(): const AssetImage('assets/symbols/phone1.jpg'),
+    'Smart_Speakers'.tr(): const AssetImage('assets/symbols/speakers.jpg'),
   };
 
   final List<MaterialColor> colorList = Colors.primaries;
