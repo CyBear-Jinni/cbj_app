@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:CyBearJinni/objects/smart_device/smart_blinds_object.dart';
 import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -28,15 +29,15 @@ class _SmartBlindPage extends State<SmartBlindPage> {
   @override
   void initState() {
     super.initState();
-    this._device = widget.device;
-    this._smartBlindsObject = widget.smartBlindsObject;
+    _device = widget.device;
+    _smartBlindsObject = widget.smartBlindsObject;
     getDeviceState();
   }
 
   //  Send request to device to retrieve his state on or off
   Future getDeviceState() async {
-    bool deviceState = await _device.getDeviceStateAsBool();
-    print('This is device state: ' + deviceState.toString());
+    final bool deviceState = await _device.getDeviceStateAsBool();
+    print('This is device state: $deviceState');
     _onChange(deviceState);
     setState(() {
       _switchState = deviceState;
@@ -45,7 +46,7 @@ class _SmartBlindPage extends State<SmartBlindPage> {
   }
 
   void _onChange(bool value) {
-    print('OnChange ' + value.toString());
+    print('OnChange $value');
     _device.setLightState(value);
     setState(() {
       _switchState = value;
@@ -63,7 +64,7 @@ class _SmartBlindPage extends State<SmartBlindPage> {
             color: Theme.of(context).textTheme.bodyText2.color,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         // false
@@ -75,61 +76,79 @@ class _SmartBlindPage extends State<SmartBlindPage> {
         //       ) :
         Row(
           children: <Widget>[
-            SizedBox(
+            const SizedBox(
               width: 10,
             ),
             FlatButton(
-                color: Colors.brown,
-                child: Tab(
-                  icon: Icon(FontAwesomeIcons.arrowDown,
-                      color: Theme.of(context).textTheme.bodyText1.color),
-                  child: Text(
-                    "Down",
-                    style: TextStyle(
-                        color: Theme.of(context).textTheme.bodyText1.color,
-                        fontSize: 16),
-                  ),
-                ),
-                onPressed: () => _smartBlindsObject.blindsDown()),
-            SizedBox(
-              width: 10,
-            ),
-            FlatButton(
-                color: Colors.grey,
-                child: Tab(
-                  icon: Icon(FontAwesomeIcons.solidHandPaper,
-                      color: Theme.of(context).textTheme.bodyText1.color),
-                  child: Text(
-                    "Stop",
-                    style: TextStyle(
-                        color: Theme.of(context).textTheme.bodyText1.color,
-                        fontSize: 16),
-                  ),
-                ),
-                onPressed: () => _smartBlindsObject.blindsStop()),
-            SizedBox(
-              width: 10,
-            ),
-            FlatButton(
-                color: Colors.amber,
-                child: Tab(
-                  icon: Icon(FontAwesomeIcons.arrowUp,
-                      color: Theme.of(context).textTheme.bodyText1.color),
-                  child: Text(
-                          "Up",
-                          style: TextStyle(
-                              color:
-                                  Theme.of(context).textTheme.bodyText1.color,
-                              fontSize: 16),
-                        ),
-                      ),
-                      onPressed: () => _smartBlindsObject.blindsUp()),
-                  SizedBox(
-                    width: 10,
-                  ),
-                ],
+              color: Colors.brown,
+              onPressed: () => _smartBlindsObject.blindsDown(),
+              child: Tab(
+                icon: Icon(FontAwesomeIcons.arrowDown,
+                    color: Theme.of(context).textTheme.bodyText1.color),
+                child: Text(
+                  'Down',
+                  style: TextStyle(
+                      color: Theme.of(context).textTheme.bodyText1.color,
+                      fontSize: 16),
+                ).tr(),
               ),
-        SizedBox(
+            ),
+            const SizedBox(
+              width: 10,
+            ),
+            FlatButton(
+              color: Colors.grey,
+              onPressed: () => _smartBlindsObject.blindsStop(),
+              child: Tab(
+                icon: Icon(FontAwesomeIcons.solidHandPaper,
+                    color: Theme
+                        .of(context)
+                        .textTheme
+                        .bodyText1
+                        .color),
+                child: Text(
+                  'Stop',
+                  style: TextStyle(
+                      color: Theme
+                          .of(context)
+                          .textTheme
+                          .bodyText1
+                          .color,
+                      fontSize: 16),
+                ).tr(),
+              ),
+            ),
+            const SizedBox(
+              width: 10,
+            ),
+            FlatButton(
+              color: Colors.amber,
+              onPressed: () => _smartBlindsObject.blindsUp(),
+              child: Tab(
+                icon: Icon(FontAwesomeIcons.arrowUp,
+                    color: Theme
+                        .of(context)
+                        .textTheme
+                        .bodyText1
+                        .color),
+                child: Text(
+                  'Up',
+                  style: TextStyle(
+                      color: Theme
+                          .of(context)
+                          .textTheme
+                          .bodyText1
+                          .color,
+                      fontSize: 16),
+                ).tr(),
+              ),
+            ),
+            const SizedBox(
+              width: 10,
+            ),
+          ],
+        ),
+        const SizedBox(
           height: 20,
         ),
       ],

@@ -2,6 +2,7 @@ import 'package:CyBearJinni/features/shared_widgets/insert_details_of_new_device
 import 'package:CyBearJinni/objects/enums.dart';
 import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
 import 'package:connectivity/connectivity.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class AddNewDeviceWidgetPopup extends StatefulWidget {
@@ -25,29 +26,28 @@ class _AddNewDeviceWidgetPopup extends State<AddNewDeviceWidgetPopup> {
     children: <Widget>[
       FutureBuilder<String>(
         future: getMyWifiIp(),
-        builder: (context, snapshot) {
+        builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             return TextFormField(
-              autofocus: false,
-              initialValue: snapshot.data.substring(
-                  0, snapshot.data.length - 1),
+              initialValue:
+                  snapshot.data.substring(0, snapshot.data.length - 1),
               onSaved: (String ip) => _ip = ip,
               keyboardType: TextInputType.number,
               validator: (String value) {
                 if (value.isEmpty) {
-                  return 'IP is required';
+                  return 'IP_is_required'.tr();
                 }
                 if (SmartDeviceObject.legitIp(value)) {
-                  return 'IP syntax is incorrect';
+                  return 'IP_syntax_is_incorrect'.tr();
                 }
                 return null;
               },
               decoration: InputDecoration(
-                labelText: 'IP ',
+                labelText: 'IP'.tr(),
               ),
             );
           } else {
-            return CircularProgressIndicator();
+            return const CircularProgressIndicator();
           }
         },
       ),
@@ -59,19 +59,18 @@ class _AddNewDeviceWidgetPopup extends State<AddNewDeviceWidgetPopup> {
     return Form(
       key: _formKey,
       child: AlertDialog(
-        title: Text('Add Smart Device'),
+        title: const Text('Add_Smart_Device').tr(),
         content: SingleChildScrollView(
           child: addNewDeviceWidget,
         ),
         actions: <Widget>[
           FlatButton(
-            child: Text('Cancel'),
             onPressed: () {
               Navigator.of(context).pop();
             },
+            child: const Text('Cancel').tr(),
           ),
           FlatButton(
-            child: Text('Add'),
             onPressed: () {
               _formKey.currentState.save();
 //              rooms[0].getLights()[0] =
@@ -84,6 +83,7 @@ class _AddNewDeviceWidgetPopup extends State<AddNewDeviceWidgetPopup> {
                 //            Navigator.of(context).pop();
               );
             },
+            child: const Text('Add').tr(),
           ),
         ],
       ),
@@ -99,7 +99,7 @@ class DropDownMenu extends StatefulWidget {
 }
 
 class _DropDownMenu extends State<DropDownMenu> {
-  String dropdownValue = 'Light';
+  String dropdownValue = 'Light'.tr();
 
   String _deviceTypeToString(DeviceType deviceType) {
     return EnumHelper.dTToString(deviceType);
