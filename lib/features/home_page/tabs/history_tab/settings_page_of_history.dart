@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -37,12 +38,12 @@ class SettingsPageOfHistory extends StatelessWidget {
               ),
             ),
             Text(
-              'History Settings Page',
+              'History_Settings_Page',
               style: TextStyle(
                   fontSize: 23.0,
                   color: Theme.of(context).textTheme.bodyText1.color,
                   decoration: TextDecoration.underline),
-            ),
+            ).tr(),
           ],
         ),
       ),
