@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class FormWidget extends StatefulWidget {
@@ -33,21 +34,21 @@ class _FormWidget extends State<FormWidget> {
       maxLength: 40,
       validator: (String value) {
         if (value.isEmpty) {
-          return 'Email is required';
+          return 'Email_is_required'.tr();
         }
         if (value.contains(' ')) {
-          return 'Email cannot contain spaces';
+          return 'Email_cannot_contain_spaces'.tr();
         }
         if (!RegExp(
-                r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
+            r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
             .hasMatch(value)) {
-          return 'Email is invalid';
+          return 'Email_is_invalid'.tr();
         }
         return null;
       },
       onSaved: (String value) => print('Check login to user'),
       decoration: InputDecoration(
-        hintText: 'Email',
+        hintText: 'Email'.tr(),
         contentPadding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(32.0),
@@ -62,18 +63,19 @@ class _FormWidget extends State<FormWidget> {
       autovalidate: autoValidation,
       validator: (String value) {
         if (value.isEmpty) {
-          return 'Password is required';
+          return 'Password_is_required'.tr();
         }
         if (value.contains(' ')) {
-          return 'Password cannot contain spaces';
+          return 'Password_cannot_contain_spaces'.tr();
         }
         if (value.length <= 5) {
-          return 'Password must be bigger than 5 characters';
+          return 'Password_must_be_bigger_than__characters'
+              .tr(args: <String>[5.toString()]);
         }
         return null;
       },
       decoration: InputDecoration(
-        hintText: 'Password',
+        hintText: 'Password'.tr(),
         contentPadding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(32.0),
@@ -90,7 +92,7 @@ class _FormWidget extends State<FormWidget> {
         onPressed: _submitForm,
         padding: const EdgeInsets.all(12),
         color: Theme.of(context).accentColor,
-        child: const Text('Log In', style: TextStyle(color: Colors.white)),
+        child: const Text('Log_In', style: TextStyle(color: Colors.white)).tr(),
       ),
     );
 

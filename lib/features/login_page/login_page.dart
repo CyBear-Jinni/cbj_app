@@ -33,9 +33,9 @@ class LoginPage extends StatelessWidget {
     final FlatButton forgotPassword = FlatButton(
       onPressed: () {},
       child: const Text(
-        'Forgot password?',
+        'Forgot_password?',
         style: TextStyle(color: Colors.black54),
-      ),
+      ).tr(),
     );
 
     return GestureDetector(

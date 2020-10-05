@@ -5,6 +5,7 @@ import 'package:CyBearJinni/objects/interface_darta/cloud_interface_data.dart';
 import 'package:CyBearJinni/objects/smart_device/send_to_smart_device.dart';
 import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
 import 'package:CyBearJinni/objects/smart_device/smart_room_object.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -39,10 +40,10 @@ class InsertDetailsOfNewDevice extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            Text(
-              'Device ip: $_ip',
+            const Text(
+              'Device_ip:_',
               style: const TextStyle(color: Colors.black),
-            ),
+            ).tr(args: <String>[_ip]),
             const SizedBox(
               height: 20,
             ),
@@ -104,39 +105,41 @@ class _ShowAllDevicesInTheSmartDevice extends State<ShowAllDevicesInTheSmartDevi
               )),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              RaisedButton(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(24),
+                  children: [
+                    RaisedButton(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(24),
+                      ),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      padding: const EdgeInsets.all(12),
+                      color: Colors.redAccent,
+                      child: const Text('Cancel',
+                              style: TextStyle(color: Colors.white))
+                          .tr(),
+                    ),
+                    RaisedButton(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(24),
+                      ),
+                      onPressed: () {
+                        getAllTheDevices();
+                        final List<SmartDeviceObject> room2DevicesList =
+                            smartDeviceObjectList;
+                        SmartRoomObject newRoom = SmartRoomObject(
+                            'New_devices'.tr(), room2DevicesList);
+                        rooms.add(newRoom);
+                        Navigator.pop(context);
+                      },
+                      padding: const EdgeInsets.all(12),
+                      color: Colors.lightGreen,
+                      child: const Text('Add devices',
+                              style: TextStyle(color: Colors.white))
+                          .tr(),
+                    ),
+                  ],
                 ),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                padding: const EdgeInsets.all(12),
-                color: Colors.redAccent,
-                child:
-                const Text('Cancel', style: TextStyle(color: Colors.white)),
-              ),
-              RaisedButton(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(24),
-                ),
-                onPressed: () {
-                  getAllTheDevices();
-                  final List<SmartDeviceObject> room2DevicesList =
-                      smartDeviceObjectList;
-                  SmartRoomObject newRoom =
-                  SmartRoomObject('New devices', room2DevicesList);
-                  rooms.add(newRoom);
-                  Navigator.pop(context);
-                },
-                padding: const EdgeInsets.all(12),
-                color: Colors.lightGreen,
-                child: const Text('Add devices',
-                    style: TextStyle(color: Colors.white)),
-              ),
-            ],
-          ),
         ],
       ),
     );
@@ -268,18 +271,19 @@ class _NewDeviceWidget extends State<NewDeviceWidget> {
                           FontAwesomeIcons.satelliteDish),
                     ),
                   ),
-                Text(
-                  'Device type: ${EnumHelper.dTToString(
-                      _smartDeviceObject.deviceType)}',
+                const Text(
+                  'Device_type:_',
                   textAlign: TextAlign.center,
                   style: const TextStyle(fontSize: 20,
                       color: Colors.white,
                       backgroundColor: Colors.blueGrey
 //                color: Theme.of(context).textTheme.bodyText1.color,
                   ),
-                ),
+                ).tr(args: <String>[EnumHelper.dTToString(
+                    _smartDeviceObject.deviceType)
+                ]),
                 if (_smartDeviceObject.deviceType ==
-                    DeviceType.Light) Container(
+                    DeviceType.Light) SizedBox(
                   width: 100,
                   child: SmartDevicePage(
                       _smartDeviceObject), // The actual render of the device
@@ -296,14 +300,14 @@ class _NewDeviceWidget extends State<NewDeviceWidget> {
               ),
               validator: (String value) {
                 if (value.isEmpty) {
-                  return 'Room name is required';
+                  return 'Room_name_is_required'.tr();
                 }
                 return null;
               },
 //              onSaved: (roomName) => _roomName = roomName,
-              decoration: const InputDecoration(
-                  labelText: 'Room name:',
-                  labelStyle: TextStyle(
+              decoration: InputDecoration(
+                  labelText: 'Room name:'.tr(),
+                  labelStyle: const TextStyle(
                     color: Colors.black,
                     decorationColor: Colors.black,
                   )),
@@ -313,12 +317,12 @@ class _NewDeviceWidget extends State<NewDeviceWidget> {
 //              onSaved: (deviceName) => _deviceName = deviceName,
               validator: (String value) {
                 if (value.isEmpty) {
-                  return 'Device name is required';
+                  return 'Device_name_is_required'.tr();
                 }
                 return null;
               },
-              decoration: const InputDecoration(
-                labelText: 'Device name:',
+              decoration: InputDecoration(
+                labelText: 'Device name:'.tr(),
               ),
             ),
             const SizedBox(
@@ -336,7 +340,7 @@ class _NewDeviceWidget extends State<NewDeviceWidget> {
               padding: const EdgeInsets.all(12),
               color: Colors.blueAccent,
               child: const Text('Update', style: TextStyle(
-                  color: Colors.white)),
+                  color: Colors.white)).tr(),
             ),
           ],
         ));
