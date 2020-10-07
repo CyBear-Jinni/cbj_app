@@ -4,9 +4,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class RoomTogglesBlock extends StatelessWidget {
-  final SmartRoomObject _smartRoomObject;
-
   const RoomTogglesBlock(this._smartRoomObject);
+
+  final SmartRoomObject _smartRoomObject;
 
   @override
   Widget build(BuildContext context) {

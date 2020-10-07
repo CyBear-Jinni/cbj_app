@@ -7,10 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class RoomPage extends StatelessWidget {
-  final String roomName;
-  SmartRoomObject thisSmartRoom;
-  final List<Map<String, dynamic>> productsInThisRoom =
-      <Map<String, dynamic>>[];
 
   RoomPage(this.roomName) {
     for (SmartRoomObject smartRoomObject in rooms) {
@@ -28,14 +24,16 @@ class RoomPage extends StatelessWidget {
     });
   }
 
+  final String roomName;
+  SmartRoomObject thisSmartRoom;
+  final List<Map<String, dynamic>> productsInThisRoom =
+      <Map<String, dynamic>>[];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        width: MediaQuery
-            .of(context)
-            .size
-            .width,
+        width: MediaQuery.of(context).size.width,
         padding: const EdgeInsets.all(5.0),
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -45,9 +43,7 @@ class RoomPage extends StatelessWidget {
             // Add one stop for each color. Stops should increase from 0 to 1
             stops: const <double>[0, 0, 0, 1],
             colors: <Color>[
-              Theme
-                  .of(context)
-                  .primaryColor,
+              Theme.of(context).primaryColor,
               Theme
                   .of(context)
                   .accentColor,

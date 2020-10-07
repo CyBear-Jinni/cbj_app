@@ -7,12 +7,12 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SmartBlindPage extends StatefulWidget {
-  final SmartDeviceObject device;
-  SmartBlindsObject smartBlindsObject;
-
   SmartBlindPage(this.device) {
     smartBlindsObject = device as SmartBlindsObject;
   }
+
+  final SmartDeviceObject device;
+  SmartBlindsObject smartBlindsObject;
 
   @override
   State<StatefulWidget> createState() {
