@@ -20,7 +20,7 @@ Future<List<SmartDeviceObject>> getAllDevices(String deviceIp) async {
       await SmartClient.getAllDevices(deviceIp);
 
   await for (SmartDevice smartDevice in smartDeviceResponseStream) {
-    print('Device type: ' + smartDevice.deviceType.toString());
+    print('Device type: ${smartDevice.deviceType}');
     deviceTypeTemp = EnumHelper.stringToDt(smartDevice.deviceType);
     switch (deviceTypeTemp) {
       case DeviceType.Light:
@@ -92,7 +92,7 @@ Future<List<SmartDeviceObject>> getAllDevices(String deviceIp) async {
   return smartDeviceObjectList;
 }
 
-//  Request device state, on or off
+///  Request device state, on or off
 Future<String> getDeviceStateRequest(
     SmartDeviceObject smartDeviceObject) async {
   return await SmartClient.getSmartDeviceStatus(smartDeviceObject);
@@ -100,19 +100,19 @@ Future<String> getDeviceStateRequest(
 
 Future<String> updateDeviceName(
     SmartDeviceObject smartDeviceObject, String newName) async {
-  return await SmartClient.updateDeviceName(smartDeviceObject, newName);
+  return SmartClient.updateDeviceName(smartDeviceObject, newName);
 }
 
 Future<String> turnOn(SmartDeviceObject smartDeviceObject) async {
   String deviceSuccessStatus =
       await SmartClient.setSmartDeviceOn(smartDeviceObject);
-  print('The return is: ' + deviceSuccessStatus.toString());
+  print('The return is: $deviceSuccessStatus');
   return deviceSuccessStatus;
 }
 
 Future<String> turnOff(SmartDeviceObject smartDeviceObject) async {
   String deviceSuccessStatus =
-      await SmartClient.setSmartDeviceOff(smartDeviceObject);
-  print('The return is: ' + deviceSuccessStatus.toString());
+  await SmartClient.setSmartDeviceOff(smartDeviceObject);
+  print('The return is: $deviceSuccessStatus');
   return deviceSuccessStatus;
 }

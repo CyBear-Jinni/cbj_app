@@ -4,11 +4,11 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 ///  This class is quick shortcut toggles of specific room
 class RoomWidget extends StatelessWidget {
+  RoomWidget(this.products, this.updateProduct, this.deleteProduct);
+
   final Function updateProduct;
   final Function deleteProduct;
   final List<Map<String, dynamic>> products;
-
-  RoomWidget(this.products, this.updateProduct, this.deleteProduct);
 
   @override
   Widget build(BuildContext context) {

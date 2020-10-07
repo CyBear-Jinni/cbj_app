@@ -2,12 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SceneBlockWidget extends StatelessWidget {
+  SceneBlockWidget(this._element, this._elementIndex);
+
   static final List<MaterialColor> colorList = Colors.primaries;
 
   final String _element;
   final int _elementIndex;
-
-  SceneBlockWidget(this._element, this._elementIndex);
 
   @override
   Widget build(BuildContext context) {
