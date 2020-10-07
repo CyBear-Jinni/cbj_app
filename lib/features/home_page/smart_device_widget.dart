@@ -6,9 +6,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class SmartDevicePage extends StatefulWidget {
-  final SmartDeviceObject device;
 
   const SmartDevicePage(this.device);
+
+  final SmartDeviceObject device;
 
   @override
   State<StatefulWidget> createState() {
@@ -92,13 +93,14 @@ class _SmartDevicePage extends State<SmartDevicePage> {
 }
 
 class LifecycleEventHandler extends WidgetsBindingObserver {
-  final AsyncCallback resumeCallBack;
-  final AsyncCallback suspendingCallBack;
 
   LifecycleEventHandler({
     this.resumeCallBack,
     this.suspendingCallBack,
   });
+
+  final AsyncCallback resumeCallBack;
+  final AsyncCallback suspendingCallBack;
 
   @override
   Future<Null> didChangeAppLifecycleState(AppLifecycleState state) async {

@@ -57,7 +57,7 @@ class SmartClient {
     return 'error';
   }
 
-  //  Get the status of smart device
+  ///  Get the status of smart device
   static Future<String> getSmartDeviceStatus(
       SmartDeviceObject smartDeviceObject) async {
     final ClientChannel channel = createSmartServerClient(smartDeviceObject.ip);
@@ -99,7 +99,7 @@ class SmartClient {
     return 'error';
   }
 
-  //  Turn smart device on
+  ///  Turn smart device on
   static Future<String> setSmartDeviceOn(
       SmartDeviceObject smartDeviceObject) async {
     final ClientChannel channel = createSmartServerClient(smartDeviceObject.ip);
@@ -118,7 +118,7 @@ class SmartClient {
     return 'error';
   }
 
-  //  Turn smart device off
+  ///  Turn smart device off
   static Future<String> setSmartDeviceOff(SmartDeviceObject smartDeviceObject) async {
     final ClientChannel channel = createSmartServerClient(smartDeviceObject.ip);
     final SmartServerClient stub = SmartServerClient(channel);
@@ -139,7 +139,7 @@ class SmartClient {
 
   //  Blinds
 
-  //  Turn smart blinds up
+  ///  Turn smart blinds up
   static Future<String> setSmartBlindsUp(SmartDeviceObject smartDeviceObject) async {
     final ClientChannel channel = createSmartServerClient(smartDeviceObject.ip);
     final SmartServerClient stub = SmartServerClient(channel);
@@ -158,7 +158,7 @@ class SmartClient {
     return 'error';
   }
 
-  //  Turn smart blinds down
+  ///  Turn smart blinds down
   static Future<String> setSmartBlindsDown(SmartDeviceObject smartDeviceObject) async {
     final ClientChannel channel = createSmartServerClient(smartDeviceObject.ip);
     final SmartServerClient stub = SmartServerClient(channel);
@@ -177,7 +177,7 @@ class SmartClient {
     return 'error';
   }
 
-  //  Stop smart blinds
+  ///  Stop smart blinds
   static Future<String> setSmartBlindsStop(SmartDeviceObject smartDeviceObject) async {
     final ClientChannel channel = createSmartServerClient(smartDeviceObject.ip);
     final SmartServerClient stub = SmartServerClient(channel);
