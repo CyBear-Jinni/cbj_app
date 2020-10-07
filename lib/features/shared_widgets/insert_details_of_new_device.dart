@@ -56,9 +56,10 @@ class InsertDetailsOfNewDevice extends StatelessWidget {
 }
 
 class ShowAllDevicesInTheSmartDevice extends StatefulWidget {
-  final String _ip;
 
   const ShowAllDevicesInTheSmartDevice(this._ip);
+
+  final String _ip;
 
   @override
   State<StatefulWidget> createState() {
@@ -67,13 +68,13 @@ class ShowAllDevicesInTheSmartDevice extends StatefulWidget {
 }
 
 class _ShowAllDevicesInTheSmartDevice extends State<ShowAllDevicesInTheSmartDevice> {
-  final String _ip;
-  bool _isLoading = true;
-  List<SmartDeviceObject> smartDeviceObjectList;
-
   _ShowAllDevicesInTheSmartDevice(this._ip) {
     getAllTheDevices();
   }
+
+  final String _ip;
+  bool _isLoading = true;
+  List<SmartDeviceObject> smartDeviceObjectList;
 
   void getAllTheDevices() async {
     smartDeviceObjectList = await getAllDevices(_ip);
@@ -99,12 +100,12 @@ class _ShowAllDevicesInTheSmartDevice extends State<ShowAllDevicesInTheSmartDevi
     Expanded(
       child: Column(
         children: <Widget>[
-          Expanded(
-              child: ListView(
-                children: listOfDevicesToShow(),
-              )),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                Expanded(
+                    child: ListView(
+                  children: listOfDevicesToShow(),
+                )),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     RaisedButton(
                       shape: RoundedRectangleBorder(
@@ -140,7 +141,7 @@ class _ShowAllDevicesInTheSmartDevice extends State<ShowAllDevicesInTheSmartDevi
                     ),
                   ],
                 ),
-        ],
+              ],
       ),
     );
   }
@@ -148,9 +149,11 @@ class _ShowAllDevicesInTheSmartDevice extends State<ShowAllDevicesInTheSmartDevi
 
 class NewDeviceWidget extends StatefulWidget {
 
+  const NewDeviceWidget(this._smartDeviceObject);
+
+
   final SmartDeviceObject _smartDeviceObject;
 
-  const NewDeviceWidget(this._smartDeviceObject);
 
   @override
   _NewDeviceWidget createState() => _NewDeviceWidget(_smartDeviceObject);
@@ -274,7 +277,7 @@ class _NewDeviceWidget extends State<NewDeviceWidget> {
                 const Text(
                   'Device_type:_',
                   textAlign: TextAlign.center,
-                  style: const TextStyle(fontSize: 20,
+                  style: TextStyle(fontSize: 20,
                       color: Colors.white,
                       backgroundColor: Colors.blueGrey
 //                color: Theme.of(context).textTheme.bodyText1.color,
