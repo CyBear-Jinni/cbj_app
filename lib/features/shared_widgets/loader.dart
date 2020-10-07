@@ -6,7 +6,7 @@ class Loader extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement Loader Widget
     return Container(
-      decoration: BoxDecoration(color: Colors.white),
+      decoration: const BoxDecoration(color: Colors.white),
     );
   }
 

@@ -9,12 +9,6 @@ import 'package:permission_handler/permission_handler.dart';
 
 
 class SmartDeviceObject {
-  DeviceType deviceType;
-  String roomName;
-  String name;
-  String ip;
-  FireStoreClass fireStoreClass;
-  static const String homeWifiName = ''; // Insert host name
 
   SmartDeviceObject(this.deviceType, this.name, String ip, [this.roomName]) {
     if (legitIp(ip)) {
@@ -26,6 +20,13 @@ class SmartDeviceObject {
     fireStoreClass = FireStoreClass();
   }
 
+  DeviceType deviceType;
+  String roomName;
+  String name;
+  String ip;
+  FireStoreClass fireStoreClass;
+  static const String homeWifiName = ''; // Insert host name
+
   //  Get
 
   Future<bool> getDeviceStateAsBool() async {
@@ -35,15 +36,16 @@ class SmartDeviceObject {
 
   Future<String> getDeviceState() async {
     // TODO: network does not need to be created for each device in the network
-    var connectivityResult = await (Connectivity().checkConnectivity());
+    final ConnectivityResult connectivityResult =
+        await (Connectivity().checkConnectivity());
 
     if (connectivityResult == ConnectivityResult.wifi &&
         await getCurrentWifiName() == homeWifiName) {
       //  If current network is the network of the smart device set using the local method and not the remote
-      return await getDeviceStatesLocal();
+      return getDeviceStatesLocal();
     } else if (connectivityResult == ConnectivityResult.wifi ||
         connectivityResult == ConnectivityResult.mobile) {
-      return await getDeviceStatesRemote();
+      return getDeviceStatesRemote();
     } else {
       print('Not connected to a network');
     }
@@ -70,7 +72,7 @@ class SmartDeviceObject {
           wifiName = await _connectivity.getWifiName();
         }
       } else if (Platform.isAndroid) {
-        var status = await Permission.location.status;
+        final PermissionStatus status = await Permission.location.status;
         if (status.isUndetermined || status.isDenied || status.isRestricted) {
           if (await Permission.location
               .request()
@@ -94,30 +96,31 @@ class SmartDeviceObject {
   }
 
   Future<String> getDeviceStatesLocal() async {
-    String deviceStateString = await getDeviceStateRequest(this);
-    print('Go on little one: ' + deviceStateString);
+    final String deviceStateString = await getDeviceStateRequest(this);
+    print('Go on little one: $deviceStateString');
     return deviceStateString;
   }
 
   Future<String> getDeviceStatesRemote() async {
-    return await fireStoreClass.getDeviceStatus(roomName, name);
+    return fireStoreClass.getDeviceStatus(roomName, name);
   }
 
   //  Set
 
   Future<String> setLightState(bool state) async {
     // TODO: network does not need to be created for each device in the network
-    var connectivityResult = await (Connectivity().checkConnectivity());
+    final ConnectivityResult connectivityResult = await (Connectivity()
+        .checkConnectivity());
 
     if (connectivityResult == ConnectivityResult.wifi &&
         await getCurrentWifiName() == homeWifiName) {
       //  If current network is the network of the smart device set using the local method and not the remote
-      print('Set light state ' + state.toString() + ' local');
-      return await setLightStateLocal(state);
+      print('Set light state $state local');
+      return setLightStateLocal(state);
     } else if (connectivityResult == ConnectivityResult.wifi ||
         connectivityResult == ConnectivityResult.mobile) {
-      print('Set light state ' + state.toString() + ' remote');
-      return await setLightStateRemote(state);
+      print('Set light state $state remote');
+      return setLightStateRemote(state);
     } else {
       print('Not connected to a network');
     }
@@ -134,7 +137,7 @@ class SmartDeviceObject {
   }
 
   static bool legitIp(String ip) {
-    String tempRegExIp = regexpIP(ip); //  Save to string a valid ip
+    final String tempRegExIp = regexpIP(ip); //  Save to string a valid ip
     return ip.length == tempRegExIp.length;
   }
 

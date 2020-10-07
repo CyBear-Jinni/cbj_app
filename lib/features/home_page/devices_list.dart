@@ -3,15 +3,15 @@ import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
 import 'package:flutter/material.dart';
 
 class DevicesList extends StatefulWidget {
+  DevicesList(this.devices, {this.howMuchToShow, this.axis = Axis.vertical}) {
+    if (devices != null && howMuchToShow == null) {
+      howMuchToShow = devices.length;
+    }
+  }
+
   final List<SmartDeviceObject> devices;
   int howMuchToShow;
   final Axis axis;
-
-  DevicesList(this.devices, {this.howMuchToShow, this.axis = Axis.vertical}) {
-    if (this.devices != null && howMuchToShow == null) {
-      this.howMuchToShow = this.devices.length;
-    }
-  }
 
   @override
   State<StatefulWidget> createState() {
