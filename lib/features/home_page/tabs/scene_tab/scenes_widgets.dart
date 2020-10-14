@@ -6,23 +6,15 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ScenesWidgets extends StatelessWidget {
   static final List<String> _scenesList = <String>[
+    'Entrance lights OFF  ⛩️  🛑',
+    'Entrance lights ON     ⛩️  💡',
+    'Go to sleep 😴',
     'Welcome home',
-    'Party mode',
     'Going out',
-    'Go to sleep',
     'Going for a walk',
     'Workout',
     'Date night',
-    'Danger mode',
-    'Danger mode1',
-    'Danger mode2',
-    'Danger mode3',
-    'Danger mode4',
-    'Party mode2',
-    'Party mode3',
-    'Party mode4',
-    'Party mode5',
-    'Party mode6',
+    'Party',
   ];
 
   List<Widget> scenes(BuildContext context) {
@@ -63,7 +55,7 @@ class ScenesWidgets extends StatelessWidget {
         Expanded(
           child: GridView(
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3),
+                crossAxisCount: 2),
             children: scenes(context),
           ),
         ),
