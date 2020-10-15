@@ -146,4 +146,51 @@ class SmartDeviceObject {
             r'((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))')
         .stringMatch(ip);
   }
+
+  // Execute
+
+  Future<String> executeWish(WishEnum wishEnum) async {
+    String executeOutput;
+    switch (wishEnum) {
+      case WishEnum.SOn:
+        executeOutput = await setLightState(true);
+        break;
+      case WishEnum.SOff:
+        executeOutput = await setLightState(false);
+        break;
+      case WishEnum.SChangeState:
+        print('ChangeState not supported light');
+        executeOutput = 'ChangeState not supported light';
+        break;
+      case WishEnum.SDynamic:
+        print('Dynamic not supported for light');
+        executeOutput = 'Dynamic not supported for light';
+        break;
+      case WishEnum.ODynamic:
+        print('Dynamic not supported for light');
+        executeOutput = 'Dynamic not supported for light';
+        break;
+      case WishEnum.SMovement:
+        print('Dynamic not supported for light');
+        executeOutput = 'Dynamic not supported for light';
+        break;
+      case WishEnum.GState:
+        print('Get device state not supported for light');
+        executeOutput = 'Get device state not supported for light';
+        break;
+      case WishEnum.SBlindsUp:
+        print('Blinds not supported for light');
+        executeOutput = 'Blinds not supported for light';
+        break;
+      case WishEnum.SBlindsDown:
+        print('Blinds not supported for light');
+        executeOutput = 'Blinds not supported for light';
+        break;
+      case WishEnum.SBlindsStop:
+        print('Blinds not supported for light');
+        executeOutput = 'Blinds not supported for light';
+        break;
+    }
+    return executeOutput;
+  }
 }
