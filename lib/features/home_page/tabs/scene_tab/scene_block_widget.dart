@@ -34,6 +34,7 @@ class SceneBlockWidget extends StatelessWidget {
             }
           });
         },
+        highlightColor: Colors.white,
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
