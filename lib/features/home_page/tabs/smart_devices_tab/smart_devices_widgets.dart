@@ -9,8 +9,8 @@ class SmartDevicesWidgets extends StatelessWidget {
     'Air_Conditioners'.tr():
         const AssetImage('assets/symbols/air_conditioner.jpg'),
     'Blinds'.tr(): const AssetImage('assets/symbols/blinds.jpg'),
-    'Medical_Device'.tr(): const AssetImage('assets/symbols/doctor.jpg'),
-    'Smart_Phone'.tr(): const AssetImage('assets/symbols/phone1.jpg'),
+    'Medical_Devices'.tr(): const AssetImage('assets/symbols/doctor.jpg'),
+    'Smart_Phones'.tr(): const AssetImage('assets/symbols/phone1.jpg'),
     'Smart_Speakers'.tr(): const AssetImage('assets/symbols/speakers.jpg'),
   };
 
