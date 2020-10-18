@@ -39,7 +39,7 @@ dependencies:
   # Bloc for state management, replace StatefulWidget
   flutter_bloc: ^6.0.6
   # Allow discover network connectivity
-  connectivity: ^0.4.9+3
+  connectivity: ^0.4.9+5
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.0
