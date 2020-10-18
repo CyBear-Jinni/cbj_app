@@ -52,7 +52,7 @@ class HomePage extends StatelessWidget {
               Tab(
                 icon: const Icon(FontAwesomeIcons.cube),
                 child: const Text(
-                  'Scene',
+                  'Scenes',
                 ).tr(),
               ),
               Tab(
