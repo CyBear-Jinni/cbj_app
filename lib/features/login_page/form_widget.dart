@@ -30,7 +30,7 @@ class _FormWidget extends State<FormWidget> {
     }
     void _loginUser() async {
       try {
-        UserCredential _ = await FirebaseAuth.instance.signInWithEmailAndPassword(
+        UserCredential _ = await auth.signInWithEmailAndPassword(
             email: emailVal,
             password: passwordVal
         );
