@@ -1,5 +1,8 @@
+import 'package:CyBearJinni/features/home_page/home_page.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class FormWidget extends StatefulWidget {
   @override
@@ -11,9 +14,40 @@ class FormWidget extends StatefulWidget {
 class _FormWidget extends State<FormWidget> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   bool autoValidation = false;
+  String emailVal, passwordVal;
 
+  FirebaseAuth auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
+    void _showErrToast(String msg) {
+      Fluttertoast.showToast(
+          msg: msg,
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.TOP,
+          backgroundColor: Colors.blueGrey,
+          textColor: Colors.white,
+          fontSize: 16.0);
+    }
+    void _loginUser() async {
+      try {
+        UserCredential _ = await FirebaseAuth.instance.signInWithEmailAndPassword(
+            email: emailVal,
+            password: passwordVal
+        );
+        Navigator.of(context).popUntil((route) => route.isFirst);
+        Navigator.pushReplacement(context, MaterialPageRoute(
+            builder: (BuildContext context) => HomePage())
+        );
+      } on FirebaseAuthException catch (e) {
+        if (e.code == 'user-not-found') {
+          _showErrToast('No user found for this email.');
+        } else if (e.code == 'wrong-password') {
+          _showErrToast('Wrong password entered');
+        } else {
+          _showErrToast('Unable to Login, Try again!');
+        }
+      }
+    }
     void _submitForm() {
       if (!autoValidation) {
         setState(() {
@@ -24,12 +58,11 @@ class _FormWidget extends State<FormWidget> {
         return;
       }
       _formKey.currentState.save();
-      Navigator.pushNamed(context, '/home');
+      _loginUser();
     }
 
     final TextFormField email = TextFormField(
       keyboardType: TextInputType.emailAddress,
-      initialValue: 'guy@gmail.com',
       autovalidate: autoValidation,
       maxLength: 40,
       validator: (String value) {
@@ -46,7 +79,7 @@ class _FormWidget extends State<FormWidget> {
         }
         return null;
       },
-      onSaved: (String value) => print('Check login to user'),
+      onSaved: (String value) => {emailVal = value},
       decoration: InputDecoration(
         hintText: 'Email'.tr(),
         contentPadding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
@@ -57,7 +90,6 @@ class _FormWidget extends State<FormWidget> {
     );
 
     final TextFormField password = TextFormField(
-      initialValue: '12345678',
       obscureText: true,
       maxLength: 40,
       autovalidate: autoValidation,
@@ -74,6 +106,7 @@ class _FormWidget extends State<FormWidget> {
         }
         return null;
       },
+      onSaved: (String value) => {passwordVal = value},
       decoration: InputDecoration(
         hintText: 'Password'.tr(),
         contentPadding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
