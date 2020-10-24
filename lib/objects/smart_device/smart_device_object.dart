@@ -4,6 +4,7 @@ import 'package:CyBearJinni/database/firebase/cloud_firestore/firestore_class.da
 import 'package:CyBearJinni/objects/enums.dart';
 import 'package:CyBearJinni/objects/smart_device/send_to_smart_device.dart';
 import 'package:connectivity/connectivity.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/services.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -35,6 +36,11 @@ class SmartDeviceObject {
   }
 
   Future<String> getDeviceState() async {
+    // Skipping for App on web browser because crash on connectivityResult line an getDeviceStatesLocal
+    if (kIsWeb) {
+      return getDeviceStatesRemote();
+    }
+
     // TODO: network does not need to be created for each device in the network
     final ConnectivityResult connectivityResult =
         await (Connectivity().checkConnectivity());
@@ -108,6 +114,11 @@ class SmartDeviceObject {
   //  Set
 
   Future<String> setLightState(bool state) async {
+    // Skipping for App on web browser because crash on connectivityResult line an setLightStateLocal
+    if (kIsWeb) {
+      return setLightStateRemote(state);
+    }
+
     // TODO: network does not need to be created for each device in the network
     final ConnectivityResult connectivityResult = await (Connectivity()
         .checkConnectivity());

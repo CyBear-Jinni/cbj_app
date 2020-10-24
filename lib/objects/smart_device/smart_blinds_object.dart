@@ -1,6 +1,7 @@
 import 'package:CyBearJinni/objects/enums.dart';
 import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
 import 'package:connectivity/connectivity.dart';
+import 'package:flutter/foundation.dart';
 
 import 'client/smart_client.dart';
 
@@ -9,6 +10,11 @@ class SmartBlindsObject extends SmartDeviceObject {
       : super(deviceType, name, ip);
 
   Future<String> blindsUp() async {
+    // Skipping for App on web browser because crash on connectivityResult line an setLightStateLocal
+    if (kIsWeb) {
+      return setBlindStateRemote(WishEnum.SBlindsUp);
+    }
+
     final ConnectivityResult connectivityResult =
         await (Connectivity().checkConnectivity());
 
@@ -29,6 +35,11 @@ class SmartBlindsObject extends SmartDeviceObject {
   }
 
   Future<String> blindsDown() async {
+    // Skipping for App on web browser because crash on connectivityResult line an setLightStateLocal
+    if (kIsWeb) {
+      return setBlindStateRemote(WishEnum.SBlindsDown);
+    }
+
     final ConnectivityResult connectivityResult = await (Connectivity()
         .checkConnectivity());
 
@@ -49,6 +60,12 @@ class SmartBlindsObject extends SmartDeviceObject {
   }
 
   Future<String> blindsStop() async {
+    // Skipping for App on web browser because crash on connectivityResult line an setLightStateLocal
+    if (kIsWeb) {
+      return setBlindStateRemote(WishEnum.SBlindsStop);
+    }
+
+
     final ConnectivityResult connectivityResult = await (Connectivity()
         .checkConnectivity());
 
