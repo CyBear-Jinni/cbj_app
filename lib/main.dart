@@ -4,6 +4,7 @@ import 'package:CyBearJinni/injection.dart';
 import 'package:CyBearJinni/objects/interface_darta/cloud_interface_data.dart';
 import 'package:CyBearJinni/objects/smart_device/smart_room_object.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -37,7 +38,6 @@ class MyApp extends StatelessWidget {
     LoginPage.tag: (BuildContext context) => LoginPage(),
 //    "HomePage": (context) => HomePage(),
   };
-
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -47,10 +47,11 @@ class MyApp extends StatelessWidget {
           if (snapshot.hasError) {
             return ErrorMessage();
           }
-
+          final FirebaseAuth auth = FirebaseAuth.instance;
           if (snapshot.connectionState == ConnectionState.done) {
             return MaterialApp(
               title: 'CyBear Jinni App',
+              initialRoute: auth.currentUser != null ? '/home' : '/login',
               localizationsDelegates: context.localizationDelegates,
               supportedLocales: context.supportedLocales,
               locale: context.locale,
@@ -66,7 +67,7 @@ class MyApp extends StatelessWidget {
                 fontFamily: 'gidole_regular',
               ),
               routes: <String, WidgetBuilder>{
-                '/': (BuildContext context) => LoginPage(),
+                '/login': (BuildContext context) => LoginPage(),
                 '/home': (BuildContext context) => HomePage(),
         //        '/home_settings': (BuildContext context) => SettingsPage(),
               },
