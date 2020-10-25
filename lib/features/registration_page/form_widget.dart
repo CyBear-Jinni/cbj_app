@@ -1,5 +1,8 @@
+import 'package:CyBearJinni/features/login_page/login_page.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class FormWidget extends StatefulWidget {
   @override
@@ -12,8 +15,40 @@ class _FormWidget extends State<FormWidget> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   bool autoValidation = false;
 
+  String emailVal, passwordVal;
+  FirebaseAuth auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
+
+    void _showToast(String msg) {
+      Fluttertoast.showToast(
+          msg: msg,
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.TOP,
+          backgroundColor: Colors.blueGrey,
+          textColor: Colors.white,
+          fontSize: 16.0);
+    }
+
+    void _createUser() async {
+      try {
+        UserCredential _ = await auth.createUserWithEmailAndPassword(
+            email: emailVal,
+            password: passwordVal
+        );
+        _showToast('Account Created');
+        Navigator.of(context).popUntil((route) => route.isFirst);
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => LoginPage()));
+      } on FirebaseAuthException catch (e) {
+        if (e.code == 'weak-password') {
+          _showToast('The password provided is too weak.');
+        } else if (e.code == 'email-already-in-use') {
+          _showToast('The account already exists for that email.');
+        }
+      } catch (e) {
+        _showToast('Unable to create account, try again!');
+      }
+    }
     void _submitForm() {
       if (!autoValidation) {
         setState(() {
@@ -24,7 +59,7 @@ class _FormWidget extends State<FormWidget> {
         return;
       }
       _formKey.currentState.save();
-      Navigator.pushNamed(context, '/home');
+      _createUser();
     }
 
     final TextFormField email = TextFormField(
@@ -45,7 +80,7 @@ class _FormWidget extends State<FormWidget> {
         }
         return null;
       },
-      onSaved: (String value) => print('Check login to user'),
+      onSaved: (String value) => {emailVal = value},
       decoration: InputDecoration(
         hintText: 'Email'.tr(),
         contentPadding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
@@ -71,6 +106,7 @@ class _FormWidget extends State<FormWidget> {
         }
         return null;
       },
+      onSaved: (String value) => {passwordVal = value},
       decoration: InputDecoration(
         hintText: 'Password'.tr(),
         contentPadding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
