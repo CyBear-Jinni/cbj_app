@@ -12,7 +12,7 @@
 
 This repository is in charge of the CyBear Jinni App and is part of the [CyBear Jinni Smart Home](https://github.com/CyBear-Jinni/CBJ_Smart-Home.git) system.
 
-The CyBear Jinni App lets you control and manage the [CyBear Jinni smart devices](https://github.com/CyBear-Jinni/CBJ_Smart-Device.git) through your Android and IOS smartphones.
+The CyBear Jinni App lets you control and manage the [CyBear Jinni smart devices](https://github.com/CyBear-Jinni/CBJ_Smart-Device.git) through your Android, IOS and Web Browser.
 
 The CBJ App is written in [Flutter](https://flutter.dev) and let you control all the CBJ Smart Devices using local Wi-Fi and remotely through Google [Cloud Firestore](https://firebase.google.com/docs/firestore).
 
@@ -48,7 +48,7 @@ Now you can control your smart device from the CyBear Jinni App 😁.
 
 ## Instructions for developers
 **Do not** use the default Firebase configuration for your Smart Device devices at home, it is only for testing and development purposes.
-The app currently support only Android.
+The app was not tested on IOS.
 
 
 Instructions for developers can be found in the [Wiki page Instructions for developers](https://github.com/CyBear-Jinni/CBJ_App/wiki/Instructions-for-developers)  
