@@ -1,10 +1,4 @@
 ///
-//  Generated code. Do not modify.
-//  source: smart_connection.proto
-//
-// @dart = 2.3
-// ignore_for_file: camel_case_types,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type
-
 import 'dart:async' as $async;
 import 'dart:core' as $core;
 
@@ -47,8 +41,8 @@ class SmartServerClient extends $grpc.Client {
           ($0.SmartDevice value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CommendStatus.fromBuffer(value));
   static final _$setBlindsUp =
-  $grpc.ClientMethod<$0.SmartDevice, $0.CommendStatus>(
-      '/SmartConnection.SmartServer/setBlindsUp',
+      $grpc.ClientMethod<$0.SmartDevice, $0.CommendStatus>(
+          '/SmartConnection.SmartServer/setBlindsUp',
           ($0.SmartDevice value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CommendStatus.fromBuffer(value));
   static final _$setBlindsDown =

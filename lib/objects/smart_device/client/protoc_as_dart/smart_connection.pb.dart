@@ -1,21 +1,34 @@
 ///
-//  Generated code. Do not modify.
-//  source: smart_connection.proto
-//
-// @dart = 2.3
-// ignore_for_file: camel_case_types,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type
-
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
 class SmartDevice extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo('SmartDevice',
-      package: const $pb.PackageName('SmartConnection'),
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'SmartDevice',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'SmartConnection'),
       createEmptyInstance: create)
-    ..aOS(1, 'uuid')
-    ..aOS(2, 'name')
-    ..aOS(3, 'deviceType', protoName: 'deviceType')
+    ..aOS(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'uuid')
+    ..aOS(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'name')
+    ..aOS(
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'deviceType',
+        protoName: 'deviceType')
     ..hasRequiredFields = false;
 
   SmartDevice._() : super();
@@ -30,12 +43,17 @@ class SmartDevice extends $pb.GeneratedMessage {
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
 
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
   SmartDevice clone() => SmartDevice()..mergeFromMessage(this);
 
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
   SmartDevice copyWith(void Function(SmartDevice) updates) =>
-      super.copyWith((message) => updates(message as SmartDevice))
-          as SmartDevice;
-
+      super.copyWith((message) =>
+          updates(message as SmartDevice)); // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
@@ -89,9 +107,15 @@ class SmartDevice extends $pb.GeneratedMessage {
 
 class SmartDeviceStatus extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      'SmartDeviceStatus', package: const $pb.PackageName('SmartConnection'),
-      createEmptyInstance: create)
-    ..aOB(4, 'onOffState', protoName: 'onOffState')
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'SmartDeviceStatus', package: const $pb.PackageName(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'SmartConnection'), createEmptyInstance: create)
+    ..aOB(4, const $core.bool.fromEnvironment('protobuf.omit_field_names')
+        ? ''
+        : 'onOffState', protoName: 'onOffState')
     ..hasRequiredFields = false
   ;
 
@@ -109,14 +133,21 @@ class SmartDeviceStatus extends $pb.GeneratedMessage {
       create()
         ..mergeFromJson(i, r);
 
+  @$core.Deprecated(
+      'Using this can add significant overhead to your binary. '
+          'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+          'Will be removed in next major version')
   SmartDeviceStatus clone() =>
       SmartDeviceStatus()
         ..mergeFromMessage(this);
 
+  @$core.Deprecated(
+      'Using this can add significant overhead to your binary. '
+          'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+          'Will be removed in next major version')
   SmartDeviceStatus copyWith(void Function(SmartDeviceStatus) updates) =>
-      super.copyWith((message) => updates(message as SmartDeviceStatus))
-          as SmartDeviceStatus;
-
+      super.copyWith((message) => updates(
+          message as SmartDeviceStatus)); // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
@@ -147,9 +178,15 @@ class SmartDeviceStatus extends $pb.GeneratedMessage {
 
 class CommendStatus extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      'CommendStatus', package: const $pb.PackageName('SmartConnection'),
-      createEmptyInstance: create)
-    ..aOB(5, 'success')
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'CommendStatus', package: const $pb.PackageName(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'SmartConnection'), createEmptyInstance: create)
+    ..aOB(5, const $core.bool.fromEnvironment('protobuf.omit_field_names')
+        ? ''
+        : 'success')
     ..hasRequiredFields = false
   ;
 
@@ -167,14 +204,21 @@ class CommendStatus extends $pb.GeneratedMessage {
       create()
         ..mergeFromJson(i, r);
 
+  @$core.Deprecated(
+      'Using this can add significant overhead to your binary. '
+          'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+          'Will be removed in next major version')
   CommendStatus clone() =>
       CommendStatus()
         ..mergeFromMessage(this);
 
+  @$core.Deprecated(
+      'Using this can add significant overhead to your binary. '
+          'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+          'Will be removed in next major version')
   CommendStatus copyWith(void Function(CommendStatus) updates) =>
-      super.copyWith((message) => updates(message as CommendStatus))
-          as CommendStatus;
-
+      super.copyWith((message) =>
+          updates(message as CommendStatus)); // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
@@ -204,12 +248,21 @@ class CommendStatus extends $pb.GeneratedMessage {
 }
 
 class SmartDeviceUpdateDetails extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo('SmartDeviceUpdateDetails',
-      package: const $pb.PackageName('SmartConnection'),
-      createEmptyInstance: create)
-    ..aOM<SmartDevice>(6, 'smartDevice', protoName: 'smartDevice',
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'SmartDeviceUpdateDetails', package: const $pb.PackageName(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'SmartConnection'), createEmptyInstance: create)
+    ..aOM<SmartDevice>(6,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'smartDevice', protoName: 'smartDevice',
         subBuilder: SmartDevice.create)
-    ..aOS(7, 'newName', protoName: 'newName')
+    ..aOS(7, const $core.bool.fromEnvironment('protobuf.omit_field_names')
+        ? ''
+        : 'newName', protoName: 'newName')
     ..hasRequiredFields = false
   ;
 
@@ -227,15 +280,22 @@ class SmartDeviceUpdateDetails extends $pb.GeneratedMessage {
       create()
         ..mergeFromJson(i, r);
 
+  @$core.Deprecated(
+      'Using this can add significant overhead to your binary. '
+          'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+          'Will be removed in next major version')
   SmartDeviceUpdateDetails clone() =>
       SmartDeviceUpdateDetails()
         ..mergeFromMessage(this);
 
+  @$core.Deprecated(
+      'Using this can add significant overhead to your binary. '
+          'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+          'Will be removed in next major version')
   SmartDeviceUpdateDetails copyWith(
       void Function(SmartDeviceUpdateDetails) updates) =>
-      super.copyWith((message) => updates(message as SmartDeviceUpdateDetails))
-          as SmartDeviceUpdateDetails;
-
+      super.copyWith((message) => updates(
+          message as SmartDeviceUpdateDetails)); // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
@@ -272,23 +332,32 @@ class SmartDeviceUpdateDetails extends $pb.GeneratedMessage {
   set newName($core.String v) {
     $_setString(1, v);
   }
-
   @$pb.TagNumber(7)
   $core.bool hasNewName() => $_has(1);
-
   @$pb.TagNumber(7)
   void clearNewName() => clearField(7);
 }
 
 class FirebaseAccountInformation extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      'FirebaseAccountInformation',
-      package: const $pb.PackageName('SmartConnection'),
-      createEmptyInstance: create)
-    ..aOS(8, 'fireBaseProjectId', protoName: 'fireBaseProjectId')..aOS(
-        9, 'fireBaseApiKey', protoName: 'fireBaseApiKey')..aOS(
-        10, 'userEmail', protoName: 'userEmail')..aOS(
-        11, 'userPassword', protoName: 'userPassword')
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'FirebaseAccountInformation', package: const $pb.PackageName(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'SmartConnection'), createEmptyInstance: create)
+    ..aOS(8, const $core.bool.fromEnvironment('protobuf.omit_field_names')
+        ? ''
+        : 'fireBaseProjectId', protoName: 'fireBaseProjectId')..aOS(9,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'fireBaseApiKey', protoName: 'fireBaseApiKey')..aOS(10,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'userEmail', protoName: 'userEmail')..aOS(11,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'userPassword', protoName: 'userPassword')
     ..hasRequiredFields = false
   ;
 
@@ -306,16 +375,22 @@ class FirebaseAccountInformation extends $pb.GeneratedMessage {
       create()
         ..mergeFromJson(i, r);
 
+  @$core.Deprecated(
+      'Using this can add significant overhead to your binary. '
+          'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+          'Will be removed in next major version')
   FirebaseAccountInformation clone() =>
       FirebaseAccountInformation()
         ..mergeFromMessage(this);
 
+  @$core.Deprecated(
+      'Using this can add significant overhead to your binary. '
+          'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+          'Will be removed in next major version')
   FirebaseAccountInformation copyWith(
       void Function(FirebaseAccountInformation) updates) =>
-      super.copyWith((message) =>
-          updates(
-              message as FirebaseAccountInformation)) as FirebaseAccountInformation;
-
+      super.copyWith((message) => updates(
+          message as FirebaseAccountInformation)); // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
@@ -338,10 +413,8 @@ class FirebaseAccountInformation extends $pb.GeneratedMessage {
   set fireBaseProjectId($core.String v) {
     $_setString(0, v);
   }
-
   @$pb.TagNumber(8)
   $core.bool hasFireBaseProjectId() => $_has(0);
-
   @$pb.TagNumber(8)
   void clearFireBaseProjectId() => clearField(8);
 
@@ -352,10 +425,8 @@ class FirebaseAccountInformation extends $pb.GeneratedMessage {
   set fireBaseApiKey($core.String v) {
     $_setString(1, v);
   }
-
   @$pb.TagNumber(9)
   $core.bool hasFireBaseApiKey() => $_has(1);
-
   @$pb.TagNumber(9)
   void clearFireBaseApiKey() => clearField(9);
 
@@ -366,10 +437,8 @@ class FirebaseAccountInformation extends $pb.GeneratedMessage {
   set userEmail($core.String v) {
     $_setString(2, v);
   }
-
   @$pb.TagNumber(10)
   $core.bool hasUserEmail() => $_has(2);
-
   @$pb.TagNumber(10)
   void clearUserEmail() => clearField(10);
 
@@ -380,10 +449,8 @@ class FirebaseAccountInformation extends $pb.GeneratedMessage {
   set userPassword($core.String v) {
     $_setString(3, v);
   }
-
   @$pb.TagNumber(11)
   $core.bool hasUserPassword() => $_has(3);
-
   @$pb.TagNumber(11)
   void clearUserPassword() => clearField(11);
 }
