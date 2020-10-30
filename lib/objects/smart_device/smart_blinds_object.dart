@@ -1,3 +1,4 @@
+import 'package:CyBearJinni/core/shared_methods.dart';
 import 'package:CyBearJinni/objects/enums.dart';
 import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
 import 'package:connectivity/connectivity.dart';
@@ -16,7 +17,7 @@ class SmartBlindsObject extends SmartDeviceObject {
     }
 
     final ConnectivityResult connectivityResult =
-        await (Connectivity().checkConnectivity());
+    await (Connectivity().checkConnectivity());
 
     if (connectivityResult == ConnectivityResult.wifi &&
         await getCurrentWifiName() == SmartDeviceObject.homeWifiName) {

@@ -63,3 +63,4 @@ const SBFirebaseAccountInformation$json = const {
     const {'1': 'userPassword', '3': 9, '4': 1, '5': 9, '10': 'userPassword'},
   ],
 };
+

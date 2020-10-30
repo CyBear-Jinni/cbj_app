@@ -57,5 +57,11 @@
   "Update": "Update",
   "IP": "IP",
   "This_is_firebase": "This is firebase",
-  "Device_with_ip:_": "Device with ip: {}"
+  "Device_with_ip:_": "Device with ip: {}",
+  "Update_WiFi_configuration": "Update WiFi configuration",
+  "WiFi_name_is_required": "WiFi name is required",
+  "WiFi_Name": "WiFi Name",
+  "WiFi_password_is_required": "WiFi password is required",
+  "WiFi_Password": "WiFi Password",
+  "Insert_WiFi_Credentials": "Insert WiFi Credentials"
 }

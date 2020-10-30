@@ -80,7 +80,6 @@ abstract class SecurityBearServiceBase extends $grpc.Service {
 
   $async.Future<$0.SBCommendStatus> setWiFiInformation(
       $grpc.ServiceCall call, $0.SecurityBearSetup request);
-
   $async.Future<$0.SBCommendStatus> setFirebaseAccountInformation(
       $grpc.ServiceCall call, $0.SBFirebaseAccountInformation request);
 }
