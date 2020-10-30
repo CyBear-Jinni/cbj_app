@@ -46,8 +46,8 @@ class SmartServerClient extends $grpc.Client {
           ($0.SmartDevice value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CommendStatus.fromBuffer(value));
   static final _$setBlindsDown =
-  $grpc.ClientMethod<$0.SmartDevice, $0.CommendStatus>(
-      '/SmartConnection.SmartServer/setBlindsDown',
+      $grpc.ClientMethod<$0.SmartDevice, $0.CommendStatus>(
+          '/SmartConnection.SmartServer/setBlindsDown',
           ($0.SmartDevice value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CommendStatus.fromBuffer(value));
   static final _$setBlindsStop =

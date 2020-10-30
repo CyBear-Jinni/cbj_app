@@ -95,7 +95,7 @@ Future<List<SmartDeviceObject>> getAllDevices(String deviceIp) async {
 ///  Request device state, on or off
 Future<String> getDeviceStateRequest(
     SmartDeviceObject smartDeviceObject) async {
-  return await SmartClient.getSmartDeviceStatus(smartDeviceObject);
+  return SmartClient.getSmartDeviceStatus(smartDeviceObject);
 }
 
 Future<String> updateDeviceName(

@@ -29,6 +29,7 @@ class _AddNewDeviceWidgetPopup extends State<AddNewDeviceWidgetPopup> {
         builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             return TextFormField(
+              autofocus: true,
               initialValue:
                   snapshot.data.substring(0, snapshot.data.length - 1),
               onSaved: (String ip) => _ip = ip,

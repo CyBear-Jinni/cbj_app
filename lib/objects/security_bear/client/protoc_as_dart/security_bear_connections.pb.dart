@@ -70,13 +70,10 @@ class SecurityBearSetup extends $pb.GeneratedMessage {
   set wiFiFirstPriority(WiFiInformation v) {
     setField(3, v);
   }
-
   @$pb.TagNumber(3)
   $core.bool hasWiFiFirstPriority() => $_has(0);
-
   @$pb.TagNumber(3)
   void clearWiFiFirstPriority() => clearField(3);
-
   @$pb.TagNumber(3)
   WiFiInformation ensureWiFiFirstPriority() => $_ensure(0);
 
@@ -87,13 +84,10 @@ class SecurityBearSetup extends $pb.GeneratedMessage {
   set wiFiSecondPriority(WiFiInformation v) {
     setField(4, v);
   }
-
   @$pb.TagNumber(4)
   $core.bool hasWiFiSecondPriority() => $_has(1);
-
   @$pb.TagNumber(4)
   void clearWiFiSecondPriority() => clearField(4);
-
   @$pb.TagNumber(4)
   WiFiInformation ensureWiFiSecondPriority() => $_ensure(1);
 }
@@ -102,43 +96,45 @@ class WiFiInformation extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       const $core.bool.fromEnvironment('protobuf.omit_message_names')
           ? ''
-          : 'WiFiInformation',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'SecurityBearConnections'),
-      createEmptyInstance: create)
-    ..aOS(1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'wiFiName',
-        protoName: 'wiFiName')
-    ..aOS(
-        2,
+          : 'WiFiInformation', package: const $pb.PackageName(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'SecurityBearConnections'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names')
+        ? ''
+        : 'wiFiName', protoName: 'wiFiName')..aOS(2,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
-            : 'wiFiPassword',
-        protoName: 'wiFiPassword')
-    ..hasRequiredFields = false;
+            : 'wiFiPassword', protoName: 'wiFiPassword')
+    ..hasRequiredFields = false
+  ;
 
   WiFiInformation._() : super();
 
   factory WiFiInformation() => create();
 
   factory WiFiInformation.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
+      [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()
+        ..mergeFromBuffer(i, r);
 
   factory WiFiInformation.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
+      [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()
+        ..mergeFromJson(i, r);
 
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-      'Will be removed in next major version')
-  WiFiInformation clone() => WiFiInformation()..mergeFromMessage(this);
+  @$core.Deprecated(
+      'Using this can add significant overhead to your binary. '
+          'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+          'Will be removed in next major version')
+  WiFiInformation clone() =>
+      WiFiInformation()
+        ..mergeFromMessage(this);
 
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-      'Will be removed in next major version')
+  @$core.Deprecated(
+      'Using this can add significant overhead to your binary. '
+          'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+          'Will be removed in next major version')
   WiFiInformation copyWith(void Function(WiFiInformation) updates) =>
       super.copyWith((message) =>
           updates(message as WiFiInformation)); // ignore: deprecated_member_use
@@ -164,10 +160,8 @@ class WiFiInformation extends $pb.GeneratedMessage {
   set wiFiName($core.String v) {
     $_setString(0, v);
   }
-
   @$pb.TagNumber(1)
   $core.bool hasWiFiName() => $_has(0);
-
   @$pb.TagNumber(1)
   void clearWiFiName() => clearField(1);
 
@@ -178,10 +172,8 @@ class WiFiInformation extends $pb.GeneratedMessage {
   set wiFiPassword($core.String v) {
     $_setString(1, v);
   }
-
   @$pb.TagNumber(2)
   $core.bool hasWiFiPassword() => $_has(1);
-
   @$pb.TagNumber(2)
   void clearWiFiPassword() => clearField(2);
 }
@@ -190,39 +182,42 @@ class SBCommendStatus extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       const $core.bool.fromEnvironment('protobuf.omit_message_names')
           ? ''
-          : 'SBCommendStatus',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'SecurityBearConnections'),
-      createEmptyInstance: create)
-    ..aOB(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'success')
-    ..hasRequiredFields = false;
+          : 'SBCommendStatus', package: const $pb.PackageName(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'SecurityBearConnections'), createEmptyInstance: create)
+    ..aOB(5, const $core.bool.fromEnvironment('protobuf.omit_field_names')
+        ? ''
+        : 'success')
+    ..hasRequiredFields = false
+  ;
 
   SBCommendStatus._() : super();
 
   factory SBCommendStatus() => create();
 
   factory SBCommendStatus.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
+      [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()
+        ..mergeFromBuffer(i, r);
 
   factory SBCommendStatus.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
+      [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()
+        ..mergeFromJson(i, r);
 
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-      'Will be removed in next major version')
-  SBCommendStatus clone() => SBCommendStatus()..mergeFromMessage(this);
+  @$core.Deprecated(
+      'Using this can add significant overhead to your binary. '
+          'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+          'Will be removed in next major version')
+  SBCommendStatus clone() =>
+      SBCommendStatus()
+        ..mergeFromMessage(this);
 
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-      'Will be removed in next major version')
+  @$core.Deprecated(
+      'Using this can add significant overhead to your binary. '
+          'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+          'Will be removed in next major version')
   SBCommendStatus copyWith(void Function(SBCommendStatus) updates) =>
       super.copyWith((message) =>
           updates(message as SBCommendStatus)); // ignore: deprecated_member_use
@@ -248,10 +243,8 @@ class SBCommendStatus extends $pb.GeneratedMessage {
   set success($core.bool v) {
     $_setBool(0, v);
   }
-
   @$pb.TagNumber(5)
   $core.bool hasSuccess() => $_has(0);
-
   @$pb.TagNumber(5)
   void clearSuccess() => clearField(5);
 }
@@ -260,47 +253,55 @@ class SBFirebaseAccountInformation extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       const $core.bool.fromEnvironment('protobuf.omit_message_names')
           ? ''
-          : 'SBFirebaseAccountInformation',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'SecurityBearConnections'),
-      createEmptyInstance: create)
-    ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fireBaseProjectId',
-        protoName: 'fireBaseProjectId')
-    ..aOS(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fireBaseApiKey',
-        protoName: 'fireBaseApiKey')
-    ..aOS(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'userEmail',
-        protoName: 'userEmail')
-    ..aOS(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'userPassword',
-        protoName: 'userPassword')
-    ..hasRequiredFields = false;
+          : 'SBFirebaseAccountInformation', package: const $pb.PackageName(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'SecurityBearConnections'), createEmptyInstance: create)
+    ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names')
+        ? ''
+        : 'fireBaseProjectId', protoName: 'fireBaseProjectId')..aOS(7,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'fireBaseApiKey', protoName: 'fireBaseApiKey')..aOS(8,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'userEmail', protoName: 'userEmail')..aOS(9,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'userPassword', protoName: 'userPassword')
+    ..hasRequiredFields = false
+  ;
 
   SBFirebaseAccountInformation._() : super();
 
   factory SBFirebaseAccountInformation() => create();
 
   factory SBFirebaseAccountInformation.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
+      [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()
+        ..mergeFromBuffer(i, r);
 
   factory SBFirebaseAccountInformation.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
+      [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()
+        ..mergeFromJson(i, r);
 
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-      'Will be removed in next major version')
+  @$core.Deprecated(
+      'Using this can add significant overhead to your binary. '
+          'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+          'Will be removed in next major version')
   SBFirebaseAccountInformation clone() =>
-      SBFirebaseAccountInformation()..mergeFromMessage(this);
+      SBFirebaseAccountInformation()
+        ..mergeFromMessage(this);
 
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-      'Will be removed in next major version')
+  @$core.Deprecated(
+      'Using this can add significant overhead to your binary. '
+          'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+          'Will be removed in next major version')
   SBFirebaseAccountInformation copyWith(
-          void Function(SBFirebaseAccountInformation) updates) =>
-      super.copyWith((message) => updates(message
-          as SBFirebaseAccountInformation)); // ignore: deprecated_member_use
+      void Function(SBFirebaseAccountInformation) updates) =>
+      super.copyWith((message) => updates(
+          message as SBFirebaseAccountInformation)); // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
@@ -324,10 +325,8 @@ class SBFirebaseAccountInformation extends $pb.GeneratedMessage {
   set fireBaseProjectId($core.String v) {
     $_setString(0, v);
   }
-
   @$pb.TagNumber(6)
   $core.bool hasFireBaseProjectId() => $_has(0);
-
   @$pb.TagNumber(6)
   void clearFireBaseProjectId() => clearField(6);
 
@@ -338,10 +337,8 @@ class SBFirebaseAccountInformation extends $pb.GeneratedMessage {
   set fireBaseApiKey($core.String v) {
     $_setString(1, v);
   }
-
   @$pb.TagNumber(7)
   $core.bool hasFireBaseApiKey() => $_has(1);
-
   @$pb.TagNumber(7)
   void clearFireBaseApiKey() => clearField(7);
 
@@ -352,10 +349,8 @@ class SBFirebaseAccountInformation extends $pb.GeneratedMessage {
   set userEmail($core.String v) {
     $_setString(2, v);
   }
-
   @$pb.TagNumber(8)
   $core.bool hasUserEmail() => $_has(2);
-
   @$pb.TagNumber(8)
   void clearUserEmail() => clearField(8);
 
@@ -366,10 +361,9 @@ class SBFirebaseAccountInformation extends $pb.GeneratedMessage {
   set userPassword($core.String v) {
     $_setString(3, v);
   }
-
   @$pb.TagNumber(9)
   $core.bool hasUserPassword() => $_has(3);
-
   @$pb.TagNumber(9)
   void clearUserPassword() => clearField(9);
 }
+

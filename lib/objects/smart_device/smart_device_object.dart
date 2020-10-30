@@ -58,7 +58,7 @@ class SmartDeviceObject {
     return 'Error getting device state';
   }
 
-  //  Does not work if you do not turn your location (not permission) on https://github.com/flutter/flutter/issues/51529 android 10+ rules
+  ///  Does not work if you do not turn your location (not permission) on https://github.com/flutter/flutter/issues/51529 android 10+ rules
   Future<String> getCurrentWifiName() async {
     String wifiName = '';
 
