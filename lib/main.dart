@@ -25,6 +25,7 @@ void main() {
       EasyLocalization(
           supportedLocales: const <Locale>[
         Locale('cs', 'CZ'),
+        Locale('de', 'DE'),
         Locale('en', 'GB'),
         Locale('en', 'US'),
         Locale('es', 'CO'),
