@@ -1,7 +1,10 @@
+import 'package:CyBearJinni/core/shared_methods.dart';
 import 'package:CyBearJinni/features/home_page/smart_device_widget.dart';
 import 'package:CyBearJinni/features/home_page/tabs/smart_devices_tab/blinds/smart_blind_widget.dart';
+import 'package:CyBearJinni/features/shared_widgets/insert_wifi_credential_popup.dart';
 import 'package:CyBearJinni/objects/enums.dart';
 import 'package:CyBearJinni/objects/interface_darta/cloud_interface_data.dart';
+import 'package:CyBearJinni/objects/security_bear/client/security_bear_server_client.dart';
 import 'package:CyBearJinni/objects/smart_device/send_to_smart_device.dart';
 import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
 import 'package:CyBearJinni/objects/smart_device/smart_room_object.dart';
@@ -100,48 +103,48 @@ class _ShowAllDevicesInTheSmartDevice extends State<ShowAllDevicesInTheSmartDevi
     Expanded(
       child: Column(
         children: <Widget>[
-                Expanded(
-                    child: ListView(
-                  children: listOfDevicesToShow(),
-                )),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    RaisedButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(24),
-                      ),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      padding: const EdgeInsets.all(12),
-                      color: Colors.redAccent,
-                      child: const Text('Cancel',
-                              style: TextStyle(color: Colors.white))
-                          .tr(),
-                    ),
-                    RaisedButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(24),
-                      ),
-                      onPressed: () {
-                        getAllTheDevices();
-                        final List<SmartDeviceObject> room2DevicesList =
-                            smartDeviceObjectList;
-                        SmartRoomObject newRoom = SmartRoomObject(
-                            'New_devices'.tr(), room2DevicesList);
-                        rooms.add(newRoom);
-                        Navigator.pop(context);
-                      },
-                      padding: const EdgeInsets.all(12),
-                      color: Colors.lightGreen,
-                      child: const Text('Add devices',
-                              style: TextStyle(color: Colors.white))
-                          .tr(),
-                    ),
-                  ],
+          Expanded(
+              child: ListView(
+                children: listOfDevicesToShow(),
+              )),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              RaisedButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(24),
                 ),
-              ],
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                padding: const EdgeInsets.all(12),
+                color: Colors.redAccent,
+                child: const Text('Cancel',
+                    style: TextStyle(color: Colors.white))
+                    .tr(),
+              ),
+              RaisedButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(24),
+                ),
+                onPressed: () {
+                  getAllTheDevices();
+                  final List<SmartDeviceObject> room2DevicesList =
+                      smartDeviceObjectList;
+                  SmartRoomObject newRoom = SmartRoomObject(
+                      'New_devices'.tr(), room2DevicesList);
+                  rooms.add(newRoom);
+                  Navigator.pop(context);
+                },
+                padding: const EdgeInsets.all(12),
+                color: Colors.lightGreen,
+                child: const Text('Add devices',
+                    style: TextStyle(color: Colors.white))
+                    .tr(),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -342,8 +345,29 @@ class _NewDeviceWidget extends State<NewDeviceWidget> {
               },
               padding: const EdgeInsets.all(12),
               color: Colors.blueAccent,
-              child: const Text('Update', style: TextStyle(
-                  color: Colors.white)).tr(),
+              child: const Text('Update', style: TextStyle(color: Colors.white))
+                  .tr(),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            RaisedButton(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(24),
+              ),
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return InsertWiFiCredentialPopup(_smartDeviceObject.ip, '');
+                  },
+                );
+              },
+              padding: const EdgeInsets.all(12),
+              color: Colors.blueAccent,
+              child: const Text('Update_WiFi_configuration',
+                      style: TextStyle(color: Colors.white))
+                  .tr(),
             ),
           ],
         ));
