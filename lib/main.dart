@@ -24,8 +24,28 @@ void main() {
       /// To find your language letters, and add the file letters below
       EasyLocalization(
           supportedLocales: const <Locale>[
+        Locale('cs', 'CZ'),
+        Locale('de', 'DE'),
+        Locale('en', 'GB'),
         Locale('en', 'US'),
-        Locale('he', 'IL')
+        Locale('es', 'CO'),
+        Locale('es', 'MX'),
+        Locale('fr', 'BE'),
+        Locale('fr', 'CA'),
+        Locale('fr', 'FR'),
+        Locale('ge', 'GE'),
+        Locale('he', 'IL'),
+        Locale('hi', 'IN'),
+        Locale('hr', 'HR'),
+        Locale('id', 'ID'),
+        Locale('it', 'IT'),
+        Locale('ka', 'GE'),
+        Locale('nb', 'NO'),
+        Locale('pt', 'BR'),
+        Locale('ru', 'RU'),
+        Locale('te', 'IN'),
+        Locale('th', 'TH'),
+        Locale('zh', 'TW'),
       ],
           path: 'assets/translations', // <-- change patch to your
           fallbackLocale: const Locale('en', 'US'),
