@@ -1,4 +1,4 @@
-import 'package:CyBearJinni/features/shared_widgets/add_new_devie_widget.dart';
+import 'package:CyBearJinni/features/add_new_devices/open_access_point_popup.dart';
 import 'package:CyBearJinni/objects/interface_darta/cloud_interface_data.dart';
 import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
 import 'package:CyBearJinni/objects/smart_device/smart_room_object.dart';
@@ -77,7 +77,7 @@ class SettingsPageOfLamps extends StatelessWidget {
           showDialog(
             context: context,
             builder: (BuildContext context) {
-              return AddNewDeviceWidgetPopup();
+              return OpenHotspotAccessPoint();
             },
           );
         },
