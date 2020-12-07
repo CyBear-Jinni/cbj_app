@@ -31,7 +31,7 @@ class _AddNewDeviceWidgetPopup extends State<AddNewDeviceWidgetPopup> {
             return TextFormField(
               autofocus: true,
               initialValue:
-                  snapshot.data.substring(0, snapshot.data.length - 1),
+                  snapshot.data?.substring(0, snapshot.data.length - 1),
               onSaved: (String ip) => _ip = ip,
               keyboardType: TextInputType.number,
               validator: (String value) {

@@ -1,4 +1,3 @@
-import 'package:CyBearJinni/features/home_page/tabs/history_tab/history_tab.dart';
 import 'package:CyBearJinni/features/home_page/tabs/lamps_tab/lamps_widgets.dart';
 import 'package:CyBearJinni/features/home_page/tabs/scene_tab/scenes_widgets.dart';
 import 'package:CyBearJinni/features/home_page/tabs/smart_devices_tab/smart_devices_widgets.dart';
@@ -28,12 +27,10 @@ class HomePage extends StatelessWidget {
         ),
       ),
       child: DefaultTabController(
-        length: 4,
-        initialIndex: 1,
+        length: 3,
         child: Scaffold(
           backgroundColor: Colors.transparent,
-          body: TabBarView(children: [
-            HistoryTab(),
+          body: TabBarView(children: <Widget>[
             ScenesWidgets(),
             LampsWidgets(),
             SmartDevicesWidgets(),
@@ -43,12 +40,6 @@ class HomePage extends StatelessWidget {
             unselectedLabelColor: Theme.of(context).textTheme.bodyText2.color,
             labelColor: Theme.of(context).textTheme.bodyText1.color,
             tabs: <Widget>[
-              Tab(
-                icon: const Icon(FontAwesomeIcons.history),
-                child: const Text(
-                  'History',
-                ).tr(),
-              ),
               Tab(
                 icon: const Icon(FontAwesomeIcons.cube),
                 child: const Text(
