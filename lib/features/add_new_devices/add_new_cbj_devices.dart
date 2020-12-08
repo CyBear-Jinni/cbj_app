@@ -1,3 +1,4 @@
+import 'package:CyBearJinni/database/cbj_app_server/cbj_app_server_d.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -13,6 +14,11 @@ class AddNewCBJDevices extends StatefulWidget {
 }
 
 class _AddNewCBJDevices extends State<AddNewCBJDevices>{
+  _AddNewCBJDevices(){
+    CreateTheCBJAppServer createTheCBJAppServer = CreateTheCBJAppServer();
+    createTheCBJAppServer.createServer();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -59,21 +59,6 @@ class SettingsPageOfLamps extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton( //  FontAwesomeIcons.plus,
         onPressed: () async{
-          final ConnectivityResult connectivityResult =
-          await Connectivity().checkConnectivity();
-
-          if (connectivityResult != ConnectivityResult.wifi) {
-            Fluttertoast.showToast(
-                msg: 'Warning: Could not determine device IP.\nPlease connect '
-                    'device to WiFi for IP field to autocomplete.',
-                toastLength: Toast.LENGTH_LONG,
-                gravity: ToastGravity.CENTER,
-                timeInSecForIosWeb: 10,
-                backgroundColor: Colors.orangeAccent,
-                textColor: Colors.white,
-                fontSize: 16.0
-            );
-          }
           showDialog(
             context: context,
             builder: (BuildContext context) {
