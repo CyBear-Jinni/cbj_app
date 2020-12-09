@@ -10,9 +10,14 @@ class RoomTogglesBlock extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final Size screenSize = MediaQuery.of(context).size;
+    final double sizeBoxWidth = screenSize.width*0.25;
+
     return Container(
-      margin: const EdgeInsets.only(bottom: 20),
+      margin: EdgeInsets.only(bottom: screenSize.height*0.02),
       padding: const EdgeInsets.all(3),
+
       decoration: BoxDecoration(
         gradient: LinearGradient(
             colors: _smartRoomObject.grediantColor,
@@ -62,20 +67,20 @@ class RoomTogglesBlock extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
                 SizedBox(
-                  width: 170,
+                  width: sizeBoxWidth,
                   child: SmartDevicePage(_smartRoomObject.getLights()[0]),
                 ),
                 if (_smartRoomObject
                     .getLights()
                     .length > 1)
                   SizedBox(
-                    width: 170,
+                    width: sizeBoxWidth,
                     child: SmartDevicePage(_smartRoomObject.getLights()[1]),
                   )
               ],
             ),
             const SizedBox(
-              height: 20,),
+              height: screenSize.height*0.1,),
             if(_smartRoomObject
                 .getLights()
                 .length > 2)
@@ -83,14 +88,14 @@ class RoomTogglesBlock extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
                   SizedBox(
-                    width: 170,
+                    width: sizeBoxWidth,
                     child: SmartDevicePage(_smartRoomObject.getLights()[2]),
                   ),
                   if (_smartRoomObject
                       .getLights()
                       .length > 3)
                     SizedBox(
-                      width: 170,
+                      width: sizeBoxWidth,
                       child: SmartDevicePage(_smartRoomObject.getLights()[3]),
                     )
                 ],

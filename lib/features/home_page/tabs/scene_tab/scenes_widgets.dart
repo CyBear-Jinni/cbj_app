@@ -63,6 +63,7 @@ class ScenesWidgets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
     return Column(
       children: <Widget>[
         const Padding(
@@ -97,7 +98,7 @@ class ScenesWidgets extends StatelessWidget {
               decoration: TextDecoration.underline),
         ).tr(),
         Container(
-          height: 20,
+          height: screenSize.height*0.05,
         ),
         Expanded(
           child: GridView(
