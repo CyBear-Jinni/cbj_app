@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:CyBearJinni/objects/smart_device/smart_blinds_object.dart';
-import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
+import 'package:cybear_jinni/objects/smart_device/smart_blinds_object.dart';
+import 'package:cybear_jinni/objects/smart_device/smart_device_object.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';

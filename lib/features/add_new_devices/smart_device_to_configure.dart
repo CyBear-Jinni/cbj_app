@@ -1,6 +1,6 @@
-import 'package:CyBearJinni/core/theme_data.dart';
-import 'package:CyBearJinni/features/shared_widgets/insert_details_of_new_device.dart';
-import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
+import 'package:cybear_jinni/core/theme_data.dart';
+import 'package:cybear_jinni/features/shared_widgets/insert_details_of_new_device.dart';
+import 'package:cybear_jinni/objects/smart_device/smart_device_object.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

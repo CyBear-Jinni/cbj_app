@@ -1,4 +1,4 @@
-import 'package:CyBearJinni/features/add_new_devices/add_new_cbj_devices.dart';
+import 'package:cybear_jinni/features/add_new_devices/add_new_cbj_devices.dart';
 import 'package:clipboard_manager/clipboard_manager.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';

@@ -1,8 +1,8 @@
-import 'package:CyBearJinni/features/home_page/tabs/smart_devices_tab/blinds/blinds_page.dart';
-import 'package:CyBearJinni/features/room_page/room_page.dart';
-import 'package:CyBearJinni/injection.dart';
-import 'package:CyBearJinni/objects/interface_darta/cloud_interface_data.dart';
-import 'package:CyBearJinni/objects/smart_device/smart_room_object.dart';
+import 'package:cybear_jinni/features/home_page/tabs/smart_devices_tab/blinds/blinds_page.dart';
+import 'package:cybear_jinni/features/room_page/room_page.dart';
+import 'package:cybear_jinni/injection.dart';
+import 'package:cybear_jinni/objects/interface_darta/cloud_interface_data.dart';
+import 'package:cybear_jinni/objects/smart_device/smart_room_object.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';

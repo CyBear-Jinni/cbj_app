@@ -1,5 +1,5 @@
-import 'package:CyBearJinni/features/home_page/smart_device_widget.dart';
-import 'package:CyBearJinni/objects/smart_device/smart_room_object.dart';
+import 'package:cybear_jinni/features/home_page/smart_device_widget.dart';
+import 'package:cybear_jinni/objects/smart_device/smart_room_object.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
