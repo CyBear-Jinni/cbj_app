@@ -1,4 +1,4 @@
-import 'package:CyBearJinni/features/login_page/login_page.dart';
+import 'package:cybear_jinni/features/login_page/login_page.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';

@@ -1,8 +1,7 @@
-import 'package:CyBearJinni/features/shared_widgets/add_new_devie_widget.dart';
-import 'package:CyBearJinni/objects/interface_darta/cloud_interface_data.dart';
-import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
-import 'package:CyBearJinni/objects/smart_device/smart_room_object.dart';
-import 'package:connectivity/connectivity.dart';
+import 'package:cybear_jinni/features/add_new_devices/open_access_point_popup.dart';
+import 'package:cybear_jinni/objects/interface_darta/cloud_interface_data.dart';
+import 'package:cybear_jinni/objects/smart_device/smart_device_object.dart';
+import 'package:cybear_jinni/objects/smart_device/smart_room_object.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -59,25 +58,10 @@ class SettingsPageOfLamps extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton( //  FontAwesomeIcons.plus,
         onPressed: () async{
-          final ConnectivityResult connectivityResult =
-          await Connectivity().checkConnectivity();
-
-          if (connectivityResult != ConnectivityResult.wifi) {
-            Fluttertoast.showToast(
-                msg: 'Warning: Could not determine device IP.\nPlease connect '
-                    'device to WiFi for IP field to autocomplete.',
-                toastLength: Toast.LENGTH_LONG,
-                gravity: ToastGravity.CENTER,
-                timeInSecForIosWeb: 10,
-                backgroundColor: Colors.orangeAccent,
-                textColor: Colors.white,
-                fontSize: 16.0
-            );
-          }
           showDialog(
             context: context,
             builder: (BuildContext context) {
-              return AddNewDeviceWidgetPopup();
+              return OpenHotspotAccessPoint();
             },
           );
         },
