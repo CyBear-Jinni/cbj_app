@@ -1,18 +1,22 @@
-import 'package:CyBearJinni/features/login_page/form_widget.dart';
-import 'package:CyBearJinni/features/registration_page/registration_page.dart';
+import 'package:cybear_jinni/features/login_page/form_widget.dart';
+import 'package:cybear_jinni/features/registration_page/registration_page.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
   static String tag = 'login-page';
 
+
+
   @override
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
+    double sidePadding =  screenSize.width*0.05;
     final Hero logo = Hero(
       tag: 'hero',
       child: CircleAvatar(
         backgroundColor: Colors.transparent,
-        radius: 48.0,
+        radius: screenSize.height*0.1,
         child: Image.asset('assets/logo.png'),
       ),
     );
@@ -24,10 +28,11 @@ class LoginPage extends StatelessWidget {
             MaterialPageRoute(
                 builder: (BuildContext context) => RegistrationPage()));
       },
-      child: const Text(
-        'Create_new_account',
-        style: TextStyle(color: Colors.black54),
-      ).tr(),
+      child: Text(
+          'Create_new_account',
+          style: TextStyle(color: Colors.black54),
+        ).tr(),
+
     );
 
     final FlatButton forgotPassword = FlatButton(
@@ -47,10 +52,10 @@ class LoginPage extends StatelessWidget {
         body: Center(
           child: ListView(
             shrinkWrap: true,
-            padding: const EdgeInsets.only(left: 24.0, right: 24.0),
+            padding: EdgeInsets.only(left: sidePadding, right: sidePadding),
             children: <Widget>[
               logo,
-              const SizedBox(height: 48.0),
+              SizedBox(height: screenSize.height*0.1),
               FormWidget(),
               createNewAccount,
               forgotPassword,

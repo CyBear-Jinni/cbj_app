@@ -1,8 +1,8 @@
-import 'package:CyBearJinni/features/home_page/tabs/scene_tab/scene_block_widget.dart';
-import 'package:CyBearJinni/features/home_page/tabs/scene_tab/settings_page_of_scenes.dart';
-import 'package:CyBearJinni/objects/enums.dart';
-import 'package:CyBearJinni/objects/interface_darta/cloud_interface_data.dart';
-import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
+import 'package:cybear_jinni/features/home_page/tabs/scene_tab/scene_block_widget.dart';
+import 'package:cybear_jinni/features/home_page/tabs/scene_tab/settings_page_of_scenes.dart';
+import 'package:cybear_jinni/objects/enums.dart';
+import 'package:cybear_jinni/objects/interface_darta/cloud_interface_data.dart';
+import 'package:cybear_jinni/objects/smart_device/smart_device_object.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -63,6 +63,7 @@ class ScenesWidgets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
     return Column(
       children: <Widget>[
         const Padding(
@@ -97,7 +98,7 @@ class ScenesWidgets extends StatelessWidget {
               decoration: TextDecoration.underline),
         ).tr(),
         Container(
-          height: 20,
+          height: screenSize.height*0.05,
         ),
         Expanded(
           child: GridView(

@@ -1,4 +1,4 @@
-import 'package:CyBearJinni/features/registration_page/form_widget.dart';
+import 'package:cybear_jinni/features/registration_page/form_widget.dart';
 import 'package:flutter/material.dart';
 
 class RegistrationPage extends StatelessWidget {
