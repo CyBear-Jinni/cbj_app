@@ -1,8 +1,7 @@
-import 'package:CyBearJinni/features/add_new_devices/open_access_point_popup.dart';
-import 'package:CyBearJinni/objects/interface_darta/cloud_interface_data.dart';
-import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
-import 'package:CyBearJinni/objects/smart_device/smart_room_object.dart';
-import 'package:connectivity/connectivity.dart';
+import 'package:cybear_jinni/features/add_new_devices/open_access_point_popup.dart';
+import 'package:cybear_jinni/objects/interface_darta/cloud_interface_data.dart';
+import 'package:cybear_jinni/objects/smart_device/smart_device_object.dart';
+import 'package:cybear_jinni/objects/smart_device/smart_room_object.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';

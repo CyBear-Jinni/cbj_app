@@ -1,8 +1,8 @@
-import 'package:CyBearJinni/core/theme_data.dart';
-import 'package:CyBearJinni/objects/enums.dart';
-import 'package:CyBearJinni/objects/smart_device/smart_blinds_object.dart';
-import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
-import 'package:CyBearJinni/objects/smart_device/smart_room_object.dart';
+import 'package:cybear_jinni/core/theme_data.dart';
+import 'package:cybear_jinni/objects/enums.dart';
+import 'package:cybear_jinni/objects/smart_device/smart_blinds_object.dart';
+import 'package:cybear_jinni/objects/smart_device/smart_device_object.dart';
+import 'package:cybear_jinni/objects/smart_device/smart_room_object.dart';
 
 final List<SmartRoomObject> rooms = <SmartRoomObject>[
   room1,
