@@ -16,9 +16,13 @@ class _FormWidget extends State<FormWidget> {
   bool autoValidation = false;
   String emailVal, passwordVal;
 
+  final BorderRadius borderRadius = BorderRadius.circular(32.0);
+
   FirebaseAuth auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
+
     void _showErrToast(String msg) {
       Fluttertoast.showToast(
           msg: msg,
@@ -84,7 +88,7 @@ class _FormWidget extends State<FormWidget> {
         hintText: 'Email'.tr(),
         contentPadding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(32.0),
+          borderRadius: borderRadius,
         ),
       ),
     );
@@ -111,7 +115,7 @@ class _FormWidget extends State<FormWidget> {
         hintText: 'Password'.tr(),
         contentPadding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(32.0),
+          borderRadius: borderRadius,
         ),
       ),
     );
@@ -129,14 +133,16 @@ class _FormWidget extends State<FormWidget> {
       ),
     );
 
+    final SizedBox verticalSpacing = SizedBox(height: screenSize.height*0.05);
+
     return Form(
-      key: _formKey,
+    key: _formKey,
       child: Column(
         children: <Widget>[
           email,
-          const SizedBox(height: 25.0),
+          verticalSpacing,
           password,
-          const SizedBox(height: 24.0),
+          verticalSpacing,
           loginButton,
         ],
       ),
