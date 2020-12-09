@@ -1,3 +1,4 @@
+import 'package:CyBearJinni/core/theme_data.dart';
 import 'package:CyBearJinni/features/shared_widgets/insert_details_of_new_device.dart';
 import 'package:CyBearJinni/objects/enums.dart';
 import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
@@ -80,7 +81,7 @@ class _AddNewDeviceWidgetPopup extends State<AddNewDeviceWidgetPopup> {
                 context,
                 MaterialPageRoute(
                     builder: (BuildContext context) =>
-                        InsertDetailsOfNewDevice(_ip)),
+                        InsertDetailsOfNewDevice(_ip, GradientColors.mango)),
                 //            Navigator.of(context).pop();
               );
             },

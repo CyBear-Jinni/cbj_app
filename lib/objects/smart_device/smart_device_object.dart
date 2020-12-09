@@ -26,8 +26,16 @@ class SmartDeviceObject {
   String name;
   String ip;
   FireStoreClass fireStoreClass;
-  static const String homeWifiName = ''; // Insert host name
+  static String homeWiFiName = ''; // Insert host name
 
+  
+  //  Set
+  static void setHomeWiFiName(String homeWiFiNameTemp){
+    homeWiFiName = homeWiFiNameTemp;
+  }
+  
+  
+  
   //  Get
 
   Future<bool> getDeviceStateAsBool() async {
@@ -46,7 +54,7 @@ class SmartDeviceObject {
         await (Connectivity().checkConnectivity());
 
     if (connectivityResult == ConnectivityResult.wifi &&
-        await getCurrentWifiName() == homeWifiName) {
+        (await getCurrentWifiName() == homeWiFiName || homeWiFiName == 'host')) {
       //  If current network is the network of the smart device set using the local method and not the remote
       return getDeviceStatesLocal();
     } else if (connectivityResult == ConnectivityResult.wifi ||
@@ -124,7 +132,7 @@ class SmartDeviceObject {
         .checkConnectivity());
 
     if (connectivityResult == ConnectivityResult.wifi &&
-        await getCurrentWifiName() == homeWifiName) {
+        await getCurrentWifiName() == homeWiFiName || homeWiFiName == 'host') {
       //  If current network is the network of the smart device set using the local method and not the remote
       print('Set light state $state local');
       return setLightStateLocal(state);
@@ -149,7 +157,7 @@ class SmartDeviceObject {
 
   static bool legitIp(String ip) {
     final String tempRegExIp = regexpIP(ip); //  Save to string a valid ip
-    return ip.length == tempRegExIp.length;
+    return ip != '' && ip.length == tempRegExIp.length;
   }
 
   static String regexpIP(String ip) {

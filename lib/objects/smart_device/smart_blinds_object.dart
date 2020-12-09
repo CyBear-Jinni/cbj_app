@@ -20,7 +20,7 @@ class SmartBlindsObject extends SmartDeviceObject {
     await (Connectivity().checkConnectivity());
 
     if (connectivityResult == ConnectivityResult.wifi &&
-        await getCurrentWifiName() == SmartDeviceObject.homeWifiName) {
+        await getCurrentWifiName() == SmartDeviceObject.homeWiFiName) {
       //  If current network is the network of the smart device set using the local method and not the remote
       print('Moving blinds up LAN');
       return SmartClient.setSmartBlindsUp(this);
@@ -45,7 +45,7 @@ class SmartBlindsObject extends SmartDeviceObject {
         .checkConnectivity());
 
     if (connectivityResult == ConnectivityResult.wifi &&
-        await getCurrentWifiName() == SmartDeviceObject.homeWifiName) {
+        await getCurrentWifiName() == SmartDeviceObject.homeWiFiName) {
       //  If current network is the network of the smart device set using the local method and not the remote
       print('Moving blinds Down LAN');
       return SmartClient.setSmartBlindsDown(this);
@@ -73,7 +73,7 @@ class SmartBlindsObject extends SmartDeviceObject {
     if (connectivityResult == ConnectivityResult.wifi &&
         await getCurrentWifiName() ==
             SmartDeviceObject
-                .homeWifiName) { //  If current network is the network of the smart device set using the local method and not the remote
+                .homeWiFiName) { //  If current network is the network of the smart device set using the local method and not the remote
       print('Stopping blinds LAN');
       return SmartClient.setSmartBlindsStop(this);
     } else if (connectivityResult == ConnectivityResult.wifi ||
