@@ -1,13 +1,17 @@
+import 'dart:core';
+import 'dart:ui';
+
 import 'package:CyBearJinni/objects/smart_device/smart_blinds_object.dart';
 import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
 
 class SmartRoomObject {
 
-  SmartRoomObject(this._roomName, this._lightsInTheRoom,
+  SmartRoomObject(this._roomName, this._lightsInTheRoom, this.grediantColor,
       {this.blindsInTheRoom});
 
   final String _roomName;
   final List<SmartDeviceObject> _lightsInTheRoom;
+  List<Color> grediantColor;
   List<SmartBlindsObject> blindsInTheRoom;
 
   String getRoomName() {
@@ -21,4 +25,5 @@ class SmartRoomObject {
   List<SmartBlindsObject> getBlinds() {
     return blindsInTheRoom;
   }
+
 }

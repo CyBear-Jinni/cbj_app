@@ -1,3 +1,5 @@
+import 'package:CyBearJinni/features/add_new_devices/add_new_cbj_devices.dart';
+import 'package:CyBearJinni/objects/smart_device/send_to_smart_device.dart';
 import 'package:grpc/grpc.dart';
 import 'package:grpc/src/server/call.dart';
 import 'protoc_as_dart/cbj_app_connections.pb.dart';
@@ -8,11 +10,17 @@ import 'protoc_as_dart/cbj_app_connections.pbgrpc.dart';
 class CBJAppServerD extends CyBearJinniAppServiceBase{
   @override
   Future<CBJCommendStatus> cBJAppGetSmartDeviceInformation(ServiceCall call, SmartDeviceInfo request) {
-    String smartDeviceIp = request.smartDeviceIP;
-    print('Smart device IP is $smartDeviceIp');
-    // TODO: Get the devices and type of this ip from Smart Device
-    // TODO: And than send it to the list in the add new Smart Devices
+
+    cBJAppGetSmartDeviceInformationAsync(request.smartDeviceIP);
+
     return Future<CBJCommendStatus>.value(CBJCommendStatus()..success = true);
+  }
+
+  Future<void> cBJAppGetSmartDeviceInformationAsync(String smartDeviceIp) async{
+    AddNewCBJDevices.newDevicesStringList.add(smartDeviceIp);
+    print('Smart device IP is $smartDeviceIp');
+
+    AddNewCBJDevices.newDevicesList.addAll(await getAllDevices(smartDeviceIp));
   }
 }
 
@@ -26,3 +34,5 @@ class CreateTheCBJAppServer {
     print('Server listening on port ${server.port}...');
   }
 }
+
+

@@ -1,3 +1,4 @@
+import 'package:CyBearJinni/core/theme_data.dart';
 import 'package:CyBearJinni/objects/enums.dart';
 import 'package:CyBearJinni/objects/smart_device/smart_blinds_object.dart';
 import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
@@ -10,9 +11,9 @@ final List<SmartRoomObject> rooms = <SmartRoomObject>[
 ];
 
 SmartRoomObject room1 =
-    SmartRoomObject('Guy', room1DevicesList, blindsInTheRoom: room1blindsList);
-SmartRoomObject room3 = SmartRoomObject('Outside North', room3DevicesList);
-SmartRoomObject room4 = SmartRoomObject('Outside South', room4DevicesList);
+    SmartRoomObject('Guy', room1DevicesList, GradientColors.sea, blindsInTheRoom: room1blindsList);
+SmartRoomObject room3 = SmartRoomObject('Outside North', room3DevicesList, GradientColors.sunset);
+SmartRoomObject room4 = SmartRoomObject('Outside South', room4DevicesList, GradientColors.sky);
 
 
 final List<SmartDeviceObject> room1DevicesList = <SmartDeviceObject>[
