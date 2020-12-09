@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:CyBearJinni/database/firebase/cloud_firestore/firestore_class.dart';
-import 'package:CyBearJinni/objects/enums.dart';
-import 'package:CyBearJinni/objects/smart_device/send_to_smart_device.dart';
+import 'package:cybear_jinni/database/firebase/cloud_firestore/firestore_class.dart';
+import 'package:cybear_jinni/objects/enums.dart';
+import 'package:cybear_jinni/objects/smart_device/send_to_smart_device.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/services.dart';

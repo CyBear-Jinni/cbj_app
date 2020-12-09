@@ -1,6 +1,6 @@
-import 'package:CyBearJinni/core/shared_methods.dart';
-import 'package:CyBearJinni/objects/enums.dart';
-import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
+import 'package:cybear_jinni/core/shared_methods.dart';
+import 'package:cybear_jinni/objects/enums.dart';
+import 'package:cybear_jinni/objects/smart_device/smart_device_object.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/foundation.dart';
 
