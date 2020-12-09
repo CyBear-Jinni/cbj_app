@@ -1,6 +1,8 @@
-import 'package:CyBearJinni/features/add_new_devices/add_new_cbj_devices.dart';
+import 'package:cybear_jinni/features/add_new_devices/add_new_cbj_devices.dart';
+import 'package:clipboard_manager/clipboard_manager.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 /// Class to warn the user that he need to open access point manually to
 /// add new Smart Devices
@@ -12,16 +14,62 @@ class OpenHotspotAccessPoint extends StatelessWidget {
       content: Container(
         height: MediaQuery.of(context).size.height/2.5,
         child: Column(
-          children: const <Widget>[
-            Text('Please Open Access point with the following '
-                'credentials in the OS Settings'),
-            SizedBox(height: 12,),
-            Text('Hotspot name:'),
-            Text('AndroidAP_6194', style: TextStyle(fontWeight: FontWeight.bold),),
-
-            SizedBox(height: 10,),
-            Text('Hotspot password:'),
-            Text('7f1ee6787744', style: TextStyle(fontWeight: FontWeight.bold),),
+          children: <Widget>[
+            const Text('Please Open Access point with the following '
+                'credentials in the OS Settings.'),
+            const SizedBox(height: 12,),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: SizedBox(
+                width: double.infinity,
+                height: 50,
+                child: FlatButton(
+                  color: Colors.black12,
+                  onPressed: (){
+                  ClipboardManager.copyToClipBoard('CyBear Jinni');
+                    Fluttertoast.showToast(
+                        msg: 'Copy',
+                        toastLength: Toast.LENGTH_SHORT,
+                        gravity: ToastGravity.SNACKBAR,
+                        backgroundColor: Colors.lightBlue,
+                        textColor: Colors.white,
+                        fontSize: 16.0);
+                  },child: Column(
+                  children: const <Widget>[
+                    Text('Hotspot name:'),
+                    Text('CyBear Jinni', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
+                  ],
+                ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 10,),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: SizedBox(
+                width: double.infinity,
+                height: 50,
+                child: FlatButton(
+                  color: Colors.black12,
+                  onPressed: (){
+                    ClipboardManager.copyToClipBoard('CyBear Jinni');
+                    Fluttertoast.showToast(
+                        msg: 'Copy',
+                        toastLength: Toast.LENGTH_SHORT,
+                        gravity: ToastGravity.SNACKBAR,
+                        backgroundColor: Colors.lightBlue,
+                        textColor: Colors.white,
+                        fontSize: 16.0);
+                  },child: Column(
+                  children: const <Widget>[
+                    Text('Hotspot password:'),
+                    Text('CyBear Jinni', style: TextStyle(fontWeight:
+                    FontWeight.bold, fontSize: 20),),
+                  ],
+                ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
