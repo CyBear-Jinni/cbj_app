@@ -68,13 +68,13 @@ class _SmartDevicePage extends State<SmartDevicePage> {
         Text(
           _device.name, //  Show device name
           style: TextStyle(
-            fontSize: 20.0,
+            fontSize: 21.0,
             color: Theme.of(context).textTheme.bodyText2.color,
           ),
         ),
         if (_isLoading)
           const Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(6.0),
             child: Center(child: CircularProgressIndicator()),
           )
         else

@@ -10,12 +10,13 @@ class RoomTogglesBlock extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    final Size screenSize = MediaQuery.of(context).size;
-    final double sizeBoxWidth = screenSize.width*0.25;
+    final Size screenSize = MediaQuery
+        .of(context)
+        .size;
+    final double sizeBoxWidth = screenSize.width * 0.25;
 
     return Container(
-      margin: EdgeInsets.only(bottom: screenSize.height*0.02),
+      margin: EdgeInsets.only(bottom: screenSize.height * 0.02),
       padding: const EdgeInsets.all(3),
 
       decoration: BoxDecoration(
@@ -30,7 +31,8 @@ class RoomTogglesBlock extends StatelessWidget {
           blurRadius: 8,
           spreadRadius: 2,
           offset: const Offset(2, 2),
-        ),],
+        ),
+        ],
       ),
       child: Container(
         decoration: BoxDecoration(
@@ -38,6 +40,8 @@ class RoomTogglesBlock extends StatelessWidget {
           color: Colors.black.withOpacity(0.2),
         ),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             const Padding(
               padding: EdgeInsets.all(2),
@@ -45,15 +49,20 @@ class RoomTogglesBlock extends StatelessWidget {
             Container(
               alignment: Alignment.centerLeft,
               child: FlatButton(
-                onPressed: () => Navigator.pushNamed(
-                  context,
-                  '/roomPage/${_smartRoomObject.getRoomName()}',
-                ),
+                onPressed: () =>
+                    Navigator.pushNamed(
+                      context,
+                      '/roomPage/${_smartRoomObject.getRoomName()}',
+                    ),
                 color: Colors.transparent,
                 child: Text(
                   _smartRoomObject.getRoomName(),
                   style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1.color,
+                    color: Theme
+                        .of(context)
+                        .textTheme
+                        .bodyText1
+                        .color,
                     fontSize: 25,
                     decoration: TextDecoration.underline,
                   ),
@@ -64,40 +73,40 @@ class RoomTogglesBlock extends StatelessWidget {
               padding: EdgeInsets.all(5),
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 SizedBox(
-                  width: sizeBoxWidth,
+                  width: sizeBoxWidth + 30,
                   child: SmartDevicePage(_smartRoomObject.getLights()[0]),
                 ),
-                if (_smartRoomObject
+                _smartRoomObject
                     .getLights()
-                    .length > 1)
+                    .length > 1?
                   SizedBox(
-                    width: sizeBoxWidth,
+                    width: sizeBoxWidth + 30,
                     child: SmartDevicePage(_smartRoomObject.getLights()[1]),
-                  )
+                  ): SizedBox(width: 110,)
               ],
             ),
-            const SizedBox(
-              height: screenSize.height*0.1,),
+            SizedBox(
+              height: screenSize.height * 0.01,),
             if(_smartRoomObject
                 .getLights()
                 .length > 2)
               Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
                   SizedBox(
-                    width: sizeBoxWidth,
+                    width: sizeBoxWidth + 30,
                     child: SmartDevicePage(_smartRoomObject.getLights()[2]),
                   ),
-                  if (_smartRoomObject
+                  _smartRoomObject
                       .getLights()
-                      .length > 3)
+                      .length > 3?
                     SizedBox(
-                      width: sizeBoxWidth,
+                      width: sizeBoxWidth + 30,
                       child: SmartDevicePage(_smartRoomObject.getLights()[3]),
-                    )
+                    ): SizedBox(width: 110,)
                 ],
               ),
           ],
