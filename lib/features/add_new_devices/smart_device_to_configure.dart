@@ -1,3 +1,4 @@
+import 'package:cybear_jinni/features/shared_widgets/smart_device_type_and_toggle_bar.dart';
 import 'package:cybear_jinni/core/theme_data.dart';
 import 'package:cybear_jinni/features/shared_widgets/insert_details_of_new_device.dart';
 import 'package:cybear_jinni/objects/smart_device/smart_device_object.dart';
@@ -8,7 +9,9 @@ import 'package:flutter/material.dart';
 
 class SmartDeviceToConfigure extends StatelessWidget {
 
-  SmartDeviceToConfigure(this.smartDeviceObject);
+  SmartDeviceToConfigure(this.smartDeviceObject){
+    SmartDeviceObject.setHomeWiFiName('host');
+  }
 
   SmartDeviceObject smartDeviceObject;
 
@@ -19,8 +22,8 @@ class SmartDeviceToConfigure extends StatelessWidget {
       color: Colors.black54,
       child: Column(
         children: <Widget>[
+          SmartDeviceTypeAndToggleBar(smartDeviceObject),
           Text('Device Name: ${smartDeviceObject.name}', style: TextStyle(fontSize: 21),),
-          // Text('Device ip: ${smartDeviceObject.ip}', style: TextStyle(fontSize: 21)),
           Text('Device type: ${smartDeviceObject.deviceType}', style: TextStyle(fontSize: 22)),
           const SizedBox(height: 20,),
           FlatButton(
