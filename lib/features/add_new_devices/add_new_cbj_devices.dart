@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:cybear_jinni/database/cbj_app_server/cbj_app_server_d.dart';
 import 'package:cybear_jinni/features/add_new_devices/smart_device_to_configure.dart';
-import 'package:cybear_jinni/objects/interface_darta/cloud_interface_data.dart';
 import 'package:cybear_jinni/objects/smart_device/smart_device_object.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +32,7 @@ class _AddNewCBJDevices extends State<AddNewCBJDevices> {
     setStateTimer();
   }
 
-  List<SmartDeviceObject> newDevicesList = room3DevicesList;
+  List<SmartDeviceObject> newDevicesList = [];
 
   void setStateTimer(){
       Timer.periodic(const Duration(seconds: 3), (Timer timer) {
