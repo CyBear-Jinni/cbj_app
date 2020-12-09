@@ -1,5 +1,6 @@
 import 'package:cybear_jinni/features/add_new_devices/add_new_cbj_devices.dart';
 import 'package:cybear_jinni/objects/smart_device/send_to_smart_device.dart';
+import 'package:cybear_jinni/objects/smart_device/smart_device_object.dart';
 import 'package:grpc/grpc.dart';
 import 'package:grpc/src/server/call.dart';
 import 'protoc_as_dart/cbj_app_connections.pb.dart';
@@ -20,6 +21,7 @@ class CBJAppServerD extends CyBearJinniAppServiceBase{
     AddNewCBJDevices.newDevicesStringList.add(smartDeviceIp);
     print('Smart device IP is $smartDeviceIp');
 
+    if(!AddNewCBJDevices.newDevicesList.any((SmartDeviceObject element) => element.ip == smartDeviceIp))
     AddNewCBJDevices.newDevicesList.addAll(await getAllDevices(smartDeviceIp));
   }
 }
