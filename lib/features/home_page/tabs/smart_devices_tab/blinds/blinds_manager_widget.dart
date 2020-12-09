@@ -1,5 +1,5 @@
-import 'package:CyBearJinni/features/home_page/tabs/smart_devices_tab/blinds/smart_blind_widget.dart';
-import 'package:CyBearJinni/objects/interface_darta/cloud_interface_data.dart';
+import 'package:cybear_jinni/features/home_page/tabs/smart_devices_tab/blinds/smart_blind_widget.dart';
+import 'package:cybear_jinni/objects/interface_darta/cloud_interface_data.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
