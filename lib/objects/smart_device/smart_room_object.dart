@@ -1,8 +1,8 @@
 import 'dart:core';
 import 'dart:ui';
 
-import 'package:CyBearJinni/objects/smart_device/smart_blinds_object.dart';
-import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
+import 'package:cybear_jinni/objects/smart_device/smart_blinds_object.dart';
+import 'package:cybear_jinni/objects/smart_device/smart_device_object.dart';
 
 class SmartRoomObject {
 
