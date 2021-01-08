@@ -6,11 +6,17 @@ class ForgotPasswordPage extends StatelessWidget {
   Widget build(BuildContext context) {
     String emailVal;
 
-    const Padding title = Padding(
-      padding: EdgeInsets.symmetric(vertical: 16.0),
-      child: Text('Forgot Password',
-          style: TextStyle(fontSize: 30, color: Colors.black))
+    final Hero logo = Hero(
+      tag: 'hero',
+      child: CircleAvatar(
+        backgroundColor: Colors.transparent,
+        radius: 48.0,
+        child: Image.asset('assets/logo.png'),
+      ),
     );
+
+    const Text title = Text('Forgot Password',
+          style: TextStyle(fontSize: 28, color: Colors.black));
 
     final TextFormField email = TextFormField(
       keyboardType: TextInputType.emailAddress,
@@ -34,20 +40,44 @@ class ForgotPasswordPage extends StatelessWidget {
         onPressed: ()=> {},
         padding: const EdgeInsets.all(12),
         color: Theme.of(context).accentColor,
-        child: const Text('Submit', style: TextStyle(color: Colors.white)).tr(),
+        child: const Text('Submit', style: TextStyle(color: Colors.white)),
       ),
     );
 
+    const SizedBox separator = SizedBox(height: 32.0);
+
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [title, email, button],
-          )
-        ),
-      )
+        backgroundColor: Colors.white,
+        body: Stack(
+          children: <Widget>[
+            Center(
+              child: ListView(
+                shrinkWrap: true,
+                padding: const EdgeInsets.only(left: 24.0, right: 24.0),
+                children: <Widget>[
+                  logo,
+                  separator,
+                  const Center(child: title),
+                  separator,
+                  Column(
+                    children: [
+                      email,
+                      separator,
+                      button
+                    ]
+                  )
+                ],
+              )
+            ),
+            Positioned(
+              top: 32,
+              left: 8,
+              child: IconButton(icon: const Icon(Icons.arrow_back),
+                onPressed: () {
+                  Navigator.maybePop(context);
+                })
+            )
+        ])
     );
   }
 
