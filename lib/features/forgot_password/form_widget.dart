@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 
+/// form widget of forgot password page
 class FormWidget extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
