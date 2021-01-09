@@ -37,6 +37,7 @@
   "Password_must_be_bigger_than__characters": "Password must be bigger than {} characters",
   "Password": "Password",
   "Log_In": "Log In",
+  "Forgot_password": "Forgot Password",
   "Forgot_password?": "Forgot password?",
   "title": "title",
   "number": "number",
@@ -63,5 +64,6 @@
   "WiFi_Name": "WiFi Name",
   "WiFi_password_is_required": "WiFi password is required",
   "WiFi_Password": "WiFi Password",
-  "Insert_WiFi_Credentials": "Insert WiFi Credentials"
+  "Insert_WiFi_Credentials": "Insert WiFi Credentials",
+  "Send": "Send"
 }
