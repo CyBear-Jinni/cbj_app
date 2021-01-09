@@ -2,6 +2,9 @@ import 'package:cybear_jinni/features/forgot_password/form_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 
+/// forgot password screen contains field for email
+/// on submit a reset password link will be sent
+/// to inserted email address
 class ForgotPasswordPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
