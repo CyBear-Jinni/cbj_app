@@ -10,31 +10,49 @@ class LampsWidgets extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        const Padding(
-          padding: EdgeInsets.only(top: 20),
-        ),
         Container(
-          alignment: Alignment.centerRight,
-          child: IconButton(
-            icon: Icon(FontAwesomeIcons.cog,
-                color: Theme.of(context).textTheme.bodyText1.color),
-            onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (BuildContext context) => SettingsPageOfLamps(),
-              ),
+          color: Colors.black.withOpacity(0.3),
+          child: Container(
+            margin: const EdgeInsets.fromLTRB(9, 25, 9, 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      child: IconButton(
+                        icon: FaIcon(FontAwesomeIcons.arrowLeft,
+                            color: Theme.of(context).textTheme.bodyText1.color),
+                        onPressed: () => Navigator.pop(context),
+                      ),
+                    ),
+                    Text(
+                      'Lamps',
+                      style: TextStyle(
+                          fontSize: 16.0,
+                          color: Theme.of(context).textTheme.bodyText1.color),
+                    ).tr(),
+                  ],
+                ),
+                SizedBox(
+                  width: 25,
+                  child: FlatButton(
+                    padding: EdgeInsets.zero,
+                    child: FaIcon(
+                      FontAwesomeIcons.cog,
+                      color: Theme.of(context).textTheme.bodyText1.color,
+                    ),
+                    onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                SettingsPageOfLamps())),
+                  ),
+                ),
+              ],
             ),
           ),
-        ),
-        Text(
-          'Lamps_Page',
-          style: TextStyle(
-              fontSize: 23.0,
-              color: Theme.of(context).textTheme.bodyText1.color,
-              decoration: TextDecoration.underline),
-        ).tr(),
-        Container(
-          height: 20,
         ),
         RoomsManagerWidget()
       ],

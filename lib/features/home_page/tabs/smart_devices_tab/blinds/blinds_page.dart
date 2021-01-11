@@ -41,12 +41,8 @@ class BlindsPage extends StatelessWidget {
             Container(
               alignment: Alignment.centerLeft,
               child: IconButton(
-                icon: Icon(FontAwesomeIcons.arrowLeft,
-                    color: Theme
-                        .of(context)
-                        .textTheme
-                        .bodyText1
-                        .color),
+                icon: FaIcon(FontAwesomeIcons.arrowLeft,
+                    color: Theme.of(context).textTheme.bodyText1.color),
                 onPressed: () => Navigator.pop(context),
               ),
             ),
