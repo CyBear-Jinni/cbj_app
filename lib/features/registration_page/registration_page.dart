@@ -1,5 +1,6 @@
 import 'package:cybear_jinni/features/registration_page/form_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class RegistrationPage extends StatelessWidget {
   static String tag = 'registration-page';
@@ -39,8 +40,8 @@ class RegistrationPage extends StatelessWidget {
                 top: 16,
                 left: 8,
                 child: IconButton(
-                  icon: const Icon(
-                    Icons.arrow_back,
+                  icon: const FaIcon(
+                    FontAwesomeIcons.arrowLeft,
                   ),
                   onPressed: () {
                     Navigator.maybePop(context);

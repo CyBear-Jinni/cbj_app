@@ -24,7 +24,6 @@ class SmartDeviceToConfigure extends StatelessWidget {
         children: <Widget>[
           SmartDeviceTypeAndToggleBar(smartDeviceObject),
           Text('Device Name: ${smartDeviceObject.name}', style: TextStyle(fontSize: 21),),
-          Text('Device type: ${smartDeviceObject.deviceType}', style: TextStyle(fontSize: 22)),
           const SizedBox(height: 20,),
           FlatButton(
             color: Colors.lightGreen,

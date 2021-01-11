@@ -12,6 +12,7 @@ class RoomsManagerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.builder(
+        padding: const EdgeInsets.fromLTRB(5, 10, 5, 0),
         itemBuilder: _buildItemList,
         itemCount: rooms.length,
       ),
