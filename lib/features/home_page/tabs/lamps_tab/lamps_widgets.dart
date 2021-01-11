@@ -13,19 +13,38 @@ class LampsWidgets extends StatelessWidget {
         const Padding(
           padding: EdgeInsets.only(top: 20),
         ),
-        Container(
-          alignment: Alignment.centerRight,
-          child: IconButton(
-            icon: Icon(FontAwesomeIcons.cog,
-                color: Theme.of(context).textTheme.bodyText1.color),
-            onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (BuildContext context) => SettingsPageOfLamps(),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Container(
+              alignment: Alignment.centerLeft,
+              child: IconButton(
+                icon: Icon(FontAwesomeIcons.arrowLeft,
+                    color: Theme
+                        .of(context)
+                        .textTheme
+                        .bodyText1
+                        .color),
+                onPressed: () => Navigator.pop(context),
               ),
             ),
-          ),
+
+            Container(
+              alignment: Alignment.centerRight,
+              child: IconButton(
+                icon: Icon(FontAwesomeIcons.cog,
+                    color: Theme.of(context).textTheme.bodyText1.color),
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (BuildContext context) => SettingsPageOfLamps(),
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
+
         Text(
           'Lamps_Page',
           style: TextStyle(

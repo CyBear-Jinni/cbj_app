@@ -6,9 +6,11 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SmartDevicesWidgets extends StatelessWidget {
   final Map<String, AssetImage> _symbolsImageList = {
+
+    'Lamps'.tr(): const AssetImage('assets/symbols/light_bulb_drawing.png'),
+    'Blinds'.tr(): const AssetImage('assets/symbols/blinds.jpg'),
     'Air_Conditioners'.tr():
         const AssetImage('assets/symbols/air_conditioner.jpg'),
-    'Blinds'.tr(): const AssetImage('assets/symbols/blinds.jpg'),
     'Medical_Devices'.tr(): const AssetImage('assets/symbols/doctor.jpg'),
     'Smart_Phones'.tr(): const AssetImage('assets/symbols/phone1.jpg'),
     'Smart_Speakers'.tr(): const AssetImage('assets/symbols/speakers.jpg'),
@@ -21,39 +23,45 @@ class SmartDevicesWidgets extends StatelessWidget {
         .map((String element) => GestureDetector(
               onTap: () {
                 print('you clicked $element');
-                Fluttertoast.showToast(
-                    msg: element.toString(),
-                    toastLength: Toast.LENGTH_SHORT,
-                    gravity: ToastGravity.CENTER,
-                    backgroundColor: Colors.blueGrey,
-                    textColor: Colors.white,
-                    fontSize: 16.0);
-                if (element.toString() == 'Blinds'.tr()) {
+                if (element.toString() == 'Blinds'.tr() ||
+                    element.toString() == 'Lamps'.tr()) {
                   Navigator.pushNamed(
                     context,
                     '/devices/$element',
                   );
+                }
+                else {
+                  Fluttertoast.showToast(
+                      msg: element.toString(),
+                      toastLength: Toast.LENGTH_SHORT,
+                      gravity: ToastGravity.CENTER,
+                      backgroundColor: Colors.blueGrey,
+                      textColor: Colors.white,
+                      fontSize: 16.0);
                 }
               },
               child: Container(
                 margin: const EdgeInsets.fromLTRB(5, 0, 5, 10),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
-                  color: Colors.black,
+                  color: Colors.white,
                   image: DecorationImage(
-                      image: _symbolsImageList[element], fit: BoxFit.cover),
+                      image: _symbolsImageList[element], fit: BoxFit.fitHeight),
                 ),
                 child: Container(
                     decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Theme.of(context).textTheme.bodyText1.color,
+                          width: 0.6,
+                        ),
                       borderRadius: BorderRadius.circular(30),
-                      color: Colors.black54,
                     ),
                     alignment: Alignment.center,
                     child: DecoratedBox(
                       decoration: const BoxDecoration(color: Colors.black54),
                       child: Text(
                         element,
-                        style: const TextStyle(fontSize: 27),
+                        style: TextStyle(fontSize: 27, color: Theme.of(context).textTheme.bodyText1.color,),
                         textAlign: TextAlign.center,
                       ),
                     )),
