@@ -9,7 +9,6 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      padding: const EdgeInsets.all(5.0),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           // Where the linear gradient begins and ends
