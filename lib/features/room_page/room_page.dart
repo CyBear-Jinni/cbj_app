@@ -64,7 +64,7 @@ class RoomPage extends StatelessWidget {
             Container(
               alignment: Alignment.centerLeft,
               child: IconButton(
-                icon: Icon(FontAwesomeIcons.arrowLeft,
+                icon: FaIcon(FontAwesomeIcons.arrowLeft,
                     color: Theme.of(context).textTheme.bodyText1.color),
                 onPressed: () => Navigator.pop(context),
               ),

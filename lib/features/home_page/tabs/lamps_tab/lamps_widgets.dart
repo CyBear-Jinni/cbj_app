@@ -19,12 +19,8 @@ class LampsWidgets extends StatelessWidget {
             Container(
               alignment: Alignment.centerLeft,
               child: IconButton(
-                icon: Icon(FontAwesomeIcons.arrowLeft,
-                    color: Theme
-                        .of(context)
-                        .textTheme
-                        .bodyText1
-                        .color),
+                icon: FaIcon(FontAwesomeIcons.arrowLeft,
+                    color: Theme.of(context).textTheme.bodyText1.color),
                 onPressed: () => Navigator.pop(context),
               ),
             ),
@@ -32,7 +28,7 @@ class LampsWidgets extends StatelessWidget {
             Container(
               alignment: Alignment.centerRight,
               child: IconButton(
-                icon: Icon(FontAwesomeIcons.cog,
+                icon: FaIcon(FontAwesomeIcons.cog,
                     color: Theme.of(context).textTheme.bodyText1.color),
                 onPressed: () => Navigator.push(
                   context,

@@ -29,7 +29,7 @@ class RoomWidget extends StatelessWidget {
           children: <Widget>[
             ListTile(
               leading: const CircleAvatar(
-                child: Icon(FontAwesomeIcons.solidLightbulb),
+                child: FaIcon(FontAwesomeIcons.solidLightbulb),
 //                backgroundImage: AssetImage('assets/logo.png'),
 //              backgroundImage: AssetImage(products[index]['image']),
               ),
@@ -48,7 +48,7 @@ class RoomWidget extends StatelessWidget {
               ),
               trailing: IconButton(
                 color: Colors.white,
-                icon: const Icon(FontAwesomeIcons.pen),
+                icon: const FaIcon(FontAwesomeIcons.pen),
                 onPressed: () {},
               ),
             ),

@@ -1,10 +1,10 @@
 import 'package:cybear_jinni/features/home_page/smart_device_widget.dart';
 import 'package:cybear_jinni/objects/enums.dart';
 import 'package:cybear_jinni/objects/smart_device/smart_device_object.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:easy_localization/easy_localization.dart';
 
 
 /// Show bar of device type with toggle switch for light
@@ -25,8 +25,7 @@ class SmartDeviceTypeAndToggleBar extends StatelessWidget {
             child:
             const CircleAvatar(
               radius: 16,
-              child: Icon(
-                  FontAwesomeIcons.solidLightbulb),
+              child: FaIcon(FontAwesomeIcons.solidLightbulb),
             ),
           ),
         if(_smartDeviceObject.deviceType ==
@@ -36,8 +35,7 @@ class SmartDeviceTypeAndToggleBar extends StatelessWidget {
             child:
             const CircleAvatar(
               radius: 16,
-              child: Icon(
-                  FontAwesomeIcons.satelliteDish),
+              child: FaIcon(FontAwesomeIcons.satelliteDish),
             ),
           ),
         const Text(
