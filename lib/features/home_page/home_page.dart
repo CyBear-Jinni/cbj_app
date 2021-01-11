@@ -39,13 +39,13 @@ class HomePage extends StatelessWidget {
             labelColor: Theme.of(context).textTheme.bodyText1.color,
             tabs: <Widget>[
               Tab(
-                icon: const Icon(FontAwesomeIcons.cube),
+                icon: const FaIcon(FontAwesomeIcons.cube),
                 child: const Text(
                   'Scenes',
                 ).tr(),
               ),
               Tab(
-                icon: const Icon(FontAwesomeIcons.satelliteDish),
+                icon: const FaIcon(FontAwesomeIcons.satelliteDish),
                 child: const Text(
                   'Devices',
                 ).tr(),

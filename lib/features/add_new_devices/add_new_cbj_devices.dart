@@ -3,10 +3,10 @@ import 'dart:async';
 import 'package:cybear_jinni/database/cbj_app_server/cbj_app_server_d.dart';
 import 'package:cybear_jinni/features/add_new_devices/smart_device_to_configure.dart';
 import 'package:cybear_jinni/objects/smart_device/smart_device_object.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:easy_localization/easy_localization.dart';
 
 /// This page will show all the CyBear Jinni devices that have connected to the
 /// hotspot of the app device.
@@ -82,12 +82,8 @@ class _AddNewCBJDevices extends State<AddNewCBJDevices> {
             Container(
               alignment: Alignment.centerLeft,
               child: IconButton(
-                icon: Icon(FontAwesomeIcons.arrowLeft,
-                    color: Theme
-                        .of(context)
-                        .textTheme
-                        .bodyText1
-                        .color),
+                icon: FaIcon(FontAwesomeIcons.arrowLeft,
+                    color: Theme.of(context).textTheme.bodyText1.color),
                 onPressed: () => Navigator.pop(context),
               ),
             ),
