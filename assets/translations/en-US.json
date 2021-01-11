@@ -63,5 +63,9 @@
   "WiFi_Name": "WiFi Name",
   "WiFi_password_is_required": "WiFi password is required",
   "WiFi_Password": "WiFi Password",
-  "Insert_WiFi_Credentials": "Insert WiFi Credentials"
+  "Insert_WiFi_Credentials": "Insert WiFi Credentials",
+  "Conditioners": "Conditioners",
+  "Medical": "Medical",
+  "Phones": "Phones",
+  "Speakers": "Speakers"
 }

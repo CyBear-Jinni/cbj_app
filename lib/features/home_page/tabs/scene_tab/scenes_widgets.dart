@@ -4,6 +4,7 @@ import 'package:cybear_jinni/objects/enums.dart';
 import 'package:cybear_jinni/objects/interface_darta/cloud_interface_data.dart';
 import 'package:cybear_jinni/objects/smart_device/smart_device_object.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -63,48 +64,49 @@ class ScenesWidgets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = MediaQuery.of(context).size;
     return Column(
       children: <Widget>[
-        const Padding(
-          padding: EdgeInsets.only(top: 20),
-        ),
         Container(
-          alignment: Alignment.centerRight,
-          child: IconButton(
-            icon: Icon(FontAwesomeIcons.cog,
-                color: Theme
-                    .of(context)
-                    .textTheme
-                    .bodyText1
-                    .color),
-            onPressed: () =>
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (BuildContext context) =>
-                            SettingsPageOfScenes())),
+          color: Colors.black.withOpacity(0.3),
+          child: Container(
+            margin: const EdgeInsets.fromLTRB(9, 25, 9, 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text(
+                  'Scenes',
+                  style: TextStyle(
+                      fontSize: 16.0,
+                      color: Theme.of(context).textTheme.bodyText1.color),
+                ).tr(),
+                SizedBox(
+                  width: 25,
+                  child: FlatButton(
+                    padding: EdgeInsets.zero,
+                    onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                SettingsPageOfScenes())),
+                    child: FaIcon(
+                      FontAwesomeIcons.cog,
+                      color: Theme.of(context).textTheme.bodyText1.color,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
-        Text(
-          'Welcome_to_your_Smart_Home',
-          style: TextStyle(
-              fontSize: 23.0,
-              color: Theme
-                  .of(context)
-                  .textTheme
-                  .bodyText1
-                  .color,
-              decoration: TextDecoration.underline),
-        ).tr(),
-        Container(
-          height: screenSize.height*0.05,
-        ),
         Expanded(
-          child: GridView(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2),
-            children: scenes(context),
+          child: Container(
+            margin: const EdgeInsets.symmetric(horizontal: 4),
+            child: GridView(
+              padding: const EdgeInsets.only(top: 10),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2),
+              children: scenes(context),
+            ),
           ),
         ),
       ],
