@@ -1,4 +1,3 @@
-import 'package:cybear_jinni/features/home_page/tabs/lamps_tab/lamps_widgets.dart';
 import 'package:cybear_jinni/features/home_page/tabs/scene_tab/scenes_widgets.dart';
 import 'package:cybear_jinni/features/home_page/tabs/smart_devices_tab/smart_devices_widgets.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -27,12 +26,11 @@ class HomePage extends StatelessWidget {
         ),
       ),
       child: DefaultTabController(
-        length: 3,
+        length: 2,
         child: Scaffold(
           backgroundColor: Colors.transparent,
           body: TabBarView(children: <Widget>[
             ScenesWidgets(),
-            LampsWidgets(),
             SmartDevicesWidgets(),
           ]),
           bottomNavigationBar: TabBar(
@@ -44,12 +42,6 @@ class HomePage extends StatelessWidget {
                 icon: const Icon(FontAwesomeIcons.cube),
                 child: const Text(
                   'Scenes',
-                ).tr(),
-              ),
-              Tab(
-                icon: const Icon(FontAwesomeIcons.solidLightbulb),
-                child: const Text(
-                  'Lamps',
                 ).tr(),
               ),
               Tab(
