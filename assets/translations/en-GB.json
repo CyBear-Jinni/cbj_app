@@ -35,6 +35,7 @@
   "Password_must_be_bigger_than__characters": "Password must be bigger than {} characters",
   "Password": "Password",
   "Log_In": "Log In",
+  "Forgot_password": "Forgot Password",
   "Forgot_password?": "Forgot password?",
   "title": "title",
   "number": "number",
@@ -55,5 +56,6 @@
   "Update": "Update",
   "IP": "IP",
   "This_is_firebase": "This is firebase",
-  "Device_with_ip:_": "Device with ip: {}"
+  "Device_with_ip:_": "Device with ip: {}",
+  "Send": "Send"
 }
