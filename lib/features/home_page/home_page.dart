@@ -30,6 +30,7 @@ class HomePage extends StatelessWidget {
           backgroundColor: Colors.transparent,
           body: TabBarView(children: <Widget>[
             ScenesWidgets(),
+            // RoutinesPage(),
             SmartDevicesWidgets(),
           ]),
           bottomNavigationBar: TabBar(
@@ -38,13 +39,26 @@ class HomePage extends StatelessWidget {
             labelColor: Theme.of(context).textTheme.bodyText1.color,
             tabs: <Widget>[
               Tab(
-                icon: const FaIcon(FontAwesomeIcons.cube),
+                icon: const FaIcon(FontAwesomeIcons.sitemap),
                 child: const Text(
                   'Scenes',
                 ).tr(),
               ),
+              // Tab(
+              //
+              //   icon: const FaIcon(FontAwesomeIcons.history),
+              //   child: const Text(
+              //     'Routine',
+              //   ).tr(),
+              // ),
+              // Tab(
+              //   icon: const FaIcon(FontAwesomeIcons.link),
+              //   child: const Text(
+              //     'Linked',
+              //   ).tr(),
+              // ),
               Tab(
-                icon: const FaIcon(FontAwesomeIcons.satelliteDish),
+                icon: const FaIcon(FontAwesomeIcons.solidLightbulb),
                 child: const Text(
                   'Devices',
                 ).tr(),
