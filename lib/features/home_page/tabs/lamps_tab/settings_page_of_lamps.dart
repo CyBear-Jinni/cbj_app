@@ -27,7 +27,7 @@ class SettingsPageOfLamps extends StatelessWidget {
         children: <Widget>[
           ListTile(
             leading: const CircleAvatar(
-              child: Icon(FontAwesomeIcons.solidLightbulb),
+              child: FaIcon(FontAwesomeIcons.solidLightbulb),
             ),
             title: Text(
               'Name:_',
@@ -40,7 +40,7 @@ class SettingsPageOfLamps extends StatelessWidget {
                   TextStyle(color: Theme.of(context).textTheme.bodyText1.color),
             ).tr(args: <String>[roomName]),
             trailing: IconButton(
-              icon: Icon(
+              icon: FaIcon(
                 FontAwesomeIcons.pen,
                 color: Theme.of(context).textTheme.bodyText1.color,
               ),
@@ -57,7 +57,7 @@ class SettingsPageOfLamps extends StatelessWidget {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton( //  FontAwesomeIcons.plus,
-        onPressed: () async{
+        onPressed: () async {
           showDialog(
             context: context,
             builder: (BuildContext context) {
@@ -65,7 +65,7 @@ class SettingsPageOfLamps extends StatelessWidget {
             },
           );
         },
-        child: const Icon(Icons.add),
+        child: const FaIcon(Icons.add),
       ),
       body: Container(
         width: MediaQuery
@@ -105,16 +105,12 @@ class SettingsPageOfLamps extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 IconButton(
-                  icon: Icon(FontAwesomeIcons.arrowLeft,
-                      color: Theme
-                          .of(context)
-                          .textTheme
-                          .bodyText1
-                          .color),
+                  icon: FaIcon(FontAwesomeIcons.arrowLeft,
+                      color: Theme.of(context).textTheme.bodyText1.color),
                   onPressed: () => Navigator.pop(context),
                 ),
                 IconButton(
-                  icon: const Icon(
+                  icon: const FaIcon(
                     FontAwesomeIcons.search,
                     color: Colors.white,
                     size: 25,

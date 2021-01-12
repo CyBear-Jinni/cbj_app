@@ -267,8 +267,7 @@ class _NewDeviceWidget extends State<NewDeviceWidget> {
                     child:
                     const CircleAvatar(
                       radius: 16,
-                      child: Icon(
-                          FontAwesomeIcons.solidLightbulb),
+                      child: FaIcon(FontAwesomeIcons.solidLightbulb),
                     ),
                   ),
                 if(_smartDeviceObject.deviceType ==
@@ -278,8 +277,7 @@ class _NewDeviceWidget extends State<NewDeviceWidget> {
                     child:
                     const CircleAvatar(
                       radius: 16,
-                      child: Icon(
-                          FontAwesomeIcons.satelliteDish),
+                      child: FaIcon(FontAwesomeIcons.satelliteDish),
                     ),
                   ),
                 const Text(

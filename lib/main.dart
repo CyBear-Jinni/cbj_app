@@ -1,3 +1,4 @@
+import 'package:cybear_jinni/features/home_page/tabs/lamps_tab/lamps_page.dart';
 import 'package:cybear_jinni/features/home_page/tabs/smart_devices_tab/blinds/blinds_page.dart';
 import 'package:cybear_jinni/features/room_page/room_page.dart';
 import 'package:cybear_jinni/injection.dart';
@@ -105,6 +106,10 @@ class MyApp extends StatelessWidget {
                   if (pathElements[2] == 'Blinds'.tr()) {
                     return MaterialPageRoute(
                         builder: (BuildContext context) => BlindsPage());
+                  }
+                  else if (pathElements[2] == 'Lamps'.tr()) {
+                    return MaterialPageRoute(
+                        builder: (BuildContext context) => LampsPage());
                   }
                 }
                 return null;

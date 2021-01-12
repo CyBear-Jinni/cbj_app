@@ -2,6 +2,7 @@ import 'package:cybear_jinni/features/home_page/smart_device_widget.dart';
 import 'package:cybear_jinni/objects/smart_device/smart_room_object.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class RoomTogglesBlock extends StatelessWidget {
   const RoomTogglesBlock(this._smartRoomObject);
@@ -27,9 +28,9 @@ class RoomTogglesBlock extends StatelessWidget {
         ),
         borderRadius: const BorderRadius.all(Radius.circular(24)),
         boxShadow: [BoxShadow(
-          color: Colors.yellow.withOpacity(0.4),
+          color: Colors.orange.withOpacity(0.2),
           blurRadius: 8,
-          spreadRadius: 2,
+          spreadRadius: 1,
           offset: const Offset(2, 2),
         ),
         ],
@@ -46,27 +47,33 @@ class RoomTogglesBlock extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.all(2),
             ),
-            Container(
-              alignment: Alignment.centerLeft,
-              child: FlatButton(
-                onPressed: () =>
-                    Navigator.pushNamed(
-                      context,
-                      '/roomPage/${_smartRoomObject.getRoomName()}',
-                    ),
-                color: Colors.transparent,
-                child: Text(
-                  _smartRoomObject.getRoomName(),
-                  style: TextStyle(
-                    color: Theme
-                        .of(context)
-                        .textTheme
-                        .bodyText1
-                        .color,
-                    fontSize: 25,
-                    decoration: TextDecoration.underline,
+            FlatButton(
+              onPressed: () =>
+                  Navigator.pushNamed(
+                    context,
+                    '/roomPage/${_smartRoomObject.getRoomName()}',
                   ),
-                ),
+              color: Colors.transparent,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    _smartRoomObject.getRoomName(),
+                    style: TextStyle(
+                      color: Theme
+                          .of(context)
+                          .textTheme
+                          .bodyText1
+                          .color,
+                      fontSize: 25,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                  const FaIcon(FontAwesomeIcons.arrowRight,
+                    color: Colors.white,
+                    size: 20,
+                  ),
+                ],
               ),
             ),
             const Padding(
@@ -81,11 +88,11 @@ class RoomTogglesBlock extends StatelessWidget {
                 ),
                 _smartRoomObject
                     .getLights()
-                    .length > 1?
-                  SizedBox(
-                    width: sizeBoxWidth + 30,
-                    child: SmartDevicePage(_smartRoomObject.getLights()[1]),
-                  ): SizedBox(width: 110,)
+                    .length > 1 ?
+                SizedBox(
+                  width: sizeBoxWidth + 30,
+                  child: SmartDevicePage(_smartRoomObject.getLights()[1]),
+                ) : SizedBox(width: 110,)
               ],
             ),
             SizedBox(
@@ -102,11 +109,11 @@ class RoomTogglesBlock extends StatelessWidget {
                   ),
                   _smartRoomObject
                       .getLights()
-                      .length > 3?
-                    SizedBox(
-                      width: sizeBoxWidth + 30,
-                      child: SmartDevicePage(_smartRoomObject.getLights()[3]),
-                    ): SizedBox(width: 110,)
+                      .length > 3 ?
+                  SizedBox(
+                    width: sizeBoxWidth + 30,
+                    child: SmartDevicePage(_smartRoomObject.getLights()[3]),
+                  ) : SizedBox(width: 110,)
                 ],
               ),
           ],

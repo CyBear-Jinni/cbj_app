@@ -83,7 +83,7 @@ class _SmartBlindPage extends State<SmartBlindPage> {
               color: Colors.brown,
               onPressed: () => _smartBlindsObject.blindsDown(),
               child: Tab(
-                icon: Icon(FontAwesomeIcons.arrowDown,
+                icon: FaIcon(FontAwesomeIcons.arrowDown,
                     color: Theme.of(context).textTheme.bodyText1.color),
                 child: Text(
                   'Down',
@@ -100,12 +100,8 @@ class _SmartBlindPage extends State<SmartBlindPage> {
               color: Colors.grey,
               onPressed: () => _smartBlindsObject.blindsStop(),
               child: Tab(
-                icon: Icon(FontAwesomeIcons.solidHandPaper,
-                    color: Theme
-                        .of(context)
-                        .textTheme
-                        .bodyText1
-                        .color),
+                icon: FaIcon(FontAwesomeIcons.solidHandPaper,
+                    color: Theme.of(context).textTheme.bodyText1.color),
                 child: Text(
                   'Stop',
                   style: TextStyle(
@@ -125,12 +121,8 @@ class _SmartBlindPage extends State<SmartBlindPage> {
               color: Colors.amber,
               onPressed: () => _smartBlindsObject.blindsUp(),
               child: Tab(
-                icon: Icon(FontAwesomeIcons.arrowUp,
-                    color: Theme
-                        .of(context)
-                        .textTheme
-                        .bodyText1
-                        .color),
+                icon: FaIcon(FontAwesomeIcons.arrowUp,
+                    color: Theme.of(context).textTheme.bodyText1.color),
                 child: Text(
                   'Up',
                   style: TextStyle(
