@@ -1,4 +1,5 @@
 import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
+import 'package:cybear_jinni/features/home_page/tabs/routine_tab/alarm_clock_widget.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -57,7 +58,23 @@ class RoutinesPage extends StatelessWidget {
         Expanded(
           child: Container(
             margin: const EdgeInsets.symmetric(horizontal: 4),
-            child: const Text('Routine'),
+            child: ListView(
+              children: [
+                const SizedBox(
+                  height: 44,
+                ),
+                AlarmClockWidget(
+                    '15:35',
+                    'Going to sleep',
+                    'assets/gif/sleep3.gif',
+                    'Need to wake up in the morning every day and eating all I can bofay.\nNow with no time for delay, lats go and concur the bay'),
+                const SizedBox(
+                  height: 44,
+                ),
+                AlarmClockWidget('17:40', 'Going to sleep',
+                    'assets/gif/sleep1.gif', 'Need to wake up in the morning'),
+              ],
+            ),
           ),
         ),
       ],
