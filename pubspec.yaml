@@ -46,6 +46,8 @@ dependencies:
     sdk: flutter
   # Bloc for state management, replace StatefulWidget
   flutter_bloc: ^6.1.1
+  # An easy to implement custom switch
+  flutter_switch: ^0.2.0
   fluttertoast: ^7.1.5
   font_awesome_flutter: ^8.11.0
   # Service locator

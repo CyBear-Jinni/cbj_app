@@ -19,22 +19,16 @@ class RoomTogglesBlock extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(bottom: screenSize.height * 0.02),
       padding: const EdgeInsets.all(3),
-
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-            colors: _smartRoomObject.grediantColor,
-            begin: Alignment.bottomLeft,
-            end: Alignment.topLeft
-        ),
-        borderRadius: const BorderRadius.all(Radius.circular(24)),
-        boxShadow: [BoxShadow(
-          color: Colors.orange.withOpacity(0.2),
-          blurRadius: 8,
-          spreadRadius: 1,
-          offset: const Offset(2, 2),
-        ),
-        ],
-      ),
+          gradient: LinearGradient(
+              colors: _smartRoomObject.grediantColor,
+              begin: Alignment.bottomLeft,
+              end: Alignment.topLeft),
+          borderRadius: const BorderRadius.all(Radius.circular(24)),
+          border: Border.all(
+            color: Theme.of(context).textTheme.bodyText1.color,
+            width: 0.6,
+          )),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
