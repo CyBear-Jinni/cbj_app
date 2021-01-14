@@ -24,6 +24,8 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  # A action bottom sheet that adapts to the platform
+  adaptive_action_sheet: ^1.0.9
   # Copy text to clipboard in both
   clipboard_manager: ^0.0.4
   cloud_firestore: ^0.14.4
