@@ -38,12 +38,16 @@ dependencies:
   dartz: ^0.9.2
   # Internationalization (Easy translations)
   easy_localization: ^2.3.3
+  # Easy implementation of a Expansion type card
+  expansion_card: ^0.1.0
   firebase_auth: ^0.18.4+1
   firebase_core: ^0.5.3
   flutter:
     sdk: flutter
   # Bloc for state management, replace StatefulWidget
   flutter_bloc: ^6.1.1
+  # An easy to implement custom switch
+  flutter_switch: ^0.2.0
   fluttertoast: ^7.1.5
   font_awesome_flutter: ^8.11.0
   # Service locator
@@ -93,6 +97,7 @@ flutter:
     - assets/
     - assets/symbols/
     - assets/translations/
+    - assets/gif/
 
   fonts:
     - family: gidole_regular

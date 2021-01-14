@@ -80,6 +80,7 @@ class MyApp extends StatelessWidget {
               debugShowCheckedModeBanner: false,
               theme: ThemeData(
                 primarySwatch: Colors.deepPurple,
+                primaryColorDark: const Color(0xFF271052),
                 accentColor: Colors.indigo,
                 textTheme: const TextTheme(
                   bodyText1: TextStyle(color: Colors.white),
