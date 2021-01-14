@@ -48,7 +48,7 @@ class HomePage extends StatelessWidget {
               //
               //   icon: const FaIcon(FontAwesomeIcons.history),
               //   child: const Text(
-              //     'Routine',
+              //     'Routines ',
               //   ).tr(),
               // ),
               // Tab(
