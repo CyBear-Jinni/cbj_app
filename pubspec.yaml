@@ -24,6 +24,8 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  # A action bottom sheet that adapts to the platform
+  adaptive_action_sheet: ^1.0.9
   # Copy text to clipboard in both
   clipboard_manager: ^0.0.4
   cloud_firestore: ^0.14.4
@@ -43,7 +45,7 @@ dependencies:
   # Bloc for state management, replace StatefulWidget
   flutter_bloc: ^6.1.1
   fluttertoast: ^7.1.5
-  font_awesome_flutter: ^8.10.1
+  font_awesome_flutter: ^8.11.0
   # Service locator
   get_it: ^5.0.3
   # A high performance, open source, general RPC framework that puts mobile and HTTP/2 first.

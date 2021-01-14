@@ -1,3 +1,4 @@
+import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
 import 'package:cybear_jinni/features/home_page/tabs/scene_tab/scene_block_widget.dart';
 import 'package:cybear_jinni/features/home_page/tabs/scene_tab/settings_page_of_scenes.dart';
 import 'package:cybear_jinni/objects/enums.dart';
@@ -10,7 +11,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ScenesWidgets extends StatelessWidget {
   static final Map<String, Map<SmartDeviceObject, List<WishEnum>>> _scenesMap =
-      <String, Map<SmartDeviceObject, List<WishEnum>>>{
+  <String, Map<SmartDeviceObject, List<WishEnum>>>{
     'Entrance lights OFF ----------- ⛩️  🛑':
         <SmartDeviceObject, List<WishEnum>>{
       room3DevicesList[0]: <WishEnum>[
@@ -83,13 +84,31 @@ class ScenesWidgets extends StatelessWidget {
                   width: 25,
                   child: FlatButton(
                     padding: EdgeInsets.zero,
-                    onPressed: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                SettingsPageOfScenes())),
+                    onPressed: () {
+                      showAdaptiveActionSheet(
+                        context: context,
+                        actions: <BottomSheetAction>[
+                          BottomSheetAction(
+                              title: '➕ Add Scene',
+                              onPressed: () {},
+                              textStyle:
+                                  TextStyle(color: Colors.green, fontSize: 23)),
+                          BottomSheetAction(
+                              title: '⚙️ Scenes Settings',
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (BuildContext context) =>
+                                            SettingsPageOfScenes()));
+                              },
+                              textStyle: TextStyle(
+                                  color: Colors.blueGrey, fontSize: 23)),
+                        ],
+                      );
+                    },
                     child: FaIcon(
-                      FontAwesomeIcons.cog,
+                      FontAwesomeIcons.userCog,
                       color: Theme.of(context).textTheme.bodyText1.color,
                     ),
                   ),
@@ -111,5 +130,17 @@ class ScenesWidgets extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  void containerForSheet<T>({BuildContext context, Widget child}) {
+    showCupertinoModalPopup<T>(
+      context: context,
+      builder: (BuildContext context) => child,
+    ).then<void>((T value) {
+      Scaffold.of(context).showSnackBar(new SnackBar(
+        content: new Text('You clicked $value'),
+        duration: Duration(milliseconds: 800),
+      ));
+    });
   }
 }

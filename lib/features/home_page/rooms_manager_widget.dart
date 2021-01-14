@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/features/home_page/tabs/lamps_tab/room_toggles_block.dart';
+import 'package:cybear_jinni/features/home_page/tabs/lights_tab/room_toggles_block.dart';
 import 'package:cybear_jinni/objects/interface_darta/cloud_interface_data.dart';
 import 'package:flutter/material.dart';
 

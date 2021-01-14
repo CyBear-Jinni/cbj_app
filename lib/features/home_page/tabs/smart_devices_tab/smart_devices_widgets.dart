@@ -1,3 +1,5 @@
+import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
+import 'package:cybear_jinni/features/add_new_devices/open_access_point_popup.dart';
 import 'package:cybear_jinni/features/home_page/tabs/smart_devices_tab/settings_page_of_smart_devices.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -6,9 +8,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SmartDevicesWidgets extends StatelessWidget {
   final Map<String, AssetImage> _symbolsImageList = {
-    'Lamps'.tr(): const AssetImage('assets/symbols/light_bulb_drawing.png'),
+    'Lights'.tr(): const AssetImage('assets/symbols/light_bulb_drawing.png'),
     'Blinds'.tr(): const AssetImage('assets/symbols/blinds.jpg'),
-    'Conditioners'.tr(): const AssetImage('assets/symbols/air_conditioner.jpg'),
+    'A/C'.tr(): const AssetImage('assets/symbols/air_conditioner.jpg'),
     'Medical'.tr(): const AssetImage('assets/symbols/doctor.jpg'),
     'Phones'.tr(): const AssetImage('assets/symbols/phone1.jpg'),
     'Speakers'.tr(): const AssetImage('assets/symbols/speakers.jpg'),
@@ -22,13 +24,12 @@ class SmartDevicesWidgets extends StatelessWidget {
               onTap: () {
                 print('you clicked $element');
                 if (element.toString() == 'Blinds'.tr() ||
-                    element.toString() == 'Lamps'.tr()) {
+                    element.toString() == 'Lights'.tr()) {
                   Navigator.pushNamed(
                     context,
                     '/devices/$element',
                   );
-                }
-                else {
+                } else {
                   Fluttertoast.showToast(
                       msg: element.toString(),
                       toastLength: Toast.LENGTH_SHORT,
@@ -133,13 +134,38 @@ class SmartDevicesWidgets extends StatelessWidget {
                   width: 25,
                   child: FlatButton(
                     padding: EdgeInsets.zero,
-                    onPressed: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                SettingsPageSmartDevices())),
+                    onPressed: () {
+                      showAdaptiveActionSheet(
+                        context: context,
+                        actions: <BottomSheetAction>[
+                          BottomSheetAction(
+                              title: '➕ Add Device',
+                              onPressed: () {
+                                showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return OpenHotspotAccessPoint();
+                                  },
+                                );
+                              },
+                              textStyle:
+                                  TextStyle(color: Colors.green, fontSize: 23)),
+                          BottomSheetAction(
+                              title: '⚙️ Devices Settings',
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (BuildContext context) =>
+                                            SettingsPageSmartDevices()));
+                              },
+                              textStyle: TextStyle(
+                                  color: Colors.blueGrey, fontSize: 23)),
+                        ],
+                      );
+                    },
                     child: FaIcon(
-                      FontAwesomeIcons.cog,
+                      FontAwesomeIcons.userCog,
                       color: Theme.of(context).textTheme.bodyText1.color,
                     ),
                   ),
