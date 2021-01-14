@@ -1,5 +1,5 @@
-import 'package:CyBearJinni/objects/enums.dart';
-import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
+import 'package:cybear_jinni/objects/enums.dart';
+import 'package:cybear_jinni/objects/smart_device/smart_device_object.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +25,7 @@ class SceneBlockWidget extends StatelessWidget {
       child: RaisedButton(
         padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
         color: colorList[_elementIndex],
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30), side: BorderSide(color: Theme.of(context).textTheme.bodyText1.color, width: 0.6)),
         onPressed: () {
           smartDevicesWithWish
               .forEach((SmartDeviceObject key, List<WishEnum> value) {
@@ -34,7 +34,7 @@ class SceneBlockWidget extends StatelessWidget {
             }
           });
         },
-        highlightColor: Colors.white,
+        highlightColor: Theme.of(context).textTheme.bodyText1.color,
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),

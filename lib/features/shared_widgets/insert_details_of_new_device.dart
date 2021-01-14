@@ -1,21 +1,21 @@
-import 'package:CyBearJinni/core/shared_methods.dart';
-import 'package:CyBearJinni/features/home_page/smart_device_widget.dart';
-import 'package:CyBearJinni/features/home_page/tabs/smart_devices_tab/blinds/smart_blind_widget.dart';
-import 'package:CyBearJinni/features/shared_widgets/insert_wifi_credential_popup.dart';
-import 'package:CyBearJinni/objects/enums.dart';
-import 'package:CyBearJinni/objects/interface_darta/cloud_interface_data.dart';
-import 'package:CyBearJinni/objects/security_bear/client/security_bear_server_client.dart';
-import 'package:CyBearJinni/objects/smart_device/send_to_smart_device.dart';
-import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
-import 'package:CyBearJinni/objects/smart_device/smart_room_object.dart';
+import 'package:cybear_jinni/features/home_page/smart_device_widget.dart';
+import 'package:cybear_jinni/features/home_page/tabs/smart_devices_tab/blinds/smart_blind_widget.dart';
+import 'package:cybear_jinni/features/shared_widgets/insert_wifi_credential_popup.dart';
+import 'package:cybear_jinni/objects/enums.dart';
+import 'package:cybear_jinni/objects/interface_darta/cloud_interface_data.dart';
+import 'package:cybear_jinni/objects/smart_device/send_to_smart_device.dart';
+import 'package:cybear_jinni/objects/smart_device/smart_device_object.dart';
+import 'package:cybear_jinni/objects/smart_device/smart_room_object.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class InsertDetailsOfNewDevice extends StatelessWidget {
-  const InsertDetailsOfNewDevice(this._ip);
+  const InsertDetailsOfNewDevice(this._ip, this.gradientColors);
 
   final String _ip;
+  final List<Color> gradientColors;
+
 
   @override
   Widget build(BuildContext context) {
@@ -45,12 +45,12 @@ class InsertDetailsOfNewDevice extends StatelessWidget {
             ),
             const Text(
               'Device_ip:_',
-              style: const TextStyle(color: Colors.black),
+              style: TextStyle(color: Colors.black),
             ).tr(args: <String>[_ip]),
             const SizedBox(
               height: 20,
             ),
-            ShowAllDevicesInTheSmartDevice(_ip),
+            ShowAllDevicesInTheSmartDevice(_ip, gradientColors),
           ],
         ),
       ),
@@ -60,24 +60,28 @@ class InsertDetailsOfNewDevice extends StatelessWidget {
 
 class ShowAllDevicesInTheSmartDevice extends StatefulWidget {
 
-  const ShowAllDevicesInTheSmartDevice(this._ip);
+  const ShowAllDevicesInTheSmartDevice(this._ip, this.gradientColors);
 
   final String _ip;
+  final List<Color> gradientColors;
+
 
   @override
   State<StatefulWidget> createState() {
-    return _ShowAllDevicesInTheSmartDevice(_ip);
+    return _ShowAllDevicesInTheSmartDevice(_ip, gradientColors);
   }
 }
 
 class _ShowAllDevicesInTheSmartDevice extends State<ShowAllDevicesInTheSmartDevice> {
-  _ShowAllDevicesInTheSmartDevice(this._ip) {
+
+  _ShowAllDevicesInTheSmartDevice(this._ip, this.gradientColors) {
     getAllTheDevices();
   }
 
   final String _ip;
   bool _isLoading = true;
   List<SmartDeviceObject> smartDeviceObjectList;
+  List<Color> gradientColors;
 
   void getAllTheDevices() async {
     smartDeviceObjectList = await getAllDevices(_ip);
@@ -109,7 +113,7 @@ class _ShowAllDevicesInTheSmartDevice extends State<ShowAllDevicesInTheSmartDevi
               )),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
+            children: <Widget> [
               RaisedButton(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(24),
@@ -131,8 +135,8 @@ class _ShowAllDevicesInTheSmartDevice extends State<ShowAllDevicesInTheSmartDevi
                   getAllTheDevices();
                   final List<SmartDeviceObject> room2DevicesList =
                       smartDeviceObjectList;
-                  SmartRoomObject newRoom = SmartRoomObject(
-                      'New_devices'.tr(), room2DevicesList);
+                  final SmartRoomObject newRoom = SmartRoomObject(
+                      'New_devices'.tr(), room2DevicesList, gradientColors);
                   rooms.add(newRoom);
                   Navigator.pop(context);
                 },
@@ -166,10 +170,11 @@ class _NewDeviceWidget extends State<NewDeviceWidget> {
 
   _NewDeviceWidget(this._smartDeviceObject) {
     myController.text = _smartDeviceObject.name.toString();
+    SmartDeviceObject.setHomeWiFiName('host');
   }
 
   final TextEditingController myController = TextEditingController();
-  final SmartDeviceObject _smartDeviceObject;
+  SmartDeviceObject _smartDeviceObject;
 
 
   @override
@@ -262,8 +267,7 @@ class _NewDeviceWidget extends State<NewDeviceWidget> {
                     child:
                     const CircleAvatar(
                       radius: 16,
-                      child: Icon(
-                          FontAwesomeIcons.solidLightbulb),
+                      child: FaIcon(FontAwesomeIcons.solidLightbulb),
                     ),
                   ),
                 if(_smartDeviceObject.deviceType ==
@@ -273,8 +277,7 @@ class _NewDeviceWidget extends State<NewDeviceWidget> {
                     child:
                     const CircleAvatar(
                       radius: 16,
-                      child: Icon(
-                          FontAwesomeIcons.satelliteDish),
+                      child: FaIcon(FontAwesomeIcons.satelliteDish),
                     ),
                   ),
                 const Text(

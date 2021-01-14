@@ -1,6 +1,7 @@
-import 'package:CyBearJinni/features/shared_widgets/insert_details_of_new_device.dart';
-import 'package:CyBearJinni/objects/enums.dart';
-import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
+import 'package:cybear_jinni/core/theme_data.dart';
+import 'package:cybear_jinni/features/shared_widgets/insert_details_of_new_device.dart';
+import 'package:cybear_jinni/objects/enums.dart';
+import 'package:cybear_jinni/objects/smart_device/smart_device_object.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +32,7 @@ class _AddNewDeviceWidgetPopup extends State<AddNewDeviceWidgetPopup> {
             return TextFormField(
               autofocus: true,
               initialValue:
-                  snapshot.data.substring(0, snapshot.data.length - 1),
+                  snapshot.data?.substring(0, snapshot.data.length - 1),
               onSaved: (String ip) => _ip = ip,
               keyboardType: TextInputType.number,
               validator: (String value) {
@@ -80,7 +81,7 @@ class _AddNewDeviceWidgetPopup extends State<AddNewDeviceWidgetPopup> {
                 context,
                 MaterialPageRoute(
                     builder: (BuildContext context) =>
-                        InsertDetailsOfNewDevice(_ip)),
+                        InsertDetailsOfNewDevice(_ip, GradientColors.mango)),
                 //            Navigator.of(context).pop();
               );
             },

@@ -1,7 +1,5 @@
-import 'package:CyBearJinni/features/home_page/tabs/history_tab/history_tab.dart';
-import 'package:CyBearJinni/features/home_page/tabs/lamps_tab/lamps_widgets.dart';
-import 'package:CyBearJinni/features/home_page/tabs/scene_tab/scenes_widgets.dart';
-import 'package:CyBearJinni/features/home_page/tabs/smart_devices_tab/smart_devices_widgets.dart';
+import 'package:cybear_jinni/features/home_page/tabs/scene_tab/scenes_widgets.dart';
+import 'package:cybear_jinni/features/home_page/tabs/smart_devices_tab/smart_devices_widgets.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -11,7 +9,6 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      padding: const EdgeInsets.all(5.0),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           // Where the linear gradient begins and ends
@@ -28,14 +25,12 @@ class HomePage extends StatelessWidget {
         ),
       ),
       child: DefaultTabController(
-        length: 4,
-        initialIndex: 1,
+        length: 2,
         child: Scaffold(
           backgroundColor: Colors.transparent,
-          body: TabBarView(children: [
-            HistoryTab(),
+          body: TabBarView(children: <Widget>[
             ScenesWidgets(),
-            LampsWidgets(),
+            // RoutinesPage(),
             SmartDevicesWidgets(),
           ]),
           bottomNavigationBar: TabBar(
@@ -44,25 +39,26 @@ class HomePage extends StatelessWidget {
             labelColor: Theme.of(context).textTheme.bodyText1.color,
             tabs: <Widget>[
               Tab(
-                icon: const Icon(FontAwesomeIcons.history),
-                child: const Text(
-                  'History',
-                ).tr(),
-              ),
-              Tab(
-                icon: const Icon(FontAwesomeIcons.cube),
+                icon: const FaIcon(FontAwesomeIcons.sitemap),
                 child: const Text(
                   'Scenes',
                 ).tr(),
               ),
+              // Tab(
+              //
+              //   icon: const FaIcon(FontAwesomeIcons.history),
+              //   child: const Text(
+              //     'Routines ',
+              //   ).tr(),
+              // ),
+              // Tab(
+              //   icon: const FaIcon(FontAwesomeIcons.link),
+              //   child: const Text(
+              //     'Linked',
+              //   ).tr(),
+              // ),
               Tab(
-                icon: const Icon(FontAwesomeIcons.solidLightbulb),
-                child: const Text(
-                  'Lamps',
-                ).tr(),
-              ),
-              Tab(
-                icon: const Icon(FontAwesomeIcons.satelliteDish),
+                icon: const FaIcon(FontAwesomeIcons.solidLightbulb),
                 child: const Text(
                   'Devices',
                 ).tr(),
