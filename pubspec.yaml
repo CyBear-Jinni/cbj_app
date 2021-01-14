@@ -24,6 +24,8 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  # A action bottom sheet that adapts to the platform
+  adaptive_action_sheet: ^1.0.9
   # Copy text to clipboard in both
   clipboard_manager: ^0.0.4
   cloud_firestore: ^0.14.4
@@ -36,14 +38,18 @@ dependencies:
   dartz: ^0.9.2
   # Internationalization (Easy translations)
   easy_localization: ^2.3.3
+  # Easy implementation of a Expansion type card
+  expansion_card: ^0.1.0
   firebase_auth: ^0.18.4+1
   firebase_core: ^0.5.3
   flutter:
     sdk: flutter
   # Bloc for state management, replace StatefulWidget
   flutter_bloc: ^6.1.1
+  # An easy to implement custom switch
+  flutter_switch: ^0.2.0
   fluttertoast: ^7.1.5
-  font_awesome_flutter: ^8.10.1
+  font_awesome_flutter: ^8.11.0
   # Service locator
   get_it: ^5.0.3
   # A high performance, open source, general RPC framework that puts mobile and HTTP/2 first.
@@ -91,6 +97,7 @@ flutter:
     - assets/
     - assets/symbols/
     - assets/translations/
+    - assets/gif/
 
   fonts:
     - family: gidole_regular
