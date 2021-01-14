@@ -1,3 +1,4 @@
+import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -26,14 +27,25 @@ class RoutinesPage extends StatelessWidget {
                   width: 25,
                   child: FlatButton(
                     padding: EdgeInsets.zero,
-                    onPressed: () {},
-                    //     Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //         builder: (BuildContext context) {})
-                    // ),
+                    onPressed: () {
+                      showAdaptiveActionSheet(
+                        context: context,
+                        actions: <BottomSheetAction>[
+                          BottomSheetAction(
+                              title: 'Add Routine',
+                              onPressed: () {},
+                              textStyle: const TextStyle(
+                                  color: Colors.green, fontSize: 23)),
+                          BottomSheetAction(
+                              title: 'Routines Settings',
+                              onPressed: () {},
+                              textStyle: const TextStyle(
+                                  color: Colors.blueGrey, fontSize: 23)),
+                        ],
+                      );
+                    },
                     child: FaIcon(
-                      FontAwesomeIcons.cog,
+                      FontAwesomeIcons.userCog,
                       color: Theme.of(context).textTheme.bodyText1.color,
                     ),
                   ),

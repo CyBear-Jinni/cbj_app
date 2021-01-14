@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class SettingsPageOfLamps extends StatelessWidget {
-  SettingsPageOfLamps() {
+class SettingsPageOfLights extends StatelessWidget {
+  SettingsPageOfLights() {
     for (final SmartRoomObject smartRoomObject in rooms) {
       for (final SmartDeviceObject smartLightObject
           in smartRoomObject.getLights()) {
@@ -128,14 +128,10 @@ class SettingsPageOfLamps extends StatelessWidget {
               ],
             ),
             Text(
-              'Lamps_Settings_Page',
+              'Lights_Settings_Page',
               style: TextStyle(
                   fontSize: 23.0,
-                  color: Theme
-                      .of(context)
-                      .textTheme
-                      .bodyText1
-                      .color,
+                  color: Theme.of(context).textTheme.bodyText1.color,
                   decoration: TextDecoration.underline),
             ).tr(),
             Expanded(
