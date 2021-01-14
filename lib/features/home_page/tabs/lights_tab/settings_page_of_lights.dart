@@ -1,14 +1,14 @@
-import 'package:CyBearJinni/features/shared_widgets/add_new_devie_widget.dart';
-import 'package:CyBearJinni/objects/interface_darta/cloud_interface_data.dart';
-import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
-import 'package:CyBearJinni/objects/smart_device/smart_room_object.dart';
+import 'package:cybear_jinni/features/add_new_devices/open_access_point_popup.dart';
+import 'package:cybear_jinni/objects/interface_darta/cloud_interface_data.dart';
+import 'package:cybear_jinni/objects/smart_device/smart_device_object.dart';
+import 'package:cybear_jinni/objects/smart_device/smart_room_object.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class SettingsPageOfLamps extends StatelessWidget {
-  SettingsPageOfLamps() {
+class SettingsPageOfLights extends StatelessWidget {
+  SettingsPageOfLights() {
     for (final SmartRoomObject smartRoomObject in rooms) {
       for (final SmartDeviceObject smartLightObject
           in smartRoomObject.getLights()) {
@@ -27,7 +27,7 @@ class SettingsPageOfLamps extends StatelessWidget {
         children: <Widget>[
           ListTile(
             leading: const CircleAvatar(
-              child: Icon(FontAwesomeIcons.solidLightbulb),
+              child: FaIcon(FontAwesomeIcons.solidLightbulb),
             ),
             title: Text(
               'Name:_',
@@ -40,7 +40,7 @@ class SettingsPageOfLamps extends StatelessWidget {
                   TextStyle(color: Theme.of(context).textTheme.bodyText1.color),
             ).tr(args: <String>[roomName]),
             trailing: IconButton(
-              icon: Icon(
+              icon: FaIcon(
                 FontAwesomeIcons.pen,
                 color: Theme.of(context).textTheme.bodyText1.color,
               ),
@@ -57,15 +57,15 @@ class SettingsPageOfLamps extends StatelessWidget {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton( //  FontAwesomeIcons.plus,
-        onPressed: () {
+        onPressed: () async {
           showDialog(
             context: context,
             builder: (BuildContext context) {
-              return AddNewDeviceWidgetPopup();
+              return OpenHotspotAccessPoint();
             },
           );
         },
-        child: const Icon(Icons.add),
+        child: const FaIcon(Icons.add),
       ),
       body: Container(
         width: MediaQuery
@@ -105,16 +105,12 @@ class SettingsPageOfLamps extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 IconButton(
-                  icon: Icon(FontAwesomeIcons.arrowLeft,
-                      color: Theme
-                          .of(context)
-                          .textTheme
-                          .bodyText1
-                          .color),
+                  icon: FaIcon(FontAwesomeIcons.arrowLeft,
+                      color: Theme.of(context).textTheme.bodyText1.color),
                   onPressed: () => Navigator.pop(context),
                 ),
                 IconButton(
-                  icon: const Icon(
+                  icon: const FaIcon(
                     FontAwesomeIcons.search,
                     color: Colors.white,
                     size: 25,
@@ -132,14 +128,10 @@ class SettingsPageOfLamps extends StatelessWidget {
               ],
             ),
             Text(
-              'Lamps_Settings_Page',
+              'Lights_Settings_Page',
               style: TextStyle(
                   fontSize: 23.0,
-                  color: Theme
-                      .of(context)
-                      .textTheme
-                      .bodyText1
-                      .color,
+                  color: Theme.of(context).textTheme.bodyText1.color,
                   decoration: TextDecoration.underline),
             ).tr(),
             Expanded(

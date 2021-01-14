@@ -1,5 +1,6 @@
-import 'package:CyBearJinni/features/login_page/form_widget.dart';
-import 'package:CyBearJinni/features/registration_page/registration_page.dart';
+import 'package:cybear_jinni/features/forgot_password/forgot_password_page.dart';
+import 'package:cybear_jinni/features/login_page/form_widget.dart';
+import 'package:cybear_jinni/features/registration_page/registration_page.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
@@ -36,7 +37,12 @@ class LoginPage extends StatelessWidget {
     );
 
     final FlatButton forgotPassword = FlatButton(
-      onPressed: () {},
+      onPressed: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (BuildContext context) => ForgotPasswordPage()));
+      },
       child: const Text(
         'Forgot_password?',
         style: TextStyle(color: Colors.black54),

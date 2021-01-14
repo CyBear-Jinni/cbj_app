@@ -1,4 +1,4 @@
-import 'package:CyBearJinni/features/home_page/tabs/history_tab/settings_page_of_history.dart';
+import 'package:cybear_jinni/features/home_page/tabs/history_tab/settings_page_of_history.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +15,7 @@ class HistoryTab extends StatelessWidget {
         Container(
           alignment: Alignment.centerRight,
           child: IconButton(
-            icon: Icon(FontAwesomeIcons.cog,
+            icon: FaIcon(FontAwesomeIcons.cog,
                 color: Theme.of(context).textTheme.bodyText1.color),
             onPressed: () => Navigator.push(
                 context,

@@ -31,14 +31,7 @@ const CommendStatus$json = const {
 const SmartDeviceUpdateDetails$json = const {
   '1': 'SmartDeviceUpdateDetails',
   '2': const [
-    const {
-      '1': 'smartDevice',
-      '3': 6,
-      '4': 1,
-      '5': 11,
-      '6': '.SmartConnection.SmartDevice',
-      '10': 'smartDevice'
-    },
+    const {'1': 'smartDevice', '3': 6, '4': 1, '5': 11, '6': '.SmartConnection.SmartDevice', '10': 'smartDevice'},
     const {'1': 'newName', '3': 7, '4': 1, '5': 9, '10': 'newName'},
   ],
 };
@@ -46,20 +39,8 @@ const SmartDeviceUpdateDetails$json = const {
 const FirebaseAccountInformation$json = const {
   '1': 'FirebaseAccountInformation',
   '2': const [
-    const {
-      '1': 'fireBaseProjectId',
-      '3': 8,
-      '4': 1,
-      '5': 9,
-      '10': 'fireBaseProjectId'
-    },
-    const {
-      '1': 'fireBaseApiKey',
-      '3': 9,
-      '4': 1,
-      '5': 9,
-      '10': 'fireBaseApiKey'
-    },
+    const {'1': 'fireBaseProjectId', '3': 8, '4': 1, '5': 9, '10': 'fireBaseProjectId'},
+    const {'1': 'fireBaseApiKey', '3': 9, '4': 1, '5': 9, '10': 'fireBaseApiKey'},
     const {'1': 'userEmail', '3': 10, '4': 1, '5': 9, '10': 'userEmail'},
     const {'1': 'userPassword', '3': 11, '4': 1, '5': 9, '10': 'userPassword'},
   ],

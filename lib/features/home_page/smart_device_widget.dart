@@ -1,12 +1,13 @@
 import 'dart:async';
 
-import 'package:CyBearJinni/objects/smart_device/smart_device_object.dart';
+import 'package:cybear_jinni/objects/smart_device/smart_device_object.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_switch/flutter_switch.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SmartDevicePage extends StatefulWidget {
-
   const SmartDevicePage(this.device);
 
   final SmartDeviceObject device;
@@ -68,25 +69,40 @@ class _SmartDevicePage extends State<SmartDevicePage> {
         Text(
           _device.name, //  Show device name
           style: TextStyle(
-            fontSize: 20.0,
+            fontSize: 21.0,
             color: Theme.of(context).textTheme.bodyText2.color,
           ),
         ),
         if (_isLoading)
-          const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Center(child: CircularProgressIndicator()),
-          )
+          Center(child: const CircularProgressIndicator())
         else
-          Transform.scale(
-            scale: 1.5,
-            child: Switch(
-              activeColor: Colors.yellow,
-              inactiveThumbColor: Colors.black87,
-              value: _switchState,
-              onChanged: (bool value) => _onChange(value),
+          FlutterSwitch(
+            width: 76.0,
+            height: 36.0,
+            toggleSize: 45.0,
+            value: _switchState,
+            borderRadius: 30.0,
+            padding: 0.0,
+            activeToggleColor: const Color(0xFF2F363D),
+            inactiveToggleColor: Theme.of(context).primaryColor,
+            activeSwitchBorder: Border.all(
+              color: Theme.of(context).textTheme.bodyText1.color,
             ),
-          )
+            inactiveSwitchBorder: Border.all(
+              color: Theme.of(context).textTheme.bodyText1.color,
+            ),
+            activeColor: const Color(0xFFFFDF5D),
+            inactiveColor: Theme.of(context).primaryColorDark,
+            activeIcon: Icon(
+              FontAwesomeIcons.solidLightbulb,
+              color: Color(0xFFF8E3A1),
+            ),
+            inactiveIcon: Icon(
+              FontAwesomeIcons.lightbulb,
+              color: Theme.of(context).textTheme.bodyText1.color,
+            ),
+            onToggle: (bool value) => _onChange(value),
+          ),
       ],
     );
   }
