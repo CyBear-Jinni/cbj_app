@@ -89,12 +89,12 @@ class ScenesWidgets extends StatelessWidget {
                         context: context,
                         actions: <BottomSheetAction>[
                           BottomSheetAction(
-                              title: 'Add Scene',
+                              title: '➕ Add Scene',
                               onPressed: () {},
                               textStyle:
                                   TextStyle(color: Colors.green, fontSize: 23)),
                           BottomSheetAction(
-                              title: 'Scenes Settings',
+                              title: '⚙️ Scenes Settings',
                               onPressed: () {
                                 Navigator.push(
                                     context,
