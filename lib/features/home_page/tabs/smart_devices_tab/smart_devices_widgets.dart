@@ -139,7 +139,7 @@ class SmartDevicesWidgets extends StatelessWidget {
                         context: context,
                         actions: <BottomSheetAction>[
                           BottomSheetAction(
-                              title: 'Add Device',
+                              title: '➕ Add Device',
                               onPressed: () {
                                 showDialog(
                                   context: context,
@@ -151,7 +151,7 @@ class SmartDevicesWidgets extends StatelessWidget {
                               textStyle:
                                   TextStyle(color: Colors.green, fontSize: 23)),
                           BottomSheetAction(
-                              title: 'Devices Settings',
+                              title: '⚙️ Devices Settings',
                               onPressed: () {
                                 Navigator.push(
                                     context,

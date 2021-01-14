@@ -32,12 +32,12 @@ class RoutinesPage extends StatelessWidget {
                         context: context,
                         actions: <BottomSheetAction>[
                           BottomSheetAction(
-                              title: 'Add Routine',
+                              title: '➕ Add Routine',
                               onPressed: () {},
                               textStyle: const TextStyle(
                                   color: Colors.green, fontSize: 23)),
                           BottomSheetAction(
-                              title: 'Routines Settings',
+                              title: '⚙️ Routines Settings',
                               onPressed: () {},
                               textStyle: const TextStyle(
                                   color: Colors.blueGrey, fontSize: 23)),
