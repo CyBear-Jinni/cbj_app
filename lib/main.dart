@@ -8,16 +8,88 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:rxdart/rxdart.dart';
+
+// import 'package:timezone/data/latest.dart' as tz;
+// import 'package:timezone/timezone.dart' as tz;
 
 import 'features/home_page/home_page.dart';
 import 'features/login_page/login_page.dart';
 import 'features/shared_widgets/error_message.dart';
 import 'features/shared_widgets/loader.dart';
 
-void main() {
+final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+    FlutterLocalNotificationsPlugin();
+
+/// Streams are created so that app can respond to notification-related events
+/// since the plugin is initialised in the `main` function
+final BehaviorSubject<ReceivedNotification> didReceiveLocalNotificationSubject =
+    BehaviorSubject<ReceivedNotification>();
+
+final BehaviorSubject<String> selectNotificationSubject =
+    BehaviorSubject<String>();
+
+const MethodChannel platform =
+    MethodChannel('dexterx.dev/flutter_local_notifications_example');
+
+class ReceivedNotification {
+  ReceivedNotification({
+    @required this.id,
+    @required this.title,
+    @required this.body,
+    @required this.payload,
+  });
+
+  final int id;
+  final String title;
+  final String body;
+  final String payload;
+}
+
+void main() async {
 //  debugPaintSizeEnabled = true;
   configureInjection(Env.prod);
   WidgetsFlutterBinding.ensureInitialized();
+
+  // needed if you intend to initialize in the `main` function
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // await _configureLocalTimeZone();
+
+  const AndroidInitializationSettings initializationSettingsAndroid =
+      AndroidInitializationSettings('logo');
+
+  /// Note: permissions aren't requested here just to demonstrate that can be
+  /// done later
+  final IOSInitializationSettings initializationSettingsIOS =
+      IOSInitializationSettings(
+          requestAlertPermission: false,
+          requestBadgePermission: false,
+          requestSoundPermission: false,
+          onDidReceiveLocalNotification:
+              (int id, String title, String body, String payload) async {
+            didReceiveLocalNotificationSubject.add(ReceivedNotification(
+                id: id, title: title, body: body, payload: payload));
+          });
+  const MacOSInitializationSettings initializationSettingsMacOS =
+      MacOSInitializationSettings(
+          requestAlertPermission: false,
+          requestBadgePermission: false,
+          requestSoundPermission: false);
+  final InitializationSettings initializationSettings = InitializationSettings(
+      android: initializationSettingsAndroid,
+      iOS: initializationSettingsIOS,
+      macOS: initializationSettingsMacOS);
+  await flutterLocalNotificationsPlugin.initialize(initializationSettings,
+      onSelectNotification: (String payload) async {
+    if (payload != null) {
+      debugPrint('notification payload: $payload');
+    }
+    selectNotificationSubject.add(payload);
+  });
+
   runApp(
 
       /// Use https://lingohub.com/developers/supported-locales/language-designators-with-regions
@@ -53,12 +125,19 @@ void main() {
           child: MyApp()));
 }
 
+// Future<void> _configureLocalTimeZone() async {
+//   tz.initializeTimeZones();
+//   final String timeZoneName = await platform.invokeMethod('getTimeZoneName');
+//   tz.setLocalLocation(tz.getLocation(timeZoneName));
+// }
+
 class MyApp extends StatelessWidget {
   final Future<FirebaseApp> _initialization = Firebase.initializeApp();
   final Map routes = <String, WidgetBuilder>{
     LoginPage.tag: (BuildContext context) => LoginPage(),
 //    "HomePage": (context) => HomePage(),
   };
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -118,7 +197,61 @@ class MyApp extends StatelessWidget {
           }
 
           return Loader();
-        }
-    );
+        });
+  }
+
+  Future<void> initialisationNotifications() async {
+    FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+        FlutterLocalNotificationsPlugin();
+// initialise the plugin. app_icon needs to be a added as a drawable resource to the Android head project
+    const AndroidInitializationSettings initializationSettingsAndroid =
+        AndroidInitializationSettings('ic_launcher');
+    final IOSInitializationSettings initializationSettingsIOS =
+        IOSInitializationSettings(
+            onDidReceiveLocalNotification: selectNotificationIos);
+    final MacOSInitializationSettings initializationSettingsMacOS =
+        MacOSInitializationSettings();
+    final InitializationSettings initializationSettings =
+        InitializationSettings(
+            android: initializationSettingsAndroid,
+            iOS: initializationSettingsIOS,
+            macOS: initializationSettingsMacOS);
+    await flutterLocalNotificationsPlugin.initialize(initializationSettings,
+        onSelectNotification: selectNotification);
+  }
+
+  Future selectNotification(String payload) async {
+    if (payload != null) {
+      debugPrint('notification payload: $payload');
+    }
+    // await Navigator.push(
+    //   context,
+    //   MaterialPageRoute<void>(builder: (context) => SecondScreen(payload)),
+    // );
+  }
+
+  Future selectNotificationIos(
+      int id, String title, String body, String payload) async {
+    if (payload != null) {
+      debugPrint('notification payload: $payload');
+    }
+    // await Navigator.push(
+    //   context,
+    //   MaterialPageRoute<void>(builder: (context) => SecondScreen(payload)),
+    // );
   }
 }
+
+// Future<void> zonedScheduleNotification() async {
+//   await flutterLocalNotificationsPlugin.zonedSchedule(
+//       0,
+//       'scheduled title',
+//       'scheduled body',
+//       tz.TZDateTime.now(tz.local).add(const Duration(seconds: 5)),
+//       const NotificationDetails(
+//           android: AndroidNotificationDetails('your channel id',
+//               'your channel name', 'your channel description')),
+//       androidAllowWhileIdle: true,
+//       uiLocalNotificationDateInterpretation:
+//       UILocalNotificationDateInterpretation.absoluteTime);
+// }
