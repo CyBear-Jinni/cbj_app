@@ -371,7 +371,7 @@ packages:
     source: hosted
     version: "6.1.1"
   flutter_driver:
-    dependency: transitive
+    dependency: "direct dev"
     description: flutter
     source: sdk
     version: "0.0.0"
