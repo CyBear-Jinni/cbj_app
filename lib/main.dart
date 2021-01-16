@@ -30,7 +30,7 @@ final BehaviorSubject<ReceivedNotification> didReceiveLocalNotificationSubject =
 final BehaviorSubject<String> selectNotificationSubject =
     BehaviorSubject<String>();
 
-const MethodChannel platform = MethodChannel('dexterx.dev/cybear_jinni');
+const MethodChannel platform = MethodChannel('cybear_jinni');
 
 class ReceivedNotification {
   ReceivedNotification({
