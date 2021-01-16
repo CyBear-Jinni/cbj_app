@@ -29,7 +29,7 @@ class MainActivity : FlutterActivity() {
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         GeneratedPluginRegistrant.registerWith(flutterEngine)
-        MethodChannel(flutterEngine.dartExecutor, "dexterx.dev/cybear_jinni").setMethodCallHandler { call: MethodCall, result: MethodChannel.Result ->
+        MethodChannel(flutterEngine.dartExecutor, "cybear_jinni").setMethodCallHandler { call: MethodCall, result: MethodChannel.Result ->
             if ("drawableToUri" == call.method) {
                 val resourceId = this@MainActivity.resources.getIdentifier(call.arguments as String, "drawable", this@MainActivity.packageName)
                 result.success(resourceToUriString(this@MainActivity.applicationContext, resourceId))
