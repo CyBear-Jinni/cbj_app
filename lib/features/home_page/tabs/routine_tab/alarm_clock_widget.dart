@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/main.dart';
+import 'package:cybear_jinni/core/notification.dart';
 import 'package:expansion_card/expansion_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -53,9 +53,9 @@ class AlarmClockWidget extends StatelessWidget {
                       // isSwitched = value;
                       // print(isSwitched);
 
-                      // await zonedScheduleNotification();
+                      await zonedScheduleNotification();
                       //
-                      await showNotificationCustomSound();
+                      // await showNotificationCustomSound();
                     }),
               ],
             ),
