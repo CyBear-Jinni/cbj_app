@@ -30,7 +30,7 @@ final BehaviorSubject<ReceivedNotification> didReceiveLocalNotificationSubject =
 final BehaviorSubject<String> selectNotificationSubject =
     BehaviorSubject<String>();
 
-const MethodChannel platform = MethodChannel('cybear_jinni');
+const MethodChannel platform = MethodChannel('cybear_jinni/smart_home');
 
 class ReceivedNotification {
   ReceivedNotification({
