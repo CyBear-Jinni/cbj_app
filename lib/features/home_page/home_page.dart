@@ -1,3 +1,4 @@
+import 'package:cybear_jinni/features/home_page/tabs/routine_tab/routines_page.dart';
 import 'package:cybear_jinni/features/home_page/tabs/scene_tab/scenes_widgets.dart';
 import 'package:cybear_jinni/features/home_page/tabs/smart_devices_tab/smart_devices_widgets.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -25,12 +26,12 @@ class HomePage extends StatelessWidget {
         ),
       ),
       child: DefaultTabController(
-        length: 2,
+        length: 3,
         child: Scaffold(
           backgroundColor: Colors.transparent,
           body: TabBarView(children: <Widget>[
             ScenesWidgets(),
-            // RoutinesPage(),
+            RoutinesPage(),
             SmartDevicesWidgets(),
           ]),
           bottomNavigationBar: TabBar(
@@ -44,13 +45,12 @@ class HomePage extends StatelessWidget {
                   'Scenes',
                 ).tr(),
               ),
-              // Tab(
-              //
-              //   icon: const FaIcon(FontAwesomeIcons.history),
-              //   child: const Text(
-              //     'Routines ',
-              //   ).tr(),
-              // ),
+              Tab(
+                icon: const FaIcon(FontAwesomeIcons.history),
+                child: const Text(
+                  'Routines ',
+                ).tr(),
+              ),
               // Tab(
               //   icon: const FaIcon(FontAwesomeIcons.link),
               //   child: const Text(
