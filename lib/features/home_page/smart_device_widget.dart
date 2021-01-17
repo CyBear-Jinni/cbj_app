@@ -64,6 +64,7 @@ class _SmartDevicePage extends State<SmartDevicePage> {
 
   @override
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
     return Column(
       children: <Widget>[
         Text(
@@ -77,11 +78,11 @@ class _SmartDevicePage extends State<SmartDevicePage> {
           Center(child: const CircularProgressIndicator())
         else
           FlutterSwitch(
-            width: 76.0,
-            height: 36.0,
-            toggleSize: 45.0,
+            width: screenSize.width*0.2,
+            height: screenSize.height*0.05,
+            toggleSize: screenSize.height*0.05 ,
             value: _switchState,
-            borderRadius: 30.0,
+            borderRadius: 25.0,
             padding: 0.0,
             activeToggleColor: const Color(0xFF2F363D),
             inactiveToggleColor: Theme.of(context).primaryColor,
