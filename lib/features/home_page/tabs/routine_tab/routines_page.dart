@@ -1,4 +1,5 @@
 import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
+import 'package:cybear_jinni/features/home_page/tabs/routine_tab/add_routine/add_routine.dart';
 import 'package:cybear_jinni/features/home_page/tabs/routine_tab/alarm_clock_widget.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
@@ -34,7 +35,13 @@ class RoutinesPage extends StatelessWidget {
                         actions: <BottomSheetAction>[
                           BottomSheetAction(
                               title: '➕ Add Routine',
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (BuildContext context) =>
+                                            AddRoutinePage()));
+                              },
                               textStyle: const TextStyle(
                                   color: Colors.green, fontSize: 23)),
                           BottomSheetAction(
