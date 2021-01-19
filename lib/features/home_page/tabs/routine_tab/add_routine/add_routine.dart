@@ -1,10 +1,13 @@
 import 'package:cybear_jinni/features/home_page/tabs/routine_tab/add_routine/pick_date_page.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:cybear_jinni/features/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// The page to add new routines
 class AddRoutinePage extends StatelessWidget {
+  void backButtonFuntion(BuildContext context) {
+    Navigator.pop(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,38 +30,11 @@ class AddRoutinePage extends StatelessWidget {
         ),
         child: Column(
           children: <Widget>[
-            Container(
-              color: Colors.black.withOpacity(0.3),
-              child: Container(
-                margin: const EdgeInsets.fromLTRB(9, 25, 9, 0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Row(
-                      children: <Widget>[
-                        Container(
-                          alignment: Alignment.centerLeft,
-                          child: IconButton(
-                            icon: FaIcon(FontAwesomeIcons.arrowLeft,
-                                color: Theme.of(context)
-                                    .textTheme
-                                    .bodyText1
-                                    .color),
-                            onPressed: () => Navigator.pop(context),
-                          ),
-                        ),
-                        Text(
-                          'Add Routine',
-                          style: TextStyle(
-                              fontSize: 16.0,
-                              color:
-                                  Theme.of(context).textTheme.bodyText1.color),
-                        ).tr(),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
+            TopNavigationBar(
+              'Lights',
+              null,
+              () {},
+              backButtonFunction: backButtonFuntion,
             ),
             SizedBox(
               height: 100,

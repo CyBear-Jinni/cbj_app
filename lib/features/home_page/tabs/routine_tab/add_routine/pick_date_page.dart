@@ -1,10 +1,13 @@
 import 'package:cybear_jinni/features/home_page/tabs/routine_tab/add_routine/time_drop_down_menu.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:cybear_jinni/features/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// Choose date
 class PickDatePage extends StatelessWidget {
+  void backButtonFunction(BuildContext context) {
+    Navigator.pop(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,38 +30,11 @@ class PickDatePage extends StatelessWidget {
         ),
         child: Column(
           children: <Widget>[
-            Container(
-              color: Colors.black.withOpacity(0.3),
-              child: Container(
-                margin: const EdgeInsets.fromLTRB(9, 25, 9, 0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Row(
-                      children: <Widget>[
-                        Container(
-                          alignment: Alignment.centerLeft,
-                          child: IconButton(
-                            icon: FaIcon(FontAwesomeIcons.arrowLeft,
-                                color: Theme.of(context)
-                                    .textTheme
-                                    .bodyText1
-                                    .color),
-                            onPressed: () => Navigator.pop(context),
-                          ),
-                        ),
-                        Text(
-                          'Pick a date',
-                          style: TextStyle(
-                              fontSize: 16.0,
-                              color:
-                                  Theme.of(context).textTheme.bodyText1.color),
-                        ).tr(),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
+            TopNavigationBar(
+              'Pick a date',
+              null,
+              () {},
+              backButtonFunction: backButtonFunction,
             ),
             Container(
               margin: const EdgeInsets.all(16),
@@ -204,7 +180,7 @@ class PickDatePage extends StatelessWidget {
   static List<String> GetNumbersOfDaysInAMonth() {
     final List<String> listOfDaysInAMonth = <String>[];
 
-    for (int i = 0; i < 30; i++) {
+    for (int i = 1; i < 30; i++) {
       listOfDaysInAMonth.add(numberWithZeroIfSmallerThanTen(i));
     }
 
