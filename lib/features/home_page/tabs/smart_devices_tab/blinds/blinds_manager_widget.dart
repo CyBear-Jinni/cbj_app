@@ -29,10 +29,6 @@ class BlindsManagerWidget extends StatelessWidget {
                   backgroundColor: Colors.green,
                   textColor: Colors.white,
                   fontSize: 16.0),
-//                  Navigator.pushNamed(
-//                context,
-//                '/roomPage/' + index.toString(),
-//              ),
               color: Colors.transparent,
               child: Text(
                 rooms[index].getRoomName(),

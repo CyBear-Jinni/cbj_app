@@ -259,7 +259,7 @@ packages:
       name: device_info
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.4.2+10"
+    version: "1.0.0"
   device_info_platform_interface:
     dependency: transitive
     description:
@@ -273,7 +273,7 @@ packages:
       name: e2e
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.4.3+1"
+    version: "0.7.0+1"
   easy_localization:
     dependency: "direct main"
     description:
@@ -472,6 +472,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.8.0"
+  hive:
+    dependency: "direct main"
+    description:
+      name: hive
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.4.4+1"
   http:
     dependency: "direct main"
     description:
@@ -765,7 +772,7 @@ packages:
       name: rxdart
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.24.1"
+    version: "0.25.0"
   shared_preferences:
     dependency: "direct main"
     description:

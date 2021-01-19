@@ -1,6 +1,8 @@
 import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
+import 'package:cybear_jinni/core/route_names.dart';
 import 'package:cybear_jinni/features/add_new_devices/open_access_point_popup.dart';
 import 'package:cybear_jinni/features/home_page/tabs/smart_devices_tab/settings_page_of_smart_devices.dart';
+import 'package:cybear_jinni/features/shared_widgets/top_navigation_bar.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -8,8 +10,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SmartDevicesWidgets extends StatelessWidget {
   final Map<String, AssetImage> _symbolsImageList = {
-    'Lights'.tr(): const AssetImage('assets/symbols/light_bulb_drawing.png'),
-    'Blinds'.tr(): const AssetImage('assets/symbols/blinds.jpg'),
+    lightsPage.tr(): const AssetImage('assets/symbols/light_bulb_drawing.png'),
+    blindsPage.tr(): const AssetImage('assets/symbols/blinds.jpg'),
     'A/C'.tr(): const AssetImage('assets/symbols/air_conditioner.jpg'),
     'Medical'.tr(): const AssetImage('assets/symbols/doctor.jpg'),
     'Phones'.tr(): const AssetImage('assets/symbols/phone1.jpg'),
@@ -23,11 +25,11 @@ class SmartDevicesWidgets extends StatelessWidget {
         .map((String element) => GestureDetector(
               onTap: () {
                 print('you clicked $element');
-                if (element.toString() == 'Blinds'.tr() ||
-                    element.toString() == 'Lights'.tr()) {
+                if (element.toString() == blindsPage.tr() ||
+                    element.toString() == lightsPage.tr()) {
                   Navigator.pushNamed(
                     context,
-                    '/devices/$element',
+                    '/$devicesPage/$element',
                   );
                 } else {
                   Fluttertoast.showToast(
@@ -113,67 +115,41 @@ class SmartDevicesWidgets extends StatelessWidget {
         .toList();
   }
 
+  /// Execute when user press the icon in top right side
+  void userCogFunction(BuildContext context) {
+    showAdaptiveActionSheet(
+      context: context,
+      actions: <BottomSheetAction>[
+        BottomSheetAction(
+            title: '➕ Add Device',
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return OpenHotspotAccessPoint();
+                },
+              );
+            },
+            textStyle: TextStyle(color: Colors.green, fontSize: 23)),
+        BottomSheetAction(
+            title: '⚙️ Devices Settings',
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (BuildContext context) =>
+                          SettingsPageSmartDevices()));
+            },
+            textStyle: TextStyle(color: Colors.blueGrey, fontSize: 23)),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Container(
-          color: Colors.black.withOpacity(0.3),
-          child: Container(
-            margin: const EdgeInsets.fromLTRB(9, 25, 9, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Text(
-                  'Devices',
-                  style: TextStyle(
-                      fontSize: 16.0,
-                      color: Theme.of(context).textTheme.bodyText1.color),
-                ).tr(),
-                SizedBox(
-                  width: 25,
-                  child: FlatButton(
-                    padding: EdgeInsets.zero,
-                    onPressed: () {
-                      showAdaptiveActionSheet(
-                        context: context,
-                        actions: <BottomSheetAction>[
-                          BottomSheetAction(
-                              title: '➕ Add Device',
-                              onPressed: () {
-                                showDialog(
-                                  context: context,
-                                  builder: (BuildContext context) {
-                                    return OpenHotspotAccessPoint();
-                                  },
-                                );
-                              },
-                              textStyle:
-                                  TextStyle(color: Colors.green, fontSize: 23)),
-                          BottomSheetAction(
-                              title: '⚙️ Devices Settings',
-                              onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (BuildContext context) =>
-                                            SettingsPageSmartDevices()));
-                              },
-                              textStyle: TextStyle(
-                                  color: Colors.blueGrey, fontSize: 23)),
-                        ],
-                      );
-                    },
-                    child: FaIcon(
-                      FontAwesomeIcons.userCog,
-                      color: Theme.of(context).textTheme.bodyText1.color,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
+        TopNavigationBar('Devices', FontAwesomeIcons.userCog, userCogFunction),
         Expanded(
           child: GridView(
             padding: const EdgeInsets.fromLTRB(5, 10, 5, 0),
