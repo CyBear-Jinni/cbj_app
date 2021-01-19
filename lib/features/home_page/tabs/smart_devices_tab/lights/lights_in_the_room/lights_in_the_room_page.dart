@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/features/home_page/tabs/smart_devices_tab/lights/lights_in_the_room/lights_in_the_room_widget.dart';
+import 'package:cybear_jinni/features/home_page/tabs/smart_devices_tab/lights/room_lights_toggles_block.dart';
 import 'package:cybear_jinni/features/shared_widgets/top_navigation_bar.dart';
 import 'package:cybear_jinni/objects/interface_darta/cloud_interface_data.dart';
 import 'package:cybear_jinni/objects/smart_device/smart_device_object.dart';
@@ -68,10 +68,13 @@ class LightsInTheRoomPage extends StatelessWidget {
               () {},
               backButtonFunction: backButtonFunction,
             ),
-            LightsInTheRoomWidget(
-              productsInThisRoom.toList(),
-              () {},
-              () {},
+            Expanded(
+              child: Container(
+                margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 20),
+                child: SingleChildScrollView(
+                  child: RoomLightsTogglesBlock(thisSmartRoom),
+                ),
+              ),
             ),
           ],
         ),
