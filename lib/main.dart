@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/core/notification.dart';
+import 'package:cybear_jinni/core/notifications.dart';
 import 'package:cybear_jinni/features/home_page/tabs/lights_tab/lights_page.dart';
 import 'package:cybear_jinni/features/home_page/tabs/smart_devices_tab/blinds/blinds_page.dart';
 import 'package:cybear_jinni/features/room_page/room_page.dart';

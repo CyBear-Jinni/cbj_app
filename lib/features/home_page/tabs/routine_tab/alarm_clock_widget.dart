@@ -1,10 +1,13 @@
-import 'package:cybear_jinni/core/notification.dart';
+import 'package:cybear_jinni/core/notifications.dart';
 import 'package:expansion_card/expansion_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 /// Showing alarm clock
-class AlarmClockWidget extends StatelessWidget {
+class AlarmClockWidget extends StatefulWidget {
+  AlarmClockWidget(
+      this.headerText, this.subText, this.backgroundImage, this.content);
+
   final String subText;
 
   final String headerText;
@@ -13,7 +16,23 @@ class AlarmClockWidget extends StatelessWidget {
 
   final String content;
 
-  AlarmClockWidget(this.headerText, this.subText, this.backgroundImage, this.content);
+  @override
+  State<StatefulWidget> createState() {
+    return _AlarmClockState(headerText, subText, backgroundImage, content);
+  }
+}
+
+class _AlarmClockState extends State<AlarmClockWidget> {
+  _AlarmClockState(
+      this.headerText, this.subText, this.backgroundImage, this.content);
+
+  final String subText;
+
+  final String headerText;
+
+  final String backgroundImage;
+
+  final String content;
 
   bool isSwitched = false;
 
@@ -49,13 +68,11 @@ class AlarmClockWidget extends StatelessWidget {
                     value: isSwitched,
                     inactiveTrackColor: Colors.grey.withOpacity(0.6),
                     onChanged: (value) async {
-                      // setState(() {
-                      // isSwitched = value;
-                      // print(isSwitched);
-
+                      setState(() {
+                        isSwitched = value;
+                        print(isSwitched);
+                      });
                       await zonedScheduleNotification();
-                      //
-                      // await showNotificationCustomSound();
                     }),
               ],
             ),
