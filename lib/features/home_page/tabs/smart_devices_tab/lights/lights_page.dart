@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/features/home_page/tabs/lights_tab/lights_widgets.dart';
+import 'package:cybear_jinni/features/home_page/tabs/smart_devices_tab/lights/lights_widgets.dart';
 import 'package:flutter/material.dart';
 
 /// Lights page that will call the lamps widget file and add background
