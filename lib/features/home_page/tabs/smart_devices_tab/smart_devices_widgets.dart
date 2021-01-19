@@ -1,4 +1,5 @@
 import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
+import 'package:cybear_jinni/core/route_names.dart';
 import 'package:cybear_jinni/features/add_new_devices/open_access_point_popup.dart';
 import 'package:cybear_jinni/features/home_page/tabs/smart_devices_tab/settings_page_of_smart_devices.dart';
 import 'package:cybear_jinni/features/shared_widgets/top_navigation_bar.dart';
@@ -9,8 +10,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SmartDevicesWidgets extends StatelessWidget {
   final Map<String, AssetImage> _symbolsImageList = {
-    'Lights'.tr(): const AssetImage('assets/symbols/light_bulb_drawing.png'),
-    'Blinds'.tr(): const AssetImage('assets/symbols/blinds.jpg'),
+    lightsPage.tr(): const AssetImage('assets/symbols/light_bulb_drawing.png'),
+    blindsPage.tr(): const AssetImage('assets/symbols/blinds.jpg'),
     'A/C'.tr(): const AssetImage('assets/symbols/air_conditioner.jpg'),
     'Medical'.tr(): const AssetImage('assets/symbols/doctor.jpg'),
     'Phones'.tr(): const AssetImage('assets/symbols/phone1.jpg'),
@@ -24,11 +25,11 @@ class SmartDevicesWidgets extends StatelessWidget {
         .map((String element) => GestureDetector(
               onTap: () {
                 print('you clicked $element');
-                if (element.toString() == 'Blinds'.tr() ||
-                    element.toString() == 'Lights'.tr()) {
+                if (element.toString() == blindsPage.tr() ||
+                    element.toString() == lightsPage.tr()) {
                   Navigator.pushNamed(
                     context,
-                    '/devices/$element',
+                    '/$devicesPage/$element',
                   );
                 } else {
                   Fluttertoast.showToast(

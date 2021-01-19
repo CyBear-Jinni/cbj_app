@@ -70,17 +70,20 @@ class _SmartDevicePage extends State<SmartDevicePage> {
         Text(
           _device.name, //  Show device name
           style: TextStyle(
-            fontSize: 21.0,
+            fontSize: 19.0,
             color: Theme.of(context).textTheme.bodyText2.color,
           ),
         ),
+        const SizedBox(
+          height: 3,
+        ),
         if (_isLoading)
-          Center(child: const CircularProgressIndicator())
+          const Center(child: CircularProgressIndicator())
         else
           FlutterSwitch(
-            width: screenSize.width*0.2,
-            height: screenSize.height*0.05,
-            toggleSize: screenSize.height*0.05 ,
+            width: screenSize.width * 0.2,
+            height: screenSize.height * 0.05,
+            toggleSize: screenSize.height * 0.05,
             value: _switchState,
             borderRadius: 25.0,
             padding: 0.0,
@@ -94,7 +97,7 @@ class _SmartDevicePage extends State<SmartDevicePage> {
             ),
             activeColor: const Color(0xFFFFDF5D),
             inactiveColor: Theme.of(context).primaryColorDark,
-            activeIcon: Icon(
+            activeIcon: const Icon(
               FontAwesomeIcons.solidLightbulb,
               color: Color(0xFFF8E3A1),
             ),
