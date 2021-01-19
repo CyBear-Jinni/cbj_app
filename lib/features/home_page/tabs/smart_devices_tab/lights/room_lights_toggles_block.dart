@@ -90,7 +90,7 @@ class RoomLightsTogglesBlock extends StatelessWidget {
             FlatButton(
               onPressed: () {
                 if (maxLightsToShow != null &&
-                    _smartRoomObject.getLights().length >= maxLightsToShow) {
+                    _smartRoomObject.getLights().length > maxLightsToShow) {
                   Navigator.pushNamed(
                     context,
                     '/$lightsInTheRoomPage/${_smartRoomObject.getRoomName()}',
@@ -110,7 +110,7 @@ class RoomLightsTogglesBlock extends StatelessWidget {
                     ),
                   ),
                   if (maxLightsToShow != null &&
-                      _smartRoomObject.getLights().length >= maxLightsToShow)
+                      _smartRoomObject.getLights().length > maxLightsToShow)
                     const FaIcon(
                       FontAwesomeIcons.arrowRight,
                       color: Colors.white,
