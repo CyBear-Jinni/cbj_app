@@ -1,7 +1,6 @@
 import 'package:cybear_jinni/core/notifications.dart';
 import 'package:cybear_jinni/features/home_page/tabs/smart_devices_tab/blinds/blinds_page.dart';
 import 'package:cybear_jinni/features/home_page/tabs/smart_devices_tab/lights/lights_page.dart';
-import 'package:cybear_jinni/features/room_page/room_page.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/objects/interface_darta/cloud_interface_data.dart';
 import 'package:cybear_jinni/objects/smart_device/smart_room_object.dart';
@@ -14,6 +13,7 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:rxdart/rxdart.dart';
 
 import 'features/home_page/home_page.dart';
+import 'features/home_page/tabs/smart_devices_tab/lights/lights_in_the_room/lights_in_the_room_page.dart';
 import 'features/login_page/login_page.dart';
 import 'features/shared_widgets/error_message.dart';
 import 'features/shared_widgets/loader.dart';
@@ -139,10 +139,11 @@ class MyApp extends StatelessWidget {
                   return null;
                 } else if (pathElements[1] == 'roomPage') {
                   return MaterialPageRoute(
-                      builder: (BuildContext context) => RoomPage(rooms
-                          .firstWhere((SmartRoomObject room) =>
-                      room.getRoomName() == pathElements[2])
-                          .getRoomName()));
+                      builder: (BuildContext context) => LightsInTheRoomPage(
+                          rooms
+                              .firstWhere((SmartRoomObject room) =>
+                                  room.getRoomName() == pathElements[2])
+                              .getRoomName()));
                 } else if (pathElements[1] == 'devices') {
                   if (pathElements[2] == 'Blinds'.tr()) {
                     return MaterialPageRoute(

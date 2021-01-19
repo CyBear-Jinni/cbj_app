@@ -2,9 +2,9 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-///  This class is quick shortcut toggles of specific room
-class RoomWidget extends StatelessWidget {
-  RoomWidget(this.products, this.updateProduct, this.deleteProduct);
+/// The widget to show all the lights in selected room
+class LightsInTheRoomWidget extends StatelessWidget {
+  LightsInTheRoomWidget(this.products, this.updateProduct, this.deleteProduct);
 
   final Function updateProduct;
   final Function deleteProduct;
