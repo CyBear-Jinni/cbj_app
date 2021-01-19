@@ -472,6 +472,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.8.0"
+  hive:
+    dependency: "direct main"
+    description:
+      name: hive
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.4.4+1"
   http:
     dependency: "direct main"
     description:
