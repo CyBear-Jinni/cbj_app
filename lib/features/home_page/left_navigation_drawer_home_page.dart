@@ -1,8 +1,20 @@
+import 'package:cybear_jinni/features/login_page/login_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LeftNavigationDrawerHomePage extends StatelessWidget {
+  Future<void> _fireBaseLogOut(BuildContext context) async {
+    try {
+      await FirebaseAuth.instance.signOut();
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (BuildContext context) => LoginPage()));
+    } catch (e) {
+      print(e); // TODO: show dialog with error
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -38,7 +50,8 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                           'CyBear Jinni',
                           style: TextStyle(
                               color:
-                                  Theme.of(context).textTheme.bodyText1.color),
+                                  Theme.of(context).textTheme.bodyText1.color,
+                              fontSize: 20),
                         ),
                       ],
                     ),
@@ -93,6 +106,9 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                         size: 25,
                       ),
                       title: Text('Log out'),
+                      onTap: () {
+                        _fireBaseLogOut(context);
+                      },
                     ),
                     Divider(
                       thickness: 0.5,
