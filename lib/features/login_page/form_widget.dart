@@ -1,7 +1,8 @@
-import 'package:cybear_jinni/features/home_page/home_page.dart';
+import 'package:cybear_jinni/core/route_names.dart';
+import 'package:cybear_jinni/features/where_to_login_page/where_to_login_objcet_to_transfer.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class FormWidget extends StatefulWidget {
@@ -18,7 +19,6 @@ class _FormWidget extends State<FormWidget> {
 
   final BorderRadius borderRadius = BorderRadius.circular(32.0);
 
-  FirebaseAuth auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
@@ -29,19 +29,16 @@ class _FormWidget extends State<FormWidget> {
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.TOP,
           backgroundColor: Colors.blueGrey,
-          textColor: Colors.white,
+          textColor: Theme.of(context).textTheme.bodyText1.color,
           fontSize: 16.0);
     }
     void _loginUser() async {
       try {
-        UserCredential _ = await auth.signInWithEmailAndPassword(
-            email: emailVal,
-            password: passwordVal
-        );
-        Navigator.of(context).popUntil((route) => route.isFirst);
-        Navigator.pushReplacement(context, MaterialPageRoute(
-            builder: (BuildContext context) => HomePage())
-        );
+        WhereToLoginObjectToTransfer whereToLoginObjcetToTransfer =
+            WhereToLoginObjectToTransfer(emailVal, passwordVal);
+
+        Navigator.pushNamed(context, '/$whereToLoginPage',
+            arguments: whereToLoginObjcetToTransfer);
       } on FirebaseAuthException catch (e) {
         if (e.code == 'user-not-found') {
           _showErrToast('No user found for this email.');
@@ -121,7 +118,7 @@ class _FormWidget extends State<FormWidget> {
     );
 
     final Padding loginButton = Padding(
-      padding: const EdgeInsets.symmetric(vertical: 16.0),
+      padding: EdgeInsets.symmetric(vertical: 16.0),
       child: RaisedButton(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(24),
@@ -129,7 +126,10 @@ class _FormWidget extends State<FormWidget> {
         onPressed: _submitForm,
         padding: const EdgeInsets.all(12),
         color: Theme.of(context).accentColor,
-        child: const Text('Log_In', style: TextStyle(color: Colors.white)).tr(),
+        child: Text('Log_In',
+                style: TextStyle(
+                    color: Theme.of(context).textTheme.bodyText1.color))
+            .tr(),
       ),
     );
 
