@@ -25,7 +25,8 @@ class LightsWidgets extends StatelessWidget {
           'Lights',
           FontAwesomeIcons.cog,
           cogFunction,
-          backButtonFunction: backButtonFuntion,
+          leftIcon: FontAwesomeIcons.arrowLeft,
+          leftIconFunction: backButtonFuntion,
         ),
         RoomsManagerWidget()
       ],

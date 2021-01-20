@@ -4,6 +4,9 @@ const String loginPage = 'login';
 /// Home page
 const String homePage = 'home';
 
+/// Where to login to page
+const String whereToLoginPage = 'WhereToLoginPage';
+
 /// Devices page
 const String devicesPage = 'devicesPage';
 

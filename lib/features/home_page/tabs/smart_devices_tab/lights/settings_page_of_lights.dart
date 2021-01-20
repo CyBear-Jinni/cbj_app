@@ -1,10 +1,10 @@
 import 'package:cybear_jinni/features/add_new_devices/open_access_point_popup.dart';
+import 'package:cybear_jinni/features/shared_widgets/top_navigation_bar.dart';
 import 'package:cybear_jinni/objects/interface_darta/cloud_interface_data.dart';
 import 'package:cybear_jinni/objects/smart_device/smart_device_object.dart';
 import 'package:cybear_jinni/objects/smart_device/smart_room_object.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SettingsPageOfLights extends StatelessWidget {
@@ -54,9 +54,14 @@ class SettingsPageOfLights extends StatelessWidget {
       );
     }
 
+    void backButtonFunction(BuildContext context) {
+      Navigator.pop(context);
+    }
+
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton( //  FontAwesomeIcons.plus,
+      floatingActionButton: FloatingActionButton(
+        //  FontAwesomeIcons.plus,
         onPressed: () async {
           showDialog(
             context: context,
@@ -72,7 +77,6 @@ class SettingsPageOfLights extends StatelessWidget {
             .of(context)
             .size
             .width,
-        padding: const EdgeInsets.all(5.0),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             // Where the linear gradient begins and ends
@@ -98,42 +102,13 @@ class SettingsPageOfLights extends StatelessWidget {
         ),
         child: Column(
           children: <Widget>[
-            const Padding(
-              padding: EdgeInsets.only(top: 20),
+            TopNavigationBar(
+              'Lights Settings',
+              null,
+              () {},
+              leftIcon: FontAwesomeIcons.arrowLeft,
+              leftIconFunction: backButtonFunction,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                IconButton(
-                  icon: FaIcon(FontAwesomeIcons.arrowLeft,
-                      color: Theme.of(context).textTheme.bodyText1.color),
-                  onPressed: () => Navigator.pop(context),
-                ),
-                IconButton(
-                  icon: const FaIcon(
-                    FontAwesomeIcons.search,
-                    color: Colors.white,
-                    size: 25,
-                  ),
-                  onPressed: () {
-                    Fluttertoast.showToast(
-                        msg: 'Search',
-                        toastLength: Toast.LENGTH_SHORT,
-                        gravity: ToastGravity.CENTER,
-                        backgroundColor: Colors.blueGrey,
-                        textColor: Colors.white,
-                        fontSize: 16.0);
-                  },
-                ),
-              ],
-            ),
-            Text(
-              'Lights_Settings_Page',
-              style: TextStyle(
-                  fontSize: 23.0,
-                  color: Theme.of(context).textTheme.bodyText1.color,
-                  decoration: TextDecoration.underline),
-            ).tr(),
             Expanded(
               child: ListView.builder(
                 itemBuilder: (BuildContext context, int index) {

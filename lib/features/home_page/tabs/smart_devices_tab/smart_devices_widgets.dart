@@ -145,11 +145,21 @@ class SmartDevicesWidgets extends StatelessWidget {
     );
   }
 
+  void leftIconFunction(BuildContext context) {
+    Scaffold.of(context).openDrawer();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        TopNavigationBar('Devices', FontAwesomeIcons.userCog, userCogFunction),
+        TopNavigationBar(
+          'Devices',
+          FontAwesomeIcons.userCog,
+          userCogFunction,
+          leftIcon: FontAwesomeIcons.bars,
+          leftIconFunction: leftIconFunction,
+        ),
         Expanded(
           child: GridView(
             padding: const EdgeInsets.fromLTRB(5, 10, 5, 0),

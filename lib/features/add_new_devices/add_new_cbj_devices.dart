@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:cybear_jinni/database/cbj_app_server/cbj_app_server_d.dart';
 import 'package:cybear_jinni/features/add_new_devices/smart_device_to_configure.dart';
+import 'package:cybear_jinni/features/shared_widgets/top_navigation_bar.dart';
 import 'package:cybear_jinni/objects/smart_device/smart_device_object.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -34,23 +34,23 @@ class _AddNewCBJDevices extends State<AddNewCBJDevices> {
 
   List<SmartDeviceObject> newDevicesList = [];
 
-  void setStateTimer(){
-      Timer.periodic(const Duration(seconds: 3), (Timer timer) {
-        setState(() {
-          newDevicesList = AddNewCBJDevices.newDevicesList;
-        });
+  void setStateTimer() {
+    Timer.periodic(const Duration(seconds: 3), (Timer timer) {
+      setState(() {
+        newDevicesList = AddNewCBJDevices.newDevicesList;
       });
+    });
+  }
+
+  void backButtonFunction(BuildContext context) {
+    Navigator.pop(context);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        width: MediaQuery
-            .of(context)
-            .size
-            .width,
-        padding: const EdgeInsets.all(5.0),
+        width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
           gradient: LinearGradient(
             // Where the linear gradient begins and ends
@@ -76,31 +76,24 @@ class _AddNewCBJDevices extends State<AddNewCBJDevices> {
         ),
         child: Column(
           children: <Widget>[
-            const Padding(
-              padding: EdgeInsets.only(top: 20),
+            TopNavigationBar(
+              'Add New CyBear Jinni Devices',
+              null,
+              () {},
+              leftIcon: FontAwesomeIcons.arrowLeft,
+              leftIconFunction: backButtonFunction,
             ),
-            Container(
-              alignment: Alignment.centerLeft,
-              child: IconButton(
-                icon: FaIcon(FontAwesomeIcons.arrowLeft,
-                    color: Theme.of(context).textTheme.bodyText1.color),
-                onPressed: () => Navigator.pop(context),
+
+            SizedBox(
+              height: 50,
+            ),
+
+            const Text(
+              "Can't find any devices",
+              style: TextStyle(
+                fontSize: 15.0,
               ),
             ),
-            Text(
-              'CyBear Jinni New Devices',
-              style: TextStyle(
-                  fontSize: 23.0,
-                  color: Theme
-                      .of(context)
-                      .textTheme
-                      .bodyText1
-                      .color,
-                  decoration: TextDecoration.underline),
-            ).tr(),
-            const SizedBox(height: 50,),
-            const Text("Can't find any devices", style: TextStyle(
-              fontSize: 15.0,),),
             // StreamBuilder(),
             Expanded(
               child: ListView(
