@@ -2,6 +2,7 @@ import 'package:cybear_jinni/core/notifications.dart';
 import 'package:cybear_jinni/core/route_names.dart';
 import 'package:cybear_jinni/features/home_page/tabs/smart_devices_tab/blinds/blinds_page.dart';
 import 'package:cybear_jinni/features/home_page/tabs/smart_devices_tab/lights/lights_page.dart';
+import 'package:cybear_jinni/features/where_to_login_page/where_to_login_page.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/objects/interface_darta/cloud_interface_data.dart';
 import 'package:cybear_jinni/objects/smart_device/smart_room_object.dart';
@@ -154,6 +155,10 @@ class MyApp extends StatelessWidget {
                     return MaterialPageRoute(
                         builder: (BuildContext context) => LightsPage());
                   }
+                } else if (pathElements[1] == whereToLoginPage) {
+                  return MaterialPageRoute(
+                      settings: settings,
+                      builder: (BuildContext context) => WhereToLoginPage());
                 }
                 return null;
               },
