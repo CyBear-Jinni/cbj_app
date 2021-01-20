@@ -1,6 +1,7 @@
 import 'package:cybear_jinni/features/home_page/tabs/routine_tab/add_routine/time_drop_down_menu.dart';
 import 'package:cybear_jinni/features/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// Choose date
 class PickDatePage extends StatelessWidget {
@@ -34,7 +35,8 @@ class PickDatePage extends StatelessWidget {
               'Pick a date',
               null,
               () {},
-              backButtonFunction: backButtonFunction,
+              leftIcon: FontAwesomeIcons.arrowLeft,
+              leftIconFunction: backButtonFunction,
             ),
             Container(
               margin: const EdgeInsets.all(16),

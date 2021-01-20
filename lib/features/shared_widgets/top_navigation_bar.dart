@@ -6,21 +6,23 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 /// Top part of the pages, will show page name and settings logo,
 /// and sometimes will have back button.
 class TopNavigationBar extends StatelessWidget {
-  TopNavigationBar(this.pageName, this.iconInTheRightSide,
-      this.functionForIconInTheRightSide,
-      {this.backButtonFunction}) {}
+  TopNavigationBar(this.pageName, this.righIcon, this.righIconFunction,
+      {this.leftIcon, this.leftIconFunction}) {}
 
   /// Page name to showw in the left side of the navigation bar
   String pageName;
 
   /// Icon to show in the right side of the bar
-  IconData iconInTheRightSide;
+  IconData righIcon;
+
+  /// Icon to show in the left side of the bar
+  IconData leftIcon;
 
   /// Function to execute when pressing the icon in the right side
-  Function functionForIconInTheRightSide;
+  Function righIconFunction;
 
   /// What to execute if back button was pressed
-  Function backButtonFunction;
+  Function leftIconFunction;
 
   @override
   Widget build(BuildContext context) {
@@ -33,14 +35,14 @@ class TopNavigationBar extends StatelessWidget {
           children: <Widget>[
             Row(
               children: <Widget>[
-                backButtonFunction != null
+                leftIcon != null
                     ? Container(
                         alignment: Alignment.centerLeft,
                         child: IconButton(
-                          icon: FaIcon(FontAwesomeIcons.arrowLeft,
+                          icon: FaIcon(leftIcon,
                               color:
                                   Theme.of(context).textTheme.bodyText1.color),
-                          onPressed: () => backButtonFunction(context),
+                          onPressed: () => leftIconFunction(context),
                         ),
                       )
                     : SizedBox(),
@@ -52,14 +54,14 @@ class TopNavigationBar extends StatelessWidget {
                 ).tr(),
               ],
             ),
-            iconInTheRightSide != null
+            righIcon != null
                 ? SizedBox(
                     width: 25,
                     child: FlatButton(
                       padding: EdgeInsets.zero,
-                      onPressed: () => functionForIconInTheRightSide(context),
+                      onPressed: () => righIconFunction(context),
                       child: FaIcon(
-                        iconInTheRightSide,
+                        righIcon,
                         color: Theme.of(context).textTheme.bodyText1.color,
                       ),
                     ),

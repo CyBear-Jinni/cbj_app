@@ -1,5 +1,6 @@
 import 'package:cybear_jinni/features/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SettingsPageSmartDevices extends StatelessWidget {
   void backButtonFunction(BuildContext context) {
@@ -32,7 +33,8 @@ class SettingsPageSmartDevices extends StatelessWidget {
               'Smart Devices Settings',
               null,
               () {},
-              backButtonFunction: backButtonFunction,
+              leftIcon: FontAwesomeIcons.arrowLeft,
+              leftIconFunction: backButtonFunction,
             )
           ],
         ),

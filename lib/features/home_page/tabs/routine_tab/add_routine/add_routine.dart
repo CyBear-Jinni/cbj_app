@@ -1,6 +1,7 @@
 import 'package:cybear_jinni/features/home_page/tabs/routine_tab/add_routine/pick_date_page.dart';
 import 'package:cybear_jinni/features/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// The page to add new routines
 class AddRoutinePage extends StatelessWidget {
@@ -31,10 +32,11 @@ class AddRoutinePage extends StatelessWidget {
         child: Column(
           children: <Widget>[
             TopNavigationBar(
-              'Lights',
+              'Add Routine',
               null,
               () {},
-              backButtonFunction: backButtonFuntion,
+              leftIcon: FontAwesomeIcons.arrowLeft,
+              leftIconFunction: backButtonFuntion,
             ),
             SizedBox(
               height: 100,
