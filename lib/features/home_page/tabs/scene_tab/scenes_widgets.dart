@@ -85,11 +85,21 @@ class ScenesWidgets extends StatelessWidget {
     );
   }
 
+  void leftIconFunction(BuildContext context) {
+    Scaffold.of(context).openDrawer();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        TopNavigationBar('Scenes', FontAwesomeIcons.userCog, userCogFunction),
+        TopNavigationBar(
+          'Scenes',
+          FontAwesomeIcons.userCog,
+          userCogFunction,
+          leftIcon: FontAwesomeIcons.bars,
+          leftIconFunction: leftIconFunction,
+        ),
         Expanded(
           child: Container(
             margin: const EdgeInsets.symmetric(horizontal: 4),

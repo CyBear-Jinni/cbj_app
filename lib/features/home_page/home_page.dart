@@ -1,10 +1,11 @@
+import 'package:cybear_jinni/features/home_page/bottom_navigation_bar_home_page.dart';
+import 'package:cybear_jinni/features/home_page/left_navigation_drawer_home_page.dart';
 import 'package:cybear_jinni/features/home_page/tabs/routine_tab/routines_page.dart';
 import 'package:cybear_jinni/features/home_page/tabs/scene_tab/scenes_widgets.dart';
 import 'package:cybear_jinni/features/home_page/tabs/smart_devices_tab/smart_devices_widgets.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+/// Home page to show all the tabs
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -34,37 +35,8 @@ class HomePage extends StatelessWidget {
             RoutinesPage(),
             SmartDevicesWidgets(),
           ]),
-          bottomNavigationBar: TabBar(
-            indicatorColor: Colors.white,
-            unselectedLabelColor: Theme.of(context).textTheme.bodyText2.color,
-            labelColor: Theme.of(context).textTheme.bodyText1.color,
-            tabs: <Widget>[
-              Tab(
-                icon: const FaIcon(FontAwesomeIcons.sitemap),
-                child: const Text(
-                  'Scenes',
-                ).tr(),
-              ),
-              Tab(
-                icon: const FaIcon(FontAwesomeIcons.history),
-                child: const Text(
-                  'Routines ',
-                ).tr(),
-              ),
-              // Tab(
-              //   icon: const FaIcon(FontAwesomeIcons.link),
-              //   child: const Text(
-              //     'Linked',
-              //   ).tr(),
-              // ),
-              Tab(
-                icon: const FaIcon(FontAwesomeIcons.solidLightbulb),
-                child: const Text(
-                  'Devices',
-                ).tr(),
-              ),
-            ],
-          ),
+          drawer: LeftNavigationDrawerHomePage(),
+          bottomNavigationBar: BottomNavigationBarHomePage(),
         ),
       ),
     );

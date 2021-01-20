@@ -24,6 +24,8 @@ final List<SmartDeviceObject> room1DevicesList = <SmartDeviceObject>[
 final List<SmartDeviceObject> room3DevicesList = <SmartDeviceObject>[
   SmartDeviceObject(DeviceType.Light, 'UpStairs', '10.0.0.30', 'Outside North'),
   SmartDeviceObject(DeviceType.Light, 'Storage', '10.0.0.30', 'Outside North'),
+  SmartDeviceObject(DeviceType.Light, 'Storage', '10.0.0.30', 'Outside North'),
+  SmartDeviceObject(DeviceType.Light, 'Storage', '10.0.0.30', 'Outside North'),
   SmartDeviceObject(DeviceType.Light, 'BackDoor', '10.0.0.32', 'Outside North'),
   SmartDeviceObject(
       DeviceType.Light, 'DownStairs', '10.0.0.32', 'Outside North'),

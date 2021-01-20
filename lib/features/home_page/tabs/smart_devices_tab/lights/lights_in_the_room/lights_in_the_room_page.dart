@@ -66,7 +66,8 @@ class LightsInTheRoomPage extends StatelessWidget {
               roomName,
               FontAwesomeIcons.cog,
               () {},
-              backButtonFunction: backButtonFunction,
+              leftIcon: FontAwesomeIcons.arrowLeft,
+              leftIconFunction: backButtonFunction,
             ),
             Expanded(
               child: Container(
