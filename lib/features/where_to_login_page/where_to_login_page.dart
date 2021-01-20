@@ -1,3 +1,4 @@
+import 'package:cybear_jinni/features/home_page/home_page.dart';
 import 'package:cybear_jinni/features/shared_widgets/top_navigation_bar.dart';
 import 'package:cybear_jinni/features/where_to_login_page/where_to_login_objcet_to_transfer.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -12,7 +13,8 @@ class WhereToLoginPage extends StatelessWidget {
     Navigator.pop(context);
   }
 
-  Future<void> contiueToHomePage(BuildContext context) async {
+  Future<void> contiueToHomePage(
+      BuildContext context, String homePageType) async {
     final FirebaseAuth auth = FirebaseAuth.instance;
 
     final UserCredential _ = await auth.signInWithEmailAndPassword(
@@ -20,6 +22,11 @@ class WhereToLoginPage extends StatelessWidget {
         password: _whereToLoginObjectToTransfer.userPassword);
 
     Navigator.of(context).popUntil((route) => route.isFirst);
+
+    if (homePageType == 'demo') {
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (BuildContext context) => HomePage()));
+    }
   }
 
   WhereToLoginObjectToTransfer _whereToLoginObjectToTransfer;
@@ -27,7 +34,7 @@ class WhereToLoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     _whereToLoginObjectToTransfer = ModalRoute.of(context).settings.arguments
-        as WhereToLoginObjectToTransfer;
+    as WhereToLoginObjectToTransfer;
     return Scaffold(
       backgroundColor: Colors.deepPurpleAccent[100],
       body: Column(
@@ -59,7 +66,9 @@ class WhereToLoginPage extends StatelessWidget {
                     color: Colors.greenAccent,
                     height: 100,
                     minWidth: MediaQuery.of(context).size.width,
-                    onPressed: () {},
+                    onPressed: () {
+                      contiueToHomePage(context, 'demo');
+                    },
                     child: Text(
                       'Open Demo',
                       style: TextStyle(
