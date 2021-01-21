@@ -1,11 +1,16 @@
-import 'package:cybear_jinni/core/notifications.dart';
-import 'package:cybear_jinni/core/route_names.dart';
-import 'package:cybear_jinni/features/home_page/tabs/smart_devices_tab/blinds/blinds_page.dart';
-import 'package:cybear_jinni/features/home_page/tabs/smart_devices_tab/lights/lights_page.dart';
-import 'package:cybear_jinni/features/where_to_login_page/where_to_login_page.dart';
+import 'package:cybear_jinni/domain/objects/interface_darta/cloud_interface_data.dart';
+import 'package:cybear_jinni/domain/objects/smart_device/smart_room_object.dart';
 import 'package:cybear_jinni/injection.dart';
-import 'package:cybear_jinni/objects/interface_darta/cloud_interface_data.dart';
-import 'package:cybear_jinni/objects/smart_device/smart_room_object.dart';
+import 'package:cybear_jinni/presentation/core/notifications.dart';
+import 'package:cybear_jinni/presentation/core/route_names.dart';
+import 'package:cybear_jinni/presentation/home_page/home_page.dart';
+import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/blinds/blinds_page.dart';
+import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/lights/lights_in_the_room/lights_in_the_room_page.dart';
+import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/lights/lights_page.dart';
+import 'package:cybear_jinni/presentation/login_page/login_page.dart';
+import 'package:cybear_jinni/presentation/shared_widgets/error_message.dart';
+import 'package:cybear_jinni/presentation/shared_widgets/loader.dart';
+import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_page.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -14,22 +19,16 @@ import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:rxdart/rxdart.dart';
 
-import 'features/home_page/home_page.dart';
-import 'features/home_page/tabs/smart_devices_tab/lights/lights_in_the_room/lights_in_the_room_page.dart';
-import 'features/login_page/login_page.dart';
-import 'features/shared_widgets/error_message.dart';
-import 'features/shared_widgets/loader.dart';
-
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-FlutterLocalNotificationsPlugin();
+    FlutterLocalNotificationsPlugin();
 
 /// Streams are created so that app can respond to notification-related events
 /// since the plugin is initialised in the `main` function
 final BehaviorSubject<ReceivedNotification> didReceiveLocalNotificationSubject =
-BehaviorSubject<ReceivedNotification>();
+    BehaviorSubject<ReceivedNotification>();
 
 final BehaviorSubject<String> selectNotificationSubject =
-BehaviorSubject<String>();
+    BehaviorSubject<String>();
 
 const MethodChannel platform = MethodChannel('cybear_jinni/smart_home');
 
