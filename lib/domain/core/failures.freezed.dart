@@ -41,20 +41,17 @@ mixin _$ValueFailure<T> {
     @required TResult invalidEmail(String failedValue),
     @required TResult invalidPassword(String failedValue),
   });
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult invalidEmail(String failedValue),
     TResult invalidPassword(String failedValue),
     @required TResult orElse(),
   });
-
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult invalidEmail(InvalidEmail<T> value),
     @required TResult invalidPassword(ShortPassword<T> value),
   });
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult invalidEmail(InvalidEmail<T> value),
@@ -71,7 +68,6 @@ abstract class $ValueFailureCopyWith<T, $Res> {
   factory $ValueFailureCopyWith(
           ValueFailure<T> value, $Res Function(ValueFailure<T>) then) =
       _$ValueFailureCopyWithImpl<T, $Res>;
-
   $Res call({String failedValue});
 }
 
@@ -81,7 +77,6 @@ class _$ValueFailureCopyWithImpl<T, $Res>
   _$ValueFailureCopyWithImpl(this._value, this._then);
 
   final ValueFailure<T> _value;
-
   // ignore: unused_field
   final $Res Function(ValueFailure<T>) _then;
 
@@ -102,7 +97,6 @@ abstract class $InvalidEmailCopyWith<T, $Res>
   factory $InvalidEmailCopyWith(
           InvalidEmail<T> value, $Res Function(InvalidEmail<T>) then) =
       _$InvalidEmailCopyWithImpl<T, $Res>;
-
   @override
   $Res call({String failedValue});
 }
@@ -217,7 +211,6 @@ abstract class InvalidEmail<T> implements ValueFailure<T> {
 
   @override
   String get failedValue;
-
   @override
   @JsonKey(ignore: true)
   $InvalidEmailCopyWith<T, InvalidEmail<T>> get copyWith;
@@ -229,7 +222,6 @@ abstract class $ShortPasswordCopyWith<T, $Res>
   factory $ShortPasswordCopyWith(
           ShortPassword<T> value, $Res Function(ShortPassword<T>) then) =
       _$ShortPasswordCopyWithImpl<T, $Res>;
-
   @override
   $Res call({String failedValue});
 }
@@ -344,7 +336,6 @@ abstract class ShortPassword<T> implements ValueFailure<T> {
 
   @override
   String get failedValue;
-
   @override
   @JsonKey(ignore: true)
   $ShortPasswordCopyWith<T, ShortPassword<T>> get copyWith;

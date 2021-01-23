@@ -48,7 +48,7 @@ class ReceivedNotification {
 
 void main() async {
 //  debugPaintSizeEnabled = true;
-  await configureInjection(Env.prod);
+  configureInjection(Env.prod);
 
   // needed if you intend to initialize in the `main` function
   WidgetsFlutterBinding.ensureInitialized();
