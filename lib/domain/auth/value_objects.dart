@@ -1,7 +1,7 @@
+import 'package:cybear_jinni/domain/core/failures.dart';
 import 'package:cybear_jinni/domain/core/value_objects.dart';
+import 'package:cybear_jinni/domain/core/value_validators.dart';
 import 'package:dartz/dartz.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 
 class EmailAddress extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
@@ -16,12 +16,15 @@ class EmailAddress extends ValueObject<String> {
   const EmailAddress._(this.value);
 }
 
-Either<ValueFailure<String>, String> validateEmailAddress(String input) {
-  const emailRegex =
-      r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
-  if (RegExp(emailRegex).hasMatch(input)) {
-    return right(input);
-  } else {
-    return left(ValueFailure.invalidEmail(failedValue: input));
+class Password extends ValueObject<String> {
+  final Either<ValueFailure<String>, String> value;
+
+  factory Password(String input) {
+    assert(input != null);
+    return Password._(
+      validatePassword(input),
+    );
   }
+
+  const Password._(this.value);
 }
