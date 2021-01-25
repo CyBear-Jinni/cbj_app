@@ -49,7 +49,7 @@ Now you can control your smart device from the CyBear Jinni App 😁.
 To run the app and start developing or testing check [this Wiki](https://github.com/CyBear-Jinni/CBJ_App/wiki/Instructions-for-developers-and-testing).
 
 
-To learn the coding guidelines check [this Wiki](https://github.com/CyBear-Jinni/CBJ_App/wiki/Coding-gidelines).
+To learn the coding guidelines check [this Wiki](https://github.com/CyBear-Jinni/CBJ_App/wiki/Coding-guidelines).
 
 
 ## Instructions for creating your own smart home
