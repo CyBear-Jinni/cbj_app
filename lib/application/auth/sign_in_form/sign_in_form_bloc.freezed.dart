@@ -57,7 +57,6 @@ mixin _$SignInFormEvent {
     @required TResult signInWithEmailAndPasswordPassed(),
     @required TResult signInWithGooglePressed(),
   });
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult emailChanged(String emailStr),
@@ -67,7 +66,6 @@ mixin _$SignInFormEvent {
     TResult signInWithGooglePressed(),
     @required TResult orElse(),
   });
-
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult emailChanged(EmailChanged value),
@@ -80,7 +78,6 @@ mixin _$SignInFormEvent {
             SignInWithEmailAndPasswordPassed value),
     @required TResult signInWithGooglePressed(SignInWithGooglePressed value),
   });
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult emailChanged(EmailChanged value),
@@ -106,7 +103,6 @@ class _$SignInFormEventCopyWithImpl<$Res>
   _$SignInFormEventCopyWithImpl(this._value, this._then);
 
   final SignInFormEvent _value;
-
   // ignore: unused_field
   final $Res Function(SignInFormEvent) _then;
 }
@@ -116,7 +112,6 @@ abstract class $EmailChangedCopyWith<$Res> {
   factory $EmailChangedCopyWith(
           EmailChanged value, $Res Function(EmailChanged) then) =
       _$EmailChangedCopyWithImpl<$Res>;
-
   $Res call({String emailStr});
 }
 
@@ -249,7 +244,6 @@ abstract class EmailChanged implements SignInFormEvent {
   const factory EmailChanged(String emailStr) = _$EmailChanged;
 
   String get emailStr;
-
   @JsonKey(ignore: true)
   $EmailChangedCopyWith<EmailChanged> get copyWith;
 }
@@ -259,7 +253,6 @@ abstract class $PasswordChangedCopyWith<$Res> {
   factory $PasswordChangedCopyWith(
           PasswordChanged value, $Res Function(PasswordChanged) then) =
       _$PasswordChangedCopyWithImpl<$Res>;
-
   $Res call({String passwordStr});
 }
 
@@ -392,7 +385,6 @@ abstract class PasswordChanged implements SignInFormEvent {
   const factory PasswordChanged(String passwordStr) = _$PasswordChanged;
 
   String get passwordStr;
-
   @JsonKey(ignore: true)
   $PasswordChangedCopyWith<PasswordChanged> get copyWith;
 }
@@ -776,13 +768,9 @@ const $SignInFormState = _$SignInFormStateTearOff();
 /// @nodoc
 mixin _$SignInFormState {
   EmailAddress get emailAddress;
-
   Password get password;
-
   bool get showErrorMessages;
-
   bool get isSubmitting;
-
   Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption;
 
   @JsonKey(ignore: true)
@@ -794,7 +782,6 @@ abstract class $SignInFormStateCopyWith<$Res> {
   factory $SignInFormStateCopyWith(
           SignInFormState value, $Res Function(SignInFormState) then) =
       _$SignInFormStateCopyWithImpl<$Res>;
-
   $Res call(
       {EmailAddress emailAddress,
       Password password,
@@ -809,7 +796,6 @@ class _$SignInFormStateCopyWithImpl<$Res>
   _$SignInFormStateCopyWithImpl(this._value, this._then);
 
   final SignInFormState _value;
-
   // ignore: unused_field
   final $Res Function(SignInFormState) _then;
 
@@ -844,7 +830,6 @@ abstract class _$SignInFormStateCopyWith<$Res>
   factory _$SignInFormStateCopyWith(
           _SignInFormState value, $Res Function(_SignInFormState) then) =
       __$SignInFormStateCopyWithImpl<$Res>;
-
   @override
   $Res call(
       {EmailAddress emailAddress,
@@ -974,19 +959,14 @@ abstract class _SignInFormState implements SignInFormState {
 
   @override
   EmailAddress get emailAddress;
-
   @override
   Password get password;
-
   @override
   bool get showErrorMessages;
-
   @override
   bool get isSubmitting;
-
   @override
   Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption;
-
   @override
   @JsonKey(ignore: true)
   _$SignInFormStateCopyWith<_SignInFormState> get copyWith;

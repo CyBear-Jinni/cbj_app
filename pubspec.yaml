@@ -21,11 +21,13 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.8.0 <3.0.0"
 
 dependencies:
   # A action bottom sheet that adapts to the platform
   adaptive_action_sheet: ^1.0.9
+  # Declarative routing solution, where everything needed for navigation is automatically generated for you.
+  auto_route: ^0.6.9
   # Copy text to clipboard in both
   clipboard_manager: ^0.0.4
   cloud_firestore: ^0.14.4
@@ -44,6 +46,7 @@ dependencies:
   expansion_card: ^0.1.0
   firebase_auth: ^0.18.4+1
   firebase_core: ^0.5.3
+  flushbar: ^1.10.4
   flutter:
     sdk: flutter
   # Bloc for state management, replace StatefulWidget
@@ -57,7 +60,7 @@ dependencies:
   freezed_annotation:
   font_awesome_flutter: ^8.11.0
   # Service locator
-  get_it: ^5.0.4
+  get_it: ^5.0.6
   # Secure authentication system for signing in with a Google account on Android and iOS
   google_sign_in: ^4.1.1
   # A high performance, open source, general RPC framework that puts mobile and HTTP/2 first.
@@ -80,12 +83,16 @@ dependencies:
   rxdart: ^0.25.0
   # reading and writing simple key-value pairs
   shared_preferences: ^0.5.12+4
+  # Simple, fast generation of RFC4122 UUIDs.
+  uuid: ^2.2.2
   # Information about a device's connection to wifi
   wifi_info_flutter: ^1.0.3
   # Get available wifi ssid list, user can connect to wifi with ssid and password, and create hotspot
   wifi_iot: ^0.2.0
 
 dev_dependencies:
+  # Generator for auto_route library.
+  auto_route_generator: ^0.6.10
   build_runner:
   e2e: ^0.7.0+1
   flutter_driver:

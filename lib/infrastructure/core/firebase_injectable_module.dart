@@ -4,12 +4,12 @@ import 'package:injectable/injectable.dart';
 
 @module
 abstract class FirebaseInjectableModule {
-  @lazySingleton
+  @LazySingleton()
   GoogleSignIn get googleSignIn => GoogleSignIn();
 
-  @lazySingleton
+  @LazySingleton()
   FirebaseAuth get firebaseAuth => FirebaseAuth.instance;
-// @lazySingleton
+// @LazySingleton()
 // FireStore get firestore => Firestore.instance;
 
 }

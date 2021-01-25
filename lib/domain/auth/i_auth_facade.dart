@@ -1,4 +1,5 @@
 import 'package:cybear_jinni/domain/auth/auth_failure.dart';
+import 'package:cybear_jinni/domain/auth/user.dart';
 import 'package:cybear_jinni/domain/auth/value_objects.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/cupertino.dart';
@@ -12,6 +13,8 @@ import 'package:flutter/cupertino.dart';
 // FirebaseAuth, GoogleSignIn
 
 abstract class IAuthFacade {
+  Future<Option<MUser>> getSignedInUser();
+
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword({
     @required EmailAddress emailAddress,
     @required Password password,
@@ -23,4 +26,6 @@ abstract class IAuthFacade {
   });
 
   Future<Either<AuthFailure, Unit>> signInWithGoogle();
+
+  Future<void> signOut();
 }
