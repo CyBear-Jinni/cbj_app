@@ -71,6 +71,8 @@ dependencies:
   http: ^0.12.2
   # Convenient code generator for get_it
   injectable: ^1.0.7
+  # Port of Kotlin's Kotlin Standard library for Dart/Flutter projects
+  kt_dart: ^0.8.0
   # Finding commonly used locations on the filesystem
   path_provider: ^1.6.27
   # Popup that ask for the requested permission
