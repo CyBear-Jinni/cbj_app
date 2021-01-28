@@ -1,4 +1,5 @@
-import 'package:cybear_jinni/presentation/home_page/home_page.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
 import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_objcet_to_transfer.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -18,14 +19,13 @@ class WhereToLoginPage extends StatelessWidget {
     final FirebaseAuth auth = FirebaseAuth.instance;
 
     final UserCredential _ = await auth.signInWithEmailAndPassword(
-        email: _whereToLoginObjectToTransfer.userEmail,
-        password: _whereToLoginObjectToTransfer.userPassword);
+        email: whereToLoginObjectToTransfer.userEmail,
+        password: whereToLoginObjectToTransfer.userPassword);
 
-    Navigator.of(context).popUntil((route) => route.isFirst);
+    // Navigator.of(context).popUntil((route) => route.isFirst);
 
     if (homePageType == 'demo') {
-      Navigator.pushReplacement(context,
-          MaterialPageRoute(builder: (BuildContext context) => HomePage()));
+      ExtendedNavigator.of(context).pushHomePage();
     }
     // else if (homePageType == 'create'){
     //
@@ -34,12 +34,21 @@ class WhereToLoginPage extends StatelessWidget {
     // }
   }
 
-  WhereToLoginObjectToTransfer _whereToLoginObjectToTransfer;
+  WhereToLoginPage({@required this.userEmail, @required this.userPassword}) {
+    whereToLoginObjectToTransfer = WhereToLoginObjectToTransfer(
+        userEmail: userEmail, userPassword: userPassword);
+  }
+
+  /// Stores user password
+  String userPassword;
+
+  /// Stores user email
+  String userEmail;
+
+  WhereToLoginObjectToTransfer whereToLoginObjectToTransfer;
 
   @override
   Widget build(BuildContext context) {
-    _whereToLoginObjectToTransfer = ModalRoute.of(context).settings.arguments
-    as WhereToLoginObjectToTransfer;
     return Scaffold(
       backgroundColor: Colors.deepPurpleAccent[100],
       body: Column(

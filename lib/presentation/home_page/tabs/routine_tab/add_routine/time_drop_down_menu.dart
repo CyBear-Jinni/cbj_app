@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class TimeDropDownMenu extends StatefulWidget {
-  String defaultValue;
+  final String defaultValue;
 
-  List<String> dropDownList;
+  final List<String> dropDownList;
 
   TimeDropDownMenu(this.dropDownList, {this.defaultValue});
 

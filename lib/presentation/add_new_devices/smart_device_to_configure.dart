@@ -10,7 +10,7 @@ class SmartDeviceToConfigure extends StatelessWidget {
     SmartDeviceObject.setHomeWiFiName('host');
   }
 
-  SmartDeviceObject smartDeviceObject;
+  final SmartDeviceObject smartDeviceObject;
 
   @override
   Widget build(BuildContext context) {
@@ -20,17 +20,25 @@ class SmartDeviceToConfigure extends StatelessWidget {
       child: Column(
         children: <Widget>[
           SmartDeviceTypeAndToggleBar(smartDeviceObject),
-          Text('Device Name: ${smartDeviceObject.name}', style: TextStyle(fontSize: 21),),
-          const SizedBox(height: 20,),
+          Text(
+            'Device Name: ${smartDeviceObject.name}',
+            style: TextStyle(fontSize: 21),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
           FlatButton(
             color: Colors.lightGreen,
-            child: const Text('Edit device', style: TextStyle(color: Colors.white),),
+            child: const Text(
+              'Edit device',
+              style: TextStyle(color: Colors.white),
+            ),
             onPressed: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (BuildContext context) =>
-                        InsertDetailsOfNewDevice(smartDeviceObject.ip, GradientColors.mango)),
+                    builder: (BuildContext context) => InsertDetailsOfNewDevice(
+                        smartDeviceObject.ip, GradientColors.mango)),
                 //            Navigator.of(context).pop();
               );
             },

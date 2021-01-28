@@ -10,18 +10,16 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class SmartDeviceTypeAndToggleBar extends StatelessWidget {
   SmartDeviceTypeAndToggleBar(this._smartDeviceObject);
 
-  SmartDeviceObject _smartDeviceObject;
+  final SmartDeviceObject _smartDeviceObject;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
-        if(_smartDeviceObject.deviceType ==
-            DeviceType.Light)
+        if (_smartDeviceObject.deviceType == DeviceType.Light)
           Container(
             margin: const EdgeInsets.only(right: 5),
-            child:
-            const CircleAvatar(
+            child: const CircleAvatar(
               radius: 16,
               child: FaIcon(FontAwesomeIcons.solidLightbulb),
             ),
