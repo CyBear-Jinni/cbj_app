@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/presentation/login_page/login_page.dart';
+import 'package:cybear_jinni/presentation/sign_in_page/login_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +9,7 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
     try {
       await FirebaseAuth.instance.signOut();
       Navigator.pushReplacement(context,
-          MaterialPageRoute(builder: (BuildContext context) => LoginPage()));
+          MaterialPageRoute(builder: (BuildContext context) => SignInPage()));
     } catch (e) {
       print(e); // TODO: show dialog with error
     }

@@ -10,19 +10,19 @@ class TopNavigationBar extends StatelessWidget {
       {this.leftIcon, this.leftIconFunction}) {}
 
   /// Page name to showw in the left side of the navigation bar
-  String pageName;
+  final String pageName;
 
   /// Icon to show in the right side of the bar
-  IconData righIcon;
+  final IconData righIcon;
 
   /// Icon to show in the left side of the bar
-  IconData leftIcon;
+  final IconData leftIcon;
 
   /// Function to execute when pressing the icon in the right side
-  Function righIconFunction;
+  final Function righIconFunction;
 
   /// What to execute if back button was pressed
-  Function leftIconFunction;
+  final Function leftIconFunction;
 
   @override
   Widget build(BuildContext context) {

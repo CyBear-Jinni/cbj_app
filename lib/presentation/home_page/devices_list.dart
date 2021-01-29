@@ -10,7 +10,7 @@ class DevicesList extends StatefulWidget {
   }
 
   final List<SmartDeviceObject> devices;
-  int howMuchToShow;
+  final int howMuchToShow;
   final Axis axis;
 
   @override

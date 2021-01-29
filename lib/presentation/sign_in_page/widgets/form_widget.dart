@@ -1,5 +1,3 @@
-import 'package:cybear_jinni/presentation/core/route_names.dart';
-import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_objcet_to_transfer.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -34,11 +32,11 @@ class _FormWidget extends State<FormWidget> {
     }
     void _loginUser() async {
       try {
-        WhereToLoginObjectToTransfer whereToLoginObjcetToTransfer =
-            WhereToLoginObjectToTransfer(emailVal, passwordVal);
+        // WhereToLoginObjectToTransfer whereToLoginObjcetToTransfer =
+        //     WhereToLoginObjectToTransfer(emailVal, passwordVal);
 
-        Navigator.pushNamed(context, '/$whereToLoginPage',
-            arguments: whereToLoginObjcetToTransfer);
+        // Navigator.pushNamed(context, '/$whereToLoginPage',
+        //     arguments: whereToLoginObjcetToTransfer);
       } on FirebaseAuthException catch (e) {
         if (e.code == 'user-not-found') {
           _showErrToast('No user found for this email.');

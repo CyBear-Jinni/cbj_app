@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/presentation/login_page/login_page.dart';
+import 'package:cybear_jinni/presentation/sign_in_page/login_page.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +38,8 @@ class _FormWidget extends State<FormWidget> {
         );
         _showToast('Account Created');
         Navigator.of(context).popUntil((route) => route.isFirst);
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => LoginPage()));
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (BuildContext context) => SignInPage()));
       } on FirebaseAuthException catch (e) {
         if (e.code == 'weak-password') {
           _showToast('The password provided is too weak.');
