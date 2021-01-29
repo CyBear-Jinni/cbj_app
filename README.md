@@ -45,13 +45,19 @@ That's it.
 
 Now you can control your smart device from the CyBear Jinni App 😁.
 
+## Instructions for developers and testers
+To run the app and start developing or testing check [this Wiki](https://github.com/CyBear-Jinni/CBJ_App/wiki/Instructions-for-developers-and-testing).
 
-## Instructions for developers
+
+To learn the coding guidelines check [this Wiki](https://github.com/CyBear-Jinni/CBJ_App/wiki/Coding-guidelines).
+
+
+## Instructions for creating your own smart home
 **Do not** use the default Firebase configuration for your Smart Device devices at home, it is only for testing and development purposes.
 The app was not tested on IOS.
 
 
-Instructions for developers can be found in the [Wiki page Instructions for developers](https://github.com/CyBear-Jinni/CBJ_App/wiki/Instructions-for-developers)  
+Instructions for creating your smart home can be found in the [Wiki page](https://github.com/CyBear-Jinni/CBJ_App/wiki/Instructions-for-developers)  
 
 
 # Social Media Links
