@@ -1,6 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/domain/objects/smart_device/smart_room_object.dart';
-import 'package:cybear_jinni/presentation/core/route_names.dart';
 import 'package:cybear_jinni/presentation/home_page/smart_device_widget.dart';
+import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -91,10 +92,8 @@ class RoomLightsTogglesBlock extends StatelessWidget {
               onPressed: () {
                 if (maxLightsToShow != null &&
                     _smartRoomObject.getLights().length > maxLightsToShow) {
-                  Navigator.pushNamed(
-                    context,
-                    '/$lightsInTheRoomPage/${_smartRoomObject.getRoomName()}',
-                  );
+                  ExtendedNavigator.of(context)
+                      .pushLightsInTheRoomPage(thisSmartRoom: _smartRoomObject);
                 }
               },
               color: Colors.transparent,

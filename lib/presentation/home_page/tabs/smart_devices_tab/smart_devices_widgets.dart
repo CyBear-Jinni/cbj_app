@@ -1,7 +1,9 @@
 import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/presentation/add_new_devices/open_access_point_popup.dart';
 import 'package:cybear_jinni/presentation/core/route_names.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/settings_page_of_smart_devices.dart';
+import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -25,12 +27,10 @@ class SmartDevicesWidgets extends StatelessWidget {
         .map((String element) => GestureDetector(
               onTap: () {
                 print('you clicked $element');
-                if (element.toString() == blindsPage.tr() ||
-                    element.toString() == lightsPage.tr()) {
-                  Navigator.pushNamed(
-                    context,
-                    '/$devicesPage/$element',
-                  );
+                if (element.toString() == lightsPage.tr()) {
+                  ExtendedNavigator.of(context).pushLightsPage();
+                } else if (element.toString() == blindsPage.tr()) {
+                  ExtendedNavigator.of(context).pushBlindsPage();
                 } else {
                   Fluttertoast.showToast(
                       msg: element.toString(),
