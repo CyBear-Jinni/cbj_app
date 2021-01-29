@@ -1,6 +1,7 @@
 import 'package:cybear_jinni/domain/objects/enums.dart';
 import 'package:cybear_jinni/domain/objects/interface_darta/cloud_interface_data.dart';
 import 'package:cybear_jinni/domain/objects/smart_device/send_to_smart_device.dart';
+import 'package:cybear_jinni/domain/objects/smart_device/smart_blinds_object.dart';
 import 'package:cybear_jinni/domain/objects/smart_device/smart_device_object.dart';
 import 'package:cybear_jinni/domain/objects/smart_device/smart_room_object.dart';
 import 'package:cybear_jinni/presentation/home_page/smart_device_widget.dart';
@@ -189,13 +190,14 @@ class _NewDeviceWidget extends State<NewDeviceWidget> {
       // TODO: Handle this case.
         break;
       case DeviceType.DynamicLight:
-      // TODO: Handle this case.
+        // TODO: Handle this case.
         break;
       case DeviceType.Blinds:
-        return SmartBlindPage(_smartDeviceObject);
+        return SmartBlindPage(
+            smartBlindsObject: _smartDeviceObject as SmartBlindsObject);
         break;
       case DeviceType.Thermostat:
-      // TODO: Handle this case.
+        // TODO: Handle this case.
         break;
       case DeviceType.Fan:
       // TODO: Handle this case.

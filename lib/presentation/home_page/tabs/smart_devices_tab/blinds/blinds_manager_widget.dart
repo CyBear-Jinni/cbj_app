@@ -45,7 +45,9 @@ class BlindsManagerWidget extends StatelessWidget {
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[SmartBlindPage(rooms[index].getBlinds()[0])],
+            children: <Widget>[
+              SmartBlindPage(smartBlindsObject: rooms[index].getBlinds()[0]),
+            ],
           ),
         ],
       ),
