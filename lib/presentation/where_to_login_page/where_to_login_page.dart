@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
-import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_objcet_to_transfer.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -19,33 +18,23 @@ class WhereToLoginPage extends StatelessWidget {
     final FirebaseAuth auth = FirebaseAuth.instance;
 
     final UserCredential _ = await auth.signInWithEmailAndPassword(
-        email: whereToLoginObjectToTransfer.userEmail,
-        password: whereToLoginObjectToTransfer.userPassword);
-
-    // Navigator.of(context).popUntil((route) => route.isFirst);
+        email: userEmail, password: userPassword);
 
     if (homePageType == 'demo') {
-      ExtendedNavigator.of(context).pushHomePage();
-    }
-    // else if (homePageType == 'create'){
-    //
-    //   Navigator.pushReplacement(context,
-    //       MaterialPageRoute(builder: (BuildContext context) => HomePage()));
-    // }
+      ExtendedNavigator.of(context).replace(Routes.homePage);
+    } else if (homePageType == 'create') {}
   }
 
   WhereToLoginPage({@required this.userEmail, @required this.userPassword}) {
-    whereToLoginObjectToTransfer = WhereToLoginObjectToTransfer(
-        userEmail: userEmail, userPassword: userPassword);
+    // whereToLoginObjectToTransfer = WhereToLoginObjectToTransfer(
+    //     userEmail: userEmail, userPassword: userPassword);
   }
 
   /// Stores user password
-  String userPassword;
+  final String userPassword;
 
   /// Stores user email
-  String userEmail;
-
-  WhereToLoginObjectToTransfer whereToLoginObjectToTransfer;
+  final String userEmail;
 
   @override
   Widget build(BuildContext context) {

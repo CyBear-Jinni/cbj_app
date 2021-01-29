@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/auth/sign_in_form/sign_in_form_bloc.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
-import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_objcet_to_transfer.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -31,14 +30,9 @@ class SignInForm extends StatelessWidget {
                 (_) => {
                       ExtendedNavigator.of(context).push(
                           Routes.whereToLoginPage,
-                          arguments: WhereToLoginObjectToTransfer(
-                              userEmail: 'test@gmail.com',
-                              userPassword: '123456'
-
-                              // arguments: WhereToLoginObjectToTransfer(
-                              // userEmail: state.emailAddress.getOrCrash(),
-                              // userPassword: state.password.getOrCrash()
-                              )),
+                          arguments: WhereToLoginPageArguments(
+                              userEmail: state.emailAddress.getOrCrash(),
+                              userPassword: state.password.getOrCrash())),
                     }));
       },
       builder: (context, state) {
