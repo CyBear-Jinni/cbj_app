@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/domain/objects/smart_device/smart_room_object.dart';
+import 'package:cybear_jinni/infrastructure/objects/smart_device/smart_room_object.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/lights/room_lights_toggles_block.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/material.dart';

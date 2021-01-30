@@ -1,9 +1,9 @@
 import 'dart:io';
 
 import 'package:connectivity/connectivity.dart' as connectivity;
-import 'package:cybear_jinni/domain/database/firebase/cloud_firestore/firestore_class.dart';
-import 'package:cybear_jinni/domain/objects/enums.dart';
-import 'package:cybear_jinni/domain/objects/smart_device/send_to_smart_device.dart';
+import 'package:cybear_jinni/infrastructure/database/firebase/cloud_firestore/firestore_class.dart';
+import 'package:cybear_jinni/infrastructure/objects/enums.dart';
+import 'package:cybear_jinni/infrastructure/objects/smart_device/send_to_smart_device.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/services.dart';
 import 'package:permission_handler/permission_handler.dart';

@@ -1,9 +1,9 @@
-import 'package:cybear_jinni/domain/objects/enums.dart';
-import 'package:cybear_jinni/domain/objects/interface_darta/cloud_interface_data.dart';
-import 'package:cybear_jinni/domain/objects/smart_device/send_to_smart_device.dart';
-import 'package:cybear_jinni/domain/objects/smart_device/smart_blinds_object.dart';
-import 'package:cybear_jinni/domain/objects/smart_device/smart_device_object.dart';
-import 'package:cybear_jinni/domain/objects/smart_device/smart_room_object.dart';
+import 'package:cybear_jinni/infrastructure/objects/enums.dart';
+import 'package:cybear_jinni/infrastructure/objects/interface_darta/cloud_interface_data.dart';
+import 'package:cybear_jinni/infrastructure/objects/smart_device/send_to_smart_device.dart';
+import 'package:cybear_jinni/infrastructure/objects/smart_device/smart_blinds_object.dart';
+import 'package:cybear_jinni/infrastructure/objects/smart_device/smart_device_object.dart';
+import 'package:cybear_jinni/infrastructure/objects/smart_device/smart_room_object.dart';
 import 'package:cybear_jinni/presentation/home_page/smart_device_widget.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/blinds/smart_blind_widget.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/insert_wifi_credential_popup.dart';

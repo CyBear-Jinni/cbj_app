@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:cybear_jinni/domain/objects/security_bear/client/protoc_as_dart/security_bear_connections.pb.dart';
-import 'package:cybear_jinni/domain/objects/security_bear/client/protoc_as_dart/security_bear_connections.pbgrpc.dart';
+import 'package:cybear_jinni/infrastructure/objects/security_bear/client/protoc_as_dart/security_bear_connections.pb.dart';
+import 'package:cybear_jinni/infrastructure/objects/security_bear/client/protoc_as_dart/security_bear_connections.pbgrpc.dart';
 import 'package:grpc/grpc.dart';
 
 class SecurityBearServerClient {

@@ -1,6 +1,6 @@
-import 'package:cybear_jinni/domain/objects/interface_darta/cloud_interface_data.dart';
-import 'package:cybear_jinni/domain/objects/smart_device/smart_device_object.dart';
-import 'package:cybear_jinni/domain/objects/smart_device/smart_room_object.dart';
+import 'package:cybear_jinni/infrastructure/objects/interface_darta/cloud_interface_data.dart';
+import 'package:cybear_jinni/infrastructure/objects/smart_device/smart_device_object.dart';
+import 'package:cybear_jinni/infrastructure/objects/smart_device/smart_room_object.dart';
 import 'package:cybear_jinni/presentation/add_new_devices/open_access_point_popup.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
 import 'package:easy_localization/easy_localization.dart';

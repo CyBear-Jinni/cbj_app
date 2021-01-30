@@ -1,5 +1,5 @@
-import 'package:cybear_jinni/domain/objects/smart_device/send_to_smart_device.dart';
-import 'package:cybear_jinni/domain/objects/smart_device/smart_device_object.dart';
+import 'package:cybear_jinni/infrastructure/objects/smart_device/send_to_smart_device.dart';
+import 'package:cybear_jinni/infrastructure/objects/smart_device/smart_device_object.dart';
 import 'package:cybear_jinni/presentation/add_new_devices/add_new_cbj_devices.dart';
 import 'package:grpc/grpc.dart';
 import 'package:grpc/src/server/call.dart';
