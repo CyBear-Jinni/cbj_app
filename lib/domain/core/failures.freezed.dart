@@ -33,18 +33,15 @@ mixin _$ValueFailure<T> {
   TResult when<TResult extends Object>({
     @required TResult auth(AuthValueFailure<T> f),
   });
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult auth(AuthValueFailure<T> f),
     @required TResult orElse(),
   });
-
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult auth(_Auth<T> value),
   });
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult auth(_Auth<T> value),
@@ -60,7 +57,6 @@ abstract class $ValueFailureCopyWith<T, $Res> {
   factory $ValueFailureCopyWith(
           ValueFailure<T> value, $Res Function(ValueFailure<T>) then) =
       _$ValueFailureCopyWithImpl<T, $Res>;
-
   $Res call({AuthValueFailure<T> f});
 
   $AuthValueFailureCopyWith<T, $Res> get f;
@@ -72,7 +68,6 @@ class _$ValueFailureCopyWithImpl<T, $Res>
   _$ValueFailureCopyWithImpl(this._value, this._then);
 
   final ValueFailure<T> _value;
-
   // ignore: unused_field
   final $Res Function(ValueFailure<T>) _then;
 
@@ -101,7 +96,6 @@ abstract class _$AuthCopyWith<T, $Res>
     implements $ValueFailureCopyWith<T, $Res> {
   factory _$AuthCopyWith(_Auth<T> value, $Res Function(_Auth<T>) then) =
       __$AuthCopyWithImpl<T, $Res>;
-
   @override
   $Res call({AuthValueFailure<T> f});
 
@@ -207,7 +201,6 @@ abstract class _Auth<T> implements ValueFailure<T> {
 
   @override
   AuthValueFailure<T> get f;
-
   @override
   @JsonKey(ignore: true)
   _$AuthCopyWith<T, _Auth<T>> get copyWith;
@@ -245,7 +238,6 @@ mixin _$AuthValueFailure<T> {
     @required TResult invalidEmail(String failedValue),
     @required TResult invalidPassword(String failedValue),
   });
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult invalidEmail(String failedValue),
@@ -273,7 +265,6 @@ abstract class $AuthValueFailureCopyWith<T, $Res> {
   factory $AuthValueFailureCopyWith(
           AuthValueFailure<T> value, $Res Function(AuthValueFailure<T>) then) =
       _$AuthValueFailureCopyWithImpl<T, $Res>;
-
   $Res call({String failedValue});
 }
 
@@ -283,7 +274,6 @@ class _$AuthValueFailureCopyWithImpl<T, $Res>
   _$AuthValueFailureCopyWithImpl(this._value, this._then);
 
   final AuthValueFailure<T> _value;
-
   // ignore: unused_field
   final $Res Function(AuthValueFailure<T>) _then;
 
@@ -304,7 +294,6 @@ abstract class $InvalidEmailCopyWith<T, $Res>
   factory $InvalidEmailCopyWith(
           InvalidEmail<T> value, $Res Function(InvalidEmail<T>) then) =
       _$InvalidEmailCopyWithImpl<T, $Res>;
-
   @override
   $Res call({String failedValue});
 }
@@ -419,7 +408,6 @@ abstract class InvalidEmail<T> implements AuthValueFailure<T> {
 
   @override
   String get failedValue;
-
   @override
   @JsonKey(ignore: true)
   $InvalidEmailCopyWith<T, InvalidEmail<T>> get copyWith;
@@ -431,7 +419,6 @@ abstract class $ShortPasswordCopyWith<T, $Res>
   factory $ShortPasswordCopyWith(
           ShortPassword<T> value, $Res Function(ShortPassword<T>) then) =
       _$ShortPasswordCopyWithImpl<T, $Res>;
-
   @override
   $Res call({String failedValue});
 }
@@ -546,7 +533,6 @@ abstract class ShortPassword<T> implements AuthValueFailure<T> {
 
   @override
   String get failedValue;
-
   @override
   @JsonKey(ignore: true)
   $ShortPasswordCopyWith<T, ShortPassword<T>> get copyWith;
