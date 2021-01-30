@@ -53,6 +53,8 @@ dependencies:
   flutter_bloc: ^6.1.1
   # A cross platform plugin for displaying local notifications.
   flutter_local_notifications: ^3.0.3
+  # Getting the local timezone of the os.
+  flutter_native_timezone: ^1.0.4
   # An easy to implement custom switch
   flutter_switch: ^0.2.0
   fluttertoast: ^7.1.6
