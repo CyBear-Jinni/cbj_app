@@ -19,4 +19,13 @@ abstract class AuthValueFailure<T> with _$AuthValueFailure<T> {
   const factory AuthValueFailure.invalidPassword({
     @required String failedValue,
   }) = ShortPassword<T>;
+
+  const factory AuthValueFailure.empty({
+    @required String failedValue,
+  }) = Empty<T>;
+
+  const factory AuthValueFailure.listTooLong({
+    @required T failedValue,
+    @required int max,
+  }) = ListTooLong<T>;
 }
