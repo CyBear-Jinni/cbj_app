@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/domain/objects/interface_darta/cloud_interface_data.dart';
+import 'package:cybear_jinni/infrastructure/objects/interface_darta/cloud_interface_data.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/blinds/smart_blind_widget.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -45,7 +45,9 @@ class BlindsManagerWidget extends StatelessWidget {
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[SmartBlindPage(rooms[index].getBlinds()[0])],
+            children: <Widget>[
+              SmartBlindPage(smartBlindsObject: rooms[index].getBlinds()[0]),
+            ],
           ),
         ],
       ),

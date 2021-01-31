@@ -44,6 +44,8 @@ dependencies:
   easy_localization: ^2.3.3
   # Easy implementation of a Expansion type card
   expansion_card: ^0.1.0
+  # Plugin to use the Google Analytics for Firebase API.
+  firebase_analytics: ^6.0.1
   firebase_auth: ^0.18.4+1
   firebase_core: ^0.5.3
   flushbar: ^1.10.4
@@ -53,6 +55,8 @@ dependencies:
   flutter_bloc: ^6.1.1
   # A cross platform plugin for displaying local notifications.
   flutter_local_notifications: ^3.0.3
+  # Getting the local timezone of the os.
+  flutter_native_timezone: ^1.0.4
   # An easy to implement custom switch
   flutter_switch: ^0.2.0
   fluttertoast: ^7.1.6

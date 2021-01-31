@@ -72,7 +72,8 @@ class _AlarmClockState extends State<AlarmClockWidget> {
                         isSwitched = value;
                         print(isSwitched);
                       });
-                      await zonedScheduleNotification();
+                      // await zonedScheduleNotification();
+                      await showNotificationCustomSound();
                     }),
               ],
             ),
