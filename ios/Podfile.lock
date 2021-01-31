@@ -250,6 +250,11 @@ PODS:
   - Firebase/Firestore (6.33.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (~> 1.18.0)
+  - firebase_analytics (6.3.0):
+    - Firebase/Analytics (~> 6.33.0)
+    - Firebase/CoreOnly (~> 6.33.0)
+    - firebase_core
+    - Flutter
   - firebase_auth (0.18.4-1):
     - Firebase/Auth (~> 6.33.0)
     - Firebase/CoreOnly (~> 6.33.0)
@@ -399,6 +404,7 @@ DEPENDENCIES:
   - device_info (from `.symlinks/plugins/device_info/ios`)
   - e2e (from `.symlinks/plugins/e2e/ios`)
   - Firebase/Analytics
+  - firebase_analytics (from `.symlinks/plugins/firebase_analytics/ios`)
   - firebase_auth (from `.symlinks/plugins/firebase_auth/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - Flutter (from `Flutter`)
@@ -449,6 +455,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/device_info/ios"
   e2e:
     :path: ".symlinks/plugins/e2e/ios"
+  firebase_analytics:
+    :path: ".symlinks/plugins/firebase_analytics/ios"
   firebase_auth:
     :path: ".symlinks/plugins/firebase_auth/ios"
   firebase_core:
@@ -484,6 +492,7 @@ SPEC CHECKSUMS:
   device_info: d7d233b645a32c40dfdc212de5cf646ca482f175
   e2e: d0c9f8c832b4cc7ab386d0c0f0af67fe5ac0c3bd
   Firebase: 8db6f2d1b2c5e2984efba4949a145875a8f65fe5
+  firebase_analytics: 36a619088c46224900829f14f4daa71585693a6f
   firebase_auth: d5159db3873478d1ac839af7b10d2f831516136a
   firebase_core: 5d6a02f3d85acd5f8321c2d6d62877626a670659
   FirebaseAnalytics: 5dd088bd2e67bb9d13dbf792d1164ceaf3052193
@@ -516,6 +525,6 @@ SPEC CHECKSUMS:
   wifi_info_flutter: 55d4c2469034f5b5c38063ccefa62f708a503a2b
   wifi_iot: b5aafd6f9b52f8a357383a1deabab45f31cd602d
 
-PODFILE CHECKSUM: 23fce5df570e4abbd8ff4ba855367285a76daad3
+PODFILE CHECKSUM: 29d2c6bb98e53e7e0fb4f441f189abd7bf72fcd7
 
 COCOAPODS: 1.10.1
