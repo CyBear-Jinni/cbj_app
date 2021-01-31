@@ -59,7 +59,7 @@ class SmartDevicesWidgets extends StatelessWidget {
                     ),
                     alignment: Alignment.bottomCenter,
                     child: Container(
-                      width: 177,
+                      width: double.infinity,
                       child: DecoratedBox(
                         decoration: const BoxDecoration(
                             color: Colors.black54,
