@@ -1,6 +1,8 @@
 import 'package:cybear_jinni/presentation/home_page/bottom_navigation_bar_home_page.dart';
 import 'package:cybear_jinni/presentation/home_page/left_navigation_drawer_home_page.dart';
+import 'package:cybear_jinni/presentation/home_page/tabs/routine_tab/routines_page.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/scene_tab/scenes_widgets.dart';
+import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/smart_devices_widgets.dart';
 import 'package:flutter/material.dart';
 
 /// Home page to show all the tabs
@@ -10,11 +12,24 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  /// Tab num, value will be the default tab to show
+  int _currentTabNum = 0;
+  final _pages = [ScenesWidgets(), RoutinesPage(), SmartDevicesWidgets()];
+  final _pageController = PageController();
+
   Widget childWidget = ScenesWidgets();
 
-  void callback(Widget nextPage) {
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  void callback(int index) {
     setState(() {
-      childWidget = nextPage;
+      _currentTabNum = index;
+      _pageController.animateToPage(_currentTabNum,
+          duration: const Duration(milliseconds: 200), curve: Curves.linear);
     });
   }
 
@@ -39,9 +54,18 @@ class _HomePageState extends State<HomePage> {
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        body: childWidget,
+        body: PageView(
+          onPageChanged: (index) {
+            setState(() {
+              _currentTabNum = index;
+            });
+          },
+          controller: _pageController,
+          children: _pages,
+        ),
         drawer: LeftNavigationDrawerHomePage(),
-        bottomNavigationBar: BottomNavigationBarHomePage(callback),
+        bottomNavigationBar:
+            BottomNavigationBarHomePage(callback, _currentTabNum),
       ),
     );
   }
