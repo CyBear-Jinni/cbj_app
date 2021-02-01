@@ -1,12 +1,23 @@
 import 'package:cybear_jinni/presentation/home_page/bottom_navigation_bar_home_page.dart';
 import 'package:cybear_jinni/presentation/home_page/left_navigation_drawer_home_page.dart';
-import 'package:cybear_jinni/presentation/home_page/tabs/routine_tab/routines_page.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/scene_tab/scenes_widgets.dart';
-import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/smart_devices_widgets.dart';
 import 'package:flutter/material.dart';
 
 /// Home page to show all the tabs
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  Widget childWidget = ScenesWidgets();
+
+  void callback(Widget nextPage) {
+    setState(() {
+      childWidget = nextPage;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,18 +37,11 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
-      child: DefaultTabController(
-        length: 3,
-        child: Scaffold(
-          backgroundColor: Colors.transparent,
-          body: TabBarView(children: <Widget>[
-            ScenesWidgets(),
-            RoutinesPage(),
-            SmartDevicesWidgets(),
-          ]),
-          drawer: LeftNavigationDrawerHomePage(),
-          bottomNavigationBar: BottomNavigationBarHomePage(),
-        ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: childWidget,
+        drawer: LeftNavigationDrawerHomePage(),
+        bottomNavigationBar: BottomNavigationBarHomePage(callback),
       ),
     );
   }
