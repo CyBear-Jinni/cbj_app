@@ -300,7 +300,6 @@ abstract class $InvalidEmailCopyWith<T, $Res> {
   factory $InvalidEmailCopyWith(
           InvalidEmail<T> value, $Res Function(InvalidEmail<T>) then) =
       _$InvalidEmailCopyWithImpl<T, $Res>;
-
   $Res call({String failedValue});
 }
 
@@ -434,7 +433,6 @@ abstract class $ShortPasswordCopyWith<T, $Res> {
   factory $ShortPasswordCopyWith(
           ShortPassword<T> value, $Res Function(ShortPassword<T>) then) =
       _$ShortPasswordCopyWithImpl<T, $Res>;
-
   $Res call({String failedValue});
 }
 
@@ -559,7 +557,6 @@ abstract class ShortPassword<T> implements AuthValueFailure<T> {
       _$ShortPassword<T>;
 
   String get failedValue;
-
   @JsonKey(ignore: true)
   $ShortPasswordCopyWith<T, ShortPassword<T>> get copyWith;
 }
@@ -568,7 +565,6 @@ abstract class ShortPassword<T> implements AuthValueFailure<T> {
 abstract class $EmptyCopyWith<T, $Res> {
   factory $EmptyCopyWith(Empty<T> value, $Res Function(Empty<T>) then) =
       _$EmptyCopyWithImpl<T, $Res>;
-
   $Res call({String failedValue});
 }
 
@@ -690,7 +686,6 @@ abstract class Empty<T> implements AuthValueFailure<T> {
   const factory Empty({@required String failedValue}) = _$Empty<T>;
 
   String get failedValue;
-
   @JsonKey(ignore: true)
   $EmptyCopyWith<T, Empty<T>> get copyWith;
 }
@@ -700,7 +695,6 @@ abstract class $ListTooLongCopyWith<T, $Res> {
   factory $ListTooLongCopyWith(
           ListTooLong<T> value, $Res Function(ListTooLong<T>) then) =
       _$ListTooLongCopyWithImpl<T, $Res>;
-
   $Res call({T failedValue, int max});
 }
 
@@ -834,9 +828,7 @@ abstract class ListTooLong<T> implements AuthValueFailure<T> {
       _$ListTooLong<T>;
 
   T get failedValue;
-
   int get max;
-
   @JsonKey(ignore: true)
   $ListTooLongCopyWith<T, ListTooLong<T>> get copyWith;
 }
