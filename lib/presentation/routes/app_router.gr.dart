@@ -9,9 +9,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-import '../../domain/objects/smart_device/smart_room_object.dart';
+import '../../infrastructure/objects/smart_device/smart_blinds_object.dart';
+import '../../infrastructure/objects/smart_device/smart_room_object.dart';
 import '../home_page/home_page.dart';
 import '../home_page/tabs/smart_devices_tab/blinds/blinds_page.dart';
+import '../home_page/tabs/smart_devices_tab/blinds/smart_blind_widget.dart';
 import '../home_page/tabs/smart_devices_tab/lights/lights_in_the_room/lights_in_the_room_page.dart';
 import '../home_page/tabs/smart_devices_tab/lights/lights_page.dart';
 import '../sign_in_page/login_page.dart';
@@ -26,6 +28,7 @@ class Routes {
   static const String lightsPage = '/lights-page';
   static const String lightsInTheRoomPage = '/lights-in-the-room-page';
   static const String blindsPage = '/blinds-page';
+  static const String smartBlindPage = '/smart-blind-page';
   static const all = <String>{
     splashPage,
     signInPage,
@@ -34,6 +37,7 @@ class Routes {
     lightsPage,
     lightsInTheRoomPage,
     blindsPage,
+    smartBlindPage,
   };
 }
 
@@ -48,6 +52,7 @@ class AppRouter extends RouterBase {
     RouteDef(Routes.lightsPage, page: LightsPage),
     RouteDef(Routes.lightsInTheRoomPage, page: LightsInTheRoomPage),
     RouteDef(Routes.blindsPage, page: BlindsPage),
+    RouteDef(Routes.smartBlindPage, page: SmartBlindPage),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -100,6 +105,14 @@ class AppRouter extends RouterBase {
         settings: data,
       );
     },
+    SmartBlindPage: (data) {
+      final args = data.getArgs<SmartBlindPageArguments>(nullOk: false);
+      return MaterialPageRoute<dynamic>(
+        builder: (context) =>
+            SmartBlindPage(smartBlindsObject: args.smartBlindsObject),
+        settings: data,
+      );
+    },
   };
 }
 
@@ -135,6 +148,15 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
       );
 
   Future<dynamic> pushBlindsPage() => push<dynamic>(Routes.blindsPage);
+
+  Future<dynamic> pushSmartBlindPage({
+    @required SmartBlindsObject smartBlindsObject,
+  }) =>
+      push<dynamic>(
+        Routes.smartBlindPage,
+        arguments:
+            SmartBlindPageArguments(smartBlindsObject: smartBlindsObject),
+      );
 }
 
 /// ************************************************************************
@@ -153,4 +175,10 @@ class WhereToLoginPageArguments {
 class LightsInTheRoomPageArguments {
   final SmartRoomObject thisSmartRoom;
   LightsInTheRoomPageArguments({@required this.thisSmartRoom});
+}
+
+/// SmartBlindPage arguments holder class
+class SmartBlindPageArguments {
+  final SmartBlindsObject smartBlindsObject;
+  SmartBlindPageArguments({@required this.smartBlindsObject});
 }

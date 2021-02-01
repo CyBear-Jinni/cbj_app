@@ -1,18 +1,15 @@
 import 'dart:async';
 
-import 'package:cybear_jinni/domain/objects/smart_device/smart_blinds_object.dart';
-import 'package:cybear_jinni/domain/objects/smart_device/smart_device_object.dart';
+import 'package:cybear_jinni/infrastructure/objects/smart_device/smart_blinds_object.dart';
+import 'package:cybear_jinni/infrastructure/objects/smart_device/smart_device_object.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SmartBlindPage extends StatefulWidget {
-  SmartBlindPage(this.device) {
-    smartBlindsObject = device as SmartBlindsObject;
-  }
+  SmartBlindPage({@required this.smartBlindsObject});
 
-  final SmartDeviceObject device;
-  SmartBlindsObject smartBlindsObject;
+  final SmartBlindsObject smartBlindsObject;
 
   @override
   State<StatefulWidget> createState() {
@@ -29,14 +26,13 @@ class _SmartBlindPage extends State<SmartBlindPage> {
   @override
   void initState() {
     super.initState();
-    _device = widget.device;
     _smartBlindsObject = widget.smartBlindsObject;
     getDeviceState();
   }
 
   //  Send request to device to retrieve his state on or off
   Future getDeviceState() async {
-    final bool deviceState = await _device.getDeviceStateAsBool();
+    final bool deviceState = await _smartBlindsObject.getDeviceStateAsBool();
     print('This is device state: $deviceState');
     _onChange(deviceState);
     setState(() {
@@ -47,7 +43,7 @@ class _SmartBlindPage extends State<SmartBlindPage> {
 
   void _onChange(bool value) {
     print('OnChange $value');
-    _device.setLightState(value);
+    _smartBlindsObject.setLightState(value);
     setState(() {
       _switchState = value;
     });
@@ -58,7 +54,7 @@ class _SmartBlindPage extends State<SmartBlindPage> {
     return Column(
       children: <Widget>[
         Text(
-          _device.name, //  Show device name
+          _smartBlindsObject.name, //  Show device name
           style: TextStyle(
             fontSize: 20.0,
             color: Theme.of(context).textTheme.bodyText2.color,

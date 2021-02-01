@@ -1,12 +1,15 @@
 import 'package:cybear_jinni/main.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:flutter_native_timezone/flutter_native_timezone.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
 
 Future<void> configureLocalTimeZone() async {
   tz.initializeTimeZones();
-  final String timeZoneName = await platform.invokeMethod('getTimeZoneName');
+  // final String timeZoneName = await platform.invokeMethod('getTimeZoneName');
+  final String timeZoneName = await FlutterNativeTimezone.getLocalTimezone();
+
   tz.setLocalLocation(tz.getLocation(timeZoneName));
 }
 

@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/domain/objects/smart_device/smart_room_object.dart';
+import 'package:cybear_jinni/infrastructure/objects/smart_device/smart_room_object.dart';
 import 'package:cybear_jinni/presentation/home_page/smart_device_widget.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/cupertino.dart';

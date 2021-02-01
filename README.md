@@ -57,7 +57,7 @@ To learn the coding guidelines check [this Wiki](https://github.com/CyBear-Jinni
 The app was not tested on IOS.
 
 
-Instructions for creating your smart home can be found in the [Wiki page](https://github.com/CyBear-Jinni/CBJ_App/wiki/Instructions-for-developers)  
+Instructions for creating your smart home can be found in the [Wiki page](https://github.com/CyBear-Jinni/CBJ_App/wiki/Instructions-if-you-want-to-make-your-own-smart-home)  
 
 
 # Social Media Links

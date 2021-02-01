@@ -1,5 +1,5 @@
-import 'package:cybear_jinni/domain/objects/enums.dart';
-import 'package:cybear_jinni/domain/objects/smart_device/smart_device_object.dart';
+import 'package:cybear_jinni/infrastructure/objects/enums.dart';
+import 'package:cybear_jinni/infrastructure/objects/smart_device/smart_device_object.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
