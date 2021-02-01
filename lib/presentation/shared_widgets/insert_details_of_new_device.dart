@@ -174,8 +174,7 @@ class _NewDeviceWidget extends State<NewDeviceWidget> {
   }
 
   final TextEditingController myController = TextEditingController();
-  SmartDeviceObject _smartDeviceObject;
-
+  final SmartDeviceObject _smartDeviceObject;
 
   @override
   void dispose() {

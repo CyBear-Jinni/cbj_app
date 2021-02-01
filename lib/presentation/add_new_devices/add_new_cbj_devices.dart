@@ -84,7 +84,7 @@ class _AddNewCBJDevices extends State<AddNewCBJDevices> {
               leftIconFunction: backButtonFunction,
             ),
 
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
 

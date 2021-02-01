@@ -13,10 +13,10 @@ import 'firebase_user_mapper.dart';
 
 @LazySingleton(as: IAuthFacade)
 class FirebaseAuthFacade implements IAuthFacade {
+  FirebaseAuthFacade(this._firebaseAuth, this._googleSignIn);
+
   final FirebaseAuth _firebaseAuth;
   final GoogleSignIn _googleSignIn;
-
-  FirebaseAuthFacade(this._firebaseAuth, this._googleSignIn);
 
   @override
   Future<Option<MUser>> getSignedInUser() async =>

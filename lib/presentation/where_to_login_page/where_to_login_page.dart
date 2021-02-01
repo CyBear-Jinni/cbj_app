@@ -9,6 +9,11 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 /// The user will choose where to login to, join into an existing home or
 /// create his new home
 class WhereToLoginPage extends StatelessWidget {
+  WhereToLoginPage({@required this.userEmail, @required this.userPassword}) {
+    // whereToLoginObjectToTransfer = WhereToLoginObjectToTransfer(
+    //     userEmail: userEmail, userPassword: userPassword);
+  }
+
   void leftIconFunction(BuildContext context) {
     Navigator.pop(context);
   }
@@ -23,11 +28,6 @@ class WhereToLoginPage extends StatelessWidget {
     if (homePageType == 'demo') {
       ExtendedNavigator.of(context).replace(Routes.homePage);
     } else if (homePageType == 'create') {}
-  }
-
-  WhereToLoginPage({@required this.userEmail, @required this.userPassword}) {
-    // whereToLoginObjectToTransfer = WhereToLoginObjectToTransfer(
-    //     userEmail: userEmail, userPassword: userPassword);
   }
 
   /// Stores user password

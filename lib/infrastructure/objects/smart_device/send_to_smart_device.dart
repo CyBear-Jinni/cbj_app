@@ -11,15 +11,15 @@ import 'client/protoc_as_dart/smart_connection.pb.dart';
 //  Get
 
 Future<List<SmartDeviceObject>> getAllDevices(String deviceIp) async {
-  List<SmartDeviceObject> smartDeviceObjectList = List<SmartDeviceObject>();
+  final List<SmartDeviceObject> smartDeviceObjectList = [];
   SmartDeviceObject smartDeviceObjectTemp;
   SmartBlindsObject smartBlindsObjectTemp;
   DeviceType deviceTypeTemp;
 
-  ResponseStream<SmartDevice> smartDeviceResponseStream =
+  final ResponseStream<SmartDevice> smartDeviceResponseStream =
       await SmartClient.getAllDevices(deviceIp);
 
-  await for (SmartDevice smartDevice in smartDeviceResponseStream) {
+  await for (final SmartDevice smartDevice in smartDeviceResponseStream) {
     print('Device type: ${smartDevice.deviceType}');
     deviceTypeTemp = EnumHelper.stringToDt(smartDevice.deviceType);
     switch (deviceTypeTemp) {
@@ -104,15 +104,15 @@ Future<String> updateDeviceName(
 }
 
 Future<String> turnOn(SmartDeviceObject smartDeviceObject) async {
-  String deviceSuccessStatus =
+  final String deviceSuccessStatus =
       await SmartClient.setSmartDeviceOn(smartDeviceObject);
   print('The return is: $deviceSuccessStatus');
   return deviceSuccessStatus;
 }
 
 Future<String> turnOff(SmartDeviceObject smartDeviceObject) async {
-  String deviceSuccessStatus =
-  await SmartClient.setSmartDeviceOff(smartDeviceObject);
+  final String deviceSuccessStatus =
+      await SmartClient.setSmartDeviceOff(smartDeviceObject);
   print('The return is: $deviceSuccessStatus');
   return deviceSuccessStatus;
 }

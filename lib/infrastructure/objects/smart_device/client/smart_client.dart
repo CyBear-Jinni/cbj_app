@@ -14,7 +14,7 @@ class SmartClient {
     final SmartServerClient stub = SmartServerClient(channel);
     ResponseStream<SmartDevice> response;
     try {
-      SmartDeviceStatus temp = SmartDeviceStatus();
+      final SmartDeviceStatus temp = SmartDeviceStatus();
       temp.onOffState = true;
       response = stub.getAllDevices(temp);
 
@@ -33,10 +33,10 @@ class SmartClient {
     final ClientChannel channel = createSmartServerClient(smartDeviceObject.ip);
     final SmartServerClient stub = SmartServerClient(channel);
 
-    String fireBaseProjectId = ConstantCredentials.fireBaseProjectId;
-    String fireBaseApiKey = ConstantCredentials.fireBaseApiKey;
-    String userEmail = ConstantCredentials.userEmail;
-    String userPassword = ConstantCredentials.userPassword;
+    final String fireBaseProjectId = ConstantCredentials.fireBaseProjectId;
+    final String fireBaseApiKey = ConstantCredentials.fireBaseApiKey;
+    final String userEmail = ConstantCredentials.userEmail;
+    final String userPassword = ConstantCredentials.userPassword;
 
     CommendStatus response;
     try {
@@ -84,8 +84,8 @@ class SmartClient {
     final SmartServerClient stub = SmartServerClient(channel);
     CommendStatus response;
     try {
-      SmartDeviceUpdateDetails smartDeviceUpdateDetails =
-      SmartDeviceUpdateDetails();
+      final SmartDeviceUpdateDetails smartDeviceUpdateDetails =
+          SmartDeviceUpdateDetails();
       smartDeviceUpdateDetails.smartDevice = SmartDevice()
         ..name = smartDeviceObject.name;
       smartDeviceUpdateDetails.newName = newName;

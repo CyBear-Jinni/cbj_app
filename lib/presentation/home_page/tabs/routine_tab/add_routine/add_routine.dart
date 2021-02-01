@@ -38,10 +38,10 @@ class AddRoutinePage extends StatelessWidget {
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFuntion,
             ),
-            SizedBox(
+            const SizedBox(
               height: 100,
             ),
-            Text('When to execute'),
+            const Text('When to execute'),
             FlatButton(
                 color: Colors.grey,
                 onPressed: () {
@@ -50,25 +50,28 @@ class AddRoutinePage extends StatelessWidget {
                       MaterialPageRoute(
                           builder: (BuildContext context) => PickDatePage()));
                 },
-                child: Text('Select')),
-            SizedBox(
+                child: const Text('Select')),
+            const SizedBox(
               height: 30,
             ),
-            Text('Only if'),
+            const Text('Only if'),
             FlatButton(
                 color: Colors.grey,
                 onPressed: () {},
-                child: Text(
+                child: const Text(
                   'Select',
                   style: TextStyle(color: Colors.white),
                 )),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
-            Text('Execute this'),
+            const Text('Execute this'),
             FlatButton(
-                color: Colors.grey, onPressed: () {}, child: Text('Select')),
-            SizedBox(
+              color: Colors.grey,
+              onPressed: () {},
+              child: const Text('Select'),
+            ),
+            const SizedBox(
               height: 30,
             ),
           ],

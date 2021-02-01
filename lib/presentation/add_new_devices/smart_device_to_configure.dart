@@ -15,14 +15,14 @@ class SmartDeviceToConfigure extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(10),
+      margin: const EdgeInsets.all(10),
       color: Colors.black54,
       child: Column(
         children: <Widget>[
           SmartDeviceTypeAndToggleBar(smartDeviceObject),
           Text(
             'Device Name: ${smartDeviceObject.name}',
-            style: TextStyle(fontSize: 21),
+            style: const TextStyle(fontSize: 21),
           ),
           const SizedBox(
             height: 20,

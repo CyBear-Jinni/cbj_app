@@ -28,10 +28,10 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
             Container(
               color: Colors.black87,
               child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 17),
+                margin: const EdgeInsets.symmetric(horizontal: 17),
                 child: Column(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 40,
                     ),
                     Row(
@@ -43,7 +43,7 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                             width: 70.0,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 20,
                         ),
                         Text(
@@ -68,7 +68,7 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                         )
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                   ],
@@ -91,7 +91,7 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                         color: Theme.of(context).textTheme.bodyText1.color,
                         size: 25,
                       ),
-                      title: Text('Add new user'),
+                      title: const Text('Add new user'),
                     ),
                     Divider(
                       thickness: 0.5,
@@ -105,7 +105,7 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                         color: Theme.of(context).textTheme.bodyText1.color,
                         size: 25,
                       ),
-                      title: Text('Log out'),
+                      title: const Text('Log out'),
                       onTap: () {
                         _fireBaseLogOut(context);
                       },

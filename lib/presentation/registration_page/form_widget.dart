@@ -32,10 +32,8 @@ class _FormWidget extends State<FormWidget> {
 
     void _createUser() async {
       try {
-        UserCredential _ = await auth.createUserWithEmailAndPassword(
-            email: emailVal,
-            password: passwordVal
-        );
+        final UserCredential _ = await auth.createUserWithEmailAndPassword(
+            email: emailVal, password: passwordVal);
         _showToast('Account Created');
         Navigator.of(context).popUntil((route) => route.isFirst);
         Navigator.pushReplacement(context,

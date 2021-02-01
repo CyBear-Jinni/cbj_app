@@ -5,8 +5,12 @@ import 'package:flutter/material.dart';
 
 /// Showing alarm clock
 class AlarmClockWidget extends StatefulWidget {
-  AlarmClockWidget(
-      this.headerText, this.subText, this.backgroundImage, this.content);
+  const AlarmClockWidget(
+    this.headerText,
+    this.subText,
+    this.backgroundImage,
+    this.content,
+  );
 
   final String subText;
 

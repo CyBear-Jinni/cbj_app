@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BottomNavigationBarHomePage extends StatelessWidget {
-  BottomNavigationBarHomePage(this.callback, this.pageIndex);
+  const BottomNavigationBarHomePage(this.callback, this.pageIndex);
 
   final Function callback;
 

@@ -14,17 +14,18 @@ Future<void> configureLocalTimeZone() async {
 }
 
 Future<void> initialisationNotifications() async {
-  FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
-// initialise the plugin. app_icon needs to be a added as a drawable resource to the Android head project
+// initialise the plugin. app_icon needs to be a added as a drawable resource
+// to the Android head project
   const AndroidInitializationSettings initializationSettingsAndroid =
       AndroidInitializationSettings('logo');
-  final IOSInitializationSettings initializationSettingsIOS =
+  const IOSInitializationSettings initializationSettingsIOS =
       IOSInitializationSettings(
           onDidReceiveLocalNotification: selectNotificationIos);
-  final MacOSInitializationSettings initializationSettingsMacOS =
+  const MacOSInitializationSettings initializationSettingsMacOS =
       MacOSInitializationSettings();
-  final InitializationSettings initializationSettings = InitializationSettings(
+  const InitializationSettings initializationSettings = InitializationSettings(
       android: initializationSettingsAndroid,
       iOS: initializationSettingsIOS,
       macOS: initializationSettingsMacOS);

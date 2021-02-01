@@ -140,7 +140,6 @@ class SignInForm extends StatelessWidget {
                   height: 8,
                 ),
                 const LinearProgressIndicator(
-                  value: null,
                 )
               ],
             ],

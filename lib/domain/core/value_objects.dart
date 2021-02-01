@@ -39,9 +39,6 @@ abstract class ValueObject<T> {
 }
 
 class UniqueId extends ValueObject<String> {
-  @override
-  final Either<AuthValueFailure<String>, String> value;
-
   factory UniqueId() {
     return UniqueId._(right(Uuid().v1()));
   }
@@ -52,4 +49,7 @@ class UniqueId extends ValueObject<String> {
   }
 
   const UniqueId._(this.value);
+
+  @override
+  final Either<AuthValueFailure<String>, String> value;
 }

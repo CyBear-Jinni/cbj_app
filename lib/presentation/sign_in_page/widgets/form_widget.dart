@@ -116,7 +116,7 @@ class _FormWidget extends State<FormWidget> {
     );
 
     final Padding loginButton = Padding(
-      padding: EdgeInsets.symmetric(vertical: 16.0),
+      padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: RaisedButton(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(24),

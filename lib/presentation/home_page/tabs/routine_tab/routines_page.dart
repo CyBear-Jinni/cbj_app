@@ -49,8 +49,8 @@ class RoutinesPage extends StatelessWidget {
           child: Container(
             margin: const EdgeInsets.symmetric(horizontal: 4),
             child: ListView(
-              children: [
-                const SizedBox(
+              children: const [
+                SizedBox(
                   height: 44,
                 ),
                 AlarmClockWidget(
@@ -58,7 +58,7 @@ class RoutinesPage extends StatelessWidget {
                     'Going to sleep',
                     'assets/gif/sleep3.gif',
                     'Need to wake up in the morning every day and eating all I can bofay.\nNow with no time for delay, lats go and concur the bay'),
-                const SizedBox(
+                SizedBox(
                   height: 44,
                 ),
                 AlarmClockWidget('17:40', 'Going to sleep',

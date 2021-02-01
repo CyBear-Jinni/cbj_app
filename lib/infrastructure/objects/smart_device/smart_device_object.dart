@@ -15,7 +15,7 @@ class SmartDeviceObject {
       //  Checks if regex contained only valid ip and nothing else
       this.ip = ip;
     } else {
-      throw ('Incorrect format of IP');
+      throw 'Incorrect format of IP';
     }
     fireStoreClass = FireStoreClass();
   }
@@ -38,7 +38,7 @@ class SmartDeviceObject {
   //  Get
 
   Future<bool> getDeviceStateAsBool() async {
-    String deviceState = await getDeviceState();
+    final String deviceState = await getDeviceState();
     return deviceState == 'true' ? true : false;
   }
 
@@ -50,10 +50,11 @@ class SmartDeviceObject {
 
     // TODO: network does not need to be created for each device in the network
     final connectivity.ConnectivityResult connectivityResult =
-        await (connectivity.Connectivity().checkConnectivity());
+        await connectivity.Connectivity().checkConnectivity();
 
     if (connectivityResult == connectivity.ConnectivityResult.wifi &&
-        (await getCurrentWifiName() == homeWiFiName || homeWiFiName == 'host')) {
+        (await getCurrentWifiName() == homeWiFiName ||
+            homeWiFiName == 'host')) {
       //  If current network is the network of the smart device set using the local method and not the remote
       return getDeviceStatesLocal();
     } else if (connectivityResult == connectivity.ConnectivityResult.wifi ||
@@ -127,11 +128,12 @@ class SmartDeviceObject {
     }
 
     // TODO: network does not need to be created for each device in the network
-    final connectivity.ConnectivityResult connectivityResult = await (connectivity.Connectivity()
-        .checkConnectivity());
+    final connectivity.ConnectivityResult connectivityResult =
+        await connectivity.Connectivity().checkConnectivity();
 
     if (connectivityResult == connectivity.ConnectivityResult.wifi &&
-        await getCurrentWifiName() == homeWiFiName || homeWiFiName == 'host') {
+            await getCurrentWifiName() == homeWiFiName ||
+        homeWiFiName == 'host') {
       //  If current network is the network of the smart device set using the local method and not the remote
       print('Set light state $state local');
       return setLightStateLocal(state);

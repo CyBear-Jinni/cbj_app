@@ -8,7 +8,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// Show bar of device type with toggle switch for light
 class SmartDeviceTypeAndToggleBar extends StatelessWidget {
-  SmartDeviceTypeAndToggleBar(this._smartDeviceObject);
+  const SmartDeviceTypeAndToggleBar(this._smartDeviceObject);
 
   final SmartDeviceObject _smartDeviceObject;
 

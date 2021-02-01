@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SmartBlindPage extends StatefulWidget {
-  SmartBlindPage({@required this.smartBlindsObject});
+  const SmartBlindPage({@required this.smartBlindsObject});
 
   final SmartBlindsObject smartBlindsObject;
 
