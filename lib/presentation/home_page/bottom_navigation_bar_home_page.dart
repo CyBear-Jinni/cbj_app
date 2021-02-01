@@ -24,6 +24,10 @@ class BottomNavigationBarHomePage extends StatelessWidget {
           label: 'Scenes'.tr(),
         ),
         BottomNavigationBarItem(
+          icon: const FaIcon(FontAwesomeIcons.solidLightbulb),
+          label: 'Devices'.tr(),
+        ),
+        BottomNavigationBarItem(
           icon: const FaIcon(FontAwesomeIcons.history),
           label: 'Routines'.tr(),
         ),
@@ -31,10 +35,6 @@ class BottomNavigationBarHomePage extends StatelessWidget {
         //   icon: const FaIcon(FontAwesomeIcons.link),
         //   label: 'Linked'.tr(),
         // ),
-        BottomNavigationBarItem(
-          icon: const FaIcon(FontAwesomeIcons.solidLightbulb),
-          label: 'Devices'.tr(),
-        ),
       ],
     );
   }

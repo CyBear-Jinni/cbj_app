@@ -14,7 +14,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   /// Tab num, value will be the default tab to show
   int _currentTabNum = 0;
-  final _pages = [ScenesWidgets(), RoutinesPage(), SmartDevicesWidgets()];
+  final _pages = [
+    ScenesWidgets(),
+    SmartDevicesWidgets(),
+    RoutinesPage(),
+  ];
   final _pageController = PageController();
 
   Widget childWidget = ScenesWidgets();
