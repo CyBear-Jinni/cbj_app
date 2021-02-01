@@ -17,6 +17,10 @@ abstract class ValueObject<T> {
     return value.fold((f) => throw UnexpectedValueError(f), id);
   }
 
+  Either<AuthValueFailure<dynamic>, Unit> get failureOrUnit {
+    return value.fold((l) => left(l), (r) => right(unit));
+  }
+
   bool isValid() => value.isRight();
 
   @override
