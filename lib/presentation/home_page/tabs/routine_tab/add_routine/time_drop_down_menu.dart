@@ -2,11 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class TimeDropDownMenu extends StatefulWidget {
+  const TimeDropDownMenu(this.dropDownList, {this.defaultValue});
+
   final String defaultValue;
 
   final List<String> dropDownList;
-
-  TimeDropDownMenu(this.dropDownList, {this.defaultValue});
 
   @override
   _TimeDropDownMenuState createState() => _TimeDropDownMenuState();

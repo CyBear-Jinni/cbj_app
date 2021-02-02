@@ -15,7 +15,7 @@ class SmartDeviceObject {
       //  Checks if regex contained only valid ip and nothing else
       this.ip = ip;
     } else {
-      throw ('Incorrect format of IP');
+      throw 'Incorrect format of IP';
     }
     fireStoreClass = FireStoreClass();
   }
@@ -27,18 +27,15 @@ class SmartDeviceObject {
   FireStoreClass fireStoreClass;
   static String homeWiFiName = ''; // Insert host name
 
-  
   //  Set
-  static void setHomeWiFiName(String homeWiFiNameTemp){
+  static void setHomeWiFiName(String homeWiFiNameTemp) {
     homeWiFiName = homeWiFiNameTemp;
   }
-  
-  
-  
+
   //  Get
 
   Future<bool> getDeviceStateAsBool() async {
-    String deviceState = await getDeviceState();
+    final String deviceState = await getDeviceState();
     return deviceState == 'true' ? true : false;
   }
 
@@ -50,10 +47,11 @@ class SmartDeviceObject {
 
     // TODO: network does not need to be created for each device in the network
     final connectivity.ConnectivityResult connectivityResult =
-        await (connectivity.Connectivity().checkConnectivity());
+        await connectivity.Connectivity().checkConnectivity();
 
     if (connectivityResult == connectivity.ConnectivityResult.wifi &&
-        (await getCurrentWifiName() == homeWiFiName || homeWiFiName == 'host')) {
+        (await getCurrentWifiName() == homeWiFiName ||
+            homeWiFiName == 'host')) {
       //  If current network is the network of the smart device set using the local method and not the remote
       return getDeviceStatesLocal();
     } else if (connectivityResult == connectivity.ConnectivityResult.wifi ||
@@ -74,7 +72,7 @@ class SmartDeviceObject {
 
       if (Platform.isIOS) {
         LocationAuthorizationStatus status =
-        await _wifiInfo.getLocationServiceAuthorization();
+            await _wifiInfo.getLocationServiceAuthorization();
         if (status == LocationAuthorizationStatus.notDetermined) {
           status = await _wifiInfo.requestLocationServiceAuthorization();
         }
@@ -87,15 +85,12 @@ class SmartDeviceObject {
       } else if (Platform.isAndroid) {
         final PermissionStatus status = await Permission.location.status;
         if (status.isUndetermined || status.isDenied || status.isRestricted) {
-          if (await Permission.location
-              .request()
-              .isGranted) {
+          if (await Permission.location.request().isGranted) {
 // Either the permission was already granted before or the user just granted it.
           }
         }
         wifiName = await _wifiInfo.getWifiName();
-      }
-      else {
+      } else {
         print('Does not support this platform');
       }
     } on PlatformException catch (e) {
@@ -127,11 +122,12 @@ class SmartDeviceObject {
     }
 
     // TODO: network does not need to be created for each device in the network
-    final connectivity.ConnectivityResult connectivityResult = await (connectivity.Connectivity()
-        .checkConnectivity());
+    final connectivity.ConnectivityResult connectivityResult =
+        await connectivity.Connectivity().checkConnectivity();
 
     if (connectivityResult == connectivity.ConnectivityResult.wifi &&
-        await getCurrentWifiName() == homeWiFiName || homeWiFiName == 'host') {
+            await getCurrentWifiName() == homeWiFiName ||
+        homeWiFiName == 'host') {
       //  If current network is the network of the smart device set using the local method and not the remote
       print('Set light state $state local');
       return setLightStateLocal(state);

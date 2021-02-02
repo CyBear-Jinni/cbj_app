@@ -24,5 +24,4 @@ class SmartRoomObject {
   List<SmartBlindsObject> getBlinds() {
     return blindsInTheRoom;
   }
-
 }

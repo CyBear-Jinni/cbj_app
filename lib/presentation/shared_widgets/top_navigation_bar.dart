@@ -6,8 +6,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 /// Top part of the pages, will show page name and settings logo,
 /// and sometimes will have back button.
 class TopNavigationBar extends StatelessWidget {
-  TopNavigationBar(this.pageName, this.righIcon, this.righIconFunction,
-      {this.leftIcon, this.leftIconFunction}) {}
+  const TopNavigationBar(this.pageName, this.righIcon, this.righIconFunction,
+      {this.leftIcon, this.leftIconFunction});
 
   /// Page name to showw in the left side of the navigation bar
   final String pageName;
@@ -35,17 +35,17 @@ class TopNavigationBar extends StatelessWidget {
           children: <Widget>[
             Row(
               children: <Widget>[
-                leftIcon != null
-                    ? Container(
-                        alignment: Alignment.centerLeft,
-                        child: IconButton(
-                          icon: FaIcon(leftIcon,
-                              color:
-                                  Theme.of(context).textTheme.bodyText1.color),
-                          onPressed: () => leftIconFunction(context),
-                        ),
-                      )
-                    : SizedBox(),
+                if (leftIcon != null)
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    child: IconButton(
+                      icon: FaIcon(leftIcon,
+                          color: Theme.of(context).textTheme.bodyText1.color),
+                      onPressed: () => leftIconFunction(context),
+                    ),
+                  )
+                else
+                  const SizedBox(),
                 Text(
                   pageName,
                   style: TextStyle(
@@ -54,19 +54,20 @@ class TopNavigationBar extends StatelessWidget {
                 ).tr(),
               ],
             ),
-            righIcon != null
-                ? SizedBox(
-                    width: 25,
-                    child: FlatButton(
-                      padding: EdgeInsets.zero,
-                      onPressed: () => righIconFunction(context),
-                      child: FaIcon(
-                        righIcon,
-                        color: Theme.of(context).textTheme.bodyText1.color,
-                      ),
-                    ),
-                  )
-                : SizedBox(),
+            if (righIcon != null)
+              SizedBox(
+                width: 25,
+                child: FlatButton(
+                  padding: EdgeInsets.zero,
+                  onPressed: () => righIconFunction(context),
+                  child: FaIcon(
+                    righIcon,
+                    color: Theme.of(context).textTheme.bodyText1.color,
+                  ),
+                ),
+              )
+            else
+              const SizedBox(),
           ],
         ),
       ),

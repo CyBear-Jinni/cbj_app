@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class InsertWiFiCredentialPopup extends StatefulWidget {
-  InsertWiFiCredentialPopup(this._deviceIp, this._wiFiName);
+  const InsertWiFiCredentialPopup(this._deviceIp, this._wiFiName);
 
   final String _wiFiName;
 

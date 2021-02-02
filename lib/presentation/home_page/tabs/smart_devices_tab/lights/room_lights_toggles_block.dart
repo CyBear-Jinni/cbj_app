@@ -21,7 +21,7 @@ class RoomLightsTogglesBlock extends StatelessWidget {
     final double sizeBoxWidth = screenSize.width * 0.25;
 
     /// Creates column of rows of light switches
-    Widget CreateSwitchTableWidget() {
+    Widget createSwitchTableWidget() {
       final List<Widget> columnOfLights = <Widget>[];
       List<Widget> widgetsForRow = <Widget>[];
       const int maxLightsInRow = 2;
@@ -37,7 +37,7 @@ class RoomLightsTogglesBlock extends StatelessWidget {
         for (int v = 0; v < maxLightsInRow; v++) {
           if (_smartRoomObject.getLights().length > i + v) {
             widgetsForRow.add(Container(
-              margin: EdgeInsets.symmetric(vertical: 5),
+              margin: const EdgeInsets.symmetric(vertical: 5),
               width: sizeBoxWidth + 15,
               child: SmartDevicePage(_smartRoomObject.getLights()[i + v]),
             ));
@@ -121,7 +121,7 @@ class RoomLightsTogglesBlock extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.all(5),
             ),
-            CreateSwitchTableWidget(),
+            createSwitchTableWidget(),
           ],
         ),
       ),

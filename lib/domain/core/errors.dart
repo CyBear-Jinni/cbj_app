@@ -1,9 +1,9 @@
 import 'package:cybear_jinni/domain/core/failures.dart';
 
 class UnexpectedValueError extends Error {
-  final AuthValueFailure authValueFailure;
-
   UnexpectedValueError(this.authValueFailure);
+
+  final AuthValueFailure authValueFailure;
 
   @override
   String toString() {

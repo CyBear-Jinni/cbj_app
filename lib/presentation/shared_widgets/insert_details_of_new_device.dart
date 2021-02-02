@@ -59,12 +59,10 @@ class InsertDetailsOfNewDevice extends StatelessWidget {
 }
 
 class ShowAllDevicesInTheSmartDevice extends StatefulWidget {
-
   const ShowAllDevicesInTheSmartDevice(this._ip, this.gradientColors);
 
   final String _ip;
   final List<Color> gradientColors;
-
 
   @override
   State<StatefulWidget> createState() {
@@ -72,8 +70,8 @@ class ShowAllDevicesInTheSmartDevice extends StatefulWidget {
   }
 }
 
-class _ShowAllDevicesInTheSmartDevice extends State<ShowAllDevicesInTheSmartDevice> {
-
+class _ShowAllDevicesInTheSmartDevice
+    extends State<ShowAllDevicesInTheSmartDevice> {
   _ShowAllDevicesInTheSmartDevice(this._ip, this.gradientColors) {
     getAllTheDevices();
   }
@@ -103,79 +101,77 @@ class _ShowAllDevicesInTheSmartDevice extends State<ShowAllDevicesInTheSmartDevi
 
   @override
   Widget build(BuildContext context) {
-    return _isLoading ? const CircularProgressIndicator() :
-    Expanded(
-      child: Column(
-        children: <Widget>[
-          Expanded(
-              child: ListView(
-                children: listOfDevicesToShow(),
-              )),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget> [
-              RaisedButton(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(24),
+    return _isLoading
+        ? const CircularProgressIndicator()
+        : Expanded(
+            child: Column(
+              children: <Widget>[
+                Expanded(
+                    child: ListView(
+                  children: listOfDevicesToShow(),
+                )),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    RaisedButton(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(24),
+                      ),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      padding: const EdgeInsets.all(12),
+                      color: Colors.redAccent,
+                      child: const Text('Cancel',
+                              style: TextStyle(color: Colors.white))
+                          .tr(),
+                    ),
+                    RaisedButton(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(24),
+                      ),
+                      onPressed: () {
+                        getAllTheDevices();
+                        final List<SmartDeviceObject> room2DevicesList =
+                            smartDeviceObjectList;
+                        final SmartRoomObject newRoom = SmartRoomObject(
+                            'New_devices'.tr(),
+                            room2DevicesList,
+                            gradientColors);
+                        rooms.add(newRoom);
+                        Navigator.pop(context);
+                      },
+                      padding: const EdgeInsets.all(12),
+                      color: Colors.lightGreen,
+                      child: const Text('Add devices',
+                              style: TextStyle(color: Colors.white))
+                          .tr(),
+                    ),
+                  ],
                 ),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                padding: const EdgeInsets.all(12),
-                color: Colors.redAccent,
-                child: const Text('Cancel',
-                    style: TextStyle(color: Colors.white))
-                    .tr(),
-              ),
-              RaisedButton(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(24),
-                ),
-                onPressed: () {
-                  getAllTheDevices();
-                  final List<SmartDeviceObject> room2DevicesList =
-                      smartDeviceObjectList;
-                  final SmartRoomObject newRoom = SmartRoomObject(
-                      'New_devices'.tr(), room2DevicesList, gradientColors);
-                  rooms.add(newRoom);
-                  Navigator.pop(context);
-                },
-                padding: const EdgeInsets.all(12),
-                color: Colors.lightGreen,
-                child: const Text('Add devices',
-                    style: TextStyle(color: Colors.white))
-                    .tr(),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
+              ],
+            ),
+          );
   }
 }
 
 class NewDeviceWidget extends StatefulWidget {
-
   const NewDeviceWidget(this._smartDeviceObject);
 
-
   final SmartDeviceObject _smartDeviceObject;
-
 
   @override
   _NewDeviceWidget createState() => _NewDeviceWidget(_smartDeviceObject);
 }
 
 class _NewDeviceWidget extends State<NewDeviceWidget> {
-
   _NewDeviceWidget(this._smartDeviceObject) {
     myController.text = _smartDeviceObject.name.toString();
     SmartDeviceObject.setHomeWiFiName('host');
   }
 
   final TextEditingController myController = TextEditingController();
-  SmartDeviceObject _smartDeviceObject;
-
+  final SmartDeviceObject _smartDeviceObject;
 
   @override
   void dispose() {
@@ -261,22 +257,18 @@ class _NewDeviceWidget extends State<NewDeviceWidget> {
           children: <Widget>[
             Row(
               children: <Widget>[
-                if(_smartDeviceObject.deviceType ==
-                    DeviceType.Light)
+                if (_smartDeviceObject.deviceType == DeviceType.Light)
                   Container(
                     margin: const EdgeInsets.only(right: 5),
-                    child:
-                    const CircleAvatar(
+                    child: const CircleAvatar(
                       radius: 16,
                       child: FaIcon(FontAwesomeIcons.solidLightbulb),
                     ),
                   ),
-                if(_smartDeviceObject.deviceType ==
-                    DeviceType.Blinds)
+                if (_smartDeviceObject.deviceType == DeviceType.Blinds)
                   Container(
                     margin: const EdgeInsets.only(right: 5),
-                    child:
-                    const CircleAvatar(
+                    child: const CircleAvatar(
                       radius: 16,
                       child: FaIcon(FontAwesomeIcons.satelliteDish),
                     ),
@@ -284,20 +276,22 @@ class _NewDeviceWidget extends State<NewDeviceWidget> {
                 const Text(
                   'Device_type:_',
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 20,
+                  style: TextStyle(
+                      fontSize: 20,
                       color: Colors.white,
                       backgroundColor: Colors.blueGrey
 //                color: Theme.of(context).textTheme.bodyText1.color,
-                  ),
-                ).tr(args: <String>[EnumHelper.dTToString(
-                    _smartDeviceObject.deviceType)
+                      ),
+                ).tr(args: <String>[
+                  EnumHelper.dTToString(_smartDeviceObject.deviceType)
                 ]),
-                if (_smartDeviceObject.deviceType ==
-                    DeviceType.Light) SizedBox(
-                  width: 100,
-                  child: SmartDevicePage(
-                      _smartDeviceObject), // The actual render of the device
-                ) else
+                if (_smartDeviceObject.deviceType == DeviceType.Light)
+                  SizedBox(
+                    width: 100,
+                    child: SmartDevicePage(
+                        _smartDeviceObject), // The actual render of the device
+                  )
+                else
                   Container(),
               ],
             ),

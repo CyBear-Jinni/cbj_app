@@ -58,7 +58,7 @@ class SmartDevicesWidgets extends StatelessWidget {
                       borderRadius: BorderRadius.circular(30),
                     ),
                     alignment: Alignment.bottomCenter,
-                    child: Container(
+                    child: SizedBox(
                       width: double.infinity,
                       child: DecoratedBox(
                         decoration: const BoxDecoration(
@@ -70,7 +70,8 @@ class SmartDevicesWidgets extends StatelessWidget {
                         child: Container(
                           padding: const EdgeInsets.only(bottom: 10),
                           child: Container(
-                              padding: EdgeInsets.symmetric(horizontal: 3),
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 3),
                               child: Stack(
                                 alignment: Alignment.center,
                                 children: <Widget>[
@@ -130,7 +131,7 @@ class SmartDevicesWidgets extends StatelessWidget {
                 },
               );
             },
-            textStyle: TextStyle(color: Colors.green, fontSize: 23)),
+            textStyle: const TextStyle(color: Colors.green, fontSize: 23)),
         BottomSheetAction(
             title: '⚙️ Devices Settings',
             onPressed: () {
@@ -140,7 +141,7 @@ class SmartDevicesWidgets extends StatelessWidget {
                       builder: (BuildContext context) =>
                           SettingsPageSmartDevices()));
             },
-            textStyle: TextStyle(color: Colors.blueGrey, fontSize: 23)),
+            textStyle: const TextStyle(color: Colors.blueGrey, fontSize: 23)),
       ],
     );
   }

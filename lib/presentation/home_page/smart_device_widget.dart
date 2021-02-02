@@ -113,7 +113,6 @@ class _SmartDevicePage extends State<SmartDevicePage> {
 }
 
 class LifecycleEventHandler extends WidgetsBindingObserver {
-
   LifecycleEventHandler({
     this.resumeCallBack,
     this.suspendingCallBack,

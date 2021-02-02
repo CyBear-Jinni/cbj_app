@@ -8,8 +8,22 @@
 const SecurityBearSetup$json = const {
   '1': 'SecurityBearSetup',
   '2': const [
-    const {'1': 'wiFiFirstPriority', '3': 3, '4': 1, '5': 11, '6': '.SecurityBearConnections.WiFiInformation', '10': 'wiFiFirstPriority'},
-    const {'1': 'wiFiSecondPriority', '3': 4, '4': 1, '5': 11, '6': '.SecurityBearConnections.WiFiInformation', '10': 'wiFiSecondPriority'},
+    const {
+      '1': 'wiFiFirstPriority',
+      '3': 3,
+      '4': 1,
+      '5': 11,
+      '6': '.SecurityBearConnections.WiFiInformation',
+      '10': 'wiFiFirstPriority'
+    },
+    const {
+      '1': 'wiFiSecondPriority',
+      '3': 4,
+      '4': 1,
+      '5': 11,
+      '6': '.SecurityBearConnections.WiFiInformation',
+      '10': 'wiFiSecondPriority'
+    },
   ],
 };
 
@@ -31,10 +45,21 @@ const SBCommendStatus$json = const {
 const SBFirebaseAccountInformation$json = const {
   '1': 'SBFirebaseAccountInformation',
   '2': const [
-    const {'1': 'fireBaseProjectId', '3': 6, '4': 1, '5': 9, '10': 'fireBaseProjectId'},
-    const {'1': 'fireBaseApiKey', '3': 7, '4': 1, '5': 9, '10': 'fireBaseApiKey'},
+    const {
+      '1': 'fireBaseProjectId',
+      '3': 6,
+      '4': 1,
+      '5': 9,
+      '10': 'fireBaseProjectId'
+    },
+    const {
+      '1': 'fireBaseApiKey',
+      '3': 7,
+      '4': 1,
+      '5': 9,
+      '10': 'fireBaseApiKey'
+    },
     const {'1': 'userEmail', '3': 8, '4': 1, '5': 9, '10': 'userEmail'},
     const {'1': 'userPassword', '3': 9, '4': 1, '5': 9, '10': 'userPassword'},
   ],
 };
-

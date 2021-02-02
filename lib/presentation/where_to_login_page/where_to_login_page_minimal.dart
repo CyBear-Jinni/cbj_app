@@ -1,40 +1,18 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// The user will choose where to login to, join into an existing home or
 /// create his new home
-class WhereToLoginPage extends StatelessWidget {
+class WhereToLoginPageMinimal extends StatelessWidget {
+  WhereToLoginPageMinimal();
+
   void leftIconFunction(BuildContext context) {
     Navigator.pop(context);
   }
-
-  Future<void> contiueToHomePage(
-      BuildContext context, String homePageType) async {
-    final FirebaseAuth auth = FirebaseAuth.instance;
-
-    final UserCredential _ = await auth.signInWithEmailAndPassword(
-        email: userEmail, password: userPassword);
-
-    if (homePageType == 'demo') {
-      ExtendedNavigator.of(context).replace(Routes.homePage);
-    } else if (homePageType == 'create') {}
-  }
-
-  WhereToLoginPage({@required this.userEmail, @required this.userPassword}) {
-    // whereToLoginObjectToTransfer = WhereToLoginObjectToTransfer(
-    //     userEmail: userEmail, userPassword: userPassword);
-  }
-
-  /// Stores user password
-  final String userPassword;
-
-  /// Stores user email
-  final String userEmail;
 
   @override
   Widget build(BuildContext context) {
@@ -43,11 +21,10 @@ class WhereToLoginPage extends StatelessWidget {
       body: Column(
         children: <Widget>[
           TopNavigationBar(
-            'Choose where to login to',
+            'Choose type of login',
             null,
             null,
-            leftIcon: FontAwesomeIcons.arrowLeft,
-            leftIconFunction: leftIconFunction,
+            leftIcon: FontAwesomeIcons.school,
           ),
           const SizedBox(
             height: 30,
@@ -66,44 +43,11 @@ class WhereToLoginPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   FlatButton(
-                    color: Colors.greenAccent,
-                    height: 100,
-                    minWidth: MediaQuery.of(context).size.width,
-                    onPressed: () {
-                      contiueToHomePage(context, 'demo');
-                    },
-                    child: Container(
-                      margin: const EdgeInsets.only(left: 30),
-                      child: Row(
-                        children: <Widget>[
-                          FaIcon(FontAwesomeIcons.vial,
-                              color:
-                                  Theme.of(context).textTheme.bodyText1.color),
-                          const SizedBox(
-                            width: 20,
-                          ),
-                          Text(
-                            'Open Demo',
-                            style: TextStyle(
-                                fontSize: 25,
-                                color: Theme.of(context)
-                                    .textTheme
-                                    .bodyText1
-                                    .color),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  FlatButton(
                     height: 100,
                     minWidth: MediaQuery.of(context).size.width,
                     color: Colors.blue,
                     onPressed: () {
-                      contiueToHomePage(context, 'create');
+                      ExtendedNavigator.of(context).replace(Routes.signInPage);
                     },
                     child: Container(
                       margin: const EdgeInsets.only(left: 30),
@@ -135,7 +79,9 @@ class WhereToLoginPage extends StatelessWidget {
                     height: 100,
                     minWidth: MediaQuery.of(context).size.width,
                     color: Colors.orange,
-                    onPressed: () {},
+                    onPressed: () {
+                      ExtendedNavigator.of(context).replace(Routes.signInPage);
+                    },
                     child: Container(
                       margin: const EdgeInsets.only(left: 30),
                       child: Row(
@@ -161,6 +107,16 @@ class WhereToLoginPage extends StatelessWidget {
                   ),
                 ],
               ),
+            ),
+          ),
+          Container(
+            alignment: Alignment.bottomRight,
+            child: FlatButton(
+              color: Colors.white,
+              onPressed: () {
+                ExtendedNavigator.of(context).push(Routes.whereToLoginPageFull);
+              },
+              child: const Text('For More Options'),
             ),
           ),
         ],

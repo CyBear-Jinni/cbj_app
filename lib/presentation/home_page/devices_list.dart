@@ -3,7 +3,9 @@ import 'package:cybear_jinni/presentation/home_page/smart_device_widget.dart';
 import 'package:flutter/material.dart';
 
 class DevicesList extends StatefulWidget {
-  DevicesList(this.devices, {this.howMuchToShow, this.axis = Axis.vertical});
+  const DevicesList(this.devices,
+      {this.howMuchToShow, this.axis = Axis.vertical});
+
   final List<SmartDeviceObject> devices;
   final int howMuchToShow;
   final Axis axis;

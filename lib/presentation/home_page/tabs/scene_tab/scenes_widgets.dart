@@ -70,7 +70,7 @@ class ScenesWidgets extends StatelessWidget {
         BottomSheetAction(
             title: '➕ Add Scene',
             onPressed: () {},
-            textStyle: TextStyle(color: Colors.green, fontSize: 23)),
+            textStyle: const TextStyle(color: Colors.green, fontSize: 23)),
         BottomSheetAction(
             title: '⚙️ Scenes Settings',
             onPressed: () {
@@ -80,7 +80,7 @@ class ScenesWidgets extends StatelessWidget {
                       builder: (BuildContext context) =>
                           SettingsPageOfScenes()));
             },
-            textStyle: TextStyle(color: Colors.blueGrey, fontSize: 23)),
+            textStyle: const TextStyle(color: Colors.blueGrey, fontSize: 23)),
       ],
     );
   }
@@ -120,9 +120,9 @@ class ScenesWidgets extends StatelessWidget {
       context: context,
       builder: (BuildContext context) => child,
     ).then<void>((T value) {
-      Scaffold.of(context).showSnackBar(new SnackBar(
-        content: new Text('You clicked $value'),
-        duration: Duration(milliseconds: 800),
+      Scaffold.of(context).showSnackBar(SnackBar(
+        content: Text('You clicked $value'),
+        duration: const Duration(milliseconds: 800),
       ));
     });
   }

@@ -32,7 +32,6 @@ final List<SmartDeviceObject> room4DevicesList = <SmartDeviceObject>[
   SmartDeviceObject(DeviceType.Light, 'Gate', '10.0.0.31', 'Outside South'),
 ];
 
-
 final List<SmartBlindsObject> room1blindsList = <SmartBlindsObject>[
   SmartBlindsObject(DeviceType.Blinds, 'SouthBlinds', '10.0.0.34'),
 ];

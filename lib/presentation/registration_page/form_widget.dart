@@ -19,7 +19,6 @@ class _FormWidget extends State<FormWidget> {
   FirebaseAuth auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
-
     void _showToast(String msg) {
       Fluttertoast.showToast(
           msg: msg,
@@ -32,10 +31,8 @@ class _FormWidget extends State<FormWidget> {
 
     void _createUser() async {
       try {
-        UserCredential _ = await auth.createUserWithEmailAndPassword(
-            email: emailVal,
-            password: passwordVal
-        );
+        final UserCredential _ = await auth.createUserWithEmailAndPassword(
+            email: emailVal, password: passwordVal);
         _showToast('Account Created');
         Navigator.of(context).popUntil((route) => route.isFirst);
         Navigator.pushReplacement(context,
@@ -50,6 +47,7 @@ class _FormWidget extends State<FormWidget> {
         _showToast('Unable to create account, try again!');
       }
     }
+
     void _submitForm() {
       if (!autoValidation) {
         setState(() {
@@ -125,11 +123,9 @@ class _FormWidget extends State<FormWidget> {
         ),
         onPressed: _submitForm,
         padding: const EdgeInsets.all(12),
-        color: Theme
-            .of(context)
-            .accentColor,
+        color: Theme.of(context).accentColor,
         child: const Text('Create_new_account',
-            style: TextStyle(color: Colors.white))
+                style: TextStyle(color: Colors.white))
             .tr(),
       ),
     );

@@ -28,7 +28,7 @@ class _FormWidget extends State<FormWidget> {
           return 'Email_cannot_contain_spaces'.tr();
         }
         if (!RegExp(
-            r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
+                r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
             .hasMatch(value)) {
           return 'Email_is_invalid'.tr();
         }
@@ -43,14 +43,13 @@ class _FormWidget extends State<FormWidget> {
       ),
     );
 
-
     final Padding button = Padding(
       padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: RaisedButton(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(24),
         ),
-        onPressed: ()=> {},
+        onPressed: () => {},
         padding: const EdgeInsets.all(12),
         color: Theme.of(context).accentColor,
         child: const Text('Send', style: TextStyle(color: Colors.white)).tr(),
@@ -62,13 +61,8 @@ class _FormWidget extends State<FormWidget> {
     return Form(
       key: _formKey,
       child: Column(
-        children: [
-          email,
-          separator,
-          button
-        ],
+        children: [email, separator, button],
       ),
     );
   }
-
 }

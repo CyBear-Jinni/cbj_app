@@ -26,8 +26,12 @@ environment:
 dependencies:
   # A action bottom sheet that adapts to the platform
   adaptive_action_sheet: ^1.0.11
+  # Collection of some cool and awesome text animations.
+  animated_text_kit: ^3.1.0
   # Declarative routing solution, where everything needed for navigation is automatically generated for you.
   auto_route: ^0.6.9
+  # Helps implement the BLoC pattern.
+  bloc: ^6.1.1
   # Copy text to clipboard in both
   clipboard_manager: ^0.0.4
   cloud_firestore: ^0.16.0
@@ -75,6 +79,8 @@ dependencies:
   http: ^0.12.2
   # Convenient code generator for get_it
   injectable: ^1.0.7
+  # Allow you to have a screen at launcher for example
+  introduction_screen: ^1.0.9
   # Port of Kotlin's Kotlin Standard library for Dart/Flutter projects
   kt_dart: ^0.8.0
   # Finding commonly used locations on the filesystem
