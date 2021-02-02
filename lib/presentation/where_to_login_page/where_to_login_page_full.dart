@@ -94,7 +94,7 @@ class WhereToLoginPageFull extends StatelessWidget {
                             width: 20,
                           ),
                           Text(
-                            'Setup Only With WiFi',
+                            'Work Only On WiFi',
                             style: TextStyle(
                                 fontSize: 25,
                                 color: Theme.of(context)
