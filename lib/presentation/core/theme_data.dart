@@ -1,6 +1,3 @@
-
-
-
 import 'dart:ui';
 
 class GradientColors {

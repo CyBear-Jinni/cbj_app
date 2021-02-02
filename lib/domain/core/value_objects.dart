@@ -35,7 +35,6 @@ abstract class ValueObject<T> {
 
   @override
   int get hashCode => value.hashCode;
-
 }
 
 class UniqueId extends ValueObject<String> {

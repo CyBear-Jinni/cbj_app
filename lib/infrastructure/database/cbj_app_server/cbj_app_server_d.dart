@@ -31,7 +31,6 @@ class CBJAppServerD extends CyBearJinniAppServiceBase {
 
 /// Helper class to control the Server
 class CreateTheCBJAppServer {
-
   ///  This function will create the server
   Future<void> createServer() async {
     final Server server = Server(<CBJAppServerD>[CBJAppServerD()]);
@@ -39,5 +38,3 @@ class CreateTheCBJAppServer {
     print('Server listening on port ${server.port}...');
   }
 }
-
-

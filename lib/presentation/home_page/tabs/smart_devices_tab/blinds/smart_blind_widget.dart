@@ -101,11 +101,7 @@ class _SmartBlindPage extends State<SmartBlindPage> {
                 child: Text(
                   'Stop',
                   style: TextStyle(
-                      color: Theme
-                          .of(context)
-                          .textTheme
-                          .bodyText1
-                          .color,
+                      color: Theme.of(context).textTheme.bodyText1.color,
                       fontSize: 16),
                 ).tr(),
               ),
@@ -122,11 +118,7 @@ class _SmartBlindPage extends State<SmartBlindPage> {
                 child: Text(
                   'Up',
                   style: TextStyle(
-                      color: Theme
-                          .of(context)
-                          .textTheme
-                          .bodyText1
-                          .color,
+                      color: Theme.of(context).textTheme.bodyText1.color,
                       fontSize: 16),
                 ).tr(),
               ),

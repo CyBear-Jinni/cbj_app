@@ -9,5 +9,4 @@ class ErrorMessage extends StatelessWidget {
       decoration: const BoxDecoration(color: Colors.white),
     );
   }
-
 }

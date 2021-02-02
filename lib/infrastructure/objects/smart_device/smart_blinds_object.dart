@@ -90,7 +90,6 @@ class SmartBlindsObject extends SmartDeviceObject {
     return 'Error getting device state';
   }
 
-
   Future<String> setBlindStateRemote(WishEnum wish) async {
     return (await fireStoreClass.changeBlindsState(roomName, name, wish))
         .toString();

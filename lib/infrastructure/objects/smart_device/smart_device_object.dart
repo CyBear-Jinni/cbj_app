@@ -27,14 +27,11 @@ class SmartDeviceObject {
   FireStoreClass fireStoreClass;
   static String homeWiFiName = ''; // Insert host name
 
-  
   //  Set
-  static void setHomeWiFiName(String homeWiFiNameTemp){
+  static void setHomeWiFiName(String homeWiFiNameTemp) {
     homeWiFiName = homeWiFiNameTemp;
   }
-  
-  
-  
+
   //  Get
 
   Future<bool> getDeviceStateAsBool() async {
@@ -75,7 +72,7 @@ class SmartDeviceObject {
 
       if (Platform.isIOS) {
         LocationAuthorizationStatus status =
-        await _wifiInfo.getLocationServiceAuthorization();
+            await _wifiInfo.getLocationServiceAuthorization();
         if (status == LocationAuthorizationStatus.notDetermined) {
           status = await _wifiInfo.requestLocationServiceAuthorization();
         }
@@ -88,15 +85,12 @@ class SmartDeviceObject {
       } else if (Platform.isAndroid) {
         final PermissionStatus status = await Permission.location.status;
         if (status.isUndetermined || status.isDenied || status.isRestricted) {
-          if (await Permission.location
-              .request()
-              .isGranted) {
+          if (await Permission.location.request().isGranted) {
 // Either the permission was already granted before or the user just granted it.
           }
         }
         wifiName = await _wifiInfo.getWifiName();
-      }
-      else {
+      } else {
         print('Does not support this platform');
       }
     } on PlatformException catch (e) {

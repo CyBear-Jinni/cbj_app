@@ -30,6 +30,7 @@ class _FormWidget extends State<FormWidget> {
           textColor: Theme.of(context).textTheme.bodyText1.color,
           fontSize: 16.0);
     }
+
     void _loginUser() async {
       try {
         // WhereToLoginObjectToTransfer whereToLoginObjcetToTransfer =
@@ -47,6 +48,7 @@ class _FormWidget extends State<FormWidget> {
         }
       }
     }
+
     void _submitForm() {
       if (!autoValidation) {
         setState(() {
@@ -72,7 +74,7 @@ class _FormWidget extends State<FormWidget> {
           return 'Email_cannot_contain_spaces'.tr();
         }
         if (!RegExp(
-            r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
+                r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
             .hasMatch(value)) {
           return 'Email_is_invalid'.tr();
         }
@@ -131,10 +133,10 @@ class _FormWidget extends State<FormWidget> {
       ),
     );
 
-    final SizedBox verticalSpacing = SizedBox(height: screenSize.height*0.05);
+    final SizedBox verticalSpacing = SizedBox(height: screenSize.height * 0.05);
 
     return Form(
-    key: _formKey,
+      key: _formKey,
       child: Column(
         children: <Widget>[
           email,

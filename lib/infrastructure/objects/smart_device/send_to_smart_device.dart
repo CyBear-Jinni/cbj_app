@@ -34,7 +34,7 @@ Future<List<SmartDeviceObject>> getAllDevices(String deviceIp) async {
         smartDeviceObjectList.add(smartBlindsObjectTemp);
         break;
       case DeviceType.DynamicLight:
-      // TODO: Handle this case.
+        // TODO: Handle this case.
         break;
       case DeviceType.Thermostat:
         // TODO: Handle this case.

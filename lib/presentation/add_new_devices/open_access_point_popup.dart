@@ -39,16 +39,23 @@ class OpenHotspotAccessPoint extends StatelessWidget {
                         backgroundColor: Colors.lightBlue,
                         textColor: Colors.white,
                         fontSize: 16.0);
-                  },child: Column(
-                  children: const <Widget>[
-                    Text('Hotspot name:'),
-                    Text('CyBear Jinni', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
-                  ],
-                ),
+                  },
+                  child: Column(
+                    children: const <Widget>[
+                      Text('Hotspot name:'),
+                      Text(
+                        'CyBear Jinni',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
-            const SizedBox(height: 10,),
+            const SizedBox(
+              height: 10,
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: SizedBox(
@@ -56,7 +63,7 @@ class OpenHotspotAccessPoint extends StatelessWidget {
                 height: 50,
                 child: FlatButton(
                   color: Colors.black12,
-                  onPressed: (){
+                  onPressed: () {
                     ClipboardManager.copyToClipBoard('CyBear Jinni');
                     Fluttertoast.showToast(
                         msg: 'Copy',
@@ -65,13 +72,17 @@ class OpenHotspotAccessPoint extends StatelessWidget {
                         backgroundColor: Colors.lightBlue,
                         textColor: Colors.white,
                         fontSize: 16.0);
-                  },child: Column(
-                  children: const <Widget>[
-                    Text('Hotspot password:'),
-                    Text('CyBear Jinni', style: TextStyle(fontWeight:
-                    FontWeight.bold, fontSize: 20),),
-                  ],
-                ),
+                  },
+                  child: Column(
+                    children: const <Widget>[
+                      Text('Hotspot password:'),
+                      Text(
+                        'CyBear Jinni',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -84,8 +95,7 @@ class OpenHotspotAccessPoint extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (BuildContext context) =>
-                      AddNewCBJDevices()),
+                  builder: (BuildContext context) => AddNewCBJDevices()),
               //            Navigator.of(context).pop();
             );
           },
@@ -94,6 +104,4 @@ class OpenHotspotAccessPoint extends StatelessWidget {
       ],
     );
   }
-
 }
-
