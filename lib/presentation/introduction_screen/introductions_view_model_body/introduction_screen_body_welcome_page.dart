@@ -14,7 +14,7 @@ class IntroductionScreenBodyWelcomePage extends StatelessWidget {
               Text(
                 'We',
                 style: TextStyle(
-                  fontSize: 25.0,
+                  fontSize: 17.0,
                   color: Theme.of(context).textTheme.bodyText1.color,
                 ),
               ),
@@ -31,7 +31,7 @@ class IntroductionScreenBodyWelcomePage extends StatelessWidget {
                   'want a BETTER FUTURE',
                 ],
                 textStyle: TextStyle(
-                  fontSize: 25.0,
+                  fontSize: 20.0,
                   color: Theme.of(context).textTheme.bodyText1.color,
                 ),
               ),
@@ -53,21 +53,21 @@ class IntroductionScreenBodyWelcomePage extends StatelessWidget {
               children: [
                 CircleAvatar(
                   backgroundColor: Colors.transparent,
-                  radius: 58.0,
+                  radius: 55.0,
                   child: Image.network(
                     'https://user-images.githubusercontent.com/9304740/97103272-19572d00-16b4-11eb-8e47-394ec18b3809.png',
                   ),
                 ),
                 CircleAvatar(
                   backgroundColor: Colors.transparent,
-                  radius: 58.0,
+                  radius: 55.0,
                   child: Image.network(
                     'https://user-images.githubusercontent.com/9304740/97423649-3ab85300-1918-11eb-8c2e-50ce0445c457.png',
                   ),
                 ),
                 CircleAvatar(
                   backgroundColor: Colors.transparent,
-                  radius: 58.0,
+                  radius: 55.0,
                   child: Image.network(
                     'https://user-images.githubusercontent.com/62209650/95081236-8e6cbd80-0719-11eb-99b9-8efc34e711b0.png',
                   ),

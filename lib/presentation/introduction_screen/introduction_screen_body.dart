@@ -41,18 +41,31 @@ class IntroductionScreenBody extends StatelessWidget {
         globalBackgroundColor: Colors.transparent,
         pages: [
           PageViewModel(
-            title: 'Welcome to CyBear Jinni',
-            bodyWidget: IntroductionScreenBodyWelcomePage(),
-            image: Center(
-              child: Image.network(
-                'https://cybearjinni.com/assets/assets/fan_art/after_editing/logo_no_background.png',
-                height: 290.0,
-              ),
+            titleWidget: Column(
+              children: [
+                Container(
+                  margin: const EdgeInsets.all(40),
+                  child: Center(
+                    child: Image.network(
+                      'https://cybearjinni.com/assets/assets/fan_art/after_editing/logo_no_background.png',
+                      height: 220.0,
+                    ),
+                  ),
+                ),
+                Text(
+                  'Welcome to CyBear Jinni',
+                  style: TextStyle(
+                    color: Theme.of(context).textTheme.bodyText1.color,
+                    fontSize: 25,
+                  ),
+                ),
+              ],
             ),
+            bodyWidget: IntroductionScreenBodyWelcomePage(),
             decoration: PageDecoration(
               titleTextStyle: TextStyle(
                 color: Theme.of(context).textTheme.bodyText1.color,
-                fontSize: 30,
+                fontSize: 25,
               ),
               pageColor: Colors.transparent,
               bodyTextStyle: TextStyle(
