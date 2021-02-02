@@ -17,7 +17,7 @@ import '../home_page/tabs/smart_devices_tab/blinds/smart_blind_widget.dart';
 import '../home_page/tabs/smart_devices_tab/lights/lights_in_the_room/lights_in_the_room_page.dart';
 import '../home_page/tabs/smart_devices_tab/lights/lights_page.dart';
 import '../introduction_screen/introduction_screen_page.dart';
-import '../sign_in_page/login_page.dart';
+import '../sign_in_page/sign_in_page.dart';
 import '../splash/splash_page.dart';
 import '../where_to_login_page/where_to_login_page_full.dart';
 import '../where_to_login_page/where_to_login_page_minimal.dart';
@@ -78,8 +78,9 @@ class AppRouter extends RouterBase {
       );
     },
     SignInPage: (data) {
+      final args = data.getArgs<SignInPageArguments>(nullOk: false);
       return MaterialPageRoute<dynamic>(
-        builder: (context) => SignInPage(),
+        builder: (context) => SignInPage(creatingHome: args.creatingHome),
         settings: data,
       );
     },
@@ -142,7 +143,13 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
   Future<dynamic> pushIntroductionScreenPage() =>
       push<dynamic>(Routes.introductionScreenPage);
 
-  Future<dynamic> pushSignInPage() => push<dynamic>(Routes.signInPage);
+  Future<dynamic> pushSignInPage({
+    @required bool creatingHome,
+  }) =>
+      push<dynamic>(
+        Routes.signInPage,
+        arguments: SignInPageArguments(creatingHome: creatingHome),
+      );
 
   Future<dynamic> pushWhereToLoginPageMinimal() =>
       push<dynamic>(Routes.whereToLoginPageMinimal);
@@ -177,6 +184,12 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
 /// ************************************************************************
 /// Arguments holder classes
 /// *************************************************************************
+
+/// SignInPage arguments holder class
+class SignInPageArguments {
+  final bool creatingHome;
+  SignInPageArguments({@required this.creatingHome});
+}
 
 /// LightsInTheRoomPage arguments holder class
 class LightsInTheRoomPageArguments {

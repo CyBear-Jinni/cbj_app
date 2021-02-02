@@ -47,7 +47,12 @@ class WhereToLoginPageMinimal extends StatelessWidget {
                     minWidth: MediaQuery.of(context).size.width,
                     color: Colors.blue,
                     onPressed: () {
-                      ExtendedNavigator.of(context).replace(Routes.signInPage);
+                      ExtendedNavigator.of(context).push(
+                        Routes.signInPage,
+                        arguments: SignInPageArguments(
+                          creatingHome: true,
+                        ),
+                      );
                     },
                     child: Container(
                       margin: const EdgeInsets.only(left: 30),
@@ -80,7 +85,12 @@ class WhereToLoginPageMinimal extends StatelessWidget {
                     minWidth: MediaQuery.of(context).size.width,
                     color: Colors.orange,
                     onPressed: () {
-                      ExtendedNavigator.of(context).replace(Routes.signInPage);
+                      ExtendedNavigator.of(context).push(
+                        Routes.signInPage,
+                        arguments: SignInPageArguments(
+                          creatingHome: false,
+                        ),
+                      );
                     },
                     child: Container(
                       margin: const EdgeInsets.only(left: 30),

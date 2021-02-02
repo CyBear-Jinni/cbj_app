@@ -8,6 +8,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignInForm extends StatelessWidget {
+  SignInForm({@required this.creatingHome});
+
+  final bool creatingHome;
+
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
@@ -18,16 +22,16 @@ class SignInForm extends StatelessWidget {
             () {},
             (either) => either.fold(
                     (failure) => {
-                          FlushbarHelper.createError(
-                            message: failure.map(
-                              cancelledByUser: (_) => 'Cancelled',
-                              serverError: (_) => 'Server error',
-                              emailAlreadyInUse: (_) => 'Email already in use',
-                              invalidEmailAndPasswordCombination: (_) =>
-                                  'Invalid email and password combination',
-                            ),
-                          ).show(context),
-                        }, (_) {
+                      FlushbarHelper.createError(
+                        message: failure.map(
+                          cancelledByUser: (_) => 'Cancelled',
+                          serverError: (_) => 'Server error',
+                          emailAlreadyInUse: (_) => 'Email already in use',
+                          invalidEmailAndPasswordCombination: (_) =>
+                          'Invalid email and password combination',
+                        ),
+                      ).show(context),
+                    }, (_) {
                   ExtendedNavigator.of(context).replace(Routes.homePage);
 
                   context
@@ -68,8 +72,8 @@ class SignInForm extends StatelessWidget {
                     .value
                     .fold(
                         (f) => f.maybeMap(
-                            invalidEmail: (_) => 'Invalid Email',
-                            orElse: () => null),
+                        invalidEmail: (_) => 'Invalid Email',
+                        orElse: () => null),
                         (r) => null),
               ),
               const SizedBox(
@@ -92,8 +96,8 @@ class SignInForm extends StatelessWidget {
                     .value
                     .fold(
                         (f) => f.maybeMap(
-                            invalidEmail: (_) => 'Short Password',
-                            orElse: () => null),
+                        invalidEmail: (_) => 'Short Password',
+                        orElse: () => null),
                         (r) => null),
               ),
               Row(
@@ -102,9 +106,9 @@ class SignInForm extends StatelessWidget {
                     child: FlatButton(
                       onPressed: () {
                         context.bloc<SignInFormBloc>().add(
-                              const SignInFormEvent
-                                  .signInWithEmailAndPasswordPassed(),
-                            );
+                          const SignInFormEvent
+                              .signInWithEmailAndPasswordPassed(),
+                        );
                       },
                       child: const Text('SIGN IN'),
                     ),
@@ -113,9 +117,9 @@ class SignInForm extends StatelessWidget {
                     child: FlatButton(
                       onPressed: () {
                         context.bloc<SignInFormBloc>().add(
-                              const SignInFormEvent
-                                  .registerWithEmailAndPassword(),
-                            );
+                          const SignInFormEvent
+                              .registerWithEmailAndPassword(),
+                        );
                       },
                       child: const Text('REGISTER'),
                     ),

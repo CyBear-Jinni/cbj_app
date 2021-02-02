@@ -1,6 +1,7 @@
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/core/app_widget.dart';
 import 'package:cybear_jinni/presentation/core/notifications.dart';
+import 'package:dartz/dartz.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -34,7 +35,7 @@ class ReceivedNotification {
   final String payload;
 }
 
-void main() async {
+Future<None> main() async {
 //  debugPaintSizeEnabled = true;
   configureDependencies(Env.prod);
 
@@ -47,12 +48,11 @@ void main() async {
   await initialisationNotifications();
 
   runApp(
-
-      /// Use https://lingohub.com/developers/supported-locales/language-designators-with-regions
-      /// Or https://www.contentstack.com/docs/developers/multilingual-content/list-of-supported-languages/
-      /// To find your language letters, and add the file letters below
-      EasyLocalization(
-          supportedLocales: const <Locale>[
+    /// Use https://lingohub.com/developers/supported-locales/language-designators-with-regions
+    /// Or https://www.contentstack.com/docs/developers/multilingual-content/list-of-supported-languages/
+    /// To find your language letters, and add the file letters below
+    EasyLocalization(
+      supportedLocales: const <Locale>[
         Locale('cs', 'CZ'),
         Locale('de', 'DE'),
         Locale('en', 'GB'),
@@ -76,7 +76,10 @@ void main() async {
         Locale('th', 'TH'),
         Locale('zh', 'TW'),
       ],
-          path: 'assets/translations', // <-- change patch to your
-          fallbackLocale: const Locale('en', 'US'),
-          child: AppWidget()));
+      path: 'assets/translations', // <-- change patch to your
+      fallbackLocale: const Locale('en', 'US'),
+      child: AppWidget(),
+    ),
+  );
+  return const None();
 }
