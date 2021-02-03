@@ -3,6 +3,7 @@ import 'package:cybear_jinni/presentation/core/app_widget.dart';
 import 'package:cybear_jinni/presentation/core/notifications.dart';
 import 'package:dartz/dartz.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -36,11 +37,13 @@ class ReceivedNotification {
 }
 
 Future<None> main() async {
+  // needed if you intend to initialize in the `main` function
+  WidgetsFlutterBinding.ensureInitialized();
+
 //  debugPaintSizeEnabled = true;
   configureDependencies(Env.prod);
 
-  // needed if you intend to initialize in the `main` function
-  WidgetsFlutterBinding.ensureInitialized();
+  Firebase.initializeApp();
 
   await configureLocalTimeZone();
   // await _configureLocalTimeZone();
