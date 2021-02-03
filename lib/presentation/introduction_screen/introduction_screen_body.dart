@@ -48,16 +48,30 @@ class IntroductionScreenBody extends StatelessWidget {
                   child: Center(
                     child: Image.network(
                       'https://cybearjinni.com/assets/assets/fan_art/after_editing/logo_no_background.png',
-                      height: 220.0,
+                      height: 170.0,
                     ),
                   ),
                 ),
-                Text(
-                  'Welcome to CyBear Jinni',
-                  style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1.color,
-                    fontSize: 25,
-                  ),
+                Stack(
+                  children: <Widget>[
+                    Text(
+                      'CyBear Jinni',
+                      style: TextStyle(
+                        fontSize: 48,
+                        foreground: Paint()
+                          ..style = PaintingStyle.stroke
+                          ..strokeWidth = 5
+                          ..color = Colors.pink.withOpacity(0.13),
+                      ),
+                    ),
+                    Text(
+                      'CyBear Jinni',
+                      style: TextStyle(
+                        fontSize: 48,
+                        color: Theme.of(context).textTheme.bodyText1.color,
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
