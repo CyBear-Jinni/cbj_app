@@ -32,7 +32,8 @@ class SignInForm extends StatelessWidget {
                             ),
                           ).show(context),
                         }, (_) {
-                  ExtendedNavigator.of(context).replace(Routes.homePage);
+                  ExtendedNavigator.of(context)
+                      .replace(Routes.initializeHomePage);
 
                   context
                       .read()<AuthBloc>()
@@ -62,18 +63,16 @@ class SignInForm extends StatelessWidget {
                   labelText: 'Email',
                 ),
                 autocorrect: false,
-                onChanged: (value) =>
-                    context
+                onChanged: (value) => context
                     .read<SignInFormBloc>()
                     .add(SignInFormEvent.emailChanged(value)),
-                validator: (_) =>
-                    context
+                validator: (_) => context
                     .read<SignInFormBloc>()
                     .state
                     .emailAddress
                     .value
                     .fold(
-                            (f) => f.maybeMap(
+                        (f) => f.maybeMap(
                             invalidEmail: (_) => 'Invalid Email',
                             orElse: () => null),
                         (r) => null),
@@ -88,18 +87,16 @@ class SignInForm extends StatelessWidget {
                 ),
                 autocorrect: false,
                 obscureText: true,
-                onChanged: (value) =>
-                    context
+                onChanged: (value) => context
                     .read<SignInFormBloc>()
                     .add(SignInFormEvent.passwordChanged(value)),
-                validator: (_) =>
-                    context
+                validator: (_) => context
                     .read<SignInFormBloc>()
                     .state
                     .password
                     .value
                     .fold(
-                            (f) => f.maybeMap(
+                        (f) => f.maybeMap(
                             invalidEmail: (_) => 'Short Password',
                             orElse: () => null),
                         (r) => null),
