@@ -10,7 +10,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class WhereToLoginPageMinimal extends StatelessWidget {
   WhereToLoginPageMinimal();
 
-  void leftIconFunction(BuildContext context) {
+  void backButtonFunction(BuildContext context) {
     Navigator.pop(context);
   }
 
@@ -24,7 +24,8 @@ class WhereToLoginPageMinimal extends StatelessWidget {
             'Choose type of login',
             null,
             null,
-            leftIcon: FontAwesomeIcons.school,
+            leftIcon: FontAwesomeIcons.arrowLeft,
+            leftIconFunction: backButtonFunction,
           ),
           const SizedBox(
             height: 30,
@@ -47,8 +48,8 @@ class WhereToLoginPageMinimal extends StatelessWidget {
                     minWidth: MediaQuery.of(context).size.width,
                     color: Colors.blue,
                     onPressed: () {
-                      ExtendedNavigator.of(context).push(
-                        Routes.signInPage,
+                      ExtendedNavigator.of(context).replace(
+                        Routes.initializeHomePage,
                       );
                     },
                     child: Container(
@@ -82,7 +83,7 @@ class WhereToLoginPageMinimal extends StatelessWidget {
                     minWidth: MediaQuery.of(context).size.width,
                     color: Colors.orange,
                     onPressed: () {
-                      ExtendedNavigator.of(context).push(
+                      ExtendedNavigator.of(context).replace(
                         Routes.signInPage,
                       );
                     },

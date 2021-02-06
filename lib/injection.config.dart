@@ -35,8 +35,8 @@ GetIt $initGetIt(
   gh.lazySingleton<GoogleSignIn>(() => firebaseInjectableModule.googleSignIn);
   gh.lazySingleton<IAuthFacade>(
       () => FirebaseAuthFacade(get<FirebaseAuth>(), get<GoogleSignIn>()));
-  gh.lazySingleton<IInitializeHomeRepository>(
-      () => InitializeHomeRepository(get<FirebaseFirestore>()));
+  gh.lazySingleton<IInitializeHomeRepository>(() =>
+      InitializeHomeRepository(get<FirebaseFirestore>(), get<FirebaseAuth>()));
   gh.factory<InitializeHomeBloc>(
       () => InitializeHomeBloc(get<IInitializeHomeRepository>()));
   gh.factory<MockExample>(() => MockExample());

@@ -29,7 +29,7 @@ class SignInForm extends StatelessWidget {
                           ).show(context),
                         }, (_) {
                   ExtendedNavigator.of(context)
-                      .replace(Routes.initializeHomePage);
+                      .push(Routes.whereToLoginPageMinimal);
 
                   context
                       .read()<AuthBloc>()
@@ -126,19 +126,6 @@ class SignInForm extends StatelessWidget {
                         ),
                       ],
                     ),
-                    // RaisedButton(
-                    //   onPressed: () {
-                    //     context.read<SignInFormBloc>().add(
-                    //           const SignInFormEvent.signInWithGooglePressed(),
-                    //         );
-                    //   },
-                    //   color: Colors.lightGreen,
-                    //   child: const Text(
-                    //     'SIGN IN WITH GOOGLE',
-                    //     style: TextStyle(
-                    //         color: Colors.white, fontWeight: FontWeight.bold),
-                    //   ),
-                    // ),
                     if (state.isSubmitting) ...[
                       const SizedBox(
                         height: 8,
