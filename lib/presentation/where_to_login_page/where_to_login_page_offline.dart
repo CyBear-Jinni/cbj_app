@@ -5,10 +5,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-/// The user will choose where to login to, join into an existing home or
-/// create his new home
-class WhereToLoginPageFull extends StatelessWidget {
-  WhereToLoginPageFull();
+/// The user will choose where to login to, options only for offline
+class WhereToLoginPageOffline extends StatelessWidget {
+  WhereToLoginPageOffline();
 
   void leftIconFunction(BuildContext context) {
     Navigator.pop(context);
@@ -95,72 +94,6 @@ class WhereToLoginPageFull extends StatelessWidget {
                           ),
                           Text(
                             'Work Only On WiFi',
-                            style: TextStyle(
-                                fontSize: 25,
-                                color: Theme.of(context)
-                                    .textTheme
-                                    .bodyText1
-                                    .color),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  FlatButton(
-                    height: 100,
-                    minWidth: MediaQuery.of(context).size.width,
-                    color: Colors.blue,
-                    onPressed: () {
-                      ExtendedNavigator.of(context).replace(Routes.signInPage);
-                    },
-                    child: Container(
-                      margin: const EdgeInsets.only(left: 30),
-                      child: Row(
-                        children: <Widget>[
-                          FaIcon(FontAwesomeIcons.doorOpen,
-                              color:
-                                  Theme.of(context).textTheme.bodyText1.color),
-                          const SizedBox(
-                            width: 20,
-                          ),
-                          Text(
-                            'Create Your Home',
-                            style: TextStyle(
-                                fontSize: 25,
-                                color: Theme.of(context)
-                                    .textTheme
-                                    .bodyText1
-                                    .color),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  FlatButton(
-                    height: 100,
-                    minWidth: MediaQuery.of(context).size.width,
-                    color: Colors.orange,
-                    onPressed: () {
-                      ExtendedNavigator.of(context).replace(Routes.signInPage);
-                    },
-                    child: Container(
-                      margin: const EdgeInsets.only(left: 30),
-                      child: Row(
-                        children: <Widget>[
-                          FaIcon(FontAwesomeIcons.userFriends,
-                              color:
-                                  Theme.of(context).textTheme.bodyText1.color),
-                          const SizedBox(
-                            width: 20,
-                          ),
-                          Text(
-                            'Join Existing Home',
                             style: TextStyle(
                                 fontSize: 25,
                                 color: Theme.of(context)

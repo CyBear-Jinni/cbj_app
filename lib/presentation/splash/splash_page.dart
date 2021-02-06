@@ -11,11 +11,12 @@ class SplashPage extends StatelessWidget {
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {
         state.map(
-            initial: (_) {},
-            authenticated: (_) =>
-                ExtendedNavigator.of(context).replace(Routes.homePage),
-            unauthenticated: (_) => ExtendedNavigator.of(context)
-                .replace(Routes.introductionScreenPage));
+          initial: (_) {},
+          authenticated: (_) =>
+              ExtendedNavigator.of(context).replace(Routes.homePage),
+          unauthenticated: (_) => ExtendedNavigator.of(context)
+              .replace(Routes.introductionScreenPage),
+        );
       },
       child: _PageWidget(),
     );

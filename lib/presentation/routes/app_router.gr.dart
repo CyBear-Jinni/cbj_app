@@ -16,18 +16,20 @@ import '../home_page/tabs/smart_devices_tab/blinds/blinds_page.dart';
 import '../home_page/tabs/smart_devices_tab/blinds/smart_blind_widget.dart';
 import '../home_page/tabs/smart_devices_tab/lights/lights_in_the_room/lights_in_the_room_page.dart';
 import '../home_page/tabs/smart_devices_tab/lights/lights_page.dart';
+import '../initialize_home/initialize_home_page.dart';
 import '../introduction_screen/introduction_screen_page.dart';
-import '../sign_in_page/login_page.dart';
+import '../sign_in_page/sign_in_page.dart';
 import '../splash/splash_page.dart';
-import '../where_to_login_page/where_to_login_page_full.dart';
 import '../where_to_login_page/where_to_login_page_minimal.dart';
+import '../where_to_login_page/where_to_login_page_offline.dart';
 
 class Routes {
   static const String splashPage = '/';
   static const String introductionScreenPage = '/introduction-screen-page';
   static const String signInPage = '/sign-in-page';
+  static const String initializeHomePage = '/initialize-home-page';
   static const String whereToLoginPageMinimal = '/where-to-login-page-minimal';
-  static const String whereToLoginPageFull = '/where-to-login-page-full';
+  static const String whereToLoginPageOffline = '/where-to-login-page-offline';
   static const String homePage = '/home-page';
   static const String lightsPage = '/lights-page';
   static const String lightsInTheRoomPage = '/lights-in-the-room-page';
@@ -37,8 +39,9 @@ class Routes {
     splashPage,
     introductionScreenPage,
     signInPage,
+    initializeHomePage,
     whereToLoginPageMinimal,
-    whereToLoginPageFull,
+    whereToLoginPageOffline,
     homePage,
     lightsPage,
     lightsInTheRoomPage,
@@ -54,8 +57,9 @@ class AppRouter extends RouterBase {
     RouteDef(Routes.splashPage, page: SplashPage),
     RouteDef(Routes.introductionScreenPage, page: IntroductionScreenPage),
     RouteDef(Routes.signInPage, page: SignInPage),
+    RouteDef(Routes.initializeHomePage, page: InitializeHomePage),
     RouteDef(Routes.whereToLoginPageMinimal, page: WhereToLoginPageMinimal),
-    RouteDef(Routes.whereToLoginPageFull, page: WhereToLoginPageFull),
+    RouteDef(Routes.whereToLoginPageOffline, page: WhereToLoginPageOffline),
     RouteDef(Routes.homePage, page: HomePage),
     RouteDef(Routes.lightsPage, page: LightsPage),
     RouteDef(Routes.lightsInTheRoomPage, page: LightsInTheRoomPage),
@@ -83,15 +87,21 @@ class AppRouter extends RouterBase {
         settings: data,
       );
     },
+    InitializeHomePage: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => InitializeHomePage(),
+        settings: data,
+      );
+    },
     WhereToLoginPageMinimal: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => WhereToLoginPageMinimal(),
         settings: data,
       );
     },
-    WhereToLoginPageFull: (data) {
+    WhereToLoginPageOffline: (data) {
       return MaterialPageRoute<dynamic>(
-        builder: (context) => WhereToLoginPageFull(),
+        builder: (context) => WhereToLoginPageOffline(),
         settings: data,
       );
     },
@@ -144,11 +154,14 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
 
   Future<dynamic> pushSignInPage() => push<dynamic>(Routes.signInPage);
 
+  Future<dynamic> pushInitializeHomePage() =>
+      push<dynamic>(Routes.initializeHomePage);
+
   Future<dynamic> pushWhereToLoginPageMinimal() =>
       push<dynamic>(Routes.whereToLoginPageMinimal);
 
-  Future<dynamic> pushWhereToLoginPageFull() =>
-      push<dynamic>(Routes.whereToLoginPageFull);
+  Future<dynamic> pushWhereToLoginPageOffline() =>
+      push<dynamic>(Routes.whereToLoginPageOffline);
 
   Future<dynamic> pushHomePage() => push<dynamic>(Routes.homePage);
 

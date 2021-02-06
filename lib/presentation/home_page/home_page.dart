@@ -47,11 +47,12 @@ class _HomePageState extends State<HomePage> {
           begin: Alignment.topRight,
           end: Alignment.bottomCenter,
           // Add one stop for each color. Stops should increase from 0 to 1
-          stops: const <double>[0, 0, 0, 1],
+          stops: const <double>[0, 0.2, 0.5, 0.6, 1],
           colors: <Color>[
             Theme.of(context).primaryColor,
             Theme.of(context).accentColor,
-            Theme.of(context).accentColor,
+            Theme.of(context).primaryColor.withOpacity(0.9),
+            Theme.of(context).accentColor.withOpacity(0.9),
             Theme.of(context).primaryColor
           ],
         ),

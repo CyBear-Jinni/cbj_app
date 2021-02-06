@@ -9,7 +9,7 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
   Future<void> _fireBaseLogOut(BuildContext context) async {
     try {
       await FirebaseAuth.instance.signOut();
-      ExtendedNavigator.of(context).replace(Routes.whereToLoginPageMinimal);
+      ExtendedNavigator.of(context).replace(Routes.signInPage);
     } catch (e) {
       print(e); // TODO: show dialog with error
     }
