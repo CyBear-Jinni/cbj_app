@@ -29,18 +29,15 @@ mixin _$InitializeHomeEvent {
   TResult when<TResult extends Object>({
     @required TResult initialized(),
   });
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initialized(),
     @required TResult orElse(),
   });
-
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult initialized(Initialized value),
   });
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult initialized(Initialized value),
@@ -61,7 +58,6 @@ class _$InitializeHomeEventCopyWithImpl<$Res>
   _$InitializeHomeEventCopyWithImpl(this._value, this._then);
 
   final InitializeHomeEvent _value;
-
   // ignore: unused_field
   final $Res Function(InitializeHomeEvent) _then;
 }
@@ -194,7 +190,6 @@ mixin _$InitializeHomeState {
     @required TResult loaded(),
     @required TResult error(),
   });
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>(
     TResult $default(
@@ -204,7 +199,6 @@ mixin _$InitializeHomeState {
     TResult error(),
     @required TResult orElse(),
   });
-
   @optionalTypeArgs
   TResult map<TResult extends Object>(
     TResult $default(_InitializeHomeState value), {
@@ -212,7 +206,6 @@ mixin _$InitializeHomeState {
     @required TResult loaded(Loaded value),
     @required TResult error(Error value),
   });
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>(
     TResult $default(_InitializeHomeState value), {
@@ -236,7 +229,6 @@ class _$InitializeHomeStateCopyWithImpl<$Res>
   _$InitializeHomeStateCopyWithImpl(this._value, this._then);
 
   final InitializeHomeState _value;
-
   // ignore: unused_field
   final $Res Function(InitializeHomeState) _then;
 }
@@ -246,7 +238,6 @@ abstract class _$InitializeHomeStateCopyWith<$Res> {
   factory _$InitializeHomeStateCopyWith(_InitializeHomeState value,
           $Res Function(_InitializeHomeState) then) =
       __$InitializeHomeStateCopyWithImpl<$Res>;
-
   $Res call({Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
 }
 
@@ -380,7 +371,6 @@ abstract class _InitializeHomeState implements InitializeHomeState {
       _$_InitializeHomeState;
 
   Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption;
-
   @JsonKey(ignore: true)
   _$InitializeHomeStateCopyWith<_InitializeHomeState> get copyWith;
 }

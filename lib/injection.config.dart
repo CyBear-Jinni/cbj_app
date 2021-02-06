@@ -1,7 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-
 // **************************************************************************
 // InjectableConfigGenerator
 // **************************************************************************

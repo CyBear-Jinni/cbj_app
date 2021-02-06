@@ -49,9 +49,6 @@ class WhereToLoginPageMinimal extends StatelessWidget {
                     onPressed: () {
                       ExtendedNavigator.of(context).push(
                         Routes.signInPage,
-                        arguments: SignInPageArguments(
-                          creatingHome: true,
-                        ),
                       );
                     },
                     child: Container(
@@ -87,9 +84,6 @@ class WhereToLoginPageMinimal extends StatelessWidget {
                     onPressed: () {
                       ExtendedNavigator.of(context).push(
                         Routes.signInPage,
-                        arguments: SignInPageArguments(
-                          creatingHome: false,
-                        ),
                       );
                     },
                     child: Container(
@@ -117,16 +111,6 @@ class WhereToLoginPageMinimal extends StatelessWidget {
                   ),
                 ],
               ),
-            ),
-          ),
-          Container(
-            alignment: Alignment.bottomRight,
-            child: FlatButton(
-              color: Colors.white,
-              onPressed: () {
-                ExtendedNavigator.of(context).push(Routes.whereToLoginPageFull);
-              },
-              child: const Text('For More Options'),
             ),
           ),
         ],

@@ -126,7 +126,7 @@ class IntroductionScreenBody extends StatelessWidget {
           ),
         ),
         onDone: () {
-          ExtendedNavigator.of(context).replace(Routes.whereToLoginPageMinimal);
+          ExtendedNavigator.of(context).replace(Routes.signInPage);
         },
       ),
     );

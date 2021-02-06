@@ -8,9 +8,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 part 'initialize_home_bloc.freezed.dart';
-
 part 'initialize_home_event.dart';
-
 part 'initialize_home_state.dart';
 
 @injectable
