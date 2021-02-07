@@ -38,7 +38,6 @@ abstract class $InitializeHomeCopyWith<$Res> {
   factory $InitializeHomeCopyWith(
           InitializeHome value, $Res Function(InitializeHome) then) =
       _$InitializeHomeCopyWithImpl<$Res>;
-
   $Res call({UniqueId id});
 }
 
@@ -48,7 +47,6 @@ class _$InitializeHomeCopyWithImpl<$Res>
   _$InitializeHomeCopyWithImpl(this._value, this._then);
 
   final InitializeHome _value;
-
   // ignore: unused_field
   final $Res Function(InitializeHome) _then;
 
@@ -68,7 +66,6 @@ abstract class _$InitialHomeCopyWith<$Res>
   factory _$InitialHomeCopyWith(
           _InitialHome value, $Res Function(_InitialHome) then) =
       __$InitialHomeCopyWithImpl<$Res>;
-
   @override
   $Res call({UniqueId id});
 }
@@ -129,7 +126,6 @@ abstract class _InitialHome implements InitializeHome {
 
   @override
   UniqueId get id;
-
   @override
   @JsonKey(ignore: true)
   _$InitialHomeCopyWith<_InitialHome> get copyWith;

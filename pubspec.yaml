@@ -91,6 +91,8 @@ dependencies:
   protobuf: ^1.1.0
   # A wrapper around InheritedWidget to make them easier to use and more reusable.
   provider: ^4.3.3
+  # Generate random colors that are visually pleasing
+  random_color: ^1.0.5
   # Implementation of the popular reactiveX api for asynchronous programming
   rxdart: ^0.25.0
   # reading and writing simple key-value pairs

@@ -14,7 +14,7 @@ class InitialProcess extends StatelessWidget {
     return BlocConsumer<InitializeHomeBloc, InitializeHomeState>(
       listener: (context, InitializeHomeState state) {
         state.map(
-              (value) => (v) {},
+          (value) => (v) {},
           loading: (loadingNow) {},
           error: (errorNow) {
             FlushbarHelper.createError(message: 'Error');
