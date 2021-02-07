@@ -17,6 +17,11 @@ class _$ScenesInFoldersFailuresTearOff {
   _EmptyScenes<T> emptyScenesList<T>() {
     return _EmptyScenes<T>();
   }
+
+// ignore: unused_element
+  _Unexpected<T> unexpected<T>() {
+    return _Unexpected<T>();
+  }
 }
 
 /// @nodoc
@@ -28,22 +33,23 @@ mixin _$ScenesInFoldersFailures<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult emptyScenesList(),
+    @required TResult unexpected(),
   });
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult emptyScenesList(),
+    TResult unexpected(),
     @required TResult orElse(),
   });
-
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult emptyScenesList(_EmptyScenes<T> value),
+    @required TResult unexpected(_Unexpected<T> value),
   });
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult emptyScenesList(_EmptyScenes<T> value),
+    TResult unexpected(_Unexpected<T> value),
     @required TResult orElse(),
   });
 }
@@ -61,7 +67,6 @@ class _$ScenesInFoldersFailuresCopyWithImpl<T, $Res>
   _$ScenesInFoldersFailuresCopyWithImpl(this._value, this._then);
 
   final ScenesInFoldersFailures<T> _value;
-
   // ignore: unused_field
   final $Res Function(ScenesInFoldersFailures<T>) _then;
 }
@@ -106,8 +111,10 @@ class _$_EmptyScenes<T> implements _EmptyScenes<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult emptyScenesList(),
+    @required TResult unexpected(),
   }) {
     assert(emptyScenesList != null);
+    assert(unexpected != null);
     return emptyScenesList();
   }
 
@@ -115,6 +122,7 @@ class _$_EmptyScenes<T> implements _EmptyScenes<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult emptyScenesList(),
+    TResult unexpected(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -128,8 +136,10 @@ class _$_EmptyScenes<T> implements _EmptyScenes<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult emptyScenesList(_EmptyScenes<T> value),
+    @required TResult unexpected(_Unexpected<T> value),
   }) {
     assert(emptyScenesList != null);
+    assert(unexpected != null);
     return emptyScenesList(this);
   }
 
@@ -137,6 +147,7 @@ class _$_EmptyScenes<T> implements _EmptyScenes<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult emptyScenesList(_EmptyScenes<T> value),
+    TResult unexpected(_Unexpected<T> value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -149,4 +160,95 @@ class _$_EmptyScenes<T> implements _EmptyScenes<T> {
 
 abstract class _EmptyScenes<T> implements ScenesInFoldersFailures<T> {
   const factory _EmptyScenes() = _$_EmptyScenes<T>;
+}
+
+/// @nodoc
+abstract class _$UnexpectedCopyWith<T, $Res> {
+  factory _$UnexpectedCopyWith(
+          _Unexpected<T> value, $Res Function(_Unexpected<T>) then) =
+      __$UnexpectedCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$UnexpectedCopyWithImpl<T, $Res>
+    extends _$ScenesInFoldersFailuresCopyWithImpl<T, $Res>
+    implements _$UnexpectedCopyWith<T, $Res> {
+  __$UnexpectedCopyWithImpl(
+      _Unexpected<T> _value, $Res Function(_Unexpected<T>) _then)
+      : super(_value, (v) => _then(v as _Unexpected<T>));
+
+  @override
+  _Unexpected<T> get _value => super._value as _Unexpected<T>;
+}
+
+/// @nodoc
+class _$_Unexpected<T> implements _Unexpected<T> {
+  const _$_Unexpected();
+
+  @override
+  String toString() {
+    return 'ScenesInFoldersFailures<$T>.unexpected()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _Unexpected<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult emptyScenesList(),
+    @required TResult unexpected(),
+  }) {
+    assert(emptyScenesList != null);
+    assert(unexpected != null);
+    return unexpected();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult emptyScenesList(),
+    TResult unexpected(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (unexpected != null) {
+      return unexpected();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult emptyScenesList(_EmptyScenes<T> value),
+    @required TResult unexpected(_Unexpected<T> value),
+  }) {
+    assert(emptyScenesList != null);
+    assert(unexpected != null);
+    return unexpected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult emptyScenesList(_EmptyScenes<T> value),
+    TResult unexpected(_Unexpected<T> value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (unexpected != null) {
+      return unexpected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Unexpected<T> implements ScenesInFoldersFailures<T> {
+  const factory _Unexpected() = _$_Unexpected<T>;
 }

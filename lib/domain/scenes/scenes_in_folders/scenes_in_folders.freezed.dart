@@ -14,9 +14,9 @@ class _$ScenesInFoldersTearOff {
   const _$ScenesInFoldersTearOff();
 
 // ignore: unused_element
-  _ScenesInFolders call({@required KtList<String> list}) {
+  _ScenesInFolders call({@required KtList<FolderOfScene> scenesFoldersList}) {
     return _ScenesInFolders(
-      list: list,
+      scenesFoldersList: scenesFoldersList,
     );
   }
 }
@@ -27,7 +27,7 @@ const $ScenesInFolders = _$ScenesInFoldersTearOff();
 
 /// @nodoc
 mixin _$ScenesInFolders {
-  KtList<String> get list;
+  KtList<FolderOfScene> get scenesFoldersList;
 
   @JsonKey(ignore: true)
   $ScenesInFoldersCopyWith<ScenesInFolders> get copyWith;
@@ -39,7 +39,7 @@ abstract class $ScenesInFoldersCopyWith<$Res> {
           ScenesInFolders value, $Res Function(ScenesInFolders) then) =
       _$ScenesInFoldersCopyWithImpl<$Res>;
 
-  $Res call({KtList<String> list});
+  $Res call({KtList<FolderOfScene> scenesFoldersList});
 }
 
 /// @nodoc
@@ -48,16 +48,17 @@ class _$ScenesInFoldersCopyWithImpl<$Res>
   _$ScenesInFoldersCopyWithImpl(this._value, this._then);
 
   final ScenesInFolders _value;
-
   // ignore: unused_field
   final $Res Function(ScenesInFolders) _then;
 
   @override
   $Res call({
-    Object list = freezed,
+    Object scenesFoldersList = freezed,
   }) {
     return _then(_value.copyWith(
-      list: list == freezed ? _value.list : list as KtList<String>,
+      scenesFoldersList: scenesFoldersList == freezed
+          ? _value.scenesFoldersList
+          : scenesFoldersList as KtList<FolderOfScene>,
     ));
   }
 }
@@ -70,7 +71,7 @@ abstract class _$ScenesInFoldersCopyWith<$Res>
       __$ScenesInFoldersCopyWithImpl<$Res>;
 
   @override
-  $Res call({KtList<String> list});
+  $Res call({KtList<FolderOfScene> scenesFoldersList});
 }
 
 /// @nodoc
@@ -86,37 +87,43 @@ class __$ScenesInFoldersCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object list = freezed,
+    Object scenesFoldersList = freezed,
   }) {
     return _then(_ScenesInFolders(
-      list: list == freezed ? _value.list : list as KtList<String>,
+      scenesFoldersList: scenesFoldersList == freezed
+          ? _value.scenesFoldersList
+          : scenesFoldersList as KtList<FolderOfScene>,
     ));
   }
 }
 
 /// @nodoc
-class _$_ScenesInFolders implements _ScenesInFolders {
-  const _$_ScenesInFolders({@required this.list}) : assert(list != null);
+class _$_ScenesInFolders extends _ScenesInFolders {
+  const _$_ScenesInFolders({@required this.scenesFoldersList})
+      : assert(scenesFoldersList != null),
+        super._();
 
   @override
-  final KtList<String> list;
+  final KtList<FolderOfScene> scenesFoldersList;
 
   @override
   String toString() {
-    return 'ScenesInFolders(list: $list)';
+    return 'ScenesInFolders(scenesFoldersList: $scenesFoldersList)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _ScenesInFolders &&
-            (identical(other.list, list) ||
-                const DeepCollectionEquality().equals(other.list, list)));
+            (identical(other.scenesFoldersList, scenesFoldersList) ||
+                const DeepCollectionEquality()
+                    .equals(other.scenesFoldersList, scenesFoldersList)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(list);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(scenesFoldersList);
 
   @JsonKey(ignore: true)
   @override
@@ -124,12 +131,14 @@ class _$_ScenesInFolders implements _ScenesInFolders {
       __$ScenesInFoldersCopyWithImpl<_ScenesInFolders>(this, _$identity);
 }
 
-abstract class _ScenesInFolders implements ScenesInFolders {
-  const factory _ScenesInFolders({@required KtList<String> list}) =
-      _$_ScenesInFolders;
+abstract class _ScenesInFolders extends ScenesInFolders {
+  const _ScenesInFolders._() : super._();
+
+  const factory _ScenesInFolders(
+      {@required KtList<FolderOfScene> scenesFoldersList}) = _$_ScenesInFolders;
 
   @override
-  KtList<String> get list;
+  KtList<FolderOfScene> get scenesFoldersList;
 
   @override
   @JsonKey(ignore: true)

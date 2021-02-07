@@ -12,7 +12,7 @@ abstract class ScenesInFoldersState with _$ScenesInFoldersState {
 
   const factory ScenesInFoldersState.loading() = Loading;
 
-  const factory ScenesInFoldersState.loaded(KtList<String> scenesFolders) =
+  const factory ScenesInFoldersState.loaded(ScenesInFolders scenesFolders) =
       Loaded;
 
   const factory ScenesInFoldersState.error() = Error;

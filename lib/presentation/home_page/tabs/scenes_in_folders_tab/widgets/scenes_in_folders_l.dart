@@ -21,57 +21,54 @@ class ScenesInFoldersL extends StatelessWidget {
 
             return ListView.builder(
               itemBuilder: (context, index) {
-                final scene_folder = state.scenesFolders[index];
-                return ScenesFoldersWidget(scene_folder);
+                final scene_folder =
+                    state.scenesFolders.scenesFoldersList[index];
+                return ScenesFoldersWidget(
+                    scene_folder.name, scene_folder.backgroundImageUrl);
               },
-              itemCount: state.scenesFolders.size,
+              itemCount: state.scenesFolders.scenesFoldersList.size,
             );
           },
           error: (_) {
-            return const Text('sd');
+            return const Text('Error');
           },
         );
       },
     );
   }
 
-  Widget ScenesFoldersWidget(String folderName) {
+  Widget ScenesFoldersWidget(String folderName, String backgroundImageUrl) {
     const double borderRadius = 5;
-    ColorBrightness lightColorB = ColorBrightness.light;
+    final ColorBrightness lightColorB = ColorBrightness.light;
     return GestureDetector(
       child: Container(
         decoration: BoxDecoration(
           color: Colors.black,
           image: DecorationImage(
             image: NetworkImage(
-                'https://live.staticflickr.com/7850/31597166847_486557e555_h.jpg'),
+              backgroundImageUrl,
+            ),
             fit: BoxFit.cover,
           ),
           borderRadius: const BorderRadius.all(Radius.circular(borderRadius)),
           border: Border.all(
-              color: RandomColor().randomColor(colorBrightness: lightColorB),
-              width: 0.5),
+            color: Colors.white,
+            width: 0.4,
+          ),
         ),
-        margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+        margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
         child: FlatButton(
           onPressed: () {},
           padding: EdgeInsets.zero,
           child: Column(
             children: [
-              // Container(
-              //   width: double.infinity,
-              //   color: RandomColor()
-              //       .randomColor(colorBrightness: lightColorB)
-              //       .withOpacity(0.4),
-              //   height: 4,
-              // ),
               const SizedBox(
                 height: 120,
               ),
               Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.5),
+                  color: Colors.black.withOpacity(0.7),
                   borderRadius: const BorderRadius.only(
                     bottomRight: Radius.circular(borderRadius),
                     bottomLeft: Radius.circular(borderRadius),

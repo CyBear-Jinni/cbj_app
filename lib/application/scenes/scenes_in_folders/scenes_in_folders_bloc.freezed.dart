@@ -166,7 +166,7 @@ class _$ScenesInFoldersStateTearOff {
   }
 
 // ignore: unused_element
-  Loaded loaded(KtList<String> scenesFolders) {
+  Loaded loaded(ScenesInFolders scenesFolders) {
     return Loaded(
       scenesFolders,
     );
@@ -189,7 +189,7 @@ mixin _$ScenesInFoldersState {
     TResult $default(
         Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
     @required TResult loading(),
-    @required TResult loaded(KtList<String> scenesFolders),
+    @required TResult loaded(ScenesInFolders scenesFolders),
     @required TResult error(),
   });
   @optionalTypeArgs
@@ -197,7 +197,7 @@ mixin _$ScenesInFoldersState {
     TResult $default(
         Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
     TResult loading(),
-    TResult loaded(KtList<String> scenesFolders),
+    TResult loaded(ScenesInFolders scenesFolders),
     TResult error(),
     @required TResult orElse(),
   });
@@ -307,7 +307,7 @@ class _$_ScenesInFoldersState implements _ScenesInFoldersState {
     TResult $default(
         Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
     @required TResult loading(),
-    @required TResult loaded(KtList<String> scenesFolders),
+    @required TResult loaded(ScenesInFolders scenesFolders),
     @required TResult error(),
   }) {
     assert($default != null);
@@ -323,7 +323,7 @@ class _$_ScenesInFoldersState implements _ScenesInFoldersState {
     TResult $default(
         Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
     TResult loading(),
-    TResult loaded(KtList<String> scenesFolders),
+    TResult loaded(ScenesInFolders scenesFolders),
     TResult error(),
     @required TResult orElse(),
   }) {
@@ -417,7 +417,7 @@ class _$Loading implements Loading {
     TResult $default(
         Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
     @required TResult loading(),
-    @required TResult loaded(KtList<String> scenesFolders),
+    @required TResult loaded(ScenesInFolders scenesFolders),
     @required TResult error(),
   }) {
     assert($default != null);
@@ -433,7 +433,7 @@ class _$Loading implements Loading {
     TResult $default(
         Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
     TResult loading(),
-    TResult loaded(KtList<String> scenesFolders),
+    TResult loaded(ScenesInFolders scenesFolders),
     TResult error(),
     @required TResult orElse(),
   }) {
@@ -484,7 +484,9 @@ abstract class Loading implements ScenesInFoldersState {
 abstract class $LoadedCopyWith<$Res> {
   factory $LoadedCopyWith(Loaded value, $Res Function(Loaded) then) =
       _$LoadedCopyWithImpl<$Res>;
-  $Res call({KtList<String> scenesFolders});
+  $Res call({ScenesInFolders scenesFolders});
+
+  $ScenesInFoldersCopyWith<$Res> get scenesFolders;
 }
 
 /// @nodoc
@@ -504,8 +506,18 @@ class _$LoadedCopyWithImpl<$Res>
     return _then(Loaded(
       scenesFolders == freezed
           ? _value.scenesFolders
-          : scenesFolders as KtList<String>,
+          : scenesFolders as ScenesInFolders,
     ));
+  }
+
+  @override
+  $ScenesInFoldersCopyWith<$Res> get scenesFolders {
+    if (_value.scenesFolders == null) {
+      return null;
+    }
+    return $ScenesInFoldersCopyWith<$Res>(_value.scenesFolders, (value) {
+      return _then(_value.copyWith(scenesFolders: value));
+    });
   }
 }
 
@@ -514,7 +526,7 @@ class _$Loaded implements Loaded {
   const _$Loaded(this.scenesFolders) : assert(scenesFolders != null);
 
   @override
-  final KtList<String> scenesFolders;
+  final ScenesInFolders scenesFolders;
 
   @override
   String toString() {
@@ -545,7 +557,7 @@ class _$Loaded implements Loaded {
     TResult $default(
         Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
     @required TResult loading(),
-    @required TResult loaded(KtList<String> scenesFolders),
+    @required TResult loaded(ScenesInFolders scenesFolders),
     @required TResult error(),
   }) {
     assert($default != null);
@@ -561,7 +573,7 @@ class _$Loaded implements Loaded {
     TResult $default(
         Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
     TResult loading(),
-    TResult loaded(KtList<String> scenesFolders),
+    TResult loaded(ScenesInFolders scenesFolders),
     TResult error(),
     @required TResult orElse(),
   }) {
@@ -605,9 +617,9 @@ class _$Loaded implements Loaded {
 }
 
 abstract class Loaded implements ScenesInFoldersState {
-  const factory Loaded(KtList<String> scenesFolders) = _$Loaded;
+  const factory Loaded(ScenesInFolders scenesFolders) = _$Loaded;
 
-  KtList<String> get scenesFolders;
+  ScenesInFolders get scenesFolders;
   @JsonKey(ignore: true)
   $LoadedCopyWith<Loaded> get copyWith;
 }
@@ -651,7 +663,7 @@ class _$Error implements Error {
     TResult $default(
         Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
     @required TResult loading(),
-    @required TResult loaded(KtList<String> scenesFolders),
+    @required TResult loaded(ScenesInFolders scenesFolders),
     @required TResult error(),
   }) {
     assert($default != null);
@@ -667,7 +679,7 @@ class _$Error implements Error {
     TResult $default(
         Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
     TResult loading(),
-    TResult loaded(KtList<String> scenesFolders),
+    TResult loaded(ScenesInFolders scenesFolders),
     TResult error(),
     @required TResult orElse(),
   }) {

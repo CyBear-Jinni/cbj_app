@@ -5,4 +5,6 @@ part 'scenes_in_folders_failures.freezed.dart';
 @freezed
 abstract class ScenesInFoldersFailures<T> with _$ScenesInFoldersFailures {
   const factory ScenesInFoldersFailures.emptyScenesList() = _EmptyScenes;
+
+  const factory ScenesInFoldersFailures.unexpected() = _Unexpected;
 }
