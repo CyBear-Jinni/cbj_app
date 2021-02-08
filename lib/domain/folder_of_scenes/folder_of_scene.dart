@@ -7,14 +7,15 @@ import 'package:kt_dart/collection.dart';
 part 'folder_of_scene.freezed.dart';
 
 @freezed
-abstract class FolderOfScene with _$FolderOfScene {
-  const FolderOfScene._();
+abstract class FolderOfScenes with _$FolderOfScenes {
+  const FolderOfScenes._();
 
-  const factory FolderOfScene({
+  const factory FolderOfScenes({
     @required UniqueId id,
     @required String name,
     @required KtList<Scene> scenesInFolder,
     String backgroundImageUrl,
     Color backgroundColor,
-  }) = _FolderOfScene;
+    KtList<String> folderTags,
+  }) = _FolderOfScenes;
 }

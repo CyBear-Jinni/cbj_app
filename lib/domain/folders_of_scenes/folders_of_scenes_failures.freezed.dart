@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
-part of 'scenes_in_folders_failures.dart';
+part of 'folders_of_scenes_failures.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -10,8 +10,8 @@ part of 'scenes_in_folders_failures.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-class _$ScenesInFoldersFailuresTearOff {
-  const _$ScenesInFoldersFailuresTearOff();
+class _$FoldersOfScenesFailuresTearOff {
+  const _$FoldersOfScenesFailuresTearOff();
 
 // ignore: unused_element
   _EmptyScenes<T> emptyScenesList<T>() {
@@ -26,26 +26,29 @@ class _$ScenesInFoldersFailuresTearOff {
 
 /// @nodoc
 // ignore: unused_element
-const $ScenesInFoldersFailures = _$ScenesInFoldersFailuresTearOff();
+const $FoldersOfScenesFailures = _$FoldersOfScenesFailuresTearOff();
 
 /// @nodoc
-mixin _$ScenesInFoldersFailures<T> {
+mixin _$FoldersOfScenesFailures<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult emptyScenesList(),
     @required TResult unexpected(),
   });
+
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult emptyScenesList(),
     TResult unexpected(),
     @required TResult orElse(),
   });
+
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult emptyScenesList(_EmptyScenes<T> value),
     @required TResult unexpected(_Unexpected<T> value),
   });
+
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult emptyScenesList(_EmptyScenes<T> value),
@@ -55,20 +58,21 @@ mixin _$ScenesInFoldersFailures<T> {
 }
 
 /// @nodoc
-abstract class $ScenesInFoldersFailuresCopyWith<T, $Res> {
-  factory $ScenesInFoldersFailuresCopyWith(ScenesInFoldersFailures<T> value,
-          $Res Function(ScenesInFoldersFailures<T>) then) =
-      _$ScenesInFoldersFailuresCopyWithImpl<T, $Res>;
+abstract class $FoldersOfScenesFailuresCopyWith<T, $Res> {
+  factory $FoldersOfScenesFailuresCopyWith(FoldersOfScenesFailures<T> value,
+          $Res Function(FoldersOfScenesFailures<T>) then) =
+      _$FoldersOfScenesFailuresCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class _$ScenesInFoldersFailuresCopyWithImpl<T, $Res>
-    implements $ScenesInFoldersFailuresCopyWith<T, $Res> {
-  _$ScenesInFoldersFailuresCopyWithImpl(this._value, this._then);
+class _$FoldersOfScenesFailuresCopyWithImpl<T, $Res>
+    implements $FoldersOfScenesFailuresCopyWith<T, $Res> {
+  _$FoldersOfScenesFailuresCopyWithImpl(this._value, this._then);
 
-  final ScenesInFoldersFailures<T> _value;
+  final FoldersOfScenesFailures<T> _value;
+
   // ignore: unused_field
-  final $Res Function(ScenesInFoldersFailures<T>) _then;
+  final $Res Function(FoldersOfScenesFailures<T>) _then;
 }
 
 /// @nodoc
@@ -80,7 +84,7 @@ abstract class _$EmptyScenesCopyWith<T, $Res> {
 
 /// @nodoc
 class __$EmptyScenesCopyWithImpl<T, $Res>
-    extends _$ScenesInFoldersFailuresCopyWithImpl<T, $Res>
+    extends _$FoldersOfScenesFailuresCopyWithImpl<T, $Res>
     implements _$EmptyScenesCopyWith<T, $Res> {
   __$EmptyScenesCopyWithImpl(
       _EmptyScenes<T> _value, $Res Function(_EmptyScenes<T>) _then)
@@ -96,7 +100,7 @@ class _$_EmptyScenes<T> implements _EmptyScenes<T> {
 
   @override
   String toString() {
-    return 'ScenesInFoldersFailures<$T>.emptyScenesList()';
+    return 'FoldersOfScenesFailures<$T>.emptyScenesList()';
   }
 
   @override
@@ -158,7 +162,7 @@ class _$_EmptyScenes<T> implements _EmptyScenes<T> {
   }
 }
 
-abstract class _EmptyScenes<T> implements ScenesInFoldersFailures<T> {
+abstract class _EmptyScenes<T> implements FoldersOfScenesFailures<T> {
   const factory _EmptyScenes() = _$_EmptyScenes<T>;
 }
 
@@ -171,7 +175,7 @@ abstract class _$UnexpectedCopyWith<T, $Res> {
 
 /// @nodoc
 class __$UnexpectedCopyWithImpl<T, $Res>
-    extends _$ScenesInFoldersFailuresCopyWithImpl<T, $Res>
+    extends _$FoldersOfScenesFailuresCopyWithImpl<T, $Res>
     implements _$UnexpectedCopyWith<T, $Res> {
   __$UnexpectedCopyWithImpl(
       _Unexpected<T> _value, $Res Function(_Unexpected<T>) _then)
@@ -187,7 +191,7 @@ class _$_Unexpected<T> implements _Unexpected<T> {
 
   @override
   String toString() {
-    return 'ScenesInFoldersFailures<$T>.unexpected()';
+    return 'FoldersOfScenesFailures<$T>.unexpected()';
   }
 
   @override
@@ -249,6 +253,6 @@ class _$_Unexpected<T> implements _Unexpected<T> {
   }
 }
 
-abstract class _Unexpected<T> implements ScenesInFoldersFailures<T> {
+abstract class _Unexpected<T> implements FoldersOfScenesFailures<T> {
   const factory _Unexpected() = _$_Unexpected<T>;
 }

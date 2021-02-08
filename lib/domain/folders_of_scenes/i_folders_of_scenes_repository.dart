@@ -1,9 +1,9 @@
-import 'package:cybear_jinni/domain/scenes/scenes_in_folders/scenes_in_folders.dart';
-import 'package:cybear_jinni/domain/scenes/scenes_in_folders/scenes_in_folders_failures.dart';
+import 'package:cybear_jinni/domain/folders_of_scenes/folders_of_scenes.dart';
+import 'package:cybear_jinni/domain/folders_of_scenes/folders_of_scenes_failures.dart';
 import 'package:dartz/dartz.dart';
 
-abstract class IIScenesInFoldersRepository {
-  Future<Either<ScenesInFoldersFailures, ScenesInFolders>>
+abstract class IIFoldersOfScenesRepository {
+  Future<Either<FoldersOfScenesFailures, FoldersOfScenes>>
       getAllRoomsWithScenes();
 // Stream<Either<InitiateHomeFailure, KtList<InitiateHome>>> watchAll();
 // Stream<Either<InitiateHomeFailure, KtList<InitiateHome>>> watchUncompleted();

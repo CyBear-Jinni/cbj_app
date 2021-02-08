@@ -1,5 +1,5 @@
 import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
-import 'package:cybear_jinni/application/scenes/scenes_in_folders/scenes_in_folders_bloc.dart';
+import 'package:cybear_jinni/application/folders_of_scenes/folders_of_scenes_bloc.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/scene_tab/settings_page_of_scenes.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/scenes_in_folders_tab/widgets/scenes_in_folders_l.dart';
@@ -55,8 +55,8 @@ class ScenesInFoldersTab extends StatelessWidget {
         ),
         Expanded(
           child: BlocProvider(
-            create: (context) => getIt<ScenesInFoldersBloc>()
-              ..add(const ScenesInFoldersEvent.initialized()),
+            create: (context) => getIt<FoldersOfScenesBloc>()
+              ..add(const FoldersOfScenesEvent.initialized()),
             child: ScenesInFoldersL(),
           ),
         ),

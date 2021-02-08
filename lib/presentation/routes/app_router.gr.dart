@@ -18,6 +18,7 @@ import '../home_page/tabs/smart_devices_tab/lights/lights_in_the_room/lights_in_
 import '../home_page/tabs/smart_devices_tab/lights/lights_page.dart';
 import '../initialize_home/initialize_home_page.dart';
 import '../introduction_screen/introduction_screen_page.dart';
+import '../scenes/scenes_page.dart';
 import '../sign_in_page/sign_in_page.dart';
 import '../splash/splash_page.dart';
 import '../where_to_login_page/where_to_login_page_minimal.dart';
@@ -31,6 +32,7 @@ class Routes {
   static const String whereToLoginPageMinimal = '/where-to-login-page-minimal';
   static const String whereToLoginPageOffline = '/where-to-login-page-offline';
   static const String homePage = '/home-page';
+  static const String scenesPage = '/scenes-page';
   static const String lightsPage = '/lights-page';
   static const String lightsInTheRoomPage = '/lights-in-the-room-page';
   static const String blindsPage = '/blinds-page';
@@ -43,6 +45,7 @@ class Routes {
     whereToLoginPageMinimal,
     whereToLoginPageOffline,
     homePage,
+    scenesPage,
     lightsPage,
     lightsInTheRoomPage,
     blindsPage,
@@ -61,6 +64,7 @@ class AppRouter extends RouterBase {
     RouteDef(Routes.whereToLoginPageMinimal, page: WhereToLoginPageMinimal),
     RouteDef(Routes.whereToLoginPageOffline, page: WhereToLoginPageOffline),
     RouteDef(Routes.homePage, page: HomePage),
+    RouteDef(Routes.scenesPage, page: ScenesPage),
     RouteDef(Routes.lightsPage, page: LightsPage),
     RouteDef(Routes.lightsInTheRoomPage, page: LightsInTheRoomPage),
     RouteDef(Routes.blindsPage, page: BlindsPage),
@@ -108,6 +112,12 @@ class AppRouter extends RouterBase {
     HomePage: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => HomePage(),
+        settings: data,
+      );
+    },
+    ScenesPage: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => ScenesPage(),
         settings: data,
       );
     },
@@ -164,6 +174,8 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
       push<dynamic>(Routes.whereToLoginPageOffline);
 
   Future<dynamic> pushHomePage() => push<dynamic>(Routes.homePage);
+
+  Future<dynamic> pushScenesPage() => push<dynamic>(Routes.scenesPage);
 
   Future<dynamic> pushLightsPage() => push<dynamic>(Routes.lightsPage);
 

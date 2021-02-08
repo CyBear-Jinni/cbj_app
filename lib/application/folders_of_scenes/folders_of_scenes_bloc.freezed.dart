@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
-part of 'scenes_in_folders_bloc.dart';
+part of 'folders_of_scenes_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -10,8 +10,8 @@ part of 'scenes_in_folders_bloc.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-class _$ScenesInFoldersEventTearOff {
-  const _$ScenesInFoldersEventTearOff();
+class _$FoldersOfScenesEventTearOff {
+  const _$FoldersOfScenesEventTearOff();
 
 // ignore: unused_element
   Initialized initialized() {
@@ -21,10 +21,10 @@ class _$ScenesInFoldersEventTearOff {
 
 /// @nodoc
 // ignore: unused_element
-const $ScenesInFoldersEvent = _$ScenesInFoldersEventTearOff();
+const $FoldersOfScenesEvent = _$FoldersOfScenesEventTearOff();
 
 /// @nodoc
-mixin _$ScenesInFoldersEvent {
+mixin _$FoldersOfScenesEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult initialized(),
@@ -46,20 +46,20 @@ mixin _$ScenesInFoldersEvent {
 }
 
 /// @nodoc
-abstract class $ScenesInFoldersEventCopyWith<$Res> {
-  factory $ScenesInFoldersEventCopyWith(ScenesInFoldersEvent value,
-          $Res Function(ScenesInFoldersEvent) then) =
-      _$ScenesInFoldersEventCopyWithImpl<$Res>;
+abstract class $FoldersOfScenesEventCopyWith<$Res> {
+  factory $FoldersOfScenesEventCopyWith(FoldersOfScenesEvent value,
+          $Res Function(FoldersOfScenesEvent) then) =
+      _$FoldersOfScenesEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$ScenesInFoldersEventCopyWithImpl<$Res>
-    implements $ScenesInFoldersEventCopyWith<$Res> {
-  _$ScenesInFoldersEventCopyWithImpl(this._value, this._then);
+class _$FoldersOfScenesEventCopyWithImpl<$Res>
+    implements $FoldersOfScenesEventCopyWith<$Res> {
+  _$FoldersOfScenesEventCopyWithImpl(this._value, this._then);
 
-  final ScenesInFoldersEvent _value;
+  final FoldersOfScenesEvent _value;
   // ignore: unused_field
-  final $Res Function(ScenesInFoldersEvent) _then;
+  final $Res Function(FoldersOfScenesEvent) _then;
 }
 
 /// @nodoc
@@ -71,7 +71,7 @@ abstract class $InitializedCopyWith<$Res> {
 
 /// @nodoc
 class _$InitializedCopyWithImpl<$Res>
-    extends _$ScenesInFoldersEventCopyWithImpl<$Res>
+    extends _$FoldersOfScenesEventCopyWithImpl<$Res>
     implements $InitializedCopyWith<$Res> {
   _$InitializedCopyWithImpl(
       Initialized _value, $Res Function(Initialized) _then)
@@ -87,7 +87,7 @@ class _$Initialized implements Initialized {
 
   @override
   String toString() {
-    return 'ScenesInFoldersEvent.initialized()';
+    return 'FoldersOfScenesEvent.initialized()';
   }
 
   @override
@@ -143,19 +143,19 @@ class _$Initialized implements Initialized {
   }
 }
 
-abstract class Initialized implements ScenesInFoldersEvent {
+abstract class Initialized implements FoldersOfScenesEvent {
   const factory Initialized() = _$Initialized;
 }
 
 /// @nodoc
-class _$ScenesInFoldersStateTearOff {
-  const _$ScenesInFoldersStateTearOff();
+class _$FoldersOfScenesStateTearOff {
+  const _$FoldersOfScenesStateTearOff();
 
 // ignore: unused_element
-  _ScenesInFoldersState call(
+  _FoldersOfScenesState call(
       {@required
           Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption}) {
-    return _ScenesInFoldersState(
+    return _FoldersOfScenesState(
       authFailureOrSuccessOption: authFailureOrSuccessOption,
     );
   }
@@ -166,9 +166,9 @@ class _$ScenesInFoldersStateTearOff {
   }
 
 // ignore: unused_element
-  Loaded loaded(ScenesInFolders scenesFolders) {
+  Loaded loaded(FoldersOfScenes foldersOfScenes) {
     return Loaded(
-      scenesFolders,
+      foldersOfScenes,
     );
   }
 
@@ -180,16 +180,16 @@ class _$ScenesInFoldersStateTearOff {
 
 /// @nodoc
 // ignore: unused_element
-const $ScenesInFoldersState = _$ScenesInFoldersStateTearOff();
+const $FoldersOfScenesState = _$FoldersOfScenesStateTearOff();
 
 /// @nodoc
-mixin _$ScenesInFoldersState {
+mixin _$FoldersOfScenesState {
   @optionalTypeArgs
   TResult when<TResult extends Object>(
     TResult $default(
         Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
     @required TResult loading(),
-    @required TResult loaded(ScenesInFolders scenesFolders),
+    @required TResult loaded(FoldersOfScenes foldersOfScenes),
     @required TResult error(),
   });
   @optionalTypeArgs
@@ -197,20 +197,20 @@ mixin _$ScenesInFoldersState {
     TResult $default(
         Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
     TResult loading(),
-    TResult loaded(ScenesInFolders scenesFolders),
+    TResult loaded(FoldersOfScenes foldersOfScenes),
     TResult error(),
     @required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>(
-    TResult $default(_ScenesInFoldersState value), {
+    TResult $default(_FoldersOfScenesState value), {
     @required TResult loading(Loading value),
     @required TResult loaded(Loaded value),
     @required TResult error(Error value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>(
-    TResult $default(_ScenesInFoldersState value), {
+    TResult $default(_FoldersOfScenesState value), {
     TResult loading(Loading value),
     TResult loaded(Loaded value),
     TResult error(Error value),
@@ -219,46 +219,46 @@ mixin _$ScenesInFoldersState {
 }
 
 /// @nodoc
-abstract class $ScenesInFoldersStateCopyWith<$Res> {
-  factory $ScenesInFoldersStateCopyWith(ScenesInFoldersState value,
-          $Res Function(ScenesInFoldersState) then) =
-      _$ScenesInFoldersStateCopyWithImpl<$Res>;
+abstract class $FoldersOfScenesStateCopyWith<$Res> {
+  factory $FoldersOfScenesStateCopyWith(FoldersOfScenesState value,
+          $Res Function(FoldersOfScenesState) then) =
+      _$FoldersOfScenesStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$ScenesInFoldersStateCopyWithImpl<$Res>
-    implements $ScenesInFoldersStateCopyWith<$Res> {
-  _$ScenesInFoldersStateCopyWithImpl(this._value, this._then);
+class _$FoldersOfScenesStateCopyWithImpl<$Res>
+    implements $FoldersOfScenesStateCopyWith<$Res> {
+  _$FoldersOfScenesStateCopyWithImpl(this._value, this._then);
 
-  final ScenesInFoldersState _value;
+  final FoldersOfScenesState _value;
   // ignore: unused_field
-  final $Res Function(ScenesInFoldersState) _then;
+  final $Res Function(FoldersOfScenesState) _then;
 }
 
 /// @nodoc
-abstract class _$ScenesInFoldersStateCopyWith<$Res> {
-  factory _$ScenesInFoldersStateCopyWith(_ScenesInFoldersState value,
-          $Res Function(_ScenesInFoldersState) then) =
-      __$ScenesInFoldersStateCopyWithImpl<$Res>;
+abstract class _$FoldersOfScenesStateCopyWith<$Res> {
+  factory _$FoldersOfScenesStateCopyWith(_FoldersOfScenesState value,
+          $Res Function(_FoldersOfScenesState) then) =
+      __$FoldersOfScenesStateCopyWithImpl<$Res>;
   $Res call({Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
 }
 
 /// @nodoc
-class __$ScenesInFoldersStateCopyWithImpl<$Res>
-    extends _$ScenesInFoldersStateCopyWithImpl<$Res>
-    implements _$ScenesInFoldersStateCopyWith<$Res> {
-  __$ScenesInFoldersStateCopyWithImpl(
-      _ScenesInFoldersState _value, $Res Function(_ScenesInFoldersState) _then)
-      : super(_value, (v) => _then(v as _ScenesInFoldersState));
+class __$FoldersOfScenesStateCopyWithImpl<$Res>
+    extends _$FoldersOfScenesStateCopyWithImpl<$Res>
+    implements _$FoldersOfScenesStateCopyWith<$Res> {
+  __$FoldersOfScenesStateCopyWithImpl(
+      _FoldersOfScenesState _value, $Res Function(_FoldersOfScenesState) _then)
+      : super(_value, (v) => _then(v as _FoldersOfScenesState));
 
   @override
-  _ScenesInFoldersState get _value => super._value as _ScenesInFoldersState;
+  _FoldersOfScenesState get _value => super._value as _FoldersOfScenesState;
 
   @override
   $Res call({
     Object authFailureOrSuccessOption = freezed,
   }) {
-    return _then(_ScenesInFoldersState(
+    return _then(_FoldersOfScenesState(
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption as Option<Either<AuthFailure, Unit>>,
@@ -267,8 +267,8 @@ class __$ScenesInFoldersStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-class _$_ScenesInFoldersState implements _ScenesInFoldersState {
-  const _$_ScenesInFoldersState({@required this.authFailureOrSuccessOption})
+class _$_FoldersOfScenesState implements _FoldersOfScenesState {
+  const _$_FoldersOfScenesState({@required this.authFailureOrSuccessOption})
       : assert(authFailureOrSuccessOption != null);
 
   @override
@@ -276,13 +276,13 @@ class _$_ScenesInFoldersState implements _ScenesInFoldersState {
 
   @override
   String toString() {
-    return 'ScenesInFoldersState(authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'FoldersOfScenesState(authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ScenesInFoldersState &&
+        (other is _FoldersOfScenesState &&
             (identical(other.authFailureOrSuccessOption,
                     authFailureOrSuccessOption) ||
                 const DeepCollectionEquality().equals(
@@ -297,8 +297,8 @@ class _$_ScenesInFoldersState implements _ScenesInFoldersState {
 
   @JsonKey(ignore: true)
   @override
-  _$ScenesInFoldersStateCopyWith<_ScenesInFoldersState> get copyWith =>
-      __$ScenesInFoldersStateCopyWithImpl<_ScenesInFoldersState>(
+  _$FoldersOfScenesStateCopyWith<_FoldersOfScenesState> get copyWith =>
+      __$FoldersOfScenesStateCopyWithImpl<_FoldersOfScenesState>(
           this, _$identity);
 
   @override
@@ -307,7 +307,7 @@ class _$_ScenesInFoldersState implements _ScenesInFoldersState {
     TResult $default(
         Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
     @required TResult loading(),
-    @required TResult loaded(ScenesInFolders scenesFolders),
+    @required TResult loaded(FoldersOfScenes foldersOfScenes),
     @required TResult error(),
   }) {
     assert($default != null);
@@ -323,7 +323,7 @@ class _$_ScenesInFoldersState implements _ScenesInFoldersState {
     TResult $default(
         Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
     TResult loading(),
-    TResult loaded(ScenesInFolders scenesFolders),
+    TResult loaded(FoldersOfScenes foldersOfScenes),
     TResult error(),
     @required TResult orElse(),
   }) {
@@ -337,7 +337,7 @@ class _$_ScenesInFoldersState implements _ScenesInFoldersState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>(
-    TResult $default(_ScenesInFoldersState value), {
+    TResult $default(_FoldersOfScenesState value), {
     @required TResult loading(Loading value),
     @required TResult loaded(Loaded value),
     @required TResult error(Error value),
@@ -352,7 +352,7 @@ class _$_ScenesInFoldersState implements _ScenesInFoldersState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>(
-    TResult $default(_ScenesInFoldersState value), {
+    TResult $default(_FoldersOfScenesState value), {
     TResult loading(Loading value),
     TResult loaded(Loaded value),
     TResult error(Error value),
@@ -366,15 +366,15 @@ class _$_ScenesInFoldersState implements _ScenesInFoldersState {
   }
 }
 
-abstract class _ScenesInFoldersState implements ScenesInFoldersState {
-  const factory _ScenesInFoldersState(
+abstract class _FoldersOfScenesState implements FoldersOfScenesState {
+  const factory _FoldersOfScenesState(
           {@required
               Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption}) =
-      _$_ScenesInFoldersState;
+      _$_FoldersOfScenesState;
 
   Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption;
   @JsonKey(ignore: true)
-  _$ScenesInFoldersStateCopyWith<_ScenesInFoldersState> get copyWith;
+  _$FoldersOfScenesStateCopyWith<_FoldersOfScenesState> get copyWith;
 }
 
 /// @nodoc
@@ -385,7 +385,7 @@ abstract class $LoadingCopyWith<$Res> {
 
 /// @nodoc
 class _$LoadingCopyWithImpl<$Res>
-    extends _$ScenesInFoldersStateCopyWithImpl<$Res>
+    extends _$FoldersOfScenesStateCopyWithImpl<$Res>
     implements $LoadingCopyWith<$Res> {
   _$LoadingCopyWithImpl(Loading _value, $Res Function(Loading) _then)
       : super(_value, (v) => _then(v as Loading));
@@ -400,7 +400,7 @@ class _$Loading implements Loading {
 
   @override
   String toString() {
-    return 'ScenesInFoldersState.loading()';
+    return 'FoldersOfScenesState.loading()';
   }
 
   @override
@@ -417,7 +417,7 @@ class _$Loading implements Loading {
     TResult $default(
         Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
     @required TResult loading(),
-    @required TResult loaded(ScenesInFolders scenesFolders),
+    @required TResult loaded(FoldersOfScenes foldersOfScenes),
     @required TResult error(),
   }) {
     assert($default != null);
@@ -433,7 +433,7 @@ class _$Loading implements Loading {
     TResult $default(
         Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
     TResult loading(),
-    TResult loaded(ScenesInFolders scenesFolders),
+    TResult loaded(FoldersOfScenes foldersOfScenes),
     TResult error(),
     @required TResult orElse(),
   }) {
@@ -447,7 +447,7 @@ class _$Loading implements Loading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>(
-    TResult $default(_ScenesInFoldersState value), {
+    TResult $default(_FoldersOfScenesState value), {
     @required TResult loading(Loading value),
     @required TResult loaded(Loaded value),
     @required TResult error(Error value),
@@ -462,7 +462,7 @@ class _$Loading implements Loading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>(
-    TResult $default(_ScenesInFoldersState value), {
+    TResult $default(_FoldersOfScenesState value), {
     TResult loading(Loading value),
     TResult loaded(Loaded value),
     TResult error(Error value),
@@ -476,7 +476,7 @@ class _$Loading implements Loading {
   }
 }
 
-abstract class Loading implements ScenesInFoldersState {
+abstract class Loading implements FoldersOfScenesState {
   const factory Loading() = _$Loading;
 }
 
@@ -484,14 +484,14 @@ abstract class Loading implements ScenesInFoldersState {
 abstract class $LoadedCopyWith<$Res> {
   factory $LoadedCopyWith(Loaded value, $Res Function(Loaded) then) =
       _$LoadedCopyWithImpl<$Res>;
-  $Res call({ScenesInFolders scenesFolders});
+  $Res call({FoldersOfScenes foldersOfScenes});
 
-  $ScenesInFoldersCopyWith<$Res> get scenesFolders;
+  $FoldersOfScenesCopyWith<$Res> get foldersOfScenes;
 }
 
 /// @nodoc
 class _$LoadedCopyWithImpl<$Res>
-    extends _$ScenesInFoldersStateCopyWithImpl<$Res>
+    extends _$FoldersOfScenesStateCopyWithImpl<$Res>
     implements $LoadedCopyWith<$Res> {
   _$LoadedCopyWithImpl(Loaded _value, $Res Function(Loaded) _then)
       : super(_value, (v) => _then(v as Loaded));
@@ -501,50 +501,51 @@ class _$LoadedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object scenesFolders = freezed,
+    Object foldersOfScenes = freezed,
   }) {
     return _then(Loaded(
-      scenesFolders == freezed
-          ? _value.scenesFolders
-          : scenesFolders as ScenesInFolders,
+      foldersOfScenes == freezed
+          ? _value.foldersOfScenes
+          : foldersOfScenes as FoldersOfScenes,
     ));
   }
 
   @override
-  $ScenesInFoldersCopyWith<$Res> get scenesFolders {
-    if (_value.scenesFolders == null) {
+  $FoldersOfScenesCopyWith<$Res> get foldersOfScenes {
+    if (_value.foldersOfScenes == null) {
       return null;
     }
-    return $ScenesInFoldersCopyWith<$Res>(_value.scenesFolders, (value) {
-      return _then(_value.copyWith(scenesFolders: value));
+    return $FoldersOfScenesCopyWith<$Res>(_value.foldersOfScenes, (value) {
+      return _then(_value.copyWith(foldersOfScenes: value));
     });
   }
 }
 
 /// @nodoc
 class _$Loaded implements Loaded {
-  const _$Loaded(this.scenesFolders) : assert(scenesFolders != null);
+  const _$Loaded(this.foldersOfScenes) : assert(foldersOfScenes != null);
 
   @override
-  final ScenesInFolders scenesFolders;
+  final FoldersOfScenes foldersOfScenes;
 
   @override
   String toString() {
-    return 'ScenesInFoldersState.loaded(scenesFolders: $scenesFolders)';
+    return 'FoldersOfScenesState.loaded(foldersOfScenes: $foldersOfScenes)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is Loaded &&
-            (identical(other.scenesFolders, scenesFolders) ||
+            (identical(other.foldersOfScenes, foldersOfScenes) ||
                 const DeepCollectionEquality()
-                    .equals(other.scenesFolders, scenesFolders)));
+                    .equals(other.foldersOfScenes, foldersOfScenes)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(scenesFolders);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(foldersOfScenes);
 
   @JsonKey(ignore: true)
   @override
@@ -557,14 +558,14 @@ class _$Loaded implements Loaded {
     TResult $default(
         Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
     @required TResult loading(),
-    @required TResult loaded(ScenesInFolders scenesFolders),
+    @required TResult loaded(FoldersOfScenes foldersOfScenes),
     @required TResult error(),
   }) {
     assert($default != null);
     assert(loading != null);
     assert(loaded != null);
     assert(error != null);
-    return loaded(scenesFolders);
+    return loaded(foldersOfScenes);
   }
 
   @override
@@ -573,13 +574,13 @@ class _$Loaded implements Loaded {
     TResult $default(
         Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
     TResult loading(),
-    TResult loaded(ScenesInFolders scenesFolders),
+    TResult loaded(FoldersOfScenes foldersOfScenes),
     TResult error(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (loaded != null) {
-      return loaded(scenesFolders);
+      return loaded(foldersOfScenes);
     }
     return orElse();
   }
@@ -587,7 +588,7 @@ class _$Loaded implements Loaded {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>(
-    TResult $default(_ScenesInFoldersState value), {
+    TResult $default(_FoldersOfScenesState value), {
     @required TResult loading(Loading value),
     @required TResult loaded(Loaded value),
     @required TResult error(Error value),
@@ -602,7 +603,7 @@ class _$Loaded implements Loaded {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>(
-    TResult $default(_ScenesInFoldersState value), {
+    TResult $default(_FoldersOfScenesState value), {
     TResult loading(Loading value),
     TResult loaded(Loaded value),
     TResult error(Error value),
@@ -616,10 +617,10 @@ class _$Loaded implements Loaded {
   }
 }
 
-abstract class Loaded implements ScenesInFoldersState {
-  const factory Loaded(ScenesInFolders scenesFolders) = _$Loaded;
+abstract class Loaded implements FoldersOfScenesState {
+  const factory Loaded(FoldersOfScenes foldersOfScenes) = _$Loaded;
 
-  ScenesInFolders get scenesFolders;
+  FoldersOfScenes get foldersOfScenes;
   @JsonKey(ignore: true)
   $LoadedCopyWith<Loaded> get copyWith;
 }
@@ -631,7 +632,7 @@ abstract class $ErrorCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ErrorCopyWithImpl<$Res> extends _$ScenesInFoldersStateCopyWithImpl<$Res>
+class _$ErrorCopyWithImpl<$Res> extends _$FoldersOfScenesStateCopyWithImpl<$Res>
     implements $ErrorCopyWith<$Res> {
   _$ErrorCopyWithImpl(Error _value, $Res Function(Error) _then)
       : super(_value, (v) => _then(v as Error));
@@ -646,7 +647,7 @@ class _$Error implements Error {
 
   @override
   String toString() {
-    return 'ScenesInFoldersState.error()';
+    return 'FoldersOfScenesState.error()';
   }
 
   @override
@@ -663,7 +664,7 @@ class _$Error implements Error {
     TResult $default(
         Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
     @required TResult loading(),
-    @required TResult loaded(ScenesInFolders scenesFolders),
+    @required TResult loaded(FoldersOfScenes foldersOfScenes),
     @required TResult error(),
   }) {
     assert($default != null);
@@ -679,7 +680,7 @@ class _$Error implements Error {
     TResult $default(
         Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
     TResult loading(),
-    TResult loaded(ScenesInFolders scenesFolders),
+    TResult loaded(FoldersOfScenes foldersOfScenes),
     TResult error(),
     @required TResult orElse(),
   }) {
@@ -693,7 +694,7 @@ class _$Error implements Error {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>(
-    TResult $default(_ScenesInFoldersState value), {
+    TResult $default(_FoldersOfScenesState value), {
     @required TResult loading(Loading value),
     @required TResult loaded(Loaded value),
     @required TResult error(Error value),
@@ -708,7 +709,7 @@ class _$Error implements Error {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>(
-    TResult $default(_ScenesInFoldersState value), {
+    TResult $default(_FoldersOfScenesState value), {
     TResult loading(Loading value),
     TResult loaded(Loaded value),
     TResult error(Error value),
@@ -722,6 +723,6 @@ class _$Error implements Error {
   }
 }
 
-abstract class Error implements ScenesInFoldersState {
+abstract class Error implements FoldersOfScenesState {
   const factory Error() = _$Error;
 }

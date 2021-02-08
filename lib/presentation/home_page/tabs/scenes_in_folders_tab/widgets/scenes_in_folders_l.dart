@@ -1,4 +1,6 @@
-import 'package:cybear_jinni/application/scenes/scenes_in_folders/scenes_in_folders_bloc.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:cybear_jinni/application/folders_of_scenes/folders_of_scenes_bloc.dart';
+import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,7 +11,7 @@ class ScenesInFoldersL extends StatelessWidget {
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
 
-    return BlocBuilder<ScenesInFoldersBloc, ScenesInFoldersState>(
+    return BlocBuilder<FoldersOfScenesBloc, FoldersOfScenesState>(
       builder: (context, state) {
         return state.map(
           (value) => const Text('sd'),
@@ -17,16 +19,17 @@ class ScenesInFoldersL extends StatelessWidget {
             child: CircularProgressIndicator(),
           ),
           loaded: (state) {
-            print('asd $state');
-
             return ListView.builder(
               itemBuilder: (context, index) {
                 final scene_folder =
-                    state.scenesFolders.scenesFoldersList[index];
+                    state.foldersOfScenes.foldersOfScenesList[index];
                 return ScenesFoldersWidget(
-                    scene_folder.name, scene_folder.backgroundImageUrl);
+                  context,
+                  scene_folder.name,
+                  scene_folder.backgroundImageUrl,
+                );
               },
-              itemCount: state.scenesFolders.scenesFoldersList.size,
+              itemCount: state.foldersOfScenes.foldersOfScenesList.size,
             );
           },
           error: (_) {
@@ -37,51 +40,52 @@ class ScenesInFoldersL extends StatelessWidget {
     );
   }
 
-  Widget ScenesFoldersWidget(String folderName, String backgroundImageUrl) {
+  Widget ScenesFoldersWidget(
+      BuildContext context, String folderName, String backgroundImageUrl) {
     const double borderRadius = 5;
     final ColorBrightness lightColorB = ColorBrightness.light;
-    return GestureDetector(
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.black,
-          image: DecorationImage(
-            image: NetworkImage(
-              backgroundImageUrl,
-            ),
-            fit: BoxFit.cover,
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.black,
+        image: DecorationImage(
+          image: NetworkImage(
+            backgroundImageUrl,
           ),
-          borderRadius: const BorderRadius.all(Radius.circular(borderRadius)),
-          border: Border.all(
-            color: Colors.white,
-            width: 0.4,
-          ),
+          fit: BoxFit.cover,
         ),
-        margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
-        child: FlatButton(
-          onPressed: () {},
-          padding: EdgeInsets.zero,
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 120,
-              ),
-              Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.7),
-                  borderRadius: const BorderRadius.only(
-                    bottomRight: Radius.circular(borderRadius),
-                    bottomLeft: Radius.circular(borderRadius),
-                  ),
+        borderRadius: const BorderRadius.all(Radius.circular(borderRadius)),
+        border: Border.all(
+          color: Colors.white,
+          width: 0.4,
+        ),
+      ),
+      margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+      child: FlatButton(
+        onPressed: () {
+          ExtendedNavigator.of(context).push(Routes.scenesPage);
+        },
+        padding: EdgeInsets.zero,
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 130,
+            ),
+            Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Colors.black.withOpacity(0.7),
+                borderRadius: const BorderRadius.only(
+                  bottomRight: Radius.circular(borderRadius),
+                  bottomLeft: Radius.circular(borderRadius),
                 ),
-                child: Text(
-                  folderName,
-                  style: const TextStyle(color: Colors.white, fontSize: 30),
-                  textAlign: TextAlign.center,
-                ),
               ),
-            ],
-          ),
+              child: Text(
+                folderName,
+                style: const TextStyle(color: Colors.white, fontSize: 30),
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ],
         ),
       ),
     );

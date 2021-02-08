@@ -86,7 +86,7 @@ class ScenesWidgets extends StatelessWidget {
   }
 
   void leftIconFunction(BuildContext context) {
-    Scaffold.of(context).openDrawer();
+    Navigator.pop(context);
   }
 
   @override
@@ -97,7 +97,7 @@ class ScenesWidgets extends StatelessWidget {
           'Scenes',
           FontAwesomeIcons.userCog,
           userCogFunction,
-          leftIcon: FontAwesomeIcons.bars,
+          leftIcon: FontAwesomeIcons.arrowLeft,
           leftIconFunction: leftIconFunction,
         ),
         Expanded(
