@@ -7,9 +7,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 part 'scene_bloc.freezed.dart';
-
 part 'scene_event.dart';
-
 part 'scene_state.dart';
 
 @injectable

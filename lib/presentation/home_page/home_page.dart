@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
         ),
         drawer: LeftNavigationDrawerHomePage(),
         bottomNavigationBar:
-        BottomNavigationBarHomePage(callback, _currentTabNum),
+            BottomNavigationBarHomePage(callback, _currentTabNum),
       ),
     );
   }

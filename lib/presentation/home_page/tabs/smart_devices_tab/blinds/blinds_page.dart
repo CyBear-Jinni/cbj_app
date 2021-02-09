@@ -22,7 +22,7 @@ class BlindsPage extends StatelessWidget {
             TopNavigationBar(
               'Blinds',
               FontAwesomeIcons.cog,
-                  () {},
+              () {},
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFuntion,
             ),
