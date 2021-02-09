@@ -10,9 +10,7 @@ import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 
 part 'folders_of_scenes_bloc.freezed.dart';
-
 part 'folders_of_scenes_event.dart';
-
 part 'folders_of_scenes_state.dart';
 
 @injectable
@@ -21,7 +19,7 @@ class FoldersOfScenesBloc
   FoldersOfScenesBloc(this._inFoldersRepository)
       : super(FoldersOfScenesState.initialized());
 
-  final IIFoldersOfScenesRepository _inFoldersRepository;
+  final IFoldersOfScenesRepository _inFoldersRepository;
 
   @override
   Stream<FoldersOfScenesState> mapEventToState(

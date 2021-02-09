@@ -23,30 +23,15 @@ class InitializeHomeBloc
   Stream<InitializeHomeState> mapEventToState(
     InitializeHomeEvent event,
   ) async* {
-    yield* event.map(initialized: (e) async* {
-      final initialization =
-          await _initialzeHomeRepository.initializingNewHome();
-      yield initialization.fold(
-        () => const InitializeHomeState.error(),
-        (_) => const InitializeHomeState.loaded(),
-      );
-    });
+    yield* event.map(
+      initialized: (e) async* {
+        final initialization =
+            await _initialzeHomeRepository.initializingNewHome();
+        yield initialization.fold(
+          () => const InitializeHomeState.error(),
+          (_) => const InitializeHomeState.loaded(),
+        );
+      },
+    );
   }
 }
-//
-// @override
-// Stream<AuthState> mapEventToState(
-//     AuthEvent event,
-//     ) async* {
-//   yield* event.map(authCheckRequested: (e) async* {
-//     final userOption = await _authFacade.getSignedInUser();
-//     yield userOption.fold(
-//           () => const AuthState.unauthenticated(),
-//           (_) => const AuthState.authenticated(),
-//     );
-//   }, signedOut: (e) async* {
-//     await _authFacade.signOut();
-//     yield const AuthState.unauthenticated();
-//   });
-// }
-// }

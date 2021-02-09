@@ -1,5 +1,5 @@
 import 'package:cybear_jinni/domain/core/value_objects.dart';
-import 'package:cybear_jinni/domain/scenes/scene.dart';
+import 'package:cybear_jinni/domain/scene/scene.dart';
 import 'package:flutter/painting.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';

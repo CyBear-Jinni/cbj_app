@@ -39,15 +39,10 @@ const $FolderOfScenes = _$FolderOfScenesTearOff();
 /// @nodoc
 mixin _$FolderOfScenes {
   UniqueId get id;
-
   String get name;
-
   KtList<Scene> get scenesInFolder;
-
   String get backgroundImageUrl;
-
   Color get backgroundColor;
-
   KtList<String> get folderTags;
 
   @JsonKey(ignore: true)
@@ -59,7 +54,6 @@ abstract class $FolderOfScenesCopyWith<$Res> {
   factory $FolderOfScenesCopyWith(
           FolderOfScenes value, $Res Function(FolderOfScenes) then) =
       _$FolderOfScenesCopyWithImpl<$Res>;
-
   $Res call(
       {UniqueId id,
       String name,
@@ -75,7 +69,6 @@ class _$FolderOfScenesCopyWithImpl<$Res>
   _$FolderOfScenesCopyWithImpl(this._value, this._then);
 
   final FolderOfScenes _value;
-
   // ignore: unused_field
   final $Res Function(FolderOfScenes) _then;
 
@@ -113,7 +106,6 @@ abstract class _$FolderOfScenesCopyWith<$Res>
   factory _$FolderOfScenesCopyWith(
           _FolderOfScenes value, $Res Function(_FolderOfScenes) then) =
       __$FolderOfScenesCopyWithImpl<$Res>;
-
   @override
   $Res call(
       {UniqueId id,
@@ -235,7 +227,6 @@ class _$_FolderOfScenes extends _FolderOfScenes {
 
 abstract class _FolderOfScenes extends FolderOfScenes {
   const _FolderOfScenes._() : super._();
-
   const factory _FolderOfScenes(
       {@required UniqueId id,
       @required String name,
@@ -246,22 +237,16 @@ abstract class _FolderOfScenes extends FolderOfScenes {
 
   @override
   UniqueId get id;
-
   @override
   String get name;
-
   @override
   KtList<Scene> get scenesInFolder;
-
   @override
   String get backgroundImageUrl;
-
   @override
   Color get backgroundColor;
-
   @override
   KtList<String> get folderTags;
-
   @override
   @JsonKey(ignore: true)
   _$FolderOfScenesCopyWith<_FolderOfScenes> get copyWith;

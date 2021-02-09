@@ -39,7 +39,6 @@ abstract class $FoldersOfScenesCopyWith<$Res> {
   factory $FoldersOfScenesCopyWith(
           FoldersOfScenes value, $Res Function(FoldersOfScenes) then) =
       _$FoldersOfScenesCopyWithImpl<$Res>;
-
   $Res call({KtList<FolderOfScenes> foldersOfScenesList});
 }
 
@@ -49,7 +48,6 @@ class _$FoldersOfScenesCopyWithImpl<$Res>
   _$FoldersOfScenesCopyWithImpl(this._value, this._then);
 
   final FoldersOfScenes _value;
-
   // ignore: unused_field
   final $Res Function(FoldersOfScenes) _then;
 
@@ -71,7 +69,6 @@ abstract class _$FoldersOfScenesCopyWith<$Res>
   factory _$FoldersOfScenesCopyWith(
           _FoldersOfScenes value, $Res Function(_FoldersOfScenes) then) =
       __$FoldersOfScenesCopyWithImpl<$Res>;
-
   @override
   $Res call({KtList<FolderOfScenes> foldersOfScenesList});
 }
@@ -135,14 +132,12 @@ class _$_FoldersOfScenes extends _FoldersOfScenes {
 
 abstract class _FoldersOfScenes extends FoldersOfScenes {
   const _FoldersOfScenes._() : super._();
-
   const factory _FoldersOfScenes(
           {@required KtList<FolderOfScenes> foldersOfScenesList}) =
       _$_FoldersOfScenes;
 
   @override
   KtList<FolderOfScenes> get foldersOfScenesList;
-
   @override
   @JsonKey(ignore: true)
   _$FoldersOfScenesCopyWith<_FoldersOfScenes> get copyWith;
