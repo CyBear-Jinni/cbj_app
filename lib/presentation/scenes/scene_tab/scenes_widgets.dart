@@ -2,8 +2,8 @@ import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums.dart';
 import 'package:cybear_jinni/infrastructure/objects/interface_darta/cloud_interface_data.dart';
 import 'package:cybear_jinni/infrastructure/objects/smart_device/smart_device_object.dart';
-import 'package:cybear_jinni/presentation/home_page/tabs/scene_tab/scene_block_widget.dart';
-import 'package:cybear_jinni/presentation/home_page/tabs/scene_tab/settings_page_of_scenes.dart';
+import 'package:cybear_jinni/presentation/scenes/scene_tab/scene_block_widget.dart';
+import 'package:cybear_jinni/presentation/scenes/scene_tab/settings_page_of_scenes.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -86,7 +86,7 @@ class ScenesWidgets extends StatelessWidget {
   }
 
   void leftIconFunction(BuildContext context) {
-    Scaffold.of(context).openDrawer();
+    Navigator.pop(context);
   }
 
   @override
@@ -95,9 +95,9 @@ class ScenesWidgets extends StatelessWidget {
       children: <Widget>[
         TopNavigationBar(
           'Scenes',
-          FontAwesomeIcons.userCog,
+          Icons.more_vert,
           userCogFunction,
-          leftIcon: FontAwesomeIcons.bars,
+          leftIcon: FontAwesomeIcons.arrowLeft,
           leftIconFunction: leftIconFunction,
         ),
         Expanded(

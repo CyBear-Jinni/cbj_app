@@ -22,10 +22,12 @@ class LightsWidgets extends StatelessWidget {
       children: <Widget>[
         TopNavigationBar(
           'Lights',
-          FontAwesomeIcons.cog,
+          Icons.more_vert,
           cogFunction,
           leftIcon: FontAwesomeIcons.arrowLeft,
           leftIconFunction: backButtonFuntion,
+          rightSecondIcon: FontAwesomeIcons.search,
+          rightSecondFunction: () {},
         ),
         RoomsManagerWidget()
       ],

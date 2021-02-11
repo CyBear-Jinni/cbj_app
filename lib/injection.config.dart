@@ -12,13 +12,22 @@ import 'package:injectable/injectable.dart';
 
 import 'application/auth/auth_bloc.dart';
 import 'application/auth/sign_in_form/sign_in_form_bloc.dart';
+import 'application/folder_of_scenes/folder_of_scenes_bloc.dart';
+import 'application/folders_of_scenes/folders_of_scenes_bloc.dart';
 import 'application/initialize_home/initialize_home_bloc.dart';
+import 'application/scene/scene_bloc.dart';
 import 'domain/auth/i_auth_facade.dart';
+import 'domain/folder_of_scenes/i_folder_of_scenes_repository.dart';
+import 'domain/folders_of_scenes/i_folders_of_scenes_repository.dart';
 import 'domain/initialize_home/i_initialize_home_repository.dart';
+import 'domain/scene/i_scene_repository.dart';
 import 'infrastructure/auth/firebase_auth_facade.dart';
 import 'infrastructure/core/firebase_injectable_module.dart';
+import 'infrastructure/folder_of_scenes/folder_of_scenes_repository.dart';
+import 'infrastructure/folders_of_scenes/folders_of_scenes_repository.dart';
 import 'infrastructure/initialize_home/initialize_home_repository.dart';
 import 'infrastructure/mock_example.dart';
+import 'infrastructure/scenes/scene_repository.dart';
 
 /// adds generated dependencies
 /// to the provided [GetIt] instance
@@ -35,13 +44,22 @@ GetIt $initGetIt(
   gh.lazySingleton<GoogleSignIn>(() => firebaseInjectableModule.googleSignIn);
   gh.lazySingleton<IAuthFacade>(
       () => FirebaseAuthFacade(get<FirebaseAuth>(), get<GoogleSignIn>()));
+  gh.lazySingleton<IFolderOfScenesRepository>(() => FolderOfScenesRepository());
+  gh.lazySingleton<IFoldersOfScenesRepository>(
+      () => FoldersOfScenesRepository());
   gh.lazySingleton<IInitializeHomeRepository>(() =>
       InitializeHomeRepository(get<FirebaseFirestore>(), get<FirebaseAuth>()));
+  gh.lazySingleton<ISceneRepository>(() => SceneRepository());
   gh.factory<InitializeHomeBloc>(
       () => InitializeHomeBloc(get<IInitializeHomeRepository>()));
   gh.factory<MockExample>(() => MockExample());
+  gh.factory<SceneBloc>(() => SceneBloc(get<ISceneRepository>()));
   gh.factory<SignInFormBloc>(() => SignInFormBloc(get<IAuthFacade>()));
   gh.factory<AuthBloc>(() => AuthBloc(get<IAuthFacade>()));
+  gh.factory<FolderOfScenesBloc>(
+      () => FolderOfScenesBloc(get<IFolderOfScenesRepository>()));
+  gh.factory<FoldersOfScenesBloc>(
+      () => FoldersOfScenesBloc(get<IFoldersOfScenesRepository>()));
   return get;
 }
 

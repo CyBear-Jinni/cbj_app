@@ -6,7 +6,10 @@ import 'package:flutter/material.dart';
 /// Block of one scene
 class SceneBlockWidget extends StatelessWidget {
   const SceneBlockWidget(
-      this.sceneName, this.smartDevicesWithWish, this._elementIndex);
+    this.sceneName,
+    this.smartDevicesWithWish,
+    this._elementIndex,
+  );
 
   /// Create colors automatically from dart color list
   static final List<MaterialColor> colorList = Colors.primaries;

@@ -23,7 +23,7 @@ class IntroductionScreenBodyAboutPage extends StatelessWidget {
               child: Text(
                 'You are now starting a journey into the world of CyBear '
                 'Jinni.\n\nWe are trying to build an ecosystem of smart'
-                ' home that is built upon openness and truest.\n\n'
+                ' home that is built upon openness and trust.\n\n'
                 'Our products are open source to show you that we '
                 'protect your privacy by default.\n\n'
                 'The functionality of the devices will support local '

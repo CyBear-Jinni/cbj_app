@@ -34,16 +34,20 @@ class RoutinesPage extends StatelessWidget {
     Scaffold.of(context).openDrawer();
   }
 
+  void rightSecondFunction(BuildContext context) {}
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
         TopNavigationBar(
           'Routines',
-          FontAwesomeIcons.userCog,
+          Icons.more_vert,
           userCogFunction,
-          leftIcon: FontAwesomeIcons.bars,
+          leftIcon: FontAwesomeIcons.userCog,
           leftIconFunction: leftIconFunction,
+          rightSecondIcon: FontAwesomeIcons.search,
+          rightSecondFunction: rightSecondFunction,
         ),
         Expanded(
           child: Container(
