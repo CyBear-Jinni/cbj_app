@@ -1,5 +1,7 @@
 import 'package:cybear_jinni/domain/core/value_objects.dart';
 import 'package:cybear_jinni/domain/scene/scene.dart';
+import 'package:cybear_jinni/domain/scene/scene_failures.dart';
+import 'package:dartz/dartz.dart';
 import 'package:flutter/painting.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
@@ -13,7 +15,7 @@ abstract class FolderOfScenes with _$FolderOfScenes {
   const factory FolderOfScenes({
     @required UniqueId id,
     @required String name,
-    @required KtList<Scene> scenesInFolder,
+    KtList<Either<SceneFailure, Scene>> scenesInFolder,
     String backgroundImageUrl,
     Color backgroundColor,
     KtList<String> folderTags,

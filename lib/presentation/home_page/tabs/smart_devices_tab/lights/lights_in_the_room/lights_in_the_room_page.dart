@@ -29,10 +29,12 @@ class LightsInTheRoomPage extends StatelessWidget {
           children: <Widget>[
             TopNavigationBar(
               thisSmartRoom.getRoomName(),
-              FontAwesomeIcons.cog,
+              Icons.more_vert,
               () {},
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
+              rightSecondIcon: FontAwesomeIcons.search,
+              rightSecondFunction: () {},
             ),
             Expanded(
               child: Container(

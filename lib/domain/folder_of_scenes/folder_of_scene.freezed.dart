@@ -17,7 +17,7 @@ class _$FolderOfScenesTearOff {
   _FolderOfScenes call(
       {@required UniqueId id,
       @required String name,
-      @required KtList<Scene> scenesInFolder,
+      KtList<Either<SceneFailure, Scene>> scenesInFolder,
       String backgroundImageUrl,
       Color backgroundColor,
       KtList<String> folderTags}) {
@@ -39,8 +39,11 @@ const $FolderOfScenes = _$FolderOfScenesTearOff();
 /// @nodoc
 mixin _$FolderOfScenes {
   UniqueId get id;
+
   String get name;
-  KtList<Scene> get scenesInFolder;
+
+  KtList<Either<SceneFailure, Scene>> get scenesInFolder;
+
   String get backgroundImageUrl;
   Color get backgroundColor;
   KtList<String> get folderTags;
@@ -57,7 +60,7 @@ abstract class $FolderOfScenesCopyWith<$Res> {
   $Res call(
       {UniqueId id,
       String name,
-      KtList<Scene> scenesInFolder,
+      KtList<Either<SceneFailure, Scene>> scenesInFolder,
       String backgroundImageUrl,
       Color backgroundColor,
       KtList<String> folderTags});
@@ -86,7 +89,7 @@ class _$FolderOfScenesCopyWithImpl<$Res>
       name: name == freezed ? _value.name : name as String,
       scenesInFolder: scenesInFolder == freezed
           ? _value.scenesInFolder
-          : scenesInFolder as KtList<Scene>,
+          : scenesInFolder as KtList<Either<SceneFailure, Scene>>,
       backgroundImageUrl: backgroundImageUrl == freezed
           ? _value.backgroundImageUrl
           : backgroundImageUrl as String,
@@ -110,7 +113,7 @@ abstract class _$FolderOfScenesCopyWith<$Res>
   $Res call(
       {UniqueId id,
       String name,
-      KtList<Scene> scenesInFolder,
+      KtList<Either<SceneFailure, Scene>> scenesInFolder,
       String backgroundImageUrl,
       Color backgroundColor,
       KtList<String> folderTags});
@@ -141,7 +144,7 @@ class __$FolderOfScenesCopyWithImpl<$Res>
       name: name == freezed ? _value.name : name as String,
       scenesInFolder: scenesInFolder == freezed
           ? _value.scenesInFolder
-          : scenesInFolder as KtList<Scene>,
+          : scenesInFolder as KtList<Either<SceneFailure, Scene>>,
       backgroundImageUrl: backgroundImageUrl == freezed
           ? _value.backgroundImageUrl
           : backgroundImageUrl as String,
@@ -160,13 +163,12 @@ class _$_FolderOfScenes extends _FolderOfScenes {
   const _$_FolderOfScenes(
       {@required this.id,
       @required this.name,
-      @required this.scenesInFolder,
+      this.scenesInFolder,
       this.backgroundImageUrl,
       this.backgroundColor,
       this.folderTags})
       : assert(id != null),
         assert(name != null),
-        assert(scenesInFolder != null),
         super._();
 
   @override
@@ -174,7 +176,7 @@ class _$_FolderOfScenes extends _FolderOfScenes {
   @override
   final String name;
   @override
-  final KtList<Scene> scenesInFolder;
+  final KtList<Either<SceneFailure, Scene>> scenesInFolder;
   @override
   final String backgroundImageUrl;
   @override
@@ -230,17 +232,20 @@ abstract class _FolderOfScenes extends FolderOfScenes {
   const factory _FolderOfScenes(
       {@required UniqueId id,
       @required String name,
-      @required KtList<Scene> scenesInFolder,
+      KtList<Either<SceneFailure, Scene>> scenesInFolder,
       String backgroundImageUrl,
       Color backgroundColor,
       KtList<String> folderTags}) = _$_FolderOfScenes;
 
   @override
   UniqueId get id;
+
   @override
   String get name;
+
   @override
-  KtList<Scene> get scenesInFolder;
+  KtList<Either<SceneFailure, Scene>> get scenesInFolder;
+
   @override
   String get backgroundImageUrl;
   @override

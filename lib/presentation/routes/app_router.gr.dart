@@ -9,6 +9,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
+import '../../domain/folder_of_scenes/folder_of_scene.dart';
 import '../../infrastructure/objects/smart_device/smart_blinds_object.dart';
 import '../../infrastructure/objects/smart_device/smart_room_object.dart';
 import '../home_page/home_page.dart';
@@ -116,8 +117,9 @@ class AppRouter extends RouterBase {
       );
     },
     ScenesPage: (data) {
+      final args = data.getArgs<ScenesPageArguments>(nullOk: false);
       return MaterialPageRoute<dynamic>(
-        builder: (context) => ScenesPage(),
+        builder: (context) => ScenesPage(args.folderOfScenes),
         settings: data,
       );
     },
@@ -175,7 +177,13 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
 
   Future<dynamic> pushHomePage() => push<dynamic>(Routes.homePage);
 
-  Future<dynamic> pushScenesPage() => push<dynamic>(Routes.scenesPage);
+  Future<dynamic> pushScenesPage({
+    @required FolderOfScenes folderOfScenes,
+  }) =>
+      push<dynamic>(
+        Routes.scenesPage,
+        arguments: ScenesPageArguments(folderOfScenes: folderOfScenes),
+      );
 
   Future<dynamic> pushLightsPage() => push<dynamic>(Routes.lightsPage);
 
@@ -203,9 +211,17 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
 /// Arguments holder classes
 /// *************************************************************************
 
+/// ScenesPage arguments holder class
+class ScenesPageArguments {
+  final FolderOfScenes folderOfScenes;
+
+  ScenesPageArguments({@required this.folderOfScenes});
+}
+
 /// LightsInTheRoomPage arguments holder class
 class LightsInTheRoomPageArguments {
   final SmartRoomObject thisSmartRoom;
+
   LightsInTheRoomPageArguments({@required this.thisSmartRoom});
 }
 

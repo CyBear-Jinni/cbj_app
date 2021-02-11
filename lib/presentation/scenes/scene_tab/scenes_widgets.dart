@@ -95,7 +95,7 @@ class ScenesWidgets extends StatelessWidget {
       children: <Widget>[
         TopNavigationBar(
           'Scenes',
-          FontAwesomeIcons.userCog,
+          Icons.more_vert,
           userCogFunction,
           leftIcon: FontAwesomeIcons.arrowLeft,
           leftIconFunction: leftIconFunction,

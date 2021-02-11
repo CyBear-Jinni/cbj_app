@@ -21,10 +21,12 @@ class BlindsPage extends StatelessWidget {
           children: <Widget>[
             TopNavigationBar(
               'Blinds',
-              FontAwesomeIcons.cog,
+              Icons.more_vert,
               () {},
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFuntion,
+              rightSecondIcon: FontAwesomeIcons.search,
+              rightSecondFunction: () {},
             ),
             BlindsManagerWidget(),
           ],

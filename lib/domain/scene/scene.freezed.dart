@@ -18,7 +18,7 @@ class _$SceneTearOff {
       {@required UniqueId uniqueId,
       @required String name,
       @required KtList<String> scenesActionsToExecute,
-      Color backgroundColor,
+      @required Color backgroundColor,
       IconData icon,
       String image}) {
     return _Scene(
@@ -39,15 +39,10 @@ const $Scene = _$SceneTearOff();
 /// @nodoc
 mixin _$Scene {
   UniqueId get uniqueId;
-
   String get name;
-
   KtList<String> get scenesActionsToExecute;
-
   Color get backgroundColor;
-
   IconData get icon;
-
   String get image;
 
   @JsonKey(ignore: true)
@@ -58,7 +53,6 @@ mixin _$Scene {
 abstract class $SceneCopyWith<$Res> {
   factory $SceneCopyWith(Scene value, $Res Function(Scene) then) =
       _$SceneCopyWithImpl<$Res>;
-
   $Res call(
       {UniqueId uniqueId,
       String name,
@@ -104,7 +98,6 @@ class _$SceneCopyWithImpl<$Res> implements $SceneCopyWith<$Res> {
 abstract class _$SceneCopyWith<$Res> implements $SceneCopyWith<$Res> {
   factory _$SceneCopyWith(_Scene value, $Res Function(_Scene) then) =
       __$SceneCopyWithImpl<$Res>;
-
   @override
   $Res call(
       {UniqueId uniqueId,
@@ -154,12 +147,13 @@ class _$_Scene extends _Scene {
       {@required this.uniqueId,
       @required this.name,
       @required this.scenesActionsToExecute,
-      this.backgroundColor,
+      @required this.backgroundColor,
       this.icon,
       this.image})
       : assert(uniqueId != null),
         assert(name != null),
         assert(scenesActionsToExecute != null),
+        assert(backgroundColor != null),
         super._();
 
   @override
@@ -219,33 +213,26 @@ class _$_Scene extends _Scene {
 
 abstract class _Scene extends Scene {
   const _Scene._() : super._();
-
   const factory _Scene(
       {@required UniqueId uniqueId,
       @required String name,
       @required KtList<String> scenesActionsToExecute,
-      Color backgroundColor,
+      @required Color backgroundColor,
       IconData icon,
       String image}) = _$_Scene;
 
   @override
   UniqueId get uniqueId;
-
   @override
   String get name;
-
   @override
   KtList<String> get scenesActionsToExecute;
-
   @override
   Color get backgroundColor;
-
   @override
   IconData get icon;
-
   @override
   String get image;
-
   @override
   @JsonKey(ignore: true)
   _$SceneCopyWith<_Scene> get copyWith;

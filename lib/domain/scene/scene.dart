@@ -13,7 +13,7 @@ abstract class Scene with _$Scene {
     @required UniqueId uniqueId,
     @required String name,
     @required KtList<String> scenesActionsToExecute,
-    Color backgroundColor,
+    @required Color backgroundColor,
     IconData icon,
     String image,
   }) = _Scene;

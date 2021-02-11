@@ -15,7 +15,9 @@ class _$FoldersOfScenesTearOff {
 
 // ignore: unused_element
   _FoldersOfScenes call(
-      {@required KtList<FolderOfScenes> foldersOfScenesList}) {
+      {@required
+          KtList<Either<FolderOfScenesFailures, FolderOfScenes>>
+              foldersOfScenesList}) {
     return _FoldersOfScenes(
       foldersOfScenesList: foldersOfScenesList,
     );
@@ -28,7 +30,8 @@ const $FoldersOfScenes = _$FoldersOfScenesTearOff();
 
 /// @nodoc
 mixin _$FoldersOfScenes {
-  KtList<FolderOfScenes> get foldersOfScenesList;
+  KtList<Either<FolderOfScenesFailures, FolderOfScenes>>
+      get foldersOfScenesList;
 
   @JsonKey(ignore: true)
   $FoldersOfScenesCopyWith<FoldersOfScenes> get copyWith;
@@ -39,7 +42,10 @@ abstract class $FoldersOfScenesCopyWith<$Res> {
   factory $FoldersOfScenesCopyWith(
           FoldersOfScenes value, $Res Function(FoldersOfScenes) then) =
       _$FoldersOfScenesCopyWithImpl<$Res>;
-  $Res call({KtList<FolderOfScenes> foldersOfScenesList});
+
+  $Res call(
+      {KtList<Either<FolderOfScenesFailures, FolderOfScenes>>
+          foldersOfScenesList});
 }
 
 /// @nodoc
@@ -58,7 +64,8 @@ class _$FoldersOfScenesCopyWithImpl<$Res>
     return _then(_value.copyWith(
       foldersOfScenesList: foldersOfScenesList == freezed
           ? _value.foldersOfScenesList
-          : foldersOfScenesList as KtList<FolderOfScenes>,
+          : foldersOfScenesList
+              as KtList<Either<FolderOfScenesFailures, FolderOfScenes>>,
     ));
   }
 }
@@ -69,8 +76,11 @@ abstract class _$FoldersOfScenesCopyWith<$Res>
   factory _$FoldersOfScenesCopyWith(
           _FoldersOfScenes value, $Res Function(_FoldersOfScenes) then) =
       __$FoldersOfScenesCopyWithImpl<$Res>;
+
   @override
-  $Res call({KtList<FolderOfScenes> foldersOfScenesList});
+  $Res call(
+      {KtList<Either<FolderOfScenesFailures, FolderOfScenes>>
+          foldersOfScenesList});
 }
 
 /// @nodoc
@@ -91,7 +101,8 @@ class __$FoldersOfScenesCopyWithImpl<$Res>
     return _then(_FoldersOfScenes(
       foldersOfScenesList: foldersOfScenesList == freezed
           ? _value.foldersOfScenesList
-          : foldersOfScenesList as KtList<FolderOfScenes>,
+          : foldersOfScenesList
+              as KtList<Either<FolderOfScenesFailures, FolderOfScenes>>,
     ));
   }
 }
@@ -103,7 +114,8 @@ class _$_FoldersOfScenes extends _FoldersOfScenes {
         super._();
 
   @override
-  final KtList<FolderOfScenes> foldersOfScenesList;
+  final KtList<Either<FolderOfScenesFailures, FolderOfScenes>>
+      foldersOfScenesList;
 
   @override
   String toString() {
@@ -132,12 +144,16 @@ class _$_FoldersOfScenes extends _FoldersOfScenes {
 
 abstract class _FoldersOfScenes extends FoldersOfScenes {
   const _FoldersOfScenes._() : super._();
+
   const factory _FoldersOfScenes(
-          {@required KtList<FolderOfScenes> foldersOfScenesList}) =
-      _$_FoldersOfScenes;
+      {@required
+          KtList<Either<FolderOfScenesFailures, FolderOfScenes>>
+              foldersOfScenesList}) = _$_FoldersOfScenes;
 
   @override
-  KtList<FolderOfScenes> get foldersOfScenesList;
+  KtList<Either<FolderOfScenesFailures, FolderOfScenes>>
+      get foldersOfScenesList;
+
   @override
   @JsonKey(ignore: true)
   _$FoldersOfScenesCopyWith<_FoldersOfScenes> get copyWith;

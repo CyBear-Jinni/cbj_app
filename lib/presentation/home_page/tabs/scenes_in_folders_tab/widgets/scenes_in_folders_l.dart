@@ -1,6 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/folders_of_scenes/folders_of_scenes_bloc.dart';
+import 'package:cybear_jinni/domain/folder_of_scenes/folder_of_scene.dart';
+import 'package:cybear_jinni/domain/folder_of_scenes/folder_of_scenes_failures.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
+import 'package:dartz/dartz.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,12 +24,11 @@ class ScenesInFoldersL extends StatelessWidget {
           loaded: (state) {
             return ListView.builder(
               itemBuilder: (context, index) {
-                final scene_folder =
+                final sceneFolder =
                     state.foldersOfScenes.foldersOfScenesList[index];
                 return ScenesFoldersWidget(
                   context,
-                  scene_folder.name,
-                  scene_folder.backgroundImageUrl,
+                  sceneFolder,
                 );
               },
               itemCount: state.foldersOfScenes.foldersOfScenesList.size,
@@ -40,8 +42,8 @@ class ScenesInFoldersL extends StatelessWidget {
     );
   }
 
-  Widget ScenesFoldersWidget(
-      BuildContext context, String folderName, String backgroundImageUrl) {
+  Widget ScenesFoldersWidget(BuildContext context,
+      Either<FolderOfScenesFailures<dynamic>, FolderOfScenes> folderOfScenes) {
     const double borderRadius = 5;
     final ColorBrightness lightColorB = ColorBrightness.light;
     return Container(
@@ -49,7 +51,7 @@ class ScenesInFoldersL extends StatelessWidget {
         color: Colors.black,
         image: DecorationImage(
           image: NetworkImage(
-            backgroundImageUrl,
+            folderOfScenes.fold((l) => null, (r) => r.backgroundImageUrl),
           ),
           fit: BoxFit.cover,
         ),
@@ -62,7 +64,13 @@ class ScenesInFoldersL extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
       child: FlatButton(
         onPressed: () {
-          ExtendedNavigator.of(context).push(Routes.scenesPage);
+          ExtendedNavigator.of(context).push(
+            Routes.scenesPage,
+            arguments: ScenesPageArguments(
+              folderOfScenes:
+                  folderOfScenes.fold((l) => null, (r) => r as FolderOfScenes),
+            ),
+          );
         },
         padding: EdgeInsets.zero,
         child: Column(
@@ -80,7 +88,7 @@ class ScenesInFoldersL extends StatelessWidget {
                 ),
               ),
               child: Text(
-                folderName,
+                folderOfScenes.fold((l) => 'NoName', (r) => r.name),
                 style: const TextStyle(color: Colors.white, fontSize: 30),
                 textAlign: TextAlign.center,
               ),

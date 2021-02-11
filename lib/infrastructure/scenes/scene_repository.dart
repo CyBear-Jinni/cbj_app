@@ -12,6 +12,17 @@ import 'package:kt_dart/collection.dart';
 class SceneRepository implements ISceneRepository {
   @override
   Future<Either<SceneFailure, Scene>> getScene() async {
+    //
+    // final Scene scene = Scene(
+    //   uniqueId: UniqueId(),
+    //   name: 'Turn on all lights out side',
+    //   scenesActionsToExecute: [
+    //     'Turn on all lights',
+    //     ' Turn on all lights',
+    //   ].toImmutableList(),
+    // );
+    //
+    //
     KtList<String> scenesActionsList = [
       'Gut Cilling',
       'Out Side North',
@@ -32,48 +43,3 @@ class SceneRepository implements ISceneRepository {
     }
   }
 }
-
-// static final Map<String, Map<SmartDeviceObject, List<WishEnum>>> _scenesMap =
-// <String, Map<SmartDeviceObject, List<WishEnum>>>{
-//   'Entrance lights OFF ----------- ⛩️  🛑':
-//   <SmartDeviceObject, List<WishEnum>>{
-//     room3DevicesList[0]: <WishEnum>[
-//       WishEnum.SOff,
-//     ],
-//     room3DevicesList[3]: <WishEnum>[
-//       WishEnum.SOff,
-//     ]
-//   },
-//   'Entrance lights ON  -----------   ⛩️  💡':
-//   <SmartDeviceObject, List<WishEnum>>{
-//     room3DevicesList[0]: <WishEnum>[
-//       WishEnum.SOn,
-//     ],
-//     room3DevicesList[3]: <WishEnum>[
-//       WishEnum.SOn,
-//     ]
-//   },
-//   'Go to sleep ----------- 😴': <SmartDeviceObject, List<WishEnum>>{
-//     room3DevicesList[0]: <WishEnum>[
-//       WishEnum.SOff,
-//     ],
-//     room3DevicesList[1]: <WishEnum>[
-//       WishEnum.SOff,
-//     ],
-//     room3DevicesList[2]: <WishEnum>[
-//       WishEnum.SOff,
-//     ],
-//     room3DevicesList[3]: <WishEnum>[
-//       WishEnum.SOff,
-//     ],
-//     room4DevicesList[0]: <WishEnum>[
-//       WishEnum.SOff,
-//     ]
-//   },
-//   'Welcome home': <SmartDeviceObject, List<WishEnum>>{},
-//   'Going out': <SmartDeviceObject, List<WishEnum>>{},
-//   'Going for a walk': <SmartDeviceObject, List<WishEnum>>{},
-//   'Workout': <SmartDeviceObject, List<WishEnum>>{},
-//   'Date night': <SmartDeviceObject, List<WishEnum>>{},
-//   'Party': <SmartDeviceObject, List<WishEnum>>{},
-// };

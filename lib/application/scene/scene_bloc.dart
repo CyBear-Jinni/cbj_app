@@ -25,7 +25,7 @@ class SceneBloc extends Bloc<SceneEvent, SceneState> {
         final sceneList = await _iSceneRepository.getScene();
         yield sceneList.fold(
           (f) => const SceneState.error(),
-          (foldersOfScenesList) => SceneState.loaded(foldersOfScenesList),
+          (sceneState) => SceneState.loaded(sceneState),
         );
       },
     );

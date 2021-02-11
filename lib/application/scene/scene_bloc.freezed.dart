@@ -14,8 +14,10 @@ class _$SceneEventTearOff {
   const _$SceneEventTearOff();
 
 // ignore: unused_element
-  Initialized initialized() {
-    return const Initialized();
+  Initialized initialized({@required Scene scene}) {
+    return Initialized(
+      scene: scene,
+    );
   }
 }
 
@@ -25,14 +27,16 @@ const $SceneEvent = _$SceneEventTearOff();
 
 /// @nodoc
 mixin _$SceneEvent {
+  Scene get scene;
+
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult initialized(),
+    @required TResult initialized(Scene scene),
   });
 
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult initialized(),
+    TResult initialized(Scene scene),
     @required TResult orElse(),
   });
 
@@ -46,6 +50,9 @@ mixin _$SceneEvent {
     TResult initialized(Initialized value),
     @required TResult orElse(),
   });
+
+  @JsonKey(ignore: true)
+  $SceneEventCopyWith<SceneEvent> get copyWith;
 }
 
 /// @nodoc
@@ -53,6 +60,10 @@ abstract class $SceneEventCopyWith<$Res> {
   factory $SceneEventCopyWith(
           SceneEvent value, $Res Function(SceneEvent) then) =
       _$SceneEventCopyWithImpl<$Res>;
+
+  $Res call({Scene scene});
+
+  $SceneCopyWith<$Res> get scene;
 }
 
 /// @nodoc
@@ -63,13 +74,38 @@ class _$SceneEventCopyWithImpl<$Res> implements $SceneEventCopyWith<$Res> {
 
   // ignore: unused_field
   final $Res Function(SceneEvent) _then;
+
+  @override
+  $Res call({
+    Object scene = freezed,
+  }) {
+    return _then(_value.copyWith(
+      scene: scene == freezed ? _value.scene : scene as Scene,
+    ));
+  }
+
+  @override
+  $SceneCopyWith<$Res> get scene {
+    if (_value.scene == null) {
+      return null;
+    }
+    return $SceneCopyWith<$Res>(_value.scene, (value) {
+      return _then(_value.copyWith(scene: value));
+    });
+  }
 }
 
 /// @nodoc
-abstract class $InitializedCopyWith<$Res> {
+abstract class $InitializedCopyWith<$Res> implements $SceneEventCopyWith<$Res> {
   factory $InitializedCopyWith(
           Initialized value, $Res Function(Initialized) then) =
       _$InitializedCopyWithImpl<$Res>;
+
+  @override
+  $Res call({Scene scene});
+
+  @override
+  $SceneCopyWith<$Res> get scene;
 }
 
 /// @nodoc
@@ -81,43 +117,64 @@ class _$InitializedCopyWithImpl<$Res> extends _$SceneEventCopyWithImpl<$Res>
 
   @override
   Initialized get _value => super._value as Initialized;
+
+  @override
+  $Res call({
+    Object scene = freezed,
+  }) {
+    return _then(Initialized(
+      scene: scene == freezed ? _value.scene : scene as Scene,
+    ));
+  }
 }
 
 /// @nodoc
 class _$Initialized implements Initialized {
-  const _$Initialized();
+  const _$Initialized({@required this.scene}) : assert(scene != null);
+
+  @override
+  final Scene scene;
 
   @override
   String toString() {
-    return 'SceneEvent.initialized()';
+    return 'SceneEvent.initialized(scene: $scene)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Initialized);
+    return identical(this, other) ||
+        (other is Initialized &&
+            (identical(other.scene, scene) ||
+                const DeepCollectionEquality().equals(other.scene, scene)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(scene);
+
+  @JsonKey(ignore: true)
+  @override
+  $InitializedCopyWith<Initialized> get copyWith =>
+      _$InitializedCopyWithImpl<Initialized>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult initialized(),
+    @required TResult initialized(Scene scene),
   }) {
     assert(initialized != null);
-    return initialized();
+    return initialized(scene);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult initialized(),
+    TResult initialized(Scene scene),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (initialized != null) {
-      return initialized();
+      return initialized(scene);
     }
     return orElse();
   }
@@ -146,7 +203,14 @@ class _$Initialized implements Initialized {
 }
 
 abstract class Initialized implements SceneEvent {
-  const factory Initialized() = _$Initialized;
+  const factory Initialized({@required Scene scene}) = _$Initialized;
+
+  @override
+  Scene get scene;
+
+  @override
+  @JsonKey(ignore: true)
+  $InitializedCopyWith<Initialized> get copyWith;
 }
 
 /// @nodoc
@@ -189,7 +253,6 @@ mixin _$SceneState {
     @required TResult loaded(Scene scene),
     @required TResult error(),
   });
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>(
     TResult $default(), {
@@ -198,7 +261,6 @@ mixin _$SceneState {
     TResult error(),
     @required TResult orElse(),
   });
-
   @optionalTypeArgs
   TResult map<TResult extends Object>(
     TResult $default(_SceneState value), {
@@ -206,7 +268,6 @@ mixin _$SceneState {
     @required TResult loaded(Loaded value),
     @required TResult error(Error value),
   });
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>(
     TResult $default(_SceneState value), {
@@ -229,7 +290,6 @@ class _$SceneStateCopyWithImpl<$Res> implements $SceneStateCopyWith<$Res> {
   _$SceneStateCopyWithImpl(this._value, this._then);
 
   final SceneState _value;
-
   // ignore: unused_field
   final $Res Function(SceneState) _then;
 }
@@ -440,7 +500,6 @@ abstract class Loading implements SceneState {
 abstract class $LoadedCopyWith<$Res> {
   factory $LoadedCopyWith(Loaded value, $Res Function(Loaded) then) =
       _$LoadedCopyWithImpl<$Res>;
-
   $Res call({Scene scene});
 
   $SceneCopyWith<$Res> get scene;
@@ -571,7 +630,6 @@ abstract class Loaded implements SceneState {
   const factory Loaded(Scene scene) = _$Loaded;
 
   Scene get scene;
-
   @JsonKey(ignore: true)
   $LoadedCopyWith<Loaded> get copyWith;
 }

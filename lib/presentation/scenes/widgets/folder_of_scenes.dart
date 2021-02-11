@@ -1,42 +1,23 @@
-import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
 import 'package:cybear_jinni/application/folder_of_scenes/folder_of_scenes_bloc.dart';
 import 'package:cybear_jinni/application/scene/scene_bloc.dart';
+import 'package:cybear_jinni/domain/folder_of_scenes/folder_of_scene.dart';
+import 'package:cybear_jinni/domain/scene/scene.dart';
+import 'package:cybear_jinni/domain/scene/scene_failures.dart';
 import 'package:cybear_jinni/injection.dart';
-import 'package:cybear_jinni/presentation/scenes/scene_tab/settings_page_of_scenes.dart';
 import 'package:cybear_jinni/presentation/scenes/widgets/scene_widget.dart';
-import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
+import 'package:dartz/dartz.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class FolderOfScenesWidget extends StatelessWidget {
-  /// Execute when user press the icon in top right side
-  void userCogFunction(BuildContext context) {
-    showAdaptiveActionSheet(
-      context: context,
-      actions: <BottomSheetAction>[
-        BottomSheetAction(
-            title: '➕ Add Scene',
-            onPressed: () {},
-            textStyle: const TextStyle(color: Colors.green, fontSize: 23)),
-        BottomSheetAction(
-            title: '⚙️ Scenes Settings',
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (BuildContext context) => SettingsPageOfScenes()),
-              );
-            },
-            textStyle: const TextStyle(color: Colors.blueGrey, fontSize: 23)),
-      ],
-    );
-  }
+  FolderOfScenesWidget({@required this.folderOfScenes});
 
-  void leftIconFunction(BuildContext context) {
-    Navigator.pop(context);
+  final FolderOfScenes folderOfScenes;
+
+  Scene getTheScen(Either<SceneFailure, Scene> scenesList) {
+    return scenesList.fold((l) => null, (r) => r);
   }
 
   @override
@@ -44,55 +25,47 @@ class FolderOfScenesWidget extends StatelessWidget {
     return BlocConsumer<FolderOfScenesBloc, FolderOfScenesState>(
       listener: (context, FolderOfScenesState state) {
         state.map(
-          (value) => (v) {},
-          loading: (loadingNow) {},
+          (value) => (v) {
+            return const Text('value');
+          },
+          loading: (loadingNow) {
+            return const Text('loading');
+          },
           error: (errorNow) {
             FlushbarHelper.createError(message: 'Error');
           },
-          loaded: (_) => Text('sds'),
+          loaded: (_) => const Text('sds'),
         );
       },
       builder: (context, state) {
-        return Container(
-          child: Column(
-            children: [
-              TopNavigationBar(
-                'Scenes in folder',
-                FontAwesomeIcons.userCog,
-                userCogFunction,
-                leftIcon: FontAwesomeIcons.arrowLeft,
-                leftIconFunction: leftIconFunction,
+        return state.map(
+          (value) => const Text('Start'),
+          loading: (_) => const Text('loading'),
+          loaded: (scenesList) {
+            return GridView.builder(
+              itemBuilder: (context, index) {
+                final scene = scenesList.scenesList[index];
+                if (scene == null) {
+                  return const Text('Error');
+                } else {
+                  return BlocProvider(
+                    create: (context) => getIt<SceneBloc>()
+                      ..add(
+                        SceneEvent.initialized(
+                          scene: getTheScen(scene),
+                        ),
+                      ),
+                    child: SceneWidget(scene.fold((l) => null, (r) => r)),
+                  );
+                }
+              },
+              itemCount: scenesList.scenesList.size,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
               ),
-              Expanded(
-                child: Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 4),
-                  child: GridView(
-                    padding: const EdgeInsets.only(top: 10),
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2),
-                    children: [
-                      BlocProvider(
-                        create: (context) => getIt<SceneBloc>()
-                          ..add(const SceneEvent.initialized()),
-                        child: SceneWidget(),
-                      ),
-                      BlocProvider(
-                        create: (context) => getIt<SceneBloc>()
-                          ..add(const SceneEvent.initialized()),
-                        child: SceneWidget(),
-                      ),
-                      BlocProvider(
-                        create: (context) => getIt<SceneBloc>()
-                          ..add(const SceneEvent.initialized()),
-                        child: SceneWidget(),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
+            );
+          },
+          error: (_) => const Text('error'),
         );
       },
     );
