@@ -57,6 +57,9 @@ class ScenesInFoldersTab extends StatelessWidget {
           rightSecondIcon: FontAwesomeIcons.search,
           rightSecondFunction: rightSecondFunction,
         ),
+        const SizedBox(
+          height: 7,
+        ),
         Expanded(
           child: BlocProvider(
             create: (context) => getIt<FoldersOfScenesBloc>()
