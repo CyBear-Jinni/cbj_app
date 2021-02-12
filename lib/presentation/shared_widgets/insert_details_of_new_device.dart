@@ -70,7 +70,8 @@ class ShowAllDevicesInTheSmartDevice extends StatefulWidget {
   }
 }
 
-class _ShowAllDevicesInTheSmartDevice extends State<ShowAllDevicesInTheSmartDevice> {
+class _ShowAllDevicesInTheSmartDevice
+    extends State<ShowAllDevicesInTheSmartDevice> {
   _ShowAllDevicesInTheSmartDevice(this._ip, this.gradientColors) {
     getAllTheDevices();
   }
@@ -103,54 +104,54 @@ class _ShowAllDevicesInTheSmartDevice extends State<ShowAllDevicesInTheSmartDevi
     return _isLoading
         ? const CircularProgressIndicator()
         : Expanded(
-      child: Column(
-        children: <Widget>[
-          Expanded(
-              child: ListView(
-                children: listOfDevicesToShow(),
-              )),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              RaisedButton(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(24),
+            child: Column(
+              children: <Widget>[
+                Expanded(
+                    child: ListView(
+                  children: listOfDevicesToShow(),
+                )),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    RaisedButton(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(24),
+                      ),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      padding: const EdgeInsets.all(12),
+                      color: Colors.redAccent,
+                      child: const Text('Cancel',
+                              style: TextStyle(color: Colors.white))
+                          .tr(),
+                    ),
+                    RaisedButton(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(24),
+                      ),
+                      onPressed: () {
+                        getAllTheDevices();
+                        final List<SmartDeviceObject> room2DevicesList =
+                            smartDeviceObjectList;
+                        final SmartRoomObject newRoom = SmartRoomObject(
+                            'New_devices'.tr(),
+                            room2DevicesList,
+                            gradientColors);
+                        rooms.add(newRoom);
+                        Navigator.pop(context);
+                      },
+                      padding: const EdgeInsets.all(12),
+                      color: Colors.lightGreen,
+                      child: const Text('Add devices',
+                              style: TextStyle(color: Colors.white))
+                          .tr(),
+                    ),
+                  ],
                 ),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                padding: const EdgeInsets.all(12),
-                color: Colors.redAccent,
-                child: const Text('Cancel',
-                    style: TextStyle(color: Colors.white))
-                    .tr(),
-              ),
-              RaisedButton(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(24),
-                ),
-                onPressed: () {
-                  getAllTheDevices();
-                  final List<SmartDeviceObject> room2DevicesList =
-                      smartDeviceObjectList;
-                  final SmartRoomObject newRoom = SmartRoomObject(
-                      'New_devices'.tr(),
-                      room2DevicesList,
-                      gradientColors);
-                  rooms.add(newRoom);
-                  Navigator.pop(context);
-                },
-                padding: const EdgeInsets.all(12),
-                color: Colors.lightGreen,
-                child: const Text('Add devices',
-                    style: TextStyle(color: Colors.white))
-                    .tr(),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
+              ],
+            ),
+          );
   }
 }
 
@@ -280,7 +281,7 @@ class _NewDeviceWidget extends State<NewDeviceWidget> {
                       color: Colors.white,
                       backgroundColor: Colors.blueGrey
 //                color: Theme.of(context).textTheme.bodyText1.color,
-                  ),
+                      ),
                 ).tr(args: <String>[
                   EnumHelper.dTToString(_smartDeviceObject.deviceType)
                 ]),
@@ -363,7 +364,7 @@ class _NewDeviceWidget extends State<NewDeviceWidget> {
               padding: const EdgeInsets.all(12),
               color: Colors.blueAccent,
               child: const Text('Update_WiFi_configuration',
-                  style: TextStyle(color: Colors.white))
+                      style: TextStyle(color: Colors.white))
                   .tr(),
             ),
           ],

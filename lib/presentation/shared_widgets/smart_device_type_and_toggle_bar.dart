@@ -40,7 +40,7 @@ class SmartDeviceTypeAndToggleBar extends StatelessWidget {
               color: Colors.white,
               backgroundColor: Colors.blueGrey
 //                color: Theme.of(context).textTheme.bodyText1.color,
-          ),
+              ),
         ).tr(args: <String>[
           EnumHelper.dTToString(_smartDeviceObject.deviceType)
         ]),

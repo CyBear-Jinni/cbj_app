@@ -12,7 +12,7 @@ SmartRoomObject room1 = SmartRoomObject(
 SmartRoomObject room3 =
     SmartRoomObject('Outside North', room3DevicesList, GradientColors.sunset);
 SmartRoomObject room4 =
-SmartRoomObject('Outside South', room4DevicesList, GradientColors.sky);
+    SmartRoomObject('Outside South', room4DevicesList, GradientColors.sky);
 
 final List<SmartDeviceObject> room1DevicesList = <SmartDeviceObject>[
   SmartDeviceObject(DeviceType.Light, 'Ceiling', '10.0.0.29', 'Guy'),

@@ -59,7 +59,7 @@ class _InsertWiFiCredentialPopup extends State<InsertWiFiCredentialPopup> {
                 TextFormField(
                   autofocus: true,
                   onSaved: (String wiFiPassword) =>
-                  _wiFiPassword = wiFiPassword,
+                      _wiFiPassword = wiFiPassword,
                   keyboardType: TextInputType.text,
                   validator: (String value) {
                     if (value.isEmpty) {
