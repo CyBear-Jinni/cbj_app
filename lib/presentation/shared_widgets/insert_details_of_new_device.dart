@@ -183,7 +183,7 @@ class _NewDeviceWidget extends State<NewDeviceWidget> {
   Widget drawSmartWidgetHelper(SmartDeviceObject smartDeviceObject) {
     switch (_smartDeviceObject.deviceType) {
       case DeviceType.Light:
-      // TODO: Handle this case.
+        // TODO: Handle this case.
         break;
       case DeviceType.DynamicLight:
       // TODO: Handle this case.
