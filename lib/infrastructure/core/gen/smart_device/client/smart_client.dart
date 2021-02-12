@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:cybear_jinni/infrastructure/core/constant_credentials.dart';
-import 'package:cybear_jinni/infrastructure/objects/smart_device/smart_device_object.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_device_object.dart';
 import 'package:grpc/grpc.dart';
 
 import 'protoc_as_dart/smart_connection.pb.dart';

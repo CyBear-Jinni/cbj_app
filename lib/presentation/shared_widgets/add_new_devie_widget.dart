@@ -1,5 +1,5 @@
+import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_device_object.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums.dart';
-import 'package:cybear_jinni/infrastructure/objects/smart_device/smart_device_object.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/insert_details_of_new_device.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -32,7 +32,7 @@ class _AddNewDeviceWidgetPopup extends State<AddNewDeviceWidgetPopup> {
             return TextFormField(
               autofocus: true,
               initialValue:
-                  snapshot.data?.substring(0, snapshot.data.length - 1),
+              snapshot.data?.substring(0, snapshot.data.length - 1),
               onSaved: (String ip) => _ip = ip,
               keyboardType: TextInputType.number,
               validator: (String value) {

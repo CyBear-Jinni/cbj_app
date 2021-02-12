@@ -1,9 +1,9 @@
 import 'dart:async';
 
+import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/smart_client.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_blinds_object.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_device_object.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums.dart';
-import 'package:cybear_jinni/infrastructure/objects/smart_device/client/smart_client.dart';
-import 'package:cybear_jinni/infrastructure/objects/smart_device/smart_blinds_object.dart';
-import 'package:cybear_jinni/infrastructure/objects/smart_device/smart_device_object.dart';
 import 'package:grpc/grpc.dart';
 
 import 'client/protoc_as_dart/smart_connection.pb.dart';

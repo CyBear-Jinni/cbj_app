@@ -1,8 +1,8 @@
 import 'dart:core';
 import 'dart:ui';
 
-import 'package:cybear_jinni/infrastructure/objects/smart_device/smart_blinds_object.dart';
-import 'package:cybear_jinni/infrastructure/objects/smart_device/smart_device_object.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_blinds_object.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_device_object.dart';
 
 class SmartRoomObject {
   SmartRoomObject(this._roomName, this._lightsInTheRoom, this.grediantColor,

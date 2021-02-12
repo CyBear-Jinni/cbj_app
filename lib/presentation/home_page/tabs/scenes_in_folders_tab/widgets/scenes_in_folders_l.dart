@@ -27,7 +27,7 @@ class ScenesInFoldersL extends StatelessWidget {
               itemBuilder: (context, index) {
                 final sceneFolder =
                     state.foldersOfScenes.foldersOfScenesList[index];
-                return ScenesFoldersWidget(
+                return scenesFoldersWidget(
                   context,
                   sceneFolder,
                 );
@@ -43,7 +43,7 @@ class ScenesInFoldersL extends StatelessWidget {
     );
   }
 
-  Widget ScenesFoldersWidget(BuildContext context,
+  Widget scenesFoldersWidget(BuildContext context,
       Either<FolderOfScenesFailures<dynamic>, FolderOfScenes> folderOfScenes) {
     const double borderRadius = 5;
     final ColorBrightness lightColorB = ColorBrightness.light;

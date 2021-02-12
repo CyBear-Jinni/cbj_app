@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:cybear_jinni/infrastructure/database/cbj_app_server/cbj_app_server_d.dart';
-import 'package:cybear_jinni/infrastructure/objects/smart_device/smart_device_object.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/cbj_app_server/cbj_app_server_d.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_device_object.dart';
 import 'package:cybear_jinni/presentation/add_new_devices/smart_device_to_configure.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';

@@ -1,15 +1,13 @@
+import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_device_object.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums.dart';
-import 'package:cybear_jinni/infrastructure/objects/smart_device/smart_device_object.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 /// Block of one scene
 class SceneBlockWidget extends StatelessWidget {
-  const SceneBlockWidget(
-    this.sceneName,
-    this.smartDevicesWithWish,
-    this._elementIndex,
-  );
+  const SceneBlockWidget(this.sceneName,
+      this.smartDevicesWithWish,
+      this._elementIndex,);
 
   /// Create colors automatically from dart color list
   static final List<MaterialColor> colorList = Colors.primaries;

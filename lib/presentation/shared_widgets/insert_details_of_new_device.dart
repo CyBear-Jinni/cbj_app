@@ -1,9 +1,9 @@
+import 'package:cybear_jinni/infrastructure/core/gen/smart_device/send_to_smart_device.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_blinds_object.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_device_object.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_room_object.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums.dart';
 import 'package:cybear_jinni/infrastructure/objects/interface_darta/cloud_interface_data.dart';
-import 'package:cybear_jinni/infrastructure/objects/smart_device/send_to_smart_device.dart';
-import 'package:cybear_jinni/infrastructure/objects/smart_device/smart_blinds_object.dart';
-import 'package:cybear_jinni/infrastructure/objects/smart_device/smart_device_object.dart';
-import 'package:cybear_jinni/infrastructure/objects/smart_device/smart_room_object.dart';
 import 'package:cybear_jinni/presentation/home_page/smart_device_widget.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/blinds/smart_blind_widget.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/insert_wifi_credential_popup.dart';
@@ -70,8 +70,7 @@ class ShowAllDevicesInTheSmartDevice extends StatefulWidget {
   }
 }
 
-class _ShowAllDevicesInTheSmartDevice
-    extends State<ShowAllDevicesInTheSmartDevice> {
+class _ShowAllDevicesInTheSmartDevice extends State<ShowAllDevicesInTheSmartDevice> {
   _ShowAllDevicesInTheSmartDevice(this._ip, this.gradientColors) {
     getAllTheDevices();
   }
@@ -104,54 +103,54 @@ class _ShowAllDevicesInTheSmartDevice
     return _isLoading
         ? const CircularProgressIndicator()
         : Expanded(
-            child: Column(
-              children: <Widget>[
-                Expanded(
-                    child: ListView(
-                  children: listOfDevicesToShow(),
-                )),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: <Widget>[
-                    RaisedButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(24),
-                      ),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      padding: const EdgeInsets.all(12),
-                      color: Colors.redAccent,
-                      child: const Text('Cancel',
-                              style: TextStyle(color: Colors.white))
-                          .tr(),
-                    ),
-                    RaisedButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(24),
-                      ),
-                      onPressed: () {
-                        getAllTheDevices();
-                        final List<SmartDeviceObject> room2DevicesList =
-                            smartDeviceObjectList;
-                        final SmartRoomObject newRoom = SmartRoomObject(
-                            'New_devices'.tr(),
-                            room2DevicesList,
-                            gradientColors);
-                        rooms.add(newRoom);
-                        Navigator.pop(context);
-                      },
-                      padding: const EdgeInsets.all(12),
-                      color: Colors.lightGreen,
-                      child: const Text('Add devices',
-                              style: TextStyle(color: Colors.white))
-                          .tr(),
-                    ),
-                  ],
+      child: Column(
+        children: <Widget>[
+          Expanded(
+              child: ListView(
+                children: listOfDevicesToShow(),
+              )),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              RaisedButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(24),
                 ),
-              ],
-            ),
-          );
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                padding: const EdgeInsets.all(12),
+                color: Colors.redAccent,
+                child: const Text('Cancel',
+                    style: TextStyle(color: Colors.white))
+                    .tr(),
+              ),
+              RaisedButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(24),
+                ),
+                onPressed: () {
+                  getAllTheDevices();
+                  final List<SmartDeviceObject> room2DevicesList =
+                      smartDeviceObjectList;
+                  final SmartRoomObject newRoom = SmartRoomObject(
+                      'New_devices'.tr(),
+                      room2DevicesList,
+                      gradientColors);
+                  rooms.add(newRoom);
+                  Navigator.pop(context);
+                },
+                padding: const EdgeInsets.all(12),
+                color: Colors.lightGreen,
+                child: const Text('Add devices',
+                    style: TextStyle(color: Colors.white))
+                    .tr(),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 }
 
@@ -183,17 +182,17 @@ class _NewDeviceWidget extends State<NewDeviceWidget> {
   Widget drawSmartWidgetHelper(SmartDeviceObject smartDeviceObject) {
     switch (_smartDeviceObject.deviceType) {
       case DeviceType.Light:
-        // TODO: Handle this case.
+      // TODO: Handle this case.
         break;
       case DeviceType.DynamicLight:
-        // TODO: Handle this case.
+      // TODO: Handle this case.
         break;
       case DeviceType.Blinds:
         return SmartBlindPage(
             smartBlindsObject: _smartDeviceObject as SmartBlindsObject);
         break;
       case DeviceType.Thermostat:
-        // TODO: Handle this case.
+      // TODO: Handle this case.
         break;
       case DeviceType.Fan:
       // TODO: Handle this case.
@@ -281,7 +280,7 @@ class _NewDeviceWidget extends State<NewDeviceWidget> {
                       color: Colors.white,
                       backgroundColor: Colors.blueGrey
 //                color: Theme.of(context).textTheme.bodyText1.color,
-                      ),
+                  ),
                 ).tr(args: <String>[
                   EnumHelper.dTToString(_smartDeviceObject.deviceType)
                 ]),
@@ -364,7 +363,7 @@ class _NewDeviceWidget extends State<NewDeviceWidget> {
               padding: const EdgeInsets.all(12),
               color: Colors.blueAccent,
               child: const Text('Update_WiFi_configuration',
-                      style: TextStyle(color: Colors.white))
+                  style: TextStyle(color: Colors.white))
                   .tr(),
             ),
           ],

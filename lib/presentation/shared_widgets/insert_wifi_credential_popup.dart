@@ -1,5 +1,5 @@
+import 'package:cybear_jinni/infrastructure/core/gen/security_bear/client/security_bear_server_client.dart';
 import 'package:cybear_jinni/infrastructure/core/shared_methods.dart';
-import 'package:cybear_jinni/infrastructure/objects/security_bear/client/security_bear_server_client.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -59,7 +59,7 @@ class _InsertWiFiCredentialPopup extends State<InsertWiFiCredentialPopup> {
                 TextFormField(
                   autofocus: true,
                   onSaved: (String wiFiPassword) =>
-                      _wiFiPassword = wiFiPassword,
+                  _wiFiPassword = wiFiPassword,
                   keyboardType: TextInputType.text,
                   validator: (String value) {
                     if (value.isEmpty) {
