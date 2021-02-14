@@ -186,7 +186,7 @@ class _NewDeviceWidget extends State<NewDeviceWidget> {
         // TODO: Handle this case.
         break;
       case DeviceType.DynamicLight:
-      // TODO: Handle this case.
+        // TODO: Handle this case.
         break;
       case DeviceType.Blinds:
         return SmartBlindPage(

@@ -35,20 +35,17 @@ mixin _$FoldersOfScenesFailures<T> {
     @required TResult emptyScenesList(),
     @required TResult unexpected(),
   });
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult emptyScenesList(),
     TResult unexpected(),
     @required TResult orElse(),
   });
-
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult emptyScenesList(_EmptyScenes<T> value),
     @required TResult unexpected(_Unexpected<T> value),
   });
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult emptyScenesList(_EmptyScenes<T> value),
@@ -70,7 +67,6 @@ class _$FoldersOfScenesFailuresCopyWithImpl<T, $Res>
   _$FoldersOfScenesFailuresCopyWithImpl(this._value, this._then);
 
   final FoldersOfScenesFailures<T> _value;
-
   // ignore: unused_field
   final $Res Function(FoldersOfScenesFailures<T>) _then;
 }

@@ -33,18 +33,15 @@ mixin _$SceneEvent {
   TResult when<TResult extends Object>({
     @required TResult initialized(Scene scene),
   });
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initialized(Scene scene),
     @required TResult orElse(),
   });
-
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult initialized(Initialized value),
   });
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult initialized(Initialized value),
@@ -60,7 +57,6 @@ abstract class $SceneEventCopyWith<$Res> {
   factory $SceneEventCopyWith(
           SceneEvent value, $Res Function(SceneEvent) then) =
       _$SceneEventCopyWithImpl<$Res>;
-
   $Res call({Scene scene});
 
   $SceneCopyWith<$Res> get scene;
@@ -71,7 +67,6 @@ class _$SceneEventCopyWithImpl<$Res> implements $SceneEventCopyWith<$Res> {
   _$SceneEventCopyWithImpl(this._value, this._then);
 
   final SceneEvent _value;
-
   // ignore: unused_field
   final $Res Function(SceneEvent) _then;
 
@@ -100,7 +95,6 @@ abstract class $InitializedCopyWith<$Res> implements $SceneEventCopyWith<$Res> {
   factory $InitializedCopyWith(
           Initialized value, $Res Function(Initialized) then) =
       _$InitializedCopyWithImpl<$Res>;
-
   @override
   $Res call({Scene scene});
 
@@ -207,7 +201,6 @@ abstract class Initialized implements SceneEvent {
 
   @override
   Scene get scene;
-
   @override
   @JsonKey(ignore: true)
   $InitializedCopyWith<Initialized> get copyWith;
