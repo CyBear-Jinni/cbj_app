@@ -18,7 +18,7 @@ class _$DeviceDtosTearOff {
 
 // ignore: unused_element
   _DeviceDtos call(
-      {@required String id,
+      {@JsonKey(ignore: true) String id,
       @required String defaultName,
       @required String roomId,
       @required String state,
@@ -44,13 +44,19 @@ const $DeviceDtos = _$DeviceDtosTearOff();
 
 /// @nodoc
 mixin _$DeviceDtos {
+  @JsonKey(ignore: true)
   String get id;
+
   String get defaultName;
+
   String get roomId;
+
   String get state;
+
   String get type;
 
   Map<String, dynamic> toJson();
+
   @JsonKey(ignore: true)
   $DeviceDtosCopyWith<DeviceDtos> get copyWith;
 }
@@ -61,7 +67,7 @@ abstract class $DeviceDtosCopyWith<$Res> {
           DeviceDtos value, $Res Function(DeviceDtos) then) =
       _$DeviceDtosCopyWithImpl<$Res>;
   $Res call(
-      {String id,
+      {@JsonKey(ignore: true) String id,
       String defaultName,
       String roomId,
       String state,
@@ -102,7 +108,7 @@ abstract class _$DeviceDtosCopyWith<$Res> implements $DeviceDtosCopyWith<$Res> {
       __$DeviceDtosCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String id,
+      {@JsonKey(ignore: true) String id,
       String defaultName,
       String roomId,
       String state,
@@ -143,13 +149,12 @@ class __$DeviceDtosCopyWithImpl<$Res> extends _$DeviceDtosCopyWithImpl<$Res>
 /// @nodoc
 class _$_DeviceDtos extends _DeviceDtos {
   const _$_DeviceDtos(
-      {@required this.id,
+      {@JsonKey(ignore: true) this.id,
       @required this.defaultName,
       @required this.roomId,
       @required this.state,
       @required this.type})
-      : assert(id != null),
-        assert(defaultName != null),
+      : assert(defaultName != null),
         assert(roomId != null),
         assert(state != null),
         assert(type != null),
@@ -159,6 +164,7 @@ class _$_DeviceDtos extends _DeviceDtos {
       _$_$_DeviceDtosFromJson(json);
 
   @override
+  @JsonKey(ignore: true)
   final String id;
   @override
   final String defaultName;
@@ -214,7 +220,7 @@ class _$_DeviceDtos extends _DeviceDtos {
 abstract class _DeviceDtos extends DeviceDtos {
   const _DeviceDtos._() : super._();
   const factory _DeviceDtos(
-      {@required String id,
+      {@JsonKey(ignore: true) String id,
       @required String defaultName,
       @required String roomId,
       @required String state,
@@ -224,6 +230,7 @@ abstract class _DeviceDtos extends DeviceDtos {
       _$_DeviceDtos.fromJson;
 
   @override
+  @JsonKey(ignore: true)
   String get id;
   @override
   String get defaultName;

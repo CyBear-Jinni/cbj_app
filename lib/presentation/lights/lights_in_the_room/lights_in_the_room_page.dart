@@ -1,6 +1,6 @@
 import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_room_object.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
-import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/lights/room_lights_toggles_block.dart';
+import 'package:cybear_jinni/presentation/lights/widgets/room_lights_toggles_block.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';

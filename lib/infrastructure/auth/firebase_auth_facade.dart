@@ -22,6 +22,11 @@ class FirebaseAuthFacade implements IAuthFacade {
   Future<Option<MUser>> getSignedInUser() async =>
       optionOf(_firebaseAuth.currentUser?.toDomain());
 
+  // TODO: Change to current home instead of current user ID
+  @override
+  Future<Option<MHome>> getCurrentHome() async =>
+      optionOf(_firebaseAuth.currentUser?.homeToDomain());
+
   @override
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword(
       {@required EmailAddress emailAddress,

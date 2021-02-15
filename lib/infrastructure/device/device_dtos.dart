@@ -4,7 +4,6 @@ import 'package:cybear_jinni/domain/devices/value_objects.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'device_dtos.freezed.dart';
-
 part 'device_dtos.g.dart';
 
 @freezed
@@ -12,7 +11,7 @@ abstract class DeviceDtos implements _$DeviceDtos {
   const DeviceDtos._();
 
   const factory DeviceDtos({
-    @required String id,
+    @JsonKey(ignore: true) String id,
     @required String defaultName,
     @required String roomId,
     @required String state,
@@ -42,7 +41,7 @@ abstract class DeviceDtos implements _$DeviceDtos {
   factory DeviceDtos.fromJson(Map<String, dynamic> json) =>
       _$DeviceDtosFromJson(json);
 
-  factory DeviceDtos.formFirestore(DocumentSnapshot doc) {
+  factory DeviceDtos.fromFirestore(DocumentSnapshot doc) {
     return DeviceDtos.fromJson(doc.data()).copyWith(id: doc.id);
   }
 }

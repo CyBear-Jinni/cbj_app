@@ -14,4 +14,9 @@ abstract class DevicesFailure<T> {
   }) = _ExceedingLength;
 
   const factory DevicesFailure.unexpected() = _Unexpected;
+
+  const factory DevicesFailure.insufficientPermission() =
+      _InsufficientPermission;
+
+  const factory DevicesFailure.unableToUpdate() = _UnableToUpdate;
 }

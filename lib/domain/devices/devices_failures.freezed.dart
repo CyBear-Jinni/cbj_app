@@ -33,6 +33,16 @@ class _$DevicesFailureTearOff {
   _Unexpected<T> unexpected<T>() {
     return _Unexpected<T>();
   }
+
+// ignore: unused_element
+  _InsufficientPermission<T> insufficientPermission<T>() {
+    return _InsufficientPermission<T>();
+  }
+
+// ignore: unused_element
+  _UnableToUpdate<T> unableToUpdate<T>() {
+    return _UnableToUpdate<T>();
+  }
 }
 
 /// @nodoc
@@ -46,12 +56,16 @@ mixin _$DevicesFailure<T> {
     @required TResult empty(T failedValue),
     @required TResult exceedingLength(T failedValue, int max),
     @required TResult unexpected(),
+    @required TResult insufficientPermission(),
+    @required TResult unableToUpdate(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult empty(T failedValue),
     TResult exceedingLength(T failedValue, int max),
     TResult unexpected(),
+    TResult insufficientPermission(),
+    TResult unableToUpdate(),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -59,12 +73,16 @@ mixin _$DevicesFailure<T> {
     @required TResult empty(_Empty<T> value),
     @required TResult exceedingLength(_ExceedingLength<T> value),
     @required TResult unexpected(_Unexpected<T> value),
+    @required TResult insufficientPermission(_InsufficientPermission<T> value),
+    @required TResult unableToUpdate(_UnableToUpdate<T> value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult empty(_Empty<T> value),
     TResult exceedingLength(_ExceedingLength<T> value),
     TResult unexpected(_Unexpected<T> value),
+    TResult insufficientPermission(_InsufficientPermission<T> value),
+    TResult unableToUpdate(_UnableToUpdate<T> value),
     @required TResult orElse(),
   });
 }
@@ -150,10 +168,14 @@ class _$_Empty<T> implements _Empty<T> {
     @required TResult empty(T failedValue),
     @required TResult exceedingLength(T failedValue, int max),
     @required TResult unexpected(),
+    @required TResult insufficientPermission(),
+    @required TResult unableToUpdate(),
   }) {
     assert(empty != null);
     assert(exceedingLength != null);
     assert(unexpected != null);
+    assert(insufficientPermission != null);
+    assert(unableToUpdate != null);
     return empty(failedValue);
   }
 
@@ -163,6 +185,8 @@ class _$_Empty<T> implements _Empty<T> {
     TResult empty(T failedValue),
     TResult exceedingLength(T failedValue, int max),
     TResult unexpected(),
+    TResult insufficientPermission(),
+    TResult unableToUpdate(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -178,10 +202,14 @@ class _$_Empty<T> implements _Empty<T> {
     @required TResult empty(_Empty<T> value),
     @required TResult exceedingLength(_ExceedingLength<T> value),
     @required TResult unexpected(_Unexpected<T> value),
+    @required TResult insufficientPermission(_InsufficientPermission<T> value),
+    @required TResult unableToUpdate(_UnableToUpdate<T> value),
   }) {
     assert(empty != null);
     assert(exceedingLength != null);
     assert(unexpected != null);
+    assert(insufficientPermission != null);
+    assert(unableToUpdate != null);
     return empty(this);
   }
 
@@ -191,6 +219,8 @@ class _$_Empty<T> implements _Empty<T> {
     TResult empty(_Empty<T> value),
     TResult exceedingLength(_ExceedingLength<T> value),
     TResult unexpected(_Unexpected<T> value),
+    TResult insufficientPermission(_InsufficientPermission<T> value),
+    TResult unableToUpdate(_UnableToUpdate<T> value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -285,10 +315,14 @@ class _$_ExceedingLength<T> implements _ExceedingLength<T> {
     @required TResult empty(T failedValue),
     @required TResult exceedingLength(T failedValue, int max),
     @required TResult unexpected(),
+    @required TResult insufficientPermission(),
+    @required TResult unableToUpdate(),
   }) {
     assert(empty != null);
     assert(exceedingLength != null);
     assert(unexpected != null);
+    assert(insufficientPermission != null);
+    assert(unableToUpdate != null);
     return exceedingLength(failedValue, max);
   }
 
@@ -298,6 +332,8 @@ class _$_ExceedingLength<T> implements _ExceedingLength<T> {
     TResult empty(T failedValue),
     TResult exceedingLength(T failedValue, int max),
     TResult unexpected(),
+    TResult insufficientPermission(),
+    TResult unableToUpdate(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -313,10 +349,14 @@ class _$_ExceedingLength<T> implements _ExceedingLength<T> {
     @required TResult empty(_Empty<T> value),
     @required TResult exceedingLength(_ExceedingLength<T> value),
     @required TResult unexpected(_Unexpected<T> value),
+    @required TResult insufficientPermission(_InsufficientPermission<T> value),
+    @required TResult unableToUpdate(_UnableToUpdate<T> value),
   }) {
     assert(empty != null);
     assert(exceedingLength != null);
     assert(unexpected != null);
+    assert(insufficientPermission != null);
+    assert(unableToUpdate != null);
     return exceedingLength(this);
   }
 
@@ -326,6 +366,8 @@ class _$_ExceedingLength<T> implements _ExceedingLength<T> {
     TResult empty(_Empty<T> value),
     TResult exceedingLength(_ExceedingLength<T> value),
     TResult unexpected(_Unexpected<T> value),
+    TResult insufficientPermission(_InsufficientPermission<T> value),
+    TResult unableToUpdate(_UnableToUpdate<T> value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -388,10 +430,14 @@ class _$_Unexpected<T> implements _Unexpected<T> {
     @required TResult empty(T failedValue),
     @required TResult exceedingLength(T failedValue, int max),
     @required TResult unexpected(),
+    @required TResult insufficientPermission(),
+    @required TResult unableToUpdate(),
   }) {
     assert(empty != null);
     assert(exceedingLength != null);
     assert(unexpected != null);
+    assert(insufficientPermission != null);
+    assert(unableToUpdate != null);
     return unexpected();
   }
 
@@ -401,6 +447,8 @@ class _$_Unexpected<T> implements _Unexpected<T> {
     TResult empty(T failedValue),
     TResult exceedingLength(T failedValue, int max),
     TResult unexpected(),
+    TResult insufficientPermission(),
+    TResult unableToUpdate(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -416,10 +464,14 @@ class _$_Unexpected<T> implements _Unexpected<T> {
     @required TResult empty(_Empty<T> value),
     @required TResult exceedingLength(_ExceedingLength<T> value),
     @required TResult unexpected(_Unexpected<T> value),
+    @required TResult insufficientPermission(_InsufficientPermission<T> value),
+    @required TResult unableToUpdate(_UnableToUpdate<T> value),
   }) {
     assert(empty != null);
     assert(exceedingLength != null);
     assert(unexpected != null);
+    assert(insufficientPermission != null);
+    assert(unableToUpdate != null);
     return unexpected(this);
   }
 
@@ -429,6 +481,8 @@ class _$_Unexpected<T> implements _Unexpected<T> {
     TResult empty(_Empty<T> value),
     TResult exceedingLength(_ExceedingLength<T> value),
     TResult unexpected(_Unexpected<T> value),
+    TResult insufficientPermission(_InsufficientPermission<T> value),
+    TResult unableToUpdate(_UnableToUpdate<T> value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -441,4 +495,223 @@ class _$_Unexpected<T> implements _Unexpected<T> {
 
 abstract class _Unexpected<T> implements DevicesFailure<T> {
   const factory _Unexpected() = _$_Unexpected<T>;
+}
+
+/// @nodoc
+abstract class _$InsufficientPermissionCopyWith<T, $Res> {
+  factory _$InsufficientPermissionCopyWith(_InsufficientPermission<T> value,
+          $Res Function(_InsufficientPermission<T>) then) =
+      __$InsufficientPermissionCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$InsufficientPermissionCopyWithImpl<T, $Res>
+    extends _$DevicesFailureCopyWithImpl<T, $Res>
+    implements _$InsufficientPermissionCopyWith<T, $Res> {
+  __$InsufficientPermissionCopyWithImpl(_InsufficientPermission<T> _value,
+      $Res Function(_InsufficientPermission<T>) _then)
+      : super(_value, (v) => _then(v as _InsufficientPermission<T>));
+
+  @override
+  _InsufficientPermission<T> get _value =>
+      super._value as _InsufficientPermission<T>;
+}
+
+/// @nodoc
+class _$_InsufficientPermission<T> implements _InsufficientPermission<T> {
+  const _$_InsufficientPermission();
+
+  @override
+  String toString() {
+    return 'DevicesFailure<$T>.insufficientPermission()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _InsufficientPermission<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult empty(T failedValue),
+    @required TResult exceedingLength(T failedValue, int max),
+    @required TResult unexpected(),
+    @required TResult insufficientPermission(),
+    @required TResult unableToUpdate(),
+  }) {
+    assert(empty != null);
+    assert(exceedingLength != null);
+    assert(unexpected != null);
+    assert(insufficientPermission != null);
+    assert(unableToUpdate != null);
+    return insufficientPermission();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult empty(T failedValue),
+    TResult exceedingLength(T failedValue, int max),
+    TResult unexpected(),
+    TResult insufficientPermission(),
+    TResult unableToUpdate(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (insufficientPermission != null) {
+      return insufficientPermission();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult empty(_Empty<T> value),
+    @required TResult exceedingLength(_ExceedingLength<T> value),
+    @required TResult unexpected(_Unexpected<T> value),
+    @required TResult insufficientPermission(_InsufficientPermission<T> value),
+    @required TResult unableToUpdate(_UnableToUpdate<T> value),
+  }) {
+    assert(empty != null);
+    assert(exceedingLength != null);
+    assert(unexpected != null);
+    assert(insufficientPermission != null);
+    assert(unableToUpdate != null);
+    return insufficientPermission(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult empty(_Empty<T> value),
+    TResult exceedingLength(_ExceedingLength<T> value),
+    TResult unexpected(_Unexpected<T> value),
+    TResult insufficientPermission(_InsufficientPermission<T> value),
+    TResult unableToUpdate(_UnableToUpdate<T> value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (insufficientPermission != null) {
+      return insufficientPermission(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _InsufficientPermission<T> implements DevicesFailure<T> {
+  const factory _InsufficientPermission() = _$_InsufficientPermission<T>;
+}
+
+/// @nodoc
+abstract class _$UnableToUpdateCopyWith<T, $Res> {
+  factory _$UnableToUpdateCopyWith(
+          _UnableToUpdate<T> value, $Res Function(_UnableToUpdate<T>) then) =
+      __$UnableToUpdateCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$UnableToUpdateCopyWithImpl<T, $Res>
+    extends _$DevicesFailureCopyWithImpl<T, $Res>
+    implements _$UnableToUpdateCopyWith<T, $Res> {
+  __$UnableToUpdateCopyWithImpl(
+      _UnableToUpdate<T> _value, $Res Function(_UnableToUpdate<T>) _then)
+      : super(_value, (v) => _then(v as _UnableToUpdate<T>));
+
+  @override
+  _UnableToUpdate<T> get _value => super._value as _UnableToUpdate<T>;
+}
+
+/// @nodoc
+class _$_UnableToUpdate<T> implements _UnableToUpdate<T> {
+  const _$_UnableToUpdate();
+
+  @override
+  String toString() {
+    return 'DevicesFailure<$T>.unableToUpdate()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _UnableToUpdate<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult empty(T failedValue),
+    @required TResult exceedingLength(T failedValue, int max),
+    @required TResult unexpected(),
+    @required TResult insufficientPermission(),
+    @required TResult unableToUpdate(),
+  }) {
+    assert(empty != null);
+    assert(exceedingLength != null);
+    assert(unexpected != null);
+    assert(insufficientPermission != null);
+    assert(unableToUpdate != null);
+    return unableToUpdate();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult empty(T failedValue),
+    TResult exceedingLength(T failedValue, int max),
+    TResult unexpected(),
+    TResult insufficientPermission(),
+    TResult unableToUpdate(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (unableToUpdate != null) {
+      return unableToUpdate();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult empty(_Empty<T> value),
+    @required TResult exceedingLength(_ExceedingLength<T> value),
+    @required TResult unexpected(_Unexpected<T> value),
+    @required TResult insufficientPermission(_InsufficientPermission<T> value),
+    @required TResult unableToUpdate(_UnableToUpdate<T> value),
+  }) {
+    assert(empty != null);
+    assert(exceedingLength != null);
+    assert(unexpected != null);
+    assert(insufficientPermission != null);
+    assert(unableToUpdate != null);
+    return unableToUpdate(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult empty(_Empty<T> value),
+    TResult exceedingLength(_ExceedingLength<T> value),
+    TResult unexpected(_Unexpected<T> value),
+    TResult insufficientPermission(_InsufficientPermission<T> value),
+    TResult unableToUpdate(_UnableToUpdate<T> value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (unableToUpdate != null) {
+      return unableToUpdate(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UnableToUpdate<T> implements DevicesFailure<T> {
+  const factory _UnableToUpdate() = _$_UnableToUpdate<T>;
 }

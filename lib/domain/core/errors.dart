@@ -1,5 +1,9 @@
 import 'package:cybear_jinni/domain/core/failures.dart';
 
+class NotAuthenticatedError extends Error {}
+
+class MissingCurrentHomeError extends Error {}
+
 class UnexpectedValueError extends Error {
   UnexpectedValueError(this.authValueFailure);
 

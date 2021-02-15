@@ -36,11 +36,15 @@ class RoomLightsTogglesBlock extends StatelessWidget {
       for (int i = 0; i < numberOfLightsToShow; i += maxLightsInRow) {
         for (int v = 0; v < maxLightsInRow; v++) {
           if (_smartRoomObject.getLights().length > i + v) {
-            widgetsForRow.add(Container(
-              margin: const EdgeInsets.symmetric(vertical: 5),
-              width: sizeBoxWidth + 15,
-              child: SmartDevicePage(_smartRoomObject.getLights()[i + v]),
-            ));
+            widgetsForRow.add(
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 5),
+                width: sizeBoxWidth + 15,
+                child: SmartDevicePage(
+                  _smartRoomObject.getLights()[i + v],
+                ),
+              ),
+            );
           } else {
             widgetsForRow.add(const SizedBox(
               width: 110,

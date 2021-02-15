@@ -9,3 +9,10 @@ abstract class MUser with _$MUser {
     @required UniqueId id,
   }) = _MUser;
 }
+
+@freezed
+abstract class MHome with _$MHome {
+  const factory MHome({
+    @required UniqueId id,
+  }) = _MHome;
+}
