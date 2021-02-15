@@ -42,7 +42,6 @@ abstract class $FoldersOfScenesCopyWith<$Res> {
   factory $FoldersOfScenesCopyWith(
           FoldersOfScenes value, $Res Function(FoldersOfScenes) then) =
       _$FoldersOfScenesCopyWithImpl<$Res>;
-
   $Res call(
       {KtList<Either<FolderOfScenesFailures, FolderOfScenes>>
           foldersOfScenesList});
@@ -76,7 +75,6 @@ abstract class _$FoldersOfScenesCopyWith<$Res>
   factory _$FoldersOfScenesCopyWith(
           _FoldersOfScenes value, $Res Function(_FoldersOfScenes) then) =
       __$FoldersOfScenesCopyWithImpl<$Res>;
-
   @override
   $Res call(
       {KtList<Either<FolderOfScenesFailures, FolderOfScenes>>
@@ -144,7 +142,6 @@ class _$_FoldersOfScenes extends _FoldersOfScenes {
 
 abstract class _FoldersOfScenes extends FoldersOfScenes {
   const _FoldersOfScenes._() : super._();
-
   const factory _FoldersOfScenes(
       {@required
           KtList<Either<FolderOfScenesFailures, FolderOfScenes>>
@@ -153,7 +150,6 @@ abstract class _FoldersOfScenes extends FoldersOfScenes {
   @override
   KtList<Either<FolderOfScenesFailures, FolderOfScenes>>
       get foldersOfScenesList;
-
   @override
   @JsonKey(ignore: true)
   _$FoldersOfScenesCopyWith<_FoldersOfScenes> get copyWith;

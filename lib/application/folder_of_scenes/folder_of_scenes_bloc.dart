@@ -11,9 +11,7 @@ import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
 
 part 'folder_of_scenes_bloc.freezed.dart';
-
 part 'folder_of_scenes_event.dart';
-
 part 'folder_of_scenes_state.dart';
 
 @injectable

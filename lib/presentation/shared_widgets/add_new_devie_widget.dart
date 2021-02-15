@@ -1,5 +1,5 @@
+import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_device_object.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums.dart';
-import 'package:cybear_jinni/infrastructure/objects/smart_device/smart_device_object.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/insert_details_of_new_device.dart';
 import 'package:easy_localization/easy_localization.dart';

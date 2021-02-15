@@ -23,10 +23,11 @@ class ScenesInFoldersL extends StatelessWidget {
           ),
           loaded: (state) {
             return ListView.builder(
+              padding: EdgeInsets.zero,
               itemBuilder: (context, index) {
                 final sceneFolder =
                     state.foldersOfScenes.foldersOfScenesList[index];
-                return ScenesFoldersWidget(
+                return scenesFoldersWidget(
                   context,
                   sceneFolder,
                 );
@@ -42,7 +43,7 @@ class ScenesInFoldersL extends StatelessWidget {
     );
   }
 
-  Widget ScenesFoldersWidget(BuildContext context,
+  Widget scenesFoldersWidget(BuildContext context,
       Either<FolderOfScenesFailures<dynamic>, FolderOfScenes> folderOfScenes) {
     const double borderRadius = 5;
     final ColorBrightness lightColorB = ColorBrightness.light;
@@ -61,14 +62,13 @@ class ScenesInFoldersL extends StatelessWidget {
           width: 0.4,
         ),
       ),
-      margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+      margin: const EdgeInsets.symmetric(vertical: 3, horizontal: 5),
       child: FlatButton(
         onPressed: () {
           ExtendedNavigator.of(context).push(
             Routes.scenesPage,
             arguments: ScenesPageArguments(
-              folderOfScenes:
-                  folderOfScenes.fold((l) => null, (r) => r as FolderOfScenes),
+              folderOfScenes: folderOfScenes.fold((l) => null, (r) => r),
             ),
           );
         },

@@ -19,6 +19,13 @@ class _$ValueFailureTearOff {
       f,
     );
   }
+
+// ignore: unused_element
+  _Devices<T> devices<T>(AuthValueFailure<T> f) {
+    return _Devices<T>(
+      f,
+    );
+  }
 }
 
 /// @nodoc
@@ -32,19 +39,23 @@ mixin _$ValueFailure<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult auth(AuthValueFailure<T> f),
+    @required TResult devices(AuthValueFailure<T> f),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult auth(AuthValueFailure<T> f),
+    TResult devices(AuthValueFailure<T> f),
     @required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult auth(_Auth<T> value),
+    @required TResult devices(_Devices<T> value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult auth(_Auth<T> value),
+    TResult devices(_Devices<T> value),
     @required TResult orElse(),
   });
 
@@ -155,8 +166,10 @@ class _$_Auth<T> implements _Auth<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult auth(AuthValueFailure<T> f),
+    @required TResult devices(AuthValueFailure<T> f),
   }) {
     assert(auth != null);
+    assert(devices != null);
     return auth(f);
   }
 
@@ -164,6 +177,7 @@ class _$_Auth<T> implements _Auth<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult auth(AuthValueFailure<T> f),
+    TResult devices(AuthValueFailure<T> f),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -177,8 +191,10 @@ class _$_Auth<T> implements _Auth<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult auth(_Auth<T> value),
+    @required TResult devices(_Devices<T> value),
   }) {
     assert(auth != null);
+    assert(devices != null);
     return auth(this);
   }
 
@@ -186,6 +202,7 @@ class _$_Auth<T> implements _Auth<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult auth(_Auth<T> value),
+    TResult devices(_Devices<T> value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -204,6 +221,129 @@ abstract class _Auth<T> implements ValueFailure<T> {
   @override
   @JsonKey(ignore: true)
   _$AuthCopyWith<T, _Auth<T>> get copyWith;
+}
+
+/// @nodoc
+abstract class _$DevicesCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  factory _$DevicesCopyWith(
+          _Devices<T> value, $Res Function(_Devices<T>) then) =
+      __$DevicesCopyWithImpl<T, $Res>;
+  @override
+  $Res call({AuthValueFailure<T> f});
+
+  @override
+  $AuthValueFailureCopyWith<T, $Res> get f;
+}
+
+/// @nodoc
+class __$DevicesCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements _$DevicesCopyWith<T, $Res> {
+  __$DevicesCopyWithImpl(_Devices<T> _value, $Res Function(_Devices<T>) _then)
+      : super(_value, (v) => _then(v as _Devices<T>));
+
+  @override
+  _Devices<T> get _value => super._value as _Devices<T>;
+
+  @override
+  $Res call({
+    Object f = freezed,
+  }) {
+    return _then(_Devices<T>(
+      f == freezed ? _value.f : f as AuthValueFailure<T>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_Devices<T> implements _Devices<T> {
+  const _$_Devices(this.f) : assert(f != null);
+
+  @override
+  final AuthValueFailure<T> f;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.devices(f: $f)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _Devices<T> &&
+            (identical(other.f, f) ||
+                const DeepCollectionEquality().equals(other.f, f)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(f);
+
+  @JsonKey(ignore: true)
+  @override
+  _$DevicesCopyWith<T, _Devices<T>> get copyWith =>
+      __$DevicesCopyWithImpl<T, _Devices<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult auth(AuthValueFailure<T> f),
+    @required TResult devices(AuthValueFailure<T> f),
+  }) {
+    assert(auth != null);
+    assert(devices != null);
+    return devices(f);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult auth(AuthValueFailure<T> f),
+    TResult devices(AuthValueFailure<T> f),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (devices != null) {
+      return devices(f);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult auth(_Auth<T> value),
+    @required TResult devices(_Devices<T> value),
+  }) {
+    assert(auth != null);
+    assert(devices != null);
+    return devices(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult auth(_Auth<T> value),
+    TResult devices(_Devices<T> value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (devices != null) {
+      return devices(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Devices<T> implements ValueFailure<T> {
+  const factory _Devices(AuthValueFailure<T> f) = _$_Devices<T>;
+
+  @override
+  AuthValueFailure<T> get f;
+  @override
+  @JsonKey(ignore: true)
+  _$DevicesCopyWith<T, _Devices<T>> get copyWith;
 }
 
 /// @nodoc

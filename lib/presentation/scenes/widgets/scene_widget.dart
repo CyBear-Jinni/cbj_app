@@ -20,9 +20,9 @@ class SceneWidget extends StatelessWidget {
         error: (errorNow) {
           FlushbarHelper.createError(message: 'Error');
         },
-            loaded: (_) => Text('sds'),
-          );
-        }, builder: (context, state) {
+        loaded: (_) => Text('sds'),
+      );
+    }, builder: (context, state) {
       return state.map(
         (value) => Text('value'),
         loading: (_) => Text('Loading'),

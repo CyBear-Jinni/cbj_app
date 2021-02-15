@@ -39,11 +39,8 @@ const $FolderOfScenes = _$FolderOfScenesTearOff();
 /// @nodoc
 mixin _$FolderOfScenes {
   UniqueId get id;
-
   String get name;
-
   KtList<Either<SceneFailure, Scene>> get scenesInFolder;
-
   String get backgroundImageUrl;
   Color get backgroundColor;
   KtList<String> get folderTags;
@@ -239,13 +236,10 @@ abstract class _FolderOfScenes extends FolderOfScenes {
 
   @override
   UniqueId get id;
-
   @override
   String get name;
-
   @override
   KtList<Either<SceneFailure, Scene>> get scenesInFolder;
-
   @override
   String get backgroundImageUrl;
   @override

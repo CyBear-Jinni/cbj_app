@@ -79,6 +79,10 @@ dependencies:
   http: ^0.12.2
   # Convenient code generator for get_it
   injectable: ^1.0.7
+  # Defines the annotations used by json_serializable to create code for JSON serialization and deserialization.
+  json_annotation: ^3.1.1
+  # Dart Build System builders for handling JSON.
+  json_serializable: ^3.5.1
   # Allow you to have a screen at launcher for example
   introduction_screen: ^1.0.9
   # Port of Kotlin's Kotlin Standard library for Dart/Flutter projects

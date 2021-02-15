@@ -28,7 +28,7 @@ class SmartDevicesWidgets extends StatelessWidget {
               onTap: () {
                 print('you clicked $element');
                 if (element.toString() == lightsPage.tr()) {
-                  ExtendedNavigator.of(context).pushLightsPage();
+                  ExtendedNavigator.of(context).pushRoomsLightsPage();
                 } else if (element.toString() == blindsPage.tr()) {
                   ExtendedNavigator.of(context).pushBlindsPage();
                 } else {

@@ -33,18 +33,15 @@ mixin _$FolderOfScenesEvent {
   TResult when<TResult extends Object>({
     @required TResult initialized(FolderOfScenes folderOfScenes),
   });
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initialized(FolderOfScenes folderOfScenes),
     @required TResult orElse(),
   });
-
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult initialized(Initialized value),
   });
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult initialized(Initialized value),
@@ -60,7 +57,6 @@ abstract class $FolderOfScenesEventCopyWith<$Res> {
   factory $FolderOfScenesEventCopyWith(
           FolderOfScenesEvent value, $Res Function(FolderOfScenesEvent) then) =
       _$FolderOfScenesEventCopyWithImpl<$Res>;
-
   $Res call({FolderOfScenes folderOfScenes});
 
   $FolderOfScenesCopyWith<$Res> get folderOfScenes;
@@ -72,7 +68,6 @@ class _$FolderOfScenesEventCopyWithImpl<$Res>
   _$FolderOfScenesEventCopyWithImpl(this._value, this._then);
 
   final FolderOfScenesEvent _value;
-
   // ignore: unused_field
   final $Res Function(FolderOfScenesEvent) _then;
 
@@ -104,7 +99,6 @@ abstract class $InitializedCopyWith<$Res>
   factory $InitializedCopyWith(
           Initialized value, $Res Function(Initialized) then) =
       _$InitializedCopyWithImpl<$Res>;
-
   @override
   $Res call({FolderOfScenes folderOfScenes});
 
@@ -216,7 +210,6 @@ abstract class Initialized implements FolderOfScenesEvent {
 
   @override
   FolderOfScenes get folderOfScenes;
-
   @override
   @JsonKey(ignore: true)
   $InitializedCopyWith<Initialized> get copyWith;
@@ -512,7 +505,6 @@ abstract class Loading implements FolderOfScenesState {
 abstract class $LoadedCopyWith<$Res> {
   factory $LoadedCopyWith(Loaded value, $Res Function(Loaded) then) =
       _$LoadedCopyWithImpl<$Res>;
-
   $Res call({KtList<Either<SceneFailure, Scene>> scenesList});
 }
 
@@ -635,7 +627,6 @@ abstract class Loaded implements FolderOfScenesState {
       {@required KtList<Either<SceneFailure, Scene>> scenesList}) = _$Loaded;
 
   KtList<Either<SceneFailure, Scene>> get scenesList;
-
   @JsonKey(ignore: true)
   $LoadedCopyWith<Loaded> get copyWith;
 }

@@ -6,7 +6,8 @@ part 'failures.freezed.dart';
 @freezed
 abstract class ValueFailure<T> with _$ValueFailure<T> {
   const factory ValueFailure.auth(AuthValueFailure<T> f) = _Auth<T>;
-// const factory ValueFailure.auth(AuthValueFailure<T> f) = _Auth<T>;
+
+  const factory ValueFailure.devices(AuthValueFailure<T> f) = _Devices<T>;
 }
 
 /// If multiple failures is not needed just call a specific failure class
