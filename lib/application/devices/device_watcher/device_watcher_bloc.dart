@@ -9,9 +9,7 @@ import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
 
 part 'device_watcher_bloc.freezed.dart';
-
 part 'device_watcher_event.dart';
-
 part 'device_watcher_state.dart';
 
 @injectable

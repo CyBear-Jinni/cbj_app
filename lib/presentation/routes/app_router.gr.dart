@@ -15,10 +15,10 @@ import '../../infrastructure/core/gen/smart_device/smart_room_object.dart';
 import '../home_page/home_page.dart';
 import '../home_page/tabs/smart_devices_tab/blinds/blinds_page.dart';
 import '../home_page/tabs/smart_devices_tab/blinds/smart_blind_widget.dart';
-import '../home_page/tabs/smart_devices_tab/lights/lights_in_the_room/lights_in_the_room_page.dart';
-import '../home_page/tabs/smart_devices_tab/lights/lights_page.dart';
 import '../initialize_home/initialize_home_page.dart';
 import '../introduction_screen/introduction_screen_page.dart';
+import '../lights/lights_in_the_room/lights_in_the_room_page.dart';
+import '../lights/rooms_lights_page.dart';
 import '../scenes/scenes_page.dart';
 import '../sign_in_page/sign_in_page.dart';
 import '../splash/splash_page.dart';
@@ -34,7 +34,7 @@ class Routes {
   static const String whereToLoginPageOffline = '/where-to-login-page-offline';
   static const String homePage = '/home-page';
   static const String scenesPage = '/scenes-page';
-  static const String lightsPage = '/lights-page';
+  static const String roomsLightsPage = '/rooms-lights-page';
   static const String lightsInTheRoomPage = '/lights-in-the-room-page';
   static const String blindsPage = '/blinds-page';
   static const String smartBlindPage = '/smart-blind-page';
@@ -47,7 +47,7 @@ class Routes {
     whereToLoginPageOffline,
     homePage,
     scenesPage,
-    lightsPage,
+    roomsLightsPage,
     lightsInTheRoomPage,
     blindsPage,
     smartBlindPage,
@@ -66,7 +66,7 @@ class AppRouter extends RouterBase {
     RouteDef(Routes.whereToLoginPageOffline, page: WhereToLoginPageOffline),
     RouteDef(Routes.homePage, page: HomePage),
     RouteDef(Routes.scenesPage, page: ScenesPage),
-    RouteDef(Routes.lightsPage, page: LightsPage),
+    RouteDef(Routes.roomsLightsPage, page: RoomsLightsPage),
     RouteDef(Routes.lightsInTheRoomPage, page: LightsInTheRoomPage),
     RouteDef(Routes.blindsPage, page: BlindsPage),
     RouteDef(Routes.smartBlindPage, page: SmartBlindPage),
@@ -123,9 +123,9 @@ class AppRouter extends RouterBase {
         settings: data,
       );
     },
-    LightsPage: (data) {
+    RoomsLightsPage: (data) {
       return MaterialPageRoute<dynamic>(
-        builder: (context) => LightsPage(),
+        builder: (context) => RoomsLightsPage(),
         settings: data,
       );
     },
@@ -185,7 +185,8 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
         arguments: ScenesPageArguments(folderOfScenes: folderOfScenes),
       );
 
-  Future<dynamic> pushLightsPage() => push<dynamic>(Routes.lightsPage);
+  Future<dynamic> pushRoomsLightsPage() =>
+      push<dynamic>(Routes.roomsLightsPage);
 
   Future<dynamic> pushLightsInTheRoomPage({
     @required SmartRoomObject thisSmartRoom,
