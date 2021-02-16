@@ -44,7 +44,7 @@ abstract class DeviceEntity implements _$DeviceEntity {
   }) = _DeviceEnitie;
 
   factory DeviceEntity.empty() => DeviceEntity(
-    id: DeviceUniqueId(),
+        id: DeviceUniqueId(),
         defaultName: DeviceDefaultName(''),
         roomId: DeviceUniqueId(),
         state: DeviceState(''),

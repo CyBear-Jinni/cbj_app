@@ -9,7 +9,6 @@ import 'package:injectable/injectable.dart';
 
 part 'device_actor_bloc.freezed.dart';
 part 'device_actor_event.dart';
-
 part 'device_actor_state.dart';
 
 @injectable

@@ -8,9 +8,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 part 'light_toggle_bloc.freezed.dart';
-
 part 'light_toggle_event.dart';
-
 part 'light_toggle_state.dart';
 
 @injectable
