@@ -27,7 +27,8 @@ class _$DeviceDtosTearOff {
       @required String senderDeviceModel,
       @required String senderId,
       @required String action,
-      @required String type}) {
+      @required String type,
+      @required @ServerTimestampConverter() FieldValue serverTimeStamp}) {
     return _DeviceDtos(
       id: id,
       defaultName: defaultName,
@@ -39,6 +40,7 @@ class _$DeviceDtosTearOff {
       senderId: senderId,
       action: action,
       type: type,
+      serverTimeStamp: serverTimeStamp,
     );
   }
 
@@ -56,17 +58,30 @@ const $DeviceDtos = _$DeviceDtosTearOff();
 mixin _$DeviceDtos {
   @JsonKey(ignore: true)
   String get id;
+
   String get defaultName;
+
   String get roomId;
+
   String get state;
+
   String get stateMassage;
+
   String get senderDeviceOs;
+
   String get senderDeviceModel;
+
   String get senderId;
+
   String get action;
+
   String get type;
 
+  @ServerTimestampConverter()
+  FieldValue get serverTimeStamp;
+
   Map<String, dynamic> toJson();
+
   @JsonKey(ignore: true)
   $DeviceDtosCopyWith<DeviceDtos> get copyWith;
 }
@@ -76,6 +91,7 @@ abstract class $DeviceDtosCopyWith<$Res> {
   factory $DeviceDtosCopyWith(
           DeviceDtos value, $Res Function(DeviceDtos) then) =
       _$DeviceDtosCopyWithImpl<$Res>;
+
   $Res call(
       {@JsonKey(ignore: true) String id,
       String defaultName,
@@ -86,7 +102,8 @@ abstract class $DeviceDtosCopyWith<$Res> {
       String senderDeviceModel,
       String senderId,
       String action,
-      String type});
+      String type,
+      @ServerTimestampConverter() FieldValue serverTimeStamp});
 }
 
 /// @nodoc
@@ -109,6 +126,7 @@ class _$DeviceDtosCopyWithImpl<$Res> implements $DeviceDtosCopyWith<$Res> {
     Object senderId = freezed,
     Object action = freezed,
     Object type = freezed,
+    Object serverTimeStamp = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as String,
@@ -128,6 +146,9 @@ class _$DeviceDtosCopyWithImpl<$Res> implements $DeviceDtosCopyWith<$Res> {
       senderId: senderId == freezed ? _value.senderId : senderId as String,
       action: action == freezed ? _value.action : action as String,
       type: type == freezed ? _value.type : type as String,
+      serverTimeStamp: serverTimeStamp == freezed
+          ? _value.serverTimeStamp
+          : serverTimeStamp as FieldValue,
     ));
   }
 }
@@ -148,7 +169,8 @@ abstract class _$DeviceDtosCopyWith<$Res> implements $DeviceDtosCopyWith<$Res> {
       String senderDeviceModel,
       String senderId,
       String action,
-      String type});
+      String type,
+      @ServerTimestampConverter() FieldValue serverTimeStamp});
 }
 
 /// @nodoc
@@ -173,6 +195,7 @@ class __$DeviceDtosCopyWithImpl<$Res> extends _$DeviceDtosCopyWithImpl<$Res>
     Object senderId = freezed,
     Object action = freezed,
     Object type = freezed,
+    Object serverTimeStamp = freezed,
   }) {
     return _then(_DeviceDtos(
       id: id == freezed ? _value.id : id as String,
@@ -192,6 +215,9 @@ class __$DeviceDtosCopyWithImpl<$Res> extends _$DeviceDtosCopyWithImpl<$Res>
       senderId: senderId == freezed ? _value.senderId : senderId as String,
       action: action == freezed ? _value.action : action as String,
       type: type == freezed ? _value.type : type as String,
+      serverTimeStamp: serverTimeStamp == freezed
+          ? _value.serverTimeStamp
+          : serverTimeStamp as FieldValue,
     ));
   }
 }
@@ -210,7 +236,8 @@ class _$_DeviceDtos extends _DeviceDtos {
       @required this.senderDeviceModel,
       @required this.senderId,
       @required this.action,
-      @required this.type})
+      @required this.type,
+      @required @ServerTimestampConverter() this.serverTimeStamp})
       : assert(defaultName != null),
         assert(roomId != null),
         assert(state != null),
@@ -219,6 +246,7 @@ class _$_DeviceDtos extends _DeviceDtos {
         assert(senderId != null),
         assert(action != null),
         assert(type != null),
+        assert(serverTimeStamp != null),
         super._();
 
   factory _$_DeviceDtos.fromJson(Map<String, dynamic> json) =>
@@ -245,10 +273,13 @@ class _$_DeviceDtos extends _DeviceDtos {
   final String action;
   @override
   final String type;
+  @override
+  @ServerTimestampConverter()
+  final FieldValue serverTimeStamp;
 
   @override
   String toString() {
-    return 'DeviceDtos(id: $id, defaultName: $defaultName, roomId: $roomId, state: $state, stateMassage: $stateMassage, senderDeviceOs: $senderDeviceOs, senderDeviceModel: $senderDeviceModel, senderId: $senderId, action: $action, type: $type)';
+    return 'DeviceDtos(id: $id, defaultName: $defaultName, roomId: $roomId, state: $state, stateMassage: $stateMassage, senderDeviceOs: $senderDeviceOs, senderDeviceModel: $senderDeviceModel, senderId: $senderId, action: $action, type: $type, serverTimeStamp: $serverTimeStamp)';
   }
 
   @override
@@ -279,7 +310,10 @@ class _$_DeviceDtos extends _DeviceDtos {
             (identical(other.action, action) ||
                 const DeepCollectionEquality().equals(other.action, action)) &&
             (identical(other.type, type) ||
-                const DeepCollectionEquality().equals(other.type, type)));
+                const DeepCollectionEquality().equals(other.type, type)) &&
+            (identical(other.serverTimeStamp, serverTimeStamp) ||
+                const DeepCollectionEquality()
+                    .equals(other.serverTimeStamp, serverTimeStamp)));
   }
 
   @override
@@ -294,7 +328,8 @@ class _$_DeviceDtos extends _DeviceDtos {
       const DeepCollectionEquality().hash(senderDeviceModel) ^
       const DeepCollectionEquality().hash(senderId) ^
       const DeepCollectionEquality().hash(action) ^
-      const DeepCollectionEquality().hash(type);
+      const DeepCollectionEquality().hash(type) ^
+      const DeepCollectionEquality().hash(serverTimeStamp);
 
   @JsonKey(ignore: true)
   @override
@@ -309,17 +344,20 @@ class _$_DeviceDtos extends _DeviceDtos {
 
 abstract class _DeviceDtos extends DeviceDtos {
   const _DeviceDtos._() : super._();
+
   const factory _DeviceDtos(
-      {@JsonKey(ignore: true) String id,
-      @required String defaultName,
-      @required String roomId,
-      @required String state,
-      String stateMassage,
-      @required String senderDeviceOs,
-      @required String senderDeviceModel,
-      @required String senderId,
-      @required String action,
-      @required String type}) = _$_DeviceDtos;
+          {@JsonKey(ignore: true) String id,
+          @required String defaultName,
+          @required String roomId,
+          @required String state,
+          String stateMassage,
+          @required String senderDeviceOs,
+          @required String senderDeviceModel,
+          @required String senderId,
+          @required String action,
+          @required String type,
+          @required @ServerTimestampConverter() FieldValue serverTimeStamp}) =
+      _$_DeviceDtos;
 
   factory _DeviceDtos.fromJson(Map<String, dynamic> json) =
       _$_DeviceDtos.fromJson;
@@ -335,16 +373,26 @@ abstract class _DeviceDtos extends DeviceDtos {
   String get state;
   @override
   String get stateMassage;
+
   @override
   String get senderDeviceOs;
+
   @override
   String get senderDeviceModel;
+
   @override
   String get senderId;
+
   @override
   String get action;
+
   @override
   String get type;
+
+  @override
+  @ServerTimestampConverter()
+  FieldValue get serverTimeStamp;
+
   @override
   @JsonKey(ignore: true)
   _$DeviceDtosCopyWith<_DeviceDtos> get copyWith;

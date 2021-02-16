@@ -21,6 +21,7 @@ abstract class DeviceDtos implements _$DeviceDtos {
     @required String senderId,
     @required String action,
     @required String type,
+    @required @ServerTimestampConverter() FieldValue serverTimeStamp,
   }) = _DeviceDtos;
 
   factory DeviceDtos.fromDomain(DeviceEntity deviceEntity) {
@@ -35,6 +36,7 @@ abstract class DeviceDtos implements _$DeviceDtos {
       senderId: deviceEntity.senderId.getOrCrash(),
       action: deviceEntity.action.getOrCrash(),
       type: deviceEntity.type.getOrCrash(),
+      serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }
 
@@ -59,4 +61,16 @@ abstract class DeviceDtos implements _$DeviceDtos {
   factory DeviceDtos.fromFirestore(DocumentSnapshot doc) {
     return DeviceDtos.fromJson(doc.data()).copyWith(id: doc.id);
   }
+}
+
+class ServerTimestampConverter implements JsonConverter<FieldValue, Object> {
+  const ServerTimestampConverter();
+
+  @override
+  FieldValue fromJson(Object json) {
+    return FieldValue.serverTimestamp();
+  }
+
+  @override
+  Object toJson(FieldValue fieldValue) => fieldValue;
 }
