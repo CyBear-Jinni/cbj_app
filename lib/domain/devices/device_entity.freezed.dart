@@ -19,12 +19,22 @@ class _$DeviceEntityTearOff {
       @required DeviceDefaultName defaultName,
       @required DeviceUniqueId roomId,
       @required DeviceState state,
+      DeviceStateMassage stateMassage,
+      @required DeviceSenderDeviceOs senderDeviceOs,
+      @required DeviceSenderDeviceModel senderDeviceModel,
+      @required DeviceSenderId senderId,
+      @required DeviceAction action,
       @required DeviceType type}) {
     return _DeviceEnitie(
       id: id,
       defaultName: defaultName,
       roomId: roomId,
       state: state,
+      stateMassage: stateMassage,
+      senderDeviceOs: senderDeviceOs,
+      senderDeviceModel: senderDeviceModel,
+      senderId: senderId,
+      action: action,
       type: type,
     );
   }
@@ -36,10 +46,36 @@ const $DeviceEntity = _$DeviceEntityTearOff();
 
 /// @nodoc
 mixin _$DeviceEntity {
+  /// The smart device id
   DeviceUniqueId get id;
+
+  /// The default name of the device
   DeviceDefaultName get defaultName;
+
+  /// Room id that the smart device located in.
   DeviceUniqueId get roomId;
+
+  /// Did the massage arrived or was it just sent.
+  /// Currently will be 'set' (need change) or 'ack' for acknowledge
+  /// (the action was reseved and executed correctly
   DeviceState get state;
+
+  /// If state didn't change the error discription will be found here.
+  DeviceStateMassage get stateMassage;
+
+  /// Sender device os type, example: android, iphone, browser
+  DeviceSenderDeviceOs get senderDeviceOs;
+
+  /// The sender device model, example: onePlues 3T
+  DeviceSenderDeviceModel get senderDeviceModel;
+
+  /// Last device sender id that activated the action
+  DeviceSenderId get senderId;
+
+  /// What action to execute
+  DeviceAction get action;
+
+  /// The smart device type
   DeviceType get type;
 
   @JsonKey(ignore: true)
@@ -56,6 +92,11 @@ abstract class $DeviceEntityCopyWith<$Res> {
       DeviceDefaultName defaultName,
       DeviceUniqueId roomId,
       DeviceState state,
+      DeviceStateMassage stateMassage,
+      DeviceSenderDeviceOs senderDeviceOs,
+      DeviceSenderDeviceModel senderDeviceModel,
+      DeviceSenderId senderId,
+      DeviceAction action,
       DeviceType type});
 }
 
@@ -73,6 +114,11 @@ class _$DeviceEntityCopyWithImpl<$Res> implements $DeviceEntityCopyWith<$Res> {
     Object defaultName = freezed,
     Object roomId = freezed,
     Object state = freezed,
+    Object stateMassage = freezed,
+    Object senderDeviceOs = freezed,
+    Object senderDeviceModel = freezed,
+    Object senderId = freezed,
+    Object action = freezed,
     Object type = freezed,
   }) {
     return _then(_value.copyWith(
@@ -82,6 +128,18 @@ class _$DeviceEntityCopyWithImpl<$Res> implements $DeviceEntityCopyWith<$Res> {
           : defaultName as DeviceDefaultName,
       roomId: roomId == freezed ? _value.roomId : roomId as DeviceUniqueId,
       state: state == freezed ? _value.state : state as DeviceState,
+      stateMassage: stateMassage == freezed
+          ? _value.stateMassage
+          : stateMassage as DeviceStateMassage,
+      senderDeviceOs: senderDeviceOs == freezed
+          ? _value.senderDeviceOs
+          : senderDeviceOs as DeviceSenderDeviceOs,
+      senderDeviceModel: senderDeviceModel == freezed
+          ? _value.senderDeviceModel
+          : senderDeviceModel as DeviceSenderDeviceModel,
+      senderId:
+          senderId == freezed ? _value.senderId : senderId as DeviceSenderId,
+      action: action == freezed ? _value.action : action as DeviceAction,
       type: type == freezed ? _value.type : type as DeviceType,
     ));
   }
@@ -99,6 +157,11 @@ abstract class _$DeviceEnitieCopyWith<$Res>
       DeviceDefaultName defaultName,
       DeviceUniqueId roomId,
       DeviceState state,
+      DeviceStateMassage stateMassage,
+      DeviceSenderDeviceOs senderDeviceOs,
+      DeviceSenderDeviceModel senderDeviceModel,
+      DeviceSenderId senderId,
+      DeviceAction action,
       DeviceType type});
 }
 
@@ -118,6 +181,11 @@ class __$DeviceEnitieCopyWithImpl<$Res> extends _$DeviceEntityCopyWithImpl<$Res>
     Object defaultName = freezed,
     Object roomId = freezed,
     Object state = freezed,
+    Object stateMassage = freezed,
+    Object senderDeviceOs = freezed,
+    Object senderDeviceModel = freezed,
+    Object senderId = freezed,
+    Object action = freezed,
     Object type = freezed,
   }) {
     return _then(_DeviceEnitie(
@@ -127,6 +195,18 @@ class __$DeviceEnitieCopyWithImpl<$Res> extends _$DeviceEntityCopyWithImpl<$Res>
           : defaultName as DeviceDefaultName,
       roomId: roomId == freezed ? _value.roomId : roomId as DeviceUniqueId,
       state: state == freezed ? _value.state : state as DeviceState,
+      stateMassage: stateMassage == freezed
+          ? _value.stateMassage
+          : stateMassage as DeviceStateMassage,
+      senderDeviceOs: senderDeviceOs == freezed
+          ? _value.senderDeviceOs
+          : senderDeviceOs as DeviceSenderDeviceOs,
+      senderDeviceModel: senderDeviceModel == freezed
+          ? _value.senderDeviceModel
+          : senderDeviceModel as DeviceSenderDeviceModel,
+      senderId:
+          senderId == freezed ? _value.senderId : senderId as DeviceSenderId,
+      action: action == freezed ? _value.action : action as DeviceAction,
       type: type == freezed ? _value.type : type as DeviceType,
     ));
   }
@@ -139,28 +219,69 @@ class _$_DeviceEnitie extends _DeviceEnitie {
       @required this.defaultName,
       @required this.roomId,
       @required this.state,
+      this.stateMassage,
+      @required this.senderDeviceOs,
+      @required this.senderDeviceModel,
+      @required this.senderId,
+      @required this.action,
       @required this.type})
       : assert(id != null),
         assert(defaultName != null),
         assert(roomId != null),
         assert(state != null),
+        assert(senderDeviceOs != null),
+        assert(senderDeviceModel != null),
+        assert(senderId != null),
+        assert(action != null),
         assert(type != null),
         super._();
 
   @override
+
+  /// The smart device id
   final DeviceUniqueId id;
   @override
+
+  /// The default name of the device
   final DeviceDefaultName defaultName;
   @override
+
+  /// Room id that the smart device located in.
   final DeviceUniqueId roomId;
   @override
+
+  /// Did the massage arrived or was it just sent.
+  /// Currently will be 'set' (need change) or 'ack' for acknowledge
+  /// (the action was reseved and executed correctly
   final DeviceState state;
   @override
+
+  /// If state didn't change the error discription will be found here.
+  final DeviceStateMassage stateMassage;
+  @override
+
+  /// Sender device os type, example: android, iphone, browser
+  final DeviceSenderDeviceOs senderDeviceOs;
+  @override
+
+  /// The sender device model, example: onePlues 3T
+  final DeviceSenderDeviceModel senderDeviceModel;
+  @override
+
+  /// Last device sender id that activated the action
+  final DeviceSenderId senderId;
+  @override
+
+  /// What action to execute
+  final DeviceAction action;
+  @override
+
+  /// The smart device type
   final DeviceType type;
 
   @override
   String toString() {
-    return 'DeviceEntity(id: $id, defaultName: $defaultName, roomId: $roomId, state: $state, type: $type)';
+    return 'DeviceEntity(id: $id, defaultName: $defaultName, roomId: $roomId, state: $state, stateMassage: $stateMassage, senderDeviceOs: $senderDeviceOs, senderDeviceModel: $senderDeviceModel, senderId: $senderId, action: $action, type: $type)';
   }
 
   @override
@@ -176,6 +297,20 @@ class _$_DeviceEnitie extends _DeviceEnitie {
                 const DeepCollectionEquality().equals(other.roomId, roomId)) &&
             (identical(other.state, state) ||
                 const DeepCollectionEquality().equals(other.state, state)) &&
+            (identical(other.stateMassage, stateMassage) ||
+                const DeepCollectionEquality()
+                    .equals(other.stateMassage, stateMassage)) &&
+            (identical(other.senderDeviceOs, senderDeviceOs) ||
+                const DeepCollectionEquality()
+                    .equals(other.senderDeviceOs, senderDeviceOs)) &&
+            (identical(other.senderDeviceModel, senderDeviceModel) ||
+                const DeepCollectionEquality()
+                    .equals(other.senderDeviceModel, senderDeviceModel)) &&
+            (identical(other.senderId, senderId) ||
+                const DeepCollectionEquality()
+                    .equals(other.senderId, senderId)) &&
+            (identical(other.action, action) ||
+                const DeepCollectionEquality().equals(other.action, action)) &&
             (identical(other.type, type) ||
                 const DeepCollectionEquality().equals(other.type, type)));
   }
@@ -187,6 +322,11 @@ class _$_DeviceEnitie extends _DeviceEnitie {
       const DeepCollectionEquality().hash(defaultName) ^
       const DeepCollectionEquality().hash(roomId) ^
       const DeepCollectionEquality().hash(state) ^
+      const DeepCollectionEquality().hash(stateMassage) ^
+      const DeepCollectionEquality().hash(senderDeviceOs) ^
+      const DeepCollectionEquality().hash(senderDeviceModel) ^
+      const DeepCollectionEquality().hash(senderId) ^
+      const DeepCollectionEquality().hash(action) ^
       const DeepCollectionEquality().hash(type);
 
   @JsonKey(ignore: true)
@@ -202,17 +342,54 @@ abstract class _DeviceEnitie extends DeviceEntity {
       @required DeviceDefaultName defaultName,
       @required DeviceUniqueId roomId,
       @required DeviceState state,
+      DeviceStateMassage stateMassage,
+      @required DeviceSenderDeviceOs senderDeviceOs,
+      @required DeviceSenderDeviceModel senderDeviceModel,
+      @required DeviceSenderId senderId,
+      @required DeviceAction action,
       @required DeviceType type}) = _$_DeviceEnitie;
 
   @override
+
+  /// The smart device id
   DeviceUniqueId get id;
   @override
+
+  /// The default name of the device
   DeviceDefaultName get defaultName;
   @override
+
+  /// Room id that the smart device located in.
   DeviceUniqueId get roomId;
   @override
+
+  /// Did the massage arrived or was it just sent.
+  /// Currently will be 'set' (need change) or 'ack' for acknowledge
+  /// (the action was reseved and executed correctly
   DeviceState get state;
   @override
+
+  /// If state didn't change the error discription will be found here.
+  DeviceStateMassage get stateMassage;
+  @override
+
+  /// Sender device os type, example: android, iphone, browser
+  DeviceSenderDeviceOs get senderDeviceOs;
+  @override
+
+  /// The sender device model, example: onePlues 3T
+  DeviceSenderDeviceModel get senderDeviceModel;
+  @override
+
+  /// Last device sender id that activated the action
+  DeviceSenderId get senderId;
+  @override
+
+  /// What action to execute
+  DeviceAction get action;
+  @override
+
+  /// The smart device type
   DeviceType get type;
   @override
   @JsonKey(ignore: true)

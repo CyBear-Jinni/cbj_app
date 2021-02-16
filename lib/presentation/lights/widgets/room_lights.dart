@@ -1,8 +1,11 @@
+import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
 import 'package:cybear_jinni/domain/devices/device_entity.dart';
+import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/lights/widgets/error_device_card_widget.dart';
 import 'package:cybear_jinni/presentation/lights/widgets/light_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kt_dart/collection.dart';
 
@@ -58,7 +61,10 @@ class RoomLights extends StatelessWidget {
                   Container(
                     margin: const EdgeInsets.symmetric(vertical: 5),
                     width: sizeBoxWidth + 15,
-                    child: LightWidget(deviceEntityTemp),
+                    child: BlocProvider(
+                      create: (context) => getIt<LightToggleBloc>(),
+                      child: LightWidget(deviceEntityTemp),
+                    ),
                   ),
                 ],
               ));

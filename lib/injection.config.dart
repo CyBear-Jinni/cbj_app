@@ -11,6 +11,7 @@ import 'package:injectable/injectable.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 import 'application/auth/auth_bloc.dart';
+import 'application/devices/device_actor/device_actor_bloc.dart';
 import 'infrastructure/device/device_repository.dart';
 import 'application/devices/device_watcher/device_watcher_bloc.dart';
 import 'infrastructure/auth/firebase_auth_facade.dart';
@@ -27,6 +28,7 @@ import 'domain/initialize_home/i_initialize_home_repository.dart';
 import 'domain/scene/i_scene_repository.dart';
 import 'application/initialize_home/initialize_home_bloc.dart';
 import 'infrastructure/initialize_home/initialize_home_repository.dart';
+import 'application/light_toggle/light_toggle_bloc.dart';
 import 'infrastructure/mock_example.dart';
 import 'application/scene/scene_bloc.dart';
 import 'infrastructure/scenes/scene_repository.dart';
@@ -57,10 +59,12 @@ GetIt $initGetIt(
   gh.lazySingleton<ISceneRepository>(() => SceneRepository());
   gh.factory<InitializeHomeBloc>(
       () => InitializeHomeBloc(get<IInitializeHomeRepository>()));
+  gh.factory<LightToggleBloc>(() => LightToggleBloc(get<IDeviceRepository>()));
   gh.factory<MockExample>(() => MockExample());
   gh.factory<SceneBloc>(() => SceneBloc(get<ISceneRepository>()));
   gh.factory<SignInFormBloc>(() => SignInFormBloc(get<IAuthFacade>()));
   gh.factory<AuthBloc>(() => AuthBloc(get<IAuthFacade>()));
+  gh.factory<DeviceActorBloc>(() => DeviceActorBloc(get<IDeviceRepository>()));
   gh.factory<DeviceWatcherBloc>(
       () => DeviceWatcherBloc(get<IDeviceRepository>()));
   gh.factory<FolderOfScenesBloc>(

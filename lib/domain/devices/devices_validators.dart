@@ -29,6 +29,12 @@ Either<DevicesFailure<String>, String> validateDeviceStateExist(String input) {
   return right(input);
 }
 
+// Todo: add check that the string/state exist in the string array that we
+//  created with the grpc
+Either<DevicesFailure<String>, String> validateDeviceActionExist(String input) {
+  return right(input);
+}
+
 // Todo: add check that the string/type exist in the string array that we
 //  created with the grpc
 Either<DevicesFailure<String>, String> validateDeviceTypeExist(String input) {

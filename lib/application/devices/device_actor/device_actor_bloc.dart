@@ -8,11 +8,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 part 'device_actor_bloc.freezed.dart';
-
 part 'device_actor_event.dart';
-
-art 'device_actor_state.dart
-';
+part 'device_actor_state.dart';
 
 @injectable
 class DeviceActorBloc extends Bloc<DeviceActorEvent, DeviceActorState> {
@@ -21,12 +18,14 @@ class DeviceActorBloc extends Bloc<DeviceActorEvent, DeviceActorState> {
   final IDeviceRepository _deviceRepository;
 
   @override
-  Stream<DeviceActorState> mapEventToState(DeviceActorEvent event,) async* {
+  Stream<DeviceActorState> mapEventToState(
+    DeviceActorEvent event,
+  ) async* {
     yield const DeviceActorState.actionInProgress();
     final possibleFailure = await _deviceRepository.delete(event.deviceEntity);
     yield possibleFailure.fold(
-          (f) => DeviceActorState.deleteFailure(f),
-          (_) => const DeviceActorState.deleteSuccess(),
+      (f) => DeviceActorState.deleteFailure(f),
+      (_) => const DeviceActorState.deleteSuccess(),
     );
   }
 }

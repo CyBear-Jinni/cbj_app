@@ -22,12 +22,22 @@ class _$DeviceDtosTearOff {
       @required String defaultName,
       @required String roomId,
       @required String state,
+      String stateMassage,
+      @required String senderDeviceOs,
+      @required String senderDeviceModel,
+      @required String senderId,
+      @required String action,
       @required String type}) {
     return _DeviceDtos(
       id: id,
       defaultName: defaultName,
       roomId: roomId,
       state: state,
+      stateMassage: stateMassage,
+      senderDeviceOs: senderDeviceOs,
+      senderDeviceModel: senderDeviceModel,
+      senderId: senderId,
+      action: action,
       type: type,
     );
   }
@@ -46,17 +56,17 @@ const $DeviceDtos = _$DeviceDtosTearOff();
 mixin _$DeviceDtos {
   @JsonKey(ignore: true)
   String get id;
-
   String get defaultName;
-
   String get roomId;
-
   String get state;
-
+  String get stateMassage;
+  String get senderDeviceOs;
+  String get senderDeviceModel;
+  String get senderId;
+  String get action;
   String get type;
 
   Map<String, dynamic> toJson();
-
   @JsonKey(ignore: true)
   $DeviceDtosCopyWith<DeviceDtos> get copyWith;
 }
@@ -71,6 +81,11 @@ abstract class $DeviceDtosCopyWith<$Res> {
       String defaultName,
       String roomId,
       String state,
+      String stateMassage,
+      String senderDeviceOs,
+      String senderDeviceModel,
+      String senderId,
+      String action,
       String type});
 }
 
@@ -88,6 +103,11 @@ class _$DeviceDtosCopyWithImpl<$Res> implements $DeviceDtosCopyWith<$Res> {
     Object defaultName = freezed,
     Object roomId = freezed,
     Object state = freezed,
+    Object stateMassage = freezed,
+    Object senderDeviceOs = freezed,
+    Object senderDeviceModel = freezed,
+    Object senderId = freezed,
+    Object action = freezed,
     Object type = freezed,
   }) {
     return _then(_value.copyWith(
@@ -96,6 +116,17 @@ class _$DeviceDtosCopyWithImpl<$Res> implements $DeviceDtosCopyWith<$Res> {
           defaultName == freezed ? _value.defaultName : defaultName as String,
       roomId: roomId == freezed ? _value.roomId : roomId as String,
       state: state == freezed ? _value.state : state as String,
+      stateMassage: stateMassage == freezed
+          ? _value.stateMassage
+          : stateMassage as String,
+      senderDeviceOs: senderDeviceOs == freezed
+          ? _value.senderDeviceOs
+          : senderDeviceOs as String,
+      senderDeviceModel: senderDeviceModel == freezed
+          ? _value.senderDeviceModel
+          : senderDeviceModel as String,
+      senderId: senderId == freezed ? _value.senderId : senderId as String,
+      action: action == freezed ? _value.action : action as String,
       type: type == freezed ? _value.type : type as String,
     ));
   }
@@ -112,6 +143,11 @@ abstract class _$DeviceDtosCopyWith<$Res> implements $DeviceDtosCopyWith<$Res> {
       String defaultName,
       String roomId,
       String state,
+      String stateMassage,
+      String senderDeviceOs,
+      String senderDeviceModel,
+      String senderId,
+      String action,
       String type});
 }
 
@@ -131,6 +167,11 @@ class __$DeviceDtosCopyWithImpl<$Res> extends _$DeviceDtosCopyWithImpl<$Res>
     Object defaultName = freezed,
     Object roomId = freezed,
     Object state = freezed,
+    Object stateMassage = freezed,
+    Object senderDeviceOs = freezed,
+    Object senderDeviceModel = freezed,
+    Object senderId = freezed,
+    Object action = freezed,
     Object type = freezed,
   }) {
     return _then(_DeviceDtos(
@@ -139,6 +180,17 @@ class __$DeviceDtosCopyWithImpl<$Res> extends _$DeviceDtosCopyWithImpl<$Res>
           defaultName == freezed ? _value.defaultName : defaultName as String,
       roomId: roomId == freezed ? _value.roomId : roomId as String,
       state: state == freezed ? _value.state : state as String,
+      stateMassage: stateMassage == freezed
+          ? _value.stateMassage
+          : stateMassage as String,
+      senderDeviceOs: senderDeviceOs == freezed
+          ? _value.senderDeviceOs
+          : senderDeviceOs as String,
+      senderDeviceModel: senderDeviceModel == freezed
+          ? _value.senderDeviceModel
+          : senderDeviceModel as String,
+      senderId: senderId == freezed ? _value.senderId : senderId as String,
+      action: action == freezed ? _value.action : action as String,
       type: type == freezed ? _value.type : type as String,
     ));
   }
@@ -153,10 +205,19 @@ class _$_DeviceDtos extends _DeviceDtos {
       @required this.defaultName,
       @required this.roomId,
       @required this.state,
+      this.stateMassage,
+      @required this.senderDeviceOs,
+      @required this.senderDeviceModel,
+      @required this.senderId,
+      @required this.action,
       @required this.type})
       : assert(defaultName != null),
         assert(roomId != null),
         assert(state != null),
+        assert(senderDeviceOs != null),
+        assert(senderDeviceModel != null),
+        assert(senderId != null),
+        assert(action != null),
         assert(type != null),
         super._();
 
@@ -173,11 +234,21 @@ class _$_DeviceDtos extends _DeviceDtos {
   @override
   final String state;
   @override
+  final String stateMassage;
+  @override
+  final String senderDeviceOs;
+  @override
+  final String senderDeviceModel;
+  @override
+  final String senderId;
+  @override
+  final String action;
+  @override
   final String type;
 
   @override
   String toString() {
-    return 'DeviceDtos(id: $id, defaultName: $defaultName, roomId: $roomId, state: $state, type: $type)';
+    return 'DeviceDtos(id: $id, defaultName: $defaultName, roomId: $roomId, state: $state, stateMassage: $stateMassage, senderDeviceOs: $senderDeviceOs, senderDeviceModel: $senderDeviceModel, senderId: $senderId, action: $action, type: $type)';
   }
 
   @override
@@ -193,6 +264,20 @@ class _$_DeviceDtos extends _DeviceDtos {
                 const DeepCollectionEquality().equals(other.roomId, roomId)) &&
             (identical(other.state, state) ||
                 const DeepCollectionEquality().equals(other.state, state)) &&
+            (identical(other.stateMassage, stateMassage) ||
+                const DeepCollectionEquality()
+                    .equals(other.stateMassage, stateMassage)) &&
+            (identical(other.senderDeviceOs, senderDeviceOs) ||
+                const DeepCollectionEquality()
+                    .equals(other.senderDeviceOs, senderDeviceOs)) &&
+            (identical(other.senderDeviceModel, senderDeviceModel) ||
+                const DeepCollectionEquality()
+                    .equals(other.senderDeviceModel, senderDeviceModel)) &&
+            (identical(other.senderId, senderId) ||
+                const DeepCollectionEquality()
+                    .equals(other.senderId, senderId)) &&
+            (identical(other.action, action) ||
+                const DeepCollectionEquality().equals(other.action, action)) &&
             (identical(other.type, type) ||
                 const DeepCollectionEquality().equals(other.type, type)));
   }
@@ -204,6 +289,11 @@ class _$_DeviceDtos extends _DeviceDtos {
       const DeepCollectionEquality().hash(defaultName) ^
       const DeepCollectionEquality().hash(roomId) ^
       const DeepCollectionEquality().hash(state) ^
+      const DeepCollectionEquality().hash(stateMassage) ^
+      const DeepCollectionEquality().hash(senderDeviceOs) ^
+      const DeepCollectionEquality().hash(senderDeviceModel) ^
+      const DeepCollectionEquality().hash(senderId) ^
+      const DeepCollectionEquality().hash(action) ^
       const DeepCollectionEquality().hash(type);
 
   @JsonKey(ignore: true)
@@ -224,6 +314,11 @@ abstract class _DeviceDtos extends DeviceDtos {
       @required String defaultName,
       @required String roomId,
       @required String state,
+      String stateMassage,
+      @required String senderDeviceOs,
+      @required String senderDeviceModel,
+      @required String senderId,
+      @required String action,
       @required String type}) = _$_DeviceDtos;
 
   factory _DeviceDtos.fromJson(Map<String, dynamic> json) =
@@ -238,6 +333,16 @@ abstract class _DeviceDtos extends DeviceDtos {
   String get roomId;
   @override
   String get state;
+  @override
+  String get stateMassage;
+  @override
+  String get senderDeviceOs;
+  @override
+  String get senderDeviceModel;
+  @override
+  String get senderId;
+  @override
+  String get action;
   @override
   String get type;
   @override
