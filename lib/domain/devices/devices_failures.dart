@@ -8,6 +8,10 @@ abstract class DevicesFailure<T> {
     @required T failedValue,
   }) = _Empty;
 
+  const factory DevicesFailure.actionExcecuter({
+    @required T failedValue,
+  }) = _ActionExcecuter;
+
   const factory DevicesFailure.exceedingLength({
     @required T failedValue,
     @required int max,

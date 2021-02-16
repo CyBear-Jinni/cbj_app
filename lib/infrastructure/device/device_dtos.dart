@@ -15,6 +15,11 @@ abstract class DeviceDtos implements _$DeviceDtos {
     @required String defaultName,
     @required String roomId,
     @required String state,
+    String stateMassage,
+    @required String senderDeviceOs,
+    @required String senderDeviceModel,
+    @required String senderId,
+    @required String action,
     @required String type,
   }) = _DeviceDtos;
 
@@ -24,6 +29,11 @@ abstract class DeviceDtos implements _$DeviceDtos {
       defaultName: deviceEntity.defaultName.getOrCrash(),
       roomId: deviceEntity.roomId.getOrCrash(),
       state: deviceEntity.state.getOrCrash(),
+      stateMassage: deviceEntity.stateMassage.getOrCrash(),
+      senderDeviceOs: deviceEntity.senderDeviceOs.getOrCrash(),
+      senderDeviceModel: deviceEntity.senderDeviceModel.getOrCrash(),
+      senderId: deviceEntity.senderId.getOrCrash(),
+      action: deviceEntity.action.getOrCrash(),
       type: deviceEntity.type.getOrCrash(),
     );
   }
@@ -34,6 +44,11 @@ abstract class DeviceDtos implements _$DeviceDtos {
       defaultName: DeviceDefaultName(defaultName),
       roomId: DeviceUniqueId.fromUniqueString(roomId),
       state: DeviceState(state),
+      stateMassage: DeviceStateMassage(stateMassage),
+      senderDeviceOs: DeviceSenderDeviceOs(senderDeviceOs),
+      senderDeviceModel: DeviceSenderDeviceModel(senderDeviceModel),
+      senderId: DeviceSenderId(senderId),
+      action: DeviceAction(action),
       type: DeviceType(type),
     );
   }

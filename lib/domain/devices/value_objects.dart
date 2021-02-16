@@ -75,7 +75,6 @@ class DeviceState extends DevicesValueObjectAbstract<String> {
   final Either<DevicesFailure<String>, String> value;
 
   factory DeviceState(String input) {
-    assert(input != null);
     return DeviceState._(
       validateDeviceNotEmpty(input)
           .flatMap((a) => validateDeviceStateExist(input)),
@@ -83,6 +82,85 @@ class DeviceState extends DevicesValueObjectAbstract<String> {
   }
 
   const DeviceState._(this.value);
+}
+
+class DeviceSenderDeviceOs extends DevicesValueObjectAbstract<String> {
+  @override
+  final Either<DevicesFailure<String>, String> value;
+
+  factory DeviceSenderDeviceOs(String input) {
+    assert(input != null);
+    return DeviceSenderDeviceOs._(
+      validateDeviceNotEmpty(input),
+    );
+  }
+
+  const DeviceSenderDeviceOs._(this.value);
+}
+
+class DeviceStateMassage extends DevicesValueObjectAbstract<String> {
+  @override
+  final Either<DevicesFailure<String>, String> value;
+
+  factory DeviceStateMassage(String input) {
+    assert(input != null);
+    return DeviceStateMassage._(
+      validateDeviceNotEmpty(input),
+    );
+  }
+
+  const DeviceStateMassage._(this.value);
+}
+
+class DeviceSenderDeviceModel extends DevicesValueObjectAbstract<String> {
+  @override
+  final Either<DevicesFailure<String>, String> value;
+
+  factory DeviceSenderDeviceModel(String input) {
+    assert(input != null);
+    return DeviceSenderDeviceModel._(
+      validateDeviceNotEmpty(input),
+    );
+  }
+
+  const DeviceSenderDeviceModel._(this.value);
+}
+
+class DeviceSenderId extends DevicesValueObjectAbstract<String> {
+  @override
+  final Either<DevicesFailure<String>, String> value;
+
+  factory DeviceSenderId(String input) {
+    assert(input != null);
+    return DeviceSenderId._(
+      validateDeviceNotEmpty(input),
+    );
+  }
+
+  const DeviceSenderId._(this.value);
+}
+
+class DeviceAction extends DevicesValueObjectAbstract<String> {
+  @override
+  final Either<DevicesFailure<String>, String> value;
+
+  factory DeviceAction(String input) {
+    assert(input != null);
+
+    input = input.toLowerCase();
+
+    if (input == 'false') {
+      input = 'off';
+    } else if (input == 'true') {
+      input = 'on';
+    }
+    return DeviceAction._(
+      validateDeviceNotEmpty(input)
+          .flatMap((a) => validateDeviceActionExist(input)),
+    );
+  }
+
+  const DeviceAction._(this.value);
 }
 
 class DeviceType extends DevicesValueObjectAbstract<String> {

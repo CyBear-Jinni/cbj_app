@@ -199,7 +199,7 @@ class _NewDeviceWidget extends State<NewDeviceWidget> {
         // TODO: Handle this case.
         break;
       case DeviceType.AirConditioner:
-      // TODO: Handle this case.
+        // TODO: Handle this case.
         break;
       case DeviceType.Camera:
       // TODO: Handle this case.

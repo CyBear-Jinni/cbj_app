@@ -55,7 +55,7 @@ class DeviceRepository implements IDeviceRepository {
       final deviceDtos = DeviceDtos.fromDomain(deviceEntity);
 
       await devicesDoc.devicesCollecttion
-          .doc(deviceEntity.id.toString())
+          .doc(deviceDtos.id)
           .set(deviceDtos.toJson());
       return right(unit);
     } on PlatformException catch (e) {
@@ -75,7 +75,7 @@ class DeviceRepository implements IDeviceRepository {
       final deviceDtos = DeviceDtos.fromDomain(deviceEntity);
 
       await devicesDoc.devicesCollecttion
-          .doc(deviceEntity.id.toString())
+          .doc(deviceDtos.id)
           .update(deviceDtos.toJson());
       return right(unit);
     } on PlatformException catch (e) {
@@ -92,9 +92,9 @@ class DeviceRepository implements IDeviceRepository {
   Future<Either<DevicesFailure, Unit>> delete(DeviceEntity deviceEntity) async {
     try {
       final devicesDoc = await _firestore.homeDocument();
-      final deviceId = deviceEntity.id.getOrCrash().toString();
+      final deviceDtos = DeviceDtos.fromDomain(deviceEntity);
 
-      await devicesDoc.devicesCollecttion.doc(deviceId).delete();
+      await devicesDoc.devicesCollecttion.doc(deviceDtos.id).delete();
       return right(unit);
     } on PlatformException catch (e) {
       if (e.message.contains('PERMISSION_DENIED')) {
