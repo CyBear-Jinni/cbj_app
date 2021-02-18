@@ -205,7 +205,7 @@ class _NewDeviceWidget extends State<NewDeviceWidget> {
         // TODO: Handle this case.
         break;
       case DeviceType.Fridge:
-      // TODO: Handle this case.
+        // TODO: Handle this case.
         break;
       case DeviceType.Toaster:
       // TODO: Handle this case.
