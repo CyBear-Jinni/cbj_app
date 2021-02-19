@@ -252,7 +252,6 @@ abstract class _Empty<T> implements DevicesFailure<T> {
   const factory _Empty({@required T failedValue}) = _$_Empty<T>;
 
   T get failedValue;
-
   @JsonKey(ignore: true)
   _$EmptyCopyWith<T, _Empty<T>> get copyWith;
 }
@@ -262,7 +261,6 @@ abstract class _$ActionExcecuterCopyWith<T, $Res> {
   factory _$ActionExcecuterCopyWith(
           _ActionExcecuter<T> value, $Res Function(_ActionExcecuter<T>) then) =
       __$ActionExcecuterCopyWithImpl<T, $Res>;
-
   $Res call({T failedValue});
 }
 
@@ -399,7 +397,6 @@ abstract class _ActionExcecuter<T> implements DevicesFailure<T> {
       _$_ActionExcecuter<T>;
 
   T get failedValue;
-
   @JsonKey(ignore: true)
   _$ActionExcecuterCopyWith<T, _ActionExcecuter<T>> get copyWith;
 }
@@ -409,7 +406,6 @@ abstract class _$ExceedingLengthCopyWith<T, $Res> {
   factory _$ExceedingLengthCopyWith(
           _ExceedingLength<T> value, $Res Function(_ExceedingLength<T>) then) =
       __$ExceedingLengthCopyWithImpl<T, $Res>;
-
   $Res call({T failedValue, int max});
 }
 

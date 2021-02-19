@@ -120,7 +120,6 @@ abstract class _MUser implements MUser {
 
   @override
   UniqueId get id;
-
   @override
   @JsonKey(ignore: true)
   _$MUserCopyWith<_MUser> get copyWith;
@@ -154,7 +153,6 @@ mixin _$MHome {
 abstract class $MHomeCopyWith<$Res> {
   factory $MHomeCopyWith(MHome value, $Res Function(MHome) then) =
       _$MHomeCopyWithImpl<$Res>;
-
   $Res call({UniqueId id});
 }
 
@@ -163,7 +161,6 @@ class _$MHomeCopyWithImpl<$Res> implements $MHomeCopyWith<$Res> {
   _$MHomeCopyWithImpl(this._value, this._then);
 
   final MHome _value;
-
   // ignore: unused_field
   final $Res Function(MHome) _then;
 
@@ -181,7 +178,6 @@ class _$MHomeCopyWithImpl<$Res> implements $MHomeCopyWith<$Res> {
 abstract class _$MHomeCopyWith<$Res> implements $MHomeCopyWith<$Res> {
   factory _$MHomeCopyWith(_MHome value, $Res Function(_MHome) then) =
       __$MHomeCopyWithImpl<$Res>;
-
   @override
   $Res call({UniqueId id});
 }
@@ -240,7 +236,6 @@ abstract class _MHome implements MHome {
 
   @override
   UniqueId get id;
-
   @override
   @JsonKey(ignore: true)
   _$MHomeCopyWith<_MHome> get copyWith;

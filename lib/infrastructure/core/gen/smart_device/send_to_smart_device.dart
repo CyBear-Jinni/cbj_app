@@ -20,17 +20,17 @@ Future<List<SmartDeviceObject>> getAllDevices(String deviceIp) async {
       await SmartClient.getAllDevices(deviceIp);
 
   await for (final SmartDevice smartDevice in smartDeviceResponseStream) {
-    print('Device type: ${smartDevice.deviceType}');
-    deviceTypeTemp = EnumHelper.stringToDt(smartDevice.deviceType);
+    print('Device type: ${smartDevice.type}');
+    deviceTypeTemp = EnumHelper.stringToDt(smartDevice.type);
     switch (deviceTypeTemp) {
       case DeviceType.Light:
         smartDeviceObjectTemp =
-            SmartDeviceObject(deviceTypeTemp, smartDevice.name, deviceIp);
+            SmartDeviceObject(deviceTypeTemp, smartDevice.id, deviceIp);
         smartDeviceObjectList.add(smartDeviceObjectTemp);
         break;
       case DeviceType.Blinds:
         smartBlindsObjectTemp =
-            SmartBlindsObject(deviceTypeTemp, smartDevice.name, deviceIp);
+            SmartBlindsObject(deviceTypeTemp, smartDevice.id, deviceIp);
         smartDeviceObjectList.add(smartBlindsObjectTemp);
         break;
       case DeviceType.DynamicLight:

@@ -58,30 +58,19 @@ const $DeviceDtos = _$DeviceDtosTearOff();
 mixin _$DeviceDtos {
   @JsonKey(ignore: true)
   String get id;
-
   String get defaultName;
-
   String get roomId;
-
   String get state;
-
   String get stateMassage;
-
   String get senderDeviceOs;
-
   String get senderDeviceModel;
-
   String get senderId;
-
   String get action;
-
   String get type;
-
   @ServerTimestampConverter()
   FieldValue get serverTimeStamp;
 
   Map<String, dynamic> toJson();
-
   @JsonKey(ignore: true)
   $DeviceDtosCopyWith<DeviceDtos> get copyWith;
 }
@@ -91,7 +80,6 @@ abstract class $DeviceDtosCopyWith<$Res> {
   factory $DeviceDtosCopyWith(
           DeviceDtos value, $Res Function(DeviceDtos) then) =
       _$DeviceDtosCopyWithImpl<$Res>;
-
   $Res call(
       {@JsonKey(ignore: true) String id,
       String defaultName,
@@ -344,7 +332,6 @@ class _$_DeviceDtos extends _DeviceDtos {
 
 abstract class _DeviceDtos extends DeviceDtos {
   const _DeviceDtos._() : super._();
-
   const factory _DeviceDtos(
           {@JsonKey(ignore: true) String id,
           @required String defaultName,
@@ -373,26 +360,19 @@ abstract class _DeviceDtos extends DeviceDtos {
   String get state;
   @override
   String get stateMassage;
-
   @override
   String get senderDeviceOs;
-
   @override
   String get senderDeviceModel;
-
   @override
   String get senderId;
-
   @override
   String get action;
-
   @override
   String get type;
-
   @override
   @ServerTimestampConverter()
   FieldValue get serverTimeStamp;
-
   @override
   @JsonKey(ignore: true)
   _$DeviceDtosCopyWith<_DeviceDtos> get copyWith;

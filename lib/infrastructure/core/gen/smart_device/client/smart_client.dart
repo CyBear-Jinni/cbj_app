@@ -65,7 +65,7 @@ class SmartClient {
     SmartDeviceStatus response;
     try {
       response =
-          await stub.getStatus(SmartDevice()..name = smartDeviceObject.name);
+          await stub.getStatus(SmartDevice()..id = smartDeviceObject.name);
       print('Greeter client received: ${response.onOffState}');
       await channel.shutdown();
       return response.onOffState.toString();
@@ -87,7 +87,7 @@ class SmartClient {
       final SmartDeviceUpdateDetails smartDeviceUpdateDetails =
           SmartDeviceUpdateDetails();
       smartDeviceUpdateDetails.smartDevice = SmartDevice()
-        ..name = smartDeviceObject.name;
+        ..id = smartDeviceObject.name;
       smartDeviceUpdateDetails.newName = newName;
       response = await stub.updateDeviceName(smartDeviceUpdateDetails);
       await channel.shutdown();
@@ -107,7 +107,7 @@ class SmartClient {
     CommendStatus response;
     try {
       response =
-          await stub.setOnDevice(SmartDevice()..name = smartDeviceObject.name);
+          await stub.setOnDevice(SmartDevice()..id = smartDeviceObject.name);
       print('Greeter client received: ${response.success}');
       await channel.shutdown();
       return response.success.toString();
@@ -126,7 +126,7 @@ class SmartClient {
     CommendStatus response;
     try {
       response =
-          await stub.setOffDevice(SmartDevice()..name = smartDeviceObject.name);
+          await stub.setOffDevice(SmartDevice()..id = smartDeviceObject.name);
       print('Greeter client received: ${response.success}');
       await channel.shutdown();
       return response.success.toString();
@@ -147,7 +147,7 @@ class SmartClient {
     CommendStatus response;
     try {
       response =
-          await stub.setBlindsUp(SmartDevice()..name = smartDeviceObject.name);
+          await stub.setBlindsUp(SmartDevice()..id = smartDeviceObject.name);
       print('Greeter client received: ${response.success}');
       await channel.shutdown();
       return response.success.toString();
@@ -165,8 +165,8 @@ class SmartClient {
     final SmartServerClient stub = SmartServerClient(channel);
     CommendStatus response;
     try {
-      response = await stub
-          .setBlindsDown(SmartDevice()..name = smartDeviceObject.name);
+      response =
+          await stub.setBlindsDown(SmartDevice()..id = smartDeviceObject.name);
       print('Greeter client received: ${response.success}');
       await channel.shutdown();
       return response.success.toString();
@@ -184,8 +184,8 @@ class SmartClient {
     final SmartServerClient stub = SmartServerClient(channel);
     CommendStatus response;
     try {
-      response = await stub
-          .setBlindsStop(SmartDevice()..name = smartDeviceObject.name);
+      response =
+          await stub.setBlindsStop(SmartDevice()..id = smartDeviceObject.name);
       print('Greeter client received: ${response.success}');
       await channel.shutdown();
       return response.success.toString();
