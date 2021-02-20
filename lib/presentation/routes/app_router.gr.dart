@@ -19,6 +19,7 @@ import '../initialize_home/initialize_home_page.dart';
 import '../introduction_screen/introduction_screen_page.dart';
 import '../lights/lights_in_the_room/lights_in_the_room_page.dart';
 import '../lights/rooms_lights_page.dart';
+import '../manage_users/manage_users_page.dart';
 import '../scenes/scenes_page.dart';
 import '../sign_in_page/sign_in_page.dart';
 import '../splash/splash_page.dart';
@@ -33,6 +34,7 @@ class Routes {
   static const String whereToLoginPageMinimal = '/where-to-login-page-minimal';
   static const String whereToLoginPageOffline = '/where-to-login-page-offline';
   static const String homePage = '/home-page';
+  static const String manageUsersPage = '/manage-users-page';
   static const String scenesPage = '/scenes-page';
   static const String roomsLightsPage = '/rooms-lights-page';
   static const String lightsInTheRoomPage = '/lights-in-the-room-page';
@@ -46,6 +48,7 @@ class Routes {
     whereToLoginPageMinimal,
     whereToLoginPageOffline,
     homePage,
+    manageUsersPage,
     scenesPage,
     roomsLightsPage,
     lightsInTheRoomPage,
@@ -65,6 +68,7 @@ class AppRouter extends RouterBase {
     RouteDef(Routes.whereToLoginPageMinimal, page: WhereToLoginPageMinimal),
     RouteDef(Routes.whereToLoginPageOffline, page: WhereToLoginPageOffline),
     RouteDef(Routes.homePage, page: HomePage),
+    RouteDef(Routes.manageUsersPage, page: ManageUsersPage),
     RouteDef(Routes.scenesPage, page: ScenesPage),
     RouteDef(Routes.roomsLightsPage, page: RoomsLightsPage),
     RouteDef(Routes.lightsInTheRoomPage, page: LightsInTheRoomPage),
@@ -113,6 +117,12 @@ class AppRouter extends RouterBase {
     HomePage: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => HomePage(),
+        settings: data,
+      );
+    },
+    ManageUsersPage: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => ManageUsersPage(),
         settings: data,
       );
     },
@@ -176,6 +186,9 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
       push<dynamic>(Routes.whereToLoginPageOffline);
 
   Future<dynamic> pushHomePage() => push<dynamic>(Routes.homePage);
+
+  Future<dynamic> pushManageUsersPage() =>
+      push<dynamic>(Routes.manageUsersPage);
 
   Future<dynamic> pushScenesPage({
     @required FolderOfScenes folderOfScenes,

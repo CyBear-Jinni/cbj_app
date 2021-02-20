@@ -6,6 +6,7 @@ import 'package:cybear_jinni/presentation/initialize_home/initialize_home_page.d
 import 'package:cybear_jinni/presentation/introduction_screen/introduction_screen_page.dart';
 import 'package:cybear_jinni/presentation/lights/lights_in_the_room/lights_in_the_room_page.dart';
 import 'package:cybear_jinni/presentation/lights/rooms_lights_page.dart';
+import 'package:cybear_jinni/presentation/manage_users/manage_users_page.dart';
 import 'package:cybear_jinni/presentation/scenes/scenes_page.dart';
 import 'package:cybear_jinni/presentation/sign_in_page/sign_in_page.dart';
 import 'package:cybear_jinni/presentation/splash/splash_page.dart';
@@ -22,6 +23,7 @@ import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_pag
     MaterialRoute(page: WhereToLoginPageMinimal),
     MaterialRoute(page: WhereToLoginPageOffline),
     MaterialRoute(page: HomePage),
+    MaterialRoute(page: ManageUsersPage),
     MaterialRoute(page: ScenesPage),
     MaterialRoute(page: RoomsLightsPage),
     MaterialRoute(page: LightsInTheRoomPage),
@@ -38,6 +40,7 @@ class $AppRouter {
   WhereToLoginPageMinimal whereToLoginPageMinimal;
   WhereToLoginPageOffline whereToLoginPageOffline;
   HomePage homePage;
+  ManageUsersPage manageUsersPage;
   RoomsLightsPage roomsLightsPage;
   LightsInTheRoomPage lightsInTheRoomPage;
   BlindsPage blindsPage;

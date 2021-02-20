@@ -1,0 +1,49 @@
+import 'dart:async';
+
+import 'package:bloc/bloc.dart';
+import 'package:cybear_jinni/domain/user/i_user_repository.dart';
+import 'package:cybear_jinni/domain/user/user_entity.dart';
+import 'package:cybear_jinni/domain/user/user_failures.dart';
+import 'package:dartz/dartz.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
+import 'package:kt_dart/kt.dart';
+
+part 'manage_users_bloc.freezed.dart';
+part 'manage_users_event.dart';
+part 'manage_users_state.dart';
+
+@injectable
+class ManageUsersBloc extends Bloc<ManageUsersEvent, ManageUsersState> {
+  ManageUsersBloc(this._userRepository) : super(ManageUsersState.initial());
+
+  final IUserRepository _userRepository;
+
+  StreamSubscription<Either<UserFailures, KtList<UserEntity>>>
+      _userStreamSubscription;
+
+  @override
+  Stream<ManageUsersState> mapEventToState(
+    ManageUsersEvent event,
+  ) async* {
+    yield* event.map(
+      initialized: (e) async* {
+        yield const ManageUsersState.inProgress();
+        await _userStreamSubscription?.cancel();
+        yield* _userRepository.getAllUsers().map(
+              (failureOrUsers) => failureOrUsers.fold(
+                  (f) => ManageUsersState.loadFailure(f),
+                  (devices) => ManageUsersState.loadSuccess(devices)),
+            );
+      },
+      addByEmail: (e) async* {},
+      deleted: (e) async* {},
+    );
+  }
+
+  @override
+  Future<void> close() async {
+    await _userStreamSubscription?.cancel();
+    return super.close();
+  }
+}

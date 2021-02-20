@@ -1,12 +1,12 @@
-import 'package:cybear_jinni/domain/devices/device_entity.dart';
+import 'package:cybear_jinni/domain/user/user_entity.dart';
 import 'package:flutter/material.dart';
 
-class ErrorDeviceCard extends StatelessWidget {
-  final DeviceEntity device;
+class ErrorUserCard extends StatelessWidget {
+  final UserEntity user;
 
-  const ErrorDeviceCard({
+  const ErrorUserCard({
     Key key,
-    @required this.device,
+    @required this.user,
   }) : super(key: key);
 
   @override
@@ -18,7 +18,7 @@ class ErrorDeviceCard extends StatelessWidget {
         child: Column(
           children: <Widget>[
             Text(
-              'Invalid device, please, contact support',
+              'Invalid user, please, contact support',
               style: Theme.of(context)
                   .primaryTextTheme
                   .bodyText2
@@ -30,7 +30,7 @@ class ErrorDeviceCard extends StatelessWidget {
               style: Theme.of(context).primaryTextTheme.bodyText2,
             ),
             Text(
-              device.failureOption.fold(() => '', (f) => f.toString()),
+              user.failureOption.fold(() => '', (f) => f.toString()),
               style: Theme.of(context).primaryTextTheme.bodyText2,
             ),
           ],

@@ -91,7 +91,11 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                         color: Theme.of(context).textTheme.bodyText1.color,
                         size: 25,
                       ),
-                      title: const Text('Add new user'),
+                      title: const Text('Manage Users'),
+                      onTap: () {
+                        ExtendedNavigator.of(context)
+                            .push(Routes.manageUsersPage);
+                      },
                     ),
                     Divider(
                       thickness: 0.5,
@@ -105,7 +109,7 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                         color: Theme.of(context).textTheme.bodyText1.color,
                         size: 25,
                       ),
-                      title: const Text('Log out'),
+                      title: const Text('Log Out'),
                       onTap: () {
                         _fireBaseLogOut(context);
                       },

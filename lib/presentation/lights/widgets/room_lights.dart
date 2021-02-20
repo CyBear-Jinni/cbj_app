@@ -43,7 +43,7 @@ class RoomLights extends StatelessWidget {
           if (_deviceEntityList.size > i + v) {
             final DeviceEntity deviceEntityTemp = _deviceEntityList[i + v];
             if (deviceEntityTemp.failureOption.isSome()) {
-              widgetsForRow.add(ErrorNoteCard(device: deviceEntityTemp));
+              widgetsForRow.add(ErrorDeviceCard(device: deviceEntityTemp));
             } else {
               widgetsForRow.add(Column(
                 children: [
