@@ -3,6 +3,7 @@ import 'package:cybear_jinni/domain/scene/scene.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SceneWidget extends StatelessWidget {
@@ -20,12 +21,12 @@ class SceneWidget extends StatelessWidget {
         error: (errorNow) {
           FlushbarHelper.createError(message: 'Error');
         },
-        loaded: (_) => Text('sds'),
+        loaded: (_) => const Text('sds'),
       );
     }, builder: (context, state) {
       return state.map(
-        (value) => Text('value'),
-        loading: (_) => Text('Loading'),
+        (value) => const Text('value'),
+        loading: (_) => const Text('Loading'),
         loaded: (sceneState) {
           return Container(
             margin: const EdgeInsets.fromLTRB(5, 0, 5, 10),
@@ -39,6 +40,7 @@ class SceneWidget extends StatelessWidget {
                     width: 0.6),
               ),
               onPressed: () {
+                HapticFeedback.lightImpact();
                 // smartDevicesWithWish
                 //     .forEach((SmartDeviceObject key, List<WishEnum> value) {
                 //   for (final WishEnum wishEnumForSmartDevice in value) {
@@ -70,7 +72,7 @@ class SceneWidget extends StatelessWidget {
             ),
           );
         },
-        error: (_) => Text('Error'),
+        error: (_) => const Text('Error'),
       );
     });
   }

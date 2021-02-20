@@ -34,7 +34,7 @@ class FolderOfScenesWidget extends StatelessWidget {
           error: (errorNow) {
             FlushbarHelper.createError(message: 'Error');
           },
-          loaded: (_) => const Text('sds'),
+          loaded: (_) => const Text('Loaded'),
         );
       },
       builder: (context, state) {
