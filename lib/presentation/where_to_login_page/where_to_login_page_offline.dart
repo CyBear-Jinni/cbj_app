@@ -31,7 +31,10 @@ class WhereToLoginPageOffline extends StatelessWidget {
           ),
           Container(
               width: MediaQuery.of(context).size.width - 20,
-              color: Colors.black38,
+              decoration: const BoxDecoration(
+                color: Colors.black38,
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+              ),
               alignment: Alignment.center,
               child: Text('What would you like to do',
                   style: TextStyle(

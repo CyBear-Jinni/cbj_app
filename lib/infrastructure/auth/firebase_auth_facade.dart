@@ -2,7 +2,9 @@ import 'package:cybear_jinni/domain/auth/auth_failure.dart';
 import 'package:cybear_jinni/domain/auth/i_auth_facade.dart';
 import 'package:cybear_jinni/domain/auth/user.dart';
 import 'package:cybear_jinni/domain/auth/value_objects.dart';
+import 'package:cybear_jinni/domain/core/value_objects.dart';
 import 'package:cybear_jinni/infrastructure/auth/firebase_user_mapper.dart';
+import 'package:cybear_jinni/infrastructure/core/hive_local_db/hive_local_db.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -22,10 +24,9 @@ class FirebaseAuthFacade implements IAuthFacade {
   Future<Option<MUser>> getSignedInUser() async =>
       optionOf(_firebaseAuth.currentUser?.toDomain());
 
-  // TODO: Change to current home instead of current user ID
   @override
-  Future<Option<MHome>> getCurrentHome() async =>
-      optionOf(_firebaseAuth.currentUser?.homeToDomain());
+  Future<Option<MHome>> getCurrentHome() async => optionOf(MHome(
+      id: UniqueId.fromUniqueString(await HiveLocalDbHelper.getHomeId())));
 
   @override
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword(

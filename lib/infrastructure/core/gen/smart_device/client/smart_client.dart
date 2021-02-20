@@ -1,11 +1,12 @@
 import 'dart:async';
 
+import 'package:cybear_jinni/domain/auth/i_auth_facade.dart';
+import 'package:cybear_jinni/domain/core/errors.dart';
 import 'package:cybear_jinni/infrastructure/core/constant_credentials.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_as_dart/smart_connection.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_device_object.dart';
+import 'package:cybear_jinni/injection.dart';
 import 'package:grpc/grpc.dart';
-
-import 'protoc_as_dart/smart_connection.pb.dart';
-import 'protoc_as_dart/smart_connection.pbgrpc.dart';
 
 class SmartClient {
   static Future<ResponseStream<SmartDevice>> getAllDevices(
@@ -37,6 +38,10 @@ class SmartClient {
     final String fireBaseApiKey = ConstantCredentials.fireBaseApiKey;
     final String userEmail = ConstantCredentials.userEmail;
     final String userPassword = ConstantCredentials.userPassword;
+    final String homeId = (await getIt<IAuthFacade>().getCurrentHome())
+        .getOrElse(() => throw MissingCurrentHomeError())
+        .id
+        .getOrCrash();
 
     CommendStatus response;
     try {
@@ -45,7 +50,8 @@ class SmartClient {
             ..fireBaseProjectId = fireBaseProjectId
             ..fireBaseApiKey = fireBaseApiKey
             ..userEmail = userEmail
-            ..userPassword = userPassword);
+            ..userPassword = userPassword
+            ..homeId = homeId);
       print(
           'Firebase account information client received: ${response.success}');
       await channel.shutdown();

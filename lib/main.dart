@@ -7,6 +7,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:rxdart/rxdart.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
@@ -36,6 +38,10 @@ class ReceivedNotification {
   final String payload;
 }
 
+Future<void> initializeHive() async {
+  await Hive.initFlutter();
+}
+
 Future<None> main() async {
   // needed if you intend to initialize in the `main` function
   WidgetsFlutterBinding.ensureInitialized();
@@ -49,6 +55,8 @@ Future<None> main() async {
   // await _configureLocalTimeZone();
 
   await initialisationNotifications();
+
+  await initializeHive();
 
   runApp(
     /// Use https://lingohub.com/developers/supported-locales/language-designators-with-regions

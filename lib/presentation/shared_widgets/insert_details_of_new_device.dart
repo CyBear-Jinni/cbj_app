@@ -1,9 +1,13 @@
+import 'package:cybear_jinni/domain/auth/i_auth_facade.dart';
+import 'package:cybear_jinni/domain/core/errors.dart';
+import 'package:cybear_jinni/domain/devices/device_entity.dart';
+import 'package:cybear_jinni/domain/devices/i_device_repository.dart';
+import 'package:cybear_jinni/domain/devices/value_objects.dart' as v_o;
 import 'package:cybear_jinni/infrastructure/core/gen/smart_device/send_to_smart_device.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_blinds_object.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_device_object.dart';
-import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_room_object.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums.dart';
-import 'package:cybear_jinni/infrastructure/objects/interface_darta/cloud_interface_data.dart';
+import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/home_page/smart_device_widget.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/blinds/smart_blind_widget.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/insert_wifi_credential_popup.dart';
@@ -130,15 +134,38 @@ class _ShowAllDevicesInTheSmartDevice
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(24),
                       ),
-                      onPressed: () {
-                        getAllTheDevices();
-                        final List<SmartDeviceObject> room2DevicesList =
-                            smartDeviceObjectList;
-                        final SmartRoomObject newRoom = SmartRoomObject(
-                            'New_devices'.tr(),
-                            room2DevicesList,
-                            gradientColors);
-                        rooms.add(newRoom);
+                      onPressed: () async {
+                        smartDeviceObjectList.forEach((element) async {
+                          DeviceEntity deviceEntity = DeviceEntity(
+                            id: v_o.DeviceUniqueId(),
+                            defaultName: v_o.DeviceDefaultName(element.name),
+                            roomId: v_o.DeviceUniqueId(),
+                            state: v_o.DeviceState('set'),
+                            senderDeviceOs: v_o.DeviceSenderDeviceOs('Android'),
+                            senderDeviceModel:
+                                v_o.DeviceSenderDeviceModel('OnePlus 3T'),
+                            senderId: v_o.DeviceSenderId.fromUniqueString(
+                                (await getIt<IAuthFacade>().getSignedInUser())
+                                    .getOrElse(
+                                        () => throw NotAuthenticatedError())
+                                    .id
+                                    .getOrCrash()),
+                            action: v_o.DeviceAction('off'),
+                            type: v_o.DeviceType(
+                                EnumHelper.dTToString(element.deviceType)),
+                            stateMassage: v_o.DeviceStateMassage('OK'),
+                          );
+                          await getIt<IDeviceRepository>().create(deviceEntity);
+                        });
+
+                        // getAllTheDevices();
+                        // final List<SmartDeviceObject> room2DevicesList =
+                        //     smartDeviceObjectList;
+                        // final SmartRoomObject newRoom = SmartRoomObject(
+                        //     'New_devices'.tr(),
+                        //     room2DevicesList,
+                        //     gradientColors);
+                        // rooms.add(newRoom);
                         Navigator.pop(context);
                       },
                       padding: const EdgeInsets.all(12),
@@ -208,40 +235,40 @@ class _NewDeviceWidget extends State<NewDeviceWidget> {
         // TODO: Handle this case.
         break;
       case DeviceType.Toaster:
-      // TODO: Handle this case.
+        // TODO: Handle this case.
         break;
       case DeviceType.CoffeeMachine:
-      // TODO: Handle this case.
+        // TODO: Handle this case.
         break;
       case DeviceType.SmartTV:
-      // TODO: Handle this case.
+        // TODO: Handle this case.
         break;
       case DeviceType.RCAirplane:
-      // TODO: Handle this case.
+        // TODO: Handle this case.
         break;
       case DeviceType.RCCar:
-      // TODO: Handle this case.
+        // TODO: Handle this case.
         break;
       case DeviceType.Speakers:
-      // TODO: Handle this case.
+        // TODO: Handle this case.
         break;
       case DeviceType.Roomba:
-      // TODO: Handle this case.
+        // TODO: Handle this case.
         break;
       case DeviceType.Irrigation:
-      // TODO: Handle this case.
+        // TODO: Handle this case.
         break;
       case DeviceType.SmartBed:
-      // TODO: Handle this case.
+        // TODO: Handle this case.
         break;
       case DeviceType.AnimalTracker:
-      // TODO: Handle this case.
+        // TODO: Handle this case.
         break;
       case DeviceType.SmartCar:
-      // TODO: Handle this case.
+        // TODO: Handle this case.
         break;
       case DeviceType.SmartPool:
-      // TODO: Handle this case.
+        // TODO: Handle this case.
         break;
     }
     return Container();

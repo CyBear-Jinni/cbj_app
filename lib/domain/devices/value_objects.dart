@@ -127,17 +127,19 @@ class DeviceSenderDeviceModel extends DevicesValueObjectAbstract<String> {
 }
 
 class DeviceSenderId extends DevicesValueObjectAbstract<String> {
-  @override
-  final Either<DevicesFailure<String>, String> value;
-
-  factory DeviceSenderId(String input) {
-    assert(input != null);
-    return DeviceSenderId._(
-      validateDeviceNotEmpty(input),
-    );
+  factory DeviceSenderId() {
+    return DeviceSenderId._(right(Uuid().v1()));
   }
 
-  const DeviceSenderId._(this.value);
+  factory DeviceSenderId.fromUniqueString(String uniqueId) {
+    assert(uniqueId != null);
+    return DeviceSenderId._(right(uniqueId));
+  }
+
+  DeviceSenderId._(this.value);
+
+  @override
+  final Either<DevicesFailure<String>, String> value;
 }
 
 class DeviceAction extends DevicesValueObjectAbstract<String> {

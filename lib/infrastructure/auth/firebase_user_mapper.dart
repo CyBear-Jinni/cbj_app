@@ -8,10 +8,4 @@ extension FirebaseUserDomainX on User {
       id: UniqueId.fromUniqueString(uid),
     );
   }
-
-  MHome homeToDomain() {
-    return MHome(
-      id: UniqueId.fromUniqueString(uid),
-    );
-  }
 }

@@ -49,7 +49,7 @@ abstract class DeviceDtos implements _$DeviceDtos {
       stateMassage: DeviceStateMassage(stateMassage),
       senderDeviceOs: DeviceSenderDeviceOs(senderDeviceOs),
       senderDeviceModel: DeviceSenderDeviceModel(senderDeviceModel),
-      senderId: DeviceSenderId(senderId),
+      senderId: DeviceSenderId.fromUniqueString(senderId),
       action: DeviceAction(action),
       type: DeviceType(type),
     );
