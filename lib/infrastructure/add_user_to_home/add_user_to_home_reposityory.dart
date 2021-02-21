@@ -1,22 +1,22 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:cybear_jinni/domain/add_user/add_user_entity.dart';
-import 'package:cybear_jinni/domain/add_user/add_user_errors.dart';
-import 'package:cybear_jinni/domain/add_user/add_user_failures.dart';
-import 'package:cybear_jinni/domain/add_user/i_add_user_repository.dart';
+import 'package:cybear_jinni/domain/add_user_to_home/add_user_to_home_entity.dart';
+import 'package:cybear_jinni/domain/add_user_to_home/add_user_to_home_errors.dart';
+import 'package:cybear_jinni/domain/add_user_to_home/add_user_to_home_failures.dart';
+import 'package:cybear_jinni/domain/add_user_to_home/i_add_user_to_home_repository.dart';
 import 'package:cybear_jinni/infrastructure/core/firestore_helpers.dart';
 import 'package:cybear_jinni/infrastructure/user/user_dtos.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/services.dart';
 import 'package:injectable/injectable.dart';
 
-@LazySingleton(as: IAddUserRepository)
-class AddUserRepository implements IAddUserRepository {
-  AddUserRepository(this._firestore);
+@LazySingleton(as: IAddUserToHomeRepository)
+class AddUserToHomeRepository implements IAddUserToHomeRepository {
+  AddUserToHomeRepository(this._firestore);
 
   final FirebaseFirestore _firestore;
 
-  Future<Either<AddUserFailures, Unit>> create(
-      AddUserEntity deviceEntity, DocumentSnapshot userDocument) async {
+  Future<Either<AddUserToHomeFailures, Unit>> create(
+      AddUserToHomeEntity deviceEntity, DocumentSnapshot userDocument) async {
     try {
       final devicesDoc = await _firestore.homeDocument();
 
@@ -34,15 +34,15 @@ class AddUserRepository implements IAddUserRepository {
       return right(unit);
     } on PlatformException catch (e) {
       if (e.message.contains('PERMISSION_DENIED')) {
-        return left(const AddUserFailures.insufficientPermission());
+        return left(const AddUserToHomeFailures.insufficientPermission());
       } else {
         // log.error(e.toString());
-        return left(const AddUserFailures.unexpected());
+        return left(const AddUserToHomeFailures.unexpected());
       }
     }
   }
 
-  Future<Either<AddUserFailures, DocumentSnapshot>> getUserByEmail(
+  Future<Either<AddUserToHomeFailures, DocumentSnapshot>> getUserByEmail(
       String email) async {
     try {
       final devicesDoc = await _firestore.usersCollection();
@@ -53,27 +53,27 @@ class AddUserRepository implements IAddUserRepository {
       return right(queryDocSnap);
     } on PlatformException catch (e) {
       if (e.message.contains('PERMISSION_DENIED')) {
-        return left(const AddUserFailures.insufficientPermission());
+        return left(const AddUserToHomeFailures.insufficientPermission());
       } else {
         // log.error(e.toString());
-        return left(const AddUserFailures.unexpected());
+        return left(const AddUserToHomeFailures.unexpected());
       }
     }
   }
 
   @override
-  Future<Either<AddUserFailures, String>> add(
-      AddUserEntity addUserEntity) async {
+  Future<Either<AddUserToHomeFailures, String>> add(
+      AddUserToHomeEntity addUserEntity) async {
     try {
-      final Either<AddUserFailures, DocumentSnapshot> userDocOrFailure =
+      final Either<AddUserToHomeFailures, DocumentSnapshot> userDocOrFailure =
           await getUserByEmail(addUserEntity.email.getOrCrash());
       final DocumentSnapshot userDocument = userDocOrFailure.fold(
-          (f) => throw AddUserUnexpectedValueError(f), (r) => r);
+          (f) => throw AddUserToHomeUnexpectedValueError(f), (r) => r);
 
       create(addUserEntity, userDocument);
       return Right(userDocument.id);
     } catch (e) {
-      return const Left(AddUserFailures.unexpected());
+      return const Left(AddUserToHomeFailures.unexpected());
     }
   }
 }

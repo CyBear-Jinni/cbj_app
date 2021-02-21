@@ -20,7 +20,7 @@ class ManageUsersPage extends StatelessWidget {
         BottomSheetAction(
             title: '➕ Add User',
             onPressed: () {
-              ExtendedNavigator.of(context).push(Routes.addUserPage);
+              ExtendedNavigator.of(context).push(Routes.addUserToHomePage);
             },
             textStyle: const TextStyle(color: Colors.green, fontSize: 23)),
       ],

@@ -1,10 +1,10 @@
-import 'package:cybear_jinni/application/add_user/add_user_bloc.dart';
+import 'package:cybear_jinni/application/add_user_to_home/add_user_to_home_bloc.dart';
 import 'package:cybear_jinni/injection.dart';
-import 'package:cybear_jinni/presentation/add_user/widgets/add_user_widget.dart';
+import 'package:cybear_jinni/presentation/add_user_to_home/widgets/add_user_to_home_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class AddUserPage extends StatelessWidget {
+class AddUserToHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,8 +13,8 @@ class AddUserPage extends StatelessWidget {
       ),
       backgroundColor: Colors.blueGrey,
       body: BlocProvider(
-        create: (context) => getIt<AddUserBloc>(),
-        child: AddUserWidget(),
+        create: (context) => getIt<AddUserToHomeBloc>(),
+        child: AddUserToHomeWidget(),
       ),
     );
   }

@@ -38,6 +38,7 @@ class FirebaseAuthFacade implements IAuthFacade {
     try {
       await _firebaseAuth.createUserWithEmailAndPassword(
           email: emailAddressStr, password: passwordStr);
+
       return right(unit);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use') {

@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
-part of 'add_user_failures.dart';
+part of 'add_user_to_home_failures.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -10,8 +10,8 @@ part of 'add_user_failures.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-class _$AddUserFailuresTearOff {
-  const _$AddUserFailuresTearOff();
+class _$AddUserToHomeFailuresTearOff {
+  const _$AddUserToHomeFailuresTearOff();
 
 // ignore: unused_element
   _Empty<T> empty<T>({@required T failedValue}) {
@@ -58,10 +58,10 @@ class _$AddUserFailuresTearOff {
 
 /// @nodoc
 // ignore: unused_element
-const $AddUserFailures = _$AddUserFailuresTearOff();
+const $AddUserToHomeFailures = _$AddUserToHomeFailuresTearOff();
 
 /// @nodoc
-mixin _$AddUserFailures<T> {
+mixin _$AddUserToHomeFailures<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult empty(T failedValue),
@@ -111,20 +111,20 @@ mixin _$AddUserFailures<T> {
 }
 
 /// @nodoc
-abstract class $AddUserFailuresCopyWith<T, $Res> {
-  factory $AddUserFailuresCopyWith(
-          AddUserFailures<T> value, $Res Function(AddUserFailures<T>) then) =
-      _$AddUserFailuresCopyWithImpl<T, $Res>;
+abstract class $AddUserToHomeFailuresCopyWith<T, $Res> {
+  factory $AddUserToHomeFailuresCopyWith(AddUserToHomeFailures<T> value,
+          $Res Function(AddUserToHomeFailures<T>) then) =
+      _$AddUserToHomeFailuresCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class _$AddUserFailuresCopyWithImpl<T, $Res>
-    implements $AddUserFailuresCopyWith<T, $Res> {
-  _$AddUserFailuresCopyWithImpl(this._value, this._then);
+class _$AddUserToHomeFailuresCopyWithImpl<T, $Res>
+    implements $AddUserToHomeFailuresCopyWith<T, $Res> {
+  _$AddUserToHomeFailuresCopyWithImpl(this._value, this._then);
 
-  final AddUserFailures<T> _value;
+  final AddUserToHomeFailures<T> _value;
   // ignore: unused_field
-  final $Res Function(AddUserFailures<T>) _then;
+  final $Res Function(AddUserToHomeFailures<T>) _then;
 }
 
 /// @nodoc
@@ -136,7 +136,7 @@ abstract class _$EmptyCopyWith<T, $Res> {
 
 /// @nodoc
 class __$EmptyCopyWithImpl<T, $Res>
-    extends _$AddUserFailuresCopyWithImpl<T, $Res>
+    extends _$AddUserToHomeFailuresCopyWithImpl<T, $Res>
     implements _$EmptyCopyWith<T, $Res> {
   __$EmptyCopyWithImpl(_Empty<T> _value, $Res Function(_Empty<T>) _then)
       : super(_value, (v) => _then(v as _Empty<T>));
@@ -164,7 +164,7 @@ class _$_Empty<T> implements _Empty<T> {
 
   @override
   String toString() {
-    return 'AddUserFailures<$T>.empty(failedValue: $failedValue)';
+    return 'AddUserToHomeFailures<$T>.empty(failedValue: $failedValue)';
   }
 
   @override
@@ -272,7 +272,7 @@ class _$_Empty<T> implements _Empty<T> {
   }
 }
 
-abstract class _Empty<T> implements AddUserFailures<T> {
+abstract class _Empty<T> implements AddUserToHomeFailures<T> {
   const factory _Empty({@required T failedValue}) = _$_Empty<T>;
 
   T get failedValue;
@@ -289,7 +289,7 @@ abstract class _$UnexpectedCopyWith<T, $Res> {
 
 /// @nodoc
 class __$UnexpectedCopyWithImpl<T, $Res>
-    extends _$AddUserFailuresCopyWithImpl<T, $Res>
+    extends _$AddUserToHomeFailuresCopyWithImpl<T, $Res>
     implements _$UnexpectedCopyWith<T, $Res> {
   __$UnexpectedCopyWithImpl(
       _Unexpected<T> _value, $Res Function(_Unexpected<T>) _then)
@@ -305,7 +305,7 @@ class _$_Unexpected<T> implements _Unexpected<T> {
 
   @override
   String toString() {
-    return 'AddUserFailures<$T>.unexpected()';
+    return 'AddUserToHomeFailures<$T>.unexpected()';
   }
 
   @override
@@ -403,7 +403,7 @@ class _$_Unexpected<T> implements _Unexpected<T> {
   }
 }
 
-abstract class _Unexpected<T> implements AddUserFailures<T> {
+abstract class _Unexpected<T> implements AddUserToHomeFailures<T> {
   const factory _Unexpected() = _$_Unexpected<T>;
 }
 
@@ -416,7 +416,7 @@ abstract class _$ValidateEmailNotEmptyCopyWith<T, $Res> {
 
 /// @nodoc
 class __$ValidateEmailNotEmptyCopyWithImpl<T, $Res>
-    extends _$AddUserFailuresCopyWithImpl<T, $Res>
+    extends _$AddUserToHomeFailuresCopyWithImpl<T, $Res>
     implements _$ValidateEmailNotEmptyCopyWith<T, $Res> {
   __$ValidateEmailNotEmptyCopyWithImpl(_ValidateEmailNotEmpty<T> _value,
       $Res Function(_ValidateEmailNotEmpty<T>) _then)
@@ -433,7 +433,7 @@ class _$_ValidateEmailNotEmpty<T> implements _ValidateEmailNotEmpty<T> {
 
   @override
   String toString() {
-    return 'AddUserFailures<$T>.validateEmailNotEmpty()';
+    return 'AddUserToHomeFailures<$T>.validateEmailNotEmpty()';
   }
 
   @override
@@ -531,7 +531,7 @@ class _$_ValidateEmailNotEmpty<T> implements _ValidateEmailNotEmpty<T> {
   }
 }
 
-abstract class _ValidateEmailNotEmpty<T> implements AddUserFailures<T> {
+abstract class _ValidateEmailNotEmpty<T> implements AddUserToHomeFailures<T> {
   const factory _ValidateEmailNotEmpty() = _$_ValidateEmailNotEmpty<T>;
 }
 
@@ -544,7 +544,7 @@ abstract class _$InsufficientPermissionCopyWith<T, $Res> {
 
 /// @nodoc
 class __$InsufficientPermissionCopyWithImpl<T, $Res>
-    extends _$AddUserFailuresCopyWithImpl<T, $Res>
+    extends _$AddUserToHomeFailuresCopyWithImpl<T, $Res>
     implements _$InsufficientPermissionCopyWith<T, $Res> {
   __$InsufficientPermissionCopyWithImpl(_InsufficientPermission<T> _value,
       $Res Function(_InsufficientPermission<T>) _then)
@@ -561,7 +561,7 @@ class _$_InsufficientPermission<T> implements _InsufficientPermission<T> {
 
   @override
   String toString() {
-    return 'AddUserFailures<$T>.insufficientPermission()';
+    return 'AddUserToHomeFailures<$T>.insufficientPermission()';
   }
 
   @override
@@ -659,7 +659,7 @@ class _$_InsufficientPermission<T> implements _InsufficientPermission<T> {
   }
 }
 
-abstract class _InsufficientPermission<T> implements AddUserFailures<T> {
+abstract class _InsufficientPermission<T> implements AddUserToHomeFailures<T> {
   const factory _InsufficientPermission() = _$_InsufficientPermission<T>;
 }
 
@@ -672,7 +672,7 @@ abstract class $CancelledByUserCopyWith<T, $Res> {
 
 /// @nodoc
 class _$CancelledByUserCopyWithImpl<T, $Res>
-    extends _$AddUserFailuresCopyWithImpl<T, $Res>
+    extends _$AddUserToHomeFailuresCopyWithImpl<T, $Res>
     implements $CancelledByUserCopyWith<T, $Res> {
   _$CancelledByUserCopyWithImpl(
       CancelledByUser<T> _value, $Res Function(CancelledByUser<T>) _then)
@@ -688,7 +688,7 @@ class _$CancelledByUser<T> implements CancelledByUser<T> {
 
   @override
   String toString() {
-    return 'AddUserFailures<$T>.cancelledByUser()';
+    return 'AddUserToHomeFailures<$T>.cancelledByUser()';
   }
 
   @override
@@ -786,7 +786,7 @@ class _$CancelledByUser<T> implements CancelledByUser<T> {
   }
 }
 
-abstract class CancelledByUser<T> implements AddUserFailures<T> {
+abstract class CancelledByUser<T> implements AddUserToHomeFailures<T> {
   const factory CancelledByUser() = _$CancelledByUser<T>;
 }
 
@@ -799,7 +799,7 @@ abstract class $ServerErrorCopyWith<T, $Res> {
 
 /// @nodoc
 class _$ServerErrorCopyWithImpl<T, $Res>
-    extends _$AddUserFailuresCopyWithImpl<T, $Res>
+    extends _$AddUserToHomeFailuresCopyWithImpl<T, $Res>
     implements $ServerErrorCopyWith<T, $Res> {
   _$ServerErrorCopyWithImpl(
       ServerError<T> _value, $Res Function(ServerError<T>) _then)
@@ -815,7 +815,7 @@ class _$ServerError<T> implements ServerError<T> {
 
   @override
   String toString() {
-    return 'AddUserFailures<$T>.serverError()';
+    return 'AddUserToHomeFailures<$T>.serverError()';
   }
 
   @override
@@ -913,7 +913,7 @@ class _$ServerError<T> implements ServerError<T> {
   }
 }
 
-abstract class ServerError<T> implements AddUserFailures<T> {
+abstract class ServerError<T> implements AddUserToHomeFailures<T> {
   const factory ServerError() = _$ServerError<T>;
 }
 
@@ -926,7 +926,7 @@ abstract class $EmailAlreadyExistCopyWith<T, $Res> {
 
 /// @nodoc
 class _$EmailAlreadyExistCopyWithImpl<T, $Res>
-    extends _$AddUserFailuresCopyWithImpl<T, $Res>
+    extends _$AddUserToHomeFailuresCopyWithImpl<T, $Res>
     implements $EmailAlreadyExistCopyWith<T, $Res> {
   _$EmailAlreadyExistCopyWithImpl(
       EmailAlreadyExist<T> _value, $Res Function(EmailAlreadyExist<T>) _then)
@@ -942,7 +942,7 @@ class _$EmailAlreadyExist<T> implements EmailAlreadyExist<T> {
 
   @override
   String toString() {
-    return 'AddUserFailures<$T>.emailAlreadyExist()';
+    return 'AddUserToHomeFailures<$T>.emailAlreadyExist()';
   }
 
   @override
@@ -1040,7 +1040,7 @@ class _$EmailAlreadyExist<T> implements EmailAlreadyExist<T> {
   }
 }
 
-abstract class EmailAlreadyExist<T> implements AddUserFailures<T> {
+abstract class EmailAlreadyExist<T> implements AddUserToHomeFailures<T> {
   const factory EmailAlreadyExist() = _$EmailAlreadyExist<T>;
 }
 
@@ -1053,7 +1053,7 @@ abstract class $CannotFindUserCopyWith<T, $Res> {
 
 /// @nodoc
 class _$CannotFindUserCopyWithImpl<T, $Res>
-    extends _$AddUserFailuresCopyWithImpl<T, $Res>
+    extends _$AddUserToHomeFailuresCopyWithImpl<T, $Res>
     implements $CannotFindUserCopyWith<T, $Res> {
   _$CannotFindUserCopyWithImpl(
       CannotFindUser<T> _value, $Res Function(CannotFindUser<T>) _then)
@@ -1069,7 +1069,7 @@ class _$CannotFindUser<T> implements CannotFindUser<T> {
 
   @override
   String toString() {
-    return 'AddUserFailures<$T>.cannotFindUser()';
+    return 'AddUserToHomeFailures<$T>.cannotFindUser()';
   }
 
   @override
@@ -1167,6 +1167,6 @@ class _$CannotFindUser<T> implements CannotFindUser<T> {
   }
 }
 
-abstract class CannotFindUser<T> implements AddUserFailures<T> {
+abstract class CannotFindUser<T> implements AddUserToHomeFailures<T> {
   const factory CannotFindUser() = _$CannotFindUser<T>;
 }

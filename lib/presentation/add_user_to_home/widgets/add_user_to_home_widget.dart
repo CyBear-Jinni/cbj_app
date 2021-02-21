@@ -1,17 +1,17 @@
 import 'package:clipboard_manager/clipboard_manager.dart';
-import 'package:cybear_jinni/application/add_user/add_user_bloc.dart';
+import 'package:cybear_jinni/application/add_user_to_home/add_user_to_home_bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-class AddUserWidget extends StatelessWidget {
+class AddUserToHomeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
     String userToAddEmail = '';
 
-    return BlocConsumer<AddUserBloc, AddUserState>(
+    return BlocConsumer<AddUserToHomeBloc, AddUserToHomeState>(
       listener: (context, state) {
         state.map(
           (value) => const Text('Initial'),
@@ -65,9 +65,8 @@ class AddUserWidget extends StatelessWidget {
             FlatButton(
               color: Colors.pinkAccent,
               onPressed: () {
-                context
-                    .read<AddUserBloc>()
-                    .add(AddUserEvent.addUserByEmail(userToAddEmail));
+                context.read<AddUserToHomeBloc>().add(
+                    AddUserToHomeEvent.addUserToHomeByEmail(userToAddEmail));
               },
               child: const Text('Add User'),
             ),

@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route_annotations.dart';
-import 'package:cybear_jinni/presentation/add_user/add_user_page.dart';
+import 'package:cybear_jinni/presentation/add_user/add_user_to_home_page.dart';
+import 'package:cybear_jinni/presentation/add_user_to_home/add_user_to_home_page.dart';
 import 'package:cybear_jinni/presentation/home_page/home_page.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/blinds/blinds_page.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/blinds/smart_blind_widget.dart';
@@ -25,7 +26,7 @@ import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_pag
     MaterialRoute(page: WhereToLoginPageOffline),
     MaterialRoute(page: HomePage),
     MaterialRoute(page: ManageUsersPage),
-    MaterialRoute(page: AddUserPage),
+    MaterialRoute(page: AddUserToHomePage),
     MaterialRoute(page: ScenesPage),
     MaterialRoute(page: RoomsLightsPage),
     MaterialRoute(page: LightsInTheRoomPage),
@@ -43,7 +44,7 @@ class $AppRouter {
   WhereToLoginPageOffline whereToLoginPageOffline;
   HomePage homePage;
   ManageUsersPage manageUsersPage;
-  AddUserPage addUserPage;
+  AddUserToHomePage addUserToHomePage;
   RoomsLightsPage roomsLightsPage;
   LightsInTheRoomPage lightsInTheRoomPage;
   BlindsPage blindsPage;

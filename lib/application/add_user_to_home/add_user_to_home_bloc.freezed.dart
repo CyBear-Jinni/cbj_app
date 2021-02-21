@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
-part of 'add_user_bloc.dart';
+part of 'add_user_to_home_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -10,8 +10,8 @@ part of 'add_user_bloc.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-class _$AddUserEventTearOff {
-  const _$AddUserEventTearOff();
+class _$AddUserToHomeEventTearOff {
+  const _$AddUserToHomeEventTearOff();
 
 // ignore: unused_element
   EmailChanged emailChanged(String emailStr) {
@@ -28,8 +28,8 @@ class _$AddUserEventTearOff {
   }
 
 // ignore: unused_element
-  AddUserByEmail addUserByEmail(String email) {
-    return AddUserByEmail(
+  AddUserToHomeByEmail addUserToHomeByEmail(String email) {
+    return AddUserToHomeByEmail(
       email,
     );
   }
@@ -37,52 +37,53 @@ class _$AddUserEventTearOff {
 
 /// @nodoc
 // ignore: unused_element
-const $AddUserEvent = _$AddUserEventTearOff();
+const $AddUserToHomeEvent = _$AddUserToHomeEventTearOff();
 
 /// @nodoc
-mixin _$AddUserEvent {
+mixin _$AddUserToHomeEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult emailChanged(String emailStr),
     @required TResult permissionChanged(String permission),
-    @required TResult addUserByEmail(String email),
+    @required TResult addUserToHomeByEmail(String email),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult emailChanged(String emailStr),
     TResult permissionChanged(String permission),
-    TResult addUserByEmail(String email),
+    TResult addUserToHomeByEmail(String email),
     @required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult emailChanged(EmailChanged value),
     @required TResult permissionChanged(PermissionChanged value),
-    @required TResult addUserByEmail(AddUserByEmail value),
+    @required TResult addUserToHomeByEmail(AddUserToHomeByEmail value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult emailChanged(EmailChanged value),
     TResult permissionChanged(PermissionChanged value),
-    TResult addUserByEmail(AddUserByEmail value),
+    TResult addUserToHomeByEmail(AddUserToHomeByEmail value),
     @required TResult orElse(),
   });
 }
 
 /// @nodoc
-abstract class $AddUserEventCopyWith<$Res> {
-  factory $AddUserEventCopyWith(
-          AddUserEvent value, $Res Function(AddUserEvent) then) =
-      _$AddUserEventCopyWithImpl<$Res>;
+abstract class $AddUserToHomeEventCopyWith<$Res> {
+  factory $AddUserToHomeEventCopyWith(
+          AddUserToHomeEvent value, $Res Function(AddUserToHomeEvent) then) =
+      _$AddUserToHomeEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$AddUserEventCopyWithImpl<$Res> implements $AddUserEventCopyWith<$Res> {
-  _$AddUserEventCopyWithImpl(this._value, this._then);
+class _$AddUserToHomeEventCopyWithImpl<$Res>
+    implements $AddUserToHomeEventCopyWith<$Res> {
+  _$AddUserToHomeEventCopyWithImpl(this._value, this._then);
 
-  final AddUserEvent _value;
+  final AddUserToHomeEvent _value;
   // ignore: unused_field
-  final $Res Function(AddUserEvent) _then;
+  final $Res Function(AddUserToHomeEvent) _then;
 }
 
 /// @nodoc
@@ -94,7 +95,8 @@ abstract class $EmailChangedCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$EmailChangedCopyWithImpl<$Res> extends _$AddUserEventCopyWithImpl<$Res>
+class _$EmailChangedCopyWithImpl<$Res>
+    extends _$AddUserToHomeEventCopyWithImpl<$Res>
     implements $EmailChangedCopyWith<$Res> {
   _$EmailChangedCopyWithImpl(
       EmailChanged _value, $Res Function(EmailChanged) _then)
@@ -122,7 +124,7 @@ class _$EmailChanged implements EmailChanged {
 
   @override
   String toString() {
-    return 'AddUserEvent.emailChanged(emailStr: $emailStr)';
+    return 'AddUserToHomeEvent.emailChanged(emailStr: $emailStr)';
   }
 
   @override
@@ -148,11 +150,11 @@ class _$EmailChanged implements EmailChanged {
   TResult when<TResult extends Object>({
     @required TResult emailChanged(String emailStr),
     @required TResult permissionChanged(String permission),
-    @required TResult addUserByEmail(String email),
+    @required TResult addUserToHomeByEmail(String email),
   }) {
     assert(emailChanged != null);
     assert(permissionChanged != null);
-    assert(addUserByEmail != null);
+    assert(addUserToHomeByEmail != null);
     return emailChanged(emailStr);
   }
 
@@ -161,7 +163,7 @@ class _$EmailChanged implements EmailChanged {
   TResult maybeWhen<TResult extends Object>({
     TResult emailChanged(String emailStr),
     TResult permissionChanged(String permission),
-    TResult addUserByEmail(String email),
+    TResult addUserToHomeByEmail(String email),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -176,11 +178,11 @@ class _$EmailChanged implements EmailChanged {
   TResult map<TResult extends Object>({
     @required TResult emailChanged(EmailChanged value),
     @required TResult permissionChanged(PermissionChanged value),
-    @required TResult addUserByEmail(AddUserByEmail value),
+    @required TResult addUserToHomeByEmail(AddUserToHomeByEmail value),
   }) {
     assert(emailChanged != null);
     assert(permissionChanged != null);
-    assert(addUserByEmail != null);
+    assert(addUserToHomeByEmail != null);
     return emailChanged(this);
   }
 
@@ -189,7 +191,7 @@ class _$EmailChanged implements EmailChanged {
   TResult maybeMap<TResult extends Object>({
     TResult emailChanged(EmailChanged value),
     TResult permissionChanged(PermissionChanged value),
-    TResult addUserByEmail(AddUserByEmail value),
+    TResult addUserToHomeByEmail(AddUserToHomeByEmail value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -200,7 +202,7 @@ class _$EmailChanged implements EmailChanged {
   }
 }
 
-abstract class EmailChanged implements AddUserEvent {
+abstract class EmailChanged implements AddUserToHomeEvent {
   const factory EmailChanged(String emailStr) = _$EmailChanged;
 
   String get emailStr;
@@ -218,7 +220,7 @@ abstract class $PermissionChangedCopyWith<$Res> {
 
 /// @nodoc
 class _$PermissionChangedCopyWithImpl<$Res>
-    extends _$AddUserEventCopyWithImpl<$Res>
+    extends _$AddUserToHomeEventCopyWithImpl<$Res>
     implements $PermissionChangedCopyWith<$Res> {
   _$PermissionChangedCopyWithImpl(
       PermissionChanged _value, $Res Function(PermissionChanged) _then)
@@ -246,7 +248,7 @@ class _$PermissionChanged implements PermissionChanged {
 
   @override
   String toString() {
-    return 'AddUserEvent.permissionChanged(permission: $permission)';
+    return 'AddUserToHomeEvent.permissionChanged(permission: $permission)';
   }
 
   @override
@@ -272,11 +274,11 @@ class _$PermissionChanged implements PermissionChanged {
   TResult when<TResult extends Object>({
     @required TResult emailChanged(String emailStr),
     @required TResult permissionChanged(String permission),
-    @required TResult addUserByEmail(String email),
+    @required TResult addUserToHomeByEmail(String email),
   }) {
     assert(emailChanged != null);
     assert(permissionChanged != null);
-    assert(addUserByEmail != null);
+    assert(addUserToHomeByEmail != null);
     return permissionChanged(permission);
   }
 
@@ -285,7 +287,7 @@ class _$PermissionChanged implements PermissionChanged {
   TResult maybeWhen<TResult extends Object>({
     TResult emailChanged(String emailStr),
     TResult permissionChanged(String permission),
-    TResult addUserByEmail(String email),
+    TResult addUserToHomeByEmail(String email),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -300,11 +302,11 @@ class _$PermissionChanged implements PermissionChanged {
   TResult map<TResult extends Object>({
     @required TResult emailChanged(EmailChanged value),
     @required TResult permissionChanged(PermissionChanged value),
-    @required TResult addUserByEmail(AddUserByEmail value),
+    @required TResult addUserToHomeByEmail(AddUserToHomeByEmail value),
   }) {
     assert(emailChanged != null);
     assert(permissionChanged != null);
-    assert(addUserByEmail != null);
+    assert(addUserToHomeByEmail != null);
     return permissionChanged(this);
   }
 
@@ -313,7 +315,7 @@ class _$PermissionChanged implements PermissionChanged {
   TResult maybeMap<TResult extends Object>({
     TResult emailChanged(EmailChanged value),
     TResult permissionChanged(PermissionChanged value),
-    TResult addUserByEmail(AddUserByEmail value),
+    TResult addUserToHomeByEmail(AddUserToHomeByEmail value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -324,7 +326,7 @@ class _$PermissionChanged implements PermissionChanged {
   }
 }
 
-abstract class PermissionChanged implements AddUserEvent {
+abstract class PermissionChanged implements AddUserToHomeEvent {
   const factory PermissionChanged(String permission) = _$PermissionChanged;
 
   String get permission;
@@ -333,50 +335,50 @@ abstract class PermissionChanged implements AddUserEvent {
 }
 
 /// @nodoc
-abstract class $AddUserByEmailCopyWith<$Res> {
-  factory $AddUserByEmailCopyWith(
-          AddUserByEmail value, $Res Function(AddUserByEmail) then) =
-      _$AddUserByEmailCopyWithImpl<$Res>;
+abstract class $AddUserToHomeByEmailCopyWith<$Res> {
+  factory $AddUserToHomeByEmailCopyWith(AddUserToHomeByEmail value,
+          $Res Function(AddUserToHomeByEmail) then) =
+      _$AddUserToHomeByEmailCopyWithImpl<$Res>;
   $Res call({String email});
 }
 
 /// @nodoc
-class _$AddUserByEmailCopyWithImpl<$Res>
-    extends _$AddUserEventCopyWithImpl<$Res>
-    implements $AddUserByEmailCopyWith<$Res> {
-  _$AddUserByEmailCopyWithImpl(
-      AddUserByEmail _value, $Res Function(AddUserByEmail) _then)
-      : super(_value, (v) => _then(v as AddUserByEmail));
+class _$AddUserToHomeByEmailCopyWithImpl<$Res>
+    extends _$AddUserToHomeEventCopyWithImpl<$Res>
+    implements $AddUserToHomeByEmailCopyWith<$Res> {
+  _$AddUserToHomeByEmailCopyWithImpl(
+      AddUserToHomeByEmail _value, $Res Function(AddUserToHomeByEmail) _then)
+      : super(_value, (v) => _then(v as AddUserToHomeByEmail));
 
   @override
-  AddUserByEmail get _value => super._value as AddUserByEmail;
+  AddUserToHomeByEmail get _value => super._value as AddUserToHomeByEmail;
 
   @override
   $Res call({
     Object email = freezed,
   }) {
-    return _then(AddUserByEmail(
+    return _then(AddUserToHomeByEmail(
       email == freezed ? _value.email : email as String,
     ));
   }
 }
 
 /// @nodoc
-class _$AddUserByEmail implements AddUserByEmail {
-  const _$AddUserByEmail(this.email) : assert(email != null);
+class _$AddUserToHomeByEmail implements AddUserToHomeByEmail {
+  const _$AddUserToHomeByEmail(this.email) : assert(email != null);
 
   @override
   final String email;
 
   @override
   String toString() {
-    return 'AddUserEvent.addUserByEmail(email: $email)';
+    return 'AddUserToHomeEvent.addUserToHomeByEmail(email: $email)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is AddUserByEmail &&
+        (other is AddUserToHomeByEmail &&
             (identical(other.email, email) ||
                 const DeepCollectionEquality().equals(other.email, email)));
   }
@@ -387,20 +389,21 @@ class _$AddUserByEmail implements AddUserByEmail {
 
   @JsonKey(ignore: true)
   @override
-  $AddUserByEmailCopyWith<AddUserByEmail> get copyWith =>
-      _$AddUserByEmailCopyWithImpl<AddUserByEmail>(this, _$identity);
+  $AddUserToHomeByEmailCopyWith<AddUserToHomeByEmail> get copyWith =>
+      _$AddUserToHomeByEmailCopyWithImpl<AddUserToHomeByEmail>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult emailChanged(String emailStr),
     @required TResult permissionChanged(String permission),
-    @required TResult addUserByEmail(String email),
+    @required TResult addUserToHomeByEmail(String email),
   }) {
     assert(emailChanged != null);
     assert(permissionChanged != null);
-    assert(addUserByEmail != null);
-    return addUserByEmail(email);
+    assert(addUserToHomeByEmail != null);
+    return addUserToHomeByEmail(email);
   }
 
   @override
@@ -408,12 +411,12 @@ class _$AddUserByEmail implements AddUserByEmail {
   TResult maybeWhen<TResult extends Object>({
     TResult emailChanged(String emailStr),
     TResult permissionChanged(String permission),
-    TResult addUserByEmail(String email),
+    TResult addUserToHomeByEmail(String email),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (addUserByEmail != null) {
-      return addUserByEmail(email);
+    if (addUserToHomeByEmail != null) {
+      return addUserToHomeByEmail(email);
     }
     return orElse();
   }
@@ -423,12 +426,12 @@ class _$AddUserByEmail implements AddUserByEmail {
   TResult map<TResult extends Object>({
     @required TResult emailChanged(EmailChanged value),
     @required TResult permissionChanged(PermissionChanged value),
-    @required TResult addUserByEmail(AddUserByEmail value),
+    @required TResult addUserToHomeByEmail(AddUserToHomeByEmail value),
   }) {
     assert(emailChanged != null);
     assert(permissionChanged != null);
-    assert(addUserByEmail != null);
-    return addUserByEmail(this);
+    assert(addUserToHomeByEmail != null);
+    return addUserToHomeByEmail(this);
   }
 
   @override
@@ -436,39 +439,39 @@ class _$AddUserByEmail implements AddUserByEmail {
   TResult maybeMap<TResult extends Object>({
     TResult emailChanged(EmailChanged value),
     TResult permissionChanged(PermissionChanged value),
-    TResult addUserByEmail(AddUserByEmail value),
+    TResult addUserToHomeByEmail(AddUserToHomeByEmail value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (addUserByEmail != null) {
-      return addUserByEmail(this);
+    if (addUserToHomeByEmail != null) {
+      return addUserToHomeByEmail(this);
     }
     return orElse();
   }
 }
 
-abstract class AddUserByEmail implements AddUserEvent {
-  const factory AddUserByEmail(String email) = _$AddUserByEmail;
+abstract class AddUserToHomeByEmail implements AddUserToHomeEvent {
+  const factory AddUserToHomeByEmail(String email) = _$AddUserToHomeByEmail;
 
   String get email;
   @JsonKey(ignore: true)
-  $AddUserByEmailCopyWith<AddUserByEmail> get copyWith;
+  $AddUserToHomeByEmailCopyWith<AddUserToHomeByEmail> get copyWith;
 }
 
 /// @nodoc
-class _$AddUserStateTearOff {
-  const _$AddUserStateTearOff();
+class _$AddUserToHomeStateTearOff {
+  const _$AddUserToHomeStateTearOff();
 
 // ignore: unused_element
-  _AddUserState call(
+  _AddUserToHomeState call(
       {@required
-          AddUserEmail emailAddress,
+          AddUserToHomeEmail emailAddress,
       @required
-          AddUserPermission permission,
+          AddUserToHomePermission permission,
       @required
-          Option<Either<AddUserFailures, Unit>>
+          Option<Either<AddUserToHomeFailures, Unit>>
               addUserFailureOrSuccessOption}) {
-    return _AddUserState(
+    return _AddUserToHomeState(
       emailAddress: emailAddress,
       permission: permission,
       addUserFailureOrSuccessOption: addUserFailureOrSuccessOption,
@@ -495,22 +498,28 @@ class _$AddUserStateTearOff {
 
 /// @nodoc
 // ignore: unused_element
-const $AddUserState = _$AddUserStateTearOff();
+const $AddUserToHomeState = _$AddUserToHomeStateTearOff();
 
 /// @nodoc
-mixin _$AddUserState {
+mixin _$AddUserToHomeState {
   @optionalTypeArgs
   TResult when<TResult extends Object>(
-    TResult $default(AddUserEmail emailAddress, AddUserPermission permission,
-        Option<Either<AddUserFailures, Unit>> addUserFailureOrSuccessOption), {
+    TResult $default(
+        AddUserToHomeEmail emailAddress,
+        AddUserToHomePermission permission,
+        Option<Either<AddUserToHomeFailures, Unit>>
+            addUserFailureOrSuccessOption), {
     @required TResult actionInProgress(),
     @required TResult addingUserSuccess(String homeId),
     @required TResult addingHomeFailure(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>(
-    TResult $default(AddUserEmail emailAddress, AddUserPermission permission,
-        Option<Either<AddUserFailures, Unit>> addUserFailureOrSuccessOption), {
+    TResult $default(
+        AddUserToHomeEmail emailAddress,
+        AddUserToHomePermission permission,
+        Option<Either<AddUserToHomeFailures, Unit>>
+            addUserFailureOrSuccessOption), {
     TResult actionInProgress(),
     TResult addingUserSuccess(String homeId),
     TResult addingHomeFailure(),
@@ -518,14 +527,14 @@ mixin _$AddUserState {
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>(
-    TResult $default(_AddUserState value), {
+    TResult $default(_AddUserToHomeState value), {
     @required TResult actionInProgress(_ActionInProgress value),
     @required TResult addingUserSuccess(AddingUserSucess value),
     @required TResult addingHomeFailure(AddingHomeFauliare value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>(
-    TResult $default(_AddUserState value), {
+    TResult $default(_AddUserToHomeState value), {
     TResult actionInProgress(_ActionInProgress value),
     TResult addingUserSuccess(AddingUserSucess value),
     TResult addingHomeFailure(AddingHomeFauliare value),
@@ -534,41 +543,44 @@ mixin _$AddUserState {
 }
 
 /// @nodoc
-abstract class $AddUserStateCopyWith<$Res> {
-  factory $AddUserStateCopyWith(
-          AddUserState value, $Res Function(AddUserState) then) =
-      _$AddUserStateCopyWithImpl<$Res>;
+abstract class $AddUserToHomeStateCopyWith<$Res> {
+  factory $AddUserToHomeStateCopyWith(
+          AddUserToHomeState value, $Res Function(AddUserToHomeState) then) =
+      _$AddUserToHomeStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$AddUserStateCopyWithImpl<$Res> implements $AddUserStateCopyWith<$Res> {
-  _$AddUserStateCopyWithImpl(this._value, this._then);
+class _$AddUserToHomeStateCopyWithImpl<$Res>
+    implements $AddUserToHomeStateCopyWith<$Res> {
+  _$AddUserToHomeStateCopyWithImpl(this._value, this._then);
 
-  final AddUserState _value;
+  final AddUserToHomeState _value;
   // ignore: unused_field
-  final $Res Function(AddUserState) _then;
+  final $Res Function(AddUserToHomeState) _then;
 }
 
 /// @nodoc
-abstract class _$AddUserStateCopyWith<$Res> {
-  factory _$AddUserStateCopyWith(
-          _AddUserState value, $Res Function(_AddUserState) then) =
-      __$AddUserStateCopyWithImpl<$Res>;
+abstract class _$AddUserToHomeStateCopyWith<$Res> {
+  factory _$AddUserToHomeStateCopyWith(
+          _AddUserToHomeState value, $Res Function(_AddUserToHomeState) then) =
+      __$AddUserToHomeStateCopyWithImpl<$Res>;
   $Res call(
-      {AddUserEmail emailAddress,
-      AddUserPermission permission,
-      Option<Either<AddUserFailures, Unit>> addUserFailureOrSuccessOption});
+      {AddUserToHomeEmail emailAddress,
+      AddUserToHomePermission permission,
+      Option<Either<AddUserToHomeFailures, Unit>>
+          addUserFailureOrSuccessOption});
 }
 
 /// @nodoc
-class __$AddUserStateCopyWithImpl<$Res> extends _$AddUserStateCopyWithImpl<$Res>
-    implements _$AddUserStateCopyWith<$Res> {
-  __$AddUserStateCopyWithImpl(
-      _AddUserState _value, $Res Function(_AddUserState) _then)
-      : super(_value, (v) => _then(v as _AddUserState));
+class __$AddUserToHomeStateCopyWithImpl<$Res>
+    extends _$AddUserToHomeStateCopyWithImpl<$Res>
+    implements _$AddUserToHomeStateCopyWith<$Res> {
+  __$AddUserToHomeStateCopyWithImpl(
+      _AddUserToHomeState _value, $Res Function(_AddUserToHomeState) _then)
+      : super(_value, (v) => _then(v as _AddUserToHomeState));
 
   @override
-  _AddUserState get _value => super._value as _AddUserState;
+  _AddUserToHomeState get _value => super._value as _AddUserToHomeState;
 
   @override
   $Res call({
@@ -576,24 +588,24 @@ class __$AddUserStateCopyWithImpl<$Res> extends _$AddUserStateCopyWithImpl<$Res>
     Object permission = freezed,
     Object addUserFailureOrSuccessOption = freezed,
   }) {
-    return _then(_AddUserState(
+    return _then(_AddUserToHomeState(
       emailAddress: emailAddress == freezed
           ? _value.emailAddress
-          : emailAddress as AddUserEmail,
+          : emailAddress as AddUserToHomeEmail,
       permission: permission == freezed
           ? _value.permission
-          : permission as AddUserPermission,
+          : permission as AddUserToHomePermission,
       addUserFailureOrSuccessOption: addUserFailureOrSuccessOption == freezed
           ? _value.addUserFailureOrSuccessOption
           : addUserFailureOrSuccessOption
-              as Option<Either<AddUserFailures, Unit>>,
+              as Option<Either<AddUserToHomeFailures, Unit>>,
     ));
   }
 }
 
 /// @nodoc
-class _$_AddUserState implements _AddUserState {
-  const _$_AddUserState(
+class _$_AddUserToHomeState implements _AddUserToHomeState {
+  const _$_AddUserToHomeState(
       {@required this.emailAddress,
       @required this.permission,
       @required this.addUserFailureOrSuccessOption})
@@ -602,21 +614,22 @@ class _$_AddUserState implements _AddUserState {
         assert(addUserFailureOrSuccessOption != null);
 
   @override
-  final AddUserEmail emailAddress;
+  final AddUserToHomeEmail emailAddress;
   @override
-  final AddUserPermission permission;
+  final AddUserToHomePermission permission;
   @override
-  final Option<Either<AddUserFailures, Unit>> addUserFailureOrSuccessOption;
+  final Option<Either<AddUserToHomeFailures, Unit>>
+      addUserFailureOrSuccessOption;
 
   @override
   String toString() {
-    return 'AddUserState(emailAddress: $emailAddress, permission: $permission, addUserFailureOrSuccessOption: $addUserFailureOrSuccessOption)';
+    return 'AddUserToHomeState(emailAddress: $emailAddress, permission: $permission, addUserFailureOrSuccessOption: $addUserFailureOrSuccessOption)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _AddUserState &&
+        (other is _AddUserToHomeState &&
             (identical(other.emailAddress, emailAddress) ||
                 const DeepCollectionEquality()
                     .equals(other.emailAddress, emailAddress)) &&
@@ -639,14 +652,17 @@ class _$_AddUserState implements _AddUserState {
 
   @JsonKey(ignore: true)
   @override
-  _$AddUserStateCopyWith<_AddUserState> get copyWith =>
-      __$AddUserStateCopyWithImpl<_AddUserState>(this, _$identity);
+  _$AddUserToHomeStateCopyWith<_AddUserToHomeState> get copyWith =>
+      __$AddUserToHomeStateCopyWithImpl<_AddUserToHomeState>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>(
-    TResult $default(AddUserEmail emailAddress, AddUserPermission permission,
-        Option<Either<AddUserFailures, Unit>> addUserFailureOrSuccessOption), {
+    TResult $default(
+        AddUserToHomeEmail emailAddress,
+        AddUserToHomePermission permission,
+        Option<Either<AddUserToHomeFailures, Unit>>
+            addUserFailureOrSuccessOption), {
     @required TResult actionInProgress(),
     @required TResult addingUserSuccess(String homeId),
     @required TResult addingHomeFailure(),
@@ -661,8 +677,11 @@ class _$_AddUserState implements _AddUserState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>(
-    TResult $default(AddUserEmail emailAddress, AddUserPermission permission,
-        Option<Either<AddUserFailures, Unit>> addUserFailureOrSuccessOption), {
+    TResult $default(
+        AddUserToHomeEmail emailAddress,
+        AddUserToHomePermission permission,
+        Option<Either<AddUserToHomeFailures, Unit>>
+            addUserFailureOrSuccessOption), {
     TResult actionInProgress(),
     TResult addingUserSuccess(String homeId),
     TResult addingHomeFailure(),
@@ -678,7 +697,7 @@ class _$_AddUserState implements _AddUserState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>(
-    TResult $default(_AddUserState value), {
+    TResult $default(_AddUserToHomeState value), {
     @required TResult actionInProgress(_ActionInProgress value),
     @required TResult addingUserSuccess(AddingUserSucess value),
     @required TResult addingHomeFailure(AddingHomeFauliare value),
@@ -693,7 +712,7 @@ class _$_AddUserState implements _AddUserState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>(
-    TResult $default(_AddUserState value), {
+    TResult $default(_AddUserToHomeState value), {
     TResult actionInProgress(_ActionInProgress value),
     TResult addingUserSuccess(AddingUserSucess value),
     TResult addingHomeFailure(AddingHomeFauliare value),
@@ -707,21 +726,21 @@ class _$_AddUserState implements _AddUserState {
   }
 }
 
-abstract class _AddUserState implements AddUserState {
-  const factory _AddUserState(
+abstract class _AddUserToHomeState implements AddUserToHomeState {
+  const factory _AddUserToHomeState(
       {@required
-          AddUserEmail emailAddress,
+          AddUserToHomeEmail emailAddress,
       @required
-          AddUserPermission permission,
+          AddUserToHomePermission permission,
       @required
-          Option<Either<AddUserFailures, Unit>>
-              addUserFailureOrSuccessOption}) = _$_AddUserState;
+          Option<Either<AddUserToHomeFailures, Unit>>
+              addUserFailureOrSuccessOption}) = _$_AddUserToHomeState;
 
-  AddUserEmail get emailAddress;
-  AddUserPermission get permission;
-  Option<Either<AddUserFailures, Unit>> get addUserFailureOrSuccessOption;
+  AddUserToHomeEmail get emailAddress;
+  AddUserToHomePermission get permission;
+  Option<Either<AddUserToHomeFailures, Unit>> get addUserFailureOrSuccessOption;
   @JsonKey(ignore: true)
-  _$AddUserStateCopyWith<_AddUserState> get copyWith;
+  _$AddUserToHomeStateCopyWith<_AddUserToHomeState> get copyWith;
 }
 
 /// @nodoc
@@ -733,7 +752,7 @@ abstract class _$ActionInProgressCopyWith<$Res> {
 
 /// @nodoc
 class __$ActionInProgressCopyWithImpl<$Res>
-    extends _$AddUserStateCopyWithImpl<$Res>
+    extends _$AddUserToHomeStateCopyWithImpl<$Res>
     implements _$ActionInProgressCopyWith<$Res> {
   __$ActionInProgressCopyWithImpl(
       _ActionInProgress _value, $Res Function(_ActionInProgress) _then)
@@ -749,7 +768,7 @@ class _$_ActionInProgress implements _ActionInProgress {
 
   @override
   String toString() {
-    return 'AddUserState.actionInProgress()';
+    return 'AddUserToHomeState.actionInProgress()';
   }
 
   @override
@@ -763,8 +782,11 @@ class _$_ActionInProgress implements _ActionInProgress {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>(
-    TResult $default(AddUserEmail emailAddress, AddUserPermission permission,
-        Option<Either<AddUserFailures, Unit>> addUserFailureOrSuccessOption), {
+    TResult $default(
+        AddUserToHomeEmail emailAddress,
+        AddUserToHomePermission permission,
+        Option<Either<AddUserToHomeFailures, Unit>>
+            addUserFailureOrSuccessOption), {
     @required TResult actionInProgress(),
     @required TResult addingUserSuccess(String homeId),
     @required TResult addingHomeFailure(),
@@ -779,8 +801,11 @@ class _$_ActionInProgress implements _ActionInProgress {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>(
-    TResult $default(AddUserEmail emailAddress, AddUserPermission permission,
-        Option<Either<AddUserFailures, Unit>> addUserFailureOrSuccessOption), {
+    TResult $default(
+        AddUserToHomeEmail emailAddress,
+        AddUserToHomePermission permission,
+        Option<Either<AddUserToHomeFailures, Unit>>
+            addUserFailureOrSuccessOption), {
     TResult actionInProgress(),
     TResult addingUserSuccess(String homeId),
     TResult addingHomeFailure(),
@@ -796,7 +821,7 @@ class _$_ActionInProgress implements _ActionInProgress {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>(
-    TResult $default(_AddUserState value), {
+    TResult $default(_AddUserToHomeState value), {
     @required TResult actionInProgress(_ActionInProgress value),
     @required TResult addingUserSuccess(AddingUserSucess value),
     @required TResult addingHomeFailure(AddingHomeFauliare value),
@@ -811,7 +836,7 @@ class _$_ActionInProgress implements _ActionInProgress {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>(
-    TResult $default(_AddUserState value), {
+    TResult $default(_AddUserToHomeState value), {
     TResult actionInProgress(_ActionInProgress value),
     TResult addingUserSuccess(AddingUserSucess value),
     TResult addingHomeFailure(AddingHomeFauliare value),
@@ -825,7 +850,7 @@ class _$_ActionInProgress implements _ActionInProgress {
   }
 }
 
-abstract class _ActionInProgress implements AddUserState {
+abstract class _ActionInProgress implements AddUserToHomeState {
   const factory _ActionInProgress() = _$_ActionInProgress;
 }
 
@@ -839,7 +864,7 @@ abstract class $AddingUserSucessCopyWith<$Res> {
 
 /// @nodoc
 class _$AddingUserSucessCopyWithImpl<$Res>
-    extends _$AddUserStateCopyWithImpl<$Res>
+    extends _$AddUserToHomeStateCopyWithImpl<$Res>
     implements $AddingUserSucessCopyWith<$Res> {
   _$AddingUserSucessCopyWithImpl(
       AddingUserSucess _value, $Res Function(AddingUserSucess) _then)
@@ -867,7 +892,7 @@ class _$AddingUserSucess implements AddingUserSucess {
 
   @override
   String toString() {
-    return 'AddUserState.addingUserSuccess(homeId: $homeId)';
+    return 'AddUserToHomeState.addingUserSuccess(homeId: $homeId)';
   }
 
   @override
@@ -890,8 +915,11 @@ class _$AddingUserSucess implements AddingUserSucess {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>(
-    TResult $default(AddUserEmail emailAddress, AddUserPermission permission,
-        Option<Either<AddUserFailures, Unit>> addUserFailureOrSuccessOption), {
+    TResult $default(
+        AddUserToHomeEmail emailAddress,
+        AddUserToHomePermission permission,
+        Option<Either<AddUserToHomeFailures, Unit>>
+            addUserFailureOrSuccessOption), {
     @required TResult actionInProgress(),
     @required TResult addingUserSuccess(String homeId),
     @required TResult addingHomeFailure(),
@@ -906,8 +934,11 @@ class _$AddingUserSucess implements AddingUserSucess {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>(
-    TResult $default(AddUserEmail emailAddress, AddUserPermission permission,
-        Option<Either<AddUserFailures, Unit>> addUserFailureOrSuccessOption), {
+    TResult $default(
+        AddUserToHomeEmail emailAddress,
+        AddUserToHomePermission permission,
+        Option<Either<AddUserToHomeFailures, Unit>>
+            addUserFailureOrSuccessOption), {
     TResult actionInProgress(),
     TResult addingUserSuccess(String homeId),
     TResult addingHomeFailure(),
@@ -923,7 +954,7 @@ class _$AddingUserSucess implements AddingUserSucess {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>(
-    TResult $default(_AddUserState value), {
+    TResult $default(_AddUserToHomeState value), {
     @required TResult actionInProgress(_ActionInProgress value),
     @required TResult addingUserSuccess(AddingUserSucess value),
     @required TResult addingHomeFailure(AddingHomeFauliare value),
@@ -938,7 +969,7 @@ class _$AddingUserSucess implements AddingUserSucess {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>(
-    TResult $default(_AddUserState value), {
+    TResult $default(_AddUserToHomeState value), {
     TResult actionInProgress(_ActionInProgress value),
     TResult addingUserSuccess(AddingUserSucess value),
     TResult addingHomeFailure(AddingHomeFauliare value),
@@ -952,7 +983,7 @@ class _$AddingUserSucess implements AddingUserSucess {
   }
 }
 
-abstract class AddingUserSucess implements AddUserState {
+abstract class AddingUserSucess implements AddUserToHomeState {
   const factory AddingUserSucess(String homeId) = _$AddingUserSucess;
 
   String get homeId;
@@ -969,7 +1000,7 @@ abstract class $AddingHomeFauliareCopyWith<$Res> {
 
 /// @nodoc
 class _$AddingHomeFauliareCopyWithImpl<$Res>
-    extends _$AddUserStateCopyWithImpl<$Res>
+    extends _$AddUserToHomeStateCopyWithImpl<$Res>
     implements $AddingHomeFauliareCopyWith<$Res> {
   _$AddingHomeFauliareCopyWithImpl(
       AddingHomeFauliare _value, $Res Function(AddingHomeFauliare) _then)
@@ -985,7 +1016,7 @@ class _$AddingHomeFauliare implements AddingHomeFauliare {
 
   @override
   String toString() {
-    return 'AddUserState.addingHomeFailure()';
+    return 'AddUserToHomeState.addingHomeFailure()';
   }
 
   @override
@@ -999,8 +1030,11 @@ class _$AddingHomeFauliare implements AddingHomeFauliare {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>(
-    TResult $default(AddUserEmail emailAddress, AddUserPermission permission,
-        Option<Either<AddUserFailures, Unit>> addUserFailureOrSuccessOption), {
+    TResult $default(
+        AddUserToHomeEmail emailAddress,
+        AddUserToHomePermission permission,
+        Option<Either<AddUserToHomeFailures, Unit>>
+            addUserFailureOrSuccessOption), {
     @required TResult actionInProgress(),
     @required TResult addingUserSuccess(String homeId),
     @required TResult addingHomeFailure(),
@@ -1015,8 +1049,11 @@ class _$AddingHomeFauliare implements AddingHomeFauliare {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>(
-    TResult $default(AddUserEmail emailAddress, AddUserPermission permission,
-        Option<Either<AddUserFailures, Unit>> addUserFailureOrSuccessOption), {
+    TResult $default(
+        AddUserToHomeEmail emailAddress,
+        AddUserToHomePermission permission,
+        Option<Either<AddUserToHomeFailures, Unit>>
+            addUserFailureOrSuccessOption), {
     TResult actionInProgress(),
     TResult addingUserSuccess(String homeId),
     TResult addingHomeFailure(),
@@ -1032,7 +1069,7 @@ class _$AddingHomeFauliare implements AddingHomeFauliare {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>(
-    TResult $default(_AddUserState value), {
+    TResult $default(_AddUserToHomeState value), {
     @required TResult actionInProgress(_ActionInProgress value),
     @required TResult addingUserSuccess(AddingUserSucess value),
     @required TResult addingHomeFailure(AddingHomeFauliare value),
@@ -1047,7 +1084,7 @@ class _$AddingHomeFauliare implements AddingHomeFauliare {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>(
-    TResult $default(_AddUserState value), {
+    TResult $default(_AddUserToHomeState value), {
     TResult actionInProgress(_ActionInProgress value),
     TResult addingUserSuccess(AddingUserSucess value),
     TResult addingHomeFailure(AddingHomeFauliare value),
@@ -1061,6 +1098,6 @@ class _$AddingHomeFauliare implements AddingHomeFauliare {
   }
 }
 
-abstract class AddingHomeFauliare implements AddUserState {
+abstract class AddingHomeFauliare implements AddUserToHomeState {
   const factory AddingHomeFauliare() = _$AddingHomeFauliare;
 }
