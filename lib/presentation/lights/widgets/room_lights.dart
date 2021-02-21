@@ -48,8 +48,7 @@ class RoomLights extends StatelessWidget {
               widgetsForRow.add(Column(
                 children: [
                   Text(
-                    deviceEntityTemp.defaultName
-                        .getOrCrash(), //  Show device name
+                    deviceEntityTemp.defaultName.getOrCrash(),
                     style: TextStyle(
                       fontSize: 19.0,
                       color: Theme.of(context).textTheme.bodyText2.color,
@@ -95,15 +94,16 @@ class RoomLights extends StatelessWidget {
       margin: EdgeInsets.only(bottom: screenSize.height * 0.02),
       padding: const EdgeInsets.all(3),
       decoration: BoxDecoration(
-          gradient: LinearGradient(
-              colors: _gradientColor,
-              begin: Alignment.bottomLeft,
-              end: Alignment.topLeft),
-          borderRadius: const BorderRadius.all(Radius.circular(24)),
-          border: Border.all(
-            color: Theme.of(context).textTheme.bodyText1.color,
-            width: 0.6,
-          )),
+        gradient: LinearGradient(
+            colors: _gradientColor,
+            begin: Alignment.bottomLeft,
+            end: Alignment.topLeft),
+        borderRadius: const BorderRadius.all(Radius.circular(24)),
+        border: Border.all(
+          color: Theme.of(context).textTheme.bodyText1.color,
+          width: 0.6,
+        ),
+      ),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),

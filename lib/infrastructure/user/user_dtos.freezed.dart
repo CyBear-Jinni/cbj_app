@@ -17,10 +17,14 @@ class _$UserDtosTearOff {
   const _$UserDtosTearOff();
 
 // ignore: unused_element
-  _UserDtos call({@JsonKey(ignore: true) String id, @required String email}) {
+  _UserDtos call(
+      {@JsonKey(ignore: true) String id,
+      @required String email,
+      @required String name}) {
     return _UserDtos(
       id: id,
       email: email,
+      name: name,
     );
   }
 
@@ -39,6 +43,7 @@ mixin _$UserDtos {
   @JsonKey(ignore: true)
   String get id; // @required String defaultName,
   String get email;
+  String get name;
 
   Map<String, dynamic> toJson();
   @JsonKey(ignore: true)
@@ -49,7 +54,7 @@ mixin _$UserDtos {
 abstract class $UserDtosCopyWith<$Res> {
   factory $UserDtosCopyWith(UserDtos value, $Res Function(UserDtos) then) =
       _$UserDtosCopyWithImpl<$Res>;
-  $Res call({@JsonKey(ignore: true) String id, String email});
+  $Res call({@JsonKey(ignore: true) String id, String email, String name});
 }
 
 /// @nodoc
@@ -64,10 +69,12 @@ class _$UserDtosCopyWithImpl<$Res> implements $UserDtosCopyWith<$Res> {
   $Res call({
     Object id = freezed,
     Object email = freezed,
+    Object name = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as String,
       email: email == freezed ? _value.email : email as String,
+      name: name == freezed ? _value.name : name as String,
     ));
   }
 }
@@ -77,7 +84,7 @@ abstract class _$UserDtosCopyWith<$Res> implements $UserDtosCopyWith<$Res> {
   factory _$UserDtosCopyWith(_UserDtos value, $Res Function(_UserDtos) then) =
       __$UserDtosCopyWithImpl<$Res>;
   @override
-  $Res call({@JsonKey(ignore: true) String id, String email});
+  $Res call({@JsonKey(ignore: true) String id, String email, String name});
 }
 
 /// @nodoc
@@ -93,10 +100,12 @@ class __$UserDtosCopyWithImpl<$Res> extends _$UserDtosCopyWithImpl<$Res>
   $Res call({
     Object id = freezed,
     Object email = freezed,
+    Object name = freezed,
   }) {
     return _then(_UserDtos(
       id: id == freezed ? _value.id : id as String,
       email: email == freezed ? _value.email : email as String,
+      name: name == freezed ? _value.name : name as String,
     ));
   }
 }
@@ -105,8 +114,12 @@ class __$UserDtosCopyWithImpl<$Res> extends _$UserDtosCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_UserDtos extends _UserDtos {
-  const _$_UserDtos({@JsonKey(ignore: true) this.id, @required this.email})
+  const _$_UserDtos(
+      {@JsonKey(ignore: true) this.id,
+      @required this.email,
+      @required this.name})
       : assert(email != null),
+        assert(name != null),
         super._();
 
   factory _$_UserDtos.fromJson(Map<String, dynamic> json) =>
@@ -117,10 +130,12 @@ class _$_UserDtos extends _UserDtos {
   final String id;
   @override // @required String defaultName,
   final String email;
+  @override
+  final String name;
 
   @override
   String toString() {
-    return 'UserDtos(id: $id, email: $email)';
+    return 'UserDtos(id: $id, email: $email, name: $name)';
   }
 
   @override
@@ -130,14 +145,17 @@ class _$_UserDtos extends _UserDtos {
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.email, email) ||
-                const DeepCollectionEquality().equals(other.email, email)));
+                const DeepCollectionEquality().equals(other.email, email)) &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(email);
+      const DeepCollectionEquality().hash(email) ^
+      const DeepCollectionEquality().hash(name);
 
   @JsonKey(ignore: true)
   @override
@@ -153,7 +171,9 @@ class _$_UserDtos extends _UserDtos {
 abstract class _UserDtos extends UserDtos {
   const _UserDtos._() : super._();
   const factory _UserDtos(
-      {@JsonKey(ignore: true) String id, @required String email}) = _$_UserDtos;
+      {@JsonKey(ignore: true) String id,
+      @required String email,
+      @required String name}) = _$_UserDtos;
 
   factory _UserDtos.fromJson(Map<String, dynamic> json) = _$_UserDtos.fromJson;
 
@@ -162,6 +182,8 @@ abstract class _UserDtos extends UserDtos {
   String get id;
   @override // @required String defaultName,
   String get email;
+  @override
+  String get name;
   @override
   @JsonKey(ignore: true)
   _$UserDtosCopyWith<_UserDtos> get copyWith;

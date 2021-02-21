@@ -22,6 +22,7 @@ class ManageUsersWidget extends StatelessWidget {
           ),
           loadSuccess: (state) {
             return ListView.builder(
+              padding: EdgeInsets.zero,
               itemBuilder: (context, index) {
                 final user = state.users[index];
                 if (user.failureOption.isSome()) {

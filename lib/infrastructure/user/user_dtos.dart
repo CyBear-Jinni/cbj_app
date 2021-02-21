@@ -14,12 +14,14 @@ abstract class UserDtos implements _$UserDtos {
     @JsonKey(ignore: true) String id,
     // @required String defaultName,
     @required String email,
+    @required String name,
   }) = _UserDtos;
 
   factory UserDtos.fromDomain(UserEntity userEntity) {
     return UserDtos(
       id: userEntity.id.getOrCrash(),
       email: userEntity.email.getOrCrash(),
+      name: userEntity.name.getOrCrash(),
     );
   }
 
@@ -27,6 +29,7 @@ abstract class UserDtos implements _$UserDtos {
     return UserEntity(
       id: UserUniqueId.fromUniqueString(id),
       email: UserEmail(email),
+      name: UserName(name),
     );
   }
 

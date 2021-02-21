@@ -68,3 +68,19 @@ class UserEmail extends UserValueObjectAbstract<String> {
 
   const UserEmail._(this.value);
 }
+
+class UserName extends UserValueObjectAbstract<String> {
+  @override
+  final Either<UserFailures<String>, String> value;
+
+  static const maxLength = 1000;
+
+  factory UserName(String input) {
+    assert(input != null);
+    return UserName._(
+      validateUserNameNotEmpty(input),
+    );
+  }
+
+  const UserName._(this.value);
+}

@@ -24,7 +24,7 @@ class InitializeHomeRepository implements IInitializeHomeRepository {
       final String fullPath =
           '/$smartHomesPath/$uniqueHomeId/$usersInHomePath/$currentUserUid';
       Map<String, dynamic> data = {
-        'Name': '',
+        'name': '',
         // request.auth.uid
       };
 

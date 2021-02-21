@@ -14,10 +14,14 @@ class _$UserEntityTearOff {
   const _$UserEntityTearOff();
 
 // ignore: unused_element
-  _UserEntity call({@required UserUniqueId id, @required UserEmail email}) {
+  _UserEntity call(
+      {@required UserUniqueId id,
+      @required UserEmail email,
+      @required UserName name}) {
     return _UserEntity(
       id: id,
       email: email,
+      name: name,
     );
   }
 }
@@ -30,6 +34,7 @@ const $UserEntity = _$UserEntityTearOff();
 mixin _$UserEntity {
   UserUniqueId get id;
   UserEmail get email;
+  UserName get name;
 
   @JsonKey(ignore: true)
   $UserEntityCopyWith<UserEntity> get copyWith;
@@ -40,7 +45,7 @@ abstract class $UserEntityCopyWith<$Res> {
   factory $UserEntityCopyWith(
           UserEntity value, $Res Function(UserEntity) then) =
       _$UserEntityCopyWithImpl<$Res>;
-  $Res call({UserUniqueId id, UserEmail email});
+  $Res call({UserUniqueId id, UserEmail email, UserName name});
 }
 
 /// @nodoc
@@ -55,10 +60,12 @@ class _$UserEntityCopyWithImpl<$Res> implements $UserEntityCopyWith<$Res> {
   $Res call({
     Object id = freezed,
     Object email = freezed,
+    Object name = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as UserUniqueId,
       email: email == freezed ? _value.email : email as UserEmail,
+      name: name == freezed ? _value.name : name as UserName,
     ));
   }
 }
@@ -69,7 +76,7 @@ abstract class _$UserEntityCopyWith<$Res> implements $UserEntityCopyWith<$Res> {
           _UserEntity value, $Res Function(_UserEntity) then) =
       __$UserEntityCopyWithImpl<$Res>;
   @override
-  $Res call({UserUniqueId id, UserEmail email});
+  $Res call({UserUniqueId id, UserEmail email, UserName name});
 }
 
 /// @nodoc
@@ -86,29 +93,35 @@ class __$UserEntityCopyWithImpl<$Res> extends _$UserEntityCopyWithImpl<$Res>
   $Res call({
     Object id = freezed,
     Object email = freezed,
+    Object name = freezed,
   }) {
     return _then(_UserEntity(
       id: id == freezed ? _value.id : id as UserUniqueId,
       email: email == freezed ? _value.email : email as UserEmail,
+      name: name == freezed ? _value.name : name as UserName,
     ));
   }
 }
 
 /// @nodoc
 class _$_UserEntity extends _UserEntity {
-  const _$_UserEntity({@required this.id, @required this.email})
+  const _$_UserEntity(
+      {@required this.id, @required this.email, @required this.name})
       : assert(id != null),
         assert(email != null),
+        assert(name != null),
         super._();
 
   @override
   final UserUniqueId id;
   @override
   final UserEmail email;
+  @override
+  final UserName name;
 
   @override
   String toString() {
-    return 'UserEntity(id: $id, email: $email)';
+    return 'UserEntity(id: $id, email: $email, name: $name)';
   }
 
   @override
@@ -118,14 +131,17 @@ class _$_UserEntity extends _UserEntity {
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.email, email) ||
-                const DeepCollectionEquality().equals(other.email, email)));
+                const DeepCollectionEquality().equals(other.email, email)) &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(email);
+      const DeepCollectionEquality().hash(email) ^
+      const DeepCollectionEquality().hash(name);
 
   @JsonKey(ignore: true)
   @override
@@ -136,12 +152,16 @@ class _$_UserEntity extends _UserEntity {
 abstract class _UserEntity extends UserEntity {
   const _UserEntity._() : super._();
   const factory _UserEntity(
-      {@required UserUniqueId id, @required UserEmail email}) = _$_UserEntity;
+      {@required UserUniqueId id,
+      @required UserEmail email,
+      @required UserName name}) = _$_UserEntity;
 
   @override
   UserUniqueId get id;
   @override
   UserEmail get email;
+  @override
+  UserName get name;
   @override
   @JsonKey(ignore: true)
   _$UserEntityCopyWith<_UserEntity> get copyWith;

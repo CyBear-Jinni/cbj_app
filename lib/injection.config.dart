@@ -10,6 +10,8 @@ import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+import 'application/add_user/add_user_bloc.dart';
+import 'infrastructure/add_user/add_user_reposityory.dart';
 import 'application/auth/auth_bloc.dart';
 import 'application/devices/device_actor/device_actor_bloc.dart';
 import 'infrastructure/device/device_repository.dart';
@@ -20,6 +22,7 @@ import 'application/folder_of_scenes/folder_of_scenes_bloc.dart';
 import 'infrastructure/folder_of_scenes/folder_of_scenes_repository.dart';
 import 'application/folders_of_scenes/folders_of_scenes_bloc.dart';
 import 'infrastructure/folders_of_scenes/folders_of_scenes_repository.dart';
+import 'domain/add_user/i_add_user_repository.dart';
 import 'domain/auth/i_auth_facade.dart';
 import 'domain/devices/i_device_repository.dart';
 import 'domain/folder_of_scenes/i_folder_of_scenes_repository.dart';
@@ -50,6 +53,8 @@ GetIt $initGetIt(
   gh.lazySingleton<FirebaseAuth>(() => firebaseInjectableModule.firebaseAuth);
   gh.lazySingleton<FirebaseFirestore>(() => firebaseInjectableModule.firestore);
   gh.lazySingleton<GoogleSignIn>(() => firebaseInjectableModule.googleSignIn);
+  gh.lazySingleton<IAddUserRepository>(
+      () => AddUserRepository(get<FirebaseFirestore>()));
   gh.lazySingleton<IAuthFacade>(
       () => FirebaseAuthFacade(get<FirebaseAuth>(), get<GoogleSignIn>()));
   gh.lazySingleton<IDeviceRepository>(
@@ -69,6 +74,7 @@ GetIt $initGetIt(
   gh.factory<MockExample>(() => MockExample());
   gh.factory<SceneBloc>(() => SceneBloc(get<ISceneRepository>()));
   gh.factory<SignInFormBloc>(() => SignInFormBloc(get<IAuthFacade>()));
+  gh.factory<AddUserBloc>(() => AddUserBloc(get<IAddUserRepository>()));
   gh.factory<AuthBloc>(() => AuthBloc(get<IAuthFacade>()));
   gh.factory<DeviceActorBloc>(() => DeviceActorBloc(get<IDeviceRepository>()));
   gh.factory<DeviceWatcherBloc>(

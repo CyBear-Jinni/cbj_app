@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 import '../../domain/folder_of_scenes/folder_of_scene.dart';
 import '../../infrastructure/core/gen/smart_device/smart_blinds_object.dart';
 import '../../infrastructure/core/gen/smart_device/smart_room_object.dart';
+import '../add_user/add_user_page.dart';
 import '../home_page/home_page.dart';
 import '../home_page/tabs/smart_devices_tab/blinds/blinds_page.dart';
 import '../home_page/tabs/smart_devices_tab/blinds/smart_blind_widget.dart';
@@ -35,6 +36,7 @@ class Routes {
   static const String whereToLoginPageOffline = '/where-to-login-page-offline';
   static const String homePage = '/home-page';
   static const String manageUsersPage = '/manage-users-page';
+  static const String addUserPage = '/add-user-page';
   static const String scenesPage = '/scenes-page';
   static const String roomsLightsPage = '/rooms-lights-page';
   static const String lightsInTheRoomPage = '/lights-in-the-room-page';
@@ -49,6 +51,7 @@ class Routes {
     whereToLoginPageOffline,
     homePage,
     manageUsersPage,
+    addUserPage,
     scenesPage,
     roomsLightsPage,
     lightsInTheRoomPage,
@@ -69,6 +72,7 @@ class AppRouter extends RouterBase {
     RouteDef(Routes.whereToLoginPageOffline, page: WhereToLoginPageOffline),
     RouteDef(Routes.homePage, page: HomePage),
     RouteDef(Routes.manageUsersPage, page: ManageUsersPage),
+    RouteDef(Routes.addUserPage, page: AddUserPage),
     RouteDef(Routes.scenesPage, page: ScenesPage),
     RouteDef(Routes.roomsLightsPage, page: RoomsLightsPage),
     RouteDef(Routes.lightsInTheRoomPage, page: LightsInTheRoomPage),
@@ -123,6 +127,12 @@ class AppRouter extends RouterBase {
     ManageUsersPage: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => ManageUsersPage(),
+        settings: data,
+      );
+    },
+    AddUserPage: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => AddUserPage(),
         settings: data,
       );
     },
@@ -189,6 +199,8 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
 
   Future<dynamic> pushManageUsersPage() =>
       push<dynamic>(Routes.manageUsersPage);
+
+  Future<dynamic> pushAddUserPage() => push<dynamic>(Routes.addUserPage);
 
   Future<dynamic> pushScenesPage({
     @required FolderOfScenes folderOfScenes,

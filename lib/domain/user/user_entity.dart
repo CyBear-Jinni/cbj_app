@@ -12,11 +12,13 @@ abstract class UserEntity implements _$UserEntity {
   const factory UserEntity({
     @required UserUniqueId id,
     @required UserEmail email,
+    @required UserName name,
   }) = _UserEntity;
 
   factory UserEntity.empty() => UserEntity(
         id: UserUniqueId(),
         email: UserEmail(''),
+        name: UserName(''),
       );
 
   Option<UserFailures<dynamic>> get failureOption {

@@ -4,6 +4,7 @@ import 'package:cybear_jinni/domain/core/errors.dart';
 import 'package:cybear_jinni/injection.dart';
 
 const homesCollecttionName = 'SmartHomes';
+const usersCollecttionName = 'users';
 
 extension FirestoreX on FirebaseFirestore {
   Future<DocumentReference> homeDocument() async {
@@ -12,6 +13,10 @@ extension FirestoreX on FirebaseFirestore {
     return FirebaseFirestore.instance
         .collection(homesCollecttionName)
         .doc(home.id.getOrCrash());
+  }
+
+  Future<CollectionReference> usersCollection() async {
+    return FirebaseFirestore.instance.collection(usersCollecttionName);
   }
 }
 
