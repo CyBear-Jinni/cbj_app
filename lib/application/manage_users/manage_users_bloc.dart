@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:cybear_jinni/domain/user/i_user_repository.dart';
-import 'package:cybear_jinni/domain/user/user_entity.dart';
-import 'package:cybear_jinni/domain/user/user_failures.dart';
+import 'package:cybear_jinni/domain/home_user/home_user_entity.dart';
+import 'package:cybear_jinni/domain/home_user/home_user_failures.dart';
+import 'package:cybear_jinni/domain/home_user/i_home_user_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -17,9 +17,9 @@ part 'manage_users_state.dart';
 class ManageUsersBloc extends Bloc<ManageUsersEvent, ManageUsersState> {
   ManageUsersBloc(this._userRepository) : super(ManageUsersState.initial());
 
-  final IUserRepository _userRepository;
+  final IHomeUserRepository _userRepository;
 
-  StreamSubscription<Either<UserFailures, KtList<UserEntity>>>
+  StreamSubscription<Either<HomeUserFailures, KtList<HomeUserEntity>>>
       _userStreamSubscription;
 
   @override

@@ -22,14 +22,15 @@ import 'application/folder_of_scenes/folder_of_scenes_bloc.dart';
 import 'infrastructure/folder_of_scenes/folder_of_scenes_repository.dart';
 import 'application/folders_of_scenes/folders_of_scenes_bloc.dart';
 import 'infrastructure/folders_of_scenes/folders_of_scenes_repository.dart';
+import 'infrastructure/home_user/home_user_repository.dart';
 import 'domain/add_user_to_home/i_add_user_to_home_repository.dart';
 import 'domain/auth/i_auth_facade.dart';
 import 'domain/devices/i_device_repository.dart';
 import 'domain/folder_of_scenes/i_folder_of_scenes_repository.dart';
 import 'domain/folders_of_scenes/i_folders_of_scenes_repository.dart';
+import 'domain/home_user/i_home_user_repository.dart';
 import 'domain/initialize_home/i_initialize_home_repository.dart';
 import 'domain/scene/i_scene_repository.dart';
-import 'domain/user/i_user_repository.dart';
 import 'application/initialize_home/initialize_home_bloc.dart';
 import 'infrastructure/initialize_home/initialize_home_repository.dart';
 import 'application/light_toggle/light_toggle_bloc.dart';
@@ -38,7 +39,6 @@ import 'infrastructure/mock_example.dart';
 import 'application/scene/scene_bloc.dart';
 import 'infrastructure/scenes/scene_repository.dart';
 import 'application/auth/sign_in_form/sign_in_form_bloc.dart';
-import 'infrastructure/user/user_repository.dart';
 
 /// adds generated dependencies
 /// to the provided [GetIt] instance
@@ -62,15 +62,16 @@ GetIt $initGetIt(
   gh.lazySingleton<IFolderOfScenesRepository>(() => FolderOfScenesRepository());
   gh.lazySingleton<IFoldersOfScenesRepository>(
       () => FoldersOfScenesRepository());
+  gh.lazySingleton<IHomeUserRepository>(
+      () => HomeUserRepository(get<FirebaseFirestore>()));
   gh.lazySingleton<IInitializeHomeRepository>(() =>
       InitializeHomeRepository(get<FirebaseFirestore>(), get<FirebaseAuth>()));
   gh.lazySingleton<ISceneRepository>(() => SceneRepository());
-  gh.lazySingleton<IUserRepository>(
-      () => UserRepository(get<FirebaseFirestore>()));
   gh.factory<InitializeHomeBloc>(
       () => InitializeHomeBloc(get<IInitializeHomeRepository>()));
   gh.factory<LightToggleBloc>(() => LightToggleBloc(get<IDeviceRepository>()));
-  gh.factory<ManageUsersBloc>(() => ManageUsersBloc(get<IUserRepository>()));
+  gh.factory<ManageUsersBloc>(
+      () => ManageUsersBloc(get<IHomeUserRepository>()));
   gh.factory<MockExample>(() => MockExample());
   gh.factory<SceneBloc>(() => SceneBloc(get<ISceneRepository>()));
   gh.factory<SignInFormBloc>(() => SignInFormBloc(get<IAuthFacade>()));

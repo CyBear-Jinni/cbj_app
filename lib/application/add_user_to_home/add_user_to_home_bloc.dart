@@ -39,7 +39,7 @@ class AddUserToHomeBloc extends Bloc<AddUserToHomeEvent, AddUserToHomeState> {
         //   addUserFailureOrSuccessOption: none(),
         // );
       },
-      addUserByEmail: (e) async* {
+      addUserToHomeByEmail: (e) async* {
         // final isPasswordValid = state.password.isValid();
         // if (isEmailValid && isPasswordValid) {
         // yield state.copyWith(

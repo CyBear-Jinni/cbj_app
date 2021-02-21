@@ -24,14 +24,14 @@ class ManageUsersWidget extends StatelessWidget {
             return ListView.builder(
               padding: EdgeInsets.zero,
               itemBuilder: (context, index) {
-                final user = state.users[index];
-                if (user.failureOption.isSome()) {
-                  return ErrorUserCard(user: user);
+                final homeUser = state.homeUsers[index];
+                if (homeUser.failureOption.isSome()) {
+                  return ErrorUserCard(homeUser: homeUser);
                 } else {
-                  return UserCard(user: user);
+                  return UserCard(homeUser: homeUser);
                 }
               },
-              itemCount: state.users.size,
+              itemCount: state.homeUsers.size,
             );
           },
           loadFailure: (state) {

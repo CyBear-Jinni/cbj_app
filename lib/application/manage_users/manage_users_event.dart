@@ -4,5 +4,6 @@ part of 'manage_users_bloc.dart';
 abstract class ManageUsersEvent with _$ManageUsersEvent {
   const factory ManageUsersEvent.initialized() = Initialized;
   const factory ManageUsersEvent.addByEmail(String mail) = _AddByEmail;
-  const factory ManageUsersEvent.deleted(UserEntity userEntity) = _Deleted;
+  const factory ManageUsersEvent.deleted(HomeUserEntity homeUserEntity) =
+      _Deleted;
 }

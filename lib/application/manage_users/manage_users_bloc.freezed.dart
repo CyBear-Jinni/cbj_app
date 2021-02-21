@@ -26,9 +26,9 @@ class _$ManageUsersEventTearOff {
   }
 
 // ignore: unused_element
-  _Deleted deleted(UserEntity userEntity) {
+  _Deleted deleted(HomeUserEntity homeUserEntity) {
     return _Deleted(
-      userEntity,
+      homeUserEntity,
     );
   }
 }
@@ -43,13 +43,13 @@ mixin _$ManageUsersEvent {
   TResult when<TResult extends Object>({
     @required TResult initialized(),
     @required TResult addByEmail(String mail),
-    @required TResult deleted(UserEntity userEntity),
+    @required TResult deleted(HomeUserEntity homeUserEntity),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initialized(),
     TResult addByEmail(String mail),
-    TResult deleted(UserEntity userEntity),
+    TResult deleted(HomeUserEntity homeUserEntity),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -125,7 +125,7 @@ class _$Initialized implements Initialized {
   TResult when<TResult extends Object>({
     @required TResult initialized(),
     @required TResult addByEmail(String mail),
-    @required TResult deleted(UserEntity userEntity),
+    @required TResult deleted(HomeUserEntity homeUserEntity),
   }) {
     assert(initialized != null);
     assert(addByEmail != null);
@@ -138,7 +138,7 @@ class _$Initialized implements Initialized {
   TResult maybeWhen<TResult extends Object>({
     TResult initialized(),
     TResult addByEmail(String mail),
-    TResult deleted(UserEntity userEntity),
+    TResult deleted(HomeUserEntity homeUserEntity),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -244,7 +244,7 @@ class _$_AddByEmail implements _AddByEmail {
   TResult when<TResult extends Object>({
     @required TResult initialized(),
     @required TResult addByEmail(String mail),
-    @required TResult deleted(UserEntity userEntity),
+    @required TResult deleted(HomeUserEntity homeUserEntity),
   }) {
     assert(initialized != null);
     assert(addByEmail != null);
@@ -257,7 +257,7 @@ class _$_AddByEmail implements _AddByEmail {
   TResult maybeWhen<TResult extends Object>({
     TResult initialized(),
     TResult addByEmail(String mail),
-    TResult deleted(UserEntity userEntity),
+    TResult deleted(HomeUserEntity homeUserEntity),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -308,9 +308,9 @@ abstract class _AddByEmail implements ManageUsersEvent {
 abstract class _$DeletedCopyWith<$Res> {
   factory _$DeletedCopyWith(_Deleted value, $Res Function(_Deleted) then) =
       __$DeletedCopyWithImpl<$Res>;
-  $Res call({UserEntity userEntity});
+  $Res call({HomeUserEntity homeUserEntity});
 
-  $UserEntityCopyWith<$Res> get userEntity;
+  $HomeUserEntityCopyWith<$Res> get homeUserEntity;
 }
 
 /// @nodoc
@@ -324,48 +324,51 @@ class __$DeletedCopyWithImpl<$Res> extends _$ManageUsersEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object userEntity = freezed,
+    Object homeUserEntity = freezed,
   }) {
     return _then(_Deleted(
-      userEntity == freezed ? _value.userEntity : userEntity as UserEntity,
+      homeUserEntity == freezed
+          ? _value.homeUserEntity
+          : homeUserEntity as HomeUserEntity,
     ));
   }
 
   @override
-  $UserEntityCopyWith<$Res> get userEntity {
-    if (_value.userEntity == null) {
+  $HomeUserEntityCopyWith<$Res> get homeUserEntity {
+    if (_value.homeUserEntity == null) {
       return null;
     }
-    return $UserEntityCopyWith<$Res>(_value.userEntity, (value) {
-      return _then(_value.copyWith(userEntity: value));
+    return $HomeUserEntityCopyWith<$Res>(_value.homeUserEntity, (value) {
+      return _then(_value.copyWith(homeUserEntity: value));
     });
   }
 }
 
 /// @nodoc
 class _$_Deleted implements _Deleted {
-  const _$_Deleted(this.userEntity) : assert(userEntity != null);
+  const _$_Deleted(this.homeUserEntity) : assert(homeUserEntity != null);
 
   @override
-  final UserEntity userEntity;
+  final HomeUserEntity homeUserEntity;
 
   @override
   String toString() {
-    return 'ManageUsersEvent.deleted(userEntity: $userEntity)';
+    return 'ManageUsersEvent.deleted(homeUserEntity: $homeUserEntity)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _Deleted &&
-            (identical(other.userEntity, userEntity) ||
+            (identical(other.homeUserEntity, homeUserEntity) ||
                 const DeepCollectionEquality()
-                    .equals(other.userEntity, userEntity)));
+                    .equals(other.homeUserEntity, homeUserEntity)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(userEntity);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(homeUserEntity);
 
   @JsonKey(ignore: true)
   @override
@@ -377,12 +380,12 @@ class _$_Deleted implements _Deleted {
   TResult when<TResult extends Object>({
     @required TResult initialized(),
     @required TResult addByEmail(String mail),
-    @required TResult deleted(UserEntity userEntity),
+    @required TResult deleted(HomeUserEntity homeUserEntity),
   }) {
     assert(initialized != null);
     assert(addByEmail != null);
     assert(deleted != null);
-    return deleted(userEntity);
+    return deleted(homeUserEntity);
   }
 
   @override
@@ -390,12 +393,12 @@ class _$_Deleted implements _Deleted {
   TResult maybeWhen<TResult extends Object>({
     TResult initialized(),
     TResult addByEmail(String mail),
-    TResult deleted(UserEntity userEntity),
+    TResult deleted(HomeUserEntity homeUserEntity),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (deleted != null) {
-      return deleted(userEntity);
+      return deleted(homeUserEntity);
     }
     return orElse();
   }
@@ -430,9 +433,9 @@ class _$_Deleted implements _Deleted {
 }
 
 abstract class _Deleted implements ManageUsersEvent {
-  const factory _Deleted(UserEntity userEntity) = _$_Deleted;
+  const factory _Deleted(HomeUserEntity homeUserEntity) = _$_Deleted;
 
-  UserEntity get userEntity;
+  HomeUserEntity get homeUserEntity;
   @JsonKey(ignore: true)
   _$DeletedCopyWith<_Deleted> get copyWith;
 }
@@ -452,9 +455,9 @@ class _$ManageUsersStateTearOff {
   }
 
 // ignore: unused_element
-  _LoadSuccess loadSuccess(KtList<UserEntity> users) {
+  _LoadSuccess loadSuccess(KtList<HomeUserEntity> homeUsers) {
     return _LoadSuccess(
-      users,
+      homeUsers,
     );
   }
 
@@ -466,9 +469,9 @@ class _$ManageUsersStateTearOff {
   }
 
 // ignore: unused_element
-  _DeleteFailure deleteFailure(UserFailures<dynamic> userFailures) {
+  _DeleteFailure deleteFailure(HomeUserFailures<dynamic> homeUserFailures) {
     return _DeleteFailure(
-      userFailures,
+      homeUserFailures,
     );
   }
 
@@ -478,9 +481,9 @@ class _$ManageUsersStateTearOff {
   }
 
 // ignore: unused_element
-  _loadFailure loadFailure(UserFailures<dynamic> userFailure) {
+  _loadFailure loadFailure(HomeUserFailures<dynamic> homeUserFailure) {
     return _loadFailure(
-      userFailure,
+      homeUserFailure,
     );
   }
 
@@ -500,22 +503,22 @@ mixin _$ManageUsersState {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult inProgress(),
-    @required TResult loadSuccess(KtList<UserEntity> users),
+    @required TResult loadSuccess(KtList<HomeUserEntity> homeUsers),
     @required TResult addSuccess(String email),
-    @required TResult deleteFailure(UserFailures<dynamic> userFailures),
+    @required TResult deleteFailure(HomeUserFailures<dynamic> homeUserFailures),
     @required TResult deleteSuccess(),
-    @required TResult loadFailure(UserFailures<dynamic> userFailure),
+    @required TResult loadFailure(HomeUserFailures<dynamic> homeUserFailure),
     @required TResult error(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult inProgress(),
-    TResult loadSuccess(KtList<UserEntity> users),
+    TResult loadSuccess(KtList<HomeUserEntity> homeUsers),
     TResult addSuccess(String email),
-    TResult deleteFailure(UserFailures<dynamic> userFailures),
+    TResult deleteFailure(HomeUserFailures<dynamic> homeUserFailures),
     TResult deleteSuccess(),
-    TResult loadFailure(UserFailures<dynamic> userFailure),
+    TResult loadFailure(HomeUserFailures<dynamic> homeUserFailure),
     TResult error(),
     @required TResult orElse(),
   });
@@ -599,11 +602,11 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult inProgress(),
-    @required TResult loadSuccess(KtList<UserEntity> users),
+    @required TResult loadSuccess(KtList<HomeUserEntity> homeUsers),
     @required TResult addSuccess(String email),
-    @required TResult deleteFailure(UserFailures<dynamic> userFailures),
+    @required TResult deleteFailure(HomeUserFailures<dynamic> homeUserFailures),
     @required TResult deleteSuccess(),
-    @required TResult loadFailure(UserFailures<dynamic> userFailure),
+    @required TResult loadFailure(HomeUserFailures<dynamic> homeUserFailure),
     @required TResult error(),
   }) {
     assert(initial != null);
@@ -622,11 +625,11 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult inProgress(),
-    TResult loadSuccess(KtList<UserEntity> users),
+    TResult loadSuccess(KtList<HomeUserEntity> homeUsers),
     TResult addSuccess(String email),
-    TResult deleteFailure(UserFailures<dynamic> userFailures),
+    TResult deleteFailure(HomeUserFailures<dynamic> homeUserFailures),
     TResult deleteSuccess(),
-    TResult loadFailure(UserFailures<dynamic> userFailure),
+    TResult loadFailure(HomeUserFailures<dynamic> homeUserFailure),
     TResult error(),
     @required TResult orElse(),
   }) {
@@ -726,11 +729,11 @@ class _$_InProgress implements _InProgress {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult inProgress(),
-    @required TResult loadSuccess(KtList<UserEntity> users),
+    @required TResult loadSuccess(KtList<HomeUserEntity> homeUsers),
     @required TResult addSuccess(String email),
-    @required TResult deleteFailure(UserFailures<dynamic> userFailures),
+    @required TResult deleteFailure(HomeUserFailures<dynamic> homeUserFailures),
     @required TResult deleteSuccess(),
-    @required TResult loadFailure(UserFailures<dynamic> userFailure),
+    @required TResult loadFailure(HomeUserFailures<dynamic> homeUserFailure),
     @required TResult error(),
   }) {
     assert(initial != null);
@@ -749,11 +752,11 @@ class _$_InProgress implements _InProgress {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult inProgress(),
-    TResult loadSuccess(KtList<UserEntity> users),
+    TResult loadSuccess(KtList<HomeUserEntity> homeUsers),
     TResult addSuccess(String email),
-    TResult deleteFailure(UserFailures<dynamic> userFailures),
+    TResult deleteFailure(HomeUserFailures<dynamic> homeUserFailures),
     TResult deleteSuccess(),
-    TResult loadFailure(UserFailures<dynamic> userFailure),
+    TResult loadFailure(HomeUserFailures<dynamic> homeUserFailure),
     TResult error(),
     @required TResult orElse(),
   }) {
@@ -817,7 +820,7 @@ abstract class _$LoadSuccessCopyWith<$Res> {
   factory _$LoadSuccessCopyWith(
           _LoadSuccess value, $Res Function(_LoadSuccess) then) =
       __$LoadSuccessCopyWithImpl<$Res>;
-  $Res call({KtList<UserEntity> users});
+  $Res call({KtList<HomeUserEntity> homeUsers});
 }
 
 /// @nodoc
@@ -833,37 +836,40 @@ class __$LoadSuccessCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object users = freezed,
+    Object homeUsers = freezed,
   }) {
     return _then(_LoadSuccess(
-      users == freezed ? _value.users : users as KtList<UserEntity>,
+      homeUsers == freezed
+          ? _value.homeUsers
+          : homeUsers as KtList<HomeUserEntity>,
     ));
   }
 }
 
 /// @nodoc
 class _$_LoadSuccess implements _LoadSuccess {
-  const _$_LoadSuccess(this.users) : assert(users != null);
+  const _$_LoadSuccess(this.homeUsers) : assert(homeUsers != null);
 
   @override
-  final KtList<UserEntity> users;
+  final KtList<HomeUserEntity> homeUsers;
 
   @override
   String toString() {
-    return 'ManageUsersState.loadSuccess(users: $users)';
+    return 'ManageUsersState.loadSuccess(homeUsers: $homeUsers)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _LoadSuccess &&
-            (identical(other.users, users) ||
-                const DeepCollectionEquality().equals(other.users, users)));
+            (identical(other.homeUsers, homeUsers) ||
+                const DeepCollectionEquality()
+                    .equals(other.homeUsers, homeUsers)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(users);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(homeUsers);
 
   @JsonKey(ignore: true)
   @override
@@ -875,11 +881,11 @@ class _$_LoadSuccess implements _LoadSuccess {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult inProgress(),
-    @required TResult loadSuccess(KtList<UserEntity> users),
+    @required TResult loadSuccess(KtList<HomeUserEntity> homeUsers),
     @required TResult addSuccess(String email),
-    @required TResult deleteFailure(UserFailures<dynamic> userFailures),
+    @required TResult deleteFailure(HomeUserFailures<dynamic> homeUserFailures),
     @required TResult deleteSuccess(),
-    @required TResult loadFailure(UserFailures<dynamic> userFailure),
+    @required TResult loadFailure(HomeUserFailures<dynamic> homeUserFailure),
     @required TResult error(),
   }) {
     assert(initial != null);
@@ -890,7 +896,7 @@ class _$_LoadSuccess implements _LoadSuccess {
     assert(deleteSuccess != null);
     assert(loadFailure != null);
     assert(error != null);
-    return loadSuccess(users);
+    return loadSuccess(homeUsers);
   }
 
   @override
@@ -898,17 +904,17 @@ class _$_LoadSuccess implements _LoadSuccess {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult inProgress(),
-    TResult loadSuccess(KtList<UserEntity> users),
+    TResult loadSuccess(KtList<HomeUserEntity> homeUsers),
     TResult addSuccess(String email),
-    TResult deleteFailure(UserFailures<dynamic> userFailures),
+    TResult deleteFailure(HomeUserFailures<dynamic> homeUserFailures),
     TResult deleteSuccess(),
-    TResult loadFailure(UserFailures<dynamic> userFailure),
+    TResult loadFailure(HomeUserFailures<dynamic> homeUserFailure),
     TResult error(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (loadSuccess != null) {
-      return loadSuccess(users);
+      return loadSuccess(homeUsers);
     }
     return orElse();
   }
@@ -958,9 +964,9 @@ class _$_LoadSuccess implements _LoadSuccess {
 }
 
 abstract class _LoadSuccess implements ManageUsersState {
-  const factory _LoadSuccess(KtList<UserEntity> users) = _$_LoadSuccess;
+  const factory _LoadSuccess(KtList<HomeUserEntity> homeUsers) = _$_LoadSuccess;
 
-  KtList<UserEntity> get users;
+  KtList<HomeUserEntity> get homeUsers;
   @JsonKey(ignore: true)
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith;
 }
@@ -1028,11 +1034,11 @@ class _$_AddSuccess implements _AddSuccess {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult inProgress(),
-    @required TResult loadSuccess(KtList<UserEntity> users),
+    @required TResult loadSuccess(KtList<HomeUserEntity> homeUsers),
     @required TResult addSuccess(String email),
-    @required TResult deleteFailure(UserFailures<dynamic> userFailures),
+    @required TResult deleteFailure(HomeUserFailures<dynamic> homeUserFailures),
     @required TResult deleteSuccess(),
-    @required TResult loadFailure(UserFailures<dynamic> userFailure),
+    @required TResult loadFailure(HomeUserFailures<dynamic> homeUserFailure),
     @required TResult error(),
   }) {
     assert(initial != null);
@@ -1051,11 +1057,11 @@ class _$_AddSuccess implements _AddSuccess {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult inProgress(),
-    TResult loadSuccess(KtList<UserEntity> users),
+    TResult loadSuccess(KtList<HomeUserEntity> homeUsers),
     TResult addSuccess(String email),
-    TResult deleteFailure(UserFailures<dynamic> userFailures),
+    TResult deleteFailure(HomeUserFailures<dynamic> homeUserFailures),
     TResult deleteSuccess(),
-    TResult loadFailure(UserFailures<dynamic> userFailure),
+    TResult loadFailure(HomeUserFailures<dynamic> homeUserFailure),
     TResult error(),
     @required TResult orElse(),
   }) {
@@ -1123,9 +1129,9 @@ abstract class _$DeleteFailureCopyWith<$Res> {
   factory _$DeleteFailureCopyWith(
           _DeleteFailure value, $Res Function(_DeleteFailure) then) =
       __$DeleteFailureCopyWithImpl<$Res>;
-  $Res call({UserFailures<dynamic> userFailures});
+  $Res call({HomeUserFailures<dynamic> homeUserFailures});
 
-  $UserFailuresCopyWith<dynamic, $Res> get userFailures;
+  $HomeUserFailuresCopyWith<dynamic, $Res> get homeUserFailures;
 }
 
 /// @nodoc
@@ -1141,50 +1147,53 @@ class __$DeleteFailureCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object userFailures = freezed,
+    Object homeUserFailures = freezed,
   }) {
     return _then(_DeleteFailure(
-      userFailures == freezed
-          ? _value.userFailures
-          : userFailures as UserFailures<dynamic>,
+      homeUserFailures == freezed
+          ? _value.homeUserFailures
+          : homeUserFailures as HomeUserFailures<dynamic>,
     ));
   }
 
   @override
-  $UserFailuresCopyWith<dynamic, $Res> get userFailures {
-    if (_value.userFailures == null) {
+  $HomeUserFailuresCopyWith<dynamic, $Res> get homeUserFailures {
+    if (_value.homeUserFailures == null) {
       return null;
     }
-    return $UserFailuresCopyWith<dynamic, $Res>(_value.userFailures, (value) {
-      return _then(_value.copyWith(userFailures: value));
+    return $HomeUserFailuresCopyWith<dynamic, $Res>(_value.homeUserFailures,
+        (value) {
+      return _then(_value.copyWith(homeUserFailures: value));
     });
   }
 }
 
 /// @nodoc
 class _$_DeleteFailure implements _DeleteFailure {
-  const _$_DeleteFailure(this.userFailures) : assert(userFailures != null);
+  const _$_DeleteFailure(this.homeUserFailures)
+      : assert(homeUserFailures != null);
 
   @override
-  final UserFailures<dynamic> userFailures;
+  final HomeUserFailures<dynamic> homeUserFailures;
 
   @override
   String toString() {
-    return 'ManageUsersState.deleteFailure(userFailures: $userFailures)';
+    return 'ManageUsersState.deleteFailure(homeUserFailures: $homeUserFailures)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _DeleteFailure &&
-            (identical(other.userFailures, userFailures) ||
+            (identical(other.homeUserFailures, homeUserFailures) ||
                 const DeepCollectionEquality()
-                    .equals(other.userFailures, userFailures)));
+                    .equals(other.homeUserFailures, homeUserFailures)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(userFailures);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(homeUserFailures);
 
   @JsonKey(ignore: true)
   @override
@@ -1196,11 +1205,11 @@ class _$_DeleteFailure implements _DeleteFailure {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult inProgress(),
-    @required TResult loadSuccess(KtList<UserEntity> users),
+    @required TResult loadSuccess(KtList<HomeUserEntity> homeUsers),
     @required TResult addSuccess(String email),
-    @required TResult deleteFailure(UserFailures<dynamic> userFailures),
+    @required TResult deleteFailure(HomeUserFailures<dynamic> homeUserFailures),
     @required TResult deleteSuccess(),
-    @required TResult loadFailure(UserFailures<dynamic> userFailure),
+    @required TResult loadFailure(HomeUserFailures<dynamic> homeUserFailure),
     @required TResult error(),
   }) {
     assert(initial != null);
@@ -1211,7 +1220,7 @@ class _$_DeleteFailure implements _DeleteFailure {
     assert(deleteSuccess != null);
     assert(loadFailure != null);
     assert(error != null);
-    return deleteFailure(userFailures);
+    return deleteFailure(homeUserFailures);
   }
 
   @override
@@ -1219,17 +1228,17 @@ class _$_DeleteFailure implements _DeleteFailure {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult inProgress(),
-    TResult loadSuccess(KtList<UserEntity> users),
+    TResult loadSuccess(KtList<HomeUserEntity> homeUsers),
     TResult addSuccess(String email),
-    TResult deleteFailure(UserFailures<dynamic> userFailures),
+    TResult deleteFailure(HomeUserFailures<dynamic> homeUserFailures),
     TResult deleteSuccess(),
-    TResult loadFailure(UserFailures<dynamic> userFailure),
+    TResult loadFailure(HomeUserFailures<dynamic> homeUserFailure),
     TResult error(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (deleteFailure != null) {
-      return deleteFailure(userFailures);
+      return deleteFailure(homeUserFailures);
     }
     return orElse();
   }
@@ -1279,10 +1288,10 @@ class _$_DeleteFailure implements _DeleteFailure {
 }
 
 abstract class _DeleteFailure implements ManageUsersState {
-  const factory _DeleteFailure(UserFailures<dynamic> userFailures) =
+  const factory _DeleteFailure(HomeUserFailures<dynamic> homeUserFailures) =
       _$_DeleteFailure;
 
-  UserFailures<dynamic> get userFailures;
+  HomeUserFailures<dynamic> get homeUserFailures;
   @JsonKey(ignore: true)
   _$DeleteFailureCopyWith<_DeleteFailure> get copyWith;
 }
@@ -1328,11 +1337,11 @@ class _$_DeleteSuccess implements _DeleteSuccess {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult inProgress(),
-    @required TResult loadSuccess(KtList<UserEntity> users),
+    @required TResult loadSuccess(KtList<HomeUserEntity> homeUsers),
     @required TResult addSuccess(String email),
-    @required TResult deleteFailure(UserFailures<dynamic> userFailures),
+    @required TResult deleteFailure(HomeUserFailures<dynamic> homeUserFailures),
     @required TResult deleteSuccess(),
-    @required TResult loadFailure(UserFailures<dynamic> userFailure),
+    @required TResult loadFailure(HomeUserFailures<dynamic> homeUserFailure),
     @required TResult error(),
   }) {
     assert(initial != null);
@@ -1351,11 +1360,11 @@ class _$_DeleteSuccess implements _DeleteSuccess {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult inProgress(),
-    TResult loadSuccess(KtList<UserEntity> users),
+    TResult loadSuccess(KtList<HomeUserEntity> homeUsers),
     TResult addSuccess(String email),
-    TResult deleteFailure(UserFailures<dynamic> userFailures),
+    TResult deleteFailure(HomeUserFailures<dynamic> homeUserFailures),
     TResult deleteSuccess(),
-    TResult loadFailure(UserFailures<dynamic> userFailure),
+    TResult loadFailure(HomeUserFailures<dynamic> homeUserFailure),
     TResult error(),
     @required TResult orElse(),
   }) {
@@ -1419,9 +1428,9 @@ abstract class _$loadFailureCopyWith<$Res> {
   factory _$loadFailureCopyWith(
           _loadFailure value, $Res Function(_loadFailure) then) =
       __$loadFailureCopyWithImpl<$Res>;
-  $Res call({UserFailures<dynamic> userFailure});
+  $Res call({HomeUserFailures<dynamic> homeUserFailure});
 
-  $UserFailuresCopyWith<dynamic, $Res> get userFailure;
+  $HomeUserFailuresCopyWith<dynamic, $Res> get homeUserFailure;
 }
 
 /// @nodoc
@@ -1437,50 +1446,52 @@ class __$loadFailureCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object userFailure = freezed,
+    Object homeUserFailure = freezed,
   }) {
     return _then(_loadFailure(
-      userFailure == freezed
-          ? _value.userFailure
-          : userFailure as UserFailures<dynamic>,
+      homeUserFailure == freezed
+          ? _value.homeUserFailure
+          : homeUserFailure as HomeUserFailures<dynamic>,
     ));
   }
 
   @override
-  $UserFailuresCopyWith<dynamic, $Res> get userFailure {
-    if (_value.userFailure == null) {
+  $HomeUserFailuresCopyWith<dynamic, $Res> get homeUserFailure {
+    if (_value.homeUserFailure == null) {
       return null;
     }
-    return $UserFailuresCopyWith<dynamic, $Res>(_value.userFailure, (value) {
-      return _then(_value.copyWith(userFailure: value));
+    return $HomeUserFailuresCopyWith<dynamic, $Res>(_value.homeUserFailure,
+        (value) {
+      return _then(_value.copyWith(homeUserFailure: value));
     });
   }
 }
 
 /// @nodoc
 class _$_loadFailure implements _loadFailure {
-  const _$_loadFailure(this.userFailure) : assert(userFailure != null);
+  const _$_loadFailure(this.homeUserFailure) : assert(homeUserFailure != null);
 
   @override
-  final UserFailures<dynamic> userFailure;
+  final HomeUserFailures<dynamic> homeUserFailure;
 
   @override
   String toString() {
-    return 'ManageUsersState.loadFailure(userFailure: $userFailure)';
+    return 'ManageUsersState.loadFailure(homeUserFailure: $homeUserFailure)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _loadFailure &&
-            (identical(other.userFailure, userFailure) ||
+            (identical(other.homeUserFailure, homeUserFailure) ||
                 const DeepCollectionEquality()
-                    .equals(other.userFailure, userFailure)));
+                    .equals(other.homeUserFailure, homeUserFailure)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(userFailure);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(homeUserFailure);
 
   @JsonKey(ignore: true)
   @override
@@ -1492,11 +1503,11 @@ class _$_loadFailure implements _loadFailure {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult inProgress(),
-    @required TResult loadSuccess(KtList<UserEntity> users),
+    @required TResult loadSuccess(KtList<HomeUserEntity> homeUsers),
     @required TResult addSuccess(String email),
-    @required TResult deleteFailure(UserFailures<dynamic> userFailures),
+    @required TResult deleteFailure(HomeUserFailures<dynamic> homeUserFailures),
     @required TResult deleteSuccess(),
-    @required TResult loadFailure(UserFailures<dynamic> userFailure),
+    @required TResult loadFailure(HomeUserFailures<dynamic> homeUserFailure),
     @required TResult error(),
   }) {
     assert(initial != null);
@@ -1507,7 +1518,7 @@ class _$_loadFailure implements _loadFailure {
     assert(deleteSuccess != null);
     assert(loadFailure != null);
     assert(error != null);
-    return loadFailure(userFailure);
+    return loadFailure(homeUserFailure);
   }
 
   @override
@@ -1515,17 +1526,17 @@ class _$_loadFailure implements _loadFailure {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult inProgress(),
-    TResult loadSuccess(KtList<UserEntity> users),
+    TResult loadSuccess(KtList<HomeUserEntity> homeUsers),
     TResult addSuccess(String email),
-    TResult deleteFailure(UserFailures<dynamic> userFailures),
+    TResult deleteFailure(HomeUserFailures<dynamic> homeUserFailures),
     TResult deleteSuccess(),
-    TResult loadFailure(UserFailures<dynamic> userFailure),
+    TResult loadFailure(HomeUserFailures<dynamic> homeUserFailure),
     TResult error(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (loadFailure != null) {
-      return loadFailure(userFailure);
+      return loadFailure(homeUserFailure);
     }
     return orElse();
   }
@@ -1575,10 +1586,10 @@ class _$_loadFailure implements _loadFailure {
 }
 
 abstract class _loadFailure implements ManageUsersState {
-  const factory _loadFailure(UserFailures<dynamic> userFailure) =
+  const factory _loadFailure(HomeUserFailures<dynamic> homeUserFailure) =
       _$_loadFailure;
 
-  UserFailures<dynamic> get userFailure;
+  HomeUserFailures<dynamic> get homeUserFailure;
   @JsonKey(ignore: true)
   _$loadFailureCopyWith<_loadFailure> get copyWith;
 }
@@ -1621,11 +1632,11 @@ class _$Error implements Error {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult inProgress(),
-    @required TResult loadSuccess(KtList<UserEntity> users),
+    @required TResult loadSuccess(KtList<HomeUserEntity> homeUsers),
     @required TResult addSuccess(String email),
-    @required TResult deleteFailure(UserFailures<dynamic> userFailures),
+    @required TResult deleteFailure(HomeUserFailures<dynamic> homeUserFailures),
     @required TResult deleteSuccess(),
-    @required TResult loadFailure(UserFailures<dynamic> userFailure),
+    @required TResult loadFailure(HomeUserFailures<dynamic> homeUserFailure),
     @required TResult error(),
   }) {
     assert(initial != null);
@@ -1644,11 +1655,11 @@ class _$Error implements Error {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult inProgress(),
-    TResult loadSuccess(KtList<UserEntity> users),
+    TResult loadSuccess(KtList<HomeUserEntity> homeUsers),
     TResult addSuccess(String email),
-    TResult deleteFailure(UserFailures<dynamic> userFailures),
+    TResult deleteFailure(HomeUserFailures<dynamic> homeUserFailures),
     TResult deleteSuccess(),
-    TResult loadFailure(UserFailures<dynamic> userFailure),
+    TResult loadFailure(HomeUserFailures<dynamic> homeUserFailure),
     TResult error(),
     @required TResult orElse(),
   }) {

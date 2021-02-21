@@ -1,12 +1,12 @@
-import 'package:cybear_jinni/domain/user/user_entity.dart';
+import 'package:cybear_jinni/domain/home_user/home_user_entity.dart';
 import 'package:flutter/material.dart';
 
 class ErrorUserCard extends StatelessWidget {
-  final UserEntity user;
+  final HomeUserEntity homeUser;
 
   const ErrorUserCard({
     Key key,
-    @required this.user,
+    @required this.homeUser,
   }) : super(key: key);
 
   @override
@@ -30,7 +30,7 @@ class ErrorUserCard extends StatelessWidget {
               style: Theme.of(context).primaryTextTheme.bodyText2,
             ),
             Text(
-              user.failureOption.fold(() => '', (f) => f.toString()),
+              homeUser.failureOption.fold(() => '', (f) => f.toString()),
               style: Theme.of(context).primaryTextTheme.bodyText2,
             ),
           ],
