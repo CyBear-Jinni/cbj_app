@@ -2,9 +2,14 @@ import 'package:cybear_jinni/domain/auth/auth_failure.dart';
 import 'package:cybear_jinni/domain/auth/i_auth_facade.dart';
 import 'package:cybear_jinni/domain/auth/user.dart';
 import 'package:cybear_jinni/domain/auth/value_objects.dart';
+import 'package:cybear_jinni/domain/core/errors.dart';
 import 'package:cybear_jinni/domain/core/value_objects.dart';
+import 'package:cybear_jinni/domain/user/i_user_repository.dart';
+import 'package:cybear_jinni/domain/user/user_entity.dart';
+import 'package:cybear_jinni/domain/user/user_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/auth/firebase_user_mapper.dart';
 import 'package:cybear_jinni/infrastructure/core/hive_local_db/hive_local_db.dart';
+import 'package:cybear_jinni/injection.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -38,6 +43,23 @@ class FirebaseAuthFacade implements IAuthFacade {
     try {
       await _firebaseAuth.createUserWithEmailAndPassword(
           email: emailAddressStr, password: passwordStr);
+
+      MUser mUser = (await getSignedInUser())
+          .getOrElse(() => throw NotAuthenticatedError());
+      String userId = mUser.id.getOrCrash();
+
+      final String userName =
+          emailAddressStr.substring(0, emailAddressStr.indexOf('@'));
+
+      UserEntity userEntity = UserEntity(
+        id: UserUniqueId.fromUniqueString(userId),
+        email: UserEmail(emailAddressStr),
+        name: UserName(userName),
+        firstName: UserFirstName(' '),
+        lastName: UserLastName(' '),
+      );
+
+      await getIt<IUserRepository>().create(userEntity);
 
       return right(unit);
     } on FirebaseAuthException catch (e) {
