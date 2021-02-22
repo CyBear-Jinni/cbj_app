@@ -1,8 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cybear_jinni/domain/user/all_homes_of_user/all_homes_of_user_entity.dart';
 import 'package:cybear_jinni/domain/user/all_homes_of_user/all_homes_of_user_value_objects.dart';
-import 'package:cybear_jinni/domain/user/user_entity.dart';
-import 'package:cybear_jinni/domain/user/user_value_objects.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'all_homes_of_user_dtos.freezed.dart';

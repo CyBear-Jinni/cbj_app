@@ -25,7 +25,7 @@ import '../manage_users/manage_users_page.dart';
 import '../scenes/scenes_page.dart';
 import '../sign_in_page/sign_in_page.dart';
 import '../splash/splash_page.dart';
-import '../where_to_login_page/where_to_login_page_minimal.dart';
+import '../where_to_login_page/where_to_login_page_minimal/where_to_login_page_minimal_page.dart';
 import '../where_to_login_page/where_to_login_page_offline.dart';
 
 class Routes {
@@ -33,7 +33,8 @@ class Routes {
   static const String introductionScreenPage = '/introduction-screen-page';
   static const String signInPage = '/sign-in-page';
   static const String initializeHomePage = '/initialize-home-page';
-  static const String whereToLoginPageMinimal = '/where-to-login-page-minimal';
+  static const String whereToLoginPageMinimalPage =
+      '/where-to-login-page-minimal-page';
   static const String whereToLoginPageOffline = '/where-to-login-page-offline';
   static const String joinHomeByIdPage = '/join-home-by-id-page';
   static const String homePage = '/home-page';
@@ -49,7 +50,7 @@ class Routes {
     introductionScreenPage,
     signInPage,
     initializeHomePage,
-    whereToLoginPageMinimal,
+    whereToLoginPageMinimalPage,
     whereToLoginPageOffline,
     joinHomeByIdPage,
     homePage,
@@ -71,7 +72,8 @@ class AppRouter extends RouterBase {
     RouteDef(Routes.introductionScreenPage, page: IntroductionScreenPage),
     RouteDef(Routes.signInPage, page: SignInPage),
     RouteDef(Routes.initializeHomePage, page: InitializeHomePage),
-    RouteDef(Routes.whereToLoginPageMinimal, page: WhereToLoginPageMinimal),
+    RouteDef(Routes.whereToLoginPageMinimalPage,
+        page: WhereToLoginPageMinimalPage),
     RouteDef(Routes.whereToLoginPageOffline, page: WhereToLoginPageOffline),
     RouteDef(Routes.joinHomeByIdPage, page: JoinHomeByIdPage),
     RouteDef(Routes.homePage, page: HomePage),
@@ -110,9 +112,9 @@ class AppRouter extends RouterBase {
         settings: data,
       );
     },
-    WhereToLoginPageMinimal: (data) {
+    WhereToLoginPageMinimalPage: (data) {
       return MaterialPageRoute<dynamic>(
-        builder: (context) => WhereToLoginPageMinimal(),
+        builder: (context) => WhereToLoginPageMinimalPage(),
         settings: data,
       );
     },
@@ -199,8 +201,8 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
   Future<dynamic> pushInitializeHomePage() =>
       push<dynamic>(Routes.initializeHomePage);
 
-  Future<dynamic> pushWhereToLoginPageMinimal() =>
-      push<dynamic>(Routes.whereToLoginPageMinimal);
+  Future<dynamic> pushWhereToLoginPageMinimalPage() =>
+      push<dynamic>(Routes.whereToLoginPageMinimalPage);
 
   Future<dynamic> pushWhereToLoginPageOffline() =>
       push<dynamic>(Routes.whereToLoginPageOffline);

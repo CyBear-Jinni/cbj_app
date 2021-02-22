@@ -1,14 +1,19 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cybear_jinni/application/auth/auth_bloc.dart';
+import 'package:cybear_jinni/application/user_homes_list/user_homes_list_bloc.dart';
+import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
+import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_page_minimal/widgets/user_homes_list_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// The user will choose where to login to, join into an existing home or
 /// create his new home
-class WhereToLoginPageMinimal extends StatelessWidget {
-  WhereToLoginPageMinimal();
+class WhereToLoginPageMinimalPage extends StatelessWidget {
+  WhereToLoginPageMinimalPage();
 
   void backButtonFunction(BuildContext context) {
     Navigator.pop(context);
@@ -105,6 +110,46 @@ class WhereToLoginPageMinimal extends StatelessWidget {
                                   Theme.of(context).textTheme.bodyText1.color),
                         ),
                       ],
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(top: 10),
+                  width: double.infinity,
+                  color: Colors.black87,
+                  child: const Center(
+                    child: const Text(
+                      'Homes you have add',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ),
+                ),
+                MultiBlocProvider(
+                  providers: [
+                    BlocProvider<UserHomesListBloc>(
+                      create: (context) => getIt<UserHomesListBloc>()
+                        ..add(const UserHomesListEvent.watchAllStarted()),
+                    ),
+                    // BlocProvider<DeviceActorBloc>(
+                    //   create: (context) => getIt<DeviceActorBloc>(),
+                    // ),
+                  ],
+                  child: MultiBlocListener(
+                    listeners: [
+                      BlocListener<AuthBloc, AuthState>(
+                        listener: (context, state) {
+                          state.maybeMap(
+                            unauthenticated: (_) =>
+                                ExtendedNavigator.of(context)
+                                    .replace(Routes.signInPage),
+                            orElse: () {},
+                          );
+                        },
+                      ),
+                    ],
+                    child: Expanded(
+                      child: Container(
+                          color: Colors.black54, child: UserHomesListWidget()),
                     ),
                   ),
                 ),

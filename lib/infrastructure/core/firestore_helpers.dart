@@ -15,6 +15,14 @@ extension FirestoreX on FirebaseFirestore {
         .doc(home.id.getOrCrash());
   }
 
+  Future<DocumentReference> currentUserDocument() async {
+    final userOption = await getIt<IAuthFacade>().getSignedInUser();
+    final user = userOption.getOrElse(() => throw MissingCurrentHomeError());
+    return FirebaseFirestore.instance
+        .collection(usersCollecttionName)
+        .doc(user.id.getOrCrash());
+  }
+
   Future<CollectionReference> homeCollection() async {
     return FirebaseFirestore.instance.collection(homesCollecttionName);
   }

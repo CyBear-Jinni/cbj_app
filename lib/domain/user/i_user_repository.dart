@@ -17,6 +17,9 @@ abstract class IUserRepository {
   Future<Either<HomeUserFailures, Unit>> addHome(
       UserEntity userEntity, AllHomesOfUserEntity allHomesOfUserEntity);
 
+  Future<Either<HomeUserFailures, Unit>> joinExistingHome(
+      AllHomesOfUserEntity allHomesOfUserEntity);
+
   Stream<Either<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>>
       watchAll();
 

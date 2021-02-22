@@ -41,6 +41,7 @@ import 'infrastructure/mock_example.dart';
 import 'application/scene/scene_bloc.dart';
 import 'infrastructure/scenes/scene_repository.dart';
 import 'application/auth/sign_in_form/sign_in_form_bloc.dart';
+import 'application/user_homes_list/user_homes_list_bloc.dart';
 import 'infrastructure/user/user_repository.dart';
 
 /// adds generated dependencies
@@ -81,6 +82,8 @@ GetIt $initGetIt(
   gh.factory<MockExample>(() => MockExample());
   gh.factory<SceneBloc>(() => SceneBloc(get<ISceneRepository>()));
   gh.factory<SignInFormBloc>(() => SignInFormBloc(get<IAuthFacade>()));
+  gh.factory<UserHomesListBloc>(
+      () => UserHomesListBloc(get<IUserRepository>()));
   gh.factory<AddUserToHomeBloc>(
       () => AddUserToHomeBloc(get<IAddUserToHomeRepository>()));
   gh.factory<AuthBloc>(() => AuthBloc(get<IAuthFacade>()));

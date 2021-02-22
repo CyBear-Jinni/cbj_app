@@ -29,7 +29,7 @@ class SignInForm extends StatelessWidget {
                           ).show(context),
                         }, (_) {
                   ExtendedNavigator.of(context)
-                      .push(Routes.whereToLoginPageMinimal);
+                      .push(Routes.whereToLoginPageMinimalPage);
 
                   context
                       .read()<AuthBloc>()

@@ -12,7 +12,7 @@ import 'package:cybear_jinni/presentation/manage_users/manage_users_page.dart';
 import 'package:cybear_jinni/presentation/scenes/scenes_page.dart';
 import 'package:cybear_jinni/presentation/sign_in_page/sign_in_page.dart';
 import 'package:cybear_jinni/presentation/splash/splash_page.dart';
-import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_page_minimal.dart';
+import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_page_minimal/where_to_login_page_minimal_page.dart';
 import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_page_offline.dart';
 
 @MaterialAutoRouter(
@@ -22,7 +22,7 @@ import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_pag
     MaterialRoute(page: IntroductionScreenPage),
     MaterialRoute(page: SignInPage),
     MaterialRoute(page: InitializeHomePage),
-    MaterialRoute(page: WhereToLoginPageMinimal),
+    MaterialRoute(page: WhereToLoginPageMinimalPage),
     MaterialRoute(page: WhereToLoginPageOffline),
     MaterialRoute(page: JoinHomeByIdPage),
     MaterialRoute(page: HomePage),
@@ -41,7 +41,7 @@ class $AppRouter {
   SignInPage signInPage;
   InitializeHomePage initializeHomePage;
   ScenesPage scenesPage;
-  WhereToLoginPageMinimal whereToLoginPageMinimal;
+  WhereToLoginPageMinimalPage whereToLoginPageMinimal;
   WhereToLoginPageOffline whereToLoginPageOffline;
   JoinHomeByIdPage joinHomeByIdPage;
   HomePage homePage;
