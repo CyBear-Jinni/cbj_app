@@ -7,12 +7,16 @@ const homesCollecttionName = 'SmartHomes';
 const usersCollecttionName = 'users';
 
 extension FirestoreX on FirebaseFirestore {
-  Future<DocumentReference> homeDocument() async {
+  Future<DocumentReference> currentHomeDocument() async {
     final homeOption = await getIt<IAuthFacade>().getCurrentHome();
     final home = homeOption.getOrElse(() => throw MissingCurrentHomeError());
     return FirebaseFirestore.instance
         .collection(homesCollecttionName)
         .doc(home.id.getOrCrash());
+  }
+
+  Future<CollectionReference> homeCollection() async {
+    return FirebaseFirestore.instance.collection(homesCollecttionName);
   }
 
   Future<CollectionReference> usersCollection() async {

@@ -21,7 +21,7 @@ class DeviceRepository implements IDeviceRepository {
 
   @override
   Stream<Either<DevicesFailure, KtList<DeviceEntity>>> watchAll() async* {
-    final devicesDoc = await _firestore.homeDocument();
+    final devicesDoc = await _firestore.currentHomeDocument();
 
     yield* devicesDoc.devicesCollecttion
         .snapshots()
@@ -51,7 +51,7 @@ class DeviceRepository implements IDeviceRepository {
   @override
   Future<Either<DevicesFailure, Unit>> create(DeviceEntity deviceEntity) async {
     try {
-      final devicesDoc = await _firestore.homeDocument();
+      final devicesDoc = await _firestore.currentHomeDocument();
       final deviceDtos = DeviceDtos.fromDomain(deviceEntity);
 
       await devicesDoc.devicesCollecttion
@@ -71,7 +71,7 @@ class DeviceRepository implements IDeviceRepository {
   @override
   Future<Either<DevicesFailure, Unit>> update(DeviceEntity deviceEntity) async {
     try {
-      final devicesDoc = await _firestore.homeDocument();
+      final devicesDoc = await _firestore.currentHomeDocument();
       final deviceDtos = DeviceDtos.fromDomain(deviceEntity);
 
       await devicesDoc.devicesCollecttion
@@ -91,7 +91,7 @@ class DeviceRepository implements IDeviceRepository {
   @override
   Future<Either<DevicesFailure, Unit>> delete(DeviceEntity deviceEntity) async {
     try {
-      final devicesDoc = await _firestore.homeDocument();
+      final devicesDoc = await _firestore.currentHomeDocument();
       final deviceDtos = DeviceDtos.fromDomain(deviceEntity);
 
       await devicesDoc.devicesCollecttion.doc(deviceDtos.id).delete();

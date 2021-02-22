@@ -18,7 +18,7 @@ class AddUserToHomeRepository implements IAddUserToHomeRepository {
   Future<Either<AddUserToHomeFailures, Unit>> create(
       AddUserToHomeEntity deviceEntity, DocumentSnapshot userDocument) async {
     try {
-      final devicesDoc = await _firestore.homeDocument();
+      final devicesDoc = await _firestore.currentHomeDocument();
 
       final String userId = userDocument.id;
       final String userName = userDocument.get('name').toString();

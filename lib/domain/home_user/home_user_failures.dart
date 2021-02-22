@@ -15,5 +15,7 @@ abstract class HomeUserFailures<T> {
   const factory HomeUserFailures.insufficientPermission() =
       _InsufficientPermission;
 
+  const factory HomeUserFailures.homeDoesNotExist() = _HomeDoesNotExist;
+
   const factory HomeUserFailures.unableToUpdate() = _UnableToUpdate;
 }

@@ -61,7 +61,7 @@ class HomeUserRepository implements IHomeUserRepository {
   @override
   Stream<Either<HomeUserFailures, KtList<HomeUserEntity>>>
       getAllUsers() async* {
-    final homeDocument = await _firestore.homeDocument();
+    final homeDocument = await _firestore.currentHomeDocument();
 
     yield* homeDocument.usersCollecttion.snapshots().map(
               (snapshot) => right<HomeUserFailures, KtList<HomeUserEntity>>(

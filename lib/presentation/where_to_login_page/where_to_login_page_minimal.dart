@@ -42,79 +42,73 @@ class WhereToLoginPageMinimal extends StatelessWidget {
                       fontSize: 25,
                       color: Theme.of(context).textTheme.bodyText1.color))),
           Expanded(
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  FlatButton(
-                    height: 100,
-                    minWidth: MediaQuery.of(context).size.width,
-                    color: Colors.blue,
-                    onPressed: () {
-                      ExtendedNavigator.of(context).replace(
-                        Routes.initializeHomePage,
-                      );
-                    },
-                    child: Container(
-                      margin: const EdgeInsets.only(left: 30),
-                      child: Row(
-                        children: <Widget>[
-                          FaIcon(FontAwesomeIcons.doorOpen,
+            child: Column(
+              children: <Widget>[
+                const SizedBox(
+                  height: 30,
+                ),
+                FlatButton(
+                  height: 100,
+                  minWidth: MediaQuery.of(context).size.width,
+                  color: Colors.blue,
+                  onPressed: () {
+                    ExtendedNavigator.of(context).replace(
+                      Routes.initializeHomePage,
+                    );
+                  },
+                  child: Container(
+                    margin: const EdgeInsets.only(left: 30),
+                    child: Row(
+                      children: <Widget>[
+                        FaIcon(FontAwesomeIcons.doorOpen,
+                            color: Theme.of(context).textTheme.bodyText1.color),
+                        const SizedBox(
+                          width: 20,
+                        ),
+                        Text(
+                          'Create Your Home',
+                          style: TextStyle(
+                              fontSize: 25,
                               color:
                                   Theme.of(context).textTheme.bodyText1.color),
-                          const SizedBox(
-                            width: 20,
-                          ),
-                          Text(
-                            'Create Your Home',
-                            style: TextStyle(
-                                fontSize: 25,
-                                color: Theme.of(context)
-                                    .textTheme
-                                    .bodyText1
-                                    .color),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  FlatButton(
-                    height: 100,
-                    minWidth: MediaQuery.of(context).size.width,
-                    color: Colors.orange,
-                    onPressed: () {
-                      ExtendedNavigator.of(context).replace(
-                        Routes.signInPage,
-                      );
-                    },
-                    child: Container(
-                      margin: const EdgeInsets.only(left: 30),
-                      child: Row(
-                        children: <Widget>[
-                          FaIcon(FontAwesomeIcons.userFriends,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                FlatButton(
+                  height: 100,
+                  minWidth: MediaQuery.of(context).size.width,
+                  color: Colors.orange,
+                  onPressed: () {
+                    ExtendedNavigator.of(context).push(
+                      Routes.joinHomeByIdPage,
+                    );
+                  },
+                  child: Container(
+                    margin: const EdgeInsets.only(left: 30),
+                    child: Row(
+                      children: <Widget>[
+                        FaIcon(FontAwesomeIcons.userFriends,
+                            color: Theme.of(context).textTheme.bodyText1.color),
+                        const SizedBox(
+                          width: 20,
+                        ),
+                        Text(
+                          'Join Existing Home',
+                          style: TextStyle(
+                              fontSize: 25,
                               color:
                                   Theme.of(context).textTheme.bodyText1.color),
-                          const SizedBox(
-                            width: 20,
-                          ),
-                          Text(
-                            'Join Existing Home',
-                            style: TextStyle(
-                                fontSize: 25,
-                                color: Theme.of(context)
-                                    .textTheme
-                                    .bodyText1
-                                    .color),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ],

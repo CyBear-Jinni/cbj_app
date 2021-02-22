@@ -32,7 +32,9 @@ dependencies:
   auto_route: ^0.6.9
   # Helps implement the BLoC pattern.
   bloc: ^6.1.1
-  # Copy text to clipboard in both
+  # Copy text from and to clipboard
+  clipboard: ^0.1.2+8
+  # Copy text to clipboard
   clipboard_manager: ^0.0.4
   cloud_firestore: ^0.16.0
   # Allow discover network connectivity

@@ -34,6 +34,7 @@ import 'domain/scene/i_scene_repository.dart';
 import 'domain/user/i_user_repository.dart';
 import 'application/initialize_home/initialize_home_bloc.dart';
 import 'infrastructure/initialize_home/initialize_home_repository.dart';
+import 'application/join_home_by_id/join_home_by_id_bloc.dart';
 import 'application/light_toggle/light_toggle_bloc.dart';
 import 'application/manage_users/manage_users_bloc.dart';
 import 'infrastructure/mock_example.dart';
@@ -73,6 +74,7 @@ GetIt $initGetIt(
       () => UserRepository(get<FirebaseFirestore>()));
   gh.factory<InitializeHomeBloc>(
       () => InitializeHomeBloc(get<IInitializeHomeRepository>()));
+  gh.factory<JoinHomeByIdBloc>(() => JoinHomeByIdBloc(get<IUserRepository>()));
   gh.factory<LightToggleBloc>(() => LightToggleBloc(get<IDeviceRepository>()));
   gh.factory<ManageUsersBloc>(
       () => ManageUsersBloc(get<IHomeUserRepository>()));

@@ -36,6 +36,11 @@ class _$HomeUserFailuresTearOff {
   }
 
 // ignore: unused_element
+  _HomeDoesNotExist<T> homeDoesNotExist<T>() {
+    return _HomeDoesNotExist<T>();
+  }
+
+// ignore: unused_element
   _UnableToUpdate<T> unableToUpdate<T>() {
     return _UnableToUpdate<T>();
   }
@@ -53,6 +58,7 @@ mixin _$HomeUserFailures<T> {
     @required TResult unexpected(),
     @required TResult validateEmailNotEmpty(),
     @required TResult insufficientPermission(),
+    @required TResult homeDoesNotExist(),
     @required TResult unableToUpdate(),
   });
   @optionalTypeArgs
@@ -61,6 +67,7 @@ mixin _$HomeUserFailures<T> {
     TResult unexpected(),
     TResult validateEmailNotEmpty(),
     TResult insufficientPermission(),
+    TResult homeDoesNotExist(),
     TResult unableToUpdate(),
     @required TResult orElse(),
   });
@@ -70,6 +77,7 @@ mixin _$HomeUserFailures<T> {
     @required TResult unexpected(_Unexpected<T> value),
     @required TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
     @required TResult insufficientPermission(_InsufficientPermission<T> value),
+    @required TResult homeDoesNotExist(_HomeDoesNotExist<T> value),
     @required TResult unableToUpdate(_UnableToUpdate<T> value),
   });
   @optionalTypeArgs
@@ -78,6 +86,7 @@ mixin _$HomeUserFailures<T> {
     TResult unexpected(_Unexpected<T> value),
     TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
     TResult insufficientPermission(_InsufficientPermission<T> value),
+    TResult homeDoesNotExist(_HomeDoesNotExist<T> value),
     TResult unableToUpdate(_UnableToUpdate<T> value),
     @required TResult orElse(),
   });
@@ -165,12 +174,14 @@ class _$_Empty<T> implements _Empty<T> {
     @required TResult unexpected(),
     @required TResult validateEmailNotEmpty(),
     @required TResult insufficientPermission(),
+    @required TResult homeDoesNotExist(),
     @required TResult unableToUpdate(),
   }) {
     assert(empty != null);
     assert(unexpected != null);
     assert(validateEmailNotEmpty != null);
     assert(insufficientPermission != null);
+    assert(homeDoesNotExist != null);
     assert(unableToUpdate != null);
     return empty(failedValue);
   }
@@ -182,6 +193,7 @@ class _$_Empty<T> implements _Empty<T> {
     TResult unexpected(),
     TResult validateEmailNotEmpty(),
     TResult insufficientPermission(),
+    TResult homeDoesNotExist(),
     TResult unableToUpdate(),
     @required TResult orElse(),
   }) {
@@ -199,12 +211,14 @@ class _$_Empty<T> implements _Empty<T> {
     @required TResult unexpected(_Unexpected<T> value),
     @required TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
     @required TResult insufficientPermission(_InsufficientPermission<T> value),
+    @required TResult homeDoesNotExist(_HomeDoesNotExist<T> value),
     @required TResult unableToUpdate(_UnableToUpdate<T> value),
   }) {
     assert(empty != null);
     assert(unexpected != null);
     assert(validateEmailNotEmpty != null);
     assert(insufficientPermission != null);
+    assert(homeDoesNotExist != null);
     assert(unableToUpdate != null);
     return empty(this);
   }
@@ -216,6 +230,7 @@ class _$_Empty<T> implements _Empty<T> {
     TResult unexpected(_Unexpected<T> value),
     TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
     TResult insufficientPermission(_InsufficientPermission<T> value),
+    TResult homeDoesNotExist(_HomeDoesNotExist<T> value),
     TResult unableToUpdate(_UnableToUpdate<T> value),
     @required TResult orElse(),
   }) {
@@ -278,12 +293,14 @@ class _$_Unexpected<T> implements _Unexpected<T> {
     @required TResult unexpected(),
     @required TResult validateEmailNotEmpty(),
     @required TResult insufficientPermission(),
+    @required TResult homeDoesNotExist(),
     @required TResult unableToUpdate(),
   }) {
     assert(empty != null);
     assert(unexpected != null);
     assert(validateEmailNotEmpty != null);
     assert(insufficientPermission != null);
+    assert(homeDoesNotExist != null);
     assert(unableToUpdate != null);
     return unexpected();
   }
@@ -295,6 +312,7 @@ class _$_Unexpected<T> implements _Unexpected<T> {
     TResult unexpected(),
     TResult validateEmailNotEmpty(),
     TResult insufficientPermission(),
+    TResult homeDoesNotExist(),
     TResult unableToUpdate(),
     @required TResult orElse(),
   }) {
@@ -312,12 +330,14 @@ class _$_Unexpected<T> implements _Unexpected<T> {
     @required TResult unexpected(_Unexpected<T> value),
     @required TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
     @required TResult insufficientPermission(_InsufficientPermission<T> value),
+    @required TResult homeDoesNotExist(_HomeDoesNotExist<T> value),
     @required TResult unableToUpdate(_UnableToUpdate<T> value),
   }) {
     assert(empty != null);
     assert(unexpected != null);
     assert(validateEmailNotEmpty != null);
     assert(insufficientPermission != null);
+    assert(homeDoesNotExist != null);
     assert(unableToUpdate != null);
     return unexpected(this);
   }
@@ -329,6 +349,7 @@ class _$_Unexpected<T> implements _Unexpected<T> {
     TResult unexpected(_Unexpected<T> value),
     TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
     TResult insufficientPermission(_InsufficientPermission<T> value),
+    TResult homeDoesNotExist(_HomeDoesNotExist<T> value),
     TResult unableToUpdate(_UnableToUpdate<T> value),
     @required TResult orElse(),
   }) {
@@ -388,12 +409,14 @@ class _$_ValidateEmailNotEmpty<T> implements _ValidateEmailNotEmpty<T> {
     @required TResult unexpected(),
     @required TResult validateEmailNotEmpty(),
     @required TResult insufficientPermission(),
+    @required TResult homeDoesNotExist(),
     @required TResult unableToUpdate(),
   }) {
     assert(empty != null);
     assert(unexpected != null);
     assert(validateEmailNotEmpty != null);
     assert(insufficientPermission != null);
+    assert(homeDoesNotExist != null);
     assert(unableToUpdate != null);
     return validateEmailNotEmpty();
   }
@@ -405,6 +428,7 @@ class _$_ValidateEmailNotEmpty<T> implements _ValidateEmailNotEmpty<T> {
     TResult unexpected(),
     TResult validateEmailNotEmpty(),
     TResult insufficientPermission(),
+    TResult homeDoesNotExist(),
     TResult unableToUpdate(),
     @required TResult orElse(),
   }) {
@@ -422,12 +446,14 @@ class _$_ValidateEmailNotEmpty<T> implements _ValidateEmailNotEmpty<T> {
     @required TResult unexpected(_Unexpected<T> value),
     @required TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
     @required TResult insufficientPermission(_InsufficientPermission<T> value),
+    @required TResult homeDoesNotExist(_HomeDoesNotExist<T> value),
     @required TResult unableToUpdate(_UnableToUpdate<T> value),
   }) {
     assert(empty != null);
     assert(unexpected != null);
     assert(validateEmailNotEmpty != null);
     assert(insufficientPermission != null);
+    assert(homeDoesNotExist != null);
     assert(unableToUpdate != null);
     return validateEmailNotEmpty(this);
   }
@@ -439,6 +465,7 @@ class _$_ValidateEmailNotEmpty<T> implements _ValidateEmailNotEmpty<T> {
     TResult unexpected(_Unexpected<T> value),
     TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
     TResult insufficientPermission(_InsufficientPermission<T> value),
+    TResult homeDoesNotExist(_HomeDoesNotExist<T> value),
     TResult unableToUpdate(_UnableToUpdate<T> value),
     @required TResult orElse(),
   }) {
@@ -498,12 +525,14 @@ class _$_InsufficientPermission<T> implements _InsufficientPermission<T> {
     @required TResult unexpected(),
     @required TResult validateEmailNotEmpty(),
     @required TResult insufficientPermission(),
+    @required TResult homeDoesNotExist(),
     @required TResult unableToUpdate(),
   }) {
     assert(empty != null);
     assert(unexpected != null);
     assert(validateEmailNotEmpty != null);
     assert(insufficientPermission != null);
+    assert(homeDoesNotExist != null);
     assert(unableToUpdate != null);
     return insufficientPermission();
   }
@@ -515,6 +544,7 @@ class _$_InsufficientPermission<T> implements _InsufficientPermission<T> {
     TResult unexpected(),
     TResult validateEmailNotEmpty(),
     TResult insufficientPermission(),
+    TResult homeDoesNotExist(),
     TResult unableToUpdate(),
     @required TResult orElse(),
   }) {
@@ -532,12 +562,14 @@ class _$_InsufficientPermission<T> implements _InsufficientPermission<T> {
     @required TResult unexpected(_Unexpected<T> value),
     @required TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
     @required TResult insufficientPermission(_InsufficientPermission<T> value),
+    @required TResult homeDoesNotExist(_HomeDoesNotExist<T> value),
     @required TResult unableToUpdate(_UnableToUpdate<T> value),
   }) {
     assert(empty != null);
     assert(unexpected != null);
     assert(validateEmailNotEmpty != null);
     assert(insufficientPermission != null);
+    assert(homeDoesNotExist != null);
     assert(unableToUpdate != null);
     return insufficientPermission(this);
   }
@@ -549,6 +581,7 @@ class _$_InsufficientPermission<T> implements _InsufficientPermission<T> {
     TResult unexpected(_Unexpected<T> value),
     TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
     TResult insufficientPermission(_InsufficientPermission<T> value),
+    TResult homeDoesNotExist(_HomeDoesNotExist<T> value),
     TResult unableToUpdate(_UnableToUpdate<T> value),
     @required TResult orElse(),
   }) {
@@ -562,6 +595,121 @@ class _$_InsufficientPermission<T> implements _InsufficientPermission<T> {
 
 abstract class _InsufficientPermission<T> implements HomeUserFailures<T> {
   const factory _InsufficientPermission() = _$_InsufficientPermission<T>;
+}
+
+/// @nodoc
+abstract class _$HomeDoesNotExistCopyWith<T, $Res> {
+  factory _$HomeDoesNotExistCopyWith(_HomeDoesNotExist<T> value,
+          $Res Function(_HomeDoesNotExist<T>) then) =
+      __$HomeDoesNotExistCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$HomeDoesNotExistCopyWithImpl<T, $Res>
+    extends _$HomeUserFailuresCopyWithImpl<T, $Res>
+    implements _$HomeDoesNotExistCopyWith<T, $Res> {
+  __$HomeDoesNotExistCopyWithImpl(
+      _HomeDoesNotExist<T> _value, $Res Function(_HomeDoesNotExist<T>) _then)
+      : super(_value, (v) => _then(v as _HomeDoesNotExist<T>));
+
+  @override
+  _HomeDoesNotExist<T> get _value => super._value as _HomeDoesNotExist<T>;
+}
+
+/// @nodoc
+class _$_HomeDoesNotExist<T> implements _HomeDoesNotExist<T> {
+  const _$_HomeDoesNotExist();
+
+  @override
+  String toString() {
+    return 'HomeUserFailures<$T>.homeDoesNotExist()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _HomeDoesNotExist<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult empty(T failedValue),
+    @required TResult unexpected(),
+    @required TResult validateEmailNotEmpty(),
+    @required TResult insufficientPermission(),
+    @required TResult homeDoesNotExist(),
+    @required TResult unableToUpdate(),
+  }) {
+    assert(empty != null);
+    assert(unexpected != null);
+    assert(validateEmailNotEmpty != null);
+    assert(insufficientPermission != null);
+    assert(homeDoesNotExist != null);
+    assert(unableToUpdate != null);
+    return homeDoesNotExist();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult empty(T failedValue),
+    TResult unexpected(),
+    TResult validateEmailNotEmpty(),
+    TResult insufficientPermission(),
+    TResult homeDoesNotExist(),
+    TResult unableToUpdate(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (homeDoesNotExist != null) {
+      return homeDoesNotExist();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult empty(_Empty<T> value),
+    @required TResult unexpected(_Unexpected<T> value),
+    @required TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
+    @required TResult insufficientPermission(_InsufficientPermission<T> value),
+    @required TResult homeDoesNotExist(_HomeDoesNotExist<T> value),
+    @required TResult unableToUpdate(_UnableToUpdate<T> value),
+  }) {
+    assert(empty != null);
+    assert(unexpected != null);
+    assert(validateEmailNotEmpty != null);
+    assert(insufficientPermission != null);
+    assert(homeDoesNotExist != null);
+    assert(unableToUpdate != null);
+    return homeDoesNotExist(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult empty(_Empty<T> value),
+    TResult unexpected(_Unexpected<T> value),
+    TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
+    TResult insufficientPermission(_InsufficientPermission<T> value),
+    TResult homeDoesNotExist(_HomeDoesNotExist<T> value),
+    TResult unableToUpdate(_UnableToUpdate<T> value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (homeDoesNotExist != null) {
+      return homeDoesNotExist(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _HomeDoesNotExist<T> implements HomeUserFailures<T> {
+  const factory _HomeDoesNotExist() = _$_HomeDoesNotExist<T>;
 }
 
 /// @nodoc
@@ -607,12 +755,14 @@ class _$_UnableToUpdate<T> implements _UnableToUpdate<T> {
     @required TResult unexpected(),
     @required TResult validateEmailNotEmpty(),
     @required TResult insufficientPermission(),
+    @required TResult homeDoesNotExist(),
     @required TResult unableToUpdate(),
   }) {
     assert(empty != null);
     assert(unexpected != null);
     assert(validateEmailNotEmpty != null);
     assert(insufficientPermission != null);
+    assert(homeDoesNotExist != null);
     assert(unableToUpdate != null);
     return unableToUpdate();
   }
@@ -624,6 +774,7 @@ class _$_UnableToUpdate<T> implements _UnableToUpdate<T> {
     TResult unexpected(),
     TResult validateEmailNotEmpty(),
     TResult insufficientPermission(),
+    TResult homeDoesNotExist(),
     TResult unableToUpdate(),
     @required TResult orElse(),
   }) {
@@ -641,12 +792,14 @@ class _$_UnableToUpdate<T> implements _UnableToUpdate<T> {
     @required TResult unexpected(_Unexpected<T> value),
     @required TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
     @required TResult insufficientPermission(_InsufficientPermission<T> value),
+    @required TResult homeDoesNotExist(_HomeDoesNotExist<T> value),
     @required TResult unableToUpdate(_UnableToUpdate<T> value),
   }) {
     assert(empty != null);
     assert(unexpected != null);
     assert(validateEmailNotEmpty != null);
     assert(insufficientPermission != null);
+    assert(homeDoesNotExist != null);
     assert(unableToUpdate != null);
     return unableToUpdate(this);
   }
@@ -658,6 +811,7 @@ class _$_UnableToUpdate<T> implements _UnableToUpdate<T> {
     TResult unexpected(_Unexpected<T> value),
     TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
     TResult insufficientPermission(_InsufficientPermission<T> value),
+    TResult homeDoesNotExist(_HomeDoesNotExist<T> value),
     TResult unableToUpdate(_UnableToUpdate<T> value),
     @required TResult orElse(),
   }) {

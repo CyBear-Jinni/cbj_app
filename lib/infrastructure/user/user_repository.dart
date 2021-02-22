@@ -8,6 +8,7 @@ import 'package:cybear_jinni/domain/user/i_user_repository.dart';
 import 'package:cybear_jinni/domain/user/user_entity.dart';
 import 'package:cybear_jinni/domain/user/user_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/core/firestore_helpers.dart';
+import 'package:cybear_jinni/infrastructure/core/hive_local_db/hive_local_db.dart';
 import 'package:cybear_jinni/infrastructure/user/all_homes_of_user_entity/all_homes_of_user_dtos.dart';
 import 'package:cybear_jinni/infrastructure/user/user_dtos.dart';
 import 'package:cybear_jinni/injection.dart';
@@ -46,15 +47,15 @@ class UserRepository implements IUserRepository {
     try {
       final userCollec = await _firestore.usersCollection();
 
-      String userId = (await getIt<IAuthFacade>().getSignedInUser())
+      final String userId = (await getIt<IAuthFacade>().getSignedInUser())
           .getOrElse(() => throw NotAuthenticatedError())
           .id
           .getOrCrash();
 
-      DocumentSnapshot userDocumentS = await userCollec.doc(userId).get();
+      final DocumentSnapshot userDocumentS = await userCollec.doc(userId).get();
 
-      String name = userDocumentS.get('name').toString();
-      String email = userDocumentS.get('email').toString();
+      final String name = userDocumentS.get('name').toString();
+      final String email = userDocumentS.get('email').toString();
 
       return right(UserEntity(
         id: UserUniqueId.fromUniqueString(userId),
@@ -76,18 +77,29 @@ class UserRepository implements IUserRepository {
       UserEntity userEntity, AllHomesOfUserEntity allHomesOfUserEntity) async {
     try {
       final usersCollection = await _firestore.usersCollection();
+      final homeCollection = await _firestore.homeCollection();
 
-      String userId = userEntity.id.getOrCrash();
-      String homeId = allHomesOfUserEntity.id.getOrCrash();
+      final String userId = userEntity.id.getOrCrash();
+      final String homeId = allHomesOfUserEntity.id.getOrCrash();
 
-      AllHomesOfUserDtos homeUserDtos =
+      final userInHomeRef =
+          homeCollection.doc(homeId).usersCollecttion.doc(userId);
+      final homeDoc = await userInHomeRef.get();
+
+      if (!homeDoc.exists) {
+        return left(const HomeUserFailures.homeDoesNotExist());
+      }
+
+      final AllHomesOfUserDtos homeUserDtos =
           AllHomesOfUserDtos.fromDomain(allHomesOfUserEntity);
 
-      usersCollection
+      await usersCollection
           .doc(userId)
           .usersHomesCollecttion
           .doc(homeId)
           .set(homeUserDtos.toJson());
+
+      await HiveLocalDbHelper.setHomeId(homeId);
 
       return right(unit);
     } catch (e) {
@@ -113,73 +125,4 @@ class UserRepository implements IUserRepository {
     // TODO: implement watchAll
     throw UnimplementedError();
   }
-
-  // @override
-  // Stream<Either<DevicesFailure, KtList<DeviceEntity>>> watchAll() async* {
-  //   final devicesDoc = await _firestore.homeDocument();
-  //
-  //   yield* devicesDoc.devicesCollecttion
-  //       .snapshots()
-  //       .map(
-  //         (snapshot) => right<DevicesFailure, KtList<DeviceEntity>>(
-  //           snapshot.docs
-  //               .map((doc) => DeviceDtos.fromFirestore(doc).toDomain())
-  //               .toImmutableList(),
-  //         ),
-  //       )
-  //       .onErrorReturnWith((e) {
-  //     if (e is PlatformException && e.message.contains('PERMISSION_DENIED')) {
-  //       return left(const DevicesFailure.insufficientPermission());
-  //     } else {
-  //       // log.error(e.toString());
-  //       return left(const DevicesFailure.unexpected());
-  //     }
-  //   });
-  // }
-  //
-  // @override
-  // Stream<Either<DevicesFailure, KtList<DeviceEntity>>> watchUncompleted() {
-  //   // TODO: implement watchUncompleted
-  //   throw UnimplementedError();
-  // }
-  ////
-  // @override
-  // Future<Either<DevicesFailure, Unit>> update(DeviceEntity deviceEntity) async {
-  //   try {
-  //     final devicesDoc = await _firestore.homeDocument();
-  //     final deviceDtos = DeviceDtos.fromDomain(deviceEntity);
-  //
-  //     await devicesDoc.devicesCollecttion
-  //         .doc(deviceDtos.id)
-  //         .update(deviceDtos.toJson());
-  //     return right(unit);
-  //   } on PlatformException catch (e) {
-  //     if (e.message.contains('NOT_FOUND')) {
-  //       return left(const DevicesFailure.unableToUpdate());
-  //     } else {
-  //       // log.error(e.toString());
-  //       return left(const DevicesFailure.unexpected());
-  //     }
-  //   }
-  // }
-  //
-  // @override
-  // Future<Either<DevicesFailure, Unit>> delete(DeviceEntity deviceEntity) async {
-  //   try {
-  //     final devicesDoc = await _firestore.homeDocument();
-  //     final deviceDtos = DeviceDtos.fromDomain(deviceEntity);
-  //
-  //     await devicesDoc.devicesCollecttion.doc(deviceDtos.id).delete();
-  //     return right(unit);
-  //   } on PlatformException catch (e) {
-  //     if (e.message.contains('PERMISSION_DENIED')) {
-  //       return left(const DevicesFailure.insufficientPermission());
-  //     } else if (e.message.contains('NOT_FOUND')) {
-  //       return left(const DevicesFailure.unableToUpdate());
-  //     } else {
-  //       // log.error(e.toString());
-  //       return left(const DevicesFailure.unexpected());
-  //     }
-  //   }
-  // }
 }

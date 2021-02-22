@@ -18,6 +18,7 @@ import '../home_page/tabs/smart_devices_tab/blinds/blinds_page.dart';
 import '../home_page/tabs/smart_devices_tab/blinds/smart_blind_widget.dart';
 import '../initialize_home/initialize_home_page.dart';
 import '../introduction_screen/introduction_screen_page.dart';
+import '../join_home_by_id/join_home_by_id_page.dart';
 import '../lights/lights_in_the_room/lights_in_the_room_page.dart';
 import '../lights/rooms_lights_page.dart';
 import '../manage_users/manage_users_page.dart';
@@ -34,6 +35,7 @@ class Routes {
   static const String initializeHomePage = '/initialize-home-page';
   static const String whereToLoginPageMinimal = '/where-to-login-page-minimal';
   static const String whereToLoginPageOffline = '/where-to-login-page-offline';
+  static const String joinHomeByIdPage = '/join-home-by-id-page';
   static const String homePage = '/home-page';
   static const String manageUsersPage = '/manage-users-page';
   static const String addUserToHomePage = '/add-user-to-home-page';
@@ -49,6 +51,7 @@ class Routes {
     initializeHomePage,
     whereToLoginPageMinimal,
     whereToLoginPageOffline,
+    joinHomeByIdPage,
     homePage,
     manageUsersPage,
     addUserToHomePage,
@@ -70,6 +73,7 @@ class AppRouter extends RouterBase {
     RouteDef(Routes.initializeHomePage, page: InitializeHomePage),
     RouteDef(Routes.whereToLoginPageMinimal, page: WhereToLoginPageMinimal),
     RouteDef(Routes.whereToLoginPageOffline, page: WhereToLoginPageOffline),
+    RouteDef(Routes.joinHomeByIdPage, page: JoinHomeByIdPage),
     RouteDef(Routes.homePage, page: HomePage),
     RouteDef(Routes.manageUsersPage, page: ManageUsersPage),
     RouteDef(Routes.addUserToHomePage, page: AddUserToHomePage),
@@ -115,6 +119,12 @@ class AppRouter extends RouterBase {
     WhereToLoginPageOffline: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => WhereToLoginPageOffline(),
+        settings: data,
+      );
+    },
+    JoinHomeByIdPage: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => JoinHomeByIdPage(),
         settings: data,
       );
     },
@@ -194,6 +204,9 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
 
   Future<dynamic> pushWhereToLoginPageOffline() =>
       push<dynamic>(Routes.whereToLoginPageOffline);
+
+  Future<dynamic> pushJoinHomeByIdPage() =>
+      push<dynamic>(Routes.joinHomeByIdPage);
 
   Future<dynamic> pushHomePage() => push<dynamic>(Routes.homePage);
 
