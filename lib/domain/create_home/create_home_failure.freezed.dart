@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
-part of 'initialize_home_failure.dart';
+part of 'create_home_failure.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -10,8 +10,8 @@ part of 'initialize_home_failure.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-class _$InitializeHomeFailureTearOff {
-  const _$InitializeHomeFailureTearOff();
+class _$CreateHomeFailureTearOff {
+  const _$CreateHomeFailureTearOff();
 
 // ignore: unused_element
   _Unexpected unexpected() {
@@ -31,10 +31,10 @@ class _$InitializeHomeFailureTearOff {
 
 /// @nodoc
 // ignore: unused_element
-const $InitializeHomeFailure = _$InitializeHomeFailureTearOff();
+const $CreateHomeFailure = _$CreateHomeFailureTearOff();
 
 /// @nodoc
-mixin _$InitializeHomeFailure {
+mixin _$CreateHomeFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult unexpected(),
@@ -64,20 +64,20 @@ mixin _$InitializeHomeFailure {
 }
 
 /// @nodoc
-abstract class $InitializeHomeFailureCopyWith<$Res> {
-  factory $InitializeHomeFailureCopyWith(InitializeHomeFailure value,
-          $Res Function(InitializeHomeFailure) then) =
-      _$InitializeHomeFailureCopyWithImpl<$Res>;
+abstract class $CreateHomeFailureCopyWith<$Res> {
+  factory $CreateHomeFailureCopyWith(
+          CreateHomeFailure value, $Res Function(CreateHomeFailure) then) =
+      _$CreateHomeFailureCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$InitializeHomeFailureCopyWithImpl<$Res>
-    implements $InitializeHomeFailureCopyWith<$Res> {
-  _$InitializeHomeFailureCopyWithImpl(this._value, this._then);
+class _$CreateHomeFailureCopyWithImpl<$Res>
+    implements $CreateHomeFailureCopyWith<$Res> {
+  _$CreateHomeFailureCopyWithImpl(this._value, this._then);
 
-  final InitializeHomeFailure _value;
+  final CreateHomeFailure _value;
   // ignore: unused_field
-  final $Res Function(InitializeHomeFailure) _then;
+  final $Res Function(CreateHomeFailure) _then;
 }
 
 /// @nodoc
@@ -89,7 +89,7 @@ abstract class _$UnexpectedCopyWith<$Res> {
 
 /// @nodoc
 class __$UnexpectedCopyWithImpl<$Res>
-    extends _$InitializeHomeFailureCopyWithImpl<$Res>
+    extends _$CreateHomeFailureCopyWithImpl<$Res>
     implements _$UnexpectedCopyWith<$Res> {
   __$UnexpectedCopyWithImpl(
       _Unexpected _value, $Res Function(_Unexpected) _then)
@@ -105,7 +105,7 @@ class _$_Unexpected implements _Unexpected {
 
   @override
   String toString() {
-    return 'InitializeHomeFailure.unexpected()';
+    return 'CreateHomeFailure.unexpected()';
   }
 
   @override
@@ -173,7 +173,7 @@ class _$_Unexpected implements _Unexpected {
   }
 }
 
-abstract class _Unexpected implements InitializeHomeFailure {
+abstract class _Unexpected implements CreateHomeFailure {
   const factory _Unexpected() = _$_Unexpected;
 }
 
@@ -186,7 +186,7 @@ abstract class _$InsufficientPermissionCopyWith<$Res> {
 
 /// @nodoc
 class __$InsufficientPermissionCopyWithImpl<$Res>
-    extends _$InitializeHomeFailureCopyWithImpl<$Res>
+    extends _$CreateHomeFailureCopyWithImpl<$Res>
     implements _$InsufficientPermissionCopyWith<$Res> {
   __$InsufficientPermissionCopyWithImpl(_InsufficientPermission _value,
       $Res Function(_InsufficientPermission) _then)
@@ -202,7 +202,7 @@ class _$_InsufficientPermission implements _InsufficientPermission {
 
   @override
   String toString() {
-    return 'InitializeHomeFailure.insufficientPermission()';
+    return 'CreateHomeFailure.insufficientPermission()';
   }
 
   @override
@@ -270,7 +270,7 @@ class _$_InsufficientPermission implements _InsufficientPermission {
   }
 }
 
-abstract class _InsufficientPermission implements InitializeHomeFailure {
+abstract class _InsufficientPermission implements CreateHomeFailure {
   const factory _InsufficientPermission() = _$_InsufficientPermission;
 }
 
@@ -283,7 +283,7 @@ abstract class _$UnableToUpdateCopyWith<$Res> {
 
 /// @nodoc
 class __$UnableToUpdateCopyWithImpl<$Res>
-    extends _$InitializeHomeFailureCopyWithImpl<$Res>
+    extends _$CreateHomeFailureCopyWithImpl<$Res>
     implements _$UnableToUpdateCopyWith<$Res> {
   __$UnableToUpdateCopyWithImpl(
       _UnableToUpdate _value, $Res Function(_UnableToUpdate) _then)
@@ -299,7 +299,7 @@ class _$_UnableToUpdate implements _UnableToUpdate {
 
   @override
   String toString() {
-    return 'InitializeHomeFailure.unableToUpdate()';
+    return 'CreateHomeFailure.unableToUpdate()';
   }
 
   @override
@@ -367,6 +367,6 @@ class _$_UnableToUpdate implements _UnableToUpdate {
   }
 }
 
-abstract class _UnableToUpdate implements InitializeHomeFailure {
+abstract class _UnableToUpdate implements CreateHomeFailure {
   const factory _UnableToUpdate() = _$_UnableToUpdate;
 }

@@ -1,16 +1,16 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/application/initialize_home/initialize_home_bloc.dart';
+import 'package:cybear_jinni/application/create_home/create_home_bloc.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class InitialProcess extends StatelessWidget {
+class CreateHomeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<InitializeHomeBloc, InitializeHomeState>(
-      listener: (context, InitializeHomeState state) {
+    return BlocConsumer<CreateHomeBloc, CreateHomeState>(
+      listener: (context, CreateHomeState state) {
         state.map(
           (value) => (v) {},
           loading: (loadingNow) {},

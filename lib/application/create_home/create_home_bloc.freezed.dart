@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
-part of 'initialize_home_bloc.dart';
+part of 'create_home_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -10,8 +10,8 @@ part of 'initialize_home_bloc.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-class _$InitializeHomeEventTearOff {
-  const _$InitializeHomeEventTearOff();
+class _$CreateHomeEventTearOff {
+  const _$CreateHomeEventTearOff();
 
 // ignore: unused_element
   Initialized initialized() {
@@ -21,10 +21,10 @@ class _$InitializeHomeEventTearOff {
 
 /// @nodoc
 // ignore: unused_element
-const $InitializeHomeEvent = _$InitializeHomeEventTearOff();
+const $CreateHomeEvent = _$CreateHomeEventTearOff();
 
 /// @nodoc
-mixin _$InitializeHomeEvent {
+mixin _$CreateHomeEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult initialized(),
@@ -46,20 +46,20 @@ mixin _$InitializeHomeEvent {
 }
 
 /// @nodoc
-abstract class $InitializeHomeEventCopyWith<$Res> {
-  factory $InitializeHomeEventCopyWith(
-          InitializeHomeEvent value, $Res Function(InitializeHomeEvent) then) =
-      _$InitializeHomeEventCopyWithImpl<$Res>;
+abstract class $CreateHomeEventCopyWith<$Res> {
+  factory $CreateHomeEventCopyWith(
+          CreateHomeEvent value, $Res Function(CreateHomeEvent) then) =
+      _$CreateHomeEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$InitializeHomeEventCopyWithImpl<$Res>
-    implements $InitializeHomeEventCopyWith<$Res> {
-  _$InitializeHomeEventCopyWithImpl(this._value, this._then);
+class _$CreateHomeEventCopyWithImpl<$Res>
+    implements $CreateHomeEventCopyWith<$Res> {
+  _$CreateHomeEventCopyWithImpl(this._value, this._then);
 
-  final InitializeHomeEvent _value;
+  final CreateHomeEvent _value;
   // ignore: unused_field
-  final $Res Function(InitializeHomeEvent) _then;
+  final $Res Function(CreateHomeEvent) _then;
 }
 
 /// @nodoc
@@ -71,7 +71,7 @@ abstract class $InitializedCopyWith<$Res> {
 
 /// @nodoc
 class _$InitializedCopyWithImpl<$Res>
-    extends _$InitializeHomeEventCopyWithImpl<$Res>
+    extends _$CreateHomeEventCopyWithImpl<$Res>
     implements $InitializedCopyWith<$Res> {
   _$InitializedCopyWithImpl(
       Initialized _value, $Res Function(Initialized) _then)
@@ -87,7 +87,7 @@ class _$Initialized implements Initialized {
 
   @override
   String toString() {
-    return 'InitializeHomeEvent.initialized()';
+    return 'CreateHomeEvent.initialized()';
   }
 
   @override
@@ -143,19 +143,19 @@ class _$Initialized implements Initialized {
   }
 }
 
-abstract class Initialized implements InitializeHomeEvent {
+abstract class Initialized implements CreateHomeEvent {
   const factory Initialized() = _$Initialized;
 }
 
 /// @nodoc
-class _$InitializeHomeStateTearOff {
-  const _$InitializeHomeStateTearOff();
+class _$CreateHomeStateTearOff {
+  const _$CreateHomeStateTearOff();
 
 // ignore: unused_element
-  _InitializeHomeState call(
+  _CreateHomeState call(
       {@required
           Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption}) {
-    return _InitializeHomeState(
+    return _CreateHomeState(
       authFailureOrSuccessOption: authFailureOrSuccessOption,
     );
   }
@@ -178,10 +178,10 @@ class _$InitializeHomeStateTearOff {
 
 /// @nodoc
 // ignore: unused_element
-const $InitializeHomeState = _$InitializeHomeStateTearOff();
+const $CreateHomeState = _$CreateHomeStateTearOff();
 
 /// @nodoc
-mixin _$InitializeHomeState {
+mixin _$CreateHomeState {
   @optionalTypeArgs
   TResult when<TResult extends Object>(
     TResult $default(
@@ -201,14 +201,14 @@ mixin _$InitializeHomeState {
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>(
-    TResult $default(_InitializeHomeState value), {
+    TResult $default(_CreateHomeState value), {
     @required TResult loading(Loading value),
     @required TResult loaded(Loaded value),
     @required TResult error(Error value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>(
-    TResult $default(_InitializeHomeState value), {
+    TResult $default(_CreateHomeState value), {
     TResult loading(Loading value),
     TResult loaded(Loaded value),
     TResult error(Error value),
@@ -217,46 +217,46 @@ mixin _$InitializeHomeState {
 }
 
 /// @nodoc
-abstract class $InitializeHomeStateCopyWith<$Res> {
-  factory $InitializeHomeStateCopyWith(
-          InitializeHomeState value, $Res Function(InitializeHomeState) then) =
-      _$InitializeHomeStateCopyWithImpl<$Res>;
+abstract class $CreateHomeStateCopyWith<$Res> {
+  factory $CreateHomeStateCopyWith(
+          CreateHomeState value, $Res Function(CreateHomeState) then) =
+      _$CreateHomeStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$InitializeHomeStateCopyWithImpl<$Res>
-    implements $InitializeHomeStateCopyWith<$Res> {
-  _$InitializeHomeStateCopyWithImpl(this._value, this._then);
+class _$CreateHomeStateCopyWithImpl<$Res>
+    implements $CreateHomeStateCopyWith<$Res> {
+  _$CreateHomeStateCopyWithImpl(this._value, this._then);
 
-  final InitializeHomeState _value;
+  final CreateHomeState _value;
   // ignore: unused_field
-  final $Res Function(InitializeHomeState) _then;
+  final $Res Function(CreateHomeState) _then;
 }
 
 /// @nodoc
-abstract class _$InitializeHomeStateCopyWith<$Res> {
-  factory _$InitializeHomeStateCopyWith(_InitializeHomeState value,
-          $Res Function(_InitializeHomeState) then) =
-      __$InitializeHomeStateCopyWithImpl<$Res>;
+abstract class _$CreateHomeStateCopyWith<$Res> {
+  factory _$CreateHomeStateCopyWith(
+          _CreateHomeState value, $Res Function(_CreateHomeState) then) =
+      __$CreateHomeStateCopyWithImpl<$Res>;
   $Res call({Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
 }
 
 /// @nodoc
-class __$InitializeHomeStateCopyWithImpl<$Res>
-    extends _$InitializeHomeStateCopyWithImpl<$Res>
-    implements _$InitializeHomeStateCopyWith<$Res> {
-  __$InitializeHomeStateCopyWithImpl(
-      _InitializeHomeState _value, $Res Function(_InitializeHomeState) _then)
-      : super(_value, (v) => _then(v as _InitializeHomeState));
+class __$CreateHomeStateCopyWithImpl<$Res>
+    extends _$CreateHomeStateCopyWithImpl<$Res>
+    implements _$CreateHomeStateCopyWith<$Res> {
+  __$CreateHomeStateCopyWithImpl(
+      _CreateHomeState _value, $Res Function(_CreateHomeState) _then)
+      : super(_value, (v) => _then(v as _CreateHomeState));
 
   @override
-  _InitializeHomeState get _value => super._value as _InitializeHomeState;
+  _CreateHomeState get _value => super._value as _CreateHomeState;
 
   @override
   $Res call({
     Object authFailureOrSuccessOption = freezed,
   }) {
-    return _then(_InitializeHomeState(
+    return _then(_CreateHomeState(
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption as Option<Either<AuthFailure, Unit>>,
@@ -265,8 +265,8 @@ class __$InitializeHomeStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-class _$_InitializeHomeState implements _InitializeHomeState {
-  const _$_InitializeHomeState({@required this.authFailureOrSuccessOption})
+class _$_CreateHomeState implements _CreateHomeState {
+  const _$_CreateHomeState({@required this.authFailureOrSuccessOption})
       : assert(authFailureOrSuccessOption != null);
 
   @override
@@ -274,13 +274,13 @@ class _$_InitializeHomeState implements _InitializeHomeState {
 
   @override
   String toString() {
-    return 'InitializeHomeState(authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'CreateHomeState(authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _InitializeHomeState &&
+        (other is _CreateHomeState &&
             (identical(other.authFailureOrSuccessOption,
                     authFailureOrSuccessOption) ||
                 const DeepCollectionEquality().equals(
@@ -295,9 +295,8 @@ class _$_InitializeHomeState implements _InitializeHomeState {
 
   @JsonKey(ignore: true)
   @override
-  _$InitializeHomeStateCopyWith<_InitializeHomeState> get copyWith =>
-      __$InitializeHomeStateCopyWithImpl<_InitializeHomeState>(
-          this, _$identity);
+  _$CreateHomeStateCopyWith<_CreateHomeState> get copyWith =>
+      __$CreateHomeStateCopyWithImpl<_CreateHomeState>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -335,7 +334,7 @@ class _$_InitializeHomeState implements _InitializeHomeState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>(
-    TResult $default(_InitializeHomeState value), {
+    TResult $default(_CreateHomeState value), {
     @required TResult loading(Loading value),
     @required TResult loaded(Loaded value),
     @required TResult error(Error value),
@@ -350,7 +349,7 @@ class _$_InitializeHomeState implements _InitializeHomeState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>(
-    TResult $default(_InitializeHomeState value), {
+    TResult $default(_CreateHomeState value), {
     TResult loading(Loading value),
     TResult loaded(Loaded value),
     TResult error(Error value),
@@ -364,15 +363,15 @@ class _$_InitializeHomeState implements _InitializeHomeState {
   }
 }
 
-abstract class _InitializeHomeState implements InitializeHomeState {
-  const factory _InitializeHomeState(
+abstract class _CreateHomeState implements CreateHomeState {
+  const factory _CreateHomeState(
           {@required
               Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption}) =
-      _$_InitializeHomeState;
+      _$_CreateHomeState;
 
   Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption;
   @JsonKey(ignore: true)
-  _$InitializeHomeStateCopyWith<_InitializeHomeState> get copyWith;
+  _$CreateHomeStateCopyWith<_CreateHomeState> get copyWith;
 }
 
 /// @nodoc
@@ -382,8 +381,7 @@ abstract class $LoadingCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$LoadingCopyWithImpl<$Res>
-    extends _$InitializeHomeStateCopyWithImpl<$Res>
+class _$LoadingCopyWithImpl<$Res> extends _$CreateHomeStateCopyWithImpl<$Res>
     implements $LoadingCopyWith<$Res> {
   _$LoadingCopyWithImpl(Loading _value, $Res Function(Loading) _then)
       : super(_value, (v) => _then(v as Loading));
@@ -398,7 +396,7 @@ class _$Loading implements Loading {
 
   @override
   String toString() {
-    return 'InitializeHomeState.loading()';
+    return 'CreateHomeState.loading()';
   }
 
   @override
@@ -445,7 +443,7 @@ class _$Loading implements Loading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>(
-    TResult $default(_InitializeHomeState value), {
+    TResult $default(_CreateHomeState value), {
     @required TResult loading(Loading value),
     @required TResult loaded(Loaded value),
     @required TResult error(Error value),
@@ -460,7 +458,7 @@ class _$Loading implements Loading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>(
-    TResult $default(_InitializeHomeState value), {
+    TResult $default(_CreateHomeState value), {
     TResult loading(Loading value),
     TResult loaded(Loaded value),
     TResult error(Error value),
@@ -474,7 +472,7 @@ class _$Loading implements Loading {
   }
 }
 
-abstract class Loading implements InitializeHomeState {
+abstract class Loading implements CreateHomeState {
   const factory Loading() = _$Loading;
 }
 
@@ -485,7 +483,7 @@ abstract class $LoadedCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$LoadedCopyWithImpl<$Res> extends _$InitializeHomeStateCopyWithImpl<$Res>
+class _$LoadedCopyWithImpl<$Res> extends _$CreateHomeStateCopyWithImpl<$Res>
     implements $LoadedCopyWith<$Res> {
   _$LoadedCopyWithImpl(Loaded _value, $Res Function(Loaded) _then)
       : super(_value, (v) => _then(v as Loaded));
@@ -500,7 +498,7 @@ class _$Loaded implements Loaded {
 
   @override
   String toString() {
-    return 'InitializeHomeState.loaded()';
+    return 'CreateHomeState.loaded()';
   }
 
   @override
@@ -547,7 +545,7 @@ class _$Loaded implements Loaded {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>(
-    TResult $default(_InitializeHomeState value), {
+    TResult $default(_CreateHomeState value), {
     @required TResult loading(Loading value),
     @required TResult loaded(Loaded value),
     @required TResult error(Error value),
@@ -562,7 +560,7 @@ class _$Loaded implements Loaded {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>(
-    TResult $default(_InitializeHomeState value), {
+    TResult $default(_CreateHomeState value), {
     TResult loading(Loading value),
     TResult loaded(Loaded value),
     TResult error(Error value),
@@ -576,7 +574,7 @@ class _$Loaded implements Loaded {
   }
 }
 
-abstract class Loaded implements InitializeHomeState {
+abstract class Loaded implements CreateHomeState {
   const factory Loaded() = _$Loaded;
 }
 
@@ -587,7 +585,7 @@ abstract class $ErrorCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ErrorCopyWithImpl<$Res> extends _$InitializeHomeStateCopyWithImpl<$Res>
+class _$ErrorCopyWithImpl<$Res> extends _$CreateHomeStateCopyWithImpl<$Res>
     implements $ErrorCopyWith<$Res> {
   _$ErrorCopyWithImpl(Error _value, $Res Function(Error) _then)
       : super(_value, (v) => _then(v as Error));
@@ -602,7 +600,7 @@ class _$Error implements Error {
 
   @override
   String toString() {
-    return 'InitializeHomeState.error()';
+    return 'CreateHomeState.error()';
   }
 
   @override
@@ -649,7 +647,7 @@ class _$Error implements Error {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>(
-    TResult $default(_InitializeHomeState value), {
+    TResult $default(_CreateHomeState value), {
     @required TResult loading(Loading value),
     @required TResult loaded(Loaded value),
     @required TResult error(Error value),
@@ -664,7 +662,7 @@ class _$Error implements Error {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>(
-    TResult $default(_InitializeHomeState value), {
+    TResult $default(_CreateHomeState value), {
     TResult loading(Loading value),
     TResult loaded(Loaded value),
     TResult error(Error value),
@@ -678,6 +676,6 @@ class _$Error implements Error {
   }
 }
 
-abstract class Error implements InitializeHomeState {
+abstract class Error implements CreateHomeState {
   const factory Error() = _$Error;
 }

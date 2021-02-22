@@ -58,7 +58,7 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
                   color: Colors.blue,
                   onPressed: () {
                     ExtendedNavigator.of(context).replace(
-                      Routes.initializeHomePage,
+                      Routes.createHomePage,
                     );
                   },
                   child: Container(

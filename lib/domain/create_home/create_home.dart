@@ -1,11 +1,11 @@
 import 'package:cybear_jinni/domain/core/value_objects.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'initialize_home.freezed.dart';
+part 'create_home.freezed.dart';
 
 @freezed
-abstract class InitializeHome with _$InitializeHome {
-  const factory InitializeHome({
+abstract class CreateHome with _$CreateHome {
+  const factory CreateHome({
     @required UniqueId id,
-  }) = _InitialHome;
+  }) = _CreateHome;
 }

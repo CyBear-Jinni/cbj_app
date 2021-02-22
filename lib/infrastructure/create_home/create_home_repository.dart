@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cybear_jinni/domain/core/value_objects.dart';
-import 'package:cybear_jinni/domain/initialize_home/i_initialize_home_repository.dart';
+import 'package:cybear_jinni/domain/create_home/i_create_home_repository.dart';
 import 'package:cybear_jinni/domain/user/all_homes_of_user/all_homes_of_user_entity.dart';
 import 'package:cybear_jinni/domain/user/all_homes_of_user/all_homes_of_user_value_objects.dart';
 import 'package:cybear_jinni/domain/user/i_user_repository.dart';
@@ -13,9 +13,9 @@ import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
 
-@LazySingleton(as: IInitializeHomeRepository)
-class InitializeHomeRepository implements IInitializeHomeRepository {
-  InitializeHomeRepository(this._firestore, this._firebaseAuth);
+@LazySingleton(as: ICreateHomeRepository)
+class CreateHomeRepository implements ICreateHomeRepository {
+  CreateHomeRepository(this._firestore, this._firebaseAuth);
 
   final FirebaseFirestore _firestore;
   final FirebaseAuth _firebaseAuth;
@@ -24,7 +24,7 @@ class InitializeHomeRepository implements IInitializeHomeRepository {
   final String usersInHomePath = 'Users';
 
   @override
-  Future<Option<Unit>> initializingNewHome() async {
+  Future<Option<Unit>> createNewHome() async {
     try {
       String uniqueHomeId = UniqueId().getOrCrash();
       String currentUserUid = _firebaseAuth.currentUser.uid;

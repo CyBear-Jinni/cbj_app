@@ -13,10 +13,10 @@ import '../../domain/folder_of_scenes/folder_of_scene.dart';
 import '../../infrastructure/core/gen/smart_device/smart_blinds_object.dart';
 import '../../infrastructure/core/gen/smart_device/smart_room_object.dart';
 import '../add_user_to_home/add_user_to_home_page.dart';
+import '../create_home/create_home_page.dart';
 import '../home_page/home_page.dart';
 import '../home_page/tabs/smart_devices_tab/blinds/blinds_page.dart';
 import '../home_page/tabs/smart_devices_tab/blinds/smart_blind_widget.dart';
-import '../initialize_home/initialize_home_page.dart';
 import '../introduction_screen/introduction_screen_page.dart';
 import '../join_home_by_id/join_home_by_id_page.dart';
 import '../lights/lights_in_the_room/lights_in_the_room_page.dart';
@@ -32,7 +32,7 @@ class Routes {
   static const String splashPage = '/';
   static const String introductionScreenPage = '/introduction-screen-page';
   static const String signInPage = '/sign-in-page';
-  static const String initializeHomePage = '/initialize-home-page';
+  static const String createHomePage = '/create-home-page';
   static const String whereToLoginPageMinimalPage =
       '/where-to-login-page-minimal-page';
   static const String whereToLoginPageOffline = '/where-to-login-page-offline';
@@ -49,7 +49,7 @@ class Routes {
     splashPage,
     introductionScreenPage,
     signInPage,
-    initializeHomePage,
+    createHomePage,
     whereToLoginPageMinimalPage,
     whereToLoginPageOffline,
     joinHomeByIdPage,
@@ -71,7 +71,7 @@ class AppRouter extends RouterBase {
     RouteDef(Routes.splashPage, page: SplashPage),
     RouteDef(Routes.introductionScreenPage, page: IntroductionScreenPage),
     RouteDef(Routes.signInPage, page: SignInPage),
-    RouteDef(Routes.initializeHomePage, page: InitializeHomePage),
+    RouteDef(Routes.createHomePage, page: CreateHomePage),
     RouteDef(Routes.whereToLoginPageMinimalPage,
         page: WhereToLoginPageMinimalPage),
     RouteDef(Routes.whereToLoginPageOffline, page: WhereToLoginPageOffline),
@@ -106,9 +106,9 @@ class AppRouter extends RouterBase {
         settings: data,
       );
     },
-    InitializeHomePage: (data) {
+    CreateHomePage: (data) {
       return MaterialPageRoute<dynamic>(
-        builder: (context) => InitializeHomePage(),
+        builder: (context) => CreateHomePage(),
         settings: data,
       );
     },
@@ -198,8 +198,7 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
 
   Future<dynamic> pushSignInPage() => push<dynamic>(Routes.signInPage);
 
-  Future<dynamic> pushInitializeHomePage() =>
-      push<dynamic>(Routes.initializeHomePage);
+  Future<dynamic> pushCreateHomePage() => push<dynamic>(Routes.createHomePage);
 
   Future<dynamic> pushWhereToLoginPageMinimalPage() =>
       push<dynamic>(Routes.whereToLoginPageMinimalPage);
