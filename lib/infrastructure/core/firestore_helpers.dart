@@ -36,5 +36,6 @@ extension DocumentReferenceX on DocumentReference {
   CollectionReference get devicesCollecttion => collection('Devices');
   CollectionReference get usersCollecttion => collection('Users');
   CollectionReference get devicesUsersCollecttion => collection('DevicesUsers');
+  CollectionReference get homeInfoCollecttion => collection('Info');
   CollectionReference get usersHomesCollecttion => collection('homes');
 }

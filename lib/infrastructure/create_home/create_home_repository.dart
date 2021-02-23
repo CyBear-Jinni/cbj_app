@@ -71,6 +71,11 @@ class CreateHomeRepository implements ICreateHomeRepository {
 
       // Add the home its info like name
 
+      final addHomeInfoRes = await addHomeInfo(createHomeEntityWithId);
+
+      addHomeInfoRes.getOrElse(() =>
+          throw UserUnexpectedValueError(const UserFailures.unexpected()));
+
       // Add the devices user info to home
       final saveDeviceAccountToHome =
           await addDeviceUserToHome(createHomeEntityWithId);
@@ -125,6 +130,26 @@ class CreateHomeRepository implements ICreateHomeRepository {
       await homeDoc.devicesUsersCollecttion
           .doc('default')
           .set(deviceHomeUserDtos.toJson());
+      return right(unit);
+    } on PlatformException catch (e) {
+      if (e.message.contains('PERMISSION_DENIED')) {
+        return left(const CreateHomeFailure.insufficientPermission());
+      } else {
+        // log.error(e.toString());
+        return left(CreateHomeFailure.unexpected(failedValue: e.message));
+      }
+    }
+  }
+
+  @override
+  Future<Either<CreateHomeFailure, Unit>> addHomeInfo(
+      CreateHomeEntity createHomeEntity) async {
+    try {
+      final homeDoc = await _firestore.currentHomeDocument();
+
+      await homeDoc.homeInfoCollecttion
+          .doc('default')
+          .set({'name': createHomeEntity.name.getOrCrash()});
       return right(unit);
     } on PlatformException catch (e) {
       if (e.message.contains('PERMISSION_DENIED')) {
