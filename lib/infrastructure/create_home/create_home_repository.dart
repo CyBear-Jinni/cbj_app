@@ -23,6 +23,7 @@ import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:injectable/injectable.dart';
+import 'package:uuid/uuid.dart';
 
 @LazySingleton(as: ICreateHomeRepository)
 class CreateHomeRepository implements ICreateHomeRepository {
@@ -149,7 +150,11 @@ class CreateHomeRepository implements ICreateHomeRepository {
 
       await homeDoc.homeInfoCollecttion
           .doc('default')
-          .set({'name': createHomeEntity.name.getOrCrash()});
+          .set({'home name': createHomeEntity.name.getOrCrash()});
+
+      await homeDoc.homeInfoCollecttion
+          .doc('first WiFi')
+          .set({'WiFi name': Uuid().v1(), 'WiFi password': Uuid().v1()});
       return right(unit);
     } on PlatformException catch (e) {
       if (e.message.contains('PERMISSION_DENIED')) {

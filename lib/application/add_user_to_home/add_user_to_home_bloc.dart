@@ -41,14 +41,10 @@ class AddUserToHomeBloc extends Bloc<AddUserToHomeEvent, AddUserToHomeState> {
         // );
       },
       addUserToHomeByEmail: (e) async* {
-        // final isPasswordValid = state.password.isValid();
-        // if (isEmailValid && isPasswordValid) {
-        // yield state.copyWith(
-        // isSubmitting: true,
-        // authFailureOrSuccessOption: none(),
-        // );
+        yield const AddUserToHomeState.actionInProgress();
 
-        HomeUserEntity addUserHomeEntity = HomeUserEntity.empty().copyWith(
+        final HomeUserEntity addUserHomeEntity =
+            HomeUserEntity.empty().copyWith(
           email: HomeUserEmail(e.email),
           permission: HomeUserPermission('Admin'),
         );

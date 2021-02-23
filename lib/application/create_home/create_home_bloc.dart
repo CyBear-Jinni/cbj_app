@@ -27,6 +27,7 @@ class CreateHomeBloc extends Bloc<CreateHomeEvent, CreateHomeState> {
     yield* event.map(
       initialized: (e) async* {},
       createHome: (e) async* {
+        yield const CreateHomeState.loading();
         final CreateHomeEntity createHomeEntity = CreateHomeEntity(
           id: HomeUniqueId(),
           name: HomeName(e.homeName),

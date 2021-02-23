@@ -6,6 +6,7 @@ import 'package:cybear_jinni/domain/add_user_to_home/i_add_user_to_home_reposito
 import 'package:cybear_jinni/domain/home_user/home_user_entity.dart';
 import 'package:cybear_jinni/domain/home_user/home_user_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/core/firestore_helpers.dart';
+import 'package:cybear_jinni/infrastructure/core/hive_local_db/hive_local_db.dart';
 import 'package:cybear_jinni/infrastructure/home_user/home_user_dtos.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/services.dart';
@@ -79,8 +80,9 @@ class AddUserToHomeRepository implements IAddUserToHomeRepository {
         email: HomeUserEmail(userDocument.get('email').toString()),
       );
 
-      create(homeUserEntityToAdd);
-      return Right(userDocument.id);
+      await create(homeUserEntityToAdd);
+      final String homeId = await HiveLocalDbHelper.getHomeId();
+      return Right(homeId);
     } catch (e) {
       return const Left(AddUserToHomeFailures.unexpected());
     }
