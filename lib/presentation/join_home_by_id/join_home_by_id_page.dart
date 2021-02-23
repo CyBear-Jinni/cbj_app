@@ -12,7 +12,7 @@ class JoinHomeByIdPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Add home by ID'),
       ),
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: Colors.blueAccent.withOpacity(0.7),
       body: BlocProvider(
         create: (context) => getIt<JoinHomeByIdBloc>(),
         child: JoinHomeByIdWidget(),

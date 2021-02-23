@@ -3,6 +3,7 @@ import 'package:cybear_jinni/domain/add_user_to_home/add_user_to_home_failures.d
 import 'package:cybear_jinni/domain/add_user_to_home/add_user_to_home_validators.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
+import 'package:uuid/uuid.dart';
 
 @immutable
 abstract class AddUserToHomeValueObjectAbstract<T> {
@@ -36,6 +37,22 @@ abstract class AddUserToHomeValueObjectAbstract<T> {
   int get hashCode => value.hashCode;
 }
 
+class AddUserToHomeUniqueId extends AddUserToHomeValueObjectAbstract<String> {
+  factory AddUserToHomeUniqueId() {
+    return AddUserToHomeUniqueId._(right(Uuid().v1()));
+  }
+
+  factory AddUserToHomeUniqueId.fromUniqueString(String uniqueId) {
+    assert(uniqueId != null);
+    return AddUserToHomeUniqueId._(right(uniqueId));
+  }
+
+  AddUserToHomeUniqueId._(this.value);
+
+  @override
+  final Either<AddUserToHomeFailures<String>, String> value;
+}
+
 class AddUserToHomeEmail extends AddUserToHomeValueObjectAbstract<String> {
   @override
   final Either<AddUserToHomeFailures<String>, String> value;
@@ -50,6 +67,20 @@ class AddUserToHomeEmail extends AddUserToHomeValueObjectAbstract<String> {
   }
 
   const AddUserToHomeEmail._(this.value);
+}
+
+class AddUserToHomeName extends AddUserToHomeValueObjectAbstract<String> {
+  @override
+  final Either<AddUserToHomeFailures<String>, String> value;
+
+  factory AddUserToHomeName(String input) {
+    assert(input != null);
+    return AddUserToHomeName._(
+      validateAddUserToHomeEmailNotEmpty(input),
+    );
+  }
+
+  const AddUserToHomeName._(this.value);
 }
 
 class AddUserToHomePermission extends AddUserToHomeValueObjectAbstract<String> {

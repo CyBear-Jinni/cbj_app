@@ -63,12 +63,18 @@ class JoinHomeByIdWidget extends StatelessWidget {
                   width: 30,
                 ),
                 SizedBox(
-                  width: 300,
+                  width: 250,
                   child: TextFormField(
-                    decoration: const InputDecoration(
-                      prefixIcon: Icon(Icons.login),
+                    style: const TextStyle(color: Colors.white),
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.greenAccent.withOpacity(0.3),
+                      prefixIcon: const Icon(
+                        Icons.login,
+                        color: Colors.white,
+                      ),
                       labelText: 'Home ID',
-                      labelStyle: TextStyle(color: Colors.white),
+                      labelStyle: const TextStyle(color: Colors.white),
                     ),
                     autocorrect: false,
                     onChanged: (value) {

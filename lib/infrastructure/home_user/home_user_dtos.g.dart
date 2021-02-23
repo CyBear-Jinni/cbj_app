@@ -10,6 +10,7 @@ _$_HomeUserDtos _$_$_HomeUserDtosFromJson(Map<String, dynamic> json) {
   return _$_HomeUserDtos(
     email: json['email'] as String,
     name: json['name'] as String,
+    permission: json['permission'] as String,
   );
 }
 
@@ -17,4 +18,5 @@ Map<String, dynamic> _$_$_HomeUserDtosToJson(_$_HomeUserDtos instance) =>
     <String, dynamic>{
       'email': instance.email,
       'name': instance.name,
+      'permission': instance.permission,
     };

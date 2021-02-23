@@ -84,3 +84,19 @@ class HomeUserName extends HomeUserValueObjectAbstract<String> {
 
   const HomeUserName._(this.value);
 }
+
+class HomeUserPermission extends HomeUserValueObjectAbstract<String> {
+  @override
+  final Either<HomeUserFailures<String>, String> value;
+
+  static const maxLength = 1000;
+
+  factory HomeUserPermission(String input) {
+    assert(input != null);
+    return HomeUserPermission._(
+      validateHomeUserNameNotEmpty(input),
+    );
+  }
+
+  const HomeUserPermission._(this.value);
+}

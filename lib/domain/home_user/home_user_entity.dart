@@ -13,12 +13,14 @@ abstract class HomeUserEntity implements _$HomeUserEntity {
     @required HomeUserUniqueId id,
     @required HomeUserEmail email,
     @required HomeUserName name,
+    @required HomeUserPermission permission,
   }) = _HomeUserEntity;
 
   factory HomeUserEntity.empty() => HomeUserEntity(
         id: HomeUserUniqueId(),
         email: HomeUserEmail(''),
         name: HomeUserName(''),
+        permission: HomeUserPermission(''),
       );
 
   Option<HomeUserFailures<dynamic>> get failureOption {

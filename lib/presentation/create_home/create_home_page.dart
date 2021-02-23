@@ -7,16 +7,28 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 /// Loading page when initializing new home
 class CreateHomePage extends StatelessWidget {
+  void backButtonFunction(BuildContext context) {
+    Navigator.pop(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Initializing New Smart Home'),
+        title: const Text('Home Information'),
       ),
-      body: BlocProvider(
-        create: (context) =>
-            getIt<CreateHomeBloc>()..add(const CreateHomeEvent.initialized()),
-        child: CreateHomeWidget(),
+      backgroundColor: Colors.blueAccent.withOpacity(0.7),
+      body: Column(
+        children: [
+          const SizedBox(
+            height: 30,
+          ),
+          BlocProvider(
+            create: (context) => getIt<CreateHomeBloc>()
+              ..add(const CreateHomeEvent.initialized()),
+            child: CreateHomeWidget(),
+          ),
+        ],
       ),
     );
   }

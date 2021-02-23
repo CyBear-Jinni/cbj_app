@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:cybear_jinni/domain/auth/auth_failure.dart';
+import 'package:cybear_jinni/domain/create_home/create_home_entity.dart';
+import 'package:cybear_jinni/domain/create_home/create_home_value_objects.dart';
 import 'package:cybear_jinni/domain/create_home/i_create_home_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -23,10 +25,20 @@ class CreateHomeBloc extends Bloc<CreateHomeEvent, CreateHomeState> {
     CreateHomeEvent event,
   ) async* {
     yield* event.map(
-      initialized: (e) async* {
-        final initialization = await _createHomeRepository.createNewHome();
+      initialized: (e) async* {},
+      createHome: (e) async* {
+        final CreateHomeEntity createHomeEntity = CreateHomeEntity(
+          id: HomeUniqueId(),
+          name: HomeName(e.homeName),
+          homeDevicesUserEmail: HomeDevicesUserEmail(e.devicesEmail),
+          homeDevicesUserPassword: HomeDevicesUserPassword(),
+        );
+
+        final initialization =
+            await _createHomeRepository.createNewHome(createHomeEntity);
+
         yield initialization.fold(
-          () => const CreateHomeState.error(),
+          (_) => const CreateHomeState.error(),
           (_) => const CreateHomeState.loaded(),
         );
       },

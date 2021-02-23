@@ -47,10 +47,16 @@ class AddUserToHomeWidget extends StatelessWidget {
                 SizedBox(
                   width: 300,
                   child: TextFormField(
-                    decoration: const InputDecoration(
-                      prefixIcon: Icon(Icons.email),
-                      labelText: 'Email',
-                    ),
+                    style: const TextStyle(color: Colors.white),
+                    decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.greenAccent.withOpacity(0.3),
+                        prefixIcon: const Icon(
+                          Icons.alternate_email,
+                          color: Colors.white,
+                        ),
+                        labelText: 'Email',
+                        labelStyle: const TextStyle(color: Colors.white)),
                     autocorrect: false,
                     onChanged: (value) {
                       userToAddEmail = value;
@@ -68,7 +74,10 @@ class AddUserToHomeWidget extends StatelessWidget {
                 context.read<AddUserToHomeBloc>().add(
                     AddUserToHomeEvent.addUserToHomeByEmail(userToAddEmail));
               },
-              child: const Text('Add User'),
+              child: const Text(
+                'Add User',
+                style: TextStyle(color: Colors.white),
+              ),
             ),
             state.map(
               (value) => const SizedBox(),

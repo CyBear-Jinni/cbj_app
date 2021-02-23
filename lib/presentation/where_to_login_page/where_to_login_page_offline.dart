@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
-import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -16,16 +15,12 @@ class WhereToLoginPageOffline extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepPurpleAccent[100],
+      appBar: AppBar(
+        title: const Text('Choose type of login'),
+      ),
+      backgroundColor: Colors.deepPurpleAccent[200].withOpacity(0.6),
       body: Column(
         children: <Widget>[
-          TopNavigationBar(
-            'Choose type of login',
-            null,
-            null,
-            leftIcon: FontAwesomeIcons.arrowLeft,
-            leftIconFunction: leftIconFunction,
-          ),
           const SizedBox(
             height: 30,
           ),

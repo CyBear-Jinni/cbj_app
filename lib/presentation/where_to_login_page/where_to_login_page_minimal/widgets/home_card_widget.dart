@@ -53,7 +53,7 @@ class HomeCardWidget extends StatelessWidget {
             child: Center(
               child: ListTile(
                 leading: const FaIcon(
-                  FontAwesomeIcons.userGraduate,
+                  FontAwesomeIcons.houseUser,
                   color: Colors.white,
                 ),
                 title: Row(

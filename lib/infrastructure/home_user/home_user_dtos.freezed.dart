@@ -20,11 +20,13 @@ class _$HomeUserDtosTearOff {
   _HomeUserDtos call(
       {@JsonKey(ignore: true) String id,
       @required String email,
-      @required String name}) {
+      @required String name,
+      @required String permission}) {
     return _HomeUserDtos(
       id: id,
       email: email,
       name: name,
+      permission: permission,
     );
   }
 
@@ -41,9 +43,10 @@ const $HomeUserDtos = _$HomeUserDtosTearOff();
 /// @nodoc
 mixin _$HomeUserDtos {
   @JsonKey(ignore: true)
-  String get id; // @required String defaultName,
+  String get id;
   String get email;
   String get name;
+  String get permission;
 
   Map<String, dynamic> toJson();
   @JsonKey(ignore: true)
@@ -55,7 +58,11 @@ abstract class $HomeUserDtosCopyWith<$Res> {
   factory $HomeUserDtosCopyWith(
           HomeUserDtos value, $Res Function(HomeUserDtos) then) =
       _$HomeUserDtosCopyWithImpl<$Res>;
-  $Res call({@JsonKey(ignore: true) String id, String email, String name});
+  $Res call(
+      {@JsonKey(ignore: true) String id,
+      String email,
+      String name,
+      String permission});
 }
 
 /// @nodoc
@@ -71,11 +78,14 @@ class _$HomeUserDtosCopyWithImpl<$Res> implements $HomeUserDtosCopyWith<$Res> {
     Object id = freezed,
     Object email = freezed,
     Object name = freezed,
+    Object permission = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as String,
       email: email == freezed ? _value.email : email as String,
       name: name == freezed ? _value.name : name as String,
+      permission:
+          permission == freezed ? _value.permission : permission as String,
     ));
   }
 }
@@ -87,7 +97,11 @@ abstract class _$HomeUserDtosCopyWith<$Res>
           _HomeUserDtos value, $Res Function(_HomeUserDtos) then) =
       __$HomeUserDtosCopyWithImpl<$Res>;
   @override
-  $Res call({@JsonKey(ignore: true) String id, String email, String name});
+  $Res call(
+      {@JsonKey(ignore: true) String id,
+      String email,
+      String name,
+      String permission});
 }
 
 /// @nodoc
@@ -105,11 +119,14 @@ class __$HomeUserDtosCopyWithImpl<$Res> extends _$HomeUserDtosCopyWithImpl<$Res>
     Object id = freezed,
     Object email = freezed,
     Object name = freezed,
+    Object permission = freezed,
   }) {
     return _then(_HomeUserDtos(
       id: id == freezed ? _value.id : id as String,
       email: email == freezed ? _value.email : email as String,
       name: name == freezed ? _value.name : name as String,
+      permission:
+          permission == freezed ? _value.permission : permission as String,
     ));
   }
 }
@@ -121,9 +138,11 @@ class _$_HomeUserDtos extends _HomeUserDtos {
   const _$_HomeUserDtos(
       {@JsonKey(ignore: true) this.id,
       @required this.email,
-      @required this.name})
+      @required this.name,
+      @required this.permission})
       : assert(email != null),
         assert(name != null),
+        assert(permission != null),
         super._();
 
   factory _$_HomeUserDtos.fromJson(Map<String, dynamic> json) =>
@@ -132,14 +151,16 @@ class _$_HomeUserDtos extends _HomeUserDtos {
   @override
   @JsonKey(ignore: true)
   final String id;
-  @override // @required String defaultName,
+  @override
   final String email;
   @override
   final String name;
+  @override
+  final String permission;
 
   @override
   String toString() {
-    return 'HomeUserDtos(id: $id, email: $email, name: $name)';
+    return 'HomeUserDtos(id: $id, email: $email, name: $name, permission: $permission)';
   }
 
   @override
@@ -151,7 +172,10 @@ class _$_HomeUserDtos extends _HomeUserDtos {
             (identical(other.email, email) ||
                 const DeepCollectionEquality().equals(other.email, email)) &&
             (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)));
+                const DeepCollectionEquality().equals(other.name, name)) &&
+            (identical(other.permission, permission) ||
+                const DeepCollectionEquality()
+                    .equals(other.permission, permission)));
   }
 
   @override
@@ -159,7 +183,8 @@ class _$_HomeUserDtos extends _HomeUserDtos {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(email) ^
-      const DeepCollectionEquality().hash(name);
+      const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(permission);
 
   @JsonKey(ignore: true)
   @override
@@ -177,7 +202,8 @@ abstract class _HomeUserDtos extends HomeUserDtos {
   const factory _HomeUserDtos(
       {@JsonKey(ignore: true) String id,
       @required String email,
-      @required String name}) = _$_HomeUserDtos;
+      @required String name,
+      @required String permission}) = _$_HomeUserDtos;
 
   factory _HomeUserDtos.fromJson(Map<String, dynamic> json) =
       _$_HomeUserDtos.fromJson;
@@ -185,10 +211,12 @@ abstract class _HomeUserDtos extends HomeUserDtos {
   @override
   @JsonKey(ignore: true)
   String get id;
-  @override // @required String defaultName,
+  @override
   String get email;
   @override
   String get name;
+  @override
+  String get permission;
   @override
   @JsonKey(ignore: true)
   _$HomeUserDtosCopyWith<_HomeUserDtos> get copyWith;

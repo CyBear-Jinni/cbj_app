@@ -59,7 +59,8 @@ class FirebaseAuthFacade implements IAuthFacade {
         lastName: UserLastName(' '),
       );
 
-      await getIt<IUserRepository>().create(userEntity);
+      final resgistarOutput = await getIt<IUserRepository>().create(userEntity);
+      resgistarOutput.getOrElse(() => throw NotAuthenticatedError());
 
       return right(unit);
     } on FirebaseAuthException catch (e) {

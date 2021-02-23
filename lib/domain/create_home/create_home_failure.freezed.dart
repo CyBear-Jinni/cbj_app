@@ -14,18 +14,34 @@ class _$CreateHomeFailureTearOff {
   const _$CreateHomeFailureTearOff();
 
 // ignore: unused_element
-  _Unexpected unexpected() {
-    return const _Unexpected();
+  _Empty<T> empty<T>({@required T failedValue}) {
+    return _Empty<T>(
+      failedValue: failedValue,
+    );
   }
 
 // ignore: unused_element
-  _InsufficientPermission insufficientPermission() {
-    return const _InsufficientPermission();
+  _Unexpected<T> unexpected<T>({@required T failedValue}) {
+    return _Unexpected<T>(
+      failedValue: failedValue,
+    );
   }
 
 // ignore: unused_element
-  _UnableToUpdate unableToUpdate() {
-    return const _UnableToUpdate();
+  _DevicesUserEmailIsInvalid<T> devicesUserEmailIsInvalid<T>() {
+    return _DevicesUserEmailIsInvalid<T>();
+  }
+
+// ignore: unused_element
+  _InsufficientPermission<T> insufficientPermission<T>() {
+    return _InsufficientPermission<T>();
+  }
+
+// ignore: unused_element
+  _UnableToUpdate<T> unableToUpdate<T>({@required T failedValue}) {
+    return _UnableToUpdate<T>(
+      failedValue: failedValue,
+    );
   }
 }
 
@@ -34,112 +50,149 @@ class _$CreateHomeFailureTearOff {
 const $CreateHomeFailure = _$CreateHomeFailureTearOff();
 
 /// @nodoc
-mixin _$CreateHomeFailure {
+mixin _$CreateHomeFailure<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult unexpected(),
+    @required TResult empty(T failedValue),
+    @required TResult unexpected(T failedValue),
+    @required TResult devicesUserEmailIsInvalid(),
     @required TResult insufficientPermission(),
-    @required TResult unableToUpdate(),
+    @required TResult unableToUpdate(T failedValue),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult unexpected(),
+    TResult empty(T failedValue),
+    TResult unexpected(T failedValue),
+    TResult devicesUserEmailIsInvalid(),
     TResult insufficientPermission(),
-    TResult unableToUpdate(),
+    TResult unableToUpdate(T failedValue),
     @required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult unexpected(_Unexpected value),
-    @required TResult insufficientPermission(_InsufficientPermission value),
-    @required TResult unableToUpdate(_UnableToUpdate value),
+    @required TResult empty(_Empty<T> value),
+    @required TResult unexpected(_Unexpected<T> value),
+    @required
+        TResult devicesUserEmailIsInvalid(_DevicesUserEmailIsInvalid<T> value),
+    @required TResult insufficientPermission(_InsufficientPermission<T> value),
+    @required TResult unableToUpdate(_UnableToUpdate<T> value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult unexpected(_Unexpected value),
-    TResult insufficientPermission(_InsufficientPermission value),
-    TResult unableToUpdate(_UnableToUpdate value),
+    TResult empty(_Empty<T> value),
+    TResult unexpected(_Unexpected<T> value),
+    TResult devicesUserEmailIsInvalid(_DevicesUserEmailIsInvalid<T> value),
+    TResult insufficientPermission(_InsufficientPermission<T> value),
+    TResult unableToUpdate(_UnableToUpdate<T> value),
     @required TResult orElse(),
   });
 }
 
 /// @nodoc
-abstract class $CreateHomeFailureCopyWith<$Res> {
-  factory $CreateHomeFailureCopyWith(
-          CreateHomeFailure value, $Res Function(CreateHomeFailure) then) =
-      _$CreateHomeFailureCopyWithImpl<$Res>;
+abstract class $CreateHomeFailureCopyWith<T, $Res> {
+  factory $CreateHomeFailureCopyWith(CreateHomeFailure<T> value,
+          $Res Function(CreateHomeFailure<T>) then) =
+      _$CreateHomeFailureCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class _$CreateHomeFailureCopyWithImpl<$Res>
-    implements $CreateHomeFailureCopyWith<$Res> {
+class _$CreateHomeFailureCopyWithImpl<T, $Res>
+    implements $CreateHomeFailureCopyWith<T, $Res> {
   _$CreateHomeFailureCopyWithImpl(this._value, this._then);
 
-  final CreateHomeFailure _value;
+  final CreateHomeFailure<T> _value;
   // ignore: unused_field
-  final $Res Function(CreateHomeFailure) _then;
+  final $Res Function(CreateHomeFailure<T>) _then;
 }
 
 /// @nodoc
-abstract class _$UnexpectedCopyWith<$Res> {
-  factory _$UnexpectedCopyWith(
-          _Unexpected value, $Res Function(_Unexpected) then) =
-      __$UnexpectedCopyWithImpl<$Res>;
+abstract class _$EmptyCopyWith<T, $Res> {
+  factory _$EmptyCopyWith(_Empty<T> value, $Res Function(_Empty<T>) then) =
+      __$EmptyCopyWithImpl<T, $Res>;
+  $Res call({T failedValue});
 }
 
 /// @nodoc
-class __$UnexpectedCopyWithImpl<$Res>
-    extends _$CreateHomeFailureCopyWithImpl<$Res>
-    implements _$UnexpectedCopyWith<$Res> {
-  __$UnexpectedCopyWithImpl(
-      _Unexpected _value, $Res Function(_Unexpected) _then)
-      : super(_value, (v) => _then(v as _Unexpected));
+class __$EmptyCopyWithImpl<T, $Res>
+    extends _$CreateHomeFailureCopyWithImpl<T, $Res>
+    implements _$EmptyCopyWith<T, $Res> {
+  __$EmptyCopyWithImpl(_Empty<T> _value, $Res Function(_Empty<T>) _then)
+      : super(_value, (v) => _then(v as _Empty<T>));
 
   @override
-  _Unexpected get _value => super._value as _Unexpected;
+  _Empty<T> get _value => super._value as _Empty<T>;
+
+  @override
+  $Res call({
+    Object failedValue = freezed,
+  }) {
+    return _then(_Empty<T>(
+      failedValue:
+          failedValue == freezed ? _value.failedValue : failedValue as T,
+    ));
+  }
 }
 
 /// @nodoc
-class _$_Unexpected implements _Unexpected {
-  const _$_Unexpected();
+class _$_Empty<T> implements _Empty<T> {
+  const _$_Empty({@required this.failedValue}) : assert(failedValue != null);
+
+  @override
+  final T failedValue;
 
   @override
   String toString() {
-    return 'CreateHomeFailure.unexpected()';
+    return 'CreateHomeFailure<$T>.empty(failedValue: $failedValue)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Unexpected);
+    return identical(this, other) ||
+        (other is _Empty<T> &&
+            (identical(other.failedValue, failedValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.failedValue, failedValue)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
+
+  @JsonKey(ignore: true)
+  @override
+  _$EmptyCopyWith<T, _Empty<T>> get copyWith =>
+      __$EmptyCopyWithImpl<T, _Empty<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult unexpected(),
+    @required TResult empty(T failedValue),
+    @required TResult unexpected(T failedValue),
+    @required TResult devicesUserEmailIsInvalid(),
     @required TResult insufficientPermission(),
-    @required TResult unableToUpdate(),
+    @required TResult unableToUpdate(T failedValue),
   }) {
+    assert(empty != null);
     assert(unexpected != null);
+    assert(devicesUserEmailIsInvalid != null);
     assert(insufficientPermission != null);
     assert(unableToUpdate != null);
-    return unexpected();
+    return empty(failedValue);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult unexpected(),
+    TResult empty(T failedValue),
+    TResult unexpected(T failedValue),
+    TResult devicesUserEmailIsInvalid(),
     TResult insufficientPermission(),
-    TResult unableToUpdate(),
+    TResult unableToUpdate(T failedValue),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (unexpected != null) {
-      return unexpected();
+    if (empty != null) {
+      return empty(failedValue);
     }
     return orElse();
   }
@@ -147,11 +200,155 @@ class _$_Unexpected implements _Unexpected {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult unexpected(_Unexpected value),
-    @required TResult insufficientPermission(_InsufficientPermission value),
-    @required TResult unableToUpdate(_UnableToUpdate value),
+    @required TResult empty(_Empty<T> value),
+    @required TResult unexpected(_Unexpected<T> value),
+    @required
+        TResult devicesUserEmailIsInvalid(_DevicesUserEmailIsInvalid<T> value),
+    @required TResult insufficientPermission(_InsufficientPermission<T> value),
+    @required TResult unableToUpdate(_UnableToUpdate<T> value),
   }) {
+    assert(empty != null);
     assert(unexpected != null);
+    assert(devicesUserEmailIsInvalid != null);
+    assert(insufficientPermission != null);
+    assert(unableToUpdate != null);
+    return empty(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult empty(_Empty<T> value),
+    TResult unexpected(_Unexpected<T> value),
+    TResult devicesUserEmailIsInvalid(_DevicesUserEmailIsInvalid<T> value),
+    TResult insufficientPermission(_InsufficientPermission<T> value),
+    TResult unableToUpdate(_UnableToUpdate<T> value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (empty != null) {
+      return empty(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Empty<T> implements CreateHomeFailure<T> {
+  const factory _Empty({@required T failedValue}) = _$_Empty<T>;
+
+  T get failedValue;
+  @JsonKey(ignore: true)
+  _$EmptyCopyWith<T, _Empty<T>> get copyWith;
+}
+
+/// @nodoc
+abstract class _$UnexpectedCopyWith<T, $Res> {
+  factory _$UnexpectedCopyWith(
+          _Unexpected<T> value, $Res Function(_Unexpected<T>) then) =
+      __$UnexpectedCopyWithImpl<T, $Res>;
+  $Res call({T failedValue});
+}
+
+/// @nodoc
+class __$UnexpectedCopyWithImpl<T, $Res>
+    extends _$CreateHomeFailureCopyWithImpl<T, $Res>
+    implements _$UnexpectedCopyWith<T, $Res> {
+  __$UnexpectedCopyWithImpl(
+      _Unexpected<T> _value, $Res Function(_Unexpected<T>) _then)
+      : super(_value, (v) => _then(v as _Unexpected<T>));
+
+  @override
+  _Unexpected<T> get _value => super._value as _Unexpected<T>;
+
+  @override
+  $Res call({
+    Object failedValue = freezed,
+  }) {
+    return _then(_Unexpected<T>(
+      failedValue:
+          failedValue == freezed ? _value.failedValue : failedValue as T,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_Unexpected<T> implements _Unexpected<T> {
+  const _$_Unexpected({@required this.failedValue})
+      : assert(failedValue != null);
+
+  @override
+  final T failedValue;
+
+  @override
+  String toString() {
+    return 'CreateHomeFailure<$T>.unexpected(failedValue: $failedValue)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _Unexpected<T> &&
+            (identical(other.failedValue, failedValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.failedValue, failedValue)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
+
+  @JsonKey(ignore: true)
+  @override
+  _$UnexpectedCopyWith<T, _Unexpected<T>> get copyWith =>
+      __$UnexpectedCopyWithImpl<T, _Unexpected<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult empty(T failedValue),
+    @required TResult unexpected(T failedValue),
+    @required TResult devicesUserEmailIsInvalid(),
+    @required TResult insufficientPermission(),
+    @required TResult unableToUpdate(T failedValue),
+  }) {
+    assert(empty != null);
+    assert(unexpected != null);
+    assert(devicesUserEmailIsInvalid != null);
+    assert(insufficientPermission != null);
+    assert(unableToUpdate != null);
+    return unexpected(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult empty(T failedValue),
+    TResult unexpected(T failedValue),
+    TResult devicesUserEmailIsInvalid(),
+    TResult insufficientPermission(),
+    TResult unableToUpdate(T failedValue),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (unexpected != null) {
+      return unexpected(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult empty(_Empty<T> value),
+    @required TResult unexpected(_Unexpected<T> value),
+    @required
+        TResult devicesUserEmailIsInvalid(_DevicesUserEmailIsInvalid<T> value),
+    @required TResult insufficientPermission(_InsufficientPermission<T> value),
+    @required TResult unableToUpdate(_UnableToUpdate<T> value),
+  }) {
+    assert(empty != null);
+    assert(unexpected != null);
+    assert(devicesUserEmailIsInvalid != null);
     assert(insufficientPermission != null);
     assert(unableToUpdate != null);
     return unexpected(this);
@@ -160,9 +357,11 @@ class _$_Unexpected implements _Unexpected {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult unexpected(_Unexpected value),
-    TResult insufficientPermission(_InsufficientPermission value),
-    TResult unableToUpdate(_UnableToUpdate value),
+    TResult empty(_Empty<T> value),
+    TResult unexpected(_Unexpected<T> value),
+    TResult devicesUserEmailIsInvalid(_DevicesUserEmailIsInvalid<T> value),
+    TResult insufficientPermission(_InsufficientPermission<T> value),
+    TResult unableToUpdate(_UnableToUpdate<T> value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -173,41 +372,47 @@ class _$_Unexpected implements _Unexpected {
   }
 }
 
-abstract class _Unexpected implements CreateHomeFailure {
-  const factory _Unexpected() = _$_Unexpected;
+abstract class _Unexpected<T> implements CreateHomeFailure<T> {
+  const factory _Unexpected({@required T failedValue}) = _$_Unexpected<T>;
+
+  T get failedValue;
+  @JsonKey(ignore: true)
+  _$UnexpectedCopyWith<T, _Unexpected<T>> get copyWith;
 }
 
 /// @nodoc
-abstract class _$InsufficientPermissionCopyWith<$Res> {
-  factory _$InsufficientPermissionCopyWith(_InsufficientPermission value,
-          $Res Function(_InsufficientPermission) then) =
-      __$InsufficientPermissionCopyWithImpl<$Res>;
+abstract class _$DevicesUserEmailIsInvalidCopyWith<T, $Res> {
+  factory _$DevicesUserEmailIsInvalidCopyWith(
+          _DevicesUserEmailIsInvalid<T> value,
+          $Res Function(_DevicesUserEmailIsInvalid<T>) then) =
+      __$DevicesUserEmailIsInvalidCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$InsufficientPermissionCopyWithImpl<$Res>
-    extends _$CreateHomeFailureCopyWithImpl<$Res>
-    implements _$InsufficientPermissionCopyWith<$Res> {
-  __$InsufficientPermissionCopyWithImpl(_InsufficientPermission _value,
-      $Res Function(_InsufficientPermission) _then)
-      : super(_value, (v) => _then(v as _InsufficientPermission));
+class __$DevicesUserEmailIsInvalidCopyWithImpl<T, $Res>
+    extends _$CreateHomeFailureCopyWithImpl<T, $Res>
+    implements _$DevicesUserEmailIsInvalidCopyWith<T, $Res> {
+  __$DevicesUserEmailIsInvalidCopyWithImpl(_DevicesUserEmailIsInvalid<T> _value,
+      $Res Function(_DevicesUserEmailIsInvalid<T>) _then)
+      : super(_value, (v) => _then(v as _DevicesUserEmailIsInvalid<T>));
 
   @override
-  _InsufficientPermission get _value => super._value as _InsufficientPermission;
+  _DevicesUserEmailIsInvalid<T> get _value =>
+      super._value as _DevicesUserEmailIsInvalid<T>;
 }
 
 /// @nodoc
-class _$_InsufficientPermission implements _InsufficientPermission {
-  const _$_InsufficientPermission();
+class _$_DevicesUserEmailIsInvalid<T> implements _DevicesUserEmailIsInvalid<T> {
+  const _$_DevicesUserEmailIsInvalid();
 
   @override
   String toString() {
-    return 'CreateHomeFailure.insufficientPermission()';
+    return 'CreateHomeFailure<$T>.devicesUserEmailIsInvalid()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _InsufficientPermission);
+    return identical(this, other) || (other is _DevicesUserEmailIsInvalid<T>);
   }
 
   @override
@@ -216,11 +421,126 @@ class _$_InsufficientPermission implements _InsufficientPermission {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult unexpected(),
+    @required TResult empty(T failedValue),
+    @required TResult unexpected(T failedValue),
+    @required TResult devicesUserEmailIsInvalid(),
     @required TResult insufficientPermission(),
-    @required TResult unableToUpdate(),
+    @required TResult unableToUpdate(T failedValue),
   }) {
+    assert(empty != null);
     assert(unexpected != null);
+    assert(devicesUserEmailIsInvalid != null);
+    assert(insufficientPermission != null);
+    assert(unableToUpdate != null);
+    return devicesUserEmailIsInvalid();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult empty(T failedValue),
+    TResult unexpected(T failedValue),
+    TResult devicesUserEmailIsInvalid(),
+    TResult insufficientPermission(),
+    TResult unableToUpdate(T failedValue),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (devicesUserEmailIsInvalid != null) {
+      return devicesUserEmailIsInvalid();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult empty(_Empty<T> value),
+    @required TResult unexpected(_Unexpected<T> value),
+    @required
+        TResult devicesUserEmailIsInvalid(_DevicesUserEmailIsInvalid<T> value),
+    @required TResult insufficientPermission(_InsufficientPermission<T> value),
+    @required TResult unableToUpdate(_UnableToUpdate<T> value),
+  }) {
+    assert(empty != null);
+    assert(unexpected != null);
+    assert(devicesUserEmailIsInvalid != null);
+    assert(insufficientPermission != null);
+    assert(unableToUpdate != null);
+    return devicesUserEmailIsInvalid(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult empty(_Empty<T> value),
+    TResult unexpected(_Unexpected<T> value),
+    TResult devicesUserEmailIsInvalid(_DevicesUserEmailIsInvalid<T> value),
+    TResult insufficientPermission(_InsufficientPermission<T> value),
+    TResult unableToUpdate(_UnableToUpdate<T> value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (devicesUserEmailIsInvalid != null) {
+      return devicesUserEmailIsInvalid(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DevicesUserEmailIsInvalid<T> implements CreateHomeFailure<T> {
+  const factory _DevicesUserEmailIsInvalid() = _$_DevicesUserEmailIsInvalid<T>;
+}
+
+/// @nodoc
+abstract class _$InsufficientPermissionCopyWith<T, $Res> {
+  factory _$InsufficientPermissionCopyWith(_InsufficientPermission<T> value,
+          $Res Function(_InsufficientPermission<T>) then) =
+      __$InsufficientPermissionCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$InsufficientPermissionCopyWithImpl<T, $Res>
+    extends _$CreateHomeFailureCopyWithImpl<T, $Res>
+    implements _$InsufficientPermissionCopyWith<T, $Res> {
+  __$InsufficientPermissionCopyWithImpl(_InsufficientPermission<T> _value,
+      $Res Function(_InsufficientPermission<T>) _then)
+      : super(_value, (v) => _then(v as _InsufficientPermission<T>));
+
+  @override
+  _InsufficientPermission<T> get _value =>
+      super._value as _InsufficientPermission<T>;
+}
+
+/// @nodoc
+class _$_InsufficientPermission<T> implements _InsufficientPermission<T> {
+  const _$_InsufficientPermission();
+
+  @override
+  String toString() {
+    return 'CreateHomeFailure<$T>.insufficientPermission()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _InsufficientPermission<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult empty(T failedValue),
+    @required TResult unexpected(T failedValue),
+    @required TResult devicesUserEmailIsInvalid(),
+    @required TResult insufficientPermission(),
+    @required TResult unableToUpdate(T failedValue),
+  }) {
+    assert(empty != null);
+    assert(unexpected != null);
+    assert(devicesUserEmailIsInvalid != null);
     assert(insufficientPermission != null);
     assert(unableToUpdate != null);
     return insufficientPermission();
@@ -229,9 +549,11 @@ class _$_InsufficientPermission implements _InsufficientPermission {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult unexpected(),
+    TResult empty(T failedValue),
+    TResult unexpected(T failedValue),
+    TResult devicesUserEmailIsInvalid(),
     TResult insufficientPermission(),
-    TResult unableToUpdate(),
+    TResult unableToUpdate(T failedValue),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -244,11 +566,16 @@ class _$_InsufficientPermission implements _InsufficientPermission {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult unexpected(_Unexpected value),
-    @required TResult insufficientPermission(_InsufficientPermission value),
-    @required TResult unableToUpdate(_UnableToUpdate value),
+    @required TResult empty(_Empty<T> value),
+    @required TResult unexpected(_Unexpected<T> value),
+    @required
+        TResult devicesUserEmailIsInvalid(_DevicesUserEmailIsInvalid<T> value),
+    @required TResult insufficientPermission(_InsufficientPermission<T> value),
+    @required TResult unableToUpdate(_UnableToUpdate<T> value),
   }) {
+    assert(empty != null);
     assert(unexpected != null);
+    assert(devicesUserEmailIsInvalid != null);
     assert(insufficientPermission != null);
     assert(unableToUpdate != null);
     return insufficientPermission(this);
@@ -257,9 +584,11 @@ class _$_InsufficientPermission implements _InsufficientPermission {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult unexpected(_Unexpected value),
-    TResult insufficientPermission(_InsufficientPermission value),
-    TResult unableToUpdate(_UnableToUpdate value),
+    TResult empty(_Empty<T> value),
+    TResult unexpected(_Unexpected<T> value),
+    TResult devicesUserEmailIsInvalid(_DevicesUserEmailIsInvalid<T> value),
+    TResult insufficientPermission(_InsufficientPermission<T> value),
+    TResult unableToUpdate(_UnableToUpdate<T> value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -270,70 +599,101 @@ class _$_InsufficientPermission implements _InsufficientPermission {
   }
 }
 
-abstract class _InsufficientPermission implements CreateHomeFailure {
-  const factory _InsufficientPermission() = _$_InsufficientPermission;
+abstract class _InsufficientPermission<T> implements CreateHomeFailure<T> {
+  const factory _InsufficientPermission() = _$_InsufficientPermission<T>;
 }
 
 /// @nodoc
-abstract class _$UnableToUpdateCopyWith<$Res> {
+abstract class _$UnableToUpdateCopyWith<T, $Res> {
   factory _$UnableToUpdateCopyWith(
-          _UnableToUpdate value, $Res Function(_UnableToUpdate) then) =
-      __$UnableToUpdateCopyWithImpl<$Res>;
+          _UnableToUpdate<T> value, $Res Function(_UnableToUpdate<T>) then) =
+      __$UnableToUpdateCopyWithImpl<T, $Res>;
+  $Res call({T failedValue});
 }
 
 /// @nodoc
-class __$UnableToUpdateCopyWithImpl<$Res>
-    extends _$CreateHomeFailureCopyWithImpl<$Res>
-    implements _$UnableToUpdateCopyWith<$Res> {
+class __$UnableToUpdateCopyWithImpl<T, $Res>
+    extends _$CreateHomeFailureCopyWithImpl<T, $Res>
+    implements _$UnableToUpdateCopyWith<T, $Res> {
   __$UnableToUpdateCopyWithImpl(
-      _UnableToUpdate _value, $Res Function(_UnableToUpdate) _then)
-      : super(_value, (v) => _then(v as _UnableToUpdate));
+      _UnableToUpdate<T> _value, $Res Function(_UnableToUpdate<T>) _then)
+      : super(_value, (v) => _then(v as _UnableToUpdate<T>));
 
   @override
-  _UnableToUpdate get _value => super._value as _UnableToUpdate;
+  _UnableToUpdate<T> get _value => super._value as _UnableToUpdate<T>;
+
+  @override
+  $Res call({
+    Object failedValue = freezed,
+  }) {
+    return _then(_UnableToUpdate<T>(
+      failedValue:
+          failedValue == freezed ? _value.failedValue : failedValue as T,
+    ));
+  }
 }
 
 /// @nodoc
-class _$_UnableToUpdate implements _UnableToUpdate {
-  const _$_UnableToUpdate();
+class _$_UnableToUpdate<T> implements _UnableToUpdate<T> {
+  const _$_UnableToUpdate({@required this.failedValue})
+      : assert(failedValue != null);
+
+  @override
+  final T failedValue;
 
   @override
   String toString() {
-    return 'CreateHomeFailure.unableToUpdate()';
+    return 'CreateHomeFailure<$T>.unableToUpdate(failedValue: $failedValue)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _UnableToUpdate);
+    return identical(this, other) ||
+        (other is _UnableToUpdate<T> &&
+            (identical(other.failedValue, failedValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.failedValue, failedValue)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
+
+  @JsonKey(ignore: true)
+  @override
+  _$UnableToUpdateCopyWith<T, _UnableToUpdate<T>> get copyWith =>
+      __$UnableToUpdateCopyWithImpl<T, _UnableToUpdate<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult unexpected(),
+    @required TResult empty(T failedValue),
+    @required TResult unexpected(T failedValue),
+    @required TResult devicesUserEmailIsInvalid(),
     @required TResult insufficientPermission(),
-    @required TResult unableToUpdate(),
+    @required TResult unableToUpdate(T failedValue),
   }) {
+    assert(empty != null);
     assert(unexpected != null);
+    assert(devicesUserEmailIsInvalid != null);
     assert(insufficientPermission != null);
     assert(unableToUpdate != null);
-    return unableToUpdate();
+    return unableToUpdate(failedValue);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult unexpected(),
+    TResult empty(T failedValue),
+    TResult unexpected(T failedValue),
+    TResult devicesUserEmailIsInvalid(),
     TResult insufficientPermission(),
-    TResult unableToUpdate(),
+    TResult unableToUpdate(T failedValue),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (unableToUpdate != null) {
-      return unableToUpdate();
+      return unableToUpdate(failedValue);
     }
     return orElse();
   }
@@ -341,11 +701,16 @@ class _$_UnableToUpdate implements _UnableToUpdate {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult unexpected(_Unexpected value),
-    @required TResult insufficientPermission(_InsufficientPermission value),
-    @required TResult unableToUpdate(_UnableToUpdate value),
+    @required TResult empty(_Empty<T> value),
+    @required TResult unexpected(_Unexpected<T> value),
+    @required
+        TResult devicesUserEmailIsInvalid(_DevicesUserEmailIsInvalid<T> value),
+    @required TResult insufficientPermission(_InsufficientPermission<T> value),
+    @required TResult unableToUpdate(_UnableToUpdate<T> value),
   }) {
+    assert(empty != null);
     assert(unexpected != null);
+    assert(devicesUserEmailIsInvalid != null);
     assert(insufficientPermission != null);
     assert(unableToUpdate != null);
     return unableToUpdate(this);
@@ -354,9 +719,11 @@ class _$_UnableToUpdate implements _UnableToUpdate {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult unexpected(_Unexpected value),
-    TResult insufficientPermission(_InsufficientPermission value),
-    TResult unableToUpdate(_UnableToUpdate value),
+    TResult empty(_Empty<T> value),
+    TResult unexpected(_Unexpected<T> value),
+    TResult devicesUserEmailIsInvalid(_DevicesUserEmailIsInvalid<T> value),
+    TResult insufficientPermission(_InsufficientPermission<T> value),
+    TResult unableToUpdate(_UnableToUpdate<T> value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -367,6 +734,11 @@ class _$_UnableToUpdate implements _UnableToUpdate {
   }
 }
 
-abstract class _UnableToUpdate implements CreateHomeFailure {
-  const factory _UnableToUpdate() = _$_UnableToUpdate;
+abstract class _UnableToUpdate<T> implements CreateHomeFailure<T> {
+  const factory _UnableToUpdate({@required T failedValue}) =
+      _$_UnableToUpdate<T>;
+
+  T get failedValue;
+  @JsonKey(ignore: true)
+  _$UnableToUpdateCopyWith<T, _UnableToUpdate<T>> get copyWith;
 }

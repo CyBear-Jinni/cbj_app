@@ -3,7 +3,6 @@ import 'package:cybear_jinni/application/auth/auth_bloc.dart';
 import 'package:cybear_jinni/application/user_homes_list/user_homes_list_bloc.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
-import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
 import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_page_minimal/widgets/user_homes_list_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -22,16 +21,12 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepPurpleAccent[100],
+      backgroundColor: Colors.deepPurpleAccent[200].withOpacity(0.6),
+      appBar: AppBar(
+        title: const Text('Choose type of login'),
+      ),
       body: Column(
         children: <Widget>[
-          TopNavigationBar(
-            'Choose type of login',
-            null,
-            null,
-            leftIcon: FontAwesomeIcons.arrowLeft,
-            leftIconFunction: backButtonFunction,
-          ),
           const SizedBox(
             height: 30,
           ),
@@ -57,7 +52,7 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
                   minWidth: MediaQuery.of(context).size.width,
                   color: Colors.blue,
                   onPressed: () {
-                    ExtendedNavigator.of(context).replace(
+                    ExtendedNavigator.of(context).push(
                       Routes.createHomePage,
                     );
                   },
@@ -118,7 +113,7 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
                   width: double.infinity,
                   color: Colors.black87,
                   child: const Center(
-                    child: const Text(
+                    child: Text(
                       'Homes you have add',
                       style: TextStyle(fontSize: 20),
                     ),

@@ -1,5 +1,5 @@
-import 'package:cybear_jinni/domain/add_user_to_home/add_user_to_home_entity.dart';
 import 'package:cybear_jinni/domain/add_user_to_home/add_user_to_home_failures.dart';
+import 'package:cybear_jinni/domain/home_user/home_user_entity.dart';
 import 'package:dartz/dartz.dart';
 
 abstract class IAddUserToHomeRepository {
@@ -10,5 +10,8 @@ abstract class IAddUserToHomeRepository {
   // C Read UD
 
   Future<Either<AddUserToHomeFailures, String>> add(
-      AddUserToHomeEntity addUserHomeEntity);
+      HomeUserEntity homeUserEntity);
+
+  Future<Either<AddUserToHomeFailures, Unit>> create(
+      HomeUserEntity homeUserEntity);
 }

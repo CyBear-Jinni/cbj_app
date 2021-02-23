@@ -17,6 +17,14 @@ class _$CreateHomeEventTearOff {
   Initialized initialized() {
     return const Initialized();
   }
+
+// ignore: unused_element
+  _CreateHome createHome(String homeName, String devicesEmail) {
+    return _CreateHome(
+      homeName,
+      devicesEmail,
+    );
+  }
 }
 
 /// @nodoc
@@ -28,19 +36,23 @@ mixin _$CreateHomeEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult initialized(),
+    @required TResult createHome(String homeName, String devicesEmail),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initialized(),
+    TResult createHome(String homeName, String devicesEmail),
     @required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult initialized(Initialized value),
+    @required TResult createHome(_CreateHome value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult initialized(Initialized value),
+    TResult createHome(_CreateHome value),
     @required TResult orElse(),
   });
 }
@@ -102,8 +114,10 @@ class _$Initialized implements Initialized {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult initialized(),
+    @required TResult createHome(String homeName, String devicesEmail),
   }) {
     assert(initialized != null);
+    assert(createHome != null);
     return initialized();
   }
 
@@ -111,6 +125,7 @@ class _$Initialized implements Initialized {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initialized(),
+    TResult createHome(String homeName, String devicesEmail),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -124,8 +139,10 @@ class _$Initialized implements Initialized {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult initialized(Initialized value),
+    @required TResult createHome(_CreateHome value),
   }) {
     assert(initialized != null);
+    assert(createHome != null);
     return initialized(this);
   }
 
@@ -133,6 +150,7 @@ class _$Initialized implements Initialized {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult initialized(Initialized value),
+    TResult createHome(_CreateHome value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -145,6 +163,137 @@ class _$Initialized implements Initialized {
 
 abstract class Initialized implements CreateHomeEvent {
   const factory Initialized() = _$Initialized;
+}
+
+/// @nodoc
+abstract class _$CreateHomeCopyWith<$Res> {
+  factory _$CreateHomeCopyWith(
+          _CreateHome value, $Res Function(_CreateHome) then) =
+      __$CreateHomeCopyWithImpl<$Res>;
+  $Res call({String homeName, String devicesEmail});
+}
+
+/// @nodoc
+class __$CreateHomeCopyWithImpl<$Res>
+    extends _$CreateHomeEventCopyWithImpl<$Res>
+    implements _$CreateHomeCopyWith<$Res> {
+  __$CreateHomeCopyWithImpl(
+      _CreateHome _value, $Res Function(_CreateHome) _then)
+      : super(_value, (v) => _then(v as _CreateHome));
+
+  @override
+  _CreateHome get _value => super._value as _CreateHome;
+
+  @override
+  $Res call({
+    Object homeName = freezed,
+    Object devicesEmail = freezed,
+  }) {
+    return _then(_CreateHome(
+      homeName == freezed ? _value.homeName : homeName as String,
+      devicesEmail == freezed ? _value.devicesEmail : devicesEmail as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_CreateHome implements _CreateHome {
+  const _$_CreateHome(this.homeName, this.devicesEmail)
+      : assert(homeName != null),
+        assert(devicesEmail != null);
+
+  @override
+  final String homeName;
+  @override
+  final String devicesEmail;
+
+  @override
+  String toString() {
+    return 'CreateHomeEvent.createHome(homeName: $homeName, devicesEmail: $devicesEmail)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _CreateHome &&
+            (identical(other.homeName, homeName) ||
+                const DeepCollectionEquality()
+                    .equals(other.homeName, homeName)) &&
+            (identical(other.devicesEmail, devicesEmail) ||
+                const DeepCollectionEquality()
+                    .equals(other.devicesEmail, devicesEmail)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(homeName) ^
+      const DeepCollectionEquality().hash(devicesEmail);
+
+  @JsonKey(ignore: true)
+  @override
+  _$CreateHomeCopyWith<_CreateHome> get copyWith =>
+      __$CreateHomeCopyWithImpl<_CreateHome>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initialized(),
+    @required TResult createHome(String homeName, String devicesEmail),
+  }) {
+    assert(initialized != null);
+    assert(createHome != null);
+    return createHome(homeName, devicesEmail);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initialized(),
+    TResult createHome(String homeName, String devicesEmail),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (createHome != null) {
+      return createHome(homeName, devicesEmail);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initialized(Initialized value),
+    @required TResult createHome(_CreateHome value),
+  }) {
+    assert(initialized != null);
+    assert(createHome != null);
+    return createHome(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initialized(Initialized value),
+    TResult createHome(_CreateHome value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (createHome != null) {
+      return createHome(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CreateHome implements CreateHomeEvent {
+  const factory _CreateHome(String homeName, String devicesEmail) =
+      _$_CreateHome;
+
+  String get homeName;
+  String get devicesEmail;
+  @JsonKey(ignore: true)
+  _$CreateHomeCopyWith<_CreateHome> get copyWith;
 }
 
 /// @nodoc

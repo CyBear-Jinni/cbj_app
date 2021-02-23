@@ -17,11 +17,13 @@ class _$HomeUserEntityTearOff {
   _HomeUserEntity call(
       {@required HomeUserUniqueId id,
       @required HomeUserEmail email,
-      @required HomeUserName name}) {
+      @required HomeUserName name,
+      @required HomeUserPermission permission}) {
     return _HomeUserEntity(
       id: id,
       email: email,
       name: name,
+      permission: permission,
     );
   }
 }
@@ -35,6 +37,7 @@ mixin _$HomeUserEntity {
   HomeUserUniqueId get id;
   HomeUserEmail get email;
   HomeUserName get name;
+  HomeUserPermission get permission;
 
   @JsonKey(ignore: true)
   $HomeUserEntityCopyWith<HomeUserEntity> get copyWith;
@@ -45,7 +48,11 @@ abstract class $HomeUserEntityCopyWith<$Res> {
   factory $HomeUserEntityCopyWith(
           HomeUserEntity value, $Res Function(HomeUserEntity) then) =
       _$HomeUserEntityCopyWithImpl<$Res>;
-  $Res call({HomeUserUniqueId id, HomeUserEmail email, HomeUserName name});
+  $Res call(
+      {HomeUserUniqueId id,
+      HomeUserEmail email,
+      HomeUserName name,
+      HomeUserPermission permission});
 }
 
 /// @nodoc
@@ -62,11 +69,15 @@ class _$HomeUserEntityCopyWithImpl<$Res>
     Object id = freezed,
     Object email = freezed,
     Object name = freezed,
+    Object permission = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as HomeUserUniqueId,
       email: email == freezed ? _value.email : email as HomeUserEmail,
       name: name == freezed ? _value.name : name as HomeUserName,
+      permission: permission == freezed
+          ? _value.permission
+          : permission as HomeUserPermission,
     ));
   }
 }
@@ -78,7 +89,11 @@ abstract class _$HomeUserEntityCopyWith<$Res>
           _HomeUserEntity value, $Res Function(_HomeUserEntity) then) =
       __$HomeUserEntityCopyWithImpl<$Res>;
   @override
-  $Res call({HomeUserUniqueId id, HomeUserEmail email, HomeUserName name});
+  $Res call(
+      {HomeUserUniqueId id,
+      HomeUserEmail email,
+      HomeUserName name,
+      HomeUserPermission permission});
 }
 
 /// @nodoc
@@ -97,11 +112,15 @@ class __$HomeUserEntityCopyWithImpl<$Res>
     Object id = freezed,
     Object email = freezed,
     Object name = freezed,
+    Object permission = freezed,
   }) {
     return _then(_HomeUserEntity(
       id: id == freezed ? _value.id : id as HomeUserUniqueId,
       email: email == freezed ? _value.email : email as HomeUserEmail,
       name: name == freezed ? _value.name : name as HomeUserName,
+      permission: permission == freezed
+          ? _value.permission
+          : permission as HomeUserPermission,
     ));
   }
 }
@@ -109,10 +128,14 @@ class __$HomeUserEntityCopyWithImpl<$Res>
 /// @nodoc
 class _$_HomeUserEntity extends _HomeUserEntity {
   const _$_HomeUserEntity(
-      {@required this.id, @required this.email, @required this.name})
+      {@required this.id,
+      @required this.email,
+      @required this.name,
+      @required this.permission})
       : assert(id != null),
         assert(email != null),
         assert(name != null),
+        assert(permission != null),
         super._();
 
   @override
@@ -121,10 +144,12 @@ class _$_HomeUserEntity extends _HomeUserEntity {
   final HomeUserEmail email;
   @override
   final HomeUserName name;
+  @override
+  final HomeUserPermission permission;
 
   @override
   String toString() {
-    return 'HomeUserEntity(id: $id, email: $email, name: $name)';
+    return 'HomeUserEntity(id: $id, email: $email, name: $name, permission: $permission)';
   }
 
   @override
@@ -136,7 +161,10 @@ class _$_HomeUserEntity extends _HomeUserEntity {
             (identical(other.email, email) ||
                 const DeepCollectionEquality().equals(other.email, email)) &&
             (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)));
+                const DeepCollectionEquality().equals(other.name, name)) &&
+            (identical(other.permission, permission) ||
+                const DeepCollectionEquality()
+                    .equals(other.permission, permission)));
   }
 
   @override
@@ -144,7 +172,8 @@ class _$_HomeUserEntity extends _HomeUserEntity {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(email) ^
-      const DeepCollectionEquality().hash(name);
+      const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(permission);
 
   @JsonKey(ignore: true)
   @override
@@ -157,7 +186,8 @@ abstract class _HomeUserEntity extends HomeUserEntity {
   const factory _HomeUserEntity(
       {@required HomeUserUniqueId id,
       @required HomeUserEmail email,
-      @required HomeUserName name}) = _$_HomeUserEntity;
+      @required HomeUserName name,
+      @required HomeUserPermission permission}) = _$_HomeUserEntity;
 
   @override
   HomeUserUniqueId get id;
@@ -165,6 +195,8 @@ abstract class _HomeUserEntity extends HomeUserEntity {
   HomeUserEmail get email;
   @override
   HomeUserName get name;
+  @override
+  HomeUserPermission get permission;
   @override
   @JsonKey(ignore: true)
   _$HomeUserEntityCopyWith<_HomeUserEntity> get copyWith;

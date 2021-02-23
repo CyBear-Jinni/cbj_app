@@ -42,7 +42,7 @@ Future<void> initializeHive() async {
   await Hive.initFlutter();
 }
 
-Future<None> main() async {
+Future<Unit> main() async {
   // needed if you intend to initialize in the `main` function
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -92,5 +92,5 @@ Future<None> main() async {
       child: AppWidget(),
     ),
   );
-  return const None();
+  return unit;
 }
