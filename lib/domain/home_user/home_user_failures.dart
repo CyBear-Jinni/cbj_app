@@ -23,4 +23,6 @@ abstract class HomeUserFailures<T> {
   const factory HomeUserFailures.wifiDisabled() = _WifiDisabled;
 
   const factory HomeUserFailures.unableToUpdate() = _UnableToUpdate;
+
+  const factory HomeUserFailures.accessPointIsNotOpen() = _AccessPointIsNotOpen;
 }

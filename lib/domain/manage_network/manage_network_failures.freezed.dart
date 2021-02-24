@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
-part of 'manage_wifi_failures.dart';
+part of 'manage_network_failures.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -10,8 +10,8 @@ part of 'manage_wifi_failures.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-class _$ManageWiFiFailuresTearOff {
-  const _$ManageWiFiFailuresTearOff();
+class _$ManageNetworkFailuresTearOff {
+  const _$ManageNetworkFailuresTearOff();
 
 // ignore: unused_element
   _Empty<T> empty<T>({@required T failedValue}) {
@@ -48,10 +48,10 @@ class _$ManageWiFiFailuresTearOff {
 
 /// @nodoc
 // ignore: unused_element
-const $ManageWiFiFailures = _$ManageWiFiFailuresTearOff();
+const $ManageNetworkFailures = _$ManageNetworkFailuresTearOff();
 
 /// @nodoc
-mixin _$ManageWiFiFailures<T> {
+mixin _$ManageNetworkFailures<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult empty(T failedValue),
@@ -93,20 +93,20 @@ mixin _$ManageWiFiFailures<T> {
 }
 
 /// @nodoc
-abstract class $ManageWiFiFailuresCopyWith<T, $Res> {
-  factory $ManageWiFiFailuresCopyWith(ManageWiFiFailures<T> value,
-          $Res Function(ManageWiFiFailures<T>) then) =
-      _$ManageWiFiFailuresCopyWithImpl<T, $Res>;
+abstract class $ManageNetworkFailuresCopyWith<T, $Res> {
+  factory $ManageNetworkFailuresCopyWith(ManageNetworkFailures<T> value,
+          $Res Function(ManageNetworkFailures<T>) then) =
+      _$ManageNetworkFailuresCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class _$ManageWiFiFailuresCopyWithImpl<T, $Res>
-    implements $ManageWiFiFailuresCopyWith<T, $Res> {
-  _$ManageWiFiFailuresCopyWithImpl(this._value, this._then);
+class _$ManageNetworkFailuresCopyWithImpl<T, $Res>
+    implements $ManageNetworkFailuresCopyWith<T, $Res> {
+  _$ManageNetworkFailuresCopyWithImpl(this._value, this._then);
 
-  final ManageWiFiFailures<T> _value;
+  final ManageNetworkFailures<T> _value;
   // ignore: unused_field
-  final $Res Function(ManageWiFiFailures<T>) _then;
+  final $Res Function(ManageNetworkFailures<T>) _then;
 }
 
 /// @nodoc
@@ -118,7 +118,7 @@ abstract class _$EmptyCopyWith<T, $Res> {
 
 /// @nodoc
 class __$EmptyCopyWithImpl<T, $Res>
-    extends _$ManageWiFiFailuresCopyWithImpl<T, $Res>
+    extends _$ManageNetworkFailuresCopyWithImpl<T, $Res>
     implements _$EmptyCopyWith<T, $Res> {
   __$EmptyCopyWithImpl(_Empty<T> _value, $Res Function(_Empty<T>) _then)
       : super(_value, (v) => _then(v as _Empty<T>));
@@ -146,7 +146,7 @@ class _$_Empty<T> implements _Empty<T> {
 
   @override
   String toString() {
-    return 'ManageWiFiFailures<$T>.empty(failedValue: $failedValue)';
+    return 'ManageNetworkFailures<$T>.empty(failedValue: $failedValue)';
   }
 
   @override
@@ -242,7 +242,7 @@ class _$_Empty<T> implements _Empty<T> {
   }
 }
 
-abstract class _Empty<T> implements ManageWiFiFailures<T> {
+abstract class _Empty<T> implements ManageNetworkFailures<T> {
   const factory _Empty({@required T failedValue}) = _$_Empty<T>;
 
   T get failedValue;
@@ -259,7 +259,7 @@ abstract class _$UnexpectedCopyWith<T, $Res> {
 
 /// @nodoc
 class __$UnexpectedCopyWithImpl<T, $Res>
-    extends _$ManageWiFiFailuresCopyWithImpl<T, $Res>
+    extends _$ManageNetworkFailuresCopyWithImpl<T, $Res>
     implements _$UnexpectedCopyWith<T, $Res> {
   __$UnexpectedCopyWithImpl(
       _Unexpected<T> _value, $Res Function(_Unexpected<T>) _then)
@@ -275,7 +275,7 @@ class _$_Unexpected<T> implements _Unexpected<T> {
 
   @override
   String toString() {
-    return 'ManageWiFiFailures<$T>.unexpected()';
+    return 'ManageNetworkFailures<$T>.unexpected()';
   }
 
   @override
@@ -361,7 +361,7 @@ class _$_Unexpected<T> implements _Unexpected<T> {
   }
 }
 
-abstract class _Unexpected<T> implements ManageWiFiFailures<T> {
+abstract class _Unexpected<T> implements ManageNetworkFailures<T> {
   const factory _Unexpected() = _$_Unexpected<T>;
 }
 
@@ -374,7 +374,7 @@ abstract class _$ValidateEmailNotEmptyCopyWith<T, $Res> {
 
 /// @nodoc
 class __$ValidateEmailNotEmptyCopyWithImpl<T, $Res>
-    extends _$ManageWiFiFailuresCopyWithImpl<T, $Res>
+    extends _$ManageNetworkFailuresCopyWithImpl<T, $Res>
     implements _$ValidateEmailNotEmptyCopyWith<T, $Res> {
   __$ValidateEmailNotEmptyCopyWithImpl(_ValidateEmailNotEmpty<T> _value,
       $Res Function(_ValidateEmailNotEmpty<T>) _then)
@@ -391,7 +391,7 @@ class _$_ValidateEmailNotEmpty<T> implements _ValidateEmailNotEmpty<T> {
 
   @override
   String toString() {
-    return 'ManageWiFiFailures<$T>.validateEmailNotEmpty()';
+    return 'ManageNetworkFailures<$T>.validateEmailNotEmpty()';
   }
 
   @override
@@ -477,7 +477,7 @@ class _$_ValidateEmailNotEmpty<T> implements _ValidateEmailNotEmpty<T> {
   }
 }
 
-abstract class _ValidateEmailNotEmpty<T> implements ManageWiFiFailures<T> {
+abstract class _ValidateEmailNotEmpty<T> implements ManageNetworkFailures<T> {
   const factory _ValidateEmailNotEmpty() = _$_ValidateEmailNotEmpty<T>;
 }
 
@@ -490,7 +490,7 @@ abstract class _$InsufficientPermissionCopyWith<T, $Res> {
 
 /// @nodoc
 class __$InsufficientPermissionCopyWithImpl<T, $Res>
-    extends _$ManageWiFiFailuresCopyWithImpl<T, $Res>
+    extends _$ManageNetworkFailuresCopyWithImpl<T, $Res>
     implements _$InsufficientPermissionCopyWith<T, $Res> {
   __$InsufficientPermissionCopyWithImpl(_InsufficientPermission<T> _value,
       $Res Function(_InsufficientPermission<T>) _then)
@@ -507,7 +507,7 @@ class _$_InsufficientPermission<T> implements _InsufficientPermission<T> {
 
   @override
   String toString() {
-    return 'ManageWiFiFailures<$T>.insufficientPermission()';
+    return 'ManageNetworkFailures<$T>.insufficientPermission()';
   }
 
   @override
@@ -593,7 +593,7 @@ class _$_InsufficientPermission<T> implements _InsufficientPermission<T> {
   }
 }
 
-abstract class _InsufficientPermission<T> implements ManageWiFiFailures<T> {
+abstract class _InsufficientPermission<T> implements ManageNetworkFailures<T> {
   const factory _InsufficientPermission() = _$_InsufficientPermission<T>;
 }
 
@@ -606,7 +606,7 @@ abstract class _$wifiIsClosedCopyWith<T, $Res> {
 
 /// @nodoc
 class __$wifiIsClosedCopyWithImpl<T, $Res>
-    extends _$ManageWiFiFailuresCopyWithImpl<T, $Res>
+    extends _$ManageNetworkFailuresCopyWithImpl<T, $Res>
     implements _$wifiIsClosedCopyWith<T, $Res> {
   __$wifiIsClosedCopyWithImpl(
       _wifiIsClosed<T> _value, $Res Function(_wifiIsClosed<T>) _then)
@@ -622,7 +622,7 @@ class _$_wifiIsClosed<T> implements _wifiIsClosed<T> {
 
   @override
   String toString() {
-    return 'ManageWiFiFailures<$T>.wifiIsClosed()';
+    return 'ManageNetworkFailures<$T>.wifiIsClosed()';
   }
 
   @override
@@ -708,7 +708,7 @@ class _$_wifiIsClosed<T> implements _wifiIsClosed<T> {
   }
 }
 
-abstract class _wifiIsClosed<T> implements ManageWiFiFailures<T> {
+abstract class _wifiIsClosed<T> implements ManageNetworkFailures<T> {
   const factory _wifiIsClosed() = _$_wifiIsClosed<T>;
 }
 
@@ -721,7 +721,7 @@ abstract class _$UnableToUpdateCopyWith<T, $Res> {
 
 /// @nodoc
 class __$UnableToUpdateCopyWithImpl<T, $Res>
-    extends _$ManageWiFiFailuresCopyWithImpl<T, $Res>
+    extends _$ManageNetworkFailuresCopyWithImpl<T, $Res>
     implements _$UnableToUpdateCopyWith<T, $Res> {
   __$UnableToUpdateCopyWithImpl(
       _UnableToUpdate<T> _value, $Res Function(_UnableToUpdate<T>) _then)
@@ -737,7 +737,7 @@ class _$_UnableToUpdate<T> implements _UnableToUpdate<T> {
 
   @override
   String toString() {
-    return 'ManageWiFiFailures<$T>.unableToUpdate()';
+    return 'ManageNetworkFailures<$T>.unableToUpdate()';
   }
 
   @override
@@ -823,6 +823,6 @@ class _$_UnableToUpdate<T> implements _UnableToUpdate<T> {
   }
 }
 
-abstract class _UnableToUpdate<T> implements ManageWiFiFailures<T> {
+abstract class _UnableToUpdate<T> implements ManageNetworkFailures<T> {
   const factory _UnableToUpdate() = _$_UnableToUpdate<T>;
 }

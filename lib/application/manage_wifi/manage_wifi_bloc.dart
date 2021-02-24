@@ -2,9 +2,9 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:cybear_jinni/domain/home_user/home_user_failures.dart';
-import 'package:cybear_jinni/domain/manage_wifi/i_manage_wifi_repository.dart';
-import 'package:cybear_jinni/domain/manage_wifi/manage_wifi_entity.dart';
-import 'package:cybear_jinni/domain/manage_wifi/manage_wifi_value_objects.dart';
+import 'package:cybear_jinni/domain/manage_network/i_manage_network_repository.dart';
+import 'package:cybear_jinni/domain/manage_network/manage_network_entity.dart';
+import 'package:cybear_jinni/domain/manage_network/manage_network_value_objects.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -19,7 +19,7 @@ part 'manage_wifi_state.dart';
 class ManageWifiBloc extends Bloc<ManageWifiEvent, ManageWifiState> {
   ManageWifiBloc(this._manageWiFiRepository) : super(ManageWifiState.initial());
 
-  final IManageWiFiRepository _manageWiFiRepository;
+  final IManageNetworkRepository _manageWiFiRepository;
 
   ManageWiFiName wifiName;
   ManageWiFiPass wifiPassword;
@@ -43,18 +43,13 @@ class ManageWifiBloc extends Bloc<ManageWifiEvent, ManageWifiState> {
       scanForWiFiNetworks: (e) async* {
         yield ManageWifiState.loading();
 
-        final Stream<Either<HomeUserFailures, KtList<ManageWiFiEntity>>>
+        final Stream<Either<HomeUserFailures, KtList<ManageNetworkEntity>>>
             doesWiFiEnabled = _manageWiFiRepository.scanWiFiNetworks();
-
-        // doesWiFiEnabled.fold(
-        //   (f) => const ManageWifiState.wifiIsDisabled(),
-        //   (r) => const ManageWifiState.wifiIsEnabled(),
-        // );
       },
       connectToWiFi: (e) async* {
         yield ManageWifiState.loading();
 
-        ManageWiFiEntity manageWiFiEntity = ManageWiFiEntity(
+        ManageNetworkEntity manageWiFiEntity = ManageNetworkEntity(
           name: wifiName,
           passpass: wifiPassword,
         );

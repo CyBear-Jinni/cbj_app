@@ -1,14 +1,14 @@
 import 'package:cybear_jinni/domain/home_user/home_user_failures.dart';
-import 'package:cybear_jinni/domain/manage_wifi/i_manage_wifi_repository.dart';
-import 'package:cybear_jinni/domain/manage_wifi/manage_wifi_entity.dart';
+import 'package:cybear_jinni/domain/manage_network/i_manage_network_repository.dart';
+import 'package:cybear_jinni/domain/manage_network/manage_network_entity.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:kt_dart/src/collection/kt_list.dart';
 import 'package:wifi_iot/wifi_iot.dart';
 
-@LazySingleton(as: IManageWiFiRepository)
-class ManageWiFiRepository implements IManageWiFiRepository {
+@LazySingleton(as: IManageNetworkRepository)
+class ManageWiFiRepository implements IManageNetworkRepository {
   final NetworkSecurity networkSecurity = NetworkSecurity.WPA;
 
   @override
@@ -25,7 +25,7 @@ class ManageWiFiRepository implements IManageWiFiRepository {
   }
 
   @override
-  Stream<Either<HomeUserFailures, KtList<ManageWiFiEntity>>>
+  Stream<Either<HomeUserFailures, KtList<ManageNetworkEntity>>>
       scanWiFiNetworks() async* {
     // List<WifiNetwork> htResultNetwork;
     // try {
@@ -43,18 +43,53 @@ class ManageWiFiRepository implements IManageWiFiRepository {
 
   @override
   Future<Either<HomeUserFailures, Unit>> connectToWiFi(
-      ManageWiFiEntity wiFiEntity) async {
+      ManageNetworkEntity networkEntity) async {
     try {
-      final String ssid = wiFiEntity.name.getOrCrash();
-      final String pass = wiFiEntity.passpass.getOrCrash();
+      final String ssid = networkEntity.name.getOrCrash();
+      final String pass = networkEntity.passpass.getOrCrash();
 
-      final bool connectedToWiFiSucess = await WiFiForIoTPlugin.connect(ssid,
+      final bool connectedToWiFiSuccess = await WiFiForIoTPlugin.connect(ssid,
           password: pass, security: networkSecurity);
 
-      if (connectedToWiFiSucess) {
+      if (connectedToWiFiSuccess) {
         return right(unit);
       }
       return left(const HomeUserFailures.cannotConnectToWiFi());
+    } catch (e) {
+      return left(const HomeUserFailures.unexpected());
+    }
+  }
+
+  @override
+  Future<Either<HomeUserFailures, Unit>> openAccessPoint(
+      ManageNetworkEntity networkEntity) async {
+    try {
+      final String ssid = networkEntity.name.getOrCrash();
+      final String pass = networkEntity.passpass.getOrCrash();
+
+      bool createdAccessPoint = await WiFiForIoTPlugin.registerWifiNetwork(
+        ssid,
+        password: pass,
+      );
+
+      if (createdAccessPoint) {
+        return right(unit);
+      }
+      return left(const HomeUserFailures.unexpected());
+    } catch (e) {
+      return left(const HomeUserFailures.unexpected());
+    }
+  }
+
+  @override
+  Future<Either<HomeUserFailures, Unit>> doesAccessPointOpen() async {
+    try {
+      await WiFiForIoTPlugin.setWiFiAPEnabled(true);
+      final bool isAPEnabled = await WiFiForIoTPlugin.isWiFiAPEnabled();
+      if (isAPEnabled) {
+        return right(unit);
+      }
+      return left(const HomeUserFailures.accessPointIsNotOpen());
     } catch (e) {
       return left(const HomeUserFailures.unexpected());
     }

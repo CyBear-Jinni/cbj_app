@@ -54,6 +54,11 @@ class _$HomeUserFailuresTearOff {
   _UnableToUpdate<T> unableToUpdate<T>() {
     return _UnableToUpdate<T>();
   }
+
+// ignore: unused_element
+  _AccessPointIsNotOpen<T> accessPointIsNotOpen<T>() {
+    return _AccessPointIsNotOpen<T>();
+  }
 }
 
 /// @nodoc
@@ -72,6 +77,7 @@ mixin _$HomeUserFailures<T> {
     @required TResult cannotConnectToWiFi(),
     @required TResult wifiDisabled(),
     @required TResult unableToUpdate(),
+    @required TResult accessPointIsNotOpen(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
@@ -83,6 +89,7 @@ mixin _$HomeUserFailures<T> {
     TResult cannotConnectToWiFi(),
     TResult wifiDisabled(),
     TResult unableToUpdate(),
+    TResult accessPointIsNotOpen(),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -95,6 +102,7 @@ mixin _$HomeUserFailures<T> {
     @required TResult cannotConnectToWiFi(_CannotConnectToWiFi<T> value),
     @required TResult wifiDisabled(_WifiDisabled<T> value),
     @required TResult unableToUpdate(_UnableToUpdate<T> value),
+    @required TResult accessPointIsNotOpen(_AccessPointIsNotOpen<T> value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
@@ -106,6 +114,7 @@ mixin _$HomeUserFailures<T> {
     TResult cannotConnectToWiFi(_CannotConnectToWiFi<T> value),
     TResult wifiDisabled(_WifiDisabled<T> value),
     TResult unableToUpdate(_UnableToUpdate<T> value),
+    TResult accessPointIsNotOpen(_AccessPointIsNotOpen<T> value),
     @required TResult orElse(),
   });
 }
@@ -196,6 +205,7 @@ class _$_Empty<T> implements _Empty<T> {
     @required TResult cannotConnectToWiFi(),
     @required TResult wifiDisabled(),
     @required TResult unableToUpdate(),
+    @required TResult accessPointIsNotOpen(),
   }) {
     assert(empty != null);
     assert(unexpected != null);
@@ -205,6 +215,7 @@ class _$_Empty<T> implements _Empty<T> {
     assert(cannotConnectToWiFi != null);
     assert(wifiDisabled != null);
     assert(unableToUpdate != null);
+    assert(accessPointIsNotOpen != null);
     return empty(failedValue);
   }
 
@@ -219,6 +230,7 @@ class _$_Empty<T> implements _Empty<T> {
     TResult cannotConnectToWiFi(),
     TResult wifiDisabled(),
     TResult unableToUpdate(),
+    TResult accessPointIsNotOpen(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -239,6 +251,7 @@ class _$_Empty<T> implements _Empty<T> {
     @required TResult cannotConnectToWiFi(_CannotConnectToWiFi<T> value),
     @required TResult wifiDisabled(_WifiDisabled<T> value),
     @required TResult unableToUpdate(_UnableToUpdate<T> value),
+    @required TResult accessPointIsNotOpen(_AccessPointIsNotOpen<T> value),
   }) {
     assert(empty != null);
     assert(unexpected != null);
@@ -248,6 +261,7 @@ class _$_Empty<T> implements _Empty<T> {
     assert(cannotConnectToWiFi != null);
     assert(wifiDisabled != null);
     assert(unableToUpdate != null);
+    assert(accessPointIsNotOpen != null);
     return empty(this);
   }
 
@@ -262,6 +276,7 @@ class _$_Empty<T> implements _Empty<T> {
     TResult cannotConnectToWiFi(_CannotConnectToWiFi<T> value),
     TResult wifiDisabled(_WifiDisabled<T> value),
     TResult unableToUpdate(_UnableToUpdate<T> value),
+    TResult accessPointIsNotOpen(_AccessPointIsNotOpen<T> value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -327,6 +342,7 @@ class _$_Unexpected<T> implements _Unexpected<T> {
     @required TResult cannotConnectToWiFi(),
     @required TResult wifiDisabled(),
     @required TResult unableToUpdate(),
+    @required TResult accessPointIsNotOpen(),
   }) {
     assert(empty != null);
     assert(unexpected != null);
@@ -336,6 +352,7 @@ class _$_Unexpected<T> implements _Unexpected<T> {
     assert(cannotConnectToWiFi != null);
     assert(wifiDisabled != null);
     assert(unableToUpdate != null);
+    assert(accessPointIsNotOpen != null);
     return unexpected();
   }
 
@@ -350,6 +367,7 @@ class _$_Unexpected<T> implements _Unexpected<T> {
     TResult cannotConnectToWiFi(),
     TResult wifiDisabled(),
     TResult unableToUpdate(),
+    TResult accessPointIsNotOpen(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -370,6 +388,7 @@ class _$_Unexpected<T> implements _Unexpected<T> {
     @required TResult cannotConnectToWiFi(_CannotConnectToWiFi<T> value),
     @required TResult wifiDisabled(_WifiDisabled<T> value),
     @required TResult unableToUpdate(_UnableToUpdate<T> value),
+    @required TResult accessPointIsNotOpen(_AccessPointIsNotOpen<T> value),
   }) {
     assert(empty != null);
     assert(unexpected != null);
@@ -379,6 +398,7 @@ class _$_Unexpected<T> implements _Unexpected<T> {
     assert(cannotConnectToWiFi != null);
     assert(wifiDisabled != null);
     assert(unableToUpdate != null);
+    assert(accessPointIsNotOpen != null);
     return unexpected(this);
   }
 
@@ -393,6 +413,7 @@ class _$_Unexpected<T> implements _Unexpected<T> {
     TResult cannotConnectToWiFi(_CannotConnectToWiFi<T> value),
     TResult wifiDisabled(_WifiDisabled<T> value),
     TResult unableToUpdate(_UnableToUpdate<T> value),
+    TResult accessPointIsNotOpen(_AccessPointIsNotOpen<T> value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -455,6 +476,7 @@ class _$_ValidateEmailNotEmpty<T> implements _ValidateEmailNotEmpty<T> {
     @required TResult cannotConnectToWiFi(),
     @required TResult wifiDisabled(),
     @required TResult unableToUpdate(),
+    @required TResult accessPointIsNotOpen(),
   }) {
     assert(empty != null);
     assert(unexpected != null);
@@ -464,6 +486,7 @@ class _$_ValidateEmailNotEmpty<T> implements _ValidateEmailNotEmpty<T> {
     assert(cannotConnectToWiFi != null);
     assert(wifiDisabled != null);
     assert(unableToUpdate != null);
+    assert(accessPointIsNotOpen != null);
     return validateEmailNotEmpty();
   }
 
@@ -478,6 +501,7 @@ class _$_ValidateEmailNotEmpty<T> implements _ValidateEmailNotEmpty<T> {
     TResult cannotConnectToWiFi(),
     TResult wifiDisabled(),
     TResult unableToUpdate(),
+    TResult accessPointIsNotOpen(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -498,6 +522,7 @@ class _$_ValidateEmailNotEmpty<T> implements _ValidateEmailNotEmpty<T> {
     @required TResult cannotConnectToWiFi(_CannotConnectToWiFi<T> value),
     @required TResult wifiDisabled(_WifiDisabled<T> value),
     @required TResult unableToUpdate(_UnableToUpdate<T> value),
+    @required TResult accessPointIsNotOpen(_AccessPointIsNotOpen<T> value),
   }) {
     assert(empty != null);
     assert(unexpected != null);
@@ -507,6 +532,7 @@ class _$_ValidateEmailNotEmpty<T> implements _ValidateEmailNotEmpty<T> {
     assert(cannotConnectToWiFi != null);
     assert(wifiDisabled != null);
     assert(unableToUpdate != null);
+    assert(accessPointIsNotOpen != null);
     return validateEmailNotEmpty(this);
   }
 
@@ -521,6 +547,7 @@ class _$_ValidateEmailNotEmpty<T> implements _ValidateEmailNotEmpty<T> {
     TResult cannotConnectToWiFi(_CannotConnectToWiFi<T> value),
     TResult wifiDisabled(_WifiDisabled<T> value),
     TResult unableToUpdate(_UnableToUpdate<T> value),
+    TResult accessPointIsNotOpen(_AccessPointIsNotOpen<T> value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -583,6 +610,7 @@ class _$_InsufficientPermission<T> implements _InsufficientPermission<T> {
     @required TResult cannotConnectToWiFi(),
     @required TResult wifiDisabled(),
     @required TResult unableToUpdate(),
+    @required TResult accessPointIsNotOpen(),
   }) {
     assert(empty != null);
     assert(unexpected != null);
@@ -592,6 +620,7 @@ class _$_InsufficientPermission<T> implements _InsufficientPermission<T> {
     assert(cannotConnectToWiFi != null);
     assert(wifiDisabled != null);
     assert(unableToUpdate != null);
+    assert(accessPointIsNotOpen != null);
     return insufficientPermission();
   }
 
@@ -606,6 +635,7 @@ class _$_InsufficientPermission<T> implements _InsufficientPermission<T> {
     TResult cannotConnectToWiFi(),
     TResult wifiDisabled(),
     TResult unableToUpdate(),
+    TResult accessPointIsNotOpen(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -626,6 +656,7 @@ class _$_InsufficientPermission<T> implements _InsufficientPermission<T> {
     @required TResult cannotConnectToWiFi(_CannotConnectToWiFi<T> value),
     @required TResult wifiDisabled(_WifiDisabled<T> value),
     @required TResult unableToUpdate(_UnableToUpdate<T> value),
+    @required TResult accessPointIsNotOpen(_AccessPointIsNotOpen<T> value),
   }) {
     assert(empty != null);
     assert(unexpected != null);
@@ -635,6 +666,7 @@ class _$_InsufficientPermission<T> implements _InsufficientPermission<T> {
     assert(cannotConnectToWiFi != null);
     assert(wifiDisabled != null);
     assert(unableToUpdate != null);
+    assert(accessPointIsNotOpen != null);
     return insufficientPermission(this);
   }
 
@@ -649,6 +681,7 @@ class _$_InsufficientPermission<T> implements _InsufficientPermission<T> {
     TResult cannotConnectToWiFi(_CannotConnectToWiFi<T> value),
     TResult wifiDisabled(_WifiDisabled<T> value),
     TResult unableToUpdate(_UnableToUpdate<T> value),
+    TResult accessPointIsNotOpen(_AccessPointIsNotOpen<T> value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -710,6 +743,7 @@ class _$_HomeDoesNotExist<T> implements _HomeDoesNotExist<T> {
     @required TResult cannotConnectToWiFi(),
     @required TResult wifiDisabled(),
     @required TResult unableToUpdate(),
+    @required TResult accessPointIsNotOpen(),
   }) {
     assert(empty != null);
     assert(unexpected != null);
@@ -719,6 +753,7 @@ class _$_HomeDoesNotExist<T> implements _HomeDoesNotExist<T> {
     assert(cannotConnectToWiFi != null);
     assert(wifiDisabled != null);
     assert(unableToUpdate != null);
+    assert(accessPointIsNotOpen != null);
     return homeDoesNotExist();
   }
 
@@ -733,6 +768,7 @@ class _$_HomeDoesNotExist<T> implements _HomeDoesNotExist<T> {
     TResult cannotConnectToWiFi(),
     TResult wifiDisabled(),
     TResult unableToUpdate(),
+    TResult accessPointIsNotOpen(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -753,6 +789,7 @@ class _$_HomeDoesNotExist<T> implements _HomeDoesNotExist<T> {
     @required TResult cannotConnectToWiFi(_CannotConnectToWiFi<T> value),
     @required TResult wifiDisabled(_WifiDisabled<T> value),
     @required TResult unableToUpdate(_UnableToUpdate<T> value),
+    @required TResult accessPointIsNotOpen(_AccessPointIsNotOpen<T> value),
   }) {
     assert(empty != null);
     assert(unexpected != null);
@@ -762,6 +799,7 @@ class _$_HomeDoesNotExist<T> implements _HomeDoesNotExist<T> {
     assert(cannotConnectToWiFi != null);
     assert(wifiDisabled != null);
     assert(unableToUpdate != null);
+    assert(accessPointIsNotOpen != null);
     return homeDoesNotExist(this);
   }
 
@@ -776,6 +814,7 @@ class _$_HomeDoesNotExist<T> implements _HomeDoesNotExist<T> {
     TResult cannotConnectToWiFi(_CannotConnectToWiFi<T> value),
     TResult wifiDisabled(_WifiDisabled<T> value),
     TResult unableToUpdate(_UnableToUpdate<T> value),
+    TResult accessPointIsNotOpen(_AccessPointIsNotOpen<T> value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -837,6 +876,7 @@ class _$_CannotConnectToWiFi<T> implements _CannotConnectToWiFi<T> {
     @required TResult cannotConnectToWiFi(),
     @required TResult wifiDisabled(),
     @required TResult unableToUpdate(),
+    @required TResult accessPointIsNotOpen(),
   }) {
     assert(empty != null);
     assert(unexpected != null);
@@ -846,6 +886,7 @@ class _$_CannotConnectToWiFi<T> implements _CannotConnectToWiFi<T> {
     assert(cannotConnectToWiFi != null);
     assert(wifiDisabled != null);
     assert(unableToUpdate != null);
+    assert(accessPointIsNotOpen != null);
     return cannotConnectToWiFi();
   }
 
@@ -860,6 +901,7 @@ class _$_CannotConnectToWiFi<T> implements _CannotConnectToWiFi<T> {
     TResult cannotConnectToWiFi(),
     TResult wifiDisabled(),
     TResult unableToUpdate(),
+    TResult accessPointIsNotOpen(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -880,6 +922,7 @@ class _$_CannotConnectToWiFi<T> implements _CannotConnectToWiFi<T> {
     @required TResult cannotConnectToWiFi(_CannotConnectToWiFi<T> value),
     @required TResult wifiDisabled(_WifiDisabled<T> value),
     @required TResult unableToUpdate(_UnableToUpdate<T> value),
+    @required TResult accessPointIsNotOpen(_AccessPointIsNotOpen<T> value),
   }) {
     assert(empty != null);
     assert(unexpected != null);
@@ -889,6 +932,7 @@ class _$_CannotConnectToWiFi<T> implements _CannotConnectToWiFi<T> {
     assert(cannotConnectToWiFi != null);
     assert(wifiDisabled != null);
     assert(unableToUpdate != null);
+    assert(accessPointIsNotOpen != null);
     return cannotConnectToWiFi(this);
   }
 
@@ -903,6 +947,7 @@ class _$_CannotConnectToWiFi<T> implements _CannotConnectToWiFi<T> {
     TResult cannotConnectToWiFi(_CannotConnectToWiFi<T> value),
     TResult wifiDisabled(_WifiDisabled<T> value),
     TResult unableToUpdate(_UnableToUpdate<T> value),
+    TResult accessPointIsNotOpen(_AccessPointIsNotOpen<T> value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -964,6 +1009,7 @@ class _$_WifiDisabled<T> implements _WifiDisabled<T> {
     @required TResult cannotConnectToWiFi(),
     @required TResult wifiDisabled(),
     @required TResult unableToUpdate(),
+    @required TResult accessPointIsNotOpen(),
   }) {
     assert(empty != null);
     assert(unexpected != null);
@@ -973,6 +1019,7 @@ class _$_WifiDisabled<T> implements _WifiDisabled<T> {
     assert(cannotConnectToWiFi != null);
     assert(wifiDisabled != null);
     assert(unableToUpdate != null);
+    assert(accessPointIsNotOpen != null);
     return wifiDisabled();
   }
 
@@ -987,6 +1034,7 @@ class _$_WifiDisabled<T> implements _WifiDisabled<T> {
     TResult cannotConnectToWiFi(),
     TResult wifiDisabled(),
     TResult unableToUpdate(),
+    TResult accessPointIsNotOpen(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1007,6 +1055,7 @@ class _$_WifiDisabled<T> implements _WifiDisabled<T> {
     @required TResult cannotConnectToWiFi(_CannotConnectToWiFi<T> value),
     @required TResult wifiDisabled(_WifiDisabled<T> value),
     @required TResult unableToUpdate(_UnableToUpdate<T> value),
+    @required TResult accessPointIsNotOpen(_AccessPointIsNotOpen<T> value),
   }) {
     assert(empty != null);
     assert(unexpected != null);
@@ -1016,6 +1065,7 @@ class _$_WifiDisabled<T> implements _WifiDisabled<T> {
     assert(cannotConnectToWiFi != null);
     assert(wifiDisabled != null);
     assert(unableToUpdate != null);
+    assert(accessPointIsNotOpen != null);
     return wifiDisabled(this);
   }
 
@@ -1030,6 +1080,7 @@ class _$_WifiDisabled<T> implements _WifiDisabled<T> {
     TResult cannotConnectToWiFi(_CannotConnectToWiFi<T> value),
     TResult wifiDisabled(_WifiDisabled<T> value),
     TResult unableToUpdate(_UnableToUpdate<T> value),
+    TResult accessPointIsNotOpen(_AccessPointIsNotOpen<T> value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1091,6 +1142,7 @@ class _$_UnableToUpdate<T> implements _UnableToUpdate<T> {
     @required TResult cannotConnectToWiFi(),
     @required TResult wifiDisabled(),
     @required TResult unableToUpdate(),
+    @required TResult accessPointIsNotOpen(),
   }) {
     assert(empty != null);
     assert(unexpected != null);
@@ -1100,6 +1152,7 @@ class _$_UnableToUpdate<T> implements _UnableToUpdate<T> {
     assert(cannotConnectToWiFi != null);
     assert(wifiDisabled != null);
     assert(unableToUpdate != null);
+    assert(accessPointIsNotOpen != null);
     return unableToUpdate();
   }
 
@@ -1114,6 +1167,7 @@ class _$_UnableToUpdate<T> implements _UnableToUpdate<T> {
     TResult cannotConnectToWiFi(),
     TResult wifiDisabled(),
     TResult unableToUpdate(),
+    TResult accessPointIsNotOpen(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1134,6 +1188,7 @@ class _$_UnableToUpdate<T> implements _UnableToUpdate<T> {
     @required TResult cannotConnectToWiFi(_CannotConnectToWiFi<T> value),
     @required TResult wifiDisabled(_WifiDisabled<T> value),
     @required TResult unableToUpdate(_UnableToUpdate<T> value),
+    @required TResult accessPointIsNotOpen(_AccessPointIsNotOpen<T> value),
   }) {
     assert(empty != null);
     assert(unexpected != null);
@@ -1143,6 +1198,7 @@ class _$_UnableToUpdate<T> implements _UnableToUpdate<T> {
     assert(cannotConnectToWiFi != null);
     assert(wifiDisabled != null);
     assert(unableToUpdate != null);
+    assert(accessPointIsNotOpen != null);
     return unableToUpdate(this);
   }
 
@@ -1157,6 +1213,7 @@ class _$_UnableToUpdate<T> implements _UnableToUpdate<T> {
     TResult cannotConnectToWiFi(_CannotConnectToWiFi<T> value),
     TResult wifiDisabled(_WifiDisabled<T> value),
     TResult unableToUpdate(_UnableToUpdate<T> value),
+    TResult accessPointIsNotOpen(_AccessPointIsNotOpen<T> value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1169,4 +1226,138 @@ class _$_UnableToUpdate<T> implements _UnableToUpdate<T> {
 
 abstract class _UnableToUpdate<T> implements HomeUserFailures<T> {
   const factory _UnableToUpdate() = _$_UnableToUpdate<T>;
+}
+
+/// @nodoc
+abstract class _$AccessPointIsNotOpenCopyWith<T, $Res> {
+  factory _$AccessPointIsNotOpenCopyWith(_AccessPointIsNotOpen<T> value,
+          $Res Function(_AccessPointIsNotOpen<T>) then) =
+      __$AccessPointIsNotOpenCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$AccessPointIsNotOpenCopyWithImpl<T, $Res>
+    extends _$HomeUserFailuresCopyWithImpl<T, $Res>
+    implements _$AccessPointIsNotOpenCopyWith<T, $Res> {
+  __$AccessPointIsNotOpenCopyWithImpl(_AccessPointIsNotOpen<T> _value,
+      $Res Function(_AccessPointIsNotOpen<T>) _then)
+      : super(_value, (v) => _then(v as _AccessPointIsNotOpen<T>));
+
+  @override
+  _AccessPointIsNotOpen<T> get _value =>
+      super._value as _AccessPointIsNotOpen<T>;
+}
+
+/// @nodoc
+class _$_AccessPointIsNotOpen<T> implements _AccessPointIsNotOpen<T> {
+  const _$_AccessPointIsNotOpen();
+
+  @override
+  String toString() {
+    return 'HomeUserFailures<$T>.accessPointIsNotOpen()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _AccessPointIsNotOpen<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult empty(T failedValue),
+    @required TResult unexpected(),
+    @required TResult validateEmailNotEmpty(),
+    @required TResult insufficientPermission(),
+    @required TResult homeDoesNotExist(),
+    @required TResult cannotConnectToWiFi(),
+    @required TResult wifiDisabled(),
+    @required TResult unableToUpdate(),
+    @required TResult accessPointIsNotOpen(),
+  }) {
+    assert(empty != null);
+    assert(unexpected != null);
+    assert(validateEmailNotEmpty != null);
+    assert(insufficientPermission != null);
+    assert(homeDoesNotExist != null);
+    assert(cannotConnectToWiFi != null);
+    assert(wifiDisabled != null);
+    assert(unableToUpdate != null);
+    assert(accessPointIsNotOpen != null);
+    return accessPointIsNotOpen();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult empty(T failedValue),
+    TResult unexpected(),
+    TResult validateEmailNotEmpty(),
+    TResult insufficientPermission(),
+    TResult homeDoesNotExist(),
+    TResult cannotConnectToWiFi(),
+    TResult wifiDisabled(),
+    TResult unableToUpdate(),
+    TResult accessPointIsNotOpen(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (accessPointIsNotOpen != null) {
+      return accessPointIsNotOpen();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult empty(_Empty<T> value),
+    @required TResult unexpected(_Unexpected<T> value),
+    @required TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
+    @required TResult insufficientPermission(_InsufficientPermission<T> value),
+    @required TResult homeDoesNotExist(_HomeDoesNotExist<T> value),
+    @required TResult cannotConnectToWiFi(_CannotConnectToWiFi<T> value),
+    @required TResult wifiDisabled(_WifiDisabled<T> value),
+    @required TResult unableToUpdate(_UnableToUpdate<T> value),
+    @required TResult accessPointIsNotOpen(_AccessPointIsNotOpen<T> value),
+  }) {
+    assert(empty != null);
+    assert(unexpected != null);
+    assert(validateEmailNotEmpty != null);
+    assert(insufficientPermission != null);
+    assert(homeDoesNotExist != null);
+    assert(cannotConnectToWiFi != null);
+    assert(wifiDisabled != null);
+    assert(unableToUpdate != null);
+    assert(accessPointIsNotOpen != null);
+    return accessPointIsNotOpen(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult empty(_Empty<T> value),
+    TResult unexpected(_Unexpected<T> value),
+    TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
+    TResult insufficientPermission(_InsufficientPermission<T> value),
+    TResult homeDoesNotExist(_HomeDoesNotExist<T> value),
+    TResult cannotConnectToWiFi(_CannotConnectToWiFi<T> value),
+    TResult wifiDisabled(_WifiDisabled<T> value),
+    TResult unableToUpdate(_UnableToUpdate<T> value),
+    TResult accessPointIsNotOpen(_AccessPointIsNotOpen<T> value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (accessPointIsNotOpen != null) {
+      return accessPointIsNotOpen(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AccessPointIsNotOpen<T> implements HomeUserFailures<T> {
+  const factory _AccessPointIsNotOpen() = _$_AccessPointIsNotOpen<T>;
 }

@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
-part of 'manage_wifi_entity.dart';
+part of 'manage_network_entity.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -10,13 +10,13 @@ part of 'manage_wifi_entity.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-class _$ManageWiFiEntityTearOff {
-  const _$ManageWiFiEntityTearOff();
+class _$ManageNetworkEntityTearOff {
+  const _$ManageNetworkEntityTearOff();
 
 // ignore: unused_element
-  _ManageWiFiEntity call(
+  _ManageNetworkEntity call(
       {@required ManageWiFiName name, ManageWiFiPass passpass}) {
-    return _ManageWiFiEntity(
+    return _ManageNetworkEntity(
       name: name,
       passpass: passpass,
     );
@@ -25,33 +25,33 @@ class _$ManageWiFiEntityTearOff {
 
 /// @nodoc
 // ignore: unused_element
-const $ManageWiFiEntity = _$ManageWiFiEntityTearOff();
+const $ManageNetworkEntity = _$ManageNetworkEntityTearOff();
 
 /// @nodoc
-mixin _$ManageWiFiEntity {
+mixin _$ManageNetworkEntity {
   ManageWiFiName get name;
   ManageWiFiPass get passpass;
 
   @JsonKey(ignore: true)
-  $ManageWiFiEntityCopyWith<ManageWiFiEntity> get copyWith;
+  $ManageNetworkEntityCopyWith<ManageNetworkEntity> get copyWith;
 }
 
 /// @nodoc
-abstract class $ManageWiFiEntityCopyWith<$Res> {
-  factory $ManageWiFiEntityCopyWith(
-          ManageWiFiEntity value, $Res Function(ManageWiFiEntity) then) =
-      _$ManageWiFiEntityCopyWithImpl<$Res>;
+abstract class $ManageNetworkEntityCopyWith<$Res> {
+  factory $ManageNetworkEntityCopyWith(
+          ManageNetworkEntity value, $Res Function(ManageNetworkEntity) then) =
+      _$ManageNetworkEntityCopyWithImpl<$Res>;
   $Res call({ManageWiFiName name, ManageWiFiPass passpass});
 }
 
 /// @nodoc
-class _$ManageWiFiEntityCopyWithImpl<$Res>
-    implements $ManageWiFiEntityCopyWith<$Res> {
-  _$ManageWiFiEntityCopyWithImpl(this._value, this._then);
+class _$ManageNetworkEntityCopyWithImpl<$Res>
+    implements $ManageNetworkEntityCopyWith<$Res> {
+  _$ManageNetworkEntityCopyWithImpl(this._value, this._then);
 
-  final ManageWiFiEntity _value;
+  final ManageNetworkEntity _value;
   // ignore: unused_field
-  final $Res Function(ManageWiFiEntity) _then;
+  final $Res Function(ManageNetworkEntity) _then;
 
   @override
   $Res call({
@@ -67,32 +67,32 @@ class _$ManageWiFiEntityCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ManageWiFiEntityCopyWith<$Res>
-    implements $ManageWiFiEntityCopyWith<$Res> {
-  factory _$ManageWiFiEntityCopyWith(
-          _ManageWiFiEntity value, $Res Function(_ManageWiFiEntity) then) =
-      __$ManageWiFiEntityCopyWithImpl<$Res>;
+abstract class _$ManageNetworkEntityCopyWith<$Res>
+    implements $ManageNetworkEntityCopyWith<$Res> {
+  factory _$ManageNetworkEntityCopyWith(_ManageNetworkEntity value,
+          $Res Function(_ManageNetworkEntity) then) =
+      __$ManageNetworkEntityCopyWithImpl<$Res>;
   @override
   $Res call({ManageWiFiName name, ManageWiFiPass passpass});
 }
 
 /// @nodoc
-class __$ManageWiFiEntityCopyWithImpl<$Res>
-    extends _$ManageWiFiEntityCopyWithImpl<$Res>
-    implements _$ManageWiFiEntityCopyWith<$Res> {
-  __$ManageWiFiEntityCopyWithImpl(
-      _ManageWiFiEntity _value, $Res Function(_ManageWiFiEntity) _then)
-      : super(_value, (v) => _then(v as _ManageWiFiEntity));
+class __$ManageNetworkEntityCopyWithImpl<$Res>
+    extends _$ManageNetworkEntityCopyWithImpl<$Res>
+    implements _$ManageNetworkEntityCopyWith<$Res> {
+  __$ManageNetworkEntityCopyWithImpl(
+      _ManageNetworkEntity _value, $Res Function(_ManageNetworkEntity) _then)
+      : super(_value, (v) => _then(v as _ManageNetworkEntity));
 
   @override
-  _ManageWiFiEntity get _value => super._value as _ManageWiFiEntity;
+  _ManageNetworkEntity get _value => super._value as _ManageNetworkEntity;
 
   @override
   $Res call({
     Object name = freezed,
     Object passpass = freezed,
   }) {
-    return _then(_ManageWiFiEntity(
+    return _then(_ManageNetworkEntity(
       name: name == freezed ? _value.name : name as ManageWiFiName,
       passpass:
           passpass == freezed ? _value.passpass : passpass as ManageWiFiPass,
@@ -101,8 +101,8 @@ class __$ManageWiFiEntityCopyWithImpl<$Res>
 }
 
 /// @nodoc
-class _$_ManageWiFiEntity extends _ManageWiFiEntity {
-  const _$_ManageWiFiEntity({@required this.name, this.passpass})
+class _$_ManageNetworkEntity extends _ManageNetworkEntity {
+  const _$_ManageNetworkEntity({@required this.name, this.passpass})
       : assert(name != null),
         super._();
 
@@ -113,13 +113,13 @@ class _$_ManageWiFiEntity extends _ManageWiFiEntity {
 
   @override
   String toString() {
-    return 'ManageWiFiEntity(name: $name, passpass: $passpass)';
+    return 'ManageNetworkEntity(name: $name, passpass: $passpass)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ManageWiFiEntity &&
+        (other is _ManageNetworkEntity &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.passpass, passpass) ||
@@ -135,15 +135,16 @@ class _$_ManageWiFiEntity extends _ManageWiFiEntity {
 
   @JsonKey(ignore: true)
   @override
-  _$ManageWiFiEntityCopyWith<_ManageWiFiEntity> get copyWith =>
-      __$ManageWiFiEntityCopyWithImpl<_ManageWiFiEntity>(this, _$identity);
+  _$ManageNetworkEntityCopyWith<_ManageNetworkEntity> get copyWith =>
+      __$ManageNetworkEntityCopyWithImpl<_ManageNetworkEntity>(
+          this, _$identity);
 }
 
-abstract class _ManageWiFiEntity extends ManageWiFiEntity {
-  const _ManageWiFiEntity._() : super._();
-  const factory _ManageWiFiEntity(
+abstract class _ManageNetworkEntity extends ManageNetworkEntity {
+  const _ManageNetworkEntity._() : super._();
+  const factory _ManageNetworkEntity(
       {@required ManageWiFiName name,
-      ManageWiFiPass passpass}) = _$_ManageWiFiEntity;
+      ManageWiFiPass passpass}) = _$_ManageNetworkEntity;
 
   @override
   ManageWiFiName get name;
@@ -151,5 +152,5 @@ abstract class _ManageWiFiEntity extends ManageWiFiEntity {
   ManageWiFiPass get passpass;
   @override
   @JsonKey(ignore: true)
-  _$ManageWiFiEntityCopyWith<_ManageWiFiEntity> get copyWith;
+  _$ManageNetworkEntityCopyWith<_ManageNetworkEntity> get copyWith;
 }

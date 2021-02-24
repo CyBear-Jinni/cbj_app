@@ -32,11 +32,12 @@ import 'domain/devices/i_device_repository.dart';
 import 'domain/folder_of_scenes/i_folder_of_scenes_repository.dart';
 import 'domain/folders_of_scenes/i_folders_of_scenes_repository.dart';
 import 'domain/home_user/i_home_user_repository.dart';
-import 'domain/manage_wifi/i_manage_wifi_repository.dart';
+import 'domain/manage_network/i_manage_network_repository.dart';
 import 'domain/scene/i_scene_repository.dart';
 import 'domain/user/i_user_repository.dart';
 import 'application/join_home_by_id/join_home_by_id_bloc.dart';
 import 'application/light_toggle/light_toggle_bloc.dart';
+import 'application/manage_access_point/manage_access_point_bloc.dart';
 import 'application/manage_users/manage_users_bloc.dart';
 import 'infrastructure/manage_wifi/manage_wifi_repository.dart';
 import 'application/manage_wifi/manage_wifi_bloc.dart';
@@ -73,16 +74,18 @@ GetIt $initGetIt(
       () => FoldersOfScenesRepository());
   gh.lazySingleton<IHomeUserRepository>(
       () => HomeUserRepository(get<FirebaseFirestore>()));
-  gh.lazySingleton<IManageWiFiRepository>(() => ManageWiFiRepository());
+  gh.lazySingleton<IManageNetworkRepository>(() => ManageWiFiRepository());
   gh.lazySingleton<ISceneRepository>(() => SceneRepository());
   gh.lazySingleton<IUserRepository>(
       () => UserRepository(get<FirebaseFirestore>()));
   gh.factory<JoinHomeByIdBloc>(() => JoinHomeByIdBloc(get<IUserRepository>()));
   gh.factory<LightToggleBloc>(() => LightToggleBloc(get<IDeviceRepository>()));
+  gh.factory<ManageAccessPointBloc>(
+      () => ManageAccessPointBloc(get<IManageNetworkRepository>()));
   gh.factory<ManageUsersBloc>(
       () => ManageUsersBloc(get<IHomeUserRepository>()));
   gh.factory<ManageWifiBloc>(
-      () => ManageWifiBloc(get<IManageWiFiRepository>()));
+      () => ManageWifiBloc(get<IManageNetworkRepository>()));
   gh.factory<MockExample>(() => MockExample());
   gh.factory<SceneBloc>(() => SceneBloc(get<ISceneRepository>()));
   gh.factory<SignInFormBloc>(() => SignInFormBloc(get<IAuthFacade>()));

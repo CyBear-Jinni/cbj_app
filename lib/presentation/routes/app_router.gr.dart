@@ -14,7 +14,7 @@ import '../../infrastructure/core/gen/smart_device/smart_blinds_object.dart';
 import '../../infrastructure/core/gen/smart_device/smart_room_object.dart';
 import '../add_new_devices_process/choose_device_vendor_to_add/choose_device_vendor_to_add_page.dart';
 import '../add_new_devices_process/connect_to_home_wifi/connect_to_home_wifi_page.dart';
-import '../add_new_devices_process/open_hotspot/open_hotspot_page.dart';
+import '../add_new_devices_process/open_access_point/open_access_pointi_page.dart';
 import '../add_user_to_home/add_user_to_home_page.dart';
 import '../create_home/create_home_page.dart';
 import '../home_page/home_page.dart';
@@ -46,8 +46,8 @@ class Routes {
   static const String scenesPage = '/scenes-page';
   static const String chooseDeviceVendorToAddPage =
       '/choose-device-vendor-to-add-page';
-  static const String openHotspotPage = '/open-hotspot-page';
   static const String connectToHomeWifiPage = '/connect-to-home-wifi-page';
+  static const String openAccessPointPage = '/open-access-point-page';
   static const String roomsLightsPage = '/rooms-lights-page';
   static const String lightsInTheRoomPage = '/lights-in-the-room-page';
   static const String blindsPage = '/blinds-page';
@@ -65,8 +65,8 @@ class Routes {
     addUserToHomePage,
     scenesPage,
     chooseDeviceVendorToAddPage,
-    openHotspotPage,
     connectToHomeWifiPage,
+    openAccessPointPage,
     roomsLightsPage,
     lightsInTheRoomPage,
     blindsPage,
@@ -92,8 +92,8 @@ class AppRouter extends RouterBase {
     RouteDef(Routes.scenesPage, page: ScenesPage),
     RouteDef(Routes.chooseDeviceVendorToAddPage,
         page: ChooseDeviceVendorToAddPage),
-    RouteDef(Routes.openHotspotPage, page: OpenHotspotPage),
     RouteDef(Routes.connectToHomeWifiPage, page: ConnectToHomeWifiPage),
+    RouteDef(Routes.openAccessPointPage, page: OpenAccessPointPage),
     RouteDef(Routes.roomsLightsPage, page: RoomsLightsPage),
     RouteDef(Routes.lightsInTheRoomPage, page: LightsInTheRoomPage),
     RouteDef(Routes.blindsPage, page: BlindsPage),
@@ -175,15 +175,15 @@ class AppRouter extends RouterBase {
         settings: data,
       );
     },
-    OpenHotspotPage: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => OpenHotspotPage(),
-        settings: data,
-      );
-    },
     ConnectToHomeWifiPage: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => ConnectToHomeWifiPage(),
+        settings: data,
+      );
+    },
+    OpenAccessPointPage: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => OpenAccessPointPage(),
         settings: data,
       );
     },
@@ -260,11 +260,11 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
   Future<dynamic> pushChooseDeviceVendorToAddPage() =>
       push<dynamic>(Routes.chooseDeviceVendorToAddPage);
 
-  Future<dynamic> pushOpenHotspotPage() =>
-      push<dynamic>(Routes.openHotspotPage);
-
   Future<dynamic> pushConnectToHomeWifiPage() =>
       push<dynamic>(Routes.connectToHomeWifiPage);
+
+  Future<dynamic> pushOpenAccessPointPage() =>
+      push<dynamic>(Routes.openAccessPointPage);
 
   Future<dynamic> pushRoomsLightsPage() =>
       push<dynamic>(Routes.roomsLightsPage);

@@ -1,70 +1,59 @@
 import 'package:clipboard_manager/clipboard_manager.dart';
-import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
+import 'package:cybear_jinni/application/manage_access_point/manage_access_point_bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class OpenHotspotPage extends StatelessWidget {
-  void backButtonFunction(BuildContext context) {
-    Navigator.pop(context);
-  }
-
+class OpenAccessPointWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          // Box decoration takes a gradient
-          gradient: LinearGradient(
-            // Where the linear gradient begins and ends
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            // Add one stop for each color. Stops should increase from 0 to 1
-            stops: const [0.06, 0.9],
-            colors: [
-              // Colors are easy thanks to Flutter's Colors class.
-              Colors.grey,
-              Theme.of(context).primaryColor,
-            ],
-          ),
-        ),
-        child: Column(
-          children: [
-            TopNavigationBar(
-              'Add Devices',
-              null,
-              () {},
-              leftIcon: FontAwesomeIcons.arrowLeft,
-              leftIconFunction: backButtonFunction,
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            Container(
-              height: 35,
-              width: MediaQuery.of(context).size.width - 20,
-              decoration: const BoxDecoration(
-                color: Colors.black38,
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-              ),
-              alignment: Alignment.center,
-              child: Text(
-                'Open hotspot',
-                style: TextStyle(
-                    fontSize: 25,
-                    color: Theme.of(context).textTheme.bodyText1.color),
-              ),
-            ),
-            const SizedBox(
-              height: 100,
-            ),
-            Expanded(
-              child: Center(
-                child: SizedBox(
-                  height: MediaQuery.of(context).size.height / 2.5,
-                  child: Column(
+    final Size screenSize = MediaQuery.of(context).size;
+
+    return BlocBuilder<ManageAccessPointBloc, ManageAccessPointState>(
+      builder: (context, state) {
+        return SingleChildScrollView(
+          child: Column(
+            children: [
+              state.map(
+                initial: (value) {
+                  return FlatButton(
+                      color: Colors.greenAccent,
+                      onPressed: () {
+                        context
+                            .read<ManageAccessPointBloc>()
+                            .add(ManageAccessPointEvent.initialized());
+                      },
+                      child: const Text('Create Access Pint'));
+                },
+                loading: (_) {
+                  return const CircularProgressIndicator(
+                    backgroundColor: Colors.cyan,
+                    strokeWidth: 5,
+                  );
+                },
+                loaded: (l) {
+                  // ExtendedNavigator.of(context)
+                  //     .push(Routes.openAccessPointPage);
+                  return const Text('Loaded');
+                },
+                error: (e) {
+                  return const Text('Failure');
+                },
+                iOSDevice: (IOSDevice value) {
+                  return Column(
                     children: <Widget>[
+                      Container(
+                        margin: const EdgeInsets.symmetric(horizontal: 50),
+                        child: const Text(
+                          'Please Open Access point with the following '
+                          'credentials in the OS Settings.',
+                          style: TextStyle(fontSize: 17),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 30,
+                      ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: SizedBox(
@@ -97,9 +86,6 @@ class OpenHotspotPage extends StatelessWidget {
                             ),
                           ),
                         ),
-                      ),
-                      const SizedBox(
-                        height: 10,
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -135,43 +121,40 @@ class OpenHotspotPage extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        height: 20,
-                      ),
-                      Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 20),
-                        // ignore: lines_longer_than_80_chars
-                        child: const Text(
-                          'Please Open Access point with the following '
-                          'credentials in the OS Settings.',
-                          style: TextStyle(fontSize: 17),
-                        ),
+                        height: 10,
                       ),
                       const SizedBox(
-                        height: 12,
+                        height: 20,
                       ),
                     ],
-                  ),
-                ),
+                  );
+                },
+                cantDetermineAccessPointOpenOrNot:
+                    (CantDetermineAccessPointOpenOrNot value) {
+                  return const Text('CantDetermineAccessPointOpenOrNot');
+                },
+                accessPointIsNotOpen: (AccessPointIsNotOpen value) {
+                  return const Text('AccessPointIsNotOpen');
+                },
+                accessPointIsOpen: (AccessPointIsOpen value) {
+                  return const Text('AccessPointIsOpen');
+                },
               ),
-            ),
-            Container(
-              margin: const EdgeInsets.all(20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  FlatButton(
-                      color: Colors.blueGrey,
-                      onPressed: () {},
-                      child: const Text(
-                        'Next',
-                        style: TextStyle(color: Colors.white),
-                      )),
-                ],
+              FlatButton(
+                color: Colors.greenAccent,
+                onPressed: () {
+                  context
+                      .read<ManageAccessPointBloc>()
+                      .add(ManageAccessPointEvent.doesAccessPointOpen());
+                  // ExtendedNavigator.of(context)
+                  //     .push(Routes.openAccessPointPage);
+                },
+                child: const Text('Next'),
               ),
-            )
-          ],
-        ),
-      ),
+            ],
+          ),
+        );
+      },
     );
   }
 }

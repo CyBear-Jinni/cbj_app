@@ -2,7 +2,6 @@ part of 'manage_wifi_bloc.dart';
 
 @freezed
 abstract class ManageWifiState with _$ManageWifiState {
-
   factory ManageWifiState.initial() = Initial;
 
   // factory ConnectToHomeWifiState.initialized() => ScanForWiFi;

@@ -1,4 +1,6 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/manage_wifi/manage_wifi_bloc.dart';
+import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,6 +26,8 @@ class ConnectToHomeWiFiWidget extends StatelessWidget {
                   );
                 },
                 loaded: (l) {
+                  ExtendedNavigator.of(context)
+                      .push(Routes.openAccessPointPage);
                   return const Text('Loaded');
                 },
                 error: (e) {
@@ -32,6 +36,17 @@ class ConnectToHomeWiFiWidget extends StatelessWidget {
                 wifiIsEnabled: (WifiIsEnabled value) {
                   return Column(
                     children: <Widget>[
+                      Container(
+                        margin: const EdgeInsets.symmetric(horizontal: 50),
+                        child: const Text(
+                          'Smart Devices need your home WiFi name and '
+                          'password in order to connect.',
+                          style: TextStyle(fontSize: 17),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 30,
+                      ),
                       SizedBox(
                         width: 300,
                         child: TextFormField(
@@ -79,7 +94,7 @@ class ConnectToHomeWiFiWidget extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        height: 30,
+                        height: 20,
                       ),
                       FlatButton(
                         color: Colors.pinkAccent,
@@ -93,27 +108,21 @@ class ConnectToHomeWiFiWidget extends StatelessWidget {
                           style: TextStyle(color: Colors.white),
                         ),
                       ),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 50),
-                        child: const Text(
-                          'Smart Devices need your home WiFi name and '
-                          'password in order to connect.',
-                          style: TextStyle(fontSize: 17),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 12,
-                      ),
                     ],
                   );
                 },
                 wifiIsDisabled: (WifiIsDisabled value) {
                   return const Text('WiFi is disabled');
                 },
-              )
+              ),
+              FlatButton(
+                color: Colors.greenAccent,
+                onPressed: () {
+                  ExtendedNavigator.of(context)
+                      .push(Routes.openAccessPointPage);
+                },
+                child: const Text('Next'),
+              ),
             ],
           ),
         );
