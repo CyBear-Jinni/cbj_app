@@ -1,4 +1,7 @@
 import 'package:auto_route/auto_route_annotations.dart';
+import 'package:cybear_jinni/presentation/add_new_devices_process/choose_device_vendor_to_add/choose_device_vendor_to_add_page.dart';
+import 'package:cybear_jinni/presentation/add_new_devices_process/connect_to_home_wifi/connect_to_home_wifi_page.dart';
+import 'package:cybear_jinni/presentation/add_new_devices_process/open_hotspot/open_hotspot_page.dart';
 import 'package:cybear_jinni/presentation/add_user_to_home/add_user_to_home_page.dart';
 import 'package:cybear_jinni/presentation/create_home/create_home_page.dart';
 import 'package:cybear_jinni/presentation/home_page/home_page.dart';
@@ -29,6 +32,9 @@ import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_pag
     MaterialRoute(page: ManageUsersPage),
     MaterialRoute(page: AddUserToHomePage),
     MaterialRoute(page: ScenesPage),
+    MaterialRoute(page: ChooseDeviceVendorToAddPage),
+    MaterialRoute(page: OpenHotspotPage),
+    MaterialRoute(page: ConnectToHomeWifiPage),
     MaterialRoute(page: RoomsLightsPage),
     MaterialRoute(page: LightsInTheRoomPage),
     MaterialRoute(page: BlindsPage),
@@ -41,6 +47,9 @@ class $AppRouter {
   SignInPage signInPage;
   CreateHomePage createHomePage;
   ScenesPage scenesPage;
+  ChooseDeviceVendorToAddPage chooseDeviceVendorToAddPage;
+  OpenHotspotPage openHotspotPage;
+  ConnectToHomeWifiPage connectToHomeWifiPage;
   WhereToLoginPageMinimalPage whereToLoginPageMinimal;
   WhereToLoginPageOffline whereToLoginPageOffline;
   JoinHomeByIdPage joinHomeByIdPage;

@@ -1,6 +1,5 @@
 import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/presentation/add_new_devices/open_access_point_popup.dart';
 import 'package:cybear_jinni/presentation/core/route_names.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/settings_page_of_smart_devices.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
@@ -122,14 +121,17 @@ class SmartDevicesWidgets extends StatelessWidget {
       context: context,
       actions: <BottomSheetAction>[
         BottomSheetAction(
-            title: '➕ Add Device',
+            title: '➕ Add Devices',
             onPressed: () {
-              showDialog(
-                context: context,
-                builder: (BuildContext context) {
-                  return OpenHotspotAccessPoint();
-                },
-              );
+              ExtendedNavigator.of(context)
+                  .push(Routes.chooseDeviceVendorToAddPage);
+
+              // showDialog(
+              //   context: context,
+              //   builder: (BuildContext context) {
+              //     return OpenHotspotAccessPoint();
+              //   },
+              // );
             },
             textStyle: const TextStyle(color: Colors.green, fontSize: 23)),
         BottomSheetAction(

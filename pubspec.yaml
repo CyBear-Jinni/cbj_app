@@ -107,9 +107,9 @@ dependencies:
   # Simple, fast generation of RFC4122 UUIDs.
   uuid: ^2.2.2
   # Information about a device's connection to wifi
-  wifi_info_flutter: ^1.0.3
+  wifi_info_flutter: ^1.0.4
   # Get available wifi ssid list, user can connect to wifi with ssid and password, and create hotspot
-  wifi_iot: ^0.2.0
+  wifi_iot: ^0.2.2
 
 dev_dependencies:
   # Generator for auto_route library.

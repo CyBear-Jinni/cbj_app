@@ -9,6 +9,7 @@ abstract class HomeUserFailures<T> {
   }) = _Empty;
 
   const factory HomeUserFailures.unexpected() = _Unexpected;
+
   const factory HomeUserFailures.validateEmailNotEmpty() =
       _ValidateEmailNotEmpty;
 
@@ -16,6 +17,10 @@ abstract class HomeUserFailures<T> {
       _InsufficientPermission;
 
   const factory HomeUserFailures.homeDoesNotExist() = _HomeDoesNotExist;
+
+  const factory HomeUserFailures.cannotConnectToWiFi() = _CannotConnectToWiFi;
+
+  const factory HomeUserFailures.wifiDisabled() = _WifiDisabled;
 
   const factory HomeUserFailures.unableToUpdate() = _UnableToUpdate;
 }

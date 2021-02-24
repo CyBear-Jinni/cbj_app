@@ -10,9 +10,7 @@ import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 
 part 'sign_in_form_bloc.freezed.dart';
-
 part 'sign_in_form_event.dart';
-
 part 'sign_in_form_state.dart';
 
 @injectable
@@ -23,7 +21,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
 
   //
   // @override
-  // SignInFormState get initialState => SignInFormState.initial();
+  // SignInFormState get initialStat`e => SignInFormState.initial();
 
   @override
   Stream<SignInFormState> mapEventToState(

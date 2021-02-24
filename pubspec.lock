@@ -1141,7 +1141,7 @@ packages:
       name: wifi_info_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.3"
+    version: "1.0.4"
   wifi_info_flutter_platform_interface:
     dependency: transitive
     description:
@@ -1155,7 +1155,7 @@ packages:
       name: wifi_iot
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.0"
+    version: "0.2.2"
   win32:
     dependency: transitive
     description:

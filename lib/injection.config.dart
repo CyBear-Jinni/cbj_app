@@ -32,11 +32,14 @@ import 'domain/devices/i_device_repository.dart';
 import 'domain/folder_of_scenes/i_folder_of_scenes_repository.dart';
 import 'domain/folders_of_scenes/i_folders_of_scenes_repository.dart';
 import 'domain/home_user/i_home_user_repository.dart';
+import 'domain/manage_wifi/i_manage_wifi_repository.dart';
 import 'domain/scene/i_scene_repository.dart';
 import 'domain/user/i_user_repository.dart';
 import 'application/join_home_by_id/join_home_by_id_bloc.dart';
 import 'application/light_toggle/light_toggle_bloc.dart';
 import 'application/manage_users/manage_users_bloc.dart';
+import 'infrastructure/manage_wifi/manage_wifi_repository.dart';
+import 'application/manage_wifi/manage_wifi_bloc.dart';
 import 'infrastructure/mock_example.dart';
 import 'application/scene/scene_bloc.dart';
 import 'infrastructure/scenes/scene_repository.dart';
@@ -70,6 +73,7 @@ GetIt $initGetIt(
       () => FoldersOfScenesRepository());
   gh.lazySingleton<IHomeUserRepository>(
       () => HomeUserRepository(get<FirebaseFirestore>()));
+  gh.lazySingleton<IManageWiFiRepository>(() => ManageWiFiRepository());
   gh.lazySingleton<ISceneRepository>(() => SceneRepository());
   gh.lazySingleton<IUserRepository>(
       () => UserRepository(get<FirebaseFirestore>()));
@@ -77,6 +81,8 @@ GetIt $initGetIt(
   gh.factory<LightToggleBloc>(() => LightToggleBloc(get<IDeviceRepository>()));
   gh.factory<ManageUsersBloc>(
       () => ManageUsersBloc(get<IHomeUserRepository>()));
+  gh.factory<ManageWifiBloc>(
+      () => ManageWifiBloc(get<IManageWiFiRepository>()));
   gh.factory<MockExample>(() => MockExample());
   gh.factory<SceneBloc>(() => SceneBloc(get<ISceneRepository>()));
   gh.factory<SignInFormBloc>(() => SignInFormBloc(get<IAuthFacade>()));

@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
-part of 'home_user_failures.dart';
+part of 'manage_wifi_failures.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -10,8 +10,8 @@ part of 'home_user_failures.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-class _$HomeUserFailuresTearOff {
-  const _$HomeUserFailuresTearOff();
+class _$ManageWiFiFailuresTearOff {
+  const _$ManageWiFiFailuresTearOff();
 
 // ignore: unused_element
   _Empty<T> empty<T>({@required T failedValue}) {
@@ -36,18 +36,8 @@ class _$HomeUserFailuresTearOff {
   }
 
 // ignore: unused_element
-  _HomeDoesNotExist<T> homeDoesNotExist<T>() {
-    return _HomeDoesNotExist<T>();
-  }
-
-// ignore: unused_element
-  _CannotConnectToWiFi<T> cannotConnectToWiFi<T>() {
-    return _CannotConnectToWiFi<T>();
-  }
-
-// ignore: unused_element
-  _WifiDisabled<T> wifiDisabled<T>() {
-    return _WifiDisabled<T>();
+  _wifiIsClosed<T> wifiIsClosed<T>() {
+    return _wifiIsClosed<T>();
   }
 
 // ignore: unused_element
@@ -58,19 +48,17 @@ class _$HomeUserFailuresTearOff {
 
 /// @nodoc
 // ignore: unused_element
-const $HomeUserFailures = _$HomeUserFailuresTearOff();
+const $ManageWiFiFailures = _$ManageWiFiFailuresTearOff();
 
 /// @nodoc
-mixin _$HomeUserFailures<T> {
+mixin _$ManageWiFiFailures<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult empty(T failedValue),
     @required TResult unexpected(),
     @required TResult validateEmailNotEmpty(),
     @required TResult insufficientPermission(),
-    @required TResult homeDoesNotExist(),
-    @required TResult cannotConnectToWiFi(),
-    @required TResult wifiDisabled(),
+    @required TResult wifiIsClosed(),
     @required TResult unableToUpdate(),
   });
   @optionalTypeArgs
@@ -79,9 +67,7 @@ mixin _$HomeUserFailures<T> {
     TResult unexpected(),
     TResult validateEmailNotEmpty(),
     TResult insufficientPermission(),
-    TResult homeDoesNotExist(),
-    TResult cannotConnectToWiFi(),
-    TResult wifiDisabled(),
+    TResult wifiIsClosed(),
     TResult unableToUpdate(),
     @required TResult orElse(),
   });
@@ -91,9 +77,7 @@ mixin _$HomeUserFailures<T> {
     @required TResult unexpected(_Unexpected<T> value),
     @required TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
     @required TResult insufficientPermission(_InsufficientPermission<T> value),
-    @required TResult homeDoesNotExist(_HomeDoesNotExist<T> value),
-    @required TResult cannotConnectToWiFi(_CannotConnectToWiFi<T> value),
-    @required TResult wifiDisabled(_WifiDisabled<T> value),
+    @required TResult wifiIsClosed(_wifiIsClosed<T> value),
     @required TResult unableToUpdate(_UnableToUpdate<T> value),
   });
   @optionalTypeArgs
@@ -102,29 +86,27 @@ mixin _$HomeUserFailures<T> {
     TResult unexpected(_Unexpected<T> value),
     TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
     TResult insufficientPermission(_InsufficientPermission<T> value),
-    TResult homeDoesNotExist(_HomeDoesNotExist<T> value),
-    TResult cannotConnectToWiFi(_CannotConnectToWiFi<T> value),
-    TResult wifiDisabled(_WifiDisabled<T> value),
+    TResult wifiIsClosed(_wifiIsClosed<T> value),
     TResult unableToUpdate(_UnableToUpdate<T> value),
     @required TResult orElse(),
   });
 }
 
 /// @nodoc
-abstract class $HomeUserFailuresCopyWith<T, $Res> {
-  factory $HomeUserFailuresCopyWith(
-          HomeUserFailures<T> value, $Res Function(HomeUserFailures<T>) then) =
-      _$HomeUserFailuresCopyWithImpl<T, $Res>;
+abstract class $ManageWiFiFailuresCopyWith<T, $Res> {
+  factory $ManageWiFiFailuresCopyWith(ManageWiFiFailures<T> value,
+          $Res Function(ManageWiFiFailures<T>) then) =
+      _$ManageWiFiFailuresCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class _$HomeUserFailuresCopyWithImpl<T, $Res>
-    implements $HomeUserFailuresCopyWith<T, $Res> {
-  _$HomeUserFailuresCopyWithImpl(this._value, this._then);
+class _$ManageWiFiFailuresCopyWithImpl<T, $Res>
+    implements $ManageWiFiFailuresCopyWith<T, $Res> {
+  _$ManageWiFiFailuresCopyWithImpl(this._value, this._then);
 
-  final HomeUserFailures<T> _value;
+  final ManageWiFiFailures<T> _value;
   // ignore: unused_field
-  final $Res Function(HomeUserFailures<T>) _then;
+  final $Res Function(ManageWiFiFailures<T>) _then;
 }
 
 /// @nodoc
@@ -136,7 +118,7 @@ abstract class _$EmptyCopyWith<T, $Res> {
 
 /// @nodoc
 class __$EmptyCopyWithImpl<T, $Res>
-    extends _$HomeUserFailuresCopyWithImpl<T, $Res>
+    extends _$ManageWiFiFailuresCopyWithImpl<T, $Res>
     implements _$EmptyCopyWith<T, $Res> {
   __$EmptyCopyWithImpl(_Empty<T> _value, $Res Function(_Empty<T>) _then)
       : super(_value, (v) => _then(v as _Empty<T>));
@@ -164,7 +146,7 @@ class _$_Empty<T> implements _Empty<T> {
 
   @override
   String toString() {
-    return 'HomeUserFailures<$T>.empty(failedValue: $failedValue)';
+    return 'ManageWiFiFailures<$T>.empty(failedValue: $failedValue)';
   }
 
   @override
@@ -192,18 +174,14 @@ class _$_Empty<T> implements _Empty<T> {
     @required TResult unexpected(),
     @required TResult validateEmailNotEmpty(),
     @required TResult insufficientPermission(),
-    @required TResult homeDoesNotExist(),
-    @required TResult cannotConnectToWiFi(),
-    @required TResult wifiDisabled(),
+    @required TResult wifiIsClosed(),
     @required TResult unableToUpdate(),
   }) {
     assert(empty != null);
     assert(unexpected != null);
     assert(validateEmailNotEmpty != null);
     assert(insufficientPermission != null);
-    assert(homeDoesNotExist != null);
-    assert(cannotConnectToWiFi != null);
-    assert(wifiDisabled != null);
+    assert(wifiIsClosed != null);
     assert(unableToUpdate != null);
     return empty(failedValue);
   }
@@ -215,9 +193,7 @@ class _$_Empty<T> implements _Empty<T> {
     TResult unexpected(),
     TResult validateEmailNotEmpty(),
     TResult insufficientPermission(),
-    TResult homeDoesNotExist(),
-    TResult cannotConnectToWiFi(),
-    TResult wifiDisabled(),
+    TResult wifiIsClosed(),
     TResult unableToUpdate(),
     @required TResult orElse(),
   }) {
@@ -235,18 +211,14 @@ class _$_Empty<T> implements _Empty<T> {
     @required TResult unexpected(_Unexpected<T> value),
     @required TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
     @required TResult insufficientPermission(_InsufficientPermission<T> value),
-    @required TResult homeDoesNotExist(_HomeDoesNotExist<T> value),
-    @required TResult cannotConnectToWiFi(_CannotConnectToWiFi<T> value),
-    @required TResult wifiDisabled(_WifiDisabled<T> value),
+    @required TResult wifiIsClosed(_wifiIsClosed<T> value),
     @required TResult unableToUpdate(_UnableToUpdate<T> value),
   }) {
     assert(empty != null);
     assert(unexpected != null);
     assert(validateEmailNotEmpty != null);
     assert(insufficientPermission != null);
-    assert(homeDoesNotExist != null);
-    assert(cannotConnectToWiFi != null);
-    assert(wifiDisabled != null);
+    assert(wifiIsClosed != null);
     assert(unableToUpdate != null);
     return empty(this);
   }
@@ -258,9 +230,7 @@ class _$_Empty<T> implements _Empty<T> {
     TResult unexpected(_Unexpected<T> value),
     TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
     TResult insufficientPermission(_InsufficientPermission<T> value),
-    TResult homeDoesNotExist(_HomeDoesNotExist<T> value),
-    TResult cannotConnectToWiFi(_CannotConnectToWiFi<T> value),
-    TResult wifiDisabled(_WifiDisabled<T> value),
+    TResult wifiIsClosed(_wifiIsClosed<T> value),
     TResult unableToUpdate(_UnableToUpdate<T> value),
     @required TResult orElse(),
   }) {
@@ -272,7 +242,7 @@ class _$_Empty<T> implements _Empty<T> {
   }
 }
 
-abstract class _Empty<T> implements HomeUserFailures<T> {
+abstract class _Empty<T> implements ManageWiFiFailures<T> {
   const factory _Empty({@required T failedValue}) = _$_Empty<T>;
 
   T get failedValue;
@@ -289,7 +259,7 @@ abstract class _$UnexpectedCopyWith<T, $Res> {
 
 /// @nodoc
 class __$UnexpectedCopyWithImpl<T, $Res>
-    extends _$HomeUserFailuresCopyWithImpl<T, $Res>
+    extends _$ManageWiFiFailuresCopyWithImpl<T, $Res>
     implements _$UnexpectedCopyWith<T, $Res> {
   __$UnexpectedCopyWithImpl(
       _Unexpected<T> _value, $Res Function(_Unexpected<T>) _then)
@@ -305,7 +275,7 @@ class _$_Unexpected<T> implements _Unexpected<T> {
 
   @override
   String toString() {
-    return 'HomeUserFailures<$T>.unexpected()';
+    return 'ManageWiFiFailures<$T>.unexpected()';
   }
 
   @override
@@ -323,18 +293,14 @@ class _$_Unexpected<T> implements _Unexpected<T> {
     @required TResult unexpected(),
     @required TResult validateEmailNotEmpty(),
     @required TResult insufficientPermission(),
-    @required TResult homeDoesNotExist(),
-    @required TResult cannotConnectToWiFi(),
-    @required TResult wifiDisabled(),
+    @required TResult wifiIsClosed(),
     @required TResult unableToUpdate(),
   }) {
     assert(empty != null);
     assert(unexpected != null);
     assert(validateEmailNotEmpty != null);
     assert(insufficientPermission != null);
-    assert(homeDoesNotExist != null);
-    assert(cannotConnectToWiFi != null);
-    assert(wifiDisabled != null);
+    assert(wifiIsClosed != null);
     assert(unableToUpdate != null);
     return unexpected();
   }
@@ -346,9 +312,7 @@ class _$_Unexpected<T> implements _Unexpected<T> {
     TResult unexpected(),
     TResult validateEmailNotEmpty(),
     TResult insufficientPermission(),
-    TResult homeDoesNotExist(),
-    TResult cannotConnectToWiFi(),
-    TResult wifiDisabled(),
+    TResult wifiIsClosed(),
     TResult unableToUpdate(),
     @required TResult orElse(),
   }) {
@@ -366,18 +330,14 @@ class _$_Unexpected<T> implements _Unexpected<T> {
     @required TResult unexpected(_Unexpected<T> value),
     @required TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
     @required TResult insufficientPermission(_InsufficientPermission<T> value),
-    @required TResult homeDoesNotExist(_HomeDoesNotExist<T> value),
-    @required TResult cannotConnectToWiFi(_CannotConnectToWiFi<T> value),
-    @required TResult wifiDisabled(_WifiDisabled<T> value),
+    @required TResult wifiIsClosed(_wifiIsClosed<T> value),
     @required TResult unableToUpdate(_UnableToUpdate<T> value),
   }) {
     assert(empty != null);
     assert(unexpected != null);
     assert(validateEmailNotEmpty != null);
     assert(insufficientPermission != null);
-    assert(homeDoesNotExist != null);
-    assert(cannotConnectToWiFi != null);
-    assert(wifiDisabled != null);
+    assert(wifiIsClosed != null);
     assert(unableToUpdate != null);
     return unexpected(this);
   }
@@ -389,9 +349,7 @@ class _$_Unexpected<T> implements _Unexpected<T> {
     TResult unexpected(_Unexpected<T> value),
     TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
     TResult insufficientPermission(_InsufficientPermission<T> value),
-    TResult homeDoesNotExist(_HomeDoesNotExist<T> value),
-    TResult cannotConnectToWiFi(_CannotConnectToWiFi<T> value),
-    TResult wifiDisabled(_WifiDisabled<T> value),
+    TResult wifiIsClosed(_wifiIsClosed<T> value),
     TResult unableToUpdate(_UnableToUpdate<T> value),
     @required TResult orElse(),
   }) {
@@ -403,7 +361,7 @@ class _$_Unexpected<T> implements _Unexpected<T> {
   }
 }
 
-abstract class _Unexpected<T> implements HomeUserFailures<T> {
+abstract class _Unexpected<T> implements ManageWiFiFailures<T> {
   const factory _Unexpected() = _$_Unexpected<T>;
 }
 
@@ -416,7 +374,7 @@ abstract class _$ValidateEmailNotEmptyCopyWith<T, $Res> {
 
 /// @nodoc
 class __$ValidateEmailNotEmptyCopyWithImpl<T, $Res>
-    extends _$HomeUserFailuresCopyWithImpl<T, $Res>
+    extends _$ManageWiFiFailuresCopyWithImpl<T, $Res>
     implements _$ValidateEmailNotEmptyCopyWith<T, $Res> {
   __$ValidateEmailNotEmptyCopyWithImpl(_ValidateEmailNotEmpty<T> _value,
       $Res Function(_ValidateEmailNotEmpty<T>) _then)
@@ -433,7 +391,7 @@ class _$_ValidateEmailNotEmpty<T> implements _ValidateEmailNotEmpty<T> {
 
   @override
   String toString() {
-    return 'HomeUserFailures<$T>.validateEmailNotEmpty()';
+    return 'ManageWiFiFailures<$T>.validateEmailNotEmpty()';
   }
 
   @override
@@ -451,18 +409,14 @@ class _$_ValidateEmailNotEmpty<T> implements _ValidateEmailNotEmpty<T> {
     @required TResult unexpected(),
     @required TResult validateEmailNotEmpty(),
     @required TResult insufficientPermission(),
-    @required TResult homeDoesNotExist(),
-    @required TResult cannotConnectToWiFi(),
-    @required TResult wifiDisabled(),
+    @required TResult wifiIsClosed(),
     @required TResult unableToUpdate(),
   }) {
     assert(empty != null);
     assert(unexpected != null);
     assert(validateEmailNotEmpty != null);
     assert(insufficientPermission != null);
-    assert(homeDoesNotExist != null);
-    assert(cannotConnectToWiFi != null);
-    assert(wifiDisabled != null);
+    assert(wifiIsClosed != null);
     assert(unableToUpdate != null);
     return validateEmailNotEmpty();
   }
@@ -474,9 +428,7 @@ class _$_ValidateEmailNotEmpty<T> implements _ValidateEmailNotEmpty<T> {
     TResult unexpected(),
     TResult validateEmailNotEmpty(),
     TResult insufficientPermission(),
-    TResult homeDoesNotExist(),
-    TResult cannotConnectToWiFi(),
-    TResult wifiDisabled(),
+    TResult wifiIsClosed(),
     TResult unableToUpdate(),
     @required TResult orElse(),
   }) {
@@ -494,18 +446,14 @@ class _$_ValidateEmailNotEmpty<T> implements _ValidateEmailNotEmpty<T> {
     @required TResult unexpected(_Unexpected<T> value),
     @required TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
     @required TResult insufficientPermission(_InsufficientPermission<T> value),
-    @required TResult homeDoesNotExist(_HomeDoesNotExist<T> value),
-    @required TResult cannotConnectToWiFi(_CannotConnectToWiFi<T> value),
-    @required TResult wifiDisabled(_WifiDisabled<T> value),
+    @required TResult wifiIsClosed(_wifiIsClosed<T> value),
     @required TResult unableToUpdate(_UnableToUpdate<T> value),
   }) {
     assert(empty != null);
     assert(unexpected != null);
     assert(validateEmailNotEmpty != null);
     assert(insufficientPermission != null);
-    assert(homeDoesNotExist != null);
-    assert(cannotConnectToWiFi != null);
-    assert(wifiDisabled != null);
+    assert(wifiIsClosed != null);
     assert(unableToUpdate != null);
     return validateEmailNotEmpty(this);
   }
@@ -517,9 +465,7 @@ class _$_ValidateEmailNotEmpty<T> implements _ValidateEmailNotEmpty<T> {
     TResult unexpected(_Unexpected<T> value),
     TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
     TResult insufficientPermission(_InsufficientPermission<T> value),
-    TResult homeDoesNotExist(_HomeDoesNotExist<T> value),
-    TResult cannotConnectToWiFi(_CannotConnectToWiFi<T> value),
-    TResult wifiDisabled(_WifiDisabled<T> value),
+    TResult wifiIsClosed(_wifiIsClosed<T> value),
     TResult unableToUpdate(_UnableToUpdate<T> value),
     @required TResult orElse(),
   }) {
@@ -531,7 +477,7 @@ class _$_ValidateEmailNotEmpty<T> implements _ValidateEmailNotEmpty<T> {
   }
 }
 
-abstract class _ValidateEmailNotEmpty<T> implements HomeUserFailures<T> {
+abstract class _ValidateEmailNotEmpty<T> implements ManageWiFiFailures<T> {
   const factory _ValidateEmailNotEmpty() = _$_ValidateEmailNotEmpty<T>;
 }
 
@@ -544,7 +490,7 @@ abstract class _$InsufficientPermissionCopyWith<T, $Res> {
 
 /// @nodoc
 class __$InsufficientPermissionCopyWithImpl<T, $Res>
-    extends _$HomeUserFailuresCopyWithImpl<T, $Res>
+    extends _$ManageWiFiFailuresCopyWithImpl<T, $Res>
     implements _$InsufficientPermissionCopyWith<T, $Res> {
   __$InsufficientPermissionCopyWithImpl(_InsufficientPermission<T> _value,
       $Res Function(_InsufficientPermission<T>) _then)
@@ -561,7 +507,7 @@ class _$_InsufficientPermission<T> implements _InsufficientPermission<T> {
 
   @override
   String toString() {
-    return 'HomeUserFailures<$T>.insufficientPermission()';
+    return 'ManageWiFiFailures<$T>.insufficientPermission()';
   }
 
   @override
@@ -579,18 +525,14 @@ class _$_InsufficientPermission<T> implements _InsufficientPermission<T> {
     @required TResult unexpected(),
     @required TResult validateEmailNotEmpty(),
     @required TResult insufficientPermission(),
-    @required TResult homeDoesNotExist(),
-    @required TResult cannotConnectToWiFi(),
-    @required TResult wifiDisabled(),
+    @required TResult wifiIsClosed(),
     @required TResult unableToUpdate(),
   }) {
     assert(empty != null);
     assert(unexpected != null);
     assert(validateEmailNotEmpty != null);
     assert(insufficientPermission != null);
-    assert(homeDoesNotExist != null);
-    assert(cannotConnectToWiFi != null);
-    assert(wifiDisabled != null);
+    assert(wifiIsClosed != null);
     assert(unableToUpdate != null);
     return insufficientPermission();
   }
@@ -602,9 +544,7 @@ class _$_InsufficientPermission<T> implements _InsufficientPermission<T> {
     TResult unexpected(),
     TResult validateEmailNotEmpty(),
     TResult insufficientPermission(),
-    TResult homeDoesNotExist(),
-    TResult cannotConnectToWiFi(),
-    TResult wifiDisabled(),
+    TResult wifiIsClosed(),
     TResult unableToUpdate(),
     @required TResult orElse(),
   }) {
@@ -622,18 +562,14 @@ class _$_InsufficientPermission<T> implements _InsufficientPermission<T> {
     @required TResult unexpected(_Unexpected<T> value),
     @required TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
     @required TResult insufficientPermission(_InsufficientPermission<T> value),
-    @required TResult homeDoesNotExist(_HomeDoesNotExist<T> value),
-    @required TResult cannotConnectToWiFi(_CannotConnectToWiFi<T> value),
-    @required TResult wifiDisabled(_WifiDisabled<T> value),
+    @required TResult wifiIsClosed(_wifiIsClosed<T> value),
     @required TResult unableToUpdate(_UnableToUpdate<T> value),
   }) {
     assert(empty != null);
     assert(unexpected != null);
     assert(validateEmailNotEmpty != null);
     assert(insufficientPermission != null);
-    assert(homeDoesNotExist != null);
-    assert(cannotConnectToWiFi != null);
-    assert(wifiDisabled != null);
+    assert(wifiIsClosed != null);
     assert(unableToUpdate != null);
     return insufficientPermission(this);
   }
@@ -645,9 +581,7 @@ class _$_InsufficientPermission<T> implements _InsufficientPermission<T> {
     TResult unexpected(_Unexpected<T> value),
     TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
     TResult insufficientPermission(_InsufficientPermission<T> value),
-    TResult homeDoesNotExist(_HomeDoesNotExist<T> value),
-    TResult cannotConnectToWiFi(_CannotConnectToWiFi<T> value),
-    TResult wifiDisabled(_WifiDisabled<T> value),
+    TResult wifiIsClosed(_wifiIsClosed<T> value),
     TResult unableToUpdate(_UnableToUpdate<T> value),
     @required TResult orElse(),
   }) {
@@ -659,41 +593,41 @@ class _$_InsufficientPermission<T> implements _InsufficientPermission<T> {
   }
 }
 
-abstract class _InsufficientPermission<T> implements HomeUserFailures<T> {
+abstract class _InsufficientPermission<T> implements ManageWiFiFailures<T> {
   const factory _InsufficientPermission() = _$_InsufficientPermission<T>;
 }
 
 /// @nodoc
-abstract class _$HomeDoesNotExistCopyWith<T, $Res> {
-  factory _$HomeDoesNotExistCopyWith(_HomeDoesNotExist<T> value,
-          $Res Function(_HomeDoesNotExist<T>) then) =
-      __$HomeDoesNotExistCopyWithImpl<T, $Res>;
+abstract class _$wifiIsClosedCopyWith<T, $Res> {
+  factory _$wifiIsClosedCopyWith(
+          _wifiIsClosed<T> value, $Res Function(_wifiIsClosed<T>) then) =
+      __$wifiIsClosedCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$HomeDoesNotExistCopyWithImpl<T, $Res>
-    extends _$HomeUserFailuresCopyWithImpl<T, $Res>
-    implements _$HomeDoesNotExistCopyWith<T, $Res> {
-  __$HomeDoesNotExistCopyWithImpl(
-      _HomeDoesNotExist<T> _value, $Res Function(_HomeDoesNotExist<T>) _then)
-      : super(_value, (v) => _then(v as _HomeDoesNotExist<T>));
+class __$wifiIsClosedCopyWithImpl<T, $Res>
+    extends _$ManageWiFiFailuresCopyWithImpl<T, $Res>
+    implements _$wifiIsClosedCopyWith<T, $Res> {
+  __$wifiIsClosedCopyWithImpl(
+      _wifiIsClosed<T> _value, $Res Function(_wifiIsClosed<T>) _then)
+      : super(_value, (v) => _then(v as _wifiIsClosed<T>));
 
   @override
-  _HomeDoesNotExist<T> get _value => super._value as _HomeDoesNotExist<T>;
+  _wifiIsClosed<T> get _value => super._value as _wifiIsClosed<T>;
 }
 
 /// @nodoc
-class _$_HomeDoesNotExist<T> implements _HomeDoesNotExist<T> {
-  const _$_HomeDoesNotExist();
+class _$_wifiIsClosed<T> implements _wifiIsClosed<T> {
+  const _$_wifiIsClosed();
 
   @override
   String toString() {
-    return 'HomeUserFailures<$T>.homeDoesNotExist()';
+    return 'ManageWiFiFailures<$T>.wifiIsClosed()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _HomeDoesNotExist<T>);
+    return identical(this, other) || (other is _wifiIsClosed<T>);
   }
 
   @override
@@ -706,20 +640,16 @@ class _$_HomeDoesNotExist<T> implements _HomeDoesNotExist<T> {
     @required TResult unexpected(),
     @required TResult validateEmailNotEmpty(),
     @required TResult insufficientPermission(),
-    @required TResult homeDoesNotExist(),
-    @required TResult cannotConnectToWiFi(),
-    @required TResult wifiDisabled(),
+    @required TResult wifiIsClosed(),
     @required TResult unableToUpdate(),
   }) {
     assert(empty != null);
     assert(unexpected != null);
     assert(validateEmailNotEmpty != null);
     assert(insufficientPermission != null);
-    assert(homeDoesNotExist != null);
-    assert(cannotConnectToWiFi != null);
-    assert(wifiDisabled != null);
+    assert(wifiIsClosed != null);
     assert(unableToUpdate != null);
-    return homeDoesNotExist();
+    return wifiIsClosed();
   }
 
   @override
@@ -729,15 +659,13 @@ class _$_HomeDoesNotExist<T> implements _HomeDoesNotExist<T> {
     TResult unexpected(),
     TResult validateEmailNotEmpty(),
     TResult insufficientPermission(),
-    TResult homeDoesNotExist(),
-    TResult cannotConnectToWiFi(),
-    TResult wifiDisabled(),
+    TResult wifiIsClosed(),
     TResult unableToUpdate(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (homeDoesNotExist != null) {
-      return homeDoesNotExist();
+    if (wifiIsClosed != null) {
+      return wifiIsClosed();
     }
     return orElse();
   }
@@ -749,20 +677,16 @@ class _$_HomeDoesNotExist<T> implements _HomeDoesNotExist<T> {
     @required TResult unexpected(_Unexpected<T> value),
     @required TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
     @required TResult insufficientPermission(_InsufficientPermission<T> value),
-    @required TResult homeDoesNotExist(_HomeDoesNotExist<T> value),
-    @required TResult cannotConnectToWiFi(_CannotConnectToWiFi<T> value),
-    @required TResult wifiDisabled(_WifiDisabled<T> value),
+    @required TResult wifiIsClosed(_wifiIsClosed<T> value),
     @required TResult unableToUpdate(_UnableToUpdate<T> value),
   }) {
     assert(empty != null);
     assert(unexpected != null);
     assert(validateEmailNotEmpty != null);
     assert(insufficientPermission != null);
-    assert(homeDoesNotExist != null);
-    assert(cannotConnectToWiFi != null);
-    assert(wifiDisabled != null);
+    assert(wifiIsClosed != null);
     assert(unableToUpdate != null);
-    return homeDoesNotExist(this);
+    return wifiIsClosed(this);
   }
 
   @override
@@ -772,276 +696,20 @@ class _$_HomeDoesNotExist<T> implements _HomeDoesNotExist<T> {
     TResult unexpected(_Unexpected<T> value),
     TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
     TResult insufficientPermission(_InsufficientPermission<T> value),
-    TResult homeDoesNotExist(_HomeDoesNotExist<T> value),
-    TResult cannotConnectToWiFi(_CannotConnectToWiFi<T> value),
-    TResult wifiDisabled(_WifiDisabled<T> value),
+    TResult wifiIsClosed(_wifiIsClosed<T> value),
     TResult unableToUpdate(_UnableToUpdate<T> value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (homeDoesNotExist != null) {
-      return homeDoesNotExist(this);
+    if (wifiIsClosed != null) {
+      return wifiIsClosed(this);
     }
     return orElse();
   }
 }
 
-abstract class _HomeDoesNotExist<T> implements HomeUserFailures<T> {
-  const factory _HomeDoesNotExist() = _$_HomeDoesNotExist<T>;
-}
-
-/// @nodoc
-abstract class _$CannotConnectToWiFiCopyWith<T, $Res> {
-  factory _$CannotConnectToWiFiCopyWith(_CannotConnectToWiFi<T> value,
-          $Res Function(_CannotConnectToWiFi<T>) then) =
-      __$CannotConnectToWiFiCopyWithImpl<T, $Res>;
-}
-
-/// @nodoc
-class __$CannotConnectToWiFiCopyWithImpl<T, $Res>
-    extends _$HomeUserFailuresCopyWithImpl<T, $Res>
-    implements _$CannotConnectToWiFiCopyWith<T, $Res> {
-  __$CannotConnectToWiFiCopyWithImpl(_CannotConnectToWiFi<T> _value,
-      $Res Function(_CannotConnectToWiFi<T>) _then)
-      : super(_value, (v) => _then(v as _CannotConnectToWiFi<T>));
-
-  @override
-  _CannotConnectToWiFi<T> get _value => super._value as _CannotConnectToWiFi<T>;
-}
-
-/// @nodoc
-class _$_CannotConnectToWiFi<T> implements _CannotConnectToWiFi<T> {
-  const _$_CannotConnectToWiFi();
-
-  @override
-  String toString() {
-    return 'HomeUserFailures<$T>.cannotConnectToWiFi()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _CannotConnectToWiFi<T>);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult empty(T failedValue),
-    @required TResult unexpected(),
-    @required TResult validateEmailNotEmpty(),
-    @required TResult insufficientPermission(),
-    @required TResult homeDoesNotExist(),
-    @required TResult cannotConnectToWiFi(),
-    @required TResult wifiDisabled(),
-    @required TResult unableToUpdate(),
-  }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(validateEmailNotEmpty != null);
-    assert(insufficientPermission != null);
-    assert(homeDoesNotExist != null);
-    assert(cannotConnectToWiFi != null);
-    assert(wifiDisabled != null);
-    assert(unableToUpdate != null);
-    return cannotConnectToWiFi();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult empty(T failedValue),
-    TResult unexpected(),
-    TResult validateEmailNotEmpty(),
-    TResult insufficientPermission(),
-    TResult homeDoesNotExist(),
-    TResult cannotConnectToWiFi(),
-    TResult wifiDisabled(),
-    TResult unableToUpdate(),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (cannotConnectToWiFi != null) {
-      return cannotConnectToWiFi();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult empty(_Empty<T> value),
-    @required TResult unexpected(_Unexpected<T> value),
-    @required TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
-    @required TResult insufficientPermission(_InsufficientPermission<T> value),
-    @required TResult homeDoesNotExist(_HomeDoesNotExist<T> value),
-    @required TResult cannotConnectToWiFi(_CannotConnectToWiFi<T> value),
-    @required TResult wifiDisabled(_WifiDisabled<T> value),
-    @required TResult unableToUpdate(_UnableToUpdate<T> value),
-  }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(validateEmailNotEmpty != null);
-    assert(insufficientPermission != null);
-    assert(homeDoesNotExist != null);
-    assert(cannotConnectToWiFi != null);
-    assert(wifiDisabled != null);
-    assert(unableToUpdate != null);
-    return cannotConnectToWiFi(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult empty(_Empty<T> value),
-    TResult unexpected(_Unexpected<T> value),
-    TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
-    TResult insufficientPermission(_InsufficientPermission<T> value),
-    TResult homeDoesNotExist(_HomeDoesNotExist<T> value),
-    TResult cannotConnectToWiFi(_CannotConnectToWiFi<T> value),
-    TResult wifiDisabled(_WifiDisabled<T> value),
-    TResult unableToUpdate(_UnableToUpdate<T> value),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (cannotConnectToWiFi != null) {
-      return cannotConnectToWiFi(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _CannotConnectToWiFi<T> implements HomeUserFailures<T> {
-  const factory _CannotConnectToWiFi() = _$_CannotConnectToWiFi<T>;
-}
-
-/// @nodoc
-abstract class _$WifiDisabledCopyWith<T, $Res> {
-  factory _$WifiDisabledCopyWith(
-          _WifiDisabled<T> value, $Res Function(_WifiDisabled<T>) then) =
-      __$WifiDisabledCopyWithImpl<T, $Res>;
-}
-
-/// @nodoc
-class __$WifiDisabledCopyWithImpl<T, $Res>
-    extends _$HomeUserFailuresCopyWithImpl<T, $Res>
-    implements _$WifiDisabledCopyWith<T, $Res> {
-  __$WifiDisabledCopyWithImpl(
-      _WifiDisabled<T> _value, $Res Function(_WifiDisabled<T>) _then)
-      : super(_value, (v) => _then(v as _WifiDisabled<T>));
-
-  @override
-  _WifiDisabled<T> get _value => super._value as _WifiDisabled<T>;
-}
-
-/// @nodoc
-class _$_WifiDisabled<T> implements _WifiDisabled<T> {
-  const _$_WifiDisabled();
-
-  @override
-  String toString() {
-    return 'HomeUserFailures<$T>.wifiDisabled()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _WifiDisabled<T>);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult empty(T failedValue),
-    @required TResult unexpected(),
-    @required TResult validateEmailNotEmpty(),
-    @required TResult insufficientPermission(),
-    @required TResult homeDoesNotExist(),
-    @required TResult cannotConnectToWiFi(),
-    @required TResult wifiDisabled(),
-    @required TResult unableToUpdate(),
-  }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(validateEmailNotEmpty != null);
-    assert(insufficientPermission != null);
-    assert(homeDoesNotExist != null);
-    assert(cannotConnectToWiFi != null);
-    assert(wifiDisabled != null);
-    assert(unableToUpdate != null);
-    return wifiDisabled();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult empty(T failedValue),
-    TResult unexpected(),
-    TResult validateEmailNotEmpty(),
-    TResult insufficientPermission(),
-    TResult homeDoesNotExist(),
-    TResult cannotConnectToWiFi(),
-    TResult wifiDisabled(),
-    TResult unableToUpdate(),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (wifiDisabled != null) {
-      return wifiDisabled();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult empty(_Empty<T> value),
-    @required TResult unexpected(_Unexpected<T> value),
-    @required TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
-    @required TResult insufficientPermission(_InsufficientPermission<T> value),
-    @required TResult homeDoesNotExist(_HomeDoesNotExist<T> value),
-    @required TResult cannotConnectToWiFi(_CannotConnectToWiFi<T> value),
-    @required TResult wifiDisabled(_WifiDisabled<T> value),
-    @required TResult unableToUpdate(_UnableToUpdate<T> value),
-  }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(validateEmailNotEmpty != null);
-    assert(insufficientPermission != null);
-    assert(homeDoesNotExist != null);
-    assert(cannotConnectToWiFi != null);
-    assert(wifiDisabled != null);
-    assert(unableToUpdate != null);
-    return wifiDisabled(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult empty(_Empty<T> value),
-    TResult unexpected(_Unexpected<T> value),
-    TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
-    TResult insufficientPermission(_InsufficientPermission<T> value),
-    TResult homeDoesNotExist(_HomeDoesNotExist<T> value),
-    TResult cannotConnectToWiFi(_CannotConnectToWiFi<T> value),
-    TResult wifiDisabled(_WifiDisabled<T> value),
-    TResult unableToUpdate(_UnableToUpdate<T> value),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (wifiDisabled != null) {
-      return wifiDisabled(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _WifiDisabled<T> implements HomeUserFailures<T> {
-  const factory _WifiDisabled() = _$_WifiDisabled<T>;
+abstract class _wifiIsClosed<T> implements ManageWiFiFailures<T> {
+  const factory _wifiIsClosed() = _$_wifiIsClosed<T>;
 }
 
 /// @nodoc
@@ -1053,7 +721,7 @@ abstract class _$UnableToUpdateCopyWith<T, $Res> {
 
 /// @nodoc
 class __$UnableToUpdateCopyWithImpl<T, $Res>
-    extends _$HomeUserFailuresCopyWithImpl<T, $Res>
+    extends _$ManageWiFiFailuresCopyWithImpl<T, $Res>
     implements _$UnableToUpdateCopyWith<T, $Res> {
   __$UnableToUpdateCopyWithImpl(
       _UnableToUpdate<T> _value, $Res Function(_UnableToUpdate<T>) _then)
@@ -1069,7 +737,7 @@ class _$_UnableToUpdate<T> implements _UnableToUpdate<T> {
 
   @override
   String toString() {
-    return 'HomeUserFailures<$T>.unableToUpdate()';
+    return 'ManageWiFiFailures<$T>.unableToUpdate()';
   }
 
   @override
@@ -1087,18 +755,14 @@ class _$_UnableToUpdate<T> implements _UnableToUpdate<T> {
     @required TResult unexpected(),
     @required TResult validateEmailNotEmpty(),
     @required TResult insufficientPermission(),
-    @required TResult homeDoesNotExist(),
-    @required TResult cannotConnectToWiFi(),
-    @required TResult wifiDisabled(),
+    @required TResult wifiIsClosed(),
     @required TResult unableToUpdate(),
   }) {
     assert(empty != null);
     assert(unexpected != null);
     assert(validateEmailNotEmpty != null);
     assert(insufficientPermission != null);
-    assert(homeDoesNotExist != null);
-    assert(cannotConnectToWiFi != null);
-    assert(wifiDisabled != null);
+    assert(wifiIsClosed != null);
     assert(unableToUpdate != null);
     return unableToUpdate();
   }
@@ -1110,9 +774,7 @@ class _$_UnableToUpdate<T> implements _UnableToUpdate<T> {
     TResult unexpected(),
     TResult validateEmailNotEmpty(),
     TResult insufficientPermission(),
-    TResult homeDoesNotExist(),
-    TResult cannotConnectToWiFi(),
-    TResult wifiDisabled(),
+    TResult wifiIsClosed(),
     TResult unableToUpdate(),
     @required TResult orElse(),
   }) {
@@ -1130,18 +792,14 @@ class _$_UnableToUpdate<T> implements _UnableToUpdate<T> {
     @required TResult unexpected(_Unexpected<T> value),
     @required TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
     @required TResult insufficientPermission(_InsufficientPermission<T> value),
-    @required TResult homeDoesNotExist(_HomeDoesNotExist<T> value),
-    @required TResult cannotConnectToWiFi(_CannotConnectToWiFi<T> value),
-    @required TResult wifiDisabled(_WifiDisabled<T> value),
+    @required TResult wifiIsClosed(_wifiIsClosed<T> value),
     @required TResult unableToUpdate(_UnableToUpdate<T> value),
   }) {
     assert(empty != null);
     assert(unexpected != null);
     assert(validateEmailNotEmpty != null);
     assert(insufficientPermission != null);
-    assert(homeDoesNotExist != null);
-    assert(cannotConnectToWiFi != null);
-    assert(wifiDisabled != null);
+    assert(wifiIsClosed != null);
     assert(unableToUpdate != null);
     return unableToUpdate(this);
   }
@@ -1153,9 +811,7 @@ class _$_UnableToUpdate<T> implements _UnableToUpdate<T> {
     TResult unexpected(_Unexpected<T> value),
     TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
     TResult insufficientPermission(_InsufficientPermission<T> value),
-    TResult homeDoesNotExist(_HomeDoesNotExist<T> value),
-    TResult cannotConnectToWiFi(_CannotConnectToWiFi<T> value),
-    TResult wifiDisabled(_WifiDisabled<T> value),
+    TResult wifiIsClosed(_wifiIsClosed<T> value),
     TResult unableToUpdate(_UnableToUpdate<T> value),
     @required TResult orElse(),
   }) {
@@ -1167,6 +823,6 @@ class _$_UnableToUpdate<T> implements _UnableToUpdate<T> {
   }
 }
 
-abstract class _UnableToUpdate<T> implements HomeUserFailures<T> {
+abstract class _UnableToUpdate<T> implements ManageWiFiFailures<T> {
   const factory _UnableToUpdate() = _$_UnableToUpdate<T>;
 }
