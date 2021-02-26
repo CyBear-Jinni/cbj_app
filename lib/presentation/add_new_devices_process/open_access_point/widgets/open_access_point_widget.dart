@@ -1,5 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:clipboard_manager/clipboard_manager.dart';
 import 'package:cybear_jinni/application/manage_access_point/manage_access_point_bloc.dart';
+import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -137,6 +139,8 @@ class OpenAccessPointWidget extends StatelessWidget {
                   return const Text('AccessPointIsNotOpen');
                 },
                 accessPointIsOpen: (AccessPointIsOpen value) {
+                  ExtendedNavigator.of(context)
+                      .push(Routes.scanForNewCBJCompsPage);
                   return const Text('AccessPointIsOpen');
                 },
               ),
@@ -146,8 +150,6 @@ class OpenAccessPointWidget extends StatelessWidget {
                   context
                       .read<ManageAccessPointBloc>()
                       .add(ManageAccessPointEvent.doesAccessPointOpen());
-                  // ExtendedNavigator.of(context)
-                  //     .push(Routes.openAccessPointPage);
                 },
                 child: const Text('Next'),
               ),

@@ -26,6 +26,14 @@ class _$ManageUsersEventTearOff {
   }
 
 // ignore: unused_element
+  _UserReceived userReceived(
+      Either<HomeUserFailures, KtList<HomeUserEntity>> failureOrUsers) {
+    return _UserReceived(
+      failureOrUsers,
+    );
+  }
+
+// ignore: unused_element
   _Deleted deleted(HomeUserEntity homeUserEntity) {
     return _Deleted(
       homeUserEntity,
@@ -43,12 +51,17 @@ mixin _$ManageUsersEvent {
   TResult when<TResult extends Object>({
     @required TResult initialized(),
     @required TResult addByEmail(String mail),
+    @required
+        TResult userReceived(
+            Either<HomeUserFailures, KtList<HomeUserEntity>> failureOrUsers),
     @required TResult deleted(HomeUserEntity homeUserEntity),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initialized(),
     TResult addByEmail(String mail),
+    TResult userReceived(
+        Either<HomeUserFailures, KtList<HomeUserEntity>> failureOrUsers),
     TResult deleted(HomeUserEntity homeUserEntity),
     @required TResult orElse(),
   });
@@ -56,12 +69,14 @@ mixin _$ManageUsersEvent {
   TResult map<TResult extends Object>({
     @required TResult initialized(Initialized value),
     @required TResult addByEmail(_AddByEmail value),
+    @required TResult userReceived(_UserReceived value),
     @required TResult deleted(_Deleted value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult initialized(Initialized value),
     TResult addByEmail(_AddByEmail value),
+    TResult userReceived(_UserReceived value),
     TResult deleted(_Deleted value),
     @required TResult orElse(),
   });
@@ -125,10 +140,14 @@ class _$Initialized implements Initialized {
   TResult when<TResult extends Object>({
     @required TResult initialized(),
     @required TResult addByEmail(String mail),
+    @required
+        TResult userReceived(
+            Either<HomeUserFailures, KtList<HomeUserEntity>> failureOrUsers),
     @required TResult deleted(HomeUserEntity homeUserEntity),
   }) {
     assert(initialized != null);
     assert(addByEmail != null);
+    assert(userReceived != null);
     assert(deleted != null);
     return initialized();
   }
@@ -138,6 +157,8 @@ class _$Initialized implements Initialized {
   TResult maybeWhen<TResult extends Object>({
     TResult initialized(),
     TResult addByEmail(String mail),
+    TResult userReceived(
+        Either<HomeUserFailures, KtList<HomeUserEntity>> failureOrUsers),
     TResult deleted(HomeUserEntity homeUserEntity),
     @required TResult orElse(),
   }) {
@@ -153,10 +174,12 @@ class _$Initialized implements Initialized {
   TResult map<TResult extends Object>({
     @required TResult initialized(Initialized value),
     @required TResult addByEmail(_AddByEmail value),
+    @required TResult userReceived(_UserReceived value),
     @required TResult deleted(_Deleted value),
   }) {
     assert(initialized != null);
     assert(addByEmail != null);
+    assert(userReceived != null);
     assert(deleted != null);
     return initialized(this);
   }
@@ -166,6 +189,7 @@ class _$Initialized implements Initialized {
   TResult maybeMap<TResult extends Object>({
     TResult initialized(Initialized value),
     TResult addByEmail(_AddByEmail value),
+    TResult userReceived(_UserReceived value),
     TResult deleted(_Deleted value),
     @required TResult orElse(),
   }) {
@@ -244,10 +268,14 @@ class _$_AddByEmail implements _AddByEmail {
   TResult when<TResult extends Object>({
     @required TResult initialized(),
     @required TResult addByEmail(String mail),
+    @required
+        TResult userReceived(
+            Either<HomeUserFailures, KtList<HomeUserEntity>> failureOrUsers),
     @required TResult deleted(HomeUserEntity homeUserEntity),
   }) {
     assert(initialized != null);
     assert(addByEmail != null);
+    assert(userReceived != null);
     assert(deleted != null);
     return addByEmail(mail);
   }
@@ -257,6 +285,8 @@ class _$_AddByEmail implements _AddByEmail {
   TResult maybeWhen<TResult extends Object>({
     TResult initialized(),
     TResult addByEmail(String mail),
+    TResult userReceived(
+        Either<HomeUserFailures, KtList<HomeUserEntity>> failureOrUsers),
     TResult deleted(HomeUserEntity homeUserEntity),
     @required TResult orElse(),
   }) {
@@ -272,10 +302,12 @@ class _$_AddByEmail implements _AddByEmail {
   TResult map<TResult extends Object>({
     @required TResult initialized(Initialized value),
     @required TResult addByEmail(_AddByEmail value),
+    @required TResult userReceived(_UserReceived value),
     @required TResult deleted(_Deleted value),
   }) {
     assert(initialized != null);
     assert(addByEmail != null);
+    assert(userReceived != null);
     assert(deleted != null);
     return addByEmail(this);
   }
@@ -285,6 +317,7 @@ class _$_AddByEmail implements _AddByEmail {
   TResult maybeMap<TResult extends Object>({
     TResult initialized(Initialized value),
     TResult addByEmail(_AddByEmail value),
+    TResult userReceived(_UserReceived value),
     TResult deleted(_Deleted value),
     @required TResult orElse(),
   }) {
@@ -302,6 +335,144 @@ abstract class _AddByEmail implements ManageUsersEvent {
   String get mail;
   @JsonKey(ignore: true)
   _$AddByEmailCopyWith<_AddByEmail> get copyWith;
+}
+
+/// @nodoc
+abstract class _$UserReceivedCopyWith<$Res> {
+  factory _$UserReceivedCopyWith(
+          _UserReceived value, $Res Function(_UserReceived) then) =
+      __$UserReceivedCopyWithImpl<$Res>;
+  $Res call({Either<HomeUserFailures, KtList<HomeUserEntity>> failureOrUsers});
+}
+
+/// @nodoc
+class __$UserReceivedCopyWithImpl<$Res>
+    extends _$ManageUsersEventCopyWithImpl<$Res>
+    implements _$UserReceivedCopyWith<$Res> {
+  __$UserReceivedCopyWithImpl(
+      _UserReceived _value, $Res Function(_UserReceived) _then)
+      : super(_value, (v) => _then(v as _UserReceived));
+
+  @override
+  _UserReceived get _value => super._value as _UserReceived;
+
+  @override
+  $Res call({
+    Object failureOrUsers = freezed,
+  }) {
+    return _then(_UserReceived(
+      failureOrUsers == freezed
+          ? _value.failureOrUsers
+          : failureOrUsers as Either<HomeUserFailures, KtList<HomeUserEntity>>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_UserReceived implements _UserReceived {
+  const _$_UserReceived(this.failureOrUsers) : assert(failureOrUsers != null);
+
+  @override
+  final Either<HomeUserFailures, KtList<HomeUserEntity>> failureOrUsers;
+
+  @override
+  String toString() {
+    return 'ManageUsersEvent.userReceived(failureOrUsers: $failureOrUsers)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _UserReceived &&
+            (identical(other.failureOrUsers, failureOrUsers) ||
+                const DeepCollectionEquality()
+                    .equals(other.failureOrUsers, failureOrUsers)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(failureOrUsers);
+
+  @JsonKey(ignore: true)
+  @override
+  _$UserReceivedCopyWith<_UserReceived> get copyWith =>
+      __$UserReceivedCopyWithImpl<_UserReceived>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initialized(),
+    @required TResult addByEmail(String mail),
+    @required
+        TResult userReceived(
+            Either<HomeUserFailures, KtList<HomeUserEntity>> failureOrUsers),
+    @required TResult deleted(HomeUserEntity homeUserEntity),
+  }) {
+    assert(initialized != null);
+    assert(addByEmail != null);
+    assert(userReceived != null);
+    assert(deleted != null);
+    return userReceived(failureOrUsers);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initialized(),
+    TResult addByEmail(String mail),
+    TResult userReceived(
+        Either<HomeUserFailures, KtList<HomeUserEntity>> failureOrUsers),
+    TResult deleted(HomeUserEntity homeUserEntity),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (userReceived != null) {
+      return userReceived(failureOrUsers);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initialized(Initialized value),
+    @required TResult addByEmail(_AddByEmail value),
+    @required TResult userReceived(_UserReceived value),
+    @required TResult deleted(_Deleted value),
+  }) {
+    assert(initialized != null);
+    assert(addByEmail != null);
+    assert(userReceived != null);
+    assert(deleted != null);
+    return userReceived(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initialized(Initialized value),
+    TResult addByEmail(_AddByEmail value),
+    TResult userReceived(_UserReceived value),
+    TResult deleted(_Deleted value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (userReceived != null) {
+      return userReceived(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UserReceived implements ManageUsersEvent {
+  const factory _UserReceived(
+          Either<HomeUserFailures, KtList<HomeUserEntity>> failureOrUsers) =
+      _$_UserReceived;
+
+  Either<HomeUserFailures, KtList<HomeUserEntity>> get failureOrUsers;
+  @JsonKey(ignore: true)
+  _$UserReceivedCopyWith<_UserReceived> get copyWith;
 }
 
 /// @nodoc
@@ -380,10 +551,14 @@ class _$_Deleted implements _Deleted {
   TResult when<TResult extends Object>({
     @required TResult initialized(),
     @required TResult addByEmail(String mail),
+    @required
+        TResult userReceived(
+            Either<HomeUserFailures, KtList<HomeUserEntity>> failureOrUsers),
     @required TResult deleted(HomeUserEntity homeUserEntity),
   }) {
     assert(initialized != null);
     assert(addByEmail != null);
+    assert(userReceived != null);
     assert(deleted != null);
     return deleted(homeUserEntity);
   }
@@ -393,6 +568,8 @@ class _$_Deleted implements _Deleted {
   TResult maybeWhen<TResult extends Object>({
     TResult initialized(),
     TResult addByEmail(String mail),
+    TResult userReceived(
+        Either<HomeUserFailures, KtList<HomeUserEntity>> failureOrUsers),
     TResult deleted(HomeUserEntity homeUserEntity),
     @required TResult orElse(),
   }) {
@@ -408,10 +585,12 @@ class _$_Deleted implements _Deleted {
   TResult map<TResult extends Object>({
     @required TResult initialized(Initialized value),
     @required TResult addByEmail(_AddByEmail value),
+    @required TResult userReceived(_UserReceived value),
     @required TResult deleted(_Deleted value),
   }) {
     assert(initialized != null);
     assert(addByEmail != null);
+    assert(userReceived != null);
     assert(deleted != null);
     return deleted(this);
   }
@@ -421,6 +600,7 @@ class _$_Deleted implements _Deleted {
   TResult maybeMap<TResult extends Object>({
     TResult initialized(Initialized value),
     TResult addByEmail(_AddByEmail value),
+    TResult userReceived(_UserReceived value),
     TResult deleted(_Deleted value),
     @required TResult orElse(),
   }) {

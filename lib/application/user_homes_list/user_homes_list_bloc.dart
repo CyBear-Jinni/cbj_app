@@ -5,7 +5,6 @@ import 'package:cybear_jinni/domain/home_user/home_user_failures.dart';
 import 'package:cybear_jinni/domain/user/all_homes_of_user/all_homes_of_user_entity.dart';
 import 'package:cybear_jinni/domain/user/all_homes_of_user/all_homes_of_user_failures.dart';
 import 'package:cybear_jinni/domain/user/i_user_repository.dart';
-import 'package:cybear_jinni/domain/user/user_failures.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -20,7 +19,8 @@ class UserHomesListBloc extends Bloc<UserHomesListEvent, UserHomesListState> {
   UserHomesListBloc(this._userRepository) : super(UserHomesListState.initial());
 
   final IUserRepository _userRepository;
-  StreamSubscription<Either<UserFailures, KtList<AllHomesOfUserEntity>>>
+  StreamSubscription<
+          Either<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>>
       _userHomesStreamSubscription;
 
   @override
@@ -31,11 +31,14 @@ class UserHomesListBloc extends Bloc<UserHomesListEvent, UserHomesListState> {
       watchAllStarted: (e) async* {
         yield const UserHomesListState.loadInProgress();
         await _userHomesStreamSubscription?.cancel();
-        yield* _userRepository.watchAll().map(
-              (failureOrDevices) => failureOrDevices.fold(
-                  (f) => UserHomesListState.loadFailure(f),
-                  (devices) => UserHomesListState.loadSuccess(devices)),
-            );
+        _userHomesStreamSubscription = _userRepository.watchAll().listen(
+            (failureOrDevices) => add(
+                UserHomesListEvent.allHomesOfUserReceived(failureOrDevices)));
+      },
+      allHomesOfUserReceived: (e) async* {
+        yield e.failureOrAllHomesOfUser.fold(
+            (f) => UserHomesListState.loadFailure(f),
+            (allHomes) => UserHomesListState.loadSuccess(allHomes));
       },
       joinExistingHome: (e) async* {
         yield const UserHomesListState.loadInProgress();

@@ -25,6 +25,15 @@ class _$UserHomesListEventTearOff {
       allHomesOfUserEntity,
     );
   }
+
+// ignore: unused_element
+  _AllHomesOfUserReceived allHomesOfUserReceived(
+      Either<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>
+          failureOrAllHomesOfUser) {
+    return _AllHomesOfUserReceived(
+      failureOrAllHomesOfUser,
+    );
+  }
 }
 
 /// @nodoc
@@ -38,22 +47,31 @@ mixin _$UserHomesListEvent {
     @required TResult watchAllStarted(),
     @required
         TResult joinExistingHome(AllHomesOfUserEntity allHomesOfUserEntity),
+    @required
+        TResult allHomesOfUserReceived(
+            Either<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>
+                failureOrAllHomesOfUser),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult watchAllStarted(),
     TResult joinExistingHome(AllHomesOfUserEntity allHomesOfUserEntity),
+    TResult allHomesOfUserReceived(
+        Either<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>
+            failureOrAllHomesOfUser),
     @required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult watchAllStarted(_WatchAllStarted value),
     @required TResult joinExistingHome(_JoinExistingHome value),
+    @required TResult allHomesOfUserReceived(_AllHomesOfUserReceived value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult watchAllStarted(_WatchAllStarted value),
     TResult joinExistingHome(_JoinExistingHome value),
+    TResult allHomesOfUserReceived(_AllHomesOfUserReceived value),
     @required TResult orElse(),
   });
 }
@@ -117,9 +135,14 @@ class _$_WatchAllStarted implements _WatchAllStarted {
     @required TResult watchAllStarted(),
     @required
         TResult joinExistingHome(AllHomesOfUserEntity allHomesOfUserEntity),
+    @required
+        TResult allHomesOfUserReceived(
+            Either<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>
+                failureOrAllHomesOfUser),
   }) {
     assert(watchAllStarted != null);
     assert(joinExistingHome != null);
+    assert(allHomesOfUserReceived != null);
     return watchAllStarted();
   }
 
@@ -128,6 +151,9 @@ class _$_WatchAllStarted implements _WatchAllStarted {
   TResult maybeWhen<TResult extends Object>({
     TResult watchAllStarted(),
     TResult joinExistingHome(AllHomesOfUserEntity allHomesOfUserEntity),
+    TResult allHomesOfUserReceived(
+        Either<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>
+            failureOrAllHomesOfUser),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -142,9 +168,11 @@ class _$_WatchAllStarted implements _WatchAllStarted {
   TResult map<TResult extends Object>({
     @required TResult watchAllStarted(_WatchAllStarted value),
     @required TResult joinExistingHome(_JoinExistingHome value),
+    @required TResult allHomesOfUserReceived(_AllHomesOfUserReceived value),
   }) {
     assert(watchAllStarted != null);
     assert(joinExistingHome != null);
+    assert(allHomesOfUserReceived != null);
     return watchAllStarted(this);
   }
 
@@ -153,6 +181,7 @@ class _$_WatchAllStarted implements _WatchAllStarted {
   TResult maybeMap<TResult extends Object>({
     TResult watchAllStarted(_WatchAllStarted value),
     TResult joinExistingHome(_JoinExistingHome value),
+    TResult allHomesOfUserReceived(_AllHomesOfUserReceived value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -249,9 +278,14 @@ class _$_JoinExistingHome implements _JoinExistingHome {
     @required TResult watchAllStarted(),
     @required
         TResult joinExistingHome(AllHomesOfUserEntity allHomesOfUserEntity),
+    @required
+        TResult allHomesOfUserReceived(
+            Either<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>
+                failureOrAllHomesOfUser),
   }) {
     assert(watchAllStarted != null);
     assert(joinExistingHome != null);
+    assert(allHomesOfUserReceived != null);
     return joinExistingHome(allHomesOfUserEntity);
   }
 
@@ -260,6 +294,9 @@ class _$_JoinExistingHome implements _JoinExistingHome {
   TResult maybeWhen<TResult extends Object>({
     TResult watchAllStarted(),
     TResult joinExistingHome(AllHomesOfUserEntity allHomesOfUserEntity),
+    TResult allHomesOfUserReceived(
+        Either<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>
+            failureOrAllHomesOfUser),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -274,9 +311,11 @@ class _$_JoinExistingHome implements _JoinExistingHome {
   TResult map<TResult extends Object>({
     @required TResult watchAllStarted(_WatchAllStarted value),
     @required TResult joinExistingHome(_JoinExistingHome value),
+    @required TResult allHomesOfUserReceived(_AllHomesOfUserReceived value),
   }) {
     assert(watchAllStarted != null);
     assert(joinExistingHome != null);
+    assert(allHomesOfUserReceived != null);
     return joinExistingHome(this);
   }
 
@@ -285,6 +324,7 @@ class _$_JoinExistingHome implements _JoinExistingHome {
   TResult maybeMap<TResult extends Object>({
     TResult watchAllStarted(_WatchAllStarted value),
     TResult joinExistingHome(_JoinExistingHome value),
+    TResult allHomesOfUserReceived(_AllHomesOfUserReceived value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -302,6 +342,149 @@ abstract class _JoinExistingHome implements UserHomesListEvent {
   AllHomesOfUserEntity get allHomesOfUserEntity;
   @JsonKey(ignore: true)
   _$JoinExistingHomeCopyWith<_JoinExistingHome> get copyWith;
+}
+
+/// @nodoc
+abstract class _$AllHomesOfUserReceivedCopyWith<$Res> {
+  factory _$AllHomesOfUserReceivedCopyWith(_AllHomesOfUserReceived value,
+          $Res Function(_AllHomesOfUserReceived) then) =
+      __$AllHomesOfUserReceivedCopyWithImpl<$Res>;
+  $Res call(
+      {Either<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>
+          failureOrAllHomesOfUser});
+}
+
+/// @nodoc
+class __$AllHomesOfUserReceivedCopyWithImpl<$Res>
+    extends _$UserHomesListEventCopyWithImpl<$Res>
+    implements _$AllHomesOfUserReceivedCopyWith<$Res> {
+  __$AllHomesOfUserReceivedCopyWithImpl(_AllHomesOfUserReceived _value,
+      $Res Function(_AllHomesOfUserReceived) _then)
+      : super(_value, (v) => _then(v as _AllHomesOfUserReceived));
+
+  @override
+  _AllHomesOfUserReceived get _value => super._value as _AllHomesOfUserReceived;
+
+  @override
+  $Res call({
+    Object failureOrAllHomesOfUser = freezed,
+  }) {
+    return _then(_AllHomesOfUserReceived(
+      failureOrAllHomesOfUser == freezed
+          ? _value.failureOrAllHomesOfUser
+          : failureOrAllHomesOfUser
+              as Either<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_AllHomesOfUserReceived implements _AllHomesOfUserReceived {
+  const _$_AllHomesOfUserReceived(this.failureOrAllHomesOfUser)
+      : assert(failureOrAllHomesOfUser != null);
+
+  @override
+  final Either<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>
+      failureOrAllHomesOfUser;
+
+  @override
+  String toString() {
+    return 'UserHomesListEvent.allHomesOfUserReceived(failureOrAllHomesOfUser: $failureOrAllHomesOfUser)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _AllHomesOfUserReceived &&
+            (identical(
+                    other.failureOrAllHomesOfUser, failureOrAllHomesOfUser) ||
+                const DeepCollectionEquality().equals(
+                    other.failureOrAllHomesOfUser, failureOrAllHomesOfUser)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(failureOrAllHomesOfUser);
+
+  @JsonKey(ignore: true)
+  @override
+  _$AllHomesOfUserReceivedCopyWith<_AllHomesOfUserReceived> get copyWith =>
+      __$AllHomesOfUserReceivedCopyWithImpl<_AllHomesOfUserReceived>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult watchAllStarted(),
+    @required
+        TResult joinExistingHome(AllHomesOfUserEntity allHomesOfUserEntity),
+    @required
+        TResult allHomesOfUserReceived(
+            Either<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>
+                failureOrAllHomesOfUser),
+  }) {
+    assert(watchAllStarted != null);
+    assert(joinExistingHome != null);
+    assert(allHomesOfUserReceived != null);
+    return allHomesOfUserReceived(failureOrAllHomesOfUser);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult watchAllStarted(),
+    TResult joinExistingHome(AllHomesOfUserEntity allHomesOfUserEntity),
+    TResult allHomesOfUserReceived(
+        Either<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>
+            failureOrAllHomesOfUser),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (allHomesOfUserReceived != null) {
+      return allHomesOfUserReceived(failureOrAllHomesOfUser);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult watchAllStarted(_WatchAllStarted value),
+    @required TResult joinExistingHome(_JoinExistingHome value),
+    @required TResult allHomesOfUserReceived(_AllHomesOfUserReceived value),
+  }) {
+    assert(watchAllStarted != null);
+    assert(joinExistingHome != null);
+    assert(allHomesOfUserReceived != null);
+    return allHomesOfUserReceived(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult watchAllStarted(_WatchAllStarted value),
+    TResult joinExistingHome(_JoinExistingHome value),
+    TResult allHomesOfUserReceived(_AllHomesOfUserReceived value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (allHomesOfUserReceived != null) {
+      return allHomesOfUserReceived(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AllHomesOfUserReceived implements UserHomesListEvent {
+  const factory _AllHomesOfUserReceived(
+      Either<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>
+          failureOrAllHomesOfUser) = _$_AllHomesOfUserReceived;
+
+  Either<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>
+      get failureOrAllHomesOfUser;
+  @JsonKey(ignore: true)
+  _$AllHomesOfUserReceivedCopyWith<_AllHomesOfUserReceived> get copyWith;
 }
 
 /// @nodoc

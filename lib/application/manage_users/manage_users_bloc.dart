@@ -30,11 +30,15 @@ class ManageUsersBloc extends Bloc<ManageUsersEvent, ManageUsersState> {
       initialized: (e) async* {
         yield const ManageUsersState.inProgress();
         await _userStreamSubscription?.cancel();
-        yield* _userRepository.getAllUsers().map(
-              (failureOrUsers) => failureOrUsers.fold(
-                  (f) => ManageUsersState.loadFailure(f),
-                  (devices) => ManageUsersState.loadSuccess(devices)),
-            );
+        _userStreamSubscription = _userRepository.getAllUsers().listen(
+            (allUsersEvent) =>
+                add(ManageUsersEvent.userReceived(allUsersEvent)));
+      },
+      userReceived: (e) async* {
+        yield e.failureOrUsers.fold(
+          (f) => ManageUsersState.loadFailure(f),
+          (user) => ManageUsersState.loadSuccess(user),
+        );
       },
       addByEmail: (e) async* {},
       deleted: (e) async* {},

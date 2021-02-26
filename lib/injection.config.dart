@@ -13,6 +13,8 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'application/add_user_to_home/add_user_to_home_bloc.dart';
 import 'infrastructure/add_user_to_home/add_user_to_home_reposityory.dart';
 import 'application/auth/auth_bloc.dart';
+import 'application/cbj_comp/cbj_comp_bloc.dart';
+import 'infrastructure/cbj_comp/cbj_comp_repository.dart';
 import 'application/create_home/create_home_bloc.dart';
 import 'infrastructure/create_home/create_home_repository.dart';
 import 'application/devices/device_actor/device_actor_bloc.dart';
@@ -27,6 +29,7 @@ import 'infrastructure/folders_of_scenes/folders_of_scenes_repository.dart';
 import 'infrastructure/home_user/home_user_repository.dart';
 import 'domain/add_user_to_home/i_add_user_to_home_repository.dart';
 import 'domain/auth/i_auth_facade.dart';
+import 'domain/cbj_comp/i_cbj_comp_repository.dart';
 import 'domain/create_home/i_create_home_repository.dart';
 import 'domain/devices/i_device_repository.dart';
 import 'domain/folder_of_scenes/i_folder_of_scenes_repository.dart';
@@ -65,6 +68,7 @@ GetIt $initGetIt(
       () => AddUserToHomeRepository(get<FirebaseFirestore>()));
   gh.lazySingleton<IAuthFacade>(
       () => FirebaseAuthFacade(get<FirebaseAuth>(), get<GoogleSignIn>()));
+  gh.lazySingleton<ICBJCompRepository>(() => CBJCompRepository());
   gh.lazySingleton<ICreateHomeRepository>(() =>
       CreateHomeRepository(get<FirebaseFirestore>(), get<FirebaseAuth>()));
   gh.lazySingleton<IDeviceRepository>(
@@ -94,6 +98,7 @@ GetIt $initGetIt(
   gh.factory<AddUserToHomeBloc>(
       () => AddUserToHomeBloc(get<IAddUserToHomeRepository>()));
   gh.factory<AuthBloc>(() => AuthBloc(get<IAuthFacade>()));
+  gh.factory<CBJCompBloc>(() => CBJCompBloc(get<ICBJCompRepository>()));
   gh.factory<CreateHomeBloc>(
       () => CreateHomeBloc(get<ICreateHomeRepository>()));
   gh.factory<DeviceActorBloc>(() => DeviceActorBloc(get<IDeviceRepository>()));
