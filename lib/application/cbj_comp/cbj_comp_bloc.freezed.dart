@@ -804,6 +804,11 @@ class _$CBJCompStateTearOff {
   }
 
 // ignore: unused_element
+  _LoadSuccessTemp loadSuccessTemp() {
+    return const _LoadSuccessTemp();
+  }
+
+// ignore: unused_element
   _loadFailure loadFailure(CBJCompFailure<dynamic> cBJCompFailure) {
     return _loadFailure(
       cBJCompFailure,
@@ -827,6 +832,7 @@ mixin _$CBJCompState {
     @required TResult initial(),
     @required TResult loadInProgress(),
     @required TResult loadSuccess(KtList<CBJCompEntity> devices),
+    @required TResult loadSuccessTemp(),
     @required TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
     @required TResult error(),
   });
@@ -835,6 +841,7 @@ mixin _$CBJCompState {
     TResult initial(),
     TResult loadInProgress(),
     TResult loadSuccess(KtList<CBJCompEntity> devices),
+    TResult loadSuccessTemp(),
     TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
     TResult error(),
     @required TResult orElse(),
@@ -844,6 +851,7 @@ mixin _$CBJCompState {
     @required TResult initial(_Initial value),
     @required TResult loadInProgress(_LoadInProgress value),
     @required TResult loadSuccess(_LoadSuccess value),
+    @required TResult loadSuccessTemp(_LoadSuccessTemp value),
     @required TResult loadFailure(_loadFailure value),
     @required TResult error(Error value),
   });
@@ -852,6 +860,7 @@ mixin _$CBJCompState {
     TResult initial(_Initial value),
     TResult loadInProgress(_LoadInProgress value),
     TResult loadSuccess(_LoadSuccess value),
+    TResult loadSuccessTemp(_LoadSuccessTemp value),
     TResult loadFailure(_loadFailure value),
     TResult error(Error value),
     @required TResult orElse(),
@@ -913,12 +922,14 @@ class _$_Initial implements _Initial {
     @required TResult initial(),
     @required TResult loadInProgress(),
     @required TResult loadSuccess(KtList<CBJCompEntity> devices),
+    @required TResult loadSuccessTemp(),
     @required TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
     @required TResult error(),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
     assert(loadSuccess != null);
+    assert(loadSuccessTemp != null);
     assert(loadFailure != null);
     assert(error != null);
     return initial();
@@ -930,6 +941,7 @@ class _$_Initial implements _Initial {
     TResult initial(),
     TResult loadInProgress(),
     TResult loadSuccess(KtList<CBJCompEntity> devices),
+    TResult loadSuccessTemp(),
     TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
     TResult error(),
     @required TResult orElse(),
@@ -947,12 +959,14 @@ class _$_Initial implements _Initial {
     @required TResult initial(_Initial value),
     @required TResult loadInProgress(_LoadInProgress value),
     @required TResult loadSuccess(_LoadSuccess value),
+    @required TResult loadSuccessTemp(_LoadSuccessTemp value),
     @required TResult loadFailure(_loadFailure value),
     @required TResult error(Error value),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
     assert(loadSuccess != null);
+    assert(loadSuccessTemp != null);
     assert(loadFailure != null);
     assert(error != null);
     return initial(this);
@@ -964,6 +978,7 @@ class _$_Initial implements _Initial {
     TResult initial(_Initial value),
     TResult loadInProgress(_LoadInProgress value),
     TResult loadSuccess(_LoadSuccess value),
+    TResult loadSuccessTemp(_LoadSuccessTemp value),
     TResult loadFailure(_loadFailure value),
     TResult error(Error value),
     @required TResult orElse(),
@@ -1022,12 +1037,14 @@ class _$_LoadInProgress implements _LoadInProgress {
     @required TResult initial(),
     @required TResult loadInProgress(),
     @required TResult loadSuccess(KtList<CBJCompEntity> devices),
+    @required TResult loadSuccessTemp(),
     @required TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
     @required TResult error(),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
     assert(loadSuccess != null);
+    assert(loadSuccessTemp != null);
     assert(loadFailure != null);
     assert(error != null);
     return loadInProgress();
@@ -1039,6 +1056,7 @@ class _$_LoadInProgress implements _LoadInProgress {
     TResult initial(),
     TResult loadInProgress(),
     TResult loadSuccess(KtList<CBJCompEntity> devices),
+    TResult loadSuccessTemp(),
     TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
     TResult error(),
     @required TResult orElse(),
@@ -1056,12 +1074,14 @@ class _$_LoadInProgress implements _LoadInProgress {
     @required TResult initial(_Initial value),
     @required TResult loadInProgress(_LoadInProgress value),
     @required TResult loadSuccess(_LoadSuccess value),
+    @required TResult loadSuccessTemp(_LoadSuccessTemp value),
     @required TResult loadFailure(_loadFailure value),
     @required TResult error(Error value),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
     assert(loadSuccess != null);
+    assert(loadSuccessTemp != null);
     assert(loadFailure != null);
     assert(error != null);
     return loadInProgress(this);
@@ -1073,6 +1093,7 @@ class _$_LoadInProgress implements _LoadInProgress {
     TResult initial(_Initial value),
     TResult loadInProgress(_LoadInProgress value),
     TResult loadSuccess(_LoadSuccess value),
+    TResult loadSuccessTemp(_LoadSuccessTemp value),
     TResult loadFailure(_loadFailure value),
     TResult error(Error value),
     @required TResult orElse(),
@@ -1152,12 +1173,14 @@ class _$_LoadSuccess implements _LoadSuccess {
     @required TResult initial(),
     @required TResult loadInProgress(),
     @required TResult loadSuccess(KtList<CBJCompEntity> devices),
+    @required TResult loadSuccessTemp(),
     @required TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
     @required TResult error(),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
     assert(loadSuccess != null);
+    assert(loadSuccessTemp != null);
     assert(loadFailure != null);
     assert(error != null);
     return loadSuccess(devices);
@@ -1169,6 +1192,7 @@ class _$_LoadSuccess implements _LoadSuccess {
     TResult initial(),
     TResult loadInProgress(),
     TResult loadSuccess(KtList<CBJCompEntity> devices),
+    TResult loadSuccessTemp(),
     TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
     TResult error(),
     @required TResult orElse(),
@@ -1186,12 +1210,14 @@ class _$_LoadSuccess implements _LoadSuccess {
     @required TResult initial(_Initial value),
     @required TResult loadInProgress(_LoadInProgress value),
     @required TResult loadSuccess(_LoadSuccess value),
+    @required TResult loadSuccessTemp(_LoadSuccessTemp value),
     @required TResult loadFailure(_loadFailure value),
     @required TResult error(Error value),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
     assert(loadSuccess != null);
+    assert(loadSuccessTemp != null);
     assert(loadFailure != null);
     assert(error != null);
     return loadSuccess(this);
@@ -1203,6 +1229,7 @@ class _$_LoadSuccess implements _LoadSuccess {
     TResult initial(_Initial value),
     TResult loadInProgress(_LoadInProgress value),
     TResult loadSuccess(_LoadSuccess value),
+    TResult loadSuccessTemp(_LoadSuccessTemp value),
     TResult loadFailure(_loadFailure value),
     TResult error(Error value),
     @required TResult orElse(),
@@ -1221,6 +1248,121 @@ abstract class _LoadSuccess implements CBJCompState {
   KtList<CBJCompEntity> get devices;
   @JsonKey(ignore: true)
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith;
+}
+
+/// @nodoc
+abstract class _$LoadSuccessTempCopyWith<$Res> {
+  factory _$LoadSuccessTempCopyWith(
+          _LoadSuccessTemp value, $Res Function(_LoadSuccessTemp) then) =
+      __$LoadSuccessTempCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$LoadSuccessTempCopyWithImpl<$Res>
+    extends _$CBJCompStateCopyWithImpl<$Res>
+    implements _$LoadSuccessTempCopyWith<$Res> {
+  __$LoadSuccessTempCopyWithImpl(
+      _LoadSuccessTemp _value, $Res Function(_LoadSuccessTemp) _then)
+      : super(_value, (v) => _then(v as _LoadSuccessTemp));
+
+  @override
+  _LoadSuccessTemp get _value => super._value as _LoadSuccessTemp;
+}
+
+/// @nodoc
+class _$_LoadSuccessTemp implements _LoadSuccessTemp {
+  const _$_LoadSuccessTemp();
+
+  @override
+  String toString() {
+    return 'CBJCompState.loadSuccessTemp()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _LoadSuccessTemp);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loadInProgress(),
+    @required TResult loadSuccess(KtList<CBJCompEntity> devices),
+    @required TResult loadSuccessTemp(),
+    @required TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
+    @required TResult error(),
+  }) {
+    assert(initial != null);
+    assert(loadInProgress != null);
+    assert(loadSuccess != null);
+    assert(loadSuccessTemp != null);
+    assert(loadFailure != null);
+    assert(error != null);
+    return loadSuccessTemp();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loadInProgress(),
+    TResult loadSuccess(KtList<CBJCompEntity> devices),
+    TResult loadSuccessTemp(),
+    TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
+    TResult error(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (loadSuccessTemp != null) {
+      return loadSuccessTemp();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initial(_Initial value),
+    @required TResult loadInProgress(_LoadInProgress value),
+    @required TResult loadSuccess(_LoadSuccess value),
+    @required TResult loadSuccessTemp(_LoadSuccessTemp value),
+    @required TResult loadFailure(_loadFailure value),
+    @required TResult error(Error value),
+  }) {
+    assert(initial != null);
+    assert(loadInProgress != null);
+    assert(loadSuccess != null);
+    assert(loadSuccessTemp != null);
+    assert(loadFailure != null);
+    assert(error != null);
+    return loadSuccessTemp(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(_Initial value),
+    TResult loadInProgress(_LoadInProgress value),
+    TResult loadSuccess(_LoadSuccess value),
+    TResult loadSuccessTemp(_LoadSuccessTemp value),
+    TResult loadFailure(_loadFailure value),
+    TResult error(Error value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (loadSuccessTemp != null) {
+      return loadSuccessTemp(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadSuccessTemp implements CBJCompState {
+  const factory _LoadSuccessTemp() = _$_LoadSuccessTemp;
 }
 
 /// @nodoc
@@ -1303,12 +1445,14 @@ class _$_loadFailure implements _loadFailure {
     @required TResult initial(),
     @required TResult loadInProgress(),
     @required TResult loadSuccess(KtList<CBJCompEntity> devices),
+    @required TResult loadSuccessTemp(),
     @required TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
     @required TResult error(),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
     assert(loadSuccess != null);
+    assert(loadSuccessTemp != null);
     assert(loadFailure != null);
     assert(error != null);
     return loadFailure(cBJCompFailure);
@@ -1320,6 +1464,7 @@ class _$_loadFailure implements _loadFailure {
     TResult initial(),
     TResult loadInProgress(),
     TResult loadSuccess(KtList<CBJCompEntity> devices),
+    TResult loadSuccessTemp(),
     TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
     TResult error(),
     @required TResult orElse(),
@@ -1337,12 +1482,14 @@ class _$_loadFailure implements _loadFailure {
     @required TResult initial(_Initial value),
     @required TResult loadInProgress(_LoadInProgress value),
     @required TResult loadSuccess(_LoadSuccess value),
+    @required TResult loadSuccessTemp(_LoadSuccessTemp value),
     @required TResult loadFailure(_loadFailure value),
     @required TResult error(Error value),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
     assert(loadSuccess != null);
+    assert(loadSuccessTemp != null);
     assert(loadFailure != null);
     assert(error != null);
     return loadFailure(this);
@@ -1354,6 +1501,7 @@ class _$_loadFailure implements _loadFailure {
     TResult initial(_Initial value),
     TResult loadInProgress(_LoadInProgress value),
     TResult loadSuccess(_LoadSuccess value),
+    TResult loadSuccessTemp(_LoadSuccessTemp value),
     TResult loadFailure(_loadFailure value),
     TResult error(Error value),
     @required TResult orElse(),
@@ -1414,12 +1562,14 @@ class _$Error implements Error {
     @required TResult initial(),
     @required TResult loadInProgress(),
     @required TResult loadSuccess(KtList<CBJCompEntity> devices),
+    @required TResult loadSuccessTemp(),
     @required TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
     @required TResult error(),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
     assert(loadSuccess != null);
+    assert(loadSuccessTemp != null);
     assert(loadFailure != null);
     assert(error != null);
     return error();
@@ -1431,6 +1581,7 @@ class _$Error implements Error {
     TResult initial(),
     TResult loadInProgress(),
     TResult loadSuccess(KtList<CBJCompEntity> devices),
+    TResult loadSuccessTemp(),
     TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
     TResult error(),
     @required TResult orElse(),
@@ -1448,12 +1599,14 @@ class _$Error implements Error {
     @required TResult initial(_Initial value),
     @required TResult loadInProgress(_LoadInProgress value),
     @required TResult loadSuccess(_LoadSuccess value),
+    @required TResult loadSuccessTemp(_LoadSuccessTemp value),
     @required TResult loadFailure(_loadFailure value),
     @required TResult error(Error value),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
     assert(loadSuccess != null);
+    assert(loadSuccessTemp != null);
     assert(loadFailure != null);
     assert(error != null);
     return error(this);
@@ -1465,6 +1618,7 @@ class _$Error implements Error {
     TResult initial(_Initial value),
     TResult loadInProgress(_LoadInProgress value),
     TResult loadSuccess(_LoadSuccess value),
+    TResult loadSuccessTemp(_LoadSuccessTemp value),
     TResult loadFailure(_loadFailure value),
     TResult error(Error value),
     @required TResult orElse(),

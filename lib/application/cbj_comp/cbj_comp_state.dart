@@ -9,6 +9,8 @@ abstract class CBJCompState with _$CBJCompState {
   const factory CBJCompState.loadSuccess(KtList<CBJCompEntity> devices) =
       _LoadSuccess;
 
+  const factory CBJCompState.loadSuccessTemp() = _LoadSuccessTemp;
+
   const factory CBJCompState.loadFailure(CBJCompFailure cBJCompFailure) =
       _loadFailure;
 

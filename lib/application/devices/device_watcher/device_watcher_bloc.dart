@@ -30,12 +30,13 @@ class DeviceWatcherBloc extends Bloc<DeviceWatcherEvent, DeviceWatcherState> {
       watchAllStarted: (e) async* {
         yield const DeviceWatcherState.loadInProgress();
         await _deviceStreamSubscription?.cancel();
-        _deviceStreamSubscription = _deviceRepository
-            .watchAll()
-            .listen((Either<DevicesFailure, KtList<DeviceEntity>> eventWatch) {
-          return eventWatch.fold((f) => DeviceWatcherState.loadFailure(f),
-              (d) => DeviceWatcherState.loadSuccess(d));
-        });
+        _deviceStreamSubscription = _deviceRepository.watchAll().listen(
+            (eventWatch) =>
+                add(DeviceWatcherEvent.devicesReceived(eventWatch)));
+      },
+      devicesReceived: (e) async* {
+        yield e.failureOrDevices.fold((f) => DeviceWatcherState.loadFailure(f),
+            (d) => DeviceWatcherState.loadSuccess(d));
       },
     );
   }

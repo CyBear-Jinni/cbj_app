@@ -28,9 +28,7 @@ class CBJCompBloc extends Bloc<CBJCompEvent, CBJCompState> {
   ) async* {
     yield* event.map(
       initialized: (e) async* {},
-      create: (e) async* {
-        final actionResult = await _cBJCompRepository.watchAll();
-      },
+      create: (e) async* {},
       watchAllStarted: (e) async* {
         yield const CBJCompState.loadInProgress();
         await _CBJCompStreamSubscription?.cancel();
@@ -39,12 +37,23 @@ class CBJCompBloc extends Bloc<CBJCompEvent, CBJCompState> {
                 add(CBJCompEvent.compDevicesReceived(failureOrCBJCompList)));
       },
       compDevicesReceived: (e) async* {
-        yield e.failureOrCBJCompList.fold((f) => CBJCompState.loadFailure(f),
-            (devices) => CBJCompState.loadSuccess(devices));
+        yield e.failureOrCBJCompList.fold(
+          (f) => CBJCompState.loadFailure(f),
+          (devices) => CBJCompState.loadSuccess(devices),
+        );
       },
       changeAction: (e) async* {
         final actionResult = await _cBJCompRepository.update(e.cBJCompEntity);
+
+        yield actionResult.fold((f) => CBJCompState.loadFailure(f),
+            (r) => const CBJCompState.loadSuccessTemp());
       },
     );
+  }
+
+  @override
+  Future<void> close() async {
+    await _CBJCompStreamSubscription?.cancel();
+    return super.close();
   }
 }

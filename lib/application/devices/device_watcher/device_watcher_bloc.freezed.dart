@@ -17,6 +17,14 @@ class _$DeviceWatcherEventTearOff {
   _WatchAllStarted watchAllStarted() {
     return const _WatchAllStarted();
   }
+
+// ignore: unused_element
+  _DevicesReceived devicesReceived(
+      Either<DevicesFailure, KtList<DeviceEntity>> failureOrDevices) {
+    return _DevicesReceived(
+      failureOrDevices,
+    );
+  }
 }
 
 /// @nodoc
@@ -28,19 +36,26 @@ mixin _$DeviceWatcherEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult watchAllStarted(),
+    @required
+        TResult devicesReceived(
+            Either<DevicesFailure, KtList<DeviceEntity>> failureOrDevices),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult watchAllStarted(),
+    TResult devicesReceived(
+        Either<DevicesFailure, KtList<DeviceEntity>> failureOrDevices),
     @required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult watchAllStarted(_WatchAllStarted value),
+    @required TResult devicesReceived(_DevicesReceived value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult watchAllStarted(_WatchAllStarted value),
+    TResult devicesReceived(_DevicesReceived value),
     @required TResult orElse(),
   });
 }
@@ -102,8 +117,12 @@ class _$_WatchAllStarted implements _WatchAllStarted {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult watchAllStarted(),
+    @required
+        TResult devicesReceived(
+            Either<DevicesFailure, KtList<DeviceEntity>> failureOrDevices),
   }) {
     assert(watchAllStarted != null);
+    assert(devicesReceived != null);
     return watchAllStarted();
   }
 
@@ -111,6 +130,8 @@ class _$_WatchAllStarted implements _WatchAllStarted {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult watchAllStarted(),
+    TResult devicesReceived(
+        Either<DevicesFailure, KtList<DeviceEntity>> failureOrDevices),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -124,8 +145,10 @@ class _$_WatchAllStarted implements _WatchAllStarted {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult watchAllStarted(_WatchAllStarted value),
+    @required TResult devicesReceived(_DevicesReceived value),
   }) {
     assert(watchAllStarted != null);
+    assert(devicesReceived != null);
     return watchAllStarted(this);
   }
 
@@ -133,6 +156,7 @@ class _$_WatchAllStarted implements _WatchAllStarted {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult watchAllStarted(_WatchAllStarted value),
+    TResult devicesReceived(_DevicesReceived value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -145,6 +169,133 @@ class _$_WatchAllStarted implements _WatchAllStarted {
 
 abstract class _WatchAllStarted implements DeviceWatcherEvent {
   const factory _WatchAllStarted() = _$_WatchAllStarted;
+}
+
+/// @nodoc
+abstract class _$DevicesReceivedCopyWith<$Res> {
+  factory _$DevicesReceivedCopyWith(
+          _DevicesReceived value, $Res Function(_DevicesReceived) then) =
+      __$DevicesReceivedCopyWithImpl<$Res>;
+  $Res call({Either<DevicesFailure, KtList<DeviceEntity>> failureOrDevices});
+}
+
+/// @nodoc
+class __$DevicesReceivedCopyWithImpl<$Res>
+    extends _$DeviceWatcherEventCopyWithImpl<$Res>
+    implements _$DevicesReceivedCopyWith<$Res> {
+  __$DevicesReceivedCopyWithImpl(
+      _DevicesReceived _value, $Res Function(_DevicesReceived) _then)
+      : super(_value, (v) => _then(v as _DevicesReceived));
+
+  @override
+  _DevicesReceived get _value => super._value as _DevicesReceived;
+
+  @override
+  $Res call({
+    Object failureOrDevices = freezed,
+  }) {
+    return _then(_DevicesReceived(
+      failureOrDevices == freezed
+          ? _value.failureOrDevices
+          : failureOrDevices as Either<DevicesFailure, KtList<DeviceEntity>>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_DevicesReceived implements _DevicesReceived {
+  const _$_DevicesReceived(this.failureOrDevices)
+      : assert(failureOrDevices != null);
+
+  @override
+  final Either<DevicesFailure, KtList<DeviceEntity>> failureOrDevices;
+
+  @override
+  String toString() {
+    return 'DeviceWatcherEvent.devicesReceived(failureOrDevices: $failureOrDevices)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _DevicesReceived &&
+            (identical(other.failureOrDevices, failureOrDevices) ||
+                const DeepCollectionEquality()
+                    .equals(other.failureOrDevices, failureOrDevices)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(failureOrDevices);
+
+  @JsonKey(ignore: true)
+  @override
+  _$DevicesReceivedCopyWith<_DevicesReceived> get copyWith =>
+      __$DevicesReceivedCopyWithImpl<_DevicesReceived>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult watchAllStarted(),
+    @required
+        TResult devicesReceived(
+            Either<DevicesFailure, KtList<DeviceEntity>> failureOrDevices),
+  }) {
+    assert(watchAllStarted != null);
+    assert(devicesReceived != null);
+    return devicesReceived(failureOrDevices);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult watchAllStarted(),
+    TResult devicesReceived(
+        Either<DevicesFailure, KtList<DeviceEntity>> failureOrDevices),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (devicesReceived != null) {
+      return devicesReceived(failureOrDevices);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult watchAllStarted(_WatchAllStarted value),
+    @required TResult devicesReceived(_DevicesReceived value),
+  }) {
+    assert(watchAllStarted != null);
+    assert(devicesReceived != null);
+    return devicesReceived(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult watchAllStarted(_WatchAllStarted value),
+    TResult devicesReceived(_DevicesReceived value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (devicesReceived != null) {
+      return devicesReceived(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DevicesReceived implements DeviceWatcherEvent {
+  const factory _DevicesReceived(
+          Either<DevicesFailure, KtList<DeviceEntity>> failureOrDevices) =
+      _$_DevicesReceived;
+
+  Either<DevicesFailure, KtList<DeviceEntity>> get failureOrDevices;
+  @JsonKey(ignore: true)
+  _$DevicesReceivedCopyWith<_DevicesReceived> get copyWith;
 }
 
 /// @nodoc

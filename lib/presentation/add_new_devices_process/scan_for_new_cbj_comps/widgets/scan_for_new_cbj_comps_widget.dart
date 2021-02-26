@@ -21,6 +21,9 @@ class ScanForNewCBJCompsWidget extends StatelessWidget {
           loadSuccess: (state) {
             return const Text('Loaded success');
           },
+          loadSuccessTemp: (state) {
+            return const Text('Load success temp');
+          },
           loadFailure: (state) {
             return const Text('Load Failure');
           },
