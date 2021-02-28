@@ -8,6 +8,20 @@
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
+@$core.Deprecated('Use compInfoDescriptor instead')
+const CompInfo$json = const {
+  '1': 'CompInfo',
+  '2': const [
+    const {'1': 'compUuid', '3': 22, '4': 1, '5': 9, '10': 'compUuid'},
+    const {'1': 'compOs', '3': 23, '4': 1, '5': 9, '10': 'compOs'},
+    const {'1': 'compModel', '3': 24, '4': 1, '5': 9, '10': 'compModel'},
+    const {'1': 'compType', '3': 25, '4': 1, '5': 9, '10': 'compType'},
+    const {'1': 'pubspecYamlVersion', '3': 26, '4': 1, '5': 9, '10': 'pubspecYamlVersion'},
+  ],
+};
+
+/// Descriptor for `CompInfo`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List compInfoDescriptor = $convert.base64Decode('CghDb21wSW5mbxIaCghjb21wVXVpZBgWIAEoCVIIY29tcFV1aWQSFgoGY29tcE9zGBcgASgJUgZjb21wT3MSHAoJY29tcE1vZGVsGBggASgJUgljb21wTW9kZWwSGgoIY29tcFR5cGUYGSABKAlSCGNvbXBUeXBlEi4KEnB1YnNwZWNZYW1sVmVyc2lvbhgaIAEoCVIScHVic3BlY1lhbWxWZXJzaW9u');
 @$core.Deprecated('Use smartDeviceDescriptor instead')
 const SmartDevice$json = const {
   '1': 'SmartDevice',
@@ -23,12 +37,12 @@ const SmartDevice$json = const {
     const {'1': 'senderId', '3': 18, '4': 1, '5': 9, '10': 'senderId'},
     const {'1': 'serverTimeStamp', '3': 19, '4': 1, '5': 9, '10': 'serverTimeStamp'},
     const {'1': 'stateMassage', '3': 20, '4': 1, '5': 9, '10': 'stateMassage'},
-    const {'1': 'compMacAddress', '3': 21, '4': 1, '5': 9, '10': 'compMacAddress'},
+    const {'1': 'deviceCompUuid', '3': 21, '4': 1, '5': 9, '10': 'deviceCompUuid'},
   ],
 };
 
 /// Descriptor for `SmartDevice`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List smartDeviceDescriptor = $convert.base64Decode('CgtTbWFydERldmljZRIOCgJpZBgBIAEoCVICaWQSEgoEdHlwZRgCIAEoCVIEdHlwZRIUCgVzdGF0ZRgDIAEoCVIFc3RhdGUSFgoGYWN0aW9uGA0gASgJUgZhY3Rpb24SIAoLZGVmYXVsdE5hbWUYDiABKAlSC2RlZmF1bHROYW1lEhYKBnJvb21JZBgPIAEoCVIGcm9vbUlkEiwKEXNlbmRlckRldmljZU1vZGVsGBAgASgJUhFzZW5kZXJEZXZpY2VNb2RlbBImCg5zZW5kZXJEZXZpY2VPcxgRIAEoCVIOc2VuZGVyRGV2aWNlT3MSGgoIc2VuZGVySWQYEiABKAlSCHNlbmRlcklkEigKD3NlcnZlclRpbWVTdGFtcBgTIAEoCVIPc2VydmVyVGltZVN0YW1wEiIKDHN0YXRlTWFzc2FnZRgUIAEoCVIMc3RhdGVNYXNzYWdlEiYKDmNvbXBNYWNBZGRyZXNzGBUgASgJUg5jb21wTWFjQWRkcmVzcw==');
+final $typed_data.Uint8List smartDeviceDescriptor = $convert.base64Decode('CgtTbWFydERldmljZRIOCgJpZBgBIAEoCVICaWQSEgoEdHlwZRgCIAEoCVIEdHlwZRIUCgVzdGF0ZRgDIAEoCVIFc3RhdGUSFgoGYWN0aW9uGA0gASgJUgZhY3Rpb24SIAoLZGVmYXVsdE5hbWUYDiABKAlSC2RlZmF1bHROYW1lEhYKBnJvb21JZBgPIAEoCVIGcm9vbUlkEiwKEXNlbmRlckRldmljZU1vZGVsGBAgASgJUhFzZW5kZXJEZXZpY2VNb2RlbBImCg5zZW5kZXJEZXZpY2VPcxgRIAEoCVIOc2VuZGVyRGV2aWNlT3MSGgoIc2VuZGVySWQYEiABKAlSCHNlbmRlcklkEigKD3NlcnZlclRpbWVTdGFtcBgTIAEoCVIPc2VydmVyVGltZVN0YW1wEiIKDHN0YXRlTWFzc2FnZRgUIAEoCVIMc3RhdGVNYXNzYWdlEiYKDmRldmljZUNvbXBVdWlkGBUgASgJUg5kZXZpY2VDb21wVXVpZA==');
 @$core.Deprecated('Use smartDeviceStatusDescriptor instead')
 const SmartDeviceStatus$json = const {
   '1': 'SmartDeviceStatus',

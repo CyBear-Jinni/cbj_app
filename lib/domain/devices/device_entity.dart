@@ -41,6 +41,7 @@ abstract class DeviceEntity implements _$DeviceEntity {
 
     /// The smart device type
     @required DeviceType type,
+    @required DeviceCompUuid compUuid,
   }) = _DeviceEnitie;
 
   factory DeviceEntity.empty() => DeviceEntity(
@@ -54,6 +55,7 @@ abstract class DeviceEntity implements _$DeviceEntity {
         senderId: DeviceSenderId(),
         action: DeviceAction(''),
         type: DeviceType(''),
+        compUuid: DeviceCompUuid(''),
       );
 
   Option<DevicesFailure<dynamic>> get failureOption {

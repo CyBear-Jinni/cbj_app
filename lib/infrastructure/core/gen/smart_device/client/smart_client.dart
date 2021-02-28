@@ -9,6 +9,24 @@ import 'package:cybear_jinni/injection.dart';
 import 'package:grpc/grpc.dart';
 
 class SmartClient {
+  ///  Get comp info
+  ///  getSmartDeviceStatus
+  static Future<CompInfo> getCompInfo(String compIp) async {
+    final ClientChannel channel = createSmartServerClient(compIp);
+    final SmartServerClient stub = SmartServerClient(channel);
+    CompInfo response;
+    try {
+      response = await stub.getCompInfo(CommendStatus()..success = true);
+      print('Greeter client received: ${response.compUuid}');
+      await channel.shutdown();
+      return response;
+    } catch (e) {
+      print('Caught error: $e');
+    }
+    await channel.shutdown();
+    return CompInfo();
+  }
+
   static Future<ResponseStream<SmartDevice>> getAllDevices(
       String deviceIp) async {
     final ClientChannel channel = createSmartServerClient(deviceIp);

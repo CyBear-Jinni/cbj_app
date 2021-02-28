@@ -137,24 +137,25 @@ class _ShowAllDevicesInTheSmartDevice
                       onPressed: () async {
                         smartDeviceObjectList.forEach((element) async {
                           DeviceEntity deviceEntity = DeviceEntity(
-                            id: v_o.DeviceUniqueId(),
-                            defaultName: v_o.DeviceDefaultName(element.name),
-                            roomId: v_o.DeviceUniqueId(),
-                            state: v_o.DeviceState('set'),
-                            senderDeviceOs: v_o.DeviceSenderDeviceOs('Android'),
-                            senderDeviceModel:
-                                v_o.DeviceSenderDeviceModel('OnePlus 3T'),
-                            senderId: v_o.DeviceSenderId.fromUniqueString(
-                                (await getIt<IAuthFacade>().getSignedInUser())
-                                    .getOrElse(
-                                        () => throw NotAuthenticatedError())
-                                    .id
-                                    .getOrCrash()),
-                            action: v_o.DeviceAction('off'),
-                            type: v_o.DeviceType(
-                                EnumHelper.dTToString(element.deviceType)),
-                            stateMassage: v_o.DeviceStateMassage('OK'),
-                          );
+                              id: v_o.DeviceUniqueId(),
+                              defaultName: v_o.DeviceDefaultName(element.name),
+                              roomId: v_o.DeviceUniqueId(),
+                              state: v_o.DeviceState('set'),
+                              senderDeviceOs:
+                                  v_o.DeviceSenderDeviceOs('Android'),
+                              senderDeviceModel:
+                                  v_o.DeviceSenderDeviceModel('OnePlus 3T'),
+                              senderId: v_o.DeviceSenderId.fromUniqueString(
+                                  (await getIt<IAuthFacade>().getSignedInUser())
+                                      .getOrElse(
+                                          () => throw NotAuthenticatedError())
+                                      .id
+                                      .getOrCrash()),
+                              action: v_o.DeviceAction('off'),
+                              type: v_o.DeviceType(
+                                  EnumHelper.dTToString(element.deviceType)),
+                              stateMassage: v_o.DeviceStateMassage('OK'),
+                              compUuid: v_o.DeviceCompUuid(''));
                           await getIt<IDeviceRepository>().create(deviceEntity);
                         });
 

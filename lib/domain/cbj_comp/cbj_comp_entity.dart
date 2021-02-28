@@ -20,6 +20,7 @@ abstract class CBJCompEntity implements _$CBJCompEntity {
     CBJCompOs compOs,
     CBJCompModel compModel,
     CBJCompType compType,
+    CBJCompUuid compUuid,
   }) = _CBJCompEntity;
 
   factory CBJCompEntity.empty() => CBJCompEntity(
@@ -31,6 +32,7 @@ abstract class CBJCompEntity implements _$CBJCompEntity {
         compOs: CBJCompOs(''),
         compModel: CBJCompModel(''),
         compType: CBJCompType(''),
+        compUuid: CBJCompUuid(''),
       );
 
   Option<CBJCompFailure<dynamic>> get failureOption {

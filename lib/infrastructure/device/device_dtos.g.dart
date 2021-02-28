@@ -17,6 +17,7 @@ _$_DeviceDtos _$_$_DeviceDtosFromJson(Map<String, dynamic> json) {
     senderId: json['senderId'] as String,
     action: json['action'] as String,
     type: json['type'] as String,
+    compUuid: json['compUuid'] as String,
     serverTimeStamp:
         const ServerTimestampConverter().fromJson(json['serverTimeStamp']),
   );
@@ -33,6 +34,7 @@ Map<String, dynamic> _$_$_DeviceDtosToJson(_$_DeviceDtos instance) =>
       'senderId': instance.senderId,
       'action': instance.action,
       'type': instance.type,
+      'compUuid': instance.compUuid,
       'serverTimeStamp':
           const ServerTimestampConverter().toJson(instance.serverTimeStamp),
     };

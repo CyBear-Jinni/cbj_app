@@ -21,6 +21,7 @@ abstract class DeviceDtos implements _$DeviceDtos {
     @required String senderId,
     @required String action,
     @required String type,
+    @required String compUuid,
     @required @ServerTimestampConverter() FieldValue serverTimeStamp,
   }) = _DeviceDtos;
 
@@ -36,6 +37,7 @@ abstract class DeviceDtos implements _$DeviceDtos {
       senderId: deviceEntity.senderId.getOrCrash(),
       action: deviceEntity.action.getOrCrash(),
       type: deviceEntity.type.getOrCrash(),
+      compUuid: deviceEntity.compUuid.getOrCrash(),
       serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }
@@ -52,6 +54,7 @@ abstract class DeviceDtos implements _$DeviceDtos {
       senderId: DeviceSenderId.fromUniqueString(senderId),
       action: DeviceAction(action),
       type: DeviceType(type),
+      compUuid: DeviceCompUuid(compUuid),
     );
   }
 

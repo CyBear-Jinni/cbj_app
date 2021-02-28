@@ -40,7 +40,20 @@ class ScanForNewCBJCompsWidget extends StatelessWidget {
             );
           },
           loadSuccess: (state) {
-            cbjCompEntityList.add(state.devices);
+            bool existInCompList = false;
+            final CBJCompEntity compEntity = state.devices;
+            try {
+              cbjCompEntityList.forEach((element) {
+                if (element.compUuid.getOrCrash() ==
+                    compEntity.compUuid.getOrCrash()) {
+                  existInCompList = true;
+                }
+              });
+
+              if (!existInCompList && compEntity.compUuid.getOrCrash() != '') {
+                cbjCompEntityList.add(state.devices);
+              }
+            } catch (e) {}
 
             return ListView.builder(
               padding: EdgeInsets.zero,

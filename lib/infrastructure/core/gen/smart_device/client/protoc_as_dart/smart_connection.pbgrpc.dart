@@ -14,6 +14,11 @@ import 'smart_connection.pb.dart' as $0;
 export 'smart_connection.pb.dart';
 
 class SmartServerClient extends $grpc.Client {
+  static final _$getCompInfo =
+      $grpc.ClientMethod<$0.CommendStatus, $0.CompInfo>(
+          '/SmartConnection.SmartServer/GetCompInfo',
+          ($0.CommendStatus value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) => $0.CompInfo.fromBuffer(value));
   static final _$getAllDevices =
       $grpc.ClientMethod<$0.SmartDeviceStatus, $0.SmartDevice>(
           '/SmartConnection.SmartServer/GetAllDevices',
@@ -65,6 +70,11 @@ class SmartServerClient extends $grpc.Client {
       {$grpc.CallOptions options,
       $core.Iterable<$grpc.ClientInterceptor> interceptors})
       : super(channel, options: options, interceptors: interceptors);
+
+  $grpc.ResponseFuture<$0.CompInfo> getCompInfo($0.CommendStatus request,
+      {$grpc.CallOptions options}) {
+    return $createUnaryCall(_$getCompInfo, request, options: options);
+  }
 
   $grpc.ResponseStream<$0.SmartDevice> getAllDevices(
       $0.SmartDeviceStatus request,
@@ -122,6 +132,13 @@ abstract class SmartServerServiceBase extends $grpc.Service {
   $core.String get $name => 'SmartConnection.SmartServer';
 
   SmartServerServiceBase() {
+    $addMethod($grpc.ServiceMethod<$0.CommendStatus, $0.CompInfo>(
+        'GetCompInfo',
+        getCompInfo_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.CommendStatus.fromBuffer(value),
+        ($0.CompInfo value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.SmartDeviceStatus, $0.SmartDevice>(
         'GetAllDevices',
         getAllDevices_Pre,
@@ -191,6 +208,11 @@ abstract class SmartServerServiceBase extends $grpc.Service {
         ($0.CommendStatus value) => value.writeToBuffer()));
   }
 
+  $async.Future<$0.CompInfo> getCompInfo_Pre(
+      $grpc.ServiceCall call, $async.Future<$0.CommendStatus> request) async {
+    return getCompInfo(call, await request);
+  }
+
   $async.Stream<$0.SmartDevice> getAllDevices_Pre($grpc.ServiceCall call,
       $async.Future<$0.SmartDeviceStatus> request) async* {
     yield* getAllDevices(call, await request);
@@ -237,6 +259,8 @@ abstract class SmartServerServiceBase extends $grpc.Service {
     return setBlindsStop(call, await request);
   }
 
+  $async.Future<$0.CompInfo> getCompInfo(
+      $grpc.ServiceCall call, $0.CommendStatus request);
   $async.Stream<$0.SmartDevice> getAllDevices(
       $grpc.ServiceCall call, $0.SmartDeviceStatus request);
   $async.Future<$0.CommendStatus> setFirebaseAccountInformation(

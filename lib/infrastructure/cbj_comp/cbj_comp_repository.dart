@@ -64,8 +64,16 @@ class CBJCompRepository implements ICBJCompRepository {
       final ResponseStream<SmartDevice> createTheCBJAppServer =
           await SmartClient.getAllDevices(compIp);
 
+      final CompInfo compInfo = await SmartClient.getCompInfo(compIp);
+
+      final CBJCompEntity cbjCompEntity = CBJCompEntity(
+        id: CBJCompUniqueId(),
+        roomId: CBJCompRoomId(),
+        compUuid: CBJCompUuid(compInfo.compUuid),
+      );
+
       final Either<CBJCompFailure, CBJCompEntity> cbjDevicesList =
-          fromRespStreamToList(createTheCBJAppServer);
+          fromRespStreamToList(cbjCompEntity, createTheCBJAppServer);
 
       return cbjDevicesList.fold(
         (f) {
@@ -79,22 +87,19 @@ class CBJCompRepository implements ICBJCompRepository {
   }
 
   Either<CBJCompFailure, CBJCompEntity> fromRespStreamToList(
-      ResponseStream<SmartDevice> devicesStream) {
-    CBJCompEntity cbjCompEntity;
+      CBJCompEntity cbjCompEntity, ResponseStream<SmartDevice> devicesStream) {
     DeviceEntity deviceEntity;
     final List<DeviceEntity> deviceEntityList = [];
 
-    try {
-      cbjCompEntity = CBJCompEntity(
-        id: CBJCompUniqueId(),
-        roomId: CBJCompRoomId(),
-      );
+    String compUuid;
 
+    try {
       devicesStream.forEach((SmartDevice d) {
         deviceEntity = DeviceEntity.empty().copyWith(
           id: DeviceUniqueId.fromUniqueString(d.id),
           defaultName: DeviceDefaultName(d.defaultName),
           senderDeviceModel: DeviceSenderDeviceModel(d.senderDeviceModel),
+          compUuid: DeviceCompUuid(d.deviceCompUuid),
         );
 
         deviceEntityList.add(deviceEntity);
@@ -103,8 +108,7 @@ class CBJCompRepository implements ICBJCompRepository {
       final CBJCompDevices cBJCompDevices =
           CBJCompDevices(deviceEntityList?.toImmutableList());
 
-      cbjCompEntity = cbjCompEntity.copyWith(cBJCompDevices: cBJCompDevices);
-      return right(cbjCompEntity);
+      return right(cbjCompEntity.copyWith(cBJCompDevices: cBJCompDevices));
     } catch (e) {
       return left(const CBJCompFailure.unexpected());
     }

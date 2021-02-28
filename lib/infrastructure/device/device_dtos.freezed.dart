@@ -28,6 +28,7 @@ class _$DeviceDtosTearOff {
       @required String senderId,
       @required String action,
       @required String type,
+      @required String compUuid,
       @required @ServerTimestampConverter() FieldValue serverTimeStamp}) {
     return _DeviceDtos(
       id: id,
@@ -40,6 +41,7 @@ class _$DeviceDtosTearOff {
       senderId: senderId,
       action: action,
       type: type,
+      compUuid: compUuid,
       serverTimeStamp: serverTimeStamp,
     );
   }
@@ -67,6 +69,7 @@ mixin _$DeviceDtos {
   String get senderId;
   String get action;
   String get type;
+  String get compUuid;
   @ServerTimestampConverter()
   FieldValue get serverTimeStamp;
 
@@ -91,6 +94,7 @@ abstract class $DeviceDtosCopyWith<$Res> {
       String senderId,
       String action,
       String type,
+      String compUuid,
       @ServerTimestampConverter() FieldValue serverTimeStamp});
 }
 
@@ -114,6 +118,7 @@ class _$DeviceDtosCopyWithImpl<$Res> implements $DeviceDtosCopyWith<$Res> {
     Object senderId = freezed,
     Object action = freezed,
     Object type = freezed,
+    Object compUuid = freezed,
     Object serverTimeStamp = freezed,
   }) {
     return _then(_value.copyWith(
@@ -134,6 +139,7 @@ class _$DeviceDtosCopyWithImpl<$Res> implements $DeviceDtosCopyWith<$Res> {
       senderId: senderId == freezed ? _value.senderId : senderId as String,
       action: action == freezed ? _value.action : action as String,
       type: type == freezed ? _value.type : type as String,
+      compUuid: compUuid == freezed ? _value.compUuid : compUuid as String,
       serverTimeStamp: serverTimeStamp == freezed
           ? _value.serverTimeStamp
           : serverTimeStamp as FieldValue,
@@ -158,6 +164,7 @@ abstract class _$DeviceDtosCopyWith<$Res> implements $DeviceDtosCopyWith<$Res> {
       String senderId,
       String action,
       String type,
+      String compUuid,
       @ServerTimestampConverter() FieldValue serverTimeStamp});
 }
 
@@ -183,6 +190,7 @@ class __$DeviceDtosCopyWithImpl<$Res> extends _$DeviceDtosCopyWithImpl<$Res>
     Object senderId = freezed,
     Object action = freezed,
     Object type = freezed,
+    Object compUuid = freezed,
     Object serverTimeStamp = freezed,
   }) {
     return _then(_DeviceDtos(
@@ -203,6 +211,7 @@ class __$DeviceDtosCopyWithImpl<$Res> extends _$DeviceDtosCopyWithImpl<$Res>
       senderId: senderId == freezed ? _value.senderId : senderId as String,
       action: action == freezed ? _value.action : action as String,
       type: type == freezed ? _value.type : type as String,
+      compUuid: compUuid == freezed ? _value.compUuid : compUuid as String,
       serverTimeStamp: serverTimeStamp == freezed
           ? _value.serverTimeStamp
           : serverTimeStamp as FieldValue,
@@ -225,6 +234,7 @@ class _$_DeviceDtos extends _DeviceDtos {
       @required this.senderId,
       @required this.action,
       @required this.type,
+      @required this.compUuid,
       @required @ServerTimestampConverter() this.serverTimeStamp})
       : assert(defaultName != null),
         assert(roomId != null),
@@ -234,6 +244,7 @@ class _$_DeviceDtos extends _DeviceDtos {
         assert(senderId != null),
         assert(action != null),
         assert(type != null),
+        assert(compUuid != null),
         assert(serverTimeStamp != null),
         super._();
 
@@ -262,12 +273,14 @@ class _$_DeviceDtos extends _DeviceDtos {
   @override
   final String type;
   @override
+  final String compUuid;
+  @override
   @ServerTimestampConverter()
   final FieldValue serverTimeStamp;
 
   @override
   String toString() {
-    return 'DeviceDtos(id: $id, defaultName: $defaultName, roomId: $roomId, state: $state, stateMassage: $stateMassage, senderDeviceOs: $senderDeviceOs, senderDeviceModel: $senderDeviceModel, senderId: $senderId, action: $action, type: $type, serverTimeStamp: $serverTimeStamp)';
+    return 'DeviceDtos(id: $id, defaultName: $defaultName, roomId: $roomId, state: $state, stateMassage: $stateMassage, senderDeviceOs: $senderDeviceOs, senderDeviceModel: $senderDeviceModel, senderId: $senderId, action: $action, type: $type, compUuid: $compUuid, serverTimeStamp: $serverTimeStamp)';
   }
 
   @override
@@ -299,6 +312,9 @@ class _$_DeviceDtos extends _DeviceDtos {
                 const DeepCollectionEquality().equals(other.action, action)) &&
             (identical(other.type, type) ||
                 const DeepCollectionEquality().equals(other.type, type)) &&
+            (identical(other.compUuid, compUuid) ||
+                const DeepCollectionEquality()
+                    .equals(other.compUuid, compUuid)) &&
             (identical(other.serverTimeStamp, serverTimeStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.serverTimeStamp, serverTimeStamp)));
@@ -317,6 +333,7 @@ class _$_DeviceDtos extends _DeviceDtos {
       const DeepCollectionEquality().hash(senderId) ^
       const DeepCollectionEquality().hash(action) ^
       const DeepCollectionEquality().hash(type) ^
+      const DeepCollectionEquality().hash(compUuid) ^
       const DeepCollectionEquality().hash(serverTimeStamp);
 
   @JsonKey(ignore: true)
@@ -343,6 +360,7 @@ abstract class _DeviceDtos extends DeviceDtos {
           @required String senderId,
           @required String action,
           @required String type,
+          @required String compUuid,
           @required @ServerTimestampConverter() FieldValue serverTimeStamp}) =
       _$_DeviceDtos;
 
@@ -370,6 +388,8 @@ abstract class _DeviceDtos extends DeviceDtos {
   String get action;
   @override
   String get type;
+  @override
+  String get compUuid;
   @override
   @ServerTimestampConverter()
   FieldValue get serverTimeStamp;

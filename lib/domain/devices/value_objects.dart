@@ -179,3 +179,17 @@ class DeviceType extends DevicesValueObjectAbstract<String> {
 
   const DeviceType._(this.value);
 }
+
+class DeviceCompUuid extends DevicesValueObjectAbstract<String> {
+  @override
+  final Either<DevicesFailure<String>, String> value;
+
+  factory DeviceCompUuid(String input) {
+    assert(input != null);
+    return DeviceCompUuid._(
+      validateDeviceNotEmpty(input),
+    );
+  }
+
+  const DeviceCompUuid._(this.value);
+}

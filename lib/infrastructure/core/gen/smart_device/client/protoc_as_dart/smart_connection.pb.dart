@@ -9,6 +9,109 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+class CompInfo extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CompInfo', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SmartConnection'), createEmptyInstance: create)
+    ..aOS(22, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'compUuid', protoName: 'compUuid')
+    ..aOS(23, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'compOs', protoName: 'compOs')
+    ..aOS(24, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'compModel', protoName: 'compModel')
+    ..aOS(25, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'compType', protoName: 'compType')
+    ..aOS(26, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pubspecYamlVersion', protoName: 'pubspecYamlVersion')
+    ..hasRequiredFields = false
+  ;
+
+  CompInfo._() : super();
+  factory CompInfo({
+    $core.String compUuid,
+    $core.String compOs,
+    $core.String compModel,
+    $core.String compType,
+    $core.String pubspecYamlVersion,
+  }) {
+    final _result = create();
+    if (compUuid != null) {
+      _result.compUuid = compUuid;
+    }
+    if (compOs != null) {
+      _result.compOs = compOs;
+    }
+    if (compModel != null) {
+      _result.compModel = compModel;
+    }
+    if (compType != null) {
+      _result.compType = compType;
+    }
+    if (pubspecYamlVersion != null) {
+      _result.pubspecYamlVersion = pubspecYamlVersion;
+    }
+    return _result;
+  }
+  factory CompInfo.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory CompInfo.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  CompInfo clone() => CompInfo()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  CompInfo copyWith(void Function(CompInfo) updates) => super.copyWith((message) => updates(message as CompInfo)) as CompInfo; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static CompInfo create() => CompInfo._();
+  CompInfo createEmptyInstance() => create();
+  static $pb.PbList<CompInfo> createRepeated() => $pb.PbList<CompInfo>();
+  @$core.pragma('dart2js:noInline')
+  static CompInfo getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CompInfo>(create);
+  static CompInfo _defaultInstance;
+
+  @$pb.TagNumber(22)
+  $core.String get compUuid => $_getSZ(0);
+  @$pb.TagNumber(22)
+  set compUuid($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(22)
+  $core.bool hasCompUuid() => $_has(0);
+  @$pb.TagNumber(22)
+  void clearCompUuid() => clearField(22);
+
+  @$pb.TagNumber(23)
+  $core.String get compOs => $_getSZ(1);
+  @$pb.TagNumber(23)
+  set compOs($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(23)
+  $core.bool hasCompOs() => $_has(1);
+  @$pb.TagNumber(23)
+  void clearCompOs() => clearField(23);
+
+  @$pb.TagNumber(24)
+  $core.String get compModel => $_getSZ(2);
+  @$pb.TagNumber(24)
+  set compModel($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(24)
+  $core.bool hasCompModel() => $_has(2);
+  @$pb.TagNumber(24)
+  void clearCompModel() => clearField(24);
+
+  @$pb.TagNumber(25)
+  $core.String get compType => $_getSZ(3);
+  @$pb.TagNumber(25)
+  set compType($core.String v) { $_setString(3, v); }
+  @$pb.TagNumber(25)
+  $core.bool hasCompType() => $_has(3);
+  @$pb.TagNumber(25)
+  void clearCompType() => clearField(25);
+
+  @$pb.TagNumber(26)
+  $core.String get pubspecYamlVersion => $_getSZ(4);
+  @$pb.TagNumber(26)
+  set pubspecYamlVersion($core.String v) { $_setString(4, v); }
+  @$pb.TagNumber(26)
+  $core.bool hasPubspecYamlVersion() => $_has(4);
+  @$pb.TagNumber(26)
+  void clearPubspecYamlVersion() => clearField(26);
+}
+
 class SmartDevice extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SmartDevice', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SmartConnection'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
@@ -22,7 +125,7 @@ class SmartDevice extends $pb.GeneratedMessage {
     ..aOS(18, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'senderId', protoName: 'senderId')
     ..aOS(19, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'serverTimeStamp', protoName: 'serverTimeStamp')
     ..aOS(20, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'stateMassage', protoName: 'stateMassage')
-    ..aOS(21, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'compMacAddress', protoName: 'compMacAddress')
+    ..aOS(21, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'deviceCompUuid', protoName: 'deviceCompUuid')
     ..hasRequiredFields = false
   ;
 
@@ -39,7 +142,7 @@ class SmartDevice extends $pb.GeneratedMessage {
     $core.String senderId,
     $core.String serverTimeStamp,
     $core.String stateMassage,
-    $core.String compMacAddress,
+    $core.String deviceCompUuid,
   }) {
     final _result = create();
     if (id != null) {
@@ -75,8 +178,8 @@ class SmartDevice extends $pb.GeneratedMessage {
     if (stateMassage != null) {
       _result.stateMassage = stateMassage;
     }
-    if (compMacAddress != null) {
-      _result.compMacAddress = compMacAddress;
+    if (deviceCompUuid != null) {
+      _result.deviceCompUuid = deviceCompUuid;
     }
     return _result;
   }
@@ -201,13 +304,13 @@ class SmartDevice extends $pb.GeneratedMessage {
   void clearStateMassage() => clearField(20);
 
   @$pb.TagNumber(21)
-  $core.String get compMacAddress => $_getSZ(11);
+  $core.String get deviceCompUuid => $_getSZ(11);
   @$pb.TagNumber(21)
-  set compMacAddress($core.String v) { $_setString(11, v); }
+  set deviceCompUuid($core.String v) { $_setString(11, v); }
   @$pb.TagNumber(21)
-  $core.bool hasCompMacAddress() => $_has(11);
+  $core.bool hasDeviceCompUuid() => $_has(11);
   @$pb.TagNumber(21)
-  void clearCompMacAddress() => clearField(21);
+  void clearDeviceCompUuid() => clearField(21);
 }
 
 class SmartDeviceStatus extends $pb.GeneratedMessage {

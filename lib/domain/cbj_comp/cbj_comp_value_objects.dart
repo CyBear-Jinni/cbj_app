@@ -159,3 +159,17 @@ class CBJCompType extends CBJCompValueObjectAbstract<String> {
 
   const CBJCompType._(this.value);
 }
+
+class CBJCompUuid extends CBJCompValueObjectAbstract<String> {
+  @override
+  final Either<CBJCompFailure<String>, String> value;
+
+  factory CBJCompUuid(String input) {
+    assert(input != null);
+    return CBJCompUuid._(
+      validateCBJCompNotEmpty(input),
+    );
+  }
+
+  const CBJCompUuid._(this.value);
+}
