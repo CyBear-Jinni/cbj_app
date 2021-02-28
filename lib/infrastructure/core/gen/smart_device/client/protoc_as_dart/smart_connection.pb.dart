@@ -22,6 +22,7 @@ class SmartDevice extends $pb.GeneratedMessage {
     ..aOS(18, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'senderId', protoName: 'senderId')
     ..aOS(19, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'serverTimeStamp', protoName: 'serverTimeStamp')
     ..aOS(20, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'stateMassage', protoName: 'stateMassage')
+    ..aOS(21, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'compMacAddress', protoName: 'compMacAddress')
     ..hasRequiredFields = false
   ;
 
@@ -38,6 +39,7 @@ class SmartDevice extends $pb.GeneratedMessage {
     $core.String senderId,
     $core.String serverTimeStamp,
     $core.String stateMassage,
+    $core.String compMacAddress,
   }) {
     final _result = create();
     if (id != null) {
@@ -72,6 +74,9 @@ class SmartDevice extends $pb.GeneratedMessage {
     }
     if (stateMassage != null) {
       _result.stateMassage = stateMassage;
+    }
+    if (compMacAddress != null) {
+      _result.compMacAddress = compMacAddress;
     }
     return _result;
   }
@@ -194,6 +199,15 @@ class SmartDevice extends $pb.GeneratedMessage {
   $core.bool hasStateMassage() => $_has(10);
   @$pb.TagNumber(20)
   void clearStateMassage() => clearField(20);
+
+  @$pb.TagNumber(21)
+  $core.String get compMacAddress => $_getSZ(11);
+  @$pb.TagNumber(21)
+  set compMacAddress($core.String v) { $_setString(11, v); }
+  @$pb.TagNumber(21)
+  $core.bool hasCompMacAddress() => $_has(11);
+  @$pb.TagNumber(21)
+  void clearCompMacAddress() => clearField(21);
 }
 
 class SmartDeviceStatus extends $pb.GeneratedMessage {

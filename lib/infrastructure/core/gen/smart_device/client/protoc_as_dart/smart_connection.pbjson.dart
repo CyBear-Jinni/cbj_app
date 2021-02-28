@@ -23,11 +23,12 @@ const SmartDevice$json = const {
     const {'1': 'senderId', '3': 18, '4': 1, '5': 9, '10': 'senderId'},
     const {'1': 'serverTimeStamp', '3': 19, '4': 1, '5': 9, '10': 'serverTimeStamp'},
     const {'1': 'stateMassage', '3': 20, '4': 1, '5': 9, '10': 'stateMassage'},
+    const {'1': 'compMacAddress', '3': 21, '4': 1, '5': 9, '10': 'compMacAddress'},
   ],
 };
 
 /// Descriptor for `SmartDevice`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List smartDeviceDescriptor = $convert.base64Decode('CgtTbWFydERldmljZRIOCgJpZBgBIAEoCVICaWQSEgoEdHlwZRgCIAEoCVIEdHlwZRIUCgVzdGF0ZRgDIAEoCVIFc3RhdGUSFgoGYWN0aW9uGA0gASgJUgZhY3Rpb24SIAoLZGVmYXVsdE5hbWUYDiABKAlSC2RlZmF1bHROYW1lEhYKBnJvb21JZBgPIAEoCVIGcm9vbUlkEiwKEXNlbmRlckRldmljZU1vZGVsGBAgASgJUhFzZW5kZXJEZXZpY2VNb2RlbBImCg5zZW5kZXJEZXZpY2VPcxgRIAEoCVIOc2VuZGVyRGV2aWNlT3MSGgoIc2VuZGVySWQYEiABKAlSCHNlbmRlcklkEigKD3NlcnZlclRpbWVTdGFtcBgTIAEoCVIPc2VydmVyVGltZVN0YW1wEiIKDHN0YXRlTWFzc2FnZRgUIAEoCVIMc3RhdGVNYXNzYWdl');
+final $typed_data.Uint8List smartDeviceDescriptor = $convert.base64Decode('CgtTbWFydERldmljZRIOCgJpZBgBIAEoCVICaWQSEgoEdHlwZRgCIAEoCVIEdHlwZRIUCgVzdGF0ZRgDIAEoCVIFc3RhdGUSFgoGYWN0aW9uGA0gASgJUgZhY3Rpb24SIAoLZGVmYXVsdE5hbWUYDiABKAlSC2RlZmF1bHROYW1lEhYKBnJvb21JZBgPIAEoCVIGcm9vbUlkEiwKEXNlbmRlckRldmljZU1vZGVsGBAgASgJUhFzZW5kZXJEZXZpY2VNb2RlbBImCg5zZW5kZXJEZXZpY2VPcxgRIAEoCVIOc2VuZGVyRGV2aWNlT3MSGgoIc2VuZGVySWQYEiABKAlSCHNlbmRlcklkEigKD3NlcnZlclRpbWVTdGFtcBgTIAEoCVIPc2VydmVyVGltZVN0YW1wEiIKDHN0YXRlTWFzc2FnZRgUIAEoCVIMc3RhdGVNYXNzYWdlEiYKDmNvbXBNYWNBZGRyZXNzGBUgASgJUg5jb21wTWFjQWRkcmVzcw==');
 @$core.Deprecated('Use smartDeviceStatusDescriptor instead')
 const SmartDeviceStatus$json = const {
   '1': 'SmartDeviceStatus',
