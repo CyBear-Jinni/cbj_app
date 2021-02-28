@@ -14,9 +14,27 @@ class ScanForNewCBJCompsWidget extends StatelessWidget {
     return BlocBuilder<CBJCompBloc, CBJCompState>(
       builder: (context, state) {
         return state.map(
-          initial: (_) => Container(),
+          initial: (_) => const Text('Initial'),
           loadInProgress: (value) {
-            return const Text('Load in progress');
+            return Column(
+              children: const [
+                SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  'Scanning For Devices',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 26,
+                  ),
+                ),
+                Expanded(
+                  child: Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                ),
+              ],
+            );
           },
           loadSuccess: (state) {
             return const Text('Loaded success');

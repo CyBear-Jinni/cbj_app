@@ -1,7 +1,7 @@
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_failures.dart';
 import 'package:dartz/dartz.dart';
-import 'package:kt_dart/kt.dart';
+import 'package:kt_dart/collection.dart';
 
 abstract class ICBJCompRepository {
   // watch devices
@@ -10,7 +10,10 @@ abstract class ICBJCompRepository {
 
   // C Read UD
 
-  Stream<Either<CBJCompFailure, KtList<CBJCompEntity>>> watchAll();
+  Stream<Either<CBJCompFailure, String>> getConnectedComputersIP();
+
+  Future<Either<CBJCompFailure, KtList<CBJCompEntity>>>
+      getInformationFromDeviceByIp(String compIp);
 
   Future<Either<CBJCompFailure, Unit>> devicesList(CBJCompEntity cBJCompEntity);
 

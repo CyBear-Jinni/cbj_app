@@ -19,28 +19,46 @@ class CBJCompBloc extends Bloc<CBJCompEvent, CBJCompState> {
 
   final ICBJCompRepository _cBJCompRepository;
 
-  StreamSubscription<Either<CBJCompFailure, KtList<CBJCompEntity>>>
-      _CBJCompStreamSubscription;
+  StreamSubscription<Either<CBJCompFailure, String>> _CBJCompStreamSubscription;
 
   @override
   Stream<CBJCompState> mapEventToState(
     CBJCompEvent event,
   ) async* {
     yield* event.map(
-      initialized: (e) async* {},
+      initialized: (e) async* {
+        add(const CBJCompEvent.watchAllStarted());
+      },
       create: (e) async* {},
       watchAllStarted: (e) async* {
         yield const CBJCompState.loadInProgress();
         await _CBJCompStreamSubscription?.cancel();
-        _CBJCompStreamSubscription = _cBJCompRepository.watchAll().listen(
-            (failureOrCBJCompList) =>
-                add(CBJCompEvent.compDevicesReceived(failureOrCBJCompList)));
+        _CBJCompStreamSubscription = _cBJCompRepository
+            .getConnectedComputersIP()
+            .listen((failureOrCBJCompList) {
+          add(CBJCompEvent.compDevicesReceived(failureOrCBJCompList));
+        });
       },
       compDevicesReceived: (e) async* {
-        yield e.failureOrCBJCompList.fold(
+        dynamic failureOrCompListDynamic = e.failureOrCBJCompList.fold(
           (f) => CBJCompState.loadFailure(f),
-          (devices) => CBJCompState.loadSuccess(devices),
+          (ip) => ip,
         );
+
+        if (failureOrCompListDynamic == CBJCompState) {
+          yield failureOrCompListDynamic;
+        } else {
+          String failureOrCompListDynamicStr =
+              failureOrCompListDynamic as String;
+
+          final Either<CBJCompFailure, KtList<CBJCompEntity>>
+              cBJCompEntityListOFailure = await _cBJCompRepository
+                  .getInformationFromDeviceByIp(failureOrCompListDynamicStr);
+          yield cBJCompEntityListOFailure.fold(
+            (f) => CBJCompState.loadFailure(f),
+            (r) => CBJCompState.loadSuccess(r),
+          );
+        }
       },
       changeAction: (e) async* {
         final actionResult = await _cBJCompRepository.update(e.cBJCompEntity);

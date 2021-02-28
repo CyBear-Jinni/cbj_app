@@ -1,4 +1,3 @@
-import 'package:cybear_jinni/domain/auth/user.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_failures.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_value_objects.dart';
 import 'package:cybear_jinni/domain/devices/device_entity.dart';
@@ -23,7 +22,7 @@ abstract class CBJCompEntity implements _$CBJCompEntity {
     CBJCompType compType,
   }) = _CBJCompEntity;
 
-  factory CBJCompEntity.empty(MUser userId) => CBJCompEntity(
+  factory CBJCompEntity.empty() => CBJCompEntity(
         id: CBJCompUniqueId(),
         roomId: CBJCompRoomId(),
         cBJCompDevices: CBJCompDevices(<DeviceEntity>[].toImmutableList()),

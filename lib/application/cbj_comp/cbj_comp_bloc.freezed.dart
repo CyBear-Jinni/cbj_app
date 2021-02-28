@@ -32,7 +32,7 @@ class _$CBJCompEventTearOff {
 
 // ignore: unused_element
   _CompDevicesReceived compDevicesReceived(
-      Either<CBJCompFailure, KtList<CBJCompEntity>> failureOrCBJCompList) {
+      Either<CBJCompFailure, String> failureOrCBJCompList) {
     return _CompDevicesReceived(
       failureOrCBJCompList,
     );
@@ -59,7 +59,7 @@ mixin _$CBJCompEvent {
     @required TResult changeAction(CBJCompEntity cBJCompEntity),
     @required
         TResult compDevicesReceived(
-            Either<CBJCompFailure, KtList<CBJCompEntity>> failureOrCBJCompList),
+            Either<CBJCompFailure, String> failureOrCBJCompList),
     @required TResult create(CBJCompEntity cBJCompEntity),
   });
   @optionalTypeArgs
@@ -68,7 +68,7 @@ mixin _$CBJCompEvent {
     TResult watchAllStarted(),
     TResult changeAction(CBJCompEntity cBJCompEntity),
     TResult compDevicesReceived(
-        Either<CBJCompFailure, KtList<CBJCompEntity>> failureOrCBJCompList),
+        Either<CBJCompFailure, String> failureOrCBJCompList),
     TResult create(CBJCompEntity cBJCompEntity),
     @required TResult orElse(),
   });
@@ -150,7 +150,7 @@ class _$Initialized implements Initialized {
     @required TResult changeAction(CBJCompEntity cBJCompEntity),
     @required
         TResult compDevicesReceived(
-            Either<CBJCompFailure, KtList<CBJCompEntity>> failureOrCBJCompList),
+            Either<CBJCompFailure, String> failureOrCBJCompList),
     @required TResult create(CBJCompEntity cBJCompEntity),
   }) {
     assert(initialized != null);
@@ -168,7 +168,7 @@ class _$Initialized implements Initialized {
     TResult watchAllStarted(),
     TResult changeAction(CBJCompEntity cBJCompEntity),
     TResult compDevicesReceived(
-        Either<CBJCompFailure, KtList<CBJCompEntity>> failureOrCBJCompList),
+        Either<CBJCompFailure, String> failureOrCBJCompList),
     TResult create(CBJCompEntity cBJCompEntity),
     @required TResult orElse(),
   }) {
@@ -262,7 +262,7 @@ class _$_WatchAllStarted implements _WatchAllStarted {
     @required TResult changeAction(CBJCompEntity cBJCompEntity),
     @required
         TResult compDevicesReceived(
-            Either<CBJCompFailure, KtList<CBJCompEntity>> failureOrCBJCompList),
+            Either<CBJCompFailure, String> failureOrCBJCompList),
     @required TResult create(CBJCompEntity cBJCompEntity),
   }) {
     assert(initialized != null);
@@ -280,7 +280,7 @@ class _$_WatchAllStarted implements _WatchAllStarted {
     TResult watchAllStarted(),
     TResult changeAction(CBJCompEntity cBJCompEntity),
     TResult compDevicesReceived(
-        Either<CBJCompFailure, KtList<CBJCompEntity>> failureOrCBJCompList),
+        Either<CBJCompFailure, String> failureOrCBJCompList),
     TResult create(CBJCompEntity cBJCompEntity),
     @required TResult orElse(),
   }) {
@@ -410,7 +410,7 @@ class _$_ChangeState implements _ChangeState {
     @required TResult changeAction(CBJCompEntity cBJCompEntity),
     @required
         TResult compDevicesReceived(
-            Either<CBJCompFailure, KtList<CBJCompEntity>> failureOrCBJCompList),
+            Either<CBJCompFailure, String> failureOrCBJCompList),
     @required TResult create(CBJCompEntity cBJCompEntity),
   }) {
     assert(initialized != null);
@@ -428,7 +428,7 @@ class _$_ChangeState implements _ChangeState {
     TResult watchAllStarted(),
     TResult changeAction(CBJCompEntity cBJCompEntity),
     TResult compDevicesReceived(
-        Either<CBJCompFailure, KtList<CBJCompEntity>> failureOrCBJCompList),
+        Either<CBJCompFailure, String> failureOrCBJCompList),
     TResult create(CBJCompEntity cBJCompEntity),
     @required TResult orElse(),
   }) {
@@ -487,8 +487,7 @@ abstract class _$CompDevicesReceivedCopyWith<$Res> {
   factory _$CompDevicesReceivedCopyWith(_CompDevicesReceived value,
           $Res Function(_CompDevicesReceived) then) =
       __$CompDevicesReceivedCopyWithImpl<$Res>;
-  $Res call(
-      {Either<CBJCompFailure, KtList<CBJCompEntity>> failureOrCBJCompList});
+  $Res call({Either<CBJCompFailure, String> failureOrCBJCompList});
 }
 
 /// @nodoc
@@ -509,8 +508,7 @@ class __$CompDevicesReceivedCopyWithImpl<$Res>
     return _then(_CompDevicesReceived(
       failureOrCBJCompList == freezed
           ? _value.failureOrCBJCompList
-          : failureOrCBJCompList
-              as Either<CBJCompFailure, KtList<CBJCompEntity>>,
+          : failureOrCBJCompList as Either<CBJCompFailure, String>,
     ));
   }
 }
@@ -521,7 +519,7 @@ class _$_CompDevicesReceived implements _CompDevicesReceived {
       : assert(failureOrCBJCompList != null);
 
   @override
-  final Either<CBJCompFailure, KtList<CBJCompEntity>> failureOrCBJCompList;
+  final Either<CBJCompFailure, String> failureOrCBJCompList;
 
   @override
   String toString() {
@@ -556,7 +554,7 @@ class _$_CompDevicesReceived implements _CompDevicesReceived {
     @required TResult changeAction(CBJCompEntity cBJCompEntity),
     @required
         TResult compDevicesReceived(
-            Either<CBJCompFailure, KtList<CBJCompEntity>> failureOrCBJCompList),
+            Either<CBJCompFailure, String> failureOrCBJCompList),
     @required TResult create(CBJCompEntity cBJCompEntity),
   }) {
     assert(initialized != null);
@@ -574,7 +572,7 @@ class _$_CompDevicesReceived implements _CompDevicesReceived {
     TResult watchAllStarted(),
     TResult changeAction(CBJCompEntity cBJCompEntity),
     TResult compDevicesReceived(
-        Either<CBJCompFailure, KtList<CBJCompEntity>> failureOrCBJCompList),
+        Either<CBJCompFailure, String> failureOrCBJCompList),
     TResult create(CBJCompEntity cBJCompEntity),
     @required TResult orElse(),
   }) {
@@ -622,10 +620,10 @@ class _$_CompDevicesReceived implements _CompDevicesReceived {
 
 abstract class _CompDevicesReceived implements CBJCompEvent {
   const factory _CompDevicesReceived(
-          Either<CBJCompFailure, KtList<CBJCompEntity>> failureOrCBJCompList) =
+          Either<CBJCompFailure, String> failureOrCBJCompList) =
       _$_CompDevicesReceived;
 
-  Either<CBJCompFailure, KtList<CBJCompEntity>> get failureOrCBJCompList;
+  Either<CBJCompFailure, String> get failureOrCBJCompList;
   @JsonKey(ignore: true)
   _$CompDevicesReceivedCopyWith<_CompDevicesReceived> get copyWith;
 }
@@ -710,7 +708,7 @@ class _$_CreateDevice implements _CreateDevice {
     @required TResult changeAction(CBJCompEntity cBJCompEntity),
     @required
         TResult compDevicesReceived(
-            Either<CBJCompFailure, KtList<CBJCompEntity>> failureOrCBJCompList),
+            Either<CBJCompFailure, String> failureOrCBJCompList),
     @required TResult create(CBJCompEntity cBJCompEntity),
   }) {
     assert(initialized != null);
@@ -728,7 +726,7 @@ class _$_CreateDevice implements _CreateDevice {
     TResult watchAllStarted(),
     TResult changeAction(CBJCompEntity cBJCompEntity),
     TResult compDevicesReceived(
-        Either<CBJCompFailure, KtList<CBJCompEntity>> failureOrCBJCompList),
+        Either<CBJCompFailure, String> failureOrCBJCompList),
     TResult create(CBJCompEntity cBJCompEntity),
     @required TResult orElse(),
   }) {

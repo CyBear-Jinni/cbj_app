@@ -10,7 +10,7 @@ abstract class CBJCompEvent with _$CBJCompEvent {
       _ChangeState;
 
   const factory CBJCompEvent.compDevicesReceived(
-          Either<CBJCompFailure, KtList<CBJCompEntity>> failureOrCBJCompList) =
+          Either<CBJCompFailure, String> failureOrCBJCompList) =
       _CompDevicesReceived;
 
   const factory CBJCompEvent.create(CBJCompEntity cBJCompEntity) =

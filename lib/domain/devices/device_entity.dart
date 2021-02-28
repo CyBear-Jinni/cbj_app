@@ -1,4 +1,3 @@
-import 'package:cybear_jinni/domain/auth/user.dart';
 import 'package:cybear_jinni/domain/devices/devices_failures.dart';
 import 'package:cybear_jinni/domain/devices/value_objects.dart';
 import 'package:dartz/dartz.dart';
@@ -44,7 +43,7 @@ abstract class DeviceEntity implements _$DeviceEntity {
     @required DeviceType type,
   }) = _DeviceEnitie;
 
-  factory DeviceEntity.empty(MUser userId) => DeviceEntity(
+  factory DeviceEntity.empty() => DeviceEntity(
         id: DeviceUniqueId(),
         defaultName: DeviceDefaultName(''),
         roomId: DeviceUniqueId(),
@@ -52,7 +51,7 @@ abstract class DeviceEntity implements _$DeviceEntity {
         senderDeviceOs: DeviceSenderDeviceOs(''),
         senderDeviceModel: DeviceSenderDeviceModel(''),
         stateMassage: DeviceStateMassage(''),
-        senderId: DeviceSenderId.fromUniqueString(userId.id.getOrCrash()),
+        senderId: DeviceSenderId(),
         action: DeviceAction(''),
         type: DeviceType(''),
       );
