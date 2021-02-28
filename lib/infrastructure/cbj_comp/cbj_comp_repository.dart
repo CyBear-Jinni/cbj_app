@@ -55,8 +55,8 @@ class CBJCompRepository implements ICBJCompRepository {
   }
 
   @override
-  Future<Either<CBJCompFailure, KtList<CBJCompEntity>>>
-      getInformationFromDeviceByIp(String compIp) async {
+  Future<Either<CBJCompFailure, CBJCompEntity>> getInformationFromDeviceByIp(
+      String compIp) async {
     try {
       final StreamController<SmartDeviceInfo> smartDeviceStream =
           StreamController<SmartDeviceInfo>();
@@ -64,7 +64,7 @@ class CBJCompRepository implements ICBJCompRepository {
       final ResponseStream<SmartDevice> createTheCBJAppServer =
           await SmartClient.getAllDevices(compIp);
 
-      final Either<CBJCompFailure, KtList<CBJCompEntity>> cbjDevicesList =
+      final Either<CBJCompFailure, CBJCompEntity> cbjDevicesList =
           fromRespStreamToList(createTheCBJAppServer);
 
       return cbjDevicesList.fold(
@@ -78,11 +78,11 @@ class CBJCompRepository implements ICBJCompRepository {
     }
   }
 
-  Either<CBJCompFailure, KtList<CBJCompEntity>> fromRespStreamToList(
+  Either<CBJCompFailure, CBJCompEntity> fromRespStreamToList(
       ResponseStream<SmartDevice> devicesStream) {
     CBJCompEntity cbjCompEntity;
     DeviceEntity deviceEntity;
-    List<DeviceEntity> deviceEntityList = [];
+    final List<DeviceEntity> deviceEntityList = [];
 
     try {
       cbjCompEntity = CBJCompEntity(
@@ -104,7 +104,7 @@ class CBJCompRepository implements ICBJCompRepository {
           CBJCompDevices(deviceEntityList?.toImmutableList());
 
       cbjCompEntity = cbjCompEntity.copyWith(cBJCompDevices: cBJCompDevices);
-      return right([cbjCompEntity].toImmutableList());
+      return right(cbjCompEntity);
     } catch (e) {
       return left(const CBJCompFailure.unexpected());
     }

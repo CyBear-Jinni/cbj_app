@@ -125,9 +125,6 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
                       create: (context) => getIt<UserHomesListBloc>()
                         ..add(const UserHomesListEvent.watchAllStarted()),
                     ),
-                    // BlocProvider<DeviceActorBloc>(
-                    //   create: (context) => getIt<DeviceActorBloc>(),
-                    // ),
                   ],
                   child: MultiBlocListener(
                     listeners: [

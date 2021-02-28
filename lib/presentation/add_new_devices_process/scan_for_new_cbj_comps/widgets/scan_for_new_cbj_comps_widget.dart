@@ -1,4 +1,6 @@
 import 'package:cybear_jinni/application/cbj_comp/cbj_comp_bloc.dart';
+import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
+import 'package:cybear_jinni/presentation/add_new_devices_process/scan_for_new_cbj_comps/widgets/cbj_comp_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,6 +12,7 @@ class ScanForNewCBJCompsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
     final double sizeBoxWidth = screenSize.width * 0.25;
+    final List<CBJCompEntity> cbjCompEntityList = [];
 
     return BlocBuilder<CBJCompBloc, CBJCompState>(
       builder: (context, state) {
@@ -37,7 +40,18 @@ class ScanForNewCBJCompsWidget extends StatelessWidget {
             );
           },
           loadSuccess: (state) {
-            return const Text('Loaded success');
+            cbjCompEntityList.add(state.devices);
+
+            return ListView.builder(
+              padding: EdgeInsets.zero,
+              itemBuilder: (context, index) {
+                final compEntity = cbjCompEntityList[index];
+                return CBJCompCard(
+                  cbjCompEntity: compEntity,
+                );
+              },
+              itemCount: cbjCompEntityList.length,
+            );
           },
           loadSuccessTemp: (state) {
             return const Text('Load success temp');

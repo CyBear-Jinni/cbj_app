@@ -39,9 +39,6 @@ class ScanForNewCBJCompsPage extends StatelessWidget {
           create: (context) =>
               getIt<CBJCompBloc>()..add(const CBJCompEvent.initialized()),
         ),
-        // BlocProvider<DeviceActorBloc>(
-        //   create: (context) => getIt<DeviceActorBloc>(),
-        // ),
       ],
       child: MultiBlocListener(
           listeners: [

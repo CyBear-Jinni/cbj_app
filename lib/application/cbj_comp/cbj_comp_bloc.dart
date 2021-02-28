@@ -7,7 +7,6 @@ import 'package:cybear_jinni/domain/cbj_comp/i_cbj_comp_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:kt_dart/kt.dart';
 
 part 'cbj_comp_bloc.freezed.dart';
 part 'cbj_comp_event.dart';
@@ -40,7 +39,7 @@ class CBJCompBloc extends Bloc<CBJCompEvent, CBJCompState> {
         });
       },
       compDevicesReceived: (e) async* {
-        dynamic failureOrCompListDynamic = e.failureOrCBJCompList.fold(
+        final dynamic failureOrCompListDynamic = e.failureOrCBJCompList.fold(
           (f) => CBJCompState.loadFailure(f),
           (ip) => ip,
         );
@@ -48,10 +47,10 @@ class CBJCompBloc extends Bloc<CBJCompEvent, CBJCompState> {
         if (failureOrCompListDynamic == CBJCompState) {
           yield failureOrCompListDynamic;
         } else {
-          String failureOrCompListDynamicStr =
+          final String failureOrCompListDynamicStr =
               failureOrCompListDynamic as String;
 
-          final Either<CBJCompFailure, KtList<CBJCompEntity>>
+          final Either<CBJCompFailure, CBJCompEntity>
               cBJCompEntityListOFailure = await _cBJCompRepository
                   .getInformationFromDeviceByIp(failureOrCompListDynamicStr);
           yield cBJCompEntityListOFailure.fold(

@@ -795,7 +795,7 @@ class _$CBJCompStateTearOff {
   }
 
 // ignore: unused_element
-  _LoadSuccess loadSuccess(KtList<CBJCompEntity> devices) {
+  _LoadSuccess loadSuccess(CBJCompEntity devices) {
     return _LoadSuccess(
       devices,
     );
@@ -829,7 +829,7 @@ mixin _$CBJCompState {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loadInProgress(),
-    @required TResult loadSuccess(KtList<CBJCompEntity> devices),
+    @required TResult loadSuccess(CBJCompEntity devices),
     @required TResult loadSuccessTemp(),
     @required TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
     @required TResult error(),
@@ -838,7 +838,7 @@ mixin _$CBJCompState {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loadInProgress(),
-    TResult loadSuccess(KtList<CBJCompEntity> devices),
+    TResult loadSuccess(CBJCompEntity devices),
     TResult loadSuccessTemp(),
     TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
     TResult error(),
@@ -919,7 +919,7 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loadInProgress(),
-    @required TResult loadSuccess(KtList<CBJCompEntity> devices),
+    @required TResult loadSuccess(CBJCompEntity devices),
     @required TResult loadSuccessTemp(),
     @required TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
     @required TResult error(),
@@ -938,7 +938,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loadInProgress(),
-    TResult loadSuccess(KtList<CBJCompEntity> devices),
+    TResult loadSuccess(CBJCompEntity devices),
     TResult loadSuccessTemp(),
     TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
     TResult error(),
@@ -1034,7 +1034,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loadInProgress(),
-    @required TResult loadSuccess(KtList<CBJCompEntity> devices),
+    @required TResult loadSuccess(CBJCompEntity devices),
     @required TResult loadSuccessTemp(),
     @required TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
     @required TResult error(),
@@ -1053,7 +1053,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loadInProgress(),
-    TResult loadSuccess(KtList<CBJCompEntity> devices),
+    TResult loadSuccess(CBJCompEntity devices),
     TResult loadSuccessTemp(),
     TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
     TResult error(),
@@ -1113,7 +1113,9 @@ abstract class _$LoadSuccessCopyWith<$Res> {
   factory _$LoadSuccessCopyWith(
           _LoadSuccess value, $Res Function(_LoadSuccess) then) =
       __$LoadSuccessCopyWithImpl<$Res>;
-  $Res call({KtList<CBJCompEntity> devices});
+  $Res call({CBJCompEntity devices});
+
+  $CBJCompEntityCopyWith<$Res> get devices;
 }
 
 /// @nodoc
@@ -1131,8 +1133,18 @@ class __$LoadSuccessCopyWithImpl<$Res> extends _$CBJCompStateCopyWithImpl<$Res>
     Object devices = freezed,
   }) {
     return _then(_LoadSuccess(
-      devices == freezed ? _value.devices : devices as KtList<CBJCompEntity>,
+      devices == freezed ? _value.devices : devices as CBJCompEntity,
     ));
+  }
+
+  @override
+  $CBJCompEntityCopyWith<$Res> get devices {
+    if (_value.devices == null) {
+      return null;
+    }
+    return $CBJCompEntityCopyWith<$Res>(_value.devices, (value) {
+      return _then(_value.copyWith(devices: value));
+    });
   }
 }
 
@@ -1141,7 +1153,7 @@ class _$_LoadSuccess implements _LoadSuccess {
   const _$_LoadSuccess(this.devices) : assert(devices != null);
 
   @override
-  final KtList<CBJCompEntity> devices;
+  final CBJCompEntity devices;
 
   @override
   String toString() {
@@ -1170,7 +1182,7 @@ class _$_LoadSuccess implements _LoadSuccess {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loadInProgress(),
-    @required TResult loadSuccess(KtList<CBJCompEntity> devices),
+    @required TResult loadSuccess(CBJCompEntity devices),
     @required TResult loadSuccessTemp(),
     @required TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
     @required TResult error(),
@@ -1189,7 +1201,7 @@ class _$_LoadSuccess implements _LoadSuccess {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loadInProgress(),
-    TResult loadSuccess(KtList<CBJCompEntity> devices),
+    TResult loadSuccess(CBJCompEntity devices),
     TResult loadSuccessTemp(),
     TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
     TResult error(),
@@ -1241,9 +1253,9 @@ class _$_LoadSuccess implements _LoadSuccess {
 }
 
 abstract class _LoadSuccess implements CBJCompState {
-  const factory _LoadSuccess(KtList<CBJCompEntity> devices) = _$_LoadSuccess;
+  const factory _LoadSuccess(CBJCompEntity devices) = _$_LoadSuccess;
 
-  KtList<CBJCompEntity> get devices;
+  CBJCompEntity get devices;
   @JsonKey(ignore: true)
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith;
 }
@@ -1289,7 +1301,7 @@ class _$_LoadSuccessTemp implements _LoadSuccessTemp {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loadInProgress(),
-    @required TResult loadSuccess(KtList<CBJCompEntity> devices),
+    @required TResult loadSuccess(CBJCompEntity devices),
     @required TResult loadSuccessTemp(),
     @required TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
     @required TResult error(),
@@ -1308,7 +1320,7 @@ class _$_LoadSuccessTemp implements _LoadSuccessTemp {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loadInProgress(),
-    TResult loadSuccess(KtList<CBJCompEntity> devices),
+    TResult loadSuccess(CBJCompEntity devices),
     TResult loadSuccessTemp(),
     TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
     TResult error(),
@@ -1442,7 +1454,7 @@ class _$_loadFailure implements _loadFailure {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loadInProgress(),
-    @required TResult loadSuccess(KtList<CBJCompEntity> devices),
+    @required TResult loadSuccess(CBJCompEntity devices),
     @required TResult loadSuccessTemp(),
     @required TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
     @required TResult error(),
@@ -1461,7 +1473,7 @@ class _$_loadFailure implements _loadFailure {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loadInProgress(),
-    TResult loadSuccess(KtList<CBJCompEntity> devices),
+    TResult loadSuccess(CBJCompEntity devices),
     TResult loadSuccessTemp(),
     TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
     TResult error(),
@@ -1559,7 +1571,7 @@ class _$Error implements Error {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loadInProgress(),
-    @required TResult loadSuccess(KtList<CBJCompEntity> devices),
+    @required TResult loadSuccess(CBJCompEntity devices),
     @required TResult loadSuccessTemp(),
     @required TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
     @required TResult error(),
@@ -1578,7 +1590,7 @@ class _$Error implements Error {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loadInProgress(),
-    TResult loadSuccess(KtList<CBJCompEntity> devices),
+    TResult loadSuccess(CBJCompEntity devices),
     TResult loadSuccessTemp(),
     TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
     TResult error(),

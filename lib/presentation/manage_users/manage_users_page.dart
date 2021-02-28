@@ -39,9 +39,6 @@ class ManageUsersPage extends StatelessWidget {
           create: (context) => getIt<ManageUsersBloc>()
             ..add(const ManageUsersEvent.initialized()),
         ),
-        // BlocProvider<DeviceActorBloc>(
-        //   create: (context) => getIt<DeviceActorBloc>(),
-        // ),
       ],
       child: MultiBlocListener(
           listeners: [
