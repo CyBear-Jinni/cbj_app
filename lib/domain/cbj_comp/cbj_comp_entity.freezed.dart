@@ -52,6 +52,8 @@ mixin _$CBJCompEntity {
   CBJCompOs get compOs;
   CBJCompModel get compModel;
   CBJCompType get compType;
+
+  /// The comp uuid that it came with out of the factory
   CBJCompUuid get compUuid;
 
   @JsonKey(ignore: true)
@@ -205,6 +207,8 @@ class _$_CBJCompEntity extends _CBJCompEntity {
   @override
   final CBJCompType compType;
   @override
+
+  /// The comp uuid that it came with out of the factory
   final CBJCompUuid compUuid;
 
   @override
@@ -290,6 +294,8 @@ abstract class _CBJCompEntity extends CBJCompEntity {
   @override
   CBJCompType get compType;
   @override
+
+  /// The comp uuid that it came with out of the factory
   CBJCompUuid get compUuid;
   @override
   @JsonKey(ignore: true)

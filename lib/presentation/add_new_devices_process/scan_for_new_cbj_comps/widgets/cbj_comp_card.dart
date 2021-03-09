@@ -1,47 +1,82 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
+import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CBJCompCard extends StatelessWidget {
   final CBJCompEntity cbjCompEntity;
 
   const CBJCompCard({
-    Key key,
     @required this.cbjCompEntity,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
-        border: Border(
-          top: BorderSide(
-            color: Colors.white,
-          ),
-          bottom: BorderSide(
-            color: Colors.white,
-          ),
-        ),
-      ),
-      height: 100,
-      child: Center(
-        child: ListTile(
-          leading: const FaIcon(
-            FontAwesomeIcons.userGraduate,
-            color: Colors.white,
-          ),
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              Text(
-                'Comp name',
-                style: TextStyle(color: Colors.white),
+      color: Colors.orangeAccent,
+      child: Column(
+        children: [
+          Container(
+            decoration: const BoxDecoration(
+              border: Border(
+                top: BorderSide(
+                  color: Colors.white,
+                ),
+                bottom: BorderSide(
+                  color: Colors.white,
+                ),
               ),
-            ],
+            ),
+            child: Text(
+              'Texst card',
+              style: TextStyle(color: Colors.white),
+            ),
+            // cbjCompEntity.cBJCompDevices.getOrCrash().size < 1
+            //     ? const Text('')
+            //     : ListView.builder(
+            //         padding: EdgeInsets.zero,
+            //         itemBuilder: (context, index) {
+            //           final DeviceEntity compEntity =
+            //               cbjCompEntity.cBJCompDevices.getOrCrash()[index];
+            //           if (compEntity.type.getOrCrash() == 'Light') {
+            //             return Center(
+            //               child: BlocProvider(
+            //                 create: (context) => getIt<DeviceActorBloc>(),
+            //                 child: Text(
+            //                   compEntity.defaultName.getOrCrash(),
+            //                   style: const TextStyle(color: Colors.white),
+            //                 ),
+            //               ),
+            //             );
+            //           } else {
+            //             return Text(
+            //               'Type not supported ${compEntity.type.getOrCrash()}'
+            //               ' yet',
+            //               style: const TextStyle(color: Colors.white),
+            //             );
+            //           }
+            //         },
+            //         itemCount: cbjCompEntity.cBJCompDevices.getOrCrash().size,
+            //       ),
           ),
-          onTap: () {},
-        ),
+          const SizedBox(
+            height: 30,
+          ),
+          FlatButton(
+            color: Colors.greenAccent,
+            onPressed: () {
+              ExtendedNavigator.of(context).push(
+                Routes.configureNewCbjCompPage,
+                arguments: ConfigureNewCbjCompPageArguments(
+                    cbjCompEntity: cbjCompEntity),
+              );
+            },
+            child: const Text(
+              'Set up computer',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+        ],
       ),
     );
   }

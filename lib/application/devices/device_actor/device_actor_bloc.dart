@@ -21,11 +21,14 @@ class DeviceActorBloc extends Bloc<DeviceActorEvent, DeviceActorState> {
   Stream<DeviceActorState> mapEventToState(
     DeviceActorEvent event,
   ) async* {
-    yield const DeviceActorState.actionInProgress();
-    final possibleFailure = await _deviceRepository.delete(event.deviceEntity);
-    yield possibleFailure.fold(
-      (f) => DeviceActorState.deleteFailure(f),
-      (_) => const DeviceActorState.deleteSuccess(),
+    yield* event.map(
+      deleted: (e) async* {},
+      initialized: (e) async*{},
+      // yield const DeviceActorState.actionInProgress();
+      // final possibleFailure = await _deviceRepository.delete(event.deviceEntity);
+      // yield possibleFailure.fold(
+      //   (f) => DeviceActorState.deleteFailure(f),
+      //   (_) => const DeviceActorState.deleteSuccess(),
     );
   }
 }

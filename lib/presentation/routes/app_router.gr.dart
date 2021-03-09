@@ -9,10 +9,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
+import '../../domain/cbj_comp/cbj_comp_entity.dart';
 import '../../domain/folder_of_scenes/folder_of_scene.dart';
 import '../../infrastructure/core/gen/smart_device/smart_blinds_object.dart';
 import '../../infrastructure/core/gen/smart_device/smart_room_object.dart';
 import '../add_new_devices_process/choose_device_vendor_to_add/choose_device_vendor_to_add_page.dart';
+import '../add_new_devices_process/configure_new_cbj_comp/configure_new_cbj_comp_page.dart';
 import '../add_new_devices_process/connect_to_home_wifi/connect_to_home_wifi_page.dart';
 import '../add_new_devices_process/open_access_point/open_access_pointi_page.dart';
 import '../add_new_devices_process/scan_for_new_cbj_comps/scan_for_new_cbj_comps_page.dart';
@@ -50,6 +52,7 @@ class Routes {
   static const String connectToHomeWifiPage = '/connect-to-home-wifi-page';
   static const String openAccessPointPage = '/open-access-point-page';
   static const String scanForNewCBJCompsPage = '/scan-for-new-cb-jcomps-page';
+  static const String configureNewCbjCompPage = '/configure-new-cbj-comp-page';
   static const String roomsLightsPage = '/rooms-lights-page';
   static const String lightsInTheRoomPage = '/lights-in-the-room-page';
   static const String blindsPage = '/blinds-page';
@@ -70,6 +73,7 @@ class Routes {
     connectToHomeWifiPage,
     openAccessPointPage,
     scanForNewCBJCompsPage,
+    configureNewCbjCompPage,
     roomsLightsPage,
     lightsInTheRoomPage,
     blindsPage,
@@ -98,6 +102,7 @@ class AppRouter extends RouterBase {
     RouteDef(Routes.connectToHomeWifiPage, page: ConnectToHomeWifiPage),
     RouteDef(Routes.openAccessPointPage, page: OpenAccessPointPage),
     RouteDef(Routes.scanForNewCBJCompsPage, page: ScanForNewCBJCompsPage),
+    RouteDef(Routes.configureNewCbjCompPage, page: ConfigureNewCbjCompPage),
     RouteDef(Routes.roomsLightsPage, page: RoomsLightsPage),
     RouteDef(Routes.lightsInTheRoomPage, page: LightsInTheRoomPage),
     RouteDef(Routes.blindsPage, page: BlindsPage),
@@ -197,6 +202,15 @@ class AppRouter extends RouterBase {
         settings: data,
       );
     },
+    ConfigureNewCbjCompPage: (data) {
+      final args =
+          data.getArgs<ConfigureNewCbjCompPageArguments>(nullOk: false);
+      return MaterialPageRoute<dynamic>(
+        builder: (context) =>
+            ConfigureNewCbjCompPage(cbjCompEntity: args.cbjCompEntity),
+        settings: data,
+      );
+    },
     RoomsLightsPage: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => RoomsLightsPage(),
@@ -279,6 +293,15 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
   Future<dynamic> pushScanForNewCBJCompsPage() =>
       push<dynamic>(Routes.scanForNewCBJCompsPage);
 
+  Future<dynamic> pushConfigureNewCbjCompPage({
+    @required CBJCompEntity cbjCompEntity,
+  }) =>
+      push<dynamic>(
+        Routes.configureNewCbjCompPage,
+        arguments:
+            ConfigureNewCbjCompPageArguments(cbjCompEntity: cbjCompEntity),
+      );
+
   Future<dynamic> pushRoomsLightsPage() =>
       push<dynamic>(Routes.roomsLightsPage);
 
@@ -310,6 +333,12 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
 class ScenesPageArguments {
   final FolderOfScenes folderOfScenes;
   ScenesPageArguments({@required this.folderOfScenes});
+}
+
+/// ConfigureNewCbjCompPage arguments holder class
+class ConfigureNewCbjCompPageArguments {
+  final CBJCompEntity cbjCompEntity;
+  ConfigureNewCbjCompPageArguments({@required this.cbjCompEntity});
 }
 
 /// LightsInTheRoomPage arguments holder class

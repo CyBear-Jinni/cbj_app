@@ -1,8 +1,8 @@
 import 'package:cybear_jinni/application/cbj_comp/cbj_comp_bloc.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
 import 'package:cybear_jinni/presentation/add_new_devices_process/scan_for_new_cbj_comps/widgets/cbj_comp_card.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 /// Show light toggles in a container with the background color from smart room
@@ -54,14 +54,21 @@ class ScanForNewCBJCompsWidget extends StatelessWidget {
                 cbjCompEntityList.add(state.devices);
               }
             } catch (e) {}
-
+            if (cbjCompEntityList != null && cbjCompEntityList.isEmpty) {
+              return const Text('Device is not supported');
+            }
             return ListView.builder(
               padding: EdgeInsets.zero,
               itemBuilder: (context, index) {
                 final compEntity = cbjCompEntityList[index];
-                return CBJCompCard(
-                  cbjCompEntity: compEntity,
-                );
+                return CBJCompCard(cbjCompEntity: compEntity);
+                // return BlocProvider(
+                //   create: (context) => getIt<DeviceActorBloc>()
+                //     ..add(const DeviceActorEvent.initialized()),
+                //   child: CBJCompCardWithDevicesControll(
+                //     cbjCompEntity: compEntity,
+                //   ),
+                // );
               },
               itemCount: cbjCompEntityList.length,
             );

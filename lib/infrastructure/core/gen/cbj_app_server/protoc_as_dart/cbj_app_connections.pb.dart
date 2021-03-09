@@ -9,51 +9,51 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-class SmartDeviceInfo extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SmartDeviceInfo', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CBJAppConnections'), createEmptyInstance: create)
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'smartDeviceIP', protoName: 'smartDeviceIP')
+class CompInfoSB extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CompInfoSB', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CBJAppConnections'), createEmptyInstance: create)
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'compIP', protoName: 'compIP')
     ..hasRequiredFields = false
   ;
 
-  SmartDeviceInfo._() : super();
-  factory SmartDeviceInfo({
-    $core.String smartDeviceIP,
+  CompInfoSB._() : super();
+  factory CompInfoSB({
+    $core.String compIP,
   }) {
     final _result = create();
-    if (smartDeviceIP != null) {
-      _result.smartDeviceIP = smartDeviceIP;
+    if (compIP != null) {
+      _result.compIP = compIP;
     }
     return _result;
   }
-  factory SmartDeviceInfo.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory SmartDeviceInfo.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  factory CompInfoSB.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory CompInfoSB.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  SmartDeviceInfo clone() => SmartDeviceInfo()..mergeFromMessage(this);
+  CompInfoSB clone() => CompInfoSB()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  SmartDeviceInfo copyWith(void Function(SmartDeviceInfo) updates) => super.copyWith((message) => updates(message as SmartDeviceInfo)) as SmartDeviceInfo; // ignore: deprecated_member_use
+  CompInfoSB copyWith(void Function(CompInfoSB) updates) => super.copyWith((message) => updates(message as CompInfoSB)) as CompInfoSB; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static SmartDeviceInfo create() => SmartDeviceInfo._();
-  SmartDeviceInfo createEmptyInstance() => create();
-  static $pb.PbList<SmartDeviceInfo> createRepeated() => $pb.PbList<SmartDeviceInfo>();
+  static CompInfoSB create() => CompInfoSB._();
+  CompInfoSB createEmptyInstance() => create();
+  static $pb.PbList<CompInfoSB> createRepeated() => $pb.PbList<CompInfoSB>();
   @$core.pragma('dart2js:noInline')
-  static SmartDeviceInfo getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SmartDeviceInfo>(create);
-  static SmartDeviceInfo _defaultInstance;
+  static CompInfoSB getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CompInfoSB>(create);
+  static CompInfoSB _defaultInstance;
 
   @$pb.TagNumber(2)
-  $core.String get smartDeviceIP => $_getSZ(0);
+  $core.String get compIP => $_getSZ(0);
   @$pb.TagNumber(2)
-  set smartDeviceIP($core.String v) { $_setString(0, v); }
+  set compIP($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(2)
-  $core.bool hasSmartDeviceIP() => $_has(0);
+  $core.bool hasCompIP() => $_has(0);
   @$pb.TagNumber(2)
-  void clearSmartDeviceIP() => clearField(2);
+  void clearCompIP() => clearField(2);
 }
 
 class CBJCommendStatus extends $pb.GeneratedMessage {

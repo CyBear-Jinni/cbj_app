@@ -1,9 +1,6 @@
 import 'dart:async';
 
-import 'package:cybear_jinni/infrastructure/core/gen/cbj_app_server/cbj_app_server_d.dart';
-import 'package:cybear_jinni/infrastructure/core/gen/cbj_app_server/protoc_as_dart/cbj_app_connections.pb.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_device_object.dart';
-import 'package:cybear_jinni/presentation/add_new_devices/smart_device_to_configure.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -23,10 +20,10 @@ class AddNewCBJDevices extends StatefulWidget {
 
 class _AddNewCBJDevices extends State<AddNewCBJDevices> {
   _AddNewCBJDevices() {
-    final CreateTheCBJAppServer createTheCBJAppServer = CreateTheCBJAppServer();
-    StreamController<SmartDeviceInfo> smartDeviceStream;
-
-    createTheCBJAppServer.createServer(smartDeviceStream);
+    // final CreateTheCBJAppServer createTheCBJAppServer = CreateTheCBJAppServer();
+    // StreamController<SmartDeviceInfo> smartDeviceStream;
+    //
+    // createTheCBJAppServer.createServer(smartDeviceStream);
   }
 
   @override
@@ -35,12 +32,12 @@ class _AddNewCBJDevices extends State<AddNewCBJDevices> {
     setStateTimer();
   }
 
-  List<SmartDeviceObject> newDevicesList = [];
+  // List<SmartDeviceObject> newDevicesList = [];
 
   void setStateTimer() {
     Timer.periodic(const Duration(seconds: 3), (Timer timer) {
       setState(() {
-        newDevicesList = AddNewCBJDevices.newDevicesList;
+        // newDevicesList = AddNewCBJDevices.newDevicesList;
       });
     });
   }
@@ -90,13 +87,13 @@ class _AddNewCBJDevices extends State<AddNewCBJDevices> {
               ),
             ),
             // StreamBuilder(),
-            Expanded(
-              child: ListView(
-                children: newDevicesList.map((SmartDeviceObject newDevice) {
-                  return SmartDeviceToConfigure(newDevice);
-                }).toList(),
-              ),
-            ),
+            // Expanded(
+            //   child: ListView(
+            //     children: newDevicesList.map((SmartDeviceObject newDevice) {
+            //       return SmartDeviceToConfigure(newDevice);
+            //     }).toList(),
+            //   ),
+            // ),
           ],
         ),
       ),

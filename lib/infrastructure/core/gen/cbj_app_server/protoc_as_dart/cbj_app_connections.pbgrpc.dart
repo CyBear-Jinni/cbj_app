@@ -15,9 +15,9 @@ export 'cbj_app_connections.pb.dart';
 
 class CyBearJinniAppClient extends $grpc.Client {
   static final _$cBJAppGetSmartDeviceInformation =
-      $grpc.ClientMethod<$0.SmartDeviceInfo, $0.CBJCommendStatus>(
+      $grpc.ClientMethod<$0.CompInfoSB, $0.CBJCommendStatus>(
           '/CBJAppConnections.CyBearJinniApp/CBJAppGetSmartDeviceInformation',
-          ($0.SmartDeviceInfo value) => value.writeToBuffer(),
+          ($0.CompInfoSB value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $0.CBJCommendStatus.fromBuffer(value));
 
@@ -27,7 +27,7 @@ class CyBearJinniAppClient extends $grpc.Client {
       : super(channel, options: options, interceptors: interceptors);
 
   $grpc.ResponseFuture<$0.CBJCommendStatus> cBJAppGetSmartDeviceInformation(
-      $0.SmartDeviceInfo request,
+      $0.CompInfoSB request,
       {$grpc.CallOptions options}) {
     return $createUnaryCall(_$cBJAppGetSmartDeviceInformation, request,
         options: options);
@@ -38,20 +38,20 @@ abstract class CyBearJinniAppServiceBase extends $grpc.Service {
   $core.String get $name => 'CBJAppConnections.CyBearJinniApp';
 
   CyBearJinniAppServiceBase() {
-    $addMethod($grpc.ServiceMethod<$0.SmartDeviceInfo, $0.CBJCommendStatus>(
+    $addMethod($grpc.ServiceMethod<$0.CompInfoSB, $0.CBJCommendStatus>(
         'CBJAppGetSmartDeviceInformation',
         cBJAppGetSmartDeviceInformation_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $0.SmartDeviceInfo.fromBuffer(value),
+        ($core.List<$core.int> value) => $0.CompInfoSB.fromBuffer(value),
         ($0.CBJCommendStatus value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.CBJCommendStatus> cBJAppGetSmartDeviceInformation_Pre(
-      $grpc.ServiceCall call, $async.Future<$0.SmartDeviceInfo> request) async {
+      $grpc.ServiceCall call, $async.Future<$0.CompInfoSB> request) async {
     return cBJAppGetSmartDeviceInformation(call, await request);
   }
 
   $async.Future<$0.CBJCommendStatus> cBJAppGetSmartDeviceInformation(
-      $grpc.ServiceCall call, $0.SmartDeviceInfo request);
+      $grpc.ServiceCall call, $0.CompInfoSB request);
 }

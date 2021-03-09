@@ -20,6 +20,8 @@ abstract class CBJCompEntity implements _$CBJCompEntity {
     CBJCompOs compOs,
     CBJCompModel compModel,
     CBJCompType compType,
+
+    /// The comp uuid that it came with out of the factory
     CBJCompUuid compUuid,
   }) = _CBJCompEntity;
 

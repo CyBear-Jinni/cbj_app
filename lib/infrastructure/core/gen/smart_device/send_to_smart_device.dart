@@ -4,7 +4,6 @@ import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/smart_c
 import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_blinds_object.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_device_object.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums.dart';
-import 'package:grpc/grpc.dart';
 
 import 'client/protoc_as_dart/smart_connection.pb.dart';
 
@@ -16,21 +15,21 @@ Future<List<SmartDeviceObject>> getAllDevices(String deviceIp) async {
   SmartBlindsObject smartBlindsObjectTemp;
   DeviceType deviceTypeTemp;
 
-  final ResponseStream<SmartDevice> smartDeviceResponseStream =
-      await SmartClient.getAllDevices(deviceIp);
+  final CompInfo compInfo = await SmartClient.getCompInfo(deviceIp);
 
-  await for (final SmartDevice smartDevice in smartDeviceResponseStream) {
-    print('Device type: ${smartDevice.type}');
-    deviceTypeTemp = EnumHelper.stringToDt(smartDevice.type);
+  for (final SmartDeviceInfo smartDeviceInfo in compInfo.smartDevicesInComp) {
+    print('Device type: ${smartDeviceInfo}');
+    deviceTypeTemp = EnumHelper.stringToDt(
+        smartDeviceInfo.deviceTypesActions.deviceType.toString());
     switch (deviceTypeTemp) {
       case DeviceType.Light:
         smartDeviceObjectTemp =
-            SmartDeviceObject(deviceTypeTemp, smartDevice.id, deviceIp);
+            SmartDeviceObject(deviceTypeTemp, smartDeviceInfo.id, deviceIp);
         smartDeviceObjectList.add(smartDeviceObjectTemp);
         break;
       case DeviceType.Blinds:
         smartBlindsObjectTemp =
-            SmartBlindsObject(deviceTypeTemp, smartDevice.id, deviceIp);
+            SmartBlindsObject(deviceTypeTemp, smartDeviceInfo.id, deviceIp);
         smartDeviceObjectList.add(smartBlindsObjectTemp);
         break;
       case DeviceType.DynamicLight:

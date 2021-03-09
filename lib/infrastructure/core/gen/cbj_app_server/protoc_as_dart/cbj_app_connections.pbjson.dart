@@ -8,16 +8,16 @@
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
-@$core.Deprecated('Use smartDeviceInfoDescriptor instead')
-const SmartDeviceInfo$json = const {
-  '1': 'SmartDeviceInfo',
+@$core.Deprecated('Use compInfoSBDescriptor instead')
+const CompInfoSB$json = const {
+  '1': 'CompInfoSB',
   '2': const [
-    const {'1': 'smartDeviceIP', '3': 2, '4': 1, '5': 9, '10': 'smartDeviceIP'},
+    const {'1': 'compIP', '3': 2, '4': 1, '5': 9, '10': 'compIP'},
   ],
 };
 
-/// Descriptor for `SmartDeviceInfo`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List smartDeviceInfoDescriptor = $convert.base64Decode('Cg9TbWFydERldmljZUluZm8SJAoNc21hcnREZXZpY2VJUBgCIAEoCVINc21hcnREZXZpY2VJUA==');
+/// Descriptor for `CompInfoSB`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List compInfoSBDescriptor = $convert.base64Decode('CgpDb21wSW5mb1NCEhYKBmNvbXBJUBgCIAEoCVIGY29tcElQ');
 @$core.Deprecated('Use cBJCommendStatusDescriptor instead')
 const CBJCommendStatus$json = const {
   '1': 'CBJCommendStatus',

@@ -14,6 +14,11 @@ class _$DeviceActorEventTearOff {
   const _$DeviceActorEventTearOff();
 
 // ignore: unused_element
+  Initialized initialized() {
+    return const Initialized();
+  }
+
+// ignore: unused_element
   _Deleted deleted(DeviceEntity deviceEntity) {
     return _Deleted(
       deviceEntity,
@@ -27,29 +32,28 @@ const $DeviceActorEvent = _$DeviceActorEventTearOff();
 
 /// @nodoc
 mixin _$DeviceActorEvent {
-  DeviceEntity get deviceEntity;
-
   @optionalTypeArgs
   TResult when<TResult extends Object>({
+    @required TResult initialized(),
     @required TResult deleted(DeviceEntity deviceEntity),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
+    TResult initialized(),
     TResult deleted(DeviceEntity deviceEntity),
     @required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
+    @required TResult initialized(Initialized value),
     @required TResult deleted(_Deleted value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
+    TResult initialized(Initialized value),
     TResult deleted(_Deleted value),
     @required TResult orElse(),
   });
-
-  @JsonKey(ignore: true)
-  $DeviceActorEventCopyWith<DeviceActorEvent> get copyWith;
 }
 
 /// @nodoc
@@ -57,9 +61,6 @@ abstract class $DeviceActorEventCopyWith<$Res> {
   factory $DeviceActorEventCopyWith(
           DeviceActorEvent value, $Res Function(DeviceActorEvent) then) =
       _$DeviceActorEventCopyWithImpl<$Res>;
-  $Res call({DeviceEntity deviceEntity});
-
-  $DeviceEntityCopyWith<$Res> get deviceEntity;
 }
 
 /// @nodoc
@@ -70,38 +71,105 @@ class _$DeviceActorEventCopyWithImpl<$Res>
   final DeviceActorEvent _value;
   // ignore: unused_field
   final $Res Function(DeviceActorEvent) _then;
-
-  @override
-  $Res call({
-    Object deviceEntity = freezed,
-  }) {
-    return _then(_value.copyWith(
-      deviceEntity: deviceEntity == freezed
-          ? _value.deviceEntity
-          : deviceEntity as DeviceEntity,
-    ));
-  }
-
-  @override
-  $DeviceEntityCopyWith<$Res> get deviceEntity {
-    if (_value.deviceEntity == null) {
-      return null;
-    }
-    return $DeviceEntityCopyWith<$Res>(_value.deviceEntity, (value) {
-      return _then(_value.copyWith(deviceEntity: value));
-    });
-  }
 }
 
 /// @nodoc
-abstract class _$DeletedCopyWith<$Res>
-    implements $DeviceActorEventCopyWith<$Res> {
-  factory _$DeletedCopyWith(_Deleted value, $Res Function(_Deleted) then) =
-      __$DeletedCopyWithImpl<$Res>;
-  @override
-  $Res call({DeviceEntity deviceEntity});
+abstract class $InitializedCopyWith<$Res> {
+  factory $InitializedCopyWith(
+          Initialized value, $Res Function(Initialized) then) =
+      _$InitializedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$InitializedCopyWithImpl<$Res>
+    extends _$DeviceActorEventCopyWithImpl<$Res>
+    implements $InitializedCopyWith<$Res> {
+  _$InitializedCopyWithImpl(
+      Initialized _value, $Res Function(Initialized) _then)
+      : super(_value, (v) => _then(v as Initialized));
 
   @override
+  Initialized get _value => super._value as Initialized;
+}
+
+/// @nodoc
+class _$Initialized implements Initialized {
+  const _$Initialized();
+
+  @override
+  String toString() {
+    return 'DeviceActorEvent.initialized()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is Initialized);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initialized(),
+    @required TResult deleted(DeviceEntity deviceEntity),
+  }) {
+    assert(initialized != null);
+    assert(deleted != null);
+    return initialized();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initialized(),
+    TResult deleted(DeviceEntity deviceEntity),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (initialized != null) {
+      return initialized();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initialized(Initialized value),
+    @required TResult deleted(_Deleted value),
+  }) {
+    assert(initialized != null);
+    assert(deleted != null);
+    return initialized(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initialized(Initialized value),
+    TResult deleted(_Deleted value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (initialized != null) {
+      return initialized(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Initialized implements DeviceActorEvent {
+  const factory Initialized() = _$Initialized;
+}
+
+/// @nodoc
+abstract class _$DeletedCopyWith<$Res> {
+  factory _$DeletedCopyWith(_Deleted value, $Res Function(_Deleted) then) =
+      __$DeletedCopyWithImpl<$Res>;
+  $Res call({DeviceEntity deviceEntity});
+
   $DeviceEntityCopyWith<$Res> get deviceEntity;
 }
 
@@ -123,6 +191,16 @@ class __$DeletedCopyWithImpl<$Res> extends _$DeviceActorEventCopyWithImpl<$Res>
           ? _value.deviceEntity
           : deviceEntity as DeviceEntity,
     ));
+  }
+
+  @override
+  $DeviceEntityCopyWith<$Res> get deviceEntity {
+    if (_value.deviceEntity == null) {
+      return null;
+    }
+    return $DeviceEntityCopyWith<$Res>(_value.deviceEntity, (value) {
+      return _then(_value.copyWith(deviceEntity: value));
+    });
   }
 }
 
@@ -159,8 +237,10 @@ class _$_Deleted implements _Deleted {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
+    @required TResult initialized(),
     @required TResult deleted(DeviceEntity deviceEntity),
   }) {
+    assert(initialized != null);
     assert(deleted != null);
     return deleted(deviceEntity);
   }
@@ -168,6 +248,7 @@ class _$_Deleted implements _Deleted {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
+    TResult initialized(),
     TResult deleted(DeviceEntity deviceEntity),
     @required TResult orElse(),
   }) {
@@ -181,8 +262,10 @@ class _$_Deleted implements _Deleted {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
+    @required TResult initialized(Initialized value),
     @required TResult deleted(_Deleted value),
   }) {
+    assert(initialized != null);
     assert(deleted != null);
     return deleted(this);
   }
@@ -190,6 +273,7 @@ class _$_Deleted implements _Deleted {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
+    TResult initialized(Initialized value),
     TResult deleted(_Deleted value),
     @required TResult orElse(),
   }) {
@@ -204,9 +288,7 @@ class _$_Deleted implements _Deleted {
 abstract class _Deleted implements DeviceActorEvent {
   const factory _Deleted(DeviceEntity deviceEntity) = _$_Deleted;
 
-  @override
   DeviceEntity get deviceEntity;
-  @override
   @JsonKey(ignore: true)
   _$DeletedCopyWith<_Deleted> get copyWith;
 }

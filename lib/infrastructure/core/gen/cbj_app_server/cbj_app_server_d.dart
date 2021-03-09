@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:cybear_jinni/infrastructure/core/gen/cbj_app_server/protoc_as_dart/cbj_app_connections.pb.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_app_server/protoc_as_dart/cbj_app_connections.pbgrpc.dart';
 import 'package:grpc/grpc.dart';
 
@@ -7,11 +8,11 @@ import 'package:grpc/grpc.dart';
 class CBJAppServerD extends CyBearJinniAppServiceBase {
   CBJAppServerD(this.cbjCommendStatus);
 
-  StreamController<SmartDeviceInfo> cbjCommendStatus;
+  StreamController<CompInfoSB> cbjCommendStatus;
 
   @override
   Future<CBJCommendStatus> cBJAppGetSmartDeviceInformation(
-      ServiceCall call, SmartDeviceInfo request) {
+      ServiceCall call, CompInfoSB request) {
     cbjCommendStatus.add(request);
 
     return Future<CBJCommendStatus>.value(CBJCommendStatus()..success = true);
@@ -35,9 +36,9 @@ class CBJAppServerD extends CyBearJinniAppServiceBase {
 /// Helper class to control the Server
 class CreateTheCBJAppServer {
   ///  This function will create the server
-  Future<void> createServer(
-      StreamController<SmartDeviceInfo> smartDevice) async {
-    final Server server = Server(<CBJAppServerD>[CBJAppServerD(smartDevice)]);
+  Future<void> createServer(StreamController<CompInfoSB> compInfoStream) async {
+    final Server server =
+        Server(<CBJAppServerD>[CBJAppServerD(compInfoStream)]);
     await server.serve(port: 30055);
     print('Server listening on port ${server.port}...');
   }
