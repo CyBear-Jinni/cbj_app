@@ -19,6 +19,12 @@ abstract class CBJCompValueObjectAbstract<T> {
     return value.fold((f) => throw CBJCompUnexpectedValueError(f), id);
   }
 
+  /// Throws [CBJCompUnexpectedValueError] containing the [CBJCompFailure]
+  T getOrNull() {
+    // id = identity - same as writing (right) => right
+    return value.fold((f) => null, id);
+  }
+
   Either<CBJCompFailure<dynamic>, Unit> get failureOrUnit {
     return value.fold((l) => left(l), (r) => right(unit));
   }

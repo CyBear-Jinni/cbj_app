@@ -1,7 +1,11 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cybear_jinni/application/devices/device_actor/device_actor_bloc.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
+import 'package:cybear_jinni/domain/devices/device_entity.dart';
+import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CBJCompCard extends StatelessWidget {
   final CBJCompEntity cbjCompEntity;
@@ -27,37 +31,33 @@ class CBJCompCard extends StatelessWidget {
                 ),
               ),
             ),
-            child: Text(
-              'Texst card',
-              style: TextStyle(color: Colors.white),
-            ),
-            // cbjCompEntity.cBJCompDevices.getOrCrash().size < 1
-            //     ? const Text('')
-            //     : ListView.builder(
-            //         padding: EdgeInsets.zero,
-            //         itemBuilder: (context, index) {
-            //           final DeviceEntity compEntity =
-            //               cbjCompEntity.cBJCompDevices.getOrCrash()[index];
-            //           if (compEntity.type.getOrCrash() == 'Light') {
-            //             return Center(
-            //               child: BlocProvider(
-            //                 create: (context) => getIt<DeviceActorBloc>(),
-            //                 child: Text(
-            //                   compEntity.defaultName.getOrCrash(),
-            //                   style: const TextStyle(color: Colors.white),
-            //                 ),
-            //               ),
-            //             );
-            //           } else {
-            //             return Text(
-            //               'Type not supported ${compEntity.type.getOrCrash()}'
-            //               ' yet',
-            //               style: const TextStyle(color: Colors.white),
-            //             );
-            //           }
-            //         },
-            //         itemCount: cbjCompEntity.cBJCompDevices.getOrCrash().size,
-            //       ),
+            child: cbjCompEntity.cBJCompDevices.getOrCrash().size < 1
+                ? const Text('')
+                : ListView.builder(
+                    padding: EdgeInsets.zero,
+                    itemBuilder: (context, index) {
+                      final DeviceEntity compEntity =
+                          cbjCompEntity.cBJCompDevices.getOrCrash()[index];
+                      if (compEntity.type.getOrCrash() == 'Light') {
+                        return Center(
+                          child: BlocProvider(
+                            create: (context) => getIt<DeviceActorBloc>(),
+                            child: Text(
+                              compEntity.defaultName.getOrCrash(),
+                              style: const TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        );
+                      } else {
+                        return Text(
+                          'Type not supported ${compEntity.type.getOrCrash()}'
+                          ' yet',
+                          style: const TextStyle(color: Colors.white),
+                        );
+                      }
+                    },
+                    itemCount: cbjCompEntity.cBJCompDevices.getOrCrash().size,
+                  ),
           ),
           const SizedBox(
             height: 30,
