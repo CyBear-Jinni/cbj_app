@@ -36,6 +36,21 @@ const DeviceActions$json = const {
 
 /// Descriptor for `DeviceActions`. Decode as a `google.protobuf.EnumDescriptorProto`.
 final $typed_data.Uint8List deviceActionsDescriptor = $convert.base64Decode('Cg1EZXZpY2VBY3Rpb25zEhYKEkFjdGlvbk5vdFN1cHBvcnRlZBAAEgYKAk9uEAESBwoDT2ZmEAISCgoGTW92ZVVQEAMSCAoEU3RvcBAEEgsKB01vdmVEb24QBQ==');
+@$core.Deprecated('Use deviceStateGRPCDescriptor instead')
+const DeviceStateGRPC$json = const {
+  '1': 'DeviceStateGRPC',
+  '2': const [
+    const {'1': 'StateNotSupported', '2': 0},
+    const {'1': 'cancelStateInProcess', '2': 1},
+    const {'1': 'ack', '2': 2},
+    const {'1': 'newStateFailed', '2': 3},
+    const {'1': 'waitingInFirebase', '2': 4},
+    const {'1': 'waitingInComp', '2': 5},
+  ],
+};
+
+/// Descriptor for `DeviceStateGRPC`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List deviceStateGRPCDescriptor = $convert.base64Decode('Cg9EZXZpY2VTdGF0ZUdSUEMSFQoRU3RhdGVOb3RTdXBwb3J0ZWQQABIYChRjYW5jZWxTdGF0ZUluUHJvY2VzcxABEgcKA2FjaxACEhIKDm5ld1N0YXRlRmFpbGVkEAMSFQoRd2FpdGluZ0luRmlyZWJhc2UQBBIRCg13YWl0aW5nSW5Db21wEAU=');
 @$core.Deprecated('Use compInfoDescriptor instead')
 const CompInfo$json = const {
   '1': 'CompInfo',
@@ -147,8 +162,9 @@ const DeviceTypesActions$json = const {
   '2': const [
     const {'1': 'deviceType', '3': 35, '4': 1, '5': 14, '6': '.SmartConnection.DeviceTypes', '10': 'deviceType'},
     const {'1': 'deviceAction', '3': 36, '4': 1, '5': 14, '6': '.SmartConnection.DeviceActions', '10': 'deviceAction'},
+    const {'1': 'deviceStateGRPC', '3': 37, '4': 1, '5': 14, '6': '.SmartConnection.DeviceStateGRPC', '10': 'deviceStateGRPC'},
   ],
 };
 
 /// Descriptor for `DeviceTypesActions`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List deviceTypesActionsDescriptor = $convert.base64Decode('ChJEZXZpY2VUeXBlc0FjdGlvbnMSPAoKZGV2aWNlVHlwZRgjIAEoDjIcLlNtYXJ0Q29ubmVjdGlvbi5EZXZpY2VUeXBlc1IKZGV2aWNlVHlwZRJCCgxkZXZpY2VBY3Rpb24YJCABKA4yHi5TbWFydENvbm5lY3Rpb24uRGV2aWNlQWN0aW9uc1IMZGV2aWNlQWN0aW9u');
+final $typed_data.Uint8List deviceTypesActionsDescriptor = $convert.base64Decode('ChJEZXZpY2VUeXBlc0FjdGlvbnMSPAoKZGV2aWNlVHlwZRgjIAEoDjIcLlNtYXJ0Q29ubmVjdGlvbi5EZXZpY2VUeXBlc1IKZGV2aWNlVHlwZRJCCgxkZXZpY2VBY3Rpb24YJCABKA4yHi5TbWFydENvbm5lY3Rpb24uRGV2aWNlQWN0aW9uc1IMZGV2aWNlQWN0aW9uEkoKD2RldmljZVN0YXRlR1JQQxglIAEoDjIgLlNtYXJ0Q29ubmVjdGlvbi5EZXZpY2VTdGF0ZUdSUENSD2RldmljZVN0YXRlR1JQQw==');

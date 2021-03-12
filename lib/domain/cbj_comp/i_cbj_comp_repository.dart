@@ -9,6 +9,8 @@ abstract class ICBJCompRepository {
 
   // C Read UD
 
+  Future<Either<CBJCompFailure, Unit>> shutdownServer();
+
   Stream<Either<CBJCompFailure, String>> getConnectedComputersIP();
 
   Future<Either<CBJCompFailure, CBJCompEntity>> getInformationFromDeviceByIp(

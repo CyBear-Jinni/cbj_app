@@ -65,7 +65,7 @@ class CBJCompCard extends StatelessWidget {
           FlatButton(
             color: Colors.greenAccent,
             onPressed: () {
-              ExtendedNavigator.of(context).push(
+              ExtendedNavigator.of(context).replace(
                 Routes.configureNewCbjCompPage,
                 arguments: ConfigureNewCbjCompPageArguments(
                     cbjCompEntity: cbjCompEntity),

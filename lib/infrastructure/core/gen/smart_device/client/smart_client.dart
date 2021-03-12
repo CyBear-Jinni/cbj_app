@@ -9,11 +9,15 @@ import 'package:cybear_jinni/injection.dart';
 import 'package:grpc/grpc.dart';
 
 class SmartClient {
+  static ClientChannel channel;
+  static SmartServerClient stub;
+
   ///  Get comp info
   ///  getSmartDeviceStatus
   static Future<CompInfo> getCompInfo(String compIp) async {
-    final ClientChannel channel = createSmartServerClient(compIp);
-    final SmartServerClient stub = SmartServerClient(channel);
+    channel = await createSmartServerClient(compIp);
+    stub = SmartServerClient(channel);
+
     CompInfo response;
     try {
       response = await stub.getCompInfo(CommendStatus()..success = true);
@@ -29,8 +33,8 @@ class SmartClient {
 
   static Future<String> setFirebaseAccountInformationFlutter(
       SmartDeviceObject smartDeviceObject) async {
-    final ClientChannel channel = createSmartServerClient(smartDeviceObject.ip);
-    final SmartServerClient stub = SmartServerClient(channel);
+    channel = await createSmartServerClient(smartDeviceObject.ip);
+    stub = SmartServerClient(channel);
 
     final String fireBaseProjectId = ConstantCredentials.fireBaseProjectId;
     final String fireBaseApiKey = ConstantCredentials.fireBaseApiKey;
@@ -64,8 +68,8 @@ class SmartClient {
   ///  Get the status of smart device
   static Future<String> getSmartDeviceStatus(
       SmartDeviceObject smartDeviceObject) async {
-    final ClientChannel channel = createSmartServerClient(smartDeviceObject.ip);
-    final SmartServerClient stub = SmartServerClient(channel);
+    channel = await createSmartServerClient(smartDeviceObject.ip);
+    stub = SmartServerClient(channel);
     SmartDeviceStatus response;
     try {
       response =
@@ -84,8 +88,8 @@ class SmartClient {
       SmartDeviceObject smartDeviceObject, String newName) async {
     setFirebaseAccountInformationFlutter(smartDeviceObject);
 
-    final ClientChannel channel = createSmartServerClient(smartDeviceObject.ip);
-    final SmartServerClient stub = SmartServerClient(channel);
+    channel = await createSmartServerClient(smartDeviceObject.ip);
+    stub = SmartServerClient(channel);
     CommendStatus response;
     try {
       final SmartDeviceUpdateDetails smartDeviceUpdateDetails =
@@ -106,8 +110,8 @@ class SmartClient {
   ///  Turn smart device on
   static Future<String> setSmartDeviceOn(
       SmartDeviceObject smartDeviceObject) async {
-    final ClientChannel channel = createSmartServerClient(smartDeviceObject.ip);
-    final SmartServerClient stub = SmartServerClient(channel);
+    channel = await createSmartServerClient(smartDeviceObject.ip);
+    stub = SmartServerClient(channel);
     CommendStatus response;
     try {
       response = await stub
@@ -125,8 +129,8 @@ class SmartClient {
   ///  Turn smart device off
   static Future<String> setSmartDeviceOff(
       SmartDeviceObject smartDeviceObject) async {
-    final ClientChannel channel = createSmartServerClient(smartDeviceObject.ip);
-    final SmartServerClient stub = SmartServerClient(channel);
+    channel = await createSmartServerClient(smartDeviceObject.ip);
+    stub = SmartServerClient(channel);
     CommendStatus response;
     try {
       response = await stub
@@ -146,8 +150,8 @@ class SmartClient {
   ///  Turn smart blinds up
   static Future<String> setSmartBlindsUp(
       SmartDeviceObject smartDeviceObject) async {
-    final ClientChannel channel = createSmartServerClient(smartDeviceObject.ip);
-    final SmartServerClient stub = SmartServerClient(channel);
+    channel = await createSmartServerClient(smartDeviceObject.ip);
+    stub = SmartServerClient(channel);
     CommendStatus response;
     try {
       response = await stub
@@ -165,8 +169,8 @@ class SmartClient {
   ///  Turn smart blinds down
   static Future<String> setSmartBlindsDown(
       SmartDeviceObject smartDeviceObject) async {
-    final ClientChannel channel = createSmartServerClient(smartDeviceObject.ip);
-    final SmartServerClient stub = SmartServerClient(channel);
+    channel = await createSmartServerClient(smartDeviceObject.ip);
+    stub = SmartServerClient(channel);
     CommendStatus response;
     try {
       response = await stub
@@ -184,8 +188,8 @@ class SmartClient {
   ///  Stop smart blinds
   static Future<String> setSmartBlindsStop(
       SmartDeviceObject smartDeviceObject) async {
-    final ClientChannel channel = createSmartServerClient(smartDeviceObject.ip);
-    final SmartServerClient stub = SmartServerClient(channel);
+    channel = await createSmartServerClient(smartDeviceObject.ip);
+    stub = SmartServerClient(channel);
     CommendStatus response;
     try {
       response = await stub
@@ -200,7 +204,8 @@ class SmartClient {
     return 'error';
   }
 
-  static ClientChannel createSmartServerClient(String deviceIp) {
+  static Future<ClientChannel> createSmartServerClient(String deviceIp) async {
+    await channel?.shutdown();
     return ClientChannel(deviceIp,
         port: 50051,
         options:

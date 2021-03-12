@@ -25,9 +25,7 @@ class CBJCompBloc extends Bloc<CBJCompEvent, CBJCompState> {
     CBJCompEvent event,
   ) async* {
     yield* event.map(
-      initialized: (e) async* {
-        add(const CBJCompEvent.watchAllStarted());
-      },
+      initialized: (e) async* {},
       create: (e) async* {},
       watchAllStarted: (e) async* {
         yield const CBJCompState.loadInProgress();
@@ -71,6 +69,7 @@ class CBJCompBloc extends Bloc<CBJCompEvent, CBJCompState> {
   @override
   Future<void> close() async {
     await _CBJCompStreamSubscription?.cancel();
+    await _cBJCompRepository.shutdownServer();
     return super.close();
   }
 }

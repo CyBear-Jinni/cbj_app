@@ -17,14 +17,15 @@ class CBJCompCardWithDevicesControll extends StatelessWidget {
   });
 
   Widget devicesTypes(BuildContext context) {
-    List<Widget> typesList = [];
-    KtList<DeviceEntity> deviceEntityList =
+    final List<Widget> typesList = [];
+    final KtList<DeviceEntity> deviceEntityList =
         cbjCompEntity.cBJCompDevices.getOrCrash();
 
     for (final DeviceEntity deviceEntity in deviceEntityList.asList()) {
       if (deviceEntity.type.getOrCrash() == 'Light') {
         typesList.add(
-          Center(
+          Container(
+            color: Colors.yellowAccent.withOpacity(0.3),
             child: BlocProvider(
               create: (context) => getIt<DeviceActorBloc>(),
               child: Text(
@@ -36,9 +37,12 @@ class CBJCompCardWithDevicesControll extends StatelessWidget {
         );
       } else {
         typesList.add(
-          Text(
-            'Type ${deviceEntity.type.getOrCrash()} is not supported',
-            style: const TextStyle(color: Colors.white),
+          Container(
+            color: Colors.orange.withOpacity(0.3),
+            child: Text(
+              'Type ${deviceEntity.type.getOrCrash()} is not supported',
+              style: const TextStyle(color: Colors.white),
+            ),
           ),
         );
       }
@@ -59,7 +63,12 @@ class CBJCompCardWithDevicesControll extends StatelessWidget {
     return BlocBuilder<DeviceActorBloc, DeviceActorState>(
         builder: (context, state) {
       return Container(
-        color: Colors.orangeAccent,
+        margin: const EdgeInsets.all(15.0),
+        padding: const EdgeInsets.all(3.0),
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.white),
+          color: Colors.purpleAccent.withOpacity(0.2),
+        ),
         child: Column(
           children: [
             Container(
@@ -99,10 +108,10 @@ class CBJCompCardWithDevicesControll extends StatelessWidget {
             FlatButton(
               color: Colors.greenAccent,
               onPressed: () {
-                ExtendedNavigator.of(context).push(
+                ExtendedNavigator.of(context).replace(
                   Routes.configureNewCbjCompPage,
                   arguments: ConfigureNewCbjCompPageArguments(
-                      cbjCompEntity: cbjCompEntity,
+                    cbjCompEntity: cbjCompEntity,
                   ),
                 );
               },

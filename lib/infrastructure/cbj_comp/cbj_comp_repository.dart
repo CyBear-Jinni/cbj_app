@@ -17,6 +17,12 @@ import 'package:kt_dart/kt.dart';
 @LazySingleton(as: ICBJCompRepository)
 class CBJCompRepository implements ICBJCompRepository {
   @override
+  Future<Either<CBJCompFailure, Unit>> shutdownServer() async {
+    await CreateTheCBJAppServer.shoutDownServer();
+    return right(unit);
+  }
+
+  @override
   Future<Either<CBJCompFailure, Unit>> create(CBJCompEntity deviceEntity) {
     // TODO: implement create
     throw UnimplementedError();
@@ -78,24 +84,26 @@ class CBJCompRepository implements ICBJCompRepository {
   }
 
   KtList<DeviceEntity> compDevicesToDevicesList(CompInfo compInfo) {
-    List<DeviceEntity> deviceEntityList = [];
+    final List<DeviceEntity> deviceEntityList = [];
 
-    for (SmartDeviceInfo smartDeviceInfo in compInfo.smartDevicesInComp) {
-      DeviceEntity deviceEntity = DeviceEntity(
-          id: DeviceUniqueId.fromUniqueString(smartDeviceInfo.id),
-          defaultName: DeviceDefaultName(smartDeviceInfo.defaultName),
-          roomId: DeviceUniqueId.fromUniqueString(smartDeviceInfo.roomId),
-          state: DeviceState(smartDeviceInfo.state),
-          stateMassage: DeviceStateMassage(smartDeviceInfo.stateMassage),
-          senderDeviceOs: DeviceSenderDeviceOs(smartDeviceInfo.senderDeviceOs),
-          senderDeviceModel:
-              DeviceSenderDeviceModel(smartDeviceInfo.senderDeviceModel),
-          senderId: DeviceSenderId.fromUniqueString(smartDeviceInfo.senderId),
-          action: DeviceAction(
-              smartDeviceInfo.deviceTypesActions.deviceAction.toString()),
-          type: DeviceType(
-              smartDeviceInfo.deviceTypesActions.deviceType.toString()),
-          compUuid: DeviceCompUuid(smartDeviceInfo.compSpecs.compUuid));
+    for (final SmartDeviceInfo smartDeviceInfo in compInfo.smartDevicesInComp) {
+      final DeviceEntity deviceEntity = DeviceEntity(
+        id: DeviceUniqueId.fromUniqueString(smartDeviceInfo.id),
+        defaultName: DeviceDefaultName(smartDeviceInfo.defaultName),
+        roomId: DeviceUniqueId.fromUniqueString(smartDeviceInfo.roomId),
+        state: DeviceState(
+            smartDeviceInfo.deviceTypesActions.deviceStateGRPC.toString()),
+        stateMassage: DeviceStateMassage(smartDeviceInfo.stateMassage),
+        senderDeviceOs: DeviceSenderDeviceOs(smartDeviceInfo.senderDeviceOs),
+        senderDeviceModel:
+            DeviceSenderDeviceModel(smartDeviceInfo.senderDeviceModel),
+        senderId: DeviceSenderId.fromUniqueString(smartDeviceInfo.senderId),
+        action: DeviceAction(
+            smartDeviceInfo.deviceTypesActions.deviceAction.toString()),
+        type: DeviceType(
+            smartDeviceInfo.deviceTypesActions.deviceType.toString()),
+        compUuid: DeviceCompUuid(smartDeviceInfo.compSpecs.compUuid),
+      );
       deviceEntityList.add(deviceEntity);
     }
     return deviceEntityList.toImmutableList();
