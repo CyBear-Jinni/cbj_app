@@ -20,12 +20,11 @@ class SecurityBearClient extends $grpc.Client {
           ($0.SecurityBearSetup value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $0.SBCommendStatus.fromBuffer(value));
-  static final _$setFirebaseAccountInformation =
-      $grpc.ClientMethod<$0.SBFirebaseAccountInformation, $0.SBCommendStatus>(
-          '/SecurityBearConnections.SecurityBear/SetFirebaseAccountInformation',
-          ($0.SBFirebaseAccountInformation value) => value.writeToBuffer(),
-          ($core.List<$core.int> value) =>
-              $0.SBCommendStatus.fromBuffer(value));
+  static final _$setFirebaseAccountAndSecurityBearSetup = $grpc.ClientMethod<
+          $0.SBFirebaseAccountAndSecurityBearSetup, $0.SBCommendStatus>(
+      '/SecurityBearConnections.SecurityBear/SetFirebaseAccountAndSecurityBearSetup',
+      ($0.SBFirebaseAccountAndSecurityBearSetup value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.SBCommendStatus.fromBuffer(value));
 
   SecurityBearClient($grpc.ClientChannel channel,
       {$grpc.CallOptions options,
@@ -38,10 +37,11 @@ class SecurityBearClient extends $grpc.Client {
     return $createUnaryCall(_$setWiFiInformation, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.SBCommendStatus> setFirebaseAccountInformation(
-      $0.SBFirebaseAccountInformation request,
-      {$grpc.CallOptions options}) {
-    return $createUnaryCall(_$setFirebaseAccountInformation, request,
+  $grpc.ResponseFuture<$0.SBCommendStatus>
+      setFirebaseAccountAndSecurityBearSetup(
+          $0.SBFirebaseAccountAndSecurityBearSetup request,
+          {$grpc.CallOptions options}) {
+    return $createUnaryCall(_$setFirebaseAccountAndSecurityBearSetup, request,
         options: options);
   }
 }
@@ -57,14 +57,14 @@ abstract class SecurityBearServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.SecurityBearSetup.fromBuffer(value),
         ($0.SBCommendStatus value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.SBFirebaseAccountInformation,
+    $addMethod($grpc.ServiceMethod<$0.SBFirebaseAccountAndSecurityBearSetup,
             $0.SBCommendStatus>(
-        'SetFirebaseAccountInformation',
-        setFirebaseAccountInformation_Pre,
+        'SetFirebaseAccountAndSecurityBearSetup',
+        setFirebaseAccountAndSecurityBearSetup_Pre,
         false,
         false,
         ($core.List<$core.int> value) =>
-            $0.SBFirebaseAccountInformation.fromBuffer(value),
+            $0.SBFirebaseAccountAndSecurityBearSetup.fromBuffer(value),
         ($0.SBCommendStatus value) => value.writeToBuffer()));
   }
 
@@ -74,14 +74,14 @@ abstract class SecurityBearServiceBase extends $grpc.Service {
     return setWiFiInformation(call, await request);
   }
 
-  $async.Future<$0.SBCommendStatus> setFirebaseAccountInformation_Pre(
+  $async.Future<$0.SBCommendStatus> setFirebaseAccountAndSecurityBearSetup_Pre(
       $grpc.ServiceCall call,
-      $async.Future<$0.SBFirebaseAccountInformation> request) async {
-    return setFirebaseAccountInformation(call, await request);
+      $async.Future<$0.SBFirebaseAccountAndSecurityBearSetup> request) async {
+    return setFirebaseAccountAndSecurityBearSetup(call, await request);
   }
 
   $async.Future<$0.SBCommendStatus> setWiFiInformation(
       $grpc.ServiceCall call, $0.SecurityBearSetup request);
-  $async.Future<$0.SBCommendStatus> setFirebaseAccountInformation(
-      $grpc.ServiceCall call, $0.SBFirebaseAccountInformation request);
+  $async.Future<$0.SBCommendStatus> setFirebaseAccountAndSecurityBearSetup(
+      $grpc.ServiceCall call, $0.SBFirebaseAccountAndSecurityBearSetup request);
 }

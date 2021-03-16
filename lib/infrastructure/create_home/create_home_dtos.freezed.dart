@@ -20,12 +20,14 @@ class _$CreateHomeDtosTearOff {
   _CreateHomeDtos call(
       {@JsonKey(ignore: true) String id,
       @JsonKey(ignore: true) String name,
+      @required String homeDevicesUserId,
       @required String homeDevicesUserEmail,
       @required String homeDevicesUserPassword,
       @required @ServerTimestampConverter() FieldValue serverTimeStamp}) {
     return _CreateHomeDtos(
       id: id,
       name: name,
+      homeDevicesUserId: homeDevicesUserId,
       homeDevicesUserEmail: homeDevicesUserEmail,
       homeDevicesUserPassword: homeDevicesUserPassword,
       serverTimeStamp: serverTimeStamp,
@@ -48,6 +50,7 @@ mixin _$CreateHomeDtos {
   String get id;
   @JsonKey(ignore: true)
   String get name;
+  String get homeDevicesUserId;
   String get homeDevicesUserEmail;
   String get homeDevicesUserPassword;
   @ServerTimestampConverter()
@@ -66,6 +69,7 @@ abstract class $CreateHomeDtosCopyWith<$Res> {
   $Res call(
       {@JsonKey(ignore: true) String id,
       @JsonKey(ignore: true) String name,
+      String homeDevicesUserId,
       String homeDevicesUserEmail,
       String homeDevicesUserPassword,
       @ServerTimestampConverter() FieldValue serverTimeStamp});
@@ -84,6 +88,7 @@ class _$CreateHomeDtosCopyWithImpl<$Res>
   $Res call({
     Object id = freezed,
     Object name = freezed,
+    Object homeDevicesUserId = freezed,
     Object homeDevicesUserEmail = freezed,
     Object homeDevicesUserPassword = freezed,
     Object serverTimeStamp = freezed,
@@ -91,6 +96,9 @@ class _$CreateHomeDtosCopyWithImpl<$Res>
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as String,
       name: name == freezed ? _value.name : name as String,
+      homeDevicesUserId: homeDevicesUserId == freezed
+          ? _value.homeDevicesUserId
+          : homeDevicesUserId as String,
       homeDevicesUserEmail: homeDevicesUserEmail == freezed
           ? _value.homeDevicesUserEmail
           : homeDevicesUserEmail as String,
@@ -114,6 +122,7 @@ abstract class _$CreateHomeDtosCopyWith<$Res>
   $Res call(
       {@JsonKey(ignore: true) String id,
       @JsonKey(ignore: true) String name,
+      String homeDevicesUserId,
       String homeDevicesUserEmail,
       String homeDevicesUserPassword,
       @ServerTimestampConverter() FieldValue serverTimeStamp});
@@ -134,6 +143,7 @@ class __$CreateHomeDtosCopyWithImpl<$Res>
   $Res call({
     Object id = freezed,
     Object name = freezed,
+    Object homeDevicesUserId = freezed,
     Object homeDevicesUserEmail = freezed,
     Object homeDevicesUserPassword = freezed,
     Object serverTimeStamp = freezed,
@@ -141,6 +151,9 @@ class __$CreateHomeDtosCopyWithImpl<$Res>
     return _then(_CreateHomeDtos(
       id: id == freezed ? _value.id : id as String,
       name: name == freezed ? _value.name : name as String,
+      homeDevicesUserId: homeDevicesUserId == freezed
+          ? _value.homeDevicesUserId
+          : homeDevicesUserId as String,
       homeDevicesUserEmail: homeDevicesUserEmail == freezed
           ? _value.homeDevicesUserEmail
           : homeDevicesUserEmail as String,
@@ -161,10 +174,12 @@ class _$_CreateHomeDtos extends _CreateHomeDtos {
   const _$_CreateHomeDtos(
       {@JsonKey(ignore: true) this.id,
       @JsonKey(ignore: true) this.name,
+      @required this.homeDevicesUserId,
       @required this.homeDevicesUserEmail,
       @required this.homeDevicesUserPassword,
       @required @ServerTimestampConverter() this.serverTimeStamp})
-      : assert(homeDevicesUserEmail != null),
+      : assert(homeDevicesUserId != null),
+        assert(homeDevicesUserEmail != null),
         assert(homeDevicesUserPassword != null),
         assert(serverTimeStamp != null),
         super._();
@@ -179,6 +194,8 @@ class _$_CreateHomeDtos extends _CreateHomeDtos {
   @JsonKey(ignore: true)
   final String name;
   @override
+  final String homeDevicesUserId;
+  @override
   final String homeDevicesUserEmail;
   @override
   final String homeDevicesUserPassword;
@@ -188,7 +205,7 @@ class _$_CreateHomeDtos extends _CreateHomeDtos {
 
   @override
   String toString() {
-    return 'CreateHomeDtos(id: $id, name: $name, homeDevicesUserEmail: $homeDevicesUserEmail, homeDevicesUserPassword: $homeDevicesUserPassword, serverTimeStamp: $serverTimeStamp)';
+    return 'CreateHomeDtos(id: $id, name: $name, homeDevicesUserId: $homeDevicesUserId, homeDevicesUserEmail: $homeDevicesUserEmail, homeDevicesUserPassword: $homeDevicesUserPassword, serverTimeStamp: $serverTimeStamp)';
   }
 
   @override
@@ -199,6 +216,9 @@ class _$_CreateHomeDtos extends _CreateHomeDtos {
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
+            (identical(other.homeDevicesUserId, homeDevicesUserId) ||
+                const DeepCollectionEquality()
+                    .equals(other.homeDevicesUserId, homeDevicesUserId)) &&
             (identical(other.homeDevicesUserEmail, homeDevicesUserEmail) ||
                 const DeepCollectionEquality().equals(
                     other.homeDevicesUserEmail, homeDevicesUserEmail)) &&
@@ -216,6 +236,7 @@ class _$_CreateHomeDtos extends _CreateHomeDtos {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(homeDevicesUserId) ^
       const DeepCollectionEquality().hash(homeDevicesUserEmail) ^
       const DeepCollectionEquality().hash(homeDevicesUserPassword) ^
       const DeepCollectionEquality().hash(serverTimeStamp);
@@ -236,6 +257,7 @@ abstract class _CreateHomeDtos extends CreateHomeDtos {
   const factory _CreateHomeDtos(
           {@JsonKey(ignore: true) String id,
           @JsonKey(ignore: true) String name,
+          @required String homeDevicesUserId,
           @required String homeDevicesUserEmail,
           @required String homeDevicesUserPassword,
           @required @ServerTimestampConverter() FieldValue serverTimeStamp}) =
@@ -250,6 +272,8 @@ abstract class _CreateHomeDtos extends CreateHomeDtos {
   @override
   @JsonKey(ignore: true)
   String get name;
+  @override
+  String get homeDevicesUserId;
   @override
   String get homeDevicesUserEmail;
   @override

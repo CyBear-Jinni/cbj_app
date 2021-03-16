@@ -23,7 +23,8 @@ class _$CBJCompEntityTearOff {
       CBJCompOs compOs,
       CBJCompModel compModel,
       CBJCompType compType,
-      CBJCompUuid compUuid}) {
+      CBJCompUuid compUuid,
+      CBJCompLastKnownIp lastKnownIp}) {
     return _CBJCompEntity(
       id: id,
       roomId: roomId,
@@ -34,6 +35,7 @@ class _$CBJCompEntityTearOff {
       compModel: compModel,
       compType: compType,
       compUuid: compUuid,
+      lastKnownIp: lastKnownIp,
     );
   }
 }
@@ -55,6 +57,7 @@ mixin _$CBJCompEntity {
 
   /// The comp uuid that it came with out of the factory
   CBJCompUuid get compUuid;
+  CBJCompLastKnownIp get lastKnownIp;
 
   @JsonKey(ignore: true)
   $CBJCompEntityCopyWith<CBJCompEntity> get copyWith;
@@ -74,7 +77,8 @@ abstract class $CBJCompEntityCopyWith<$Res> {
       CBJCompOs compOs,
       CBJCompModel compModel,
       CBJCompType compType,
-      CBJCompUuid compUuid});
+      CBJCompUuid compUuid,
+      CBJCompLastKnownIp lastKnownIp});
 }
 
 /// @nodoc
@@ -97,6 +101,7 @@ class _$CBJCompEntityCopyWithImpl<$Res>
     Object compModel = freezed,
     Object compType = freezed,
     Object compUuid = freezed,
+    Object lastKnownIp = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as CBJCompUniqueId,
@@ -111,6 +116,9 @@ class _$CBJCompEntityCopyWithImpl<$Res>
           compModel == freezed ? _value.compModel : compModel as CBJCompModel,
       compType: compType == freezed ? _value.compType : compType as CBJCompType,
       compUuid: compUuid == freezed ? _value.compUuid : compUuid as CBJCompUuid,
+      lastKnownIp: lastKnownIp == freezed
+          ? _value.lastKnownIp
+          : lastKnownIp as CBJCompLastKnownIp,
     ));
   }
 }
@@ -131,7 +139,8 @@ abstract class _$CBJCompEntityCopyWith<$Res>
       CBJCompOs compOs,
       CBJCompModel compModel,
       CBJCompType compType,
-      CBJCompUuid compUuid});
+      CBJCompUuid compUuid,
+      CBJCompLastKnownIp lastKnownIp});
 }
 
 /// @nodoc
@@ -156,6 +165,7 @@ class __$CBJCompEntityCopyWithImpl<$Res>
     Object compModel = freezed,
     Object compType = freezed,
     Object compUuid = freezed,
+    Object lastKnownIp = freezed,
   }) {
     return _then(_CBJCompEntity(
       id: id == freezed ? _value.id : id as CBJCompUniqueId,
@@ -170,6 +180,9 @@ class __$CBJCompEntityCopyWithImpl<$Res>
           compModel == freezed ? _value.compModel : compModel as CBJCompModel,
       compType: compType == freezed ? _value.compType : compType as CBJCompType,
       compUuid: compUuid == freezed ? _value.compUuid : compUuid as CBJCompUuid,
+      lastKnownIp: lastKnownIp == freezed
+          ? _value.lastKnownIp
+          : lastKnownIp as CBJCompLastKnownIp,
     ));
   }
 }
@@ -185,7 +198,8 @@ class _$_CBJCompEntity extends _CBJCompEntity {
       this.compOs,
       this.compModel,
       this.compType,
-      this.compUuid})
+      this.compUuid,
+      this.lastKnownIp})
       : assert(id != null),
         assert(roomId != null),
         super._();
@@ -210,10 +224,12 @@ class _$_CBJCompEntity extends _CBJCompEntity {
 
   /// The comp uuid that it came with out of the factory
   final CBJCompUuid compUuid;
+  @override
+  final CBJCompLastKnownIp lastKnownIp;
 
   @override
   String toString() {
-    return 'CBJCompEntity(id: $id, roomId: $roomId, cBJCompDevices: $cBJCompDevices, name: $name, macAddr: $macAddr, compOs: $compOs, compModel: $compModel, compType: $compType, compUuid: $compUuid)';
+    return 'CBJCompEntity(id: $id, roomId: $roomId, cBJCompDevices: $cBJCompDevices, name: $name, macAddr: $macAddr, compOs: $compOs, compModel: $compModel, compType: $compType, compUuid: $compUuid, lastKnownIp: $lastKnownIp)';
   }
 
   @override
@@ -242,7 +258,10 @@ class _$_CBJCompEntity extends _CBJCompEntity {
                     .equals(other.compType, compType)) &&
             (identical(other.compUuid, compUuid) ||
                 const DeepCollectionEquality()
-                    .equals(other.compUuid, compUuid)));
+                    .equals(other.compUuid, compUuid)) &&
+            (identical(other.lastKnownIp, lastKnownIp) ||
+                const DeepCollectionEquality()
+                    .equals(other.lastKnownIp, lastKnownIp)));
   }
 
   @override
@@ -256,7 +275,8 @@ class _$_CBJCompEntity extends _CBJCompEntity {
       const DeepCollectionEquality().hash(compOs) ^
       const DeepCollectionEquality().hash(compModel) ^
       const DeepCollectionEquality().hash(compType) ^
-      const DeepCollectionEquality().hash(compUuid);
+      const DeepCollectionEquality().hash(compUuid) ^
+      const DeepCollectionEquality().hash(lastKnownIp);
 
   @JsonKey(ignore: true)
   @override
@@ -275,7 +295,8 @@ abstract class _CBJCompEntity extends CBJCompEntity {
       CBJCompOs compOs,
       CBJCompModel compModel,
       CBJCompType compType,
-      CBJCompUuid compUuid}) = _$_CBJCompEntity;
+      CBJCompUuid compUuid,
+      CBJCompLastKnownIp lastKnownIp}) = _$_CBJCompEntity;
 
   @override
   CBJCompUniqueId get id;
@@ -297,6 +318,8 @@ abstract class _CBJCompEntity extends CBJCompEntity {
 
   /// The comp uuid that it came with out of the factory
   CBJCompUuid get compUuid;
+  @override
+  CBJCompLastKnownIp get lastKnownIp;
   @override
   @JsonKey(ignore: true)
   _$CBJCompEntityCopyWith<_CBJCompEntity> get copyWith;

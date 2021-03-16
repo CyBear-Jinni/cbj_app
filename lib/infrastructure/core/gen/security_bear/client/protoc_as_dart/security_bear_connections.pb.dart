@@ -182,6 +182,71 @@ class SBCommendStatus extends $pb.GeneratedMessage {
   void clearSuccess() => clearField(5);
 }
 
+class SBFirebaseAccountAndSecurityBearSetup extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SBFirebaseAccountAndSecurityBearSetup', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SecurityBearConnections'), createEmptyInstance: create)
+    ..aOM<SBFirebaseAccountInformation>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'sBFirebaseAccountInformation', protoName: 'sBFirebaseAccountInformation', subBuilder: SBFirebaseAccountInformation.create)
+    ..aOM<SecurityBearSetup>(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'securityBearSetup', protoName: 'securityBearSetup', subBuilder: SecurityBearSetup.create)
+    ..hasRequiredFields = false
+  ;
+
+  SBFirebaseAccountAndSecurityBearSetup._() : super();
+  factory SBFirebaseAccountAndSecurityBearSetup({
+    SBFirebaseAccountInformation sBFirebaseAccountInformation,
+    SecurityBearSetup securityBearSetup,
+  }) {
+    final _result = create();
+    if (sBFirebaseAccountInformation != null) {
+      _result.sBFirebaseAccountInformation = sBFirebaseAccountInformation;
+    }
+    if (securityBearSetup != null) {
+      _result.securityBearSetup = securityBearSetup;
+    }
+    return _result;
+  }
+  factory SBFirebaseAccountAndSecurityBearSetup.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory SBFirebaseAccountAndSecurityBearSetup.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  SBFirebaseAccountAndSecurityBearSetup clone() => SBFirebaseAccountAndSecurityBearSetup()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  SBFirebaseAccountAndSecurityBearSetup copyWith(void Function(SBFirebaseAccountAndSecurityBearSetup) updates) => super.copyWith((message) => updates(message as SBFirebaseAccountAndSecurityBearSetup)) as SBFirebaseAccountAndSecurityBearSetup; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static SBFirebaseAccountAndSecurityBearSetup create() => SBFirebaseAccountAndSecurityBearSetup._();
+  SBFirebaseAccountAndSecurityBearSetup createEmptyInstance() => create();
+  static $pb.PbList<SBFirebaseAccountAndSecurityBearSetup> createRepeated() => $pb.PbList<SBFirebaseAccountAndSecurityBearSetup>();
+  @$core.pragma('dart2js:noInline')
+  static SBFirebaseAccountAndSecurityBearSetup getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SBFirebaseAccountAndSecurityBearSetup>(create);
+  static SBFirebaseAccountAndSecurityBearSetup _defaultInstance;
+
+  @$pb.TagNumber(10)
+  SBFirebaseAccountInformation get sBFirebaseAccountInformation => $_getN(0);
+  @$pb.TagNumber(10)
+  set sBFirebaseAccountInformation(SBFirebaseAccountInformation v) { setField(10, v); }
+  @$pb.TagNumber(10)
+  $core.bool hasSBFirebaseAccountInformation() => $_has(0);
+  @$pb.TagNumber(10)
+  void clearSBFirebaseAccountInformation() => clearField(10);
+  @$pb.TagNumber(10)
+  SBFirebaseAccountInformation ensureSBFirebaseAccountInformation() => $_ensure(0);
+
+  @$pb.TagNumber(11)
+  SecurityBearSetup get securityBearSetup => $_getN(1);
+  @$pb.TagNumber(11)
+  set securityBearSetup(SecurityBearSetup v) { setField(11, v); }
+  @$pb.TagNumber(11)
+  $core.bool hasSecurityBearSetup() => $_has(1);
+  @$pb.TagNumber(11)
+  void clearSecurityBearSetup() => clearField(11);
+  @$pb.TagNumber(11)
+  SecurityBearSetup ensureSecurityBearSetup() => $_ensure(1);
+}
+
 class SBFirebaseAccountInformation extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SBFirebaseAccountInformation', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SecurityBearConnections'), createEmptyInstance: create)
     ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fireBaseProjectId', protoName: 'fireBaseProjectId')

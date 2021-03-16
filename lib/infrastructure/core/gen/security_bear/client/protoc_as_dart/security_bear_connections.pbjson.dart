@@ -40,6 +40,17 @@ const SBCommendStatus$json = const {
 
 /// Descriptor for `SBCommendStatus`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List sBCommendStatusDescriptor = $convert.base64Decode('Cg9TQkNvbW1lbmRTdGF0dXMSGAoHc3VjY2VzcxgFIAEoCFIHc3VjY2Vzcw==');
+@$core.Deprecated('Use sBFirebaseAccountAndSecurityBearSetupDescriptor instead')
+const SBFirebaseAccountAndSecurityBearSetup$json = const {
+  '1': 'SBFirebaseAccountAndSecurityBearSetup',
+  '2': const [
+    const {'1': 'sBFirebaseAccountInformation', '3': 10, '4': 1, '5': 11, '6': '.SecurityBearConnections.SBFirebaseAccountInformation', '10': 'sBFirebaseAccountInformation'},
+    const {'1': 'securityBearSetup', '3': 11, '4': 1, '5': 11, '6': '.SecurityBearConnections.SecurityBearSetup', '10': 'securityBearSetup'},
+  ],
+};
+
+/// Descriptor for `SBFirebaseAccountAndSecurityBearSetup`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List sBFirebaseAccountAndSecurityBearSetupDescriptor = $convert.base64Decode('CiVTQkZpcmViYXNlQWNjb3VudEFuZFNlY3VyaXR5QmVhclNldHVwEnkKHHNCRmlyZWJhc2VBY2NvdW50SW5mb3JtYXRpb24YCiABKAsyNS5TZWN1cml0eUJlYXJDb25uZWN0aW9ucy5TQkZpcmViYXNlQWNjb3VudEluZm9ybWF0aW9uUhxzQkZpcmViYXNlQWNjb3VudEluZm9ybWF0aW9uElgKEXNlY3VyaXR5QmVhclNldHVwGAsgASgLMiouU2VjdXJpdHlCZWFyQ29ubmVjdGlvbnMuU2VjdXJpdHlCZWFyU2V0dXBSEXNlY3VyaXR5QmVhclNldHVw');
 @$core.Deprecated('Use sBFirebaseAccountInformationDescriptor instead')
 const SBFirebaseAccountInformation$json = const {
   '1': 'SBFirebaseAccountInformation',

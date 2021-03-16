@@ -1,29 +1,29 @@
+import 'package:cybear_jinni/application/configure_new_cbj_comp/configure_new_cbj_comp_bloc.dart';
 import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
-import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_value_objects.dart';
 import 'package:cybear_jinni/domain/devices/device_entity.dart';
-import 'package:cybear_jinni/domain/devices/value_objects.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/core/devices_cards/light_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:kt_dart/kt.dart';
+import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
 
 class ConfigureNewCbjCompWidgets extends StatelessWidget {
   ConfigureNewCbjCompWidgets({
     @required this.cbjCompEntity,
-  }) {
-    _textEditingController['allInSameRoom'] = TextEditingController();
-  }
+  });
 
   final CBJCompEntity cbjCompEntity;
-  final Map<String, TextEditingController> _textEditingController = {};
 
-  Widget devicesList() {
+  static String deviceNameFieldKey = 'deviceNameField';
+  static String devicesDefaultRoomNameField = '';
+
+  Widget devicesList(CBJCompEntity cbjCompEntityForDeviceList,
+      Map<String, TextEditingController> _textEditingController) {
     final List<DeviceEntity> devicesList =
-        cbjCompEntity.cBJCompDevices.getOrCrash().asList();
+        cbjCompEntityForDeviceList.cBJCompDevices.getOrCrash().asList();
 
     final List<Widget> widgetList = [];
 
@@ -31,11 +31,12 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
       if (device.type.getOrCrash() == 'Light') {
         final TextEditingController textEditingControllerTemp =
             TextEditingController();
-        _textEditingController['defaultName/${device.id.getOrCrash()}'] =
+        _textEditingController[
+                '$deviceNameFieldKey/${device.id.getOrCrash()}'] =
             textEditingControllerTemp;
         widgetList.add(
           Container(
-            color: Colors.yellowAccent.withOpacity(0.3),
+            color: Colors.yellow.withOpacity(0.8),
             padding: const EdgeInsets.symmetric(vertical: 10),
             margin: const EdgeInsets.symmetric(vertical: 30),
             child: Column(
@@ -64,7 +65,12 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                     style: const TextStyle(color: Colors.white),
                     decoration: InputDecoration(
                         filled: true,
-                        fillColor: Colors.greenAccent.withOpacity(0.3),
+                        fillColor: Colors.black.withOpacity(0.2),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide:
+                              const BorderSide(color: Colors.white, width: 2.0),
+                          borderRadius: BorderRadius.circular(15.0),
+                        ),
                         prefixIcon: const Icon(
                           FontAwesomeIcons.solidLightbulb,
                           color: Colors.white,
@@ -108,116 +114,172 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
     );
   }
 
-  Future<void> setupNewDevice() async {
-    //TODO: Show the user that process is running in the background
-
-    final CBJCompEntity compUpdatedData = newCBJCompEntity();
-
-
-    //TODO: Save all the data to the cloud
-
-    //TODO: Save the data to the device
-
-    //TODO: Send firebase data and new hotspot to the security bear
-
-    //TODO: Make sure the data was updated and device can updated firebase
-
-    //TODO: go back to add new devices screen
-
-    return;
-  }
-
-  /// Organize all the data from the text fields to updated CBJCompEntity
-  CBJCompEntity newCBJCompEntity() {
-    final List<DeviceEntity> deviceEntityList = [];
-
-    cbjCompEntity.cBJCompDevices.getOrCrash().asList().forEach((deviceE) {
-      final String deviceName =
-          _textEditingController['defaultName/${deviceE.id.getOrCrash()}'].text;
-      deviceEntityList
-          .add(deviceE.copyWith(defaultName: DeviceDefaultName(deviceName)));
-    });
-    final CBJCompEntity compUpdatedData = cbjCompEntity.copyWith(
-        cBJCompDevices: CBJCompDevices(deviceEntityList.toImmutableList()));
-
-    return compUpdatedData;
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const Text(
-          'Configure devices',
-          style: TextStyle(color: Colors.white),
-        ),
-        Expanded(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    Checkbox(
-                      checkColor: Colors.greenAccent,
-                      activeColor: Colors.red,
-                      value: true,
-                      onChanged: (bool value) {},
-                    ),
-                    const Text(
-                      'All devices in the same room',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ],
-                ),
-                const Text(
-                  'Room Name',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 30,
-                  ),
-                ),
-                SizedBox(
-                  width: 300,
-                  child: TextFormField(
-                    controller: _textEditingController['allInSameRoom'],
-                    style: const TextStyle(color: Colors.white),
-                    decoration: InputDecoration(
-                        filled: true,
-                        fillColor: Colors.greenAccent.withOpacity(0.3),
-                        prefixIcon: const Icon(
-                          FontAwesomeIcons.placeOfWorship,
+    CBJCompEntity cbjCompEntityInBuild = cbjCompEntity;
+    final Map<String, TextEditingController> _textEditingController = {};
+    _textEditingController['allInSameRoom'] = TextEditingController();
+
+    return BlocBuilder<ConfigureNewCbjCompBloc, ConfigureNewCbjCompState>(
+        builder: (context, state) {
+      return state.map(
+        initial: (_) {
+          return Column(
+            children: [
+              const Text(
+                'Configure devices',
+                style: TextStyle(color: Colors.white),
+              ),
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Checkbox(
+                            checkColor: Colors.white,
+                            activeColor: Colors.red,
+                            value: true,
+                            onChanged: (bool value) {},
+                          ),
+                          const Text(
+                            'All devices in the same room',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ],
+                      ),
+                      const Text(
+                        'Room Name',
+                        style: TextStyle(
                           color: Colors.white,
+                          fontSize: 30,
                         ),
-                        labelText: 'Room Name',
-                        labelStyle: const TextStyle(color: Colors.white)),
-                    autocorrect: false,
-                    onChanged: (value) {},
+                      ),
+                      SizedBox(
+                        width: 300,
+                        child: TextFormField(
+                          controller: _textEditingController['allInSameRoom'],
+                          style: const TextStyle(color: Colors.white),
+                          decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Colors.greenAccent.withOpacity(0.3),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                    color: Colors.white, width: 2.0),
+                                borderRadius: BorderRadius.circular(15.0),
+                              ),
+                              prefixIcon: const Icon(
+                                FontAwesomeIcons.placeOfWorship,
+                                color: Colors.white,
+                              ),
+                              labelText: 'Room Name',
+                              labelStyle: const TextStyle(color: Colors.white)),
+                          autocorrect: false,
+                          onChanged: (value) {},
+                        ),
+                      ),
+                      if (cbjCompEntityInBuild.cBJCompDevices
+                              .getOrCrash()
+                              .size <
+                          1)
+                        const Text('')
+                      else
+                        devicesList(
+                            cbjCompEntityInBuild, _textEditingController),
+                    ],
                   ),
-                ),
-                if (cbjCompEntity.cBJCompDevices.getOrCrash().size < 1)
-                  const Text('')
-                else
-                  devicesList(),
-              ],
-            ),
-          ),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            FlatButton(
-              color: Colors.greenAccent,
-              onPressed: () {},
-              child: const Text(
-                'Done',
-                style: TextStyle(
-                  color: Colors.white,
                 ),
               ),
-            ),
-          ],
-        )
-      ],
-    );
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  FlatButton(
+                    color: Colors.greenAccent,
+                    onPressed: () async {
+                      context.read<ConfigureNewCbjCompBloc>().add(
+                          ConfigureNewCbjCompEvent.setupNewDevice(
+                              cbjCompEntityInBuild, _textEditingController));
+                    },
+                    child: const Text(
+                      'Done',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ],
+              )
+            ],
+          );
+        },
+        actionInProgress: (actionInProgress) {
+          return Column(
+            children: [
+              const SizedBox(
+                height: 30,
+              ),
+              Container(
+                height: 35,
+                width: MediaQuery.of(context).size.width - 20,
+                decoration: const BoxDecoration(
+                  color: Colors.black38,
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                ),
+                alignment: Alignment.center,
+                child: Text(
+                  'Setting up computer',
+                  style: TextStyle(
+                      fontSize: 25,
+                      color: Theme.of(context).textTheme.bodyText1.color),
+                ),
+              ),
+              Expanded(
+                child: Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        height: 80,
+                        width: 250,
+                        child: LiquidLinearProgressIndicator(
+                          value: actionInProgress.progressPercentage,
+                          valueColor: const AlwaysStoppedAnimation(Colors.pink),
+                          backgroundColor: Colors.white,
+                          borderColor: Colors.red.withOpacity(0.9),
+                          borderWidth: 4.0,
+                          center: const Text(
+                            'Loading...',
+                            style: TextStyle(color: Colors.black),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      const Text(
+                        'Please wait as we are setting your new computer',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ],
+                  ),
+                ),
+                // child: Center(
+                //   child: CircularProgressIndicator(
+                //     backgroundColor: Colors.cyan,
+                //     strokeWidth: 5,
+                //   ),
+                // ),
+              ),
+            ],
+          );
+        },
+        errorInProcess: (value) {
+          return const Text(
+            'Error in the process.',
+            style: TextStyle(color: Colors.white),
+          );
+        },
+      );
+    });
   }
 }

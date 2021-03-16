@@ -67,6 +67,22 @@ class HomeName extends CreateHomeValueObjectAbstract<String> {
   const HomeName._(this.value);
 }
 
+class HomeDevicesUserId extends CreateHomeValueObjectAbstract<String> {
+  factory HomeDevicesUserId() {
+    return HomeDevicesUserId._(right(Uuid().v1()));
+  }
+
+  factory HomeDevicesUserId.fromUniqueString(String uniqueId) {
+    assert(uniqueId != null);
+    return HomeDevicesUserId._(right(uniqueId));
+  }
+
+  HomeDevicesUserId._(this.value);
+
+  @override
+  final Either<CreateHomeFailure<String>, String> value;
+}
+
 class HomeDevicesUserEmail extends CreateHomeValueObjectAbstract<String> {
   @override
   final Either<CreateHomeFailure<String>, String> value;

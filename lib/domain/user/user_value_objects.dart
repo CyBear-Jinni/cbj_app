@@ -85,6 +85,22 @@ class UserName extends UserValueObjectAbstract<String> {
   const UserName._(this.value);
 }
 
+class UserPass extends UserValueObjectAbstract<String> {
+  @override
+  final Either<UserFailures<String>, String> value;
+
+  static const maxLength = 1000;
+
+  factory UserPass(String input) {
+    assert(input != null);
+    return UserPass._(
+      validateUserNameNotEmpty(input),
+    );
+  }
+
+  const UserPass._(this.value);
+}
+
 class UserFirstName extends UserValueObjectAbstract<String> {
   @override
   final Either<UserFailures<String>, String> value;

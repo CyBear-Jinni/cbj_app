@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:cybear_jinni/domain/auth/auth_failure.dart';
 import 'package:cybear_jinni/domain/auth/i_auth_facade.dart';
+import 'package:cybear_jinni/domain/auth/user.dart';
 import 'package:cybear_jinni/domain/auth/value_objects.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';

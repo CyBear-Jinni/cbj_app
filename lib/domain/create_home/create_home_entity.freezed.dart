@@ -17,11 +17,13 @@ class _$CreateHomeEntityTearOff {
   _CreateHomeEntity call(
       {@required HomeUniqueId id,
       @required HomeName name,
+      HomeDevicesUserId homeDevicesUserId,
       HomeDevicesUserEmail homeDevicesUserEmail,
       HomeDevicesUserPassword homeDevicesUserPassword}) {
     return _CreateHomeEntity(
       id: id,
       name: name,
+      homeDevicesUserId: homeDevicesUserId,
       homeDevicesUserEmail: homeDevicesUserEmail,
       homeDevicesUserPassword: homeDevicesUserPassword,
     );
@@ -36,6 +38,7 @@ const $CreateHomeEntity = _$CreateHomeEntityTearOff();
 mixin _$CreateHomeEntity {
   HomeUniqueId get id;
   HomeName get name;
+  HomeDevicesUserId get homeDevicesUserId;
   HomeDevicesUserEmail get homeDevicesUserEmail;
   HomeDevicesUserPassword get homeDevicesUserPassword;
 
@@ -51,6 +54,7 @@ abstract class $CreateHomeEntityCopyWith<$Res> {
   $Res call(
       {HomeUniqueId id,
       HomeName name,
+      HomeDevicesUserId homeDevicesUserId,
       HomeDevicesUserEmail homeDevicesUserEmail,
       HomeDevicesUserPassword homeDevicesUserPassword});
 }
@@ -68,12 +72,16 @@ class _$CreateHomeEntityCopyWithImpl<$Res>
   $Res call({
     Object id = freezed,
     Object name = freezed,
+    Object homeDevicesUserId = freezed,
     Object homeDevicesUserEmail = freezed,
     Object homeDevicesUserPassword = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as HomeUniqueId,
       name: name == freezed ? _value.name : name as HomeName,
+      homeDevicesUserId: homeDevicesUserId == freezed
+          ? _value.homeDevicesUserId
+          : homeDevicesUserId as HomeDevicesUserId,
       homeDevicesUserEmail: homeDevicesUserEmail == freezed
           ? _value.homeDevicesUserEmail
           : homeDevicesUserEmail as HomeDevicesUserEmail,
@@ -94,6 +102,7 @@ abstract class _$CreateHomeEntityCopyWith<$Res>
   $Res call(
       {HomeUniqueId id,
       HomeName name,
+      HomeDevicesUserId homeDevicesUserId,
       HomeDevicesUserEmail homeDevicesUserEmail,
       HomeDevicesUserPassword homeDevicesUserPassword});
 }
@@ -113,12 +122,16 @@ class __$CreateHomeEntityCopyWithImpl<$Res>
   $Res call({
     Object id = freezed,
     Object name = freezed,
+    Object homeDevicesUserId = freezed,
     Object homeDevicesUserEmail = freezed,
     Object homeDevicesUserPassword = freezed,
   }) {
     return _then(_CreateHomeEntity(
       id: id == freezed ? _value.id : id as HomeUniqueId,
       name: name == freezed ? _value.name : name as HomeName,
+      homeDevicesUserId: homeDevicesUserId == freezed
+          ? _value.homeDevicesUserId
+          : homeDevicesUserId as HomeDevicesUserId,
       homeDevicesUserEmail: homeDevicesUserEmail == freezed
           ? _value.homeDevicesUserEmail
           : homeDevicesUserEmail as HomeDevicesUserEmail,
@@ -134,6 +147,7 @@ class _$_CreateHomeEntity implements _CreateHomeEntity {
   const _$_CreateHomeEntity(
       {@required this.id,
       @required this.name,
+      this.homeDevicesUserId,
       this.homeDevicesUserEmail,
       this.homeDevicesUserPassword})
       : assert(id != null),
@@ -144,13 +158,15 @@ class _$_CreateHomeEntity implements _CreateHomeEntity {
   @override
   final HomeName name;
   @override
+  final HomeDevicesUserId homeDevicesUserId;
+  @override
   final HomeDevicesUserEmail homeDevicesUserEmail;
   @override
   final HomeDevicesUserPassword homeDevicesUserPassword;
 
   @override
   String toString() {
-    return 'CreateHomeEntity(id: $id, name: $name, homeDevicesUserEmail: $homeDevicesUserEmail, homeDevicesUserPassword: $homeDevicesUserPassword)';
+    return 'CreateHomeEntity(id: $id, name: $name, homeDevicesUserId: $homeDevicesUserId, homeDevicesUserEmail: $homeDevicesUserEmail, homeDevicesUserPassword: $homeDevicesUserPassword)';
   }
 
   @override
@@ -161,6 +177,9 @@ class _$_CreateHomeEntity implements _CreateHomeEntity {
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
+            (identical(other.homeDevicesUserId, homeDevicesUserId) ||
+                const DeepCollectionEquality()
+                    .equals(other.homeDevicesUserId, homeDevicesUserId)) &&
             (identical(other.homeDevicesUserEmail, homeDevicesUserEmail) ||
                 const DeepCollectionEquality().equals(
                     other.homeDevicesUserEmail, homeDevicesUserEmail)) &&
@@ -175,6 +194,7 @@ class _$_CreateHomeEntity implements _CreateHomeEntity {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(homeDevicesUserId) ^
       const DeepCollectionEquality().hash(homeDevicesUserEmail) ^
       const DeepCollectionEquality().hash(homeDevicesUserPassword);
 
@@ -188,6 +208,7 @@ abstract class _CreateHomeEntity implements CreateHomeEntity {
   const factory _CreateHomeEntity(
       {@required HomeUniqueId id,
       @required HomeName name,
+      HomeDevicesUserId homeDevicesUserId,
       HomeDevicesUserEmail homeDevicesUserEmail,
       HomeDevicesUserPassword homeDevicesUserPassword}) = _$_CreateHomeEntity;
 
@@ -195,6 +216,8 @@ abstract class _CreateHomeEntity implements CreateHomeEntity {
   HomeUniqueId get id;
   @override
   HomeName get name;
+  @override
+  HomeDevicesUserId get homeDevicesUserId;
   @override
   HomeDevicesUserEmail get homeDevicesUserEmail;
   @override

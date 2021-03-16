@@ -46,9 +46,9 @@ class ManageWifiBloc extends Bloc<ManageWifiEvent, ManageWifiState> {
       connectToWiFi: (e) async* {
         yield ManageWifiState.loading();
 
-        ManageNetworkEntity manageWiFiEntity = ManageNetworkEntity(
+        final ManageNetworkEntity manageWiFiEntity = ManageNetworkEntity(
           name: wifiName,
-          passpass: wifiPassword,
+          pass: wifiPassword,
         );
 
         final Either<HomeUserFailures, Unit> doesWiFiEnabled =

@@ -36,7 +36,7 @@ class ManageAccessPointBloc
         if (Platform.isAndroid) {
           final ManageNetworkEntity manageNetworkEntity = ManageNetworkEntity(
               name: ManageWiFiName('CyBear Jinni'),
-              passpass: ManageWiFiPass('CyBear Jinni'));
+              pass: ManageWiFiPass('CyBear Jinni'));
 
           final Either<HomeUserFailures, Unit> opendAccessPoint =
               await _manageAccessPointRepository
@@ -52,10 +52,10 @@ class ManageAccessPointBloc
         yield ManageAccessPointState.loading();
 
         if (Platform.isAndroid) {
-          final Either<HomeUserFailures, Unit> opendAccessPoint =
+          final Either<HomeUserFailures, Unit> openedAccessPoint =
               await _manageAccessPointRepository.doesAccessPointOpen();
 
-          yield opendAccessPoint.fold(
+          yield openedAccessPoint.fold(
             (HomeUserFailures f) {
               if (f == const HomeUserFailures.accessPointIsNotOpen()) {
                 return ManageAccessPointState.accessPointIsNotOpen();

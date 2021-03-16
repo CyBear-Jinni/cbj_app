@@ -1,5 +1,3 @@
-import 'package:cybear_jinni/domain/home_user/home_user_failures.dart';
-import 'package:cybear_jinni/domain/home_user/home_user_value_objects.dart';
 import 'package:cybear_jinni/domain/user/user_failures.dart';
 import 'package:cybear_jinni/domain/user/user_value_objects.dart';
 import 'package:dartz/dartz.dart';
@@ -15,6 +13,7 @@ abstract class UserEntity implements _$UserEntity {
     @required UserUniqueId id,
     @required UserEmail email,
     @required UserName name,
+    UserPass pass,
     UserFirstName firstName,
     UserLastName lastName,
   }) = _UserEntity;

@@ -18,12 +18,14 @@ class _$UserEntityTearOff {
       {@required UserUniqueId id,
       @required UserEmail email,
       @required UserName name,
+      UserPass pass,
       UserFirstName firstName,
       UserLastName lastName}) {
     return _UserEntity(
       id: id,
       email: email,
       name: name,
+      pass: pass,
       firstName: firstName,
       lastName: lastName,
     );
@@ -39,6 +41,7 @@ mixin _$UserEntity {
   UserUniqueId get id;
   UserEmail get email;
   UserName get name;
+  UserPass get pass;
   UserFirstName get firstName;
   UserLastName get lastName;
 
@@ -55,6 +58,7 @@ abstract class $UserEntityCopyWith<$Res> {
       {UserUniqueId id,
       UserEmail email,
       UserName name,
+      UserPass pass,
       UserFirstName firstName,
       UserLastName lastName});
 }
@@ -72,6 +76,7 @@ class _$UserEntityCopyWithImpl<$Res> implements $UserEntityCopyWith<$Res> {
     Object id = freezed,
     Object email = freezed,
     Object name = freezed,
+    Object pass = freezed,
     Object firstName = freezed,
     Object lastName = freezed,
   }) {
@@ -79,6 +84,7 @@ class _$UserEntityCopyWithImpl<$Res> implements $UserEntityCopyWith<$Res> {
       id: id == freezed ? _value.id : id as UserUniqueId,
       email: email == freezed ? _value.email : email as UserEmail,
       name: name == freezed ? _value.name : name as UserName,
+      pass: pass == freezed ? _value.pass : pass as UserPass,
       firstName:
           firstName == freezed ? _value.firstName : firstName as UserFirstName,
       lastName:
@@ -97,6 +103,7 @@ abstract class _$UserEntityCopyWith<$Res> implements $UserEntityCopyWith<$Res> {
       {UserUniqueId id,
       UserEmail email,
       UserName name,
+      UserPass pass,
       UserFirstName firstName,
       UserLastName lastName});
 }
@@ -116,6 +123,7 @@ class __$UserEntityCopyWithImpl<$Res> extends _$UserEntityCopyWithImpl<$Res>
     Object id = freezed,
     Object email = freezed,
     Object name = freezed,
+    Object pass = freezed,
     Object firstName = freezed,
     Object lastName = freezed,
   }) {
@@ -123,6 +131,7 @@ class __$UserEntityCopyWithImpl<$Res> extends _$UserEntityCopyWithImpl<$Res>
       id: id == freezed ? _value.id : id as UserUniqueId,
       email: email == freezed ? _value.email : email as UserEmail,
       name: name == freezed ? _value.name : name as UserName,
+      pass: pass == freezed ? _value.pass : pass as UserPass,
       firstName:
           firstName == freezed ? _value.firstName : firstName as UserFirstName,
       lastName:
@@ -137,6 +146,7 @@ class _$_UserEntity extends _UserEntity {
       {@required this.id,
       @required this.email,
       @required this.name,
+      this.pass,
       this.firstName,
       this.lastName})
       : assert(id != null),
@@ -151,13 +161,15 @@ class _$_UserEntity extends _UserEntity {
   @override
   final UserName name;
   @override
+  final UserPass pass;
+  @override
   final UserFirstName firstName;
   @override
   final UserLastName lastName;
 
   @override
   String toString() {
-    return 'UserEntity(id: $id, email: $email, name: $name, firstName: $firstName, lastName: $lastName)';
+    return 'UserEntity(id: $id, email: $email, name: $name, pass: $pass, firstName: $firstName, lastName: $lastName)';
   }
 
   @override
@@ -170,6 +182,8 @@ class _$_UserEntity extends _UserEntity {
                 const DeepCollectionEquality().equals(other.email, email)) &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
+            (identical(other.pass, pass) ||
+                const DeepCollectionEquality().equals(other.pass, pass)) &&
             (identical(other.firstName, firstName) ||
                 const DeepCollectionEquality()
                     .equals(other.firstName, firstName)) &&
@@ -184,6 +198,7 @@ class _$_UserEntity extends _UserEntity {
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(email) ^
       const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(pass) ^
       const DeepCollectionEquality().hash(firstName) ^
       const DeepCollectionEquality().hash(lastName);
 
@@ -199,6 +214,7 @@ abstract class _UserEntity extends UserEntity {
       {@required UserUniqueId id,
       @required UserEmail email,
       @required UserName name,
+      UserPass pass,
       UserFirstName firstName,
       UserLastName lastName}) = _$_UserEntity;
 
@@ -208,6 +224,8 @@ abstract class _UserEntity extends UserEntity {
   UserEmail get email;
   @override
   UserName get name;
+  @override
+  UserPass get pass;
   @override
   UserFirstName get firstName;
   @override

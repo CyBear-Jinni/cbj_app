@@ -58,7 +58,8 @@ class CBJCompBloc extends Bloc<CBJCompEvent, CBJCompState> {
         }
       },
       changeAction: (e) async* {
-        final actionResult = await _cBJCompRepository.update(e.cBJCompEntity);
+        final actionResult =
+            await _cBJCompRepository.updateCompInfo(e.cBJCompEntity);
 
         yield actionResult.fold((f) => CBJCompState.loadFailure(f),
             (r) => const CBJCompState.loadSuccessTemp());

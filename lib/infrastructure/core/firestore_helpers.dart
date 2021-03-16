@@ -6,6 +6,17 @@ import 'package:cybear_jinni/injection.dart';
 const homesCollecttionName = 'SmartHomes';
 const usersCollecttionName = 'users';
 
+/// Fields names in DevicesUsers
+const homeDevicesUserId = 'homeDevicesUserId';
+const homeDevicesUserEmail = 'homeDevicesUserEmail';
+const homeDevicesUserPassword = 'homeDevicesUserPassword';
+const serverTimeStamp = 'serverTimeStamp';
+
+/// Fields in first WiFi
+const first_WiFi = 'first WiFi';
+const wiFi_name = 'WiFi name';
+const wiFi_pass = 'WiFi password';
+
 extension FirestoreX on FirebaseFirestore {
   Future<DocumentReference> currentHomeDocument() async {
     final homeOption = await getIt<IAuthFacade>().getCurrentHome();

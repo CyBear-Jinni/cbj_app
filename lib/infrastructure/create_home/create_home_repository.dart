@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cybear_jinni/domain/add_user_to_home/add_user_to_home_failures.dart';
 import 'package:cybear_jinni/domain/add_user_to_home/i_add_user_to_home_repository.dart';
 import 'package:cybear_jinni/domain/auth/i_auth_facade.dart';
+import 'package:cybear_jinni/domain/auth/user.dart';
 import 'package:cybear_jinni/domain/auth/value_objects.dart';
 import 'package:cybear_jinni/domain/create_home/create_home_entity.dart';
 import 'package:cybear_jinni/domain/create_home/create_home_failure.dart';
@@ -9,12 +10,15 @@ import 'package:cybear_jinni/domain/create_home/create_home_value_objects.dart';
 import 'package:cybear_jinni/domain/create_home/i_create_home_repository.dart';
 import 'package:cybear_jinni/domain/home_user/home_user_entity.dart';
 import 'package:cybear_jinni/domain/home_user/home_user_value_objects.dart';
+import 'package:cybear_jinni/domain/manage_network/manage_network_entity.dart';
+import 'package:cybear_jinni/domain/manage_network/manage_network_value_objects.dart';
 import 'package:cybear_jinni/domain/user/all_homes_of_user/all_homes_of_user_entity.dart';
 import 'package:cybear_jinni/domain/user/all_homes_of_user/all_homes_of_user_value_objects.dart';
 import 'package:cybear_jinni/domain/user/i_user_repository.dart';
 import 'package:cybear_jinni/domain/user/user_entity.dart';
 import 'package:cybear_jinni/domain/user/user_errors.dart';
 import 'package:cybear_jinni/domain/user/user_failures.dart';
+import 'package:cybear_jinni/domain/user/user_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/core/firestore_helpers.dart';
 import 'package:cybear_jinni/infrastructure/core/hive_local_db/hive_local_db.dart';
 import 'package:cybear_jinni/infrastructure/create_home/create_home_dtos.dart';
@@ -53,14 +57,17 @@ class CreateHomeRepository implements ICreateHomeRepository {
 
       // Create user for devices
       final registerDeviceUser =
-          await getIt<IAuthFacade>().registerWithEmailAndPassword(
+          await getIt<IAuthFacade>().registerWithEmailAndPasswordReturnUserId(
         emailAddress: EmailAddress(
             createHomeEntityWithId.homeDevicesUserEmail.getOrCrash()),
         password: Password(
             createHomeEntityWithId.homeDevicesUserPassword.getOrCrash()),
       );
-      registerDeviceUser.getOrElse(() =>
+      final MUser deviceUserId = registerDeviceUser.getOrElse(() =>
           throw UserUnexpectedValueError(const UserFailures.unexpected()));
+      createHomeEntityWithId = createHomeEntityWithId.copyWith(
+          homeDevicesUserId:
+              HomeDevicesUserId.fromUniqueString(deviceUserId.id.getOrCrash()));
 
       // create home with the current user
       await HiveLocalDbHelper.setHomeId(createHomeEntityWithId.id.getOrCrash());
@@ -143,6 +150,39 @@ class CreateHomeRepository implements ICreateHomeRepository {
   }
 
   @override
+  Future<Either<CreateHomeFailure, UserEntity>> getDeviceUserFromHome() async {
+    try {
+      final homeDoc = await _firestore.currentHomeDocument();
+
+      final DocumentSnapshot deviceUserDocument =
+          await homeDoc.devicesUsersCollecttion.doc('default').get();
+
+      final String homeDevicesUserIdFromDocument =
+          deviceUserDocument.get(homeDevicesUserId).toString();
+      final String homeDevicesUserEmailFromDocument =
+          deviceUserDocument.get(homeDevicesUserEmail).toString();
+      final String homeDevicesUserPasswordFromDocument =
+          deviceUserDocument.get(homeDevicesUserPassword).toString();
+
+      final UserEntity userEntity = UserEntity(
+        id: UserUniqueId.fromUniqueString(homeDevicesUserIdFromDocument),
+        email: UserEmail(homeDevicesUserEmailFromDocument),
+        name: UserName('Smart Devices User'),
+        pass: UserPass(homeDevicesUserPasswordFromDocument),
+      );
+
+      return right(userEntity);
+    } on PlatformException catch (e) {
+      if (e.message.contains('PERMISSION_DENIED')) {
+        return left(const CreateHomeFailure.insufficientPermission());
+      } else {
+        // log.error(e.toString());
+        return left(CreateHomeFailure.unexpected(failedValue: e.message));
+      }
+    }
+  }
+
+  @override
   Future<Either<CreateHomeFailure, Unit>> addHomeInfo(
       CreateHomeEntity createHomeEntity) async {
     try {
@@ -153,9 +193,36 @@ class CreateHomeRepository implements ICreateHomeRepository {
           .set({'home name': createHomeEntity.name.getOrCrash()});
 
       await homeDoc.homeInfoCollecttion
-          .doc('first WiFi')
-          .set({'WiFi name': Uuid().v1(), 'WiFi password': Uuid().v1()});
+          .doc(first_WiFi)
+          .set({wiFi_name: Uuid().v1(), wiFi_pass: Uuid().v1()});
       return right(unit);
+    } on PlatformException catch (e) {
+      if (e.message.contains('PERMISSION_DENIED')) {
+        return left(const CreateHomeFailure.insufficientPermission());
+      } else {
+        // log.error(e.toString());
+        return left(CreateHomeFailure.unexpected(failedValue: e.message));
+      }
+    }
+  }
+
+  @override
+  Future<Either<CreateHomeFailure, ManageNetworkEntity>> getFirstWifi() async {
+    try {
+      final homeDoc = await _firestore.currentHomeDocument();
+
+      final DocumentSnapshot documentSnapshot =
+          await homeDoc.homeInfoCollecttion.doc(first_WiFi).get();
+
+      final String firstWifiName = documentSnapshot.get(wiFi_name).toString();
+      final String firstWifiPass = documentSnapshot.get(wiFi_pass).toString();
+
+      return right(
+        ManageNetworkEntity(
+          name: ManageWiFiName(firstWifiName),
+          pass: ManageWiFiPass(firstWifiPass),
+        ),
+      );
     } on PlatformException catch (e) {
       if (e.message.contains('PERMISSION_DENIED')) {
         return left(const CreateHomeFailure.insufficientPermission());

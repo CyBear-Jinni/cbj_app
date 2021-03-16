@@ -18,7 +18,7 @@ Future<List<SmartDeviceObject>> getAllDevices(String deviceIp) async {
   final CompInfo compInfo = await SmartClient.getCompInfo(deviceIp);
 
   for (final SmartDeviceInfo smartDeviceInfo in compInfo.smartDevicesInComp) {
-    print('Device type: ${smartDeviceInfo}');
+    print('Device type: $smartDeviceInfo');
     deviceTypeTemp = EnumHelper.stringToDt(
         smartDeviceInfo.deviceTypesActions.deviceType.toString());
     switch (deviceTypeTemp) {

@@ -24,6 +24,7 @@ abstract class IUserRepository {
       watchAll();
 
   Future<Either<HomeUserFailures, Unit>> update(UserEntity deviceEntity);
+
   Future<Either<HomeUserFailures, UserEntity>> getCurrentUser();
 
   Future<Either<HomeUserFailures, Unit>> delete(UserEntity deviceEntity);

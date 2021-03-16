@@ -23,6 +23,7 @@ abstract class CBJCompEntity implements _$CBJCompEntity {
 
     /// The comp uuid that it came with out of the factory
     CBJCompUuid compUuid,
+    CBJCompLastKnownIp lastKnownIp,
   }) = _CBJCompEntity;
 
   factory CBJCompEntity.empty() => CBJCompEntity(
@@ -35,6 +36,7 @@ abstract class CBJCompEntity implements _$CBJCompEntity {
         compModel: CBJCompModel(''),
         compType: CBJCompType(''),
         compUuid: CBJCompUuid(''),
+        lastKnownIp: CBJCompLastKnownIp(''),
       );
 
   Option<CBJCompFailure<dynamic>> get failureOption {

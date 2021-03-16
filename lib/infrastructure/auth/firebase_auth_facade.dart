@@ -36,7 +36,8 @@ class FirebaseAuthFacade implements IAuthFacade {
   @override
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword(
       {@required EmailAddress emailAddress,
-      @required Password password}) async {
+      @required Password password,
+      MUser userId}) async {
     final emailAddressStr = emailAddress.getOrCrash();
     final passwordStr = password.getOrCrash();
 
@@ -44,25 +45,53 @@ class FirebaseAuthFacade implements IAuthFacade {
       await _firebaseAuth.createUserWithEmailAndPassword(
           email: emailAddressStr, password: passwordStr);
 
-      MUser mUser = (await getSignedInUser())
-          .getOrElse(() => throw NotAuthenticatedError());
-      String userId = mUser.id.getOrCrash();
-
+      String userIdString;
+      if (userId == null) {
+        final MUser mUser = (await getSignedInUser())
+            .getOrElse(() => throw NotAuthenticatedError());
+        userIdString = mUser.id.getOrCrash();
+      } else {
+        userIdString = userId.id.getOrCrash();
+      }
       final String userName =
           emailAddressStr.substring(0, emailAddressStr.indexOf('@'));
 
-      UserEntity userEntity = UserEntity(
-        id: UserUniqueId.fromUniqueString(userId),
+      final UserEntity userEntity = UserEntity(
+        id: UserUniqueId.fromUniqueString(userIdString),
         email: UserEmail(emailAddressStr),
         name: UserName(userName),
         firstName: UserFirstName(' '),
         lastName: UserLastName(' '),
       );
 
-      final resgistarOutput = await getIt<IUserRepository>().create(userEntity);
-      resgistarOutput.getOrElse(() => throw NotAuthenticatedError());
+      final registrarOutput = await getIt<IUserRepository>().create(userEntity);
+      registrarOutput.getOrElse(() => throw NotAuthenticatedError());
 
       return right(unit);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'email-already-in-use') {
+        return left(const AuthFailure.emailAlreadyInUse());
+      } else {
+        return left(const AuthFailure.serverError());
+      }
+    }
+  }
+
+  @override
+  Future<Either<AuthFailure, MUser>> registerWithEmailAndPasswordReturnUserId(
+      {EmailAddress emailAddress, Password password}) async {
+    try {
+      final MUser mUser = (await getSignedInUser())
+          .getOrElse(() => throw NotAuthenticatedError());
+
+      final Either<AuthFailure, Unit> registerUser =
+          await registerWithEmailAndPassword(
+              emailAddress: emailAddress, password: password, userId: mUser);
+
+      registerUser.getOrElse(
+          () => throw ('Error registering user with Email and Password'));
+
+      return right(mUser);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use') {
         return left(const AuthFailure.emailAlreadyInUse());

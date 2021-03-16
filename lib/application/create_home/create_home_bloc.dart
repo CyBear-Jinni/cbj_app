@@ -31,6 +31,7 @@ class CreateHomeBloc extends Bloc<CreateHomeEvent, CreateHomeState> {
         final CreateHomeEntity createHomeEntity = CreateHomeEntity(
           id: HomeUniqueId(),
           name: HomeName(e.homeName),
+          homeDevicesUserId: HomeDevicesUserId(),
           homeDevicesUserEmail: HomeDevicesUserEmail(e.devicesEmail),
           homeDevicesUserPassword: HomeDevicesUserPassword(),
         );

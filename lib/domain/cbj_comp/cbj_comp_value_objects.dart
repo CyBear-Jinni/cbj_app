@@ -179,3 +179,18 @@ class CBJCompUuid extends CBJCompValueObjectAbstract<String> {
 
   const CBJCompUuid._(this.value);
 }
+
+class CBJCompLastKnownIp extends CBJCompValueObjectAbstract<String> {
+  @override
+  final Either<CBJCompFailure<String>, String> value;
+
+  factory CBJCompLastKnownIp(String input) {
+    assert(input != null);
+    return CBJCompLastKnownIp._(
+      validateCBJCompNotEmpty(input)
+          .flatMap((a) => validateCBJCompTypeExist(input)),
+    );
+  }
+
+  const CBJCompLastKnownIp._(this.value);
+}

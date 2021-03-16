@@ -39,7 +39,7 @@ class JoinHomeByIdWidget extends StatelessWidget {
             FlatButton(
               color: Colors.green,
               onPressed: () async {
-                String fromClipboard = await FlutterClipboard.paste();
+                final String fromClipboard = await FlutterClipboard.paste();
 
                 context
                     .read<JoinHomeByIdBloc>()

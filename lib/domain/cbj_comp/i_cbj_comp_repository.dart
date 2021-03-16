@@ -20,5 +20,8 @@ abstract class ICBJCompRepository {
 
   Future<Either<CBJCompFailure, Unit>> create(CBJCompEntity cBJCompEntity);
 
-  Future<Either<CBJCompFailure, Unit>> update(CBJCompEntity cBJCompEntity);
+  Future<Either<CBJCompFailure, Unit>> updateCompInfo(CBJCompEntity compEntity);
+
+  Future<Either<CBJCompFailure, Unit>> setFirebaseAccountInformation(
+      CBJCompEntity compEntity);
 }

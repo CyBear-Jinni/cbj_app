@@ -11,7 +11,7 @@ abstract class ManageNetworkEntity implements _$ManageNetworkEntity {
 
   const factory ManageNetworkEntity({
     @required ManageWiFiName name,
-    ManageWiFiPass passpass,
+    ManageWiFiPass pass,
   }) = _ManageNetworkEntity;
 
   factory ManageNetworkEntity.empty() => ManageNetworkEntity(

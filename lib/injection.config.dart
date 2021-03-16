@@ -15,6 +15,7 @@ import 'infrastructure/add_user_to_home/add_user_to_home_reposityory.dart';
 import 'application/auth/auth_bloc.dart';
 import 'application/cbj_comp/cbj_comp_bloc.dart';
 import 'infrastructure/cbj_comp/cbj_comp_repository.dart';
+import 'application/configure_new_cbj_comp/configure_new_cbj_comp_bloc.dart';
 import 'application/create_home/create_home_bloc.dart';
 import 'infrastructure/create_home/create_home_repository.dart';
 import 'application/devices/device_actor/device_actor_bloc.dart';
@@ -99,6 +100,8 @@ GetIt $initGetIt(
       () => AddUserToHomeBloc(get<IAddUserToHomeRepository>()));
   gh.factory<AuthBloc>(() => AuthBloc(get<IAuthFacade>()));
   gh.factory<CBJCompBloc>(() => CBJCompBloc(get<ICBJCompRepository>()));
+  gh.factory<ConfigureNewCbjCompBloc>(() => ConfigureNewCbjCompBloc(
+      get<IDeviceRepository>(), get<ICBJCompRepository>()));
   gh.factory<CreateHomeBloc>(
       () => CreateHomeBloc(get<ICreateHomeRepository>()));
   gh.factory<DeviceActorBloc>(() => DeviceActorBloc(get<IDeviceRepository>()));

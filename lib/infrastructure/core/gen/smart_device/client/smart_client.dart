@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:cybear_jinni/domain/auth/i_auth_facade.dart';
 import 'package:cybear_jinni/domain/core/errors.dart';
+import 'package:cybear_jinni/domain/create_home/i_create_home_repository.dart';
+import 'package:cybear_jinni/domain/user/user_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/constant_credentials.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_as_dart/smart_connection.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_device_object.dart';
@@ -31,15 +33,32 @@ class SmartClient {
     return CompInfo();
   }
 
-  static Future<String> setFirebaseAccountInformationFlutter(
-      SmartDeviceObject smartDeviceObject) async {
-    channel = await createSmartServerClient(smartDeviceObject.ip);
+  static Future<CommendStatus> setCompInfo(
+      String compIp, CompInfo compInfo) async {
+    channel = await createSmartServerClient(compIp);
+    stub = SmartServerClient(channel);
+
+    CommendStatus response;
+    try {
+      response = await stub.setCompInfo(compInfo);
+      await channel.shutdown();
+      return response;
+    } catch (e) {
+      print('Caught error: $e');
+    }
+    await channel.shutdown();
+    return CommendStatus(success: false);
+  }
+
+  static Future<CommendStatus> setFirebaseAccountInformationFlutter(
+      String lastKnownIp, UserEntity smartDeviceUser) async {
+    channel = await createSmartServerClient(lastKnownIp);
     stub = SmartServerClient(channel);
 
     final String fireBaseProjectId = ConstantCredentials.fireBaseProjectId;
     final String fireBaseApiKey = ConstantCredentials.fireBaseApiKey;
-    final String userEmail = ConstantCredentials.userEmail;
-    final String userPassword = ConstantCredentials.userPassword;
+    final String userEmail = smartDeviceUser.email.getOrCrash();
+    final String userPassword = smartDeviceUser.pass.getOrCrash();
     final String homeId = (await getIt<IAuthFacade>().getCurrentHome())
         .getOrElse(() => throw MissingCurrentHomeError())
         .id
@@ -57,12 +76,12 @@ class SmartClient {
       print(
           'Firebase account information client received: ${response.success}');
       await channel.shutdown();
-      return response.success.toString();
+      return response;
     } catch (e) {
       print('Caught error: $e');
     }
     await channel.shutdown();
-    return 'error';
+    return CommendStatus()..success = false;
   }
 
   ///  Get the status of smart device
@@ -86,7 +105,12 @@ class SmartClient {
 
   static Future<String> updateDeviceName(
       SmartDeviceObject smartDeviceObject, String newName) async {
-    setFirebaseAccountInformationFlutter(smartDeviceObject);
+    final UserEntity deviceUser =
+        (await getIt<ICreateHomeRepository>().getDeviceUserFromHome())
+            .getOrElse(() => throw "Device user can't be found");
+
+    await setFirebaseAccountInformationFlutter(
+        smartDeviceObject.ip, deviceUser);
 
     channel = await createSmartServerClient(smartDeviceObject.ip);
     stub = SmartServerClient(channel);

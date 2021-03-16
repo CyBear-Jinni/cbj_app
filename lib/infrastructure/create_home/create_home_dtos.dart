@@ -13,6 +13,7 @@ abstract class CreateHomeDtos implements _$CreateHomeDtos {
   const factory CreateHomeDtos({
     @JsonKey(ignore: true) String id,
     @JsonKey(ignore: true) String name,
+    @required String homeDevicesUserId,
     @required String homeDevicesUserEmail,
     @required String homeDevicesUserPassword,
     @required @ServerTimestampConverter() FieldValue serverTimeStamp,
@@ -20,6 +21,7 @@ abstract class CreateHomeDtos implements _$CreateHomeDtos {
 
   factory CreateHomeDtos.fromDomain(CreateHomeEntity createHomeEntity) {
     return CreateHomeDtos(
+      homeDevicesUserId: createHomeEntity.homeDevicesUserId.getOrCrash(),
       homeDevicesUserEmail: createHomeEntity.homeDevicesUserEmail.getOrCrash(),
       homeDevicesUserPassword:
           createHomeEntity.homeDevicesUserPassword.getOrCrash(),
@@ -31,6 +33,7 @@ abstract class CreateHomeDtos implements _$CreateHomeDtos {
     return CreateHomeEntity(
       name: HomeName(' '),
       id: HomeUniqueId.fromUniqueString(' '),
+      homeDevicesUserId: HomeDevicesUserId(),
       homeDevicesUserEmail: HomeDevicesUserEmail(homeDevicesUserEmail),
       homeDevicesUserPassword:
           HomeDevicesUserPassword.fromUniqueString(homeDevicesUserPassword),

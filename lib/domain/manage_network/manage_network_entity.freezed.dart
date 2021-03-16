@@ -15,10 +15,10 @@ class _$ManageNetworkEntityTearOff {
 
 // ignore: unused_element
   _ManageNetworkEntity call(
-      {@required ManageWiFiName name, ManageWiFiPass passpass}) {
+      {@required ManageWiFiName name, ManageWiFiPass pass}) {
     return _ManageNetworkEntity(
       name: name,
-      passpass: passpass,
+      pass: pass,
     );
   }
 }
@@ -30,7 +30,7 @@ const $ManageNetworkEntity = _$ManageNetworkEntityTearOff();
 /// @nodoc
 mixin _$ManageNetworkEntity {
   ManageWiFiName get name;
-  ManageWiFiPass get passpass;
+  ManageWiFiPass get pass;
 
   @JsonKey(ignore: true)
   $ManageNetworkEntityCopyWith<ManageNetworkEntity> get copyWith;
@@ -41,7 +41,7 @@ abstract class $ManageNetworkEntityCopyWith<$Res> {
   factory $ManageNetworkEntityCopyWith(
           ManageNetworkEntity value, $Res Function(ManageNetworkEntity) then) =
       _$ManageNetworkEntityCopyWithImpl<$Res>;
-  $Res call({ManageWiFiName name, ManageWiFiPass passpass});
+  $Res call({ManageWiFiName name, ManageWiFiPass pass});
 }
 
 /// @nodoc
@@ -56,12 +56,11 @@ class _$ManageNetworkEntityCopyWithImpl<$Res>
   @override
   $Res call({
     Object name = freezed,
-    Object passpass = freezed,
+    Object pass = freezed,
   }) {
     return _then(_value.copyWith(
       name: name == freezed ? _value.name : name as ManageWiFiName,
-      passpass:
-          passpass == freezed ? _value.passpass : passpass as ManageWiFiPass,
+      pass: pass == freezed ? _value.pass : pass as ManageWiFiPass,
     ));
   }
 }
@@ -73,7 +72,7 @@ abstract class _$ManageNetworkEntityCopyWith<$Res>
           $Res Function(_ManageNetworkEntity) then) =
       __$ManageNetworkEntityCopyWithImpl<$Res>;
   @override
-  $Res call({ManageWiFiName name, ManageWiFiPass passpass});
+  $Res call({ManageWiFiName name, ManageWiFiPass pass});
 }
 
 /// @nodoc
@@ -90,30 +89,29 @@ class __$ManageNetworkEntityCopyWithImpl<$Res>
   @override
   $Res call({
     Object name = freezed,
-    Object passpass = freezed,
+    Object pass = freezed,
   }) {
     return _then(_ManageNetworkEntity(
       name: name == freezed ? _value.name : name as ManageWiFiName,
-      passpass:
-          passpass == freezed ? _value.passpass : passpass as ManageWiFiPass,
+      pass: pass == freezed ? _value.pass : pass as ManageWiFiPass,
     ));
   }
 }
 
 /// @nodoc
 class _$_ManageNetworkEntity extends _ManageNetworkEntity {
-  const _$_ManageNetworkEntity({@required this.name, this.passpass})
+  const _$_ManageNetworkEntity({@required this.name, this.pass})
       : assert(name != null),
         super._();
 
   @override
   final ManageWiFiName name;
   @override
-  final ManageWiFiPass passpass;
+  final ManageWiFiPass pass;
 
   @override
   String toString() {
-    return 'ManageNetworkEntity(name: $name, passpass: $passpass)';
+    return 'ManageNetworkEntity(name: $name, pass: $pass)';
   }
 
   @override
@@ -122,16 +120,15 @@ class _$_ManageNetworkEntity extends _ManageNetworkEntity {
         (other is _ManageNetworkEntity &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
-            (identical(other.passpass, passpass) ||
-                const DeepCollectionEquality()
-                    .equals(other.passpass, passpass)));
+            (identical(other.pass, pass) ||
+                const DeepCollectionEquality().equals(other.pass, pass)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(passpass);
+      const DeepCollectionEquality().hash(pass);
 
   @JsonKey(ignore: true)
   @override
@@ -144,12 +141,12 @@ abstract class _ManageNetworkEntity extends ManageNetworkEntity {
   const _ManageNetworkEntity._() : super._();
   const factory _ManageNetworkEntity(
       {@required ManageWiFiName name,
-      ManageWiFiPass passpass}) = _$_ManageNetworkEntity;
+      ManageWiFiPass pass}) = _$_ManageNetworkEntity;
 
   @override
   ManageWiFiName get name;
   @override
-  ManageWiFiPass get passpass;
+  ManageWiFiPass get pass;
   @override
   @JsonKey(ignore: true)
   _$ManageNetworkEntityCopyWith<_ManageNetworkEntity> get copyWith;
