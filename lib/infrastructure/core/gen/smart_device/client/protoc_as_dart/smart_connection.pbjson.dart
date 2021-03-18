@@ -2,7 +2,7 @@
 //  Generated code. Do not modify.
 //  source: smart_connection.proto
 //
-// @dart = 2.7
+// @dart = 2.12
 // ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields,deprecated_member_use_from_same_package
 
 import 'dart:core' as $core;
@@ -51,6 +51,17 @@ const DeviceStateGRPC$json = const {
 
 /// Descriptor for `DeviceStateGRPC`. Decode as a `google.protobuf.EnumDescriptorProto`.
 final $typed_data.Uint8List deviceStateGRPCDescriptor = $convert.base64Decode('Cg9EZXZpY2VTdGF0ZUdSUEMSFQoRU3RhdGVOb3RTdXBwb3J0ZWQQABIYChRjYW5jZWxTdGF0ZUluUHJvY2VzcxABEgcKA2FjaxACEhIKDm5ld1N0YXRlRmFpbGVkEAMSFQoRd2FpdGluZ0luRmlyZWJhc2UQBBIRCg13YWl0aW5nSW5Db21wEAU=');
+@$core.Deprecated('Use firstSetupMessageDescriptor instead')
+const FirstSetupMessage$json = const {
+  '1': 'FirstSetupMessage',
+  '2': const [
+    const {'1': 'compInfo', '3': 38, '4': 1, '5': 11, '6': '.SmartConnection.CompInfo', '10': 'compInfo'},
+    const {'1': 'firebaseAccountInformation', '3': 39, '4': 1, '5': 11, '6': '.SmartConnection.FirebaseAccountInformation', '10': 'firebaseAccountInformation'},
+  ],
+};
+
+/// Descriptor for `FirstSetupMessage`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List firstSetupMessageDescriptor = $convert.base64Decode('ChFGaXJzdFNldHVwTWVzc2FnZRI1Cghjb21wSW5mbxgmIAEoCzIZLlNtYXJ0Q29ubmVjdGlvbi5Db21wSW5mb1IIY29tcEluZm8SawoaZmlyZWJhc2VBY2NvdW50SW5mb3JtYXRpb24YJyABKAsyKy5TbWFydENvbm5lY3Rpb24uRmlyZWJhc2VBY2NvdW50SW5mb3JtYXRpb25SGmZpcmViYXNlQWNjb3VudEluZm9ybWF0aW9u');
 @$core.Deprecated('Use compInfoDescriptor instead')
 const CompInfo$json = const {
   '1': 'CompInfo',

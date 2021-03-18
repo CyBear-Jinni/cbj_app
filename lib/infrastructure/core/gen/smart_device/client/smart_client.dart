@@ -33,6 +33,23 @@ class SmartClient {
     return CompInfo();
   }
 
+  static Future<CommendStatus> compFirstSetup(
+      String compIp, FirstSetupMessage firstSetupMessage) async {
+    channel = await createSmartServerClient(compIp);
+    stub = SmartServerClient(channel);
+
+    CommendStatus response;
+    try {
+      response = await stub.firstSetup(firstSetupMessage);
+      await channel.shutdown();
+      return response;
+    } catch (e) {
+      print('Caught error: $e');
+    }
+    await channel.shutdown();
+    return CommendStatus(success: false);
+  }
+
   static Future<CommendStatus> setCompInfo(
       String compIp, CompInfo compInfo) async {
     channel = await createSmartServerClient(compIp);

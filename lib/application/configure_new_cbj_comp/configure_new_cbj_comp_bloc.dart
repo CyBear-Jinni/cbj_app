@@ -48,7 +48,15 @@ class ConfigureNewCbjCompBloc
         );
         progressPercent += 0.1;
         yield ConfigureNewCbjCompState.actionInProgress(progressPercent);
-        add(ConfigureNewCbjCompEvent.saveDevicesToCloud(compUpdatedData));
+
+        final bool error = await InitialNewDevice(compUpdatedData);
+        if (!error) {
+          progressPercent += 0.1;
+          yield ConfigureNewCbjCompState.actionInProgress(progressPercent);
+          add(ConfigureNewCbjCompEvent.saveDevicesToCloud(compUpdatedData));
+        } else {
+          yield const ConfigureNewCbjCompState.errorInProcess();
+        }
       },
       saveDevicesToCloud: (_SaveDevicesToCloud value) async* {
         final CBJCompEntity compUpdatedData = value.cBJCompEntity;
@@ -128,34 +136,49 @@ class ConfigureNewCbjCompBloc
       sendHotSpotInformation: (_SendHotSpotInformation value) async* {},
     );
   }
-}
 
-/// Organize all the data from the text fields to updated CBJCompEntity
-CBJCompEntity newCBJCompEntity(CBJCompEntity cbjCompEntity,
-    Map<String, TextEditingController> _textEditingController) {
-  final String deviceNameFieldKey =
-      ConfigureNewCbjCompWidgets.deviceNameFieldKey;
-  final List<DeviceEntity> deviceEntityList = [];
+  /// Organize all the data from the text fields to updated CBJCompEntity
+  CBJCompEntity newCBJCompEntity(CBJCompEntity cbjCompEntity,
+      Map<String, TextEditingController> _textEditingController) {
+    final String deviceNameFieldKey =
+        ConfigureNewCbjCompWidgets.deviceNameFieldKey;
+    final List<DeviceEntity> deviceEntityList = [];
 
-  final String roomUuid = Uuid().v1();
+    final String roomUuid = Uuid().v1();
 
-  cbjCompEntity.cBJCompDevices.getOrCrash().asList().forEach((deviceE) {
-    try {
-      final String deviceName = _textEditingController[
-              '$deviceNameFieldKey/${deviceE.id.getOrCrash()}']
-          .text;
-      deviceEntityList.add(
-        deviceE.copyWith(
-          defaultName: DeviceDefaultName(deviceName),
-          roomId: DeviceUniqueId.fromUniqueString(roomUuid),
-        ),
-      );
-    } catch (e) {
-      print("Can't add unsupported device");
-    }
-  });
-  final CBJCompEntity compUpdatedData = cbjCompEntity.copyWith(
-      cBJCompDevices: CBJCompDevices(deviceEntityList.toImmutableList()));
+    cbjCompEntity.cBJCompDevices.getOrCrash().asList().forEach((deviceE) {
+      try {
+        final String deviceName = _textEditingController[
+                '$deviceNameFieldKey/${deviceE.id.getOrCrash()}']
+            .text;
+        deviceEntityList.add(
+          deviceE.copyWith(
+            defaultName: DeviceDefaultName(deviceName),
+            roomId: DeviceUniqueId.fromUniqueString(roomUuid),
+          ),
+        );
+      } catch (e) {
+        print("Can't add unsupported device");
+      }
+    });
+    final CBJCompEntity compUpdatedData = cbjCompEntity.copyWith(
+        cBJCompDevices: CBJCompDevices(deviceEntityList.toImmutableList()));
 
-  return compUpdatedData;
+    return compUpdatedData;
+  }
+
+  Future<bool> InitialNewDevice(CBJCompEntity compUpdatedData) async {
+    bool error = false;
+
+    final Either<CBJCompFailure, Unit> updateAllDevices =
+        await _cBJCompRepository.firstSetup(compUpdatedData);
+
+    updateAllDevices.fold(
+      (l) {
+        error = true;
+      },
+      (r) {},
+    );
+    return error;
+  }
 }

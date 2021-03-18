@@ -2,7 +2,7 @@
 //  Generated code. Do not modify.
 //  source: smart_connection.proto
 //
-// @dart = 2.7
+// @dart = 2.12
 // ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
 
 import 'dart:async' as $async;
@@ -14,6 +14,11 @@ import 'smart_connection.pb.dart' as $0;
 export 'smart_connection.pb.dart';
 
 class SmartServerClient extends $grpc.Client {
+  static final _$firstSetup =
+      $grpc.ClientMethod<$0.FirstSetupMessage, $0.CommendStatus>(
+          '/SmartConnection.SmartServer/FirstSetup',
+          ($0.FirstSetupMessage value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) => $0.CommendStatus.fromBuffer(value));
   static final _$getCompInfo =
       $grpc.ClientMethod<$0.CommendStatus, $0.CompInfo>(
           '/SmartConnection.SmartServer/GetCompInfo',
@@ -67,64 +72,70 @@ class SmartServerClient extends $grpc.Client {
           ($core.List<$core.int> value) => $0.CommendStatus.fromBuffer(value));
 
   SmartServerClient($grpc.ClientChannel channel,
-      {$grpc.CallOptions options,
-      $core.Iterable<$grpc.ClientInterceptor> interceptors})
+      {$grpc.CallOptions? options,
+      $core.Iterable<$grpc.ClientInterceptor>? interceptors})
       : super(channel, options: options, interceptors: interceptors);
 
+  $grpc.ResponseFuture<$0.CommendStatus> firstSetup(
+      $0.FirstSetupMessage request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$firstSetup, request, options: options);
+  }
+
   $grpc.ResponseFuture<$0.CompInfo> getCompInfo($0.CommendStatus request,
-      {$grpc.CallOptions options}) {
+      {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getCompInfo, request, options: options);
   }
 
   $grpc.ResponseFuture<$0.CommendStatus> setCompInfo($0.CompInfo request,
-      {$grpc.CallOptions options}) {
+      {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$setCompInfo, request, options: options);
   }
 
   $grpc.ResponseFuture<$0.CommendStatus> setFirebaseAccountInformation(
       $0.FirebaseAccountInformation request,
-      {$grpc.CallOptions options}) {
+      {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$setFirebaseAccountInformation, request,
         options: options);
   }
 
   $grpc.ResponseFuture<$0.SmartDeviceStatus> getStatus(
       $0.SmartDeviceInfo request,
-      {$grpc.CallOptions options}) {
+      {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getStatus, request, options: options);
   }
 
   $grpc.ResponseFuture<$0.CommendStatus> updateDeviceName(
       $0.SmartDeviceUpdateDetails request,
-      {$grpc.CallOptions options}) {
+      {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$updateDeviceName, request, options: options);
   }
 
   $grpc.ResponseFuture<$0.CommendStatus> setOnDevice($0.SmartDeviceInfo request,
-      {$grpc.CallOptions options}) {
+      {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$setOnDevice, request, options: options);
   }
 
   $grpc.ResponseFuture<$0.CommendStatus> setOffDevice(
       $0.SmartDeviceInfo request,
-      {$grpc.CallOptions options}) {
+      {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$setOffDevice, request, options: options);
   }
 
   $grpc.ResponseFuture<$0.CommendStatus> setBlindsUp($0.SmartDeviceInfo request,
-      {$grpc.CallOptions options}) {
+      {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$setBlindsUp, request, options: options);
   }
 
   $grpc.ResponseFuture<$0.CommendStatus> setBlindsDown(
       $0.SmartDeviceInfo request,
-      {$grpc.CallOptions options}) {
+      {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$setBlindsDown, request, options: options);
   }
 
   $grpc.ResponseFuture<$0.CommendStatus> setBlindsStop(
       $0.SmartDeviceInfo request,
-      {$grpc.CallOptions options}) {
+      {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$setBlindsStop, request, options: options);
   }
 }
@@ -133,6 +144,13 @@ abstract class SmartServerServiceBase extends $grpc.Service {
   $core.String get $name => 'SmartConnection.SmartServer';
 
   SmartServerServiceBase() {
+    $addMethod($grpc.ServiceMethod<$0.FirstSetupMessage, $0.CommendStatus>(
+        'FirstSetup',
+        firstSetup_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.FirstSetupMessage.fromBuffer(value),
+        ($0.CommendStatus value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.CommendStatus, $0.CompInfo>(
         'GetCompInfo',
         getCompInfo_Pre,
@@ -209,6 +227,11 @@ abstract class SmartServerServiceBase extends $grpc.Service {
         ($0.CommendStatus value) => value.writeToBuffer()));
   }
 
+  $async.Future<$0.CommendStatus> firstSetup_Pre($grpc.ServiceCall call,
+      $async.Future<$0.FirstSetupMessage> request) async {
+    return firstSetup(call, await request);
+  }
+
   $async.Future<$0.CompInfo> getCompInfo_Pre(
       $grpc.ServiceCall call, $async.Future<$0.CommendStatus> request) async {
     return getCompInfo(call, await request);
@@ -260,6 +283,8 @@ abstract class SmartServerServiceBase extends $grpc.Service {
     return setBlindsStop(call, await request);
   }
 
+  $async.Future<$0.CommendStatus> firstSetup(
+      $grpc.ServiceCall call, $0.FirstSetupMessage request);
   $async.Future<$0.CompInfo> getCompInfo(
       $grpc.ServiceCall call, $0.CommendStatus request);
   $async.Future<$0.CommendStatus> setCompInfo(

@@ -2,7 +2,7 @@
 //  Generated code. Do not modify.
 //  source: smart_connection.proto
 //
-// @dart = 2.7
+// @dart = 2.12
 // ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
 
 import 'dart:core' as $core;
@@ -13,6 +13,71 @@ import 'smart_connection.pbenum.dart';
 
 export 'smart_connection.pbenum.dart';
 
+class FirstSetupMessage extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'FirstSetupMessage', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SmartConnection'), createEmptyInstance: create)
+    ..aOM<CompInfo>(38, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'compInfo', protoName: 'compInfo', subBuilder: CompInfo.create)
+    ..aOM<FirebaseAccountInformation>(39, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'firebaseAccountInformation', protoName: 'firebaseAccountInformation', subBuilder: FirebaseAccountInformation.create)
+    ..hasRequiredFields = false
+  ;
+
+  FirstSetupMessage._() : super();
+  factory FirstSetupMessage({
+    CompInfo? compInfo,
+    FirebaseAccountInformation? firebaseAccountInformation,
+  }) {
+    final _result = create();
+    if (compInfo != null) {
+      _result.compInfo = compInfo;
+    }
+    if (firebaseAccountInformation != null) {
+      _result.firebaseAccountInformation = firebaseAccountInformation;
+    }
+    return _result;
+  }
+  factory FirstSetupMessage.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory FirstSetupMessage.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  FirstSetupMessage clone() => FirstSetupMessage()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  FirstSetupMessage copyWith(void Function(FirstSetupMessage) updates) => super.copyWith((message) => updates(message as FirstSetupMessage)) as FirstSetupMessage; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static FirstSetupMessage create() => FirstSetupMessage._();
+  FirstSetupMessage createEmptyInstance() => create();
+  static $pb.PbList<FirstSetupMessage> createRepeated() => $pb.PbList<FirstSetupMessage>();
+  @$core.pragma('dart2js:noInline')
+  static FirstSetupMessage getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<FirstSetupMessage>(create);
+  static FirstSetupMessage? _defaultInstance;
+
+  @$pb.TagNumber(38)
+  CompInfo get compInfo => $_getN(0);
+  @$pb.TagNumber(38)
+  set compInfo(CompInfo v) { setField(38, v); }
+  @$pb.TagNumber(38)
+  $core.bool hasCompInfo() => $_has(0);
+  @$pb.TagNumber(38)
+  void clearCompInfo() => clearField(38);
+  @$pb.TagNumber(38)
+  CompInfo ensureCompInfo() => $_ensure(0);
+
+  @$pb.TagNumber(39)
+  FirebaseAccountInformation get firebaseAccountInformation => $_getN(1);
+  @$pb.TagNumber(39)
+  set firebaseAccountInformation(FirebaseAccountInformation v) { setField(39, v); }
+  @$pb.TagNumber(39)
+  $core.bool hasFirebaseAccountInformation() => $_has(1);
+  @$pb.TagNumber(39)
+  void clearFirebaseAccountInformation() => clearField(39);
+  @$pb.TagNumber(39)
+  FirebaseAccountInformation ensureFirebaseAccountInformation() => $_ensure(1);
+}
+
 class CompInfo extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CompInfo', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SmartConnection'), createEmptyInstance: create)
     ..aOM<CompSpecs>(21, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'compSpecs', protoName: 'compSpecs', subBuilder: CompSpecs.create)
@@ -22,8 +87,8 @@ class CompInfo extends $pb.GeneratedMessage {
 
   CompInfo._() : super();
   factory CompInfo({
-    CompSpecs compSpecs,
-    $core.Iterable<SmartDeviceInfo> smartDevicesInComp,
+    CompSpecs? compSpecs,
+    $core.Iterable<SmartDeviceInfo>? smartDevicesInComp,
   }) {
     final _result = create();
     if (compSpecs != null) {
@@ -53,7 +118,7 @@ class CompInfo extends $pb.GeneratedMessage {
   static $pb.PbList<CompInfo> createRepeated() => $pb.PbList<CompInfo>();
   @$core.pragma('dart2js:noInline')
   static CompInfo getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CompInfo>(create);
-  static CompInfo _defaultInstance;
+  static CompInfo? _defaultInstance;
 
   @$pb.TagNumber(21)
   CompSpecs get compSpecs => $_getN(0);
@@ -83,12 +148,12 @@ class CompSpecs extends $pb.GeneratedMessage {
 
   CompSpecs._() : super();
   factory CompSpecs({
-    $core.String compId,
-    $core.String compUuid,
-    $core.String compOs,
-    $core.String compModel,
-    $core.String compType,
-    $core.String pubspecYamlVersion,
+    $core.String? compId,
+    $core.String? compUuid,
+    $core.String? compOs,
+    $core.String? compModel,
+    $core.String? compType,
+    $core.String? pubspecYamlVersion,
   }) {
     final _result = create();
     if (compId != null) {
@@ -130,7 +195,7 @@ class CompSpecs extends $pb.GeneratedMessage {
   static $pb.PbList<CompSpecs> createRepeated() => $pb.PbList<CompSpecs>();
   @$core.pragma('dart2js:noInline')
   static CompSpecs getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CompSpecs>(create);
-  static CompSpecs _defaultInstance;
+  static CompSpecs? _defaultInstance;
 
   @$pb.TagNumber(22)
   $core.String get compId => $_getSZ(0);
@@ -197,9 +262,9 @@ class MicrocontrollerSpecs extends $pb.GeneratedMessage {
 
   MicrocontrollerSpecs._() : super();
   factory MicrocontrollerSpecs({
-    $core.String microcontrollerModel,
-    $core.String microcontrollerType,
-    $core.String softwareVersion,
+    $core.String? microcontrollerModel,
+    $core.String? microcontrollerType,
+    $core.String? softwareVersion,
   }) {
     final _result = create();
     if (microcontrollerModel != null) {
@@ -232,7 +297,7 @@ class MicrocontrollerSpecs extends $pb.GeneratedMessage {
   static $pb.PbList<MicrocontrollerSpecs> createRepeated() => $pb.PbList<MicrocontrollerSpecs>();
   @$core.pragma('dart2js:noInline')
   static MicrocontrollerSpecs getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<MicrocontrollerSpecs>(create);
-  static MicrocontrollerSpecs _defaultInstance;
+  static MicrocontrollerSpecs? _defaultInstance;
 
   @$pb.TagNumber(31)
   $core.String get microcontrollerModel => $_getSZ(0);
@@ -282,19 +347,19 @@ class SmartDeviceInfo extends $pb.GeneratedMessage {
 
   SmartDeviceInfo._() : super();
   factory SmartDeviceInfo({
-    $core.String id,
-    $core.String state,
-    $core.String defaultName,
-    $core.String roomId,
-    $core.String senderDeviceModel,
-    $core.String senderDeviceOs,
-    $core.String senderId,
-    $core.String serverTimeStamp,
-    $core.String stateMassage,
-    $core.bool isComputer,
-    CompSpecs compSpecs,
-    MicrocontrollerSpecs microcontrollerSpecsSpecs,
-    DeviceTypesActions deviceTypesActions,
+    $core.String? id,
+    $core.String? state,
+    $core.String? defaultName,
+    $core.String? roomId,
+    $core.String? senderDeviceModel,
+    $core.String? senderDeviceOs,
+    $core.String? senderId,
+    $core.String? serverTimeStamp,
+    $core.String? stateMassage,
+    $core.bool? isComputer,
+    CompSpecs? compSpecs,
+    MicrocontrollerSpecs? microcontrollerSpecsSpecs,
+    DeviceTypesActions? deviceTypesActions,
   }) {
     final _result = create();
     if (id != null) {
@@ -357,7 +422,7 @@ class SmartDeviceInfo extends $pb.GeneratedMessage {
   static $pb.PbList<SmartDeviceInfo> createRepeated() => $pb.PbList<SmartDeviceInfo>();
   @$core.pragma('dart2js:noInline')
   static SmartDeviceInfo getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SmartDeviceInfo>(create);
-  static SmartDeviceInfo _defaultInstance;
+  static SmartDeviceInfo? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get id => $_getSZ(0);
@@ -491,7 +556,7 @@ class SmartDeviceStatus extends $pb.GeneratedMessage {
 
   SmartDeviceStatus._() : super();
   factory SmartDeviceStatus({
-    $core.bool onOffState,
+    $core.bool? onOffState,
   }) {
     final _result = create();
     if (onOffState != null) {
@@ -518,7 +583,7 @@ class SmartDeviceStatus extends $pb.GeneratedMessage {
   static $pb.PbList<SmartDeviceStatus> createRepeated() => $pb.PbList<SmartDeviceStatus>();
   @$core.pragma('dart2js:noInline')
   static SmartDeviceStatus getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SmartDeviceStatus>(create);
-  static SmartDeviceStatus _defaultInstance;
+  static SmartDeviceStatus? _defaultInstance;
 
   @$pb.TagNumber(4)
   $core.bool get onOffState => $_getBF(0);
@@ -538,7 +603,7 @@ class CommendStatus extends $pb.GeneratedMessage {
 
   CommendStatus._() : super();
   factory CommendStatus({
-    $core.bool success,
+    $core.bool? success,
   }) {
     final _result = create();
     if (success != null) {
@@ -565,7 +630,7 @@ class CommendStatus extends $pb.GeneratedMessage {
   static $pb.PbList<CommendStatus> createRepeated() => $pb.PbList<CommendStatus>();
   @$core.pragma('dart2js:noInline')
   static CommendStatus getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CommendStatus>(create);
-  static CommendStatus _defaultInstance;
+  static CommendStatus? _defaultInstance;
 
   @$pb.TagNumber(5)
   $core.bool get success => $_getBF(0);
@@ -586,8 +651,8 @@ class SmartDeviceUpdateDetails extends $pb.GeneratedMessage {
 
   SmartDeviceUpdateDetails._() : super();
   factory SmartDeviceUpdateDetails({
-    SmartDeviceInfo smartDevice,
-    $core.String newName,
+    SmartDeviceInfo? smartDevice,
+    $core.String? newName,
   }) {
     final _result = create();
     if (smartDevice != null) {
@@ -617,7 +682,7 @@ class SmartDeviceUpdateDetails extends $pb.GeneratedMessage {
   static $pb.PbList<SmartDeviceUpdateDetails> createRepeated() => $pb.PbList<SmartDeviceUpdateDetails>();
   @$core.pragma('dart2js:noInline')
   static SmartDeviceUpdateDetails getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SmartDeviceUpdateDetails>(create);
-  static SmartDeviceUpdateDetails _defaultInstance;
+  static SmartDeviceUpdateDetails? _defaultInstance;
 
   @$pb.TagNumber(6)
   SmartDeviceInfo get smartDevice => $_getN(0);
@@ -652,11 +717,11 @@ class FirebaseAccountInformation extends $pb.GeneratedMessage {
 
   FirebaseAccountInformation._() : super();
   factory FirebaseAccountInformation({
-    $core.String fireBaseProjectId,
-    $core.String fireBaseApiKey,
-    $core.String userEmail,
-    $core.String userPassword,
-    $core.String homeId,
+    $core.String? fireBaseProjectId,
+    $core.String? fireBaseApiKey,
+    $core.String? userEmail,
+    $core.String? userPassword,
+    $core.String? homeId,
   }) {
     final _result = create();
     if (fireBaseProjectId != null) {
@@ -695,7 +760,7 @@ class FirebaseAccountInformation extends $pb.GeneratedMessage {
   static $pb.PbList<FirebaseAccountInformation> createRepeated() => $pb.PbList<FirebaseAccountInformation>();
   @$core.pragma('dart2js:noInline')
   static FirebaseAccountInformation getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<FirebaseAccountInformation>(create);
-  static FirebaseAccountInformation _defaultInstance;
+  static FirebaseAccountInformation? _defaultInstance;
 
   @$pb.TagNumber(8)
   $core.String get fireBaseProjectId => $_getSZ(0);
@@ -753,9 +818,9 @@ class DeviceTypesActions extends $pb.GeneratedMessage {
 
   DeviceTypesActions._() : super();
   factory DeviceTypesActions({
-    DeviceTypes deviceType,
-    DeviceActions deviceAction,
-    DeviceStateGRPC deviceStateGRPC,
+    DeviceTypes? deviceType,
+    DeviceActions? deviceAction,
+    DeviceStateGRPC? deviceStateGRPC,
   }) {
     final _result = create();
     if (deviceType != null) {
@@ -788,7 +853,7 @@ class DeviceTypesActions extends $pb.GeneratedMessage {
   static $pb.PbList<DeviceTypesActions> createRepeated() => $pb.PbList<DeviceTypesActions>();
   @$core.pragma('dart2js:noInline')
   static DeviceTypesActions getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DeviceTypesActions>(create);
-  static DeviceTypesActions _defaultInstance;
+  static DeviceTypesActions? _defaultInstance;
 
   @$pb.TagNumber(35)
   DeviceTypes get deviceType => $_getN(0);

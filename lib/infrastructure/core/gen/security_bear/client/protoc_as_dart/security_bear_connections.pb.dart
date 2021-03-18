@@ -2,7 +2,7 @@
 //  Generated code. Do not modify.
 //  source: security_bear_connections.proto
 //
-// @dart = 2.7
+// @dart = 2.12
 // ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
 
 import 'dart:core' as $core;
@@ -18,8 +18,8 @@ class SecurityBearSetup extends $pb.GeneratedMessage {
 
   SecurityBearSetup._() : super();
   factory SecurityBearSetup({
-    WiFiInformation wiFiFirstPriority,
-    WiFiInformation wiFiSecondPriority,
+    WiFiInformation? wiFiFirstPriority,
+    WiFiInformation? wiFiSecondPriority,
   }) {
     final _result = create();
     if (wiFiFirstPriority != null) {
@@ -49,7 +49,7 @@ class SecurityBearSetup extends $pb.GeneratedMessage {
   static $pb.PbList<SecurityBearSetup> createRepeated() => $pb.PbList<SecurityBearSetup>();
   @$core.pragma('dart2js:noInline')
   static SecurityBearSetup getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SecurityBearSetup>(create);
-  static SecurityBearSetup _defaultInstance;
+  static SecurityBearSetup? _defaultInstance;
 
   @$pb.TagNumber(3)
   WiFiInformation get wiFiFirstPriority => $_getN(0);
@@ -83,8 +83,8 @@ class WiFiInformation extends $pb.GeneratedMessage {
 
   WiFiInformation._() : super();
   factory WiFiInformation({
-    $core.String wiFiName,
-    $core.String wiFiPassword,
+    $core.String? wiFiName,
+    $core.String? wiFiPassword,
   }) {
     final _result = create();
     if (wiFiName != null) {
@@ -114,7 +114,7 @@ class WiFiInformation extends $pb.GeneratedMessage {
   static $pb.PbList<WiFiInformation> createRepeated() => $pb.PbList<WiFiInformation>();
   @$core.pragma('dart2js:noInline')
   static WiFiInformation getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<WiFiInformation>(create);
-  static WiFiInformation _defaultInstance;
+  static WiFiInformation? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get wiFiName => $_getSZ(0);
@@ -143,7 +143,7 @@ class SBCommendStatus extends $pb.GeneratedMessage {
 
   SBCommendStatus._() : super();
   factory SBCommendStatus({
-    $core.bool success,
+    $core.bool? success,
   }) {
     final _result = create();
     if (success != null) {
@@ -170,7 +170,7 @@ class SBCommendStatus extends $pb.GeneratedMessage {
   static $pb.PbList<SBCommendStatus> createRepeated() => $pb.PbList<SBCommendStatus>();
   @$core.pragma('dart2js:noInline')
   static SBCommendStatus getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SBCommendStatus>(create);
-  static SBCommendStatus _defaultInstance;
+  static SBCommendStatus? _defaultInstance;
 
   @$pb.TagNumber(5)
   $core.bool get success => $_getBF(0);
@@ -191,8 +191,8 @@ class SBFirebaseAccountAndSecurityBearSetup extends $pb.GeneratedMessage {
 
   SBFirebaseAccountAndSecurityBearSetup._() : super();
   factory SBFirebaseAccountAndSecurityBearSetup({
-    SBFirebaseAccountInformation sBFirebaseAccountInformation,
-    SecurityBearSetup securityBearSetup,
+    SBFirebaseAccountInformation? sBFirebaseAccountInformation,
+    SecurityBearSetup? securityBearSetup,
   }) {
     final _result = create();
     if (sBFirebaseAccountInformation != null) {
@@ -222,7 +222,7 @@ class SBFirebaseAccountAndSecurityBearSetup extends $pb.GeneratedMessage {
   static $pb.PbList<SBFirebaseAccountAndSecurityBearSetup> createRepeated() => $pb.PbList<SBFirebaseAccountAndSecurityBearSetup>();
   @$core.pragma('dart2js:noInline')
   static SBFirebaseAccountAndSecurityBearSetup getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SBFirebaseAccountAndSecurityBearSetup>(create);
-  static SBFirebaseAccountAndSecurityBearSetup _defaultInstance;
+  static SBFirebaseAccountAndSecurityBearSetup? _defaultInstance;
 
   @$pb.TagNumber(10)
   SBFirebaseAccountInformation get sBFirebaseAccountInformation => $_getN(0);
@@ -258,10 +258,10 @@ class SBFirebaseAccountInformation extends $pb.GeneratedMessage {
 
   SBFirebaseAccountInformation._() : super();
   factory SBFirebaseAccountInformation({
-    $core.String fireBaseProjectId,
-    $core.String fireBaseApiKey,
-    $core.String userEmail,
-    $core.String userPassword,
+    $core.String? fireBaseProjectId,
+    $core.String? fireBaseApiKey,
+    $core.String? userEmail,
+    $core.String? userPassword,
   }) {
     final _result = create();
     if (fireBaseProjectId != null) {
@@ -297,7 +297,7 @@ class SBFirebaseAccountInformation extends $pb.GeneratedMessage {
   static $pb.PbList<SBFirebaseAccountInformation> createRepeated() => $pb.PbList<SBFirebaseAccountInformation>();
   @$core.pragma('dart2js:noInline')
   static SBFirebaseAccountInformation getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SBFirebaseAccountInformation>(create);
-  static SBFirebaseAccountInformation _defaultInstance;
+  static SBFirebaseAccountInformation? _defaultInstance;
 
   @$pb.TagNumber(6)
   $core.String get fireBaseProjectId => $_getSZ(0);

@@ -2,16 +2,19 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cybear_jinni/domain/auth/i_auth_facade.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_failures.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_value_objects.dart';
 import 'package:cybear_jinni/domain/cbj_comp/i_cbj_comp_repository.dart';
+import 'package:cybear_jinni/domain/core/errors.dart';
 import 'package:cybear_jinni/domain/create_home/i_create_home_repository.dart';
 import 'package:cybear_jinni/domain/devices/device_entity.dart';
 import 'package:cybear_jinni/domain/devices/value_objects.dart';
 import 'package:cybear_jinni/domain/manage_network/i_manage_network_repository.dart';
 import 'package:cybear_jinni/domain/manage_network/manage_network_entity.dart';
 import 'package:cybear_jinni/domain/user/user_entity.dart';
+import 'package:cybear_jinni/infrastructure/core/constant_credentials.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_app_server/cbj_app_server_d.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_app_server/protoc_as_dart/cbj_app_connections.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/security_bear/client/protoc_as_dart/security_bear_connections.pbgrpc.dart';
@@ -30,6 +33,49 @@ class CBJCompRepository implements ICBJCompRepository {
   Future<Either<CBJCompFailure, Unit>> shutdownServer() async {
     await CreateTheCBJAppServer.shoutDownServer();
     return right(unit);
+  }
+
+  @override
+  Future<Either<CBJCompFailure, Unit>> firstSetup(
+      CBJCompEntity cBJCompEntity) async {
+    try {
+      final CompInfo compInfo = await compEntityToCompInfo(cBJCompEntity);
+
+      final UserEntity deviceUser =
+          (await getIt<ICreateHomeRepository>().getDeviceUserFromHome())
+              .getOrElse(() => throw "Device user can't be found");
+
+      final String fireBaseProjectId = ConstantCredentials.fireBaseProjectId;
+      final String fireBaseApiKey = ConstantCredentials.fireBaseApiKey;
+      final String userEmail = deviceUser.email.getOrCrash();
+      final String userPassword = deviceUser.pass.getOrCrash();
+      final String homeId = (await getIt<IAuthFacade>().getCurrentHome())
+          .getOrElse(() => throw MissingCurrentHomeError())
+          .id
+          .getOrCrash();
+
+      final FirebaseAccountInformation firebaseAccountInformation =
+          FirebaseAccountInformation()
+            ..fireBaseProjectId = fireBaseProjectId
+            ..fireBaseApiKey = fireBaseApiKey
+            ..userEmail = userEmail
+            ..userPassword = userPassword
+            ..homeId = homeId;
+
+      final FirstSetupMessage firstSetupMessage = FirstSetupMessage(
+          compInfo: compInfo,
+          firebaseAccountInformation: firebaseAccountInformation);
+
+      final CommendStatus commendStatus = await SmartClient.compFirstSetup(
+          cBJCompEntity.lastKnownIp.getOrCrash(), firstSetupMessage);
+
+      if (commendStatus.success) {
+        return right(unit);
+      }
+      return left(const CBJCompFailure.unexpected());
+    } catch (e) {
+      return left(const CBJCompFailure.unexpected());
+    }
   }
 
   @override
@@ -104,32 +150,6 @@ class CBJCompRepository implements ICBJCompRepository {
     } catch (e) {
       return left(const CBJCompFailure.unexpected());
     }
-  }
-
-  KtList<DeviceEntity> compDevicesToDevicesList(CompInfo compInfo) {
-    final List<DeviceEntity> deviceEntityList = [];
-
-    for (final SmartDeviceInfo smartDeviceInfo in compInfo.smartDevicesInComp) {
-      final DeviceEntity deviceEntity = DeviceEntity(
-        id: DeviceUniqueId.fromUniqueString(smartDeviceInfo.id),
-        defaultName: DeviceDefaultName(smartDeviceInfo.defaultName),
-        roomId: DeviceUniqueId.fromUniqueString(smartDeviceInfo.roomId),
-        state: DeviceState(
-            smartDeviceInfo.deviceTypesActions.deviceStateGRPC.toString()),
-        stateMassage: DeviceStateMassage(smartDeviceInfo.stateMassage),
-        senderDeviceOs: DeviceSenderDeviceOs(smartDeviceInfo.senderDeviceOs),
-        senderDeviceModel:
-            DeviceSenderDeviceModel(smartDeviceInfo.senderDeviceModel),
-        senderId: DeviceSenderId.fromUniqueString(smartDeviceInfo.senderId),
-        action: DeviceAction(
-            smartDeviceInfo.deviceTypesActions.deviceAction.toString()),
-        type: DeviceType(
-            smartDeviceInfo.deviceTypesActions.deviceType.toString()),
-        compUuid: DeviceCompUuid(smartDeviceInfo.compSpecs.compUuid),
-      );
-      deviceEntityList.add(deviceEntity);
-    }
-    return deviceEntityList.toImmutableList();
   }
 
   @override
@@ -217,5 +237,31 @@ class CBJCompRepository implements ICBJCompRepository {
       smartDevicesInComp: smartDevicesList,
     );
     return compInfo;
+  }
+
+  KtList<DeviceEntity> compDevicesToDevicesList(CompInfo compInfo) {
+    final List<DeviceEntity> deviceEntityList = [];
+
+    for (final SmartDeviceInfo smartDeviceInfo in compInfo.smartDevicesInComp) {
+      final DeviceEntity deviceEntity = DeviceEntity(
+        id: DeviceUniqueId.fromUniqueString(smartDeviceInfo.id),
+        defaultName: DeviceDefaultName(smartDeviceInfo.defaultName),
+        roomId: DeviceUniqueId.fromUniqueString(smartDeviceInfo.roomId),
+        state: DeviceState(
+            smartDeviceInfo.deviceTypesActions.deviceStateGRPC.toString()),
+        stateMassage: DeviceStateMassage(smartDeviceInfo.stateMassage),
+        senderDeviceOs: DeviceSenderDeviceOs(smartDeviceInfo.senderDeviceOs),
+        senderDeviceModel:
+            DeviceSenderDeviceModel(smartDeviceInfo.senderDeviceModel),
+        senderId: DeviceSenderId.fromUniqueString(smartDeviceInfo.senderId),
+        action: DeviceAction(
+            smartDeviceInfo.deviceTypesActions.deviceAction.toString()),
+        type: DeviceType(
+            smartDeviceInfo.deviceTypesActions.deviceType.toString()),
+        compUuid: DeviceCompUuid(smartDeviceInfo.compSpecs.compUuid),
+      );
+      deviceEntityList.add(deviceEntity);
+    }
+    return deviceEntityList.toImmutableList();
   }
 }

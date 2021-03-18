@@ -16,6 +16,8 @@ abstract class ICBJCompRepository {
   Future<Either<CBJCompFailure, CBJCompEntity>> getInformationFromDeviceByIp(
       String compIp);
 
+  Future<Either<CBJCompFailure, Unit>> firstSetup(CBJCompEntity cBJCompEntity);
+
   Future<Either<CBJCompFailure, Unit>> devicesList(CBJCompEntity cBJCompEntity);
 
   Future<Either<CBJCompFailure, Unit>> create(CBJCompEntity cBJCompEntity);

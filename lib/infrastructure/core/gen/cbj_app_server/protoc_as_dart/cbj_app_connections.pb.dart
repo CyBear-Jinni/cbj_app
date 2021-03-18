@@ -2,7 +2,7 @@
 //  Generated code. Do not modify.
 //  source: cbj_app_connections.proto
 //
-// @dart = 2.7
+// @dart = 2.12
 // ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
 
 import 'dart:core' as $core;
@@ -17,7 +17,7 @@ class CompInfoSB extends $pb.GeneratedMessage {
 
   CompInfoSB._() : super();
   factory CompInfoSB({
-    $core.String compIP,
+    $core.String? compIP,
   }) {
     final _result = create();
     if (compIP != null) {
@@ -44,7 +44,7 @@ class CompInfoSB extends $pb.GeneratedMessage {
   static $pb.PbList<CompInfoSB> createRepeated() => $pb.PbList<CompInfoSB>();
   @$core.pragma('dart2js:noInline')
   static CompInfoSB getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CompInfoSB>(create);
-  static CompInfoSB _defaultInstance;
+  static CompInfoSB? _defaultInstance;
 
   @$pb.TagNumber(2)
   $core.String get compIP => $_getSZ(0);
@@ -64,7 +64,7 @@ class CBJCommendStatus extends $pb.GeneratedMessage {
 
   CBJCommendStatus._() : super();
   factory CBJCommendStatus({
-    $core.bool success,
+    $core.bool? success,
   }) {
     final _result = create();
     if (success != null) {
@@ -91,7 +91,7 @@ class CBJCommendStatus extends $pb.GeneratedMessage {
   static $pb.PbList<CBJCommendStatus> createRepeated() => $pb.PbList<CBJCommendStatus>();
   @$core.pragma('dart2js:noInline')
   static CBJCommendStatus getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CBJCommendStatus>(create);
-  static CBJCommendStatus _defaultInstance;
+  static CBJCommendStatus? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.bool get success => $_getBF(0);
