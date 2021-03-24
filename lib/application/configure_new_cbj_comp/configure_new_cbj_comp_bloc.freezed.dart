@@ -1573,6 +1573,11 @@ class _$ConfigureNewCbjCompStateTearOff {
   }
 
 // ignore: unused_element
+  CompleteSuccess completeSuccess() {
+    return const CompleteSuccess();
+  }
+
+// ignore: unused_element
   ErrorInProcess errorInProcess() {
     return const ErrorInProcess();
   }
@@ -1588,12 +1593,14 @@ mixin _$ConfigureNewCbjCompState {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult actionInProgress(double progressPercentage),
+    @required TResult completeSuccess(),
     @required TResult errorInProcess(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult actionInProgress(double progressPercentage),
+    TResult completeSuccess(),
     TResult errorInProcess(),
     @required TResult orElse(),
   });
@@ -1601,12 +1608,14 @@ mixin _$ConfigureNewCbjCompState {
   TResult map<TResult extends Object>({
     @required TResult initial(_Initial value),
     @required TResult actionInProgress(ActionInProgress value),
+    @required TResult completeSuccess(CompleteSuccess value),
     @required TResult errorInProcess(ErrorInProcess value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult initial(_Initial value),
     TResult actionInProgress(ActionInProgress value),
+    TResult completeSuccess(CompleteSuccess value),
     TResult errorInProcess(ErrorInProcess value),
     @required TResult orElse(),
   });
@@ -1668,10 +1677,12 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult actionInProgress(double progressPercentage),
+    @required TResult completeSuccess(),
     @required TResult errorInProcess(),
   }) {
     assert(initial != null);
     assert(actionInProgress != null);
+    assert(completeSuccess != null);
     assert(errorInProcess != null);
     return initial();
   }
@@ -1681,6 +1692,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult actionInProgress(double progressPercentage),
+    TResult completeSuccess(),
     TResult errorInProcess(),
     @required TResult orElse(),
   }) {
@@ -1696,10 +1708,12 @@ class _$_Initial implements _Initial {
   TResult map<TResult extends Object>({
     @required TResult initial(_Initial value),
     @required TResult actionInProgress(ActionInProgress value),
+    @required TResult completeSuccess(CompleteSuccess value),
     @required TResult errorInProcess(ErrorInProcess value),
   }) {
     assert(initial != null);
     assert(actionInProgress != null);
+    assert(completeSuccess != null);
     assert(errorInProcess != null);
     return initial(this);
   }
@@ -1709,6 +1723,7 @@ class _$_Initial implements _Initial {
   TResult maybeMap<TResult extends Object>({
     TResult initial(_Initial value),
     TResult actionInProgress(ActionInProgress value),
+    TResult completeSuccess(CompleteSuccess value),
     TResult errorInProcess(ErrorInProcess value),
     @required TResult orElse(),
   }) {
@@ -1792,10 +1807,12 @@ class _$ActionInProgress implements ActionInProgress {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult actionInProgress(double progressPercentage),
+    @required TResult completeSuccess(),
     @required TResult errorInProcess(),
   }) {
     assert(initial != null);
     assert(actionInProgress != null);
+    assert(completeSuccess != null);
     assert(errorInProcess != null);
     return actionInProgress(progressPercentage);
   }
@@ -1805,6 +1822,7 @@ class _$ActionInProgress implements ActionInProgress {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult actionInProgress(double progressPercentage),
+    TResult completeSuccess(),
     TResult errorInProcess(),
     @required TResult orElse(),
   }) {
@@ -1820,10 +1838,12 @@ class _$ActionInProgress implements ActionInProgress {
   TResult map<TResult extends Object>({
     @required TResult initial(_Initial value),
     @required TResult actionInProgress(ActionInProgress value),
+    @required TResult completeSuccess(CompleteSuccess value),
     @required TResult errorInProcess(ErrorInProcess value),
   }) {
     assert(initial != null);
     assert(actionInProgress != null);
+    assert(completeSuccess != null);
     assert(errorInProcess != null);
     return actionInProgress(this);
   }
@@ -1833,6 +1853,7 @@ class _$ActionInProgress implements ActionInProgress {
   TResult maybeMap<TResult extends Object>({
     TResult initial(_Initial value),
     TResult actionInProgress(ActionInProgress value),
+    TResult completeSuccess(CompleteSuccess value),
     TResult errorInProcess(ErrorInProcess value),
     @required TResult orElse(),
   }) {
@@ -1851,6 +1872,109 @@ abstract class ActionInProgress implements ConfigureNewCbjCompState {
   double get progressPercentage;
   @JsonKey(ignore: true)
   $ActionInProgressCopyWith<ActionInProgress> get copyWith;
+}
+
+/// @nodoc
+abstract class $CompleteSuccessCopyWith<$Res> {
+  factory $CompleteSuccessCopyWith(
+          CompleteSuccess value, $Res Function(CompleteSuccess) then) =
+      _$CompleteSuccessCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$CompleteSuccessCopyWithImpl<$Res>
+    extends _$ConfigureNewCbjCompStateCopyWithImpl<$Res>
+    implements $CompleteSuccessCopyWith<$Res> {
+  _$CompleteSuccessCopyWithImpl(
+      CompleteSuccess _value, $Res Function(CompleteSuccess) _then)
+      : super(_value, (v) => _then(v as CompleteSuccess));
+
+  @override
+  CompleteSuccess get _value => super._value as CompleteSuccess;
+}
+
+/// @nodoc
+class _$CompleteSuccess implements CompleteSuccess {
+  const _$CompleteSuccess();
+
+  @override
+  String toString() {
+    return 'ConfigureNewCbjCompState.completeSuccess()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is CompleteSuccess);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult actionInProgress(double progressPercentage),
+    @required TResult completeSuccess(),
+    @required TResult errorInProcess(),
+  }) {
+    assert(initial != null);
+    assert(actionInProgress != null);
+    assert(completeSuccess != null);
+    assert(errorInProcess != null);
+    return completeSuccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult actionInProgress(double progressPercentage),
+    TResult completeSuccess(),
+    TResult errorInProcess(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (completeSuccess != null) {
+      return completeSuccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initial(_Initial value),
+    @required TResult actionInProgress(ActionInProgress value),
+    @required TResult completeSuccess(CompleteSuccess value),
+    @required TResult errorInProcess(ErrorInProcess value),
+  }) {
+    assert(initial != null);
+    assert(actionInProgress != null);
+    assert(completeSuccess != null);
+    assert(errorInProcess != null);
+    return completeSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(_Initial value),
+    TResult actionInProgress(ActionInProgress value),
+    TResult completeSuccess(CompleteSuccess value),
+    TResult errorInProcess(ErrorInProcess value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (completeSuccess != null) {
+      return completeSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CompleteSuccess implements ConfigureNewCbjCompState {
+  const factory CompleteSuccess() = _$CompleteSuccess;
 }
 
 /// @nodoc
@@ -1894,10 +2018,12 @@ class _$ErrorInProcess implements ErrorInProcess {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult actionInProgress(double progressPercentage),
+    @required TResult completeSuccess(),
     @required TResult errorInProcess(),
   }) {
     assert(initial != null);
     assert(actionInProgress != null);
+    assert(completeSuccess != null);
     assert(errorInProcess != null);
     return errorInProcess();
   }
@@ -1907,6 +2033,7 @@ class _$ErrorInProcess implements ErrorInProcess {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult actionInProgress(double progressPercentage),
+    TResult completeSuccess(),
     TResult errorInProcess(),
     @required TResult orElse(),
   }) {
@@ -1922,10 +2049,12 @@ class _$ErrorInProcess implements ErrorInProcess {
   TResult map<TResult extends Object>({
     @required TResult initial(_Initial value),
     @required TResult actionInProgress(ActionInProgress value),
+    @required TResult completeSuccess(CompleteSuccess value),
     @required TResult errorInProcess(ErrorInProcess value),
   }) {
     assert(initial != null);
     assert(actionInProgress != null);
+    assert(completeSuccess != null);
     assert(errorInProcess != null);
     return errorInProcess(this);
   }
@@ -1935,6 +2064,7 @@ class _$ErrorInProcess implements ErrorInProcess {
   TResult maybeMap<TResult extends Object>({
     TResult initial(_Initial value),
     TResult actionInProgress(ActionInProgress value),
+    TResult completeSuccess(CompleteSuccess value),
     TResult errorInProcess(ErrorInProcess value),
     @required TResult orElse(),
   }) {

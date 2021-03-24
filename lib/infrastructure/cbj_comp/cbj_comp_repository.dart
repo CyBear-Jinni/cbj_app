@@ -114,7 +114,7 @@ class CBJCompRepository implements ICBJCompRepository {
       final CreateTheCBJAppServer createTheCBJAppServer =
           CreateTheCBJAppServer();
 
-      StreamController<CompInfoSB> compInfoSBSteam =
+      final StreamController<CompInfoSB> compInfoSBSteam =
           StreamController<CompInfoSB>();
 
       createTheCBJAppServer.createServer(compInfoSBSteam);
@@ -263,5 +263,34 @@ class CBJCompRepository implements ICBJCompRepository {
       deviceEntityList.add(deviceEntity);
     }
     return deviceEntityList.toImmutableList();
+  }
+
+  @override
+  Future<Either<CBJCompFailure, Unit>> setSecurityBearWiFiInformation(
+    CBJCompEntity compEntity,
+  ) async {
+    try {
+      final ManageNetworkEntity firstWifiEntityOrFailure =
+          (await getIt<ICreateHomeRepository>().getFirstWifi())
+              .getOrElse(() => throw 'Error');
+
+      final ManageNetworkEntity secondWifiEntityOrFailure =
+          IManageNetworkRepository.manageWiFiEntity;
+
+      final SBCommendStatus commendStatus =
+          await SecurityBearServerClient.setWiFisInformation(
+              compEntity.lastKnownIp.getOrCrash(),
+              firstWifiEntityOrFailure.name.getOrCrash(),
+              firstWifiEntityOrFailure.pass.getOrCrash(),
+              secondWifiEntityOrFailure.name.getOrCrash(),
+              secondWifiEntityOrFailure.pass.getOrCrash());
+
+      if (commendStatus.success) {
+        return right(unit);
+      }
+      return left(const CBJCompFailure.unexpected());
+    } catch (e) {
+      return left(const CBJCompFailure.unexpected());
+    }
   }
 }

@@ -43,7 +43,7 @@ class UserHomesListBloc extends Bloc<UserHomesListEvent, UserHomesListState> {
       joinExistingHome: (e) async* {
         yield const UserHomesListState.loadInProgress();
 
-        Either<HomeUserFailures, Unit> joinHomeOutput =
+        final Either<HomeUserFailures, Unit> joinHomeOutput =
             await _userRepository.joinExistingHome(e.allHomesOfUserEntity);
         yield joinHomeOutput.fold(
           (f) => UserHomesListState.loadFailureEnteringHome(f),

@@ -11,7 +11,6 @@ import 'package:wifi_iot/wifi_iot.dart';
 @LazySingleton(as: IManageNetworkRepository)
 class ManageWiFiRepository implements IManageNetworkRepository {
   final NetworkSecurity networkSecurity = NetworkSecurity.WPA;
-  static ManageNetworkEntity manageWiFiEntity;
 
   @override
   Future<Either<HomeUserFailures, Unit>> doesWiFiEnabled() async {
@@ -54,7 +53,7 @@ class ManageWiFiRepository implements IManageNetworkRepository {
           password: pass, security: networkSecurity);
 
       if (connectedToWiFiSuccess) {
-        manageWiFiEntity = ManageNetworkEntity(
+        IManageNetworkRepository.manageWiFiEntity = ManageNetworkEntity(
             name: ManageWiFiName(ssid), pass: ManageWiFiPass(pass));
         return right(unit);
       }

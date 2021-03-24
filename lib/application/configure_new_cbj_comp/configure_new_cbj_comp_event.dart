@@ -24,9 +24,3 @@ abstract class ConfigureNewCbjCompEvent with _$ConfigureNewCbjCompEvent {
   const factory ConfigureNewCbjCompEvent.checkOperationsCompletedSuccessfully(
       CBJCompEntity cBJCompEntity) = _CheckOperationsCompletedSuccessfully;
 }
-
-//TODO: Send firebase data and new hotspot to the security bear
-
-//TODO: Make sure the data was updated and device can updated firebase
-
-//TODO: go back to add new devices screen

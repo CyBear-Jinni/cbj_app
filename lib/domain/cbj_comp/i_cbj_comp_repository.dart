@@ -26,4 +26,8 @@ abstract class ICBJCompRepository {
 
   Future<Either<CBJCompFailure, Unit>> setFirebaseAccountInformation(
       CBJCompEntity compEntity);
+
+  Future<Either<CBJCompFailure, Unit>> setSecurityBearWiFiInformation(
+    CBJCompEntity compEntity,
+  );
 }

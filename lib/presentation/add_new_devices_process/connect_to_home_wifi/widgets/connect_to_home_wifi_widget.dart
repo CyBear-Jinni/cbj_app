@@ -27,7 +27,7 @@ class ConnectToHomeWiFiWidget extends StatelessWidget {
                 },
                 loaded: (l) {
                   ExtendedNavigator.of(context)
-                      .push(Routes.openAccessPointPage);
+                      .replace(Routes.openAccessPointPage);
                   return const Text('Loaded');
                 },
                 error: (e) {
@@ -119,7 +119,7 @@ class ConnectToHomeWiFiWidget extends StatelessWidget {
                 color: Colors.greenAccent,
                 onPressed: () {
                   ExtendedNavigator.of(context)
-                      .push(Routes.openAccessPointPage);
+                      .replace(Routes.openAccessPointPage);
                 },
                 child: const Text('Next'),
               ),

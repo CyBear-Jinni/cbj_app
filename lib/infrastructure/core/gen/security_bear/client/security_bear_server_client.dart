@@ -9,18 +9,23 @@ import 'package:grpc/grpc.dart';
 
 class SecurityBearServerClient {
   static Future<SBCommendStatus> setWiFisInformation(
-      String deviceIp, String wiFiName, String wiFiPassword) async {
+    String deviceIp,
+    String firstWiFiName,
+    String firstWiFiPassword,
+    String secondWiFiName,
+    String secondWiFiPassword,
+  ) async {
     final ClientChannel channel = createSmartServerClient(deviceIp);
     final SecurityBearClient stub = SecurityBearClient(channel);
     SBCommendStatus responseSBCommendStatus = SBCommendStatus();
 
     final WiFiInformation wiFiInformationFirst = WiFiInformation()
-      ..wiFiName = ''
-      ..wiFiPassword = '';
+      ..wiFiName = firstWiFiName
+      ..wiFiPassword = firstWiFiPassword;
 
     final WiFiInformation wiFiInformationSecond = WiFiInformation()
-      ..wiFiName = wiFiName
-      ..wiFiPassword = wiFiPassword;
+      ..wiFiName = secondWiFiName
+      ..wiFiPassword = secondWiFiPassword;
 
     final SecurityBearSetup securityBearSetup = SecurityBearSetup()
       ..wiFiFirstPriority = wiFiInformationFirst
@@ -37,7 +42,7 @@ class SecurityBearServerClient {
       print('Caught error: $e');
     }
 //    await channel.shutdown();
-    return null;
+    return SBCommendStatus()..success = false;
   }
 
   static Future<SBCommendStatus> setFirebaseAccountInformation(

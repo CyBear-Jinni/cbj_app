@@ -179,6 +179,8 @@ class CreateHomeRepository implements ICreateHomeRepository {
         // log.error(e.toString());
         return left(CreateHomeFailure.unexpected(failedValue: e.message));
       }
+    } catch (e) {
+      return left(CreateHomeFailure.unexpected(failedValue: e.message));
     }
   }
 

@@ -279,6 +279,12 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
             style: TextStyle(color: Colors.white),
           );
         },
+        completeSuccess: (CompleteSuccess value) {
+          return const Text(
+            'Computer have been configured.',
+            style: TextStyle(color: Colors.white),
+          );
+        },
       );
     });
   }

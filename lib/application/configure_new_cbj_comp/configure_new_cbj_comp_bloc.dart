@@ -48,15 +48,16 @@ class ConfigureNewCbjCompBloc
         );
         progressPercent += 0.1;
         yield ConfigureNewCbjCompState.actionInProgress(progressPercent);
-
-        final bool error = await InitialNewDevice(compUpdatedData);
-        if (!error) {
-          progressPercent += 0.1;
-          yield ConfigureNewCbjCompState.actionInProgress(progressPercent);
-          add(ConfigureNewCbjCompEvent.saveDevicesToCloud(compUpdatedData));
-        } else {
-          yield const ConfigureNewCbjCompState.errorInProcess();
-        }
+        add(ConfigureNewCbjCompEvent.saveDevicesToCloud(compUpdatedData));
+        //
+        // final bool error = await InitialNewDevice(compUpdatedData);
+        // if (!error) {
+        //   progressPercent += 0.1;
+        //   yield ConfigureNewCbjCompState.actionInProgress(progressPercent);
+        //   add(ConfigureNewCbjCompEvent.saveDevicesToCloud(compUpdatedData));
+        // } else {
+        //   yield const ConfigureNewCbjCompState.errorInProcess();
+        // }
       },
       saveDevicesToCloud: (_SaveDevicesToCloud value) async* {
         final CBJCompEntity compUpdatedData = value.cBJCompEntity;
@@ -88,23 +89,13 @@ class ConfigureNewCbjCompBloc
       saveDevicesToComputer: (_SaveDevicesToComputer value) async* {
         final CBJCompEntity compUpdatedData = value.cBJCompEntity;
 
-        bool error = false;
-
-        final Either<CBJCompFailure, Unit> updateAllDevices =
-            await _cBJCompRepository.updateCompInfo(compUpdatedData);
-
-        updateAllDevices.fold(
-          (l) {
-            error = true;
-          },
-          (r) => add(ConfigureNewCbjCompEvent.sendFirebaseInformation(
-              compUpdatedData)),
-        );
-        if (error) {
-          yield const ConfigureNewCbjCompState.errorInProcess();
-        } else {
-          progressPercent += 0.3;
+        final bool error = await initialNewDevice(compUpdatedData);
+        if (!error) {
+          progressPercent += 0.1;
           yield ConfigureNewCbjCompState.actionInProgress(progressPercent);
+          add(ConfigureNewCbjCompEvent.sendHotSpotInformation(compUpdatedData));
+        } else {
+          yield const ConfigureNewCbjCompState.errorInProcess();
         }
       },
       sendFirebaseInformation: (_SendFirebaseInformation value) async* {
@@ -132,8 +123,37 @@ class ConfigureNewCbjCompBloc
         }
       },
       checkOperationsCompletedSuccessfully:
-          (_CheckOperationsCompletedSuccessfully value) async* {},
-      sendHotSpotInformation: (_SendHotSpotInformation value) async* {},
+          (_CheckOperationsCompletedSuccessfully value) async* {
+
+            progressPercent += 0.3;
+            yield ConfigureNewCbjCompState.actionInProgress(progressPercent);
+        yield const ConfigureNewCbjCompState.completeSuccess();
+      },
+      sendHotSpotInformation: (_SendHotSpotInformation value) async* {
+        bool error = false;
+
+        final CBJCompEntity compUpdatedData = value.cBJCompEntity;
+        final Either<CBJCompFailure, Unit> setSecurityBearWiFi =
+            await _cBJCompRepository
+                .setSecurityBearWiFiInformation(compUpdatedData);
+
+        setSecurityBearWiFi.fold(
+          (l) {
+            error = true;
+          },
+          (r) {
+            return;
+          },
+        );
+        if (error) {
+          yield const ConfigureNewCbjCompState.errorInProcess();
+        } else {
+          progressPercent += 0.3;
+          yield ConfigureNewCbjCompState.actionInProgress(progressPercent);
+          add(ConfigureNewCbjCompEvent.checkOperationsCompletedSuccessfully(
+              compUpdatedData));
+        }
+      },
     );
   }
 
@@ -167,7 +187,7 @@ class ConfigureNewCbjCompBloc
     return compUpdatedData;
   }
 
-  Future<bool> InitialNewDevice(CBJCompEntity compUpdatedData) async {
+  Future<bool> initialNewDevice(CBJCompEntity compUpdatedData) async {
     bool error = false;
 
     final Either<CBJCompFailure, Unit> updateAllDevices =

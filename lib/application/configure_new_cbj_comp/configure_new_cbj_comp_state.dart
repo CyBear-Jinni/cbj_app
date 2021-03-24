@@ -7,5 +7,7 @@ abstract class ConfigureNewCbjCompState with _$ConfigureNewCbjCompState {
   const factory ConfigureNewCbjCompState.actionInProgress(
       double progressPercentage) = ActionInProgress;
 
+  const factory ConfigureNewCbjCompState.completeSuccess() = CompleteSuccess;
+
   const factory ConfigureNewCbjCompState.errorInProcess() = ErrorInProcess;
 }
