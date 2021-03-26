@@ -15,23 +15,28 @@ SmartRoomObject room4 =
     SmartRoomObject('Outside South', room4DevicesList, GradientColors.sky);
 
 final List<SmartDeviceObject> room1DevicesList = <SmartDeviceObject>[
-  SmartDeviceObject(DeviceType.Light, 'Ceiling', '10.0.0.29', 'Guy'),
+  SmartDeviceObject(DeviceTypeEnum.Light, 'Ceiling', '10.0.0.29', 'Guy'),
 ];
 
 final List<SmartDeviceObject> room3DevicesList = <SmartDeviceObject>[
-  SmartDeviceObject(DeviceType.Light, 'UpStairs', '10.0.0.30', 'Outside North'),
-  SmartDeviceObject(DeviceType.Light, 'Storage', '10.0.0.30', 'Outside North'),
-  SmartDeviceObject(DeviceType.Light, 'Storage', '10.0.0.30', 'Outside North'),
-  SmartDeviceObject(DeviceType.Light, 'Storage', '10.0.0.30', 'Outside North'),
-  SmartDeviceObject(DeviceType.Light, 'BackDoor', '10.0.0.32', 'Outside North'),
   SmartDeviceObject(
-      DeviceType.Light, 'DownStairs', '10.0.0.32', 'Outside North'),
+      DeviceTypeEnum.Light, 'UpStairs', '10.0.0.30', 'Outside North'),
+  SmartDeviceObject(
+      DeviceTypeEnum.Light, 'Storage', '10.0.0.30', 'Outside North'),
+  SmartDeviceObject(
+      DeviceTypeEnum.Light, 'Storage', '10.0.0.30', 'Outside North'),
+  SmartDeviceObject(
+      DeviceTypeEnum.Light, 'Storage', '10.0.0.30', 'Outside North'),
+  SmartDeviceObject(
+      DeviceTypeEnum.Light, 'BackDoor', '10.0.0.32', 'Outside North'),
+  SmartDeviceObject(
+      DeviceTypeEnum.Light, 'DownStairs', '10.0.0.32', 'Outside North'),
 ];
 
 final List<SmartDeviceObject> room4DevicesList = <SmartDeviceObject>[
-  SmartDeviceObject(DeviceType.Light, 'Gate', '10.0.0.31', 'Outside South'),
+  SmartDeviceObject(DeviceTypeEnum.Light, 'Gate', '10.0.0.31', 'Outside South'),
 ];
 
 final List<SmartBlindsObject> room1blindsList = <SmartBlindsObject>[
-  SmartBlindsObject(DeviceType.Blinds, 'SouthBlinds', '10.0.0.34'),
+  SmartBlindsObject(DeviceTypeEnum.Blinds, 'SouthBlinds', '10.0.0.34'),
 ];

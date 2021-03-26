@@ -1,4 +1,4 @@
-enum DeviceType {
+enum DeviceTypeEnum {
   Light, // Light ON/OFF
   DynamicLight, // Light with brightness 0% to 100%
   Blinds,
@@ -36,17 +36,17 @@ enum WishEnum {
 }
 
 class EnumHelper {
-  static String dTToString(DeviceType deviceType) {
+  static String dTToString(DeviceTypeEnum deviceType) {
     return deviceType.toString().replaceAll('DeviceType.', '');
   }
 
-  static DeviceType stringToDt(String deviceTypeAsString) {
+  static DeviceTypeEnum stringToDt(String deviceTypeAsString) {
     String deviceTypeAsStringTemp = deviceTypeAsString;
     if (deviceTypeAsStringTemp.contains('Object')) {
       deviceTypeAsStringTemp = deviceTypeAsStringTemp.substring(
           0, deviceTypeAsStringTemp.indexOf('Object'));
     }
-    for (final DeviceType deviceType in DeviceType.values) {
+    for (final DeviceTypeEnum deviceType in DeviceTypeEnum.values) {
       if (dTToString(deviceType) == deviceTypeAsStringTemp) {
         return deviceType;
       }

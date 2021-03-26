@@ -16,7 +16,7 @@ class SmartDeviceTypeAndToggleBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
-        if (_smartDeviceObject.deviceType == DeviceType.Light)
+        if (_smartDeviceObject.deviceType == DeviceTypeEnum.Light)
           Container(
             margin: const EdgeInsets.only(right: 5),
             child: const CircleAvatar(
@@ -24,7 +24,7 @@ class SmartDeviceTypeAndToggleBar extends StatelessWidget {
               child: FaIcon(FontAwesomeIcons.solidLightbulb),
             ),
           ),
-        if (_smartDeviceObject.deviceType == DeviceType.Blinds)
+        if (_smartDeviceObject.deviceType == DeviceTypeEnum.Blinds)
           Container(
             margin: const EdgeInsets.only(right: 5),
             child: const CircleAvatar(
@@ -44,7 +44,7 @@ class SmartDeviceTypeAndToggleBar extends StatelessWidget {
         ).tr(args: <String>[
           EnumHelper.dTToString(_smartDeviceObject.deviceType)
         ]),
-        if (_smartDeviceObject.deviceType == DeviceType.Light)
+        if (_smartDeviceObject.deviceType == DeviceTypeEnum.Light)
           SizedBox(
             width: 100,
             child: SmartDevicePage(

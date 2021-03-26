@@ -193,3 +193,18 @@ class DeviceCompUuid extends DevicesValueObjectAbstract<String> {
 
   const DeviceCompUuid._(this.value);
 }
+
+class DeviceLastKnownIp extends DevicesValueObjectAbstract<String> {
+  @override
+  final Either<DevicesFailure<String>, String> value;
+
+  factory DeviceLastKnownIp(String input) {
+    assert(input != null);
+    return DeviceLastKnownIp._(
+      validateDeviceNotEmpty(input)
+          .flatMap((a) => validateDeviceTypeExist(input)),
+    );
+  }
+
+  const DeviceLastKnownIp._(this.value);
+}

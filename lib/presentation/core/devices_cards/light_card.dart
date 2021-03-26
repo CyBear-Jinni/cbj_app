@@ -18,7 +18,7 @@ class LightCard extends StatelessWidget {
       action: DeviceAction(value.toString()),
     );
     context.read<LightToggleBloc>().add(
-          LightToggleEvent.changeAction(tempDeviceEntity),
+          LightToggleEvent.changeAction(tempDeviceEntity, true),
         );
   }
 

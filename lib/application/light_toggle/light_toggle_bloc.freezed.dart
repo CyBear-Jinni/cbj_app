@@ -14,9 +14,11 @@ class _$LightToggleEventTearOff {
   const _$LightToggleEventTearOff();
 
 // ignore: unused_element
-  _ChangeState changeAction(DeviceEntity deviceEntity) {
+  _ChangeState changeAction(
+      DeviceEntity deviceEntity, bool forceStraightToComputer) {
     return _ChangeState(
       deviceEntity,
+      forceStraightToComputer,
     );
   }
 
@@ -38,12 +40,15 @@ mixin _$LightToggleEvent {
 
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult changeAction(DeviceEntity deviceEntity),
+    @required
+        TResult changeAction(
+            DeviceEntity deviceEntity, bool forceStraightToComputer),
     @required TResult create(DeviceEntity deviceEntity),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult changeAction(DeviceEntity deviceEntity),
+    TResult changeAction(
+        DeviceEntity deviceEntity, bool forceStraightToComputer),
     TResult create(DeviceEntity deviceEntity),
     @required TResult orElse(),
   });
@@ -111,7 +116,7 @@ abstract class _$ChangeStateCopyWith<$Res>
           _ChangeState value, $Res Function(_ChangeState) then) =
       __$ChangeStateCopyWithImpl<$Res>;
   @override
-  $Res call({DeviceEntity deviceEntity});
+  $Res call({DeviceEntity deviceEntity, bool forceStraightToComputer});
 
   @override
   $DeviceEntityCopyWith<$Res> get deviceEntity;
@@ -131,25 +136,33 @@ class __$ChangeStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object deviceEntity = freezed,
+    Object forceStraightToComputer = freezed,
   }) {
     return _then(_ChangeState(
       deviceEntity == freezed
           ? _value.deviceEntity
           : deviceEntity as DeviceEntity,
+      forceStraightToComputer == freezed
+          ? _value.forceStraightToComputer
+          : forceStraightToComputer as bool,
     ));
   }
 }
 
 /// @nodoc
 class _$_ChangeState implements _ChangeState {
-  const _$_ChangeState(this.deviceEntity) : assert(deviceEntity != null);
+  const _$_ChangeState(this.deviceEntity, this.forceStraightToComputer)
+      : assert(deviceEntity != null),
+        assert(forceStraightToComputer != null);
 
   @override
   final DeviceEntity deviceEntity;
+  @override
+  final bool forceStraightToComputer;
 
   @override
   String toString() {
-    return 'LightToggleEvent.changeAction(deviceEntity: $deviceEntity)';
+    return 'LightToggleEvent.changeAction(deviceEntity: $deviceEntity, forceStraightToComputer: $forceStraightToComputer)';
   }
 
   @override
@@ -158,12 +171,18 @@ class _$_ChangeState implements _ChangeState {
         (other is _ChangeState &&
             (identical(other.deviceEntity, deviceEntity) ||
                 const DeepCollectionEquality()
-                    .equals(other.deviceEntity, deviceEntity)));
+                    .equals(other.deviceEntity, deviceEntity)) &&
+            (identical(
+                    other.forceStraightToComputer, forceStraightToComputer) ||
+                const DeepCollectionEquality().equals(
+                    other.forceStraightToComputer, forceStraightToComputer)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(deviceEntity);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(deviceEntity) ^
+      const DeepCollectionEquality().hash(forceStraightToComputer);
 
   @JsonKey(ignore: true)
   @override
@@ -173,24 +192,27 @@ class _$_ChangeState implements _ChangeState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult changeAction(DeviceEntity deviceEntity),
+    @required
+        TResult changeAction(
+            DeviceEntity deviceEntity, bool forceStraightToComputer),
     @required TResult create(DeviceEntity deviceEntity),
   }) {
     assert(changeAction != null);
     assert(create != null);
-    return changeAction(deviceEntity);
+    return changeAction(deviceEntity, forceStraightToComputer);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult changeAction(DeviceEntity deviceEntity),
+    TResult changeAction(
+        DeviceEntity deviceEntity, bool forceStraightToComputer),
     TResult create(DeviceEntity deviceEntity),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (changeAction != null) {
-      return changeAction(deviceEntity);
+      return changeAction(deviceEntity, forceStraightToComputer);
     }
     return orElse();
   }
@@ -222,10 +244,12 @@ class _$_ChangeState implements _ChangeState {
 }
 
 abstract class _ChangeState implements LightToggleEvent {
-  const factory _ChangeState(DeviceEntity deviceEntity) = _$_ChangeState;
+  const factory _ChangeState(
+      DeviceEntity deviceEntity, bool forceStraightToComputer) = _$_ChangeState;
 
   @override
   DeviceEntity get deviceEntity;
+  bool get forceStraightToComputer;
   @override
   @JsonKey(ignore: true)
   _$ChangeStateCopyWith<_ChangeState> get copyWith;
@@ -300,7 +324,9 @@ class _$_CreateDevice implements _CreateDevice {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult changeAction(DeviceEntity deviceEntity),
+    @required
+        TResult changeAction(
+            DeviceEntity deviceEntity, bool forceStraightToComputer),
     @required TResult create(DeviceEntity deviceEntity),
   }) {
     assert(changeAction != null);
@@ -311,7 +337,8 @@ class _$_CreateDevice implements _CreateDevice {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult changeAction(DeviceEntity deviceEntity),
+    TResult changeAction(
+        DeviceEntity deviceEntity, bool forceStraightToComputer),
     TResult create(DeviceEntity deviceEntity),
     @required TResult orElse(),
   }) {
@@ -373,6 +400,11 @@ class _$LightToggleStateTearOff {
   }
 
 // ignore: unused_element
+  _LoadSuccess loadSuccess() {
+    return const _LoadSuccess();
+  }
+
+// ignore: unused_element
   _loadFailure loadFailure(DevicesFailure<dynamic> devicesFailure) {
     return _loadFailure(
       devicesFailure,
@@ -395,6 +427,7 @@ mixin _$LightToggleState {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loadInProgress(),
+    @required TResult loadSuccess(),
     @required TResult loadFailure(DevicesFailure<dynamic> devicesFailure),
     @required TResult error(),
   });
@@ -402,6 +435,7 @@ mixin _$LightToggleState {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loadInProgress(),
+    TResult loadSuccess(),
     TResult loadFailure(DevicesFailure<dynamic> devicesFailure),
     TResult error(),
     @required TResult orElse(),
@@ -410,6 +444,7 @@ mixin _$LightToggleState {
   TResult map<TResult extends Object>({
     @required TResult initial(_Initial value),
     @required TResult loadInProgress(_LoadInProgress value),
+    @required TResult loadSuccess(_LoadSuccess value),
     @required TResult loadFailure(_loadFailure value),
     @required TResult error(Error value),
   });
@@ -417,6 +452,7 @@ mixin _$LightToggleState {
   TResult maybeMap<TResult extends Object>({
     TResult initial(_Initial value),
     TResult loadInProgress(_LoadInProgress value),
+    TResult loadSuccess(_LoadSuccess value),
     TResult loadFailure(_loadFailure value),
     TResult error(Error value),
     @required TResult orElse(),
@@ -478,11 +514,13 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loadInProgress(),
+    @required TResult loadSuccess(),
     @required TResult loadFailure(DevicesFailure<dynamic> devicesFailure),
     @required TResult error(),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
+    assert(loadSuccess != null);
     assert(loadFailure != null);
     assert(error != null);
     return initial();
@@ -493,6 +531,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loadInProgress(),
+    TResult loadSuccess(),
     TResult loadFailure(DevicesFailure<dynamic> devicesFailure),
     TResult error(),
     @required TResult orElse(),
@@ -509,11 +548,13 @@ class _$_Initial implements _Initial {
   TResult map<TResult extends Object>({
     @required TResult initial(_Initial value),
     @required TResult loadInProgress(_LoadInProgress value),
+    @required TResult loadSuccess(_LoadSuccess value),
     @required TResult loadFailure(_loadFailure value),
     @required TResult error(Error value),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
+    assert(loadSuccess != null);
     assert(loadFailure != null);
     assert(error != null);
     return initial(this);
@@ -524,6 +565,7 @@ class _$_Initial implements _Initial {
   TResult maybeMap<TResult extends Object>({
     TResult initial(_Initial value),
     TResult loadInProgress(_LoadInProgress value),
+    TResult loadSuccess(_LoadSuccess value),
     TResult loadFailure(_loadFailure value),
     TResult error(Error value),
     @required TResult orElse(),
@@ -581,11 +623,13 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loadInProgress(),
+    @required TResult loadSuccess(),
     @required TResult loadFailure(DevicesFailure<dynamic> devicesFailure),
     @required TResult error(),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
+    assert(loadSuccess != null);
     assert(loadFailure != null);
     assert(error != null);
     return loadInProgress();
@@ -596,6 +640,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loadInProgress(),
+    TResult loadSuccess(),
     TResult loadFailure(DevicesFailure<dynamic> devicesFailure),
     TResult error(),
     @required TResult orElse(),
@@ -612,11 +657,13 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult map<TResult extends Object>({
     @required TResult initial(_Initial value),
     @required TResult loadInProgress(_LoadInProgress value),
+    @required TResult loadSuccess(_LoadSuccess value),
     @required TResult loadFailure(_loadFailure value),
     @required TResult error(Error value),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
+    assert(loadSuccess != null);
     assert(loadFailure != null);
     assert(error != null);
     return loadInProgress(this);
@@ -627,6 +674,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult maybeMap<TResult extends Object>({
     TResult initial(_Initial value),
     TResult loadInProgress(_LoadInProgress value),
+    TResult loadSuccess(_LoadSuccess value),
     TResult loadFailure(_loadFailure value),
     TResult error(Error value),
     @required TResult orElse(),
@@ -641,6 +689,115 @@ class _$_LoadInProgress implements _LoadInProgress {
 
 abstract class _LoadInProgress implements LightToggleState {
   const factory _LoadInProgress() = _$_LoadInProgress;
+}
+
+/// @nodoc
+abstract class _$LoadSuccessCopyWith<$Res> {
+  factory _$LoadSuccessCopyWith(
+          _LoadSuccess value, $Res Function(_LoadSuccess) then) =
+      __$LoadSuccessCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$LoadSuccessCopyWithImpl<$Res>
+    extends _$LightToggleStateCopyWithImpl<$Res>
+    implements _$LoadSuccessCopyWith<$Res> {
+  __$LoadSuccessCopyWithImpl(
+      _LoadSuccess _value, $Res Function(_LoadSuccess) _then)
+      : super(_value, (v) => _then(v as _LoadSuccess));
+
+  @override
+  _LoadSuccess get _value => super._value as _LoadSuccess;
+}
+
+/// @nodoc
+class _$_LoadSuccess implements _LoadSuccess {
+  const _$_LoadSuccess();
+
+  @override
+  String toString() {
+    return 'LightToggleState.loadSuccess()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _LoadSuccess);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loadInProgress(),
+    @required TResult loadSuccess(),
+    @required TResult loadFailure(DevicesFailure<dynamic> devicesFailure),
+    @required TResult error(),
+  }) {
+    assert(initial != null);
+    assert(loadInProgress != null);
+    assert(loadSuccess != null);
+    assert(loadFailure != null);
+    assert(error != null);
+    return loadSuccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loadInProgress(),
+    TResult loadSuccess(),
+    TResult loadFailure(DevicesFailure<dynamic> devicesFailure),
+    TResult error(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (loadSuccess != null) {
+      return loadSuccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initial(_Initial value),
+    @required TResult loadInProgress(_LoadInProgress value),
+    @required TResult loadSuccess(_LoadSuccess value),
+    @required TResult loadFailure(_loadFailure value),
+    @required TResult error(Error value),
+  }) {
+    assert(initial != null);
+    assert(loadInProgress != null);
+    assert(loadSuccess != null);
+    assert(loadFailure != null);
+    assert(error != null);
+    return loadSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(_Initial value),
+    TResult loadInProgress(_LoadInProgress value),
+    TResult loadSuccess(_LoadSuccess value),
+    TResult loadFailure(_loadFailure value),
+    TResult error(Error value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (loadSuccess != null) {
+      return loadSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadSuccess implements LightToggleState {
+  const factory _LoadSuccess() = _$_LoadSuccess;
 }
 
 /// @nodoc
@@ -723,11 +880,13 @@ class _$_loadFailure implements _loadFailure {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loadInProgress(),
+    @required TResult loadSuccess(),
     @required TResult loadFailure(DevicesFailure<dynamic> devicesFailure),
     @required TResult error(),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
+    assert(loadSuccess != null);
     assert(loadFailure != null);
     assert(error != null);
     return loadFailure(devicesFailure);
@@ -738,6 +897,7 @@ class _$_loadFailure implements _loadFailure {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loadInProgress(),
+    TResult loadSuccess(),
     TResult loadFailure(DevicesFailure<dynamic> devicesFailure),
     TResult error(),
     @required TResult orElse(),
@@ -754,11 +914,13 @@ class _$_loadFailure implements _loadFailure {
   TResult map<TResult extends Object>({
     @required TResult initial(_Initial value),
     @required TResult loadInProgress(_LoadInProgress value),
+    @required TResult loadSuccess(_LoadSuccess value),
     @required TResult loadFailure(_loadFailure value),
     @required TResult error(Error value),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
+    assert(loadSuccess != null);
     assert(loadFailure != null);
     assert(error != null);
     return loadFailure(this);
@@ -769,6 +931,7 @@ class _$_loadFailure implements _loadFailure {
   TResult maybeMap<TResult extends Object>({
     TResult initial(_Initial value),
     TResult loadInProgress(_LoadInProgress value),
+    TResult loadSuccess(_LoadSuccess value),
     TResult loadFailure(_loadFailure value),
     TResult error(Error value),
     @required TResult orElse(),
@@ -828,11 +991,13 @@ class _$Error implements Error {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loadInProgress(),
+    @required TResult loadSuccess(),
     @required TResult loadFailure(DevicesFailure<dynamic> devicesFailure),
     @required TResult error(),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
+    assert(loadSuccess != null);
     assert(loadFailure != null);
     assert(error != null);
     return error();
@@ -843,6 +1008,7 @@ class _$Error implements Error {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loadInProgress(),
+    TResult loadSuccess(),
     TResult loadFailure(DevicesFailure<dynamic> devicesFailure),
     TResult error(),
     @required TResult orElse(),
@@ -859,11 +1025,13 @@ class _$Error implements Error {
   TResult map<TResult extends Object>({
     @required TResult initial(_Initial value),
     @required TResult loadInProgress(_LoadInProgress value),
+    @required TResult loadSuccess(_LoadSuccess value),
     @required TResult loadFailure(_loadFailure value),
     @required TResult error(Error value),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
+    assert(loadSuccess != null);
     assert(loadFailure != null);
     assert(error != null);
     return error(this);
@@ -874,6 +1042,7 @@ class _$Error implements Error {
   TResult maybeMap<TResult extends Object>({
     TResult initial(_Initial value),
     TResult loadInProgress(_LoadInProgress value),
+    TResult loadSuccess(_LoadSuccess value),
     TResult loadFailure(_loadFailure value),
     TResult error(Error value),
     @required TResult orElse(),

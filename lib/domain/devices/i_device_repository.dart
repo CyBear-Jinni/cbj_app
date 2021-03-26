@@ -1,6 +1,7 @@
 import 'package:cybear_jinni/domain/devices/device_entity.dart';
 import 'package:cybear_jinni/domain/devices/devices_failures.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/widgets.dart';
 import 'package:kt_dart/kt.dart';
 
 abstract class IDeviceRepository {
@@ -16,7 +17,10 @@ abstract class IDeviceRepository {
 
   Future<Either<DevicesFailure, Unit>> create(DeviceEntity deviceEntity);
 
-  Future<Either<DevicesFailure, Unit>> update(DeviceEntity deviceEntity);
+  Future<Either<DevicesFailure, Unit>> update({
+    @required DeviceEntity deviceEntity,
+    String forceUpdateLocation,
+  });
 
   Future<Either<DevicesFailure, Unit>> delete(DeviceEntity deviceEntity);
 }

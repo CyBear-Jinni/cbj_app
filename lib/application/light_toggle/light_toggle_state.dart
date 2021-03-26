@@ -6,8 +6,7 @@ abstract class LightToggleState with _$LightToggleState {
 
   const factory LightToggleState.loadInProgress() = _LoadInProgress;
 
-  // const factory LightToggleState.loadSuccess(KtList<DeviceEntity> devices) =
-  //     _LoadSuccess;
+  const factory LightToggleState.loadSuccess() = _LoadSuccess;
 
   const factory LightToggleState.loadFailure(DevicesFailure devicesFailure) =
       _loadFailure;

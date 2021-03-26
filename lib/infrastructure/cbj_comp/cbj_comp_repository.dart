@@ -136,7 +136,7 @@ class CBJCompRepository implements ICBJCompRepository {
       final CompSpecs compSpecs = compInfo.compSpecs;
 
       final KtList<DeviceEntity> deviceEntityList =
-          compDevicesToDevicesList(compInfo);
+          compDevicesToDevicesList(compInfo, compIp);
 
       final CBJCompEntity cbjCompEntity = CBJCompEntity(
         id: CBJCompUniqueId.fromUniqueString(compSpecs.compId),
@@ -239,27 +239,28 @@ class CBJCompRepository implements ICBJCompRepository {
     return compInfo;
   }
 
-  KtList<DeviceEntity> compDevicesToDevicesList(CompInfo compInfo) {
+  KtList<DeviceEntity> compDevicesToDevicesList(
+      CompInfo compInfo, String compIp) {
     final List<DeviceEntity> deviceEntityList = [];
 
     for (final SmartDeviceInfo smartDeviceInfo in compInfo.smartDevicesInComp) {
       final DeviceEntity deviceEntity = DeviceEntity(
-        id: DeviceUniqueId.fromUniqueString(smartDeviceInfo.id),
-        defaultName: DeviceDefaultName(smartDeviceInfo.defaultName),
-        roomId: DeviceUniqueId.fromUniqueString(smartDeviceInfo.roomId),
-        state: DeviceState(
-            smartDeviceInfo.deviceTypesActions.deviceStateGRPC.toString()),
-        stateMassage: DeviceStateMassage(smartDeviceInfo.stateMassage),
-        senderDeviceOs: DeviceSenderDeviceOs(smartDeviceInfo.senderDeviceOs),
-        senderDeviceModel:
-            DeviceSenderDeviceModel(smartDeviceInfo.senderDeviceModel),
-        senderId: DeviceSenderId.fromUniqueString(smartDeviceInfo.senderId),
-        action: DeviceAction(
-            smartDeviceInfo.deviceTypesActions.deviceAction.toString()),
-        type: DeviceType(
-            smartDeviceInfo.deviceTypesActions.deviceType.toString()),
-        compUuid: DeviceCompUuid(smartDeviceInfo.compSpecs.compUuid),
-      );
+          id: DeviceUniqueId.fromUniqueString(smartDeviceInfo.id),
+          defaultName: DeviceDefaultName(smartDeviceInfo.defaultName),
+          roomId: DeviceUniqueId.fromUniqueString(smartDeviceInfo.roomId),
+          state: DeviceState(
+              smartDeviceInfo.deviceTypesActions.deviceStateGRPC.toString()),
+          stateMassage: DeviceStateMassage(smartDeviceInfo.stateMassage),
+          senderDeviceOs: DeviceSenderDeviceOs(smartDeviceInfo.senderDeviceOs),
+          senderDeviceModel:
+              DeviceSenderDeviceModel(smartDeviceInfo.senderDeviceModel),
+          senderId: DeviceSenderId.fromUniqueString(smartDeviceInfo.senderId),
+          action: DeviceAction(
+              smartDeviceInfo.deviceTypesActions.deviceAction.toString()),
+          type: DeviceType(
+              smartDeviceInfo.deviceTypesActions.deviceType.toString()),
+          compUuid: DeviceCompUuid(smartDeviceInfo.compSpecs.compUuid),
+          lastKnownIp: DeviceLastKnownIp(compIp));
       deviceEntityList.add(deviceEntity);
     }
     return deviceEntityList.toImmutableList();

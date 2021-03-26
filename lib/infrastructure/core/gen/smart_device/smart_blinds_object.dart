@@ -7,7 +7,7 @@ import 'package:flutter/foundation.dart';
 import 'client/smart_client.dart';
 
 class SmartBlindsObject extends SmartDeviceObject {
-  SmartBlindsObject(DeviceType deviceType, String name, String ip)
+  SmartBlindsObject(DeviceTypeEnum deviceType, String name, String ip)
       : super(deviceType, name, ip);
 
   Future<String> blindsUp() async {

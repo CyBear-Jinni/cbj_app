@@ -20,7 +20,7 @@ class SmartDeviceObject {
     fireStoreClass = FireStoreClass();
   }
 
-  DeviceType deviceType;
+  DeviceTypeEnum deviceType;
   String roomName;
   String name;
   String ip;

@@ -25,7 +25,8 @@ class _$DeviceEntityTearOff {
       @required DeviceSenderId senderId,
       @required DeviceAction action,
       @required DeviceType type,
-      @required DeviceCompUuid compUuid}) {
+      @required DeviceCompUuid compUuid,
+      DeviceLastKnownIp lastKnownIp}) {
     return _DeviceEnitie(
       id: id,
       defaultName: defaultName,
@@ -38,6 +39,7 @@ class _$DeviceEntityTearOff {
       action: action,
       type: type,
       compUuid: compUuid,
+      lastKnownIp: lastKnownIp,
     );
   }
 }
@@ -80,6 +82,7 @@ mixin _$DeviceEntity {
   /// The smart device type
   DeviceType get type;
   DeviceCompUuid get compUuid;
+  DeviceLastKnownIp get lastKnownIp;
 
   @JsonKey(ignore: true)
   $DeviceEntityCopyWith<DeviceEntity> get copyWith;
@@ -101,7 +104,8 @@ abstract class $DeviceEntityCopyWith<$Res> {
       DeviceSenderId senderId,
       DeviceAction action,
       DeviceType type,
-      DeviceCompUuid compUuid});
+      DeviceCompUuid compUuid,
+      DeviceLastKnownIp lastKnownIp});
 }
 
 /// @nodoc
@@ -125,6 +129,7 @@ class _$DeviceEntityCopyWithImpl<$Res> implements $DeviceEntityCopyWith<$Res> {
     Object action = freezed,
     Object type = freezed,
     Object compUuid = freezed,
+    Object lastKnownIp = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as DeviceUniqueId,
@@ -148,6 +153,9 @@ class _$DeviceEntityCopyWithImpl<$Res> implements $DeviceEntityCopyWith<$Res> {
       type: type == freezed ? _value.type : type as DeviceType,
       compUuid:
           compUuid == freezed ? _value.compUuid : compUuid as DeviceCompUuid,
+      lastKnownIp: lastKnownIp == freezed
+          ? _value.lastKnownIp
+          : lastKnownIp as DeviceLastKnownIp,
     ));
   }
 }
@@ -170,7 +178,8 @@ abstract class _$DeviceEnitieCopyWith<$Res>
       DeviceSenderId senderId,
       DeviceAction action,
       DeviceType type,
-      DeviceCompUuid compUuid});
+      DeviceCompUuid compUuid,
+      DeviceLastKnownIp lastKnownIp});
 }
 
 /// @nodoc
@@ -196,6 +205,7 @@ class __$DeviceEnitieCopyWithImpl<$Res> extends _$DeviceEntityCopyWithImpl<$Res>
     Object action = freezed,
     Object type = freezed,
     Object compUuid = freezed,
+    Object lastKnownIp = freezed,
   }) {
     return _then(_DeviceEnitie(
       id: id == freezed ? _value.id : id as DeviceUniqueId,
@@ -219,6 +229,9 @@ class __$DeviceEnitieCopyWithImpl<$Res> extends _$DeviceEntityCopyWithImpl<$Res>
       type: type == freezed ? _value.type : type as DeviceType,
       compUuid:
           compUuid == freezed ? _value.compUuid : compUuid as DeviceCompUuid,
+      lastKnownIp: lastKnownIp == freezed
+          ? _value.lastKnownIp
+          : lastKnownIp as DeviceLastKnownIp,
     ));
   }
 }
@@ -236,7 +249,8 @@ class _$_DeviceEnitie extends _DeviceEnitie {
       @required this.senderId,
       @required this.action,
       @required this.type,
-      @required this.compUuid})
+      @required this.compUuid,
+      this.lastKnownIp})
       : assert(id != null),
         assert(defaultName != null),
         assert(roomId != null),
@@ -293,10 +307,12 @@ class _$_DeviceEnitie extends _DeviceEnitie {
   final DeviceType type;
   @override
   final DeviceCompUuid compUuid;
+  @override
+  final DeviceLastKnownIp lastKnownIp;
 
   @override
   String toString() {
-    return 'DeviceEntity(id: $id, defaultName: $defaultName, roomId: $roomId, state: $state, stateMassage: $stateMassage, senderDeviceOs: $senderDeviceOs, senderDeviceModel: $senderDeviceModel, senderId: $senderId, action: $action, type: $type, compUuid: $compUuid)';
+    return 'DeviceEntity(id: $id, defaultName: $defaultName, roomId: $roomId, state: $state, stateMassage: $stateMassage, senderDeviceOs: $senderDeviceOs, senderDeviceModel: $senderDeviceModel, senderId: $senderId, action: $action, type: $type, compUuid: $compUuid, lastKnownIp: $lastKnownIp)';
   }
 
   @override
@@ -330,7 +346,10 @@ class _$_DeviceEnitie extends _DeviceEnitie {
                 const DeepCollectionEquality().equals(other.type, type)) &&
             (identical(other.compUuid, compUuid) ||
                 const DeepCollectionEquality()
-                    .equals(other.compUuid, compUuid)));
+                    .equals(other.compUuid, compUuid)) &&
+            (identical(other.lastKnownIp, lastKnownIp) ||
+                const DeepCollectionEquality()
+                    .equals(other.lastKnownIp, lastKnownIp)));
   }
 
   @override
@@ -346,7 +365,8 @@ class _$_DeviceEnitie extends _DeviceEnitie {
       const DeepCollectionEquality().hash(senderId) ^
       const DeepCollectionEquality().hash(action) ^
       const DeepCollectionEquality().hash(type) ^
-      const DeepCollectionEquality().hash(compUuid);
+      const DeepCollectionEquality().hash(compUuid) ^
+      const DeepCollectionEquality().hash(lastKnownIp);
 
   @JsonKey(ignore: true)
   @override
@@ -367,7 +387,8 @@ abstract class _DeviceEnitie extends DeviceEntity {
       @required DeviceSenderId senderId,
       @required DeviceAction action,
       @required DeviceType type,
-      @required DeviceCompUuid compUuid}) = _$_DeviceEnitie;
+      @required DeviceCompUuid compUuid,
+      DeviceLastKnownIp lastKnownIp}) = _$_DeviceEnitie;
 
   @override
 
@@ -413,6 +434,8 @@ abstract class _DeviceEnitie extends DeviceEntity {
   DeviceType get type;
   @override
   DeviceCompUuid get compUuid;
+  @override
+  DeviceLastKnownIp get lastKnownIp;
   @override
   @JsonKey(ignore: true)
   _$DeviceEnitieCopyWith<_DeviceEnitie> get copyWith;

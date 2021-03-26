@@ -42,6 +42,7 @@ abstract class DeviceEntity implements _$DeviceEntity {
     /// The smart device type
     @required DeviceType type,
     @required DeviceCompUuid compUuid,
+    DeviceLastKnownIp lastKnownIp,
   }) = _DeviceEnitie;
 
   factory DeviceEntity.empty() => DeviceEntity(
