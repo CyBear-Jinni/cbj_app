@@ -2,7 +2,14 @@ import 'package:cybear_jinni/domain/auth/auth_failure.dart';
 import 'package:cybear_jinni/domain/auth/i_auth_facade.dart';
 import 'package:cybear_jinni/domain/auth/user.dart';
 import 'package:cybear_jinni/domain/auth/value_objects.dart';
+import 'package:cybear_jinni/domain/core/errors.dart';
+import 'package:cybear_jinni/domain/core/value_objects.dart';
+import 'package:cybear_jinni/domain/user/i_user_repository.dart';
+import 'package:cybear_jinni/domain/user/user_entity.dart';
+import 'package:cybear_jinni/domain/user/user_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/auth/firebase_user_mapper.dart';
+import 'package:cybear_jinni/infrastructure/core/hive_local_db/hive_local_db.dart';
+import 'package:cybear_jinni/injection.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -13,26 +20,64 @@ import 'firebase_user_mapper.dart';
 
 @LazySingleton(as: IAuthFacade)
 class FirebaseAuthFacade implements IAuthFacade {
+  FirebaseAuthFacade(this._firebaseAuth, this._googleSignIn);
+
   final FirebaseAuth _firebaseAuth;
   final GoogleSignIn _googleSignIn;
-
-  FirebaseAuthFacade(this._firebaseAuth, this._googleSignIn);
 
   @override
   Future<Option<MUser>> getSignedInUser() async =>
       optionOf(_firebaseAuth.currentUser?.toDomain());
 
   @override
-  Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword(
-      {@required EmailAddress emailAddress,
-      @required Password password}) async {
+  Future<Option<MHome>> getCurrentHome() async => optionOf(MHome(
+      id: UniqueId.fromUniqueString(await HiveLocalDbHelper.getHomeId())));
+
+  @override
+  Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword({
+    @required EmailAddress emailAddress,
+    @required Password password,
+  }) async {
+    final Either<AuthFailure, MUser>
+        registerWithEmailAndPasswordReturnUserIdOutput =
+        await registerWithEmailAndPasswordReturnUserId(
+            emailAddress: emailAddress, password: password);
+
+    return registerWithEmailAndPasswordReturnUserIdOutput.fold(
+      (l) => left(const AuthFailure.emailAlreadyInUse()),
+      (r) => right(unit),
+    );
+  }
+
+  @override
+  Future<Either<AuthFailure, MUser>> registerWithEmailAndPasswordReturnUserId(
+      {EmailAddress emailAddress, Password password}) async {
     final emailAddressStr = emailAddress.getOrCrash();
     final passwordStr = password.getOrCrash();
 
     try {
-      await _firebaseAuth.createUserWithEmailAndPassword(
-          email: emailAddressStr, password: passwordStr);
-      return right(unit);
+      final UserCredential userCredential =
+          await _firebaseAuth.createUserWithEmailAndPassword(
+              email: emailAddressStr, password: passwordStr);
+
+      final String userIdString = userCredential.user.uid;
+
+      final String userName =
+          emailAddressStr.substring(0, emailAddressStr.indexOf('@'));
+
+      final UserEntity userEntity = UserEntity(
+        id: UserUniqueId.fromUniqueString(userIdString),
+        email: UserEmail(emailAddressStr),
+        name: UserName(userName),
+        firstName: UserFirstName(' '),
+        lastName: UserLastName(' '),
+      );
+
+      final registrarOutput = await getIt<IUserRepository>().create(userEntity);
+      registrarOutput.getOrElse(() => throw NotAuthenticatedError());
+
+      final MUser mUser = MUser(id: UniqueId.fromUniqueString(userIdString));
+      return right(mUser);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use') {
         return left(const AuthFailure.emailAlreadyInUse());

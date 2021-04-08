@@ -43,58 +43,58 @@ class PickDatePage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
-                  Text('Time'),
-                  SizedBox(
+                  const Text('Time'),
+                  const SizedBox(
                     height: 15,
                   ),
                   Row(
                     children: [
-                      TimeDropDownMenu(GetHoursInADay()),
-                      SizedBox(
+                      TimeDropDownMenu(getHoursInADay()),
+                      const SizedBox(
                         width: 5,
                       ),
-                      Text(
+                      const Text(
                         ':',
                         style: TextStyle(fontSize: 25),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 5,
                       ),
-                      TimeDropDownMenu(GetMinutesInAHours()),
+                      TimeDropDownMenu(getMinutesInAHours()),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
-                  Text('Repeat'),
-                  SizedBox(
+                  const Text('Repeat'),
+                  const SizedBox(
                     height: 15,
                   ),
-                  TimeDropDownMenu(GetRepeatOptions()),
-                  SizedBox(
+                  TimeDropDownMenu(getRepeatOptions()),
+                  const SizedBox(
                     height: 30,
                   ),
-                  Text('Date'),
-                  SizedBox(
+                  const Text('Date'),
+                  const SizedBox(
                     height: 15,
                   ),
                   Row(
                     children: [
-                      TimeDropDownMenu(GetNumbersOfDaysInAMonth()),
-                      SizedBox(
+                      TimeDropDownMenu(getNumbersOfDaysInAMonth()),
+                      const SizedBox(
                         width: 12,
                       ),
-                      TimeDropDownMenu(GetMonths()),
-                      SizedBox(
+                      TimeDropDownMenu(getMonths()),
+                      const SizedBox(
                         width: 12,
                       ),
-                      TimeDropDownMenu(GetYears()),
+                      TimeDropDownMenu(getYears()),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   Container(
@@ -102,13 +102,13 @@ class PickDatePage extends StatelessWidget {
                     width: MediaQuery.of(context).size.width,
                     height: 30,
                     child: FlatButton(
-                      shape: new RoundedRectangleBorder(
-                        borderRadius: new BorderRadius.circular(30.0),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0),
                       ),
                       onPressed: () {},
                       color: Colors.black,
                       child: Text(
-                        "OK",
+                        'OK',
                         style: TextStyle(
                             fontFamily: 'Raleway',
                             fontSize: 22.0,
@@ -125,15 +125,15 @@ class PickDatePage extends StatelessWidget {
     );
   }
 
-  static String GetFirstValue(List<String> list) {
+  static String getFirstValue(List<String> list) {
     return list.first;
   }
 
-  static List<String> GetRepeatOptions() {
+  static List<String> getRepeatOptions() {
     return <String>['never', 'hourly', 'daily', 'weekly', 'monthly', 'yearly'];
   }
 
-  static List<String> GetMonths() {
+  static List<String> getMonths() {
     return <String>[
       'Jan',
       'Feb',
@@ -150,7 +150,7 @@ class PickDatePage extends StatelessWidget {
     ];
   }
 
-  static List<String> GetYears() {
+  static List<String> getYears() {
     final List<String> listOfYears = <String>[];
 
     for (int i = 2021; i < 2050; i++) {
@@ -160,7 +160,7 @@ class PickDatePage extends StatelessWidget {
     return listOfYears;
   }
 
-  static List<String> GetMinutesInAHours() {
+  static List<String> getMinutesInAHours() {
     final List<String> listOfMinutesInAHours = <String>[];
 
     for (int i = 0; i < 60; i++) {
@@ -170,7 +170,7 @@ class PickDatePage extends StatelessWidget {
     return listOfMinutesInAHours;
   }
 
-  static List<String> GetHoursInADay() {
+  static List<String> getHoursInADay() {
     final List<String> listOfHoursInADay = <String>[];
     for (int i = 0; i < 23; i++) {
       listOfHoursInADay.add(numberWithZeroIfSmallerThanTen(i));
@@ -179,7 +179,7 @@ class PickDatePage extends StatelessWidget {
     return listOfHoursInADay;
   }
 
-  static List<String> GetNumbersOfDaysInAMonth() {
+  static List<String> getNumbersOfDaysInAMonth() {
     final List<String> listOfDaysInAMonth = <String>[];
 
     for (int i = 1; i < 30; i++) {

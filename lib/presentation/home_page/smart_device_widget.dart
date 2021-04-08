@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:cybear_jinni/infrastructure/objects/smart_device/smart_device_object.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_device_object.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -113,7 +113,6 @@ class _SmartDevicePage extends State<SmartDevicePage> {
 }
 
 class LifecycleEventHandler extends WidgetsBindingObserver {
-
   LifecycleEventHandler({
     this.resumeCallBack,
     this.suspendingCallBack,

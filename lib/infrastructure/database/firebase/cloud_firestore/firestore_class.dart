@@ -18,8 +18,8 @@ class FireStoreClass {
     return getDeviceStatus(roomName, smartInstanceName);
   }
 
-  Future<String> changeSwitchState(String roomName, String smartInstanceName,
-      bool value) async {
+  Future<String> changeSwitchState(
+      String roomName, String smartInstanceName, bool value) async {
     final String fullPath = createDocumentFullPath(roomName);
 
     FirebaseFirestore.instance.doc(fullPath).update({smartInstanceName: value});
@@ -27,8 +27,8 @@ class FireStoreClass {
     return getDeviceStatus(roomName, smartInstanceName);
   }
 
-  Future<String> getDeviceStatus(String roomName,
-      String smartInstanceName) async {
+  Future<String> getDeviceStatus(
+      String roomName, String smartInstanceName) async {
     final String fullPath = createDocumentFullPath(roomName);
 
     final DocumentSnapshot documentSnapshot =
@@ -42,8 +42,8 @@ class FireStoreClass {
 //    return path + roomName + restOfPath + deviceName;
   }
 
-  Future<String> changeBlindsState(String roomName, String smartInstanceName,
-      WishEnum wish) async {
+  Future<String> changeBlindsState(
+      String roomName, String smartInstanceName, WishEnum wish) async {
     final String fullPath = createDocumentFullPath(roomName);
 
     FirebaseFirestore.instance

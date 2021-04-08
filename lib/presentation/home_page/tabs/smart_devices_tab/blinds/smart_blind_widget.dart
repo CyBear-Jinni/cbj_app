@@ -1,13 +1,13 @@
 import 'dart:async';
 
-import 'package:cybear_jinni/infrastructure/objects/smart_device/smart_blinds_object.dart';
-import 'package:cybear_jinni/infrastructure/objects/smart_device/smart_device_object.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_blinds_object.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_device_object.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SmartBlindPage extends StatefulWidget {
-  SmartBlindPage({@required this.smartBlindsObject});
+  const SmartBlindPage({@required this.smartBlindsObject});
 
   final SmartBlindsObject smartBlindsObject;
 
@@ -101,11 +101,7 @@ class _SmartBlindPage extends State<SmartBlindPage> {
                 child: Text(
                   'Stop',
                   style: TextStyle(
-                      color: Theme
-                          .of(context)
-                          .textTheme
-                          .bodyText1
-                          .color,
+                      color: Theme.of(context).textTheme.bodyText1.color,
                       fontSize: 16),
                 ).tr(),
               ),
@@ -122,11 +118,7 @@ class _SmartBlindPage extends State<SmartBlindPage> {
                 child: Text(
                   'Up',
                   style: TextStyle(
-                      color: Theme
-                          .of(context)
-                          .textTheme
-                          .bodyText1
-                          .color,
+                      color: Theme.of(context).textTheme.bodyText1.color,
                       fontSize: 16),
                 ).tr(),
               ),

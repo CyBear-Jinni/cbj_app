@@ -1,4 +1,5 @@
-import 'package:cybear_jinni/presentation/sign_in_page/login_page.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -8,8 +9,7 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
   Future<void> _fireBaseLogOut(BuildContext context) async {
     try {
       await FirebaseAuth.instance.signOut();
-      Navigator.pushReplacement(context,
-          MaterialPageRoute(builder: (BuildContext context) => SignInPage()));
+      ExtendedNavigator.of(context).replace(Routes.signInPage);
     } catch (e) {
       print(e); // TODO: show dialog with error
     }
@@ -28,10 +28,10 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
             Container(
               color: Colors.black87,
               child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 17),
+                margin: const EdgeInsets.symmetric(horizontal: 17),
                 child: Column(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 40,
                     ),
                     Row(
@@ -43,7 +43,7 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                             width: 70.0,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 20,
                         ),
                         Text(
@@ -68,7 +68,7 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                         )
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                   ],
@@ -91,7 +91,11 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                         color: Theme.of(context).textTheme.bodyText1.color,
                         size: 25,
                       ),
-                      title: Text('Add new user'),
+                      title: const Text('Manage Users'),
+                      onTap: () {
+                        ExtendedNavigator.of(context)
+                            .push(Routes.manageUsersPage);
+                      },
                     ),
                     Divider(
                       thickness: 0.5,
@@ -105,7 +109,7 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                         color: Theme.of(context).textTheme.bodyText1.color,
                         size: 25,
                       ),
-                      title: Text('Log out'),
+                      title: const Text('Log Out'),
                       onTap: () {
                         _fireBaseLogOut(context);
                       },

@@ -6,20 +6,34 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 /// Top part of the pages, will show page name and settings logo,
 /// and sometimes will have back button.
 class TopNavigationBar extends StatelessWidget {
-  TopNavigationBar(this.pageName, this.righIcon, this.righIconFunction,
-      {this.leftIcon, this.leftIconFunction}) {}
+  const TopNavigationBar(
+    this.pageName,
+    this.rightIcon,
+    this.rightIconFunction, {
+    this.leftIcon,
+    this.leftIconFunction,
+    this.rightSecondIcon,
+    this.rightSecondFunction,
+  });
 
-  /// Page name to showw in the left side of the navigation bar
+  /// Page name to show in the left side of the navigation bar
   final String pageName;
 
   /// Icon to show in the right side of the bar
-  final IconData righIcon;
+  final IconData rightIcon;
+
+  /// Icon to show in the right side of the bar left to the first icon
+  /// from the right
+  final IconData rightSecondIcon;
 
   /// Icon to show in the left side of the bar
   final IconData leftIcon;
 
   /// Function to execute when pressing the icon in the right side
-  final Function righIconFunction;
+  final Function rightIconFunction;
+
+  /// What to execute if second right icon was pressed
+  final Function rightSecondFunction;
 
   /// What to execute if back button was pressed
   final Function leftIconFunction;
@@ -35,17 +49,20 @@ class TopNavigationBar extends StatelessWidget {
           children: <Widget>[
             Row(
               children: <Widget>[
-                leftIcon != null
-                    ? Container(
-                        alignment: Alignment.centerLeft,
-                        child: IconButton(
-                          icon: FaIcon(leftIcon,
-                              color:
-                                  Theme.of(context).textTheme.bodyText1.color),
-                          onPressed: () => leftIconFunction(context),
-                        ),
-                      )
-                    : SizedBox(),
+                if (leftIcon != null)
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    child: IconButton(
+                      icon: FaIcon(
+                        leftIcon,
+                        size: 19,
+                        color: Theme.of(context).textTheme.bodyText1.color,
+                      ),
+                      onPressed: () => leftIconFunction(context),
+                    ),
+                  )
+                else
+                  const SizedBox(),
                 Text(
                   pageName,
                   style: TextStyle(
@@ -54,19 +71,38 @@ class TopNavigationBar extends StatelessWidget {
                 ).tr(),
               ],
             ),
-            righIcon != null
-                ? SizedBox(
+            if (rightIcon != null)
+              Row(
+                children: [
+                  if (rightSecondIcon != null)
+                    SizedBox(
+                      width: 70,
+                      child: FlatButton(
+                        padding: EdgeInsets.zero,
+                        onPressed: () => rightSecondFunction(context),
+                        child: FaIcon(
+                          rightSecondIcon,
+                          size: 19,
+                          color: Theme.of(context).textTheme.bodyText1.color,
+                        ),
+                      ),
+                    ),
+                  SizedBox(
                     width: 25,
                     child: FlatButton(
                       padding: EdgeInsets.zero,
-                      onPressed: () => righIconFunction(context),
-                      child: FaIcon(
-                        righIcon,
+                      onPressed: () => rightIconFunction(context),
+                      child: Icon(
+                        rightIcon,
+                        size: 26,
                         color: Theme.of(context).textTheme.bodyText1.color,
                       ),
                     ),
-                  )
-                : SizedBox(),
+                  ),
+                ],
+              )
+            else
+              const SizedBox(),
           ],
         ),
       ),

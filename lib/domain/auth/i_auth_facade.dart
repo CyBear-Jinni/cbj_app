@@ -15,7 +15,14 @@ import 'package:flutter/cupertino.dart';
 abstract class IAuthFacade {
   Future<Option<MUser>> getSignedInUser();
 
+  Future<Option<MHome>> getCurrentHome();
+
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword({
+    @required EmailAddress emailAddress,
+    @required Password password,
+  });
+
+  Future<Either<AuthFailure, MUser>> registerWithEmailAndPasswordReturnUserId({
     @required EmailAddress emailAddress,
     @required Password password,
   });

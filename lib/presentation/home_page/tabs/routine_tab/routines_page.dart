@@ -34,23 +34,27 @@ class RoutinesPage extends StatelessWidget {
     Scaffold.of(context).openDrawer();
   }
 
+  void rightSecondFunction(BuildContext context) {}
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
         TopNavigationBar(
           'Routines',
-          FontAwesomeIcons.userCog,
+          Icons.more_vert,
           userCogFunction,
-          leftIcon: FontAwesomeIcons.bars,
+          leftIcon: FontAwesomeIcons.userCog,
           leftIconFunction: leftIconFunction,
+          rightSecondIcon: FontAwesomeIcons.search,
+          rightSecondFunction: rightSecondFunction,
         ),
         Expanded(
           child: Container(
             margin: const EdgeInsets.symmetric(horizontal: 4),
             child: ListView(
-              children: [
-                const SizedBox(
+              children: const [
+                SizedBox(
                   height: 44,
                 ),
                 AlarmClockWidget(
@@ -58,7 +62,7 @@ class RoutinesPage extends StatelessWidget {
                     'Going to sleep',
                     'assets/gif/sleep3.gif',
                     'Need to wake up in the morning every day and eating all I can bofay.\nNow with no time for delay, lats go and concur the bay'),
-                const SizedBox(
+                SizedBox(
                   height: 44,
                 ),
                 AlarmClockWidget('17:40', 'Going to sleep',
