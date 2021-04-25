@@ -31,10 +31,10 @@ class BottomNavigationBarHomePage extends StatelessWidget {
           icon: const FaIcon(FontAwesomeIcons.history),
           label: 'Routines'.tr(),
         ),
-        // BottomNavigationBarItem(
-        //   icon: const FaIcon(FontAwesomeIcons.link),
-        //   label: 'Linked'.tr(),
-        // ),
+        BottomNavigationBarItem(
+          icon: const FaIcon(FontAwesomeIcons.link),
+          label: 'Linked'.tr(),
+        ),
       ],
     );
   }
