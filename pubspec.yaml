@@ -140,11 +140,11 @@ dev_dependencies:
 flutter_icons:
   ios: true
   android: true
-  image_path: "assets/logo.png"
-#  image_path_ios: "assets/logo.png"
-#  image_path_android: "assets/logo.png"
-  adaptive_icon_background: "assets/logo.png"
-  adaptive_icon_foreground: "assets/logo.png"
+  image_path: "assets/cbj_app_logo.png"
+#  image_path_ios: "assets/cbj_app_logo.png"
+#  image_path_android: "assets/cbj_app_logo.png"
+  adaptive_icon_background: "assets/cbj_app_logo.png"
+  adaptive_icon_foreground: "assets/cbj_app_logo.png"
 
 # The following section is specific to Flutter.
 flutter:
