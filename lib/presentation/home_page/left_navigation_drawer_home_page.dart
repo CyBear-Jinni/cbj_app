@@ -39,7 +39,7 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                         Container(
                           alignment: Alignment.center,
                           child: Image.asset(
-                            'assets/logo.png',
+                            'assets/cbj_app_logo.png',
                             width: 70.0,
                           ),
                         ),
