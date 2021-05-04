@@ -19,15 +19,22 @@ The CBJ App is written in [Flutter](https://flutter.dev) and let you control all
 
 ## To get the project running
 
-### Attention
-
-* The app is not in the play store so you will need to upload it to your smartphone with a little knowledge about [Flutter](https://flutter.dev).
-
 
 ### App preparations:
 
-We need to install the app to your smartphone.
+First install the app
 
+<table align="middle">
+  <tr>
+    <td> 
+      <p>
+         <a href="https://play.google.com/store/apps/details?id=com.cybear_jinni.smart_home">
+         <img border="0" align="middle" alt="Android Badge" src="https://user-images.githubusercontent.com/9304740/117003444-8b58a080-aced-11eb-94bc-bfb2505f515d.png" width=200>
+     </p>
+    </td>
+  </tr>
+</table>
+                                                                                                                     
 For now the app is not in the play store so install the [flutter project](https://github.com/CyBear-Jinni/CBJ_App/tree/dev/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter) to your phone manually.
 
 
