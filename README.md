@@ -19,31 +19,34 @@ The CBJ App is written in [Flutter](https://flutter.dev) and let you control all
 
 ## To get the project running
 
-### Attention
-
-* The app is not in the play store so you will need to upload it to your smartphone with a little knowledge about [Flutter](https://flutter.dev).
-
 
 ### App preparations:
 
-We need to install the app to your smartphone.
+First install the app
 
-For now the app is not in the play store so install the [flutter project](https://github.com/CyBear-Jinni/CBJ_App/tree/dev/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter) to your phone manually.
-
+<table align="middle">
+  <tr>
+    <td> 
+      <p>
+         <a href="https://play.google.com/store/apps/details?id=com.cybear_jinni.smart_home">
+         <img border="0" align="middle" alt="Android Badge" src="https://user-images.githubusercontent.com/9304740/117003444-8b58a080-aced-11eb-94bc-bfb2505f515d.png" width=200>
+     </p>
+    </td>
+  </tr>
+</table>
 
 ### Connecting the smart device to the CyBear Jinni App:
 
-Find the smart device Wi-Fi IP, it will be something like 10.0.0.12 .
+Make sure your smart device have both [Security Bear](https://snapcraft.io/security-bear) and [Smart Device](https://snapcraft.io/cybear-jinni) installed.
 
-Connect the phone to your home Wi-Fi.
 
 Now we need to link the smart device from inside the phone app.
 
-In the app go to: "Lamps" tab --> Press the cog in the top right corner --> Press the plus button --> Insert the smart device IP and press "Add" --> Change the device name and press the "Update" button --> Press the "Add devices".
+In the app after login go to: "Devices" tab --> Press the three dots in the top right corner --> Press the "Add Devices" button --> connect the app to home WiFi --> Open Hotspot/Access point in the android settings with the user name and password "CyBear Jinni" --> Choose device and set it up with name and room.
 
 That's it.
 
-Now you can control your smart device from the CyBear Jinni App 😁.
+Now the new device can be found in "Devices" tab inside his category and can be controlled from our CyBear Jinni App 😁.
 
 ## Instructions for developers and testers
 To run the app and start developing or testing check [this Wiki](https://github.com/CyBear-Jinni/CBJ_App/wiki/Instructions-for-developers-and-testing).
