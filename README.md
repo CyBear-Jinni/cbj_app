@@ -34,23 +34,19 @@ First install the app
     </td>
   </tr>
 </table>
-                                                                                                                     
-For now the app is not in the play store so install the [flutter project](https://github.com/CyBear-Jinni/CBJ_App/tree/dev/FlutterApp/cybear_jinni_flutter/cybear_jinni_flutter) to your phone manually.
-
 
 ### Connecting the smart device to the CyBear Jinni App:
 
-Find the smart device Wi-Fi IP, it will be something like 10.0.0.12 .
+Make sure your smart device have both [Security Bear](https://snapcraft.io/security-bear) and [Smart Device](https://snapcraft.io/cybear-jinni) installed.
 
-Connect the phone to your home Wi-Fi.
 
 Now we need to link the smart device from inside the phone app.
 
-In the app go to: "Lamps" tab --> Press the cog in the top right corner --> Press the plus button --> Insert the smart device IP and press "Add" --> Change the device name and press the "Update" button --> Press the "Add devices".
+In the app after login go to: "Devices" tab --> Press the three dots in the top right corner --> Press the "Add Devices" button --> connect the app to home WiFi --> Open Hotspot/Access point in the android settings with the user name and password "CyBear Jinni" --> Choose device and set it up with name and room.
 
 That's it.
 
-Now you can control your smart device from the CyBear Jinni App 😁.
+Now the new device can be found in "Devices" tab inside his category and can be controlled from our CyBear Jinni App 😁.
 
 ## Instructions for developers and testers
 To run the app and start developing or testing check [this Wiki](https://github.com/CyBear-Jinni/CBJ_App/wiki/Instructions-for-developers-and-testing).
