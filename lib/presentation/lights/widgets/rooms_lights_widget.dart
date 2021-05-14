@@ -21,11 +21,11 @@ class RoomsLightsWidget extends StatelessWidget {
           loadSuccess: (state) {
             if (state.devices.size != 0) {
               final List<Color> _gradientColor = GradientColors.sky;
-              Map<String, List<DeviceEntity>> tempDevicesByRooms =
-                  Map<String, List<DeviceEntity>>();
+              final Map<String, List<DeviceEntity>> tempDevicesByRooms =
+                  <String, List<DeviceEntity>>{};
 
               for (int i = 0; i < state.devices.size; i++) {
-                DeviceEntity tempDevice = state.devices[i];
+                final DeviceEntity tempDevice = state.devices[i];
                 if (tempDevicesByRooms[tempDevice.roomId.getOrCrash()] ==
                     null) {
                   tempDevicesByRooms[tempDevice.roomId.getOrCrash()] = [
@@ -37,20 +37,31 @@ class RoomsLightsWidget extends StatelessWidget {
                 }
               }
 
-              List<KtList<DeviceEntity>> devicesByRooms = [];
+              final List<KtList<DeviceEntity>> devicesByRooms = [];
 
               tempDevicesByRooms.forEach((k, v) {
                 devicesByRooms.add(v.toImmutableList());
               });
+
+              int gradientColorCounter = -1;
 
               return Container(
                 margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 15),
                 child: ListView.builder(
                   padding: EdgeInsets.zero,
                   itemBuilder: (context, index) {
+                    gradientColorCounter++;
+                    if (gradientColorCounter > gradientColorsList.length - 1) {
+                      gradientColorCounter = 0;
+                    }
                     final devicesInRoom = devicesByRooms[index];
+
                     return RoomLights(
-                        devicesInRoom, _gradientColor, 'Guy Room');
+                      devicesInRoom,
+                      gradientColorsList[gradientColorCounter],
+                      'Guy Room $index',
+                      maxLightsToShow: 50,
+                    );
                   },
                   itemCount: devicesByRooms.length,
                 ),

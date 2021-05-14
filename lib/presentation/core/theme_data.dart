@@ -3,6 +3,15 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+///List of all the GradientColors to iterate on
+final List<List<Color>> gradientColorsList = [
+  GradientColors.sky,
+  GradientColors.sunset,
+  GradientColors.sea,
+  GradientColors.mango,
+  GradientColors.fire
+];
+
 class GradientColors {
   static List<Color> sky = [const Color(0xFF6448FE), const Color(0xFF5FC6FF)];
   static List<Color> sunset = [
