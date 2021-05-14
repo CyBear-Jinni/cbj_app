@@ -59,7 +59,7 @@ class RoomsLightsWidget extends StatelessWidget {
                     return RoomLights(
                       devicesInRoom,
                       gradientColorsList[gradientColorCounter],
-                      'Guy Room $index',
+                      'Room $index',
                       maxLightsToShow: 50,
                     );
                   },
