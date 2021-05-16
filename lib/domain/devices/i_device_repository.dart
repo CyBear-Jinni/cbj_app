@@ -13,6 +13,10 @@ abstract class IDeviceRepository {
 
   Stream<Either<DevicesFailure, KtList<DeviceEntity>>> watchAll();
 
+  Stream<Either<DevicesFailure, KtList<DeviceEntity>>> watchLights();
+
+  Stream<Either<DevicesFailure, KtList<DeviceEntity>>> watchBlinds();
+
   Stream<Either<DevicesFailure, KtList<DeviceEntity>>> watchUncompleted();
 
   Future<Either<DevicesFailure, Unit>> create(DeviceEntity deviceEntity);

@@ -19,9 +19,9 @@ import '../add_new_devices_process/connect_to_home_wifi/connect_to_home_wifi_pag
 import '../add_new_devices_process/open_access_point/open_access_pointi_page.dart';
 import '../add_new_devices_process/scan_for_new_cbj_comps/scan_for_new_cbj_comps_page.dart';
 import '../add_user_to_home/add_user_to_home_page.dart';
+import '../blinds/rooms_blinds_page.dart';
 import '../create_home/create_home_page.dart';
 import '../home_page/home_page.dart';
-import '../home_page/tabs/smart_devices_tab/blinds/blinds_page.dart';
 import '../home_page/tabs/smart_devices_tab/blinds/smart_blind_widget.dart';
 import '../introduction_screen/introduction_screen_page.dart';
 import '../join_home_by_id/join_home_by_id_page.dart';
@@ -55,7 +55,7 @@ class Routes {
   static const String configureNewCbjCompPage = '/configure-new-cbj-comp-page';
   static const String roomsLightsPage = '/rooms-lights-page';
   static const String lightsInTheRoomPage = '/lights-in-the-room-page';
-  static const String blindsPage = '/blinds-page';
+  static const String roomsBlindsPage = '/rooms-blinds-page';
   static const String smartBlindPage = '/smart-blind-page';
   static const all = <String>{
     splashPage,
@@ -76,7 +76,7 @@ class Routes {
     configureNewCbjCompPage,
     roomsLightsPage,
     lightsInTheRoomPage,
-    blindsPage,
+    roomsBlindsPage,
     smartBlindPage,
   };
 }
@@ -105,7 +105,7 @@ class AppRouter extends RouterBase {
     RouteDef(Routes.configureNewCbjCompPage, page: ConfigureNewCbjCompPage),
     RouteDef(Routes.roomsLightsPage, page: RoomsLightsPage),
     RouteDef(Routes.lightsInTheRoomPage, page: LightsInTheRoomPage),
-    RouteDef(Routes.blindsPage, page: BlindsPage),
+    RouteDef(Routes.roomsBlindsPage, page: RoomsBlindsPage),
     RouteDef(Routes.smartBlindPage, page: SmartBlindPage),
   ];
   @override
@@ -225,9 +225,9 @@ class AppRouter extends RouterBase {
         settings: data,
       );
     },
-    BlindsPage: (data) {
+    RoomsBlindsPage: (data) {
       return MaterialPageRoute<dynamic>(
-        builder: (context) => BlindsPage(),
+        builder: (context) => RoomsBlindsPage(),
         settings: data,
       );
     },
@@ -313,7 +313,8 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
         arguments: LightsInTheRoomPageArguments(thisSmartRoom: thisSmartRoom),
       );
 
-  Future<dynamic> pushBlindsPage() => push<dynamic>(Routes.blindsPage);
+  Future<dynamic> pushRoomsBlindsPage() =>
+      push<dynamic>(Routes.roomsBlindsPage);
 
   Future<dynamic> pushSmartBlindPage({
     @required SmartBlindsObject smartBlindsObject,

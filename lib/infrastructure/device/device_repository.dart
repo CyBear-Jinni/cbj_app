@@ -9,6 +9,7 @@ import 'package:cybear_jinni/domain/devices/value_objects.dart';
 import 'package:cybear_jinni/domain/user/i_user_repository.dart';
 import 'package:cybear_jinni/domain/user/user_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/firestore_helpers.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_as_dart/smart_connection.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/smart_client.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_device_object.dart';
 import 'package:cybear_jinni/infrastructure/device/device_dtos.dart';
@@ -39,7 +40,13 @@ class DeviceRepository implements IDeviceRepository {
         .map(
           (snapshot) => right<DevicesFailure, KtList<DeviceEntity>>(
             snapshot.docs
-                .map((doc) => DeviceDtos.fromFirestore(doc).toDomain())
+                .map((doc) {
+                  if (doc.data()['type'] == DeviceTypes.Light.toString() ||
+                      doc.data()['type'] == DeviceTypes.Blinds.toString()) {
+                    return DeviceDtos.fromFirestore(doc).toDomain();
+                  }
+                })
+                .where((element) => element != null)
                 .toImmutableList(),
           ),
         )
@@ -51,6 +58,28 @@ class DeviceRepository implements IDeviceRepository {
         return left(const DevicesFailure.unexpected());
       }
     });
+  }
+
+  @override
+  Stream<Either<DevicesFailure, KtList<DeviceEntity>>> watchLights() async* {
+    // Using watchAll devices from server function and filtering out only the
+    // Light device type
+    yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
+          return right(r.toList().asList().where((element) {
+            return element.type.getOrCrash() == DeviceTypes.Light.toString();
+          }).toImmutableList());
+        }));
+  }
+
+  @override
+  Stream<Either<DevicesFailure, KtList<DeviceEntity>>> watchBlinds() async* {
+    // Using watchAll devices from server function and filtering out only the
+    // Blinds device type
+    yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
+          return right(r.toList().asList().where((element) {
+            return element.type.getOrCrash() == DeviceTypes.Blinds.toString();
+          }).toImmutableList());
+        }));
   }
 
   @override

@@ -29,8 +29,9 @@ class SmartDevicesWidgets extends StatelessWidget {
               print('you clicked $element');
               if (element.toString() == lightsPage.tr()) {
                 ExtendedNavigator.of(context).pushRoomsLightsPage();
+                ExtendedNavigator.of(context).push(Routes.lightsInTheRoomPage);
               } else if (element.toString() == blindsPage.tr()) {
-                ExtendedNavigator.of(context).pushBlindsPage();
+                ExtendedNavigator.of(context).push(Routes.roomsBlindsPage);
               } else {
                 Fluttertoast.showToast(
                     msg: element.toString(),

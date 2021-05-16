@@ -9,34 +9,33 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
 
-part 'device_watcher_bloc.freezed.dart';
-part 'device_watcher_event.dart';
-part 'device_watcher_state.dart';
+part 'blinds_watcher_bloc.freezed.dart';
+part 'blinds_watcher_event.dart';
+part 'blinds_watcher_state.dart';
 
 @injectable
-class DeviceWatcherBloc extends Bloc<DeviceWatcherEvent, DeviceWatcherState> {
-  DeviceWatcherBloc(this._deviceRepository)
-      : super(DeviceWatcherState.initial());
+class BlindsWatcherBloc extends Bloc<BlindsWatcherEvent, BlindsWatcherState> {
+  BlindsWatcherBloc(this._deviceRepository)
+      : super(BlindsWatcherState.initial());
 
   final IDeviceRepository _deviceRepository;
   StreamSubscription<Either<DevicesFailure, KtList<DeviceEntity>>>
       _deviceStreamSubscription;
 
   @override
-  Stream<DeviceWatcherState> mapEventToState(
-    DeviceWatcherEvent event,
+  Stream<BlindsWatcherState> mapEventToState(
+    BlindsWatcherEvent event,
   ) async* {
     yield* event.map(
       watchAllStarted: (e) async* {
-        yield const DeviceWatcherState.loadInProgress();
+        yield const BlindsWatcherState.loadInProgress();
         await _deviceStreamSubscription?.cancel();
-        _deviceStreamSubscription = _deviceRepository.watchLights().listen(
-            (eventWatch) =>
-                add(DeviceWatcherEvent.devicesReceived(eventWatch)));
+        _deviceStreamSubscription = _deviceRepository.watchBlinds().listen(
+            (eventWatch) => add(BlindsWatcherEvent.blindsReceived(eventWatch)));
       },
-      devicesReceived: (e) async* {
-        yield e.failureOrDevices.fold((f) => DeviceWatcherState.loadFailure(f),
-            (d) => DeviceWatcherState.loadSuccess(d));
+      blindsReceived: (e) async* {
+        yield e.failureOrDevices.fold((f) => BlindsWatcherState.loadFailure(f),
+            (d) => BlindsWatcherState.loadSuccess(d));
       },
     );
   }
