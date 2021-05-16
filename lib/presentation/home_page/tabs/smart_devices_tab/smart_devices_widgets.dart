@@ -2,6 +2,7 @@ import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/presentation/core/route_names.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/settings_page_of_smart_devices.dart';
+import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/smart_devices_by_rooms.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -155,12 +156,7 @@ class SmartDevicesWidgets extends StatelessWidget {
           rightSecondFunction: rightSecondFunction,
         ),
         Expanded(
-          child: GridView(
-            padding: const EdgeInsets.fromLTRB(5, 10, 5, 0),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2),
-            children: smartDevice(context),
-          ),
+          child: SmartDevicesByRooms(),
         ),
       ],
     );
