@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/auth/auth_bloc.dart';
+import 'package:cybear_jinni/application/blinds/blinds_watcher/blinds_watcher_bloc.dart';
 import 'package:cybear_jinni/application/devices/device_actor/device_actor_bloc.dart';
-import 'package:cybear_jinni/application/devices/device_watcher/device_watcher_bloc.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/blinds/settings_page_of_blinds.dart';
 import 'package:cybear_jinni/presentation/blinds/widgets/rooms_blinds_widget.dart';
@@ -31,9 +31,9 @@ class RoomsBlindsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<DeviceWatcherBloc>(
-          create: (context) => getIt<DeviceWatcherBloc>()
-            ..add(const DeviceWatcherEvent.watchAllStarted()),
+        BlocProvider<BlindsWatcherBloc>(
+          create: (context) => getIt<BlindsWatcherBloc>()
+            ..add(const BlindsWatcherEvent.watchAllStarted()),
         ),
         BlocProvider<DeviceActorBloc>(
           create: (context) => getIt<DeviceActorBloc>(),

@@ -13,6 +13,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'application/add_user_to_home/add_user_to_home_bloc.dart';
 import 'infrastructure/add_user_to_home/add_user_to_home_reposityory.dart';
 import 'application/auth/auth_bloc.dart';
+import 'application/blinds/blinds_watcher/blinds_watcher_bloc.dart';
 import 'application/cbj_comp/cbj_comp_bloc.dart';
 import 'infrastructure/cbj_comp/cbj_comp_repository.dart';
 import 'application/configure_new_cbj_comp/configure_new_cbj_comp_bloc.dart';
@@ -99,6 +100,8 @@ GetIt $initGetIt(
   gh.factory<AddUserToHomeBloc>(
       () => AddUserToHomeBloc(get<IAddUserToHomeRepository>()));
   gh.factory<AuthBloc>(() => AuthBloc(get<IAuthFacade>()));
+  gh.factory<BlindsWatcherBloc>(
+      () => BlindsWatcherBloc(get<IDeviceRepository>()));
   gh.factory<CBJCompBloc>(() => CBJCompBloc(get<ICBJCompRepository>()));
   gh.factory<ConfigureNewCbjCompBloc>(() => ConfigureNewCbjCompBloc(
       get<IDeviceRepository>(), get<ICBJCompRepository>()));

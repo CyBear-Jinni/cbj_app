@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/application/devices/device_watcher/device_watcher_bloc.dart';
+import 'package:cybear_jinni/application/blinds/blinds_watcher/blinds_watcher_bloc.dart';
 import 'package:cybear_jinni/domain/devices/device_entity.dart';
 import 'package:cybear_jinni/presentation/blinds/widgets/critical_failure_blinds_display_widget.dart';
 import 'package:cybear_jinni/presentation/blinds/widgets/room_blinds.dart';
@@ -11,7 +11,7 @@ import 'package:kt_dart/kt.dart';
 class RoomsBlindsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<DeviceWatcherBloc, DeviceWatcherState>(
+    return BlocBuilder<BlindsWatcherBloc, BlindsWatcherState>(
       builder: (context, state) {
         return state.map(
           initial: (_) => Container(),
@@ -25,10 +25,6 @@ class RoomsBlindsWidget extends StatelessWidget {
                   <String, List<DeviceEntity>>{};
 
               for (int i = 0; i < state.devices.size; i++) {
-                if (state.devices[i].type.value.getOrElse(() => null) !=
-                    'Blind') {
-                  continue;
-                }
                 final DeviceEntity tempDevice = state.devices[i];
                 if (tempDevicesByRooms[tempDevice.roomId.getOrCrash()] ==
                     null) {
@@ -85,7 +81,7 @@ class RoomsBlindsWidget extends StatelessWidget {
               failure: state.devicesFailure,
             );
           },
-          error: (Error value) {
+          blindError: (BlindError value) {
             return const Text('Error');
           },
         );

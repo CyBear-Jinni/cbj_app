@@ -25,10 +25,6 @@ class RoomsLightsWidget extends StatelessWidget {
                   <String, List<DeviceEntity>>{};
 
               for (int i = 0; i < state.devices.size; i++) {
-                if (state.devices[i].type.value.getOrElse(() => null) !=
-                    'Light') {
-                  continue;
-                }
                 final DeviceEntity tempDevice = state.devices[i];
                 if (tempDevicesByRooms[tempDevice.roomId.getOrCrash()] ==
                     null) {
