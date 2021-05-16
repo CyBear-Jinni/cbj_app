@@ -1,8 +1,7 @@
 import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
 import 'package:cybear_jinni/domain/devices/device_entity.dart';
 import 'package:cybear_jinni/injection.dart';
-import 'package:cybear_jinni/presentation/lights/widgets/error_lights_device_card_widget.dart';
-import 'package:cybear_jinni/presentation/lights/widgets/light_widget.dart';
+import 'package:cybear_jinni/presentation/blinds/widgets/blind_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,8 +10,8 @@ import 'package:kt_dart/collection.dart';
 
 /// Show light toggles in a container with the background color from smart room
 /// object
-class RoomLights extends StatelessWidget {
-  RoomLights(this._deviceEntityList, this._gradientColor, this._roomEntity,
+class RoomBlinds extends StatelessWidget {
+  RoomBlinds(this._deviceEntityList, this._gradientColor, this._roomEntity,
       {this.maxLightsToShow = 4});
 
   final KtList<DeviceEntity> _deviceEntityList;
@@ -32,59 +31,38 @@ class RoomLights extends StatelessWidget {
 
     Widget createSwitchTableWidget() {
       final List<Widget> columnOfLights = <Widget>[];
-      List<Widget> widgetsForRow = <Widget>[];
 
-      final int _numberOfLightsToShow = _deviceEntityList.size > maxLightsToShow
-          ? maxLightsToShow
-          : _deviceEntityList.size;
+      final int _numberOfBlindsToShow = _deviceEntityList.size;
 
-      for (int i = 0; i < _numberOfLightsToShow; i += _maxLightsInRow) {
-        for (int v = 0; v < _maxLightsInRow; v++) {
-          if (_deviceEntityList.size > i + v) {
-            final DeviceEntity deviceEntityTemp = _deviceEntityList[i + v];
-            if (deviceEntityTemp.failureOption.isSome()) {
-              widgetsForRow
-                  .add(ErrorLightsDeviceCard(device: deviceEntityTemp));
-            } else {
-              widgetsForRow.add(Column(
-                children: [
-                  Text(
-                    deviceEntityTemp.defaultName.getOrCrash(),
-                    style: TextStyle(
-                      fontSize: 19.0,
-                      color: Theme.of(context).textTheme.bodyText2.color,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 3,
-                  ),
-                  Container(
-                    margin: const EdgeInsets.symmetric(vertical: 5),
-                    width: sizeBoxWidth + 15,
-                    child: BlocProvider(
-                      create: (context) => getIt<LightToggleBloc>(),
-                      child: LightWidget(deviceEntityTemp),
-                    ),
-                  ),
-                ],
-              ));
-            }
-          } else {
-            widgetsForRow.add(const SizedBox(
-              width: 110,
-            ));
-          }
-        }
-        final Widget rowOfLights = Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: widgetsForRow,
-        );
-        widgetsForRow = <Widget>[];
-        columnOfLights.add(rowOfLights);
+      for (int i = 0; i < _numberOfBlindsToShow; i++) {
+        final DeviceEntity deviceEntityTemp = _deviceEntityList[i];
+
+        columnOfLights.add(Column(
+          children: [
+            Text(
+              deviceEntityTemp.defaultName.getOrCrash(),
+              style: TextStyle(
+                fontSize: 19.0,
+                color: Theme.of(context).textTheme.bodyText2.color,
+              ),
+            ),
+            const SizedBox(
+              height: 3,
+            ),
+            Container(
+              margin: const EdgeInsets.symmetric(vertical: 5),
+              child: BlocProvider(
+                create: (context) => getIt<LightToggleBloc>(),
+                child: BlindWidget(deviceEntityTemp),
+              ),
+            ),
+          ],
+        ));
+
+        columnOfLights.add(const SizedBox(
+          height: 5,
+        ));
       }
-      columnOfLights.add(const SizedBox(
-        height: 5,
-      ));
 
       return Column(
         children: columnOfLights,

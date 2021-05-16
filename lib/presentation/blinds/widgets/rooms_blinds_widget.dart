@@ -1,14 +1,14 @@
 import 'package:cybear_jinni/application/devices/device_watcher/device_watcher_bloc.dart';
 import 'package:cybear_jinni/domain/devices/device_entity.dart';
+import 'package:cybear_jinni/presentation/blinds/widgets/critical_failure_blinds_display_widget.dart';
+import 'package:cybear_jinni/presentation/blinds/widgets/room_blinds.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
-import 'package:cybear_jinni/presentation/lights/widgets/critical_light_failure_display_widget.dart';
-import 'package:cybear_jinni/presentation/lights/widgets/room_lights.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kt_dart/kt.dart';
 
-class RoomsLightsWidget extends StatelessWidget {
+class RoomsBlindsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<DeviceWatcherBloc, DeviceWatcherState>(
@@ -26,7 +26,7 @@ class RoomsLightsWidget extends StatelessWidget {
 
               for (int i = 0; i < state.devices.size; i++) {
                 if (state.devices[i].type.value.getOrElse(() => null) !=
-                    'Light') {
+                    'Blind') {
                   continue;
                 }
                 final DeviceEntity tempDevice = state.devices[i];
@@ -60,7 +60,7 @@ class RoomsLightsWidget extends StatelessWidget {
                     }
                     final devicesInRoom = devicesByRooms[index];
 
-                    return RoomLights(
+                    return RoomBlinds(
                       devicesInRoom,
                       gradientColorsList[gradientColorCounter],
                       'Room ${index + 1}',
@@ -76,12 +76,12 @@ class RoomsLightsWidget extends StatelessWidget {
                 onPressed: () {},
                 color: Colors.black,
                 child: const Text(
-                    'No lights have been found.\nPlease add new light'),
+                    'No blinds have been found.\nPlease add new blind'),
               ));
             }
           },
           loadFailure: (state) {
-            return CriticalLightFailureDisplay(
+            return CriticalFailureBlindsDisplay(
               failure: state.devicesFailure,
             );
           },

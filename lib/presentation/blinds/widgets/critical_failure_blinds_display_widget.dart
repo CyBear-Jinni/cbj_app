@@ -1,10 +1,10 @@
 import 'package:cybear_jinni/domain/devices/devices_failures.dart';
 import 'package:flutter/material.dart';
 
-class CriticalFailureDisplay extends StatelessWidget {
+class CriticalFailureBlindsDisplay extends StatelessWidget {
   final DevicesFailure failure;
 
-  const CriticalFailureDisplay({
+  const CriticalFailureBlindsDisplay({
     Key key,
     @required this.failure,
   }) : super(key: key);
