@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class LightInTheRoomBlock extends StatelessWidget {
-  LightInTheRoomBlock(this.lightsInRoom);
+class LightsInTheRoomBlock extends StatelessWidget {
+  LightsInTheRoomBlock(this.lightsInRoom);
 
   final List<DeviceEntity> lightsInRoom;
 
@@ -43,13 +43,20 @@ class LightInTheRoomBlock extends StatelessWidget {
                   child: Container(
                     width: 28,
                     decoration: BoxDecoration(
-                      border: Border.all(color: Colors.white.withOpacity(0.5)),
+                      border: Border.all(
+                          color: Theme.of(context)
+                              .textTheme
+                              .bodyText1
+                              .color
+                              .withOpacity(0.5)),
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Text(
                       lightsInRoom.length.toString(),
                       textAlign: TextAlign.center,
-                      style: const TextStyle(fontSize: 13, color: Colors.white),
+                      style: TextStyle(
+                          fontSize: 13,
+                          color: Theme.of(context).textTheme.bodyText1.color),
                     ),
                   ),
                 ),
@@ -59,9 +66,10 @@ class LightInTheRoomBlock extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          const Text(
+          Text(
             'Room Name lights',
-            style: TextStyle(color: Colors.white),
+            style:
+                TextStyle(color: Theme.of(context).textTheme.bodyText1.color),
           ),
           const SizedBox(
             height: 10,
@@ -73,6 +81,9 @@ class LightInTheRoomBlock extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     TextButton(
+                      style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(
+                              Colors.brown.withOpacity(0.2))),
                       onPressed: () {
                         context.read<LightsActorBloc>().add(
                             LightsActorEvent.turnOffAllLights(
@@ -80,11 +91,17 @@ class LightInTheRoomBlock extends StatelessWidget {
                       },
                       child: const Text(
                         'Off',
-                        style: TextStyle(color: Colors.blue, fontSize: 15),
+                        style: TextStyle(color: Colors.blue, fontSize: 14),
                       ),
                     ),
-                    const Text('·'),
+                    const Text(
+                      '·',
+                      style: TextStyle(fontSize: 14),
+                    ),
                     TextButton(
+                      style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(
+                              Colors.amber.withOpacity(0.2))),
                       onPressed: () {
                         context.read<LightsActorBloc>().add(
                             LightsActorEvent.turnOnAllLights(
@@ -92,7 +109,7 @@ class LightInTheRoomBlock extends StatelessWidget {
                       },
                       child: const Text(
                         'On',
-                        style: TextStyle(color: Colors.blue, fontSize: 15),
+                        style: TextStyle(color: Colors.blue, fontSize: 14),
                       ),
                     ),
                   ],

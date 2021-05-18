@@ -58,7 +58,7 @@ class ScenesInFoldersL extends StatelessWidget {
         ),
         borderRadius: const BorderRadius.all(Radius.circular(borderRadius)),
         border: Border.all(
-          color: Colors.white,
+          color: Theme.of(context).textTheme.bodyText1.color,
           width: 0.4,
         ),
       ),
@@ -89,7 +89,9 @@ class ScenesInFoldersL extends StatelessWidget {
               ),
               child: Text(
                 folderOfScenes.fold((l) => 'NoName', (r) => r.name),
-                style: const TextStyle(color: Colors.white, fontSize: 30),
+                style: TextStyle(
+                    color: Theme.of(context).textTheme.subtitle2.color,
+                    fontSize: 30),
                 textAlign: TextAlign.center,
               ),
             ),

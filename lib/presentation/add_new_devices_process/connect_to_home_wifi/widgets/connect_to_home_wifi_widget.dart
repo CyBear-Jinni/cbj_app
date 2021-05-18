@@ -50,16 +50,23 @@ class ConnectToHomeWiFiWidget extends StatelessWidget {
                       SizedBox(
                         width: 300,
                         child: TextFormField(
-                          style: const TextStyle(color: Colors.white),
+                          style: TextStyle(
+                              color:
+                                  Theme.of(context).textTheme.bodyText1.color),
                           decoration: InputDecoration(
                               filled: true,
                               fillColor: Colors.greenAccent.withOpacity(0.3),
-                              prefixIcon: const Icon(
+                              prefixIcon: Icon(
                                 Icons.wifi,
-                                color: Colors.white,
+                                color:
+                                    Theme.of(context).textTheme.bodyText1.color,
                               ),
                               labelText: 'WiFi Name',
-                              labelStyle: const TextStyle(color: Colors.white)),
+                              labelStyle: TextStyle(
+                                  color: Theme.of(context)
+                                      .textTheme
+                                      .bodyText1
+                                      .color)),
                           autocorrect: false,
                           onChanged: (value) {
                             context
@@ -74,16 +81,23 @@ class ConnectToHomeWiFiWidget extends StatelessWidget {
                       SizedBox(
                         width: 300,
                         child: TextFormField(
-                          style: const TextStyle(color: Colors.white),
+                          style: TextStyle(
+                              color:
+                                  Theme.of(context).textTheme.bodyText1.color),
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.greenAccent.withOpacity(0.3),
-                            prefixIcon: const Icon(
+                            prefixIcon: Icon(
                               Icons.vpn_key,
-                              color: Colors.white,
+                              color:
+                                  Theme.of(context).textTheme.bodyText1.color,
                             ),
                             labelText: 'Password',
-                            labelStyle: const TextStyle(color: Colors.white),
+                            labelStyle: TextStyle(
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .bodyText1
+                                    .color),
                           ),
                           autocorrect: false,
                           onChanged: (value) {
@@ -103,9 +117,11 @@ class ConnectToHomeWiFiWidget extends StatelessWidget {
                               .read<ManageWifiBloc>()
                               .add(ManageWifiEvent.connectToWiFi());
                         },
-                        child: const Text(
+                        child: Text(
                           'Connect to WiFi',
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(
+                              color:
+                                  Theme.of(context).textTheme.bodyText1.color),
                         ),
                       ),
                     ],

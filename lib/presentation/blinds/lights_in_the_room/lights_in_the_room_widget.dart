@@ -39,16 +39,19 @@ class LightsInTheRoomWidget extends StatelessWidget {
                 decoration: InputDecoration(
                   border: InputBorder.none,
                   hintText: products[index]['title'.tr()].toString(),
-                  hintStyle: const TextStyle(color: Colors.white),
+                  hintStyle: TextStyle(
+                      color: Theme.of(context).textTheme.bodyText1.color),
                 ),
-                style: const TextStyle(color: Colors.white),
+                style: TextStyle(
+                    color: Theme.of(context).textTheme.bodyText1.color),
               ),
               subtitle: Text(
                 products[index]['number'.tr()].toString(),
-                style: const TextStyle(color: Colors.white),
+                style: TextStyle(
+                    color: Theme.of(context).textTheme.bodyText1.color),
               ),
               trailing: IconButton(
-                color: Colors.white,
+                color: Theme.of(context).textTheme.bodyText1.color,
                 icon: const FaIcon(FontAwesomeIcons.pen),
                 onPressed: () {},
               ),

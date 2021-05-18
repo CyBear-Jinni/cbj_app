@@ -114,9 +114,9 @@ class RoomBlindsTogglesBlock extends StatelessWidget {
                   ),
                   if (maxLightsToShow != null &&
                       _smartRoomObject.getLights().length > maxLightsToShow)
-                    const FaIcon(
+                    FaIcon(
                       FontAwesomeIcons.arrowRight,
-                      color: Colors.white,
+                      color: Theme.of(context).textTheme.bodyText1.color,
                       size: 20,
                     ),
                 ],

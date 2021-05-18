@@ -53,9 +53,10 @@ class AddLinkedPage extends StatelessWidget {
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                child: const Text(
+                child: Text(
                   'Set Home Location',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(
+                      color: Theme.of(context).textTheme.bodyText1.color),
                 )),
             const SizedBox(
               height: 50,

@@ -47,16 +47,19 @@ class AddUserToHomeWidget extends StatelessWidget {
                 SizedBox(
                   width: 300,
                   child: TextFormField(
-                    style: const TextStyle(color: Colors.white),
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1.color),
                     decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.greenAccent.withOpacity(0.3),
-                        prefixIcon: const Icon(
+                        prefixIcon: Icon(
                           Icons.alternate_email,
-                          color: Colors.white,
+                          color: Theme.of(context).textTheme.bodyText1.color,
                         ),
                         labelText: 'Email',
-                        labelStyle: const TextStyle(color: Colors.white)),
+                        labelStyle: TextStyle(
+                            color:
+                                Theme.of(context).textTheme.bodyText1.color)),
                     autocorrect: false,
                     onChanged: (value) {
                       userToAddEmail = value;
@@ -74,9 +77,10 @@ class AddUserToHomeWidget extends StatelessWidget {
                 context.read<AddUserToHomeBloc>().add(
                     AddUserToHomeEvent.addUserToHomeByEmail(userToAddEmail));
               },
-              child: const Text(
+              child: Text(
                 'Add User',
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(
+                    color: Theme.of(context).textTheme.bodyText1.color),
               ),
             ),
             state.map(
@@ -89,15 +93,17 @@ class AddUserToHomeWidget extends StatelessWidget {
               },
               addingUserSuccess: (s) {
                 return Container(
-                  margin: EdgeInsets.symmetric(horizontal: 30),
+                  margin: const EdgeInsets.symmetric(horizontal: 30),
                   child: Column(
                     children: [
                       const SizedBox(
                         height: 30,
                       ),
-                      const Text(
+                      Text(
                         'User have been add successfully',
-                        style: TextStyle(color: Colors.white, fontSize: 20),
+                        style: TextStyle(
+                            color: Theme.of(context).textTheme.bodyText1.color,
+                            fontSize: 20),
                       ),
                       const SizedBox(
                         height: 30,
@@ -105,9 +111,11 @@ class AddUserToHomeWidget extends StatelessWidget {
                       const SizedBox(
                         height: 30,
                       ),
-                      const Text(
+                      Text(
                         'Copy home ID',
-                        style: TextStyle(color: Colors.white, fontSize: 20),
+                        style: TextStyle(
+                            color: Theme.of(context).textTheme.bodyText1.color,
+                            fontSize: 20),
                       ),
                       const SizedBox(
                         height: 30,
@@ -121,7 +129,8 @@ class AddUserToHomeWidget extends StatelessWidget {
                               toastLength: Toast.LENGTH_SHORT,
                               gravity: ToastGravity.SNACKBAR,
                               backgroundColor: Colors.lightBlue,
-                              textColor: Colors.white,
+                              textColor:
+                                  Theme.of(context).textTheme.bodyText1.color,
                               fontSize: 16.0);
                         },
                         child: Column(
@@ -129,28 +138,34 @@ class AddUserToHomeWidget extends StatelessWidget {
                             const Text('Press to copy'),
                             Text(
                               s.homeId,
-                              style: const TextStyle(
-                                  color: Colors.white,
+                              style: TextStyle(
+                                  color: Theme.of(context)
+                                      .textTheme
+                                      .bodyText1
+                                      .color,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 20),
                             ),
                           ],
                         ),
                       ),
-                      const Text(
+                      Text(
                         'Please give home id to the user, he needs it to'
                         ' join the home.',
-                        style: TextStyle(color: Colors.white, fontSize: 15),
+                        style: TextStyle(
+                            color: Theme.of(context).textTheme.bodyText1.color,
+                            fontSize: 15),
                       ),
                     ],
                   ),
                 );
               },
               addingHomeFailure: (e) {
-                return const Text(
+                return Text(
                   'Adding user Failed.\n'
                   'Did the user already created account with that email?',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(
+                      color: Theme.of(context).textTheme.bodyText1.color),
                 );
               },
             )

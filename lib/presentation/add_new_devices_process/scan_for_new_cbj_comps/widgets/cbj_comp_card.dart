@@ -21,13 +21,13 @@ class CBJCompCard extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               border: Border(
                 top: BorderSide(
-                  color: Colors.white,
+                  color: Theme.of(context).textTheme.bodyText1.color,
                 ),
                 bottom: BorderSide(
-                  color: Colors.white,
+                  color: Theme.of(context).textTheme.bodyText1.color,
                 ),
               ),
             ),
@@ -44,7 +44,11 @@ class CBJCompCard extends StatelessWidget {
                             create: (context) => getIt<DeviceActorBloc>(),
                             child: Text(
                               compEntity.defaultName.getOrCrash(),
-                              style: const TextStyle(color: Colors.white),
+                              style: TextStyle(
+                                  color: Theme.of(context)
+                                      .textTheme
+                                      .bodyText1
+                                      .color),
                             ),
                           ),
                         );
@@ -52,7 +56,9 @@ class CBJCompCard extends StatelessWidget {
                         return Text(
                           'Type not supported ${compEntity.type.getOrCrash()}'
                           ' yet',
-                          style: const TextStyle(color: Colors.white),
+                          style: TextStyle(
+                              color:
+                                  Theme.of(context).textTheme.bodyText1.color),
                         );
                       }
                     },
@@ -71,9 +77,10 @@ class CBJCompCard extends StatelessWidget {
                     cbjCompEntity: cbjCompEntity),
               );
             },
-            child: const Text(
+            child: Text(
               'Set up computer',
-              style: TextStyle(color: Colors.white),
+              style:
+                  TextStyle(color: Theme.of(context).textTheme.bodyText1.color),
             ),
           ),
         ],

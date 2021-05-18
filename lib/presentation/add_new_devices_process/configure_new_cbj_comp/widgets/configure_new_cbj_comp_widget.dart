@@ -20,8 +20,10 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
   static String deviceNameFieldKey = 'deviceNameField';
   static String devicesDefaultRoomNameField = '';
 
-  Widget devicesList(CBJCompEntity cbjCompEntityForDeviceList,
-      Map<String, TextEditingController> _textEditingController) {
+  Widget devicesList(
+      CBJCompEntity cbjCompEntityForDeviceList,
+      Map<String, TextEditingController> _textEditingController,
+      BuildContext context) {
     final List<DeviceEntity> devicesList =
         cbjCompEntityForDeviceList.cBJCompDevices.getOrCrash().asList();
 
@@ -62,21 +64,26 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                   width: 300,
                   child: TextFormField(
                     controller: textEditingControllerTemp,
-                    style: const TextStyle(color: Colors.white),
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1.color),
                     decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.black.withOpacity(0.2),
                         focusedBorder: OutlineInputBorder(
-                          borderSide:
-                              const BorderSide(color: Colors.white, width: 2.0),
+                          borderSide: BorderSide(
+                              color:
+                                  Theme.of(context).textTheme.bodyText1.color,
+                              width: 2.0),
                           borderRadius: BorderRadius.circular(15.0),
                         ),
-                        prefixIcon: const Icon(
+                        prefixIcon: Icon(
                           FontAwesomeIcons.solidLightbulb,
-                          color: Colors.white,
+                          color: Theme.of(context).textTheme.bodyText1.color,
                         ),
                         labelText: 'Light Name',
-                        labelStyle: const TextStyle(color: Colors.white)),
+                        labelStyle: TextStyle(
+                            color:
+                                Theme.of(context).textTheme.bodyText1.color)),
                     autocorrect: false,
                     onChanged: (value) {
                       // roomName = value;
@@ -99,7 +106,8 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                   child: Center(
                     child: Text(
                       'Type ${device.type.getOrCrash()} is not supported yet',
-                      style: const TextStyle(color: Colors.white),
+                      style: TextStyle(
+                          color: Theme.of(context).textTheme.bodyText1.color),
                     ),
                   ),
                 ),
@@ -126,9 +134,10 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
         initial: (_) {
           return Column(
             children: [
-              const Text(
+              Text(
                 'Configure devices',
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(
+                    color: Theme.of(context).textTheme.bodyText1.color),
               ),
               Expanded(
                 child: SingleChildScrollView(
@@ -137,21 +146,26 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                       Row(
                         children: [
                           Checkbox(
-                            checkColor: Colors.white,
+                            checkColor:
+                                Theme.of(context).textTheme.bodyText1.color,
                             activeColor: Colors.red,
                             value: true,
                             onChanged: (bool value) {},
                           ),
-                          const Text(
+                          Text(
                             'All devices in the same room',
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .bodyText1
+                                    .color),
                           ),
                         ],
                       ),
-                      const Text(
+                      Text(
                         'Room Name',
                         style: TextStyle(
-                          color: Colors.white,
+                          color: Theme.of(context).textTheme.bodyText1.color,
                           fontSize: 30,
                         ),
                       ),
@@ -159,21 +173,32 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                         width: 300,
                         child: TextFormField(
                           controller: _textEditingController['allInSameRoom'],
-                          style: const TextStyle(color: Colors.white),
+                          style: TextStyle(
+                              color:
+                                  Theme.of(context).textTheme.bodyText1.color),
                           decoration: InputDecoration(
                               filled: true,
                               fillColor: Colors.greenAccent.withOpacity(0.3),
                               focusedBorder: OutlineInputBorder(
-                                borderSide: const BorderSide(
-                                    color: Colors.white, width: 2.0),
+                                borderSide: BorderSide(
+                                    color: Theme.of(context)
+                                        .textTheme
+                                        .bodyText1
+                                        .color,
+                                    width: 2.0),
                                 borderRadius: BorderRadius.circular(15.0),
                               ),
-                              prefixIcon: const Icon(
+                              prefixIcon: Icon(
                                 FontAwesomeIcons.placeOfWorship,
-                                color: Colors.white,
+                                color:
+                                    Theme.of(context).textTheme.bodyText1.color,
                               ),
                               labelText: 'Room Name',
-                              labelStyle: const TextStyle(color: Colors.white)),
+                              labelStyle: TextStyle(
+                                  color: Theme.of(context)
+                                      .textTheme
+                                      .bodyText1
+                                      .color)),
                           autocorrect: false,
                           onChanged: (value) {},
                         ),
@@ -184,8 +209,8 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                           1)
                         const Text('')
                       else
-                        devicesList(
-                            cbjCompEntityInBuild, _textEditingController),
+                        devicesList(cbjCompEntityInBuild,
+                            _textEditingController, context),
                     ],
                   ),
                 ),
@@ -200,10 +225,10 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                           ConfigureNewCbjCompEvent.setupNewDevice(
                               cbjCompEntityInBuild, _textEditingController));
                     },
-                    child: const Text(
+                    child: Text(
                       'Done',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Theme.of(context).textTheme.bodyText1.color,
                       ),
                     ),
                   ),
@@ -244,7 +269,8 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                         child: LiquidLinearProgressIndicator(
                           value: actionInProgress.progressPercentage,
                           valueColor: const AlwaysStoppedAnimation(Colors.pink),
-                          backgroundColor: Colors.white,
+                          backgroundColor:
+                              Theme.of(context).textTheme.bodyText1.color,
                           borderColor: Colors.red.withOpacity(0.9),
                           borderWidth: 4.0,
                           center: const Text(
@@ -256,9 +282,10 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                      const Text(
+                      Text(
                         'Please wait as we are setting your new computer',
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(
+                            color: Theme.of(context).textTheme.bodyText1.color),
                       ),
                     ],
                   ),
@@ -274,15 +301,17 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
           );
         },
         errorInProcess: (value) {
-          return const Text(
+          return Text(
             'Error in the process.',
-            style: TextStyle(color: Colors.white),
+            style:
+                TextStyle(color: Theme.of(context).textTheme.bodyText1.color),
           );
         },
         completeSuccess: (CompleteSuccess value) {
-          return const Text(
+          return Text(
             'Computer have been configured.',
-            style: TextStyle(color: Colors.white),
+            style:
+                TextStyle(color: Theme.of(context).textTheme.bodyText1.color),
           );
         },
       );

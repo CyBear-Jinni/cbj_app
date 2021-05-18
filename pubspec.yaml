@@ -1,6 +1,6 @@
 name: cybear_jinni
 description: CyBear Jinni app to interact with your CyBear Jinni Smart Devices
-version: 1.1.0+15
+version: 1.1.0+16
 homepage: https://github.com/CyBear-Jinni/CBJ_App
 author: Guy Luz
 
@@ -67,7 +67,7 @@ dependencies:
   # An easy to implement custom switch
   flutter_switch: ^0.2.0
   fluttertoast: ^7.1.6
-  font_awesome_flutter: ^8.11.0
+  font_awesome_flutter: ^9.0.0
   # Annotations for freezed
   freezed_annotation: ^0.12.0
   # Service locator
@@ -83,12 +83,12 @@ dependencies:
   http: ^0.12.2
   # Convenient code generator for get_it
   injectable: ^1.0.7
+  # Allow you to have a screen at launcher for example
+  introduction_screen: ^1.0.9
   # Defines the annotations used by json_serializable to create code for JSON serialization and deserialization.
   json_annotation: ^3.1.1
   # Dart Build System builders for handling JSON.
   json_serializable: ^3.5.1
-  # Allow you to have a screen at launcher for example
-  introduction_screen: ^1.0.9
   # Port of Kotlin's Kotlin Standard library for Dart/Flutter projects
   kt_dart: ^0.8.0
   # Liquid progress indicator for Flutter.

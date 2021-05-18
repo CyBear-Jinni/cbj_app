@@ -14,29 +14,30 @@ class UserCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         border: Border(
           top: BorderSide(
-            color: Colors.white,
+            color: Theme.of(context).textTheme.bodyText1.color,
           ),
           bottom: BorderSide(
-            color: Colors.white,
+            color: Theme.of(context).textTheme.bodyText1.color,
           ),
         ),
       ),
       height: 100,
       child: Center(
         child: ListTile(
-          leading: const FaIcon(
+          leading: FaIcon(
             FontAwesomeIcons.userGraduate,
-            color: Colors.white,
+            color: Theme.of(context).textTheme.bodyText1.color,
           ),
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 homeUser.email.getOrCrash(),
-                style: const TextStyle(color: Colors.white),
+                style: TextStyle(
+                    color: Theme.of(context).textTheme.bodyText1.color),
               ),
             ],
           ),

@@ -2,9 +2,11 @@ import 'package:cybear_jinni/application/devices/device_watcher/device_watcher_b
 import 'package:cybear_jinni/application/lights/device_actor/lights_actor_bloc.dart';
 import 'package:cybear_jinni/domain/devices/device_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_as_dart/smart_connection.pb.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_as_dart/smart_connection.pbgrpc.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
-import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/light_in_the_room_block.dart';
+import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/blinds_in_the_room.dart';
+import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/lights_in_the_room_block.dart';
 import 'package:cybear_jinni/presentation/lights/widgets/critical_light_failure_display_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -70,15 +72,17 @@ class SmartDevicesByRooms extends StatelessWidget {
                     const SizedBox(
                       height: 30,
                     ),
-                    const Text(
+                    Text(
                       'Home Name',
-                      style: TextStyle(fontSize: 30, color: Colors.white),
+                      style: TextStyle(
+                          fontSize: 30,
+                          color: Theme.of(context).textTheme.bodyText1.color),
                     ),
                     const SizedBox(
                       height: 30,
                     ),
-                    const Divider(
-                      color: Colors.white,
+                    Divider(
+                      color: Theme.of(context).textTheme.bodyText1.color,
                       thickness: 1,
                     ),
                     ListView.builder(
@@ -101,16 +105,26 @@ class SmartDevicesByRooms extends StatelessWidget {
                           children: [
                             Container(
                               alignment: Alignment.topCenter,
-                              child: const Text(
+                              child: Text(
                                 'Room Name',
                                 style: TextStyle(
-                                    fontSize: 20, color: Colors.white),
+                                    fontSize: 20,
+                                    color: Theme.of(context)
+                                        .textTheme
+                                        .bodyText1
+                                        .color),
                               ),
                             ),
                             if (numberOfDevicesInTheRoom == 1)
-                              Text('$numberOfDevicesInTheRoom Device')
+                              Text(
+                                '$numberOfDevicesInTheRoom device',
+                                style: const TextStyle(fontSize: 12),
+                              )
                             else
-                              Text('$numberOfDevicesInTheRoom Devices'),
+                              Text(
+                                '$numberOfDevicesInTheRoom devices',
+                                style: const TextStyle(fontSize: 12),
+                              ),
                             GridView.builder(
                                 padding: EdgeInsets.zero,
                                 shrinkWrap: true,
@@ -118,9 +132,9 @@ class SmartDevicesByRooms extends StatelessWidget {
                                 gridDelegate:
                                     const SliverGridDelegateWithMaxCrossAxisExtent(
                                         maxCrossAxisExtent: 200,
-                                        childAspectRatio: 1,
-                                        crossAxisSpacing: 10,
-                                        mainAxisSpacing: 10),
+                                        childAspectRatio: 1.2,
+                                        crossAxisSpacing: 8,
+                                        mainAxisSpacing: 4),
                                 itemCount: tempDevicesByRoomsByType[roomId]
                                     .keys
                                     .length,
@@ -134,15 +148,26 @@ class SmartDevicesByRooms extends StatelessWidget {
                                     return BlocProvider(
                                       create: (context) =>
                                           getIt<LightsActorBloc>(),
-                                      child: LightInTheRoomBlock(
+                                      child: LightsInTheRoomBlock(
+                                          tempDevicesByRoomsByType[roomId]
+                                              [deviceType]),
+                                    );
+                                  } else if (deviceType ==
+                                      DeviceTypes.Blinds.toString()) {
+                                    return BlocProvider(
+                                      create: (context) =>
+                                          getIt<LightsActorBloc>(),
+                                      child: BlindsInTheRoom(
                                           tempDevicesByRoomsByType[roomId]
                                               [deviceType]),
                                     );
                                   }
                                   return const Text('Not Supported');
                                 }),
-                            const Divider(
-                              color: Colors.white,
+                            Divider(
+                              color:
+                                  Theme.of(context).textTheme.bodyText1.color,
+                              height: 0,
                             ),
                           ],
                         );
