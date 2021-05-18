@@ -1,6 +1,8 @@
 import 'package:cybear_jinni/application/devices/device_watcher/device_watcher_bloc.dart';
+import 'package:cybear_jinni/application/lights/device_actor/lights_actor_bloc.dart';
 import 'package:cybear_jinni/domain/devices/device_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_as_dart/smart_connection.pb.dart';
+import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/light_in_the_room_block.dart';
 import 'package:cybear_jinni/presentation/lights/widgets/critical_light_failure_display_widget.dart';
@@ -116,7 +118,7 @@ class SmartDevicesByRooms extends StatelessWidget {
                                 gridDelegate:
                                     const SliverGridDelegateWithMaxCrossAxisExtent(
                                         maxCrossAxisExtent: 200,
-                                        childAspectRatio: 1.2,
+                                        childAspectRatio: 1,
                                         crossAxisSpacing: 10,
                                         mainAxisSpacing: 10),
                                 itemCount: tempDevicesByRoomsByType[roomId]
@@ -129,11 +131,15 @@ class SmartDevicesByRooms extends StatelessWidget {
                                           .elementAt(secondIndex);
                                   if (deviceType ==
                                       DeviceTypes.Light.toString()) {
-                                    return LightInTheRoomBlock(
-                                        tempDevicesByRoomsByType[roomId]
-                                            [deviceType]);
+                                    return BlocProvider(
+                                      create: (context) =>
+                                          getIt<LightsActorBloc>(),
+                                      child: LightInTheRoomBlock(
+                                          tempDevicesByRoomsByType[roomId]
+                                              [deviceType]),
+                                    );
                                   }
-                                  return Text('Not Suported');
+                                  return const Text('Not Supported');
                                 }),
                             const Divider(
                               color: Colors.white,

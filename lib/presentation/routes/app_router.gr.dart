@@ -212,8 +212,12 @@ class AppRouter extends RouterBase {
       );
     },
     RoomsLightsPage: (data) {
+      final args = data.getArgs<RoomsLightsPageArguments>(
+        orElse: () => RoomsLightsPageArguments(),
+      );
       return MaterialPageRoute<dynamic>(
-        builder: (context) => RoomsLightsPage(),
+        builder: (context) => RoomsLightsPage(
+            showDevicesOnlyFromRoomId: args.showDevicesOnlyFromRoomId),
         settings: data,
       );
     },
@@ -302,8 +306,14 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
             ConfigureNewCbjCompPageArguments(cbjCompEntity: cbjCompEntity),
       );
 
-  Future<dynamic> pushRoomsLightsPage() =>
-      push<dynamic>(Routes.roomsLightsPage);
+  Future<dynamic> pushRoomsLightsPage({
+    String showDevicesOnlyFromRoomId,
+  }) =>
+      push<dynamic>(
+        Routes.roomsLightsPage,
+        arguments: RoomsLightsPageArguments(
+            showDevicesOnlyFromRoomId: showDevicesOnlyFromRoomId),
+      );
 
   Future<dynamic> pushLightsInTheRoomPage({
     @required SmartRoomObject thisSmartRoom,
@@ -340,6 +350,12 @@ class ScenesPageArguments {
 class ConfigureNewCbjCompPageArguments {
   final CBJCompEntity cbjCompEntity;
   ConfigureNewCbjCompPageArguments({@required this.cbjCompEntity});
+}
+
+/// RoomsLightsPage arguments holder class
+class RoomsLightsPageArguments {
+  final String showDevicesOnlyFromRoomId;
+  RoomsLightsPageArguments({this.showDevicesOnlyFromRoomId});
 }
 
 /// LightsInTheRoomPage arguments holder class

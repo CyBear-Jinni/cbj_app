@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cybear_jinni/domain/devices/device_entity.dart';
 import 'package:cybear_jinni/domain/devices/devices_failures.dart';
 import 'package:dartz/dartz.dart';
@@ -21,8 +22,25 @@ abstract class IDeviceRepository {
 
   Future<Either<DevicesFailure, Unit>> create(DeviceEntity deviceEntity);
 
-  Future<Either<DevicesFailure, Unit>> update({
+  /// Update document in the database in the following fields
+  Future<Either<DevicesFailure, Unit>> updateDatabase({
+    @required DocumentReference documentPath,
+    @required Map<String, dynamic> fieldsToUpdate,
+    String forceUpdateLocation,
+  });
+
+  Future<Either<DevicesFailure, Unit>> updateWithDeviceEntity({
     @required DeviceEntity deviceEntity,
+    String forceUpdateLocation,
+  });
+
+  Future<Either<DevicesFailure, Unit>> turnOffDevices({
+    @required List<String> devicesId,
+    String forceUpdateLocation,
+  });
+
+  Future<Either<DevicesFailure, Unit>> turnOnDevices({
+    @required List<String> devicesId,
     String forceUpdateLocation,
   });
 
