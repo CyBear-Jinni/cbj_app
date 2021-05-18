@@ -45,9 +45,10 @@ class JoinHomeByIdWidget extends StatelessWidget {
                     .read<JoinHomeByIdBloc>()
                     .add(JoinHomeByIdEvent.addHomeById(fromClipboard));
               },
-              child: const Text(
+              child: Text(
                 'Paste and search',
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(
+                    color: Theme.of(context).textTheme.bodyText1.color),
               ),
             ),
             const SizedBox(
@@ -65,16 +66,18 @@ class JoinHomeByIdWidget extends StatelessWidget {
                 SizedBox(
                   width: 250,
                   child: TextFormField(
-                    style: const TextStyle(color: Colors.white),
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1.color),
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.greenAccent.withOpacity(0.3),
-                      prefixIcon: const Icon(
+                      prefixIcon: Icon(
                         Icons.login,
-                        color: Colors.white,
+                        color: Theme.of(context).textTheme.bodyText1.color,
                       ),
                       labelText: 'Home ID',
-                      labelStyle: const TextStyle(color: Colors.white),
+                      labelStyle: TextStyle(
+                          color: Theme.of(context).textTheme.bodyText1.color),
                     ),
                     autocorrect: false,
                     onChanged: (value) {
@@ -94,9 +97,10 @@ class JoinHomeByIdWidget extends StatelessWidget {
                     .read<JoinHomeByIdBloc>()
                     .add(JoinHomeByIdEvent.addHomeById(homeId));
               },
-              child: const Text(
+              child: Text(
                 'Join Home from text form',
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(
+                    color: Theme.of(context).textTheme.bodyText1.color),
               ),
             ),
             state.map(

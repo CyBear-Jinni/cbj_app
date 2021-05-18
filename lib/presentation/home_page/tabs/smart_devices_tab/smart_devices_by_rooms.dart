@@ -70,15 +70,17 @@ class SmartDevicesByRooms extends StatelessWidget {
                     const SizedBox(
                       height: 30,
                     ),
-                    const Text(
+                    Text(
                       'Home Name',
-                      style: TextStyle(fontSize: 30, color: Colors.white),
+                      style: TextStyle(
+                          fontSize: 30,
+                          color: Theme.of(context).textTheme.bodyText1.color),
                     ),
                     const SizedBox(
                       height: 30,
                     ),
-                    const Divider(
-                      color: Colors.white,
+                    Divider(
+                      color: Theme.of(context).textTheme.bodyText1.color,
                       thickness: 1,
                     ),
                     ListView.builder(
@@ -101,10 +103,14 @@ class SmartDevicesByRooms extends StatelessWidget {
                           children: [
                             Container(
                               alignment: Alignment.topCenter,
-                              child: const Text(
+                              child: Text(
                                 'Room Name',
                                 style: TextStyle(
-                                    fontSize: 20, color: Colors.white),
+                                    fontSize: 20,
+                                    color: Theme.of(context)
+                                        .textTheme
+                                        .bodyText1
+                                        .color),
                               ),
                             ),
                             if (numberOfDevicesInTheRoom == 1)
@@ -141,8 +147,9 @@ class SmartDevicesByRooms extends StatelessWidget {
                                   }
                                   return const Text('Not Supported');
                                 }),
-                            const Divider(
-                              color: Colors.white,
+                            Divider(
+                              color:
+                                  Theme.of(context).textTheme.bodyText1.color,
                             ),
                           ],
                         );

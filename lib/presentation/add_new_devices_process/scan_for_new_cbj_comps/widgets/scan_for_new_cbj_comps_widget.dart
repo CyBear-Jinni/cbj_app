@@ -22,18 +22,18 @@ class ScanForNewCBJCompsWidget extends StatelessWidget {
           initial: (_) => const Text('Initial'),
           loadInProgress: (value) {
             return Column(
-              children: const [
-                SizedBox(
+              children: [
+                const SizedBox(
                   height: 20,
                 ),
                 Text(
                   'Scanning For Devices',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Theme.of(context).textTheme.bodyText1.color,
                     fontSize: 26,
                   ),
                 ),
-                Expanded(
+                const Expanded(
                   child: Center(
                     child: CircularProgressIndicator(),
                   ),

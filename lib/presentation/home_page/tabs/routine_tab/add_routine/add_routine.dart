@@ -58,9 +58,10 @@ class AddRoutinePage extends StatelessWidget {
             FlatButton(
                 color: Colors.grey,
                 onPressed: () {},
-                child: const Text(
+                child: Text(
                   'Select',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(
+                      color: Theme.of(context).textTheme.bodyText1.color),
                 )),
             const SizedBox(
               height: 30,

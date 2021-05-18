@@ -66,9 +66,10 @@ class LightInTheRoomBlock extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          const Text(
+          Text(
             'Room Name lights',
-            style: TextStyle(color: Colors.white),
+            style:
+                TextStyle(color: Theme.of(context).textTheme.bodyText1.color),
           ),
           const SizedBox(
             height: 10,

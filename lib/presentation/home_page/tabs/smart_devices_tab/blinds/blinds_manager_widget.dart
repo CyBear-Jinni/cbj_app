@@ -27,7 +27,7 @@ class BlindsManagerWidget extends StatelessWidget {
                   toastLength: Toast.LENGTH_SHORT,
                   gravity: ToastGravity.CENTER,
                   backgroundColor: Colors.green,
-                  textColor: Colors.white,
+                  textColor: Theme.of(context).textTheme.bodyText1.color,
                   fontSize: 16.0),
               color: Colors.transparent,
               child: Text(

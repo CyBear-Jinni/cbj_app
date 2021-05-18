@@ -32,12 +32,12 @@ class SmartDeviceTypeAndToggleBar extends StatelessWidget {
               child: FaIcon(FontAwesomeIcons.satelliteDish),
             ),
           ),
-        const Text(
+        Text(
           'Device_type:_',
           textAlign: TextAlign.center,
           style: TextStyle(
               fontSize: 20,
-              color: Colors.white,
+              color: Theme.of(context).textTheme.bodyText1.color,
               backgroundColor: Colors.blueGrey
 //                color: Theme.of(context).textTheme.bodyText1.color,
               ),

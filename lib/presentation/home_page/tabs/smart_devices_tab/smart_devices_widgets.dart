@@ -44,7 +44,7 @@ class SmartDevicesWidgets extends StatelessWidget {
                     toastLength: Toast.LENGTH_SHORT,
                     gravity: ToastGravity.CENTER,
                     backgroundColor: Colors.blueGrey,
-                    textColor: Colors.white,
+                    textColor: Theme.of(context).textTheme.bodyText1.color,
                     fontSize: 16.0);
               }
             },
@@ -52,7 +52,7 @@ class SmartDevicesWidgets extends StatelessWidget {
               margin: const EdgeInsets.fromLTRB(5, 0, 5, 10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
-                color: Colors.white,
+                color: Theme.of(context).textTheme.bodyText1.color,
                 image: DecorationImage(
                     image: _symbolsImageList[element], fit: BoxFit.fitHeight),
               ),

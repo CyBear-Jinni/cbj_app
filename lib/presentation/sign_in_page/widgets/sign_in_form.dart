@@ -139,7 +139,7 @@ class SignInForm extends StatelessWidget {
             Container(
               alignment: Alignment.bottomRight,
               child: FlatButton(
-                color: Colors.white,
+                color: Theme.of(context).textTheme.bodyText1.color,
                 onPressed: () {
                   ExtendedNavigator.of(context)
                       .push(Routes.whereToLoginPageOffline);

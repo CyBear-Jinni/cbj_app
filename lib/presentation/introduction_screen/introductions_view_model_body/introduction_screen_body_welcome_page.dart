@@ -40,7 +40,8 @@ class IntroductionScreenBodyWelcomePage extends StatelessWidget {
         ),
         Container(
           decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.3),
+              color:
+                  Theme.of(context).textTheme.bodyText1.color.withOpacity(0.3),
               border: Border.all(
                 color: Theme.of(context).textTheme.bodyText1.color,
               ),

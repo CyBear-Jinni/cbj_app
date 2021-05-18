@@ -139,9 +139,9 @@ class RoomLights extends StatelessWidget {
                   ),
                   if (maxLightsToShow != null &&
                       _deviceEntityList.size > maxLightsToShow)
-                    const FaIcon(
+                    FaIcon(
                       FontAwesomeIcons.arrowRight,
-                      color: Colors.white,
+                      color: Theme.of(context).textTheme.bodyText1.color,
                       size: 20,
                     ),
                 ],

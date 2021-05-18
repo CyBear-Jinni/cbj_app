@@ -70,11 +70,14 @@ class OpenAccessPointWidget extends StatelessWidget {
                                   toastLength: Toast.LENGTH_SHORT,
                                   gravity: ToastGravity.SNACKBAR,
                                   backgroundColor: Colors.lightBlue,
-                                  textColor: Colors.white,
+                                  textColor: Theme.of(context)
+                                      .textTheme
+                                      .bodyText1
+                                      .color,
                                   fontSize: 16.0);
                             },
                             child: Column(
-                              children: const <Widget>[
+                              children: <Widget>[
                                 Text('Hotspot name:'),
                                 Text(
                                   'CyBear Jinni',
@@ -103,7 +106,10 @@ class OpenAccessPointWidget extends StatelessWidget {
                                   toastLength: Toast.LENGTH_SHORT,
                                   gravity: ToastGravity.SNACKBAR,
                                   backgroundColor: Colors.lightBlue,
-                                  textColor: Colors.white,
+                                  textColor: Theme.of(context)
+                                      .textTheme
+                                      .bodyText1
+                                      .color,
                                   fontSize: 16.0);
                             },
                             child: Column(
