@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class LightInTheRoomBlock extends StatelessWidget {
-  LightInTheRoomBlock(this.lightsInRoom);
+class LightsInTheRoomBlock extends StatelessWidget {
+  LightsInTheRoomBlock(this.lightsInRoom);
 
   final List<DeviceEntity> lightsInRoom;
 
@@ -83,7 +83,7 @@ class LightInTheRoomBlock extends StatelessWidget {
                     TextButton(
                       style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all(
-                              Colors.red.withOpacity(0.2))),
+                              Colors.brown.withOpacity(0.2))),
                       onPressed: () {
                         context.read<LightsActorBloc>().add(
                             LightsActorEvent.turnOffAllLights(
@@ -91,14 +91,17 @@ class LightInTheRoomBlock extends StatelessWidget {
                       },
                       child: const Text(
                         'Off',
-                        style: TextStyle(color: Colors.blue, fontSize: 15),
+                        style: TextStyle(color: Colors.blue, fontSize: 14),
                       ),
                     ),
-                    const Text('·'),
+                    const Text(
+                      '·',
+                      style: TextStyle(fontSize: 14),
+                    ),
                     TextButton(
                       style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all(
-                              Colors.blue.withOpacity(0.2))),
+                              Colors.amber.withOpacity(0.2))),
                       onPressed: () {
                         context.read<LightsActorBloc>().add(
                             LightsActorEvent.turnOnAllLights(
@@ -106,7 +109,7 @@ class LightInTheRoomBlock extends StatelessWidget {
                       },
                       child: const Text(
                         'On',
-                        style: TextStyle(color: Colors.blue, fontSize: 15),
+                        style: TextStyle(color: Colors.blue, fontSize: 14),
                       ),
                     ),
                   ],
