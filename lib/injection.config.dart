@@ -42,6 +42,8 @@ import 'domain/scene/i_scene_repository.dart';
 import 'domain/user/i_user_repository.dart';
 import 'application/join_home_by_id/join_home_by_id_bloc.dart';
 import 'application/light_toggle/light_toggle_bloc.dart';
+import 'application/lights/device_actor/lights_actor_bloc.dart';
+import 'application/lights/lights_watcher/lights_watcher_bloc.dart';
 import 'application/manage_access_point/manage_access_point_bloc.dart';
 import 'application/manage_users/manage_users_bloc.dart';
 import 'infrastructure/manage_wifi/manage_wifi_repository.dart';
@@ -86,6 +88,9 @@ GetIt $initGetIt(
       () => UserRepository(get<FirebaseFirestore>()));
   gh.factory<JoinHomeByIdBloc>(() => JoinHomeByIdBloc(get<IUserRepository>()));
   gh.factory<LightToggleBloc>(() => LightToggleBloc(get<IDeviceRepository>()));
+  gh.factory<LightsActorBloc>(() => LightsActorBloc(get<IDeviceRepository>()));
+  gh.factory<LightsWatcherBloc>(
+      () => LightsWatcherBloc(get<IDeviceRepository>()));
   gh.factory<ManageAccessPointBloc>(
       () => ManageAccessPointBloc(get<IManageNetworkRepository>()));
   gh.factory<ManageUsersBloc>(

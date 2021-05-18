@@ -32,11 +32,11 @@ class LightToggleBloc extends Bloc<LightToggleEvent, LightToggleState> {
         Either<DevicesFailure, Unit> actionResult;
 
         if (e.forceStraightToComputer) {
-          actionResult = await _deviceRepository.update(
+          actionResult = await _deviceRepository.updateWithDeviceEntity(
               deviceEntity: event.deviceEntity, forceUpdateLocation: 'C');
         } else {
-          actionResult =
-              await _deviceRepository.update(deviceEntity: event.deviceEntity);
+          actionResult = await _deviceRepository.updateWithDeviceEntity(
+              deviceEntity: event.deviceEntity);
         }
         yield actionResult.fold(
           (devicesFailure) => LightToggleState.loadFailure(devicesFailure),
