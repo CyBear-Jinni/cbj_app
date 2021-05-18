@@ -28,9 +28,10 @@ class SmartDeviceToConfigure extends StatelessWidget {
           FlatButton(
             color: Colors.lightGreen,
             onPressed: () {},
-            child: const Text(
+            child: Text(
               'Edit device',
-              style: TextStyle(color: Colors.white),
+              style:
+                  TextStyle(color: Theme.of(context).textTheme.bodyText1.color),
             ),
           )
         ],

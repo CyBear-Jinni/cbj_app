@@ -43,13 +43,20 @@ class LightInTheRoomBlock extends StatelessWidget {
                   child: Container(
                     width: 28,
                     decoration: BoxDecoration(
-                      border: Border.all(color: Colors.white.withOpacity(0.5)),
+                      border: Border.all(
+                          color: Theme.of(context)
+                              .textTheme
+                              .bodyText1
+                              .color
+                              .withOpacity(0.5)),
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Text(
                       lightsInRoom.length.toString(),
                       textAlign: TextAlign.center,
-                      style: const TextStyle(fontSize: 13, color: Colors.white),
+                      style: TextStyle(
+                          fontSize: 13,
+                          color: Theme.of(context).textTheme.bodyText1.color),
                     ),
                   ),
                 ),
