@@ -114,9 +114,15 @@ class SmartDevicesByRooms extends StatelessWidget {
                               ),
                             ),
                             if (numberOfDevicesInTheRoom == 1)
-                              Text('$numberOfDevicesInTheRoom Device')
+                              Text(
+                                '$numberOfDevicesInTheRoom device',
+                                style: const TextStyle(fontSize: 12),
+                              )
                             else
-                              Text('$numberOfDevicesInTheRoom Devices'),
+                              Text(
+                                '$numberOfDevicesInTheRoom devices',
+                                style: const TextStyle(fontSize: 12),
+                              ),
                             GridView.builder(
                                 padding: EdgeInsets.zero,
                                 shrinkWrap: true,
@@ -124,9 +130,9 @@ class SmartDevicesByRooms extends StatelessWidget {
                                 gridDelegate:
                                     const SliverGridDelegateWithMaxCrossAxisExtent(
                                         maxCrossAxisExtent: 200,
-                                        childAspectRatio: 1,
-                                        crossAxisSpacing: 10,
-                                        mainAxisSpacing: 10),
+                                        childAspectRatio: 1.2,
+                                        crossAxisSpacing: 8,
+                                        mainAxisSpacing: 4),
                                 itemCount: tempDevicesByRoomsByType[roomId]
                                     .keys
                                     .length,
@@ -150,6 +156,7 @@ class SmartDevicesByRooms extends StatelessWidget {
                             Divider(
                               color:
                                   Theme.of(context).textTheme.bodyText1.color,
+                              height: 0,
                             ),
                           ],
                         );

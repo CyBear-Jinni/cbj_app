@@ -81,6 +81,9 @@ class LightInTheRoomBlock extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     TextButton(
+                      style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(
+                              Colors.red.withOpacity(0.2))),
                       onPressed: () {
                         context.read<LightsActorBloc>().add(
                             LightsActorEvent.turnOffAllLights(
@@ -93,6 +96,9 @@ class LightInTheRoomBlock extends StatelessWidget {
                     ),
                     const Text('·'),
                     TextButton(
+                      style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(
+                              Colors.blue.withOpacity(0.2))),
                       onPressed: () {
                         context.read<LightsActorBloc>().add(
                             LightsActorEvent.turnOnAllLights(

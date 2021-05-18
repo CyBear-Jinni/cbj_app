@@ -50,13 +50,13 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                           'CyBear Jinni',
                           style: TextStyle(
                               color:
-                                  Theme.of(context).textTheme.bodyText1.color,
+                                  Theme.of(context).textTheme.subtitle2.color,
                               fontSize: 20),
                         ),
                       ],
                     ),
                     Divider(
-                      color: Theme.of(context).textTheme.bodyText1.color,
+                      color: Theme.of(context).textTheme.subtitle2.color,
                     ),
                     Row(
                       children: <Widget>[
@@ -64,7 +64,7 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                           'Settings',
                           style: TextStyle(
                               color:
-                                  Theme.of(context).textTheme.bodyText1.color),
+                                  Theme.of(context).textTheme.subtitle2.color),
                         )
                       ],
                     ),
@@ -82,16 +82,20 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                     Divider(
                       thickness: 0.5,
                       height: 0.5,
-                      color: Theme.of(context).textTheme.bodyText1.color,
+                      color: Theme.of(context).textTheme.subtitle2.color,
                     ),
                     ListTile(
                       tileColor: Colors.blue,
                       leading: FaIcon(
                         FontAwesomeIcons.userPlus,
-                        color: Theme.of(context).textTheme.bodyText1.color,
+                        color: Theme.of(context).textTheme.subtitle2.color,
                         size: 25,
                       ),
-                      title: const Text('Manage Users'),
+                      title: Text(
+                        'Manage Users',
+                        style: TextStyle(
+                            color: Theme.of(context).textTheme.subtitle2.color),
+                      ),
                       onTap: () {
                         ExtendedNavigator.of(context)
                             .push(Routes.manageUsersPage);
@@ -100,16 +104,20 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                     Divider(
                       thickness: 0.5,
                       height: 0.5,
-                      color: Theme.of(context).textTheme.bodyText1.color,
+                      color: Theme.of(context).textTheme.subtitle2.color,
                     ),
                     ListTile(
                       tileColor: Colors.greenAccent,
                       leading: FaIcon(
                         FontAwesomeIcons.signOutAlt,
-                        color: Theme.of(context).textTheme.bodyText1.color,
+                        color: Theme.of(context).textTheme.subtitle2.color,
                         size: 25,
                       ),
-                      title: const Text('Log Out'),
+                      title: Text(
+                        'Log Out',
+                        style: TextStyle(
+                            color: Theme.of(context).textTheme.subtitle2.color),
+                      ),
                       onTap: () {
                         _fireBaseLogOut(context);
                       },
@@ -117,7 +125,7 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                     Divider(
                       thickness: 0.5,
                       height: 0.5,
-                      color: Theme.of(context).textTheme.bodyText1.color,
+                      color: Theme.of(context).textTheme.subtitle2.color,
                     ),
                   ],
                 ),
