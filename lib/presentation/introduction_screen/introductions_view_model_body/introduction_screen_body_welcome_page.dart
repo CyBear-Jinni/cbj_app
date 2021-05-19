@@ -15,7 +15,7 @@ class IntroductionScreenBodyWelcomePage extends StatelessWidget {
                 'We',
                 style: TextStyle(
                   fontSize: 17.0,
-                  color: Theme.of(context).textTheme.bodyText1.color,
+                  color: Theme.of(context).textTheme.subtitle2.color,
                 ),
               ),
               const SizedBox(width: 10.0),
@@ -32,7 +32,7 @@ class IntroductionScreenBodyWelcomePage extends StatelessWidget {
                 ],
                 textStyle: TextStyle(
                   fontSize: 20.0,
-                  color: Theme.of(context).textTheme.bodyText1.color,
+                  color: Theme.of(context).textTheme.subtitle2.color,
                 ),
               ),
             ],
@@ -41,9 +41,9 @@ class IntroductionScreenBodyWelcomePage extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
               color:
-                  Theme.of(context).textTheme.bodyText1.color.withOpacity(0.3),
+                  Theme.of(context).textTheme.subtitle2.color.withOpacity(0.3),
               border: Border.all(
-                color: Theme.of(context).textTheme.bodyText1.color,
+                color: Theme.of(context).textTheme.subtitle2.color,
               ),
               // Make rounded corners
               borderRadius: BorderRadius.circular(30)),

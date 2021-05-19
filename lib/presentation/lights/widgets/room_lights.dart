@@ -52,7 +52,7 @@ class RoomLights extends StatelessWidget {
                     deviceEntityTemp.defaultName.getOrCrash(),
                     style: TextStyle(
                       fontSize: 19.0,
-                      color: Theme.of(context).textTheme.bodyText2.color,
+                      color: Theme.of(context).textTheme.subtitle2.color,
                     ),
                   ),
                   const SizedBox(
@@ -101,7 +101,7 @@ class RoomLights extends StatelessWidget {
             end: Alignment.topLeft),
         borderRadius: const BorderRadius.all(Radius.circular(24)),
         border: Border.all(
-          color: Theme.of(context).textTheme.bodyText1.color,
+          color: Theme.of(context).textTheme.subtitle2.color,
           width: 0.6,
         ),
       ),
@@ -132,7 +132,7 @@ class RoomLights extends StatelessWidget {
                   Text(
                     _roomEntity,
                     style: TextStyle(
-                      color: Theme.of(context).textTheme.bodyText1.color,
+                      color: Theme.of(context).textTheme.subtitle2.color,
                       fontSize: 25,
                       decoration: TextDecoration.underline,
                     ),
@@ -141,7 +141,7 @@ class RoomLights extends StatelessWidget {
                       _deviceEntityList.size > maxLightsToShow)
                     FaIcon(
                       FontAwesomeIcons.arrowRight,
-                      color: Theme.of(context).textTheme.bodyText1.color,
+                      color: Theme.of(context).textTheme.subtitle2.color,
                       size: 20,
                     ),
                 ],

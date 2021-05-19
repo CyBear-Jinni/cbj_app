@@ -144,7 +144,11 @@ class SignInForm extends StatelessWidget {
                   ExtendedNavigator.of(context)
                       .push(Routes.whereToLoginPageOffline);
                 },
-                child: const Text('For More Options'),
+                child: Text(
+                  'For More Options',
+                  style: TextStyle(
+                      color: Theme.of(context).textTheme.subtitle2.color),
+                ),
               ),
             ),
           ],

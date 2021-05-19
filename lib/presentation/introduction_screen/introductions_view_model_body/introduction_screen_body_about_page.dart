@@ -11,9 +11,10 @@ class IntroductionScreenBodyAboutPage extends StatelessWidget {
         ),
         Container(
           decoration: BoxDecoration(
-              color: Colors.black.withOpacity(0.6),
+              color:
+                  Theme.of(context).textTheme.subtitle2.color.withOpacity(0.55),
               border: Border.all(
-                color: Theme.of(context).textTheme.bodyText1.color,
+                color: Theme.of(context).textTheme.subtitle2.color,
               ),
               // Make rounded corners
               borderRadius: BorderRadius.circular(30)),

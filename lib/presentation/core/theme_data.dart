@@ -32,11 +32,11 @@ class BacgroundGradient {
       // Add one stop for each color. Stops should increase from 0 to 1
       stops: const <double>[0, 0.2, 0.5, 0.6, 1],
       colors: <Color>[
-        Theme.of(context).primaryColor,
+        Colors.deepPurple,
         Theme.of(context).accentColor,
-        Theme.of(context).primaryColor.withOpacity(0.9),
+        Colors.deepPurple.withOpacity(0.9),
         Theme.of(context).accentColor.withOpacity(0.9),
-        Theme.of(context).primaryColor
+        Colors.deepPurple
       ],
     );
   }

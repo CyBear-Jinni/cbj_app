@@ -60,12 +60,12 @@ class LightWidget extends StatelessWidget {
               borderRadius: 25.0,
               padding: 0.0,
               activeToggleColor: const Color(0xFF2F363D),
-              inactiveToggleColor: Theme.of(context).primaryColor,
+              inactiveToggleColor: Colors.deepPurple,
               activeSwitchBorder: Border.all(
-                color: Theme.of(context).textTheme.bodyText1.color,
+                color: Theme.of(context).textTheme.subtitle2.color,
               ),
               inactiveSwitchBorder: Border.all(
-                color: Theme.of(context).textTheme.bodyText1.color,
+                color: Theme.of(context).textTheme.subtitle2.color,
               ),
               activeColor: toggleColor,
               inactiveColor: toggleColor,
@@ -75,7 +75,7 @@ class LightWidget extends StatelessWidget {
               ),
               inactiveIcon: Icon(
                 FontAwesomeIcons.lightbulb,
-                color: Theme.of(context).textTheme.bodyText1.color,
+                color: Theme.of(context).textTheme.subtitle2.color,
               ),
               onToggle: (bool value) => _onChange(context, value)
               // _onChange(context, value),

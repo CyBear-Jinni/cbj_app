@@ -43,6 +43,11 @@ class _HomePageState extends State<HomePage> {
       width: MediaQuery.of(context).size.width,
       color: Colors.purple.withOpacity(0.04),
       child: Scaffold(
+        appBar: AppBar(
+          toolbarHeight: 0,
+          backgroundColor: Colors.white,
+          brightness: Brightness.light,
+        ),
         backgroundColor: Colors.transparent,
         body: PageView(
           onPageChanged: (index) {
