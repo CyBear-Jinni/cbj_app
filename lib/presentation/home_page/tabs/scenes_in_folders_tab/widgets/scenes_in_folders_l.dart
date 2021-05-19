@@ -58,7 +58,7 @@ class ScenesInFoldersL extends StatelessWidget {
         ),
         borderRadius: const BorderRadius.all(Radius.circular(borderRadius)),
         border: Border.all(
-          color: Theme.of(context).textTheme.bodyText1.color,
+          color: Colors.black.withOpacity(0.7),
           width: 0.4,
         ),
       ),

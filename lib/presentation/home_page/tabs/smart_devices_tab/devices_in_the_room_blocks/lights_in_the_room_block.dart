@@ -21,101 +21,120 @@ class LightsInTheRoomBlock extends StatelessWidget {
                 showDevicesOnlyFromRoomId:
                     lightsInRoom[0].roomId.getOrCrash()));
       },
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Expanded(child: Text('')),
-              const Expanded(
-                child: CircleAvatar(
-                  child: FaIcon(
-                    FontAwesomeIcons.solidLightbulb,
-                    color: Colors.amberAccent,
+      child: Container(
+        color: Colors.black.withOpacity(0.03),
+        margin: const EdgeInsets.all(5),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Expanded(child: Text('')),
+                const Expanded(
+                  child: CircleAvatar(
+                    child: FaIcon(
+                      FontAwesomeIcons.solidLightbulb,
+                      color: Colors.amberAccent,
+                    ),
                   ),
                 ),
-              ),
-              Expanded(
-                child: Container(
-                  height: 55,
-                  alignment: Alignment.topLeft,
+                Expanded(
                   child: Container(
-                    width: 28,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                          color: Theme.of(context)
-                              .textTheme
-                              .bodyText1
-                              .color
-                              .withOpacity(0.5)),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Text(
-                      lightsInRoom.length.toString(),
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontSize: 13,
-                          color: Theme.of(context).textTheme.bodyText1.color),
+                    height: 55,
+                    alignment: Alignment.topLeft,
+                    child: Container(
+                      width: 28,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                            color: Theme.of(context)
+                                .textTheme
+                                .bodyText1
+                                .color
+                                .withOpacity(0.5)),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Text(
+                        lightsInRoom.length.toString(),
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 13,
+                            color: Theme.of(context).textTheme.bodyText1.color),
+                      ),
                     ),
                   ),
-                ),
+                )
+              ],
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            if (lightsInRoom.length == 1)
+              Text(
+                lightsInRoom[0].defaultName.getOrCrash(),
+                style: TextStyle(
+                    color: Theme.of(context).textTheme.bodyText1.color),
               )
-            ],
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Text(
-            'Room Name lights',
-            style:
-                TextStyle(color: Theme.of(context).textTheme.bodyText1.color),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          BlocConsumer<LightsActorBloc, LightsActorState>(
-              listener: (context, state) {},
-              builder: (context, state) {
-                return Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    TextButton(
-                      style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(
-                              Colors.brown.withOpacity(0.2))),
-                      onPressed: () {
-                        context.read<LightsActorBloc>().add(
-                            LightsActorEvent.turnOffAllLights(
-                                extractDevicesId(), context));
-                      },
-                      child: const Text(
-                        'Off',
-                        style: TextStyle(color: Colors.blue, fontSize: 14),
+            else
+              Text(
+                'Room Name lights',
+                style: TextStyle(
+                    color: Theme.of(context).textTheme.bodyText1.color),
+              ),
+            const SizedBox(
+              height: 10,
+            ),
+            BlocConsumer<LightsActorBloc, LightsActorState>(
+                listener: (context, state) {},
+                builder: (context, state) {
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      TextButton(
+                        style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(
+                                Colors.grey.withOpacity(0.6))),
+                        onPressed: () {
+                          context.read<LightsActorBloc>().add(
+                              LightsActorEvent.turnOffAllLights(
+                                  extractDevicesId(), context));
+                        },
+                        child: Text(
+                          'Off',
+                          style: TextStyle(
+                              fontSize: 14,
+                              color:
+                                  Theme.of(context).textTheme.bodyText1.color),
+                        ),
                       ),
-                    ),
-                    const Text(
-                      '·',
-                      style: TextStyle(fontSize: 14),
-                    ),
-                    TextButton(
-                      style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(
-                              Colors.amber.withOpacity(0.2))),
-                      onPressed: () {
-                        context.read<LightsActorBloc>().add(
-                            LightsActorEvent.turnOnAllLights(
-                                extractDevicesId(), context));
-                      },
-                      child: const Text(
-                        'On',
-                        style: TextStyle(color: Colors.blue, fontSize: 14),
+                      Text(
+                        '·',
+                        style: TextStyle(
+                            fontSize: 14,
+                            color: Theme.of(context).textTheme.bodyText1.color),
                       ),
-                    ),
-                  ],
-                );
-              }),
-        ],
+                      TextButton(
+                        style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(
+                                Colors.grey.withOpacity(0.6))),
+                        onPressed: () {
+                          context.read<LightsActorBloc>().add(
+                              LightsActorEvent.turnOnAllLights(
+                                  extractDevicesId(), context));
+                        },
+                        child: Text(
+                          'On',
+                          style: TextStyle(
+                              fontSize: 14,
+                              color:
+                                  Theme.of(context).textTheme.bodyText1.color),
+                        ),
+                      ),
+                    ],
+                  );
+                }),
+          ],
+        ),
       ),
     );
   }

@@ -59,8 +59,8 @@ class AppWidget extends StatelessWidget {
             ),
           ),
           textTheme: const TextTheme(
-              bodyText1: TextStyle(color: Colors.black),
-              bodyText2: TextStyle(color: Colors.black87),
+              bodyText1: TextStyle(color: Colors.white),
+              bodyText2: TextStyle(color: Colors.white70),
               subtitle2: TextStyle(color: Colors.white)),
           fontFamily: 'gidole_regular',
         ),
