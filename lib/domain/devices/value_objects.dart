@@ -1,6 +1,7 @@
 import 'package:cybear_jinni/domain/devices/devices_errors.dart';
 import 'package:cybear_jinni/domain/devices/devices_failures.dart';
 import 'package:cybear_jinni/domain/devices/devices_validators.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_as_dart/smart_connection.pbgrpc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:uuid/uuid.dart';
@@ -149,12 +150,10 @@ class DeviceAction extends DevicesValueObjectAbstract<String> {
   factory DeviceAction(String input) {
     assert(input != null);
 
-    input = input.toLowerCase();
-
     if (input == 'false') {
-      input = 'off';
+      input = DeviceActions.Off.toString();
     } else if (input == 'true') {
-      input = 'on';
+      input = DeviceActions.On.toString();
     }
     return DeviceAction._(
       validateDeviceNotEmpty(input)

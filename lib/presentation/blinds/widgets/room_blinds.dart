@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
+import 'package:cybear_jinni/application/blinds/blinds_actor/blinds_actor_bloc.dart';
 import 'package:cybear_jinni/domain/devices/device_entity.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/blinds/widgets/blind_widget.dart';
@@ -52,7 +52,7 @@ class RoomBlinds extends StatelessWidget {
             Container(
               margin: const EdgeInsets.symmetric(vertical: 5),
               child: BlocProvider(
-                create: (context) => getIt<LightToggleBloc>(),
+                create: (context) => getIt<BlindsActorBloc>(),
                 child: BlindWidget(deviceEntityTemp),
               ),
             ),

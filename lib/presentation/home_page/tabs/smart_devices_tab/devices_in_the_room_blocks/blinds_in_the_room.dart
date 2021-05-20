@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/application/lights/device_actor/lights_actor_bloc.dart';
+import 'package:cybear_jinni/application/blinds/blinds_actor/blinds_actor_bloc.dart';
 import 'package:cybear_jinni/domain/devices/device_entity.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/cupertino.dart';
@@ -84,7 +84,7 @@ class BlindsInTheRoom extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            BlocConsumer<LightsActorBloc, LightsActorState>(
+            BlocConsumer<BlindsActorBloc, BlindsActorState>(
                 listener: (context, state) {},
                 builder: (context, state) {
                   return Row(
@@ -98,8 +98,8 @@ class BlindsInTheRoom extends StatelessWidget {
                               const EdgeInsets.all(0)),
                         ),
                         onPressed: () {
-                          context.read<LightsActorBloc>().add(
-                              LightsActorEvent.turnOffAllLights(
+                          context.read<BlindsActorBloc>().add(
+                              BlindsActorEvent.moveDownAllBlinds(
                                   extractDevicesId(), context));
                         },
                         child: FaIcon(
@@ -121,8 +121,8 @@ class BlindsInTheRoom extends StatelessWidget {
                               const EdgeInsets.all(0)),
                         ),
                         onPressed: () {
-                          context.read<LightsActorBloc>().add(
-                              LightsActorEvent.turnOnAllLights(
+                          context.read<BlindsActorBloc>().add(
+                              BlindsActorEvent.moveUpAllBlinds(
                                   extractDevicesId(), context));
                         },
                         child: FaIcon(
