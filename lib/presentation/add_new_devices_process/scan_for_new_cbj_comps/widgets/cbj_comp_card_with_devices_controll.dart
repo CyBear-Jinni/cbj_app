@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/devices/device_actor/device_actor_bloc.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
 import 'package:cybear_jinni/domain/devices/device_entity.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_as_dart/smart_connection.pbgrpc.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,7 @@ class CBJCompCardWithDevicesControll extends StatelessWidget {
         cbjCompEntity.cBJCompDevices.getOrCrash();
 
     for (final DeviceEntity deviceEntity in deviceEntityList.asList()) {
-      if (deviceEntity.type.getOrCrash() == 'Light') {
+      if (deviceEntity.type.getOrCrash() == DeviceTypes.Light.toString()) {
         typesList.add(
           Container(
             color: Colors.yellowAccent.withOpacity(0.3),

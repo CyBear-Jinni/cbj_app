@@ -61,6 +61,7 @@ class ScanForNewCBJCompsWidget extends StatelessWidget {
             }
 
             return ListView.builder(
+              reverse: true,
               padding: EdgeInsets.zero,
               itemBuilder: (context, index) {
                 final compEntity = cbjCompEntityList[index];
