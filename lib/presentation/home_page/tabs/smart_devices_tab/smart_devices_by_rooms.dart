@@ -68,9 +68,20 @@ class SmartDevicesByRooms extends StatelessWidget {
               reverse: true,
               child: Column(
                 children: [
+                  if (tempDevicesByRooms.length == 1)
+                    Container(
+                      margin: const EdgeInsets.symmetric(vertical: 30),
+                      alignment: Alignment.center,
+                      child: Image.asset(
+                        'assets/cbj_app_logo.png',
+                        width: 250.0,
+                        fit: BoxFit.fill,
+                      ),
+                    ),
                   Container(
                     color: Colors.black.withOpacity(0.2),
                     padding: const EdgeInsets.symmetric(horizontal: 50),
+                    margin: const EdgeInsets.symmetric(vertical: 20),
                     child: Stack(
                       children: <Widget>[
                         Text(
@@ -93,14 +104,6 @@ class SmartDevicesByRooms extends StatelessWidget {
                       ],
                     ),
                   ),
-                  if (tempDevicesByRooms.length > 1)
-                    const SizedBox(
-                      height: 20,
-                    )
-                  else
-                    const SizedBox(
-                      height: 130,
-                    ),
                   ListView.builder(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
@@ -123,7 +126,7 @@ class SmartDevicesByRooms extends StatelessWidget {
                       });
 
                       return Container(
-                        margin: const EdgeInsets.symmetric(vertical: 3),
+                        margin: const EdgeInsets.only(top: 5),
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                             colors: gradientColorsList[gradientColorCounter],
@@ -138,7 +141,7 @@ class SmartDevicesByRooms extends StatelessWidget {
                           child: Column(
                             children: [
                               Container(
-                                margin: EdgeInsets.only(top: 12),
+                                margin: const EdgeInsets.only(top: 12),
                                 alignment: Alignment.topCenter,
                                 child: Text(
                                   'Room Name',
@@ -166,10 +169,11 @@ class SmartDevicesByRooms extends StatelessWidget {
                                   physics: const NeverScrollableScrollPhysics(),
                                   gridDelegate:
                                       const SliverGridDelegateWithMaxCrossAxisExtent(
-                                          maxCrossAxisExtent: 200,
-                                          childAspectRatio: 1.1,
-                                          crossAxisSpacing: 8,
-                                          mainAxisSpacing: 4),
+                                    maxCrossAxisExtent: 200,
+                                    childAspectRatio: 1.1,
+                                    crossAxisSpacing: 8,
+                                    mainAxisSpacing: 4,
+                                  ),
                                   itemCount: tempDevicesByRoomsByType[roomId]
                                       .keys
                                       .length,

@@ -2,6 +2,7 @@ import 'package:cybear_jinni/application/configure_new_cbj_comp/configure_new_cb
 import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
 import 'package:cybear_jinni/domain/devices/device_entity.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_as_dart/smart_connection.pbenum.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/core/devices_cards/light_card.dart';
 import 'package:flutter/material.dart';
@@ -30,9 +31,9 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
     final List<Widget> widgetList = [];
 
     for (final DeviceEntity device in devicesList) {
-      if (device.type.getOrCrash() == 'Light') {
+      if (device.type.getOrCrash() == DeviceTypes.Light.toString()) {
         final TextEditingController textEditingControllerTemp =
-            TextEditingController();
+            TextEditingController(text: device.defaultName.getOrCrash());
         _textEditingController[
                 '$deviceNameFieldKey/${device.id.getOrCrash()}'] =
             textEditingControllerTemp;
@@ -47,7 +48,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                   margin: const EdgeInsets.symmetric(horizontal: 40),
                   child: Row(
                     children: [
-                      const Text('Type: Light'),
+                      Text('Type: ${DeviceTypes.Light.toString()}'),
                       Expanded(
                         child: Center(
                           child: BlocProvider(

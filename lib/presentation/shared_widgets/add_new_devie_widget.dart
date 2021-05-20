@@ -1,3 +1,4 @@
+import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_as_dart/smart_connection.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_device_object.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -92,7 +93,7 @@ class DropDownMenu extends StatefulWidget {
 }
 
 class _DropDownMenu extends State<DropDownMenu> {
-  String dropdownValue = 'Light'.tr();
+  String dropdownValue = DeviceTypes.Light.toString().tr();
 
   String _deviceTypeToString(DeviceTypeEnum deviceType) {
     return EnumHelper.dTToString(deviceType);

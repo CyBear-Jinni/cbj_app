@@ -23,7 +23,8 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
       // space to fit everything.
       child: Container(
         color: Colors.black54,
-        child: Column(
+        child: ListView(
+          reverse: true,
           children: <Widget>[
             Container(
               color: Colors.black87,
@@ -32,7 +33,21 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                 child: Column(
                   children: [
                     const SizedBox(
-                      height: 40,
+                      height: 20,
+                    ),
+                    Row(
+                      children: <Widget>[
+                        Text(
+                          'Settings',
+                          style: TextStyle(
+                              color:
+                                  Theme.of(context).textTheme.subtitle2.color,
+                              fontSize: 18),
+                        )
+                      ],
+                    ),
+                    Divider(
+                      color: Theme.of(context).textTheme.subtitle2.color,
                     ),
                     Row(
                       children: [
@@ -55,21 +70,8 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Divider(
-                      color: Theme.of(context).textTheme.subtitle2.color,
-                    ),
-                    Row(
-                      children: <Widget>[
-                        Text(
-                          'Settings',
-                          style: TextStyle(
-                              color:
-                                  Theme.of(context).textTheme.subtitle2.color),
-                        )
-                      ],
-                    ),
                     const SizedBox(
-                      height: 20,
+                      height: 40,
                     ),
                   ],
                 ),
@@ -77,8 +79,30 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
             ),
             Expanded(
               child: SingleChildScrollView(
+                reverse: true,
                 child: Column(
                   children: <Widget>[
+                    Divider(
+                      thickness: 0.5,
+                      height: 0.5,
+                      color: Theme.of(context).textTheme.subtitle2.color,
+                    ),
+                    ListTile(
+                      tileColor: Colors.greenAccent.withOpacity(0.8),
+                      leading: FaIcon(
+                        FontAwesomeIcons.signOutAlt,
+                        color: Theme.of(context).textTheme.subtitle2.color,
+                        size: 25,
+                      ),
+                      title: Text(
+                        'Log Out',
+                        style: TextStyle(
+                            color: Theme.of(context).textTheme.subtitle2.color),
+                      ),
+                      onTap: () {
+                        _fireBaseLogOut(context);
+                      },
+                    ),
                     Divider(
                       thickness: 0.5,
                       height: 0.5,
@@ -99,27 +123,6 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                       onTap: () {
                         ExtendedNavigator.of(context)
                             .push(Routes.manageUsersPage);
-                      },
-                    ),
-                    Divider(
-                      thickness: 0.5,
-                      height: 0.5,
-                      color: Theme.of(context).textTheme.subtitle2.color,
-                    ),
-                    ListTile(
-                      tileColor: Colors.greenAccent,
-                      leading: FaIcon(
-                        FontAwesomeIcons.signOutAlt,
-                        color: Theme.of(context).textTheme.subtitle2.color,
-                        size: 25,
-                      ),
-                      title: Text(
-                        'Log Out',
-                        style: TextStyle(
-                            color: Theme.of(context).textTheme.subtitle2.color),
-                      ),
-                      onTap: () {
-                        _fireBaseLogOut(context);
                       },
                     ),
                     Divider(

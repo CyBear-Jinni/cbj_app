@@ -43,6 +43,7 @@ class FolderOfScenesWidget extends StatelessWidget {
           loading: (_) => const Text('loading'),
           loaded: (scenesList) {
             return GridView.builder(
+              reverse: true,
               itemBuilder: (context, index) {
                 final scene = scenesList.scenesList[index];
                 if (scene == null) {
