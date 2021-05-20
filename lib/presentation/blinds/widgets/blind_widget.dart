@@ -1,6 +1,6 @@
-import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
+import 'package:cybear_jinni/application/blinds/blinds_actor/blinds_actor_bloc.dart';
 import 'package:cybear_jinni/domain/devices/device_entity.dart';
-import 'package:cybear_jinni/domain/devices/value_objects.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_as_dart/smart_connection.pbgrpc.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -14,16 +14,6 @@ class BlindWidget extends StatelessWidget {
 
   final DeviceEntity _deviceEntity;
 
-  void _onChange(BuildContext context, bool value) {
-    final DeviceEntity tempDeviceEntity = _deviceEntity.copyWith(
-      state: DeviceState('set'),
-      action: DeviceAction(value.toString()),
-    );
-    context.read<LightToggleBloc>().add(
-          LightToggleEvent.changeAction(tempDeviceEntity, false),
-        );
-  }
-
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
@@ -35,18 +25,18 @@ class BlindWidget extends StatelessWidget {
     bool toggleValue = false;
     Color toggleColor = Colors.blueGrey;
 
-    if (deviceAction == 'on') {
+    if (deviceAction == DeviceActions.On.toString()) {
       toggleValue = true;
-      if (deviceState == 'ack') {
+      if (deviceState == DeviceStateGRPC.ack.toString()) {
         toggleColor = const Color(0xFFFFDF5D);
       }
     } else {
-      if (deviceState == 'ack') {
+      if (deviceState == DeviceStateGRPC.ack.toString()) {
         toggleColor = Theme.of(context).primaryColorDark;
       }
     }
 
-    return BlocConsumer<LightToggleBloc, LightToggleState>(
+    return BlocConsumer<BlindsActorBloc, BlindsActorState>(
       listener: (context, state) {},
       builder: (context, state) {
         return Column(
@@ -59,7 +49,12 @@ class BlindWidget extends StatelessWidget {
                 ),
                 FlatButton(
                   color: Colors.brown,
-                  onPressed: () => {}, // _smartBlindsObject.blindsDown(),
+                  onPressed: () {
+                    context.read<BlindsActorBloc>().add(
+                          BlindsActorEvent.moveDownAllBlinds(
+                              [_deviceEntity.id.getOrCrash()], context),
+                        );
+                  },
                   child: Tab(
                     icon: FaIcon(FontAwesomeIcons.arrowDown,
                         color: Theme.of(context).textTheme.bodyText1.color),
@@ -76,7 +71,12 @@ class BlindWidget extends StatelessWidget {
                 ),
                 FlatButton(
                   color: Colors.grey,
-                  onPressed: () => {}, //_smartBlindsObject.blindsStop(),
+                  onPressed: () {
+                    context.read<BlindsActorBloc>().add(
+                          BlindsActorEvent.stopAllBlinds(
+                              [_deviceEntity.id.getOrCrash()], context),
+                        );
+                  },
                   child: Tab(
                     icon: FaIcon(FontAwesomeIcons.solidHandPaper,
                         color: Theme.of(context).textTheme.bodyText1.color),
@@ -93,7 +93,12 @@ class BlindWidget extends StatelessWidget {
                 ),
                 FlatButton(
                   color: Colors.amber,
-                  onPressed: () => {}, //_smartBlindsObject.blindsUp(),
+                  onPressed: () {
+                    context.read<BlindsActorBloc>().add(
+                          BlindsActorEvent.moveUpAllBlinds(
+                              [_deviceEntity.id.getOrCrash()], context),
+                        );
+                  },
                   child: Tab(
                     icon: FaIcon(FontAwesomeIcons.arrowUp,
                         color: Theme.of(context).textTheme.bodyText1.color),

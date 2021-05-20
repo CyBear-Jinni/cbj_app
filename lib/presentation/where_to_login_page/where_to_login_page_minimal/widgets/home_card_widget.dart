@@ -42,10 +42,10 @@ class HomeCardWidget extends StatelessWidget {
             decoration: BoxDecoration(
               border: Border(
                 top: BorderSide(
-                  color: Theme.of(context).textTheme.bodyText1.color,
+                  color: Theme.of(context).textTheme.subtitle2.color,
                 ),
                 bottom: BorderSide(
-                  color: Theme.of(context).textTheme.bodyText1.color,
+                  color: Theme.of(context).textTheme.subtitle2.color,
                 ),
               ),
             ),
@@ -54,7 +54,7 @@ class HomeCardWidget extends StatelessWidget {
               child: ListTile(
                 leading: FaIcon(
                   FontAwesomeIcons.houseUser,
-                  color: Theme.of(context).textTheme.bodyText1.color,
+                  color: Theme.of(context).textTheme.subtitle2.color,
                 ),
                 title: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -62,7 +62,7 @@ class HomeCardWidget extends StatelessWidget {
                     Text(
                       home.name.getOrCrash(),
                       style: TextStyle(
-                          color: Theme.of(context).textTheme.bodyText1.color),
+                          color: Theme.of(context).textTheme.subtitle2.color),
                     ),
                   ],
                 ),

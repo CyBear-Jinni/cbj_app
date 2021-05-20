@@ -1,5 +1,6 @@
+import 'package:cybear_jinni/application/blinds/blinds_actor/blinds_actor_bloc.dart';
 import 'package:cybear_jinni/application/devices/device_watcher/device_watcher_bloc.dart';
-import 'package:cybear_jinni/application/lights/device_actor/lights_actor_bloc.dart';
+import 'package:cybear_jinni/application/lights/lights_actor/lights_actor_bloc.dart';
 import 'package:cybear_jinni/domain/devices/device_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_as_dart/smart_connection.pb.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_as_dart/smart_connection.pbgrpc.dart';
@@ -25,7 +26,6 @@ class SmartDevicesByRooms extends StatelessWidget {
         ),
         loadSuccess: (state) {
           if (state.devices.size != 0) {
-            final List<Color> _gradientColor = GradientColors.sky;
             final Map<String, List<DeviceEntity>> tempDevicesByRooms =
                 <String, List<DeviceEntity>>{};
 
@@ -64,118 +64,149 @@ class SmartDevicesByRooms extends StatelessWidget {
 
             int gradientColorCounter = -1;
 
-            return Container(
-              margin: const EdgeInsets.symmetric(horizontal: 15),
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
+            return SingleChildScrollView(
+              reverse: true,
+              child: Column(
+                children: [
+                  Container(
+                    color: Colors.black.withOpacity(0.2),
+                    padding: const EdgeInsets.symmetric(horizontal: 50),
+                    child: Stack(
+                      children: <Widget>[
+                        Text(
+                          'Rooms',
+                          style: TextStyle(
+                            fontSize: 35,
+                            foreground: Paint()
+                              ..style = PaintingStyle.stroke
+                              ..strokeWidth = 3
+                              ..color = Colors.black.withOpacity(0.2),
+                          ),
+                        ),
+                        Text(
+                          'Rooms',
+                          style: TextStyle(
+                            fontSize: 35,
+                            color: Theme.of(context).textTheme.subtitle2.color,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  if (tempDevicesByRooms.length > 1)
                     const SizedBox(
-                      height: 30,
-                    ),
-                    Text(
-                      'Home Name',
-                      style: TextStyle(
-                          fontSize: 30,
-                          color: Theme.of(context).textTheme.bodyText1.color),
-                    ),
+                      height: 20,
+                    )
+                  else
                     const SizedBox(
-                      height: 30,
+                      height: 130,
                     ),
-                    Divider(
-                      color: Theme.of(context).textTheme.bodyText1.color,
-                      thickness: 1,
-                    ),
-                    ListView.builder(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      padding: EdgeInsets.zero,
-                      itemBuilder: (context, index) {
-                        final String roomId =
-                            tempDevicesByRoomsByType.keys.elementAt(index);
+                  ListView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    padding: EdgeInsets.zero,
+                    itemBuilder: (context, index) {
+                      gradientColorCounter++;
+                      if (gradientColorCounter >= gradientColorsList.length) {
+                        gradientColorCounter = 0;
+                      }
 
-                        int numberOfDevicesInTheRoom = 0;
+                      final String roomId =
+                          tempDevicesByRoomsByType.keys.elementAt(index);
 
-                        tempDevicesByRoomsByType[roomId].forEach((key, value) {
-                          value.forEach((element) {
-                            numberOfDevicesInTheRoom++;
-                          });
+                      int numberOfDevicesInTheRoom = 0;
+
+                      tempDevicesByRoomsByType[roomId].forEach((key, value) {
+                        value.forEach((element) {
+                          numberOfDevicesInTheRoom++;
                         });
+                      });
 
-                        return Column(
-                          children: [
-                            Container(
-                              alignment: Alignment.topCenter,
-                              child: Text(
-                                'Room Name',
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    color: Theme.of(context)
-                                        .textTheme
-                                        .bodyText1
-                                        .color),
+                      return Container(
+                        margin: const EdgeInsets.symmetric(vertical: 3),
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: gradientColorsList[gradientColorCounter],
+                            begin: Alignment.bottomLeft,
+                            end: Alignment.topLeft,
+                          ),
+                        ),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.black.withOpacity(0.1),
+                          ),
+                          child: Column(
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(top: 12),
+                                alignment: Alignment.topCenter,
+                                child: Text(
+                                  'Room Name',
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      color: Theme.of(context)
+                                          .textTheme
+                                          .bodyText1
+                                          .color),
+                                ),
                               ),
-                            ),
-                            if (numberOfDevicesInTheRoom == 1)
-                              Text(
-                                '$numberOfDevicesInTheRoom device',
-                                style: const TextStyle(fontSize: 12),
-                              )
-                            else
-                              Text(
-                                '$numberOfDevicesInTheRoom devices',
-                                style: const TextStyle(fontSize: 12),
-                              ),
-                            GridView.builder(
-                                padding: EdgeInsets.zero,
-                                shrinkWrap: true,
-                                physics: const NeverScrollableScrollPhysics(),
-                                gridDelegate:
-                                    const SliverGridDelegateWithMaxCrossAxisExtent(
-                                        maxCrossAxisExtent: 200,
-                                        childAspectRatio: 1.2,
-                                        crossAxisSpacing: 8,
-                                        mainAxisSpacing: 4),
-                                itemCount: tempDevicesByRoomsByType[roomId]
-                                    .keys
-                                    .length,
-                                itemBuilder: (BuildContext ctx, secondIndex) {
-                                  final String deviceType =
-                                      tempDevicesByRoomsByType[roomId]
-                                          .keys
-                                          .elementAt(secondIndex);
-                                  if (deviceType ==
-                                      DeviceTypes.Light.toString()) {
-                                    return BlocProvider(
-                                      create: (context) =>
-                                          getIt<LightsActorBloc>(),
-                                      child: LightsInTheRoomBlock(
-                                          tempDevicesByRoomsByType[roomId]
-                                              [deviceType]),
-                                    );
-                                  } else if (deviceType ==
-                                      DeviceTypes.Blinds.toString()) {
-                                    return BlocProvider(
-                                      create: (context) =>
-                                          getIt<LightsActorBloc>(),
-                                      child: BlindsInTheRoom(
-                                          tempDevicesByRoomsByType[roomId]
-                                              [deviceType]),
-                                    );
-                                  }
-                                  return const Text('Not Supported');
-                                }),
-                            Divider(
-                              color:
-                                  Theme.of(context).textTheme.bodyText1.color,
-                              height: 0,
-                            ),
-                          ],
-                        );
-                      },
-                      itemCount: tempDevicesByRoomsByType.keys.length,
-                    ),
-                  ],
-                ),
+                              if (numberOfDevicesInTheRoom == 1)
+                                Text(
+                                  '$numberOfDevicesInTheRoom device',
+                                  style: const TextStyle(fontSize: 12),
+                                )
+                              else
+                                Text(
+                                  '$numberOfDevicesInTheRoom devices',
+                                  style: const TextStyle(fontSize: 12),
+                                ),
+                              GridView.builder(
+                                  padding: EdgeInsets.zero,
+                                  shrinkWrap: true,
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  gridDelegate:
+                                      const SliverGridDelegateWithMaxCrossAxisExtent(
+                                          maxCrossAxisExtent: 200,
+                                          childAspectRatio: 1.1,
+                                          crossAxisSpacing: 8,
+                                          mainAxisSpacing: 4),
+                                  itemCount: tempDevicesByRoomsByType[roomId]
+                                      .keys
+                                      .length,
+                                  itemBuilder: (BuildContext ctx, secondIndex) {
+                                    final String deviceType =
+                                        tempDevicesByRoomsByType[roomId]
+                                            .keys
+                                            .elementAt(secondIndex);
+                                    if (deviceType ==
+                                        DeviceTypes.Light.toString()) {
+                                      return BlocProvider(
+                                        create: (context) =>
+                                            getIt<LightsActorBloc>(),
+                                        child: LightsInTheRoomBlock(
+                                            tempDevicesByRoomsByType[roomId]
+                                                [deviceType]),
+                                      );
+                                    } else if (deviceType ==
+                                        DeviceTypes.Blinds.toString()) {
+                                      return BlocProvider(
+                                        create: (context) =>
+                                            getIt<BlindsActorBloc>(),
+                                        child: BlindsInTheRoom(
+                                            tempDevicesByRoomsByType[roomId]
+                                                [deviceType]),
+                                      );
+                                    }
+                                    return const Text('Not Supported');
+                                  }),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                    itemCount: tempDevicesByRoomsByType.keys.length,
+                  ),
+                ],
               ),
             );
           } else {

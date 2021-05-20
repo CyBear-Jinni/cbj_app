@@ -1,6 +1,7 @@
 import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
 import 'package:cybear_jinni/domain/devices/device_entity.dart';
 import 'package:cybear_jinni/domain/devices/value_objects.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_as_dart/smart_connection.pb.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,7 +17,7 @@ class LightWidget extends StatelessWidget {
 
   void _onChange(BuildContext context, bool value) {
     final DeviceEntity tempDeviceEntity = _deviceEntity.copyWith(
-      state: DeviceState('set'),
+      state: DeviceState(DeviceStateGRPC.waitingInFirebase.toString()),
       action: DeviceAction(value.toString()),
     );
     context.read<LightToggleBloc>().add(
@@ -35,13 +36,13 @@ class LightWidget extends StatelessWidget {
     bool toggleValue = false;
     Color toggleColor = Colors.blueGrey;
 
-    if (deviceAction == 'on') {
+    if (deviceAction == DeviceActions.On.toString()) {
       toggleValue = true;
-      if (deviceState == 'ack') {
+      if (deviceState == DeviceStateGRPC.ack.toString()) {
         toggleColor = const Color(0xFFFFDF5D);
       }
     } else {
-      if (deviceState == 'ack') {
+      if (deviceState == DeviceStateGRPC.ack.toString()) {
         toggleColor = Theme.of(context).primaryColorDark;
       }
     }
@@ -60,12 +61,12 @@ class LightWidget extends StatelessWidget {
               borderRadius: 25.0,
               padding: 0.0,
               activeToggleColor: const Color(0xFF2F363D),
-              inactiveToggleColor: Theme.of(context).primaryColor,
+              inactiveToggleColor: Colors.deepPurple,
               activeSwitchBorder: Border.all(
-                color: Theme.of(context).textTheme.bodyText1.color,
+                color: Theme.of(context).textTheme.subtitle2.color,
               ),
               inactiveSwitchBorder: Border.all(
-                color: Theme.of(context).textTheme.bodyText1.color,
+                color: Theme.of(context).textTheme.subtitle2.color,
               ),
               activeColor: toggleColor,
               inactiveColor: toggleColor,
@@ -75,7 +76,7 @@ class LightWidget extends StatelessWidget {
               ),
               inactiveIcon: Icon(
                 FontAwesomeIcons.lightbulb,
-                color: Theme.of(context).textTheme.bodyText1.color,
+                color: Theme.of(context).textTheme.subtitle2.color,
               ),
               onToggle: (bool value) => _onChange(context, value)
               // _onChange(context, value),

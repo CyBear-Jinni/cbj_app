@@ -40,7 +40,7 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
               child: Text('What would you like to do',
                   style: TextStyle(
                       fontSize: 25,
-                      color: Theme.of(context).textTheme.bodyText1.color))),
+                      color: Theme.of(context).textTheme.subtitle2.color))),
           Expanded(
             child: Column(
               children: <Widget>[
@@ -61,7 +61,7 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
                     child: Row(
                       children: <Widget>[
                         FaIcon(FontAwesomeIcons.doorOpen,
-                            color: Theme.of(context).textTheme.bodyText1.color),
+                            color: Theme.of(context).textTheme.subtitle2.color),
                         const SizedBox(
                           width: 20,
                         ),
@@ -70,7 +70,7 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
                           style: TextStyle(
                               fontSize: 25,
                               color:
-                                  Theme.of(context).textTheme.bodyText1.color),
+                                  Theme.of(context).textTheme.subtitle2.color),
                         ),
                       ],
                     ),
@@ -93,7 +93,7 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
                     child: Row(
                       children: <Widget>[
                         FaIcon(FontAwesomeIcons.userFriends,
-                            color: Theme.of(context).textTheme.bodyText1.color),
+                            color: Theme.of(context).textTheme.subtitle2.color),
                         const SizedBox(
                           width: 20,
                         ),
@@ -102,7 +102,7 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
                           style: TextStyle(
                               fontSize: 25,
                               color:
-                                  Theme.of(context).textTheme.bodyText1.color),
+                                  Theme.of(context).textTheme.subtitle2.color),
                         ),
                       ],
                     ),

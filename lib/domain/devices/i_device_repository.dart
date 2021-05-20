@@ -34,12 +34,27 @@ abstract class IDeviceRepository {
     String forceUpdateLocation,
   });
 
+  Future<Either<DevicesFailure, Unit>> turnOnDevices({
+    @required List<String> devicesId,
+    String forceUpdateLocation,
+  });
+
   Future<Either<DevicesFailure, Unit>> turnOffDevices({
     @required List<String> devicesId,
     String forceUpdateLocation,
   });
 
-  Future<Either<DevicesFailure, Unit>> turnOnDevices({
+  Future<Either<DevicesFailure, Unit>> moveUpBlinds({
+    @required List<String> devicesId,
+    String forceUpdateLocation,
+  });
+
+  Future<Either<DevicesFailure, Unit>> stopBlinds({
+    @required List<String> devicesId,
+    String forceUpdateLocation,
+  });
+
+  Future<Either<DevicesFailure, Unit>> moveDownBlinds({
     @required List<String> devicesId,
     String forceUpdateLocation,
   });
