@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      color: Colors.purple.withOpacity(0.08),
+      color: const Color.fromRGBO(251, 245, 249, 1.0),
       child: Scaffold(
         appBar: AppBar(
           toolbarHeight: 0,
