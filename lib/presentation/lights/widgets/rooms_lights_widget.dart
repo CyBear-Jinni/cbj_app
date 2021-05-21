@@ -9,10 +9,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kt_dart/kt.dart';
 
 class RoomsLightsWidget extends StatelessWidget {
-  RoomsLightsWidget(this.showDevicesOnlyFromRoomId);
+  RoomsLightsWidget(this.showDevicesOnlyFromRoomId, this.roomColorGradiant);
 
   /// If not null show lights only from this room
   final String showDevicesOnlyFromRoomId;
+
+  final List<Color> roomColorGradiant;
 
   @override
   Widget build(BuildContext context) {
@@ -71,14 +73,19 @@ class RoomsLightsWidget extends StatelessWidget {
                   padding: EdgeInsets.zero,
                   itemBuilder: (context, index) {
                     gradientColorCounter++;
-                    if (gradientColorCounter > gradientColorsList.length - 1) {
+                    List<Color> gradiantColor;
+                    if (roomColorGradiant != null) {
+                      gradiantColor = roomColorGradiant;
+                    } else if (gradientColorCounter >
+                        gradientColorsList.length - 1) {
                       gradientColorCounter = 0;
+                      gradiantColor = gradientColorsList[gradientColorCounter];
                     }
                     final devicesInRoom = devicesByRooms[index];
 
                     return RoomLights(
                       devicesInRoom,
-                      gradientColorsList[gradientColorCounter],
+                      gradiantColor,
                       'Room ${index + 1}',
                       maxLightsToShow: 50,
                     );

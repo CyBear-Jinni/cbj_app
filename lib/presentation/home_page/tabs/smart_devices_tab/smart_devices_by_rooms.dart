@@ -124,12 +124,14 @@ class SmartDevicesByRooms extends StatelessWidget {
                           numberOfDevicesInTheRoom++;
                         });
                       });
+                      final List<Color> roomColorGradiant =
+                          gradientColorsList[gradientColorCounter];
 
                       return Container(
                         margin: const EdgeInsets.only(top: 5),
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
-                            colors: gradientColorsList[gradientColorCounter],
+                            colors: roomColorGradiant,
                             begin: Alignment.bottomLeft,
                             end: Alignment.topLeft,
                           ),
@@ -189,7 +191,8 @@ class SmartDevicesByRooms extends StatelessWidget {
                                             getIt<LightsActorBloc>(),
                                         child: LightsInTheRoomBlock(
                                             tempDevicesByRoomsByType[roomId]
-                                                [deviceType]),
+                                                [deviceType],
+                                            roomColorGradiant),
                                       );
                                     } else if (deviceType ==
                                         DeviceTypes.Blinds.toString()) {

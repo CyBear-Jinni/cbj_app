@@ -217,7 +217,9 @@ class AppRouter extends RouterBase {
       );
       return MaterialPageRoute<dynamic>(
         builder: (context) => RoomsLightsPage(
-            showDevicesOnlyFromRoomId: args.showDevicesOnlyFromRoomId),
+          showDevicesOnlyFromRoomId: args.showDevicesOnlyFromRoomId,
+          roomColorGradiant: args.roomColorGradiant,
+        ),
         settings: data,
       );
     },
@@ -308,11 +310,13 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
 
   Future<dynamic> pushRoomsLightsPage({
     String showDevicesOnlyFromRoomId,
+    List<Color> roomColorGradiant = null,
   }) =>
       push<dynamic>(
         Routes.roomsLightsPage,
         arguments: RoomsLightsPageArguments(
-            showDevicesOnlyFromRoomId: showDevicesOnlyFromRoomId),
+            showDevicesOnlyFromRoomId: showDevicesOnlyFromRoomId,
+            roomColorGradiant: roomColorGradiant),
       );
 
   Future<dynamic> pushLightsInTheRoomPage({
@@ -355,7 +359,9 @@ class ConfigureNewCbjCompPageArguments {
 /// RoomsLightsPage arguments holder class
 class RoomsLightsPageArguments {
   final String showDevicesOnlyFromRoomId;
-  RoomsLightsPageArguments({this.showDevicesOnlyFromRoomId});
+  final List<Color> roomColorGradiant;
+  RoomsLightsPageArguments(
+      {this.showDevicesOnlyFromRoomId, this.roomColorGradiant = null});
 }
 
 /// LightsInTheRoomPage arguments holder class
