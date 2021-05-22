@@ -13,6 +13,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class SmartDevicesByRooms extends StatelessWidget {
   @override
@@ -73,7 +74,7 @@ class SmartDevicesByRooms extends StatelessWidget {
                       margin: const EdgeInsets.symmetric(vertical: 30),
                       alignment: Alignment.center,
                       child: Image.asset(
-                        'assets/cbj_app_logo.png',
+                        'assets/cbj_logo.png',
                         width: 250.0,
                         fit: BoxFit.fill,
                       ),
@@ -217,13 +218,39 @@ class SmartDevicesByRooms extends StatelessWidget {
               ),
             );
           } else {
-            return Expanded(
-                child: FlatButton(
-              onPressed: () {},
-              color: Colors.black,
-              child: const Text(
-                  'No lights have been found.\nPlease add new light'),
-            ));
+            return SingleChildScrollView(
+              reverse: true,
+              padding: const EdgeInsets.only(bottom: 15),
+              child: Column(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.symmetric(vertical: 30),
+                    alignment: Alignment.center,
+                    child: Image.asset(
+                      'assets/cbj_logo.png',
+                      fit: BoxFit.fitHeight,
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Fluttertoast.showToast(
+                          msg: 'Add new device by pressing the three dots '
+                              'in the top corner',
+                          toastLength: Toast.LENGTH_LONG,
+                          gravity: ToastGravity.CENTER,
+                          backgroundColor: Colors.blueGrey,
+                          textColor:
+                              Theme.of(context).textTheme.bodyText1.color,
+                          fontSize: 16.0);
+                    },
+                    child: const Text(
+                      'Devices list is empty.',
+                      style: TextStyle(fontSize: 30),
+                    ),
+                  ),
+                ],
+              ),
+            );
           }
         },
         loadFailure: (state) {

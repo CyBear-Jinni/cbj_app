@@ -1,6 +1,6 @@
 name: cybear_jinni
 description: CyBear Jinni app to interact with your CyBear Jinni Smart Devices
-version: 1.1.0+17
+version: 1.1.0+18
 homepage: https://github.com/CyBear-Jinni/CBJ_App
 author: Guy Luz
 
@@ -140,11 +140,11 @@ dev_dependencies:
 flutter_icons:
   ios: true
   android: true
-  image_path: "assets/cbj_app_logo.png"
-#  image_path_ios: "assets/cbj_app_logo.png"
-#  image_path_android: "assets/cbj_app_logo.png"
-  adaptive_icon_background: "assets/cbj_app_logo.png"
-  adaptive_icon_foreground: "assets/cbj_app_logo.png"
+  image_path: "assets/cbj_app_icon.png"
+#  image_path_ios: "assets/cbj_app_icon.png"
+#  image_path_android: "assets/cbj_app_icon.png"
+  adaptive_icon_background: "assets/cbj_app_icon.png"
+  adaptive_icon_foreground: "assets/cbj_app_icon.png"
 
 # The following section is specific to Flutter.
 flutter:

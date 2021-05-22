@@ -94,8 +94,13 @@ class LightsInTheRoomBlock extends StatelessWidget {
                     children: [
                       TextButton(
                         style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(
-                                Colors.grey.withOpacity(0.6))),
+                          backgroundColor: MaterialStateProperty.all(
+                            Colors.grey.withOpacity(0.6),
+                          ),
+                          side: MaterialStateProperty.all(
+                            const BorderSide(width: 0.2),
+                          ),
+                        ),
                         onPressed: () {
                           context.read<LightsActorBloc>().add(
                               LightsActorEvent.turnOffAllLights(
@@ -117,8 +122,12 @@ class LightsInTheRoomBlock extends StatelessWidget {
                       ),
                       TextButton(
                         style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(
-                                Colors.grey.withOpacity(0.6))),
+                          backgroundColor: MaterialStateProperty.all(
+                              Colors.grey.withOpacity(0.6)),
+                          side: MaterialStateProperty.all(
+                            const BorderSide(width: 0.2),
+                          ),
+                        ),
                         onPressed: () {
                           context.read<LightsActorBloc>().add(
                               LightsActorEvent.turnOnAllLights(
