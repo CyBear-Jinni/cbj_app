@@ -8,9 +8,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LightsInTheRoomBlock extends StatelessWidget {
-  LightsInTheRoomBlock(this.lightsInRoom);
+  LightsInTheRoomBlock(this.lightsInRoom, this.roomColorGradiant);
 
   final List<DeviceEntity> lightsInRoom;
+  final List<Color> roomColorGradiant;
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +19,9 @@ class LightsInTheRoomBlock extends StatelessWidget {
       onTap: () {
         ExtendedNavigator.of(context).push(Routes.roomsLightsPage,
             arguments: RoomsLightsPageArguments(
-                showDevicesOnlyFromRoomId:
-                    lightsInRoom[0].roomId.getOrCrash()));
+              showDevicesOnlyFromRoomId: lightsInRoom[0].roomId.getOrCrash(),
+              roomColorGradiant: roomColorGradiant,
+            ));
       },
       child: Container(
         color: Colors.black.withOpacity(0.03),
@@ -92,8 +94,13 @@ class LightsInTheRoomBlock extends StatelessWidget {
                     children: [
                       TextButton(
                         style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(
-                                Colors.grey.withOpacity(0.6))),
+                          backgroundColor: MaterialStateProperty.all(
+                            Colors.grey.withOpacity(0.6),
+                          ),
+                          side: MaterialStateProperty.all(
+                            const BorderSide(width: 0.2),
+                          ),
+                        ),
                         onPressed: () {
                           context.read<LightsActorBloc>().add(
                               LightsActorEvent.turnOffAllLights(
@@ -115,8 +122,12 @@ class LightsInTheRoomBlock extends StatelessWidget {
                       ),
                       TextButton(
                         style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(
-                                Colors.grey.withOpacity(0.6))),
+                          backgroundColor: MaterialStateProperty.all(
+                              Colors.grey.withOpacity(0.6)),
+                          side: MaterialStateProperty.all(
+                            const BorderSide(width: 0.2),
+                          ),
+                        ),
                         onPressed: () {
                           context.read<LightsActorBloc>().add(
                               LightsActorEvent.turnOnAllLights(

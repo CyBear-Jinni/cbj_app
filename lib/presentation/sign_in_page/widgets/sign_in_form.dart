@@ -50,7 +50,7 @@ class SignInForm extends StatelessWidget {
                       child: CircleAvatar(
                         backgroundColor: Colors.transparent,
                         radius: screenSize.height * 0.1,
-                        child: Image.asset('assets/cbj_app_logo.png'),
+                        child: Image.asset('assets/cbj_app_icon.png'),
                       ),
                     ),
                     const SizedBox(

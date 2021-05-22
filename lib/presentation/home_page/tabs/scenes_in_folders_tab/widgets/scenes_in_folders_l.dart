@@ -23,6 +23,7 @@ class ScenesInFoldersL extends StatelessWidget {
           ),
           loaded: (state) {
             return ListView.builder(
+              reverse: true,
               padding: EdgeInsets.zero,
               itemBuilder: (context, index) {
                 final sceneFolder =
