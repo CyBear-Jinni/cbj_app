@@ -27,7 +27,7 @@ class ConnectToHomeWifiPage extends StatelessWidget {
             colors: [
               // Colors are easy thanks to Flutter's Colors class.
               Colors.grey,
-              Theme.of(context).primaryColor,
+              Colors.deepPurple,
             ],
           ),
         ),

@@ -35,7 +35,35 @@ class SettingsPageSmartDevices extends StatelessWidget {
               () {},
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
-            )
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            Container(
+              height: 35,
+              width: MediaQuery.of(context).size.width - 20,
+              decoration: const BoxDecoration(
+                color: Colors.black38,
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+              ),
+              alignment: Alignment.center,
+              child: Text(
+                'Open Access Point',
+                style: TextStyle(
+                    fontSize: 25,
+                    color: Theme.of(context).textTheme.bodyText1.color),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            // Expanded(
+            //   child: BlocProvider(
+            //     create: (context) => getIt<ManageAccessPointBloc>()
+            //       ..add(ManageAccessPointEvent.initialized()),
+            //     child: OpenAccessPointWidget(),
+            //   ),
+            // ),
           ],
         ),
       ),

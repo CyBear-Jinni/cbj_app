@@ -1,7 +1,7 @@
 import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
 import 'package:cybear_jinni/domain/devices/device_entity.dart';
 import 'package:cybear_jinni/injection.dart';
-import 'package:cybear_jinni/presentation/lights/widgets/error_device_card_widget.dart';
+import 'package:cybear_jinni/presentation/lights/widgets/error_lights_device_card_widget.dart';
 import 'package:cybear_jinni/presentation/lights/widgets/light_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -43,7 +43,8 @@ class RoomLights extends StatelessWidget {
           if (_deviceEntityList.size > i + v) {
             final DeviceEntity deviceEntityTemp = _deviceEntityList[i + v];
             if (deviceEntityTemp.failureOption.isSome()) {
-              widgetsForRow.add(ErrorDeviceCard(device: deviceEntityTemp));
+              widgetsForRow
+                  .add(ErrorLightsDeviceCard(device: deviceEntityTemp));
             } else {
               widgetsForRow.add(Column(
                 children: [
@@ -51,7 +52,7 @@ class RoomLights extends StatelessWidget {
                     deviceEntityTemp.defaultName.getOrCrash(),
                     style: TextStyle(
                       fontSize: 19.0,
-                      color: Theme.of(context).textTheme.bodyText2.color,
+                      color: Theme.of(context).textTheme.subtitle2.color,
                     ),
                   ),
                   const SizedBox(
@@ -100,7 +101,7 @@ class RoomLights extends StatelessWidget {
             end: Alignment.topLeft),
         borderRadius: const BorderRadius.all(Radius.circular(24)),
         border: Border.all(
-          color: Theme.of(context).textTheme.bodyText1.color,
+          color: Theme.of(context).textTheme.subtitle2.color,
           width: 0.6,
         ),
       ),
@@ -131,16 +132,16 @@ class RoomLights extends StatelessWidget {
                   Text(
                     _roomEntity,
                     style: TextStyle(
-                      color: Theme.of(context).textTheme.bodyText1.color,
+                      color: Theme.of(context).textTheme.subtitle2.color,
                       fontSize: 25,
                       decoration: TextDecoration.underline,
                     ),
                   ),
                   if (maxLightsToShow != null &&
                       _deviceEntityList.size > maxLightsToShow)
-                    const FaIcon(
+                    FaIcon(
                       FontAwesomeIcons.arrowRight,
-                      color: Colors.white,
+                      color: Theme.of(context).textTheme.subtitle2.color,
                       size: 20,
                     ),
                 ],

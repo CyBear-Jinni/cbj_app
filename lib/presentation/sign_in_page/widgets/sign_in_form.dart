@@ -50,7 +50,7 @@ class SignInForm extends StatelessWidget {
                       child: CircleAvatar(
                         backgroundColor: Colors.transparent,
                         radius: screenSize.height * 0.1,
-                        child: Image.asset('assets/cbj_app_logo.png'),
+                        child: Image.asset('assets/cbj_app_icon.png'),
                       ),
                     ),
                     const SizedBox(
@@ -139,12 +139,16 @@ class SignInForm extends StatelessWidget {
             Container(
               alignment: Alignment.bottomRight,
               child: FlatButton(
-                color: Colors.white,
+                color: Theme.of(context).textTheme.bodyText1.color,
                 onPressed: () {
                   ExtendedNavigator.of(context)
                       .push(Routes.whereToLoginPageOffline);
                 },
-                child: const Text('For More Options'),
+                child: Text(
+                  'For More Options',
+                  style: TextStyle(
+                      color: Theme.of(context).textTheme.subtitle2.color),
+                ),
               ),
             ),
           ],

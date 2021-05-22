@@ -23,7 +23,8 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
       // space to fit everything.
       child: Container(
         color: Colors.black54,
-        child: Column(
+        child: ListView(
+          reverse: true,
           children: <Widget>[
             Container(
               color: Colors.black87,
@@ -32,14 +33,28 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                 child: Column(
                   children: [
                     const SizedBox(
-                      height: 40,
+                      height: 20,
+                    ),
+                    Row(
+                      children: <Widget>[
+                        Text(
+                          'Settings',
+                          style: TextStyle(
+                              color:
+                                  Theme.of(context).textTheme.subtitle2.color,
+                              fontSize: 18),
+                        )
+                      ],
+                    ),
+                    Divider(
+                      color: Theme.of(context).textTheme.subtitle2.color,
                     ),
                     Row(
                       children: [
                         Container(
                           alignment: Alignment.center,
                           child: Image.asset(
-                            'assets/cbj_app_logo.png',
+                            'assets/cbj_half_app_logo.png',
                             width: 70.0,
                           ),
                         ),
@@ -50,26 +65,13 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                           'CyBear Jinni',
                           style: TextStyle(
                               color:
-                                  Theme.of(context).textTheme.bodyText1.color,
+                                  Theme.of(context).textTheme.subtitle2.color,
                               fontSize: 20),
                         ),
                       ],
                     ),
-                    Divider(
-                      color: Theme.of(context).textTheme.bodyText1.color,
-                    ),
-                    Row(
-                      children: <Widget>[
-                        Text(
-                          'Settings',
-                          style: TextStyle(
-                              color:
-                                  Theme.of(context).textTheme.bodyText1.color),
-                        )
-                      ],
-                    ),
                     const SizedBox(
-                      height: 20,
+                      height: 40,
                     ),
                   ],
                 ),
@@ -77,21 +79,47 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
             ),
             Expanded(
               child: SingleChildScrollView(
+                reverse: true,
                 child: Column(
                   children: <Widget>[
                     Divider(
                       thickness: 0.5,
                       height: 0.5,
-                      color: Theme.of(context).textTheme.bodyText1.color,
+                      color: Theme.of(context).textTheme.subtitle2.color,
+                    ),
+                    ListTile(
+                      tileColor: Colors.greenAccent.withOpacity(0.8),
+                      leading: FaIcon(
+                        FontAwesomeIcons.signOutAlt,
+                        color: Theme.of(context).textTheme.subtitle2.color,
+                        size: 25,
+                      ),
+                      title: Text(
+                        'Log Out',
+                        style: TextStyle(
+                            color: Theme.of(context).textTheme.subtitle2.color),
+                      ),
+                      onTap: () {
+                        _fireBaseLogOut(context);
+                      },
+                    ),
+                    Divider(
+                      thickness: 0.5,
+                      height: 0.5,
+                      color: Theme.of(context).textTheme.subtitle2.color,
                     ),
                     ListTile(
                       tileColor: Colors.blue,
                       leading: FaIcon(
                         FontAwesomeIcons.userPlus,
-                        color: Theme.of(context).textTheme.bodyText1.color,
+                        color: Theme.of(context).textTheme.subtitle2.color,
                         size: 25,
                       ),
-                      title: const Text('Manage Users'),
+                      title: Text(
+                        'Manage Users',
+                        style: TextStyle(
+                            color: Theme.of(context).textTheme.subtitle2.color),
+                      ),
                       onTap: () {
                         ExtendedNavigator.of(context)
                             .push(Routes.manageUsersPage);
@@ -100,24 +128,7 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                     Divider(
                       thickness: 0.5,
                       height: 0.5,
-                      color: Theme.of(context).textTheme.bodyText1.color,
-                    ),
-                    ListTile(
-                      tileColor: Colors.greenAccent,
-                      leading: FaIcon(
-                        FontAwesomeIcons.signOutAlt,
-                        color: Theme.of(context).textTheme.bodyText1.color,
-                        size: 25,
-                      ),
-                      title: const Text('Log Out'),
-                      onTap: () {
-                        _fireBaseLogOut(context);
-                      },
-                    ),
-                    Divider(
-                      thickness: 0.5,
-                      height: 0.5,
-                      color: Theme.of(context).textTheme.bodyText1.color,
+                      color: Theme.of(context).textTheme.subtitle2.color,
                     ),
                   ],
                 ),

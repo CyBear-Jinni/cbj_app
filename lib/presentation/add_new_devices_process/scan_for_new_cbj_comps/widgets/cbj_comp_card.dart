@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/devices/device_actor/device_actor_bloc.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
 import 'package:cybear_jinni/domain/devices/device_entity.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_as_dart/smart_connection.pbgrpc.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
@@ -21,13 +22,13 @@ class CBJCompCard extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               border: Border(
                 top: BorderSide(
-                  color: Colors.white,
+                  color: Theme.of(context).textTheme.bodyText1.color,
                 ),
                 bottom: BorderSide(
-                  color: Colors.white,
+                  color: Theme.of(context).textTheme.bodyText1.color,
                 ),
               ),
             ),
@@ -38,13 +39,18 @@ class CBJCompCard extends StatelessWidget {
                     itemBuilder: (context, index) {
                       final DeviceEntity compEntity =
                           cbjCompEntity.cBJCompDevices.getOrCrash()[index];
-                      if (compEntity.type.getOrCrash() == 'Light') {
+                      if (compEntity.type.getOrCrash() ==
+                          DeviceTypes.Light.toString()) {
                         return Center(
                           child: BlocProvider(
                             create: (context) => getIt<DeviceActorBloc>(),
                             child: Text(
                               compEntity.defaultName.getOrCrash(),
-                              style: const TextStyle(color: Colors.white),
+                              style: TextStyle(
+                                  color: Theme.of(context)
+                                      .textTheme
+                                      .bodyText1
+                                      .color),
                             ),
                           ),
                         );
@@ -52,7 +58,9 @@ class CBJCompCard extends StatelessWidget {
                         return Text(
                           'Type not supported ${compEntity.type.getOrCrash()}'
                           ' yet',
-                          style: const TextStyle(color: Colors.white),
+                          style: TextStyle(
+                              color:
+                                  Theme.of(context).textTheme.bodyText1.color),
                         );
                       }
                     },
@@ -71,9 +79,10 @@ class CBJCompCard extends StatelessWidget {
                     cbjCompEntity: cbjCompEntity),
               );
             },
-            child: const Text(
+            child: Text(
               'Set up computer',
-              style: TextStyle(color: Colors.white),
+              style:
+                  TextStyle(color: Theme.of(context).textTheme.bodyText1.color),
             ),
           ),
         ],

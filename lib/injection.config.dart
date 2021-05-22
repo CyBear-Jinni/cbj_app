@@ -13,6 +13,8 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'application/add_user_to_home/add_user_to_home_bloc.dart';
 import 'infrastructure/add_user_to_home/add_user_to_home_reposityory.dart';
 import 'application/auth/auth_bloc.dart';
+import 'application/blinds/blinds_actor/blinds_actor_bloc.dart';
+import 'application/blinds/blinds_watcher/blinds_watcher_bloc.dart';
 import 'application/cbj_comp/cbj_comp_bloc.dart';
 import 'infrastructure/cbj_comp/cbj_comp_repository.dart';
 import 'application/configure_new_cbj_comp/configure_new_cbj_comp_bloc.dart';
@@ -41,6 +43,8 @@ import 'domain/scene/i_scene_repository.dart';
 import 'domain/user/i_user_repository.dart';
 import 'application/join_home_by_id/join_home_by_id_bloc.dart';
 import 'application/light_toggle/light_toggle_bloc.dart';
+import 'application/lights/lights_actor/lights_actor_bloc.dart';
+import 'application/lights/lights_watcher/lights_watcher_bloc.dart';
 import 'application/manage_access_point/manage_access_point_bloc.dart';
 import 'application/manage_users/manage_users_bloc.dart';
 import 'infrastructure/manage_wifi/manage_wifi_repository.dart';
@@ -85,6 +89,9 @@ GetIt $initGetIt(
       () => UserRepository(get<FirebaseFirestore>()));
   gh.factory<JoinHomeByIdBloc>(() => JoinHomeByIdBloc(get<IUserRepository>()));
   gh.factory<LightToggleBloc>(() => LightToggleBloc(get<IDeviceRepository>()));
+  gh.factory<LightsActorBloc>(() => LightsActorBloc(get<IDeviceRepository>()));
+  gh.factory<LightsWatcherBloc>(
+      () => LightsWatcherBloc(get<IDeviceRepository>()));
   gh.factory<ManageAccessPointBloc>(
       () => ManageAccessPointBloc(get<IManageNetworkRepository>()));
   gh.factory<ManageUsersBloc>(
@@ -99,6 +106,9 @@ GetIt $initGetIt(
   gh.factory<AddUserToHomeBloc>(
       () => AddUserToHomeBloc(get<IAddUserToHomeRepository>()));
   gh.factory<AuthBloc>(() => AuthBloc(get<IAuthFacade>()));
+  gh.factory<BlindsActorBloc>(() => BlindsActorBloc(get<IDeviceRepository>()));
+  gh.factory<BlindsWatcherBloc>(
+      () => BlindsWatcherBloc(get<IDeviceRepository>()));
   gh.factory<CBJCompBloc>(() => CBJCompBloc(get<ICBJCompRepository>()));
   gh.factory<ConfigureNewCbjCompBloc>(() => ConfigureNewCbjCompBloc(
       get<IDeviceRepository>(), get<ICBJCompRepository>()));

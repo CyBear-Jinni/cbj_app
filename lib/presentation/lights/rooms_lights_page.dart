@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/auth/auth_bloc.dart';
 import 'package:cybear_jinni/application/devices/device_actor/device_actor_bloc.dart';
-import 'package:cybear_jinni/application/devices/device_watcher/device_watcher_bloc.dart';
+import 'package:cybear_jinni/application/lights/lights_watcher/lights_watcher_bloc.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/lights/settings_page_of_lights.dart';
@@ -16,6 +16,13 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 /// Lights page that will call the lamps widget file and add background
 /// and scaffold for it
 class RoomsLightsPage extends StatelessWidget {
+  RoomsLightsPage(
+      {this.showDevicesOnlyFromRoomId, this.roomColorGradiant = null});
+
+  /// If it have value will only show lights in this room
+  final String showDevicesOnlyFromRoomId;
+  final List<Color> roomColorGradiant;
+
   void cogFunction(BuildContext context) {
     Navigator.push(
         context,
@@ -31,9 +38,9 @@ class RoomsLightsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<DeviceWatcherBloc>(
-          create: (context) => getIt<DeviceWatcherBloc>()
-            ..add(const DeviceWatcherEvent.watchAllStarted()),
+        BlocProvider<LightsWatcherBloc>(
+          create: (context) => getIt<LightsWatcherBloc>()
+            ..add(const LightsWatcherEvent.watchAllStarted()),
         ),
         BlocProvider<DeviceActorBloc>(
           create: (context) => getIt<DeviceActorBloc>(),
@@ -73,6 +80,11 @@ class RoomsLightsPage extends StatelessWidget {
           ),
         ],
         child: Scaffold(
+          appBar: AppBar(
+            toolbarHeight: 0,
+            backgroundColor: Colors.black,
+            brightness: Brightness.dark,
+          ),
           body: Container(
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
@@ -90,7 +102,8 @@ class RoomsLightsPage extends StatelessWidget {
                   rightSecondFunction: () {},
                 ),
                 Expanded(
-                  child: RoomsLightsWidget(),
+                  child: RoomsLightsWidget(
+                      showDevicesOnlyFromRoomId, roomColorGradiant),
                 ),
               ],
             ),

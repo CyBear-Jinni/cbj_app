@@ -21,17 +21,21 @@ class ManageUsersWidget extends StatelessWidget {
             child: CircularProgressIndicator(),
           ),
           loadSuccess: (state) {
-            return ListView.builder(
-              padding: EdgeInsets.zero,
-              itemBuilder: (context, index) {
-                final homeUser = state.homeUsers[index];
-                if (homeUser.failureOption.isSome()) {
-                  return ErrorUserCard(homeUser: homeUser);
-                } else {
-                  return UserCard(homeUser: homeUser);
-                }
-              },
-              itemCount: state.homeUsers.size,
+            return Container(
+              margin: const EdgeInsets.symmetric(vertical: 100),
+              child: ListView.builder(
+                reverse: true,
+                padding: EdgeInsets.zero,
+                itemBuilder: (context, index) {
+                  final homeUser = state.homeUsers[index];
+                  if (homeUser.failureOption.isSome()) {
+                    return ErrorUserCard(homeUser: homeUser);
+                  } else {
+                    return UserCard(homeUser: homeUser);
+                  }
+                },
+                itemCount: state.homeUsers.size,
+              ),
             );
           },
           loadFailure: (state) {

@@ -6,7 +6,8 @@ class Loader extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement Loader Widget
     return Container(
-      decoration: const BoxDecoration(color: Colors.white),
+      decoration:
+          BoxDecoration(color: Theme.of(context).textTheme.bodyText1.color),
     );
   }
 }

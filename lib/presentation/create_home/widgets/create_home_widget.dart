@@ -27,13 +27,16 @@ class CreateHomeWidget extends StatelessWidget {
         SizedBox(
           width: 300,
           child: TextFormField(
-            style: const TextStyle(color: Colors.white),
+            style:
+                TextStyle(color: Theme.of(context).textTheme.bodyText1.color),
             decoration: InputDecoration(
               filled: true,
               fillColor: Colors.greenAccent.withOpacity(0.3),
-              prefixIcon: const Icon(Icons.home_outlined, color: Colors.white),
+              prefixIcon: Icon(Icons.home_outlined,
+                  color: Theme.of(context).textTheme.bodyText1.color),
               labelText: 'Home Name',
-              labelStyle: const TextStyle(color: Colors.white),
+              labelStyle:
+                  TextStyle(color: Theme.of(context).textTheme.bodyText1.color),
             ),
             autocorrect: false,
             onChanged: (value) {
@@ -58,16 +61,18 @@ class CreateHomeWidget extends StatelessWidget {
         SizedBox(
           width: 300,
           child: TextFormField(
-            style: const TextStyle(color: Colors.white),
+            style:
+                TextStyle(color: Theme.of(context).textTheme.bodyText1.color),
             decoration: InputDecoration(
               filled: true,
               fillColor: Colors.greenAccent.withOpacity(0.3),
-              prefixIcon: const Icon(
+              prefixIcon: Icon(
                 Icons.alternate_email,
-                color: Colors.white,
+                color: Theme.of(context).textTheme.bodyText1.color,
               ),
               labelText: 'Email for smart devices',
-              labelStyle: const TextStyle(color: Colors.white),
+              labelStyle:
+                  TextStyle(color: Theme.of(context).textTheme.bodyText1.color),
             ),
             autocorrect: false,
             onChanged: (value) {
@@ -80,9 +85,11 @@ class CreateHomeWidget extends StatelessWidget {
         ),
         Container(
           margin: const EdgeInsets.symmetric(horizontal: 48),
-          child: const Text(
+          child: Text(
             'Smart devices needs account to function.\nPlease enter new email.',
-            style: TextStyle(fontSize: 15, color: Colors.white),
+            style: TextStyle(
+                fontSize: 15,
+                color: Theme.of(context).textTheme.bodyText1.color),
           ),
         ),
         const SizedBox(
@@ -95,9 +102,10 @@ class CreateHomeWidget extends StatelessWidget {
                   .add(CreateHomeEvent.createHome(homeName, devicesEmail));
             },
             color: Colors.pinkAccent,
-            child: const Text(
+            child: Text(
               'Create Home',
-              style: TextStyle(color: Colors.white),
+              style:
+                  TextStyle(color: Theme.of(context).textTheme.bodyText1.color),
             )),
         BlocBuilder<CreateHomeBloc, CreateHomeState>(
           builder: (context, state) {

@@ -39,29 +39,30 @@ class HomeCardWidget extends StatelessWidget {
                 .add(UserHomesListEvent.joinExistingHome(home));
           },
           child: Container(
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               border: Border(
                 top: BorderSide(
-                  color: Colors.white,
+                  color: Theme.of(context).textTheme.subtitle2.color,
                 ),
                 bottom: BorderSide(
-                  color: Colors.white,
+                  color: Theme.of(context).textTheme.subtitle2.color,
                 ),
               ),
             ),
             height: 100,
             child: Center(
               child: ListTile(
-                leading: const FaIcon(
+                leading: FaIcon(
                   FontAwesomeIcons.houseUser,
-                  color: Colors.white,
+                  color: Theme.of(context).textTheme.subtitle2.color,
                 ),
                 title: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       home.name.getOrCrash(),
-                      style: const TextStyle(color: Colors.white),
+                      style: TextStyle(
+                          color: Theme.of(context).textTheme.subtitle2.color),
                     ),
                   ],
                 ),

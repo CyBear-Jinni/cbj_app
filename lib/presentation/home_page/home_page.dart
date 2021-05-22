@@ -1,4 +1,3 @@
-import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/home_page/bottom_navigation_bar_home_page.dart';
 import 'package:cybear_jinni/presentation/home_page/left_navigation_drawer_home_page.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/linked_tab/linked_page.dart';
@@ -42,10 +41,13 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      decoration: BoxDecoration(
-        gradient: BacgroundGradient.getBacground(context),
-      ),
+      color: const Color.fromRGBO(251, 245, 249, 1.0),
       child: Scaffold(
+        appBar: AppBar(
+          toolbarHeight: 0,
+          backgroundColor: Colors.white,
+          brightness: Brightness.light,
+        ),
         backgroundColor: Colors.transparent,
         body: PageView(
           onPageChanged: (index) {

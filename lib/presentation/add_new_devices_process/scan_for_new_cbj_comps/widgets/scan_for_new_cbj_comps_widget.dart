@@ -22,18 +22,18 @@ class ScanForNewCBJCompsWidget extends StatelessWidget {
           initial: (_) => const Text('Initial'),
           loadInProgress: (value) {
             return Column(
-              children: const [
-                SizedBox(
+              children: [
+                const SizedBox(
                   height: 20,
                 ),
                 Text(
                   'Scanning For Devices',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Theme.of(context).textTheme.bodyText1.color,
                     fontSize: 26,
                   ),
                 ),
-                Expanded(
+                const Expanded(
                   child: Center(
                     child: CircularProgressIndicator(),
                   ),
@@ -61,6 +61,7 @@ class ScanForNewCBJCompsWidget extends StatelessWidget {
             }
 
             return ListView.builder(
+              reverse: true,
               padding: EdgeInsets.zero,
               itemBuilder: (context, index) {
                 final compEntity = cbjCompEntityList[index];

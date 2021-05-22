@@ -23,6 +23,7 @@ class ScenesInFoldersL extends StatelessWidget {
           ),
           loaded: (state) {
             return ListView.builder(
+              reverse: true,
               padding: EdgeInsets.zero,
               itemBuilder: (context, index) {
                 final sceneFolder =
@@ -58,7 +59,7 @@ class ScenesInFoldersL extends StatelessWidget {
         ),
         borderRadius: const BorderRadius.all(Radius.circular(borderRadius)),
         border: Border.all(
-          color: Colors.white,
+          color: Colors.black.withOpacity(0.7),
           width: 0.4,
         ),
       ),
@@ -89,7 +90,9 @@ class ScenesInFoldersL extends StatelessWidget {
               ),
               child: Text(
                 folderOfScenes.fold((l) => 'NoName', (r) => r.name),
-                style: const TextStyle(color: Colors.white, fontSize: 30),
+                style: TextStyle(
+                    color: Theme.of(context).textTheme.subtitle2.color,
+                    fontSize: 30),
                 textAlign: TextAlign.center,
               ),
             ),
