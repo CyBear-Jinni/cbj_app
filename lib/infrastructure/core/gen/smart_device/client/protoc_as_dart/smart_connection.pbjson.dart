@@ -12,35 +12,35 @@ import 'dart:typed_data' as $typed_data;
 const DeviceTypes$json = const {
   '1': 'DeviceTypes',
   '2': const [
-    const {'1': 'TypeNotSupported', '2': 0},
-    const {'1': 'Light', '2': 1},
-    const {'1': 'Blinds', '2': 2},
-    const {'1': 'Thermostat', '2': 3},
+    const {'1': 'typeNotSupported', '2': 0},
+    const {'1': 'light', '2': 1},
+    const {'1': 'blinds', '2': 2},
+    const {'1': 'boiler', '2': 3},
   ],
 };
 
 /// Descriptor for `DeviceTypes`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List deviceTypesDescriptor = $convert.base64Decode('CgtEZXZpY2VUeXBlcxIUChBUeXBlTm90U3VwcG9ydGVkEAASCQoFTGlnaHQQARIKCgZCbGluZHMQAhIOCgpUaGVybW9zdGF0EAM=');
+final $typed_data.Uint8List deviceTypesDescriptor = $convert.base64Decode('CgtEZXZpY2VUeXBlcxIUChB0eXBlTm90U3VwcG9ydGVkEAASCQoFbGlnaHQQARIKCgZibGluZHMQAhIKCgZib2lsZXIQAw==');
 @$core.Deprecated('Use deviceActionsDescriptor instead')
 const DeviceActions$json = const {
   '1': 'DeviceActions',
   '2': const [
-    const {'1': 'ActionNotSupported', '2': 0},
-    const {'1': 'On', '2': 1},
-    const {'1': 'Off', '2': 2},
-    const {'1': 'MoveUP', '2': 3},
-    const {'1': 'Stop', '2': 4},
-    const {'1': 'MoveDon', '2': 5},
+    const {'1': 'actionNotSupported', '2': 0},
+    const {'1': 'on', '2': 1},
+    const {'1': 'off', '2': 2},
+    const {'1': 'moveUP', '2': 3},
+    const {'1': 'stop', '2': 4},
+    const {'1': 'moveDown', '2': 5},
   ],
 };
 
 /// Descriptor for `DeviceActions`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List deviceActionsDescriptor = $convert.base64Decode('Cg1EZXZpY2VBY3Rpb25zEhYKEkFjdGlvbk5vdFN1cHBvcnRlZBAAEgYKAk9uEAESBwoDT2ZmEAISCgoGTW92ZVVQEAMSCAoEU3RvcBAEEgsKB01vdmVEb24QBQ==');
+final $typed_data.Uint8List deviceActionsDescriptor = $convert.base64Decode('Cg1EZXZpY2VBY3Rpb25zEhYKEmFjdGlvbk5vdFN1cHBvcnRlZBAAEgYKAm9uEAESBwoDb2ZmEAISCgoGbW92ZVVQEAMSCAoEc3RvcBAEEgwKCG1vdmVEb3duEAU=');
 @$core.Deprecated('Use deviceStateGRPCDescriptor instead')
 const DeviceStateGRPC$json = const {
   '1': 'DeviceStateGRPC',
   '2': const [
-    const {'1': 'StateNotSupported', '2': 0},
+    const {'1': 'stateNotSupported', '2': 0},
     const {'1': 'cancelStateInProcess', '2': 1},
     const {'1': 'ack', '2': 2},
     const {'1': 'newStateFailed', '2': 3},
@@ -50,7 +50,7 @@ const DeviceStateGRPC$json = const {
 };
 
 /// Descriptor for `DeviceStateGRPC`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List deviceStateGRPCDescriptor = $convert.base64Decode('Cg9EZXZpY2VTdGF0ZUdSUEMSFQoRU3RhdGVOb3RTdXBwb3J0ZWQQABIYChRjYW5jZWxTdGF0ZUluUHJvY2VzcxABEgcKA2FjaxACEhIKDm5ld1N0YXRlRmFpbGVkEAMSFQoRd2FpdGluZ0luRmlyZWJhc2UQBBIRCg13YWl0aW5nSW5Db21wEAU=');
+final $typed_data.Uint8List deviceStateGRPCDescriptor = $convert.base64Decode('Cg9EZXZpY2VTdGF0ZUdSUEMSFQoRc3RhdGVOb3RTdXBwb3J0ZWQQABIYChRjYW5jZWxTdGF0ZUluUHJvY2VzcxABEgcKA2FjaxACEhIKDm5ld1N0YXRlRmFpbGVkEAMSFQoRd2FpdGluZ0luRmlyZWJhc2UQBBIRCg13YWl0aW5nSW5Db21wEAU=');
 @$core.Deprecated('Use firstSetupMessageDescriptor instead')
 const FirstSetupMessage$json = const {
   '1': 'FirstSetupMessage',
