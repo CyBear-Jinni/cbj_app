@@ -186,7 +186,7 @@ class SmartDevicesByRooms extends StatelessWidget {
                                             .keys
                                             .elementAt(secondIndex);
                                     if (deviceType ==
-                                        DeviceTypes.Light.toString()) {
+                                        DeviceTypes.light.toString()) {
                                       return BlocProvider(
                                         create: (context) =>
                                             getIt<LightsActorBloc>(),
@@ -196,7 +196,7 @@ class SmartDevicesByRooms extends StatelessWidget {
                                             roomColorGradiant),
                                       );
                                     } else if (deviceType ==
-                                        DeviceTypes.Blinds.toString()) {
+                                        DeviceTypes.blinds.toString()) {
                                       return BlocProvider(
                                         create: (context) =>
                                             getIt<BlindsActorBloc>(),

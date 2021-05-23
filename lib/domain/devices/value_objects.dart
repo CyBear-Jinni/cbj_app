@@ -151,9 +151,9 @@ class DeviceAction extends DevicesValueObjectAbstract<String> {
     assert(input != null);
 
     if (input == 'false') {
-      input = DeviceActions.Off.toString();
+      input = DeviceActions.off.toString();
     } else if (input == 'true') {
-      input = DeviceActions.On.toString();
+      input = DeviceActions.on.toString();
     }
     return DeviceAction._(
       validateDeviceNotEmpty(input)

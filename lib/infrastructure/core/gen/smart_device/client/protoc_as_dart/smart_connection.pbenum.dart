@@ -10,16 +10,16 @@ import 'dart:core' as $core;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 class DeviceTypes extends $pb.ProtobufEnum {
-  static const DeviceTypes TypeNotSupported = DeviceTypes._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'TypeNotSupported');
-  static const DeviceTypes Light = DeviceTypes._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'Light');
-  static const DeviceTypes Blinds = DeviceTypes._(2, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'Blinds');
-  static const DeviceTypes Thermostat = DeviceTypes._(3, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'Thermostat');
+  static const DeviceTypes typeNotSupported = DeviceTypes._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'typeNotSupported');
+  static const DeviceTypes light = DeviceTypes._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'light');
+  static const DeviceTypes blinds = DeviceTypes._(2, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'blinds');
+  static const DeviceTypes boiler = DeviceTypes._(3, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'boiler');
 
   static const $core.List<DeviceTypes> values = <DeviceTypes> [
-    TypeNotSupported,
-    Light,
-    Blinds,
-    Thermostat,
+    typeNotSupported,
+    light,
+    blinds,
+    boiler,
   ];
 
   static final $core.Map<$core.int, DeviceTypes> _byValue = $pb.ProtobufEnum.initByValue(values);
@@ -29,20 +29,20 @@ class DeviceTypes extends $pb.ProtobufEnum {
 }
 
 class DeviceActions extends $pb.ProtobufEnum {
-  static const DeviceActions ActionNotSupported = DeviceActions._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'ActionNotSupported');
-  static const DeviceActions On = DeviceActions._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'On');
-  static const DeviceActions Off = DeviceActions._(2, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'Off');
-  static const DeviceActions MoveUP = DeviceActions._(3, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'MoveUP');
-  static const DeviceActions Stop = DeviceActions._(4, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'Stop');
-  static const DeviceActions MoveDon = DeviceActions._(5, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'MoveDon');
+  static const DeviceActions actionNotSupported = DeviceActions._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'actionNotSupported');
+  static const DeviceActions on = DeviceActions._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'on');
+  static const DeviceActions off = DeviceActions._(2, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'off');
+  static const DeviceActions moveUP = DeviceActions._(3, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'moveUP');
+  static const DeviceActions stop = DeviceActions._(4, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'stop');
+  static const DeviceActions moveDown = DeviceActions._(5, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'moveDown');
 
   static const $core.List<DeviceActions> values = <DeviceActions> [
-    ActionNotSupported,
-    On,
-    Off,
-    MoveUP,
-    Stop,
-    MoveDon,
+    actionNotSupported,
+    on,
+    off,
+    moveUP,
+    stop,
+    moveDown,
   ];
 
   static final $core.Map<$core.int, DeviceActions> _byValue = $pb.ProtobufEnum.initByValue(values);
@@ -52,7 +52,7 @@ class DeviceActions extends $pb.ProtobufEnum {
 }
 
 class DeviceStateGRPC extends $pb.ProtobufEnum {
-  static const DeviceStateGRPC StateNotSupported = DeviceStateGRPC._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'StateNotSupported');
+  static const DeviceStateGRPC stateNotSupported = DeviceStateGRPC._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'stateNotSupported');
   static const DeviceStateGRPC cancelStateInProcess = DeviceStateGRPC._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'cancelStateInProcess');
   static const DeviceStateGRPC ack = DeviceStateGRPC._(2, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'ack');
   static const DeviceStateGRPC newStateFailed = DeviceStateGRPC._(3, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'newStateFailed');
@@ -60,7 +60,7 @@ class DeviceStateGRPC extends $pb.ProtobufEnum {
   static const DeviceStateGRPC waitingInComp = DeviceStateGRPC._(5, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'waitingInComp');
 
   static const $core.List<DeviceStateGRPC> values = <DeviceStateGRPC> [
-    StateNotSupported,
+    stateNotSupported,
     cancelStateInProcess,
     ack,
     newStateFailed,

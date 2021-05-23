@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_as_dart/smart_connection.pb.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums.dart';
 
 class FireStoreClass {
@@ -42,13 +43,12 @@ class FireStoreClass {
 //    return path + roomName + restOfPath + deviceName;
   }
 
-  Future<String> changeBlindsState(
-      String roomName, String smartInstanceName, WishEnum wish) async {
+  Future<String> changeBlindsState(String roomName, String smartInstanceName,
+      DeviceActions deviceAction) async {
     final String fullPath = createDocumentFullPath(roomName);
 
-    FirebaseFirestore.instance
-        .doc(fullPath)
-        .update({smartInstanceName: EnumHelper.wishEnumToString(wish)});
+    FirebaseFirestore.instance.doc(fullPath).update(
+        {smartInstanceName: EnumHelper.deviceActionToString(deviceAction)});
 
     return getDeviceStatus(roomName, smartInstanceName);
   }

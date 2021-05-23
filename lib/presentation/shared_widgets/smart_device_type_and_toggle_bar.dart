@@ -1,3 +1,4 @@
+import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_as_dart/smart_connection.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_device_object.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums.dart';
 import 'package:cybear_jinni/presentation/home_page/smart_device_widget.dart';
@@ -16,7 +17,7 @@ class SmartDeviceTypeAndToggleBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
-        if (_smartDeviceObject.deviceType == DeviceTypeEnum.Light)
+        if (_smartDeviceObject.deviceType == DeviceTypes.light)
           Container(
             margin: const EdgeInsets.only(right: 5),
             child: const CircleAvatar(
@@ -24,7 +25,7 @@ class SmartDeviceTypeAndToggleBar extends StatelessWidget {
               child: FaIcon(FontAwesomeIcons.solidLightbulb),
             ),
           ),
-        if (_smartDeviceObject.deviceType == DeviceTypeEnum.Blinds)
+        if (_smartDeviceObject.deviceType == DeviceTypes.blinds)
           Container(
             margin: const EdgeInsets.only(right: 5),
             child: const CircleAvatar(
@@ -44,7 +45,7 @@ class SmartDeviceTypeAndToggleBar extends StatelessWidget {
         ).tr(args: <String>[
           EnumHelper.dTToString(_smartDeviceObject.deviceType)
         ]),
-        if (_smartDeviceObject.deviceType == DeviceTypeEnum.Light)
+        if (_smartDeviceObject.deviceType == DeviceTypes.light)
           SizedBox(
             width: 100,
             child: SmartDevicePage(

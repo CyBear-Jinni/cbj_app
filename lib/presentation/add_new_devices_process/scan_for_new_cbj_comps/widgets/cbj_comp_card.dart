@@ -40,7 +40,7 @@ class CBJCompCard extends StatelessWidget {
                       final DeviceEntity compEntity =
                           cbjCompEntity.cBJCompDevices.getOrCrash()[index];
                       if (compEntity.type.getOrCrash() ==
-                          DeviceTypes.Light.toString()) {
+                          DeviceTypes.light.toString()) {
                         return Center(
                           child: BlocProvider(
                             create: (context) => getIt<DeviceActorBloc>(),

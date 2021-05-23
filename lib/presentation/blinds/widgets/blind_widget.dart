@@ -25,7 +25,7 @@ class BlindWidget extends StatelessWidget {
     bool toggleValue = false;
     Color toggleColor = Colors.blueGrey;
 
-    if (deviceAction == DeviceActions.On.toString()) {
+    if (deviceAction == DeviceActions.on.toString()) {
       toggleValue = true;
       if (deviceState == DeviceStateGRPC.ack.toString()) {
         toggleColor = const Color(0xFFFFDF5D);

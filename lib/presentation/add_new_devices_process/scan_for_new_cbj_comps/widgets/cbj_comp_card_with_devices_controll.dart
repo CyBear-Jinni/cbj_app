@@ -23,7 +23,8 @@ class CBJCompCardWithDevicesControll extends StatelessWidget {
         cbjCompEntity.cBJCompDevices.getOrCrash();
 
     for (final DeviceEntity deviceEntity in deviceEntityList.asList()) {
-      if (deviceEntity.type.getOrCrash() == DeviceTypes.Light.toString()) {
+      if (deviceEntity.type.getOrCrash() == DeviceTypes.light.toString() ||
+          deviceEntity.type.getOrCrash() == DeviceTypes.blinds.toString()) {
         typesList.add(
           Container(
             color: Colors.yellowAccent.withOpacity(0.3),
