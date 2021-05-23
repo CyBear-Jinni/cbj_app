@@ -32,8 +32,8 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
     final List<Widget> widgetList = [];
 
     for (final DeviceEntity device in devicesList) {
-      if (device.type.getOrCrash() == DeviceTypes.Light.toString() ||
-          device.type.getOrCrash() == DeviceTypes.Blinds.toString()) {
+      if (device.type.getOrCrash() == DeviceTypes.light.toString() ||
+          device.type.getOrCrash() == DeviceTypes.blinds.toString()) {
         final TextEditingController textEditingControllerTemp =
             TextEditingController(
                 text: device.defaultName.value.getOrElse(() => ''));
@@ -47,7 +47,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
             margin: const EdgeInsets.symmetric(vertical: 30),
             child: Column(
               children: [
-                if (device.type.getOrCrash() == DeviceTypes.Light.toString())
+                if (device.type.getOrCrash() == DeviceTypes.light.toString())
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 40),
                     child: Row(
@@ -65,7 +65,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                     ),
                   )
                 else if (device.type.getOrCrash() ==
-                    DeviceTypes.Blinds.toString())
+                    DeviceTypes.blinds.toString())
                   Column(
                     children: [
                       Text('Type: ${device.type.getOrCrash()}'),

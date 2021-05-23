@@ -2,7 +2,7 @@ enum DeviceTypeEnum {
   Light, // Light ON/OFF
   DynamicLight, // Light with brightness 0% to 100%
   Blinds,
-  Thermostat,
+  Boiler,
   Fan,
   AirConditioner,
   Camera,

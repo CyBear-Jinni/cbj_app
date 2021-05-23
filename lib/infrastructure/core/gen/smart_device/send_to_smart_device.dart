@@ -35,7 +35,7 @@ Future<List<SmartDeviceObject>> getAllDevices(String deviceIp) async {
       case DeviceTypeEnum.DynamicLight:
         // TODO: Handle this case.
         break;
-      case DeviceTypeEnum.Thermostat:
+      case DeviceTypeEnum.Boiler:
         // TODO: Handle this case.
         break;
       case DeviceTypeEnum.Fan:

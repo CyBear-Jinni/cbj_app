@@ -93,7 +93,7 @@ class DropDownMenu extends StatefulWidget {
 }
 
 class _DropDownMenu extends State<DropDownMenu> {
-  String dropdownValue = DeviceTypes.Light.toString().tr();
+  String dropdownValue = DeviceTypes.light.toString().tr();
 
   String _deviceTypeToString(DeviceTypeEnum deviceType) {
     return EnumHelper.dTToString(deviceType);
@@ -113,7 +113,7 @@ class _DropDownMenu extends State<DropDownMenu> {
         _deviceTypeToString(DeviceTypeEnum.Light),
         _deviceTypeToString(DeviceTypeEnum.DynamicLight),
         _deviceTypeToString(DeviceTypeEnum.Blinds),
-        _deviceTypeToString(DeviceTypeEnum.Thermostat),
+        _deviceTypeToString(DeviceTypeEnum.Boiler),
         _deviceTypeToString(DeviceTypeEnum.AirConditioner),
       ].map<DropdownMenuItem<String>>((String value) {
         return DropdownMenuItem<String>(

@@ -41,8 +41,8 @@ class DeviceRepository implements IDeviceRepository {
           (snapshot) => right<DevicesFailure, KtList<DeviceEntity>>(
             snapshot.docs
                 .map((doc) {
-                  if (doc.data()['type'] == DeviceTypes.Light.toString() ||
-                      doc.data()['type'] == DeviceTypes.Blinds.toString()) {
+                  if (doc.data()['type'] == DeviceTypes.light.toString() ||
+                      doc.data()['type'] == DeviceTypes.blinds.toString()) {
                     return DeviceDtos.fromFirestore(doc).toDomain();
                   }
                 })
@@ -66,7 +66,7 @@ class DeviceRepository implements IDeviceRepository {
     // Light device type
     yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
           return right(r.toList().asList().where((element) {
-            return element.type.getOrCrash() == DeviceTypes.Light.toString();
+            return element.type.getOrCrash() == DeviceTypes.light.toString();
           }).toImmutableList());
         }));
   }
@@ -77,7 +77,7 @@ class DeviceRepository implements IDeviceRepository {
     // Blinds device type
     yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
           return right(r.toList().asList().where((element) {
-            return element.type.getOrCrash() == DeviceTypes.Blinds.toString();
+            return element.type.getOrCrash() == DeviceTypes.blinds.toString();
           }).toImmutableList());
         }));
   }
@@ -180,7 +180,7 @@ class DeviceRepository implements IDeviceRepository {
         final DocumentReference deviceDocumentReference =
             devicesCollection.doc(element);
         updateDatabase(documentPath: deviceDocumentReference, fieldsToUpdate: {
-          'action': DeviceActions.On.toString(),
+          'action': DeviceActions.on.toString(),
           'state': DeviceStateGRPC.waitingInFirebase.toString()
         });
       });
@@ -208,7 +208,7 @@ class DeviceRepository implements IDeviceRepository {
         final DocumentReference deviceDocumentReference =
             devicesCollection.doc(element);
         updateDatabase(documentPath: deviceDocumentReference, fieldsToUpdate: {
-          'action': DeviceActions.Off.toString(),
+          'action': DeviceActions.off.toString(),
           'state': DeviceStateGRPC.waitingInFirebase.toString()
         });
       });
@@ -236,7 +236,7 @@ class DeviceRepository implements IDeviceRepository {
         final DocumentReference deviceDocumentReference =
             devicesCollection.doc(element);
         updateDatabase(documentPath: deviceDocumentReference, fieldsToUpdate: {
-          'action': DeviceActions.MoveUP.toString(),
+          'action': DeviceActions.moveUP.toString(),
           'state': DeviceStateGRPC.waitingInFirebase.toString()
         });
       });
@@ -264,7 +264,7 @@ class DeviceRepository implements IDeviceRepository {
         final DocumentReference deviceDocumentReference =
             devicesCollection.doc(element);
         updateDatabase(documentPath: deviceDocumentReference, fieldsToUpdate: {
-          'action': DeviceActions.Stop.toString(),
+          'action': DeviceActions.stop.toString(),
           'state': DeviceStateGRPC.waitingInFirebase.toString()
         });
       });
@@ -292,7 +292,7 @@ class DeviceRepository implements IDeviceRepository {
         final DocumentReference deviceDocumentReference =
             devicesCollection.doc(element);
         updateDatabase(documentPath: deviceDocumentReference, fieldsToUpdate: {
-          'action': DeviceActions.MoveDon.toString(),
+          'action': DeviceActions.moveDown.toString(),
           'state': DeviceStateGRPC.waitingInFirebase.toString()
         });
       });
@@ -361,7 +361,7 @@ class DeviceRepository implements IDeviceRepository {
         lastKnownIp,
       );
       if (deviceEntity.action.getOrCrash().toLowerCase() ==
-          DeviceActions.On.toString()) {
+          DeviceActions.on.toString()) {
         final String deviceSuccessStatus =
             await SmartClient.setSmartDeviceOn(smartDeviceObject);
       } else {

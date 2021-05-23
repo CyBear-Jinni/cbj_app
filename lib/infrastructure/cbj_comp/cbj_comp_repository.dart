@@ -207,7 +207,7 @@ class CBJCompRepository implements ICBJCompRepository {
 
     final List<SmartDeviceInfo> smartDevicesList = [];
 
-    final DeviceActions deviceAction = DeviceActions.ActionNotSupported;
+    final DeviceActions deviceAction = DeviceActions.actionNotSupported;
     final DeviceStateGRPC deviceStateGRPC = DeviceStateGRPC.waitingInComp;
 
     compEntity.cBJCompDevices.getOrCrash().forEach((DeviceEntity element) {
