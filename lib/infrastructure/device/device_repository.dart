@@ -41,7 +41,8 @@ class DeviceRepository implements IDeviceRepository {
             snapshot.docs
                 .map((doc) {
                   if (doc.data()['type'] == DeviceTypes.light.toString() ||
-                      doc.data()['type'] == DeviceTypes.blinds.toString()) {
+                      doc.data()['type'] == DeviceTypes.blinds.toString() ||
+                      doc.data()['type'] == DeviceTypes.boiler.toString()) {
                     return DeviceDtos.fromFirestore(doc).toDomain();
                   }
                 })

@@ -7,6 +7,7 @@ import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/blinds_in_the_room.dart';
+import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/boilers_in_the_room.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/lights_in_the_room_block.dart';
 import 'package:cybear_jinni/presentation/lights/widgets/critical_light_failure_display_widget.dart';
 import 'package:flutter/cupertino.dart';
@@ -136,6 +137,9 @@ class SmartDevicesByRooms extends StatelessWidget {
                             begin: Alignment.bottomLeft,
                             end: Alignment.topLeft,
                           ),
+                          border: const Border.symmetric(
+                            horizontal: BorderSide(width: 0.3),
+                          ),
                         ),
                         child: Container(
                           decoration: BoxDecoration(
@@ -201,6 +205,15 @@ class SmartDevicesByRooms extends StatelessWidget {
                                         create: (context) =>
                                             getIt<BlindsActorBloc>(),
                                         child: BlindsInTheRoom(
+                                            tempDevicesByRoomsByType[roomId]
+                                                [deviceType]),
+                                      );
+                                    } else if (deviceType ==
+                                        DeviceTypes.boiler.toString()) {
+                                      return BlocProvider(
+                                        create: (context) =>
+                                            getIt<BlindsActorBloc>(),
+                                        child: BoilersInTheRoom(
                                             tempDevicesByRoomsByType[roomId]
                                                 [deviceType]),
                                       );

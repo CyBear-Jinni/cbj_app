@@ -39,31 +39,35 @@ class BlindsInTheRoom extends StatelessWidget {
                     ),
                   ),
                 ),
-                Expanded(
-                  child: Container(
-                    height: 55,
-                    alignment: Alignment.topLeft,
+                if (blindsInRoom.length > 1)
+                  Expanded(
                     child: Container(
-                      width: 28,
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Theme.of(context)
-                                .textTheme
-                                .bodyText1
-                                .color
-                                .withOpacity(0.5)),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Text(
-                        blindsInRoom.length.toString(),
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontSize: 13,
-                            color: Theme.of(context).textTheme.bodyText1.color),
+                      height: 55,
+                      alignment: Alignment.topLeft,
+                      child: Container(
+                        width: 28,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                              color: Theme.of(context)
+                                  .textTheme
+                                  .bodyText1
+                                  .color
+                                  .withOpacity(0.5)),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Text(
+                          blindsInRoom.length.toString(),
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: 13,
+                              color:
+                                  Theme.of(context).textTheme.bodyText1.color),
+                        ),
                       ),
                     ),
-                  ),
-                )
+                  )
+                else
+                  const Expanded(child: Text('')),
               ],
             ),
             const SizedBox(
