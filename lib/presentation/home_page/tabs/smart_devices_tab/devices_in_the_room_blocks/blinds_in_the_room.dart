@@ -93,7 +93,10 @@ class BlindsInTheRoom extends StatelessWidget {
                       TextButton(
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all(
-                              Colors.brown.withOpacity(0.2)),
+                              Colors.grey.withOpacity(0.6)),
+                          side: MaterialStateProperty.all(
+                            const BorderSide(width: 0.2),
+                          ),
                           padding: MaterialStateProperty.all<EdgeInsets>(
                               const EdgeInsets.all(0)),
                         ),
@@ -103,7 +106,7 @@ class BlindsInTheRoom extends StatelessWidget {
                                   extractDevicesId(), context));
                         },
                         child: FaIcon(
-                          FontAwesomeIcons.arrowDown,
+                          FontAwesomeIcons.chevronDown,
                           color: Theme.of(context).textTheme.bodyText2.color,
                         ),
                       ),
@@ -116,7 +119,10 @@ class BlindsInTheRoom extends StatelessWidget {
                       TextButton(
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all(
-                              Colors.brown.withOpacity(0.2)),
+                              Colors.grey.withOpacity(0.6)),
+                          side: MaterialStateProperty.all(
+                            const BorderSide(width: 0.2),
+                          ),
                           padding: MaterialStateProperty.all<EdgeInsets>(
                               const EdgeInsets.all(0)),
                         ),
@@ -126,7 +132,7 @@ class BlindsInTheRoom extends StatelessWidget {
                                   extractDevicesId(), context));
                         },
                         child: FaIcon(
-                          FontAwesomeIcons.arrowUp,
+                          FontAwesomeIcons.chevronUp,
                           color: Theme.of(context).textTheme.bodyText2.color,
                         ),
                       ),
