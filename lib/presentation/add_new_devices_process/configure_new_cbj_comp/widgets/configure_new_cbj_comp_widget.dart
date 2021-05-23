@@ -4,6 +4,7 @@ import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
 import 'package:cybear_jinni/domain/devices/device_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_as_dart/smart_connection.pbenum.dart';
 import 'package:cybear_jinni/injection.dart';
+import 'package:cybear_jinni/presentation/core/devices_cards/blinds_card.dart';
 import 'package:cybear_jinni/presentation/core/devices_cards/light_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -31,11 +32,13 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
     final List<Widget> widgetList = [];
 
     for (final DeviceEntity device in devicesList) {
-      if (device.type.getOrCrash() == DeviceTypes.Light.toString()) {
+      if (device.type.getOrCrash() == DeviceTypes.Light.toString() ||
+          device.type.getOrCrash() == DeviceTypes.Blinds.toString()) {
         final TextEditingController textEditingControllerTemp =
-            TextEditingController(text: device.defaultName.getOrCrash());
+            TextEditingController(
+                text: device.defaultName.value.getOrElse(() => ''));
         _textEditingController[
-                '$deviceNameFieldKey/${device.id.getOrCrash()}'] =
+                '$deviceNameFieldKey/${device.id.value.getOrElse(() => 'deviceId')}'] =
             textEditingControllerTemp;
         widgetList.add(
           Container(
@@ -44,22 +47,36 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
             margin: const EdgeInsets.symmetric(vertical: 30),
             child: Column(
               children: [
-                Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 40),
-                  child: Row(
-                    children: [
-                      Text('Type: ${DeviceTypes.Light.toString()}'),
-                      Expanded(
-                        child: Center(
-                          child: BlocProvider(
-                            create: (context) => getIt<LightToggleBloc>(),
-                            child: LightCard(device),
+                if (device.type.getOrCrash() == DeviceTypes.Light.toString())
+                  Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 40),
+                    child: Row(
+                      children: [
+                        Text('Type: ${device.type.getOrCrash()}'),
+                        Expanded(
+                          child: Center(
+                            child: BlocProvider(
+                              create: (context) => getIt<LightToggleBloc>(),
+                              child: LightCard(device),
+                            ),
                           ),
+                        )
+                      ],
+                    ),
+                  )
+                else if (device.type.getOrCrash() ==
+                    DeviceTypes.Blinds.toString())
+                  Column(
+                    children: [
+                      Text('Type: ${device.type.getOrCrash()}'),
+                      Center(
+                        child: BlocProvider(
+                          create: (context) => getIt<LightToggleBloc>(),
+                          child: BlindsCard(device),
                         ),
                       ),
                     ],
                   ),
-                ),
                 Container(
                   margin: const EdgeInsets.only(top: 10),
                   width: 300,
@@ -81,7 +98,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                           FontAwesomeIcons.solidLightbulb,
                           color: Theme.of(context).textTheme.bodyText1.color,
                         ),
-                        labelText: 'Light Name',
+                        labelText: '${device.type.getOrCrash()} Name',
                         labelStyle: TextStyle(
                             color:
                                 Theme.of(context).textTheme.bodyText1.color)),
@@ -219,8 +236,10 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  FlatButton(
-                    color: Colors.greenAccent,
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.greenAccent,
+                    ),
                     onPressed: () async {
                       context.read<ConfigureNewCbjCompBloc>().add(
                           ConfigureNewCbjCompEvent.setupNewDevice(
