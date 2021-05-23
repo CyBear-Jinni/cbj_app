@@ -13,7 +13,6 @@ import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_
 import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/smart_client.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_device_object.dart';
 import 'package:cybear_jinni/infrastructure/device/device_dtos.dart';
-import 'package:cybear_jinni/infrastructure/objects/enums.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:dartz/dartz.dart';
 import 'package:device_info/device_info.dart';
@@ -356,7 +355,7 @@ class DeviceRepository implements IDeviceRepository {
       final String lastKnownIp = deviceEntity.lastKnownIp.getOrCrash();
 
       final SmartDeviceObject smartDeviceObject = SmartDeviceObject(
-        DeviceTypeEnum.Light,
+        DeviceTypes.light,
         id,
         lastKnownIp,
       );

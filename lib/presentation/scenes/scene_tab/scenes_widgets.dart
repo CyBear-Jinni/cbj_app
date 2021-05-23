@@ -1,6 +1,6 @@
 import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_as_dart/smart_connection.pb.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_device_object.dart';
-import 'package:cybear_jinni/infrastructure/objects/enums.dart';
 import 'package:cybear_jinni/infrastructure/objects/interface_darta/cloud_interface_data.dart';
 import 'package:cybear_jinni/presentation/scenes/scene_tab/scene_block_widget.dart';
 import 'package:cybear_jinni/presentation/scenes/scene_tab/settings_page_of_scenes.dart';
@@ -10,49 +10,49 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ScenesWidgets extends StatelessWidget {
-  static final Map<String, Map<SmartDeviceObject, List<WishEnum>>> _scenesMap =
-      <String, Map<SmartDeviceObject, List<WishEnum>>>{
+  static final Map<String, Map<SmartDeviceObject, List<DeviceActions>>>
+      _scenesMap = <String, Map<SmartDeviceObject, List<DeviceActions>>>{
     'Entrance lights OFF ----------- ⛩️  🛑':
-        <SmartDeviceObject, List<WishEnum>>{
-      room3DevicesList[0]: <WishEnum>[
-        WishEnum.SOff,
+        <SmartDeviceObject, List<DeviceActions>>{
+      room3DevicesList[0]: <DeviceActions>[
+        DeviceActions.off,
       ],
-      room3DevicesList[3]: <WishEnum>[
-        WishEnum.SOff,
+      room3DevicesList[3]: <DeviceActions>[
+        DeviceActions.off,
       ]
     },
     'Entrance lights ON  -----------   ⛩️  💡':
-        <SmartDeviceObject, List<WishEnum>>{
-      room3DevicesList[0]: <WishEnum>[
-        WishEnum.SOn,
+        <SmartDeviceObject, List<DeviceActions>>{
+      room3DevicesList[0]: <DeviceActions>[
+        DeviceActions.on,
       ],
-      room3DevicesList[3]: <WishEnum>[
-        WishEnum.SOn,
+      room3DevicesList[3]: <DeviceActions>[
+        DeviceActions.on,
       ]
     },
-    'Go to sleep ----------- 😴': <SmartDeviceObject, List<WishEnum>>{
-      room3DevicesList[0]: <WishEnum>[
-        WishEnum.SOff,
+    'Go to sleep ----------- 😴': <SmartDeviceObject, List<DeviceActions>>{
+      room3DevicesList[0]: <DeviceActions>[
+        DeviceActions.off,
       ],
-      room3DevicesList[1]: <WishEnum>[
-        WishEnum.SOff,
+      room3DevicesList[1]: <DeviceActions>[
+        DeviceActions.off,
       ],
-      room3DevicesList[2]: <WishEnum>[
-        WishEnum.SOff,
+      room3DevicesList[2]: <DeviceActions>[
+        DeviceActions.off,
       ],
-      room3DevicesList[3]: <WishEnum>[
-        WishEnum.SOff,
+      room3DevicesList[3]: <DeviceActions>[
+        DeviceActions.off,
       ],
-      room4DevicesList[0]: <WishEnum>[
-        WishEnum.SOff,
+      room4DevicesList[0]: <DeviceActions>[
+        DeviceActions.off,
       ]
     },
-    'Welcome home': <SmartDeviceObject, List<WishEnum>>{},
-    'Going out': <SmartDeviceObject, List<WishEnum>>{},
-    'Going for a walk': <SmartDeviceObject, List<WishEnum>>{},
-    'Workout': <SmartDeviceObject, List<WishEnum>>{},
-    'Date night': <SmartDeviceObject, List<WishEnum>>{},
-    'Party': <SmartDeviceObject, List<WishEnum>>{},
+    'Welcome home': <SmartDeviceObject, List<DeviceActions>>{},
+    'Going out': <SmartDeviceObject, List<DeviceActions>>{},
+    'Going for a walk': <SmartDeviceObject, List<DeviceActions>>{},
+    'Workout': <SmartDeviceObject, List<DeviceActions>>{},
+    'Date night': <SmartDeviceObject, List<DeviceActions>>{},
+    'Party': <SmartDeviceObject, List<DeviceActions>>{},
   };
 
   List<Widget> scenes(BuildContext context) {
