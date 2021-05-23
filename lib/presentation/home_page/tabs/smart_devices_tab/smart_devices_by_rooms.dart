@@ -71,11 +71,11 @@ class SmartDevicesByRooms extends StatelessWidget {
                 children: [
                   if (tempDevicesByRooms.length == 1)
                     Container(
-                      margin: const EdgeInsets.symmetric(vertical: 30),
+                      margin: const EdgeInsets.only(bottom: 10),
                       alignment: Alignment.center,
                       child: Image.asset(
                         'assets/cbj_logo.png',
-                        width: 250.0,
+                        width: 200.0,
                         fit: BoxFit.fill,
                       ),
                     ),
