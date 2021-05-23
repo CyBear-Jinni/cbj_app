@@ -94,13 +94,33 @@ class RoomsLightsWidget extends StatelessWidget {
                 ),
               );
             } else {
-              return Expanded(
-                  child: FlatButton(
-                onPressed: () {},
-                color: Colors.black,
-                child: const Text(
-                    'No lights have been found.\nPlease add new light'),
-              ));
+              return SingleChildScrollView(
+                reverse: true,
+                padding: const EdgeInsets.only(bottom: 15),
+                child: Column(
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.symmetric(vertical: 30),
+                      alignment: Alignment.center,
+                      child: Image.asset(
+                        'assets/cbj_logo.png',
+                        fit: BoxFit.fitHeight,
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text(
+                        'Lights does not exist.',
+                        style: TextStyle(
+                            fontSize: 30,
+                            color: Theme.of(context).textTheme.bodyText1.color),
+                      ),
+                    ),
+                  ],
+                ),
+              );
             }
           },
           loadFailure: (state) {
