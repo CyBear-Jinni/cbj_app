@@ -11,7 +11,6 @@ import 'package:flutter/material.dart';
 
 import '../../domain/cbj_comp/cbj_comp_entity.dart';
 import '../../domain/folder_of_scenes/folder_of_scene.dart';
-import '../../infrastructure/core/gen/smart_device/smart_blinds_object.dart';
 import '../../infrastructure/core/gen/smart_device/smart_room_object.dart';
 import '../add_new_devices_process/choose_device_vendor_to_add/choose_device_vendor_to_add_page.dart';
 import '../add_new_devices_process/configure_new_cbj_comp/configure_new_cbj_comp_page.dart';
@@ -22,7 +21,6 @@ import '../add_user_to_home/add_user_to_home_page.dart';
 import '../blinds/rooms_blinds_page.dart';
 import '../create_home/create_home_page.dart';
 import '../home_page/home_page.dart';
-import '../home_page/tabs/smart_devices_tab/blinds/smart_blind_widget.dart';
 import '../introduction_screen/introduction_screen_page.dart';
 import '../join_home_by_id/join_home_by_id_page.dart';
 import '../lights/lights_in_the_room/lights_in_the_room_page.dart';
@@ -56,7 +54,6 @@ class Routes {
   static const String roomsLightsPage = '/rooms-lights-page';
   static const String lightsInTheRoomPage = '/lights-in-the-room-page';
   static const String roomsBlindsPage = '/rooms-blinds-page';
-  static const String smartBlindPage = '/smart-blind-page';
   static const all = <String>{
     splashPage,
     introductionScreenPage,
@@ -77,7 +74,6 @@ class Routes {
     roomsLightsPage,
     lightsInTheRoomPage,
     roomsBlindsPage,
-    smartBlindPage,
   };
 }
 
@@ -106,7 +102,6 @@ class AppRouter extends RouterBase {
     RouteDef(Routes.roomsLightsPage, page: RoomsLightsPage),
     RouteDef(Routes.lightsInTheRoomPage, page: LightsInTheRoomPage),
     RouteDef(Routes.roomsBlindsPage, page: RoomsBlindsPage),
-    RouteDef(Routes.smartBlindPage, page: SmartBlindPage),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -237,14 +232,6 @@ class AppRouter extends RouterBase {
         settings: data,
       );
     },
-    SmartBlindPage: (data) {
-      final args = data.getArgs<SmartBlindPageArguments>(nullOk: false);
-      return MaterialPageRoute<dynamic>(
-        builder: (context) =>
-            SmartBlindPage(smartBlindsObject: args.smartBlindsObject),
-        settings: data,
-      );
-    },
   };
 }
 
@@ -329,15 +316,6 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
 
   Future<dynamic> pushRoomsBlindsPage() =>
       push<dynamic>(Routes.roomsBlindsPage);
-
-  Future<dynamic> pushSmartBlindPage({
-    @required SmartBlindsObject smartBlindsObject,
-  }) =>
-      push<dynamic>(
-        Routes.smartBlindPage,
-        arguments:
-            SmartBlindPageArguments(smartBlindsObject: smartBlindsObject),
-      );
 }
 
 /// ************************************************************************
@@ -368,10 +346,4 @@ class RoomsLightsPageArguments {
 class LightsInTheRoomPageArguments {
   final SmartRoomObject thisSmartRoom;
   LightsInTheRoomPageArguments({@required this.thisSmartRoom});
-}
-
-/// SmartBlindPage arguments holder class
-class SmartBlindPageArguments {
-  final SmartBlindsObject smartBlindsObject;
-  SmartBlindPageArguments({@required this.smartBlindsObject});
 }
