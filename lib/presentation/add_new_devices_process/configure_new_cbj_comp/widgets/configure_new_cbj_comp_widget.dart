@@ -32,8 +32,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
     final List<Widget> widgetList = [];
 
     for (final DeviceEntity device in devicesList) {
-      if (device.type.getOrCrash() == DeviceTypes.light.toString() ||
-          device.type.getOrCrash() == DeviceTypes.blinds.toString()) {
+      if (device.type.getOrCrash() != DeviceTypes.typeNotSupported.toString()) {
         final TextEditingController textEditingControllerTemp =
             TextEditingController(
                 text: device.defaultName.value.getOrElse(() => ''));
@@ -48,6 +47,24 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
             child: Column(
               children: [
                 if (device.type.getOrCrash() == DeviceTypes.light.toString())
+                  Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 40),
+                    child: Row(
+                      children: [
+                        Text('Type: ${device.type.getOrCrash()}'),
+                        Expanded(
+                          child: Center(
+                            child: BlocProvider(
+                              create: (context) => getIt<LightToggleBloc>(),
+                              child: LightCard(device),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+                else if (device.type.getOrCrash() ==
+                    DeviceTypes.boiler.toString())
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 40),
                     child: Row(

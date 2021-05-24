@@ -277,6 +277,9 @@ class CBJCompRepository implements ICBJCompRepository {
 
       final ManageNetworkEntity secondWifiEntityOrFailure =
           IManageNetworkRepository.manageWiFiEntity;
+      if (secondWifiEntityOrFailure == null) {
+        print('No second Wifi Entity, it is going to crash');
+      }
 
       final SBCommendStatus commendStatus =
           await SecurityBearServerClient.setWiFisInformation(
