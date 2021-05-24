@@ -205,8 +205,11 @@ class SmartDevicesByRooms extends StatelessWidget {
                                         create: (context) =>
                                             getIt<BlindsActorBloc>(),
                                         child: BlindsInTheRoom(
-                                            tempDevicesByRoomsByType[roomId]
-                                                [deviceType]),
+                                          blindsInRoom:
+                                              tempDevicesByRoomsByType[roomId]
+                                                  [deviceType],
+                                          roomColorGradiant: roomColorGradiant,
+                                        ),
                                       );
                                     } else if (deviceType ==
                                         DeviceTypes.boiler.toString()) {

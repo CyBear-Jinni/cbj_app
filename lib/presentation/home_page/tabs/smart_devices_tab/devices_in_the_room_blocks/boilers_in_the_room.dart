@@ -16,8 +16,8 @@ class BoilersInTheRoom extends StatelessWidget {
       onTap: () {
         ExtendedNavigator.of(context).push(Routes.roomsBlindsPage,
             arguments: RoomsLightsPageArguments(
-                showDevicesOnlyFromRoomId:
-                    boilersInRoom[0].roomId.getOrCrash()));
+                showDevicesOnlyFromRoomId: boilersInRoom[0].roomId.getOrCrash(),
+                roomColorGradiant: null));
       },
       child: Container(
         color: Colors.black.withOpacity(0.03),

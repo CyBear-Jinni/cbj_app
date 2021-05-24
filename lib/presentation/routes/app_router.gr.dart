@@ -227,8 +227,14 @@ class AppRouter extends RouterBase {
       );
     },
     RoomsBlindsPage: (data) {
+      final args = data.getArgs<RoomsBlindsPageArguments>(
+        orElse: () => RoomsBlindsPageArguments(),
+      );
       return MaterialPageRoute<dynamic>(
-        builder: (context) => RoomsBlindsPage(),
+        builder: (context) => RoomsBlindsPage(
+          showDevicesOnlyFromRoomId: args.showDevicesOnlyFromRoomId,
+          roomColorGradiant: args.roomColorGradiant,
+        ),
         settings: data,
       );
     },
@@ -314,8 +320,16 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
         arguments: LightsInTheRoomPageArguments(thisSmartRoom: thisSmartRoom),
       );
 
-  Future<dynamic> pushRoomsBlindsPage() =>
-      push<dynamic>(Routes.roomsBlindsPage);
+  Future<dynamic> pushRoomsBlindsPage({
+    String showDevicesOnlyFromRoomId,
+    List<Color> roomColorGradiant = null,
+  }) =>
+      push<dynamic>(
+        Routes.roomsBlindsPage,
+        arguments: RoomsBlindsPageArguments(
+            showDevicesOnlyFromRoomId: showDevicesOnlyFromRoomId,
+            roomColorGradiant: roomColorGradiant),
+      );
 }
 
 /// ************************************************************************
@@ -346,4 +360,12 @@ class RoomsLightsPageArguments {
 class LightsInTheRoomPageArguments {
   final SmartRoomObject thisSmartRoom;
   LightsInTheRoomPageArguments({@required this.thisSmartRoom});
+}
+
+/// RoomsBlindsPage arguments holder class
+class RoomsBlindsPageArguments {
+  final String showDevicesOnlyFromRoomId;
+  final List<Color> roomColorGradiant;
+  RoomsBlindsPageArguments(
+      {this.showDevicesOnlyFromRoomId, this.roomColorGradiant = null});
 }

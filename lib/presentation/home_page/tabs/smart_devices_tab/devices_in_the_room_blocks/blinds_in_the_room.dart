@@ -8,18 +8,19 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BlindsInTheRoom extends StatelessWidget {
-  BlindsInTheRoom(this.blindsInRoom);
+  BlindsInTheRoom({this.blindsInRoom, this.roomColorGradiant});
 
   final List<DeviceEntity> blindsInRoom;
+  final List<Color> roomColorGradiant;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         ExtendedNavigator.of(context).push(Routes.roomsBlindsPage,
-            arguments: RoomsLightsPageArguments(
-                showDevicesOnlyFromRoomId:
-                    blindsInRoom[0].roomId.getOrCrash()));
+            arguments: RoomsBlindsPageArguments(
+                showDevicesOnlyFromRoomId: blindsInRoom[0].roomId.getOrCrash(),
+                roomColorGradiant: roomColorGradiant));
       },
       child: Container(
         color: Colors.black.withOpacity(0.03),

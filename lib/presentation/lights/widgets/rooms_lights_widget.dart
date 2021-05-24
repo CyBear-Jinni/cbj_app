@@ -27,7 +27,6 @@ class RoomsLightsWidget extends StatelessWidget {
           ),
           loadSuccess: (state) {
             if (state.devices.size != 0) {
-              final List<Color> _gradientColor = GradientColors.sky;
               final Map<String, List<DeviceEntity>> tempDevicesByRooms =
                   <String, List<DeviceEntity>>{};
 
