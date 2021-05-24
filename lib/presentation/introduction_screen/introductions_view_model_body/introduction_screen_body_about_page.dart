@@ -31,7 +31,7 @@ class IntroductionScreenBodyAboutPage extends StatelessWidget {
                 'WiFi execution whenever possible, this way you will'
                 ' be able to control your smart home even if you are'
                 ' disconnected from the world (as long as you are '
-                'connected to WiFi).\n',
+                'connected to your home WiFi).\n',
                 style: TextStyle(fontSize: 17, color: Colors.black),
               ),
             ),

@@ -44,11 +44,11 @@ class IntroductionScreenBody extends StatelessWidget {
             titleWidget: Column(
               children: [
                 Container(
-                  margin: const EdgeInsets.all(40),
+                  margin: const EdgeInsets.only(top: 20, bottom: 5),
                   child: Center(
-                    child: Image.network(
-                      'https://cybearjinni.com/assets/assets/fan_art/after_editing/logo_no_background.png',
-                      height: 170.0,
+                    child: Image.asset(
+                      'assets/cbj_logo.png',
+                      height: 200.0,
                     ),
                   ),
                 ),
