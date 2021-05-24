@@ -59,11 +59,15 @@ class ChooseDeviceVendorToAddPage extends StatelessWidget {
             const SizedBox(
               height: 100,
             ),
-            Center(
-              child: FlatButton(
-                minWidth: 300,
-                height: 100,
-                color: Colors.purple.withOpacity(0.7),
+            SizedBox(
+              width: 300,
+              height: 100,
+              child: TextButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(
+                    Colors.purple.withOpacity(0.7),
+                  ),
+                ),
                 onPressed: () {
                   ExtendedNavigator.of(context)
                       .push(Routes.connectToHomeWifiPage);

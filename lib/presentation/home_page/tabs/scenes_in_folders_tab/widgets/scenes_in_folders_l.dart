@@ -64,7 +64,12 @@ class ScenesInFoldersL extends StatelessWidget {
         ),
       ),
       margin: const EdgeInsets.symmetric(vertical: 3, horizontal: 5),
-      child: FlatButton(
+      child: TextButton(
+        style: ButtonStyle(
+          padding: MaterialStateProperty.all<EdgeInsets>(
+            EdgeInsets.zero,
+          ),
+        ),
         onPressed: () {
           ExtendedNavigator.of(context).push(
             Routes.scenesPage,
@@ -73,7 +78,6 @@ class ScenesInFoldersL extends StatelessWidget {
             ),
           );
         },
-        padding: EdgeInsets.zero,
         child: Column(
           children: [
             const SizedBox(

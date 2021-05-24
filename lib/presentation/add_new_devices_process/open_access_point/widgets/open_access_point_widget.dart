@@ -19,8 +19,12 @@ class OpenAccessPointWidget extends StatelessWidget {
             children: [
               state.map(
                 initial: (value) {
-                  return FlatButton(
-                      color: Colors.greenAccent,
+                  return TextButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                          Colors.greenAccent,
+                        ),
+                      ),
                       onPressed: () {
                         context
                             .read<ManageAccessPointBloc>()
@@ -61,8 +65,12 @@ class OpenAccessPointWidget extends StatelessWidget {
                         child: SizedBox(
                           width: double.infinity,
                           height: 50,
-                          child: FlatButton(
-                            color: Colors.black12,
+                          child: TextButton(
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all(
+                                Colors.black12,
+                              ),
+                            ),
                             onPressed: () {
                               ClipboardManager.copyToClipBoard('CyBear Jinni');
                               Fluttertoast.showToast(
@@ -97,8 +105,12 @@ class OpenAccessPointWidget extends StatelessWidget {
                         child: SizedBox(
                           width: double.infinity,
                           height: 50,
-                          child: FlatButton(
-                            color: Colors.black12,
+                          child: TextButton(
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all(
+                                Colors.black12,
+                              ),
+                            ),
                             onPressed: () {
                               ClipboardManager.copyToClipBoard('CyBear Jinni');
                               Fluttertoast.showToast(
@@ -150,8 +162,12 @@ class OpenAccessPointWidget extends StatelessWidget {
                   return const Text('AccessPointIsOpen');
                 },
               ),
-              FlatButton(
-                color: Colors.greenAccent,
+              TextButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(
+                    Colors.greenAccent,
+                  ),
+                ),
                 onPressed: () {
                   context
                       .read<ManageAccessPointBloc>()

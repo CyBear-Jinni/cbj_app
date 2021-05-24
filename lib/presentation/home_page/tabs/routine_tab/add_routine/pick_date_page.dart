@@ -101,12 +101,16 @@ class PickDatePage extends StatelessWidget {
                     color: Colors.transparent,
                     width: MediaQuery.of(context).size.width,
                     height: 30,
-                    child: FlatButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0),
+                    child: TextButton(
+                      style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(Colors.black),
+                        side: MaterialStateProperty.all(
+                          BorderSide.lerp(
+                              const BorderSide(), const BorderSide(), 30),
+                        ),
                       ),
                       onPressed: () {},
-                      color: Colors.black,
                       child: Text(
                         'OK',
                         style: TextStyle(

@@ -117,7 +117,10 @@ class RoomLights extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.all(2),
             ),
-            FlatButton(
+            TextButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.transparent),
+              ),
               onPressed: () {
                 if (maxLightsToShow != null &&
                     _deviceEntityList.size > maxLightsToShow) {
@@ -125,7 +128,6 @@ class RoomLights extends StatelessWidget {
                   //     thisSmartRoom: _deviceEntityList);
                 }
               },
-              color: Colors.transparent,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[

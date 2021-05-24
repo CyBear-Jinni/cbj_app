@@ -47,17 +47,21 @@ class AddLinkedPage extends StatelessWidget {
             const SizedBox(
               height: 50,
             ),
-            FlatButton(
-                color: Colors.grey,
-                height: 50,
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: Text(
-                  'Set Home Location',
-                  style: TextStyle(
-                      color: Theme.of(context).textTheme.bodyText1.color),
-                )),
+            SizedBox(
+              height: 50,
+              child: TextButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.grey),
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text(
+                    'Set Home Location',
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1.color),
+                  )),
+            ),
             const SizedBox(
               height: 50,
             ),

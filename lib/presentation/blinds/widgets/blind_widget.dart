@@ -47,8 +47,12 @@ class BlindWidget extends StatelessWidget {
                 const SizedBox(
                   width: 10,
                 ),
-                FlatButton(
-                  color: Colors.brown,
+                TextButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                      Colors.brown,
+                    ),
+                  ),
                   onPressed: () {
                     context.read<BlindsActorBloc>().add(
                           BlindsActorEvent.moveDownAllBlinds(
@@ -69,8 +73,12 @@ class BlindWidget extends StatelessWidget {
                 const SizedBox(
                   width: 10,
                 ),
-                FlatButton(
-                  color: Colors.grey,
+                TextButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                      Colors.grey,
+                    ),
+                  ),
                   onPressed: () {
                     context.read<BlindsActorBloc>().add(
                           BlindsActorEvent.stopAllBlinds(
@@ -91,8 +99,12 @@ class BlindWidget extends StatelessWidget {
                 const SizedBox(
                   width: 10,
                 ),
-                FlatButton(
-                  color: Colors.amber,
+                TextButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                      Colors.amber,
+                    ),
+                  ),
                   onPressed: () {
                     context.read<BlindsActorBloc>().add(
                           BlindsActorEvent.moveUpAllBlinds(

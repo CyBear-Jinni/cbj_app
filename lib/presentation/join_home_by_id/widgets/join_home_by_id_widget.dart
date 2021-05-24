@@ -36,8 +36,10 @@ class JoinHomeByIdWidget extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            FlatButton(
-              color: Colors.green,
+            TextButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.green),
+              ),
               onPressed: () async {
                 final String fromClipboard = await FlutterClipboard.paste();
 
@@ -90,8 +92,10 @@ class JoinHomeByIdWidget extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            FlatButton(
-              color: Colors.pinkAccent,
+            TextButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.pinkAccent),
+              ),
               onPressed: () {
                 context
                     .read<JoinHomeByIdBloc>()

@@ -40,66 +40,82 @@ class WhereToLoginPageOffline extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  FlatButton(
-                    color: Colors.greenAccent,
+                  SizedBox(
                     height: 100,
-                    minWidth: MediaQuery.of(context).size.width,
-                    onPressed: () {
-                      ExtendedNavigator.of(context).replace(Routes.homePage);
-                    },
-                    child: Container(
-                      margin: const EdgeInsets.only(left: 30),
-                      child: Row(
-                        children: <Widget>[
-                          FaIcon(FontAwesomeIcons.vial,
-                              color:
-                                  Theme.of(context).textTheme.bodyText1.color),
-                          const SizedBox(
-                            width: 20,
-                          ),
-                          Text(
-                            'Open Demo',
-                            style: TextStyle(
-                                fontSize: 25,
+                    width: MediaQuery.of(context).size.width,
+                    child: TextButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                          Colors.greenAccent,
+                        ),
+                      ),
+                      onPressed: () {
+                        ExtendedNavigator.of(context).replace(Routes.homePage);
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(left: 30),
+                        child: Row(
+                          children: <Widget>[
+                            FaIcon(FontAwesomeIcons.vial,
                                 color: Theme.of(context)
                                     .textTheme
-                                    .subtitle2
+                                    .bodyText1
                                     .color),
-                          ),
-                        ],
+                            const SizedBox(
+                              width: 20,
+                            ),
+                            Text(
+                              'Open Demo',
+                              style: TextStyle(
+                                  fontSize: 25,
+                                  color: Theme.of(context)
+                                      .textTheme
+                                      .subtitle2
+                                      .color),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
                   const SizedBox(
                     height: 10,
                   ),
-                  FlatButton(
+                  SizedBox(
                     height: 100,
-                    minWidth: MediaQuery.of(context).size.width,
-                    color: Colors.brown,
-                    onPressed: () {
-                      ExtendedNavigator.of(context).replace(Routes.homePage);
-                    },
-                    child: Container(
-                      margin: const EdgeInsets.only(left: 30),
-                      child: Row(
-                        children: <Widget>[
-                          FaIcon(FontAwesomeIcons.tree,
-                              color:
-                                  Theme.of(context).textTheme.bodyText1.color),
-                          const SizedBox(
-                            width: 20,
-                          ),
-                          Text(
-                            'Work Only On WiFi',
-                            style: TextStyle(
-                                fontSize: 25,
+                    width: MediaQuery.of(context).size.width,
+                    child: TextButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                          Colors.brown,
+                        ),
+                      ),
+                      onPressed: () {
+                        ExtendedNavigator.of(context).replace(Routes.homePage);
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(left: 30),
+                        child: Row(
+                          children: <Widget>[
+                            FaIcon(FontAwesomeIcons.tree,
                                 color: Theme.of(context)
                                     .textTheme
-                                    .subtitle2
+                                    .bodyText1
                                     .color),
-                          ),
-                        ],
+                            const SizedBox(
+                              width: 20,
+                            ),
+                            Text(
+                              'Work Only On WiFi',
+                              style: TextStyle(
+                                  fontSize: 25,
+                                  color: Theme.of(context)
+                                      .textTheme
+                                      .subtitle2
+                                      .color),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),

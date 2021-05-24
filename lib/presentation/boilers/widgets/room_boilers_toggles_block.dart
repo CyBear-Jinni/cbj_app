@@ -90,7 +90,12 @@ class RoomBoilersTogglesBlock extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.all(2),
             ),
-            FlatButton(
+            TextButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(
+                  Colors.transparent,
+                ),
+              ),
               onPressed: () {
                 // if (maxBoilersToShow != null &&
                 //     _smartRoomObject.getBoilers().length > maxBoilersToShow) {
@@ -98,7 +103,6 @@ class RoomBoilersTogglesBlock extends StatelessWidget {
                 //       thisSmartRoom: _smartRoomObject);
                 // }
               },
-              color: Colors.transparent,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[

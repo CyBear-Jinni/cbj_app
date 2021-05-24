@@ -47,64 +47,82 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
                 const SizedBox(
                   height: 30,
                 ),
-                FlatButton(
+                SizedBox(
                   height: 100,
-                  minWidth: MediaQuery.of(context).size.width,
-                  color: Colors.blue,
-                  onPressed: () {
-                    ExtendedNavigator.of(context).push(
-                      Routes.createHomePage,
-                    );
-                  },
-                  child: Container(
-                    margin: const EdgeInsets.only(left: 30),
-                    child: Row(
-                      children: <Widget>[
-                        FaIcon(FontAwesomeIcons.doorOpen,
-                            color: Theme.of(context).textTheme.subtitle2.color),
-                        const SizedBox(
-                          width: 20,
-                        ),
-                        Text(
-                          'Create Your Home',
-                          style: TextStyle(
-                              fontSize: 25,
+                  width: MediaQuery.of(context).size.width,
+                  child: TextButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(
+                        Colors.blue,
+                      ),
+                    ),
+                    onPressed: () {
+                      ExtendedNavigator.of(context).push(
+                        Routes.createHomePage,
+                      );
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.only(left: 30),
+                      child: Row(
+                        children: <Widget>[
+                          FaIcon(FontAwesomeIcons.doorOpen,
                               color:
                                   Theme.of(context).textTheme.subtitle2.color),
-                        ),
-                      ],
+                          const SizedBox(
+                            width: 20,
+                          ),
+                          Text(
+                            'Create Your Home',
+                            style: TextStyle(
+                                fontSize: 25,
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .subtitle2
+                                    .color),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
                 const SizedBox(
                   height: 10,
                 ),
-                FlatButton(
+                SizedBox(
                   height: 100,
-                  minWidth: MediaQuery.of(context).size.width,
-                  color: Colors.orange,
-                  onPressed: () {
-                    ExtendedNavigator.of(context).push(
-                      Routes.joinHomeByIdPage,
-                    );
-                  },
-                  child: Container(
-                    margin: const EdgeInsets.only(left: 30),
-                    child: Row(
-                      children: <Widget>[
-                        FaIcon(FontAwesomeIcons.userFriends,
-                            color: Theme.of(context).textTheme.subtitle2.color),
-                        const SizedBox(
-                          width: 20,
-                        ),
-                        Text(
-                          'Join Existing Home',
-                          style: TextStyle(
-                              fontSize: 25,
+                  width: MediaQuery.of(context).size.width,
+                  child: TextButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(
+                        Colors.orange,
+                      ),
+                    ),
+                    onPressed: () {
+                      ExtendedNavigator.of(context).push(
+                        Routes.joinHomeByIdPage,
+                      );
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.only(left: 30),
+                      child: Row(
+                        children: <Widget>[
+                          FaIcon(FontAwesomeIcons.userFriends,
                               color:
                                   Theme.of(context).textTheme.subtitle2.color),
-                        ),
-                      ],
+                          const SizedBox(
+                            width: 20,
+                          ),
+                          Text(
+                            'Join Existing Home',
+                            style: TextStyle(
+                                fontSize: 25,
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .subtitle2
+                                    .color),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),

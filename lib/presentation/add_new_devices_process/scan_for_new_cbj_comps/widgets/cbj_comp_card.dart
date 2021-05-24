@@ -70,8 +70,12 @@ class CBJCompCard extends StatelessWidget {
           const SizedBox(
             height: 30,
           ),
-          FlatButton(
-            color: Colors.greenAccent,
+          TextButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(
+                Colors.greenAccent,
+              ),
+            ),
             onPressed: () {
               ExtendedNavigator.of(context).replace(
                 Routes.configureNewCbjCompPage,

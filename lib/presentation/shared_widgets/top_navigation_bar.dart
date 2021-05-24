@@ -77,8 +77,11 @@ class TopNavigationBar extends StatelessWidget {
                   if (rightSecondIcon != null)
                     SizedBox(
                       width: 70,
-                      child: FlatButton(
-                        padding: EdgeInsets.zero,
+                      child: TextButton(
+                        style: ButtonStyle(
+                          padding: MaterialStateProperty.all<EdgeInsets>(
+                              EdgeInsets.zero),
+                        ),
                         onPressed: () => rightSecondFunction(context),
                         child: FaIcon(
                           rightSecondIcon,
@@ -89,8 +92,11 @@ class TopNavigationBar extends StatelessWidget {
                     ),
                   SizedBox(
                     width: 25,
-                    child: FlatButton(
-                      padding: EdgeInsets.zero,
+                    child: TextButton(
+                      style: ButtonStyle(
+                        padding: MaterialStateProperty.all<EdgeInsets>(
+                            EdgeInsets.zero),
+                      ),
                       onPressed: () => rightIconFunction(context),
                       child: Icon(
                         rightIcon,

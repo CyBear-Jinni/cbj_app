@@ -65,13 +65,13 @@ class _AddNewDeviceWidgetPopup extends State<AddNewDeviceWidgetPopup> {
           child: addNewDeviceWidget,
         ),
         actions: <Widget>[
-          FlatButton(
+          TextButton(
             onPressed: () {
               Navigator.of(context).pop();
             },
             child: const Text('Cancel').tr(),
           ),
-          FlatButton(
+          TextButton(
             onPressed: () {
               _formKey.currentState.save();
 //              rooms[0].getLights()[0] =

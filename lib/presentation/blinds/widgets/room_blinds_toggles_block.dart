@@ -92,7 +92,12 @@ class RoomBlindsTogglesBlock extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.all(2),
             ),
-            FlatButton(
+            TextButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(
+                  Colors.transparent,
+                ),
+              ),
               onPressed: () {
                 if (maxLightsToShow != null &&
                     _smartRoomObject.getLights().length > maxLightsToShow) {
@@ -100,7 +105,6 @@ class RoomBlindsTogglesBlock extends StatelessWidget {
                       .pushLightsInTheRoomPage(thisSmartRoom: _smartRoomObject);
                 }
               },
-              color: Colors.transparent,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[

@@ -32,7 +32,7 @@ class HomeCardWidget extends StatelessWidget {
           ),
           error: (_) => const Text('error'),
         );
-        return FlatButton(
+        return TextButton(
           onPressed: () {
             context
                 .read<UserHomesListBloc>()

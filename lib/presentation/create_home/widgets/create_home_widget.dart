@@ -95,13 +95,15 @@ class CreateHomeWidget extends StatelessWidget {
         const SizedBox(
           height: 20,
         ),
-        FlatButton(
+        TextButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(Colors.pinkAccent),
+            ),
             onPressed: () {
               context
                   .read<CreateHomeBloc>()
                   .add(CreateHomeEvent.createHome(homeName, devicesEmail));
             },
-            color: Colors.pinkAccent,
             child: Text(
               'Create Home',
               style:

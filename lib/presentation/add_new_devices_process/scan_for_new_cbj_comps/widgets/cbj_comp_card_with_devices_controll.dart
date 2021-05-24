@@ -114,8 +114,12 @@ class CBJCompCardWithDevicesControll extends StatelessWidget {
                     color: Theme.of(context).textTheme.bodyText1.color),
               ),
             ),
-            FlatButton(
-              color: Colors.greenAccent,
+            TextButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(
+                  Colors.greenAccent,
+                ),
+              ),
               onPressed: () {
                 ExtendedNavigator.of(context).replace(
                   Routes.configureNewCbjCompPage,

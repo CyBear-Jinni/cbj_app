@@ -22,7 +22,7 @@ class AddUserToHomeWidget extends StatelessWidget {
             );
           },
           addingUserSuccess: (s) {
-            return FlatButton(onPressed: () {}, child: const Text('Success'));
+            return TextButton(onPressed: () {}, child: const Text('Success'));
           },
           addingHomeFailure: (e) {
             return const Text('Failure');
@@ -71,8 +71,12 @@ class AddUserToHomeWidget extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            FlatButton(
-              color: Colors.pinkAccent,
+            TextButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(
+                  Colors.pinkAccent,
+                ),
+              ),
               onPressed: () {
                 context.read<AddUserToHomeBloc>().add(
                     AddUserToHomeEvent.addUserToHomeByEmail(userToAddEmail));
@@ -120,8 +124,12 @@ class AddUserToHomeWidget extends StatelessWidget {
                       const SizedBox(
                         height: 30,
                       ),
-                      FlatButton(
-                        color: Colors.green,
+                      TextButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(
+                            Colors.green,
+                          ),
+                        ),
                         onPressed: () {
                           ClipboardManager.copyToClipBoard(s.homeId);
                           Fluttertoast.showToast(

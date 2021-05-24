@@ -103,7 +103,7 @@ class SignInForm extends StatelessWidget {
                     Row(
                       children: [
                         Expanded(
-                          child: FlatButton(
+                          child: TextButton(
                             onPressed: () {
                               context.read<SignInFormBloc>().add(
                                     const SignInFormEvent
@@ -114,7 +114,7 @@ class SignInForm extends StatelessWidget {
                           ),
                         ),
                         Expanded(
-                          child: FlatButton(
+                          child: TextButton(
                             onPressed: () {
                               context.read<SignInFormBloc>().add(
                                     const SignInFormEvent
@@ -138,8 +138,11 @@ class SignInForm extends StatelessWidget {
             ),
             Container(
               alignment: Alignment.bottomRight,
-              child: FlatButton(
-                color: Theme.of(context).textTheme.bodyText1.color,
+              child: TextButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(
+                      Theme.of(context).textTheme.bodyText1.color),
+                ),
                 onPressed: () {
                   ExtendedNavigator.of(context)
                       .push(Routes.whereToLoginPageOffline);

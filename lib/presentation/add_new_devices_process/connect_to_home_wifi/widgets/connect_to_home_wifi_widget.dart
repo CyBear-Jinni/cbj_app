@@ -110,8 +110,12 @@ class ConnectToHomeWiFiWidget extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                      FlatButton(
-                        color: Colors.pinkAccent,
+                      TextButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(
+                            Colors.pinkAccent,
+                          ),
+                        ),
                         onPressed: () {
                           context
                               .read<ManageWifiBloc>()
@@ -131,8 +135,12 @@ class ConnectToHomeWiFiWidget extends StatelessWidget {
                   return const Text('WiFi is disabled');
                 },
               ),
-              FlatButton(
-                color: Colors.greenAccent,
+              TextButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(
+                    Colors.greenAccent,
+                  ),
+                ),
                 onPressed: () {
                   ExtendedNavigator.of(context)
                       .replace(Routes.openAccessPointPage);
