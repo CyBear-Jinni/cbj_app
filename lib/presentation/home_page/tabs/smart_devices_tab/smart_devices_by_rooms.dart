@@ -217,8 +217,11 @@ class SmartDevicesByRooms extends StatelessWidget {
                                         create: (context) =>
                                             getIt<BlindsActorBloc>(),
                                         child: BoilersInTheRoom(
-                                            tempDevicesByRoomsByType[roomId]
-                                                [deviceType]),
+                                          boilersInRoom:
+                                              tempDevicesByRoomsByType[roomId]
+                                                  [deviceType],
+                                          roomColorGradiant: roomColorGradiant,
+                                        ),
                                       );
                                     }
                                     return const Text('Not Supported');

@@ -1,6 +1,4 @@
 import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_device_object.dart';
-import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_room_object.dart';
-import 'package:cybear_jinni/infrastructure/objects/interface_darta/cloud_interface_data.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -8,12 +6,12 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SettingsPageOfBlinds extends StatelessWidget {
   SettingsPageOfLights() {
-    for (final SmartRoomObject smartRoomObject in rooms) {
-      for (final SmartDeviceObject smartLightObject
-          in smartRoomObject.getLights()) {
-        allSmartDeviceLightDevices.add(smartLightObject);
-      }
-    }
+    // for (final SmartRoomObject smartRoomObject in rooms) {
+    //   for (final SmartDeviceObject smartLightObject
+    //       in smartRoomObject.getLights()) {
+    //     allSmartDeviceLightDevices.add(smartLightObject);
+    //   }
+    // }
   }
 
   final List<SmartDeviceObject> allSmartDeviceLightDevices =

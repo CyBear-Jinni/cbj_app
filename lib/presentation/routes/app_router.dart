@@ -6,6 +6,7 @@ import 'package:cybear_jinni/presentation/add_new_devices_process/open_access_po
 import 'package:cybear_jinni/presentation/add_new_devices_process/scan_for_new_cbj_comps/scan_for_new_cbj_comps_page.dart';
 import 'package:cybear_jinni/presentation/add_user_to_home/add_user_to_home_page.dart';
 import 'package:cybear_jinni/presentation/blinds/rooms_blinds_page.dart';
+import 'package:cybear_jinni/presentation/boilers/rooms_boilers_page.dart';
 import 'package:cybear_jinni/presentation/create_home/create_home_page.dart';
 import 'package:cybear_jinni/presentation/home_page/home_page.dart';
 import 'package:cybear_jinni/presentation/introduction_screen/introduction_screen_page.dart';
@@ -41,6 +42,7 @@ import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_pag
     MaterialRoute(page: RoomsLightsPage),
     MaterialRoute(page: LightsInTheRoomPage),
     MaterialRoute(page: RoomsBlindsPage),
+    MaterialRoute(page: RoomsBoilersPage),
   ],
 )
 class $AppRouter {
@@ -63,4 +65,5 @@ class $AppRouter {
   RoomsLightsPage roomsLightsPage;
   LightsInTheRoomPage lightsInTheRoomPage;
   RoomsBlindsPage roomsBlindsPage;
+  RoomsBoilersPage roomsBoilersPage;
 }

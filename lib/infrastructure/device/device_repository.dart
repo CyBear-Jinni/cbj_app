@@ -83,6 +83,17 @@ class DeviceRepository implements IDeviceRepository {
   }
 
   @override
+  Stream<Either<DevicesFailure, KtList<DeviceEntity>>> watchBoilers() async* {
+    // Using watchAll devices from server function and filtering out only the
+    // Boilers device type
+    yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
+          return right(r.toList().asList().where((element) {
+            return element.type.getOrCrash() == DeviceTypes.boiler.toString();
+          }).toImmutableList());
+        }));
+  }
+
+  @override
   Stream<Either<DevicesFailure, KtList<DeviceEntity>>> watchUncompleted() {
     // TODO: implement watchUncompleted
     throw UnimplementedError();

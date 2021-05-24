@@ -5,23 +5,28 @@ import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_blinds_o
 import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_device_object.dart';
 
 class SmartRoomObject {
-  SmartRoomObject(this._roomName, this._lightsInTheRoom, this.grediantColor,
-      {this.blindsInTheRoom});
+  SmartRoomObject(this._roomName, this.grediantColor,
+      {this.lightsInTheRoom, this.blindsInTheRoom, this.boilersInTheRoom});
 
   final String _roomName;
-  final List<SmartDeviceObject> _lightsInTheRoom;
+  final List<SmartDeviceObject> lightsInTheRoom;
   List<Color> grediantColor;
   List<SmartBlindsObject> blindsInTheRoom;
+  List<SmartBlindsObject> boilersInTheRoom;
 
   String getRoomName() {
     return _roomName;
   }
 
   List<SmartDeviceObject> getLights() {
-    return _lightsInTheRoom;
+    return lightsInTheRoom;
   }
 
   List<SmartBlindsObject> getBlinds() {
+    return blindsInTheRoom;
+  }
+
+  List<SmartBlindsObject> getBoilers() {
     return blindsInTheRoom;
   }
 }

@@ -1,7 +1,6 @@
 import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_as_dart/smart_connection.pb.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_device_object.dart';
-import 'package:cybear_jinni/infrastructure/objects/interface_darta/cloud_interface_data.dart';
 import 'package:cybear_jinni/presentation/scenes/scene_tab/scene_block_widget.dart';
 import 'package:cybear_jinni/presentation/scenes/scene_tab/settings_page_of_scenes.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
@@ -13,40 +12,10 @@ class ScenesWidgets extends StatelessWidget {
   static final Map<String, Map<SmartDeviceObject, List<DeviceActions>>>
       _scenesMap = <String, Map<SmartDeviceObject, List<DeviceActions>>>{
     'Entrance lights OFF ----------- ⛩️  🛑':
-        <SmartDeviceObject, List<DeviceActions>>{
-      room3DevicesList[0]: <DeviceActions>[
-        DeviceActions.off,
-      ],
-      room3DevicesList[3]: <DeviceActions>[
-        DeviceActions.off,
-      ]
-    },
+        <SmartDeviceObject, List<DeviceActions>>{},
     'Entrance lights ON  -----------   ⛩️  💡':
-        <SmartDeviceObject, List<DeviceActions>>{
-      room3DevicesList[0]: <DeviceActions>[
-        DeviceActions.on,
-      ],
-      room3DevicesList[3]: <DeviceActions>[
-        DeviceActions.on,
-      ]
-    },
-    'Go to sleep ----------- 😴': <SmartDeviceObject, List<DeviceActions>>{
-      room3DevicesList[0]: <DeviceActions>[
-        DeviceActions.off,
-      ],
-      room3DevicesList[1]: <DeviceActions>[
-        DeviceActions.off,
-      ],
-      room3DevicesList[2]: <DeviceActions>[
-        DeviceActions.off,
-      ],
-      room3DevicesList[3]: <DeviceActions>[
-        DeviceActions.off,
-      ],
-      room4DevicesList[0]: <DeviceActions>[
-        DeviceActions.off,
-      ]
-    },
+        <SmartDeviceObject, List<DeviceActions>>{},
+    'Go to sleep ----------- 😴': <SmartDeviceObject, List<DeviceActions>>{},
     'Welcome home': <SmartDeviceObject, List<DeviceActions>>{},
     'Going out': <SmartDeviceObject, List<DeviceActions>>{},
     'Going for a walk': <SmartDeviceObject, List<DeviceActions>>{},

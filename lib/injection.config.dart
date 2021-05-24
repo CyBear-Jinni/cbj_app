@@ -15,6 +15,8 @@ import 'infrastructure/add_user_to_home/add_user_to_home_reposityory.dart';
 import 'application/auth/auth_bloc.dart';
 import 'application/blinds/blinds_actor/blinds_actor_bloc.dart';
 import 'application/blinds/blinds_watcher/blinds_watcher_bloc.dart';
+import 'application/boilers/boilers_actor/boilers_actor_bloc.dart';
+import 'application/boilers/boilers_watcher/boilers_watcher_bloc.dart';
 import 'application/cbj_comp/cbj_comp_bloc.dart';
 import 'infrastructure/cbj_comp/cbj_comp_repository.dart';
 import 'application/configure_new_cbj_comp/configure_new_cbj_comp_bloc.dart';
@@ -109,6 +111,10 @@ GetIt $initGetIt(
   gh.factory<BlindsActorBloc>(() => BlindsActorBloc(get<IDeviceRepository>()));
   gh.factory<BlindsWatcherBloc>(
       () => BlindsWatcherBloc(get<IDeviceRepository>()));
+  gh.factory<BoilersActorBloc>(
+      () => BoilersActorBloc(get<IDeviceRepository>()));
+  gh.factory<BoilersWatcherBloc>(
+      () => BoilersWatcherBloc(get<IDeviceRepository>()));
   gh.factory<CBJCompBloc>(() => CBJCompBloc(get<ICBJCompRepository>()));
   gh.factory<ConfigureNewCbjCompBloc>(() => ConfigureNewCbjCompBloc(
       get<IDeviceRepository>(), get<ICBJCompRepository>()));

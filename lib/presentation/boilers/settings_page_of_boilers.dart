@@ -4,8 +4,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class SettingsPageOfLights extends StatelessWidget {
-  SettingsPageOfLights() {
+class SettingsPageOfBoilers extends StatelessWidget {
+  SettingsPageOfBoilers() {
     // for (final SmartRoomObject smartRoomObject in rooms) {
     //   for (final SmartDeviceObject smartLightObject
     //       in smartRoomObject.getLights()) {

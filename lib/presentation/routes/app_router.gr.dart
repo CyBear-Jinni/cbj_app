@@ -19,6 +19,7 @@ import '../add_new_devices_process/open_access_point/open_access_pointi_page.dar
 import '../add_new_devices_process/scan_for_new_cbj_comps/scan_for_new_cbj_comps_page.dart';
 import '../add_user_to_home/add_user_to_home_page.dart';
 import '../blinds/rooms_blinds_page.dart';
+import '../boilers/rooms_boilers_page.dart';
 import '../create_home/create_home_page.dart';
 import '../home_page/home_page.dart';
 import '../introduction_screen/introduction_screen_page.dart';
@@ -54,6 +55,7 @@ class Routes {
   static const String roomsLightsPage = '/rooms-lights-page';
   static const String lightsInTheRoomPage = '/lights-in-the-room-page';
   static const String roomsBlindsPage = '/rooms-blinds-page';
+  static const String roomsBoilersPage = '/rooms-boilers-page';
   static const all = <String>{
     splashPage,
     introductionScreenPage,
@@ -74,6 +76,7 @@ class Routes {
     roomsLightsPage,
     lightsInTheRoomPage,
     roomsBlindsPage,
+    roomsBoilersPage,
   };
 }
 
@@ -102,6 +105,7 @@ class AppRouter extends RouterBase {
     RouteDef(Routes.roomsLightsPage, page: RoomsLightsPage),
     RouteDef(Routes.lightsInTheRoomPage, page: LightsInTheRoomPage),
     RouteDef(Routes.roomsBlindsPage, page: RoomsBlindsPage),
+    RouteDef(Routes.roomsBoilersPage, page: RoomsBoilersPage),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -238,6 +242,18 @@ class AppRouter extends RouterBase {
         settings: data,
       );
     },
+    RoomsBoilersPage: (data) {
+      final args = data.getArgs<RoomsBoilersPageArguments>(
+        orElse: () => RoomsBoilersPageArguments(),
+      );
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => RoomsBoilersPage(
+          showDevicesOnlyFromRoomId: args.showDevicesOnlyFromRoomId,
+          roomColorGradiant: args.roomColorGradiant,
+        ),
+        settings: data,
+      );
+    },
   };
 }
 
@@ -330,6 +346,17 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
             showDevicesOnlyFromRoomId: showDevicesOnlyFromRoomId,
             roomColorGradiant: roomColorGradiant),
       );
+
+  Future<dynamic> pushRoomsBoilersPage({
+    String showDevicesOnlyFromRoomId,
+    List<Color> roomColorGradiant = null,
+  }) =>
+      push<dynamic>(
+        Routes.roomsBoilersPage,
+        arguments: RoomsBoilersPageArguments(
+            showDevicesOnlyFromRoomId: showDevicesOnlyFromRoomId,
+            roomColorGradiant: roomColorGradiant),
+      );
 }
 
 /// ************************************************************************
@@ -367,5 +394,13 @@ class RoomsBlindsPageArguments {
   final String showDevicesOnlyFromRoomId;
   final List<Color> roomColorGradiant;
   RoomsBlindsPageArguments(
+      {this.showDevicesOnlyFromRoomId, this.roomColorGradiant = null});
+}
+
+/// RoomsBoilersPage arguments holder class
+class RoomsBoilersPageArguments {
+  final String showDevicesOnlyFromRoomId;
+  final List<Color> roomColorGradiant;
+  RoomsBoilersPageArguments(
       {this.showDevicesOnlyFromRoomId, this.roomColorGradiant = null});
 }
