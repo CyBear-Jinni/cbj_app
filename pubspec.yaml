@@ -28,6 +28,8 @@ dependencies:
   adaptive_action_sheet: ^1.0.11
   # Collection of some cool and awesome text animations.
   animated_text_kit: ^4.2.1
+  # More customization when notifying your user.
+  another_flushbar: ^1.10.22
   # Declarative routing solution, where everything needed for navigation is automatically generated for you.
   auto_route: ^0.6.9
   # Helps implement the BLoC pattern.
@@ -55,7 +57,6 @@ dependencies:
   firebase_auth: ^0.20.0+1
   firebase_auth_web: ^0.3.3
   firebase_core: ^0.7.0
-  flushbar: ^1.10.4
   flutter:
     sdk: flutter
   # Bloc for state management, replace StatefulWidget
@@ -115,7 +116,7 @@ dependencies:
   wifi_iot: ^0.3.3
 
 dependency_overrides:
-  intl: ^0.17.0-nullsafety.2
+  intl: ^0.17.0
 
 dev_dependencies:
   # Generator for auto_route library.

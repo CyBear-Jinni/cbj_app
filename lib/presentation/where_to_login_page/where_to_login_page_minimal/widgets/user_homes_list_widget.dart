@@ -1,8 +1,8 @@
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:cybear_jinni/application/user_homes_list/user_homes_list_bloc.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_page_minimal/widgets/error_home_card_widget.dart';
 import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_page_minimal/widgets/home_card_widget.dart';
-import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
