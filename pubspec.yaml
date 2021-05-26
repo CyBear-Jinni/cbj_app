@@ -121,7 +121,6 @@ dev_dependencies:
   # Generator for auto_route library.
   auto_route_generator: ^0.6.10
   build_runner:
-  e2e: ^0.7.0+1
   flutter_driver:
     sdk: flutter
   flutter_launcher_icons: ^0.8.1
@@ -131,6 +130,8 @@ dev_dependencies:
   freezed: ^0.12.7
   hive_generator: ^0.8.2
   injectable_generator: ^1.0.7
+  integration_test:
+    sdk: flutter
   # Collection of lint rules for Dart and Flutter projects.
   lint: ^1.4.0-dev.d210.1
   mockito: ^4.1.4
