@@ -37,7 +37,7 @@ class SmartDeviceObject {
 
   Future<bool> getDeviceStateAsBool() async {
     final String deviceState = await getDeviceState();
-    return deviceState == 'true' ? true : false;
+    return deviceState == 'true';
   }
 
   Future<String> getDeviceState() async {
@@ -153,7 +153,8 @@ class SmartDeviceObject {
 
   static bool legitIp(String ip) {
     final String tempRegExIp = regexpIP(ip); //  Save to string a valid ip
-    return ip != '' && ip.length == tempRegExIp.length;
+    // return ip != '' && ip.length == tempRegExIp.length;
+    return ip != '';
   }
 
   static String regexpIP(String ip) {

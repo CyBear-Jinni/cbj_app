@@ -18,11 +18,14 @@ class ManageUsersPage extends StatelessWidget {
       context: context,
       actions: <BottomSheetAction>[
         BottomSheetAction(
-            title: '➕ Add User',
-            onPressed: () {
-              ExtendedNavigator.of(context).push(Routes.addUserToHomePage);
-            },
-            textStyle: const TextStyle(color: Colors.green, fontSize: 23)),
+          title: const Text(
+            '➕ Add User',
+            style: TextStyle(color: Colors.green, fontSize: 23),
+          ),
+          onPressed: () {
+            ExtendedNavigator.of(context).push(Routes.addUserToHomePage);
+          },
+        ),
       ],
     );
   }

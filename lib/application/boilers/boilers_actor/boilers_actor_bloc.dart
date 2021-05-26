@@ -33,7 +33,7 @@ class BoilersActorBloc extends Bloc<BoilersActorEvent, BoilersActorState> {
         ).show(value.context);
 
         _deviceRepository.turnOnDevices(
-            devicesId: value.boilersIdToTurnUp, forceUpdateLocation: 'C');
+            devicesId: value.boilersIdToTurnUp, forceUpdateLocation: 'R');
       },
       turnOffAllBoilers: (_TurnOffAllBoilers value) async* {
         FlushbarHelper.createLoading(
@@ -42,7 +42,7 @@ class BoilersActorBloc extends Bloc<BoilersActorEvent, BoilersActorState> {
         ).show(value.context);
 
         _deviceRepository.turnOffDevices(
-            devicesId: value.boilersIdToTurnOff, forceUpdateLocation: 'C');
+            devicesId: value.boilersIdToTurnOff, forceUpdateLocation: 'R');
       },
     );
   }

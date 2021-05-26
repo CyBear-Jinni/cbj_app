@@ -20,21 +20,27 @@ class SmartDevicesWidgets extends StatelessWidget {
       context: context,
       actions: <BottomSheetAction>[
         BottomSheetAction(
-            title: '➕ Add Devices',
-            onPressed: () {
-              ExtendedNavigator.of(context).push(Routes.connectToHomeWifiPage);
-            },
-            textStyle: const TextStyle(color: Colors.green, fontSize: 23)),
+          title: Text(
+            '➕ Add Devices',
+            style: TextStyle(color: Colors.green, fontSize: 23),
+          ),
+          onPressed: () {
+            ExtendedNavigator.of(context).push(Routes.connectToHomeWifiPage);
+          },
+        ),
         BottomSheetAction(
-            title: '⚙️ Devices Settings',
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (BuildContext context) =>
-                          SettingsPageSmartDevices()));
-            },
-            textStyle: const TextStyle(color: Colors.blueGrey, fontSize: 23)),
+          title: const Text(
+            '⚙️ Devices Settings',
+            style: TextStyle(color: Colors.blueGrey, fontSize: 23),
+          ),
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (BuildContext context) =>
+                        SettingsPageSmartDevices()));
+          },
+        ),
       ],
     );
   }

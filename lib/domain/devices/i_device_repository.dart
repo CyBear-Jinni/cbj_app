@@ -12,6 +12,8 @@ abstract class IDeviceRepository {
 
   // C Read UD
 
+  Future<Either<DevicesFailure, KtList<DeviceEntity>>> getAllDevices();
+
   Stream<Either<DevicesFailure, KtList<DeviceEntity>>> watchAll();
 
   Stream<Either<DevicesFailure, KtList<DeviceEntity>>> watchLights();

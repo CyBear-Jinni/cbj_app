@@ -33,7 +33,7 @@ class BlindsActorBloc extends Bloc<BlindsActorEvent, BlindsActorState> {
         ).show(value.context);
 
         _deviceRepository.moveUpBlinds(
-            devicesId: value.blindsIdToTurnUp, forceUpdateLocation: 'C');
+            devicesId: value.blindsIdToTurnUp, forceUpdateLocation: 'R');
       },
       stopAllBlinds: (_StopAllBlinds value) async* {
         FlushbarHelper.createLoading(
@@ -42,7 +42,7 @@ class BlindsActorBloc extends Bloc<BlindsActorEvent, BlindsActorState> {
         ).show(value.context);
 
         _deviceRepository.stopBlinds(
-            devicesId: value.blindsIdToStop, forceUpdateLocation: 'C');
+            devicesId: value.blindsIdToStop, forceUpdateLocation: 'R');
       },
       moveDownAllBlinds: (_MoveDownAllBlinds value) async* {
         FlushbarHelper.createLoading(
@@ -51,7 +51,7 @@ class BlindsActorBloc extends Bloc<BlindsActorEvent, BlindsActorState> {
         ).show(value.context);
 
         _deviceRepository.moveDownBlinds(
-            devicesId: value.blindsIdToTurnDown, forceUpdateLocation: 'C');
+            devicesId: value.blindsIdToTurnDown, forceUpdateLocation: 'R');
       },
     );
   }

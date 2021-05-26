@@ -13,13 +13,13 @@ import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_
 import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/smart_client.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_device_object.dart';
 import 'package:cybear_jinni/infrastructure/device/device_dtos.dart';
+import 'package:cybear_jinni/infrastructure/objects/enums.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:dartz/dartz.dart';
 import 'package:device_info/device_info.dart';
 import 'package:flutter/services.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
-import 'package:rxdart/rxdart.dart';
 
 @LazySingleton(as: IDeviceRepository)
 class DeviceRepository implements IDeviceRepository {
@@ -31,12 +31,39 @@ class DeviceRepository implements IDeviceRepository {
   // final DeviceLocalService _deviceLocalService;
 
   @override
+  Future<Either<DevicesFailure, KtList<DeviceEntity>>> getAllDevices() async {
+    final homeDoc = await _firestore.currentHomeDocument();
+
+    try {
+      final QuerySnapshot allDevicesSnapshot =
+          await homeDoc.devicesCollecttion.get();
+      return right<DevicesFailure, KtList<DeviceEntity>>(allDevicesSnapshot.docs
+          .map((e) {
+            if (e.data()['type'] == DeviceTypes.light.toString() ||
+                e.data()['type'] == DeviceTypes.blinds.toString() ||
+                e.data()['type'] == DeviceTypes.boiler.toString()) {
+              return DeviceDtos.fromFirestore(e).toDomain();
+            }
+          })
+          .where((element) => element != null)
+          .toImmutableList());
+    } catch (e) {
+      if (e is PlatformException && e.message.contains('PERMISSION_DENIED')) {
+        print('Insufficient permission while getting all devices');
+        return left(const DevicesFailure.insufficientPermission());
+      } else {
+        print('Unexpected error while getting all devices');
+        // log.error(e.toString());
+        return left(const DevicesFailure.unexpected());
+      }
+    }
+  }
+
+  @override
   Stream<Either<DevicesFailure, KtList<DeviceEntity>>> watchAll() async* {
     final homeDoc = await _firestore.currentHomeDocument();
 
-    yield* homeDoc.devicesCollecttion
-        .snapshots()
-        .map(
+    yield* homeDoc.devicesCollecttion.snapshots().map(
           (snapshot) => right<DevicesFailure, KtList<DeviceEntity>>(
             snapshot.docs
                 .map((doc) {
@@ -49,15 +76,15 @@ class DeviceRepository implements IDeviceRepository {
                 .where((element) => element != null)
                 .toImmutableList(),
           ),
-        )
-        .onErrorReturnWith((e) {
-      if (e is PlatformException && e.message.contains('PERMISSION_DENIED')) {
-        return left(const DevicesFailure.insufficientPermission());
-      } else {
-        // log.error(e.toString());
-        return left(const DevicesFailure.unexpected());
-      }
-    });
+        );
+    //     .onErrorReturnWith((e) {
+    //   if (e is PlatformException && e.message.contains('PERMISSION_DENIED')) {
+    //     return left<DevicesFailure, KtList<DeviceEntity>>( DevicesFailure.insufficientPermission());
+    //   } else {
+    //     // log.error(e.toString());
+    //     // return left( DevicesFailure.unexpected());
+    //   }
+    // });
   }
 
   @override
@@ -184,17 +211,43 @@ class DeviceRepository implements IDeviceRepository {
   Future<Either<DevicesFailure, Unit>> turnOnDevices(
       {List<String> devicesId, String forceUpdateLocation}) async {
     try {
-      final DocumentReference homeDoc = await _firestore.currentHomeDocument();
-      final CollectionReference devicesCollection = homeDoc.devicesCollecttion;
+      if (forceUpdateLocation == 'C') {
+        final List<DeviceEntity> deviceEntityListToUpdate =
+            await getDeviceEntityListFromId(devicesId);
+        deviceEntityListToUpdate[0] = deviceEntityListToUpdate[0]
+            .copyWith(lastKnownIp: DeviceLastKnownIp('boiler.local'));
 
-      devicesId.forEach((element) {
-        final DocumentReference deviceDocumentReference =
-            devicesCollection.doc(element);
-        updateDatabase(documentPath: deviceDocumentReference, fieldsToUpdate: {
-          'action': DeviceActions.on.toString(),
-          'state': DeviceStateGRPC.waitingInFirebase.toString()
+        Either<DevicesFailure, Unit> devicesFailure;
+        deviceEntityListToUpdate.forEach((element) async {
+          final Either<DevicesFailure, Unit> deviceUpdateResponse =
+              await updateComputer(element);
+
+          if (deviceUpdateResponse.isLeft()) {
+            devicesFailure = deviceUpdateResponse;
+          }
         });
-      });
+
+        if (devicesFailure != null) {
+          return devicesFailure;
+        }
+        return right(unit);
+      } else {
+        final DocumentReference homeDoc =
+            await _firestore.currentHomeDocument();
+        final CollectionReference devicesCollection =
+            homeDoc.devicesCollecttion;
+
+        devicesId.forEach((element) {
+          final DocumentReference deviceDocumentReference =
+              devicesCollection.doc(element);
+          updateDatabase(
+              documentPath: deviceDocumentReference,
+              fieldsToUpdate: {
+                'action': DeviceActions.on.toString(),
+                'state': DeviceStateGRPC.waitingInFirebase.toString()
+              });
+        });
+      }
     } on PlatformException catch (e) {
       if (e.message.contains('PERMISSION_DENIED')) {
         return left(const DevicesFailure.insufficientPermission());
@@ -367,7 +420,7 @@ class DeviceRepository implements IDeviceRepository {
       final String lastKnownIp = deviceEntity.lastKnownIp.getOrCrash();
 
       final SmartDeviceObject smartDeviceObject = SmartDeviceObject(
-        DeviceTypes.light,
+        EnumHelper.stringToDt(deviceEntity.type.getOrCrash()),
         id,
         lastKnownIp,
       );
@@ -385,5 +438,21 @@ class DeviceRepository implements IDeviceRepository {
       print('Probably ip of device was not inserted into the device object');
       return left(const DevicesFailure.unexpected());
     }
+  }
+
+  Future<List<DeviceEntity>> getDeviceEntityListFromId(
+      List<String> deviceIdList) async {
+    final List<DeviceEntity> deviceEntityList = [];
+    final KtList<DeviceEntity> allDevices =
+        (await getAllDevices()).getOrElse(() => null);
+
+    deviceIdList.forEach((deviceId) {
+      allDevices.forEach((device) {
+        if (deviceId == device.id.getOrCrash()) {
+          deviceEntityList.add(device);
+        }
+      });
+    });
+    return deviceEntityList;
   }
 }

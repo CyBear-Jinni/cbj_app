@@ -33,7 +33,7 @@ class LightsActorBloc extends Bloc<LightsActorEvent, LightsActorState> {
         ).show(value.context);
 
         _deviceRepository.turnOffDevices(
-            devicesId: value.lightsIdToTurnOff, forceUpdateLocation: 'C');
+            devicesId: value.lightsIdToTurnOff, forceUpdateLocation: 'R');
       },
       turnOnAllLights: (_TurnOnAllLights value) async* {
         FlushbarHelper.createLoading(
@@ -42,7 +42,7 @@ class LightsActorBloc extends Bloc<LightsActorEvent, LightsActorState> {
         ).show(value.context);
 
         _deviceRepository.turnOnDevices(
-            devicesId: value.lightsIdToTurnOn, forceUpdateLocation: 'C');
+            devicesId: value.lightsIdToTurnOn, forceUpdateLocation: 'R');
       },
     );
   }
