@@ -45,7 +45,7 @@ Future<void> initializeHive() async {
 Future<Unit> main() async {
   // needed if you intend to initialize in the `main` function
   WidgetsFlutterBinding.ensureInitialized();
-
+  await EasyLocalization.ensureInitialized();
 //  debugPaintSizeEnabled = true;
   configureDependencies(Env.prod);
 

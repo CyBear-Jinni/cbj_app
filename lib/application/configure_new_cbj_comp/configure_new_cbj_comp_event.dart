@@ -1,7 +1,7 @@
 part of 'configure_new_cbj_comp_bloc.dart';
 
 @freezed
-abstract class ConfigureNewCbjCompEvent with _$ConfigureNewCbjCompEvent {
+class ConfigureNewCbjCompEvent with _$ConfigureNewCbjCompEvent {
   const factory ConfigureNewCbjCompEvent.initialized() = Initialized;
   const factory ConfigureNewCbjCompEvent.deleted(DeviceEntity deviceEntity) =
       _Deleted;

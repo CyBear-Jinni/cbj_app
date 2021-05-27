@@ -31,7 +31,7 @@ class SceneBlockWidget extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30),
           side: BorderSide(
-              color: ((Theme.of(context).textTheme.bodyText1!.color)!)!,
+              color: (Theme.of(context).textTheme.bodyText1!.color)!,
               width: 0.6),
         ),
         onPressed: () {

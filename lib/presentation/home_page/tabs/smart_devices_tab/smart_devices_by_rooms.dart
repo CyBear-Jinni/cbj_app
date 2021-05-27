@@ -104,7 +104,7 @@ class SmartDevicesByRooms extends StatelessWidget {
                             color: ((Theme.of(context)
                                 .textTheme
                                 .bodyText1!
-                                .color)!)!,
+                                .color)!),
                           ),
                         ),
                       ],

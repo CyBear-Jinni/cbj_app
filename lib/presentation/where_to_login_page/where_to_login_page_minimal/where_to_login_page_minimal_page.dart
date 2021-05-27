@@ -40,8 +40,7 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
               child: Text('What would you like to do',
                   style: TextStyle(
                       fontSize: 25,
-                      color:
-                          ((Theme.of(context).textTheme.bodyText1!.color)!)!))),
+                      color: (Theme.of(context).textTheme.bodyText1!.color)))),
           Expanded(
             child: Column(
               children: <Widget>[
@@ -68,7 +67,7 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
                               color: (Theme.of(context)
                                   .textTheme
                                   .bodyText1!
-                                  .color)!),
+                                  .color)),
                           const SizedBox(
                             width: 20,
                           ),
@@ -109,7 +108,7 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
                               color: (Theme.of(context)
                                   .textTheme
                                   .bodyText1!
-                                  .color)!),
+                                  .color)),
                           const SizedBox(
                             width: 20,
                           ),

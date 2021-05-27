@@ -34,8 +34,7 @@ class WhereToLoginPageOffline extends StatelessWidget {
               child: Text('What would you like to do',
                   style: TextStyle(
                       fontSize: 25,
-                      color:
-                          ((Theme.of(context).textTheme.bodyText1!.color)!)!))),
+                      color: (Theme.of(context).textTheme.bodyText1!.color)))),
           Expanded(
             child: Center(
               child: Column(

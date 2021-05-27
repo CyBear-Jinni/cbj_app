@@ -56,8 +56,7 @@ class TopNavigationBar extends StatelessWidget {
                       icon: FaIcon(
                         leftIcon,
                         size: 19,
-                        color:
-                            ((Theme.of(context).textTheme.bodyText1!.color)!)!,
+                        color: Theme.of(context).textTheme.bodyText1!.color,
                       ),
                       onPressed: () => leftIconFunction!(context),
                     ),
@@ -68,8 +67,7 @@ class TopNavigationBar extends StatelessWidget {
                   pageName!,
                   style: TextStyle(
                       fontSize: 16.0,
-                      color:
-                          ((Theme.of(context).textTheme.bodyText1!.color)!)!),
+                      color: Theme.of(context).textTheme.bodyText1!.color),
                 ).tr(),
               ],
             ),
@@ -88,10 +86,8 @@ class TopNavigationBar extends StatelessWidget {
                         child: FaIcon(
                           rightSecondIcon,
                           size: 19,
-                          color: ((Theme.of(context)
-                              .textTheme
-                              .bodyText1!
-                              .color)!)!,
+                          color:
+                              (Theme.of(context).textTheme.bodyText1!.color)!,
                         ),
                       ),
                     ),
@@ -106,7 +102,7 @@ class TopNavigationBar extends StatelessWidget {
                       child: Icon(
                         rightIcon,
                         size: 26,
-                        color: (Theme.of(context).textTheme.bodyText1!.color)!,
+                        color: Theme.of(context).textTheme.bodyText1!.color,
                       ),
                     ),
                   ),

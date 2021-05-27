@@ -95,8 +95,7 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                       tileColor: Colors.greenAccent.withOpacity(0.8),
                       leading: FaIcon(
                         FontAwesomeIcons.signOutAlt,
-                        color:
-                            ((Theme.of(context).textTheme.bodyText1!.color)!)!,
+                        color: Theme.of(context).textTheme.bodyText1!.color,
                         size: 25,
                       ),
                       title: Text(
