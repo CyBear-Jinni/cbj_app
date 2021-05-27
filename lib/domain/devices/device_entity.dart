@@ -11,38 +11,38 @@ abstract class DeviceEntity implements _$DeviceEntity {
 
   const factory DeviceEntity({
     /// The smart device id
-    @required DeviceUniqueId id,
+    required DeviceUniqueId? id,
 
     /// The default name of the device
-    @required DeviceDefaultName defaultName,
+    required DeviceDefaultName? defaultName,
 
     /// Room id that the smart device located in.
-    @required DeviceUniqueId roomId,
+    required DeviceUniqueId? roomId,
 
     /// Did the massage arrived or was it just sent.
     /// Currently will be 'set' (need change) or 'ack' for acknowledge
     /// (the action was reseved and executed correctly
-    @required DeviceState state,
+    required DeviceState? state,
 
     /// If state didn't change the error discription will be found here.
-    DeviceStateMassage stateMassage,
+    DeviceStateMassage? stateMassage,
 
     /// Sender device os type, example: android, iphone, browser
-    @required DeviceSenderDeviceOs senderDeviceOs,
+    required DeviceSenderDeviceOs? senderDeviceOs,
 
     /// The sender device model, example: onePlues 3T
-    @required DeviceSenderDeviceModel senderDeviceModel,
+    required DeviceSenderDeviceModel? senderDeviceModel,
 
     /// Last device sender id that activated the action
-    @required DeviceSenderId senderId,
+    required DeviceSenderId? senderId,
 
     /// What action to execute
-    @required DeviceAction action,
+    required DeviceAction? action,
 
     /// The smart device type
-    @required DeviceType type,
-    @required DeviceCompUuid compUuid,
-    DeviceLastKnownIp lastKnownIp,
+    required DeviceType? type,
+    required DeviceCompUuid? compUuid,
+    DeviceLastKnownIp? lastKnownIp,
   }) = _DeviceEnitie;
 
   factory DeviceEntity.empty() => DeviceEntity(
@@ -60,7 +60,7 @@ abstract class DeviceEntity implements _$DeviceEntity {
       );
 
   Option<DevicesFailure<dynamic>> get failureOption {
-    return defaultName.value.fold((f) => some(f), (_) => none());
+    return defaultName!.value.fold((f) => some(f), (_) => none());
     //
     // return body.failureOrUnit
     //     .andThen(todos.failureOrUnit)

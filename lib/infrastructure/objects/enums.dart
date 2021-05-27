@@ -42,7 +42,7 @@ class EnumHelper {
     return deviceType.toString().replaceAll('DeviceType.', '');
   }
 
-  static DeviceTypes stringToDt(String deviceTypeAsString) {
+  static DeviceTypes? stringToDt(String deviceTypeAsString) {
     String deviceTypeAsStringTemp = deviceTypeAsString;
     if (deviceTypeAsStringTemp.contains('Object')) {
       deviceTypeAsStringTemp = deviceTypeAsStringTemp.substring(
@@ -62,7 +62,7 @@ class EnumHelper {
   }
 
   ///  Convert string to deviceAction
-  static DeviceActions stringToDeviceAction(String deviceActionString) {
+  static DeviceActions? stringToDeviceAction(String deviceActionString) {
     for (final DeviceActions deviceAction in DeviceActions.values) {
       if (deviceActionToString(deviceAction) == deviceActionString) {
         return deviceAction;

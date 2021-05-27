@@ -53,25 +53,28 @@ class ChooseDeviceVendorToAddPage extends StatelessWidget {
                 'Choose Device Vendor',
                 style: TextStyle(
                     fontSize: 25,
-                    color: Theme.of(context).textTheme.bodyText1.color),
+                    color: (Theme.of(context).textTheme.bodyText1!.color)!),
               ),
             ),
             const SizedBox(
               height: 100,
             ),
-            Center(
-              child: FlatButton(
-                minWidth: 300,
-                height: 100,
-                color: Colors.purple.withOpacity(0.7),
+            SizedBox(
+              width: 300,
+              height: 100,
+              child: TextButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(
+                    Colors.purple.withOpacity(0.7),
+                  ),
+                ),
                 onPressed: () {
-                  ExtendedNavigator.of(context)
-                      .push(Routes.connectToHomeWifiPage);
+                  context.router.push(const ConnectToHomeWifiRoute());
                 },
                 child: Text(
                   'CyBear Jinni',
                   style: TextStyle(
-                      color: Theme.of(context).textTheme.bodyText1.color,
+                      color: (Theme.of(context).textTheme.bodyText1!.color)!,
                       fontSize: 30),
                 ),
               ),

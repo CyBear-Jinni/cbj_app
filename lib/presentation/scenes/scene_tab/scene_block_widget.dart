@@ -31,7 +31,8 @@ class SceneBlockWidget extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30),
           side: BorderSide(
-              color: Theme.of(context).textTheme.bodyText1.color, width: 0.6),
+              color: (Theme.of(context).textTheme.bodyText1!.color)!,
+              width: 0.6),
         ),
         onPressed: () {
           smartDevicesWithWish
@@ -41,7 +42,7 @@ class SceneBlockWidget extends StatelessWidget {
             }
           });
         },
-        highlightColor: Theme.of(context).textTheme.bodyText1.color,
+        highlightColor: (Theme.of(context).textTheme.bodyText1!.color)!,
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
@@ -52,7 +53,7 @@ class SceneBlockWidget extends StatelessWidget {
             sceneName,
             style: TextStyle(
               fontSize: 25,
-              color: Theme.of(context).textTheme.bodyText1.color,
+              color: (Theme.of(context).textTheme.bodyText1!.color)!,
             ),
             textAlign: TextAlign.center,
           ),

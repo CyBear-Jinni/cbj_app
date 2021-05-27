@@ -11,10 +11,10 @@
 //
 //   const factory AddUserToHomeEntity({
 //     /// User to add unique id
-//     @required AddUserToHomeUniqueId id,
-//     @required AddUserToHomeEmail email,
-//     @required AddUserToHomeName name,
-//     @required AddUserToHomePermission permission,
+//     required AddUserToHomeUniqueId id,
+//     required AddUserToHomeEmail email,
+//     required AddUserToHomeName name,
+//     required AddUserToHomePermission permission,
 //   }) = _AddUserToHomeEntity;
 //
 //   factory AddUserToHomeEntity.empty() => AddUserToHomeEntity(

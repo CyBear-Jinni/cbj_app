@@ -41,10 +41,10 @@ class CreateHomeRepository implements ICreateHomeRepository {
 
   @override
   Future<Either<CreateHomeFailure, Unit>> createNewHome(
-      CreateHomeEntity createHomeEntity) async {
+      CreateHomeEntity? createHomeEntity) async {
     try {
-      if (createHomeEntity.homeDevicesUserEmail.getOrCrash() == null ||
-          createHomeEntity.homeDevicesUserEmail.getOrCrash().isEmpty) {
+      if (createHomeEntity!.homeDevicesUserEmail!.getOrCrash() == null ||
+          createHomeEntity.homeDevicesUserEmail!.getOrCrash().isEmpty) {
         return left(const CreateHomeFailure.devicesUserEmailIsInvalid());
       }
 
@@ -59,15 +59,15 @@ class CreateHomeRepository implements ICreateHomeRepository {
       final registerDeviceUser =
           await getIt<IAuthFacade>().registerWithEmailAndPasswordReturnUserId(
         emailAddress: EmailAddress(
-            createHomeEntityWithId.homeDevicesUserEmail.getOrCrash()),
+            createHomeEntityWithId.homeDevicesUserEmail!.getOrCrash()),
         password: Password(
-            createHomeEntityWithId.homeDevicesUserPassword.getOrCrash()),
+            createHomeEntityWithId.homeDevicesUserPassword!.getOrCrash()),
       );
       final MUser deviceUserId = registerDeviceUser.getOrElse(() =>
           throw UserUnexpectedValueError(const UserFailures.unexpected()));
       createHomeEntityWithId = createHomeEntityWithId.copyWith(
-          homeDevicesUserId:
-              HomeDevicesUserId.fromUniqueString(deviceUserId.id.getOrCrash()));
+          homeDevicesUserId: HomeDevicesUserId.fromUniqueString(
+              deviceUserId.id.getOrCrash()!));
 
       // create home with the current user
       await HiveLocalDbHelper.setHomeId(createHomeEntityWithId.id.getOrCrash());
@@ -140,11 +140,11 @@ class CreateHomeRepository implements ICreateHomeRepository {
           .set(deviceHomeUserDtos.toJson());
       return right(unit);
     } on PlatformException catch (e) {
-      if (e.message.contains('PERMISSION_DENIED')) {
+      if (e.message!.contains('PERMISSION_DENIED')) {
         return left(const CreateHomeFailure.insufficientPermission());
       } else {
         // log.error(e.toString());
-        return left(CreateHomeFailure.unexpected(failedValue: e.message));
+        return left(CreateHomeFailure.unexpected(failedValue: e.message!));
       }
     }
   }
@@ -173,14 +173,14 @@ class CreateHomeRepository implements ICreateHomeRepository {
 
       return right(userEntity);
     } on PlatformException catch (e) {
-      if (e.message.contains('PERMISSION_DENIED')) {
+      if (e.message!.contains('PERMISSION_DENIED')) {
         return left(const CreateHomeFailure.insufficientPermission());
       } else {
         // log.error(e.toString());
         return left(CreateHomeFailure.unexpected(failedValue: e.message));
       }
-    } catch (e) {
-      return left(CreateHomeFailure.unexpected(failedValue: e.message));
+    } catch (error) {
+      return left(CreateHomeFailure.unexpected(failedValue: error.toString()));
     }
   }
 
@@ -199,11 +199,11 @@ class CreateHomeRepository implements ICreateHomeRepository {
           .set({wiFi_name: Uuid().v1(), wiFi_pass: Uuid().v1()});
       return right(unit);
     } on PlatformException catch (e) {
-      if (e.message.contains('PERMISSION_DENIED')) {
+      if (e.message!.contains('PERMISSION_DENIED')) {
         return left(const CreateHomeFailure.insufficientPermission());
       } else {
         // log.error(e.toString());
-        return left(CreateHomeFailure.unexpected(failedValue: e.message));
+        return left(CreateHomeFailure.unexpected(failedValue: e.message!));
       }
     }
   }
@@ -226,11 +226,11 @@ class CreateHomeRepository implements ICreateHomeRepository {
         ),
       );
     } on PlatformException catch (e) {
-      if (e.message.contains('PERMISSION_DENIED')) {
+      if (e.message!.contains('PERMISSION_DENIED')) {
         return left(const CreateHomeFailure.insufficientPermission());
       } else {
         // log.error(e.toString());
-        return left(CreateHomeFailure.unexpected(failedValue: e.message));
+        return left(CreateHomeFailure.unexpected(failedValue: e.message!));
       }
     }
   }
@@ -239,9 +239,9 @@ class CreateHomeRepository implements ICreateHomeRepository {
   Future<Either<CreateHomeFailure, Unit>> addUserToHome(
       UserEntity userEntity) async {
     try {
-      final String currentUserUid = userEntity.id.getOrCrash();
-      final String currentUserEmail = userEntity.email.getOrCrash();
-      final String currentUserName = userEntity.name.getOrCrash();
+      final String currentUserUid = userEntity.id!.getOrCrash()!;
+      final String currentUserEmail = userEntity.email!.getOrCrash();
+      final String currentUserName = userEntity.name!.getOrCrash();
 
       final HomeUserEntity homeUserEntity = HomeUserEntity(
         id: HomeUserUniqueId.fromUniqueString(currentUserUid),

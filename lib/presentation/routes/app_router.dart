@@ -1,4 +1,4 @@
-import 'package:auto_route/auto_route_annotations.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/presentation/add_new_devices_process/choose_device_vendor_to_add/choose_device_vendor_to_add_page.dart';
 import 'package:cybear_jinni/presentation/add_new_devices_process/configure_new_cbj_comp/configure_new_cbj_comp_page.dart';
 import 'package:cybear_jinni/presentation/add_new_devices_process/connect_to_home_wifi/connect_to_home_wifi_page.dart';
@@ -6,9 +6,9 @@ import 'package:cybear_jinni/presentation/add_new_devices_process/open_access_po
 import 'package:cybear_jinni/presentation/add_new_devices_process/scan_for_new_cbj_comps/scan_for_new_cbj_comps_page.dart';
 import 'package:cybear_jinni/presentation/add_user_to_home/add_user_to_home_page.dart';
 import 'package:cybear_jinni/presentation/blinds/rooms_blinds_page.dart';
+import 'package:cybear_jinni/presentation/boilers/rooms_boilers_page.dart';
 import 'package:cybear_jinni/presentation/create_home/create_home_page.dart';
 import 'package:cybear_jinni/presentation/home_page/home_page.dart';
-import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/blinds/smart_blind_widget.dart';
 import 'package:cybear_jinni/presentation/introduction_screen/introduction_screen_page.dart';
 import 'package:cybear_jinni/presentation/join_home_by_id/join_home_by_id_page.dart';
 import 'package:cybear_jinni/presentation/lights/lights_in_the_room/lights_in_the_room_page.dart';
@@ -21,49 +21,49 @@ import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_pag
 import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_page_offline.dart';
 
 @MaterialAutoRouter(
-  generateNavigationHelperExtension: true,
+  replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
-    MaterialRoute(page: SplashPage, initial: true),
-    MaterialRoute(page: IntroductionScreenPage),
-    MaterialRoute(page: SignInPage),
-    MaterialRoute(page: CreateHomePage),
-    MaterialRoute(page: WhereToLoginPageMinimalPage),
-    MaterialRoute(page: WhereToLoginPageOffline),
-    MaterialRoute(page: JoinHomeByIdPage),
-    MaterialRoute(page: HomePage),
-    MaterialRoute(page: ManageUsersPage),
-    MaterialRoute(page: AddUserToHomePage),
-    MaterialRoute(page: ScenesPage),
-    MaterialRoute(page: ChooseDeviceVendorToAddPage),
-    MaterialRoute(page: ConnectToHomeWifiPage),
-    MaterialRoute(page: OpenAccessPointPage),
-    MaterialRoute(page: ScanForNewCBJCompsPage),
-    MaterialRoute(page: ConfigureNewCbjCompPage),
-    MaterialRoute(page: RoomsLightsPage),
-    MaterialRoute(page: LightsInTheRoomPage),
-    MaterialRoute(page: RoomsBlindsPage),
-    MaterialRoute(page: SmartBlindPage),
+    AutoRoute(page: SplashPage, initial: true),
+    AutoRoute(page: IntroductionScreenPage),
+    AutoRoute(page: SignInPage),
+    AutoRoute(page: CreateHomePage),
+    AutoRoute(page: WhereToLoginPageMinimalPage),
+    AutoRoute(page: WhereToLoginPageOffline),
+    AutoRoute(page: JoinHomeByIdPage),
+    AutoRoute(page: HomePage),
+    AutoRoute(page: ManageUsersPage),
+    AutoRoute(page: AddUserToHomePage),
+    AutoRoute(page: ScenesPage),
+    AutoRoute(page: ChooseDeviceVendorToAddPage),
+    AutoRoute(page: ConnectToHomeWifiPage),
+    AutoRoute(page: OpenAccessPointPage),
+    AutoRoute(page: ScanForNewCBJCompsPage),
+    AutoRoute(page: ConfigureNewCbjCompPage),
+    AutoRoute(page: RoomsLightsPage),
+    AutoRoute(page: LightsInTheRoomPage),
+    AutoRoute(page: RoomsBlindsPage),
+    AutoRoute(page: RoomsBoilersPage),
   ],
 )
 class $AppRouter {
-  SplashPage splashPage;
-  IntroductionScreenPage introductionScreenPage;
-  SignInPage signInPage;
-  CreateHomePage createHomePage;
-  ScenesPage scenesPage;
-  ChooseDeviceVendorToAddPage chooseDeviceVendorToAddPage;
-  ConnectToHomeWifiPage connectToHomeWifiPage;
-  OpenAccessPointPage openAccessPointPage;
-  ScanForNewCBJCompsPage scanForNewCBJCompsPage;
-  ConfigureNewCbjCompPage configureNewCbjCompPage;
-  WhereToLoginPageMinimalPage whereToLoginPageMinimal;
-  WhereToLoginPageOffline whereToLoginPageOffline;
-  JoinHomeByIdPage joinHomeByIdPage;
-  HomePage homePage;
-  ManageUsersPage manageUsersPage;
-  AddUserToHomePage addUserToHomePage;
-  RoomsLightsPage roomsLightsPage;
-  LightsInTheRoomPage lightsInTheRoomPage;
-  RoomsBlindsPage roomsBlindsPage;
-  SmartBlindPage smartBlindPage;
+  late SplashPage splashPage;
+  late IntroductionScreenPage introductionScreenPage;
+  late SignInPage signInPage;
+  late CreateHomePage createHomePage;
+  late ScenesPage scenesPage;
+  late ChooseDeviceVendorToAddPage chooseDeviceVendorToAddPage;
+  late ConnectToHomeWifiPage connectToHomeWifiPage;
+  late OpenAccessPointPage openAccessPointPage;
+  late ScanForNewCBJCompsPage scanForNewCBJCompsPage;
+  late ConfigureNewCbjCompPage configureNewCbjCompPage;
+  late WhereToLoginPageMinimalPage whereToLoginPageMinimal;
+  late WhereToLoginPageOffline whereToLoginPageOffline;
+  late JoinHomeByIdPage joinHomeByIdPage;
+  late HomePage homePage;
+  late ManageUsersPage manageUsersPage;
+  late AddUserToHomePage addUserToHomePage;
+  late RoomsLightsPage roomsLightsPage;
+  late LightsInTheRoomPage lightsInTheRoomPage;
+  late RoomsBlindsPage roomsBlindsPage;
+  late RoomsBoilersPage roomsBoilersPage;
 }

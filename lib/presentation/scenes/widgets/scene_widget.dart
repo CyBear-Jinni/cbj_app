@@ -1,6 +1,6 @@
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:cybear_jinni/application/scene/scene_bloc.dart';
 import 'package:cybear_jinni/domain/scene/scene.dart';
-import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -36,7 +36,7 @@ class SceneWidget extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),
                 side: BorderSide(
-                    color: Theme.of(context).textTheme.bodyText1.color,
+                    color: (Theme.of(context).textTheme.bodyText1!.color)!,
                     width: 0.6),
               ),
               onPressed: () {
@@ -48,7 +48,7 @@ class SceneWidget extends StatelessWidget {
                 //   }
                 // });
               },
-              highlightColor: Theme.of(context).textTheme.bodyText1.color,
+              highlightColor: (Theme.of(context).textTheme.bodyText1!.color)!,
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
@@ -59,7 +59,7 @@ class SceneWidget extends StatelessWidget {
                   currentScene.name,
                   style: TextStyle(
                     fontSize: 23,
-                    color: Theme.of(context).textTheme.bodyText1.color,
+                    color: (Theme.of(context).textTheme.bodyText1!.color)!,
                   ),
                   textAlign: TextAlign.center,
                 ),

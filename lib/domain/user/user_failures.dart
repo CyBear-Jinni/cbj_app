@@ -5,7 +5,7 @@ part 'user_failures.freezed.dart';
 @freezed
 abstract class UserFailures<T> {
   const factory UserFailures.empty({
-    @required T failedValue,
+    required T failedValue,
   }) = _Empty;
 
   const factory UserFailures.unexpected() = _Unexpected;

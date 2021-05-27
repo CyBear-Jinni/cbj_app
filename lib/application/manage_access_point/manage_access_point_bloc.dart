@@ -22,8 +22,8 @@ class ManageAccessPointBloc
 
   final IManageNetworkRepository _manageAccessPointRepository;
 
-  ManageWiFiName wifiName;
-  ManageWiFiPass wifiPassword;
+  ManageWiFiName? wifiName;
+  ManageWiFiPass? wifiPassword;
 
   @override
   Stream<ManageAccessPointState> mapEventToState(

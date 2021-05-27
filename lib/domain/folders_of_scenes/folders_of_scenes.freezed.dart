@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'folders_of_scenes.dart';
 
@@ -9,15 +9,16 @@ part of 'folders_of_scenes.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$FoldersOfScenesTearOff {
   const _$FoldersOfScenesTearOff();
 
-// ignore: unused_element
   _FoldersOfScenes call(
-      {@required
-          KtList<Either<FolderOfScenesFailures, FolderOfScenes>>
-              foldersOfScenesList}) {
+      {required KtList<Either<FolderOfScenesFailures, FolderOfScenes>>
+          foldersOfScenesList}) {
     return _FoldersOfScenes(
       foldersOfScenesList: foldersOfScenesList,
     );
@@ -25,16 +26,16 @@ class _$FoldersOfScenesTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $FoldersOfScenes = _$FoldersOfScenesTearOff();
 
 /// @nodoc
 mixin _$FoldersOfScenes {
   KtList<Either<FolderOfScenesFailures, FolderOfScenes>>
-      get foldersOfScenesList;
+      get foldersOfScenesList => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $FoldersOfScenesCopyWith<FoldersOfScenes> get copyWith;
+  $FoldersOfScenesCopyWith<FoldersOfScenes> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -58,12 +59,12 @@ class _$FoldersOfScenesCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object foldersOfScenesList = freezed,
+    Object? foldersOfScenesList = freezed,
   }) {
     return _then(_value.copyWith(
       foldersOfScenesList: foldersOfScenesList == freezed
           ? _value.foldersOfScenesList
-          : foldersOfScenesList
+          : foldersOfScenesList // ignore: cast_nullable_to_non_nullable
               as KtList<Either<FolderOfScenesFailures, FolderOfScenes>>,
     ));
   }
@@ -94,22 +95,21 @@ class __$FoldersOfScenesCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object foldersOfScenesList = freezed,
+    Object? foldersOfScenesList = freezed,
   }) {
     return _then(_FoldersOfScenes(
       foldersOfScenesList: foldersOfScenesList == freezed
           ? _value.foldersOfScenesList
-          : foldersOfScenesList
+          : foldersOfScenesList // ignore: cast_nullable_to_non_nullable
               as KtList<Either<FolderOfScenesFailures, FolderOfScenes>>,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_FoldersOfScenes extends _FoldersOfScenes {
-  const _$_FoldersOfScenes({@required this.foldersOfScenesList})
-      : assert(foldersOfScenesList != null),
-        super._();
+  const _$_FoldersOfScenes({required this.foldersOfScenesList}) : super._();
 
   @override
   final KtList<Either<FolderOfScenesFailures, FolderOfScenes>>
@@ -141,16 +141,16 @@ class _$_FoldersOfScenes extends _FoldersOfScenes {
 }
 
 abstract class _FoldersOfScenes extends FoldersOfScenes {
-  const _FoldersOfScenes._() : super._();
   const factory _FoldersOfScenes(
-      {@required
-          KtList<Either<FolderOfScenesFailures, FolderOfScenes>>
-              foldersOfScenesList}) = _$_FoldersOfScenes;
+      {required KtList<Either<FolderOfScenesFailures, FolderOfScenes>>
+          foldersOfScenesList}) = _$_FoldersOfScenes;
+  const _FoldersOfScenes._() : super._();
 
   @override
   KtList<Either<FolderOfScenesFailures, FolderOfScenes>>
-      get foldersOfScenesList;
+      get foldersOfScenesList => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$FoldersOfScenesCopyWith<_FoldersOfScenes> get copyWith;
+  _$FoldersOfScenesCopyWith<_FoldersOfScenes> get copyWith =>
+      throw _privateConstructorUsedError;
 }

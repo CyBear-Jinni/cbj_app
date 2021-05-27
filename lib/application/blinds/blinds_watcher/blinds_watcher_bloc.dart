@@ -20,7 +20,7 @@ class BlindsWatcherBloc extends Bloc<BlindsWatcherEvent, BlindsWatcherState> {
       : super(BlindsWatcherState.initial());
 
   final IDeviceRepository _deviceRepository;
-  StreamSubscription<Either<DevicesFailure, KtList<DeviceEntity>>>
+  StreamSubscription<Either<DevicesFailure, KtList<DeviceEntity?>>>?
       _deviceStreamSubscription;
 
   @override

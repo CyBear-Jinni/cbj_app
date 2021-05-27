@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cybear_jinni/domain/add_user_to_home/add_user_to_home_errors.dart';
 import 'package:cybear_jinni/domain/add_user_to_home/add_user_to_home_failures.dart';
@@ -9,6 +8,7 @@ import 'package:cybear_jinni/infrastructure/core/firestore_helpers.dart';
 import 'package:cybear_jinni/infrastructure/core/hive_local_db/hive_local_db.dart';
 import 'package:cybear_jinni/infrastructure/home_user/home_user_dtos.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:injectable/injectable.dart';
 
@@ -24,7 +24,7 @@ class AddUserToHomeRepository implements IAddUserToHomeRepository {
     try {
       final devicesDoc = await _firestore.currentHomeDocument();
       //
-      final String userId = homeUserEntity.id.getOrCrash();
+      final String userId = homeUserEntity.id!.getOrCrash()!;
       // final String userName = addUserToHomeEntity.name.getOrCrash();
       // final String userEmail = addUserToHomeEntity.email.getOrCrash();
 
@@ -33,7 +33,7 @@ class AddUserToHomeRepository implements IAddUserToHomeRepository {
       await devicesDoc.usersCollecttion.doc(userId).set(homeUserDtos.toJson());
       return right(unit);
     } on PlatformException catch (e) {
-      if (e.message.contains('PERMISSION_DENIED')) {
+      if (e.message!.contains('PERMISSION_DENIED')) {
         return left(const AddUserToHomeFailures.insufficientPermission());
       } else {
         // log.error(e.toString());
@@ -52,7 +52,7 @@ class AddUserToHomeRepository implements IAddUserToHomeRepository {
       final QueryDocumentSnapshot queryDocSnap = queryDocSnapList.first;
       return right(queryDocSnap);
     } on PlatformException catch (e) {
-      if (e.message.contains('PERMISSION_DENIED')) {
+      if (e.message!.contains('PERMISSION_DENIED')) {
         return left(const AddUserToHomeFailures.insufficientPermission());
       } else {
         // log.error(e.toString());
@@ -66,13 +66,13 @@ class AddUserToHomeRepository implements IAddUserToHomeRepository {
       HomeUserEntity homeUserEntity) async {
     try {
       final Either<AddUserToHomeFailures, DocumentSnapshot> userDocOrFailure =
-          await getUserByEmail(homeUserEntity.email.getOrCrash());
+          await getUserByEmail(homeUserEntity.email!.getOrCrash()!);
       final DocumentSnapshot userDocument = userDocOrFailure.fold(
           (f) => throw AddUserToHomeUnexpectedValueError(f), (r) => r);
 
-      //   @required AddUserToHomeEmail email,
-      // @required AddUserToHomeName name,
-      // @required AddUserToHomePermission permission,
+      //   required AddUserToHomeEmail email,
+      // required AddUserToHomeName name,
+      // required AddUserToHomePermission permission,
 
       final HomeUserEntity homeUserEntityToAdd = homeUserEntity.copyWith(
         id: HomeUserUniqueId.fromUniqueString(userDocument.id),

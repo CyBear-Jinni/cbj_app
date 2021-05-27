@@ -1,8 +1,8 @@
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/auth/auth_bloc.dart';
 import 'package:cybear_jinni/application/auth/sign_in_form/sign_in_form_bloc.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
-import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -28,8 +28,7 @@ class SignInForm extends StatelessWidget {
                             ),
                           ).show(context),
                         }, (_) {
-                  ExtendedNavigator.of(context)
-                      .push(Routes.whereToLoginPageMinimalPage);
+                  context.router.push(const WhereToLoginRouteMinimalRoute());
 
                   context
                       .read()<AuthBloc>()
@@ -50,7 +49,7 @@ class SignInForm extends StatelessWidget {
                       child: CircleAvatar(
                         backgroundColor: Colors.transparent,
                         radius: screenSize.height * 0.1,
-                        child: Image.asset('assets/cbj_app_icon.png'),
+                        child: Image.asset('assets/cbj_logo.png'),
                       ),
                     ),
                     const SizedBox(
@@ -103,7 +102,7 @@ class SignInForm extends StatelessWidget {
                     Row(
                       children: [
                         Expanded(
-                          child: FlatButton(
+                          child: TextButton(
                             onPressed: () {
                               context.read<SignInFormBloc>().add(
                                     const SignInFormEvent
@@ -114,7 +113,7 @@ class SignInForm extends StatelessWidget {
                           ),
                         ),
                         Expanded(
-                          child: FlatButton(
+                          child: TextButton(
                             onPressed: () {
                               context.read<SignInFormBloc>().add(
                                     const SignInFormEvent
@@ -138,16 +137,18 @@ class SignInForm extends StatelessWidget {
             ),
             Container(
               alignment: Alignment.bottomRight,
-              child: FlatButton(
-                color: Theme.of(context).textTheme.bodyText1.color,
+              child: TextButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(
+                      Theme.of(context).textTheme.bodyText1!.color),
+                ),
                 onPressed: () {
-                  ExtendedNavigator.of(context)
-                      .push(Routes.whereToLoginPageOffline);
+                  context.router.push(const WhereToLoginRouteOffline());
                 },
                 child: Text(
                   'For More Options',
                   style: TextStyle(
-                      color: Theme.of(context).textTheme.subtitle2.color),
+                      color: Theme.of(context).textTheme.bodyText1!.color),
                 ),
               ),
             ),

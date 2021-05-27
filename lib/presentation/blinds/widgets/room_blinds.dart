@@ -22,7 +22,7 @@ class RoomBlinds extends StatelessWidget {
 
   final String _roomEntity;
 
-  final List<Color> _gradientColor;
+  final List<Color>? _gradientColor;
 
   @override
   Widget build(BuildContext context) {
@@ -40,10 +40,10 @@ class RoomBlinds extends StatelessWidget {
         columnOfLights.add(Column(
           children: [
             Text(
-              deviceEntityTemp.defaultName.getOrCrash(),
+              deviceEntityTemp.defaultName!.getOrCrash()!,
               style: TextStyle(
                 fontSize: 19.0,
-                color: Theme.of(context).textTheme.bodyText2.color,
+                color: Theme.of(context).textTheme.bodyText2!.color,
               ),
             ),
             const SizedBox(
@@ -74,12 +74,12 @@ class RoomBlinds extends StatelessWidget {
       padding: const EdgeInsets.all(3),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-            colors: _gradientColor,
+            colors: _gradientColor!,
             begin: Alignment.bottomLeft,
             end: Alignment.topLeft),
         borderRadius: const BorderRadius.all(Radius.circular(24)),
         border: Border.all(
-          color: Theme.of(context).textTheme.bodyText1.color,
+          color: (Theme.of(context).textTheme.bodyText1!.color)!,
           width: 0.6,
         ),
       ),
@@ -95,7 +95,12 @@ class RoomBlinds extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.all(2),
             ),
-            FlatButton(
+            TextButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(
+                  Colors.transparent,
+                ),
+              ),
               onPressed: () {
                 if (maxLightsToShow != null &&
                     _deviceEntityList.size > maxLightsToShow) {
@@ -103,14 +108,13 @@ class RoomBlinds extends StatelessWidget {
                   //     thisSmartRoom: _deviceEntityList);
                 }
               },
-              color: Colors.transparent,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text(
                     _roomEntity,
                     style: TextStyle(
-                      color: Theme.of(context).textTheme.bodyText1.color,
+                      color: (Theme.of(context).textTheme.bodyText1!.color)!,
                       fontSize: 25,
                       decoration: TextDecoration.underline,
                     ),
@@ -119,7 +123,7 @@ class RoomBlinds extends StatelessWidget {
                       _deviceEntityList.size > maxLightsToShow)
                     FaIcon(
                       FontAwesomeIcons.arrowRight,
-                      color: Theme.of(context).textTheme.bodyText1.color,
+                      color: (Theme.of(context).textTheme.bodyText1!.color)!,
                       size: 20,
                     ),
                 ],

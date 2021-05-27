@@ -63,10 +63,10 @@ class ConfigureNewCbjCompBloc
         final CBJCompEntity compUpdatedData = value.cBJCompEntity;
         bool error = false;
 
-        final KtList<DeviceEntity> devicesList =
-            compUpdatedData.cBJCompDevices.getOrCrash();
+        final KtList<DeviceEntity>? devicesList =
+            compUpdatedData.cBJCompDevices!.getOrCrash();
 
-        for (final DeviceEntity device in devicesList.asList()) {
+        for (final DeviceEntity device in devicesList!.asList()) {
           final Either<DevicesFailure, Unit> createInCloudResponse =
               await _deviceRepository.create(device);
 
@@ -124,9 +124,8 @@ class ConfigureNewCbjCompBloc
       },
       checkOperationsCompletedSuccessfully:
           (_CheckOperationsCompletedSuccessfully value) async* {
-
-            progressPercent += 0.3;
-            yield ConfigureNewCbjCompState.actionInProgress(progressPercent);
+        progressPercent += 0.3;
+        yield ConfigureNewCbjCompState.actionInProgress(progressPercent);
         yield const ConfigureNewCbjCompState.completeSuccess();
       },
       sendHotSpotInformation: (_SendHotSpotInformation value) async* {
@@ -166,10 +165,10 @@ class ConfigureNewCbjCompBloc
 
     final String roomUuid = Uuid().v1();
 
-    cbjCompEntity.cBJCompDevices.getOrCrash().asList().forEach((deviceE) {
+    cbjCompEntity.cBJCompDevices!.getOrCrash().asList().forEach((deviceE) {
       try {
         final String deviceName = _textEditingController[
-                '$deviceNameFieldKey/${deviceE.id.getOrCrash()}']
+                '$deviceNameFieldKey/${deviceE.id!.getOrCrash()}']!
             .text;
         deviceEntityList.add(
           deviceE.copyWith(

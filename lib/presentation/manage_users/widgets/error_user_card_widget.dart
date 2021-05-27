@@ -2,12 +2,12 @@ import 'package:cybear_jinni/domain/home_user/home_user_entity.dart';
 import 'package:flutter/material.dart';
 
 class ErrorUserCard extends StatelessWidget {
-  final HomeUserEntity homeUser;
-
   const ErrorUserCard({
-    Key key,
-    @required this.homeUser,
+    Key? key,
+    required this.homeUser,
   }) : super(key: key);
+
+  final HomeUserEntity? homeUser;
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +19,7 @@ class ErrorUserCard extends StatelessWidget {
           children: <Widget>[
             Text(
               'Invalid user, please, contact support',
-              style: Theme.of(context)
-                  .primaryTextTheme
-                  .bodyText2
+              style: (Theme.of(context).primaryTextTheme.bodyText2)!
                   .copyWith(fontSize: 18),
             ),
             const SizedBox(height: 2),
@@ -30,7 +28,7 @@ class ErrorUserCard extends StatelessWidget {
               style: Theme.of(context).primaryTextTheme.bodyText2,
             ),
             Text(
-              homeUser.failureOption.fold(() => '', (f) => f.toString()),
+              homeUser!.failureOption.fold(() => '', (f) => f.toString()),
               style: Theme.of(context).primaryTextTheme.bodyText2,
             ),
           ],

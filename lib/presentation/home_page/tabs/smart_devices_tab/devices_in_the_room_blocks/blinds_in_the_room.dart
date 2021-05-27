@@ -8,18 +8,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BlindsInTheRoom extends StatelessWidget {
-  BlindsInTheRoom(this.blindsInRoom);
+  BlindsInTheRoom({this.blindsInRoom, this.roomColorGradiant});
 
-  final List<DeviceEntity> blindsInRoom;
+  final List<DeviceEntity?>? blindsInRoom;
+  final List<Color>? roomColorGradiant;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        ExtendedNavigator.of(context).push(Routes.roomsBlindsPage,
-            arguments: RoomsLightsPageArguments(
-                showDevicesOnlyFromRoomId:
-                    blindsInRoom[0].roomId.getOrCrash()));
+        context.router.push(RoomsBlindsRoute(
+            showDevicesOnlyFromRoomId: blindsInRoom![0]!.roomId!.getOrCrash(),
+            roomColorGradiant: roomColorGradiant));
       },
       child: Container(
         color: Colors.black.withOpacity(0.03),
@@ -39,47 +39,51 @@ class BlindsInTheRoom extends StatelessWidget {
                     ),
                   ),
                 ),
-                Expanded(
-                  child: Container(
-                    height: 55,
-                    alignment: Alignment.topLeft,
+                if (blindsInRoom!.length > 1)
+                  Expanded(
                     child: Container(
-                      width: 28,
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Theme.of(context)
-                                .textTheme
-                                .bodyText1
-                                .color
-                                .withOpacity(0.5)),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Text(
-                        blindsInRoom.length.toString(),
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontSize: 13,
-                            color: Theme.of(context).textTheme.bodyText1.color),
+                      height: 55,
+                      alignment: Alignment.topLeft,
+                      child: Container(
+                        width: 28,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                              color: Theme.of(context)
+                                  .textTheme
+                                  .bodyText1!
+                                  .color!
+                                  .withOpacity(0.5)),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Text(
+                          blindsInRoom!.length.toString(),
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: 13,
+                              color:
+                                  Theme.of(context).textTheme.bodyText1!.color),
+                        ),
                       ),
                     ),
-                  ),
-                )
+                  )
+                else
+                  const Expanded(child: Text('')),
               ],
             ),
             const SizedBox(
               height: 10,
             ),
-            if (blindsInRoom.length == 1)
+            if (blindsInRoom!.length == 1)
               Text(
-                blindsInRoom[0].defaultName.getOrCrash(),
+                blindsInRoom![0]!.defaultName!.getOrCrash()!,
                 style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1.color),
+                    color: Theme.of(context).textTheme.bodyText1!.color),
               )
             else
               Text(
                 'Room Name blinds',
                 style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1.color),
+                    color: Theme.of(context).textTheme.bodyText1!.color),
               ),
             const SizedBox(
               height: 10,
@@ -107,14 +111,15 @@ class BlindsInTheRoom extends StatelessWidget {
                         },
                         child: FaIcon(
                           FontAwesomeIcons.chevronDown,
-                          color: Theme.of(context).textTheme.bodyText2.color,
+                          color: Theme.of(context).textTheme.bodyText2!.color,
                         ),
                       ),
                       Text(
                         '·',
                         style: TextStyle(
                             fontSize: 14,
-                            color: Theme.of(context).textTheme.bodyText1.color),
+                            color:
+                                Theme.of(context).textTheme.bodyText1!.color),
                       ),
                       TextButton(
                         style: ButtonStyle(
@@ -133,7 +138,7 @@ class BlindsInTheRoom extends StatelessWidget {
                         },
                         child: FaIcon(
                           FontAwesomeIcons.chevronUp,
-                          color: Theme.of(context).textTheme.bodyText2.color,
+                          color: Theme.of(context).textTheme.bodyText2!.color,
                         ),
                       ),
                     ],
@@ -147,8 +152,8 @@ class BlindsInTheRoom extends StatelessWidget {
 
   List<String> extractDevicesId() {
     final List<String> devicesIdList = [];
-    blindsInRoom.forEach((element) {
-      devicesIdList.add(element.id.getOrCrash());
+    blindsInRoom!.forEach((element) {
+      devicesIdList.add(element!.id!.getOrCrash()!);
     });
     return devicesIdList;
   }

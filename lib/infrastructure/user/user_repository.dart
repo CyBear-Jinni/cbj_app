@@ -16,7 +16,6 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/services.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
-import 'package:rxdart/rxdart.dart';
 
 @LazySingleton(as: IUserRepository)
 class UserRepository implements IUserRepository {
@@ -34,7 +33,7 @@ class UserRepository implements IUserRepository {
 
       return right(unit);
     } on PlatformException catch (e) {
-      if (e.message.contains('PERMISSION_DENIED')) {
+      if (e.message!.contains('PERMISSION_DENIED')) {
         return left(const HomeUserFailures.insufficientPermission());
       } else {
         // log.error(e.toString());
@@ -51,7 +50,7 @@ class UserRepository implements IUserRepository {
       final String userId = (await getIt<IAuthFacade>().getSignedInUser())
           .getOrElse(() => throw NotAuthenticatedError())
           .id
-          .getOrCrash();
+          .getOrCrash()!;
 
       final DocumentSnapshot userDocumentS = await userCollec.doc(userId).get();
 
@@ -64,7 +63,7 @@ class UserRepository implements IUserRepository {
         name: UserName(name),
       ));
     } on PlatformException catch (e) {
-      if (e.message.contains('PERMISSION_DENIED')) {
+      if (e.message!.contains('PERMISSION_DENIED')) {
         return left(const HomeUserFailures.insufficientPermission());
       } else {
         // log.error(e.toString());
@@ -80,8 +79,8 @@ class UserRepository implements IUserRepository {
       final usersCollection = await _firestore.usersCollection();
       final homeCollection = await _firestore.homeCollection();
 
-      final String userId = userEntity.id.getOrCrash();
-      final String homeId = allHomesOfUserEntity.id.getOrCrash();
+      final String userId = userEntity.id!.getOrCrash()!;
+      final String homeId = allHomesOfUserEntity.id!.getOrCrash()!;
 
       final userInHomeRef =
           homeCollection.doc(homeId).usersCollecttion.doc(userId);
@@ -125,24 +124,22 @@ class UserRepository implements IUserRepository {
       watchAll() async* {
     final devicesDoc = await _firestore.currentUserDocument();
 
-    yield* devicesDoc.usersHomesCollecttion
-        .snapshots()
-        .map(
+    yield* devicesDoc.usersHomesCollecttion.snapshots().map(
           (snapshot) =>
               right<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>(
             snapshot.docs
                 .map((doc) => AllHomesOfUserDtos.fromFirestore(doc).toDomain())
                 .toImmutableList(),
           ),
-        )
-        .onErrorReturnWith((e) {
-      if (e is PlatformException && e.message.contains('PERMISSION_DENIED')) {
-        return left(const AllHomesOfUserFailures.insufficientPermission());
-      } else {
-        // log.error(e.toString());
-        return left(const AllHomesOfUserFailures.unexpected());
-      }
-    });
+        );
+    //     .onErrorReturnWith((e) {
+    //   if (e is PlatformException && e.message!.contains('PERMISSION_DENIED')) {
+    //     return left(const AllHomesOfUserFailures.insufficientPermission());
+    //   } else {
+    //     // log.error(e.toString());
+    //     return left(const AllHomesOfUserFailures.unexpected());
+    //   }
+    // });
   }
 
   @override
@@ -154,8 +151,8 @@ class UserRepository implements IUserRepository {
       final String userId = (await getIt<IAuthFacade>().getSignedInUser())
           .getOrElse(() => throw NotAuthenticatedError())
           .id
-          .getOrCrash();
-      final String homeId = allHomesOfUserEntity.id.getOrCrash();
+          .getOrCrash()!;
+      final String homeId = allHomesOfUserEntity.id!.getOrCrash()!;
 
       final userInHomeRef =
           homeCollection.doc(homeId).usersCollecttion.doc(userId);

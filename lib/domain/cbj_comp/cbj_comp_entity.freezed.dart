@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'cbj_comp_entity.dart';
 
@@ -9,22 +9,24 @@ part of 'cbj_comp_entity.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$CBJCompEntityTearOff {
   const _$CBJCompEntityTearOff();
 
-// ignore: unused_element
   _CBJCompEntity call(
-      {@required CBJCompUniqueId id,
-      @required CBJCompRoomId roomId,
-      CBJCompDevices cBJCompDevices,
-      CBJCompDefaultName name,
-      CBJCompMacAddr macAddr,
-      CBJCompOs compOs,
-      CBJCompModel compModel,
-      CBJCompType compType,
-      CBJCompUuid compUuid,
-      CBJCompLastKnownIp lastKnownIp}) {
+      {required CBJCompUniqueId id,
+      required CBJCompRoomId roomId,
+      CBJCompDevices? cBJCompDevices,
+      CBJCompDefaultName? name,
+      CBJCompMacAddr? macAddr,
+      CBJCompOs? compOs,
+      CBJCompModel? compModel,
+      CBJCompType? compType,
+      CBJCompUuid? compUuid,
+      CBJCompLastKnownIp? lastKnownIp}) {
     return _CBJCompEntity(
       id: id,
       roomId: roomId,
@@ -41,26 +43,26 @@ class _$CBJCompEntityTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $CBJCompEntity = _$CBJCompEntityTearOff();
 
 /// @nodoc
 mixin _$CBJCompEntity {
-  CBJCompUniqueId get id;
-  CBJCompRoomId get roomId;
-  CBJCompDevices get cBJCompDevices;
-  CBJCompDefaultName get name;
-  CBJCompMacAddr get macAddr;
-  CBJCompOs get compOs;
-  CBJCompModel get compModel;
-  CBJCompType get compType;
+  CBJCompUniqueId get id => throw _privateConstructorUsedError;
+  CBJCompRoomId get roomId => throw _privateConstructorUsedError;
+  CBJCompDevices? get cBJCompDevices => throw _privateConstructorUsedError;
+  CBJCompDefaultName? get name => throw _privateConstructorUsedError;
+  CBJCompMacAddr? get macAddr => throw _privateConstructorUsedError;
+  CBJCompOs? get compOs => throw _privateConstructorUsedError;
+  CBJCompModel? get compModel => throw _privateConstructorUsedError;
+  CBJCompType? get compType => throw _privateConstructorUsedError;
 
   /// The comp uuid that it came with out of the factory
-  CBJCompUuid get compUuid;
-  CBJCompLastKnownIp get lastKnownIp;
+  CBJCompUuid? get compUuid => throw _privateConstructorUsedError;
+  CBJCompLastKnownIp? get lastKnownIp => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $CBJCompEntityCopyWith<CBJCompEntity> get copyWith;
+  $CBJCompEntityCopyWith<CBJCompEntity> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -71,14 +73,14 @@ abstract class $CBJCompEntityCopyWith<$Res> {
   $Res call(
       {CBJCompUniqueId id,
       CBJCompRoomId roomId,
-      CBJCompDevices cBJCompDevices,
-      CBJCompDefaultName name,
-      CBJCompMacAddr macAddr,
-      CBJCompOs compOs,
-      CBJCompModel compModel,
-      CBJCompType compType,
-      CBJCompUuid compUuid,
-      CBJCompLastKnownIp lastKnownIp});
+      CBJCompDevices? cBJCompDevices,
+      CBJCompDefaultName? name,
+      CBJCompMacAddr? macAddr,
+      CBJCompOs? compOs,
+      CBJCompModel? compModel,
+      CBJCompType? compType,
+      CBJCompUuid? compUuid,
+      CBJCompLastKnownIp? lastKnownIp});
 }
 
 /// @nodoc
@@ -92,33 +94,58 @@ class _$CBJCompEntityCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object roomId = freezed,
-    Object cBJCompDevices = freezed,
-    Object name = freezed,
-    Object macAddr = freezed,
-    Object compOs = freezed,
-    Object compModel = freezed,
-    Object compType = freezed,
-    Object compUuid = freezed,
-    Object lastKnownIp = freezed,
+    Object? id = freezed,
+    Object? roomId = freezed,
+    Object? cBJCompDevices = freezed,
+    Object? name = freezed,
+    Object? macAddr = freezed,
+    Object? compOs = freezed,
+    Object? compModel = freezed,
+    Object? compType = freezed,
+    Object? compUuid = freezed,
+    Object? lastKnownIp = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as CBJCompUniqueId,
-      roomId: roomId == freezed ? _value.roomId : roomId as CBJCompRoomId,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as CBJCompUniqueId,
+      roomId: roomId == freezed
+          ? _value.roomId
+          : roomId // ignore: cast_nullable_to_non_nullable
+              as CBJCompRoomId,
       cBJCompDevices: cBJCompDevices == freezed
           ? _value.cBJCompDevices
-          : cBJCompDevices as CBJCompDevices,
-      name: name == freezed ? _value.name : name as CBJCompDefaultName,
-      macAddr: macAddr == freezed ? _value.macAddr : macAddr as CBJCompMacAddr,
-      compOs: compOs == freezed ? _value.compOs : compOs as CBJCompOs,
-      compModel:
-          compModel == freezed ? _value.compModel : compModel as CBJCompModel,
-      compType: compType == freezed ? _value.compType : compType as CBJCompType,
-      compUuid: compUuid == freezed ? _value.compUuid : compUuid as CBJCompUuid,
+          : cBJCompDevices // ignore: cast_nullable_to_non_nullable
+              as CBJCompDevices?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as CBJCompDefaultName?,
+      macAddr: macAddr == freezed
+          ? _value.macAddr
+          : macAddr // ignore: cast_nullable_to_non_nullable
+              as CBJCompMacAddr?,
+      compOs: compOs == freezed
+          ? _value.compOs
+          : compOs // ignore: cast_nullable_to_non_nullable
+              as CBJCompOs?,
+      compModel: compModel == freezed
+          ? _value.compModel
+          : compModel // ignore: cast_nullable_to_non_nullable
+              as CBJCompModel?,
+      compType: compType == freezed
+          ? _value.compType
+          : compType // ignore: cast_nullable_to_non_nullable
+              as CBJCompType?,
+      compUuid: compUuid == freezed
+          ? _value.compUuid
+          : compUuid // ignore: cast_nullable_to_non_nullable
+              as CBJCompUuid?,
       lastKnownIp: lastKnownIp == freezed
           ? _value.lastKnownIp
-          : lastKnownIp as CBJCompLastKnownIp,
+          : lastKnownIp // ignore: cast_nullable_to_non_nullable
+              as CBJCompLastKnownIp?,
     ));
   }
 }
@@ -133,14 +160,14 @@ abstract class _$CBJCompEntityCopyWith<$Res>
   $Res call(
       {CBJCompUniqueId id,
       CBJCompRoomId roomId,
-      CBJCompDevices cBJCompDevices,
-      CBJCompDefaultName name,
-      CBJCompMacAddr macAddr,
-      CBJCompOs compOs,
-      CBJCompModel compModel,
-      CBJCompType compType,
-      CBJCompUuid compUuid,
-      CBJCompLastKnownIp lastKnownIp});
+      CBJCompDevices? cBJCompDevices,
+      CBJCompDefaultName? name,
+      CBJCompMacAddr? macAddr,
+      CBJCompOs? compOs,
+      CBJCompModel? compModel,
+      CBJCompType? compType,
+      CBJCompUuid? compUuid,
+      CBJCompLastKnownIp? lastKnownIp});
 }
 
 /// @nodoc
@@ -156,42 +183,68 @@ class __$CBJCompEntityCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object roomId = freezed,
-    Object cBJCompDevices = freezed,
-    Object name = freezed,
-    Object macAddr = freezed,
-    Object compOs = freezed,
-    Object compModel = freezed,
-    Object compType = freezed,
-    Object compUuid = freezed,
-    Object lastKnownIp = freezed,
+    Object? id = freezed,
+    Object? roomId = freezed,
+    Object? cBJCompDevices = freezed,
+    Object? name = freezed,
+    Object? macAddr = freezed,
+    Object? compOs = freezed,
+    Object? compModel = freezed,
+    Object? compType = freezed,
+    Object? compUuid = freezed,
+    Object? lastKnownIp = freezed,
   }) {
     return _then(_CBJCompEntity(
-      id: id == freezed ? _value.id : id as CBJCompUniqueId,
-      roomId: roomId == freezed ? _value.roomId : roomId as CBJCompRoomId,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as CBJCompUniqueId,
+      roomId: roomId == freezed
+          ? _value.roomId
+          : roomId // ignore: cast_nullable_to_non_nullable
+              as CBJCompRoomId,
       cBJCompDevices: cBJCompDevices == freezed
           ? _value.cBJCompDevices
-          : cBJCompDevices as CBJCompDevices,
-      name: name == freezed ? _value.name : name as CBJCompDefaultName,
-      macAddr: macAddr == freezed ? _value.macAddr : macAddr as CBJCompMacAddr,
-      compOs: compOs == freezed ? _value.compOs : compOs as CBJCompOs,
-      compModel:
-          compModel == freezed ? _value.compModel : compModel as CBJCompModel,
-      compType: compType == freezed ? _value.compType : compType as CBJCompType,
-      compUuid: compUuid == freezed ? _value.compUuid : compUuid as CBJCompUuid,
+          : cBJCompDevices // ignore: cast_nullable_to_non_nullable
+              as CBJCompDevices?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as CBJCompDefaultName?,
+      macAddr: macAddr == freezed
+          ? _value.macAddr
+          : macAddr // ignore: cast_nullable_to_non_nullable
+              as CBJCompMacAddr?,
+      compOs: compOs == freezed
+          ? _value.compOs
+          : compOs // ignore: cast_nullable_to_non_nullable
+              as CBJCompOs?,
+      compModel: compModel == freezed
+          ? _value.compModel
+          : compModel // ignore: cast_nullable_to_non_nullable
+              as CBJCompModel?,
+      compType: compType == freezed
+          ? _value.compType
+          : compType // ignore: cast_nullable_to_non_nullable
+              as CBJCompType?,
+      compUuid: compUuid == freezed
+          ? _value.compUuid
+          : compUuid // ignore: cast_nullable_to_non_nullable
+              as CBJCompUuid?,
       lastKnownIp: lastKnownIp == freezed
           ? _value.lastKnownIp
-          : lastKnownIp as CBJCompLastKnownIp,
+          : lastKnownIp // ignore: cast_nullable_to_non_nullable
+              as CBJCompLastKnownIp?,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_CBJCompEntity extends _CBJCompEntity {
   const _$_CBJCompEntity(
-      {@required this.id,
-      @required this.roomId,
+      {required this.id,
+      required this.roomId,
       this.cBJCompDevices,
       this.name,
       this.macAddr,
@@ -200,32 +253,30 @@ class _$_CBJCompEntity extends _CBJCompEntity {
       this.compType,
       this.compUuid,
       this.lastKnownIp})
-      : assert(id != null),
-        assert(roomId != null),
-        super._();
+      : super._();
 
   @override
   final CBJCompUniqueId id;
   @override
   final CBJCompRoomId roomId;
   @override
-  final CBJCompDevices cBJCompDevices;
+  final CBJCompDevices? cBJCompDevices;
   @override
-  final CBJCompDefaultName name;
+  final CBJCompDefaultName? name;
   @override
-  final CBJCompMacAddr macAddr;
+  final CBJCompMacAddr? macAddr;
   @override
-  final CBJCompOs compOs;
+  final CBJCompOs? compOs;
   @override
-  final CBJCompModel compModel;
+  final CBJCompModel? compModel;
   @override
-  final CBJCompType compType;
+  final CBJCompType? compType;
   @override
 
   /// The comp uuid that it came with out of the factory
-  final CBJCompUuid compUuid;
+  final CBJCompUuid? compUuid;
   @override
-  final CBJCompLastKnownIp lastKnownIp;
+  final CBJCompLastKnownIp? lastKnownIp;
 
   @override
   String toString() {
@@ -285,42 +336,43 @@ class _$_CBJCompEntity extends _CBJCompEntity {
 }
 
 abstract class _CBJCompEntity extends CBJCompEntity {
-  const _CBJCompEntity._() : super._();
   const factory _CBJCompEntity(
-      {@required CBJCompUniqueId id,
-      @required CBJCompRoomId roomId,
-      CBJCompDevices cBJCompDevices,
-      CBJCompDefaultName name,
-      CBJCompMacAddr macAddr,
-      CBJCompOs compOs,
-      CBJCompModel compModel,
-      CBJCompType compType,
-      CBJCompUuid compUuid,
-      CBJCompLastKnownIp lastKnownIp}) = _$_CBJCompEntity;
+      {required CBJCompUniqueId id,
+      required CBJCompRoomId roomId,
+      CBJCompDevices? cBJCompDevices,
+      CBJCompDefaultName? name,
+      CBJCompMacAddr? macAddr,
+      CBJCompOs? compOs,
+      CBJCompModel? compModel,
+      CBJCompType? compType,
+      CBJCompUuid? compUuid,
+      CBJCompLastKnownIp? lastKnownIp}) = _$_CBJCompEntity;
+  const _CBJCompEntity._() : super._();
 
   @override
-  CBJCompUniqueId get id;
+  CBJCompUniqueId get id => throw _privateConstructorUsedError;
   @override
-  CBJCompRoomId get roomId;
+  CBJCompRoomId get roomId => throw _privateConstructorUsedError;
   @override
-  CBJCompDevices get cBJCompDevices;
+  CBJCompDevices? get cBJCompDevices => throw _privateConstructorUsedError;
   @override
-  CBJCompDefaultName get name;
+  CBJCompDefaultName? get name => throw _privateConstructorUsedError;
   @override
-  CBJCompMacAddr get macAddr;
+  CBJCompMacAddr? get macAddr => throw _privateConstructorUsedError;
   @override
-  CBJCompOs get compOs;
+  CBJCompOs? get compOs => throw _privateConstructorUsedError;
   @override
-  CBJCompModel get compModel;
+  CBJCompModel? get compModel => throw _privateConstructorUsedError;
   @override
-  CBJCompType get compType;
+  CBJCompType? get compType => throw _privateConstructorUsedError;
   @override
 
   /// The comp uuid that it came with out of the factory
-  CBJCompUuid get compUuid;
+  CBJCompUuid? get compUuid => throw _privateConstructorUsedError;
   @override
-  CBJCompLastKnownIp get lastKnownIp;
+  CBJCompLastKnownIp? get lastKnownIp => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$CBJCompEntityCopyWith<_CBJCompEntity> get copyWith;
+  _$CBJCompEntityCopyWith<_CBJCompEntity> get copyWith =>
+      throw _privateConstructorUsedError;
 }

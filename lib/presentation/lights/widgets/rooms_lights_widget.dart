@@ -27,33 +27,32 @@ class RoomsLightsWidget extends StatelessWidget {
           ),
           loadSuccess: (state) {
             if (state.devices.size != 0) {
-              final List<Color> _gradientColor = GradientColors.sky;
               final Map<String, List<DeviceEntity>> tempDevicesByRooms =
                   <String, List<DeviceEntity>>{};
 
               for (int i = 0; i < state.devices.size; i++) {
-                final DeviceEntity tempDevice = state.devices[i];
+                final DeviceEntity tempDevice = state.devices[i]!;
                 if (showDevicesOnlyFromRoomId != null) {
                   if (showDevicesOnlyFromRoomId ==
-                      tempDevice.roomId.getOrCrash()) {
-                    if (tempDevicesByRooms[tempDevice.roomId.getOrCrash()] ==
+                      tempDevice.roomId!.getOrCrash()) {
+                    if (tempDevicesByRooms[tempDevice.roomId!.getOrCrash()] ==
                         null) {
-                      tempDevicesByRooms[tempDevice.roomId.getOrCrash()] = [
+                      tempDevicesByRooms[tempDevice.roomId!.getOrCrash()!] = [
                         tempDevice
                       ];
                     } else {
-                      tempDevicesByRooms[tempDevice.roomId.getOrCrash()]
+                      tempDevicesByRooms[tempDevice.roomId!.getOrCrash()]!
                           .add(tempDevice);
                     }
                   }
                 } else {
-                  if (tempDevicesByRooms[tempDevice.roomId.getOrCrash()] ==
+                  if (tempDevicesByRooms[tempDevice.roomId!.getOrCrash()] ==
                       null) {
-                    tempDevicesByRooms[tempDevice.roomId.getOrCrash()] = [
+                    tempDevicesByRooms[tempDevice.roomId!.getOrCrash()!] = [
                       tempDevice
                     ];
                   } else {
-                    tempDevicesByRooms[tempDevice.roomId.getOrCrash()]
+                    tempDevicesByRooms[tempDevice.roomId!.getOrCrash()]!
                         .add(tempDevice);
                   }
                 }
@@ -73,7 +72,7 @@ class RoomsLightsWidget extends StatelessWidget {
                   padding: EdgeInsets.zero,
                   itemBuilder: (context, index) {
                     gradientColorCounter++;
-                    List<Color> gradiantColor;
+                    List<Color> gradiantColor = GradientColors.sky;
                     if (roomColorGradiant != null) {
                       gradiantColor = roomColorGradiant;
                     } else if (gradientColorCounter >
@@ -94,13 +93,36 @@ class RoomsLightsWidget extends StatelessWidget {
                 ),
               );
             } else {
-              return Expanded(
-                  child: FlatButton(
-                onPressed: () {},
-                color: Colors.black,
-                child: const Text(
-                    'No lights have been found.\nPlease add new light'),
-              ));
+              return SingleChildScrollView(
+                reverse: true,
+                padding: const EdgeInsets.only(bottom: 15),
+                child: Column(
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.symmetric(vertical: 30),
+                      alignment: Alignment.center,
+                      child: Image.asset(
+                        'assets/cbj_logo.png',
+                        fit: BoxFit.fitHeight,
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text(
+                        'Lights does not exist.',
+                        style: TextStyle(
+                            fontSize: 30,
+                            color: (Theme.of(context)
+                                .textTheme
+                                .bodyText1!
+                                .color)!),
+                      ),
+                    ),
+                  ],
+                ),
+              );
             }
           },
           loadFailure: (state) {

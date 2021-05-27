@@ -37,14 +37,14 @@ abstract class UserValueObjectAbstract<T> {
   int get hashCode => value.hashCode;
 }
 
-class UserUniqueId extends UserValueObjectAbstract<String> {
+class UserUniqueId extends UserValueObjectAbstract<String?> {
   factory UserUniqueId() {
     return UserUniqueId._(right(Uuid().v1()));
   }
 
-  factory UserUniqueId.fromUniqueString(String uniqueId) {
+  factory UserUniqueId.fromUniqueString(String? uniqueId) {
     assert(uniqueId != null);
-    return UserUniqueId._(right(uniqueId));
+    return UserUniqueId._(right(uniqueId!));
   }
 
   UserUniqueId._(this.value);

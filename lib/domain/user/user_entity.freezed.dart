@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'user_entity.dart';
 
@@ -9,18 +9,20 @@ part of 'user_entity.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$UserEntityTearOff {
   const _$UserEntityTearOff();
 
-// ignore: unused_element
   _UserEntity call(
-      {@required UserUniqueId id,
-      @required UserEmail email,
-      @required UserName name,
-      UserPass pass,
-      UserFirstName firstName,
-      UserLastName lastName}) {
+      {required UserUniqueId? id,
+      required UserEmail? email,
+      required UserName? name,
+      UserPass? pass,
+      UserFirstName? firstName,
+      UserLastName? lastName}) {
     return _UserEntity(
       id: id,
       email: email,
@@ -33,20 +35,20 @@ class _$UserEntityTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $UserEntity = _$UserEntityTearOff();
 
 /// @nodoc
 mixin _$UserEntity {
-  UserUniqueId get id;
-  UserEmail get email;
-  UserName get name;
-  UserPass get pass;
-  UserFirstName get firstName;
-  UserLastName get lastName;
+  UserUniqueId? get id => throw _privateConstructorUsedError;
+  UserEmail? get email => throw _privateConstructorUsedError;
+  UserName? get name => throw _privateConstructorUsedError;
+  UserPass? get pass => throw _privateConstructorUsedError;
+  UserFirstName? get firstName => throw _privateConstructorUsedError;
+  UserLastName? get lastName => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $UserEntityCopyWith<UserEntity> get copyWith;
+  $UserEntityCopyWith<UserEntity> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -55,12 +57,12 @@ abstract class $UserEntityCopyWith<$Res> {
           UserEntity value, $Res Function(UserEntity) then) =
       _$UserEntityCopyWithImpl<$Res>;
   $Res call(
-      {UserUniqueId id,
-      UserEmail email,
-      UserName name,
-      UserPass pass,
-      UserFirstName firstName,
-      UserLastName lastName});
+      {UserUniqueId? id,
+      UserEmail? email,
+      UserName? name,
+      UserPass? pass,
+      UserFirstName? firstName,
+      UserLastName? lastName});
 }
 
 /// @nodoc
@@ -73,22 +75,38 @@ class _$UserEntityCopyWithImpl<$Res> implements $UserEntityCopyWith<$Res> {
 
   @override
   $Res call({
-    Object id = freezed,
-    Object email = freezed,
-    Object name = freezed,
-    Object pass = freezed,
-    Object firstName = freezed,
-    Object lastName = freezed,
+    Object? id = freezed,
+    Object? email = freezed,
+    Object? name = freezed,
+    Object? pass = freezed,
+    Object? firstName = freezed,
+    Object? lastName = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as UserUniqueId,
-      email: email == freezed ? _value.email : email as UserEmail,
-      name: name == freezed ? _value.name : name as UserName,
-      pass: pass == freezed ? _value.pass : pass as UserPass,
-      firstName:
-          firstName == freezed ? _value.firstName : firstName as UserFirstName,
-      lastName:
-          lastName == freezed ? _value.lastName : lastName as UserLastName,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as UserUniqueId?,
+      email: email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as UserEmail?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as UserName?,
+      pass: pass == freezed
+          ? _value.pass
+          : pass // ignore: cast_nullable_to_non_nullable
+              as UserPass?,
+      firstName: firstName == freezed
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as UserFirstName?,
+      lastName: lastName == freezed
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
+              as UserLastName?,
     ));
   }
 }
@@ -100,12 +118,12 @@ abstract class _$UserEntityCopyWith<$Res> implements $UserEntityCopyWith<$Res> {
       __$UserEntityCopyWithImpl<$Res>;
   @override
   $Res call(
-      {UserUniqueId id,
-      UserEmail email,
-      UserName name,
-      UserPass pass,
-      UserFirstName firstName,
-      UserLastName lastName});
+      {UserUniqueId? id,
+      UserEmail? email,
+      UserName? name,
+      UserPass? pass,
+      UserFirstName? firstName,
+      UserLastName? lastName});
 }
 
 /// @nodoc
@@ -120,52 +138,66 @@ class __$UserEntityCopyWithImpl<$Res> extends _$UserEntityCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object email = freezed,
-    Object name = freezed,
-    Object pass = freezed,
-    Object firstName = freezed,
-    Object lastName = freezed,
+    Object? id = freezed,
+    Object? email = freezed,
+    Object? name = freezed,
+    Object? pass = freezed,
+    Object? firstName = freezed,
+    Object? lastName = freezed,
   }) {
     return _then(_UserEntity(
-      id: id == freezed ? _value.id : id as UserUniqueId,
-      email: email == freezed ? _value.email : email as UserEmail,
-      name: name == freezed ? _value.name : name as UserName,
-      pass: pass == freezed ? _value.pass : pass as UserPass,
-      firstName:
-          firstName == freezed ? _value.firstName : firstName as UserFirstName,
-      lastName:
-          lastName == freezed ? _value.lastName : lastName as UserLastName,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as UserUniqueId?,
+      email: email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as UserEmail?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as UserName?,
+      pass: pass == freezed
+          ? _value.pass
+          : pass // ignore: cast_nullable_to_non_nullable
+              as UserPass?,
+      firstName: firstName == freezed
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as UserFirstName?,
+      lastName: lastName == freezed
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
+              as UserLastName?,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_UserEntity extends _UserEntity {
   const _$_UserEntity(
-      {@required this.id,
-      @required this.email,
-      @required this.name,
+      {required this.id,
+      required this.email,
+      required this.name,
       this.pass,
       this.firstName,
       this.lastName})
-      : assert(id != null),
-        assert(email != null),
-        assert(name != null),
-        super._();
+      : super._();
 
   @override
-  final UserUniqueId id;
+  final UserUniqueId? id;
   @override
-  final UserEmail email;
+  final UserEmail? email;
   @override
-  final UserName name;
+  final UserName? name;
   @override
-  final UserPass pass;
+  final UserPass? pass;
   @override
-  final UserFirstName firstName;
+  final UserFirstName? firstName;
   @override
-  final UserLastName lastName;
+  final UserLastName? lastName;
 
   @override
   String toString() {
@@ -209,28 +241,29 @@ class _$_UserEntity extends _UserEntity {
 }
 
 abstract class _UserEntity extends UserEntity {
-  const _UserEntity._() : super._();
   const factory _UserEntity(
-      {@required UserUniqueId id,
-      @required UserEmail email,
-      @required UserName name,
-      UserPass pass,
-      UserFirstName firstName,
-      UserLastName lastName}) = _$_UserEntity;
+      {required UserUniqueId? id,
+      required UserEmail? email,
+      required UserName? name,
+      UserPass? pass,
+      UserFirstName? firstName,
+      UserLastName? lastName}) = _$_UserEntity;
+  const _UserEntity._() : super._();
 
   @override
-  UserUniqueId get id;
+  UserUniqueId? get id => throw _privateConstructorUsedError;
   @override
-  UserEmail get email;
+  UserEmail? get email => throw _privateConstructorUsedError;
   @override
-  UserName get name;
+  UserName? get name => throw _privateConstructorUsedError;
   @override
-  UserPass get pass;
+  UserPass? get pass => throw _privateConstructorUsedError;
   @override
-  UserFirstName get firstName;
+  UserFirstName? get firstName => throw _privateConstructorUsedError;
   @override
-  UserLastName get lastName;
+  UserLastName? get lastName => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$UserEntityCopyWith<_UserEntity> get copyWith;
+  _$UserEntityCopyWith<_UserEntity> get copyWith =>
+      throw _privateConstructorUsedError;
 }

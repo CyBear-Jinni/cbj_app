@@ -3,7 +3,7 @@ part of 'create_home_bloc.dart';
 @freezed
 abstract class CreateHomeState with _$CreateHomeState {
   const factory CreateHomeState({
-    @required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
+    required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
   }) = _CreateHomeState;
 
   factory CreateHomeState.initialized() => CreateHomeState(

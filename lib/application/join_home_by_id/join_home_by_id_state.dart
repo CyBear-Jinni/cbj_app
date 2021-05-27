@@ -3,7 +3,7 @@ part of 'join_home_by_id_bloc.dart';
 @freezed
 abstract class JoinHomeByIdState with _$JoinHomeByIdState {
   const factory JoinHomeByIdState({
-    @required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
+    required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
   }) = _JoinHomeByIdState;
 
   factory JoinHomeByIdState.initialized() => JoinHomeByIdState(

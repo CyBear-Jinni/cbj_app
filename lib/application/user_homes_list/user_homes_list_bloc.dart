@@ -20,7 +20,7 @@ class UserHomesListBloc extends Bloc<UserHomesListEvent, UserHomesListState> {
 
   final IUserRepository _userRepository;
   StreamSubscription<
-          Either<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>>
+          Either<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>>?
       _userHomesStreamSubscription;
 
   @override
@@ -44,7 +44,7 @@ class UserHomesListBloc extends Bloc<UserHomesListEvent, UserHomesListState> {
         yield const UserHomesListState.loadInProgress();
 
         final Either<HomeUserFailures, Unit> joinHomeOutput =
-            await _userRepository.joinExistingHome(e.allHomesOfUserEntity);
+            await _userRepository.joinExistingHome(e.allHomesOfUserEntity!);
         yield joinHomeOutput.fold(
           (f) => UserHomesListState.loadFailureEnteringHome(f),
           (r) => const UserHomesListState.enterHome(),

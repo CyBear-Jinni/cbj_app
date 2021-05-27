@@ -11,7 +11,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ScanForNewCBJCompsPage extends StatelessWidget {
   void leftIconFunction(BuildContext context) {
-    ExtendedNavigator.of(context).replace(Routes.connectToHomeWifiPage);
+    context.router.replace(const ConnectToHomeWifiRoute());
   }
 
   @override

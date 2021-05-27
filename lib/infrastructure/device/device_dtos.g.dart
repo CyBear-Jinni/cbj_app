@@ -8,18 +8,16 @@ part of 'device_dtos.dart';
 
 _$_DeviceDtos _$_$_DeviceDtosFromJson(Map<String, dynamic> json) {
   return _$_DeviceDtos(
-    defaultName: json['defaultName'] as String,
-    roomId: json['roomId'] as String,
-    state: json['state'] as String,
-    stateMassage: json['stateMassage'] as String,
-    senderDeviceOs: json['senderDeviceOs'] as String,
-    senderDeviceModel: json['senderDeviceModel'] as String,
-    senderId: json['senderId'] as String,
-    action: json['action'] as String,
-    type: json['type'] as String,
-    compUuid: json['compUuid'] as String,
-    serverTimeStamp:
-        const ServerTimestampConverter().fromJson(json['serverTimeStamp']),
+    defaultName: json['defaultName'] as String?,
+    roomId: json['roomId'] as String?,
+    state: json['state'] as String?,
+    stateMassage: json['stateMassage'] as String?,
+    senderDeviceOs: json['senderDeviceOs'] as String?,
+    senderDeviceModel: json['senderDeviceModel'] as String?,
+    senderId: json['senderId'] as String?,
+    action: json['action'] as String?,
+    type: json['type'] as String?,
+    compUuid: json['compUuid'] as String?,
   );
 }
 
@@ -35,6 +33,4 @@ Map<String, dynamic> _$_$_DeviceDtosToJson(_$_DeviceDtos instance) =>
       'action': instance.action,
       'type': instance.type,
       'compUuid': instance.compUuid,
-      'serverTimeStamp':
-          const ServerTimestampConverter().toJson(instance.serverTimeStamp),
     };

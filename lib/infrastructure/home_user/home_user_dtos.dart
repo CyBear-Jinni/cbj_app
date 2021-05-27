@@ -11,18 +11,18 @@ abstract class HomeUserDtos implements _$HomeUserDtos {
   const HomeUserDtos._();
 
   const factory HomeUserDtos({
-    @JsonKey(ignore: true) String id,
-    @required String email,
-    @required String name,
-    @required String permission,
+    @JsonKey(ignore: true) String? id,
+    required String? email,
+    required String? name,
+    required String? permission,
   }) = _HomeUserDtos;
 
   factory HomeUserDtos.fromDomain(HomeUserEntity homeUserEntity) {
     return HomeUserDtos(
-      id: homeUserEntity.id.getOrCrash(),
-      email: homeUserEntity.email.getOrCrash(),
-      name: homeUserEntity.name.getOrCrash(),
-      permission: homeUserEntity.permission.getOrCrash(),
+      id: homeUserEntity.id!.getOrCrash(),
+      email: homeUserEntity.email!.getOrCrash(),
+      name: homeUserEntity.name!.getOrCrash(),
+      permission: homeUserEntity.permission!.getOrCrash(),
     );
   }
 
@@ -30,15 +30,16 @@ abstract class HomeUserDtos implements _$HomeUserDtos {
     return HomeUserEntity(
         id: HomeUserUniqueId.fromUniqueString(id),
         email: HomeUserEmail(email),
-        name: HomeUserName(name),
-        permission: HomeUserPermission(permission));
+        name: HomeUserName(name!),
+        permission: HomeUserPermission(permission!));
   }
 
   factory HomeUserDtos.fromJson(Map<String, dynamic> json) =>
       _$HomeUserDtosFromJson(json);
 
   factory HomeUserDtos.fromFirestore(DocumentSnapshot doc) {
-    return HomeUserDtos.fromJson(doc.data()).copyWith(id: doc.id);
+    return HomeUserDtos.fromJson(doc.data()! as Map<String, dynamic>)
+        .copyWith(id: doc.id);
   }
 }
 

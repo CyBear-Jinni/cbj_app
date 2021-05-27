@@ -19,7 +19,7 @@ class ManageUsersBloc extends Bloc<ManageUsersEvent, ManageUsersState> {
 
   final IHomeUserRepository _userRepository;
 
-  StreamSubscription<Either<HomeUserFailures, KtList<HomeUserEntity>>>
+  StreamSubscription<Either<HomeUserFailures, KtList<HomeUserEntity>>>?
       _userStreamSubscription;
 
   @override

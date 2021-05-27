@@ -13,11 +13,11 @@ abstract class FolderOfScenes with _$FolderOfScenes {
   const FolderOfScenes._();
 
   const factory FolderOfScenes({
-    @required UniqueId id,
-    @required String name,
-    KtList<Either<SceneFailure, Scene>> scenesInFolder,
-    String backgroundImageUrl,
-    Color backgroundColor,
-    KtList<String> folderTags,
+    required UniqueId? id,
+    required String? name,
+    KtList<Either<SceneFailure, Scene>>? scenesInFolder,
+    String? backgroundImageUrl,
+    Color? backgroundColor,
+    KtList<String>? folderTags,
   }) = _FolderOfScenes;
 }

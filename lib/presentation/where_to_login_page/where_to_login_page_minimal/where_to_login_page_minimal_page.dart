@@ -21,7 +21,7 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepPurpleAccent[200].withOpacity(0.6),
+      backgroundColor: Colors.deepPurpleAccent[200]!.withOpacity(0.6),
       appBar: AppBar(
         title: const Text('Choose type of login'),
       ),
@@ -40,71 +40,89 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
               child: Text('What would you like to do',
                   style: TextStyle(
                       fontSize: 25,
-                      color: Theme.of(context).textTheme.subtitle2.color))),
+                      color: (Theme.of(context).textTheme.bodyText1!.color)))),
           Expanded(
             child: Column(
               children: <Widget>[
                 const SizedBox(
                   height: 30,
                 ),
-                FlatButton(
+                SizedBox(
                   height: 100,
-                  minWidth: MediaQuery.of(context).size.width,
-                  color: Colors.blue,
-                  onPressed: () {
-                    ExtendedNavigator.of(context).push(
-                      Routes.createHomePage,
-                    );
-                  },
-                  child: Container(
-                    margin: const EdgeInsets.only(left: 30),
-                    child: Row(
-                      children: <Widget>[
-                        FaIcon(FontAwesomeIcons.doorOpen,
-                            color: Theme.of(context).textTheme.subtitle2.color),
-                        const SizedBox(
-                          width: 20,
-                        ),
-                        Text(
-                          'Create Your Home',
-                          style: TextStyle(
-                              fontSize: 25,
-                              color:
-                                  Theme.of(context).textTheme.subtitle2.color),
-                        ),
-                      ],
+                  width: MediaQuery.of(context).size.width,
+                  child: TextButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(
+                        Colors.blue,
+                      ),
+                    ),
+                    onPressed: () {
+                      context.router.push(const CreateHomeRoute());
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.only(left: 30),
+                      child: Row(
+                        children: <Widget>[
+                          FaIcon(FontAwesomeIcons.doorOpen,
+                              color: (Theme.of(context)
+                                  .textTheme
+                                  .bodyText1!
+                                  .color)),
+                          const SizedBox(
+                            width: 20,
+                          ),
+                          Text(
+                            'Create Your Home',
+                            style: TextStyle(
+                                fontSize: 25,
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .bodyText1!
+                                    .color),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
                 const SizedBox(
                   height: 10,
                 ),
-                FlatButton(
+                SizedBox(
                   height: 100,
-                  minWidth: MediaQuery.of(context).size.width,
-                  color: Colors.orange,
-                  onPressed: () {
-                    ExtendedNavigator.of(context).push(
-                      Routes.joinHomeByIdPage,
-                    );
-                  },
-                  child: Container(
-                    margin: const EdgeInsets.only(left: 30),
-                    child: Row(
-                      children: <Widget>[
-                        FaIcon(FontAwesomeIcons.userFriends,
-                            color: Theme.of(context).textTheme.subtitle2.color),
-                        const SizedBox(
-                          width: 20,
-                        ),
-                        Text(
-                          'Join Existing Home',
-                          style: TextStyle(
-                              fontSize: 25,
-                              color:
-                                  Theme.of(context).textTheme.subtitle2.color),
-                        ),
-                      ],
+                  width: MediaQuery.of(context).size.width,
+                  child: TextButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(
+                        Colors.orange,
+                      ),
+                    ),
+                    onPressed: () {
+                      context.router.push(const JoinHomeByIdRoute());
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.only(left: 30),
+                      child: Row(
+                        children: <Widget>[
+                          FaIcon(FontAwesomeIcons.userFriends,
+                              color: (Theme.of(context)
+                                  .textTheme
+                                  .bodyText1!
+                                  .color)),
+                          const SizedBox(
+                            width: 20,
+                          ),
+                          Text(
+                            'Join Existing Home',
+                            style: TextStyle(
+                                fontSize: 25,
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .bodyText1!
+                                    .color),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -132,8 +150,7 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
                         listener: (context, state) {
                           state.maybeMap(
                             unauthenticated: (_) =>
-                                ExtendedNavigator.of(context)
-                                    .replace(Routes.signInPage),
+                                context.router.replace(const SignInRoute()),
                             orElse: () {},
                           );
                         },

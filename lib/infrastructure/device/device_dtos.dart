@@ -11,34 +11,34 @@ abstract class DeviceDtos implements _$DeviceDtos {
   const DeviceDtos._();
 
   const factory DeviceDtos({
-    @JsonKey(ignore: true) String id,
-    @required String defaultName,
-    @required String roomId,
-    @required String state,
-    String stateMassage,
-    @required String senderDeviceOs,
-    @required String senderDeviceModel,
-    @required String senderId,
-    @required String action,
-    @required String type,
-    @required String compUuid,
-    @required @ServerTimestampConverter() FieldValue serverTimeStamp,
+    @JsonKey(ignore: true) String? id,
+    required String? defaultName,
+    required String? roomId,
+    required String? state,
+    String? stateMassage,
+    required String? senderDeviceOs,
+    required String? senderDeviceModel,
+    required String? senderId,
+    required String? action,
+    required String? type,
+    required String? compUuid,
+    // required ServerTimestampConverter() FieldValue serverTimeStamp,
   }) = _DeviceDtos;
 
   factory DeviceDtos.fromDomain(DeviceEntity deviceEntity) {
     return DeviceDtos(
-      id: deviceEntity.id.getOrCrash(),
-      defaultName: deviceEntity.defaultName.getOrCrash(),
-      roomId: deviceEntity.roomId.getOrCrash(),
-      state: deviceEntity.state.getOrCrash(),
-      stateMassage: deviceEntity.stateMassage.getOrCrash(),
-      senderDeviceOs: deviceEntity.senderDeviceOs.getOrCrash(),
-      senderDeviceModel: deviceEntity.senderDeviceModel.getOrCrash(),
-      senderId: deviceEntity.senderId.getOrCrash(),
-      action: deviceEntity.action.getOrCrash(),
-      type: deviceEntity.type.getOrCrash(),
-      compUuid: deviceEntity.compUuid.getOrCrash(),
-      serverTimeStamp: FieldValue.serverTimestamp(),
+      id: deviceEntity.id!.getOrCrash(),
+      defaultName: deviceEntity.defaultName!.getOrCrash(),
+      roomId: deviceEntity.roomId!.getOrCrash(),
+      state: deviceEntity.state!.getOrCrash(),
+      stateMassage: deviceEntity.stateMassage!.getOrCrash(),
+      senderDeviceOs: deviceEntity.senderDeviceOs!.getOrCrash(),
+      senderDeviceModel: deviceEntity.senderDeviceModel!.getOrCrash(),
+      senderId: deviceEntity.senderId!.getOrCrash(),
+      action: deviceEntity.action!.getOrCrash(),
+      type: deviceEntity.type!.getOrCrash(),
+      compUuid: deviceEntity.compUuid!.getOrCrash(),
+      // serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }
 
@@ -62,18 +62,19 @@ abstract class DeviceDtos implements _$DeviceDtos {
       _$DeviceDtosFromJson(json);
 
   factory DeviceDtos.fromFirestore(DocumentSnapshot doc) {
-    return DeviceDtos.fromJson(doc.data()).copyWith(id: doc.id);
+    return DeviceDtos.fromJson(doc.data() as Map<String, dynamic>)
+        .copyWith(id: doc.id);
   }
 }
 
-class ServerTimestampConverter implements JsonConverter<FieldValue, Object> {
-  const ServerTimestampConverter();
-
-  @override
-  FieldValue fromJson(Object json) {
-    return FieldValue.serverTimestamp();
-  }
-
-  @override
-  Object toJson(FieldValue fieldValue) => fieldValue;
-}
+// class ServerTimestampConverter implements JsonConverter<FieldValue, Object> {
+//   const ServerTimestampConverter();
+//
+//   @override
+//   FieldValue fromJson(Object json) {
+//     return FieldValue.serverTimestamp();
+//   }
+//
+//   @override
+//   Object toJson(FieldValue fieldValue) => fieldValue;
+// }

@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'scene_bloc.dart';
 
@@ -9,47 +9,53 @@ part of 'scene_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$SceneEventTearOff {
   const _$SceneEventTearOff();
 
-// ignore: unused_element
-  Initialized initialized({@required Scene scene}) {
-    return Initialized(
+  _Initialized initialized({required Scene scene}) {
+    return _Initialized(
       scene: scene,
     );
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SceneEvent = _$SceneEventTearOff();
 
 /// @nodoc
 mixin _$SceneEvent {
-  Scene get scene;
+  Scene get scene => throw _privateConstructorUsedError;
 
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialized(Scene scene),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function(Scene scene) initialized,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialized(Scene scene),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Scene scene)? initialized,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialized(Initialized value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialized(Initialized value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $SceneEventCopyWith<SceneEvent> get copyWith;
+  $SceneEventCopyWith<SceneEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -72,18 +78,18 @@ class _$SceneEventCopyWithImpl<$Res> implements $SceneEventCopyWith<$Res> {
 
   @override
   $Res call({
-    Object scene = freezed,
+    Object? scene = freezed,
   }) {
     return _then(_value.copyWith(
-      scene: scene == freezed ? _value.scene : scene as Scene,
+      scene: scene == freezed
+          ? _value.scene
+          : scene // ignore: cast_nullable_to_non_nullable
+              as Scene,
     ));
   }
 
   @override
   $SceneCopyWith<$Res> get scene {
-    if (_value.scene == null) {
-      return null;
-    }
     return $SceneCopyWith<$Res>(_value.scene, (value) {
       return _then(_value.copyWith(scene: value));
     });
@@ -91,10 +97,11 @@ class _$SceneEventCopyWithImpl<$Res> implements $SceneEventCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class $InitializedCopyWith<$Res> implements $SceneEventCopyWith<$Res> {
-  factory $InitializedCopyWith(
-          Initialized value, $Res Function(Initialized) then) =
-      _$InitializedCopyWithImpl<$Res>;
+abstract class _$InitializedCopyWith<$Res>
+    implements $SceneEventCopyWith<$Res> {
+  factory _$InitializedCopyWith(
+          _Initialized value, $Res Function(_Initialized) then) =
+      __$InitializedCopyWithImpl<$Res>;
   @override
   $Res call({Scene scene});
 
@@ -103,28 +110,32 @@ abstract class $InitializedCopyWith<$Res> implements $SceneEventCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$InitializedCopyWithImpl<$Res> extends _$SceneEventCopyWithImpl<$Res>
-    implements $InitializedCopyWith<$Res> {
-  _$InitializedCopyWithImpl(
-      Initialized _value, $Res Function(Initialized) _then)
-      : super(_value, (v) => _then(v as Initialized));
+class __$InitializedCopyWithImpl<$Res> extends _$SceneEventCopyWithImpl<$Res>
+    implements _$InitializedCopyWith<$Res> {
+  __$InitializedCopyWithImpl(
+      _Initialized _value, $Res Function(_Initialized) _then)
+      : super(_value, (v) => _then(v as _Initialized));
 
   @override
-  Initialized get _value => super._value as Initialized;
+  _Initialized get _value => super._value as _Initialized;
 
   @override
   $Res call({
-    Object scene = freezed,
+    Object? scene = freezed,
   }) {
-    return _then(Initialized(
-      scene: scene == freezed ? _value.scene : scene as Scene,
+    return _then(_Initialized(
+      scene: scene == freezed
+          ? _value.scene
+          : scene // ignore: cast_nullable_to_non_nullable
+              as Scene,
     ));
   }
 }
 
 /// @nodoc
-class _$Initialized implements Initialized {
-  const _$Initialized({@required this.scene}) : assert(scene != null);
+
+class _$_Initialized implements _Initialized {
+  const _$_Initialized({required this.scene});
 
   @override
   final Scene scene;
@@ -137,7 +148,7 @@ class _$Initialized implements Initialized {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is Initialized &&
+        (other is _Initialized &&
             (identical(other.scene, scene) ||
                 const DeepCollectionEquality().equals(other.scene, scene)));
   }
@@ -148,25 +159,23 @@ class _$Initialized implements Initialized {
 
   @JsonKey(ignore: true)
   @override
-  $InitializedCopyWith<Initialized> get copyWith =>
-      _$InitializedCopyWithImpl<Initialized>(this, _$identity);
+  _$InitializedCopyWith<_Initialized> get copyWith =>
+      __$InitializedCopyWithImpl<_Initialized>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialized(Scene scene),
+  TResult when<TResult extends Object?>({
+    required TResult Function(Scene scene) initialized,
   }) {
-    assert(initialized != null);
     return initialized(scene);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialized(Scene scene),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Scene scene)? initialized,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initialized != null) {
       return initialized(scene);
     }
@@ -175,20 +184,18 @@ class _$Initialized implements Initialized {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialized(Initialized value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
   }) {
-    assert(initialized != null);
     return initialized(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialized(Initialized value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initialized != null) {
       return initialized(this);
     }
@@ -196,79 +203,79 @@ class _$Initialized implements Initialized {
   }
 }
 
-abstract class Initialized implements SceneEvent {
-  const factory Initialized({@required Scene scene}) = _$Initialized;
+abstract class _Initialized implements SceneEvent {
+  const factory _Initialized({required Scene scene}) = _$_Initialized;
 
   @override
-  Scene get scene;
+  Scene get scene => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  $InitializedCopyWith<Initialized> get copyWith;
+  _$InitializedCopyWith<_Initialized> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$SceneStateTearOff {
   const _$SceneStateTearOff();
 
-// ignore: unused_element
   _SceneState call() {
     return const _SceneState();
   }
 
-// ignore: unused_element
-  Loading loading() {
-    return const Loading();
+  _Loading loading() {
+    return const _Loading();
   }
 
-// ignore: unused_element
-  Loaded loaded(Scene scene) {
-    return Loaded(
+  _Loaded loaded(Scene scene) {
+    return _Loaded(
       scene,
     );
   }
 
-// ignore: unused_element
   Error error() {
     return const Error();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SceneState = _$SceneStateTearOff();
 
 /// @nodoc
 mixin _$SceneState {
   @optionalTypeArgs
-  TResult when<TResult extends Object>(
-    TResult $default(), {
-    @required TResult loading(),
-    @required TResult loaded(Scene scene),
-    @required TResult error(),
-  });
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function() loading,
+    required TResult Function(Scene scene) loaded,
+    required TResult Function() error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>(
-    TResult $default(), {
-    TResult loading(),
-    TResult loaded(Scene scene),
-    TResult error(),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function()? loading,
+    TResult Function(Scene scene)? loaded,
+    TResult Function()? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>(
-    TResult $default(_SceneState value), {
-    @required TResult loading(Loading value),
-    @required TResult loaded(Loaded value),
-    @required TResult error(Error value),
-  });
+  TResult map<TResult extends Object?>(
+    TResult Function(_SceneState value) $default, {
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(Error value) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>(
-    TResult $default(_SceneState value), {
-    TResult loading(Loading value),
-    TResult loaded(Loaded value),
-    TResult error(Error value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_SceneState value)? $default, {
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -306,6 +313,7 @@ class __$SceneStateCopyWithImpl<$Res> extends _$SceneStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_SceneState implements _SceneState {
   const _$_SceneState();
 
@@ -324,29 +332,24 @@ class _$_SceneState implements _SceneState {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>(
-    TResult $default(), {
-    @required TResult loading(),
-    @required TResult loaded(Scene scene),
-    @required TResult error(),
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function() loading,
+    required TResult Function(Scene scene) loaded,
+    required TResult Function() error,
   }) {
-    assert($default != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(error != null);
     return $default();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>(
-    TResult $default(), {
-    TResult loading(),
-    TResult loaded(Scene scene),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function()? loading,
+    TResult Function(Scene scene)? loaded,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default();
     }
@@ -355,29 +358,24 @@ class _$_SceneState implements _SceneState {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>(
-    TResult $default(_SceneState value), {
-    @required TResult loading(Loading value),
-    @required TResult loaded(Loaded value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>(
+    TResult Function(_SceneState value) $default, {
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(Error value) error,
   }) {
-    assert($default != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(error != null);
     return $default(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>(
-    TResult $default(_SceneState value), {
-    TResult loading(Loading value),
-    TResult loaded(Loaded value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_SceneState value)? $default, {
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default(this);
     }
@@ -390,24 +388,25 @@ abstract class _SceneState implements SceneState {
 }
 
 /// @nodoc
-abstract class $LoadingCopyWith<$Res> {
-  factory $LoadingCopyWith(Loading value, $Res Function(Loading) then) =
-      _$LoadingCopyWithImpl<$Res>;
+abstract class _$LoadingCopyWith<$Res> {
+  factory _$LoadingCopyWith(_Loading value, $Res Function(_Loading) then) =
+      __$LoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$LoadingCopyWithImpl<$Res> extends _$SceneStateCopyWithImpl<$Res>
-    implements $LoadingCopyWith<$Res> {
-  _$LoadingCopyWithImpl(Loading _value, $Res Function(Loading) _then)
-      : super(_value, (v) => _then(v as Loading));
+class __$LoadingCopyWithImpl<$Res> extends _$SceneStateCopyWithImpl<$Res>
+    implements _$LoadingCopyWith<$Res> {
+  __$LoadingCopyWithImpl(_Loading _value, $Res Function(_Loading) _then)
+      : super(_value, (v) => _then(v as _Loading));
 
   @override
-  Loading get _value => super._value as Loading;
+  _Loading get _value => super._value as _Loading;
 }
 
 /// @nodoc
-class _$Loading implements Loading {
-  const _$Loading();
+
+class _$_Loading implements _Loading {
+  const _$_Loading();
 
   @override
   String toString() {
@@ -416,7 +415,7 @@ class _$Loading implements Loading {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Loading);
+    return identical(this, other) || (other is _Loading);
   }
 
   @override
@@ -424,29 +423,24 @@ class _$Loading implements Loading {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>(
-    TResult $default(), {
-    @required TResult loading(),
-    @required TResult loaded(Scene scene),
-    @required TResult error(),
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function() loading,
+    required TResult Function(Scene scene) loaded,
+    required TResult Function() error,
   }) {
-    assert($default != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(error != null);
     return loading();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>(
-    TResult $default(), {
-    TResult loading(),
-    TResult loaded(Scene scene),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function()? loading,
+    TResult Function(Scene scene)? loaded,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loading != null) {
       return loading();
     }
@@ -455,29 +449,24 @@ class _$Loading implements Loading {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>(
-    TResult $default(_SceneState value), {
-    @required TResult loading(Loading value),
-    @required TResult loaded(Loaded value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>(
+    TResult Function(_SceneState value) $default, {
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(Error value) error,
   }) {
-    assert($default != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(error != null);
     return loading(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>(
-    TResult $default(_SceneState value), {
-    TResult loading(Loading value),
-    TResult loaded(Loaded value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_SceneState value)? $default, {
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loading != null) {
       return loading(this);
     }
@@ -485,42 +474,42 @@ class _$Loading implements Loading {
   }
 }
 
-abstract class Loading implements SceneState {
-  const factory Loading() = _$Loading;
+abstract class _Loading implements SceneState {
+  const factory _Loading() = _$_Loading;
 }
 
 /// @nodoc
-abstract class $LoadedCopyWith<$Res> {
-  factory $LoadedCopyWith(Loaded value, $Res Function(Loaded) then) =
-      _$LoadedCopyWithImpl<$Res>;
+abstract class _$LoadedCopyWith<$Res> {
+  factory _$LoadedCopyWith(_Loaded value, $Res Function(_Loaded) then) =
+      __$LoadedCopyWithImpl<$Res>;
   $Res call({Scene scene});
 
   $SceneCopyWith<$Res> get scene;
 }
 
 /// @nodoc
-class _$LoadedCopyWithImpl<$Res> extends _$SceneStateCopyWithImpl<$Res>
-    implements $LoadedCopyWith<$Res> {
-  _$LoadedCopyWithImpl(Loaded _value, $Res Function(Loaded) _then)
-      : super(_value, (v) => _then(v as Loaded));
+class __$LoadedCopyWithImpl<$Res> extends _$SceneStateCopyWithImpl<$Res>
+    implements _$LoadedCopyWith<$Res> {
+  __$LoadedCopyWithImpl(_Loaded _value, $Res Function(_Loaded) _then)
+      : super(_value, (v) => _then(v as _Loaded));
 
   @override
-  Loaded get _value => super._value as Loaded;
+  _Loaded get _value => super._value as _Loaded;
 
   @override
   $Res call({
-    Object scene = freezed,
+    Object? scene = freezed,
   }) {
-    return _then(Loaded(
-      scene == freezed ? _value.scene : scene as Scene,
+    return _then(_Loaded(
+      scene == freezed
+          ? _value.scene
+          : scene // ignore: cast_nullable_to_non_nullable
+              as Scene,
     ));
   }
 
   @override
   $SceneCopyWith<$Res> get scene {
-    if (_value.scene == null) {
-      return null;
-    }
     return $SceneCopyWith<$Res>(_value.scene, (value) {
       return _then(_value.copyWith(scene: value));
     });
@@ -528,8 +517,9 @@ class _$LoadedCopyWithImpl<$Res> extends _$SceneStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-class _$Loaded implements Loaded {
-  const _$Loaded(this.scene) : assert(scene != null);
+
+class _$_Loaded implements _Loaded {
+  const _$_Loaded(this.scene);
 
   @override
   final Scene scene;
@@ -542,7 +532,7 @@ class _$Loaded implements Loaded {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is Loaded &&
+        (other is _Loaded &&
             (identical(other.scene, scene) ||
                 const DeepCollectionEquality().equals(other.scene, scene)));
   }
@@ -553,34 +543,29 @@ class _$Loaded implements Loaded {
 
   @JsonKey(ignore: true)
   @override
-  $LoadedCopyWith<Loaded> get copyWith =>
-      _$LoadedCopyWithImpl<Loaded>(this, _$identity);
+  _$LoadedCopyWith<_Loaded> get copyWith =>
+      __$LoadedCopyWithImpl<_Loaded>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>(
-    TResult $default(), {
-    @required TResult loading(),
-    @required TResult loaded(Scene scene),
-    @required TResult error(),
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function() loading,
+    required TResult Function(Scene scene) loaded,
+    required TResult Function() error,
   }) {
-    assert($default != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(error != null);
     return loaded(scene);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>(
-    TResult $default(), {
-    TResult loading(),
-    TResult loaded(Scene scene),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function()? loading,
+    TResult Function(Scene scene)? loaded,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loaded != null) {
       return loaded(scene);
     }
@@ -589,29 +574,24 @@ class _$Loaded implements Loaded {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>(
-    TResult $default(_SceneState value), {
-    @required TResult loading(Loading value),
-    @required TResult loaded(Loaded value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>(
+    TResult Function(_SceneState value) $default, {
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(Error value) error,
   }) {
-    assert($default != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(error != null);
     return loaded(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>(
-    TResult $default(_SceneState value), {
-    TResult loading(Loading value),
-    TResult loaded(Loaded value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_SceneState value)? $default, {
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loaded != null) {
       return loaded(this);
     }
@@ -619,12 +599,12 @@ class _$Loaded implements Loaded {
   }
 }
 
-abstract class Loaded implements SceneState {
-  const factory Loaded(Scene scene) = _$Loaded;
+abstract class _Loaded implements SceneState {
+  const factory _Loaded(Scene scene) = _$_Loaded;
 
-  Scene get scene;
+  Scene get scene => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $LoadedCopyWith<Loaded> get copyWith;
+  _$LoadedCopyWith<_Loaded> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -644,6 +624,7 @@ class _$ErrorCopyWithImpl<$Res> extends _$SceneStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Error implements Error {
   const _$Error();
 
@@ -662,29 +643,24 @@ class _$Error implements Error {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>(
-    TResult $default(), {
-    @required TResult loading(),
-    @required TResult loaded(Scene scene),
-    @required TResult error(),
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function() loading,
+    required TResult Function(Scene scene) loaded,
+    required TResult Function() error,
   }) {
-    assert($default != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(error != null);
     return error();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>(
-    TResult $default(), {
-    TResult loading(),
-    TResult loaded(Scene scene),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function()? loading,
+    TResult Function(Scene scene)? loaded,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error();
     }
@@ -693,29 +669,24 @@ class _$Error implements Error {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>(
-    TResult $default(_SceneState value), {
-    @required TResult loading(Loading value),
-    @required TResult loaded(Loaded value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>(
+    TResult Function(_SceneState value) $default, {
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(Error value) error,
   }) {
-    assert($default != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>(
-    TResult $default(_SceneState value), {
-    TResult loading(Loading value),
-    TResult loaded(Loaded value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_SceneState value)? $default, {
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this);
     }

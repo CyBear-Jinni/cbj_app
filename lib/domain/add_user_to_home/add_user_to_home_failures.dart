@@ -5,7 +5,7 @@ part 'add_user_to_home_failures.freezed.dart';
 @freezed
 abstract class AddUserToHomeFailures<T> {
   const factory AddUserToHomeFailures.empty({
-    @required T failedValue,
+    required T failedValue,
   }) = _Empty;
 
   const factory AddUserToHomeFailures.unexpected() = _Unexpected;

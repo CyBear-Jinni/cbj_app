@@ -4,374 +4,396 @@
 // AutoRouteGenerator
 // **************************************************************************
 
-// ignore_for_file: public_member_api_docs
+import 'package:auto_route/auto_route.dart' as _i1;
+import 'package:flutter/material.dart' as _i2;
 
-import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
+import '../../domain/cbj_comp/cbj_comp_entity.dart' as _i24;
+import '../../domain/folder_of_scenes/folder_of_scene.dart' as _i23;
+import '../../infrastructure/core/gen/smart_device/smart_room_object.dart'
+    as _i25;
+import '../add_new_devices_process/choose_device_vendor_to_add/choose_device_vendor_to_add_page.dart'
+    as _i14;
+import '../add_new_devices_process/configure_new_cbj_comp/configure_new_cbj_comp_page.dart'
+    as _i18;
+import '../add_new_devices_process/connect_to_home_wifi/connect_to_home_wifi_page.dart'
+    as _i15;
+import '../add_new_devices_process/open_access_point/open_access_pointi_page.dart'
+    as _i16;
+import '../add_new_devices_process/scan_for_new_cbj_comps/scan_for_new_cbj_comps_page.dart'
+    as _i17;
+import '../add_user_to_home/add_user_to_home_page.dart' as _i12;
+import '../blinds/rooms_blinds_page.dart' as _i21;
+import '../boilers/rooms_boilers_page.dart' as _i22;
+import '../create_home/create_home_page.dart' as _i6;
+import '../home_page/home_page.dart' as _i10;
+import '../introduction_screen/introduction_screen_page.dart' as _i4;
+import '../join_home_by_id/join_home_by_id_page.dart' as _i9;
+import '../lights/lights_in_the_room/lights_in_the_room_page.dart' as _i20;
+import '../lights/rooms_lights_page.dart' as _i19;
+import '../manage_users/manage_users_page.dart' as _i11;
+import '../scenes/scenes_page.dart' as _i13;
+import '../sign_in_page/sign_in_page.dart' as _i5;
+import '../splash/splash_page.dart' as _i3;
+import '../where_to_login_page/where_to_login_page_minimal/where_to_login_page_minimal_page.dart'
+    as _i7;
+import '../where_to_login_page/where_to_login_page_offline.dart' as _i8;
 
-import '../../domain/cbj_comp/cbj_comp_entity.dart';
-import '../../domain/folder_of_scenes/folder_of_scene.dart';
-import '../../infrastructure/core/gen/smart_device/smart_blinds_object.dart';
-import '../../infrastructure/core/gen/smart_device/smart_room_object.dart';
-import '../add_new_devices_process/choose_device_vendor_to_add/choose_device_vendor_to_add_page.dart';
-import '../add_new_devices_process/configure_new_cbj_comp/configure_new_cbj_comp_page.dart';
-import '../add_new_devices_process/connect_to_home_wifi/connect_to_home_wifi_page.dart';
-import '../add_new_devices_process/open_access_point/open_access_pointi_page.dart';
-import '../add_new_devices_process/scan_for_new_cbj_comps/scan_for_new_cbj_comps_page.dart';
-import '../add_user_to_home/add_user_to_home_page.dart';
-import '../blinds/rooms_blinds_page.dart';
-import '../create_home/create_home_page.dart';
-import '../home_page/home_page.dart';
-import '../home_page/tabs/smart_devices_tab/blinds/smart_blind_widget.dart';
-import '../introduction_screen/introduction_screen_page.dart';
-import '../join_home_by_id/join_home_by_id_page.dart';
-import '../lights/lights_in_the_room/lights_in_the_room_page.dart';
-import '../lights/rooms_lights_page.dart';
-import '../manage_users/manage_users_page.dart';
-import '../scenes/scenes_page.dart';
-import '../sign_in_page/sign_in_page.dart';
-import '../splash/splash_page.dart';
-import '../where_to_login_page/where_to_login_page_minimal/where_to_login_page_minimal_page.dart';
-import '../where_to_login_page/where_to_login_page_offline.dart';
+class AppRouter extends _i1.RootStackRouter {
+  AppRouter([_i2.GlobalKey<_i2.NavigatorState>? navigatorKey])
+      : super(navigatorKey);
 
-class Routes {
-  static const String splashPage = '/';
-  static const String introductionScreenPage = '/introduction-screen-page';
-  static const String signInPage = '/sign-in-page';
-  static const String createHomePage = '/create-home-page';
-  static const String whereToLoginPageMinimalPage =
-      '/where-to-login-page-minimal-page';
-  static const String whereToLoginPageOffline = '/where-to-login-page-offline';
-  static const String joinHomeByIdPage = '/join-home-by-id-page';
-  static const String homePage = '/home-page';
-  static const String manageUsersPage = '/manage-users-page';
-  static const String addUserToHomePage = '/add-user-to-home-page';
-  static const String scenesPage = '/scenes-page';
-  static const String chooseDeviceVendorToAddPage =
-      '/choose-device-vendor-to-add-page';
-  static const String connectToHomeWifiPage = '/connect-to-home-wifi-page';
-  static const String openAccessPointPage = '/open-access-point-page';
-  static const String scanForNewCBJCompsPage = '/scan-for-new-cb-jcomps-page';
-  static const String configureNewCbjCompPage = '/configure-new-cbj-comp-page';
-  static const String roomsLightsPage = '/rooms-lights-page';
-  static const String lightsInTheRoomPage = '/lights-in-the-room-page';
-  static const String roomsBlindsPage = '/rooms-blinds-page';
-  static const String smartBlindPage = '/smart-blind-page';
-  static const all = <String>{
-    splashPage,
-    introductionScreenPage,
-    signInPage,
-    createHomePage,
-    whereToLoginPageMinimalPage,
-    whereToLoginPageOffline,
-    joinHomeByIdPage,
-    homePage,
-    manageUsersPage,
-    addUserToHomePage,
-    scenesPage,
-    chooseDeviceVendorToAddPage,
-    connectToHomeWifiPage,
-    openAccessPointPage,
-    scanForNewCBJCompsPage,
-    configureNewCbjCompPage,
-    roomsLightsPage,
-    lightsInTheRoomPage,
-    roomsBlindsPage,
-    smartBlindPage,
-  };
-}
-
-class AppRouter extends RouterBase {
   @override
-  List<RouteDef> get routes => _routes;
-  final _routes = <RouteDef>[
-    RouteDef(Routes.splashPage, page: SplashPage),
-    RouteDef(Routes.introductionScreenPage, page: IntroductionScreenPage),
-    RouteDef(Routes.signInPage, page: SignInPage),
-    RouteDef(Routes.createHomePage, page: CreateHomePage),
-    RouteDef(Routes.whereToLoginPageMinimalPage,
-        page: WhereToLoginPageMinimalPage),
-    RouteDef(Routes.whereToLoginPageOffline, page: WhereToLoginPageOffline),
-    RouteDef(Routes.joinHomeByIdPage, page: JoinHomeByIdPage),
-    RouteDef(Routes.homePage, page: HomePage),
-    RouteDef(Routes.manageUsersPage, page: ManageUsersPage),
-    RouteDef(Routes.addUserToHomePage, page: AddUserToHomePage),
-    RouteDef(Routes.scenesPage, page: ScenesPage),
-    RouteDef(Routes.chooseDeviceVendorToAddPage,
-        page: ChooseDeviceVendorToAddPage),
-    RouteDef(Routes.connectToHomeWifiPage, page: ConnectToHomeWifiPage),
-    RouteDef(Routes.openAccessPointPage, page: OpenAccessPointPage),
-    RouteDef(Routes.scanForNewCBJCompsPage, page: ScanForNewCBJCompsPage),
-    RouteDef(Routes.configureNewCbjCompPage, page: ConfigureNewCbjCompPage),
-    RouteDef(Routes.roomsLightsPage, page: RoomsLightsPage),
-    RouteDef(Routes.lightsInTheRoomPage, page: LightsInTheRoomPage),
-    RouteDef(Routes.roomsBlindsPage, page: RoomsBlindsPage),
-    RouteDef(Routes.smartBlindPage, page: SmartBlindPage),
-  ];
-  @override
-  Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
-  final _pagesMap = <Type, AutoRouteFactory>{
-    SplashPage: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => SplashPage(),
-        settings: data,
-      );
-    },
-    IntroductionScreenPage: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => IntroductionScreenPage(),
-        settings: data,
-      );
-    },
-    SignInPage: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => SignInPage(),
-        settings: data,
-      );
-    },
-    CreateHomePage: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => CreateHomePage(),
-        settings: data,
-      );
-    },
-    WhereToLoginPageMinimalPage: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => WhereToLoginPageMinimalPage(),
-        settings: data,
-      );
-    },
-    WhereToLoginPageOffline: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => WhereToLoginPageOffline(),
-        settings: data,
-      );
-    },
-    JoinHomeByIdPage: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => JoinHomeByIdPage(),
-        settings: data,
-      );
-    },
-    HomePage: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => HomePage(),
-        settings: data,
-      );
-    },
-    ManageUsersPage: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => ManageUsersPage(),
-        settings: data,
-      );
-    },
-    AddUserToHomePage: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => AddUserToHomePage(),
-        settings: data,
-      );
-    },
-    ScenesPage: (data) {
-      final args = data.getArgs<ScenesPageArguments>(nullOk: false);
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => ScenesPage(args.folderOfScenes),
-        settings: data,
-      );
-    },
-    ChooseDeviceVendorToAddPage: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => ChooseDeviceVendorToAddPage(),
-        settings: data,
-      );
-    },
-    ConnectToHomeWifiPage: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => ConnectToHomeWifiPage(),
-        settings: data,
-      );
-    },
-    OpenAccessPointPage: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => OpenAccessPointPage(),
-        settings: data,
-      );
-    },
-    ScanForNewCBJCompsPage: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => ScanForNewCBJCompsPage(),
-        settings: data,
-      );
-    },
-    ConfigureNewCbjCompPage: (data) {
-      final args =
-          data.getArgs<ConfigureNewCbjCompPageArguments>(nullOk: false);
-      return MaterialPageRoute<dynamic>(
-        builder: (context) =>
-            ConfigureNewCbjCompPage(cbjCompEntity: args.cbjCompEntity),
-        settings: data,
-      );
-    },
-    RoomsLightsPage: (data) {
-      final args = data.getArgs<RoomsLightsPageArguments>(
-        orElse: () => RoomsLightsPageArguments(),
-      );
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => RoomsLightsPage(
-          showDevicesOnlyFromRoomId: args.showDevicesOnlyFromRoomId,
-          roomColorGradiant: args.roomColorGradiant,
-        ),
-        settings: data,
-      );
-    },
-    LightsInTheRoomPage: (data) {
-      final args = data.getArgs<LightsInTheRoomPageArguments>(nullOk: false);
-      return MaterialPageRoute<dynamic>(
-        builder: (context) =>
-            LightsInTheRoomPage(thisSmartRoom: args.thisSmartRoom),
-        settings: data,
-      );
-    },
-    RoomsBlindsPage: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => RoomsBlindsPage(),
-        settings: data,
-      );
-    },
-    SmartBlindPage: (data) {
-      final args = data.getArgs<SmartBlindPageArguments>(nullOk: false);
-      return MaterialPageRoute<dynamic>(
-        builder: (context) =>
-            SmartBlindPage(smartBlindsObject: args.smartBlindsObject),
-        settings: data,
-      );
-    },
+  final Map<String, _i1.PageFactory> pagesMap = {
+    SplashRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return _i3.SplashPage();
+        }),
+    IntroductionScreenRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return _i4.IntroductionScreenPage();
+        }),
+    SignInRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return _i5.SignInPage();
+        }),
+    CreateHomeRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return _i6.CreateHomePage();
+        }),
+    WhereToLoginRouteMinimalRoute.name: (routeData) =>
+        _i1.MaterialPageX<dynamic>(
+            routeData: routeData,
+            builder: (_) {
+              return _i7.WhereToLoginPageMinimalPage();
+            }),
+    WhereToLoginRouteOffline.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return _i8.WhereToLoginPageOffline();
+        }),
+    JoinHomeByIdRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return _i9.JoinHomeByIdPage();
+        }),
+    HomeRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return _i10.HomePage();
+        }),
+    ManageUsersRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return _i11.ManageUsersPage();
+        }),
+    AddUserToHomeRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return _i12.AddUserToHomePage();
+        }),
+    ScenesRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (data) {
+          final args = data.argsAs<ScenesRouteArgs>();
+          return _i13.ScenesPage(args.folderOfScenes);
+        }),
+    ChooseDeviceVendorToAddRoute.name: (routeData) =>
+        _i1.MaterialPageX<dynamic>(
+            routeData: routeData,
+            builder: (_) {
+              return _i14.ChooseDeviceVendorToAddPage();
+            }),
+    ConnectToHomeWifiRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return _i15.ConnectToHomeWifiPage();
+        }),
+    OpenAccessPointRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return _i16.OpenAccessPointPage();
+        }),
+    ScanForNewCBJCompsRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return _i17.ScanForNewCBJCompsPage();
+        }),
+    ConfigureNewCbjCompRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (data) {
+          final args = data.argsAs<ConfigureNewCbjCompRouteArgs>();
+          return _i18.ConfigureNewCbjCompPage(
+              cbjCompEntity: args.cbjCompEntity);
+        }),
+    RoomsLightsRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (data) {
+          final args = data.argsAs<RoomsLightsRouteArgs>(
+              orElse: () => const RoomsLightsRouteArgs());
+          return _i19.RoomsLightsPage(
+              showDevicesOnlyFromRoomId: args.showDevicesOnlyFromRoomId,
+              roomColorGradiant: args.roomColorGradiant);
+        }),
+    LightsInTheRoomRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (data) {
+          final args = data.argsAs<LightsInTheRoomRouteArgs>();
+          return _i20.LightsInTheRoomPage(thisSmartRoom: args.thisSmartRoom);
+        }),
+    RoomsBlindsRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (data) {
+          final args = data.argsAs<RoomsBlindsRouteArgs>(
+              orElse: () => const RoomsBlindsRouteArgs());
+          return _i21.RoomsBlindsPage(
+              showDevicesOnlyFromRoomId: args.showDevicesOnlyFromRoomId,
+              roomColorGradiant: args.roomColorGradiant);
+        }),
+    RoomsBoilersRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (data) {
+          final args = data.argsAs<RoomsBoilersRouteArgs>(
+              orElse: () => const RoomsBoilersRouteArgs());
+          return _i22.RoomsBoilersPage(
+              showDevicesOnlyFromRoomId: args.showDevicesOnlyFromRoomId,
+              roomColorGradiant: args.roomColorGradiant);
+        })
   };
+
+  @override
+  List<_i1.RouteConfig> get routes => [
+        _i1.RouteConfig(SplashRoute.name, path: '/'),
+        _i1.RouteConfig(IntroductionScreenRoute.name,
+            path: '/introduction-screen-page'),
+        _i1.RouteConfig(SignInRoute.name, path: '/sign-in-page'),
+        _i1.RouteConfig(CreateHomeRoute.name, path: '/create-home-page'),
+        _i1.RouteConfig(WhereToLoginRouteMinimalRoute.name,
+            path: '/where-to-login-page-minimal-page'),
+        _i1.RouteConfig(WhereToLoginRouteOffline.name,
+            path: '/where-to-login-page-offline'),
+        _i1.RouteConfig(JoinHomeByIdRoute.name, path: '/join-home-by-id-page'),
+        _i1.RouteConfig(HomeRoute.name, path: '/home-page'),
+        _i1.RouteConfig(ManageUsersRoute.name, path: '/manage-users-page'),
+        _i1.RouteConfig(AddUserToHomeRoute.name,
+            path: '/add-user-to-home-page'),
+        _i1.RouteConfig(ScenesRoute.name, path: '/scenes-page'),
+        _i1.RouteConfig(ChooseDeviceVendorToAddRoute.name,
+            path: '/choose-device-vendor-to-add-page'),
+        _i1.RouteConfig(ConnectToHomeWifiRoute.name,
+            path: '/connect-to-home-wifi-page'),
+        _i1.RouteConfig(OpenAccessPointRoute.name,
+            path: '/open-access-point-page'),
+        _i1.RouteConfig(ScanForNewCBJCompsRoute.name,
+            path: '/scan-for-new-cb-jcomps-page'),
+        _i1.RouteConfig(ConfigureNewCbjCompRoute.name,
+            path: '/configure-new-cbj-comp-page'),
+        _i1.RouteConfig(RoomsLightsRoute.name, path: '/rooms-lights-page'),
+        _i1.RouteConfig(LightsInTheRoomRoute.name,
+            path: '/lights-in-the-room-page'),
+        _i1.RouteConfig(RoomsBlindsRoute.name, path: '/rooms-blinds-page'),
+        _i1.RouteConfig(RoomsBoilersRoute.name, path: '/rooms-boilers-page')
+      ];
 }
 
-/// ************************************************************************
-/// Navigation helper methods extension
-/// *************************************************************************
+class SplashRoute extends _i1.PageRouteInfo {
+  const SplashRoute() : super(name, path: '/');
 
-extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
-  Future<dynamic> pushSplashPage() => push<dynamic>(Routes.splashPage);
-
-  Future<dynamic> pushIntroductionScreenPage() =>
-      push<dynamic>(Routes.introductionScreenPage);
-
-  Future<dynamic> pushSignInPage() => push<dynamic>(Routes.signInPage);
-
-  Future<dynamic> pushCreateHomePage() => push<dynamic>(Routes.createHomePage);
-
-  Future<dynamic> pushWhereToLoginPageMinimalPage() =>
-      push<dynamic>(Routes.whereToLoginPageMinimalPage);
-
-  Future<dynamic> pushWhereToLoginPageOffline() =>
-      push<dynamic>(Routes.whereToLoginPageOffline);
-
-  Future<dynamic> pushJoinHomeByIdPage() =>
-      push<dynamic>(Routes.joinHomeByIdPage);
-
-  Future<dynamic> pushHomePage() => push<dynamic>(Routes.homePage);
-
-  Future<dynamic> pushManageUsersPage() =>
-      push<dynamic>(Routes.manageUsersPage);
-
-  Future<dynamic> pushAddUserToHomePage() =>
-      push<dynamic>(Routes.addUserToHomePage);
-
-  Future<dynamic> pushScenesPage({
-    @required FolderOfScenes folderOfScenes,
-  }) =>
-      push<dynamic>(
-        Routes.scenesPage,
-        arguments: ScenesPageArguments(folderOfScenes: folderOfScenes),
-      );
-
-  Future<dynamic> pushChooseDeviceVendorToAddPage() =>
-      push<dynamic>(Routes.chooseDeviceVendorToAddPage);
-
-  Future<dynamic> pushConnectToHomeWifiPage() =>
-      push<dynamic>(Routes.connectToHomeWifiPage);
-
-  Future<dynamic> pushOpenAccessPointPage() =>
-      push<dynamic>(Routes.openAccessPointPage);
-
-  Future<dynamic> pushScanForNewCBJCompsPage() =>
-      push<dynamic>(Routes.scanForNewCBJCompsPage);
-
-  Future<dynamic> pushConfigureNewCbjCompPage({
-    @required CBJCompEntity cbjCompEntity,
-  }) =>
-      push<dynamic>(
-        Routes.configureNewCbjCompPage,
-        arguments:
-            ConfigureNewCbjCompPageArguments(cbjCompEntity: cbjCompEntity),
-      );
-
-  Future<dynamic> pushRoomsLightsPage({
-    String showDevicesOnlyFromRoomId,
-    List<Color> roomColorGradiant = null,
-  }) =>
-      push<dynamic>(
-        Routes.roomsLightsPage,
-        arguments: RoomsLightsPageArguments(
-            showDevicesOnlyFromRoomId: showDevicesOnlyFromRoomId,
-            roomColorGradiant: roomColorGradiant),
-      );
-
-  Future<dynamic> pushLightsInTheRoomPage({
-    @required SmartRoomObject thisSmartRoom,
-  }) =>
-      push<dynamic>(
-        Routes.lightsInTheRoomPage,
-        arguments: LightsInTheRoomPageArguments(thisSmartRoom: thisSmartRoom),
-      );
-
-  Future<dynamic> pushRoomsBlindsPage() =>
-      push<dynamic>(Routes.roomsBlindsPage);
-
-  Future<dynamic> pushSmartBlindPage({
-    @required SmartBlindsObject smartBlindsObject,
-  }) =>
-      push<dynamic>(
-        Routes.smartBlindPage,
-        arguments:
-            SmartBlindPageArguments(smartBlindsObject: smartBlindsObject),
-      );
+  static const String name = 'SplashRoute';
 }
 
-/// ************************************************************************
-/// Arguments holder classes
-/// *************************************************************************
+class IntroductionScreenRoute extends _i1.PageRouteInfo {
+  const IntroductionScreenRoute()
+      : super(name, path: '/introduction-screen-page');
 
-/// ScenesPage arguments holder class
-class ScenesPageArguments {
-  final FolderOfScenes folderOfScenes;
-  ScenesPageArguments({@required this.folderOfScenes});
+  static const String name = 'IntroductionScreenRoute';
 }
 
-/// ConfigureNewCbjCompPage arguments holder class
-class ConfigureNewCbjCompPageArguments {
-  final CBJCompEntity cbjCompEntity;
-  ConfigureNewCbjCompPageArguments({@required this.cbjCompEntity});
+class SignInRoute extends _i1.PageRouteInfo {
+  const SignInRoute() : super(name, path: '/sign-in-page');
+
+  static const String name = 'SignInRoute';
 }
 
-/// RoomsLightsPage arguments holder class
-class RoomsLightsPageArguments {
-  final String showDevicesOnlyFromRoomId;
-  final List<Color> roomColorGradiant;
-  RoomsLightsPageArguments(
-      {this.showDevicesOnlyFromRoomId, this.roomColorGradiant = null});
+class CreateHomeRoute extends _i1.PageRouteInfo {
+  const CreateHomeRoute() : super(name, path: '/create-home-page');
+
+  static const String name = 'CreateHomeRoute';
 }
 
-/// LightsInTheRoomPage arguments holder class
-class LightsInTheRoomPageArguments {
-  final SmartRoomObject thisSmartRoom;
-  LightsInTheRoomPageArguments({@required this.thisSmartRoom});
+class WhereToLoginRouteMinimalRoute extends _i1.PageRouteInfo {
+  const WhereToLoginRouteMinimalRoute()
+      : super(name, path: '/where-to-login-page-minimal-page');
+
+  static const String name = 'WhereToLoginRouteMinimalRoute';
 }
 
-/// SmartBlindPage arguments holder class
-class SmartBlindPageArguments {
-  final SmartBlindsObject smartBlindsObject;
-  SmartBlindPageArguments({@required this.smartBlindsObject});
+class WhereToLoginRouteOffline extends _i1.PageRouteInfo {
+  const WhereToLoginRouteOffline()
+      : super(name, path: '/where-to-login-page-offline');
+
+  static const String name = 'WhereToLoginRouteOffline';
+}
+
+class JoinHomeByIdRoute extends _i1.PageRouteInfo {
+  const JoinHomeByIdRoute() : super(name, path: '/join-home-by-id-page');
+
+  static const String name = 'JoinHomeByIdRoute';
+}
+
+class HomeRoute extends _i1.PageRouteInfo {
+  const HomeRoute() : super(name, path: '/home-page');
+
+  static const String name = 'HomeRoute';
+}
+
+class ManageUsersRoute extends _i1.PageRouteInfo {
+  const ManageUsersRoute() : super(name, path: '/manage-users-page');
+
+  static const String name = 'ManageUsersRoute';
+}
+
+class AddUserToHomeRoute extends _i1.PageRouteInfo {
+  const AddUserToHomeRoute() : super(name, path: '/add-user-to-home-page');
+
+  static const String name = 'AddUserToHomeRoute';
+}
+
+class ScenesRoute extends _i1.PageRouteInfo<ScenesRouteArgs> {
+  ScenesRoute({required _i23.FolderOfScenes folderOfScenes})
+      : super(name,
+            path: '/scenes-page',
+            args: ScenesRouteArgs(folderOfScenes: folderOfScenes));
+
+  static const String name = 'ScenesRoute';
+}
+
+class ScenesRouteArgs {
+  const ScenesRouteArgs({required this.folderOfScenes});
+
+  final _i23.FolderOfScenes folderOfScenes;
+}
+
+class ChooseDeviceVendorToAddRoute extends _i1.PageRouteInfo {
+  const ChooseDeviceVendorToAddRoute()
+      : super(name, path: '/choose-device-vendor-to-add-page');
+
+  static const String name = 'ChooseDeviceVendorToAddRoute';
+}
+
+class ConnectToHomeWifiRoute extends _i1.PageRouteInfo {
+  const ConnectToHomeWifiRoute()
+      : super(name, path: '/connect-to-home-wifi-page');
+
+  static const String name = 'ConnectToHomeWifiRoute';
+}
+
+class OpenAccessPointRoute extends _i1.PageRouteInfo {
+  const OpenAccessPointRoute() : super(name, path: '/open-access-point-page');
+
+  static const String name = 'OpenAccessPointRoute';
+}
+
+class ScanForNewCBJCompsRoute extends _i1.PageRouteInfo {
+  const ScanForNewCBJCompsRoute()
+      : super(name, path: '/scan-for-new-cb-jcomps-page');
+
+  static const String name = 'ScanForNewCBJCompsRoute';
+}
+
+class ConfigureNewCbjCompRoute
+    extends _i1.PageRouteInfo<ConfigureNewCbjCompRouteArgs> {
+  ConfigureNewCbjCompRoute({required _i24.CBJCompEntity cbjCompEntity})
+      : super(name,
+            path: '/configure-new-cbj-comp-page',
+            args: ConfigureNewCbjCompRouteArgs(cbjCompEntity: cbjCompEntity));
+
+  static const String name = 'ConfigureNewCbjCompRoute';
+}
+
+class ConfigureNewCbjCompRouteArgs {
+  const ConfigureNewCbjCompRouteArgs({required this.cbjCompEntity});
+
+  final _i24.CBJCompEntity cbjCompEntity;
+}
+
+class RoomsLightsRoute extends _i1.PageRouteInfo<RoomsLightsRouteArgs> {
+  RoomsLightsRoute(
+      {String? showDevicesOnlyFromRoomId, List<_i2.Color>? roomColorGradiant})
+      : super(name,
+            path: '/rooms-lights-page',
+            args: RoomsLightsRouteArgs(
+                showDevicesOnlyFromRoomId: showDevicesOnlyFromRoomId,
+                roomColorGradiant: roomColorGradiant));
+
+  static const String name = 'RoomsLightsRoute';
+}
+
+class RoomsLightsRouteArgs {
+  const RoomsLightsRouteArgs(
+      {this.showDevicesOnlyFromRoomId, this.roomColorGradiant});
+
+  final String? showDevicesOnlyFromRoomId;
+
+  final List<_i2.Color>? roomColorGradiant;
+}
+
+class LightsInTheRoomRoute extends _i1.PageRouteInfo<LightsInTheRoomRouteArgs> {
+  LightsInTheRoomRoute({required _i25.SmartRoomObject? thisSmartRoom})
+      : super(name,
+            path: '/lights-in-the-room-page',
+            args: LightsInTheRoomRouteArgs(thisSmartRoom: thisSmartRoom));
+
+  static const String name = 'LightsInTheRoomRoute';
+}
+
+class LightsInTheRoomRouteArgs {
+  const LightsInTheRoomRouteArgs({required this.thisSmartRoom});
+
+  final _i25.SmartRoomObject? thisSmartRoom;
+}
+
+class RoomsBlindsRoute extends _i1.PageRouteInfo<RoomsBlindsRouteArgs> {
+  RoomsBlindsRoute(
+      {String? showDevicesOnlyFromRoomId, List<_i2.Color>? roomColorGradiant})
+      : super(name,
+            path: '/rooms-blinds-page',
+            args: RoomsBlindsRouteArgs(
+                showDevicesOnlyFromRoomId: showDevicesOnlyFromRoomId,
+                roomColorGradiant: roomColorGradiant));
+
+  static const String name = 'RoomsBlindsRoute';
+}
+
+class RoomsBlindsRouteArgs {
+  const RoomsBlindsRouteArgs(
+      {this.showDevicesOnlyFromRoomId, this.roomColorGradiant});
+
+  final String? showDevicesOnlyFromRoomId;
+
+  final List<_i2.Color>? roomColorGradiant;
+}
+
+class RoomsBoilersRoute extends _i1.PageRouteInfo<RoomsBoilersRouteArgs> {
+  RoomsBoilersRoute(
+      {String? showDevicesOnlyFromRoomId, List<_i2.Color>? roomColorGradiant})
+      : super(name,
+            path: '/rooms-boilers-page',
+            args: RoomsBoilersRouteArgs(
+                showDevicesOnlyFromRoomId: showDevicesOnlyFromRoomId,
+                roomColorGradiant: roomColorGradiant));
+
+  static const String name = 'RoomsBoilersRoute';
+}
+
+class RoomsBoilersRouteArgs {
+  const RoomsBoilersRouteArgs(
+      {this.showDevicesOnlyFromRoomId, this.roomColorGradiant});
+
+  final String? showDevicesOnlyFromRoomId;
+
+  final List<_i2.Color>? roomColorGradiant;
 }

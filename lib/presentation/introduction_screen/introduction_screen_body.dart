@@ -28,10 +28,11 @@ class IntroductionScreenBody extends StatelessWidget {
         ),
       ),
       child: IntroductionScreen(
+        showNextButton: false,
         dotsDecorator: DotsDecorator(
           size: const Size.square(10.0),
           activeSize: const Size(20.0, 10.0),
-          activeColor: Theme.of(context).textTheme.subtitle2.color,
+          activeColor: (Theme.of(context).textTheme.bodyText1!.color)!,
           color: Colors.black26,
           spacing: const EdgeInsets.symmetric(horizontal: 3.0),
           activeShape: RoundedRectangleBorder(
@@ -44,11 +45,11 @@ class IntroductionScreenBody extends StatelessWidget {
             titleWidget: Column(
               children: [
                 Container(
-                  margin: const EdgeInsets.all(40),
+                  margin: const EdgeInsets.only(top: 20, bottom: 5),
                   child: Center(
-                    child: Image.network(
-                      'https://cybearjinni.com/assets/assets/fan_art/after_editing/logo_no_background.png',
-                      height: 170.0,
+                    child: Image.asset(
+                      'assets/cbj_logo.png',
+                      height: 200.0,
                     ),
                   ),
                 ),
@@ -68,7 +69,7 @@ class IntroductionScreenBody extends StatelessWidget {
                       'CyBear Jinni',
                       style: TextStyle(
                         fontSize: 48,
-                        color: Theme.of(context).textTheme.subtitle2.color,
+                        color: Theme.of(context).textTheme.bodyText1!.color,
                       ),
                     ),
                   ],
@@ -78,12 +79,12 @@ class IntroductionScreenBody extends StatelessWidget {
             bodyWidget: IntroductionScreenBodyWelcomePage(),
             decoration: PageDecoration(
               titleTextStyle: TextStyle(
-                color: Theme.of(context).textTheme.subtitle2.color,
+                color: Theme.of(context).textTheme.bodyText1!.color,
                 fontSize: 25,
               ),
               pageColor: Colors.transparent,
               bodyTextStyle: TextStyle(
-                color: Theme.of(context).textTheme.subtitle2.color,
+                color: Theme.of(context).textTheme.bodyText1!.color,
                 fontWeight: FontWeight.w700,
                 fontSize: 20.0,
               ),
@@ -98,7 +99,7 @@ class IntroductionScreenBody extends StatelessWidget {
                 Text(
                   'Our Vision',
                   style: TextStyle(
-                      color: Theme.of(context).textTheme.subtitle2.color,
+                      color: Theme.of(context).textTheme.bodyText1!.color,
                       fontSize: 30),
                 ),
               ],
@@ -106,12 +107,12 @@ class IntroductionScreenBody extends StatelessWidget {
             bodyWidget: IntroductionScreenBodyAboutPage(),
             decoration: PageDecoration(
               titleTextStyle: TextStyle(
-                color: Theme.of(context).textTheme.subtitle2.color,
+                color: Theme.of(context).textTheme.bodyText1!.color,
                 fontSize: 30,
               ),
               pageColor: Colors.transparent,
               bodyTextStyle: TextStyle(
-                color: Theme.of(context).textTheme.subtitle2.color,
+                color: Theme.of(context).textTheme.bodyText1!.color,
                 fontWeight: FontWeight.w700,
                 fontSize: 20.0,
               ),
@@ -122,11 +123,11 @@ class IntroductionScreenBody extends StatelessWidget {
           'Done',
           style: TextStyle(
             fontWeight: FontWeight.w600,
-            color: Theme.of(context).textTheme.subtitle2.color,
+            color: Theme.of(context).textTheme.bodyText1!.color,
           ),
         ),
         onDone: () {
-          ExtendedNavigator.of(context).replace(Routes.signInPage);
+          context.router.replace(const SignInRoute());
         },
       ),
     );

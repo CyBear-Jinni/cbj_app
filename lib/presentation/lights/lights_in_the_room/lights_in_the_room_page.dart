@@ -7,9 +7,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// Page to show all the lights in selected room
 class LightsInTheRoomPage extends StatelessWidget {
-  LightsInTheRoomPage({@required this.thisSmartRoom});
+  LightsInTheRoomPage({required this.thisSmartRoom});
 
-  final SmartRoomObject thisSmartRoom;
+  final SmartRoomObject? thisSmartRoom;
   final List<Map<String, dynamic>> productsInThisRoom =
       <Map<String, dynamic>>[];
 
@@ -28,7 +28,7 @@ class LightsInTheRoomPage extends StatelessWidget {
         child: Column(
           children: <Widget>[
             TopNavigationBar(
-              thisSmartRoom.getRoomName(),
+              thisSmartRoom!.getRoomName(),
               Icons.more_vert,
               () {},
               leftIcon: FontAwesomeIcons.arrowLeft,

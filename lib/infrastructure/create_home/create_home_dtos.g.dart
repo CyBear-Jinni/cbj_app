@@ -11,8 +11,6 @@ _$_CreateHomeDtos _$_$_CreateHomeDtosFromJson(Map<String, dynamic> json) {
     homeDevicesUserId: json['homeDevicesUserId'] as String,
     homeDevicesUserEmail: json['homeDevicesUserEmail'] as String,
     homeDevicesUserPassword: json['homeDevicesUserPassword'] as String,
-    serverTimeStamp:
-        const ServerTimestampConverter().fromJson(json['serverTimeStamp']),
   );
 }
 
@@ -21,6 +19,4 @@ Map<String, dynamic> _$_$_CreateHomeDtosToJson(_$_CreateHomeDtos instance) =>
       'homeDevicesUserId': instance.homeDevicesUserId,
       'homeDevicesUserEmail': instance.homeDevicesUserEmail,
       'homeDevicesUserPassword': instance.homeDevicesUserPassword,
-      'serverTimeStamp':
-          const ServerTimestampConverter().toJson(instance.serverTimeStamp),
     };

@@ -1,15 +1,14 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/domain/home_user/home_user_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class UserCard extends StatelessWidget {
-  final HomeUserEntity homeUser;
-
   const UserCard({
-    Key key,
-    @required this.homeUser,
+    Key? key,
+    required this.homeUser,
   }) : super(key: key);
+
+  final HomeUserEntity? homeUser;
 
   @override
   Widget build(BuildContext context) {
@@ -17,10 +16,10 @@ class UserCard extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border(
           top: BorderSide(
-            color: Theme.of(context).textTheme.bodyText1.color,
+            color: ((Theme.of(context).textTheme.bodyText1!.color)!),
           ),
           bottom: BorderSide(
-            color: Theme.of(context).textTheme.bodyText1.color,
+            color: (Theme.of(context).textTheme.bodyText1!.color)!,
           ),
         ),
       ),
@@ -29,15 +28,15 @@ class UserCard extends StatelessWidget {
         child: ListTile(
           leading: FaIcon(
             FontAwesomeIcons.userGraduate,
-            color: Theme.of(context).textTheme.bodyText1.color,
+            color: (Theme.of(context).textTheme.bodyText1!.color)!,
           ),
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                homeUser.email.getOrCrash(),
+                homeUser!.email!.getOrCrash()!,
                 style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1.color),
+                    color: (Theme.of(context).textTheme.bodyText1!.color)!),
               ),
             ],
           ),

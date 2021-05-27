@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'device_entity.dart';
 
@@ -9,24 +9,26 @@ part of 'device_entity.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$DeviceEntityTearOff {
   const _$DeviceEntityTearOff();
 
-// ignore: unused_element
   _DeviceEnitie call(
-      {@required DeviceUniqueId id,
-      @required DeviceDefaultName defaultName,
-      @required DeviceUniqueId roomId,
-      @required DeviceState state,
-      DeviceStateMassage stateMassage,
-      @required DeviceSenderDeviceOs senderDeviceOs,
-      @required DeviceSenderDeviceModel senderDeviceModel,
-      @required DeviceSenderId senderId,
-      @required DeviceAction action,
-      @required DeviceType type,
-      @required DeviceCompUuid compUuid,
-      DeviceLastKnownIp lastKnownIp}) {
+      {required DeviceUniqueId? id,
+      required DeviceDefaultName? defaultName,
+      required DeviceUniqueId? roomId,
+      required DeviceState? state,
+      DeviceStateMassage? stateMassage,
+      required DeviceSenderDeviceOs? senderDeviceOs,
+      required DeviceSenderDeviceModel? senderDeviceModel,
+      required DeviceSenderId? senderId,
+      required DeviceAction? action,
+      required DeviceType? type,
+      required DeviceCompUuid? compUuid,
+      DeviceLastKnownIp? lastKnownIp}) {
     return _DeviceEnitie(
       id: id,
       defaultName: defaultName,
@@ -45,47 +47,49 @@ class _$DeviceEntityTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $DeviceEntity = _$DeviceEntityTearOff();
 
 /// @nodoc
 mixin _$DeviceEntity {
   /// The smart device id
-  DeviceUniqueId get id;
+  DeviceUniqueId? get id => throw _privateConstructorUsedError;
 
   /// The default name of the device
-  DeviceDefaultName get defaultName;
+  DeviceDefaultName? get defaultName => throw _privateConstructorUsedError;
 
   /// Room id that the smart device located in.
-  DeviceUniqueId get roomId;
+  DeviceUniqueId? get roomId => throw _privateConstructorUsedError;
 
   /// Did the massage arrived or was it just sent.
   /// Currently will be 'set' (need change) or 'ack' for acknowledge
   /// (the action was reseved and executed correctly
-  DeviceState get state;
+  DeviceState? get state => throw _privateConstructorUsedError;
 
   /// If state didn't change the error discription will be found here.
-  DeviceStateMassage get stateMassage;
+  DeviceStateMassage? get stateMassage => throw _privateConstructorUsedError;
 
   /// Sender device os type, example: android, iphone, browser
-  DeviceSenderDeviceOs get senderDeviceOs;
+  DeviceSenderDeviceOs? get senderDeviceOs =>
+      throw _privateConstructorUsedError;
 
   /// The sender device model, example: onePlues 3T
-  DeviceSenderDeviceModel get senderDeviceModel;
+  DeviceSenderDeviceModel? get senderDeviceModel =>
+      throw _privateConstructorUsedError;
 
   /// Last device sender id that activated the action
-  DeviceSenderId get senderId;
+  DeviceSenderId? get senderId => throw _privateConstructorUsedError;
 
   /// What action to execute
-  DeviceAction get action;
+  DeviceAction? get action => throw _privateConstructorUsedError;
 
   /// The smart device type
-  DeviceType get type;
-  DeviceCompUuid get compUuid;
-  DeviceLastKnownIp get lastKnownIp;
+  DeviceType? get type => throw _privateConstructorUsedError;
+  DeviceCompUuid? get compUuid => throw _privateConstructorUsedError;
+  DeviceLastKnownIp? get lastKnownIp => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $DeviceEntityCopyWith<DeviceEntity> get copyWith;
+  $DeviceEntityCopyWith<DeviceEntity> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -94,18 +98,18 @@ abstract class $DeviceEntityCopyWith<$Res> {
           DeviceEntity value, $Res Function(DeviceEntity) then) =
       _$DeviceEntityCopyWithImpl<$Res>;
   $Res call(
-      {DeviceUniqueId id,
-      DeviceDefaultName defaultName,
-      DeviceUniqueId roomId,
-      DeviceState state,
-      DeviceStateMassage stateMassage,
-      DeviceSenderDeviceOs senderDeviceOs,
-      DeviceSenderDeviceModel senderDeviceModel,
-      DeviceSenderId senderId,
-      DeviceAction action,
-      DeviceType type,
-      DeviceCompUuid compUuid,
-      DeviceLastKnownIp lastKnownIp});
+      {DeviceUniqueId? id,
+      DeviceDefaultName? defaultName,
+      DeviceUniqueId? roomId,
+      DeviceState? state,
+      DeviceStateMassage? stateMassage,
+      DeviceSenderDeviceOs? senderDeviceOs,
+      DeviceSenderDeviceModel? senderDeviceModel,
+      DeviceSenderId? senderId,
+      DeviceAction? action,
+      DeviceType? type,
+      DeviceCompUuid? compUuid,
+      DeviceLastKnownIp? lastKnownIp});
 }
 
 /// @nodoc
@@ -118,44 +122,68 @@ class _$DeviceEntityCopyWithImpl<$Res> implements $DeviceEntityCopyWith<$Res> {
 
   @override
   $Res call({
-    Object id = freezed,
-    Object defaultName = freezed,
-    Object roomId = freezed,
-    Object state = freezed,
-    Object stateMassage = freezed,
-    Object senderDeviceOs = freezed,
-    Object senderDeviceModel = freezed,
-    Object senderId = freezed,
-    Object action = freezed,
-    Object type = freezed,
-    Object compUuid = freezed,
-    Object lastKnownIp = freezed,
+    Object? id = freezed,
+    Object? defaultName = freezed,
+    Object? roomId = freezed,
+    Object? state = freezed,
+    Object? stateMassage = freezed,
+    Object? senderDeviceOs = freezed,
+    Object? senderDeviceModel = freezed,
+    Object? senderId = freezed,
+    Object? action = freezed,
+    Object? type = freezed,
+    Object? compUuid = freezed,
+    Object? lastKnownIp = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as DeviceUniqueId,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as DeviceUniqueId?,
       defaultName: defaultName == freezed
           ? _value.defaultName
-          : defaultName as DeviceDefaultName,
-      roomId: roomId == freezed ? _value.roomId : roomId as DeviceUniqueId,
-      state: state == freezed ? _value.state : state as DeviceState,
+          : defaultName // ignore: cast_nullable_to_non_nullable
+              as DeviceDefaultName?,
+      roomId: roomId == freezed
+          ? _value.roomId
+          : roomId // ignore: cast_nullable_to_non_nullable
+              as DeviceUniqueId?,
+      state: state == freezed
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as DeviceState?,
       stateMassage: stateMassage == freezed
           ? _value.stateMassage
-          : stateMassage as DeviceStateMassage,
+          : stateMassage // ignore: cast_nullable_to_non_nullable
+              as DeviceStateMassage?,
       senderDeviceOs: senderDeviceOs == freezed
           ? _value.senderDeviceOs
-          : senderDeviceOs as DeviceSenderDeviceOs,
+          : senderDeviceOs // ignore: cast_nullable_to_non_nullable
+              as DeviceSenderDeviceOs?,
       senderDeviceModel: senderDeviceModel == freezed
           ? _value.senderDeviceModel
-          : senderDeviceModel as DeviceSenderDeviceModel,
-      senderId:
-          senderId == freezed ? _value.senderId : senderId as DeviceSenderId,
-      action: action == freezed ? _value.action : action as DeviceAction,
-      type: type == freezed ? _value.type : type as DeviceType,
-      compUuid:
-          compUuid == freezed ? _value.compUuid : compUuid as DeviceCompUuid,
+          : senderDeviceModel // ignore: cast_nullable_to_non_nullable
+              as DeviceSenderDeviceModel?,
+      senderId: senderId == freezed
+          ? _value.senderId
+          : senderId // ignore: cast_nullable_to_non_nullable
+              as DeviceSenderId?,
+      action: action == freezed
+          ? _value.action
+          : action // ignore: cast_nullable_to_non_nullable
+              as DeviceAction?,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as DeviceType?,
+      compUuid: compUuid == freezed
+          ? _value.compUuid
+          : compUuid // ignore: cast_nullable_to_non_nullable
+              as DeviceCompUuid?,
       lastKnownIp: lastKnownIp == freezed
           ? _value.lastKnownIp
-          : lastKnownIp as DeviceLastKnownIp,
+          : lastKnownIp // ignore: cast_nullable_to_non_nullable
+              as DeviceLastKnownIp?,
     ));
   }
 }
@@ -168,18 +196,18 @@ abstract class _$DeviceEnitieCopyWith<$Res>
       __$DeviceEnitieCopyWithImpl<$Res>;
   @override
   $Res call(
-      {DeviceUniqueId id,
-      DeviceDefaultName defaultName,
-      DeviceUniqueId roomId,
-      DeviceState state,
-      DeviceStateMassage stateMassage,
-      DeviceSenderDeviceOs senderDeviceOs,
-      DeviceSenderDeviceModel senderDeviceModel,
-      DeviceSenderId senderId,
-      DeviceAction action,
-      DeviceType type,
-      DeviceCompUuid compUuid,
-      DeviceLastKnownIp lastKnownIp});
+      {DeviceUniqueId? id,
+      DeviceDefaultName? defaultName,
+      DeviceUniqueId? roomId,
+      DeviceState? state,
+      DeviceStateMassage? stateMassage,
+      DeviceSenderDeviceOs? senderDeviceOs,
+      DeviceSenderDeviceModel? senderDeviceModel,
+      DeviceSenderId? senderId,
+      DeviceAction? action,
+      DeviceType? type,
+      DeviceCompUuid? compUuid,
+      DeviceLastKnownIp? lastKnownIp});
 }
 
 /// @nodoc
@@ -194,121 +222,136 @@ class __$DeviceEnitieCopyWithImpl<$Res> extends _$DeviceEntityCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object defaultName = freezed,
-    Object roomId = freezed,
-    Object state = freezed,
-    Object stateMassage = freezed,
-    Object senderDeviceOs = freezed,
-    Object senderDeviceModel = freezed,
-    Object senderId = freezed,
-    Object action = freezed,
-    Object type = freezed,
-    Object compUuid = freezed,
-    Object lastKnownIp = freezed,
+    Object? id = freezed,
+    Object? defaultName = freezed,
+    Object? roomId = freezed,
+    Object? state = freezed,
+    Object? stateMassage = freezed,
+    Object? senderDeviceOs = freezed,
+    Object? senderDeviceModel = freezed,
+    Object? senderId = freezed,
+    Object? action = freezed,
+    Object? type = freezed,
+    Object? compUuid = freezed,
+    Object? lastKnownIp = freezed,
   }) {
     return _then(_DeviceEnitie(
-      id: id == freezed ? _value.id : id as DeviceUniqueId,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as DeviceUniqueId?,
       defaultName: defaultName == freezed
           ? _value.defaultName
-          : defaultName as DeviceDefaultName,
-      roomId: roomId == freezed ? _value.roomId : roomId as DeviceUniqueId,
-      state: state == freezed ? _value.state : state as DeviceState,
+          : defaultName // ignore: cast_nullable_to_non_nullable
+              as DeviceDefaultName?,
+      roomId: roomId == freezed
+          ? _value.roomId
+          : roomId // ignore: cast_nullable_to_non_nullable
+              as DeviceUniqueId?,
+      state: state == freezed
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as DeviceState?,
       stateMassage: stateMassage == freezed
           ? _value.stateMassage
-          : stateMassage as DeviceStateMassage,
+          : stateMassage // ignore: cast_nullable_to_non_nullable
+              as DeviceStateMassage?,
       senderDeviceOs: senderDeviceOs == freezed
           ? _value.senderDeviceOs
-          : senderDeviceOs as DeviceSenderDeviceOs,
+          : senderDeviceOs // ignore: cast_nullable_to_non_nullable
+              as DeviceSenderDeviceOs?,
       senderDeviceModel: senderDeviceModel == freezed
           ? _value.senderDeviceModel
-          : senderDeviceModel as DeviceSenderDeviceModel,
-      senderId:
-          senderId == freezed ? _value.senderId : senderId as DeviceSenderId,
-      action: action == freezed ? _value.action : action as DeviceAction,
-      type: type == freezed ? _value.type : type as DeviceType,
-      compUuid:
-          compUuid == freezed ? _value.compUuid : compUuid as DeviceCompUuid,
+          : senderDeviceModel // ignore: cast_nullable_to_non_nullable
+              as DeviceSenderDeviceModel?,
+      senderId: senderId == freezed
+          ? _value.senderId
+          : senderId // ignore: cast_nullable_to_non_nullable
+              as DeviceSenderId?,
+      action: action == freezed
+          ? _value.action
+          : action // ignore: cast_nullable_to_non_nullable
+              as DeviceAction?,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as DeviceType?,
+      compUuid: compUuid == freezed
+          ? _value.compUuid
+          : compUuid // ignore: cast_nullable_to_non_nullable
+              as DeviceCompUuid?,
       lastKnownIp: lastKnownIp == freezed
           ? _value.lastKnownIp
-          : lastKnownIp as DeviceLastKnownIp,
+          : lastKnownIp // ignore: cast_nullable_to_non_nullable
+              as DeviceLastKnownIp?,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_DeviceEnitie extends _DeviceEnitie {
   const _$_DeviceEnitie(
-      {@required this.id,
-      @required this.defaultName,
-      @required this.roomId,
-      @required this.state,
+      {required this.id,
+      required this.defaultName,
+      required this.roomId,
+      required this.state,
       this.stateMassage,
-      @required this.senderDeviceOs,
-      @required this.senderDeviceModel,
-      @required this.senderId,
-      @required this.action,
-      @required this.type,
-      @required this.compUuid,
+      required this.senderDeviceOs,
+      required this.senderDeviceModel,
+      required this.senderId,
+      required this.action,
+      required this.type,
+      required this.compUuid,
       this.lastKnownIp})
-      : assert(id != null),
-        assert(defaultName != null),
-        assert(roomId != null),
-        assert(state != null),
-        assert(senderDeviceOs != null),
-        assert(senderDeviceModel != null),
-        assert(senderId != null),
-        assert(action != null),
-        assert(type != null),
-        assert(compUuid != null),
-        super._();
+      : super._();
 
   @override
 
   /// The smart device id
-  final DeviceUniqueId id;
+  final DeviceUniqueId? id;
   @override
 
   /// The default name of the device
-  final DeviceDefaultName defaultName;
+  final DeviceDefaultName? defaultName;
   @override
 
   /// Room id that the smart device located in.
-  final DeviceUniqueId roomId;
+  final DeviceUniqueId? roomId;
   @override
 
   /// Did the massage arrived or was it just sent.
   /// Currently will be 'set' (need change) or 'ack' for acknowledge
   /// (the action was reseved and executed correctly
-  final DeviceState state;
+  final DeviceState? state;
   @override
 
   /// If state didn't change the error discription will be found here.
-  final DeviceStateMassage stateMassage;
+  final DeviceStateMassage? stateMassage;
   @override
 
   /// Sender device os type, example: android, iphone, browser
-  final DeviceSenderDeviceOs senderDeviceOs;
+  final DeviceSenderDeviceOs? senderDeviceOs;
   @override
 
   /// The sender device model, example: onePlues 3T
-  final DeviceSenderDeviceModel senderDeviceModel;
+  final DeviceSenderDeviceModel? senderDeviceModel;
   @override
 
   /// Last device sender id that activated the action
-  final DeviceSenderId senderId;
+  final DeviceSenderId? senderId;
   @override
 
   /// What action to execute
-  final DeviceAction action;
+  final DeviceAction? action;
   @override
 
   /// The smart device type
-  final DeviceType type;
+  final DeviceType? type;
   @override
-  final DeviceCompUuid compUuid;
+  final DeviceCompUuid? compUuid;
   @override
-  final DeviceLastKnownIp lastKnownIp;
+  final DeviceLastKnownIp? lastKnownIp;
 
   @override
   String toString() {
@@ -375,68 +418,71 @@ class _$_DeviceEnitie extends _DeviceEnitie {
 }
 
 abstract class _DeviceEnitie extends DeviceEntity {
-  const _DeviceEnitie._() : super._();
   const factory _DeviceEnitie(
-      {@required DeviceUniqueId id,
-      @required DeviceDefaultName defaultName,
-      @required DeviceUniqueId roomId,
-      @required DeviceState state,
-      DeviceStateMassage stateMassage,
-      @required DeviceSenderDeviceOs senderDeviceOs,
-      @required DeviceSenderDeviceModel senderDeviceModel,
-      @required DeviceSenderId senderId,
-      @required DeviceAction action,
-      @required DeviceType type,
-      @required DeviceCompUuid compUuid,
-      DeviceLastKnownIp lastKnownIp}) = _$_DeviceEnitie;
+      {required DeviceUniqueId? id,
+      required DeviceDefaultName? defaultName,
+      required DeviceUniqueId? roomId,
+      required DeviceState? state,
+      DeviceStateMassage? stateMassage,
+      required DeviceSenderDeviceOs? senderDeviceOs,
+      required DeviceSenderDeviceModel? senderDeviceModel,
+      required DeviceSenderId? senderId,
+      required DeviceAction? action,
+      required DeviceType? type,
+      required DeviceCompUuid? compUuid,
+      DeviceLastKnownIp? lastKnownIp}) = _$_DeviceEnitie;
+  const _DeviceEnitie._() : super._();
 
   @override
 
   /// The smart device id
-  DeviceUniqueId get id;
+  DeviceUniqueId? get id => throw _privateConstructorUsedError;
   @override
 
   /// The default name of the device
-  DeviceDefaultName get defaultName;
+  DeviceDefaultName? get defaultName => throw _privateConstructorUsedError;
   @override
 
   /// Room id that the smart device located in.
-  DeviceUniqueId get roomId;
+  DeviceUniqueId? get roomId => throw _privateConstructorUsedError;
   @override
 
   /// Did the massage arrived or was it just sent.
   /// Currently will be 'set' (need change) or 'ack' for acknowledge
   /// (the action was reseved and executed correctly
-  DeviceState get state;
+  DeviceState? get state => throw _privateConstructorUsedError;
   @override
 
   /// If state didn't change the error discription will be found here.
-  DeviceStateMassage get stateMassage;
+  DeviceStateMassage? get stateMassage => throw _privateConstructorUsedError;
   @override
 
   /// Sender device os type, example: android, iphone, browser
-  DeviceSenderDeviceOs get senderDeviceOs;
+  DeviceSenderDeviceOs? get senderDeviceOs =>
+      throw _privateConstructorUsedError;
   @override
 
   /// The sender device model, example: onePlues 3T
-  DeviceSenderDeviceModel get senderDeviceModel;
+  DeviceSenderDeviceModel? get senderDeviceModel =>
+      throw _privateConstructorUsedError;
   @override
 
   /// Last device sender id that activated the action
-  DeviceSenderId get senderId;
+  DeviceSenderId? get senderId => throw _privateConstructorUsedError;
   @override
 
   /// What action to execute
-  DeviceAction get action;
+  DeviceAction? get action => throw _privateConstructorUsedError;
   @override
 
   /// The smart device type
-  DeviceType get type;
+  DeviceType? get type => throw _privateConstructorUsedError;
   @override
-  DeviceCompUuid get compUuid;
+  DeviceCompUuid? get compUuid => throw _privateConstructorUsedError;
   @override
-  DeviceLastKnownIp get lastKnownIp;
+  DeviceLastKnownIp? get lastKnownIp => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$DeviceEnitieCopyWith<_DeviceEnitie> get copyWith;
+  _$DeviceEnitieCopyWith<_DeviceEnitie> get copyWith =>
+      throw _privateConstructorUsedError;
 }

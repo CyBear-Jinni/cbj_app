@@ -1,19 +1,19 @@
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/user_homes_list/user_homes_list_bloc.dart';
 import 'package:cybear_jinni/domain/user/all_homes_of_user/all_homes_of_user_entity.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
-import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomeCardWidget extends StatelessWidget {
   const HomeCardWidget({
-    Key key,
-    @required this.home,
+    Key? key,
+    required this.home,
   }) : super(key: key);
 
-  final AllHomesOfUserEntity home;
+  final AllHomesOfUserEntity? home;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class HomeCardWidget extends StatelessWidget {
           loadInProgress: (_) => const Text('loadInProgress'),
           loadSuccess: (_) => const Text('loadInSuccess'),
           enterHome: (_) {
-            ExtendedNavigator.of(context).replace(Routes.homePage);
+            context.router.replace(const HomeRoute());
           },
           loadFailure: (_) => const Text('loadFailure'),
           loadFailureEnteringHome: (_) => FlushbarHelper.createError(
@@ -32,7 +32,7 @@ class HomeCardWidget extends StatelessWidget {
           ),
           error: (_) => const Text('error'),
         );
-        return FlatButton(
+        return TextButton(
           onPressed: () {
             context
                 .read<UserHomesListBloc>()
@@ -42,10 +42,10 @@ class HomeCardWidget extends StatelessWidget {
             decoration: BoxDecoration(
               border: Border(
                 top: BorderSide(
-                  color: Theme.of(context).textTheme.subtitle2.color,
+                  color: (Theme.of(context).textTheme.bodyText1!.color)!,
                 ),
                 bottom: BorderSide(
-                  color: Theme.of(context).textTheme.subtitle2.color,
+                  color: (Theme.of(context).textTheme.bodyText1!.color)!,
                 ),
               ),
             ),
@@ -54,15 +54,15 @@ class HomeCardWidget extends StatelessWidget {
               child: ListTile(
                 leading: FaIcon(
                   FontAwesomeIcons.houseUser,
-                  color: Theme.of(context).textTheme.subtitle2.color,
+                  color: Theme.of(context).textTheme.bodyText1!.color,
                 ),
                 title: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      home.name.getOrCrash(),
+                      home!.name!.getOrCrash()!,
                       style: TextStyle(
-                          color: Theme.of(context).textTheme.subtitle2.color),
+                          color: Theme.of(context).textTheme.bodyText1!.color),
                     ),
                   ],
                 ),

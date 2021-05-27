@@ -9,7 +9,7 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
   Future<void> _fireBaseLogOut(BuildContext context) async {
     try {
       await FirebaseAuth.instance.signOut();
-      ExtendedNavigator.of(context).replace(Routes.signInPage);
+      context.router.replace(const SignInRoute());
     } catch (e) {
       print(e); // TODO: show dialog with error
     }
@@ -40,14 +40,16 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                         Text(
                           'Settings',
                           style: TextStyle(
-                              color:
-                                  Theme.of(context).textTheme.subtitle2.color,
+                              color: (Theme.of(context)
+                                  .textTheme
+                                  .bodyText1!
+                                  .color)!,
                               fontSize: 18),
                         )
                       ],
                     ),
                     Divider(
-                      color: Theme.of(context).textTheme.subtitle2.color,
+                      color: Theme.of(context).textTheme.bodyText1!.color,
                     ),
                     Row(
                       children: [
@@ -64,8 +66,10 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                         Text(
                           'CyBear Jinni',
                           style: TextStyle(
-                              color:
-                                  Theme.of(context).textTheme.subtitle2.color,
+                              color: (Theme.of(context)
+                                  .textTheme
+                                  .bodyText1!
+                                  .color)!,
                               fontSize: 20),
                         ),
                       ],
@@ -85,19 +89,22 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                     Divider(
                       thickness: 0.5,
                       height: 0.5,
-                      color: Theme.of(context).textTheme.subtitle2.color,
+                      color: Theme.of(context).textTheme.bodyText1!.color,
                     ),
                     ListTile(
                       tileColor: Colors.greenAccent.withOpacity(0.8),
                       leading: FaIcon(
                         FontAwesomeIcons.signOutAlt,
-                        color: Theme.of(context).textTheme.subtitle2.color,
+                        color: Theme.of(context).textTheme.bodyText1!.color,
                         size: 25,
                       ),
                       title: Text(
                         'Log Out',
                         style: TextStyle(
-                            color: Theme.of(context).textTheme.subtitle2.color),
+                            color: (Theme.of(context)
+                                .textTheme
+                                .bodyText1!
+                                .color)!),
                       ),
                       onTap: () {
                         _fireBaseLogOut(context);
@@ -106,29 +113,29 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                     Divider(
                       thickness: 0.5,
                       height: 0.5,
-                      color: Theme.of(context).textTheme.subtitle2.color,
+                      color: Theme.of(context).textTheme.bodyText1!.color,
                     ),
                     ListTile(
                       tileColor: Colors.blue,
                       leading: FaIcon(
                         FontAwesomeIcons.userPlus,
-                        color: Theme.of(context).textTheme.subtitle2.color,
+                        color: Theme.of(context).textTheme.bodyText1!.color,
                         size: 25,
                       ),
                       title: Text(
                         'Manage Users',
                         style: TextStyle(
-                            color: Theme.of(context).textTheme.subtitle2.color),
+                            color:
+                                Theme.of(context).textTheme.bodyText1!.color),
                       ),
                       onTap: () {
-                        ExtendedNavigator.of(context)
-                            .push(Routes.manageUsersPage);
+                        context.router.push(const ManageUsersRoute());
                       },
                     ),
                     Divider(
                       thickness: 0.5,
                       height: 0.5,
-                      color: Theme.of(context).textTheme.subtitle2.color,
+                      color: Theme.of(context).textTheme.bodyText1!.color,
                     ),
                   ],
                 ),

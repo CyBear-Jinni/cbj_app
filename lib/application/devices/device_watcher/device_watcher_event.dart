@@ -5,6 +5,6 @@ abstract class DeviceWatcherEvent with _$DeviceWatcherEvent {
   const factory DeviceWatcherEvent.watchAllStarted() = _WatchAllStarted;
 
   const factory DeviceWatcherEvent.devicesReceived(
-          Either<DevicesFailure, KtList<DeviceEntity>> failureOrDevices) =
+          Either<DevicesFailure, KtList<DeviceEntity?>> failureOrDevices) =
       _DevicesReceived;
 }

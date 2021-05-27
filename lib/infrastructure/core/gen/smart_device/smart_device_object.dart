@@ -21,12 +21,12 @@ class SmartDeviceObject {
     fireStoreClass = FireStoreClass();
   }
 
-  DeviceTypes deviceType;
-  String roomName;
-  String name;
-  String ip;
-  FireStoreClass fireStoreClass;
-  static String homeWiFiName = ''; // Insert host name
+  DeviceTypes? deviceType;
+  String? roomName;
+  String? name;
+  String? ip;
+  FireStoreClass? fireStoreClass;
+  static String? homeWiFiName = ''; // Insert host name
 
   //  Set
   static void setHomeWiFiName(String homeWiFiNameTemp) {
@@ -37,7 +37,7 @@ class SmartDeviceObject {
 
   Future<bool> getDeviceStateAsBool() async {
     final String deviceState = await getDeviceState();
-    return deviceState == 'true' ? true : false;
+    return deviceState == 'true';
   }
 
   Future<String> getDeviceState() async {
@@ -79,18 +79,18 @@ class SmartDeviceObject {
         }
         if (status == LocationAuthorizationStatus.authorizedAlways ||
             status == LocationAuthorizationStatus.authorizedWhenInUse) {
-          wifiName = await _wifiInfo.getWifiName();
+          wifiName = (await _wifiInfo.getWifiName())!;
         } else {
-          wifiName = await _wifiInfo.getWifiName();
+          wifiName = (await _wifiInfo.getWifiName())!;
         }
       } else if (Platform.isAndroid) {
         final PermissionStatus status = await Permission.location.status;
-        if (status.isUndetermined || status.isDenied || status.isRestricted) {
+        if (status.isDenied || status.isRestricted) {
           if (await Permission.location.request().isGranted) {
 // Either the permission was already granted before or the user just granted it.
           }
         }
-        wifiName = await _wifiInfo.getWifiName();
+        wifiName = (await _wifiInfo.getWifiName())!;
       } else {
         print('Does not support this platform');
       }
@@ -111,7 +111,7 @@ class SmartDeviceObject {
   }
 
   Future<String> getDeviceStatesRemote() async {
-    return fireStoreClass.getDeviceStatus(roomName, name);
+    return fireStoreClass!.getDeviceStatus(roomName!, name!);
   }
 
   //  Set
@@ -147,16 +147,17 @@ class SmartDeviceObject {
   }
 
   Future<String> setLightStateRemote(bool state) async {
-    return (await fireStoreClass.changeSwitchState(roomName, name, state))
+    return (await fireStoreClass!.changeSwitchState(roomName!, name!, state))
         .toString();
   }
 
   static bool legitIp(String ip) {
-    final String tempRegExIp = regexpIP(ip); //  Save to string a valid ip
-    return ip != '' && ip.length == tempRegExIp.length;
+    final String tempRegExIp = regexpIP(ip)!; //  Save to string a valid ip
+    // return ip != '' && ip.length == tempRegExIp.length;
+    return ip != '';
   }
 
-  static String regexpIP(String ip) {
+  static String? regexpIP(String ip) {
     return RegExp(
             r'((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))')
         .stringMatch(ip);
@@ -164,8 +165,8 @@ class SmartDeviceObject {
 
   // Execute
 
-  Future<String> executeWish(DeviceActions deviceAction) async {
-    String executeOutput;
+  Future<String?> executeWish(DeviceActions deviceAction) async {
+    String? executeOutput;
     switch (deviceAction) {
       case DeviceActions.on:
         executeOutput = await setLightState(true);

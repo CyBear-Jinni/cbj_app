@@ -19,7 +19,7 @@ class LightsWatcherBloc extends Bloc<LightsWatcherEvent, LightsWatcherState> {
       : super(LightsWatcherState.initial());
 
   final IDeviceRepository _deviceRepository;
-  StreamSubscription<Either<DevicesFailure, KtList<DeviceEntity>>>
+  StreamSubscription<Either<DevicesFailure, KtList<DeviceEntity?>>>?
       _deviceStreamSubscription;
 
   @override

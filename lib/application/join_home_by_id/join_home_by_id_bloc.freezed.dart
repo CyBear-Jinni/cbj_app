@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'join_home_by_id_bloc.dart';
 
@@ -9,16 +9,17 @@ part of 'join_home_by_id_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$JoinHomeByIdEventTearOff {
   const _$JoinHomeByIdEventTearOff();
 
-// ignore: unused_element
   Initialized initialized() {
     return const Initialized();
   }
 
-// ignore: unused_element
   AddHomeById addHomeById(String id) {
     return AddHomeById(
       id,
@@ -27,33 +28,36 @@ class _$JoinHomeByIdEventTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $JoinHomeByIdEvent = _$JoinHomeByIdEventTearOff();
 
 /// @nodoc
 mixin _$JoinHomeByIdEvent {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialized(),
-    @required TResult addHomeById(String id),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(String id) addHomeById,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialized(),
-    TResult addHomeById(String id),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(String id)? addHomeById,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialized(Initialized value),
-    @required TResult addHomeById(AddHomeById value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(AddHomeById value) addHomeById,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialized(Initialized value),
-    TResult addHomeById(AddHomeById value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(AddHomeById value)? addHomeById,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -93,6 +97,7 @@ class _$InitializedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Initialized implements Initialized {
   const _$Initialized();
 
@@ -111,23 +116,20 @@ class _$Initialized implements Initialized {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialized(),
-    @required TResult addHomeById(String id),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(String id) addHomeById,
   }) {
-    assert(initialized != null);
-    assert(addHomeById != null);
     return initialized();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialized(),
-    TResult addHomeById(String id),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(String id)? addHomeById,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initialized != null) {
       return initialized();
     }
@@ -136,23 +138,20 @@ class _$Initialized implements Initialized {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialized(Initialized value),
-    @required TResult addHomeById(AddHomeById value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(AddHomeById value) addHomeById,
   }) {
-    assert(initialized != null);
-    assert(addHomeById != null);
     return initialized(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialized(Initialized value),
-    TResult addHomeById(AddHomeById value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(AddHomeById value)? addHomeById,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initialized != null) {
       return initialized(this);
     }
@@ -185,17 +184,21 @@ class _$AddHomeByIdCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
+    Object? id = freezed,
   }) {
     return _then(AddHomeById(
-      id == freezed ? _value.id : id as String,
+      id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
+
 class _$AddHomeById implements AddHomeById {
-  const _$AddHomeById(this.id) : assert(id != null);
+  const _$AddHomeById(this.id);
 
   @override
   final String id;
@@ -224,23 +227,20 @@ class _$AddHomeById implements AddHomeById {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialized(),
-    @required TResult addHomeById(String id),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(String id) addHomeById,
   }) {
-    assert(initialized != null);
-    assert(addHomeById != null);
     return addHomeById(id);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialized(),
-    TResult addHomeById(String id),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(String id)? addHomeById,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (addHomeById != null) {
       return addHomeById(id);
     }
@@ -249,23 +249,20 @@ class _$AddHomeById implements AddHomeById {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialized(Initialized value),
-    @required TResult addHomeById(AddHomeById value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(AddHomeById value) addHomeById,
   }) {
-    assert(initialized != null);
-    assert(addHomeById != null);
     return addHomeById(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialized(Initialized value),
-    TResult addHomeById(AddHomeById value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(AddHomeById value)? addHomeById,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (addHomeById != null) {
       return addHomeById(this);
     }
@@ -276,78 +273,79 @@ class _$AddHomeById implements AddHomeById {
 abstract class AddHomeById implements JoinHomeByIdEvent {
   const factory AddHomeById(String id) = _$AddHomeById;
 
-  String get id;
+  String get id => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $AddHomeByIdCopyWith<AddHomeById> get copyWith;
+  $AddHomeByIdCopyWith<AddHomeById> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$JoinHomeByIdStateTearOff {
   const _$JoinHomeByIdStateTearOff();
 
-// ignore: unused_element
   _JoinHomeByIdState call(
-      {@required
-          Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption}) {
+      {required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption}) {
     return _JoinHomeByIdState(
       authFailureOrSuccessOption: authFailureOrSuccessOption,
     );
   }
 
-// ignore: unused_element
   Loading loading() {
     return const Loading();
   }
 
-// ignore: unused_element
   Loaded loaded() {
     return const Loaded();
   }
 
-// ignore: unused_element
   Error error() {
     return const Error();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $JoinHomeByIdState = _$JoinHomeByIdStateTearOff();
 
 /// @nodoc
 mixin _$JoinHomeByIdState {
   @optionalTypeArgs
-  TResult when<TResult extends Object>(
-    TResult $default(
-        Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
-    @required TResult loading(),
-    @required TResult loaded(),
-    @required TResult error(),
-  });
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption)
+        $default, {
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function() error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>(
-    TResult $default(
-        Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
-    TResult loading(),
-    TResult loaded(),
-    TResult error(),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption)?
+        $default, {
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function()? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>(
-    TResult $default(_JoinHomeByIdState value), {
-    @required TResult loading(Loading value),
-    @required TResult loaded(Loaded value),
-    @required TResult error(Error value),
-  });
+  TResult map<TResult extends Object?>(
+    TResult Function(_JoinHomeByIdState value) $default, {
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(Error value) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>(
-    TResult $default(_JoinHomeByIdState value), {
-    TResult loading(Loading value),
-    TResult loaded(Loaded value),
-    TResult error(Error value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_JoinHomeByIdState value)? $default, {
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -388,20 +386,21 @@ class __$JoinHomeByIdStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object authFailureOrSuccessOption = freezed,
+    Object? authFailureOrSuccessOption = freezed,
   }) {
     return _then(_JoinHomeByIdState(
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
           ? _value.authFailureOrSuccessOption
-          : authFailureOrSuccessOption as Option<Either<AuthFailure, Unit>>,
+          : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<AuthFailure, Unit>>,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_JoinHomeByIdState implements _JoinHomeByIdState {
-  const _$_JoinHomeByIdState({@required this.authFailureOrSuccessOption})
-      : assert(authFailureOrSuccessOption != null);
+  const _$_JoinHomeByIdState({required this.authFailureOrSuccessOption});
 
   @override
   final Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption;
@@ -434,31 +433,28 @@ class _$_JoinHomeByIdState implements _JoinHomeByIdState {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>(
-    TResult $default(
-        Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
-    @required TResult loading(),
-    @required TResult loaded(),
-    @required TResult error(),
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption)
+        $default, {
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function() error,
   }) {
-    assert($default != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(error != null);
     return $default(authFailureOrSuccessOption);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>(
-    TResult $default(
-        Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
-    TResult loading(),
-    TResult loaded(),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption)?
+        $default, {
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default(authFailureOrSuccessOption);
     }
@@ -467,29 +463,24 @@ class _$_JoinHomeByIdState implements _JoinHomeByIdState {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>(
-    TResult $default(_JoinHomeByIdState value), {
-    @required TResult loading(Loading value),
-    @required TResult loaded(Loaded value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>(
+    TResult Function(_JoinHomeByIdState value) $default, {
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(Error value) error,
   }) {
-    assert($default != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(error != null);
     return $default(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>(
-    TResult $default(_JoinHomeByIdState value), {
-    TResult loading(Loading value),
-    TResult loaded(Loaded value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_JoinHomeByIdState value)? $default, {
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default(this);
     }
@@ -499,13 +490,14 @@ class _$_JoinHomeByIdState implements _JoinHomeByIdState {
 
 abstract class _JoinHomeByIdState implements JoinHomeByIdState {
   const factory _JoinHomeByIdState(
-          {@required
-              Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption}) =
-      _$_JoinHomeByIdState;
+      {required Option<Either<AuthFailure, Unit>>
+          authFailureOrSuccessOption}) = _$_JoinHomeByIdState;
 
-  Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption;
+  Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$JoinHomeByIdStateCopyWith<_JoinHomeByIdState> get copyWith;
+  _$JoinHomeByIdStateCopyWith<_JoinHomeByIdState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -525,6 +517,7 @@ class _$LoadingCopyWithImpl<$Res> extends _$JoinHomeByIdStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Loading implements Loading {
   const _$Loading();
 
@@ -543,31 +536,28 @@ class _$Loading implements Loading {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>(
-    TResult $default(
-        Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
-    @required TResult loading(),
-    @required TResult loaded(),
-    @required TResult error(),
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption)
+        $default, {
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function() error,
   }) {
-    assert($default != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(error != null);
     return loading();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>(
-    TResult $default(
-        Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
-    TResult loading(),
-    TResult loaded(),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption)?
+        $default, {
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loading != null) {
       return loading();
     }
@@ -576,29 +566,24 @@ class _$Loading implements Loading {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>(
-    TResult $default(_JoinHomeByIdState value), {
-    @required TResult loading(Loading value),
-    @required TResult loaded(Loaded value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>(
+    TResult Function(_JoinHomeByIdState value) $default, {
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(Error value) error,
   }) {
-    assert($default != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(error != null);
     return loading(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>(
-    TResult $default(_JoinHomeByIdState value), {
-    TResult loading(Loading value),
-    TResult loaded(Loaded value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_JoinHomeByIdState value)? $default, {
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loading != null) {
       return loading(this);
     }
@@ -627,6 +612,7 @@ class _$LoadedCopyWithImpl<$Res> extends _$JoinHomeByIdStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Loaded implements Loaded {
   const _$Loaded();
 
@@ -645,31 +631,28 @@ class _$Loaded implements Loaded {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>(
-    TResult $default(
-        Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
-    @required TResult loading(),
-    @required TResult loaded(),
-    @required TResult error(),
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption)
+        $default, {
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function() error,
   }) {
-    assert($default != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(error != null);
     return loaded();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>(
-    TResult $default(
-        Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
-    TResult loading(),
-    TResult loaded(),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption)?
+        $default, {
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loaded != null) {
       return loaded();
     }
@@ -678,29 +661,24 @@ class _$Loaded implements Loaded {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>(
-    TResult $default(_JoinHomeByIdState value), {
-    @required TResult loading(Loading value),
-    @required TResult loaded(Loaded value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>(
+    TResult Function(_JoinHomeByIdState value) $default, {
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(Error value) error,
   }) {
-    assert($default != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(error != null);
     return loaded(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>(
-    TResult $default(_JoinHomeByIdState value), {
-    TResult loading(Loading value),
-    TResult loaded(Loaded value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_JoinHomeByIdState value)? $default, {
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loaded != null) {
       return loaded(this);
     }
@@ -729,6 +707,7 @@ class _$ErrorCopyWithImpl<$Res> extends _$JoinHomeByIdStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Error implements Error {
   const _$Error();
 
@@ -747,31 +726,28 @@ class _$Error implements Error {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>(
-    TResult $default(
-        Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
-    @required TResult loading(),
-    @required TResult loaded(),
-    @required TResult error(),
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption)
+        $default, {
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function() error,
   }) {
-    assert($default != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(error != null);
     return error();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>(
-    TResult $default(
-        Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
-    TResult loading(),
-    TResult loaded(),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption)?
+        $default, {
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error();
     }
@@ -780,29 +756,24 @@ class _$Error implements Error {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>(
-    TResult $default(_JoinHomeByIdState value), {
-    @required TResult loading(Loading value),
-    @required TResult loaded(Loaded value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>(
+    TResult Function(_JoinHomeByIdState value) $default, {
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(Error value) error,
   }) {
-    assert($default != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>(
-    TResult $default(_JoinHomeByIdState value), {
-    TResult loading(Loading value),
-    TResult loaded(Loaded value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_JoinHomeByIdState value)? $default, {
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this);
     }

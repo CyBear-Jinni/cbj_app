@@ -11,21 +11,21 @@ abstract class CreateHomeDtos implements _$CreateHomeDtos {
   const CreateHomeDtos._();
 
   const factory CreateHomeDtos({
-    @JsonKey(ignore: true) String id,
-    @JsonKey(ignore: true) String name,
-    @required String homeDevicesUserId,
-    @required String homeDevicesUserEmail,
-    @required String homeDevicesUserPassword,
-    @required @ServerTimestampConverter() FieldValue serverTimeStamp,
+    @JsonKey(ignore: true) String? id,
+    @JsonKey(ignore: true) String? name,
+    required String homeDevicesUserId,
+    required String homeDevicesUserEmail,
+    required String homeDevicesUserPassword,
+    // required @ServerTimestampConverter() FieldValue serverTimeStamp,
   }) = _CreateHomeDtos;
 
   factory CreateHomeDtos.fromDomain(CreateHomeEntity createHomeEntity) {
     return CreateHomeDtos(
-      homeDevicesUserId: createHomeEntity.homeDevicesUserId.getOrCrash(),
-      homeDevicesUserEmail: createHomeEntity.homeDevicesUserEmail.getOrCrash(),
+      homeDevicesUserId: createHomeEntity.homeDevicesUserId!.getOrCrash(),
+      homeDevicesUserEmail: createHomeEntity.homeDevicesUserEmail!.getOrCrash(),
       homeDevicesUserPassword:
-          createHomeEntity.homeDevicesUserPassword.getOrCrash(),
-      serverTimeStamp: FieldValue.serverTimestamp(),
+          createHomeEntity.homeDevicesUserPassword!.getOrCrash(),
+      // serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }
 
@@ -43,19 +43,20 @@ abstract class CreateHomeDtos implements _$CreateHomeDtos {
   factory CreateHomeDtos.fromJson(Map<String, dynamic> json) =>
       _$CreateHomeDtosFromJson(json);
 
-  factory CreateHomeDtos.fromFirestore(DocumentSnapshot doc) {
-    return CreateHomeDtos.fromJson(doc.data()).copyWith(id: doc.id);
+  factory CreateHomeDtos.fromFirestore(DocumentSnapshot? doc) {
+    return CreateHomeDtos.fromJson(doc!.data() as Map<String, dynamic>)
+        .copyWith(id: doc.id);
   }
 }
 
-class ServerTimestampConverter implements JsonConverter<FieldValue, Object> {
-  const ServerTimestampConverter();
-
-  @override
-  FieldValue fromJson(Object json) {
-    return FieldValue.serverTimestamp();
-  }
-
-  @override
-  Object toJson(FieldValue fieldValue) => fieldValue;
-}
+// class ServerTimestampConverter implements JsonConverter<FieldValue, Object> {
+//   const ServerTimestampConverter();
+//
+//   @override
+//   FieldValue fromJson(Object json) {
+//     return FieldValue.serverTimestamp();
+//   }
+//
+//   @override
+//   Object toJson(FieldValue fieldValue) => fieldValue;
+// }

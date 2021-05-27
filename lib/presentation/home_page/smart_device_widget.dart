@@ -20,7 +20,7 @@ class SmartDevicePage extends StatefulWidget {
 
 class _SmartDevicePage extends State<SmartDevicePage> {
   bool _switchState = false;
-  SmartDeviceObject _device;
+  SmartDeviceObject? _device;
   bool _isLoading = true;
 
   @override
@@ -29,7 +29,7 @@ class _SmartDevicePage extends State<SmartDevicePage> {
     _device = widget.device;
     getAndUpdateState();
 
-    WidgetsBinding.instance
+    WidgetsBinding.instance!
         .addObserver(LifecycleEventHandler(resumeCallBack: getAndUpdateState));
   }
 
@@ -49,12 +49,12 @@ class _SmartDevicePage extends State<SmartDevicePage> {
 
   //  Send request to device to retrieve his state on or off
   Future<bool> getDeviceState() async {
-    return _switchState = await _device.getDeviceStateAsBool();
+    return _switchState = await _device!.getDeviceStateAsBool();
   }
 
   Future<void> _onChange(bool value) async {
     print('OnChange $value');
-    _device.setLightState(value);
+    _device!.setLightState(value);
     if (mounted) {
       setState(() {
         _switchState = value;
@@ -68,10 +68,10 @@ class _SmartDevicePage extends State<SmartDevicePage> {
     return Column(
       children: <Widget>[
         Text(
-          _device.name, //  Show device name
+          _device!.name!, //  Show device name
           style: TextStyle(
             fontSize: 19.0,
-            color: Theme.of(context).textTheme.bodyText2.color,
+            color: Theme.of(context).textTheme.bodyText2!.color,
           ),
         ),
         const SizedBox(
@@ -90,10 +90,10 @@ class _SmartDevicePage extends State<SmartDevicePage> {
             activeToggleColor: const Color(0xFF2F363D),
             inactiveToggleColor: Theme.of(context).primaryColor,
             activeSwitchBorder: Border.all(
-              color: Theme.of(context).textTheme.bodyText1.color,
+              color: (Theme.of(context).textTheme.bodyText1!.color)!,
             ),
             inactiveSwitchBorder: Border.all(
-              color: Theme.of(context).textTheme.bodyText1.color,
+              color: (Theme.of(context).textTheme.bodyText1!.color)!,
             ),
             activeColor: const Color(0xFFFFDF5D),
             inactiveColor: Theme.of(context).primaryColorDark,
@@ -103,7 +103,7 @@ class _SmartDevicePage extends State<SmartDevicePage> {
             ),
             inactiveIcon: Icon(
               FontAwesomeIcons.lightbulb,
-              color: Theme.of(context).textTheme.bodyText1.color,
+              color: (Theme.of(context).textTheme.bodyText1!.color)!,
             ),
             onToggle: (bool value) => _onChange(value),
           ),
@@ -118,22 +118,22 @@ class LifecycleEventHandler extends WidgetsBindingObserver {
     this.suspendingCallBack,
   });
 
-  final AsyncCallback resumeCallBack;
-  final AsyncCallback suspendingCallBack;
+  final AsyncCallback? resumeCallBack;
+  final AsyncCallback? suspendingCallBack;
 
   @override
   Future<Null> didChangeAppLifecycleState(AppLifecycleState state) async {
     switch (state) {
       case AppLifecycleState.resumed:
         if (resumeCallBack != null) {
-          await resumeCallBack();
+          await resumeCallBack!();
         }
         break;
       case AppLifecycleState.inactive:
       case AppLifecycleState.paused:
       case AppLifecycleState.detached:
         if (suspendingCallBack != null) {
-          await suspendingCallBack();
+          await suspendingCallBack!();
         }
         break;
     }

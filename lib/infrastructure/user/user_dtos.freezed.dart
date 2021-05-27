@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'user_dtos.dart';
 
@@ -8,6 +8,10 @@ part of 'user_dtos.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 UserDtos _$UserDtosFromJson(Map<String, dynamic> json) {
   return _UserDtos.fromJson(json);
 }
@@ -16,13 +20,12 @@ UserDtos _$UserDtosFromJson(Map<String, dynamic> json) {
 class _$UserDtosTearOff {
   const _$UserDtosTearOff();
 
-// ignore: unused_element
   _UserDtos call(
-      {@JsonKey(ignore: true) String id,
-      @required String email,
-      @required String name,
-      String firstName,
-      String lastName}) {
+      {@JsonKey(ignore: true) String? id,
+      required String email,
+      required String name,
+      String? firstName,
+      String? lastName}) {
     return _UserDtos(
       id: id,
       email: email,
@@ -32,28 +35,27 @@ class _$UserDtosTearOff {
     );
   }
 
-// ignore: unused_element
   UserDtos fromJson(Map<String, Object> json) {
     return UserDtos.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $UserDtos = _$UserDtosTearOff();
 
 /// @nodoc
 mixin _$UserDtos {
   @JsonKey(ignore: true)
-  String get id;
-  String get email;
-  String get name;
-  String get firstName;
-  String get lastName;
+  String? get id => throw _privateConstructorUsedError;
+  String get email => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String? get firstName => throw _privateConstructorUsedError;
+  String? get lastName => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $UserDtosCopyWith<UserDtos> get copyWith;
+  $UserDtosCopyWith<UserDtos> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -61,11 +63,11 @@ abstract class $UserDtosCopyWith<$Res> {
   factory $UserDtosCopyWith(UserDtos value, $Res Function(UserDtos) then) =
       _$UserDtosCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(ignore: true) String id,
+      {@JsonKey(ignore: true) String? id,
       String email,
       String name,
-      String firstName,
-      String lastName});
+      String? firstName,
+      String? lastName});
 }
 
 /// @nodoc
@@ -78,18 +80,33 @@ class _$UserDtosCopyWithImpl<$Res> implements $UserDtosCopyWith<$Res> {
 
   @override
   $Res call({
-    Object id = freezed,
-    Object email = freezed,
-    Object name = freezed,
-    Object firstName = freezed,
-    Object lastName = freezed,
+    Object? id = freezed,
+    Object? email = freezed,
+    Object? name = freezed,
+    Object? firstName = freezed,
+    Object? lastName = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as String,
-      email: email == freezed ? _value.email : email as String,
-      name: name == freezed ? _value.name : name as String,
-      firstName: firstName == freezed ? _value.firstName : firstName as String,
-      lastName: lastName == freezed ? _value.lastName : lastName as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      email: email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      firstName: firstName == freezed
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      lastName: lastName == freezed
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -100,11 +117,11 @@ abstract class _$UserDtosCopyWith<$Res> implements $UserDtosCopyWith<$Res> {
       __$UserDtosCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(ignore: true) String id,
+      {@JsonKey(ignore: true) String? id,
       String email,
       String name,
-      String firstName,
-      String lastName});
+      String? firstName,
+      String? lastName});
 }
 
 /// @nodoc
@@ -118,50 +135,62 @@ class __$UserDtosCopyWithImpl<$Res> extends _$UserDtosCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object email = freezed,
-    Object name = freezed,
-    Object firstName = freezed,
-    Object lastName = freezed,
+    Object? id = freezed,
+    Object? email = freezed,
+    Object? name = freezed,
+    Object? firstName = freezed,
+    Object? lastName = freezed,
   }) {
     return _then(_UserDtos(
-      id: id == freezed ? _value.id : id as String,
-      email: email == freezed ? _value.email : email as String,
-      name: name == freezed ? _value.name : name as String,
-      firstName: firstName == freezed ? _value.firstName : firstName as String,
-      lastName: lastName == freezed ? _value.lastName : lastName as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      email: email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      firstName: firstName == freezed
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      lastName: lastName == freezed
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_UserDtos extends _UserDtos {
   const _$_UserDtos(
       {@JsonKey(ignore: true) this.id,
-      @required this.email,
-      @required this.name,
+      required this.email,
+      required this.name,
       this.firstName,
       this.lastName})
-      : assert(email != null),
-        assert(name != null),
-        super._();
+      : super._();
 
   factory _$_UserDtos.fromJson(Map<String, dynamic> json) =>
       _$_$_UserDtosFromJson(json);
 
   @override
   @JsonKey(ignore: true)
-  final String id;
+  final String? id;
   @override
   final String email;
   @override
   final String name;
   @override
-  final String firstName;
+  final String? firstName;
   @override
-  final String lastName;
+  final String? lastName;
 
   @override
   String toString() {
@@ -207,28 +236,29 @@ class _$_UserDtos extends _UserDtos {
 }
 
 abstract class _UserDtos extends UserDtos {
-  const _UserDtos._() : super._();
   const factory _UserDtos(
-      {@JsonKey(ignore: true) String id,
-      @required String email,
-      @required String name,
-      String firstName,
-      String lastName}) = _$_UserDtos;
+      {@JsonKey(ignore: true) String? id,
+      required String email,
+      required String name,
+      String? firstName,
+      String? lastName}) = _$_UserDtos;
+  const _UserDtos._() : super._();
 
   factory _UserDtos.fromJson(Map<String, dynamic> json) = _$_UserDtos.fromJson;
 
   @override
   @JsonKey(ignore: true)
-  String get id;
+  String? get id => throw _privateConstructorUsedError;
   @override
-  String get email;
+  String get email => throw _privateConstructorUsedError;
   @override
-  String get name;
+  String get name => throw _privateConstructorUsedError;
   @override
-  String get firstName;
+  String? get firstName => throw _privateConstructorUsedError;
   @override
-  String get lastName;
+  String? get lastName => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$UserDtosCopyWith<_UserDtos> get copyWith;
+  _$UserDtosCopyWith<_UserDtos> get copyWith =>
+      throw _privateConstructorUsedError;
 }

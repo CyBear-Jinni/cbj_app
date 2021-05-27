@@ -12,7 +12,7 @@ class CBJCompCard extends StatelessWidget {
   final CBJCompEntity cbjCompEntity;
 
   const CBJCompCard({
-    @required this.cbjCompEntity,
+    required this.cbjCompEntity,
   });
 
   @override
@@ -25,64 +25,67 @@ class CBJCompCard extends StatelessWidget {
             decoration: BoxDecoration(
               border: Border(
                 top: BorderSide(
-                  color: Theme.of(context).textTheme.bodyText1.color,
+                  color: (Theme.of(context).textTheme.bodyText1!.color)!,
                 ),
                 bottom: BorderSide(
-                  color: Theme.of(context).textTheme.bodyText1.color,
+                  color: (Theme.of(context).textTheme.bodyText1!.color)!,
                 ),
               ),
             ),
-            child: cbjCompEntity.cBJCompDevices.getOrCrash().size < 1
+            child: cbjCompEntity.cBJCompDevices!.getOrCrash().size < 1 != null
                 ? const Text('')
                 : ListView.builder(
                     padding: EdgeInsets.zero,
                     itemBuilder: (context, index) {
                       final DeviceEntity compEntity =
-                          cbjCompEntity.cBJCompDevices.getOrCrash()[index];
-                      if (compEntity.type.getOrCrash() ==
+                          cbjCompEntity.cBJCompDevices!.getOrCrash()[index];
+                      if (compEntity.type!.getOrCrash() ==
                           DeviceTypes.light.toString()) {
                         return Center(
                           child: BlocProvider(
                             create: (context) => getIt<DeviceActorBloc>(),
                             child: Text(
-                              compEntity.defaultName.getOrCrash(),
+                              compEntity.defaultName!.getOrCrash()!,
                               style: TextStyle(
                                   color: Theme.of(context)
                                       .textTheme
-                                      .bodyText1
+                                      .bodyText1!
                                       .color),
                             ),
                           ),
                         );
                       } else {
                         return Text(
-                          'Type not supported ${compEntity.type.getOrCrash()}'
+                          'Type not supported ${compEntity.type!.getOrCrash()}'
                           ' yet',
                           style: TextStyle(
-                              color:
-                                  Theme.of(context).textTheme.bodyText1.color),
+                              color: (Theme.of(context)
+                                  .textTheme
+                                  .bodyText1!
+                                  .color)!),
                         );
                       }
                     },
-                    itemCount: cbjCompEntity.cBJCompDevices.getOrCrash().size,
+                    itemCount: cbjCompEntity.cBJCompDevices!.getOrCrash().size,
                   ),
           ),
           const SizedBox(
             height: 30,
           ),
-          FlatButton(
-            color: Colors.greenAccent,
+          TextButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(
+                Colors.greenAccent,
+              ),
+            ),
             onPressed: () {
-              ExtendedNavigator.of(context).replace(
-                Routes.configureNewCbjCompPage,
-                arguments: ConfigureNewCbjCompPageArguments(
-                    cbjCompEntity: cbjCompEntity),
-              );
+              context.router.replace(
+                  ConfigureNewCbjCompRoute(cbjCompEntity: cbjCompEntity));
             },
             child: Text(
               'Set up computer',
-              style:
-                  TextStyle(color: Theme.of(context).textTheme.bodyText1.color),
+              style: TextStyle(
+                  color: (Theme.of(context).textTheme.bodyText1!.color)!),
             ),
           ),
         ],
