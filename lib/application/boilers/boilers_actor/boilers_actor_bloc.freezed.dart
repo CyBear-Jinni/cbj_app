@@ -21,7 +21,7 @@ class _$BoilersActorEventTearOff {
   }
 
   _TurnOnAllBoilers turnOnAllBoilers(
-      List<String?> boilersIdToTurnUp, BuildContext context) {
+      List<String>? boilersIdToTurnUp, BuildContext context) {
     return _TurnOnAllBoilers(
       boilersIdToTurnUp,
       context,
@@ -29,7 +29,7 @@ class _$BoilersActorEventTearOff {
   }
 
   _TurnOffAllBoilers turnOffAllBoilers(
-      List<String?> boilersIdToTurnOff, BuildContext context) {
+      List<String>? boilersIdToTurnOff, BuildContext context) {
     return _TurnOffAllBoilers(
       boilersIdToTurnOff,
       context,
@@ -52,10 +52,10 @@ mixin _$BoilersActorEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() initialized,
     required TResult Function(
-            List<String?> boilersIdToTurnUp, BuildContext context)
+            List<String>? boilersIdToTurnUp, BuildContext context)
         turnOnAllBoilers,
     required TResult Function(
-            List<String?> boilersIdToTurnOff, BuildContext context)
+            List<String>? boilersIdToTurnOff, BuildContext context)
         turnOffAllBoilers,
     required TResult Function(DeviceEntity deviceEntity) deleted,
   }) =>
@@ -63,9 +63,9 @@ mixin _$BoilersActorEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialized,
-    TResult Function(List<String?> boilersIdToTurnUp, BuildContext context)?
+    TResult Function(List<String>? boilersIdToTurnUp, BuildContext context)?
         turnOnAllBoilers,
-    TResult Function(List<String?> boilersIdToTurnOff, BuildContext context)?
+    TResult Function(List<String>? boilersIdToTurnOff, BuildContext context)?
         turnOffAllBoilers,
     TResult Function(DeviceEntity deviceEntity)? deleted,
     required TResult orElse(),
@@ -149,10 +149,10 @@ class _$Initialized implements Initialized {
   TResult when<TResult extends Object?>({
     required TResult Function() initialized,
     required TResult Function(
-            List<String?> boilersIdToTurnUp, BuildContext context)
+            List<String>? boilersIdToTurnUp, BuildContext context)
         turnOnAllBoilers,
     required TResult Function(
-            List<String?> boilersIdToTurnOff, BuildContext context)
+            List<String>? boilersIdToTurnOff, BuildContext context)
         turnOffAllBoilers,
     required TResult Function(DeviceEntity deviceEntity) deleted,
   }) {
@@ -163,9 +163,9 @@ class _$Initialized implements Initialized {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialized,
-    TResult Function(List<String?> boilersIdToTurnUp, BuildContext context)?
+    TResult Function(List<String>? boilersIdToTurnUp, BuildContext context)?
         turnOnAllBoilers,
-    TResult Function(List<String?> boilersIdToTurnOff, BuildContext context)?
+    TResult Function(List<String>? boilersIdToTurnOff, BuildContext context)?
         turnOffAllBoilers,
     TResult Function(DeviceEntity deviceEntity)? deleted,
     required TResult orElse(),
@@ -212,7 +212,7 @@ abstract class _$TurnOnAllBoilersCopyWith<$Res> {
   factory _$TurnOnAllBoilersCopyWith(
           _TurnOnAllBoilers value, $Res Function(_TurnOnAllBoilers) then) =
       __$TurnOnAllBoilersCopyWithImpl<$Res>;
-  $Res call({List<String?> boilersIdToTurnUp, BuildContext context});
+  $Res call({List<String>? boilersIdToTurnUp, BuildContext context});
 }
 
 /// @nodoc
@@ -235,7 +235,7 @@ class __$TurnOnAllBoilersCopyWithImpl<$Res>
       boilersIdToTurnUp == freezed
           ? _value.boilersIdToTurnUp
           : boilersIdToTurnUp // ignore: cast_nullable_to_non_nullable
-              as List<String?>,
+              as List<String>?,
       context == freezed
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
@@ -250,7 +250,7 @@ class _$_TurnOnAllBoilers implements _TurnOnAllBoilers {
   const _$_TurnOnAllBoilers(this.boilersIdToTurnUp, this.context);
 
   @override
-  final List<String?> boilersIdToTurnUp;
+  final List<String>? boilersIdToTurnUp;
   @override
   final BuildContext context;
 
@@ -286,10 +286,10 @@ class _$_TurnOnAllBoilers implements _TurnOnAllBoilers {
   TResult when<TResult extends Object?>({
     required TResult Function() initialized,
     required TResult Function(
-            List<String?> boilersIdToTurnUp, BuildContext context)
+            List<String>? boilersIdToTurnUp, BuildContext context)
         turnOnAllBoilers,
     required TResult Function(
-            List<String?> boilersIdToTurnOff, BuildContext context)
+            List<String>? boilersIdToTurnOff, BuildContext context)
         turnOffAllBoilers,
     required TResult Function(DeviceEntity deviceEntity) deleted,
   }) {
@@ -300,9 +300,9 @@ class _$_TurnOnAllBoilers implements _TurnOnAllBoilers {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialized,
-    TResult Function(List<String?> boilersIdToTurnUp, BuildContext context)?
+    TResult Function(List<String>? boilersIdToTurnUp, BuildContext context)?
         turnOnAllBoilers,
-    TResult Function(List<String?> boilersIdToTurnOff, BuildContext context)?
+    TResult Function(List<String>? boilersIdToTurnOff, BuildContext context)?
         turnOffAllBoilers,
     TResult Function(DeviceEntity deviceEntity)? deleted,
     required TResult orElse(),
@@ -342,10 +342,10 @@ class _$_TurnOnAllBoilers implements _TurnOnAllBoilers {
 
 abstract class _TurnOnAllBoilers implements BoilersActorEvent {
   const factory _TurnOnAllBoilers(
-          List<String?> boilersIdToTurnUp, BuildContext context) =
+          List<String>? boilersIdToTurnUp, BuildContext context) =
       _$_TurnOnAllBoilers;
 
-  List<String?> get boilersIdToTurnUp => throw _privateConstructorUsedError;
+  List<String>? get boilersIdToTurnUp => throw _privateConstructorUsedError;
   BuildContext get context => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$TurnOnAllBoilersCopyWith<_TurnOnAllBoilers> get copyWith =>
@@ -357,7 +357,7 @@ abstract class _$TurnOffAllBoilersCopyWith<$Res> {
   factory _$TurnOffAllBoilersCopyWith(
           _TurnOffAllBoilers value, $Res Function(_TurnOffAllBoilers) then) =
       __$TurnOffAllBoilersCopyWithImpl<$Res>;
-  $Res call({List<String?> boilersIdToTurnOff, BuildContext context});
+  $Res call({List<String>? boilersIdToTurnOff, BuildContext context});
 }
 
 /// @nodoc
@@ -380,7 +380,7 @@ class __$TurnOffAllBoilersCopyWithImpl<$Res>
       boilersIdToTurnOff == freezed
           ? _value.boilersIdToTurnOff
           : boilersIdToTurnOff // ignore: cast_nullable_to_non_nullable
-              as List<String?>,
+              as List<String>?,
       context == freezed
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
@@ -395,7 +395,7 @@ class _$_TurnOffAllBoilers implements _TurnOffAllBoilers {
   const _$_TurnOffAllBoilers(this.boilersIdToTurnOff, this.context);
 
   @override
-  final List<String?> boilersIdToTurnOff;
+  final List<String>? boilersIdToTurnOff;
   @override
   final BuildContext context;
 
@@ -431,10 +431,10 @@ class _$_TurnOffAllBoilers implements _TurnOffAllBoilers {
   TResult when<TResult extends Object?>({
     required TResult Function() initialized,
     required TResult Function(
-            List<String?> boilersIdToTurnUp, BuildContext context)
+            List<String>? boilersIdToTurnUp, BuildContext context)
         turnOnAllBoilers,
     required TResult Function(
-            List<String?> boilersIdToTurnOff, BuildContext context)
+            List<String>? boilersIdToTurnOff, BuildContext context)
         turnOffAllBoilers,
     required TResult Function(DeviceEntity deviceEntity) deleted,
   }) {
@@ -445,9 +445,9 @@ class _$_TurnOffAllBoilers implements _TurnOffAllBoilers {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialized,
-    TResult Function(List<String?> boilersIdToTurnUp, BuildContext context)?
+    TResult Function(List<String>? boilersIdToTurnUp, BuildContext context)?
         turnOnAllBoilers,
-    TResult Function(List<String?> boilersIdToTurnOff, BuildContext context)?
+    TResult Function(List<String>? boilersIdToTurnOff, BuildContext context)?
         turnOffAllBoilers,
     TResult Function(DeviceEntity deviceEntity)? deleted,
     required TResult orElse(),
@@ -487,10 +487,10 @@ class _$_TurnOffAllBoilers implements _TurnOffAllBoilers {
 
 abstract class _TurnOffAllBoilers implements BoilersActorEvent {
   const factory _TurnOffAllBoilers(
-          List<String?> boilersIdToTurnOff, BuildContext context) =
+          List<String>? boilersIdToTurnOff, BuildContext context) =
       _$_TurnOffAllBoilers;
 
-  List<String?> get boilersIdToTurnOff => throw _privateConstructorUsedError;
+  List<String>? get boilersIdToTurnOff => throw _privateConstructorUsedError;
   BuildContext get context => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$TurnOffAllBoilersCopyWith<_TurnOffAllBoilers> get copyWith =>
@@ -571,10 +571,10 @@ class _$_Deleted implements _Deleted {
   TResult when<TResult extends Object?>({
     required TResult Function() initialized,
     required TResult Function(
-            List<String?> boilersIdToTurnUp, BuildContext context)
+            List<String>? boilersIdToTurnUp, BuildContext context)
         turnOnAllBoilers,
     required TResult Function(
-            List<String?> boilersIdToTurnOff, BuildContext context)
+            List<String>? boilersIdToTurnOff, BuildContext context)
         turnOffAllBoilers,
     required TResult Function(DeviceEntity deviceEntity) deleted,
   }) {
@@ -585,9 +585,9 @@ class _$_Deleted implements _Deleted {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialized,
-    TResult Function(List<String?> boilersIdToTurnUp, BuildContext context)?
+    TResult Function(List<String>? boilersIdToTurnUp, BuildContext context)?
         turnOnAllBoilers,
-    TResult Function(List<String?> boilersIdToTurnOff, BuildContext context)?
+    TResult Function(List<String>? boilersIdToTurnOff, BuildContext context)?
         turnOffAllBoilers,
     TResult Function(DeviceEntity deviceEntity)? deleted,
     required TResult orElse(),

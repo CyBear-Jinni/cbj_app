@@ -79,11 +79,8 @@ class CBJCompCard extends StatelessWidget {
               ),
             ),
             onPressed: () {
-              ExtendedNavigator.of(context).replace(
-                Routes.configureNewCbjCompPage,
-                arguments: ConfigureNewCbjCompPageArguments(
-                    cbjCompEntity: cbjCompEntity),
-              );
+              context.router.replace(
+                  ConfigureNewCbjCompRoute(cbjCompEntity: cbjCompEntity));
             },
             child: Text(
               'Set up computer',

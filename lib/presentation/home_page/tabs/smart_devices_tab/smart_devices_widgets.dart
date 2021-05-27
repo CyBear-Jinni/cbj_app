@@ -25,7 +25,7 @@ class SmartDevicesWidgets extends StatelessWidget {
             style: TextStyle(color: Colors.green, fontSize: 23),
           ),
           onPressed: () {
-            ExtendedNavigator.of(context).push(Routes.connectToHomeWifiPage);
+            context.router.push(const ConnectToHomeWifiRoute());
           },
         ),
         BottomSheetAction(
@@ -69,7 +69,7 @@ class SmartDevicesWidgets extends StatelessWidget {
             listener: (context, state) {
               state.maybeMap(
                 unauthenticated: (_) =>
-                    ExtendedNavigator.of(context).replace(Routes.signInPage),
+                    context.router.replace(const SignInRoute()),
                 orElse: () {},
               );
             },

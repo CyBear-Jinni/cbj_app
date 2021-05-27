@@ -26,8 +26,7 @@ class ConnectToHomeWiFiWidget extends StatelessWidget {
                   );
                 },
                 loaded: (l) {
-                  ExtendedNavigator.of(context)
-                      .replace(Routes.openAccessPointPage);
+                  context.router.replace(const OpenAccessPointRoute());
                   return const Text('Loaded');
                 },
                 error: (e) {
@@ -152,8 +151,7 @@ class ConnectToHomeWiFiWidget extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  ExtendedNavigator.of(context)
-                      .replace(Routes.openAccessPointPage);
+                  context.router.replace(const OpenAccessPointRoute());
                 },
                 child: const Text('Next'),
               ),

@@ -56,17 +56,16 @@ class BlindWidget extends StatelessWidget {
                   onPressed: () {
                     context.read<BlindsActorBloc>().add(
                           BlindsActorEvent.moveDownAllBlinds(
-                              [_deviceEntity.id!.getOrCrash()], context),
+                              [_deviceEntity.id!.getOrCrash()!], context),
                         );
                   },
                   child: Tab(
                     icon: FaIcon(FontAwesomeIcons.arrowDown,
-                        color: (Theme.of(context).textTheme.bodyText1!.color)!),
+                        color: Theme.of(context).textTheme.bodyText1!.color),
                     child: Text(
                       'Down',
                       style: TextStyle(
-                          color:
-                              (Theme.of(context).textTheme.bodyText1!.color)!,
+                          color: Theme.of(context).textTheme.bodyText1!.color,
                           fontSize: 16),
                     ).tr(),
                   ),
@@ -83,7 +82,7 @@ class BlindWidget extends StatelessWidget {
                   onPressed: () {
                     context.read<BlindsActorBloc>().add(
                           BlindsActorEvent.stopAllBlinds(
-                              [_deviceEntity.id!.getOrCrash()], context),
+                              [_deviceEntity.id!.getOrCrash()!], context),
                         );
                   },
                   child: Tab(
@@ -110,17 +109,16 @@ class BlindWidget extends StatelessWidget {
                   onPressed: () {
                     context.read<BlindsActorBloc>().add(
                           BlindsActorEvent.moveUpAllBlinds(
-                              [_deviceEntity.id!.getOrCrash()], context),
+                              [_deviceEntity.id!.getOrCrash()!], context),
                         );
                   },
                   child: Tab(
                     icon: FaIcon(FontAwesomeIcons.arrowUp,
-                        color: (Theme.of(context).textTheme.bodyText1!.color)!),
+                        color: Theme.of(context).textTheme.bodyText1!.color),
                     child: Text(
                       'Up',
                       style: TextStyle(
-                          color:
-                              (Theme.of(context).textTheme.bodyText1!.color)!,
+                          color: Theme.of(context).textTheme.bodyText1!.color,
                           fontSize: 16),
                     ).tr(),
                   ),

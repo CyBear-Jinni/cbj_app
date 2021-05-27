@@ -39,7 +39,7 @@ class ManageAccessPointBloc
               pass: ManageWiFiPass('CyBear Jinni'));
 
           final Either<HomeUserFailures, Unit> opendAccessPoint =
-              await _manageAccessPointRepository!
+              await _manageAccessPointRepository
                   .openAccessPoint(manageNetworkEntity);
 
           yield opendAccessPoint.fold((f) => ManageAccessPointState.iOSDevice(),
@@ -53,7 +53,7 @@ class ManageAccessPointBloc
 
         if (Platform.isAndroid) {
           final Either<HomeUserFailures, Unit> openedAccessPoint =
-              await _manageAccessPointRepository!.doesAccessPointOpen();
+              await _manageAccessPointRepository.doesAccessPointOpen();
 
           yield openedAccessPoint.fold(
             (HomeUserFailures f) {

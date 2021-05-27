@@ -1,6 +1,5 @@
 import 'package:cybear_jinni/application/auth/auth_bloc.dart';
 import 'package:cybear_jinni/injection.dart';
-import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -37,9 +36,10 @@ class AppWidget extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'CyBear Jinni App',
-        builder: ExtendedNavigator(
-          router: AppRouter(),
-        ),
+
+        // builder: ExtendedNavigator(
+        //   router: AppRouter(),
+        // ),
         // initialRoute:
         // auth.currentU1`ser != null ? '/$homePage' : '/$loginPage',
         localizationsDelegates: context.localizationDelegates,

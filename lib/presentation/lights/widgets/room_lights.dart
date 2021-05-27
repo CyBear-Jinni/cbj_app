@@ -49,7 +49,7 @@ class RoomLights extends StatelessWidget {
               widgetsForRow.add(Column(
                 children: [
                   Text(
-                    deviceEntityTemp.defaultName.getOrCrash()!,
+                    deviceEntityTemp.defaultName!.getOrCrash()!,
                     style: TextStyle(
                       fontSize: 19.0,
                       color: ((Theme.of(context).textTheme.bodyText1!.color)!)!,

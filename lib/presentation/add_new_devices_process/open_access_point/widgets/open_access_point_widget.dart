@@ -168,8 +168,7 @@ class OpenAccessPointWidget extends StatelessWidget {
                   return const Text('AccessPointIsNotOpen');
                 },
                 accessPointIsOpen: (AccessPointIsOpen value) {
-                  ExtendedNavigator.of(context)
-                      .replace(Routes.scanForNewCBJCompsPage);
+                  context.router.replace(const ScanForNewCBJCompsRoute());
                   return const Text('AccessPointIsOpen');
                 },
               ),

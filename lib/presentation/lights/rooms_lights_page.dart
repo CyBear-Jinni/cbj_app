@@ -52,7 +52,7 @@ class RoomsLightsPage extends StatelessWidget {
             listener: (context, state) {
               state.maybeMap(
                 unauthenticated: (_) =>
-                    ExtendedNavigator.of(context).replace(Routes.signInPage),
+                    context.router.replace(const SignInRoute()),
                 orElse: () {},
               );
             },

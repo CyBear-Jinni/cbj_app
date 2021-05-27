@@ -34,9 +34,9 @@ abstract class CreateHomeDtos implements _$CreateHomeDtos {
       name: HomeName(' '),
       id: HomeUniqueId.fromUniqueString(' '),
       homeDevicesUserId: HomeDevicesUserId(),
-      homeDevicesUserEmail: HomeDevicesUserEmail(homeDevicesUserEmail!),
+      homeDevicesUserEmail: HomeDevicesUserEmail(homeDevicesUserEmail),
       homeDevicesUserPassword:
-          HomeDevicesUserPassword.fromUniqueString(homeDevicesUserPassword!),
+          HomeDevicesUserPassword.fromUniqueString(homeDevicesUserPassword),
     );
   }
 

@@ -23,7 +23,7 @@ class ManageUsersPage extends StatelessWidget {
             style: TextStyle(color: Colors.green, fontSize: 23),
           ),
           onPressed: () {
-            ExtendedNavigator.of(context).push(Routes.addUserToHomePage);
+            context.router.push(const AddUserToHomeRoute());
           },
         ),
       ],
@@ -49,7 +49,7 @@ class ManageUsersPage extends StatelessWidget {
               listener: (context, state) {
                 state.maybeMap(
                   unauthenticated: (_) =>
-                      ExtendedNavigator.of(context).replace(Routes.signInPage),
+                      context.router.replace(const SignInRoute()),
                   orElse: () {},
                 );
               },

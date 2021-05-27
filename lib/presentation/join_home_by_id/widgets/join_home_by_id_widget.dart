@@ -117,7 +117,8 @@ class JoinHomeByIdWidget extends StatelessWidget {
                 );
               },
               loaded: (l) {
-                ExtendedNavigator.of(context).replace(Routes.homePage);
+                context.router.replace(const HomeRoute());
+
                 return const Text('Loaded');
               },
               error: (e) {

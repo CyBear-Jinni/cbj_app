@@ -17,11 +17,10 @@ class LightsInTheRoomBlock extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        ExtendedNavigator.of(context).push(Routes.roomsLightsPage,
-            arguments: RoomsLightsPageArguments(
-              showDevicesOnlyFromRoomId: lightsInRoom[0].roomId!.getOrCrash(),
-              roomColorGradiant: roomColorGradiant,
-            ));
+        context.router.push(RoomsLightsRoute(
+          showDevicesOnlyFromRoomId: lightsInRoom[0].roomId!.getOrCrash(),
+          roomColorGradiant: roomColorGradiant,
+        ));
       },
       child: Container(
         color: Colors.black.withOpacity(0.03),

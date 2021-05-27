@@ -41,7 +41,7 @@ class RoomLightsTogglesBlock extends StatelessWidget {
                 margin: const EdgeInsets.symmetric(vertical: 5),
                 width: sizeBoxWidth + 15,
                 child: SmartDevicePage(
-                  _smartRoomObject!.getLights()[i + v],
+                  _smartRoomObject!.getLights()![i + v],
                 ),
               ),
             );
@@ -99,8 +99,8 @@ class RoomLightsTogglesBlock extends StatelessWidget {
               onPressed: () {
                 if (maxLightsToShow != null &&
                     _smartRoomObject!.getLights()!.length > maxLightsToShow!) {
-                  ExtendedNavigator.of(context)
-                      .pushLightsInTheRoomPage(thisSmartRoom: _smartRoomObject);
+                  context.router.push(
+                      LightsInTheRoomRoute(thisSmartRoom: _smartRoomObject));
                 }
               },
               child: Row(
@@ -115,7 +115,7 @@ class RoomLightsTogglesBlock extends StatelessWidget {
                     ),
                   ),
                   if (maxLightsToShow != null &&
-                      _smartRoomObject!.getLights().length > maxLightsToShow!)
+                      _smartRoomObject!.getLights()!.length > maxLightsToShow!)
                     FaIcon(
                       FontAwesomeIcons.arrowRight,
                       color: (Theme.of(context).textTheme.bodyText1!.color)!,

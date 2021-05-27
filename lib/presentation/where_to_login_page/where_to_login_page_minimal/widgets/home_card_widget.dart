@@ -24,7 +24,7 @@ class HomeCardWidget extends StatelessWidget {
           loadInProgress: (_) => const Text('loadInProgress'),
           loadSuccess: (_) => const Text('loadInSuccess'),
           enterHome: (_) {
-            ExtendedNavigator.of(context).replace(Routes.homePage);
+            context.router.replace(const HomeRoute());
           },
           loadFailure: (_) => const Text('loadFailure'),
           loadFailureEnteringHome: (_) => FlushbarHelper.createError(

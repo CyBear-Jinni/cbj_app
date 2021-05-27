@@ -51,7 +51,7 @@ class WhereToLoginPageOffline extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {
-                        context.router.push(Routes.homePage);
+                        context.router.push(const HomeRoute());
                       },
                       child: Container(
                         margin: const EdgeInsets.only(left: 30),
@@ -92,7 +92,7 @@ class WhereToLoginPageOffline extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {
-                        ExtendedNavigator.of(context).replace(Routes.homePage);
+                        context.router.replace(const HomeRoute());
                       },
                       child: Container(
                         margin: const EdgeInsets.only(left: 30),

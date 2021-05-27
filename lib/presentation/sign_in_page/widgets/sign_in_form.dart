@@ -28,8 +28,7 @@ class SignInForm extends StatelessWidget {
                             ),
                           ).show(context),
                         }, (_) {
-                  ExtendedNavigator.of(context)
-                      .push(Routes.whereToLoginPageMinimalPage);
+                  context.router.push(const WhereToLoginRouteMinimalRoute());
 
                   context
                       .read()<AuthBloc>()
@@ -141,17 +140,15 @@ class SignInForm extends StatelessWidget {
               child: TextButton(
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(
-                      (Theme.of(context).textTheme.bodyText1!.color)!),
+                      Theme.of(context).textTheme.bodyText1!.color),
                 ),
                 onPressed: () {
-                  ExtendedNavigator.of(context)
-                      .push(Routes.whereToLoginPageOffline);
+                  context.router.push(const WhereToLoginRouteOffline());
                 },
                 child: Text(
                   'For More Options',
                   style: TextStyle(
-                      color:
-                          ((Theme.of(context).textTheme.bodyText1!.color)!)!),
+                      color: Theme.of(context).textTheme.bodyText1!.color),
                 ),
               ),
             ),

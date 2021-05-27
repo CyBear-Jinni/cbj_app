@@ -18,12 +18,12 @@ class BoilersWidget extends StatelessWidget {
     if (value) {
       context.read<BoilersActorBloc>().add(
             BoilersActorEvent.turnOnAllBoilers(
-                [_deviceEntity.id!.getOrCrash()], context),
+                [_deviceEntity.id!.getOrCrash()!], context),
           );
     } else {
       context.read<BoilersActorBloc>().add(
             BoilersActorEvent.turnOffAllBoilers(
-                [_deviceEntity.id!.getOrCrash()], context),
+                [_deviceEntity.id!.getOrCrash()!], context),
           );
     }
   }

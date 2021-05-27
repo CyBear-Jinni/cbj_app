@@ -58,9 +58,7 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      ExtendedNavigator.of(context).push(
-                        Routes.createHomePage,
-                      );
+                      context.router.push(const CreateHomeRoute());
                     },
                     child: Container(
                       margin: const EdgeInsets.only(left: 30),
@@ -101,9 +99,7 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      ExtendedNavigator.of(context).push(
-                        Routes.joinHomeByIdPage,
-                      );
+                      context.router.push(const JoinHomeByIdRoute());
                     },
                     child: Container(
                       margin: const EdgeInsets.only(left: 30),
@@ -155,8 +151,7 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
                         listener: (context, state) {
                           state.maybeMap(
                             unauthenticated: (_) =>
-                                ExtendedNavigator.of(context)
-                                    .replace(Routes.signInPage),
+                                context.router.replace(const SignInRoute()),
                             orElse: () {},
                           );
                         },

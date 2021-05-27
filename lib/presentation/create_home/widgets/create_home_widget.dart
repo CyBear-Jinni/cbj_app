@@ -123,7 +123,7 @@ class CreateHomeWidget extends StatelessWidget {
                 return const Text('Error');
               },
               loaded: (_) {
-                ExtendedNavigator.of(context).replace(Routes.homePage);
+                context.router.replace(const HomeRoute());
                 return const Text('Loaded');
               },
             );

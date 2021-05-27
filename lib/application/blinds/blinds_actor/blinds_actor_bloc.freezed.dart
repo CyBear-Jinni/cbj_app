@@ -21,7 +21,7 @@ class _$BlindsActorEventTearOff {
   }
 
   _MoveUpAllBlinds moveUpAllBlinds(
-      List<String?> blindsIdToTurnUp, BuildContext context) {
+      List<String>? blindsIdToTurnUp, BuildContext context) {
     return _MoveUpAllBlinds(
       blindsIdToTurnUp,
       context,
@@ -29,7 +29,7 @@ class _$BlindsActorEventTearOff {
   }
 
   _StopAllBlinds stopAllBlinds(
-      List<String?> blindsIdToStop, BuildContext context) {
+      List<String>? blindsIdToStop, BuildContext context) {
     return _StopAllBlinds(
       blindsIdToStop,
       context,
@@ -37,7 +37,7 @@ class _$BlindsActorEventTearOff {
   }
 
   _MoveDownAllBlinds moveDownAllBlinds(
-      List<String?> blindsIdToTurnDown, BuildContext context) {
+      List<String>? blindsIdToTurnDown, BuildContext context) {
     return _MoveDownAllBlinds(
       blindsIdToTurnDown,
       context,
@@ -60,13 +60,13 @@ mixin _$BlindsActorEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() initialized,
     required TResult Function(
-            List<String?> blindsIdToTurnUp, BuildContext context)
+            List<String>? blindsIdToTurnUp, BuildContext context)
         moveUpAllBlinds,
     required TResult Function(
-            List<String?> blindsIdToStop, BuildContext context)
+            List<String>? blindsIdToStop, BuildContext context)
         stopAllBlinds,
     required TResult Function(
-            List<String?> blindsIdToTurnDown, BuildContext context)
+            List<String>? blindsIdToTurnDown, BuildContext context)
         moveDownAllBlinds,
     required TResult Function(DeviceEntity deviceEntity) deleted,
   }) =>
@@ -74,11 +74,11 @@ mixin _$BlindsActorEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialized,
-    TResult Function(List<String?> blindsIdToTurnUp, BuildContext context)?
+    TResult Function(List<String>? blindsIdToTurnUp, BuildContext context)?
         moveUpAllBlinds,
-    TResult Function(List<String?> blindsIdToStop, BuildContext context)?
+    TResult Function(List<String>? blindsIdToStop, BuildContext context)?
         stopAllBlinds,
-    TResult Function(List<String?> blindsIdToTurnDown, BuildContext context)?
+    TResult Function(List<String>? blindsIdToTurnDown, BuildContext context)?
         moveDownAllBlinds,
     TResult Function(DeviceEntity deviceEntity)? deleted,
     required TResult orElse(),
@@ -164,13 +164,13 @@ class _$Initialized implements Initialized {
   TResult when<TResult extends Object?>({
     required TResult Function() initialized,
     required TResult Function(
-            List<String?> blindsIdToTurnUp, BuildContext context)
+            List<String>? blindsIdToTurnUp, BuildContext context)
         moveUpAllBlinds,
     required TResult Function(
-            List<String?> blindsIdToStop, BuildContext context)
+            List<String>? blindsIdToStop, BuildContext context)
         stopAllBlinds,
     required TResult Function(
-            List<String?> blindsIdToTurnDown, BuildContext context)
+            List<String>? blindsIdToTurnDown, BuildContext context)
         moveDownAllBlinds,
     required TResult Function(DeviceEntity deviceEntity) deleted,
   }) {
@@ -181,11 +181,11 @@ class _$Initialized implements Initialized {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialized,
-    TResult Function(List<String?> blindsIdToTurnUp, BuildContext context)?
+    TResult Function(List<String>? blindsIdToTurnUp, BuildContext context)?
         moveUpAllBlinds,
-    TResult Function(List<String?> blindsIdToStop, BuildContext context)?
+    TResult Function(List<String>? blindsIdToStop, BuildContext context)?
         stopAllBlinds,
-    TResult Function(List<String?> blindsIdToTurnDown, BuildContext context)?
+    TResult Function(List<String>? blindsIdToTurnDown, BuildContext context)?
         moveDownAllBlinds,
     TResult Function(DeviceEntity deviceEntity)? deleted,
     required TResult orElse(),
@@ -234,7 +234,7 @@ abstract class _$MoveUpAllBlindsCopyWith<$Res> {
   factory _$MoveUpAllBlindsCopyWith(
           _MoveUpAllBlinds value, $Res Function(_MoveUpAllBlinds) then) =
       __$MoveUpAllBlindsCopyWithImpl<$Res>;
-  $Res call({List<String?> blindsIdToTurnUp, BuildContext context});
+  $Res call({List<String>? blindsIdToTurnUp, BuildContext context});
 }
 
 /// @nodoc
@@ -257,7 +257,7 @@ class __$MoveUpAllBlindsCopyWithImpl<$Res>
       blindsIdToTurnUp == freezed
           ? _value.blindsIdToTurnUp
           : blindsIdToTurnUp // ignore: cast_nullable_to_non_nullable
-              as List<String?>,
+              as List<String>?,
       context == freezed
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
@@ -272,7 +272,7 @@ class _$_MoveUpAllBlinds implements _MoveUpAllBlinds {
   const _$_MoveUpAllBlinds(this.blindsIdToTurnUp, this.context);
 
   @override
-  final List<String?> blindsIdToTurnUp;
+  final List<String>? blindsIdToTurnUp;
   @override
   final BuildContext context;
 
@@ -308,13 +308,13 @@ class _$_MoveUpAllBlinds implements _MoveUpAllBlinds {
   TResult when<TResult extends Object?>({
     required TResult Function() initialized,
     required TResult Function(
-            List<String?> blindsIdToTurnUp, BuildContext context)
+            List<String>? blindsIdToTurnUp, BuildContext context)
         moveUpAllBlinds,
     required TResult Function(
-            List<String?> blindsIdToStop, BuildContext context)
+            List<String>? blindsIdToStop, BuildContext context)
         stopAllBlinds,
     required TResult Function(
-            List<String?> blindsIdToTurnDown, BuildContext context)
+            List<String>? blindsIdToTurnDown, BuildContext context)
         moveDownAllBlinds,
     required TResult Function(DeviceEntity deviceEntity) deleted,
   }) {
@@ -325,11 +325,11 @@ class _$_MoveUpAllBlinds implements _MoveUpAllBlinds {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialized,
-    TResult Function(List<String?> blindsIdToTurnUp, BuildContext context)?
+    TResult Function(List<String>? blindsIdToTurnUp, BuildContext context)?
         moveUpAllBlinds,
-    TResult Function(List<String?> blindsIdToStop, BuildContext context)?
+    TResult Function(List<String>? blindsIdToStop, BuildContext context)?
         stopAllBlinds,
-    TResult Function(List<String?> blindsIdToTurnDown, BuildContext context)?
+    TResult Function(List<String>? blindsIdToTurnDown, BuildContext context)?
         moveDownAllBlinds,
     TResult Function(DeviceEntity deviceEntity)? deleted,
     required TResult orElse(),
@@ -371,10 +371,10 @@ class _$_MoveUpAllBlinds implements _MoveUpAllBlinds {
 
 abstract class _MoveUpAllBlinds implements BlindsActorEvent {
   const factory _MoveUpAllBlinds(
-          List<String?> blindsIdToTurnUp, BuildContext context) =
+          List<String>? blindsIdToTurnUp, BuildContext context) =
       _$_MoveUpAllBlinds;
 
-  List<String?> get blindsIdToTurnUp => throw _privateConstructorUsedError;
+  List<String>? get blindsIdToTurnUp => throw _privateConstructorUsedError;
   BuildContext get context => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$MoveUpAllBlindsCopyWith<_MoveUpAllBlinds> get copyWith =>
@@ -386,7 +386,7 @@ abstract class _$StopAllBlindsCopyWith<$Res> {
   factory _$StopAllBlindsCopyWith(
           _StopAllBlinds value, $Res Function(_StopAllBlinds) then) =
       __$StopAllBlindsCopyWithImpl<$Res>;
-  $Res call({List<String?> blindsIdToStop, BuildContext context});
+  $Res call({List<String>? blindsIdToStop, BuildContext context});
 }
 
 /// @nodoc
@@ -409,7 +409,7 @@ class __$StopAllBlindsCopyWithImpl<$Res>
       blindsIdToStop == freezed
           ? _value.blindsIdToStop
           : blindsIdToStop // ignore: cast_nullable_to_non_nullable
-              as List<String?>,
+              as List<String>?,
       context == freezed
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
@@ -424,7 +424,7 @@ class _$_StopAllBlinds implements _StopAllBlinds {
   const _$_StopAllBlinds(this.blindsIdToStop, this.context);
 
   @override
-  final List<String?> blindsIdToStop;
+  final List<String>? blindsIdToStop;
   @override
   final BuildContext context;
 
@@ -460,13 +460,13 @@ class _$_StopAllBlinds implements _StopAllBlinds {
   TResult when<TResult extends Object?>({
     required TResult Function() initialized,
     required TResult Function(
-            List<String?> blindsIdToTurnUp, BuildContext context)
+            List<String>? blindsIdToTurnUp, BuildContext context)
         moveUpAllBlinds,
     required TResult Function(
-            List<String?> blindsIdToStop, BuildContext context)
+            List<String>? blindsIdToStop, BuildContext context)
         stopAllBlinds,
     required TResult Function(
-            List<String?> blindsIdToTurnDown, BuildContext context)
+            List<String>? blindsIdToTurnDown, BuildContext context)
         moveDownAllBlinds,
     required TResult Function(DeviceEntity deviceEntity) deleted,
   }) {
@@ -477,11 +477,11 @@ class _$_StopAllBlinds implements _StopAllBlinds {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialized,
-    TResult Function(List<String?> blindsIdToTurnUp, BuildContext context)?
+    TResult Function(List<String>? blindsIdToTurnUp, BuildContext context)?
         moveUpAllBlinds,
-    TResult Function(List<String?> blindsIdToStop, BuildContext context)?
+    TResult Function(List<String>? blindsIdToStop, BuildContext context)?
         stopAllBlinds,
-    TResult Function(List<String?> blindsIdToTurnDown, BuildContext context)?
+    TResult Function(List<String>? blindsIdToTurnDown, BuildContext context)?
         moveDownAllBlinds,
     TResult Function(DeviceEntity deviceEntity)? deleted,
     required TResult orElse(),
@@ -523,9 +523,9 @@ class _$_StopAllBlinds implements _StopAllBlinds {
 
 abstract class _StopAllBlinds implements BlindsActorEvent {
   const factory _StopAllBlinds(
-      List<String?> blindsIdToStop, BuildContext context) = _$_StopAllBlinds;
+      List<String>? blindsIdToStop, BuildContext context) = _$_StopAllBlinds;
 
-  List<String?> get blindsIdToStop => throw _privateConstructorUsedError;
+  List<String>? get blindsIdToStop => throw _privateConstructorUsedError;
   BuildContext get context => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$StopAllBlindsCopyWith<_StopAllBlinds> get copyWith =>
@@ -537,7 +537,7 @@ abstract class _$MoveDownAllBlindsCopyWith<$Res> {
   factory _$MoveDownAllBlindsCopyWith(
           _MoveDownAllBlinds value, $Res Function(_MoveDownAllBlinds) then) =
       __$MoveDownAllBlindsCopyWithImpl<$Res>;
-  $Res call({List<String?> blindsIdToTurnDown, BuildContext context});
+  $Res call({List<String>? blindsIdToTurnDown, BuildContext context});
 }
 
 /// @nodoc
@@ -560,7 +560,7 @@ class __$MoveDownAllBlindsCopyWithImpl<$Res>
       blindsIdToTurnDown == freezed
           ? _value.blindsIdToTurnDown
           : blindsIdToTurnDown // ignore: cast_nullable_to_non_nullable
-              as List<String?>,
+              as List<String>?,
       context == freezed
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
@@ -575,7 +575,7 @@ class _$_MoveDownAllBlinds implements _MoveDownAllBlinds {
   const _$_MoveDownAllBlinds(this.blindsIdToTurnDown, this.context);
 
   @override
-  final List<String?> blindsIdToTurnDown;
+  final List<String>? blindsIdToTurnDown;
   @override
   final BuildContext context;
 
@@ -611,13 +611,13 @@ class _$_MoveDownAllBlinds implements _MoveDownAllBlinds {
   TResult when<TResult extends Object?>({
     required TResult Function() initialized,
     required TResult Function(
-            List<String?> blindsIdToTurnUp, BuildContext context)
+            List<String>? blindsIdToTurnUp, BuildContext context)
         moveUpAllBlinds,
     required TResult Function(
-            List<String?> blindsIdToStop, BuildContext context)
+            List<String>? blindsIdToStop, BuildContext context)
         stopAllBlinds,
     required TResult Function(
-            List<String?> blindsIdToTurnDown, BuildContext context)
+            List<String>? blindsIdToTurnDown, BuildContext context)
         moveDownAllBlinds,
     required TResult Function(DeviceEntity deviceEntity) deleted,
   }) {
@@ -628,11 +628,11 @@ class _$_MoveDownAllBlinds implements _MoveDownAllBlinds {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialized,
-    TResult Function(List<String?> blindsIdToTurnUp, BuildContext context)?
+    TResult Function(List<String>? blindsIdToTurnUp, BuildContext context)?
         moveUpAllBlinds,
-    TResult Function(List<String?> blindsIdToStop, BuildContext context)?
+    TResult Function(List<String>? blindsIdToStop, BuildContext context)?
         stopAllBlinds,
-    TResult Function(List<String?> blindsIdToTurnDown, BuildContext context)?
+    TResult Function(List<String>? blindsIdToTurnDown, BuildContext context)?
         moveDownAllBlinds,
     TResult Function(DeviceEntity deviceEntity)? deleted,
     required TResult orElse(),
@@ -674,10 +674,10 @@ class _$_MoveDownAllBlinds implements _MoveDownAllBlinds {
 
 abstract class _MoveDownAllBlinds implements BlindsActorEvent {
   const factory _MoveDownAllBlinds(
-          List<String?> blindsIdToTurnDown, BuildContext context) =
+          List<String>? blindsIdToTurnDown, BuildContext context) =
       _$_MoveDownAllBlinds;
 
-  List<String?> get blindsIdToTurnDown => throw _privateConstructorUsedError;
+  List<String>? get blindsIdToTurnDown => throw _privateConstructorUsedError;
   BuildContext get context => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$MoveDownAllBlindsCopyWith<_MoveDownAllBlinds> get copyWith =>
@@ -758,13 +758,13 @@ class _$_Deleted implements _Deleted {
   TResult when<TResult extends Object?>({
     required TResult Function() initialized,
     required TResult Function(
-            List<String?> blindsIdToTurnUp, BuildContext context)
+            List<String>? blindsIdToTurnUp, BuildContext context)
         moveUpAllBlinds,
     required TResult Function(
-            List<String?> blindsIdToStop, BuildContext context)
+            List<String>? blindsIdToStop, BuildContext context)
         stopAllBlinds,
     required TResult Function(
-            List<String?> blindsIdToTurnDown, BuildContext context)
+            List<String>? blindsIdToTurnDown, BuildContext context)
         moveDownAllBlinds,
     required TResult Function(DeviceEntity deviceEntity) deleted,
   }) {
@@ -775,11 +775,11 @@ class _$_Deleted implements _Deleted {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialized,
-    TResult Function(List<String?> blindsIdToTurnUp, BuildContext context)?
+    TResult Function(List<String>? blindsIdToTurnUp, BuildContext context)?
         moveUpAllBlinds,
-    TResult Function(List<String?> blindsIdToStop, BuildContext context)?
+    TResult Function(List<String>? blindsIdToStop, BuildContext context)?
         stopAllBlinds,
-    TResult Function(List<String?> blindsIdToTurnDown, BuildContext context)?
+    TResult Function(List<String>? blindsIdToTurnDown, BuildContext context)?
         moveDownAllBlinds,
     TResult Function(DeviceEntity deviceEntity)? deleted,
     required TResult orElse(),

@@ -15,11 +15,9 @@ class BoilersInTheRoom extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        ExtendedNavigator.of(context).push(Routes.roomsBoilersPage,
-            arguments: RoomsBoilersPageArguments(
-                showDevicesOnlyFromRoomId:
-                    boilersInRoom![0].roomId.getOrCrash(),
-                roomColorGradiant: roomColorGradiant));
+        context.router.push(RoomsBoilersRoute(
+            showDevicesOnlyFromRoomId: boilersInRoom![0].roomId!.getOrCrash(),
+            roomColorGradiant: roomColorGradiant));
       },
       child: Container(
         color: Colors.black.withOpacity(0.03),
@@ -77,7 +75,7 @@ class BoilersInTheRoom extends StatelessWidget {
             ),
             if (boilersInRoom!.length == 1)
               Text(
-                boilersInRoom[0].defaultName.getOrCrash()!,
+                boilersInRoom![0].defaultName!.getOrCrash()!,
                 style: TextStyle(
                     color: (Theme.of(context).textTheme.bodyText1!.color)!),
               )

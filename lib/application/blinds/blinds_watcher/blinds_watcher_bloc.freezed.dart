@@ -309,7 +309,7 @@ class _$BlindsWatcherStateTearOff {
     return const _LoadInProgress();
   }
 
-  _LoadSuccess loadSuccess(KtList<DeviceEntity> devices) {
+  _LoadSuccess loadSuccess(KtList<DeviceEntity?> devices) {
     return _LoadSuccess(
       devices,
     );
@@ -335,7 +335,7 @@ mixin _$BlindsWatcherState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(KtList<DeviceEntity> devices) loadSuccess,
+    required TResult Function(KtList<DeviceEntity?> devices) loadSuccess,
     required TResult Function(DevicesFailure<dynamic> devicesFailure)
         loadFailure,
     required TResult Function() blindError,
@@ -345,7 +345,7 @@ mixin _$BlindsWatcherState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<DeviceEntity> devices)? loadSuccess,
+    TResult Function(KtList<DeviceEntity?> devices)? loadSuccess,
     TResult Function(DevicesFailure<dynamic> devicesFailure)? loadFailure,
     TResult Function()? blindError,
     required TResult orElse(),
@@ -429,7 +429,7 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(KtList<DeviceEntity> devices) loadSuccess,
+    required TResult Function(KtList<DeviceEntity?> devices) loadSuccess,
     required TResult Function(DevicesFailure<dynamic> devicesFailure)
         loadFailure,
     required TResult Function() blindError,
@@ -442,7 +442,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<DeviceEntity> devices)? loadSuccess,
+    TResult Function(KtList<DeviceEntity?> devices)? loadSuccess,
     TResult Function(DevicesFailure<dynamic> devicesFailure)? loadFailure,
     TResult Function()? blindError,
     required TResult orElse(),
@@ -528,7 +528,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(KtList<DeviceEntity> devices) loadSuccess,
+    required TResult Function(KtList<DeviceEntity?> devices) loadSuccess,
     required TResult Function(DevicesFailure<dynamic> devicesFailure)
         loadFailure,
     required TResult Function() blindError,
@@ -541,7 +541,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<DeviceEntity> devices)? loadSuccess,
+    TResult Function(KtList<DeviceEntity?> devices)? loadSuccess,
     TResult Function(DevicesFailure<dynamic> devicesFailure)? loadFailure,
     TResult Function()? blindError,
     required TResult orElse(),
@@ -590,7 +590,7 @@ abstract class _$LoadSuccessCopyWith<$Res> {
   factory _$LoadSuccessCopyWith(
           _LoadSuccess value, $Res Function(_LoadSuccess) then) =
       __$LoadSuccessCopyWithImpl<$Res>;
-  $Res call({KtList<DeviceEntity> devices});
+  $Res call({KtList<DeviceEntity?> devices});
 }
 
 /// @nodoc
@@ -612,7 +612,7 @@ class __$LoadSuccessCopyWithImpl<$Res>
       devices == freezed
           ? _value.devices
           : devices // ignore: cast_nullable_to_non_nullable
-              as KtList<DeviceEntity>,
+              as KtList<DeviceEntity?>,
     ));
   }
 }
@@ -623,7 +623,7 @@ class _$_LoadSuccess implements _LoadSuccess {
   const _$_LoadSuccess(this.devices);
 
   @override
-  final KtList<DeviceEntity> devices;
+  final KtList<DeviceEntity?> devices;
 
   @override
   String toString() {
@@ -652,7 +652,7 @@ class _$_LoadSuccess implements _LoadSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(KtList<DeviceEntity> devices) loadSuccess,
+    required TResult Function(KtList<DeviceEntity?> devices) loadSuccess,
     required TResult Function(DevicesFailure<dynamic> devicesFailure)
         loadFailure,
     required TResult Function() blindError,
@@ -665,7 +665,7 @@ class _$_LoadSuccess implements _LoadSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<DeviceEntity> devices)? loadSuccess,
+    TResult Function(KtList<DeviceEntity?> devices)? loadSuccess,
     TResult Function(DevicesFailure<dynamic> devicesFailure)? loadFailure,
     TResult Function()? blindError,
     required TResult orElse(),
@@ -706,9 +706,9 @@ class _$_LoadSuccess implements _LoadSuccess {
 }
 
 abstract class _LoadSuccess implements BlindsWatcherState {
-  const factory _LoadSuccess(KtList<DeviceEntity> devices) = _$_LoadSuccess;
+  const factory _LoadSuccess(KtList<DeviceEntity?> devices) = _$_LoadSuccess;
 
-  KtList<DeviceEntity> get devices => throw _privateConstructorUsedError;
+  KtList<DeviceEntity?> get devices => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith =>
       throw _privateConstructorUsedError;
@@ -793,7 +793,7 @@ class _$_loadFailure implements _loadFailure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(KtList<DeviceEntity> devices) loadSuccess,
+    required TResult Function(KtList<DeviceEntity?> devices) loadSuccess,
     required TResult Function(DevicesFailure<dynamic> devicesFailure)
         loadFailure,
     required TResult Function() blindError,
@@ -806,7 +806,7 @@ class _$_loadFailure implements _loadFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<DeviceEntity> devices)? loadSuccess,
+    TResult Function(KtList<DeviceEntity?> devices)? loadSuccess,
     TResult Function(DevicesFailure<dynamic> devicesFailure)? loadFailure,
     TResult Function()? blindError,
     required TResult orElse(),
@@ -898,7 +898,7 @@ class _$BlindError implements BlindError {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(KtList<DeviceEntity> devices) loadSuccess,
+    required TResult Function(KtList<DeviceEntity?> devices) loadSuccess,
     required TResult Function(DevicesFailure<dynamic> devicesFailure)
         loadFailure,
     required TResult Function() blindError,
@@ -911,7 +911,7 @@ class _$BlindError implements BlindError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<DeviceEntity> devices)? loadSuccess,
+    TResult Function(KtList<DeviceEntity?> devices)? loadSuccess,
     TResult Function(DevicesFailure<dynamic> devicesFailure)? loadFailure,
     TResult Function()? blindError,
     required TResult orElse(),

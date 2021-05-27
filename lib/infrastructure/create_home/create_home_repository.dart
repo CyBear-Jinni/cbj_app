@@ -44,12 +44,12 @@ class CreateHomeRepository implements ICreateHomeRepository {
       CreateHomeEntity? createHomeEntity) async {
     try {
       if (createHomeEntity!.homeDevicesUserEmail!.getOrCrash() == null ||
-          createHomeEntity!.homeDevicesUserEmail!.getOrCrash().isEmpty) {
+          createHomeEntity.homeDevicesUserEmail!.getOrCrash().isEmpty) {
         return left(const CreateHomeFailure.devicesUserEmailIsInvalid());
       }
 
       CreateHomeEntity createHomeEntityWithId =
-          createHomeEntity!.copyWith(id: HomeUniqueId());
+          createHomeEntity.copyWith(id: HomeUniqueId());
 
       final UserEntity userEntity =
           (await getIt<IUserRepository>().getCurrentUser()).getOrElse(() =>

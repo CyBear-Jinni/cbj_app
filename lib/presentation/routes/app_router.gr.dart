@@ -44,122 +44,120 @@ class AppRouter extends _i1.RootStackRouter {
 
   @override
   final Map<String, _i1.PageFactory> pagesMap = {
-    SplashPageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+    SplashRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
           return _i3.SplashPage();
         }),
-    IntroductionScreenPageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+    IntroductionScreenRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
           return _i4.IntroductionScreenPage();
         }),
-    SignInPageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+    SignInRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
           return _i5.SignInPage();
         }),
-    CreateHomePageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+    CreateHomeRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
           return _i6.CreateHomePage();
         }),
-    WhereToLoginPageMinimalPageRoute.name: (routeData) =>
+    WhereToLoginRouteMinimalRoute.name: (routeData) =>
         _i1.MaterialPageX<dynamic>(
             routeData: routeData,
             builder: (_) {
               return _i7.WhereToLoginPageMinimalPage();
             }),
-    WhereToLoginPageOfflineRoute.name: (routeData) =>
-        _i1.MaterialPageX<dynamic>(
-            routeData: routeData,
-            builder: (_) {
-              return _i8.WhereToLoginPageOffline();
-            }),
-    JoinHomeByIdPageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+    WhereToLoginRouteOffline.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return _i8.WhereToLoginPageOffline();
+        }),
+    JoinHomeByIdRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
           return _i9.JoinHomeByIdPage();
         }),
-    HomePageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+    HomeRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
           return _i10.HomePage();
         }),
-    ManageUsersPageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+    ManageUsersRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
           return _i11.ManageUsersPage();
         }),
-    AddUserToHomePageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+    AddUserToHomeRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
           return _i12.AddUserToHomePage();
         }),
-    ScenesPageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+    ScenesRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (data) {
-          final args = data.argsAs<ScenesPageRouteArgs>();
+          final args = data.argsAs<ScenesRouteArgs>();
           return _i13.ScenesPage(args.folderOfScenes);
         }),
-    ChooseDeviceVendorToAddPageRoute.name: (routeData) =>
+    ChooseDeviceVendorToAddRoute.name: (routeData) =>
         _i1.MaterialPageX<dynamic>(
             routeData: routeData,
             builder: (_) {
               return _i14.ChooseDeviceVendorToAddPage();
             }),
-    ConnectToHomeWifiPageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+    ConnectToHomeWifiRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
           return _i15.ConnectToHomeWifiPage();
         }),
-    OpenAccessPointPageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+    OpenAccessPointRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
           return _i16.OpenAccessPointPage();
         }),
-    ScanForNewCBJCompsPageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+    ScanForNewCBJCompsRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
           return _i17.ScanForNewCBJCompsPage();
         }),
-    ConfigureNewCbjCompPageRoute.name: (routeData) =>
-        _i1.MaterialPageX<dynamic>(
-            routeData: routeData,
-            builder: (data) {
-              final args = data.argsAs<ConfigureNewCbjCompPageRouteArgs>();
-              return _i18.ConfigureNewCbjCompPage(
-                  cbjCompEntity: args.cbjCompEntity);
-            }),
-    RoomsLightsPageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+    ConfigureNewCbjCompRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (data) {
-          final args = data.argsAs<RoomsLightsPageRouteArgs>(
-              orElse: () => const RoomsLightsPageRouteArgs());
+          final args = data.argsAs<ConfigureNewCbjCompRouteArgs>();
+          return _i18.ConfigureNewCbjCompPage(
+              cbjCompEntity: args.cbjCompEntity);
+        }),
+    RoomsLightsRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (data) {
+          final args = data.argsAs<RoomsLightsRouteArgs>(
+              orElse: () => const RoomsLightsRouteArgs());
           return _i19.RoomsLightsPage(
               showDevicesOnlyFromRoomId: args.showDevicesOnlyFromRoomId,
               roomColorGradiant: args.roomColorGradiant);
         }),
-    LightsInTheRoomPageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+    LightsInTheRoomRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (data) {
-          final args = data.argsAs<LightsInTheRoomPageRouteArgs>();
+          final args = data.argsAs<LightsInTheRoomRouteArgs>();
           return _i20.LightsInTheRoomPage(thisSmartRoom: args.thisSmartRoom);
         }),
-    RoomsBlindsPageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+    RoomsBlindsRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (data) {
-          final args = data.argsAs<RoomsBlindsPageRouteArgs>(
-              orElse: () => const RoomsBlindsPageRouteArgs());
+          final args = data.argsAs<RoomsBlindsRouteArgs>(
+              orElse: () => const RoomsBlindsRouteArgs());
           return _i21.RoomsBlindsPage(
               showDevicesOnlyFromRoomId: args.showDevicesOnlyFromRoomId,
               roomColorGradiant: args.roomColorGradiant);
         }),
-    RoomsBoilersPageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+    RoomsBoilersRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (data) {
-          final args = data.argsAs<RoomsBoilersPageRouteArgs>(
-              orElse: () => const RoomsBoilersPageRouteArgs());
+          final args = data.argsAs<RoomsBoilersRouteArgs>(
+              orElse: () => const RoomsBoilersRouteArgs());
           return _i22.RoomsBoilersPage(
               showDevicesOnlyFromRoomId: args.showDevicesOnlyFromRoomId,
               roomColorGradiant: args.roomColorGradiant);
@@ -168,177 +166,174 @@ class AppRouter extends _i1.RootStackRouter {
 
   @override
   List<_i1.RouteConfig> get routes => [
-        _i1.RouteConfig(SplashPageRoute.name, path: '/'),
-        _i1.RouteConfig(IntroductionScreenPageRoute.name,
+        _i1.RouteConfig(SplashRoute.name, path: '/'),
+        _i1.RouteConfig(IntroductionScreenRoute.name,
             path: '/introduction-screen-page'),
-        _i1.RouteConfig(SignInPageRoute.name, path: '/sign-in-page'),
-        _i1.RouteConfig(CreateHomePageRoute.name, path: '/create-home-page'),
-        _i1.RouteConfig(WhereToLoginPageMinimalPageRoute.name,
+        _i1.RouteConfig(SignInRoute.name, path: '/sign-in-page'),
+        _i1.RouteConfig(CreateHomeRoute.name, path: '/create-home-page'),
+        _i1.RouteConfig(WhereToLoginRouteMinimalRoute.name,
             path: '/where-to-login-page-minimal-page'),
-        _i1.RouteConfig(WhereToLoginPageOfflineRoute.name,
+        _i1.RouteConfig(WhereToLoginRouteOffline.name,
             path: '/where-to-login-page-offline'),
-        _i1.RouteConfig(JoinHomeByIdPageRoute.name,
-            path: '/join-home-by-id-page'),
-        _i1.RouteConfig(HomePageRoute.name, path: '/home-page'),
-        _i1.RouteConfig(ManageUsersPageRoute.name, path: '/manage-users-page'),
-        _i1.RouteConfig(AddUserToHomePageRoute.name,
+        _i1.RouteConfig(JoinHomeByIdRoute.name, path: '/join-home-by-id-page'),
+        _i1.RouteConfig(HomeRoute.name, path: '/home-page'),
+        _i1.RouteConfig(ManageUsersRoute.name, path: '/manage-users-page'),
+        _i1.RouteConfig(AddUserToHomeRoute.name,
             path: '/add-user-to-home-page'),
-        _i1.RouteConfig(ScenesPageRoute.name, path: '/scenes-page'),
-        _i1.RouteConfig(ChooseDeviceVendorToAddPageRoute.name,
+        _i1.RouteConfig(ScenesRoute.name, path: '/scenes-page'),
+        _i1.RouteConfig(ChooseDeviceVendorToAddRoute.name,
             path: '/choose-device-vendor-to-add-page'),
-        _i1.RouteConfig(ConnectToHomeWifiPageRoute.name,
+        _i1.RouteConfig(ConnectToHomeWifiRoute.name,
             path: '/connect-to-home-wifi-page'),
-        _i1.RouteConfig(OpenAccessPointPageRoute.name,
+        _i1.RouteConfig(OpenAccessPointRoute.name,
             path: '/open-access-point-page'),
-        _i1.RouteConfig(ScanForNewCBJCompsPageRoute.name,
+        _i1.RouteConfig(ScanForNewCBJCompsRoute.name,
             path: '/scan-for-new-cb-jcomps-page'),
-        _i1.RouteConfig(ConfigureNewCbjCompPageRoute.name,
+        _i1.RouteConfig(ConfigureNewCbjCompRoute.name,
             path: '/configure-new-cbj-comp-page'),
-        _i1.RouteConfig(RoomsLightsPageRoute.name, path: '/rooms-lights-page'),
-        _i1.RouteConfig(LightsInTheRoomPageRoute.name,
+        _i1.RouteConfig(RoomsLightsRoute.name, path: '/rooms-lights-page'),
+        _i1.RouteConfig(LightsInTheRoomRoute.name,
             path: '/lights-in-the-room-page'),
-        _i1.RouteConfig(RoomsBlindsPageRoute.name, path: '/rooms-blinds-page'),
-        _i1.RouteConfig(RoomsBoilersPageRoute.name, path: '/rooms-boilers-page')
+        _i1.RouteConfig(RoomsBlindsRoute.name, path: '/rooms-blinds-page'),
+        _i1.RouteConfig(RoomsBoilersRoute.name, path: '/rooms-boilers-page')
       ];
 }
 
-class SplashPageRoute extends _i1.PageRouteInfo {
-  const SplashPageRoute() : super(name, path: '/');
+class SplashRoute extends _i1.PageRouteInfo {
+  const SplashRoute() : super(name, path: '/');
 
-  static const String name = 'SplashPageRoute';
+  static const String name = 'SplashRoute';
 }
 
-class IntroductionScreenPageRoute extends _i1.PageRouteInfo {
-  const IntroductionScreenPageRoute()
+class IntroductionScreenRoute extends _i1.PageRouteInfo {
+  const IntroductionScreenRoute()
       : super(name, path: '/introduction-screen-page');
 
-  static const String name = 'IntroductionScreenPageRoute';
+  static const String name = 'IntroductionScreenRoute';
 }
 
-class SignInPageRoute extends _i1.PageRouteInfo {
-  const SignInPageRoute() : super(name, path: '/sign-in-page');
+class SignInRoute extends _i1.PageRouteInfo {
+  const SignInRoute() : super(name, path: '/sign-in-page');
 
-  static const String name = 'SignInPageRoute';
+  static const String name = 'SignInRoute';
 }
 
-class CreateHomePageRoute extends _i1.PageRouteInfo {
-  const CreateHomePageRoute() : super(name, path: '/create-home-page');
+class CreateHomeRoute extends _i1.PageRouteInfo {
+  const CreateHomeRoute() : super(name, path: '/create-home-page');
 
-  static const String name = 'CreateHomePageRoute';
+  static const String name = 'CreateHomeRoute';
 }
 
-class WhereToLoginPageMinimalPageRoute extends _i1.PageRouteInfo {
-  const WhereToLoginPageMinimalPageRoute()
+class WhereToLoginRouteMinimalRoute extends _i1.PageRouteInfo {
+  const WhereToLoginRouteMinimalRoute()
       : super(name, path: '/where-to-login-page-minimal-page');
 
-  static const String name = 'WhereToLoginPageMinimalPageRoute';
+  static const String name = 'WhereToLoginRouteMinimalRoute';
 }
 
-class WhereToLoginPageOfflineRoute extends _i1.PageRouteInfo {
-  const WhereToLoginPageOfflineRoute()
+class WhereToLoginRouteOffline extends _i1.PageRouteInfo {
+  const WhereToLoginRouteOffline()
       : super(name, path: '/where-to-login-page-offline');
 
-  static const String name = 'WhereToLoginPageOfflineRoute';
+  static const String name = 'WhereToLoginRouteOffline';
 }
 
-class JoinHomeByIdPageRoute extends _i1.PageRouteInfo {
-  const JoinHomeByIdPageRoute() : super(name, path: '/join-home-by-id-page');
+class JoinHomeByIdRoute extends _i1.PageRouteInfo {
+  const JoinHomeByIdRoute() : super(name, path: '/join-home-by-id-page');
 
-  static const String name = 'JoinHomeByIdPageRoute';
+  static const String name = 'JoinHomeByIdRoute';
 }
 
-class HomePageRoute extends _i1.PageRouteInfo {
-  const HomePageRoute() : super(name, path: '/home-page');
+class HomeRoute extends _i1.PageRouteInfo {
+  const HomeRoute() : super(name, path: '/home-page');
 
-  static const String name = 'HomePageRoute';
+  static const String name = 'HomeRoute';
 }
 
-class ManageUsersPageRoute extends _i1.PageRouteInfo {
-  const ManageUsersPageRoute() : super(name, path: '/manage-users-page');
+class ManageUsersRoute extends _i1.PageRouteInfo {
+  const ManageUsersRoute() : super(name, path: '/manage-users-page');
 
-  static const String name = 'ManageUsersPageRoute';
+  static const String name = 'ManageUsersRoute';
 }
 
-class AddUserToHomePageRoute extends _i1.PageRouteInfo {
-  const AddUserToHomePageRoute() : super(name, path: '/add-user-to-home-page');
+class AddUserToHomeRoute extends _i1.PageRouteInfo {
+  const AddUserToHomeRoute() : super(name, path: '/add-user-to-home-page');
 
-  static const String name = 'AddUserToHomePageRoute';
+  static const String name = 'AddUserToHomeRoute';
 }
 
-class ScenesPageRoute extends _i1.PageRouteInfo<ScenesPageRouteArgs> {
-  ScenesPageRoute({required _i23.FolderOfScenes folderOfScenes})
+class ScenesRoute extends _i1.PageRouteInfo<ScenesRouteArgs> {
+  ScenesRoute({required _i23.FolderOfScenes folderOfScenes})
       : super(name,
             path: '/scenes-page',
-            args: ScenesPageRouteArgs(folderOfScenes: folderOfScenes));
+            args: ScenesRouteArgs(folderOfScenes: folderOfScenes));
 
-  static const String name = 'ScenesPageRoute';
+  static const String name = 'ScenesRoute';
 }
 
-class ScenesPageRouteArgs {
-  const ScenesPageRouteArgs({required this.folderOfScenes});
+class ScenesRouteArgs {
+  const ScenesRouteArgs({required this.folderOfScenes});
 
   final _i23.FolderOfScenes folderOfScenes;
 }
 
-class ChooseDeviceVendorToAddPageRoute extends _i1.PageRouteInfo {
-  const ChooseDeviceVendorToAddPageRoute()
+class ChooseDeviceVendorToAddRoute extends _i1.PageRouteInfo {
+  const ChooseDeviceVendorToAddRoute()
       : super(name, path: '/choose-device-vendor-to-add-page');
 
-  static const String name = 'ChooseDeviceVendorToAddPageRoute';
+  static const String name = 'ChooseDeviceVendorToAddRoute';
 }
 
-class ConnectToHomeWifiPageRoute extends _i1.PageRouteInfo {
-  const ConnectToHomeWifiPageRoute()
+class ConnectToHomeWifiRoute extends _i1.PageRouteInfo {
+  const ConnectToHomeWifiRoute()
       : super(name, path: '/connect-to-home-wifi-page');
 
-  static const String name = 'ConnectToHomeWifiPageRoute';
+  static const String name = 'ConnectToHomeWifiRoute';
 }
 
-class OpenAccessPointPageRoute extends _i1.PageRouteInfo {
-  const OpenAccessPointPageRoute()
-      : super(name, path: '/open-access-point-page');
+class OpenAccessPointRoute extends _i1.PageRouteInfo {
+  const OpenAccessPointRoute() : super(name, path: '/open-access-point-page');
 
-  static const String name = 'OpenAccessPointPageRoute';
+  static const String name = 'OpenAccessPointRoute';
 }
 
-class ScanForNewCBJCompsPageRoute extends _i1.PageRouteInfo {
-  const ScanForNewCBJCompsPageRoute()
+class ScanForNewCBJCompsRoute extends _i1.PageRouteInfo {
+  const ScanForNewCBJCompsRoute()
       : super(name, path: '/scan-for-new-cb-jcomps-page');
 
-  static const String name = 'ScanForNewCBJCompsPageRoute';
+  static const String name = 'ScanForNewCBJCompsRoute';
 }
 
-class ConfigureNewCbjCompPageRoute
-    extends _i1.PageRouteInfo<ConfigureNewCbjCompPageRouteArgs> {
-  ConfigureNewCbjCompPageRoute({required _i24.CBJCompEntity cbjCompEntity})
+class ConfigureNewCbjCompRoute
+    extends _i1.PageRouteInfo<ConfigureNewCbjCompRouteArgs> {
+  ConfigureNewCbjCompRoute({required _i24.CBJCompEntity cbjCompEntity})
       : super(name,
             path: '/configure-new-cbj-comp-page',
-            args:
-                ConfigureNewCbjCompPageRouteArgs(cbjCompEntity: cbjCompEntity));
+            args: ConfigureNewCbjCompRouteArgs(cbjCompEntity: cbjCompEntity));
 
-  static const String name = 'ConfigureNewCbjCompPageRoute';
+  static const String name = 'ConfigureNewCbjCompRoute';
 }
 
-class ConfigureNewCbjCompPageRouteArgs {
-  const ConfigureNewCbjCompPageRouteArgs({required this.cbjCompEntity});
+class ConfigureNewCbjCompRouteArgs {
+  const ConfigureNewCbjCompRouteArgs({required this.cbjCompEntity});
 
   final _i24.CBJCompEntity cbjCompEntity;
 }
 
-class RoomsLightsPageRoute extends _i1.PageRouteInfo<RoomsLightsPageRouteArgs> {
-  RoomsLightsPageRoute(
+class RoomsLightsRoute extends _i1.PageRouteInfo<RoomsLightsRouteArgs> {
+  RoomsLightsRoute(
       {String? showDevicesOnlyFromRoomId, List<_i2.Color>? roomColorGradiant})
       : super(name,
             path: '/rooms-lights-page',
-            args: RoomsLightsPageRouteArgs(
+            args: RoomsLightsRouteArgs(
                 showDevicesOnlyFromRoomId: showDevicesOnlyFromRoomId,
                 roomColorGradiant: roomColorGradiant));
 
-  static const String name = 'RoomsLightsPageRoute';
+  static const String name = 'RoomsLightsRoute';
 }
 
-class RoomsLightsPageRouteArgs {
-  const RoomsLightsPageRouteArgs(
+class RoomsLightsRouteArgs {
+  const RoomsLightsRouteArgs(
       {this.showDevicesOnlyFromRoomId, this.roomColorGradiant});
 
   final String? showDevicesOnlyFromRoomId;
@@ -346,36 +341,35 @@ class RoomsLightsPageRouteArgs {
   final List<_i2.Color>? roomColorGradiant;
 }
 
-class LightsInTheRoomPageRoute
-    extends _i1.PageRouteInfo<LightsInTheRoomPageRouteArgs> {
-  LightsInTheRoomPageRoute({required _i25.SmartRoomObject? thisSmartRoom})
+class LightsInTheRoomRoute extends _i1.PageRouteInfo<LightsInTheRoomRouteArgs> {
+  LightsInTheRoomRoute({required _i25.SmartRoomObject? thisSmartRoom})
       : super(name,
             path: '/lights-in-the-room-page',
-            args: LightsInTheRoomPageRouteArgs(thisSmartRoom: thisSmartRoom));
+            args: LightsInTheRoomRouteArgs(thisSmartRoom: thisSmartRoom));
 
-  static const String name = 'LightsInTheRoomPageRoute';
+  static const String name = 'LightsInTheRoomRoute';
 }
 
-class LightsInTheRoomPageRouteArgs {
-  const LightsInTheRoomPageRouteArgs({required this.thisSmartRoom});
+class LightsInTheRoomRouteArgs {
+  const LightsInTheRoomRouteArgs({required this.thisSmartRoom});
 
   final _i25.SmartRoomObject? thisSmartRoom;
 }
 
-class RoomsBlindsPageRoute extends _i1.PageRouteInfo<RoomsBlindsPageRouteArgs> {
-  RoomsBlindsPageRoute(
+class RoomsBlindsRoute extends _i1.PageRouteInfo<RoomsBlindsRouteArgs> {
+  RoomsBlindsRoute(
       {String? showDevicesOnlyFromRoomId, List<_i2.Color>? roomColorGradiant})
       : super(name,
             path: '/rooms-blinds-page',
-            args: RoomsBlindsPageRouteArgs(
+            args: RoomsBlindsRouteArgs(
                 showDevicesOnlyFromRoomId: showDevicesOnlyFromRoomId,
                 roomColorGradiant: roomColorGradiant));
 
-  static const String name = 'RoomsBlindsPageRoute';
+  static const String name = 'RoomsBlindsRoute';
 }
 
-class RoomsBlindsPageRouteArgs {
-  const RoomsBlindsPageRouteArgs(
+class RoomsBlindsRouteArgs {
+  const RoomsBlindsRouteArgs(
       {this.showDevicesOnlyFromRoomId, this.roomColorGradiant});
 
   final String? showDevicesOnlyFromRoomId;
@@ -383,24 +377,23 @@ class RoomsBlindsPageRouteArgs {
   final List<_i2.Color>? roomColorGradiant;
 }
 
-class RoomsBoilersPageRoute
-    extends _i1.PageRouteInfo<RoomsBoilersPageRouteArgs> {
-  RoomsBoilersPageRoute(
-      {String showDevicesOnlyFromRoomId, List<_i2.Color> roomColorGradiant})
+class RoomsBoilersRoute extends _i1.PageRouteInfo<RoomsBoilersRouteArgs> {
+  RoomsBoilersRoute(
+      {String? showDevicesOnlyFromRoomId, List<_i2.Color>? roomColorGradiant})
       : super(name,
             path: '/rooms-boilers-page',
-            args: RoomsBoilersPageRouteArgs(
+            args: RoomsBoilersRouteArgs(
                 showDevicesOnlyFromRoomId: showDevicesOnlyFromRoomId,
                 roomColorGradiant: roomColorGradiant));
 
-  static const String name = 'RoomsBoilersPageRoute';
+  static const String name = 'RoomsBoilersRoute';
 }
 
-class RoomsBoilersPageRouteArgs {
-  const RoomsBoilersPageRouteArgs(
+class RoomsBoilersRouteArgs {
+  const RoomsBoilersRouteArgs(
       {this.showDevicesOnlyFromRoomId, this.roomColorGradiant});
 
-  final String showDevicesOnlyFromRoomId;
+  final String? showDevicesOnlyFromRoomId;
 
-  final List<_i2.Color> roomColorGradiant;
+  final List<_i2.Color>? roomColorGradiant;
 }

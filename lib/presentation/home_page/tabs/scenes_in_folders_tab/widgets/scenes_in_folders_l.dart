@@ -71,12 +71,9 @@ class ScenesInFoldersL extends StatelessWidget {
           ),
         ),
         onPressed: () {
-          ExtendedNavigator.of(context).push(
-            Routes.scenesPage,
-            arguments: ScenesPageArguments(
-              folderOfScenes: folderOfScenes.fold((l) => null, (r) => r),
-            ),
-          );
+          context.router.push(ScenesRoute(
+            folderOfScenes: folderOfScenes.fold((l) => null!, (r) => r),
+          ));
         },
         child: Column(
           children: [

@@ -69,8 +69,7 @@ class ChooseDeviceVendorToAddPage extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  ExtendedNavigator.of(context)
-                      .push(Routes.connectToHomeWifiPage);
+                  context.router.push(const ConnectToHomeWifiRoute());
                 },
                 child: Text(
                   'CyBear Jinni',

@@ -20,8 +20,8 @@ class RoomsBoilersPage extends StatelessWidget {
       {this.showDevicesOnlyFromRoomId, this.roomColorGradiant = null});
 
   /// If it have value will only show boilers in this room
-  final String showDevicesOnlyFromRoomId;
-  final List<Color> roomColorGradiant;
+  final String? showDevicesOnlyFromRoomId;
+  final List<Color>? roomColorGradiant;
 
   void cogFunction(BuildContext context) {
     Navigator.push(
@@ -52,7 +52,7 @@ class RoomsBoilersPage extends StatelessWidget {
             listener: (context, state) {
               state.maybeMap(
                 unauthenticated: (_) =>
-                    ExtendedNavigator.of(context).replace(Routes.signInPage),
+                    context.router.replace(const SignInRoute()),
                 orElse: () {},
               );
             },
@@ -103,7 +103,7 @@ class RoomsBoilersPage extends StatelessWidget {
                 ),
                 Expanded(
                   child: RoomsBoilersWidget(
-                      showDevicesOnlyFromRoomId, roomColorGradiant),
+                      showDevicesOnlyFromRoomId!, roomColorGradiant!),
                 ),
               ],
             ),

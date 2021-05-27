@@ -101,8 +101,9 @@ class RoomBlindsTogglesBlock extends StatelessWidget {
               onPressed: () {
                 if (maxLightsToShow != null &&
                     _smartRoomObject.getLights()!.length > maxLightsToShow!) {
-                  ExtendedNavigator.of(context)
-                      .pushLightsInTheRoomPage(thisSmartRoom: _smartRoomObject);
+                  context.router.push(
+                    LightsInTheRoomRoute(thisSmartRoom: _smartRoomObject),
+                  );
                 }
               },
               child: Row(

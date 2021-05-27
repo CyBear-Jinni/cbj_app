@@ -50,7 +50,7 @@ class UserRepository implements IUserRepository {
       final String userId = (await getIt<IAuthFacade>().getSignedInUser())
           .getOrElse(() => throw NotAuthenticatedError())
           .id
-          .getOrCrash();
+          .getOrCrash()!;
 
       final DocumentSnapshot userDocumentS = await userCollec.doc(userId).get();
 

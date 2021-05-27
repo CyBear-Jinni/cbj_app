@@ -21,6 +21,7 @@ import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_pag
 import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_page_offline.dart';
 
 @MaterialAutoRouter(
+  replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
     MaterialRoute(page: SplashPage, initial: true),
     MaterialRoute(page: IntroductionScreenPage),
