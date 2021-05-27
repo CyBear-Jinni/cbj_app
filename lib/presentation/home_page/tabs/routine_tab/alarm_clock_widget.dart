@@ -1,5 +1,5 @@
 import 'package:cybear_jinni/presentation/core/notifications.dart';
-import 'package:expansion_card/expansion_card.dart';
+import 'package:expansion_tile_card/expansion_tile_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -47,15 +47,15 @@ class _AlarmClockState extends State<AlarmClockWidget> {
       decoration: BoxDecoration(
           borderRadius: const BorderRadius.all(Radius.circular(20)),
           border: Border.all(
-            color: Theme.of(context).textTheme.bodyText1.color,
+            color: (Theme.of(context).textTheme.bodyText1!.color)!,
             width: 0.6,
           )),
-      child: ExpansionCard(
-        borderRadius: 20,
-        background: Image.asset(
-          backgroundImage,
-          fit: BoxFit.cover,
-        ),
+      child: ExpansionTileCard(
+        // borderRadius: 20,
+        // background: Image.asset(
+        //   backgroundImage,
+        //   fit: BoxFit.cover,
+        // ),
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[

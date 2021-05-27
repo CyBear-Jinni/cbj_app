@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 class TimeDropDownMenu extends StatefulWidget {
   const TimeDropDownMenu(this.dropDownList, {this.defaultValue});
 
-  final String defaultValue;
+  final String? defaultValue;
 
-  final List<String> dropDownList;
+  final List<String?>? dropDownList;
 
   @override
   _TimeDropDownMenuState createState() => _TimeDropDownMenuState();
@@ -16,14 +16,14 @@ class _TimeDropDownMenuState extends State<TimeDropDownMenu> {
   @override
   void initState() {
     super.initState();
-    if (widget.defaultValue != null && widget.defaultValue.isNotEmpty) {
-      dropdownValue = widget.defaultValue;
+    if (widget.defaultValue != null && widget.defaultValue!.isNotEmpty) {
+      dropdownValue = widget.defaultValue!;
     } else {
-      dropdownValue = widget.dropDownList.first;
+      dropdownValue = widget.dropDownList!.first!;
     }
   }
 
-  String dropdownValue;
+  late String dropdownValue;
 
   @override
   Widget build(BuildContext context) {
@@ -37,20 +37,20 @@ class _TimeDropDownMenuState extends State<TimeDropDownMenu> {
         underline: Container(
           color: Colors.transparent,
         ),
-        onChanged: (String newValue) {
+        onChanged: (String? newValue) {
           setState(() {
-            dropdownValue = newValue;
+            dropdownValue = newValue!;
           });
         },
         dropdownColor: Colors.black54,
         items:
-            widget.dropDownList.map<DropdownMenuItem<String>>((String value) {
+            widget.dropDownList!.map<DropdownMenuItem<String>>((String? value) {
           return DropdownMenuItem<String>(
             value: value,
             child: Text(
-              value,
-              style:
-                  TextStyle(color: Theme.of(context).textTheme.bodyText1.color),
+              value!,
+              style: TextStyle(
+                  color: (Theme.of(context).textTheme.bodyText1!.color)!),
             ),
           );
         }).toList(),

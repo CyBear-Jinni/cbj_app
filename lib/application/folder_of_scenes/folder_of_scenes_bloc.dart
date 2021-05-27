@@ -29,7 +29,7 @@ class FolderOfScenesBloc
     yield* event.map(
       initialized: (e) async* {
         final scenesList = await iFolderOfScenesRepository.getAllScenesInFolder(
-          uniqueId: event.folderOfScenes.id,
+          uniqueId: (event.folderOfScenes!.id)!,
         );
         yield scenesList.fold(
           (_) => const FolderOfScenesState.error(),

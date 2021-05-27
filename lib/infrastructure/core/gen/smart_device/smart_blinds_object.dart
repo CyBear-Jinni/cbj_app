@@ -1,19 +1,19 @@
 import 'package:connectivity/connectivity.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_as_dart/smart_connection.pb.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_device_object.dart';
 import 'package:cybear_jinni/infrastructure/core/shared_methods.dart';
-import 'package:cybear_jinni/infrastructure/objects/enums.dart';
 import 'package:flutter/foundation.dart';
 
 import 'client/smart_client.dart';
 
 class SmartBlindsObject extends SmartDeviceObject {
-  SmartBlindsObject(DeviceTypeEnum deviceType, String name, String ip)
+  SmartBlindsObject(DeviceTypes deviceType, String name, String ip)
       : super(deviceType, name, ip);
 
   Future<String> blindsUp() async {
     // Skipping for App on web browser because crash on connectivityResult line an setLightStateLocal
     if (kIsWeb) {
-      return setBlindStateRemote(WishEnum.SBlindsUp);
+      return setBlindStateRemote(DeviceActions.moveUP);
     }
 
     final ConnectivityResult connectivityResult =
@@ -28,7 +28,7 @@ class SmartBlindsObject extends SmartDeviceObject {
     } else if (connectivityResult == ConnectivityResult.wifi ||
         connectivityResult == ConnectivityResult.mobile) {
       print('Moving blinds up Remote');
-      return setBlindStateRemote(WishEnum.SBlindsUp);
+      return setBlindStateRemote(DeviceActions.moveUP);
     } else {
       print('Not connected to a network');
     }
@@ -40,7 +40,7 @@ class SmartBlindsObject extends SmartDeviceObject {
     // Skipping for App on web browser because crash on connectivityResult
     // line an setLightStateLocal
     if (kIsWeb) {
-      return setBlindStateRemote(WishEnum.SBlindsDown);
+      return setBlindStateRemote(DeviceActions.moveDown);
     }
 
     final ConnectivityResult connectivityResult =
@@ -56,7 +56,7 @@ class SmartBlindsObject extends SmartDeviceObject {
     } else if (connectivityResult == ConnectivityResult.wifi ||
         connectivityResult == ConnectivityResult.mobile) {
       print('Moving blinds down Remote');
-      return setBlindStateRemote(WishEnum.SBlindsDown);
+      return setBlindStateRemote(DeviceActions.moveDown);
     } else {
       print('Not connected to a network');
     }
@@ -67,7 +67,7 @@ class SmartBlindsObject extends SmartDeviceObject {
   Future<String> blindsStop() async {
     // Skipping for App on web browser because crash on connectivityResult line an setLightStateLocal
     if (kIsWeb) {
-      return setBlindStateRemote(WishEnum.SBlindsStop);
+      return setBlindStateRemote(DeviceActions.stop);
     }
 
     final ConnectivityResult connectivityResult =
@@ -82,7 +82,7 @@ class SmartBlindsObject extends SmartDeviceObject {
     } else if (connectivityResult == ConnectivityResult.wifi ||
         connectivityResult == ConnectivityResult.mobile) {
       print('Stopping blinds Remote');
-      return setBlindStateRemote(WishEnum.SBlindsStop);
+      return setBlindStateRemote(DeviceActions.stop);
     } else {
       print('Not connected to a network');
     }
@@ -90,8 +90,9 @@ class SmartBlindsObject extends SmartDeviceObject {
     return 'Error getting device state';
   }
 
-  Future<String> setBlindStateRemote(WishEnum wish) async {
-    return (await fireStoreClass.changeBlindsState(roomName, name, wish))
+  Future<String> setBlindStateRemote(DeviceActions deviceAction) async {
+    return (await fireStoreClass!
+            .changeBlindsState(roomName!, name!, deviceAction))
         .toString();
   }
 }

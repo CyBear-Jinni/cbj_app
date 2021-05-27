@@ -14,19 +14,19 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
 @freezed
 abstract class AuthValueFailure<T> with _$AuthValueFailure<T> {
   const factory AuthValueFailure.invalidEmail({
-    @required String failedValue,
+    required String failedValue,
   }) = InvalidEmail<T>;
 
   const factory AuthValueFailure.invalidPassword({
-    @required String failedValue,
+    required String failedValue,
   }) = ShortPassword<T>;
 
   const factory AuthValueFailure.empty({
-    @required String failedValue,
+    required String failedValue,
   }) = Empty<T>;
 
   const factory AuthValueFailure.listTooLong({
-    @required T failedValue,
-    @required int max,
+    required T failedValue,
+    required int max,
   }) = ListTooLong<T>;
 }

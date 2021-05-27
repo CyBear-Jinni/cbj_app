@@ -26,16 +26,16 @@ const MethodChannel platform = MethodChannel('cybear_jinni/smart_home');
 
 class ReceivedNotification {
   ReceivedNotification({
-    @required this.id,
-    @required this.title,
-    @required this.body,
-    @required this.payload,
+    required this.id,
+    required this.title,
+    required this.body,
+    required this.payload,
   });
 
-  final int id;
-  final String title;
-  final String body;
-  final String payload;
+  final int? id;
+  final String? title;
+  final String? body;
+  final String? payload;
 }
 
 Future<void> initializeHive() async {
@@ -45,7 +45,7 @@ Future<void> initializeHive() async {
 Future<Unit> main() async {
   // needed if you intend to initialize in the `main` function
   WidgetsFlutterBinding.ensureInitialized();
-
+  await EasyLocalization.ensureInitialized();
 //  debugPaintSizeEnabled = true;
   configureDependencies(Env.prod);
 

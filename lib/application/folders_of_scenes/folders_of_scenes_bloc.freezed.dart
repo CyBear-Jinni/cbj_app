@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'folders_of_scenes_bloc.dart';
 
@@ -9,40 +9,45 @@ part of 'folders_of_scenes_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$FoldersOfScenesEventTearOff {
   const _$FoldersOfScenesEventTearOff();
 
-// ignore: unused_element
   Initialized initialized() {
     return const Initialized();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $FoldersOfScenesEvent = _$FoldersOfScenesEventTearOff();
 
 /// @nodoc
 mixin _$FoldersOfScenesEvent {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialized(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialized(),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialized(Initialized value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialized(Initialized value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -82,6 +87,7 @@ class _$InitializedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Initialized implements Initialized {
   const _$Initialized();
 
@@ -100,20 +106,18 @@ class _$Initialized implements Initialized {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialized(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
   }) {
-    assert(initialized != null);
     return initialized();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialized(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initialized != null) {
       return initialized();
     }
@@ -122,20 +126,18 @@ class _$Initialized implements Initialized {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialized(Initialized value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
   }) {
-    assert(initialized != null);
     return initialized(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialized(Initialized value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initialized != null) {
       return initialized(this);
     }
@@ -151,71 +153,71 @@ abstract class Initialized implements FoldersOfScenesEvent {
 class _$FoldersOfScenesStateTearOff {
   const _$FoldersOfScenesStateTearOff();
 
-// ignore: unused_element
   _FoldersOfScenesState call(
-      {@required
-          Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption}) {
+      {required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption}) {
     return _FoldersOfScenesState(
       authFailureOrSuccessOption: authFailureOrSuccessOption,
     );
   }
 
-// ignore: unused_element
   Loading loading() {
     return const Loading();
   }
 
-// ignore: unused_element
   Loaded loaded(FoldersOfScenes foldersOfScenes) {
     return Loaded(
       foldersOfScenes,
     );
   }
 
-// ignore: unused_element
   Error error() {
     return const Error();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $FoldersOfScenesState = _$FoldersOfScenesStateTearOff();
 
 /// @nodoc
 mixin _$FoldersOfScenesState {
   @optionalTypeArgs
-  TResult when<TResult extends Object>(
-    TResult $default(
-        Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
-    @required TResult loading(),
-    @required TResult loaded(FoldersOfScenes foldersOfScenes),
-    @required TResult error(),
-  });
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption)
+        $default, {
+    required TResult Function() loading,
+    required TResult Function(FoldersOfScenes foldersOfScenes) loaded,
+    required TResult Function() error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>(
-    TResult $default(
-        Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
-    TResult loading(),
-    TResult loaded(FoldersOfScenes foldersOfScenes),
-    TResult error(),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption)?
+        $default, {
+    TResult Function()? loading,
+    TResult Function(FoldersOfScenes foldersOfScenes)? loaded,
+    TResult Function()? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>(
-    TResult $default(_FoldersOfScenesState value), {
-    @required TResult loading(Loading value),
-    @required TResult loaded(Loaded value),
-    @required TResult error(Error value),
-  });
+  TResult map<TResult extends Object?>(
+    TResult Function(_FoldersOfScenesState value) $default, {
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(Error value) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>(
-    TResult $default(_FoldersOfScenesState value), {
-    TResult loading(Loading value),
-    TResult loaded(Loaded value),
-    TResult error(Error value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_FoldersOfScenesState value)? $default, {
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -256,20 +258,21 @@ class __$FoldersOfScenesStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object authFailureOrSuccessOption = freezed,
+    Object? authFailureOrSuccessOption = freezed,
   }) {
     return _then(_FoldersOfScenesState(
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
           ? _value.authFailureOrSuccessOption
-          : authFailureOrSuccessOption as Option<Either<AuthFailure, Unit>>,
+          : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<AuthFailure, Unit>>,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_FoldersOfScenesState implements _FoldersOfScenesState {
-  const _$_FoldersOfScenesState({@required this.authFailureOrSuccessOption})
-      : assert(authFailureOrSuccessOption != null);
+  const _$_FoldersOfScenesState({required this.authFailureOrSuccessOption});
 
   @override
   final Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption;
@@ -303,31 +306,28 @@ class _$_FoldersOfScenesState implements _FoldersOfScenesState {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>(
-    TResult $default(
-        Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
-    @required TResult loading(),
-    @required TResult loaded(FoldersOfScenes foldersOfScenes),
-    @required TResult error(),
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption)
+        $default, {
+    required TResult Function() loading,
+    required TResult Function(FoldersOfScenes foldersOfScenes) loaded,
+    required TResult Function() error,
   }) {
-    assert($default != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(error != null);
     return $default(authFailureOrSuccessOption);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>(
-    TResult $default(
-        Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
-    TResult loading(),
-    TResult loaded(FoldersOfScenes foldersOfScenes),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption)?
+        $default, {
+    TResult Function()? loading,
+    TResult Function(FoldersOfScenes foldersOfScenes)? loaded,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default(authFailureOrSuccessOption);
     }
@@ -336,29 +336,24 @@ class _$_FoldersOfScenesState implements _FoldersOfScenesState {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>(
-    TResult $default(_FoldersOfScenesState value), {
-    @required TResult loading(Loading value),
-    @required TResult loaded(Loaded value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>(
+    TResult Function(_FoldersOfScenesState value) $default, {
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(Error value) error,
   }) {
-    assert($default != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(error != null);
     return $default(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>(
-    TResult $default(_FoldersOfScenesState value), {
-    TResult loading(Loading value),
-    TResult loaded(Loaded value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_FoldersOfScenesState value)? $default, {
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default(this);
     }
@@ -368,13 +363,14 @@ class _$_FoldersOfScenesState implements _FoldersOfScenesState {
 
 abstract class _FoldersOfScenesState implements FoldersOfScenesState {
   const factory _FoldersOfScenesState(
-          {@required
-              Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption}) =
-      _$_FoldersOfScenesState;
+      {required Option<Either<AuthFailure, Unit>>
+          authFailureOrSuccessOption}) = _$_FoldersOfScenesState;
 
-  Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption;
+  Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$FoldersOfScenesStateCopyWith<_FoldersOfScenesState> get copyWith;
+  _$FoldersOfScenesStateCopyWith<_FoldersOfScenesState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -395,6 +391,7 @@ class _$LoadingCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Loading implements Loading {
   const _$Loading();
 
@@ -413,31 +410,28 @@ class _$Loading implements Loading {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>(
-    TResult $default(
-        Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
-    @required TResult loading(),
-    @required TResult loaded(FoldersOfScenes foldersOfScenes),
-    @required TResult error(),
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption)
+        $default, {
+    required TResult Function() loading,
+    required TResult Function(FoldersOfScenes foldersOfScenes) loaded,
+    required TResult Function() error,
   }) {
-    assert($default != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(error != null);
     return loading();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>(
-    TResult $default(
-        Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
-    TResult loading(),
-    TResult loaded(FoldersOfScenes foldersOfScenes),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption)?
+        $default, {
+    TResult Function()? loading,
+    TResult Function(FoldersOfScenes foldersOfScenes)? loaded,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loading != null) {
       return loading();
     }
@@ -446,29 +440,24 @@ class _$Loading implements Loading {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>(
-    TResult $default(_FoldersOfScenesState value), {
-    @required TResult loading(Loading value),
-    @required TResult loaded(Loaded value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>(
+    TResult Function(_FoldersOfScenesState value) $default, {
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(Error value) error,
   }) {
-    assert($default != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(error != null);
     return loading(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>(
-    TResult $default(_FoldersOfScenesState value), {
-    TResult loading(Loading value),
-    TResult loaded(Loaded value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_FoldersOfScenesState value)? $default, {
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loading != null) {
       return loading(this);
     }
@@ -501,20 +490,18 @@ class _$LoadedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object foldersOfScenes = freezed,
+    Object? foldersOfScenes = freezed,
   }) {
     return _then(Loaded(
       foldersOfScenes == freezed
           ? _value.foldersOfScenes
-          : foldersOfScenes as FoldersOfScenes,
+          : foldersOfScenes // ignore: cast_nullable_to_non_nullable
+              as FoldersOfScenes,
     ));
   }
 
   @override
   $FoldersOfScenesCopyWith<$Res> get foldersOfScenes {
-    if (_value.foldersOfScenes == null) {
-      return null;
-    }
     return $FoldersOfScenesCopyWith<$Res>(_value.foldersOfScenes, (value) {
       return _then(_value.copyWith(foldersOfScenes: value));
     });
@@ -522,8 +509,9 @@ class _$LoadedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Loaded implements Loaded {
-  const _$Loaded(this.foldersOfScenes) : assert(foldersOfScenes != null);
+  const _$Loaded(this.foldersOfScenes);
 
   @override
   final FoldersOfScenes foldersOfScenes;
@@ -554,31 +542,28 @@ class _$Loaded implements Loaded {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>(
-    TResult $default(
-        Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
-    @required TResult loading(),
-    @required TResult loaded(FoldersOfScenes foldersOfScenes),
-    @required TResult error(),
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption)
+        $default, {
+    required TResult Function() loading,
+    required TResult Function(FoldersOfScenes foldersOfScenes) loaded,
+    required TResult Function() error,
   }) {
-    assert($default != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(error != null);
     return loaded(foldersOfScenes);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>(
-    TResult $default(
-        Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
-    TResult loading(),
-    TResult loaded(FoldersOfScenes foldersOfScenes),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption)?
+        $default, {
+    TResult Function()? loading,
+    TResult Function(FoldersOfScenes foldersOfScenes)? loaded,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loaded != null) {
       return loaded(foldersOfScenes);
     }
@@ -587,29 +572,24 @@ class _$Loaded implements Loaded {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>(
-    TResult $default(_FoldersOfScenesState value), {
-    @required TResult loading(Loading value),
-    @required TResult loaded(Loaded value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>(
+    TResult Function(_FoldersOfScenesState value) $default, {
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(Error value) error,
   }) {
-    assert($default != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(error != null);
     return loaded(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>(
-    TResult $default(_FoldersOfScenesState value), {
-    TResult loading(Loading value),
-    TResult loaded(Loaded value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_FoldersOfScenesState value)? $default, {
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loaded != null) {
       return loaded(this);
     }
@@ -620,9 +600,9 @@ class _$Loaded implements Loaded {
 abstract class Loaded implements FoldersOfScenesState {
   const factory Loaded(FoldersOfScenes foldersOfScenes) = _$Loaded;
 
-  FoldersOfScenes get foldersOfScenes;
+  FoldersOfScenes get foldersOfScenes => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $LoadedCopyWith<Loaded> get copyWith;
+  $LoadedCopyWith<Loaded> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -642,6 +622,7 @@ class _$ErrorCopyWithImpl<$Res> extends _$FoldersOfScenesStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Error implements Error {
   const _$Error();
 
@@ -660,31 +641,28 @@ class _$Error implements Error {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>(
-    TResult $default(
-        Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
-    @required TResult loading(),
-    @required TResult loaded(FoldersOfScenes foldersOfScenes),
-    @required TResult error(),
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption)
+        $default, {
+    required TResult Function() loading,
+    required TResult Function(FoldersOfScenes foldersOfScenes) loaded,
+    required TResult Function() error,
   }) {
-    assert($default != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(error != null);
     return error();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>(
-    TResult $default(
-        Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
-    TResult loading(),
-    TResult loaded(FoldersOfScenes foldersOfScenes),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption)?
+        $default, {
+    TResult Function()? loading,
+    TResult Function(FoldersOfScenes foldersOfScenes)? loaded,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error();
     }
@@ -693,29 +671,24 @@ class _$Error implements Error {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>(
-    TResult $default(_FoldersOfScenesState value), {
-    @required TResult loading(Loading value),
-    @required TResult loaded(Loaded value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>(
+    TResult Function(_FoldersOfScenesState value) $default, {
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(Error value) error,
   }) {
-    assert($default != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>(
-    TResult $default(_FoldersOfScenesState value), {
-    TResult loading(Loading value),
-    TResult loaded(Loaded value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_FoldersOfScenesState value)? $default, {
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this);
     }

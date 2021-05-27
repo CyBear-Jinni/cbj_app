@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'configure_new_cbj_comp_bloc.dart';
 
@@ -9,23 +9,23 @@ part of 'configure_new_cbj_comp_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$ConfigureNewCbjCompEventTearOff {
   const _$ConfigureNewCbjCompEventTearOff();
 
-// ignore: unused_element
   Initialized initialized() {
     return const Initialized();
   }
 
-// ignore: unused_element
   _Deleted deleted(DeviceEntity deviceEntity) {
     return _Deleted(
       deviceEntity,
     );
   }
 
-// ignore: unused_element
   _SetupNewDevice setupNewDevice(CBJCompEntity cBJCompEntity,
       Map<String, TextEditingController> textEditingController) {
     return _SetupNewDevice(
@@ -34,21 +34,18 @@ class _$ConfigureNewCbjCompEventTearOff {
     );
   }
 
-// ignore: unused_element
   _SaveDevicesToCloud saveDevicesToCloud(CBJCompEntity cBJCompEntity) {
     return _SaveDevicesToCloud(
       cBJCompEntity,
     );
   }
 
-// ignore: unused_element
   _SaveDevicesToComputer saveDevicesToComputer(CBJCompEntity cBJCompEntity) {
     return _SaveDevicesToComputer(
       cBJCompEntity,
     );
   }
 
-// ignore: unused_element
   _SendFirebaseInformation sendFirebaseInformation(
       CBJCompEntity cBJCompEntity) {
     return _SendFirebaseInformation(
@@ -56,14 +53,12 @@ class _$ConfigureNewCbjCompEventTearOff {
     );
   }
 
-// ignore: unused_element
   _SendHotSpotInformation sendHotSpotInformation(CBJCompEntity cBJCompEntity) {
     return _SendHotSpotInformation(
       cBJCompEntity,
     );
   }
 
-// ignore: unused_element
   _CheckOperationsCompletedSuccessfully checkOperationsCompletedSuccessfully(
       CBJCompEntity cBJCompEntity) {
     return _CheckOperationsCompletedSuccessfully(
@@ -73,65 +68,74 @@ class _$ConfigureNewCbjCompEventTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ConfigureNewCbjCompEvent = _$ConfigureNewCbjCompEventTearOff();
 
 /// @nodoc
 mixin _$ConfigureNewCbjCompEvent {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialized(),
-    @required TResult deleted(DeviceEntity deviceEntity),
-    @required
-        TResult setupNewDevice(CBJCompEntity cBJCompEntity,
-            Map<String, TextEditingController> textEditingController),
-    @required TResult saveDevicesToCloud(CBJCompEntity cBJCompEntity),
-    @required TResult saveDevicesToComputer(CBJCompEntity cBJCompEntity),
-    @required TResult sendFirebaseInformation(CBJCompEntity cBJCompEntity),
-    @required TResult sendHotSpotInformation(CBJCompEntity cBJCompEntity),
-    @required
-        TResult checkOperationsCompletedSuccessfully(
-            CBJCompEntity cBJCompEntity),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(DeviceEntity deviceEntity) deleted,
+    required TResult Function(CBJCompEntity cBJCompEntity,
+            Map<String, TextEditingController> textEditingController)
+        setupNewDevice,
+    required TResult Function(CBJCompEntity cBJCompEntity) saveDevicesToCloud,
+    required TResult Function(CBJCompEntity cBJCompEntity)
+        saveDevicesToComputer,
+    required TResult Function(CBJCompEntity cBJCompEntity)
+        sendFirebaseInformation,
+    required TResult Function(CBJCompEntity cBJCompEntity)
+        sendHotSpotInformation,
+    required TResult Function(CBJCompEntity cBJCompEntity)
+        checkOperationsCompletedSuccessfully,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialized(),
-    TResult deleted(DeviceEntity deviceEntity),
-    TResult setupNewDevice(CBJCompEntity cBJCompEntity,
-        Map<String, TextEditingController> textEditingController),
-    TResult saveDevicesToCloud(CBJCompEntity cBJCompEntity),
-    TResult saveDevicesToComputer(CBJCompEntity cBJCompEntity),
-    TResult sendFirebaseInformation(CBJCompEntity cBJCompEntity),
-    TResult sendHotSpotInformation(CBJCompEntity cBJCompEntity),
-    TResult checkOperationsCompletedSuccessfully(CBJCompEntity cBJCompEntity),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(DeviceEntity deviceEntity)? deleted,
+    TResult Function(CBJCompEntity cBJCompEntity,
+            Map<String, TextEditingController> textEditingController)?
+        setupNewDevice,
+    TResult Function(CBJCompEntity cBJCompEntity)? saveDevicesToCloud,
+    TResult Function(CBJCompEntity cBJCompEntity)? saveDevicesToComputer,
+    TResult Function(CBJCompEntity cBJCompEntity)? sendFirebaseInformation,
+    TResult Function(CBJCompEntity cBJCompEntity)? sendHotSpotInformation,
+    TResult Function(CBJCompEntity cBJCompEntity)?
+        checkOperationsCompletedSuccessfully,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialized(Initialized value),
-    @required TResult deleted(_Deleted value),
-    @required TResult setupNewDevice(_SetupNewDevice value),
-    @required TResult saveDevicesToCloud(_SaveDevicesToCloud value),
-    @required TResult saveDevicesToComputer(_SaveDevicesToComputer value),
-    @required TResult sendFirebaseInformation(_SendFirebaseInformation value),
-    @required TResult sendHotSpotInformation(_SendHotSpotInformation value),
-    @required
-        TResult checkOperationsCompletedSuccessfully(
-            _CheckOperationsCompletedSuccessfully value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(_Deleted value) deleted,
+    required TResult Function(_SetupNewDevice value) setupNewDevice,
+    required TResult Function(_SaveDevicesToCloud value) saveDevicesToCloud,
+    required TResult Function(_SaveDevicesToComputer value)
+        saveDevicesToComputer,
+    required TResult Function(_SendFirebaseInformation value)
+        sendFirebaseInformation,
+    required TResult Function(_SendHotSpotInformation value)
+        sendHotSpotInformation,
+    required TResult Function(_CheckOperationsCompletedSuccessfully value)
+        checkOperationsCompletedSuccessfully,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialized(Initialized value),
-    TResult deleted(_Deleted value),
-    TResult setupNewDevice(_SetupNewDevice value),
-    TResult saveDevicesToCloud(_SaveDevicesToCloud value),
-    TResult saveDevicesToComputer(_SaveDevicesToComputer value),
-    TResult sendFirebaseInformation(_SendFirebaseInformation value),
-    TResult sendHotSpotInformation(_SendHotSpotInformation value),
-    TResult checkOperationsCompletedSuccessfully(
-        _CheckOperationsCompletedSuccessfully value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(_Deleted value)? deleted,
+    TResult Function(_SetupNewDevice value)? setupNewDevice,
+    TResult Function(_SaveDevicesToCloud value)? saveDevicesToCloud,
+    TResult Function(_SaveDevicesToComputer value)? saveDevicesToComputer,
+    TResult Function(_SendFirebaseInformation value)? sendFirebaseInformation,
+    TResult Function(_SendHotSpotInformation value)? sendHotSpotInformation,
+    TResult Function(_CheckOperationsCompletedSuccessfully value)?
+        checkOperationsCompletedSuccessfully,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -171,6 +175,7 @@ class _$InitializedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Initialized implements Initialized {
   const _$Initialized();
 
@@ -189,46 +194,41 @@ class _$Initialized implements Initialized {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialized(),
-    @required TResult deleted(DeviceEntity deviceEntity),
-    @required
-        TResult setupNewDevice(CBJCompEntity cBJCompEntity,
-            Map<String, TextEditingController> textEditingController),
-    @required TResult saveDevicesToCloud(CBJCompEntity cBJCompEntity),
-    @required TResult saveDevicesToComputer(CBJCompEntity cBJCompEntity),
-    @required TResult sendFirebaseInformation(CBJCompEntity cBJCompEntity),
-    @required TResult sendHotSpotInformation(CBJCompEntity cBJCompEntity),
-    @required
-        TResult checkOperationsCompletedSuccessfully(
-            CBJCompEntity cBJCompEntity),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(DeviceEntity deviceEntity) deleted,
+    required TResult Function(CBJCompEntity cBJCompEntity,
+            Map<String, TextEditingController> textEditingController)
+        setupNewDevice,
+    required TResult Function(CBJCompEntity cBJCompEntity) saveDevicesToCloud,
+    required TResult Function(CBJCompEntity cBJCompEntity)
+        saveDevicesToComputer,
+    required TResult Function(CBJCompEntity cBJCompEntity)
+        sendFirebaseInformation,
+    required TResult Function(CBJCompEntity cBJCompEntity)
+        sendHotSpotInformation,
+    required TResult Function(CBJCompEntity cBJCompEntity)
+        checkOperationsCompletedSuccessfully,
   }) {
-    assert(initialized != null);
-    assert(deleted != null);
-    assert(setupNewDevice != null);
-    assert(saveDevicesToCloud != null);
-    assert(saveDevicesToComputer != null);
-    assert(sendFirebaseInformation != null);
-    assert(sendHotSpotInformation != null);
-    assert(checkOperationsCompletedSuccessfully != null);
     return initialized();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialized(),
-    TResult deleted(DeviceEntity deviceEntity),
-    TResult setupNewDevice(CBJCompEntity cBJCompEntity,
-        Map<String, TextEditingController> textEditingController),
-    TResult saveDevicesToCloud(CBJCompEntity cBJCompEntity),
-    TResult saveDevicesToComputer(CBJCompEntity cBJCompEntity),
-    TResult sendFirebaseInformation(CBJCompEntity cBJCompEntity),
-    TResult sendHotSpotInformation(CBJCompEntity cBJCompEntity),
-    TResult checkOperationsCompletedSuccessfully(CBJCompEntity cBJCompEntity),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(DeviceEntity deviceEntity)? deleted,
+    TResult Function(CBJCompEntity cBJCompEntity,
+            Map<String, TextEditingController> textEditingController)?
+        setupNewDevice,
+    TResult Function(CBJCompEntity cBJCompEntity)? saveDevicesToCloud,
+    TResult Function(CBJCompEntity cBJCompEntity)? saveDevicesToComputer,
+    TResult Function(CBJCompEntity cBJCompEntity)? sendFirebaseInformation,
+    TResult Function(CBJCompEntity cBJCompEntity)? sendHotSpotInformation,
+    TResult Function(CBJCompEntity cBJCompEntity)?
+        checkOperationsCompletedSuccessfully,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initialized != null) {
       return initialized();
     }
@@ -237,44 +237,37 @@ class _$Initialized implements Initialized {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialized(Initialized value),
-    @required TResult deleted(_Deleted value),
-    @required TResult setupNewDevice(_SetupNewDevice value),
-    @required TResult saveDevicesToCloud(_SaveDevicesToCloud value),
-    @required TResult saveDevicesToComputer(_SaveDevicesToComputer value),
-    @required TResult sendFirebaseInformation(_SendFirebaseInformation value),
-    @required TResult sendHotSpotInformation(_SendHotSpotInformation value),
-    @required
-        TResult checkOperationsCompletedSuccessfully(
-            _CheckOperationsCompletedSuccessfully value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(_Deleted value) deleted,
+    required TResult Function(_SetupNewDevice value) setupNewDevice,
+    required TResult Function(_SaveDevicesToCloud value) saveDevicesToCloud,
+    required TResult Function(_SaveDevicesToComputer value)
+        saveDevicesToComputer,
+    required TResult Function(_SendFirebaseInformation value)
+        sendFirebaseInformation,
+    required TResult Function(_SendHotSpotInformation value)
+        sendHotSpotInformation,
+    required TResult Function(_CheckOperationsCompletedSuccessfully value)
+        checkOperationsCompletedSuccessfully,
   }) {
-    assert(initialized != null);
-    assert(deleted != null);
-    assert(setupNewDevice != null);
-    assert(saveDevicesToCloud != null);
-    assert(saveDevicesToComputer != null);
-    assert(sendFirebaseInformation != null);
-    assert(sendHotSpotInformation != null);
-    assert(checkOperationsCompletedSuccessfully != null);
     return initialized(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialized(Initialized value),
-    TResult deleted(_Deleted value),
-    TResult setupNewDevice(_SetupNewDevice value),
-    TResult saveDevicesToCloud(_SaveDevicesToCloud value),
-    TResult saveDevicesToComputer(_SaveDevicesToComputer value),
-    TResult sendFirebaseInformation(_SendFirebaseInformation value),
-    TResult sendHotSpotInformation(_SendHotSpotInformation value),
-    TResult checkOperationsCompletedSuccessfully(
-        _CheckOperationsCompletedSuccessfully value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(_Deleted value)? deleted,
+    TResult Function(_SetupNewDevice value)? setupNewDevice,
+    TResult Function(_SaveDevicesToCloud value)? saveDevicesToCloud,
+    TResult Function(_SaveDevicesToComputer value)? saveDevicesToComputer,
+    TResult Function(_SendFirebaseInformation value)? sendFirebaseInformation,
+    TResult Function(_SendHotSpotInformation value)? sendHotSpotInformation,
+    TResult Function(_CheckOperationsCompletedSuccessfully value)?
+        checkOperationsCompletedSuccessfully,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initialized != null) {
       return initialized(this);
     }
@@ -307,20 +300,18 @@ class __$DeletedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object deviceEntity = freezed,
+    Object? deviceEntity = freezed,
   }) {
     return _then(_Deleted(
       deviceEntity == freezed
           ? _value.deviceEntity
-          : deviceEntity as DeviceEntity,
+          : deviceEntity // ignore: cast_nullable_to_non_nullable
+              as DeviceEntity,
     ));
   }
 
   @override
   $DeviceEntityCopyWith<$Res> get deviceEntity {
-    if (_value.deviceEntity == null) {
-      return null;
-    }
     return $DeviceEntityCopyWith<$Res>(_value.deviceEntity, (value) {
       return _then(_value.copyWith(deviceEntity: value));
     });
@@ -328,8 +319,9 @@ class __$DeletedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_Deleted implements _Deleted {
-  const _$_Deleted(this.deviceEntity) : assert(deviceEntity != null);
+  const _$_Deleted(this.deviceEntity);
 
   @override
   final DeviceEntity deviceEntity;
@@ -359,46 +351,41 @@ class _$_Deleted implements _Deleted {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialized(),
-    @required TResult deleted(DeviceEntity deviceEntity),
-    @required
-        TResult setupNewDevice(CBJCompEntity cBJCompEntity,
-            Map<String, TextEditingController> textEditingController),
-    @required TResult saveDevicesToCloud(CBJCompEntity cBJCompEntity),
-    @required TResult saveDevicesToComputer(CBJCompEntity cBJCompEntity),
-    @required TResult sendFirebaseInformation(CBJCompEntity cBJCompEntity),
-    @required TResult sendHotSpotInformation(CBJCompEntity cBJCompEntity),
-    @required
-        TResult checkOperationsCompletedSuccessfully(
-            CBJCompEntity cBJCompEntity),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(DeviceEntity deviceEntity) deleted,
+    required TResult Function(CBJCompEntity cBJCompEntity,
+            Map<String, TextEditingController> textEditingController)
+        setupNewDevice,
+    required TResult Function(CBJCompEntity cBJCompEntity) saveDevicesToCloud,
+    required TResult Function(CBJCompEntity cBJCompEntity)
+        saveDevicesToComputer,
+    required TResult Function(CBJCompEntity cBJCompEntity)
+        sendFirebaseInformation,
+    required TResult Function(CBJCompEntity cBJCompEntity)
+        sendHotSpotInformation,
+    required TResult Function(CBJCompEntity cBJCompEntity)
+        checkOperationsCompletedSuccessfully,
   }) {
-    assert(initialized != null);
-    assert(deleted != null);
-    assert(setupNewDevice != null);
-    assert(saveDevicesToCloud != null);
-    assert(saveDevicesToComputer != null);
-    assert(sendFirebaseInformation != null);
-    assert(sendHotSpotInformation != null);
-    assert(checkOperationsCompletedSuccessfully != null);
     return deleted(deviceEntity);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialized(),
-    TResult deleted(DeviceEntity deviceEntity),
-    TResult setupNewDevice(CBJCompEntity cBJCompEntity,
-        Map<String, TextEditingController> textEditingController),
-    TResult saveDevicesToCloud(CBJCompEntity cBJCompEntity),
-    TResult saveDevicesToComputer(CBJCompEntity cBJCompEntity),
-    TResult sendFirebaseInformation(CBJCompEntity cBJCompEntity),
-    TResult sendHotSpotInformation(CBJCompEntity cBJCompEntity),
-    TResult checkOperationsCompletedSuccessfully(CBJCompEntity cBJCompEntity),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(DeviceEntity deviceEntity)? deleted,
+    TResult Function(CBJCompEntity cBJCompEntity,
+            Map<String, TextEditingController> textEditingController)?
+        setupNewDevice,
+    TResult Function(CBJCompEntity cBJCompEntity)? saveDevicesToCloud,
+    TResult Function(CBJCompEntity cBJCompEntity)? saveDevicesToComputer,
+    TResult Function(CBJCompEntity cBJCompEntity)? sendFirebaseInformation,
+    TResult Function(CBJCompEntity cBJCompEntity)? sendHotSpotInformation,
+    TResult Function(CBJCompEntity cBJCompEntity)?
+        checkOperationsCompletedSuccessfully,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (deleted != null) {
       return deleted(deviceEntity);
     }
@@ -407,44 +394,37 @@ class _$_Deleted implements _Deleted {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialized(Initialized value),
-    @required TResult deleted(_Deleted value),
-    @required TResult setupNewDevice(_SetupNewDevice value),
-    @required TResult saveDevicesToCloud(_SaveDevicesToCloud value),
-    @required TResult saveDevicesToComputer(_SaveDevicesToComputer value),
-    @required TResult sendFirebaseInformation(_SendFirebaseInformation value),
-    @required TResult sendHotSpotInformation(_SendHotSpotInformation value),
-    @required
-        TResult checkOperationsCompletedSuccessfully(
-            _CheckOperationsCompletedSuccessfully value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(_Deleted value) deleted,
+    required TResult Function(_SetupNewDevice value) setupNewDevice,
+    required TResult Function(_SaveDevicesToCloud value) saveDevicesToCloud,
+    required TResult Function(_SaveDevicesToComputer value)
+        saveDevicesToComputer,
+    required TResult Function(_SendFirebaseInformation value)
+        sendFirebaseInformation,
+    required TResult Function(_SendHotSpotInformation value)
+        sendHotSpotInformation,
+    required TResult Function(_CheckOperationsCompletedSuccessfully value)
+        checkOperationsCompletedSuccessfully,
   }) {
-    assert(initialized != null);
-    assert(deleted != null);
-    assert(setupNewDevice != null);
-    assert(saveDevicesToCloud != null);
-    assert(saveDevicesToComputer != null);
-    assert(sendFirebaseInformation != null);
-    assert(sendHotSpotInformation != null);
-    assert(checkOperationsCompletedSuccessfully != null);
     return deleted(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialized(Initialized value),
-    TResult deleted(_Deleted value),
-    TResult setupNewDevice(_SetupNewDevice value),
-    TResult saveDevicesToCloud(_SaveDevicesToCloud value),
-    TResult saveDevicesToComputer(_SaveDevicesToComputer value),
-    TResult sendFirebaseInformation(_SendFirebaseInformation value),
-    TResult sendHotSpotInformation(_SendHotSpotInformation value),
-    TResult checkOperationsCompletedSuccessfully(
-        _CheckOperationsCompletedSuccessfully value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(_Deleted value)? deleted,
+    TResult Function(_SetupNewDevice value)? setupNewDevice,
+    TResult Function(_SaveDevicesToCloud value)? saveDevicesToCloud,
+    TResult Function(_SaveDevicesToComputer value)? saveDevicesToComputer,
+    TResult Function(_SendFirebaseInformation value)? sendFirebaseInformation,
+    TResult Function(_SendHotSpotInformation value)? sendHotSpotInformation,
+    TResult Function(_CheckOperationsCompletedSuccessfully value)?
+        checkOperationsCompletedSuccessfully,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (deleted != null) {
       return deleted(this);
     }
@@ -455,9 +435,10 @@ class _$_Deleted implements _Deleted {
 abstract class _Deleted implements ConfigureNewCbjCompEvent {
   const factory _Deleted(DeviceEntity deviceEntity) = _$_Deleted;
 
-  DeviceEntity get deviceEntity;
+  DeviceEntity get deviceEntity => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$DeletedCopyWith<_Deleted> get copyWith;
+  _$DeletedCopyWith<_Deleted> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -485,24 +466,23 @@ class __$SetupNewDeviceCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object cBJCompEntity = freezed,
-    Object textEditingController = freezed,
+    Object? cBJCompEntity = freezed,
+    Object? textEditingController = freezed,
   }) {
     return _then(_SetupNewDevice(
       cBJCompEntity == freezed
           ? _value.cBJCompEntity
-          : cBJCompEntity as CBJCompEntity,
+          : cBJCompEntity // ignore: cast_nullable_to_non_nullable
+              as CBJCompEntity,
       textEditingController == freezed
           ? _value.textEditingController
-          : textEditingController as Map<String, TextEditingController>,
+          : textEditingController // ignore: cast_nullable_to_non_nullable
+              as Map<String, TextEditingController>,
     ));
   }
 
   @override
   $CBJCompEntityCopyWith<$Res> get cBJCompEntity {
-    if (_value.cBJCompEntity == null) {
-      return null;
-    }
     return $CBJCompEntityCopyWith<$Res>(_value.cBJCompEntity, (value) {
       return _then(_value.copyWith(cBJCompEntity: value));
     });
@@ -510,10 +490,9 @@ class __$SetupNewDeviceCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_SetupNewDevice implements _SetupNewDevice {
-  const _$_SetupNewDevice(this.cBJCompEntity, this.textEditingController)
-      : assert(cBJCompEntity != null),
-        assert(textEditingController != null);
+  const _$_SetupNewDevice(this.cBJCompEntity, this.textEditingController);
 
   @override
   final CBJCompEntity cBJCompEntity;
@@ -550,46 +529,41 @@ class _$_SetupNewDevice implements _SetupNewDevice {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialized(),
-    @required TResult deleted(DeviceEntity deviceEntity),
-    @required
-        TResult setupNewDevice(CBJCompEntity cBJCompEntity,
-            Map<String, TextEditingController> textEditingController),
-    @required TResult saveDevicesToCloud(CBJCompEntity cBJCompEntity),
-    @required TResult saveDevicesToComputer(CBJCompEntity cBJCompEntity),
-    @required TResult sendFirebaseInformation(CBJCompEntity cBJCompEntity),
-    @required TResult sendHotSpotInformation(CBJCompEntity cBJCompEntity),
-    @required
-        TResult checkOperationsCompletedSuccessfully(
-            CBJCompEntity cBJCompEntity),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(DeviceEntity deviceEntity) deleted,
+    required TResult Function(CBJCompEntity cBJCompEntity,
+            Map<String, TextEditingController> textEditingController)
+        setupNewDevice,
+    required TResult Function(CBJCompEntity cBJCompEntity) saveDevicesToCloud,
+    required TResult Function(CBJCompEntity cBJCompEntity)
+        saveDevicesToComputer,
+    required TResult Function(CBJCompEntity cBJCompEntity)
+        sendFirebaseInformation,
+    required TResult Function(CBJCompEntity cBJCompEntity)
+        sendHotSpotInformation,
+    required TResult Function(CBJCompEntity cBJCompEntity)
+        checkOperationsCompletedSuccessfully,
   }) {
-    assert(initialized != null);
-    assert(deleted != null);
-    assert(setupNewDevice != null);
-    assert(saveDevicesToCloud != null);
-    assert(saveDevicesToComputer != null);
-    assert(sendFirebaseInformation != null);
-    assert(sendHotSpotInformation != null);
-    assert(checkOperationsCompletedSuccessfully != null);
     return setupNewDevice(cBJCompEntity, textEditingController);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialized(),
-    TResult deleted(DeviceEntity deviceEntity),
-    TResult setupNewDevice(CBJCompEntity cBJCompEntity,
-        Map<String, TextEditingController> textEditingController),
-    TResult saveDevicesToCloud(CBJCompEntity cBJCompEntity),
-    TResult saveDevicesToComputer(CBJCompEntity cBJCompEntity),
-    TResult sendFirebaseInformation(CBJCompEntity cBJCompEntity),
-    TResult sendHotSpotInformation(CBJCompEntity cBJCompEntity),
-    TResult checkOperationsCompletedSuccessfully(CBJCompEntity cBJCompEntity),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(DeviceEntity deviceEntity)? deleted,
+    TResult Function(CBJCompEntity cBJCompEntity,
+            Map<String, TextEditingController> textEditingController)?
+        setupNewDevice,
+    TResult Function(CBJCompEntity cBJCompEntity)? saveDevicesToCloud,
+    TResult Function(CBJCompEntity cBJCompEntity)? saveDevicesToComputer,
+    TResult Function(CBJCompEntity cBJCompEntity)? sendFirebaseInformation,
+    TResult Function(CBJCompEntity cBJCompEntity)? sendHotSpotInformation,
+    TResult Function(CBJCompEntity cBJCompEntity)?
+        checkOperationsCompletedSuccessfully,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (setupNewDevice != null) {
       return setupNewDevice(cBJCompEntity, textEditingController);
     }
@@ -598,44 +572,37 @@ class _$_SetupNewDevice implements _SetupNewDevice {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialized(Initialized value),
-    @required TResult deleted(_Deleted value),
-    @required TResult setupNewDevice(_SetupNewDevice value),
-    @required TResult saveDevicesToCloud(_SaveDevicesToCloud value),
-    @required TResult saveDevicesToComputer(_SaveDevicesToComputer value),
-    @required TResult sendFirebaseInformation(_SendFirebaseInformation value),
-    @required TResult sendHotSpotInformation(_SendHotSpotInformation value),
-    @required
-        TResult checkOperationsCompletedSuccessfully(
-            _CheckOperationsCompletedSuccessfully value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(_Deleted value) deleted,
+    required TResult Function(_SetupNewDevice value) setupNewDevice,
+    required TResult Function(_SaveDevicesToCloud value) saveDevicesToCloud,
+    required TResult Function(_SaveDevicesToComputer value)
+        saveDevicesToComputer,
+    required TResult Function(_SendFirebaseInformation value)
+        sendFirebaseInformation,
+    required TResult Function(_SendHotSpotInformation value)
+        sendHotSpotInformation,
+    required TResult Function(_CheckOperationsCompletedSuccessfully value)
+        checkOperationsCompletedSuccessfully,
   }) {
-    assert(initialized != null);
-    assert(deleted != null);
-    assert(setupNewDevice != null);
-    assert(saveDevicesToCloud != null);
-    assert(saveDevicesToComputer != null);
-    assert(sendFirebaseInformation != null);
-    assert(sendHotSpotInformation != null);
-    assert(checkOperationsCompletedSuccessfully != null);
     return setupNewDevice(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialized(Initialized value),
-    TResult deleted(_Deleted value),
-    TResult setupNewDevice(_SetupNewDevice value),
-    TResult saveDevicesToCloud(_SaveDevicesToCloud value),
-    TResult saveDevicesToComputer(_SaveDevicesToComputer value),
-    TResult sendFirebaseInformation(_SendFirebaseInformation value),
-    TResult sendHotSpotInformation(_SendHotSpotInformation value),
-    TResult checkOperationsCompletedSuccessfully(
-        _CheckOperationsCompletedSuccessfully value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(_Deleted value)? deleted,
+    TResult Function(_SetupNewDevice value)? setupNewDevice,
+    TResult Function(_SaveDevicesToCloud value)? saveDevicesToCloud,
+    TResult Function(_SaveDevicesToComputer value)? saveDevicesToComputer,
+    TResult Function(_SendFirebaseInformation value)? sendFirebaseInformation,
+    TResult Function(_SendHotSpotInformation value)? sendHotSpotInformation,
+    TResult Function(_CheckOperationsCompletedSuccessfully value)?
+        checkOperationsCompletedSuccessfully,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (setupNewDevice != null) {
       return setupNewDevice(this);
     }
@@ -648,10 +615,12 @@ abstract class _SetupNewDevice implements ConfigureNewCbjCompEvent {
           Map<String, TextEditingController> textEditingController) =
       _$_SetupNewDevice;
 
-  CBJCompEntity get cBJCompEntity;
-  Map<String, TextEditingController> get textEditingController;
+  CBJCompEntity get cBJCompEntity => throw _privateConstructorUsedError;
+  Map<String, TextEditingController> get textEditingController =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$SetupNewDeviceCopyWith<_SetupNewDevice> get copyWith;
+  _$SetupNewDeviceCopyWith<_SetupNewDevice> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -677,20 +646,18 @@ class __$SaveDevicesToCloudCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object cBJCompEntity = freezed,
+    Object? cBJCompEntity = freezed,
   }) {
     return _then(_SaveDevicesToCloud(
       cBJCompEntity == freezed
           ? _value.cBJCompEntity
-          : cBJCompEntity as CBJCompEntity,
+          : cBJCompEntity // ignore: cast_nullable_to_non_nullable
+              as CBJCompEntity,
     ));
   }
 
   @override
   $CBJCompEntityCopyWith<$Res> get cBJCompEntity {
-    if (_value.cBJCompEntity == null) {
-      return null;
-    }
     return $CBJCompEntityCopyWith<$Res>(_value.cBJCompEntity, (value) {
       return _then(_value.copyWith(cBJCompEntity: value));
     });
@@ -698,9 +665,9 @@ class __$SaveDevicesToCloudCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_SaveDevicesToCloud implements _SaveDevicesToCloud {
-  const _$_SaveDevicesToCloud(this.cBJCompEntity)
-      : assert(cBJCompEntity != null);
+  const _$_SaveDevicesToCloud(this.cBJCompEntity);
 
   @override
   final CBJCompEntity cBJCompEntity;
@@ -730,46 +697,41 @@ class _$_SaveDevicesToCloud implements _SaveDevicesToCloud {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialized(),
-    @required TResult deleted(DeviceEntity deviceEntity),
-    @required
-        TResult setupNewDevice(CBJCompEntity cBJCompEntity,
-            Map<String, TextEditingController> textEditingController),
-    @required TResult saveDevicesToCloud(CBJCompEntity cBJCompEntity),
-    @required TResult saveDevicesToComputer(CBJCompEntity cBJCompEntity),
-    @required TResult sendFirebaseInformation(CBJCompEntity cBJCompEntity),
-    @required TResult sendHotSpotInformation(CBJCompEntity cBJCompEntity),
-    @required
-        TResult checkOperationsCompletedSuccessfully(
-            CBJCompEntity cBJCompEntity),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(DeviceEntity deviceEntity) deleted,
+    required TResult Function(CBJCompEntity cBJCompEntity,
+            Map<String, TextEditingController> textEditingController)
+        setupNewDevice,
+    required TResult Function(CBJCompEntity cBJCompEntity) saveDevicesToCloud,
+    required TResult Function(CBJCompEntity cBJCompEntity)
+        saveDevicesToComputer,
+    required TResult Function(CBJCompEntity cBJCompEntity)
+        sendFirebaseInformation,
+    required TResult Function(CBJCompEntity cBJCompEntity)
+        sendHotSpotInformation,
+    required TResult Function(CBJCompEntity cBJCompEntity)
+        checkOperationsCompletedSuccessfully,
   }) {
-    assert(initialized != null);
-    assert(deleted != null);
-    assert(setupNewDevice != null);
-    assert(saveDevicesToCloud != null);
-    assert(saveDevicesToComputer != null);
-    assert(sendFirebaseInformation != null);
-    assert(sendHotSpotInformation != null);
-    assert(checkOperationsCompletedSuccessfully != null);
     return saveDevicesToCloud(cBJCompEntity);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialized(),
-    TResult deleted(DeviceEntity deviceEntity),
-    TResult setupNewDevice(CBJCompEntity cBJCompEntity,
-        Map<String, TextEditingController> textEditingController),
-    TResult saveDevicesToCloud(CBJCompEntity cBJCompEntity),
-    TResult saveDevicesToComputer(CBJCompEntity cBJCompEntity),
-    TResult sendFirebaseInformation(CBJCompEntity cBJCompEntity),
-    TResult sendHotSpotInformation(CBJCompEntity cBJCompEntity),
-    TResult checkOperationsCompletedSuccessfully(CBJCompEntity cBJCompEntity),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(DeviceEntity deviceEntity)? deleted,
+    TResult Function(CBJCompEntity cBJCompEntity,
+            Map<String, TextEditingController> textEditingController)?
+        setupNewDevice,
+    TResult Function(CBJCompEntity cBJCompEntity)? saveDevicesToCloud,
+    TResult Function(CBJCompEntity cBJCompEntity)? saveDevicesToComputer,
+    TResult Function(CBJCompEntity cBJCompEntity)? sendFirebaseInformation,
+    TResult Function(CBJCompEntity cBJCompEntity)? sendHotSpotInformation,
+    TResult Function(CBJCompEntity cBJCompEntity)?
+        checkOperationsCompletedSuccessfully,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (saveDevicesToCloud != null) {
       return saveDevicesToCloud(cBJCompEntity);
     }
@@ -778,44 +740,37 @@ class _$_SaveDevicesToCloud implements _SaveDevicesToCloud {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialized(Initialized value),
-    @required TResult deleted(_Deleted value),
-    @required TResult setupNewDevice(_SetupNewDevice value),
-    @required TResult saveDevicesToCloud(_SaveDevicesToCloud value),
-    @required TResult saveDevicesToComputer(_SaveDevicesToComputer value),
-    @required TResult sendFirebaseInformation(_SendFirebaseInformation value),
-    @required TResult sendHotSpotInformation(_SendHotSpotInformation value),
-    @required
-        TResult checkOperationsCompletedSuccessfully(
-            _CheckOperationsCompletedSuccessfully value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(_Deleted value) deleted,
+    required TResult Function(_SetupNewDevice value) setupNewDevice,
+    required TResult Function(_SaveDevicesToCloud value) saveDevicesToCloud,
+    required TResult Function(_SaveDevicesToComputer value)
+        saveDevicesToComputer,
+    required TResult Function(_SendFirebaseInformation value)
+        sendFirebaseInformation,
+    required TResult Function(_SendHotSpotInformation value)
+        sendHotSpotInformation,
+    required TResult Function(_CheckOperationsCompletedSuccessfully value)
+        checkOperationsCompletedSuccessfully,
   }) {
-    assert(initialized != null);
-    assert(deleted != null);
-    assert(setupNewDevice != null);
-    assert(saveDevicesToCloud != null);
-    assert(saveDevicesToComputer != null);
-    assert(sendFirebaseInformation != null);
-    assert(sendHotSpotInformation != null);
-    assert(checkOperationsCompletedSuccessfully != null);
     return saveDevicesToCloud(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialized(Initialized value),
-    TResult deleted(_Deleted value),
-    TResult setupNewDevice(_SetupNewDevice value),
-    TResult saveDevicesToCloud(_SaveDevicesToCloud value),
-    TResult saveDevicesToComputer(_SaveDevicesToComputer value),
-    TResult sendFirebaseInformation(_SendFirebaseInformation value),
-    TResult sendHotSpotInformation(_SendHotSpotInformation value),
-    TResult checkOperationsCompletedSuccessfully(
-        _CheckOperationsCompletedSuccessfully value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(_Deleted value)? deleted,
+    TResult Function(_SetupNewDevice value)? setupNewDevice,
+    TResult Function(_SaveDevicesToCloud value)? saveDevicesToCloud,
+    TResult Function(_SaveDevicesToComputer value)? saveDevicesToComputer,
+    TResult Function(_SendFirebaseInformation value)? sendFirebaseInformation,
+    TResult Function(_SendHotSpotInformation value)? sendHotSpotInformation,
+    TResult Function(_CheckOperationsCompletedSuccessfully value)?
+        checkOperationsCompletedSuccessfully,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (saveDevicesToCloud != null) {
       return saveDevicesToCloud(this);
     }
@@ -827,9 +782,10 @@ abstract class _SaveDevicesToCloud implements ConfigureNewCbjCompEvent {
   const factory _SaveDevicesToCloud(CBJCompEntity cBJCompEntity) =
       _$_SaveDevicesToCloud;
 
-  CBJCompEntity get cBJCompEntity;
+  CBJCompEntity get cBJCompEntity => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$SaveDevicesToCloudCopyWith<_SaveDevicesToCloud> get copyWith;
+  _$SaveDevicesToCloudCopyWith<_SaveDevicesToCloud> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -855,20 +811,18 @@ class __$SaveDevicesToComputerCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object cBJCompEntity = freezed,
+    Object? cBJCompEntity = freezed,
   }) {
     return _then(_SaveDevicesToComputer(
       cBJCompEntity == freezed
           ? _value.cBJCompEntity
-          : cBJCompEntity as CBJCompEntity,
+          : cBJCompEntity // ignore: cast_nullable_to_non_nullable
+              as CBJCompEntity,
     ));
   }
 
   @override
   $CBJCompEntityCopyWith<$Res> get cBJCompEntity {
-    if (_value.cBJCompEntity == null) {
-      return null;
-    }
     return $CBJCompEntityCopyWith<$Res>(_value.cBJCompEntity, (value) {
       return _then(_value.copyWith(cBJCompEntity: value));
     });
@@ -876,9 +830,9 @@ class __$SaveDevicesToComputerCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_SaveDevicesToComputer implements _SaveDevicesToComputer {
-  const _$_SaveDevicesToComputer(this.cBJCompEntity)
-      : assert(cBJCompEntity != null);
+  const _$_SaveDevicesToComputer(this.cBJCompEntity);
 
   @override
   final CBJCompEntity cBJCompEntity;
@@ -909,46 +863,41 @@ class _$_SaveDevicesToComputer implements _SaveDevicesToComputer {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialized(),
-    @required TResult deleted(DeviceEntity deviceEntity),
-    @required
-        TResult setupNewDevice(CBJCompEntity cBJCompEntity,
-            Map<String, TextEditingController> textEditingController),
-    @required TResult saveDevicesToCloud(CBJCompEntity cBJCompEntity),
-    @required TResult saveDevicesToComputer(CBJCompEntity cBJCompEntity),
-    @required TResult sendFirebaseInformation(CBJCompEntity cBJCompEntity),
-    @required TResult sendHotSpotInformation(CBJCompEntity cBJCompEntity),
-    @required
-        TResult checkOperationsCompletedSuccessfully(
-            CBJCompEntity cBJCompEntity),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(DeviceEntity deviceEntity) deleted,
+    required TResult Function(CBJCompEntity cBJCompEntity,
+            Map<String, TextEditingController> textEditingController)
+        setupNewDevice,
+    required TResult Function(CBJCompEntity cBJCompEntity) saveDevicesToCloud,
+    required TResult Function(CBJCompEntity cBJCompEntity)
+        saveDevicesToComputer,
+    required TResult Function(CBJCompEntity cBJCompEntity)
+        sendFirebaseInformation,
+    required TResult Function(CBJCompEntity cBJCompEntity)
+        sendHotSpotInformation,
+    required TResult Function(CBJCompEntity cBJCompEntity)
+        checkOperationsCompletedSuccessfully,
   }) {
-    assert(initialized != null);
-    assert(deleted != null);
-    assert(setupNewDevice != null);
-    assert(saveDevicesToCloud != null);
-    assert(saveDevicesToComputer != null);
-    assert(sendFirebaseInformation != null);
-    assert(sendHotSpotInformation != null);
-    assert(checkOperationsCompletedSuccessfully != null);
     return saveDevicesToComputer(cBJCompEntity);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialized(),
-    TResult deleted(DeviceEntity deviceEntity),
-    TResult setupNewDevice(CBJCompEntity cBJCompEntity,
-        Map<String, TextEditingController> textEditingController),
-    TResult saveDevicesToCloud(CBJCompEntity cBJCompEntity),
-    TResult saveDevicesToComputer(CBJCompEntity cBJCompEntity),
-    TResult sendFirebaseInformation(CBJCompEntity cBJCompEntity),
-    TResult sendHotSpotInformation(CBJCompEntity cBJCompEntity),
-    TResult checkOperationsCompletedSuccessfully(CBJCompEntity cBJCompEntity),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(DeviceEntity deviceEntity)? deleted,
+    TResult Function(CBJCompEntity cBJCompEntity,
+            Map<String, TextEditingController> textEditingController)?
+        setupNewDevice,
+    TResult Function(CBJCompEntity cBJCompEntity)? saveDevicesToCloud,
+    TResult Function(CBJCompEntity cBJCompEntity)? saveDevicesToComputer,
+    TResult Function(CBJCompEntity cBJCompEntity)? sendFirebaseInformation,
+    TResult Function(CBJCompEntity cBJCompEntity)? sendHotSpotInformation,
+    TResult Function(CBJCompEntity cBJCompEntity)?
+        checkOperationsCompletedSuccessfully,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (saveDevicesToComputer != null) {
       return saveDevicesToComputer(cBJCompEntity);
     }
@@ -957,44 +906,37 @@ class _$_SaveDevicesToComputer implements _SaveDevicesToComputer {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialized(Initialized value),
-    @required TResult deleted(_Deleted value),
-    @required TResult setupNewDevice(_SetupNewDevice value),
-    @required TResult saveDevicesToCloud(_SaveDevicesToCloud value),
-    @required TResult saveDevicesToComputer(_SaveDevicesToComputer value),
-    @required TResult sendFirebaseInformation(_SendFirebaseInformation value),
-    @required TResult sendHotSpotInformation(_SendHotSpotInformation value),
-    @required
-        TResult checkOperationsCompletedSuccessfully(
-            _CheckOperationsCompletedSuccessfully value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(_Deleted value) deleted,
+    required TResult Function(_SetupNewDevice value) setupNewDevice,
+    required TResult Function(_SaveDevicesToCloud value) saveDevicesToCloud,
+    required TResult Function(_SaveDevicesToComputer value)
+        saveDevicesToComputer,
+    required TResult Function(_SendFirebaseInformation value)
+        sendFirebaseInformation,
+    required TResult Function(_SendHotSpotInformation value)
+        sendHotSpotInformation,
+    required TResult Function(_CheckOperationsCompletedSuccessfully value)
+        checkOperationsCompletedSuccessfully,
   }) {
-    assert(initialized != null);
-    assert(deleted != null);
-    assert(setupNewDevice != null);
-    assert(saveDevicesToCloud != null);
-    assert(saveDevicesToComputer != null);
-    assert(sendFirebaseInformation != null);
-    assert(sendHotSpotInformation != null);
-    assert(checkOperationsCompletedSuccessfully != null);
     return saveDevicesToComputer(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialized(Initialized value),
-    TResult deleted(_Deleted value),
-    TResult setupNewDevice(_SetupNewDevice value),
-    TResult saveDevicesToCloud(_SaveDevicesToCloud value),
-    TResult saveDevicesToComputer(_SaveDevicesToComputer value),
-    TResult sendFirebaseInformation(_SendFirebaseInformation value),
-    TResult sendHotSpotInformation(_SendHotSpotInformation value),
-    TResult checkOperationsCompletedSuccessfully(
-        _CheckOperationsCompletedSuccessfully value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(_Deleted value)? deleted,
+    TResult Function(_SetupNewDevice value)? setupNewDevice,
+    TResult Function(_SaveDevicesToCloud value)? saveDevicesToCloud,
+    TResult Function(_SaveDevicesToComputer value)? saveDevicesToComputer,
+    TResult Function(_SendFirebaseInformation value)? sendFirebaseInformation,
+    TResult Function(_SendHotSpotInformation value)? sendHotSpotInformation,
+    TResult Function(_CheckOperationsCompletedSuccessfully value)?
+        checkOperationsCompletedSuccessfully,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (saveDevicesToComputer != null) {
       return saveDevicesToComputer(this);
     }
@@ -1006,9 +948,10 @@ abstract class _SaveDevicesToComputer implements ConfigureNewCbjCompEvent {
   const factory _SaveDevicesToComputer(CBJCompEntity cBJCompEntity) =
       _$_SaveDevicesToComputer;
 
-  CBJCompEntity get cBJCompEntity;
+  CBJCompEntity get cBJCompEntity => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$SaveDevicesToComputerCopyWith<_SaveDevicesToComputer> get copyWith;
+  _$SaveDevicesToComputerCopyWith<_SaveDevicesToComputer> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1035,20 +978,18 @@ class __$SendFirebaseInformationCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object cBJCompEntity = freezed,
+    Object? cBJCompEntity = freezed,
   }) {
     return _then(_SendFirebaseInformation(
       cBJCompEntity == freezed
           ? _value.cBJCompEntity
-          : cBJCompEntity as CBJCompEntity,
+          : cBJCompEntity // ignore: cast_nullable_to_non_nullable
+              as CBJCompEntity,
     ));
   }
 
   @override
   $CBJCompEntityCopyWith<$Res> get cBJCompEntity {
-    if (_value.cBJCompEntity == null) {
-      return null;
-    }
     return $CBJCompEntityCopyWith<$Res>(_value.cBJCompEntity, (value) {
       return _then(_value.copyWith(cBJCompEntity: value));
     });
@@ -1056,9 +997,9 @@ class __$SendFirebaseInformationCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_SendFirebaseInformation implements _SendFirebaseInformation {
-  const _$_SendFirebaseInformation(this.cBJCompEntity)
-      : assert(cBJCompEntity != null);
+  const _$_SendFirebaseInformation(this.cBJCompEntity);
 
   @override
   final CBJCompEntity cBJCompEntity;
@@ -1089,46 +1030,41 @@ class _$_SendFirebaseInformation implements _SendFirebaseInformation {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialized(),
-    @required TResult deleted(DeviceEntity deviceEntity),
-    @required
-        TResult setupNewDevice(CBJCompEntity cBJCompEntity,
-            Map<String, TextEditingController> textEditingController),
-    @required TResult saveDevicesToCloud(CBJCompEntity cBJCompEntity),
-    @required TResult saveDevicesToComputer(CBJCompEntity cBJCompEntity),
-    @required TResult sendFirebaseInformation(CBJCompEntity cBJCompEntity),
-    @required TResult sendHotSpotInformation(CBJCompEntity cBJCompEntity),
-    @required
-        TResult checkOperationsCompletedSuccessfully(
-            CBJCompEntity cBJCompEntity),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(DeviceEntity deviceEntity) deleted,
+    required TResult Function(CBJCompEntity cBJCompEntity,
+            Map<String, TextEditingController> textEditingController)
+        setupNewDevice,
+    required TResult Function(CBJCompEntity cBJCompEntity) saveDevicesToCloud,
+    required TResult Function(CBJCompEntity cBJCompEntity)
+        saveDevicesToComputer,
+    required TResult Function(CBJCompEntity cBJCompEntity)
+        sendFirebaseInformation,
+    required TResult Function(CBJCompEntity cBJCompEntity)
+        sendHotSpotInformation,
+    required TResult Function(CBJCompEntity cBJCompEntity)
+        checkOperationsCompletedSuccessfully,
   }) {
-    assert(initialized != null);
-    assert(deleted != null);
-    assert(setupNewDevice != null);
-    assert(saveDevicesToCloud != null);
-    assert(saveDevicesToComputer != null);
-    assert(sendFirebaseInformation != null);
-    assert(sendHotSpotInformation != null);
-    assert(checkOperationsCompletedSuccessfully != null);
     return sendFirebaseInformation(cBJCompEntity);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialized(),
-    TResult deleted(DeviceEntity deviceEntity),
-    TResult setupNewDevice(CBJCompEntity cBJCompEntity,
-        Map<String, TextEditingController> textEditingController),
-    TResult saveDevicesToCloud(CBJCompEntity cBJCompEntity),
-    TResult saveDevicesToComputer(CBJCompEntity cBJCompEntity),
-    TResult sendFirebaseInformation(CBJCompEntity cBJCompEntity),
-    TResult sendHotSpotInformation(CBJCompEntity cBJCompEntity),
-    TResult checkOperationsCompletedSuccessfully(CBJCompEntity cBJCompEntity),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(DeviceEntity deviceEntity)? deleted,
+    TResult Function(CBJCompEntity cBJCompEntity,
+            Map<String, TextEditingController> textEditingController)?
+        setupNewDevice,
+    TResult Function(CBJCompEntity cBJCompEntity)? saveDevicesToCloud,
+    TResult Function(CBJCompEntity cBJCompEntity)? saveDevicesToComputer,
+    TResult Function(CBJCompEntity cBJCompEntity)? sendFirebaseInformation,
+    TResult Function(CBJCompEntity cBJCompEntity)? sendHotSpotInformation,
+    TResult Function(CBJCompEntity cBJCompEntity)?
+        checkOperationsCompletedSuccessfully,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (sendFirebaseInformation != null) {
       return sendFirebaseInformation(cBJCompEntity);
     }
@@ -1137,44 +1073,37 @@ class _$_SendFirebaseInformation implements _SendFirebaseInformation {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialized(Initialized value),
-    @required TResult deleted(_Deleted value),
-    @required TResult setupNewDevice(_SetupNewDevice value),
-    @required TResult saveDevicesToCloud(_SaveDevicesToCloud value),
-    @required TResult saveDevicesToComputer(_SaveDevicesToComputer value),
-    @required TResult sendFirebaseInformation(_SendFirebaseInformation value),
-    @required TResult sendHotSpotInformation(_SendHotSpotInformation value),
-    @required
-        TResult checkOperationsCompletedSuccessfully(
-            _CheckOperationsCompletedSuccessfully value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(_Deleted value) deleted,
+    required TResult Function(_SetupNewDevice value) setupNewDevice,
+    required TResult Function(_SaveDevicesToCloud value) saveDevicesToCloud,
+    required TResult Function(_SaveDevicesToComputer value)
+        saveDevicesToComputer,
+    required TResult Function(_SendFirebaseInformation value)
+        sendFirebaseInformation,
+    required TResult Function(_SendHotSpotInformation value)
+        sendHotSpotInformation,
+    required TResult Function(_CheckOperationsCompletedSuccessfully value)
+        checkOperationsCompletedSuccessfully,
   }) {
-    assert(initialized != null);
-    assert(deleted != null);
-    assert(setupNewDevice != null);
-    assert(saveDevicesToCloud != null);
-    assert(saveDevicesToComputer != null);
-    assert(sendFirebaseInformation != null);
-    assert(sendHotSpotInformation != null);
-    assert(checkOperationsCompletedSuccessfully != null);
     return sendFirebaseInformation(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialized(Initialized value),
-    TResult deleted(_Deleted value),
-    TResult setupNewDevice(_SetupNewDevice value),
-    TResult saveDevicesToCloud(_SaveDevicesToCloud value),
-    TResult saveDevicesToComputer(_SaveDevicesToComputer value),
-    TResult sendFirebaseInformation(_SendFirebaseInformation value),
-    TResult sendHotSpotInformation(_SendHotSpotInformation value),
-    TResult checkOperationsCompletedSuccessfully(
-        _CheckOperationsCompletedSuccessfully value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(_Deleted value)? deleted,
+    TResult Function(_SetupNewDevice value)? setupNewDevice,
+    TResult Function(_SaveDevicesToCloud value)? saveDevicesToCloud,
+    TResult Function(_SaveDevicesToComputer value)? saveDevicesToComputer,
+    TResult Function(_SendFirebaseInformation value)? sendFirebaseInformation,
+    TResult Function(_SendHotSpotInformation value)? sendHotSpotInformation,
+    TResult Function(_CheckOperationsCompletedSuccessfully value)?
+        checkOperationsCompletedSuccessfully,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (sendFirebaseInformation != null) {
       return sendFirebaseInformation(this);
     }
@@ -1186,9 +1115,10 @@ abstract class _SendFirebaseInformation implements ConfigureNewCbjCompEvent {
   const factory _SendFirebaseInformation(CBJCompEntity cBJCompEntity) =
       _$_SendFirebaseInformation;
 
-  CBJCompEntity get cBJCompEntity;
+  CBJCompEntity get cBJCompEntity => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$SendFirebaseInformationCopyWith<_SendFirebaseInformation> get copyWith;
+  _$SendFirebaseInformationCopyWith<_SendFirebaseInformation> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1214,20 +1144,18 @@ class __$SendHotSpotInformationCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object cBJCompEntity = freezed,
+    Object? cBJCompEntity = freezed,
   }) {
     return _then(_SendHotSpotInformation(
       cBJCompEntity == freezed
           ? _value.cBJCompEntity
-          : cBJCompEntity as CBJCompEntity,
+          : cBJCompEntity // ignore: cast_nullable_to_non_nullable
+              as CBJCompEntity,
     ));
   }
 
   @override
   $CBJCompEntityCopyWith<$Res> get cBJCompEntity {
-    if (_value.cBJCompEntity == null) {
-      return null;
-    }
     return $CBJCompEntityCopyWith<$Res>(_value.cBJCompEntity, (value) {
       return _then(_value.copyWith(cBJCompEntity: value));
     });
@@ -1235,9 +1163,9 @@ class __$SendHotSpotInformationCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_SendHotSpotInformation implements _SendHotSpotInformation {
-  const _$_SendHotSpotInformation(this.cBJCompEntity)
-      : assert(cBJCompEntity != null);
+  const _$_SendHotSpotInformation(this.cBJCompEntity);
 
   @override
   final CBJCompEntity cBJCompEntity;
@@ -1268,46 +1196,41 @@ class _$_SendHotSpotInformation implements _SendHotSpotInformation {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialized(),
-    @required TResult deleted(DeviceEntity deviceEntity),
-    @required
-        TResult setupNewDevice(CBJCompEntity cBJCompEntity,
-            Map<String, TextEditingController> textEditingController),
-    @required TResult saveDevicesToCloud(CBJCompEntity cBJCompEntity),
-    @required TResult saveDevicesToComputer(CBJCompEntity cBJCompEntity),
-    @required TResult sendFirebaseInformation(CBJCompEntity cBJCompEntity),
-    @required TResult sendHotSpotInformation(CBJCompEntity cBJCompEntity),
-    @required
-        TResult checkOperationsCompletedSuccessfully(
-            CBJCompEntity cBJCompEntity),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(DeviceEntity deviceEntity) deleted,
+    required TResult Function(CBJCompEntity cBJCompEntity,
+            Map<String, TextEditingController> textEditingController)
+        setupNewDevice,
+    required TResult Function(CBJCompEntity cBJCompEntity) saveDevicesToCloud,
+    required TResult Function(CBJCompEntity cBJCompEntity)
+        saveDevicesToComputer,
+    required TResult Function(CBJCompEntity cBJCompEntity)
+        sendFirebaseInformation,
+    required TResult Function(CBJCompEntity cBJCompEntity)
+        sendHotSpotInformation,
+    required TResult Function(CBJCompEntity cBJCompEntity)
+        checkOperationsCompletedSuccessfully,
   }) {
-    assert(initialized != null);
-    assert(deleted != null);
-    assert(setupNewDevice != null);
-    assert(saveDevicesToCloud != null);
-    assert(saveDevicesToComputer != null);
-    assert(sendFirebaseInformation != null);
-    assert(sendHotSpotInformation != null);
-    assert(checkOperationsCompletedSuccessfully != null);
     return sendHotSpotInformation(cBJCompEntity);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialized(),
-    TResult deleted(DeviceEntity deviceEntity),
-    TResult setupNewDevice(CBJCompEntity cBJCompEntity,
-        Map<String, TextEditingController> textEditingController),
-    TResult saveDevicesToCloud(CBJCompEntity cBJCompEntity),
-    TResult saveDevicesToComputer(CBJCompEntity cBJCompEntity),
-    TResult sendFirebaseInformation(CBJCompEntity cBJCompEntity),
-    TResult sendHotSpotInformation(CBJCompEntity cBJCompEntity),
-    TResult checkOperationsCompletedSuccessfully(CBJCompEntity cBJCompEntity),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(DeviceEntity deviceEntity)? deleted,
+    TResult Function(CBJCompEntity cBJCompEntity,
+            Map<String, TextEditingController> textEditingController)?
+        setupNewDevice,
+    TResult Function(CBJCompEntity cBJCompEntity)? saveDevicesToCloud,
+    TResult Function(CBJCompEntity cBJCompEntity)? saveDevicesToComputer,
+    TResult Function(CBJCompEntity cBJCompEntity)? sendFirebaseInformation,
+    TResult Function(CBJCompEntity cBJCompEntity)? sendHotSpotInformation,
+    TResult Function(CBJCompEntity cBJCompEntity)?
+        checkOperationsCompletedSuccessfully,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (sendHotSpotInformation != null) {
       return sendHotSpotInformation(cBJCompEntity);
     }
@@ -1316,44 +1239,37 @@ class _$_SendHotSpotInformation implements _SendHotSpotInformation {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialized(Initialized value),
-    @required TResult deleted(_Deleted value),
-    @required TResult setupNewDevice(_SetupNewDevice value),
-    @required TResult saveDevicesToCloud(_SaveDevicesToCloud value),
-    @required TResult saveDevicesToComputer(_SaveDevicesToComputer value),
-    @required TResult sendFirebaseInformation(_SendFirebaseInformation value),
-    @required TResult sendHotSpotInformation(_SendHotSpotInformation value),
-    @required
-        TResult checkOperationsCompletedSuccessfully(
-            _CheckOperationsCompletedSuccessfully value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(_Deleted value) deleted,
+    required TResult Function(_SetupNewDevice value) setupNewDevice,
+    required TResult Function(_SaveDevicesToCloud value) saveDevicesToCloud,
+    required TResult Function(_SaveDevicesToComputer value)
+        saveDevicesToComputer,
+    required TResult Function(_SendFirebaseInformation value)
+        sendFirebaseInformation,
+    required TResult Function(_SendHotSpotInformation value)
+        sendHotSpotInformation,
+    required TResult Function(_CheckOperationsCompletedSuccessfully value)
+        checkOperationsCompletedSuccessfully,
   }) {
-    assert(initialized != null);
-    assert(deleted != null);
-    assert(setupNewDevice != null);
-    assert(saveDevicesToCloud != null);
-    assert(saveDevicesToComputer != null);
-    assert(sendFirebaseInformation != null);
-    assert(sendHotSpotInformation != null);
-    assert(checkOperationsCompletedSuccessfully != null);
     return sendHotSpotInformation(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialized(Initialized value),
-    TResult deleted(_Deleted value),
-    TResult setupNewDevice(_SetupNewDevice value),
-    TResult saveDevicesToCloud(_SaveDevicesToCloud value),
-    TResult saveDevicesToComputer(_SaveDevicesToComputer value),
-    TResult sendFirebaseInformation(_SendFirebaseInformation value),
-    TResult sendHotSpotInformation(_SendHotSpotInformation value),
-    TResult checkOperationsCompletedSuccessfully(
-        _CheckOperationsCompletedSuccessfully value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(_Deleted value)? deleted,
+    TResult Function(_SetupNewDevice value)? setupNewDevice,
+    TResult Function(_SaveDevicesToCloud value)? saveDevicesToCloud,
+    TResult Function(_SaveDevicesToComputer value)? saveDevicesToComputer,
+    TResult Function(_SendFirebaseInformation value)? sendFirebaseInformation,
+    TResult Function(_SendHotSpotInformation value)? sendHotSpotInformation,
+    TResult Function(_CheckOperationsCompletedSuccessfully value)?
+        checkOperationsCompletedSuccessfully,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (sendHotSpotInformation != null) {
       return sendHotSpotInformation(this);
     }
@@ -1365,9 +1281,10 @@ abstract class _SendHotSpotInformation implements ConfigureNewCbjCompEvent {
   const factory _SendHotSpotInformation(CBJCompEntity cBJCompEntity) =
       _$_SendHotSpotInformation;
 
-  CBJCompEntity get cBJCompEntity;
+  CBJCompEntity get cBJCompEntity => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$SendHotSpotInformationCopyWith<_SendHotSpotInformation> get copyWith;
+  _$SendHotSpotInformationCopyWith<_SendHotSpotInformation> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1396,20 +1313,18 @@ class __$CheckOperationsCompletedSuccessfullyCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object cBJCompEntity = freezed,
+    Object? cBJCompEntity = freezed,
   }) {
     return _then(_CheckOperationsCompletedSuccessfully(
       cBJCompEntity == freezed
           ? _value.cBJCompEntity
-          : cBJCompEntity as CBJCompEntity,
+          : cBJCompEntity // ignore: cast_nullable_to_non_nullable
+              as CBJCompEntity,
     ));
   }
 
   @override
   $CBJCompEntityCopyWith<$Res> get cBJCompEntity {
-    if (_value.cBJCompEntity == null) {
-      return null;
-    }
     return $CBJCompEntityCopyWith<$Res>(_value.cBJCompEntity, (value) {
       return _then(_value.copyWith(cBJCompEntity: value));
     });
@@ -1417,10 +1332,10 @@ class __$CheckOperationsCompletedSuccessfullyCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_CheckOperationsCompletedSuccessfully
     implements _CheckOperationsCompletedSuccessfully {
-  const _$_CheckOperationsCompletedSuccessfully(this.cBJCompEntity)
-      : assert(cBJCompEntity != null);
+  const _$_CheckOperationsCompletedSuccessfully(this.cBJCompEntity);
 
   @override
   final CBJCompEntity cBJCompEntity;
@@ -1452,46 +1367,41 @@ class _$_CheckOperationsCompletedSuccessfully
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialized(),
-    @required TResult deleted(DeviceEntity deviceEntity),
-    @required
-        TResult setupNewDevice(CBJCompEntity cBJCompEntity,
-            Map<String, TextEditingController> textEditingController),
-    @required TResult saveDevicesToCloud(CBJCompEntity cBJCompEntity),
-    @required TResult saveDevicesToComputer(CBJCompEntity cBJCompEntity),
-    @required TResult sendFirebaseInformation(CBJCompEntity cBJCompEntity),
-    @required TResult sendHotSpotInformation(CBJCompEntity cBJCompEntity),
-    @required
-        TResult checkOperationsCompletedSuccessfully(
-            CBJCompEntity cBJCompEntity),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(DeviceEntity deviceEntity) deleted,
+    required TResult Function(CBJCompEntity cBJCompEntity,
+            Map<String, TextEditingController> textEditingController)
+        setupNewDevice,
+    required TResult Function(CBJCompEntity cBJCompEntity) saveDevicesToCloud,
+    required TResult Function(CBJCompEntity cBJCompEntity)
+        saveDevicesToComputer,
+    required TResult Function(CBJCompEntity cBJCompEntity)
+        sendFirebaseInformation,
+    required TResult Function(CBJCompEntity cBJCompEntity)
+        sendHotSpotInformation,
+    required TResult Function(CBJCompEntity cBJCompEntity)
+        checkOperationsCompletedSuccessfully,
   }) {
-    assert(initialized != null);
-    assert(deleted != null);
-    assert(setupNewDevice != null);
-    assert(saveDevicesToCloud != null);
-    assert(saveDevicesToComputer != null);
-    assert(sendFirebaseInformation != null);
-    assert(sendHotSpotInformation != null);
-    assert(checkOperationsCompletedSuccessfully != null);
     return checkOperationsCompletedSuccessfully(cBJCompEntity);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialized(),
-    TResult deleted(DeviceEntity deviceEntity),
-    TResult setupNewDevice(CBJCompEntity cBJCompEntity,
-        Map<String, TextEditingController> textEditingController),
-    TResult saveDevicesToCloud(CBJCompEntity cBJCompEntity),
-    TResult saveDevicesToComputer(CBJCompEntity cBJCompEntity),
-    TResult sendFirebaseInformation(CBJCompEntity cBJCompEntity),
-    TResult sendHotSpotInformation(CBJCompEntity cBJCompEntity),
-    TResult checkOperationsCompletedSuccessfully(CBJCompEntity cBJCompEntity),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(DeviceEntity deviceEntity)? deleted,
+    TResult Function(CBJCompEntity cBJCompEntity,
+            Map<String, TextEditingController> textEditingController)?
+        setupNewDevice,
+    TResult Function(CBJCompEntity cBJCompEntity)? saveDevicesToCloud,
+    TResult Function(CBJCompEntity cBJCompEntity)? saveDevicesToComputer,
+    TResult Function(CBJCompEntity cBJCompEntity)? sendFirebaseInformation,
+    TResult Function(CBJCompEntity cBJCompEntity)? sendHotSpotInformation,
+    TResult Function(CBJCompEntity cBJCompEntity)?
+        checkOperationsCompletedSuccessfully,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (checkOperationsCompletedSuccessfully != null) {
       return checkOperationsCompletedSuccessfully(cBJCompEntity);
     }
@@ -1500,44 +1410,37 @@ class _$_CheckOperationsCompletedSuccessfully
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialized(Initialized value),
-    @required TResult deleted(_Deleted value),
-    @required TResult setupNewDevice(_SetupNewDevice value),
-    @required TResult saveDevicesToCloud(_SaveDevicesToCloud value),
-    @required TResult saveDevicesToComputer(_SaveDevicesToComputer value),
-    @required TResult sendFirebaseInformation(_SendFirebaseInformation value),
-    @required TResult sendHotSpotInformation(_SendHotSpotInformation value),
-    @required
-        TResult checkOperationsCompletedSuccessfully(
-            _CheckOperationsCompletedSuccessfully value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(_Deleted value) deleted,
+    required TResult Function(_SetupNewDevice value) setupNewDevice,
+    required TResult Function(_SaveDevicesToCloud value) saveDevicesToCloud,
+    required TResult Function(_SaveDevicesToComputer value)
+        saveDevicesToComputer,
+    required TResult Function(_SendFirebaseInformation value)
+        sendFirebaseInformation,
+    required TResult Function(_SendHotSpotInformation value)
+        sendHotSpotInformation,
+    required TResult Function(_CheckOperationsCompletedSuccessfully value)
+        checkOperationsCompletedSuccessfully,
   }) {
-    assert(initialized != null);
-    assert(deleted != null);
-    assert(setupNewDevice != null);
-    assert(saveDevicesToCloud != null);
-    assert(saveDevicesToComputer != null);
-    assert(sendFirebaseInformation != null);
-    assert(sendHotSpotInformation != null);
-    assert(checkOperationsCompletedSuccessfully != null);
     return checkOperationsCompletedSuccessfully(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialized(Initialized value),
-    TResult deleted(_Deleted value),
-    TResult setupNewDevice(_SetupNewDevice value),
-    TResult saveDevicesToCloud(_SaveDevicesToCloud value),
-    TResult saveDevicesToComputer(_SaveDevicesToComputer value),
-    TResult sendFirebaseInformation(_SendFirebaseInformation value),
-    TResult sendHotSpotInformation(_SendHotSpotInformation value),
-    TResult checkOperationsCompletedSuccessfully(
-        _CheckOperationsCompletedSuccessfully value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(_Deleted value)? deleted,
+    TResult Function(_SetupNewDevice value)? setupNewDevice,
+    TResult Function(_SaveDevicesToCloud value)? saveDevicesToCloud,
+    TResult Function(_SaveDevicesToComputer value)? saveDevicesToComputer,
+    TResult Function(_SendFirebaseInformation value)? sendFirebaseInformation,
+    TResult Function(_SendHotSpotInformation value)? sendHotSpotInformation,
+    TResult Function(_CheckOperationsCompletedSuccessfully value)?
+        checkOperationsCompletedSuccessfully,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (checkOperationsCompletedSuccessfully != null) {
       return checkOperationsCompletedSuccessfully(this);
     }
@@ -1550,75 +1453,75 @@ abstract class _CheckOperationsCompletedSuccessfully
   const factory _CheckOperationsCompletedSuccessfully(
       CBJCompEntity cBJCompEntity) = _$_CheckOperationsCompletedSuccessfully;
 
-  CBJCompEntity get cBJCompEntity;
+  CBJCompEntity get cBJCompEntity => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$CheckOperationsCompletedSuccessfullyCopyWith<
-      _CheckOperationsCompletedSuccessfully> get copyWith;
+          _CheckOperationsCompletedSuccessfully>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$ConfigureNewCbjCompStateTearOff {
   const _$ConfigureNewCbjCompStateTearOff();
 
-// ignore: unused_element
   _Initial initial() {
     return const _Initial();
   }
 
-// ignore: unused_element
   ActionInProgress actionInProgress(double progressPercentage) {
     return ActionInProgress(
       progressPercentage,
     );
   }
 
-// ignore: unused_element
   CompleteSuccess completeSuccess() {
     return const CompleteSuccess();
   }
 
-// ignore: unused_element
   ErrorInProcess errorInProcess() {
     return const ErrorInProcess();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ConfigureNewCbjCompState = _$ConfigureNewCbjCompStateTearOff();
 
 /// @nodoc
 mixin _$ConfigureNewCbjCompState {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult actionInProgress(double progressPercentage),
-    @required TResult completeSuccess(),
-    @required TResult errorInProcess(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(double progressPercentage) actionInProgress,
+    required TResult Function() completeSuccess,
+    required TResult Function() errorInProcess,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult actionInProgress(double progressPercentage),
-    TResult completeSuccess(),
-    TResult errorInProcess(),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(double progressPercentage)? actionInProgress,
+    TResult Function()? completeSuccess,
+    TResult Function()? errorInProcess,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult actionInProgress(ActionInProgress value),
-    @required TResult completeSuccess(CompleteSuccess value),
-    @required TResult errorInProcess(ErrorInProcess value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(ActionInProgress value) actionInProgress,
+    required TResult Function(CompleteSuccess value) completeSuccess,
+    required TResult Function(ErrorInProcess value) errorInProcess,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult actionInProgress(ActionInProgress value),
-    TResult completeSuccess(CompleteSuccess value),
-    TResult errorInProcess(ErrorInProcess value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(ActionInProgress value)? actionInProgress,
+    TResult Function(CompleteSuccess value)? completeSuccess,
+    TResult Function(ErrorInProcess value)? errorInProcess,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1656,6 +1559,7 @@ class __$InitialCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_Initial implements _Initial {
   const _$_Initial();
 
@@ -1674,29 +1578,24 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult actionInProgress(double progressPercentage),
-    @required TResult completeSuccess(),
-    @required TResult errorInProcess(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(double progressPercentage) actionInProgress,
+    required TResult Function() completeSuccess,
+    required TResult Function() errorInProcess,
   }) {
-    assert(initial != null);
-    assert(actionInProgress != null);
-    assert(completeSuccess != null);
-    assert(errorInProcess != null);
     return initial();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult actionInProgress(double progressPercentage),
-    TResult completeSuccess(),
-    TResult errorInProcess(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(double progressPercentage)? actionInProgress,
+    TResult Function()? completeSuccess,
+    TResult Function()? errorInProcess,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initial != null) {
       return initial();
     }
@@ -1705,29 +1604,24 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult actionInProgress(ActionInProgress value),
-    @required TResult completeSuccess(CompleteSuccess value),
-    @required TResult errorInProcess(ErrorInProcess value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(ActionInProgress value) actionInProgress,
+    required TResult Function(CompleteSuccess value) completeSuccess,
+    required TResult Function(ErrorInProcess value) errorInProcess,
   }) {
-    assert(initial != null);
-    assert(actionInProgress != null);
-    assert(completeSuccess != null);
-    assert(errorInProcess != null);
     return initial(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult actionInProgress(ActionInProgress value),
-    TResult completeSuccess(CompleteSuccess value),
-    TResult errorInProcess(ErrorInProcess value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(ActionInProgress value)? actionInProgress,
+    TResult Function(CompleteSuccess value)? completeSuccess,
+    TResult Function(ErrorInProcess value)? errorInProcess,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initial != null) {
       return initial(this);
     }
@@ -1760,20 +1654,21 @@ class _$ActionInProgressCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object progressPercentage = freezed,
+    Object? progressPercentage = freezed,
   }) {
     return _then(ActionInProgress(
       progressPercentage == freezed
           ? _value.progressPercentage
-          : progressPercentage as double,
+          : progressPercentage // ignore: cast_nullable_to_non_nullable
+              as double,
     ));
   }
 }
 
 /// @nodoc
+
 class _$ActionInProgress implements ActionInProgress {
-  const _$ActionInProgress(this.progressPercentage)
-      : assert(progressPercentage != null);
+  const _$ActionInProgress(this.progressPercentage);
 
   @override
   final double progressPercentage;
@@ -1804,29 +1699,24 @@ class _$ActionInProgress implements ActionInProgress {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult actionInProgress(double progressPercentage),
-    @required TResult completeSuccess(),
-    @required TResult errorInProcess(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(double progressPercentage) actionInProgress,
+    required TResult Function() completeSuccess,
+    required TResult Function() errorInProcess,
   }) {
-    assert(initial != null);
-    assert(actionInProgress != null);
-    assert(completeSuccess != null);
-    assert(errorInProcess != null);
     return actionInProgress(progressPercentage);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult actionInProgress(double progressPercentage),
-    TResult completeSuccess(),
-    TResult errorInProcess(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(double progressPercentage)? actionInProgress,
+    TResult Function()? completeSuccess,
+    TResult Function()? errorInProcess,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (actionInProgress != null) {
       return actionInProgress(progressPercentage);
     }
@@ -1835,29 +1725,24 @@ class _$ActionInProgress implements ActionInProgress {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult actionInProgress(ActionInProgress value),
-    @required TResult completeSuccess(CompleteSuccess value),
-    @required TResult errorInProcess(ErrorInProcess value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(ActionInProgress value) actionInProgress,
+    required TResult Function(CompleteSuccess value) completeSuccess,
+    required TResult Function(ErrorInProcess value) errorInProcess,
   }) {
-    assert(initial != null);
-    assert(actionInProgress != null);
-    assert(completeSuccess != null);
-    assert(errorInProcess != null);
     return actionInProgress(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult actionInProgress(ActionInProgress value),
-    TResult completeSuccess(CompleteSuccess value),
-    TResult errorInProcess(ErrorInProcess value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(ActionInProgress value)? actionInProgress,
+    TResult Function(CompleteSuccess value)? completeSuccess,
+    TResult Function(ErrorInProcess value)? errorInProcess,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (actionInProgress != null) {
       return actionInProgress(this);
     }
@@ -1869,9 +1754,10 @@ abstract class ActionInProgress implements ConfigureNewCbjCompState {
   const factory ActionInProgress(double progressPercentage) =
       _$ActionInProgress;
 
-  double get progressPercentage;
+  double get progressPercentage => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ActionInProgressCopyWith<ActionInProgress> get copyWith;
+  $ActionInProgressCopyWith<ActionInProgress> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1894,6 +1780,7 @@ class _$CompleteSuccessCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$CompleteSuccess implements CompleteSuccess {
   const _$CompleteSuccess();
 
@@ -1912,29 +1799,24 @@ class _$CompleteSuccess implements CompleteSuccess {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult actionInProgress(double progressPercentage),
-    @required TResult completeSuccess(),
-    @required TResult errorInProcess(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(double progressPercentage) actionInProgress,
+    required TResult Function() completeSuccess,
+    required TResult Function() errorInProcess,
   }) {
-    assert(initial != null);
-    assert(actionInProgress != null);
-    assert(completeSuccess != null);
-    assert(errorInProcess != null);
     return completeSuccess();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult actionInProgress(double progressPercentage),
-    TResult completeSuccess(),
-    TResult errorInProcess(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(double progressPercentage)? actionInProgress,
+    TResult Function()? completeSuccess,
+    TResult Function()? errorInProcess,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (completeSuccess != null) {
       return completeSuccess();
     }
@@ -1943,29 +1825,24 @@ class _$CompleteSuccess implements CompleteSuccess {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult actionInProgress(ActionInProgress value),
-    @required TResult completeSuccess(CompleteSuccess value),
-    @required TResult errorInProcess(ErrorInProcess value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(ActionInProgress value) actionInProgress,
+    required TResult Function(CompleteSuccess value) completeSuccess,
+    required TResult Function(ErrorInProcess value) errorInProcess,
   }) {
-    assert(initial != null);
-    assert(actionInProgress != null);
-    assert(completeSuccess != null);
-    assert(errorInProcess != null);
     return completeSuccess(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult actionInProgress(ActionInProgress value),
-    TResult completeSuccess(CompleteSuccess value),
-    TResult errorInProcess(ErrorInProcess value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(ActionInProgress value)? actionInProgress,
+    TResult Function(CompleteSuccess value)? completeSuccess,
+    TResult Function(ErrorInProcess value)? errorInProcess,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (completeSuccess != null) {
       return completeSuccess(this);
     }
@@ -1997,6 +1874,7 @@ class _$ErrorInProcessCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$ErrorInProcess implements ErrorInProcess {
   const _$ErrorInProcess();
 
@@ -2015,29 +1893,24 @@ class _$ErrorInProcess implements ErrorInProcess {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult actionInProgress(double progressPercentage),
-    @required TResult completeSuccess(),
-    @required TResult errorInProcess(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(double progressPercentage) actionInProgress,
+    required TResult Function() completeSuccess,
+    required TResult Function() errorInProcess,
   }) {
-    assert(initial != null);
-    assert(actionInProgress != null);
-    assert(completeSuccess != null);
-    assert(errorInProcess != null);
     return errorInProcess();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult actionInProgress(double progressPercentage),
-    TResult completeSuccess(),
-    TResult errorInProcess(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(double progressPercentage)? actionInProgress,
+    TResult Function()? completeSuccess,
+    TResult Function()? errorInProcess,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (errorInProcess != null) {
       return errorInProcess();
     }
@@ -2046,29 +1919,24 @@ class _$ErrorInProcess implements ErrorInProcess {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult actionInProgress(ActionInProgress value),
-    @required TResult completeSuccess(CompleteSuccess value),
-    @required TResult errorInProcess(ErrorInProcess value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(ActionInProgress value) actionInProgress,
+    required TResult Function(CompleteSuccess value) completeSuccess,
+    required TResult Function(ErrorInProcess value) errorInProcess,
   }) {
-    assert(initial != null);
-    assert(actionInProgress != null);
-    assert(completeSuccess != null);
-    assert(errorInProcess != null);
     return errorInProcess(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult actionInProgress(ActionInProgress value),
-    TResult completeSuccess(CompleteSuccess value),
-    TResult errorInProcess(ErrorInProcess value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(ActionInProgress value)? actionInProgress,
+    TResult Function(CompleteSuccess value)? completeSuccess,
+    TResult Function(ErrorInProcess value)? errorInProcess,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (errorInProcess != null) {
       return errorInProcess(this);
     }

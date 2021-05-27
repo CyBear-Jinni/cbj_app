@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'cbj_comp_failures.dart';
 
@@ -9,93 +9,94 @@ part of 'cbj_comp_failures.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$CBJCompFailureTearOff {
   const _$CBJCompFailureTearOff();
 
-// ignore: unused_element
-  _Empty<T> empty<T>({@required T failedValue}) {
+  _Empty<T> empty<T>({required T failedValue}) {
     return _Empty<T>(
       failedValue: failedValue,
     );
   }
 
-// ignore: unused_element
-  _ActionExcecuter<T> actionExcecuter<T>({@required T failedValue}) {
+  _ActionExcecuter<T> actionExcecuter<T>({required T failedValue}) {
     return _ActionExcecuter<T>(
       failedValue: failedValue,
     );
   }
 
-// ignore: unused_element
   _ExceedingLength<T> exceedingLength<T>(
-      {@required T failedValue, @required int max}) {
+      {required T failedValue, required int max}) {
     return _ExceedingLength<T>(
       failedValue: failedValue,
       max: max,
     );
   }
 
-// ignore: unused_element
   _Unexpected<T> unexpected<T>() {
     return _Unexpected<T>();
   }
 
-// ignore: unused_element
   _InsufficientPermission<T> insufficientPermission<T>() {
     return _InsufficientPermission<T>();
   }
 
-// ignore: unused_element
   _UnableToUpdate<T> unableToUpdate<T>() {
     return _UnableToUpdate<T>();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $CBJCompFailure = _$CBJCompFailureTearOff();
 
 /// @nodoc
 mixin _$CBJCompFailure<T> {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult empty(T failedValue),
-    @required TResult actionExcecuter(T failedValue),
-    @required TResult exceedingLength(T failedValue, int max),
-    @required TResult unexpected(),
-    @required TResult insufficientPermission(),
-    @required TResult unableToUpdate(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue) actionExcecuter,
+    required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function() unexpected,
+    required TResult Function() insufficientPermission,
+    required TResult Function() unableToUpdate,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult empty(T failedValue),
-    TResult actionExcecuter(T failedValue),
-    TResult exceedingLength(T failedValue, int max),
-    TResult unexpected(),
-    TResult insufficientPermission(),
-    TResult unableToUpdate(),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? actionExcecuter,
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function()? unexpected,
+    TResult Function()? insufficientPermission,
+    TResult Function()? unableToUpdate,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult empty(_Empty<T> value),
-    @required TResult actionExcecuter(_ActionExcecuter<T> value),
-    @required TResult exceedingLength(_ExceedingLength<T> value),
-    @required TResult unexpected(_Unexpected<T> value),
-    @required TResult insufficientPermission(_InsufficientPermission<T> value),
-    @required TResult unableToUpdate(_UnableToUpdate<T> value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Empty<T> value) empty,
+    required TResult Function(_ActionExcecuter<T> value) actionExcecuter,
+    required TResult Function(_ExceedingLength<T> value) exceedingLength,
+    required TResult Function(_Unexpected<T> value) unexpected,
+    required TResult Function(_InsufficientPermission<T> value)
+        insufficientPermission,
+    required TResult Function(_UnableToUpdate<T> value) unableToUpdate,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult empty(_Empty<T> value),
-    TResult actionExcecuter(_ActionExcecuter<T> value),
-    TResult exceedingLength(_ExceedingLength<T> value),
-    TResult unexpected(_Unexpected<T> value),
-    TResult insufficientPermission(_InsufficientPermission<T> value),
-    TResult unableToUpdate(_UnableToUpdate<T> value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_ActionExcecuter<T> value)? actionExcecuter,
+    TResult Function(_ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_Unexpected<T> value)? unexpected,
+    TResult Function(_InsufficientPermission<T> value)? insufficientPermission,
+    TResult Function(_UnableToUpdate<T> value)? unableToUpdate,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -134,18 +135,21 @@ class __$EmptyCopyWithImpl<T, $Res>
 
   @override
   $Res call({
-    Object failedValue = freezed,
+    Object? failedValue = freezed,
   }) {
     return _then(_Empty<T>(
-      failedValue:
-          failedValue == freezed ? _value.failedValue : failedValue as T,
+      failedValue: failedValue == freezed
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as T,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_Empty<T> implements _Empty<T> {
-  const _$_Empty({@required this.failedValue}) : assert(failedValue != null);
+  const _$_Empty({required this.failedValue});
 
   @override
   final T failedValue;
@@ -175,35 +179,28 @@ class _$_Empty<T> implements _Empty<T> {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult empty(T failedValue),
-    @required TResult actionExcecuter(T failedValue),
-    @required TResult exceedingLength(T failedValue, int max),
-    @required TResult unexpected(),
-    @required TResult insufficientPermission(),
-    @required TResult unableToUpdate(),
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue) actionExcecuter,
+    required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function() unexpected,
+    required TResult Function() insufficientPermission,
+    required TResult Function() unableToUpdate,
   }) {
-    assert(empty != null);
-    assert(actionExcecuter != null);
-    assert(exceedingLength != null);
-    assert(unexpected != null);
-    assert(insufficientPermission != null);
-    assert(unableToUpdate != null);
     return empty(failedValue);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult empty(T failedValue),
-    TResult actionExcecuter(T failedValue),
-    TResult exceedingLength(T failedValue, int max),
-    TResult unexpected(),
-    TResult insufficientPermission(),
-    TResult unableToUpdate(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? actionExcecuter,
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function()? unexpected,
+    TResult Function()? insufficientPermission,
+    TResult Function()? unableToUpdate,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (empty != null) {
       return empty(failedValue);
     }
@@ -212,35 +209,29 @@ class _$_Empty<T> implements _Empty<T> {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult empty(_Empty<T> value),
-    @required TResult actionExcecuter(_ActionExcecuter<T> value),
-    @required TResult exceedingLength(_ExceedingLength<T> value),
-    @required TResult unexpected(_Unexpected<T> value),
-    @required TResult insufficientPermission(_InsufficientPermission<T> value),
-    @required TResult unableToUpdate(_UnableToUpdate<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Empty<T> value) empty,
+    required TResult Function(_ActionExcecuter<T> value) actionExcecuter,
+    required TResult Function(_ExceedingLength<T> value) exceedingLength,
+    required TResult Function(_Unexpected<T> value) unexpected,
+    required TResult Function(_InsufficientPermission<T> value)
+        insufficientPermission,
+    required TResult Function(_UnableToUpdate<T> value) unableToUpdate,
   }) {
-    assert(empty != null);
-    assert(actionExcecuter != null);
-    assert(exceedingLength != null);
-    assert(unexpected != null);
-    assert(insufficientPermission != null);
-    assert(unableToUpdate != null);
     return empty(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult empty(_Empty<T> value),
-    TResult actionExcecuter(_ActionExcecuter<T> value),
-    TResult exceedingLength(_ExceedingLength<T> value),
-    TResult unexpected(_Unexpected<T> value),
-    TResult insufficientPermission(_InsufficientPermission<T> value),
-    TResult unableToUpdate(_UnableToUpdate<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_ActionExcecuter<T> value)? actionExcecuter,
+    TResult Function(_ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_Unexpected<T> value)? unexpected,
+    TResult Function(_InsufficientPermission<T> value)? insufficientPermission,
+    TResult Function(_UnableToUpdate<T> value)? unableToUpdate,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (empty != null) {
       return empty(this);
     }
@@ -249,11 +240,12 @@ class _$_Empty<T> implements _Empty<T> {
 }
 
 abstract class _Empty<T> implements CBJCompFailure<T> {
-  const factory _Empty({@required T failedValue}) = _$_Empty<T>;
+  const factory _Empty({required T failedValue}) = _$_Empty<T>;
 
-  T get failedValue;
+  T get failedValue => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$EmptyCopyWith<T, _Empty<T>> get copyWith;
+  _$EmptyCopyWith<T, _Empty<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -277,19 +269,21 @@ class __$ActionExcecuterCopyWithImpl<T, $Res>
 
   @override
   $Res call({
-    Object failedValue = freezed,
+    Object? failedValue = freezed,
   }) {
     return _then(_ActionExcecuter<T>(
-      failedValue:
-          failedValue == freezed ? _value.failedValue : failedValue as T,
+      failedValue: failedValue == freezed
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as T,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_ActionExcecuter<T> implements _ActionExcecuter<T> {
-  const _$_ActionExcecuter({@required this.failedValue})
-      : assert(failedValue != null);
+  const _$_ActionExcecuter({required this.failedValue});
 
   @override
   final T failedValue;
@@ -319,35 +313,28 @@ class _$_ActionExcecuter<T> implements _ActionExcecuter<T> {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult empty(T failedValue),
-    @required TResult actionExcecuter(T failedValue),
-    @required TResult exceedingLength(T failedValue, int max),
-    @required TResult unexpected(),
-    @required TResult insufficientPermission(),
-    @required TResult unableToUpdate(),
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue) actionExcecuter,
+    required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function() unexpected,
+    required TResult Function() insufficientPermission,
+    required TResult Function() unableToUpdate,
   }) {
-    assert(empty != null);
-    assert(actionExcecuter != null);
-    assert(exceedingLength != null);
-    assert(unexpected != null);
-    assert(insufficientPermission != null);
-    assert(unableToUpdate != null);
     return actionExcecuter(failedValue);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult empty(T failedValue),
-    TResult actionExcecuter(T failedValue),
-    TResult exceedingLength(T failedValue, int max),
-    TResult unexpected(),
-    TResult insufficientPermission(),
-    TResult unableToUpdate(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? actionExcecuter,
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function()? unexpected,
+    TResult Function()? insufficientPermission,
+    TResult Function()? unableToUpdate,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (actionExcecuter != null) {
       return actionExcecuter(failedValue);
     }
@@ -356,35 +343,29 @@ class _$_ActionExcecuter<T> implements _ActionExcecuter<T> {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult empty(_Empty<T> value),
-    @required TResult actionExcecuter(_ActionExcecuter<T> value),
-    @required TResult exceedingLength(_ExceedingLength<T> value),
-    @required TResult unexpected(_Unexpected<T> value),
-    @required TResult insufficientPermission(_InsufficientPermission<T> value),
-    @required TResult unableToUpdate(_UnableToUpdate<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Empty<T> value) empty,
+    required TResult Function(_ActionExcecuter<T> value) actionExcecuter,
+    required TResult Function(_ExceedingLength<T> value) exceedingLength,
+    required TResult Function(_Unexpected<T> value) unexpected,
+    required TResult Function(_InsufficientPermission<T> value)
+        insufficientPermission,
+    required TResult Function(_UnableToUpdate<T> value) unableToUpdate,
   }) {
-    assert(empty != null);
-    assert(actionExcecuter != null);
-    assert(exceedingLength != null);
-    assert(unexpected != null);
-    assert(insufficientPermission != null);
-    assert(unableToUpdate != null);
     return actionExcecuter(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult empty(_Empty<T> value),
-    TResult actionExcecuter(_ActionExcecuter<T> value),
-    TResult exceedingLength(_ExceedingLength<T> value),
-    TResult unexpected(_Unexpected<T> value),
-    TResult insufficientPermission(_InsufficientPermission<T> value),
-    TResult unableToUpdate(_UnableToUpdate<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_ActionExcecuter<T> value)? actionExcecuter,
+    TResult Function(_ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_Unexpected<T> value)? unexpected,
+    TResult Function(_InsufficientPermission<T> value)? insufficientPermission,
+    TResult Function(_UnableToUpdate<T> value)? unableToUpdate,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (actionExcecuter != null) {
       return actionExcecuter(this);
     }
@@ -393,12 +374,13 @@ class _$_ActionExcecuter<T> implements _ActionExcecuter<T> {
 }
 
 abstract class _ActionExcecuter<T> implements CBJCompFailure<T> {
-  const factory _ActionExcecuter({@required T failedValue}) =
+  const factory _ActionExcecuter({required T failedValue}) =
       _$_ActionExcecuter<T>;
 
-  T get failedValue;
+  T get failedValue => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$ActionExcecuterCopyWith<T, _ActionExcecuter<T>> get copyWith;
+  _$ActionExcecuterCopyWith<T, _ActionExcecuter<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -422,22 +404,26 @@ class __$ExceedingLengthCopyWithImpl<T, $Res>
 
   @override
   $Res call({
-    Object failedValue = freezed,
-    Object max = freezed,
+    Object? failedValue = freezed,
+    Object? max = freezed,
   }) {
     return _then(_ExceedingLength<T>(
-      failedValue:
-          failedValue == freezed ? _value.failedValue : failedValue as T,
-      max: max == freezed ? _value.max : max as int,
+      failedValue: failedValue == freezed
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as T,
+      max: max == freezed
+          ? _value.max
+          : max // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_ExceedingLength<T> implements _ExceedingLength<T> {
-  const _$_ExceedingLength({@required this.failedValue, @required this.max})
-      : assert(failedValue != null),
-        assert(max != null);
+  const _$_ExceedingLength({required this.failedValue, required this.max});
 
   @override
   final T failedValue;
@@ -473,35 +459,28 @@ class _$_ExceedingLength<T> implements _ExceedingLength<T> {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult empty(T failedValue),
-    @required TResult actionExcecuter(T failedValue),
-    @required TResult exceedingLength(T failedValue, int max),
-    @required TResult unexpected(),
-    @required TResult insufficientPermission(),
-    @required TResult unableToUpdate(),
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue) actionExcecuter,
+    required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function() unexpected,
+    required TResult Function() insufficientPermission,
+    required TResult Function() unableToUpdate,
   }) {
-    assert(empty != null);
-    assert(actionExcecuter != null);
-    assert(exceedingLength != null);
-    assert(unexpected != null);
-    assert(insufficientPermission != null);
-    assert(unableToUpdate != null);
     return exceedingLength(failedValue, max);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult empty(T failedValue),
-    TResult actionExcecuter(T failedValue),
-    TResult exceedingLength(T failedValue, int max),
-    TResult unexpected(),
-    TResult insufficientPermission(),
-    TResult unableToUpdate(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? actionExcecuter,
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function()? unexpected,
+    TResult Function()? insufficientPermission,
+    TResult Function()? unableToUpdate,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (exceedingLength != null) {
       return exceedingLength(failedValue, max);
     }
@@ -510,35 +489,29 @@ class _$_ExceedingLength<T> implements _ExceedingLength<T> {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult empty(_Empty<T> value),
-    @required TResult actionExcecuter(_ActionExcecuter<T> value),
-    @required TResult exceedingLength(_ExceedingLength<T> value),
-    @required TResult unexpected(_Unexpected<T> value),
-    @required TResult insufficientPermission(_InsufficientPermission<T> value),
-    @required TResult unableToUpdate(_UnableToUpdate<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Empty<T> value) empty,
+    required TResult Function(_ActionExcecuter<T> value) actionExcecuter,
+    required TResult Function(_ExceedingLength<T> value) exceedingLength,
+    required TResult Function(_Unexpected<T> value) unexpected,
+    required TResult Function(_InsufficientPermission<T> value)
+        insufficientPermission,
+    required TResult Function(_UnableToUpdate<T> value) unableToUpdate,
   }) {
-    assert(empty != null);
-    assert(actionExcecuter != null);
-    assert(exceedingLength != null);
-    assert(unexpected != null);
-    assert(insufficientPermission != null);
-    assert(unableToUpdate != null);
     return exceedingLength(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult empty(_Empty<T> value),
-    TResult actionExcecuter(_ActionExcecuter<T> value),
-    TResult exceedingLength(_ExceedingLength<T> value),
-    TResult unexpected(_Unexpected<T> value),
-    TResult insufficientPermission(_InsufficientPermission<T> value),
-    TResult unableToUpdate(_UnableToUpdate<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_ActionExcecuter<T> value)? actionExcecuter,
+    TResult Function(_ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_Unexpected<T> value)? unexpected,
+    TResult Function(_InsufficientPermission<T> value)? insufficientPermission,
+    TResult Function(_UnableToUpdate<T> value)? unableToUpdate,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (exceedingLength != null) {
       return exceedingLength(this);
     }
@@ -547,13 +520,14 @@ class _$_ExceedingLength<T> implements _ExceedingLength<T> {
 }
 
 abstract class _ExceedingLength<T> implements CBJCompFailure<T> {
-  const factory _ExceedingLength({@required T failedValue, @required int max}) =
+  const factory _ExceedingLength({required T failedValue, required int max}) =
       _$_ExceedingLength<T>;
 
-  T get failedValue;
-  int get max;
+  T get failedValue => throw _privateConstructorUsedError;
+  int get max => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$ExceedingLengthCopyWith<T, _ExceedingLength<T>> get copyWith;
+  _$ExceedingLengthCopyWith<T, _ExceedingLength<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -576,6 +550,7 @@ class __$UnexpectedCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
+
 class _$_Unexpected<T> implements _Unexpected<T> {
   const _$_Unexpected();
 
@@ -594,35 +569,28 @@ class _$_Unexpected<T> implements _Unexpected<T> {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult empty(T failedValue),
-    @required TResult actionExcecuter(T failedValue),
-    @required TResult exceedingLength(T failedValue, int max),
-    @required TResult unexpected(),
-    @required TResult insufficientPermission(),
-    @required TResult unableToUpdate(),
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue) actionExcecuter,
+    required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function() unexpected,
+    required TResult Function() insufficientPermission,
+    required TResult Function() unableToUpdate,
   }) {
-    assert(empty != null);
-    assert(actionExcecuter != null);
-    assert(exceedingLength != null);
-    assert(unexpected != null);
-    assert(insufficientPermission != null);
-    assert(unableToUpdate != null);
     return unexpected();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult empty(T failedValue),
-    TResult actionExcecuter(T failedValue),
-    TResult exceedingLength(T failedValue, int max),
-    TResult unexpected(),
-    TResult insufficientPermission(),
-    TResult unableToUpdate(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? actionExcecuter,
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function()? unexpected,
+    TResult Function()? insufficientPermission,
+    TResult Function()? unableToUpdate,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (unexpected != null) {
       return unexpected();
     }
@@ -631,35 +599,29 @@ class _$_Unexpected<T> implements _Unexpected<T> {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult empty(_Empty<T> value),
-    @required TResult actionExcecuter(_ActionExcecuter<T> value),
-    @required TResult exceedingLength(_ExceedingLength<T> value),
-    @required TResult unexpected(_Unexpected<T> value),
-    @required TResult insufficientPermission(_InsufficientPermission<T> value),
-    @required TResult unableToUpdate(_UnableToUpdate<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Empty<T> value) empty,
+    required TResult Function(_ActionExcecuter<T> value) actionExcecuter,
+    required TResult Function(_ExceedingLength<T> value) exceedingLength,
+    required TResult Function(_Unexpected<T> value) unexpected,
+    required TResult Function(_InsufficientPermission<T> value)
+        insufficientPermission,
+    required TResult Function(_UnableToUpdate<T> value) unableToUpdate,
   }) {
-    assert(empty != null);
-    assert(actionExcecuter != null);
-    assert(exceedingLength != null);
-    assert(unexpected != null);
-    assert(insufficientPermission != null);
-    assert(unableToUpdate != null);
     return unexpected(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult empty(_Empty<T> value),
-    TResult actionExcecuter(_ActionExcecuter<T> value),
-    TResult exceedingLength(_ExceedingLength<T> value),
-    TResult unexpected(_Unexpected<T> value),
-    TResult insufficientPermission(_InsufficientPermission<T> value),
-    TResult unableToUpdate(_UnableToUpdate<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_ActionExcecuter<T> value)? actionExcecuter,
+    TResult Function(_ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_Unexpected<T> value)? unexpected,
+    TResult Function(_InsufficientPermission<T> value)? insufficientPermission,
+    TResult Function(_UnableToUpdate<T> value)? unableToUpdate,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (unexpected != null) {
       return unexpected(this);
     }
@@ -692,6 +654,7 @@ class __$InsufficientPermissionCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
+
 class _$_InsufficientPermission<T> implements _InsufficientPermission<T> {
   const _$_InsufficientPermission();
 
@@ -710,35 +673,28 @@ class _$_InsufficientPermission<T> implements _InsufficientPermission<T> {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult empty(T failedValue),
-    @required TResult actionExcecuter(T failedValue),
-    @required TResult exceedingLength(T failedValue, int max),
-    @required TResult unexpected(),
-    @required TResult insufficientPermission(),
-    @required TResult unableToUpdate(),
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue) actionExcecuter,
+    required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function() unexpected,
+    required TResult Function() insufficientPermission,
+    required TResult Function() unableToUpdate,
   }) {
-    assert(empty != null);
-    assert(actionExcecuter != null);
-    assert(exceedingLength != null);
-    assert(unexpected != null);
-    assert(insufficientPermission != null);
-    assert(unableToUpdate != null);
     return insufficientPermission();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult empty(T failedValue),
-    TResult actionExcecuter(T failedValue),
-    TResult exceedingLength(T failedValue, int max),
-    TResult unexpected(),
-    TResult insufficientPermission(),
-    TResult unableToUpdate(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? actionExcecuter,
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function()? unexpected,
+    TResult Function()? insufficientPermission,
+    TResult Function()? unableToUpdate,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (insufficientPermission != null) {
       return insufficientPermission();
     }
@@ -747,35 +703,29 @@ class _$_InsufficientPermission<T> implements _InsufficientPermission<T> {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult empty(_Empty<T> value),
-    @required TResult actionExcecuter(_ActionExcecuter<T> value),
-    @required TResult exceedingLength(_ExceedingLength<T> value),
-    @required TResult unexpected(_Unexpected<T> value),
-    @required TResult insufficientPermission(_InsufficientPermission<T> value),
-    @required TResult unableToUpdate(_UnableToUpdate<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Empty<T> value) empty,
+    required TResult Function(_ActionExcecuter<T> value) actionExcecuter,
+    required TResult Function(_ExceedingLength<T> value) exceedingLength,
+    required TResult Function(_Unexpected<T> value) unexpected,
+    required TResult Function(_InsufficientPermission<T> value)
+        insufficientPermission,
+    required TResult Function(_UnableToUpdate<T> value) unableToUpdate,
   }) {
-    assert(empty != null);
-    assert(actionExcecuter != null);
-    assert(exceedingLength != null);
-    assert(unexpected != null);
-    assert(insufficientPermission != null);
-    assert(unableToUpdate != null);
     return insufficientPermission(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult empty(_Empty<T> value),
-    TResult actionExcecuter(_ActionExcecuter<T> value),
-    TResult exceedingLength(_ExceedingLength<T> value),
-    TResult unexpected(_Unexpected<T> value),
-    TResult insufficientPermission(_InsufficientPermission<T> value),
-    TResult unableToUpdate(_UnableToUpdate<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_ActionExcecuter<T> value)? actionExcecuter,
+    TResult Function(_ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_Unexpected<T> value)? unexpected,
+    TResult Function(_InsufficientPermission<T> value)? insufficientPermission,
+    TResult Function(_UnableToUpdate<T> value)? unableToUpdate,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (insufficientPermission != null) {
       return insufficientPermission(this);
     }
@@ -807,6 +757,7 @@ class __$UnableToUpdateCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
+
 class _$_UnableToUpdate<T> implements _UnableToUpdate<T> {
   const _$_UnableToUpdate();
 
@@ -825,35 +776,28 @@ class _$_UnableToUpdate<T> implements _UnableToUpdate<T> {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult empty(T failedValue),
-    @required TResult actionExcecuter(T failedValue),
-    @required TResult exceedingLength(T failedValue, int max),
-    @required TResult unexpected(),
-    @required TResult insufficientPermission(),
-    @required TResult unableToUpdate(),
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue) actionExcecuter,
+    required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function() unexpected,
+    required TResult Function() insufficientPermission,
+    required TResult Function() unableToUpdate,
   }) {
-    assert(empty != null);
-    assert(actionExcecuter != null);
-    assert(exceedingLength != null);
-    assert(unexpected != null);
-    assert(insufficientPermission != null);
-    assert(unableToUpdate != null);
     return unableToUpdate();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult empty(T failedValue),
-    TResult actionExcecuter(T failedValue),
-    TResult exceedingLength(T failedValue, int max),
-    TResult unexpected(),
-    TResult insufficientPermission(),
-    TResult unableToUpdate(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? actionExcecuter,
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function()? unexpected,
+    TResult Function()? insufficientPermission,
+    TResult Function()? unableToUpdate,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (unableToUpdate != null) {
       return unableToUpdate();
     }
@@ -862,35 +806,29 @@ class _$_UnableToUpdate<T> implements _UnableToUpdate<T> {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult empty(_Empty<T> value),
-    @required TResult actionExcecuter(_ActionExcecuter<T> value),
-    @required TResult exceedingLength(_ExceedingLength<T> value),
-    @required TResult unexpected(_Unexpected<T> value),
-    @required TResult insufficientPermission(_InsufficientPermission<T> value),
-    @required TResult unableToUpdate(_UnableToUpdate<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Empty<T> value) empty,
+    required TResult Function(_ActionExcecuter<T> value) actionExcecuter,
+    required TResult Function(_ExceedingLength<T> value) exceedingLength,
+    required TResult Function(_Unexpected<T> value) unexpected,
+    required TResult Function(_InsufficientPermission<T> value)
+        insufficientPermission,
+    required TResult Function(_UnableToUpdate<T> value) unableToUpdate,
   }) {
-    assert(empty != null);
-    assert(actionExcecuter != null);
-    assert(exceedingLength != null);
-    assert(unexpected != null);
-    assert(insufficientPermission != null);
-    assert(unableToUpdate != null);
     return unableToUpdate(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult empty(_Empty<T> value),
-    TResult actionExcecuter(_ActionExcecuter<T> value),
-    TResult exceedingLength(_ExceedingLength<T> value),
-    TResult unexpected(_Unexpected<T> value),
-    TResult insufficientPermission(_InsufficientPermission<T> value),
-    TResult unableToUpdate(_UnableToUpdate<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_ActionExcecuter<T> value)? actionExcecuter,
+    TResult Function(_ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_Unexpected<T> value)? unexpected,
+    TResult Function(_InsufficientPermission<T> value)? insufficientPermission,
+    TResult Function(_UnableToUpdate<T> value)? unableToUpdate,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (unableToUpdate != null) {
       return unableToUpdate(this);
     }

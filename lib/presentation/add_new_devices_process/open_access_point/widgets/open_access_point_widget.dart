@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:clipboard_manager/clipboard_manager.dart';
+import 'package:clipboard/clipboard.dart';
 import 'package:cybear_jinni/application/manage_access_point/manage_access_point_bloc.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/cupertino.dart';
@@ -19,8 +19,12 @@ class OpenAccessPointWidget extends StatelessWidget {
             children: [
               state.map(
                 initial: (value) {
-                  return FlatButton(
-                      color: Colors.greenAccent,
+                  return TextButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                          Colors.greenAccent,
+                        ),
+                      ),
                       onPressed: () {
                         context
                             .read<ManageAccessPointBloc>()
@@ -60,31 +64,39 @@ class OpenAccessPointWidget extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: SizedBox(
                           width: double.infinity,
-                          height: 50,
-                          child: FlatButton(
-                            color: Colors.black12,
+                          height: 70,
+                          child: TextButton(
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all(
+                                Colors.black12,
+                              ),
+                            ),
                             onPressed: () {
-                              ClipboardManager.copyToClipBoard('CyBear Jinni');
-                              Fluttertoast.showToast(
-                                  msg: 'Copy',
-                                  toastLength: Toast.LENGTH_SHORT,
-                                  gravity: ToastGravity.SNACKBAR,
-                                  backgroundColor: Colors.lightBlue,
-                                  textColor: Theme.of(context)
-                                      .textTheme
-                                      .bodyText1
-                                      .color,
-                                  fontSize: 16.0);
+                              FlutterClipboard.copy('CyBear Jinni').then(
+                                (value) => Fluttertoast.showToast(
+                                    msg: 'Copy',
+                                    toastLength: Toast.LENGTH_SHORT,
+                                    gravity: ToastGravity.SNACKBAR,
+                                    backgroundColor: Colors.lightBlue,
+                                    textColor: Theme.of(context)
+                                        .textTheme
+                                        .bodyText1!
+                                        .color,
+                                    fontSize: 16.0),
+                              );
                             },
                             child: Column(
-                              children: <Widget>[
-                                Text('Hotspot name:'),
+                              children: const <Widget>[
+                                Text(
+                                  'Hotspot name:',
+                                  style: TextStyle(color: Colors.white60),
+                                ),
                                 Text(
                                   'CyBear Jinni',
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 20,
-                                    color: Colors.white60,
+                                    color: Colors.white70,
                                   ),
                                 ),
                               ],
@@ -92,35 +104,46 @@ class OpenAccessPointWidget extends StatelessWidget {
                           ),
                         ),
                       ),
+                      const SizedBox(
+                        height: 2,
+                      ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: SizedBox(
                           width: double.infinity,
-                          height: 50,
-                          child: FlatButton(
-                            color: Colors.black12,
+                          height: 70,
+                          child: TextButton(
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all(
+                                Colors.black12,
+                              ),
+                            ),
                             onPressed: () {
-                              ClipboardManager.copyToClipBoard('CyBear Jinni');
-                              Fluttertoast.showToast(
-                                  msg: 'Copy',
-                                  toastLength: Toast.LENGTH_SHORT,
-                                  gravity: ToastGravity.SNACKBAR,
-                                  backgroundColor: Colors.lightBlue,
-                                  textColor: Theme.of(context)
-                                      .textTheme
-                                      .bodyText1
-                                      .color,
-                                  fontSize: 16.0);
+                              FlutterClipboard.copy('CyBear Jinni').then(
+                                (value) => Fluttertoast.showToast(
+                                    msg: 'Copy',
+                                    toastLength: Toast.LENGTH_SHORT,
+                                    gravity: ToastGravity.SNACKBAR,
+                                    backgroundColor: Colors.lightBlue,
+                                    textColor: Theme.of(context)
+                                        .textTheme
+                                        .bodyText1!
+                                        .color,
+                                    fontSize: 16.0),
+                              );
                             },
                             child: Column(
                               children: const <Widget>[
-                                Text('Hotspot password:'),
+                                Text(
+                                  'Hotspot password:',
+                                  style: TextStyle(color: Colors.white60),
+                                ),
                                 Text(
                                   'CyBear Jinni',
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 20,
-                                    color: Colors.white60,
+                                    color: Colors.white70,
                                   ),
                                 ),
                               ],
@@ -145,13 +168,16 @@ class OpenAccessPointWidget extends StatelessWidget {
                   return const Text('AccessPointIsNotOpen');
                 },
                 accessPointIsOpen: (AccessPointIsOpen value) {
-                  ExtendedNavigator.of(context)
-                      .replace(Routes.scanForNewCBJCompsPage);
+                  context.router.replace(const ScanForNewCBJCompsRoute());
                   return const Text('AccessPointIsOpen');
                 },
               ),
-              FlatButton(
-                color: Colors.greenAccent,
+              TextButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(
+                    Colors.greenAccent,
+                  ),
+                ),
                 onPressed: () {
                   context
                       .read<ManageAccessPointBloc>()

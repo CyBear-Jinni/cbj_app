@@ -38,12 +38,12 @@ abstract class DevicesValueObjectAbstract<T> {
   int get hashCode => value.hashCode;
 }
 
-class DeviceUniqueId extends DevicesValueObjectAbstract<String> {
+class DeviceUniqueId extends DevicesValueObjectAbstract<String?> {
   factory DeviceUniqueId() {
     return DeviceUniqueId._(right(Uuid().v1()));
   }
 
-  factory DeviceUniqueId.fromUniqueString(String uniqueId) {
+  factory DeviceUniqueId.fromUniqueString(String? uniqueId) {
     assert(uniqueId != null);
     return DeviceUniqueId._(right(uniqueId));
   }
@@ -51,19 +51,19 @@ class DeviceUniqueId extends DevicesValueObjectAbstract<String> {
   DeviceUniqueId._(this.value);
 
   @override
-  final Either<DevicesFailure<String>, String> value;
+  final Either<DevicesFailure<String?>, String?> value;
 }
 
-class DeviceDefaultName extends DevicesValueObjectAbstract<String> {
+class DeviceDefaultName extends DevicesValueObjectAbstract<String?> {
   @override
-  final Either<DevicesFailure<String>, String> value;
+  final Either<DevicesFailure<String?>, String?> value;
 
   static const maxLength = 1000;
 
-  factory DeviceDefaultName(String input) {
+  factory DeviceDefaultName(String? input) {
     assert(input != null);
     return DeviceDefaultName._(
-      validateDeviceNotEmpty(input)
+      validateDeviceNotEmpty(input!)
           .flatMap((a) => validateDeviceMaxNameLength(input, maxLength)),
     );
   }
@@ -75,9 +75,9 @@ class DeviceState extends DevicesValueObjectAbstract<String> {
   @override
   final Either<DevicesFailure<String>, String> value;
 
-  factory DeviceState(String input) {
+  factory DeviceState(String? input) {
     return DeviceState._(
-      validateDeviceNotEmpty(input)
+      validateDeviceNotEmpty(input!)
           .flatMap((a) => validateDeviceStateExist(input)),
     );
   }
@@ -89,10 +89,10 @@ class DeviceSenderDeviceOs extends DevicesValueObjectAbstract<String> {
   @override
   final Either<DevicesFailure<String>, String> value;
 
-  factory DeviceSenderDeviceOs(String input) {
+  factory DeviceSenderDeviceOs(String? input) {
     assert(input != null);
     return DeviceSenderDeviceOs._(
-      validateDeviceNotEmpty(input),
+      validateDeviceNotEmpty(input!),
     );
   }
 
@@ -103,10 +103,10 @@ class DeviceStateMassage extends DevicesValueObjectAbstract<String> {
   @override
   final Either<DevicesFailure<String>, String> value;
 
-  factory DeviceStateMassage(String input) {
+  factory DeviceStateMassage(String? input) {
     assert(input != null);
     return DeviceStateMassage._(
-      validateDeviceNotEmpty(input),
+      validateDeviceNotEmpty(input!),
     );
   }
 
@@ -117,10 +117,10 @@ class DeviceSenderDeviceModel extends DevicesValueObjectAbstract<String> {
   @override
   final Either<DevicesFailure<String>, String> value;
 
-  factory DeviceSenderDeviceModel(String input) {
+  factory DeviceSenderDeviceModel(String? input) {
     assert(input != null);
     return DeviceSenderDeviceModel._(
-      validateDeviceNotEmpty(input),
+      validateDeviceNotEmpty(input!),
     );
   }
 
@@ -132,9 +132,9 @@ class DeviceSenderId extends DevicesValueObjectAbstract<String> {
     return DeviceSenderId._(right(Uuid().v1()));
   }
 
-  factory DeviceSenderId.fromUniqueString(String uniqueId) {
+  factory DeviceSenderId.fromUniqueString(String? uniqueId) {
     assert(uniqueId != null);
-    return DeviceSenderId._(right(uniqueId));
+    return DeviceSenderId._(right(uniqueId!));
   }
 
   DeviceSenderId._(this.value);
@@ -147,17 +147,17 @@ class DeviceAction extends DevicesValueObjectAbstract<String> {
   @override
   final Either<DevicesFailure<String>, String> value;
 
-  factory DeviceAction(String input) {
+  factory DeviceAction(String? input) {
     assert(input != null);
 
     if (input == 'false') {
-      input = DeviceActions.Off.toString();
+      input = DeviceActions.off.toString();
     } else if (input == 'true') {
-      input = DeviceActions.On.toString();
+      input = DeviceActions.on.toString();
     }
     return DeviceAction._(
-      validateDeviceNotEmpty(input)
-          .flatMap((a) => validateDeviceActionExist(input)),
+      validateDeviceNotEmpty(input!)
+          .flatMap((a) => validateDeviceActionExist(input!)),
     );
   }
 
@@ -168,10 +168,10 @@ class DeviceType extends DevicesValueObjectAbstract<String> {
   @override
   final Either<DevicesFailure<String>, String> value;
 
-  factory DeviceType(String input) {
+  factory DeviceType(String? input) {
     assert(input != null);
     return DeviceType._(
-      validateDeviceNotEmpty(input)
+      validateDeviceNotEmpty(input!)
           .flatMap((a) => validateDeviceTypeExist(input)),
     );
   }
@@ -183,10 +183,10 @@ class DeviceCompUuid extends DevicesValueObjectAbstract<String> {
   @override
   final Either<DevicesFailure<String>, String> value;
 
-  factory DeviceCompUuid(String input) {
+  factory DeviceCompUuid(String? input) {
     assert(input != null);
     return DeviceCompUuid._(
-      validateDeviceNotEmpty(input),
+      validateDeviceNotEmpty(input!),
     );
   }
 

@@ -3,11 +3,12 @@ import 'dart:io';
 import 'package:connectivity/connectivity.dart' as connectivity;
 import 'package:cybear_jinni/infrastructure/core/gen/smart_device/send_to_smart_device.dart';
 import 'package:cybear_jinni/infrastructure/database/firebase/cloud_firestore/firestore_class.dart';
-import 'package:cybear_jinni/infrastructure/objects/enums.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/services.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:wifi_info_flutter/wifi_info_flutter.dart';
+
+import 'client/protoc_as_dart/smart_connection.pbgrpc.dart';
 
 class SmartDeviceObject {
   SmartDeviceObject(this.deviceType, this.name, String ip, [this.roomName]) {
@@ -20,12 +21,12 @@ class SmartDeviceObject {
     fireStoreClass = FireStoreClass();
   }
 
-  DeviceTypeEnum deviceType;
-  String roomName;
-  String name;
-  String ip;
-  FireStoreClass fireStoreClass;
-  static String homeWiFiName = ''; // Insert host name
+  DeviceTypes? deviceType;
+  String? roomName;
+  String? name;
+  String? ip;
+  FireStoreClass? fireStoreClass;
+  static String? homeWiFiName = ''; // Insert host name
 
   //  Set
   static void setHomeWiFiName(String homeWiFiNameTemp) {
@@ -36,7 +37,7 @@ class SmartDeviceObject {
 
   Future<bool> getDeviceStateAsBool() async {
     final String deviceState = await getDeviceState();
-    return deviceState == 'true' ? true : false;
+    return deviceState == 'true';
   }
 
   Future<String> getDeviceState() async {
@@ -78,18 +79,18 @@ class SmartDeviceObject {
         }
         if (status == LocationAuthorizationStatus.authorizedAlways ||
             status == LocationAuthorizationStatus.authorizedWhenInUse) {
-          wifiName = await _wifiInfo.getWifiName();
+          wifiName = (await _wifiInfo.getWifiName())!;
         } else {
-          wifiName = await _wifiInfo.getWifiName();
+          wifiName = (await _wifiInfo.getWifiName())!;
         }
       } else if (Platform.isAndroid) {
         final PermissionStatus status = await Permission.location.status;
-        if (status.isUndetermined || status.isDenied || status.isRestricted) {
+        if (status.isDenied || status.isRestricted) {
           if (await Permission.location.request().isGranted) {
 // Either the permission was already granted before or the user just granted it.
           }
         }
-        wifiName = await _wifiInfo.getWifiName();
+        wifiName = (await _wifiInfo.getWifiName())!;
       } else {
         print('Does not support this platform');
       }
@@ -110,7 +111,7 @@ class SmartDeviceObject {
   }
 
   Future<String> getDeviceStatesRemote() async {
-    return fireStoreClass.getDeviceStatus(roomName, name);
+    return fireStoreClass!.getDeviceStatus(roomName!, name!);
   }
 
   //  Set
@@ -146,16 +147,17 @@ class SmartDeviceObject {
   }
 
   Future<String> setLightStateRemote(bool state) async {
-    return (await fireStoreClass.changeSwitchState(roomName, name, state))
+    return (await fireStoreClass!.changeSwitchState(roomName!, name!, state))
         .toString();
   }
 
   static bool legitIp(String ip) {
-    final String tempRegExIp = regexpIP(ip); //  Save to string a valid ip
-    return ip != '' && ip.length == tempRegExIp.length;
+    final String tempRegExIp = regexpIP(ip)!; //  Save to string a valid ip
+    // return ip != '' && ip.length == tempRegExIp.length;
+    return ip != '';
   }
 
-  static String regexpIP(String ip) {
+  static String? regexpIP(String ip) {
     return RegExp(
             r'((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))')
         .stringMatch(ip);
@@ -163,46 +165,34 @@ class SmartDeviceObject {
 
   // Execute
 
-  Future<String> executeWish(WishEnum wishEnum) async {
-    String executeOutput;
-    switch (wishEnum) {
-      case WishEnum.SOn:
+  Future<String?> executeWish(DeviceActions deviceAction) async {
+    String? executeOutput;
+    switch (deviceAction) {
+      case DeviceActions.on:
         executeOutput = await setLightState(true);
         break;
-      case WishEnum.SOff:
+      case DeviceActions.off:
         executeOutput = await setLightState(false);
         break;
-      case WishEnum.SChangeState:
-        print('ChangeState not supported light');
-        executeOutput = 'ChangeState not supported light';
-        break;
-      case WishEnum.SDynamic:
-        print('Dynamic not supported for light');
-        executeOutput = 'Dynamic not supported for light';
-        break;
-      case WishEnum.ODynamic:
-        print('Dynamic not supported for light');
-        executeOutput = 'Dynamic not supported for light';
-        break;
-      case WishEnum.SMovement:
-        print('Dynamic not supported for light');
-        executeOutput = 'Dynamic not supported for light';
-        break;
-      case WishEnum.GState:
-        print('Get device state not supported for light');
-        executeOutput = 'Get device state not supported for light';
-        break;
-      case WishEnum.SBlindsUp:
+      // case DeviceActions.SChangeState:
+      //   print('ChangeState not supported light');
+      //   executeOutput = 'ChangeState not supported light';
+      //   break;
+      case DeviceActions.moveUP:
         print('Blinds not supported for light');
         executeOutput = 'Blinds not supported for light';
         break;
-      case WishEnum.SBlindsDown:
+      case DeviceActions.moveDown:
         print('Blinds not supported for light');
         executeOutput = 'Blinds not supported for light';
         break;
-      case WishEnum.SBlindsStop:
+      case DeviceActions.stop:
         print('Blinds not supported for light');
         executeOutput = 'Blinds not supported for light';
+        break;
+      case DeviceActions.actionNotSupported:
+        print('The action is not supported');
+        executeOutput = 'Action is not supported for light';
         break;
     }
     return executeOutput;

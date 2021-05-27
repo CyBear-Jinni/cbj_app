@@ -11,10 +11,10 @@ class IntroductionScreenBodyAboutPage extends StatelessWidget {
         ),
         Container(
           decoration: BoxDecoration(
-              color:
-                  Theme.of(context).textTheme.subtitle2.color.withOpacity(0.55),
+              color: (Theme.of(context).textTheme.bodyText1!.color)!
+                  .withOpacity(0.55),
               border: Border.all(
-                color: Theme.of(context).textTheme.subtitle2.color,
+                color: (Theme.of(context).textTheme.bodyText1!.color)!,
               ),
               // Make rounded corners
               borderRadius: BorderRadius.circular(30)),
@@ -31,7 +31,7 @@ class IntroductionScreenBodyAboutPage extends StatelessWidget {
                 'WiFi execution whenever possible, this way you will'
                 ' be able to control your smart home even if you are'
                 ' disconnected from the world (as long as you are '
-                'connected to WiFi).\n',
+                'connected to your home WiFi).\n',
                 style: TextStyle(fontSize: 17, color: Colors.black),
               ),
             ),

@@ -14,18 +14,24 @@ class RoutinesPage extends StatelessWidget {
       context: context,
       actions: <BottomSheetAction>[
         BottomSheetAction(
-            title: '➕ Add Routine',
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (BuildContext context) => AddRoutinePage()));
-            },
-            textStyle: const TextStyle(color: Colors.green, fontSize: 23)),
+          title: Text(
+            '➕ Add Routine',
+            style: TextStyle(color: Colors.green, fontSize: 23),
+          ),
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (BuildContext context) => AddRoutinePage()));
+          },
+        ),
         BottomSheetAction(
-            title: '⚙️ Routines Settings',
-            onPressed: () {},
-            textStyle: const TextStyle(color: Colors.blueGrey, fontSize: 23)),
+          title: Text(
+            '⚙️ Routines Settings',
+            style: TextStyle(color: Colors.blueGrey, fontSize: 23),
+          ),
+          onPressed: () {},
+        ),
       ],
     );
   }

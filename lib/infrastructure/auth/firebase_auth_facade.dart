@@ -12,7 +12,6 @@ import 'package:cybear_jinni/infrastructure/core/hive_local_db/hive_local_db.dar
 import 'package:cybear_jinni/injection.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
 
@@ -35,8 +34,8 @@ class FirebaseAuthFacade implements IAuthFacade {
 
   @override
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword({
-    @required EmailAddress emailAddress,
-    @required Password password,
+    required EmailAddress emailAddress,
+    required Password password,
   }) async {
     final Either<AuthFailure, MUser>
         registerWithEmailAndPasswordReturnUserIdOutput =
@@ -51,16 +50,16 @@ class FirebaseAuthFacade implements IAuthFacade {
 
   @override
   Future<Either<AuthFailure, MUser>> registerWithEmailAndPasswordReturnUserId(
-      {EmailAddress emailAddress, Password password}) async {
-    final emailAddressStr = emailAddress.getOrCrash();
-    final passwordStr = password.getOrCrash();
+      {EmailAddress? emailAddress, Password? password}) async {
+    final emailAddressStr = emailAddress!.getOrCrash();
+    final passwordStr = password!.getOrCrash();
 
     try {
       final UserCredential userCredential =
           await _firebaseAuth.createUserWithEmailAndPassword(
               email: emailAddressStr, password: passwordStr);
 
-      final String userIdString = userCredential.user.uid;
+      final String userIdString = userCredential.user!.uid;
 
       final String userName =
           emailAddressStr.substring(0, emailAddressStr.indexOf('@'));
@@ -89,8 +88,7 @@ class FirebaseAuthFacade implements IAuthFacade {
 
   @override
   Future<Either<AuthFailure, Unit>> signInWithEmailAndPassword(
-      {@required EmailAddress emailAddress,
-      @required Password password}) async {
+      {required EmailAddress emailAddress, required Password password}) async {
     final emailAddressStr = emailAddress.getOrCrash();
     final passwordStr = password.getOrCrash();
 

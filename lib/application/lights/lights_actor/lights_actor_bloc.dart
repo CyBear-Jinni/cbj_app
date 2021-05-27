@@ -1,11 +1,12 @@
 import 'dart:async';
 
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:bloc/bloc.dart';
 import 'package:cybear_jinni/domain/devices/device_entity.dart';
 import 'package:cybear_jinni/domain/devices/devices_failures.dart';
 import 'package:cybear_jinni/domain/devices/i_device_repository.dart';
-import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -29,20 +30,20 @@ class LightsActorBloc extends Bloc<LightsActorEvent, LightsActorState> {
       turnOffAllLights: (_TurnOffAllLights value) async* {
         FlushbarHelper.createLoading(
           message: 'Turning Off all lights',
-          linearProgressIndicator: null,
+          linearProgressIndicator: LinearProgressIndicator(),
         ).show(value.context);
 
         _deviceRepository.turnOffDevices(
-            devicesId: value.lightsIdToTurnOff, forceUpdateLocation: 'C');
+            devicesId: value.lightsIdToTurnOff, forceUpdateLocation: 'R');
       },
       turnOnAllLights: (_TurnOnAllLights value) async* {
         FlushbarHelper.createLoading(
           message: 'Turning On all lights',
-          linearProgressIndicator: null,
+          linearProgressIndicator: LinearProgressIndicator(),
         ).show(value.context);
 
         _deviceRepository.turnOnDevices(
-            devicesId: value.lightsIdToTurnOn, forceUpdateLocation: 'C');
+            devicesId: value.lightsIdToTurnOn, forceUpdateLocation: 'R');
       },
     );
   }

@@ -2,12 +2,12 @@ import 'package:cybear_jinni/domain/devices/devices_failures.dart';
 import 'package:flutter/material.dart';
 
 class CriticalFailureBlindsDisplay extends StatelessWidget {
-  final DevicesFailure failure;
-
   const CriticalFailureBlindsDisplay({
-    Key key,
-    @required this.failure,
+    Key? key,
+    required this.failure,
   }) : super(key: key);
+
+  final DevicesFailure? failure;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class CriticalFailureBlindsDisplay extends StatelessWidget {
             style: const TextStyle(fontSize: 24),
             textAlign: TextAlign.center,
           ),
-          FlatButton(
+          TextButton(
             onPressed: () {
               print('Sending email!');
             },

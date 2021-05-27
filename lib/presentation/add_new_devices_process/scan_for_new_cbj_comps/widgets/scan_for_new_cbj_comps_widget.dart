@@ -29,7 +29,7 @@ class ScanForNewCBJCompsWidget extends StatelessWidget {
                 Text(
                   'Scanning For Devices',
                   style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1.color,
+                    color: (Theme.of(context).textTheme.bodyText1!.color)!,
                     fontSize: 26,
                   ),
                 ),
@@ -46,13 +46,13 @@ class ScanForNewCBJCompsWidget extends StatelessWidget {
             final CBJCompEntity compEntity = state.devices;
             try {
               cbjCompEntityList.forEach((element) {
-                if (element.compUuid.getOrCrash() ==
-                    compEntity.compUuid.getOrCrash()) {
+                if (element.compUuid!.getOrCrash() ==
+                    compEntity.compUuid!.getOrCrash()) {
                   existInCompList = true;
                 }
               });
 
-              if (!existInCompList && compEntity.compUuid.getOrCrash() != '') {
+              if (!existInCompList && compEntity.compUuid!.getOrCrash() != '') {
                 cbjCompEntityList.add(state.devices);
               }
             } catch (e) {}

@@ -26,7 +26,7 @@ class HomeUserRepository implements IHomeUserRepository {
     //       .set(deviceDtos.toJson());
     //   return right(unit);
     // } on PlatformException catch (e) {
-    //   if (e.message.contains('PERMISSION_DENIED')) {
+    //   if (e.message!.contains('PERMISSION_DENIED')) {
     //     return left(const DevicesFailure.insufficientPermission());
     //   } else {
     //     // log.error(e.toString());
@@ -46,9 +46,9 @@ class HomeUserRepository implements IHomeUserRepository {
     //   await devicesDoc.devicesCollecttion.doc(deviceDtos.id).delete();
     //   return right(unit);
     // } on PlatformException catch (e) {
-    //   if (e.message.contains('PERMISSION_DENIED')) {
+    //   if (e.message!.contains('PERMISSION_DENIED')) {
     //     return left(const DevicesFailure.insufficientPermission());
-    //   } else if (e.message.contains('NOT_FOUND')) {
+    //   } else if (e.message!.contains('NOT_FOUND')) {
     //     return left(const DevicesFailure.unableToUpdate());
     //   } else {
     //     // log.error(e.toString());
@@ -71,7 +71,7 @@ class HomeUserRepository implements IHomeUserRepository {
               ),
             )
         //     .onErrorReturnWith((e) {
-        //   if (e is PlatformException && e.message.contains('PERMISSION_DENIED')) {
+        //   if (e is PlatformException && e.message!.contains('PERMISSION_DENIED')) {
         //     return left(const UserFailures.insufficientPermission());
         //   } else {
         //     // log.error(e.toString());
@@ -93,7 +93,7 @@ class HomeUserRepository implements IHomeUserRepository {
     //       .update(deviceDtos.toJson());
     //   return right(unit);
     // } on PlatformException catch (e) {
-    //   if (e.message.contains('NOT_FOUND')) {
+    //   if (e.message!.contains('NOT_FOUND')) {
     //     return left(const DevicesFailure.unableToUpdate());
     //   } else {
     //     // log.error(e.toString());

@@ -10,8 +10,8 @@ abstract class ManageNetworkEntity implements _$ManageNetworkEntity {
   const ManageNetworkEntity._();
 
   const factory ManageNetworkEntity({
-    @required ManageWiFiName name,
-    ManageWiFiPass pass,
+    required ManageWiFiName? name,
+    ManageWiFiPass? pass,
   }) = _ManageNetworkEntity;
 
   factory ManageNetworkEntity.empty() => ManageNetworkEntity(
@@ -19,6 +19,6 @@ abstract class ManageNetworkEntity implements _$ManageNetworkEntity {
       );
 
   Option<ManageNetworkFailures<dynamic>> get failureOption {
-    return name.value.fold((f) => some(f), (_) => none());
+    return name!.value.fold((f) => some(f), (_) => none());
   }
 }

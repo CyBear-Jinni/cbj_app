@@ -8,9 +8,9 @@ part of 'home_user_dtos.dart';
 
 _$_HomeUserDtos _$_$_HomeUserDtosFromJson(Map<String, dynamic> json) {
   return _$_HomeUserDtos(
-    email: json['email'] as String,
-    name: json['name'] as String,
-    permission: json['permission'] as String,
+    email: json['email'] as String?,
+    name: json['name'] as String?,
+    permission: json['permission'] as String?,
   );
 }
 

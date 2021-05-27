@@ -7,6 +7,7 @@ import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/blinds_in_the_room.dart';
+import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/boilers_in_the_room.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/lights_in_the_room_block.dart';
 import 'package:cybear_jinni/presentation/lights/widgets/critical_light_failure_display_widget.dart';
 import 'package:flutter/cupertino.dart';
@@ -27,17 +28,17 @@ class SmartDevicesByRooms extends StatelessWidget {
         ),
         loadSuccess: (state) {
           if (state.devices.size != 0) {
-            final Map<String, List<DeviceEntity>> tempDevicesByRooms =
+            final Map<String?, List<DeviceEntity>> tempDevicesByRooms =
                 <String, List<DeviceEntity>>{};
 
             for (int i = 0; i < state.devices.size; i++) {
-              final DeviceEntity tempDevice = state.devices[i];
-              if (tempDevicesByRooms[tempDevice.roomId.getOrCrash()] == null) {
-                tempDevicesByRooms[tempDevice.roomId.getOrCrash()] = [
+              final DeviceEntity tempDevice = state.devices[i]!;
+              if (tempDevicesByRooms[tempDevice.roomId!.getOrCrash()] == null) {
+                tempDevicesByRooms[tempDevice.roomId!.getOrCrash()] = [
                   tempDevice
                 ];
               } else {
-                tempDevicesByRooms[tempDevice.roomId.getOrCrash()]
+                tempDevicesByRooms[tempDevice.roomId!.getOrCrash()]!
                     .add(tempDevice);
               }
             }
@@ -50,14 +51,15 @@ class SmartDevicesByRooms extends StatelessWidget {
                 <String, List<DeviceEntity>>{};
 
             tempDevicesByRooms.forEach((k, v) {
-              tempDevicesByRoomsByType[k] = {};
+              tempDevicesByRoomsByType[k!] = {};
               v.forEach((element) {
-                if (tempDevicesByRoomsByType[k][element.type.getOrCrash()] ==
+                if (tempDevicesByRoomsByType[k]![element.type!.getOrCrash()] ==
                     null) {
-                  tempDevicesByRoomsByType[k]
-                      [element.type.getOrCrash()] = [element];
+                  tempDevicesByRoomsByType[k]![element.type!.getOrCrash()] = [
+                    element
+                  ];
                 } else {
-                  tempDevicesByRoomsByType[k][element.type.getOrCrash()]
+                  tempDevicesByRoomsByType[k]![element.type!.getOrCrash()]!
                       .add(element);
                 }
               });
@@ -71,11 +73,11 @@ class SmartDevicesByRooms extends StatelessWidget {
                 children: [
                   if (tempDevicesByRooms.length == 1)
                     Container(
-                      margin: const EdgeInsets.symmetric(vertical: 30),
+                      margin: const EdgeInsets.only(bottom: 10),
                       alignment: Alignment.center,
                       child: Image.asset(
                         'assets/cbj_logo.png',
-                        width: 250.0,
+                        width: 200.0,
                         fit: BoxFit.fill,
                       ),
                     ),
@@ -99,7 +101,10 @@ class SmartDevicesByRooms extends StatelessWidget {
                           'Rooms',
                           style: TextStyle(
                             fontSize: 35,
-                            color: Theme.of(context).textTheme.subtitle2.color,
+                            color: ((Theme.of(context)
+                                .textTheme
+                                .bodyText1!
+                                .color)!),
                           ),
                         ),
                       ],
@@ -120,7 +125,7 @@ class SmartDevicesByRooms extends StatelessWidget {
 
                       int numberOfDevicesInTheRoom = 0;
 
-                      tempDevicesByRoomsByType[roomId].forEach((key, value) {
+                      tempDevicesByRoomsByType[roomId]!.forEach((key, value) {
                         value.forEach((element) {
                           numberOfDevicesInTheRoom++;
                         });
@@ -135,6 +140,9 @@ class SmartDevicesByRooms extends StatelessWidget {
                             colors: roomColorGradiant,
                             begin: Alignment.bottomLeft,
                             end: Alignment.topLeft,
+                          ),
+                          border: const Border.symmetric(
+                            horizontal: BorderSide(width: 0.3),
                           ),
                         ),
                         child: Container(
@@ -152,7 +160,7 @@ class SmartDevicesByRooms extends StatelessWidget {
                                       fontSize: 20,
                                       color: Theme.of(context)
                                           .textTheme
-                                          .bodyText1
+                                          .bodyText1!
                                           .color),
                                 ),
                               ),
@@ -177,32 +185,47 @@ class SmartDevicesByRooms extends StatelessWidget {
                                     crossAxisSpacing: 8,
                                     mainAxisSpacing: 4,
                                   ),
-                                  itemCount: tempDevicesByRoomsByType[roomId]
+                                  itemCount: tempDevicesByRoomsByType[roomId]!
                                       .keys
                                       .length,
                                   itemBuilder: (BuildContext ctx, secondIndex) {
                                     final String deviceType =
-                                        tempDevicesByRoomsByType[roomId]
+                                        tempDevicesByRoomsByType[roomId]!
                                             .keys
                                             .elementAt(secondIndex);
                                     if (deviceType ==
-                                        DeviceTypes.Light.toString()) {
+                                        DeviceTypes.light.toString()) {
                                       return BlocProvider(
                                         create: (context) =>
                                             getIt<LightsActorBloc>(),
                                         child: LightsInTheRoomBlock(
-                                            tempDevicesByRoomsByType[roomId]
-                                                [deviceType],
+                                            tempDevicesByRoomsByType[roomId]![
+                                                deviceType]!,
                                             roomColorGradiant),
                                       );
                                     } else if (deviceType ==
-                                        DeviceTypes.Blinds.toString()) {
+                                        DeviceTypes.blinds.toString()) {
                                       return BlocProvider(
                                         create: (context) =>
                                             getIt<BlindsActorBloc>(),
                                         child: BlindsInTheRoom(
-                                            tempDevicesByRoomsByType[roomId]
-                                                [deviceType]),
+                                          blindsInRoom:
+                                              (tempDevicesByRoomsByType[
+                                                  roomId]![deviceType])!,
+                                          roomColorGradiant: roomColorGradiant,
+                                        ),
+                                      );
+                                    } else if (deviceType ==
+                                        DeviceTypes.boiler.toString()) {
+                                      return BlocProvider(
+                                        create: (context) =>
+                                            getIt<BlindsActorBloc>(),
+                                        child: BoilersInTheRoom(
+                                          boilersInRoom:
+                                              (tempDevicesByRoomsByType[
+                                                  roomId]![deviceType])!,
+                                          roomColorGradiant: roomColorGradiant,
+                                        ),
                                       );
                                     }
                                     return const Text('Not Supported');
@@ -240,7 +263,7 @@ class SmartDevicesByRooms extends StatelessWidget {
                           gravity: ToastGravity.CENTER,
                           backgroundColor: Colors.blueGrey,
                           textColor:
-                              Theme.of(context).textTheme.bodyText1.color,
+                              (Theme.of(context).textTheme.bodyText1!.color)!,
                           fontSize: 16.0);
                     },
                     child: const Text(

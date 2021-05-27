@@ -53,7 +53,7 @@ class ScenesInFoldersL extends StatelessWidget {
         color: Colors.black,
         image: DecorationImage(
           image: NetworkImage(
-            folderOfScenes.fold((l) => null, (r) => r.backgroundImageUrl),
+            folderOfScenes.fold((l) => null!, (r) => r.backgroundImageUrl!),
           ),
           fit: BoxFit.cover,
         ),
@@ -64,16 +64,17 @@ class ScenesInFoldersL extends StatelessWidget {
         ),
       ),
       margin: const EdgeInsets.symmetric(vertical: 3, horizontal: 5),
-      child: FlatButton(
+      child: TextButton(
+        style: ButtonStyle(
+          padding: MaterialStateProperty.all<EdgeInsets>(
+            EdgeInsets.zero,
+          ),
+        ),
         onPressed: () {
-          ExtendedNavigator.of(context).push(
-            Routes.scenesPage,
-            arguments: ScenesPageArguments(
-              folderOfScenes: folderOfScenes.fold((l) => null, (r) => r),
-            ),
-          );
+          context.router.push(ScenesRoute(
+            folderOfScenes: folderOfScenes.fold((l) => null!, (r) => r),
+          ));
         },
-        padding: EdgeInsets.zero,
         child: Column(
           children: [
             const SizedBox(
@@ -89,9 +90,9 @@ class ScenesInFoldersL extends StatelessWidget {
                 ),
               ),
               child: Text(
-                folderOfScenes.fold((l) => 'NoName', (r) => r.name),
+                folderOfScenes.fold((l) => 'NoName', (r) => r.name!),
                 style: TextStyle(
-                    color: Theme.of(context).textTheme.subtitle2.color,
+                    color: ((Theme.of(context).textTheme.bodyText1!.color)!),
                     fontSize: 30),
                 textAlign: TextAlign.center,
               ),

@@ -22,19 +22,25 @@ class ScenesPage extends StatelessWidget {
       context: context,
       actions: <BottomSheetAction>[
         BottomSheetAction(
-            title: '➕ Add Scene',
-            onPressed: () {},
-            textStyle: const TextStyle(color: Colors.green, fontSize: 23)),
+          title: const Text(
+            '➕ Add Scene',
+            style: TextStyle(color: Colors.green, fontSize: 23),
+          ),
+          onPressed: () {},
+        ),
         BottomSheetAction(
-            title: '⚙️ Scenes Settings',
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (BuildContext context) => SettingsPageOfScenes()),
-              );
-            },
-            textStyle: const TextStyle(color: Colors.blueGrey, fontSize: 23)),
+          title: const Text(
+            '⚙️ Scenes Settings',
+            style: TextStyle(color: Colors.blueGrey, fontSize: 23),
+          ),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (BuildContext context) => SettingsPageOfScenes()),
+            );
+          },
+        ),
       ],
     );
   }

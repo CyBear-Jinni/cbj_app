@@ -18,11 +18,14 @@ class ManageUsersPage extends StatelessWidget {
       context: context,
       actions: <BottomSheetAction>[
         BottomSheetAction(
-            title: '➕ Add User',
-            onPressed: () {
-              ExtendedNavigator.of(context).push(Routes.addUserToHomePage);
-            },
-            textStyle: const TextStyle(color: Colors.green, fontSize: 23)),
+          title: const Text(
+            '➕ Add User',
+            style: TextStyle(color: Colors.green, fontSize: 23),
+          ),
+          onPressed: () {
+            context.router.push(const AddUserToHomeRoute());
+          },
+        ),
       ],
     );
   }
@@ -46,7 +49,7 @@ class ManageUsersPage extends StatelessWidget {
               listener: (context, state) {
                 state.maybeMap(
                   unauthenticated: (_) =>
-                      ExtendedNavigator.of(context).replace(Routes.signInPage),
+                      context.router.replace(const SignInRoute()),
                   orElse: () {},
                 );
               },

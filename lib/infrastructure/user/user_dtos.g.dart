@@ -10,8 +10,8 @@ _$_UserDtos _$_$_UserDtosFromJson(Map<String, dynamic> json) {
   return _$_UserDtos(
     email: json['email'] as String,
     name: json['name'] as String,
-    firstName: json['firstName'] as String,
-    lastName: json['lastName'] as String,
+    firstName: json['firstName'] as String?,
+    lastName: json['lastName'] as String?,
   );
 }
 

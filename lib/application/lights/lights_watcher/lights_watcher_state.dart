@@ -6,7 +6,7 @@ abstract class LightsWatcherState with _$LightsWatcherState {
 
   const factory LightsWatcherState.loadInProgress() = _LoadInProgress;
 
-  const factory LightsWatcherState.loadSuccess(KtList<DeviceEntity> devices) =
+  const factory LightsWatcherState.loadSuccess(KtList<DeviceEntity?> devices) =
       _LoadSuccess;
 
   const factory LightsWatcherState.loadFailure(DevicesFailure devicesFailure) =

@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppWidget extends StatelessWidget {
+  final _rootRouter = AppRouter();
+
   MaterialColor createMaterialColor(Color color) {
     final List<double> strengths = <double>[.05];
     final Map<int, Color> swatch = <int, Color>{};
@@ -36,11 +38,16 @@ class AppWidget extends StatelessWidget {
               getIt<AuthBloc>()..add(const AuthEvent.authCheckRequested()),
         ),
       ],
-      child: MaterialApp(
-        title: 'CyBear Jinni App',
-        builder: ExtendedNavigator(
-          router: AppRouter(),
+      child: MaterialApp.router(
+        routerDelegate: AutoRouterDelegate(
+          _rootRouter,
+          navigatorObservers: () => [AutoRouteObserver()],
         ),
+        routeInformationParser: _rootRouter.defaultRouteParser(),
+        title: 'CyBear Jinni App',
+        // builder: ExtendedNavigator(
+        //   router: AppRouter(),
+        // ),
         // initialRoute:
         // auth.currentU1`ser != null ? '/$homePage' : '/$loginPage',
         localizationsDelegates: context.localizationDelegates,
@@ -59,9 +66,9 @@ class AppWidget extends StatelessWidget {
             ),
           ),
           textTheme: const TextTheme(
-              bodyText1: TextStyle(color: Colors.white),
-              bodyText2: TextStyle(color: Colors.white70),
-              subtitle2: TextStyle(color: Colors.white)),
+            bodyText1: TextStyle(color: Colors.white),
+            bodyText2: TextStyle(color: Colors.white70),
+          ),
           fontFamily: 'gidole_regular',
         ),
       ),

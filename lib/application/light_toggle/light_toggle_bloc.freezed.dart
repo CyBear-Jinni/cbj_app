@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'light_toggle_bloc.dart';
 
@@ -9,11 +9,13 @@ part of 'light_toggle_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$LightToggleEventTearOff {
   const _$LightToggleEventTearOff();
 
-// ignore: unused_element
   _ChangeState changeAction(
       DeviceEntity deviceEntity, bool forceStraightToComputer) {
     return _ChangeState(
@@ -22,7 +24,6 @@ class _$LightToggleEventTearOff {
     );
   }
 
-// ignore: unused_element
   _CreateDevice create(DeviceEntity deviceEntity) {
     return _CreateDevice(
       deviceEntity,
@@ -31,41 +32,45 @@ class _$LightToggleEventTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $LightToggleEvent = _$LightToggleEventTearOff();
 
 /// @nodoc
 mixin _$LightToggleEvent {
-  DeviceEntity get deviceEntity;
+  DeviceEntity get deviceEntity => throw _privateConstructorUsedError;
 
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult changeAction(
-            DeviceEntity deviceEntity, bool forceStraightToComputer),
-    @required TResult create(DeviceEntity deviceEntity),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            DeviceEntity deviceEntity, bool forceStraightToComputer)
+        changeAction,
+    required TResult Function(DeviceEntity deviceEntity) create,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult changeAction(
-        DeviceEntity deviceEntity, bool forceStraightToComputer),
-    TResult create(DeviceEntity deviceEntity),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DeviceEntity deviceEntity, bool forceStraightToComputer)?
+        changeAction,
+    TResult Function(DeviceEntity deviceEntity)? create,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult changeAction(_ChangeState value),
-    @required TResult create(_CreateDevice value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeState value) changeAction,
+    required TResult Function(_CreateDevice value) create,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult changeAction(_ChangeState value),
-    TResult create(_CreateDevice value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeState value)? changeAction,
+    TResult Function(_CreateDevice value)? create,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $LightToggleEventCopyWith<LightToggleEvent> get copyWith;
+  $LightToggleEventCopyWith<LightToggleEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -89,20 +94,18 @@ class _$LightToggleEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object deviceEntity = freezed,
+    Object? deviceEntity = freezed,
   }) {
     return _then(_value.copyWith(
       deviceEntity: deviceEntity == freezed
           ? _value.deviceEntity
-          : deviceEntity as DeviceEntity,
+          : deviceEntity // ignore: cast_nullable_to_non_nullable
+              as DeviceEntity,
     ));
   }
 
   @override
   $DeviceEntityCopyWith<$Res> get deviceEntity {
-    if (_value.deviceEntity == null) {
-      return null;
-    }
     return $DeviceEntityCopyWith<$Res>(_value.deviceEntity, (value) {
       return _then(_value.copyWith(deviceEntity: value));
     });
@@ -135,25 +138,26 @@ class __$ChangeStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object deviceEntity = freezed,
-    Object forceStraightToComputer = freezed,
+    Object? deviceEntity = freezed,
+    Object? forceStraightToComputer = freezed,
   }) {
     return _then(_ChangeState(
       deviceEntity == freezed
           ? _value.deviceEntity
-          : deviceEntity as DeviceEntity,
+          : deviceEntity // ignore: cast_nullable_to_non_nullable
+              as DeviceEntity,
       forceStraightToComputer == freezed
           ? _value.forceStraightToComputer
-          : forceStraightToComputer as bool,
+          : forceStraightToComputer // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_ChangeState implements _ChangeState {
-  const _$_ChangeState(this.deviceEntity, this.forceStraightToComputer)
-      : assert(deviceEntity != null),
-        assert(forceStraightToComputer != null);
+  const _$_ChangeState(this.deviceEntity, this.forceStraightToComputer);
 
   @override
   final DeviceEntity deviceEntity;
@@ -191,26 +195,23 @@ class _$_ChangeState implements _ChangeState {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult changeAction(
-            DeviceEntity deviceEntity, bool forceStraightToComputer),
-    @required TResult create(DeviceEntity deviceEntity),
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            DeviceEntity deviceEntity, bool forceStraightToComputer)
+        changeAction,
+    required TResult Function(DeviceEntity deviceEntity) create,
   }) {
-    assert(changeAction != null);
-    assert(create != null);
     return changeAction(deviceEntity, forceStraightToComputer);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult changeAction(
-        DeviceEntity deviceEntity, bool forceStraightToComputer),
-    TResult create(DeviceEntity deviceEntity),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DeviceEntity deviceEntity, bool forceStraightToComputer)?
+        changeAction,
+    TResult Function(DeviceEntity deviceEntity)? create,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (changeAction != null) {
       return changeAction(deviceEntity, forceStraightToComputer);
     }
@@ -219,23 +220,20 @@ class _$_ChangeState implements _ChangeState {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult changeAction(_ChangeState value),
-    @required TResult create(_CreateDevice value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeState value) changeAction,
+    required TResult Function(_CreateDevice value) create,
   }) {
-    assert(changeAction != null);
-    assert(create != null);
     return changeAction(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult changeAction(_ChangeState value),
-    TResult create(_CreateDevice value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeState value)? changeAction,
+    TResult Function(_CreateDevice value)? create,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (changeAction != null) {
       return changeAction(this);
     }
@@ -248,11 +246,12 @@ abstract class _ChangeState implements LightToggleEvent {
       DeviceEntity deviceEntity, bool forceStraightToComputer) = _$_ChangeState;
 
   @override
-  DeviceEntity get deviceEntity;
-  bool get forceStraightToComputer;
+  DeviceEntity get deviceEntity => throw _privateConstructorUsedError;
+  bool get forceStraightToComputer => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ChangeStateCopyWith<_ChangeState> get copyWith;
+  _$ChangeStateCopyWith<_ChangeState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -281,19 +280,21 @@ class __$CreateDeviceCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object deviceEntity = freezed,
+    Object? deviceEntity = freezed,
   }) {
     return _then(_CreateDevice(
       deviceEntity == freezed
           ? _value.deviceEntity
-          : deviceEntity as DeviceEntity,
+          : deviceEntity // ignore: cast_nullable_to_non_nullable
+              as DeviceEntity,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_CreateDevice implements _CreateDevice {
-  const _$_CreateDevice(this.deviceEntity) : assert(deviceEntity != null);
+  const _$_CreateDevice(this.deviceEntity);
 
   @override
   final DeviceEntity deviceEntity;
@@ -323,26 +324,23 @@ class _$_CreateDevice implements _CreateDevice {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult changeAction(
-            DeviceEntity deviceEntity, bool forceStraightToComputer),
-    @required TResult create(DeviceEntity deviceEntity),
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            DeviceEntity deviceEntity, bool forceStraightToComputer)
+        changeAction,
+    required TResult Function(DeviceEntity deviceEntity) create,
   }) {
-    assert(changeAction != null);
-    assert(create != null);
     return create(deviceEntity);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult changeAction(
-        DeviceEntity deviceEntity, bool forceStraightToComputer),
-    TResult create(DeviceEntity deviceEntity),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DeviceEntity deviceEntity, bool forceStraightToComputer)?
+        changeAction,
+    TResult Function(DeviceEntity deviceEntity)? create,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (create != null) {
       return create(deviceEntity);
     }
@@ -351,23 +349,20 @@ class _$_CreateDevice implements _CreateDevice {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult changeAction(_ChangeState value),
-    @required TResult create(_CreateDevice value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeState value) changeAction,
+    required TResult Function(_CreateDevice value) create,
   }) {
-    assert(changeAction != null);
-    assert(create != null);
     return create(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult changeAction(_ChangeState value),
-    TResult create(_CreateDevice value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeState value)? changeAction,
+    TResult Function(_CreateDevice value)? create,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (create != null) {
       return create(this);
     }
@@ -379,84 +374,84 @@ abstract class _CreateDevice implements LightToggleEvent {
   const factory _CreateDevice(DeviceEntity deviceEntity) = _$_CreateDevice;
 
   @override
-  DeviceEntity get deviceEntity;
+  DeviceEntity get deviceEntity => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$CreateDeviceCopyWith<_CreateDevice> get copyWith;
+  _$CreateDeviceCopyWith<_CreateDevice> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$LightToggleStateTearOff {
   const _$LightToggleStateTearOff();
 
-// ignore: unused_element
   _Initial initial() {
     return _Initial();
   }
 
-// ignore: unused_element
   _LoadInProgress loadInProgress() {
     return const _LoadInProgress();
   }
 
-// ignore: unused_element
   _LoadSuccess loadSuccess() {
     return const _LoadSuccess();
   }
 
-// ignore: unused_element
   _loadFailure loadFailure(DevicesFailure<dynamic> devicesFailure) {
     return _loadFailure(
       devicesFailure,
     );
   }
 
-// ignore: unused_element
   Error error() {
     return const Error();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $LightToggleState = _$LightToggleStateTearOff();
 
 /// @nodoc
 mixin _$LightToggleState {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loadInProgress(),
-    @required TResult loadSuccess(),
-    @required TResult loadFailure(DevicesFailure<dynamic> devicesFailure),
-    @required TResult error(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function() loadSuccess,
+    required TResult Function(DevicesFailure<dynamic> devicesFailure)
+        loadFailure,
+    required TResult Function() error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loadInProgress(),
-    TResult loadSuccess(),
-    TResult loadFailure(DevicesFailure<dynamic> devicesFailure),
-    TResult error(),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function()? loadSuccess,
+    TResult Function(DevicesFailure<dynamic> devicesFailure)? loadFailure,
+    TResult Function()? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult loadInProgress(_LoadInProgress value),
-    @required TResult loadSuccess(_LoadSuccess value),
-    @required TResult loadFailure(_loadFailure value),
-    @required TResult error(Error value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_loadFailure value) loadFailure,
+    required TResult Function(Error value) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult loadInProgress(_LoadInProgress value),
-    TResult loadSuccess(_LoadSuccess value),
-    TResult loadFailure(_loadFailure value),
-    TResult error(Error value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_loadFailure value)? loadFailure,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -493,6 +488,7 @@ class __$InitialCopyWithImpl<$Res> extends _$LightToggleStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_Initial implements _Initial {
   _$_Initial();
 
@@ -511,32 +507,27 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loadInProgress(),
-    @required TResult loadSuccess(),
-    @required TResult loadFailure(DevicesFailure<dynamic> devicesFailure),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function() loadSuccess,
+    required TResult Function(DevicesFailure<dynamic> devicesFailure)
+        loadFailure,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadSuccess != null);
-    assert(loadFailure != null);
-    assert(error != null);
     return initial();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loadInProgress(),
-    TResult loadSuccess(),
-    TResult loadFailure(DevicesFailure<dynamic> devicesFailure),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function()? loadSuccess,
+    TResult Function(DevicesFailure<dynamic> devicesFailure)? loadFailure,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initial != null) {
       return initial();
     }
@@ -545,32 +536,26 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult loadInProgress(_LoadInProgress value),
-    @required TResult loadSuccess(_LoadSuccess value),
-    @required TResult loadFailure(_loadFailure value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_loadFailure value) loadFailure,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadSuccess != null);
-    assert(loadFailure != null);
-    assert(error != null);
     return initial(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult loadInProgress(_LoadInProgress value),
-    TResult loadSuccess(_LoadSuccess value),
-    TResult loadFailure(_loadFailure value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_loadFailure value)? loadFailure,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initial != null) {
       return initial(this);
     }
@@ -602,6 +587,7 @@ class __$LoadInProgressCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_LoadInProgress implements _LoadInProgress {
   const _$_LoadInProgress();
 
@@ -620,32 +606,27 @@ class _$_LoadInProgress implements _LoadInProgress {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loadInProgress(),
-    @required TResult loadSuccess(),
-    @required TResult loadFailure(DevicesFailure<dynamic> devicesFailure),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function() loadSuccess,
+    required TResult Function(DevicesFailure<dynamic> devicesFailure)
+        loadFailure,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadSuccess != null);
-    assert(loadFailure != null);
-    assert(error != null);
     return loadInProgress();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loadInProgress(),
-    TResult loadSuccess(),
-    TResult loadFailure(DevicesFailure<dynamic> devicesFailure),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function()? loadSuccess,
+    TResult Function(DevicesFailure<dynamic> devicesFailure)? loadFailure,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loadInProgress != null) {
       return loadInProgress();
     }
@@ -654,32 +635,26 @@ class _$_LoadInProgress implements _LoadInProgress {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult loadInProgress(_LoadInProgress value),
-    @required TResult loadSuccess(_LoadSuccess value),
-    @required TResult loadFailure(_loadFailure value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_loadFailure value) loadFailure,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadSuccess != null);
-    assert(loadFailure != null);
-    assert(error != null);
     return loadInProgress(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult loadInProgress(_LoadInProgress value),
-    TResult loadSuccess(_LoadSuccess value),
-    TResult loadFailure(_loadFailure value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_loadFailure value)? loadFailure,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loadInProgress != null) {
       return loadInProgress(this);
     }
@@ -711,6 +686,7 @@ class __$LoadSuccessCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_LoadSuccess implements _LoadSuccess {
   const _$_LoadSuccess();
 
@@ -729,32 +705,27 @@ class _$_LoadSuccess implements _LoadSuccess {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loadInProgress(),
-    @required TResult loadSuccess(),
-    @required TResult loadFailure(DevicesFailure<dynamic> devicesFailure),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function() loadSuccess,
+    required TResult Function(DevicesFailure<dynamic> devicesFailure)
+        loadFailure,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadSuccess != null);
-    assert(loadFailure != null);
-    assert(error != null);
     return loadSuccess();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loadInProgress(),
-    TResult loadSuccess(),
-    TResult loadFailure(DevicesFailure<dynamic> devicesFailure),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function()? loadSuccess,
+    TResult Function(DevicesFailure<dynamic> devicesFailure)? loadFailure,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loadSuccess != null) {
       return loadSuccess();
     }
@@ -763,32 +734,26 @@ class _$_LoadSuccess implements _LoadSuccess {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult loadInProgress(_LoadInProgress value),
-    @required TResult loadSuccess(_LoadSuccess value),
-    @required TResult loadFailure(_loadFailure value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_loadFailure value) loadFailure,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadSuccess != null);
-    assert(loadFailure != null);
-    assert(error != null);
     return loadSuccess(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult loadInProgress(_LoadInProgress value),
-    TResult loadSuccess(_LoadSuccess value),
-    TResult loadFailure(_loadFailure value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_loadFailure value)? loadFailure,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loadSuccess != null) {
       return loadSuccess(this);
     }
@@ -823,20 +788,18 @@ class __$loadFailureCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object devicesFailure = freezed,
+    Object? devicesFailure = freezed,
   }) {
     return _then(_loadFailure(
       devicesFailure == freezed
           ? _value.devicesFailure
-          : devicesFailure as DevicesFailure<dynamic>,
+          : devicesFailure // ignore: cast_nullable_to_non_nullable
+              as DevicesFailure<dynamic>,
     ));
   }
 
   @override
   $DevicesFailureCopyWith<dynamic, $Res> get devicesFailure {
-    if (_value.devicesFailure == null) {
-      return null;
-    }
     return $DevicesFailureCopyWith<dynamic, $Res>(_value.devicesFailure,
         (value) {
       return _then(_value.copyWith(devicesFailure: value));
@@ -845,8 +808,9 @@ class __$loadFailureCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_loadFailure implements _loadFailure {
-  const _$_loadFailure(this.devicesFailure) : assert(devicesFailure != null);
+  const _$_loadFailure(this.devicesFailure);
 
   @override
   final DevicesFailure<dynamic> devicesFailure;
@@ -877,32 +841,27 @@ class _$_loadFailure implements _loadFailure {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loadInProgress(),
-    @required TResult loadSuccess(),
-    @required TResult loadFailure(DevicesFailure<dynamic> devicesFailure),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function() loadSuccess,
+    required TResult Function(DevicesFailure<dynamic> devicesFailure)
+        loadFailure,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadSuccess != null);
-    assert(loadFailure != null);
-    assert(error != null);
     return loadFailure(devicesFailure);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loadInProgress(),
-    TResult loadSuccess(),
-    TResult loadFailure(DevicesFailure<dynamic> devicesFailure),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function()? loadSuccess,
+    TResult Function(DevicesFailure<dynamic> devicesFailure)? loadFailure,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loadFailure != null) {
       return loadFailure(devicesFailure);
     }
@@ -911,32 +870,26 @@ class _$_loadFailure implements _loadFailure {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult loadInProgress(_LoadInProgress value),
-    @required TResult loadSuccess(_LoadSuccess value),
-    @required TResult loadFailure(_loadFailure value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_loadFailure value) loadFailure,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadSuccess != null);
-    assert(loadFailure != null);
-    assert(error != null);
     return loadFailure(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult loadInProgress(_LoadInProgress value),
-    TResult loadSuccess(_LoadSuccess value),
-    TResult loadFailure(_loadFailure value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_loadFailure value)? loadFailure,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loadFailure != null) {
       return loadFailure(this);
     }
@@ -948,9 +901,11 @@ abstract class _loadFailure implements LightToggleState {
   const factory _loadFailure(DevicesFailure<dynamic> devicesFailure) =
       _$_loadFailure;
 
-  DevicesFailure<dynamic> get devicesFailure;
+  DevicesFailure<dynamic> get devicesFailure =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$loadFailureCopyWith<_loadFailure> get copyWith;
+  _$loadFailureCopyWith<_loadFailure> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -970,6 +925,7 @@ class _$ErrorCopyWithImpl<$Res> extends _$LightToggleStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Error implements Error {
   const _$Error();
 
@@ -988,32 +944,27 @@ class _$Error implements Error {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loadInProgress(),
-    @required TResult loadSuccess(),
-    @required TResult loadFailure(DevicesFailure<dynamic> devicesFailure),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function() loadSuccess,
+    required TResult Function(DevicesFailure<dynamic> devicesFailure)
+        loadFailure,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadSuccess != null);
-    assert(loadFailure != null);
-    assert(error != null);
     return error();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loadInProgress(),
-    TResult loadSuccess(),
-    TResult loadFailure(DevicesFailure<dynamic> devicesFailure),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function()? loadSuccess,
+    TResult Function(DevicesFailure<dynamic> devicesFailure)? loadFailure,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error();
     }
@@ -1022,32 +973,26 @@ class _$Error implements Error {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult loadInProgress(_LoadInProgress value),
-    @required TResult loadSuccess(_LoadSuccess value),
-    @required TResult loadFailure(_loadFailure value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_loadFailure value) loadFailure,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadSuccess != null);
-    assert(loadFailure != null);
-    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult loadInProgress(_LoadInProgress value),
-    TResult loadSuccess(_LoadSuccess value),
-    TResult loadFailure(_loadFailure value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_loadFailure value)? loadFailure,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this);
     }

@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:cybear_jinni/domain/auth/auth_failure.dart';
 import 'package:cybear_jinni/domain/auth/i_auth_facade.dart';
-import 'package:cybear_jinni/domain/auth/user.dart';
 import 'package:cybear_jinni/domain/auth/value_objects.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -61,12 +60,12 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
 
   Stream<SignInFormState> _performActionOnAuthFacadeWithEmailAndPassword(
     Future<Either<AuthFailure, Unit>> Function({
-      @required EmailAddress emailAddress,
-      @required Password password,
+      required EmailAddress emailAddress,
+      required Password password,
     })
         forwardedCall,
   ) async* {
-    Either<AuthFailure, Unit> failureOrSuccess;
+    Either<AuthFailure, Unit>? failureOrSuccess;
 
     final isEmailValid = state.emailAddress.isValid();
     final isPasswordValid = state.password.isValid();

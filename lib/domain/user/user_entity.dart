@@ -10,12 +10,12 @@ abstract class UserEntity implements _$UserEntity {
   const UserEntity._();
 
   const factory UserEntity({
-    @required UserUniqueId id,
-    @required UserEmail email,
-    @required UserName name,
-    UserPass pass,
-    UserFirstName firstName,
-    UserLastName lastName,
+    required UserUniqueId? id,
+    required UserEmail? email,
+    required UserName? name,
+    UserPass? pass,
+    UserFirstName? firstName,
+    UserLastName? lastName,
   }) = _UserEntity;
 
   factory UserEntity.empty() => UserEntity(
@@ -25,6 +25,6 @@ abstract class UserEntity implements _$UserEntity {
       );
 
   Option<UserFailures<dynamic>> get failureOption {
-    return email.value.fold((f) => some(f), (_) => none());
+    return email!.value.fold((f) => some(f), (_) => none());
   }
 }

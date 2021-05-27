@@ -13,77 +13,26 @@ Future<List<SmartDeviceObject>> getAllDevices(String deviceIp) async {
   final List<SmartDeviceObject> smartDeviceObjectList = [];
   SmartDeviceObject smartDeviceObjectTemp;
   SmartBlindsObject smartBlindsObjectTemp;
-  DeviceTypeEnum deviceTypeTemp;
+  DeviceTypes deviceTypeTemp;
 
   final CompInfo compInfo = await SmartClient.getCompInfo(deviceIp);
 
   for (final SmartDeviceInfo smartDeviceInfo in compInfo.smartDevicesInComp) {
     print('Device type: $smartDeviceInfo');
     deviceTypeTemp = EnumHelper.stringToDt(
-        smartDeviceInfo.deviceTypesActions.deviceType.toString());
+        smartDeviceInfo.deviceTypesActions.deviceType.toString())!;
     switch (deviceTypeTemp) {
-      case DeviceTypeEnum.Light:
+      case DeviceTypes.light:
         smartDeviceObjectTemp =
             SmartDeviceObject(deviceTypeTemp, smartDeviceInfo.id, deviceIp);
         smartDeviceObjectList.add(smartDeviceObjectTemp);
         break;
-      case DeviceTypeEnum.Blinds:
+      case DeviceTypes.blinds:
         smartBlindsObjectTemp =
             SmartBlindsObject(deviceTypeTemp, smartDeviceInfo.id, deviceIp);
         smartDeviceObjectList.add(smartBlindsObjectTemp);
         break;
-      case DeviceTypeEnum.DynamicLight:
-        // TODO: Handle this case.
-        break;
-      case DeviceTypeEnum.Thermostat:
-        // TODO: Handle this case.
-        break;
-      case DeviceTypeEnum.Fan:
-        // TODO: Handle this case.
-        break;
-      case DeviceTypeEnum.AirConditioner:
-        // TODO: Handle this case.
-        break;
-      case DeviceTypeEnum.Camera:
-        // TODO: Handle this case.
-        break;
-      case DeviceTypeEnum.Fridge:
-        // TODO: Handle this case.
-        break;
-      case DeviceTypeEnum.Toaster:
-        // TODO: Handle this case.
-        break;
-      case DeviceTypeEnum.CoffeeMachine:
-        // TODO: Handle this case.
-        break;
-      case DeviceTypeEnum.SmartTV:
-        // TODO: Handle this case.
-        break;
-      case DeviceTypeEnum.RCAirplane:
-        // TODO: Handle this case.
-        break;
-      case DeviceTypeEnum.RCCar:
-        // TODO: Handle this case.
-        break;
-      case DeviceTypeEnum.Speakers:
-        // TODO: Handle this case.
-        break;
-      case DeviceTypeEnum.Roomba:
-        // TODO: Handle this case.
-        break;
-      case DeviceTypeEnum.Irrigation:
-        // TODO: Handle this case.
-        break;
-      case DeviceTypeEnum.SmartBed:
-        // TODO: Handle this case.
-        break;
-      case DeviceTypeEnum.AnimalTracker:
-        // TODO: Handle this case.
-        break;
-      case DeviceTypeEnum.SmartCar:
-        // TODO: Handle this case.
-        break;
-      case DeviceTypeEnum.SmartPool:
+      case DeviceTypes.boiler:
         // TODO: Handle this case.
         break;
     }

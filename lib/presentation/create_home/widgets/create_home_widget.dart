@@ -1,7 +1,7 @@
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/create_home/create_home_bloc.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
-import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,8 +9,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class CreateHomeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    String homeName;
-    String devicesEmail;
+    String? homeName;
+    String? devicesEmail;
 
     return Column(
       children: [
@@ -27,16 +27,16 @@ class CreateHomeWidget extends StatelessWidget {
         SizedBox(
           width: 300,
           child: TextFormField(
-            style:
-                TextStyle(color: Theme.of(context).textTheme.bodyText1.color),
+            style: TextStyle(
+                color: (Theme.of(context).textTheme.bodyText1!.color)!),
             decoration: InputDecoration(
               filled: true,
               fillColor: Colors.greenAccent.withOpacity(0.3),
               prefixIcon: Icon(Icons.home_outlined,
-                  color: Theme.of(context).textTheme.bodyText1.color),
+                  color: (Theme.of(context).textTheme.bodyText1!.color)!),
               labelText: 'Home Name',
-              labelStyle:
-                  TextStyle(color: Theme.of(context).textTheme.bodyText1.color),
+              labelStyle: TextStyle(
+                  color: (Theme.of(context).textTheme.bodyText1!.color)!),
             ),
             autocorrect: false,
             onChanged: (value) {
@@ -61,18 +61,18 @@ class CreateHomeWidget extends StatelessWidget {
         SizedBox(
           width: 300,
           child: TextFormField(
-            style:
-                TextStyle(color: Theme.of(context).textTheme.bodyText1.color),
+            style: TextStyle(
+                color: (Theme.of(context).textTheme.bodyText1!.color)!),
             decoration: InputDecoration(
               filled: true,
               fillColor: Colors.greenAccent.withOpacity(0.3),
               prefixIcon: Icon(
                 Icons.alternate_email,
-                color: Theme.of(context).textTheme.bodyText1.color,
+                color: (Theme.of(context).textTheme.bodyText1!.color)!,
               ),
               labelText: 'Email for smart devices',
-              labelStyle:
-                  TextStyle(color: Theme.of(context).textTheme.bodyText1.color),
+              labelStyle: TextStyle(
+                  color: (Theme.of(context).textTheme.bodyText1!.color)!),
             ),
             autocorrect: false,
             onChanged: (value) {
@@ -89,23 +89,25 @@ class CreateHomeWidget extends StatelessWidget {
             'Smart devices needs account to function.\nPlease enter new email.',
             style: TextStyle(
                 fontSize: 15,
-                color: Theme.of(context).textTheme.bodyText1.color),
+                color: (Theme.of(context).textTheme.bodyText1!.color)!),
           ),
         ),
         const SizedBox(
           height: 20,
         ),
-        FlatButton(
+        TextButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(Colors.pinkAccent),
+            ),
             onPressed: () {
               context
                   .read<CreateHomeBloc>()
-                  .add(CreateHomeEvent.createHome(homeName, devicesEmail));
+                  .add(CreateHomeEvent.createHome(homeName!, devicesEmail!));
             },
-            color: Colors.pinkAccent,
             child: Text(
               'Create Home',
-              style:
-                  TextStyle(color: Theme.of(context).textTheme.bodyText1.color),
+              style: TextStyle(
+                  color: (Theme.of(context).textTheme.bodyText1!.color)!),
             )),
         BlocBuilder<CreateHomeBloc, CreateHomeState>(
           builder: (context, state) {
@@ -121,7 +123,7 @@ class CreateHomeWidget extends StatelessWidget {
                 return const Text('Error');
               },
               loaded: (_) {
-                ExtendedNavigator.of(context).replace(Routes.homePage);
+                context.router.replace(const HomeRoute());
                 return const Text('Loaded');
               },
             );

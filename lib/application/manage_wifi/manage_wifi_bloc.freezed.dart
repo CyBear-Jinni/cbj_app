@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'manage_wifi_bloc.dart';
 
@@ -9,80 +9,81 @@ part of 'manage_wifi_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$ManageWifiEventTearOff {
   const _$ManageWifiEventTearOff();
 
-// ignore: unused_element
   ConnectToWifi connectToWiFi() {
     return ConnectToWifi();
   }
 
-// ignore: unused_element
   ScanForWiFiNetworks scanForWiFiNetworks() {
     return ScanForWiFiNetworks();
   }
 
-// ignore: unused_element
   WifiSsidChanged wifiSsidChanged(String wifiSsidStr) {
     return WifiSsidChanged(
       wifiSsidStr,
     );
   }
 
-// ignore: unused_element
   WifiPassChanged wifiPassChanged(String wifiPassStr) {
     return WifiPassChanged(
       wifiPassStr,
     );
   }
 
-// ignore: unused_element
   Initialized initialized() {
     return Initialized();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ManageWifiEvent = _$ManageWifiEventTearOff();
 
 /// @nodoc
 mixin _$ManageWifiEvent {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult connectToWiFi(),
-    @required TResult scanForWiFiNetworks(),
-    @required TResult wifiSsidChanged(String wifiSsidStr),
-    @required TResult wifiPassChanged(String wifiPassStr),
-    @required TResult initialized(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() connectToWiFi,
+    required TResult Function() scanForWiFiNetworks,
+    required TResult Function(String wifiSsidStr) wifiSsidChanged,
+    required TResult Function(String wifiPassStr) wifiPassChanged,
+    required TResult Function() initialized,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult connectToWiFi(),
-    TResult scanForWiFiNetworks(),
-    TResult wifiSsidChanged(String wifiSsidStr),
-    TResult wifiPassChanged(String wifiPassStr),
-    TResult initialized(),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? connectToWiFi,
+    TResult Function()? scanForWiFiNetworks,
+    TResult Function(String wifiSsidStr)? wifiSsidChanged,
+    TResult Function(String wifiPassStr)? wifiPassChanged,
+    TResult Function()? initialized,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult connectToWiFi(ConnectToWifi value),
-    @required TResult scanForWiFiNetworks(ScanForWiFiNetworks value),
-    @required TResult wifiSsidChanged(WifiSsidChanged value),
-    @required TResult wifiPassChanged(WifiPassChanged value),
-    @required TResult initialized(Initialized value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(ConnectToWifi value) connectToWiFi,
+    required TResult Function(ScanForWiFiNetworks value) scanForWiFiNetworks,
+    required TResult Function(WifiSsidChanged value) wifiSsidChanged,
+    required TResult Function(WifiPassChanged value) wifiPassChanged,
+    required TResult Function(Initialized value) initialized,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult connectToWiFi(ConnectToWifi value),
-    TResult scanForWiFiNetworks(ScanForWiFiNetworks value),
-    TResult wifiSsidChanged(WifiSsidChanged value),
-    TResult wifiPassChanged(WifiPassChanged value),
-    TResult initialized(Initialized value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ConnectToWifi value)? connectToWiFi,
+    TResult Function(ScanForWiFiNetworks value)? scanForWiFiNetworks,
+    TResult Function(WifiSsidChanged value)? wifiSsidChanged,
+    TResult Function(WifiPassChanged value)? wifiPassChanged,
+    TResult Function(Initialized value)? initialized,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -122,6 +123,7 @@ class _$ConnectToWifiCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$ConnectToWifi implements ConnectToWifi {
   _$ConnectToWifi();
 
@@ -140,32 +142,26 @@ class _$ConnectToWifi implements ConnectToWifi {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult connectToWiFi(),
-    @required TResult scanForWiFiNetworks(),
-    @required TResult wifiSsidChanged(String wifiSsidStr),
-    @required TResult wifiPassChanged(String wifiPassStr),
-    @required TResult initialized(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() connectToWiFi,
+    required TResult Function() scanForWiFiNetworks,
+    required TResult Function(String wifiSsidStr) wifiSsidChanged,
+    required TResult Function(String wifiPassStr) wifiPassChanged,
+    required TResult Function() initialized,
   }) {
-    assert(connectToWiFi != null);
-    assert(scanForWiFiNetworks != null);
-    assert(wifiSsidChanged != null);
-    assert(wifiPassChanged != null);
-    assert(initialized != null);
     return connectToWiFi();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult connectToWiFi(),
-    TResult scanForWiFiNetworks(),
-    TResult wifiSsidChanged(String wifiSsidStr),
-    TResult wifiPassChanged(String wifiPassStr),
-    TResult initialized(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? connectToWiFi,
+    TResult Function()? scanForWiFiNetworks,
+    TResult Function(String wifiSsidStr)? wifiSsidChanged,
+    TResult Function(String wifiPassStr)? wifiPassChanged,
+    TResult Function()? initialized,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (connectToWiFi != null) {
       return connectToWiFi();
     }
@@ -174,32 +170,26 @@ class _$ConnectToWifi implements ConnectToWifi {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult connectToWiFi(ConnectToWifi value),
-    @required TResult scanForWiFiNetworks(ScanForWiFiNetworks value),
-    @required TResult wifiSsidChanged(WifiSsidChanged value),
-    @required TResult wifiPassChanged(WifiPassChanged value),
-    @required TResult initialized(Initialized value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(ConnectToWifi value) connectToWiFi,
+    required TResult Function(ScanForWiFiNetworks value) scanForWiFiNetworks,
+    required TResult Function(WifiSsidChanged value) wifiSsidChanged,
+    required TResult Function(WifiPassChanged value) wifiPassChanged,
+    required TResult Function(Initialized value) initialized,
   }) {
-    assert(connectToWiFi != null);
-    assert(scanForWiFiNetworks != null);
-    assert(wifiSsidChanged != null);
-    assert(wifiPassChanged != null);
-    assert(initialized != null);
     return connectToWiFi(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult connectToWiFi(ConnectToWifi value),
-    TResult scanForWiFiNetworks(ScanForWiFiNetworks value),
-    TResult wifiSsidChanged(WifiSsidChanged value),
-    TResult wifiPassChanged(WifiPassChanged value),
-    TResult initialized(Initialized value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ConnectToWifi value)? connectToWiFi,
+    TResult Function(ScanForWiFiNetworks value)? scanForWiFiNetworks,
+    TResult Function(WifiSsidChanged value)? wifiSsidChanged,
+    TResult Function(WifiPassChanged value)? wifiPassChanged,
+    TResult Function(Initialized value)? initialized,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (connectToWiFi != null) {
       return connectToWiFi(this);
     }
@@ -231,6 +221,7 @@ class _$ScanForWiFiNetworksCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$ScanForWiFiNetworks implements ScanForWiFiNetworks {
   _$ScanForWiFiNetworks();
 
@@ -249,32 +240,26 @@ class _$ScanForWiFiNetworks implements ScanForWiFiNetworks {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult connectToWiFi(),
-    @required TResult scanForWiFiNetworks(),
-    @required TResult wifiSsidChanged(String wifiSsidStr),
-    @required TResult wifiPassChanged(String wifiPassStr),
-    @required TResult initialized(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() connectToWiFi,
+    required TResult Function() scanForWiFiNetworks,
+    required TResult Function(String wifiSsidStr) wifiSsidChanged,
+    required TResult Function(String wifiPassStr) wifiPassChanged,
+    required TResult Function() initialized,
   }) {
-    assert(connectToWiFi != null);
-    assert(scanForWiFiNetworks != null);
-    assert(wifiSsidChanged != null);
-    assert(wifiPassChanged != null);
-    assert(initialized != null);
     return scanForWiFiNetworks();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult connectToWiFi(),
-    TResult scanForWiFiNetworks(),
-    TResult wifiSsidChanged(String wifiSsidStr),
-    TResult wifiPassChanged(String wifiPassStr),
-    TResult initialized(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? connectToWiFi,
+    TResult Function()? scanForWiFiNetworks,
+    TResult Function(String wifiSsidStr)? wifiSsidChanged,
+    TResult Function(String wifiPassStr)? wifiPassChanged,
+    TResult Function()? initialized,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (scanForWiFiNetworks != null) {
       return scanForWiFiNetworks();
     }
@@ -283,32 +268,26 @@ class _$ScanForWiFiNetworks implements ScanForWiFiNetworks {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult connectToWiFi(ConnectToWifi value),
-    @required TResult scanForWiFiNetworks(ScanForWiFiNetworks value),
-    @required TResult wifiSsidChanged(WifiSsidChanged value),
-    @required TResult wifiPassChanged(WifiPassChanged value),
-    @required TResult initialized(Initialized value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(ConnectToWifi value) connectToWiFi,
+    required TResult Function(ScanForWiFiNetworks value) scanForWiFiNetworks,
+    required TResult Function(WifiSsidChanged value) wifiSsidChanged,
+    required TResult Function(WifiPassChanged value) wifiPassChanged,
+    required TResult Function(Initialized value) initialized,
   }) {
-    assert(connectToWiFi != null);
-    assert(scanForWiFiNetworks != null);
-    assert(wifiSsidChanged != null);
-    assert(wifiPassChanged != null);
-    assert(initialized != null);
     return scanForWiFiNetworks(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult connectToWiFi(ConnectToWifi value),
-    TResult scanForWiFiNetworks(ScanForWiFiNetworks value),
-    TResult wifiSsidChanged(WifiSsidChanged value),
-    TResult wifiPassChanged(WifiPassChanged value),
-    TResult initialized(Initialized value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ConnectToWifi value)? connectToWiFi,
+    TResult Function(ScanForWiFiNetworks value)? scanForWiFiNetworks,
+    TResult Function(WifiSsidChanged value)? wifiSsidChanged,
+    TResult Function(WifiPassChanged value)? wifiPassChanged,
+    TResult Function(Initialized value)? initialized,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (scanForWiFiNetworks != null) {
       return scanForWiFiNetworks(this);
     }
@@ -341,17 +320,21 @@ class _$WifiSsidChangedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object wifiSsidStr = freezed,
+    Object? wifiSsidStr = freezed,
   }) {
     return _then(WifiSsidChanged(
-      wifiSsidStr == freezed ? _value.wifiSsidStr : wifiSsidStr as String,
+      wifiSsidStr == freezed
+          ? _value.wifiSsidStr
+          : wifiSsidStr // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
+
 class _$WifiSsidChanged implements WifiSsidChanged {
-  _$WifiSsidChanged(this.wifiSsidStr) : assert(wifiSsidStr != null);
+  _$WifiSsidChanged(this.wifiSsidStr);
 
   @override
   final String wifiSsidStr;
@@ -381,32 +364,26 @@ class _$WifiSsidChanged implements WifiSsidChanged {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult connectToWiFi(),
-    @required TResult scanForWiFiNetworks(),
-    @required TResult wifiSsidChanged(String wifiSsidStr),
-    @required TResult wifiPassChanged(String wifiPassStr),
-    @required TResult initialized(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() connectToWiFi,
+    required TResult Function() scanForWiFiNetworks,
+    required TResult Function(String wifiSsidStr) wifiSsidChanged,
+    required TResult Function(String wifiPassStr) wifiPassChanged,
+    required TResult Function() initialized,
   }) {
-    assert(connectToWiFi != null);
-    assert(scanForWiFiNetworks != null);
-    assert(wifiSsidChanged != null);
-    assert(wifiPassChanged != null);
-    assert(initialized != null);
     return wifiSsidChanged(wifiSsidStr);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult connectToWiFi(),
-    TResult scanForWiFiNetworks(),
-    TResult wifiSsidChanged(String wifiSsidStr),
-    TResult wifiPassChanged(String wifiPassStr),
-    TResult initialized(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? connectToWiFi,
+    TResult Function()? scanForWiFiNetworks,
+    TResult Function(String wifiSsidStr)? wifiSsidChanged,
+    TResult Function(String wifiPassStr)? wifiPassChanged,
+    TResult Function()? initialized,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (wifiSsidChanged != null) {
       return wifiSsidChanged(wifiSsidStr);
     }
@@ -415,32 +392,26 @@ class _$WifiSsidChanged implements WifiSsidChanged {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult connectToWiFi(ConnectToWifi value),
-    @required TResult scanForWiFiNetworks(ScanForWiFiNetworks value),
-    @required TResult wifiSsidChanged(WifiSsidChanged value),
-    @required TResult wifiPassChanged(WifiPassChanged value),
-    @required TResult initialized(Initialized value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(ConnectToWifi value) connectToWiFi,
+    required TResult Function(ScanForWiFiNetworks value) scanForWiFiNetworks,
+    required TResult Function(WifiSsidChanged value) wifiSsidChanged,
+    required TResult Function(WifiPassChanged value) wifiPassChanged,
+    required TResult Function(Initialized value) initialized,
   }) {
-    assert(connectToWiFi != null);
-    assert(scanForWiFiNetworks != null);
-    assert(wifiSsidChanged != null);
-    assert(wifiPassChanged != null);
-    assert(initialized != null);
     return wifiSsidChanged(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult connectToWiFi(ConnectToWifi value),
-    TResult scanForWiFiNetworks(ScanForWiFiNetworks value),
-    TResult wifiSsidChanged(WifiSsidChanged value),
-    TResult wifiPassChanged(WifiPassChanged value),
-    TResult initialized(Initialized value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ConnectToWifi value)? connectToWiFi,
+    TResult Function(ScanForWiFiNetworks value)? scanForWiFiNetworks,
+    TResult Function(WifiSsidChanged value)? wifiSsidChanged,
+    TResult Function(WifiPassChanged value)? wifiPassChanged,
+    TResult Function(Initialized value)? initialized,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (wifiSsidChanged != null) {
       return wifiSsidChanged(this);
     }
@@ -451,9 +422,10 @@ class _$WifiSsidChanged implements WifiSsidChanged {
 abstract class WifiSsidChanged implements ManageWifiEvent {
   factory WifiSsidChanged(String wifiSsidStr) = _$WifiSsidChanged;
 
-  String get wifiSsidStr;
+  String get wifiSsidStr => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $WifiSsidChangedCopyWith<WifiSsidChanged> get copyWith;
+  $WifiSsidChangedCopyWith<WifiSsidChanged> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -477,17 +449,21 @@ class _$WifiPassChangedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object wifiPassStr = freezed,
+    Object? wifiPassStr = freezed,
   }) {
     return _then(WifiPassChanged(
-      wifiPassStr == freezed ? _value.wifiPassStr : wifiPassStr as String,
+      wifiPassStr == freezed
+          ? _value.wifiPassStr
+          : wifiPassStr // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
+
 class _$WifiPassChanged implements WifiPassChanged {
-  _$WifiPassChanged(this.wifiPassStr) : assert(wifiPassStr != null);
+  _$WifiPassChanged(this.wifiPassStr);
 
   @override
   final String wifiPassStr;
@@ -517,32 +493,26 @@ class _$WifiPassChanged implements WifiPassChanged {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult connectToWiFi(),
-    @required TResult scanForWiFiNetworks(),
-    @required TResult wifiSsidChanged(String wifiSsidStr),
-    @required TResult wifiPassChanged(String wifiPassStr),
-    @required TResult initialized(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() connectToWiFi,
+    required TResult Function() scanForWiFiNetworks,
+    required TResult Function(String wifiSsidStr) wifiSsidChanged,
+    required TResult Function(String wifiPassStr) wifiPassChanged,
+    required TResult Function() initialized,
   }) {
-    assert(connectToWiFi != null);
-    assert(scanForWiFiNetworks != null);
-    assert(wifiSsidChanged != null);
-    assert(wifiPassChanged != null);
-    assert(initialized != null);
     return wifiPassChanged(wifiPassStr);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult connectToWiFi(),
-    TResult scanForWiFiNetworks(),
-    TResult wifiSsidChanged(String wifiSsidStr),
-    TResult wifiPassChanged(String wifiPassStr),
-    TResult initialized(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? connectToWiFi,
+    TResult Function()? scanForWiFiNetworks,
+    TResult Function(String wifiSsidStr)? wifiSsidChanged,
+    TResult Function(String wifiPassStr)? wifiPassChanged,
+    TResult Function()? initialized,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (wifiPassChanged != null) {
       return wifiPassChanged(wifiPassStr);
     }
@@ -551,32 +521,26 @@ class _$WifiPassChanged implements WifiPassChanged {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult connectToWiFi(ConnectToWifi value),
-    @required TResult scanForWiFiNetworks(ScanForWiFiNetworks value),
-    @required TResult wifiSsidChanged(WifiSsidChanged value),
-    @required TResult wifiPassChanged(WifiPassChanged value),
-    @required TResult initialized(Initialized value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(ConnectToWifi value) connectToWiFi,
+    required TResult Function(ScanForWiFiNetworks value) scanForWiFiNetworks,
+    required TResult Function(WifiSsidChanged value) wifiSsidChanged,
+    required TResult Function(WifiPassChanged value) wifiPassChanged,
+    required TResult Function(Initialized value) initialized,
   }) {
-    assert(connectToWiFi != null);
-    assert(scanForWiFiNetworks != null);
-    assert(wifiSsidChanged != null);
-    assert(wifiPassChanged != null);
-    assert(initialized != null);
     return wifiPassChanged(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult connectToWiFi(ConnectToWifi value),
-    TResult scanForWiFiNetworks(ScanForWiFiNetworks value),
-    TResult wifiSsidChanged(WifiSsidChanged value),
-    TResult wifiPassChanged(WifiPassChanged value),
-    TResult initialized(Initialized value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ConnectToWifi value)? connectToWiFi,
+    TResult Function(ScanForWiFiNetworks value)? scanForWiFiNetworks,
+    TResult Function(WifiSsidChanged value)? wifiSsidChanged,
+    TResult Function(WifiPassChanged value)? wifiPassChanged,
+    TResult Function(Initialized value)? initialized,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (wifiPassChanged != null) {
       return wifiPassChanged(this);
     }
@@ -587,9 +551,10 @@ class _$WifiPassChanged implements WifiPassChanged {
 abstract class WifiPassChanged implements ManageWifiEvent {
   factory WifiPassChanged(String wifiPassStr) = _$WifiPassChanged;
 
-  String get wifiPassStr;
+  String get wifiPassStr => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $WifiPassChangedCopyWith<WifiPassChanged> get copyWith;
+  $WifiPassChangedCopyWith<WifiPassChanged> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -612,6 +577,7 @@ class _$InitializedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Initialized implements Initialized {
   _$Initialized();
 
@@ -630,32 +596,26 @@ class _$Initialized implements Initialized {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult connectToWiFi(),
-    @required TResult scanForWiFiNetworks(),
-    @required TResult wifiSsidChanged(String wifiSsidStr),
-    @required TResult wifiPassChanged(String wifiPassStr),
-    @required TResult initialized(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() connectToWiFi,
+    required TResult Function() scanForWiFiNetworks,
+    required TResult Function(String wifiSsidStr) wifiSsidChanged,
+    required TResult Function(String wifiPassStr) wifiPassChanged,
+    required TResult Function() initialized,
   }) {
-    assert(connectToWiFi != null);
-    assert(scanForWiFiNetworks != null);
-    assert(wifiSsidChanged != null);
-    assert(wifiPassChanged != null);
-    assert(initialized != null);
     return initialized();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult connectToWiFi(),
-    TResult scanForWiFiNetworks(),
-    TResult wifiSsidChanged(String wifiSsidStr),
-    TResult wifiPassChanged(String wifiPassStr),
-    TResult initialized(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? connectToWiFi,
+    TResult Function()? scanForWiFiNetworks,
+    TResult Function(String wifiSsidStr)? wifiSsidChanged,
+    TResult Function(String wifiPassStr)? wifiPassChanged,
+    TResult Function()? initialized,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initialized != null) {
       return initialized();
     }
@@ -664,32 +624,26 @@ class _$Initialized implements Initialized {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult connectToWiFi(ConnectToWifi value),
-    @required TResult scanForWiFiNetworks(ScanForWiFiNetworks value),
-    @required TResult wifiSsidChanged(WifiSsidChanged value),
-    @required TResult wifiPassChanged(WifiPassChanged value),
-    @required TResult initialized(Initialized value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(ConnectToWifi value) connectToWiFi,
+    required TResult Function(ScanForWiFiNetworks value) scanForWiFiNetworks,
+    required TResult Function(WifiSsidChanged value) wifiSsidChanged,
+    required TResult Function(WifiPassChanged value) wifiPassChanged,
+    required TResult Function(Initialized value) initialized,
   }) {
-    assert(connectToWiFi != null);
-    assert(scanForWiFiNetworks != null);
-    assert(wifiSsidChanged != null);
-    assert(wifiPassChanged != null);
-    assert(initialized != null);
     return initialized(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult connectToWiFi(ConnectToWifi value),
-    TResult scanForWiFiNetworks(ScanForWiFiNetworks value),
-    TResult wifiSsidChanged(WifiSsidChanged value),
-    TResult wifiPassChanged(WifiPassChanged value),
-    TResult initialized(Initialized value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ConnectToWifi value)? connectToWiFi,
+    TResult Function(ScanForWiFiNetworks value)? scanForWiFiNetworks,
+    TResult Function(WifiSsidChanged value)? wifiSsidChanged,
+    TResult Function(WifiPassChanged value)? wifiPassChanged,
+    TResult Function(Initialized value)? initialized,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initialized != null) {
       return initialized(this);
     }
@@ -705,81 +659,78 @@ abstract class Initialized implements ManageWifiEvent {
 class _$ManageWifiStateTearOff {
   const _$ManageWifiStateTearOff();
 
-// ignore: unused_element
   Initial initial() {
     return Initial();
   }
 
-// ignore: unused_element
   Loading loading() {
     return Loading();
   }
 
-// ignore: unused_element
   WifiIsDisabled wifiIsDisabled() {
     return WifiIsDisabled();
   }
 
-// ignore: unused_element
   WifiIsEnabled wifiIsEnabled() {
     return WifiIsEnabled();
   }
 
-// ignore: unused_element
   Loaded loaded() {
     return Loaded();
   }
 
-// ignore: unused_element
   Error error() {
     return Error();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ManageWifiState = _$ManageWifiStateTearOff();
 
 /// @nodoc
 mixin _$ManageWifiState {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loading(),
-    @required TResult wifiIsDisabled(),
-    @required TResult wifiIsEnabled(),
-    @required TResult loaded(),
-    @required TResult error(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() wifiIsDisabled,
+    required TResult Function() wifiIsEnabled,
+    required TResult Function() loaded,
+    required TResult Function() error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loading(),
-    TResult wifiIsDisabled(),
-    TResult wifiIsEnabled(),
-    TResult loaded(),
-    TResult error(),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? wifiIsDisabled,
+    TResult Function()? wifiIsEnabled,
+    TResult Function()? loaded,
+    TResult Function()? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult loading(Loading value),
-    @required TResult wifiIsDisabled(WifiIsDisabled value),
-    @required TResult wifiIsEnabled(WifiIsEnabled value),
-    @required TResult loaded(Loaded value),
-    @required TResult error(Error value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(WifiIsDisabled value) wifiIsDisabled,
+    required TResult Function(WifiIsEnabled value) wifiIsEnabled,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(Error value) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult loading(Loading value),
-    TResult wifiIsDisabled(WifiIsDisabled value),
-    TResult wifiIsEnabled(WifiIsEnabled value),
-    TResult loaded(Loaded value),
-    TResult error(Error value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(WifiIsDisabled value)? wifiIsDisabled,
+    TResult Function(WifiIsEnabled value)? wifiIsEnabled,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -816,6 +767,7 @@ class _$InitialCopyWithImpl<$Res> extends _$ManageWifiStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Initial implements Initial {
   _$Initial();
 
@@ -834,35 +786,28 @@ class _$Initial implements Initial {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loading(),
-    @required TResult wifiIsDisabled(),
-    @required TResult wifiIsEnabled(),
-    @required TResult loaded(),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() wifiIsDisabled,
+    required TResult Function() wifiIsEnabled,
+    required TResult Function() loaded,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(wifiIsDisabled != null);
-    assert(wifiIsEnabled != null);
-    assert(loaded != null);
-    assert(error != null);
     return initial();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loading(),
-    TResult wifiIsDisabled(),
-    TResult wifiIsEnabled(),
-    TResult loaded(),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? wifiIsDisabled,
+    TResult Function()? wifiIsEnabled,
+    TResult Function()? loaded,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initial != null) {
       return initial();
     }
@@ -871,35 +816,28 @@ class _$Initial implements Initial {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult loading(Loading value),
-    @required TResult wifiIsDisabled(WifiIsDisabled value),
-    @required TResult wifiIsEnabled(WifiIsEnabled value),
-    @required TResult loaded(Loaded value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(WifiIsDisabled value) wifiIsDisabled,
+    required TResult Function(WifiIsEnabled value) wifiIsEnabled,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(wifiIsDisabled != null);
-    assert(wifiIsEnabled != null);
-    assert(loaded != null);
-    assert(error != null);
     return initial(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult loading(Loading value),
-    TResult wifiIsDisabled(WifiIsDisabled value),
-    TResult wifiIsEnabled(WifiIsEnabled value),
-    TResult loaded(Loaded value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(WifiIsDisabled value)? wifiIsDisabled,
+    TResult Function(WifiIsEnabled value)? wifiIsEnabled,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initial != null) {
       return initial(this);
     }
@@ -928,6 +866,7 @@ class _$LoadingCopyWithImpl<$Res> extends _$ManageWifiStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Loading implements Loading {
   _$Loading();
 
@@ -946,35 +885,28 @@ class _$Loading implements Loading {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loading(),
-    @required TResult wifiIsDisabled(),
-    @required TResult wifiIsEnabled(),
-    @required TResult loaded(),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() wifiIsDisabled,
+    required TResult Function() wifiIsEnabled,
+    required TResult Function() loaded,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(wifiIsDisabled != null);
-    assert(wifiIsEnabled != null);
-    assert(loaded != null);
-    assert(error != null);
     return loading();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loading(),
-    TResult wifiIsDisabled(),
-    TResult wifiIsEnabled(),
-    TResult loaded(),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? wifiIsDisabled,
+    TResult Function()? wifiIsEnabled,
+    TResult Function()? loaded,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loading != null) {
       return loading();
     }
@@ -983,35 +915,28 @@ class _$Loading implements Loading {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult loading(Loading value),
-    @required TResult wifiIsDisabled(WifiIsDisabled value),
-    @required TResult wifiIsEnabled(WifiIsEnabled value),
-    @required TResult loaded(Loaded value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(WifiIsDisabled value) wifiIsDisabled,
+    required TResult Function(WifiIsEnabled value) wifiIsEnabled,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(wifiIsDisabled != null);
-    assert(wifiIsEnabled != null);
-    assert(loaded != null);
-    assert(error != null);
     return loading(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult loading(Loading value),
-    TResult wifiIsDisabled(WifiIsDisabled value),
-    TResult wifiIsEnabled(WifiIsEnabled value),
-    TResult loaded(Loaded value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(WifiIsDisabled value)? wifiIsDisabled,
+    TResult Function(WifiIsEnabled value)? wifiIsEnabled,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loading != null) {
       return loading(this);
     }
@@ -1043,6 +968,7 @@ class _$WifiIsDisabledCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$WifiIsDisabled implements WifiIsDisabled {
   _$WifiIsDisabled();
 
@@ -1061,35 +987,28 @@ class _$WifiIsDisabled implements WifiIsDisabled {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loading(),
-    @required TResult wifiIsDisabled(),
-    @required TResult wifiIsEnabled(),
-    @required TResult loaded(),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() wifiIsDisabled,
+    required TResult Function() wifiIsEnabled,
+    required TResult Function() loaded,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(wifiIsDisabled != null);
-    assert(wifiIsEnabled != null);
-    assert(loaded != null);
-    assert(error != null);
     return wifiIsDisabled();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loading(),
-    TResult wifiIsDisabled(),
-    TResult wifiIsEnabled(),
-    TResult loaded(),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? wifiIsDisabled,
+    TResult Function()? wifiIsEnabled,
+    TResult Function()? loaded,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (wifiIsDisabled != null) {
       return wifiIsDisabled();
     }
@@ -1098,35 +1017,28 @@ class _$WifiIsDisabled implements WifiIsDisabled {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult loading(Loading value),
-    @required TResult wifiIsDisabled(WifiIsDisabled value),
-    @required TResult wifiIsEnabled(WifiIsEnabled value),
-    @required TResult loaded(Loaded value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(WifiIsDisabled value) wifiIsDisabled,
+    required TResult Function(WifiIsEnabled value) wifiIsEnabled,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(wifiIsDisabled != null);
-    assert(wifiIsEnabled != null);
-    assert(loaded != null);
-    assert(error != null);
     return wifiIsDisabled(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult loading(Loading value),
-    TResult wifiIsDisabled(WifiIsDisabled value),
-    TResult wifiIsEnabled(WifiIsEnabled value),
-    TResult loaded(Loaded value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(WifiIsDisabled value)? wifiIsDisabled,
+    TResult Function(WifiIsEnabled value)? wifiIsEnabled,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (wifiIsDisabled != null) {
       return wifiIsDisabled(this);
     }
@@ -1158,6 +1070,7 @@ class _$WifiIsEnabledCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$WifiIsEnabled implements WifiIsEnabled {
   _$WifiIsEnabled();
 
@@ -1176,35 +1089,28 @@ class _$WifiIsEnabled implements WifiIsEnabled {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loading(),
-    @required TResult wifiIsDisabled(),
-    @required TResult wifiIsEnabled(),
-    @required TResult loaded(),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() wifiIsDisabled,
+    required TResult Function() wifiIsEnabled,
+    required TResult Function() loaded,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(wifiIsDisabled != null);
-    assert(wifiIsEnabled != null);
-    assert(loaded != null);
-    assert(error != null);
     return wifiIsEnabled();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loading(),
-    TResult wifiIsDisabled(),
-    TResult wifiIsEnabled(),
-    TResult loaded(),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? wifiIsDisabled,
+    TResult Function()? wifiIsEnabled,
+    TResult Function()? loaded,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (wifiIsEnabled != null) {
       return wifiIsEnabled();
     }
@@ -1213,35 +1119,28 @@ class _$WifiIsEnabled implements WifiIsEnabled {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult loading(Loading value),
-    @required TResult wifiIsDisabled(WifiIsDisabled value),
-    @required TResult wifiIsEnabled(WifiIsEnabled value),
-    @required TResult loaded(Loaded value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(WifiIsDisabled value) wifiIsDisabled,
+    required TResult Function(WifiIsEnabled value) wifiIsEnabled,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(wifiIsDisabled != null);
-    assert(wifiIsEnabled != null);
-    assert(loaded != null);
-    assert(error != null);
     return wifiIsEnabled(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult loading(Loading value),
-    TResult wifiIsDisabled(WifiIsDisabled value),
-    TResult wifiIsEnabled(WifiIsEnabled value),
-    TResult loaded(Loaded value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(WifiIsDisabled value)? wifiIsDisabled,
+    TResult Function(WifiIsEnabled value)? wifiIsEnabled,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (wifiIsEnabled != null) {
       return wifiIsEnabled(this);
     }
@@ -1270,6 +1169,7 @@ class _$LoadedCopyWithImpl<$Res> extends _$ManageWifiStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Loaded implements Loaded {
   _$Loaded();
 
@@ -1288,35 +1188,28 @@ class _$Loaded implements Loaded {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loading(),
-    @required TResult wifiIsDisabled(),
-    @required TResult wifiIsEnabled(),
-    @required TResult loaded(),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() wifiIsDisabled,
+    required TResult Function() wifiIsEnabled,
+    required TResult Function() loaded,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(wifiIsDisabled != null);
-    assert(wifiIsEnabled != null);
-    assert(loaded != null);
-    assert(error != null);
     return loaded();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loading(),
-    TResult wifiIsDisabled(),
-    TResult wifiIsEnabled(),
-    TResult loaded(),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? wifiIsDisabled,
+    TResult Function()? wifiIsEnabled,
+    TResult Function()? loaded,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loaded != null) {
       return loaded();
     }
@@ -1325,35 +1218,28 @@ class _$Loaded implements Loaded {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult loading(Loading value),
-    @required TResult wifiIsDisabled(WifiIsDisabled value),
-    @required TResult wifiIsEnabled(WifiIsEnabled value),
-    @required TResult loaded(Loaded value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(WifiIsDisabled value) wifiIsDisabled,
+    required TResult Function(WifiIsEnabled value) wifiIsEnabled,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(wifiIsDisabled != null);
-    assert(wifiIsEnabled != null);
-    assert(loaded != null);
-    assert(error != null);
     return loaded(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult loading(Loading value),
-    TResult wifiIsDisabled(WifiIsDisabled value),
-    TResult wifiIsEnabled(WifiIsEnabled value),
-    TResult loaded(Loaded value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(WifiIsDisabled value)? wifiIsDisabled,
+    TResult Function(WifiIsEnabled value)? wifiIsEnabled,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loaded != null) {
       return loaded(this);
     }
@@ -1382,6 +1268,7 @@ class _$ErrorCopyWithImpl<$Res> extends _$ManageWifiStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Error implements Error {
   _$Error();
 
@@ -1400,35 +1287,28 @@ class _$Error implements Error {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loading(),
-    @required TResult wifiIsDisabled(),
-    @required TResult wifiIsEnabled(),
-    @required TResult loaded(),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() wifiIsDisabled,
+    required TResult Function() wifiIsEnabled,
+    required TResult Function() loaded,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(wifiIsDisabled != null);
-    assert(wifiIsEnabled != null);
-    assert(loaded != null);
-    assert(error != null);
     return error();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loading(),
-    TResult wifiIsDisabled(),
-    TResult wifiIsEnabled(),
-    TResult loaded(),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? wifiIsDisabled,
+    TResult Function()? wifiIsEnabled,
+    TResult Function()? loaded,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error();
     }
@@ -1437,35 +1317,28 @@ class _$Error implements Error {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult loading(Loading value),
-    @required TResult wifiIsDisabled(WifiIsDisabled value),
-    @required TResult wifiIsEnabled(WifiIsEnabled value),
-    @required TResult loaded(Loaded value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(WifiIsDisabled value) wifiIsDisabled,
+    required TResult Function(WifiIsEnabled value) wifiIsEnabled,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(wifiIsDisabled != null);
-    assert(wifiIsEnabled != null);
-    assert(loaded != null);
-    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult loading(Loading value),
-    TResult wifiIsDisabled(WifiIsDisabled value),
-    TResult wifiIsEnabled(WifiIsEnabled value),
-    TResult loaded(Loaded value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(WifiIsDisabled value)? wifiIsDisabled,
+    TResult Function(WifiIsEnabled value)? wifiIsEnabled,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this);
     }

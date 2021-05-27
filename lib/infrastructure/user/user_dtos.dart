@@ -11,20 +11,20 @@ abstract class UserDtos implements _$UserDtos {
   const UserDtos._();
 
   const factory UserDtos({
-    @JsonKey(ignore: true) String id,
-    @required String email,
-    @required String name,
-    String firstName,
-    String lastName,
+    @JsonKey(ignore: true) String? id,
+    required String email,
+    required String name,
+    String? firstName,
+    String? lastName,
   }) = _UserDtos;
 
   factory UserDtos.fromDomain(UserEntity userEntity) {
     return UserDtos(
-      id: userEntity.id.getOrCrash(),
-      email: userEntity.email.getOrCrash(),
-      name: userEntity.name.getOrCrash(),
-      firstName: userEntity.firstName.getOrCrash(),
-      lastName: userEntity.lastName.getOrCrash(),
+      id: userEntity.id!.getOrCrash(),
+      email: userEntity.email!.getOrCrash(),
+      name: userEntity.name!.getOrCrash(),
+      firstName: userEntity.firstName!.getOrCrash(),
+      lastName: userEntity.lastName!.getOrCrash(),
     );
   }
 
@@ -33,8 +33,8 @@ abstract class UserDtos implements _$UserDtos {
       id: UserUniqueId.fromUniqueString(id),
       email: UserEmail(email),
       name: UserName(name),
-      firstName: UserFirstName(firstName),
-      lastName: UserLastName(lastName),
+      firstName: UserFirstName(firstName!),
+      lastName: UserLastName(lastName!),
     );
   }
 
@@ -42,7 +42,8 @@ abstract class UserDtos implements _$UserDtos {
       _$UserDtosFromJson(json);
 
   factory UserDtos.fromFirestore(DocumentSnapshot doc) {
-    return UserDtos.fromJson(doc.data()).copyWith(id: doc.id);
+    return UserDtos.fromJson(doc.data()! as Map<String, dynamic>)
+        .copyWith(id: doc.id);
   }
 }
 

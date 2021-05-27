@@ -12,18 +12,18 @@ abstract class CBJCompEntity implements _$CBJCompEntity {
   const CBJCompEntity._();
 
   const factory CBJCompEntity({
-    @required CBJCompUniqueId id,
-    @required CBJCompRoomId roomId,
-    CBJCompDevices cBJCompDevices,
-    CBJCompDefaultName name,
-    CBJCompMacAddr macAddr,
-    CBJCompOs compOs,
-    CBJCompModel compModel,
-    CBJCompType compType,
+    required CBJCompUniqueId id,
+    required CBJCompRoomId roomId,
+    CBJCompDevices? cBJCompDevices,
+    CBJCompDefaultName? name,
+    CBJCompMacAddr? macAddr,
+    CBJCompOs? compOs,
+    CBJCompModel? compModel,
+    CBJCompType? compType,
 
     /// The comp uuid that it came with out of the factory
-    CBJCompUuid compUuid,
-    CBJCompLastKnownIp lastKnownIp,
+    CBJCompUuid? compUuid,
+    CBJCompLastKnownIp? lastKnownIp,
   }) = _CBJCompEntity;
 
   factory CBJCompEntity.empty() => CBJCompEntity(

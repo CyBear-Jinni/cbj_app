@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'create_home_bloc.dart';
 
@@ -9,16 +9,17 @@ part of 'create_home_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$CreateHomeEventTearOff {
   const _$CreateHomeEventTearOff();
 
-// ignore: unused_element
   Initialized initialized() {
     return const Initialized();
   }
 
-// ignore: unused_element
   _CreateHome createHome(String homeName, String devicesEmail) {
     return _CreateHome(
       homeName,
@@ -28,33 +29,36 @@ class _$CreateHomeEventTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $CreateHomeEvent = _$CreateHomeEventTearOff();
 
 /// @nodoc
 mixin _$CreateHomeEvent {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialized(),
-    @required TResult createHome(String homeName, String devicesEmail),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(String homeName, String devicesEmail) createHome,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialized(),
-    TResult createHome(String homeName, String devicesEmail),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(String homeName, String devicesEmail)? createHome,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialized(Initialized value),
-    @required TResult createHome(_CreateHome value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(_CreateHome value) createHome,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialized(Initialized value),
-    TResult createHome(_CreateHome value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(_CreateHome value)? createHome,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -94,6 +98,7 @@ class _$InitializedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Initialized implements Initialized {
   const _$Initialized();
 
@@ -112,23 +117,20 @@ class _$Initialized implements Initialized {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialized(),
-    @required TResult createHome(String homeName, String devicesEmail),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(String homeName, String devicesEmail) createHome,
   }) {
-    assert(initialized != null);
-    assert(createHome != null);
     return initialized();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialized(),
-    TResult createHome(String homeName, String devicesEmail),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(String homeName, String devicesEmail)? createHome,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initialized != null) {
       return initialized();
     }
@@ -137,23 +139,20 @@ class _$Initialized implements Initialized {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialized(Initialized value),
-    @required TResult createHome(_CreateHome value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(_CreateHome value) createHome,
   }) {
-    assert(initialized != null);
-    assert(createHome != null);
     return initialized(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialized(Initialized value),
-    TResult createHome(_CreateHome value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(_CreateHome value)? createHome,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initialized != null) {
       return initialized(this);
     }
@@ -186,21 +185,26 @@ class __$CreateHomeCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object homeName = freezed,
-    Object devicesEmail = freezed,
+    Object? homeName = freezed,
+    Object? devicesEmail = freezed,
   }) {
     return _then(_CreateHome(
-      homeName == freezed ? _value.homeName : homeName as String,
-      devicesEmail == freezed ? _value.devicesEmail : devicesEmail as String,
+      homeName == freezed
+          ? _value.homeName
+          : homeName // ignore: cast_nullable_to_non_nullable
+              as String,
+      devicesEmail == freezed
+          ? _value.devicesEmail
+          : devicesEmail // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_CreateHome implements _CreateHome {
-  const _$_CreateHome(this.homeName, this.devicesEmail)
-      : assert(homeName != null),
-        assert(devicesEmail != null);
+  const _$_CreateHome(this.homeName, this.devicesEmail);
 
   @override
   final String homeName;
@@ -237,23 +241,20 @@ class _$_CreateHome implements _CreateHome {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialized(),
-    @required TResult createHome(String homeName, String devicesEmail),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(String homeName, String devicesEmail) createHome,
   }) {
-    assert(initialized != null);
-    assert(createHome != null);
     return createHome(homeName, devicesEmail);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialized(),
-    TResult createHome(String homeName, String devicesEmail),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(String homeName, String devicesEmail)? createHome,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (createHome != null) {
       return createHome(homeName, devicesEmail);
     }
@@ -262,23 +263,20 @@ class _$_CreateHome implements _CreateHome {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialized(Initialized value),
-    @required TResult createHome(_CreateHome value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(_CreateHome value) createHome,
   }) {
-    assert(initialized != null);
-    assert(createHome != null);
     return createHome(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialized(Initialized value),
-    TResult createHome(_CreateHome value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(_CreateHome value)? createHome,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (createHome != null) {
       return createHome(this);
     }
@@ -290,79 +288,80 @@ abstract class _CreateHome implements CreateHomeEvent {
   const factory _CreateHome(String homeName, String devicesEmail) =
       _$_CreateHome;
 
-  String get homeName;
-  String get devicesEmail;
+  String get homeName => throw _privateConstructorUsedError;
+  String get devicesEmail => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$CreateHomeCopyWith<_CreateHome> get copyWith;
+  _$CreateHomeCopyWith<_CreateHome> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$CreateHomeStateTearOff {
   const _$CreateHomeStateTearOff();
 
-// ignore: unused_element
   _CreateHomeState call(
-      {@required
-          Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption}) {
+      {required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption}) {
     return _CreateHomeState(
       authFailureOrSuccessOption: authFailureOrSuccessOption,
     );
   }
 
-// ignore: unused_element
   Loading loading() {
     return const Loading();
   }
 
-// ignore: unused_element
   Loaded loaded() {
     return const Loaded();
   }
 
-// ignore: unused_element
   Error error() {
     return const Error();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $CreateHomeState = _$CreateHomeStateTearOff();
 
 /// @nodoc
 mixin _$CreateHomeState {
   @optionalTypeArgs
-  TResult when<TResult extends Object>(
-    TResult $default(
-        Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
-    @required TResult loading(),
-    @required TResult loaded(),
-    @required TResult error(),
-  });
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption)
+        $default, {
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function() error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>(
-    TResult $default(
-        Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
-    TResult loading(),
-    TResult loaded(),
-    TResult error(),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption)?
+        $default, {
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function()? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>(
-    TResult $default(_CreateHomeState value), {
-    @required TResult loading(Loading value),
-    @required TResult loaded(Loaded value),
-    @required TResult error(Error value),
-  });
+  TResult map<TResult extends Object?>(
+    TResult Function(_CreateHomeState value) $default, {
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(Error value) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>(
-    TResult $default(_CreateHomeState value), {
-    TResult loading(Loading value),
-    TResult loaded(Loaded value),
-    TResult error(Error value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_CreateHomeState value)? $default, {
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -403,20 +402,21 @@ class __$CreateHomeStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object authFailureOrSuccessOption = freezed,
+    Object? authFailureOrSuccessOption = freezed,
   }) {
     return _then(_CreateHomeState(
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
           ? _value.authFailureOrSuccessOption
-          : authFailureOrSuccessOption as Option<Either<AuthFailure, Unit>>,
+          : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<AuthFailure, Unit>>,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_CreateHomeState implements _CreateHomeState {
-  const _$_CreateHomeState({@required this.authFailureOrSuccessOption})
-      : assert(authFailureOrSuccessOption != null);
+  const _$_CreateHomeState({required this.authFailureOrSuccessOption});
 
   @override
   final Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption;
@@ -449,31 +449,28 @@ class _$_CreateHomeState implements _CreateHomeState {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>(
-    TResult $default(
-        Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
-    @required TResult loading(),
-    @required TResult loaded(),
-    @required TResult error(),
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption)
+        $default, {
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function() error,
   }) {
-    assert($default != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(error != null);
     return $default(authFailureOrSuccessOption);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>(
-    TResult $default(
-        Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
-    TResult loading(),
-    TResult loaded(),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption)?
+        $default, {
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default(authFailureOrSuccessOption);
     }
@@ -482,29 +479,24 @@ class _$_CreateHomeState implements _CreateHomeState {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>(
-    TResult $default(_CreateHomeState value), {
-    @required TResult loading(Loading value),
-    @required TResult loaded(Loaded value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>(
+    TResult Function(_CreateHomeState value) $default, {
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(Error value) error,
   }) {
-    assert($default != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(error != null);
     return $default(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>(
-    TResult $default(_CreateHomeState value), {
-    TResult loading(Loading value),
-    TResult loaded(Loaded value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_CreateHomeState value)? $default, {
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default(this);
     }
@@ -514,13 +506,14 @@ class _$_CreateHomeState implements _CreateHomeState {
 
 abstract class _CreateHomeState implements CreateHomeState {
   const factory _CreateHomeState(
-          {@required
-              Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption}) =
-      _$_CreateHomeState;
+      {required Option<Either<AuthFailure, Unit>>
+          authFailureOrSuccessOption}) = _$_CreateHomeState;
 
-  Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption;
+  Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$CreateHomeStateCopyWith<_CreateHomeState> get copyWith;
+  _$CreateHomeStateCopyWith<_CreateHomeState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -540,6 +533,7 @@ class _$LoadingCopyWithImpl<$Res> extends _$CreateHomeStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Loading implements Loading {
   const _$Loading();
 
@@ -558,31 +552,28 @@ class _$Loading implements Loading {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>(
-    TResult $default(
-        Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
-    @required TResult loading(),
-    @required TResult loaded(),
-    @required TResult error(),
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption)
+        $default, {
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function() error,
   }) {
-    assert($default != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(error != null);
     return loading();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>(
-    TResult $default(
-        Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
-    TResult loading(),
-    TResult loaded(),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption)?
+        $default, {
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loading != null) {
       return loading();
     }
@@ -591,29 +582,24 @@ class _$Loading implements Loading {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>(
-    TResult $default(_CreateHomeState value), {
-    @required TResult loading(Loading value),
-    @required TResult loaded(Loaded value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>(
+    TResult Function(_CreateHomeState value) $default, {
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(Error value) error,
   }) {
-    assert($default != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(error != null);
     return loading(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>(
-    TResult $default(_CreateHomeState value), {
-    TResult loading(Loading value),
-    TResult loaded(Loaded value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_CreateHomeState value)? $default, {
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loading != null) {
       return loading(this);
     }
@@ -642,6 +628,7 @@ class _$LoadedCopyWithImpl<$Res> extends _$CreateHomeStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Loaded implements Loaded {
   const _$Loaded();
 
@@ -660,31 +647,28 @@ class _$Loaded implements Loaded {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>(
-    TResult $default(
-        Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
-    @required TResult loading(),
-    @required TResult loaded(),
-    @required TResult error(),
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption)
+        $default, {
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function() error,
   }) {
-    assert($default != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(error != null);
     return loaded();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>(
-    TResult $default(
-        Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
-    TResult loading(),
-    TResult loaded(),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption)?
+        $default, {
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loaded != null) {
       return loaded();
     }
@@ -693,29 +677,24 @@ class _$Loaded implements Loaded {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>(
-    TResult $default(_CreateHomeState value), {
-    @required TResult loading(Loading value),
-    @required TResult loaded(Loaded value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>(
+    TResult Function(_CreateHomeState value) $default, {
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(Error value) error,
   }) {
-    assert($default != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(error != null);
     return loaded(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>(
-    TResult $default(_CreateHomeState value), {
-    TResult loading(Loading value),
-    TResult loaded(Loaded value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_CreateHomeState value)? $default, {
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loaded != null) {
       return loaded(this);
     }
@@ -744,6 +723,7 @@ class _$ErrorCopyWithImpl<$Res> extends _$CreateHomeStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Error implements Error {
   const _$Error();
 
@@ -762,31 +742,28 @@ class _$Error implements Error {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>(
-    TResult $default(
-        Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
-    @required TResult loading(),
-    @required TResult loaded(),
-    @required TResult error(),
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption)
+        $default, {
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function() error,
   }) {
-    assert($default != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(error != null);
     return error();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>(
-    TResult $default(
-        Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption), {
-    TResult loading(),
-    TResult loaded(),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption)?
+        $default, {
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error();
     }
@@ -795,29 +772,24 @@ class _$Error implements Error {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>(
-    TResult $default(_CreateHomeState value), {
-    @required TResult loading(Loading value),
-    @required TResult loaded(Loaded value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>(
+    TResult Function(_CreateHomeState value) $default, {
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(Error value) error,
   }) {
-    assert($default != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>(
-    TResult $default(_CreateHomeState value), {
-    TResult loading(Loading value),
-    TResult loaded(Loaded value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_CreateHomeState value)? $default, {
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this);
     }

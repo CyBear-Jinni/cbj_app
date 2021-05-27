@@ -5,11 +5,11 @@ part 'create_home_failure.freezed.dart';
 @freezed
 abstract class CreateHomeFailure<T> {
   const factory CreateHomeFailure.empty({
-    @required T failedValue,
+    required T failedValue,
   }) = _Empty;
 
   const factory CreateHomeFailure.unexpected({
-    @required T failedValue,
+    required T failedValue,
   }) = _Unexpected;
 
   const factory CreateHomeFailure.devicesUserEmailIsInvalid() =
@@ -19,6 +19,6 @@ abstract class CreateHomeFailure<T> {
       _InsufficientPermission;
 
   const factory CreateHomeFailure.unableToUpdate({
-    @required T failedValue,
+    required T failedValue,
   }) = _UnableToUpdate;
 }

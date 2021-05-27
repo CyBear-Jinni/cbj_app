@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'cbj_comp_bloc.dart';
 
@@ -9,28 +9,27 @@ part of 'cbj_comp_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$CBJCompEventTearOff {
   const _$CBJCompEventTearOff();
 
-// ignore: unused_element
   Initialized initialized() {
     return const Initialized();
   }
 
-// ignore: unused_element
   _WatchAllStarted watchAllStarted() {
     return const _WatchAllStarted();
   }
 
-// ignore: unused_element
   _ChangeState changeAction(CBJCompEntity cBJCompEntity) {
     return _ChangeState(
       cBJCompEntity,
     );
   }
 
-// ignore: unused_element
   _CompDevicesReceived compDevicesReceived(
       Either<CBJCompFailure, String> failureOrCBJCompList) {
     return _CompDevicesReceived(
@@ -38,7 +37,6 @@ class _$CBJCompEventTearOff {
     );
   }
 
-// ignore: unused_element
   _CreateDevice create(CBJCompEntity cBJCompEntity) {
     return _CreateDevice(
       cBJCompEntity,
@@ -47,48 +45,51 @@ class _$CBJCompEventTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $CBJCompEvent = _$CBJCompEventTearOff();
 
 /// @nodoc
 mixin _$CBJCompEvent {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialized(),
-    @required TResult watchAllStarted(),
-    @required TResult changeAction(CBJCompEntity cBJCompEntity),
-    @required
-        TResult compDevicesReceived(
-            Either<CBJCompFailure, String> failureOrCBJCompList),
-    @required TResult create(CBJCompEntity cBJCompEntity),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function() watchAllStarted,
+    required TResult Function(CBJCompEntity cBJCompEntity) changeAction,
+    required TResult Function(
+            Either<CBJCompFailure, String> failureOrCBJCompList)
+        compDevicesReceived,
+    required TResult Function(CBJCompEntity cBJCompEntity) create,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialized(),
-    TResult watchAllStarted(),
-    TResult changeAction(CBJCompEntity cBJCompEntity),
-    TResult compDevicesReceived(
-        Either<CBJCompFailure, String> failureOrCBJCompList),
-    TResult create(CBJCompEntity cBJCompEntity),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function()? watchAllStarted,
+    TResult Function(CBJCompEntity cBJCompEntity)? changeAction,
+    TResult Function(Either<CBJCompFailure, String> failureOrCBJCompList)?
+        compDevicesReceived,
+    TResult Function(CBJCompEntity cBJCompEntity)? create,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialized(Initialized value),
-    @required TResult watchAllStarted(_WatchAllStarted value),
-    @required TResult changeAction(_ChangeState value),
-    @required TResult compDevicesReceived(_CompDevicesReceived value),
-    @required TResult create(_CreateDevice value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(_WatchAllStarted value) watchAllStarted,
+    required TResult Function(_ChangeState value) changeAction,
+    required TResult Function(_CompDevicesReceived value) compDevicesReceived,
+    required TResult Function(_CreateDevice value) create,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialized(Initialized value),
-    TResult watchAllStarted(_WatchAllStarted value),
-    TResult changeAction(_ChangeState value),
-    TResult compDevicesReceived(_CompDevicesReceived value),
-    TResult create(_CreateDevice value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(_WatchAllStarted value)? watchAllStarted,
+    TResult Function(_ChangeState value)? changeAction,
+    TResult Function(_CompDevicesReceived value)? compDevicesReceived,
+    TResult Function(_CreateDevice value)? create,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -126,6 +127,7 @@ class _$InitializedCopyWithImpl<$Res> extends _$CBJCompEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Initialized implements Initialized {
   const _$Initialized();
 
@@ -144,35 +146,29 @@ class _$Initialized implements Initialized {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialized(),
-    @required TResult watchAllStarted(),
-    @required TResult changeAction(CBJCompEntity cBJCompEntity),
-    @required
-        TResult compDevicesReceived(
-            Either<CBJCompFailure, String> failureOrCBJCompList),
-    @required TResult create(CBJCompEntity cBJCompEntity),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function() watchAllStarted,
+    required TResult Function(CBJCompEntity cBJCompEntity) changeAction,
+    required TResult Function(
+            Either<CBJCompFailure, String> failureOrCBJCompList)
+        compDevicesReceived,
+    required TResult Function(CBJCompEntity cBJCompEntity) create,
   }) {
-    assert(initialized != null);
-    assert(watchAllStarted != null);
-    assert(changeAction != null);
-    assert(compDevicesReceived != null);
-    assert(create != null);
     return initialized();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialized(),
-    TResult watchAllStarted(),
-    TResult changeAction(CBJCompEntity cBJCompEntity),
-    TResult compDevicesReceived(
-        Either<CBJCompFailure, String> failureOrCBJCompList),
-    TResult create(CBJCompEntity cBJCompEntity),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function()? watchAllStarted,
+    TResult Function(CBJCompEntity cBJCompEntity)? changeAction,
+    TResult Function(Either<CBJCompFailure, String> failureOrCBJCompList)?
+        compDevicesReceived,
+    TResult Function(CBJCompEntity cBJCompEntity)? create,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initialized != null) {
       return initialized();
     }
@@ -181,32 +177,26 @@ class _$Initialized implements Initialized {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialized(Initialized value),
-    @required TResult watchAllStarted(_WatchAllStarted value),
-    @required TResult changeAction(_ChangeState value),
-    @required TResult compDevicesReceived(_CompDevicesReceived value),
-    @required TResult create(_CreateDevice value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(_WatchAllStarted value) watchAllStarted,
+    required TResult Function(_ChangeState value) changeAction,
+    required TResult Function(_CompDevicesReceived value) compDevicesReceived,
+    required TResult Function(_CreateDevice value) create,
   }) {
-    assert(initialized != null);
-    assert(watchAllStarted != null);
-    assert(changeAction != null);
-    assert(compDevicesReceived != null);
-    assert(create != null);
     return initialized(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialized(Initialized value),
-    TResult watchAllStarted(_WatchAllStarted value),
-    TResult changeAction(_ChangeState value),
-    TResult compDevicesReceived(_CompDevicesReceived value),
-    TResult create(_CreateDevice value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(_WatchAllStarted value)? watchAllStarted,
+    TResult Function(_ChangeState value)? changeAction,
+    TResult Function(_CompDevicesReceived value)? compDevicesReceived,
+    TResult Function(_CreateDevice value)? create,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initialized != null) {
       return initialized(this);
     }
@@ -238,6 +228,7 @@ class __$WatchAllStartedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_WatchAllStarted implements _WatchAllStarted {
   const _$_WatchAllStarted();
 
@@ -256,35 +247,29 @@ class _$_WatchAllStarted implements _WatchAllStarted {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialized(),
-    @required TResult watchAllStarted(),
-    @required TResult changeAction(CBJCompEntity cBJCompEntity),
-    @required
-        TResult compDevicesReceived(
-            Either<CBJCompFailure, String> failureOrCBJCompList),
-    @required TResult create(CBJCompEntity cBJCompEntity),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function() watchAllStarted,
+    required TResult Function(CBJCompEntity cBJCompEntity) changeAction,
+    required TResult Function(
+            Either<CBJCompFailure, String> failureOrCBJCompList)
+        compDevicesReceived,
+    required TResult Function(CBJCompEntity cBJCompEntity) create,
   }) {
-    assert(initialized != null);
-    assert(watchAllStarted != null);
-    assert(changeAction != null);
-    assert(compDevicesReceived != null);
-    assert(create != null);
     return watchAllStarted();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialized(),
-    TResult watchAllStarted(),
-    TResult changeAction(CBJCompEntity cBJCompEntity),
-    TResult compDevicesReceived(
-        Either<CBJCompFailure, String> failureOrCBJCompList),
-    TResult create(CBJCompEntity cBJCompEntity),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function()? watchAllStarted,
+    TResult Function(CBJCompEntity cBJCompEntity)? changeAction,
+    TResult Function(Either<CBJCompFailure, String> failureOrCBJCompList)?
+        compDevicesReceived,
+    TResult Function(CBJCompEntity cBJCompEntity)? create,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (watchAllStarted != null) {
       return watchAllStarted();
     }
@@ -293,32 +278,26 @@ class _$_WatchAllStarted implements _WatchAllStarted {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialized(Initialized value),
-    @required TResult watchAllStarted(_WatchAllStarted value),
-    @required TResult changeAction(_ChangeState value),
-    @required TResult compDevicesReceived(_CompDevicesReceived value),
-    @required TResult create(_CreateDevice value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(_WatchAllStarted value) watchAllStarted,
+    required TResult Function(_ChangeState value) changeAction,
+    required TResult Function(_CompDevicesReceived value) compDevicesReceived,
+    required TResult Function(_CreateDevice value) create,
   }) {
-    assert(initialized != null);
-    assert(watchAllStarted != null);
-    assert(changeAction != null);
-    assert(compDevicesReceived != null);
-    assert(create != null);
     return watchAllStarted(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialized(Initialized value),
-    TResult watchAllStarted(_WatchAllStarted value),
-    TResult changeAction(_ChangeState value),
-    TResult compDevicesReceived(_CompDevicesReceived value),
-    TResult create(_CreateDevice value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(_WatchAllStarted value)? watchAllStarted,
+    TResult Function(_ChangeState value)? changeAction,
+    TResult Function(_CompDevicesReceived value)? compDevicesReceived,
+    TResult Function(_CreateDevice value)? create,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (watchAllStarted != null) {
       return watchAllStarted(this);
     }
@@ -352,20 +331,18 @@ class __$ChangeStateCopyWithImpl<$Res> extends _$CBJCompEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object cBJCompEntity = freezed,
+    Object? cBJCompEntity = freezed,
   }) {
     return _then(_ChangeState(
       cBJCompEntity == freezed
           ? _value.cBJCompEntity
-          : cBJCompEntity as CBJCompEntity,
+          : cBJCompEntity // ignore: cast_nullable_to_non_nullable
+              as CBJCompEntity,
     ));
   }
 
   @override
   $CBJCompEntityCopyWith<$Res> get cBJCompEntity {
-    if (_value.cBJCompEntity == null) {
-      return null;
-    }
     return $CBJCompEntityCopyWith<$Res>(_value.cBJCompEntity, (value) {
       return _then(_value.copyWith(cBJCompEntity: value));
     });
@@ -373,8 +350,9 @@ class __$ChangeStateCopyWithImpl<$Res> extends _$CBJCompEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_ChangeState implements _ChangeState {
-  const _$_ChangeState(this.cBJCompEntity) : assert(cBJCompEntity != null);
+  const _$_ChangeState(this.cBJCompEntity);
 
   @override
   final CBJCompEntity cBJCompEntity;
@@ -404,35 +382,29 @@ class _$_ChangeState implements _ChangeState {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialized(),
-    @required TResult watchAllStarted(),
-    @required TResult changeAction(CBJCompEntity cBJCompEntity),
-    @required
-        TResult compDevicesReceived(
-            Either<CBJCompFailure, String> failureOrCBJCompList),
-    @required TResult create(CBJCompEntity cBJCompEntity),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function() watchAllStarted,
+    required TResult Function(CBJCompEntity cBJCompEntity) changeAction,
+    required TResult Function(
+            Either<CBJCompFailure, String> failureOrCBJCompList)
+        compDevicesReceived,
+    required TResult Function(CBJCompEntity cBJCompEntity) create,
   }) {
-    assert(initialized != null);
-    assert(watchAllStarted != null);
-    assert(changeAction != null);
-    assert(compDevicesReceived != null);
-    assert(create != null);
     return changeAction(cBJCompEntity);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialized(),
-    TResult watchAllStarted(),
-    TResult changeAction(CBJCompEntity cBJCompEntity),
-    TResult compDevicesReceived(
-        Either<CBJCompFailure, String> failureOrCBJCompList),
-    TResult create(CBJCompEntity cBJCompEntity),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function()? watchAllStarted,
+    TResult Function(CBJCompEntity cBJCompEntity)? changeAction,
+    TResult Function(Either<CBJCompFailure, String> failureOrCBJCompList)?
+        compDevicesReceived,
+    TResult Function(CBJCompEntity cBJCompEntity)? create,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (changeAction != null) {
       return changeAction(cBJCompEntity);
     }
@@ -441,32 +413,26 @@ class _$_ChangeState implements _ChangeState {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialized(Initialized value),
-    @required TResult watchAllStarted(_WatchAllStarted value),
-    @required TResult changeAction(_ChangeState value),
-    @required TResult compDevicesReceived(_CompDevicesReceived value),
-    @required TResult create(_CreateDevice value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(_WatchAllStarted value) watchAllStarted,
+    required TResult Function(_ChangeState value) changeAction,
+    required TResult Function(_CompDevicesReceived value) compDevicesReceived,
+    required TResult Function(_CreateDevice value) create,
   }) {
-    assert(initialized != null);
-    assert(watchAllStarted != null);
-    assert(changeAction != null);
-    assert(compDevicesReceived != null);
-    assert(create != null);
     return changeAction(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialized(Initialized value),
-    TResult watchAllStarted(_WatchAllStarted value),
-    TResult changeAction(_ChangeState value),
-    TResult compDevicesReceived(_CompDevicesReceived value),
-    TResult create(_CreateDevice value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(_WatchAllStarted value)? watchAllStarted,
+    TResult Function(_ChangeState value)? changeAction,
+    TResult Function(_CompDevicesReceived value)? compDevicesReceived,
+    TResult Function(_CreateDevice value)? create,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (changeAction != null) {
       return changeAction(this);
     }
@@ -477,9 +443,10 @@ class _$_ChangeState implements _ChangeState {
 abstract class _ChangeState implements CBJCompEvent {
   const factory _ChangeState(CBJCompEntity cBJCompEntity) = _$_ChangeState;
 
-  CBJCompEntity get cBJCompEntity;
+  CBJCompEntity get cBJCompEntity => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$ChangeStateCopyWith<_ChangeState> get copyWith;
+  _$ChangeStateCopyWith<_ChangeState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -503,20 +470,21 @@ class __$CompDevicesReceivedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object failureOrCBJCompList = freezed,
+    Object? failureOrCBJCompList = freezed,
   }) {
     return _then(_CompDevicesReceived(
       failureOrCBJCompList == freezed
           ? _value.failureOrCBJCompList
-          : failureOrCBJCompList as Either<CBJCompFailure, String>,
+          : failureOrCBJCompList // ignore: cast_nullable_to_non_nullable
+              as Either<CBJCompFailure, String>,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_CompDevicesReceived implements _CompDevicesReceived {
-  const _$_CompDevicesReceived(this.failureOrCBJCompList)
-      : assert(failureOrCBJCompList != null);
+  const _$_CompDevicesReceived(this.failureOrCBJCompList);
 
   @override
   final Either<CBJCompFailure, String> failureOrCBJCompList;
@@ -548,35 +516,29 @@ class _$_CompDevicesReceived implements _CompDevicesReceived {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialized(),
-    @required TResult watchAllStarted(),
-    @required TResult changeAction(CBJCompEntity cBJCompEntity),
-    @required
-        TResult compDevicesReceived(
-            Either<CBJCompFailure, String> failureOrCBJCompList),
-    @required TResult create(CBJCompEntity cBJCompEntity),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function() watchAllStarted,
+    required TResult Function(CBJCompEntity cBJCompEntity) changeAction,
+    required TResult Function(
+            Either<CBJCompFailure, String> failureOrCBJCompList)
+        compDevicesReceived,
+    required TResult Function(CBJCompEntity cBJCompEntity) create,
   }) {
-    assert(initialized != null);
-    assert(watchAllStarted != null);
-    assert(changeAction != null);
-    assert(compDevicesReceived != null);
-    assert(create != null);
     return compDevicesReceived(failureOrCBJCompList);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialized(),
-    TResult watchAllStarted(),
-    TResult changeAction(CBJCompEntity cBJCompEntity),
-    TResult compDevicesReceived(
-        Either<CBJCompFailure, String> failureOrCBJCompList),
-    TResult create(CBJCompEntity cBJCompEntity),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function()? watchAllStarted,
+    TResult Function(CBJCompEntity cBJCompEntity)? changeAction,
+    TResult Function(Either<CBJCompFailure, String> failureOrCBJCompList)?
+        compDevicesReceived,
+    TResult Function(CBJCompEntity cBJCompEntity)? create,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (compDevicesReceived != null) {
       return compDevicesReceived(failureOrCBJCompList);
     }
@@ -585,32 +547,26 @@ class _$_CompDevicesReceived implements _CompDevicesReceived {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialized(Initialized value),
-    @required TResult watchAllStarted(_WatchAllStarted value),
-    @required TResult changeAction(_ChangeState value),
-    @required TResult compDevicesReceived(_CompDevicesReceived value),
-    @required TResult create(_CreateDevice value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(_WatchAllStarted value) watchAllStarted,
+    required TResult Function(_ChangeState value) changeAction,
+    required TResult Function(_CompDevicesReceived value) compDevicesReceived,
+    required TResult Function(_CreateDevice value) create,
   }) {
-    assert(initialized != null);
-    assert(watchAllStarted != null);
-    assert(changeAction != null);
-    assert(compDevicesReceived != null);
-    assert(create != null);
     return compDevicesReceived(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialized(Initialized value),
-    TResult watchAllStarted(_WatchAllStarted value),
-    TResult changeAction(_ChangeState value),
-    TResult compDevicesReceived(_CompDevicesReceived value),
-    TResult create(_CreateDevice value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(_WatchAllStarted value)? watchAllStarted,
+    TResult Function(_ChangeState value)? changeAction,
+    TResult Function(_CompDevicesReceived value)? compDevicesReceived,
+    TResult Function(_CreateDevice value)? create,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (compDevicesReceived != null) {
       return compDevicesReceived(this);
     }
@@ -623,9 +579,11 @@ abstract class _CompDevicesReceived implements CBJCompEvent {
           Either<CBJCompFailure, String> failureOrCBJCompList) =
       _$_CompDevicesReceived;
 
-  Either<CBJCompFailure, String> get failureOrCBJCompList;
+  Either<CBJCompFailure, String> get failureOrCBJCompList =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$CompDevicesReceivedCopyWith<_CompDevicesReceived> get copyWith;
+  _$CompDevicesReceivedCopyWith<_CompDevicesReceived> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -650,20 +608,18 @@ class __$CreateDeviceCopyWithImpl<$Res> extends _$CBJCompEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object cBJCompEntity = freezed,
+    Object? cBJCompEntity = freezed,
   }) {
     return _then(_CreateDevice(
       cBJCompEntity == freezed
           ? _value.cBJCompEntity
-          : cBJCompEntity as CBJCompEntity,
+          : cBJCompEntity // ignore: cast_nullable_to_non_nullable
+              as CBJCompEntity,
     ));
   }
 
   @override
   $CBJCompEntityCopyWith<$Res> get cBJCompEntity {
-    if (_value.cBJCompEntity == null) {
-      return null;
-    }
     return $CBJCompEntityCopyWith<$Res>(_value.cBJCompEntity, (value) {
       return _then(_value.copyWith(cBJCompEntity: value));
     });
@@ -671,8 +627,9 @@ class __$CreateDeviceCopyWithImpl<$Res> extends _$CBJCompEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_CreateDevice implements _CreateDevice {
-  const _$_CreateDevice(this.cBJCompEntity) : assert(cBJCompEntity != null);
+  const _$_CreateDevice(this.cBJCompEntity);
 
   @override
   final CBJCompEntity cBJCompEntity;
@@ -702,35 +659,29 @@ class _$_CreateDevice implements _CreateDevice {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialized(),
-    @required TResult watchAllStarted(),
-    @required TResult changeAction(CBJCompEntity cBJCompEntity),
-    @required
-        TResult compDevicesReceived(
-            Either<CBJCompFailure, String> failureOrCBJCompList),
-    @required TResult create(CBJCompEntity cBJCompEntity),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function() watchAllStarted,
+    required TResult Function(CBJCompEntity cBJCompEntity) changeAction,
+    required TResult Function(
+            Either<CBJCompFailure, String> failureOrCBJCompList)
+        compDevicesReceived,
+    required TResult Function(CBJCompEntity cBJCompEntity) create,
   }) {
-    assert(initialized != null);
-    assert(watchAllStarted != null);
-    assert(changeAction != null);
-    assert(compDevicesReceived != null);
-    assert(create != null);
     return create(cBJCompEntity);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialized(),
-    TResult watchAllStarted(),
-    TResult changeAction(CBJCompEntity cBJCompEntity),
-    TResult compDevicesReceived(
-        Either<CBJCompFailure, String> failureOrCBJCompList),
-    TResult create(CBJCompEntity cBJCompEntity),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function()? watchAllStarted,
+    TResult Function(CBJCompEntity cBJCompEntity)? changeAction,
+    TResult Function(Either<CBJCompFailure, String> failureOrCBJCompList)?
+        compDevicesReceived,
+    TResult Function(CBJCompEntity cBJCompEntity)? create,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (create != null) {
       return create(cBJCompEntity);
     }
@@ -739,32 +690,26 @@ class _$_CreateDevice implements _CreateDevice {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialized(Initialized value),
-    @required TResult watchAllStarted(_WatchAllStarted value),
-    @required TResult changeAction(_ChangeState value),
-    @required TResult compDevicesReceived(_CompDevicesReceived value),
-    @required TResult create(_CreateDevice value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(_WatchAllStarted value) watchAllStarted,
+    required TResult Function(_ChangeState value) changeAction,
+    required TResult Function(_CompDevicesReceived value) compDevicesReceived,
+    required TResult Function(_CreateDevice value) create,
   }) {
-    assert(initialized != null);
-    assert(watchAllStarted != null);
-    assert(changeAction != null);
-    assert(compDevicesReceived != null);
-    assert(create != null);
     return create(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialized(Initialized value),
-    TResult watchAllStarted(_WatchAllStarted value),
-    TResult changeAction(_ChangeState value),
-    TResult compDevicesReceived(_CompDevicesReceived value),
-    TResult create(_CreateDevice value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(_WatchAllStarted value)? watchAllStarted,
+    TResult Function(_ChangeState value)? changeAction,
+    TResult Function(_CompDevicesReceived value)? compDevicesReceived,
+    TResult Function(_CreateDevice value)? create,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (create != null) {
       return create(this);
     }
@@ -775,94 +720,93 @@ class _$_CreateDevice implements _CreateDevice {
 abstract class _CreateDevice implements CBJCompEvent {
   const factory _CreateDevice(CBJCompEntity cBJCompEntity) = _$_CreateDevice;
 
-  CBJCompEntity get cBJCompEntity;
+  CBJCompEntity get cBJCompEntity => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$CreateDeviceCopyWith<_CreateDevice> get copyWith;
+  _$CreateDeviceCopyWith<_CreateDevice> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$CBJCompStateTearOff {
   const _$CBJCompStateTearOff();
 
-// ignore: unused_element
   _Initial initial() {
     return _Initial();
   }
 
-// ignore: unused_element
   _LoadInProgress loadInProgress() {
     return const _LoadInProgress();
   }
 
-// ignore: unused_element
   _LoadSuccess loadSuccess(CBJCompEntity devices) {
     return _LoadSuccess(
       devices,
     );
   }
 
-// ignore: unused_element
   _LoadSuccessTemp loadSuccessTemp() {
     return const _LoadSuccessTemp();
   }
 
-// ignore: unused_element
   _loadFailure loadFailure(CBJCompFailure<dynamic> cBJCompFailure) {
     return _loadFailure(
       cBJCompFailure,
     );
   }
 
-// ignore: unused_element
   Error error() {
     return const Error();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $CBJCompState = _$CBJCompStateTearOff();
 
 /// @nodoc
 mixin _$CBJCompState {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loadInProgress(),
-    @required TResult loadSuccess(CBJCompEntity devices),
-    @required TResult loadSuccessTemp(),
-    @required TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
-    @required TResult error(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function(CBJCompEntity devices) loadSuccess,
+    required TResult Function() loadSuccessTemp,
+    required TResult Function(CBJCompFailure<dynamic> cBJCompFailure)
+        loadFailure,
+    required TResult Function() error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loadInProgress(),
-    TResult loadSuccess(CBJCompEntity devices),
-    TResult loadSuccessTemp(),
-    TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
-    TResult error(),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function(CBJCompEntity devices)? loadSuccess,
+    TResult Function()? loadSuccessTemp,
+    TResult Function(CBJCompFailure<dynamic> cBJCompFailure)? loadFailure,
+    TResult Function()? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult loadInProgress(_LoadInProgress value),
-    @required TResult loadSuccess(_LoadSuccess value),
-    @required TResult loadSuccessTemp(_LoadSuccessTemp value),
-    @required TResult loadFailure(_loadFailure value),
-    @required TResult error(Error value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_LoadSuccessTemp value) loadSuccessTemp,
+    required TResult Function(_loadFailure value) loadFailure,
+    required TResult Function(Error value) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult loadInProgress(_LoadInProgress value),
-    TResult loadSuccess(_LoadSuccess value),
-    TResult loadSuccessTemp(_LoadSuccessTemp value),
-    TResult loadFailure(_loadFailure value),
-    TResult error(Error value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_LoadSuccessTemp value)? loadSuccessTemp,
+    TResult Function(_loadFailure value)? loadFailure,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -898,6 +842,7 @@ class __$InitialCopyWithImpl<$Res> extends _$CBJCompStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_Initial implements _Initial {
   _$_Initial();
 
@@ -916,35 +861,29 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loadInProgress(),
-    @required TResult loadSuccess(CBJCompEntity devices),
-    @required TResult loadSuccessTemp(),
-    @required TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function(CBJCompEntity devices) loadSuccess,
+    required TResult Function() loadSuccessTemp,
+    required TResult Function(CBJCompFailure<dynamic> cBJCompFailure)
+        loadFailure,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadSuccess != null);
-    assert(loadSuccessTemp != null);
-    assert(loadFailure != null);
-    assert(error != null);
     return initial();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loadInProgress(),
-    TResult loadSuccess(CBJCompEntity devices),
-    TResult loadSuccessTemp(),
-    TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function(CBJCompEntity devices)? loadSuccess,
+    TResult Function()? loadSuccessTemp,
+    TResult Function(CBJCompFailure<dynamic> cBJCompFailure)? loadFailure,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initial != null) {
       return initial();
     }
@@ -953,35 +892,28 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult loadInProgress(_LoadInProgress value),
-    @required TResult loadSuccess(_LoadSuccess value),
-    @required TResult loadSuccessTemp(_LoadSuccessTemp value),
-    @required TResult loadFailure(_loadFailure value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_LoadSuccessTemp value) loadSuccessTemp,
+    required TResult Function(_loadFailure value) loadFailure,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadSuccess != null);
-    assert(loadSuccessTemp != null);
-    assert(loadFailure != null);
-    assert(error != null);
     return initial(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult loadInProgress(_LoadInProgress value),
-    TResult loadSuccess(_LoadSuccess value),
-    TResult loadSuccessTemp(_LoadSuccessTemp value),
-    TResult loadFailure(_loadFailure value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_LoadSuccessTemp value)? loadSuccessTemp,
+    TResult Function(_loadFailure value)? loadFailure,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initial != null) {
       return initial(this);
     }
@@ -1013,6 +945,7 @@ class __$LoadInProgressCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_LoadInProgress implements _LoadInProgress {
   const _$_LoadInProgress();
 
@@ -1031,35 +964,29 @@ class _$_LoadInProgress implements _LoadInProgress {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loadInProgress(),
-    @required TResult loadSuccess(CBJCompEntity devices),
-    @required TResult loadSuccessTemp(),
-    @required TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function(CBJCompEntity devices) loadSuccess,
+    required TResult Function() loadSuccessTemp,
+    required TResult Function(CBJCompFailure<dynamic> cBJCompFailure)
+        loadFailure,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadSuccess != null);
-    assert(loadSuccessTemp != null);
-    assert(loadFailure != null);
-    assert(error != null);
     return loadInProgress();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loadInProgress(),
-    TResult loadSuccess(CBJCompEntity devices),
-    TResult loadSuccessTemp(),
-    TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function(CBJCompEntity devices)? loadSuccess,
+    TResult Function()? loadSuccessTemp,
+    TResult Function(CBJCompFailure<dynamic> cBJCompFailure)? loadFailure,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loadInProgress != null) {
       return loadInProgress();
     }
@@ -1068,35 +995,28 @@ class _$_LoadInProgress implements _LoadInProgress {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult loadInProgress(_LoadInProgress value),
-    @required TResult loadSuccess(_LoadSuccess value),
-    @required TResult loadSuccessTemp(_LoadSuccessTemp value),
-    @required TResult loadFailure(_loadFailure value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_LoadSuccessTemp value) loadSuccessTemp,
+    required TResult Function(_loadFailure value) loadFailure,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadSuccess != null);
-    assert(loadSuccessTemp != null);
-    assert(loadFailure != null);
-    assert(error != null);
     return loadInProgress(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult loadInProgress(_LoadInProgress value),
-    TResult loadSuccess(_LoadSuccess value),
-    TResult loadSuccessTemp(_LoadSuccessTemp value),
-    TResult loadFailure(_loadFailure value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_LoadSuccessTemp value)? loadSuccessTemp,
+    TResult Function(_loadFailure value)? loadFailure,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loadInProgress != null) {
       return loadInProgress(this);
     }
@@ -1130,18 +1050,18 @@ class __$LoadSuccessCopyWithImpl<$Res> extends _$CBJCompStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object devices = freezed,
+    Object? devices = freezed,
   }) {
     return _then(_LoadSuccess(
-      devices == freezed ? _value.devices : devices as CBJCompEntity,
+      devices == freezed
+          ? _value.devices
+          : devices // ignore: cast_nullable_to_non_nullable
+              as CBJCompEntity,
     ));
   }
 
   @override
   $CBJCompEntityCopyWith<$Res> get devices {
-    if (_value.devices == null) {
-      return null;
-    }
     return $CBJCompEntityCopyWith<$Res>(_value.devices, (value) {
       return _then(_value.copyWith(devices: value));
     });
@@ -1149,8 +1069,9 @@ class __$LoadSuccessCopyWithImpl<$Res> extends _$CBJCompStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_LoadSuccess implements _LoadSuccess {
-  const _$_LoadSuccess(this.devices) : assert(devices != null);
+  const _$_LoadSuccess(this.devices);
 
   @override
   final CBJCompEntity devices;
@@ -1179,35 +1100,29 @@ class _$_LoadSuccess implements _LoadSuccess {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loadInProgress(),
-    @required TResult loadSuccess(CBJCompEntity devices),
-    @required TResult loadSuccessTemp(),
-    @required TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function(CBJCompEntity devices) loadSuccess,
+    required TResult Function() loadSuccessTemp,
+    required TResult Function(CBJCompFailure<dynamic> cBJCompFailure)
+        loadFailure,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadSuccess != null);
-    assert(loadSuccessTemp != null);
-    assert(loadFailure != null);
-    assert(error != null);
     return loadSuccess(devices);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loadInProgress(),
-    TResult loadSuccess(CBJCompEntity devices),
-    TResult loadSuccessTemp(),
-    TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function(CBJCompEntity devices)? loadSuccess,
+    TResult Function()? loadSuccessTemp,
+    TResult Function(CBJCompFailure<dynamic> cBJCompFailure)? loadFailure,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loadSuccess != null) {
       return loadSuccess(devices);
     }
@@ -1216,35 +1131,28 @@ class _$_LoadSuccess implements _LoadSuccess {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult loadInProgress(_LoadInProgress value),
-    @required TResult loadSuccess(_LoadSuccess value),
-    @required TResult loadSuccessTemp(_LoadSuccessTemp value),
-    @required TResult loadFailure(_loadFailure value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_LoadSuccessTemp value) loadSuccessTemp,
+    required TResult Function(_loadFailure value) loadFailure,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadSuccess != null);
-    assert(loadSuccessTemp != null);
-    assert(loadFailure != null);
-    assert(error != null);
     return loadSuccess(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult loadInProgress(_LoadInProgress value),
-    TResult loadSuccess(_LoadSuccess value),
-    TResult loadSuccessTemp(_LoadSuccessTemp value),
-    TResult loadFailure(_loadFailure value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_LoadSuccessTemp value)? loadSuccessTemp,
+    TResult Function(_loadFailure value)? loadFailure,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loadSuccess != null) {
       return loadSuccess(this);
     }
@@ -1255,9 +1163,10 @@ class _$_LoadSuccess implements _LoadSuccess {
 abstract class _LoadSuccess implements CBJCompState {
   const factory _LoadSuccess(CBJCompEntity devices) = _$_LoadSuccess;
 
-  CBJCompEntity get devices;
+  CBJCompEntity get devices => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$LoadSuccessCopyWith<_LoadSuccess> get copyWith;
+  _$LoadSuccessCopyWith<_LoadSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1280,6 +1189,7 @@ class __$LoadSuccessTempCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_LoadSuccessTemp implements _LoadSuccessTemp {
   const _$_LoadSuccessTemp();
 
@@ -1298,35 +1208,29 @@ class _$_LoadSuccessTemp implements _LoadSuccessTemp {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loadInProgress(),
-    @required TResult loadSuccess(CBJCompEntity devices),
-    @required TResult loadSuccessTemp(),
-    @required TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function(CBJCompEntity devices) loadSuccess,
+    required TResult Function() loadSuccessTemp,
+    required TResult Function(CBJCompFailure<dynamic> cBJCompFailure)
+        loadFailure,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadSuccess != null);
-    assert(loadSuccessTemp != null);
-    assert(loadFailure != null);
-    assert(error != null);
     return loadSuccessTemp();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loadInProgress(),
-    TResult loadSuccess(CBJCompEntity devices),
-    TResult loadSuccessTemp(),
-    TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function(CBJCompEntity devices)? loadSuccess,
+    TResult Function()? loadSuccessTemp,
+    TResult Function(CBJCompFailure<dynamic> cBJCompFailure)? loadFailure,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loadSuccessTemp != null) {
       return loadSuccessTemp();
     }
@@ -1335,35 +1239,28 @@ class _$_LoadSuccessTemp implements _LoadSuccessTemp {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult loadInProgress(_LoadInProgress value),
-    @required TResult loadSuccess(_LoadSuccess value),
-    @required TResult loadSuccessTemp(_LoadSuccessTemp value),
-    @required TResult loadFailure(_loadFailure value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_LoadSuccessTemp value) loadSuccessTemp,
+    required TResult Function(_loadFailure value) loadFailure,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadSuccess != null);
-    assert(loadSuccessTemp != null);
-    assert(loadFailure != null);
-    assert(error != null);
     return loadSuccessTemp(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult loadInProgress(_LoadInProgress value),
-    TResult loadSuccess(_LoadSuccess value),
-    TResult loadSuccessTemp(_LoadSuccessTemp value),
-    TResult loadFailure(_loadFailure value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_LoadSuccessTemp value)? loadSuccessTemp,
+    TResult Function(_loadFailure value)? loadFailure,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loadSuccessTemp != null) {
       return loadSuccessTemp(this);
     }
@@ -1397,20 +1294,18 @@ class __$loadFailureCopyWithImpl<$Res> extends _$CBJCompStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object cBJCompFailure = freezed,
+    Object? cBJCompFailure = freezed,
   }) {
     return _then(_loadFailure(
       cBJCompFailure == freezed
           ? _value.cBJCompFailure
-          : cBJCompFailure as CBJCompFailure<dynamic>,
+          : cBJCompFailure // ignore: cast_nullable_to_non_nullable
+              as CBJCompFailure<dynamic>,
     ));
   }
 
   @override
   $CBJCompFailureCopyWith<dynamic, $Res> get cBJCompFailure {
-    if (_value.cBJCompFailure == null) {
-      return null;
-    }
     return $CBJCompFailureCopyWith<dynamic, $Res>(_value.cBJCompFailure,
         (value) {
       return _then(_value.copyWith(cBJCompFailure: value));
@@ -1419,8 +1314,9 @@ class __$loadFailureCopyWithImpl<$Res> extends _$CBJCompStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_loadFailure implements _loadFailure {
-  const _$_loadFailure(this.cBJCompFailure) : assert(cBJCompFailure != null);
+  const _$_loadFailure(this.cBJCompFailure);
 
   @override
   final CBJCompFailure<dynamic> cBJCompFailure;
@@ -1451,35 +1347,29 @@ class _$_loadFailure implements _loadFailure {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loadInProgress(),
-    @required TResult loadSuccess(CBJCompEntity devices),
-    @required TResult loadSuccessTemp(),
-    @required TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function(CBJCompEntity devices) loadSuccess,
+    required TResult Function() loadSuccessTemp,
+    required TResult Function(CBJCompFailure<dynamic> cBJCompFailure)
+        loadFailure,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadSuccess != null);
-    assert(loadSuccessTemp != null);
-    assert(loadFailure != null);
-    assert(error != null);
     return loadFailure(cBJCompFailure);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loadInProgress(),
-    TResult loadSuccess(CBJCompEntity devices),
-    TResult loadSuccessTemp(),
-    TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function(CBJCompEntity devices)? loadSuccess,
+    TResult Function()? loadSuccessTemp,
+    TResult Function(CBJCompFailure<dynamic> cBJCompFailure)? loadFailure,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loadFailure != null) {
       return loadFailure(cBJCompFailure);
     }
@@ -1488,35 +1378,28 @@ class _$_loadFailure implements _loadFailure {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult loadInProgress(_LoadInProgress value),
-    @required TResult loadSuccess(_LoadSuccess value),
-    @required TResult loadSuccessTemp(_LoadSuccessTemp value),
-    @required TResult loadFailure(_loadFailure value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_LoadSuccessTemp value) loadSuccessTemp,
+    required TResult Function(_loadFailure value) loadFailure,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadSuccess != null);
-    assert(loadSuccessTemp != null);
-    assert(loadFailure != null);
-    assert(error != null);
     return loadFailure(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult loadInProgress(_LoadInProgress value),
-    TResult loadSuccess(_LoadSuccess value),
-    TResult loadSuccessTemp(_LoadSuccessTemp value),
-    TResult loadFailure(_loadFailure value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_LoadSuccessTemp value)? loadSuccessTemp,
+    TResult Function(_loadFailure value)? loadFailure,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loadFailure != null) {
       return loadFailure(this);
     }
@@ -1528,9 +1411,11 @@ abstract class _loadFailure implements CBJCompState {
   const factory _loadFailure(CBJCompFailure<dynamic> cBJCompFailure) =
       _$_loadFailure;
 
-  CBJCompFailure<dynamic> get cBJCompFailure;
+  CBJCompFailure<dynamic> get cBJCompFailure =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$loadFailureCopyWith<_loadFailure> get copyWith;
+  _$loadFailureCopyWith<_loadFailure> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1550,6 +1435,7 @@ class _$ErrorCopyWithImpl<$Res> extends _$CBJCompStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Error implements Error {
   const _$Error();
 
@@ -1568,35 +1454,29 @@ class _$Error implements Error {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loadInProgress(),
-    @required TResult loadSuccess(CBJCompEntity devices),
-    @required TResult loadSuccessTemp(),
-    @required TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function(CBJCompEntity devices) loadSuccess,
+    required TResult Function() loadSuccessTemp,
+    required TResult Function(CBJCompFailure<dynamic> cBJCompFailure)
+        loadFailure,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadSuccess != null);
-    assert(loadSuccessTemp != null);
-    assert(loadFailure != null);
-    assert(error != null);
     return error();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loadInProgress(),
-    TResult loadSuccess(CBJCompEntity devices),
-    TResult loadSuccessTemp(),
-    TResult loadFailure(CBJCompFailure<dynamic> cBJCompFailure),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function(CBJCompEntity devices)? loadSuccess,
+    TResult Function()? loadSuccessTemp,
+    TResult Function(CBJCompFailure<dynamic> cBJCompFailure)? loadFailure,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error();
     }
@@ -1605,35 +1485,28 @@ class _$Error implements Error {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult loadInProgress(_LoadInProgress value),
-    @required TResult loadSuccess(_LoadSuccess value),
-    @required TResult loadSuccessTemp(_LoadSuccessTemp value),
-    @required TResult loadFailure(_loadFailure value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_LoadSuccessTemp value) loadSuccessTemp,
+    required TResult Function(_loadFailure value) loadFailure,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadSuccess != null);
-    assert(loadSuccessTemp != null);
-    assert(loadFailure != null);
-    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult loadInProgress(_LoadInProgress value),
-    TResult loadSuccess(_LoadSuccess value),
-    TResult loadSuccessTemp(_LoadSuccessTemp value),
-    TResult loadFailure(_loadFailure value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_LoadSuccessTemp value)? loadSuccessTemp,
+    TResult Function(_loadFailure value)? loadFailure,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this);
     }

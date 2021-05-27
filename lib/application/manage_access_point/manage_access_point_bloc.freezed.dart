@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'manage_access_point_bloc.dart';
 
@@ -9,49 +9,53 @@ part of 'manage_access_point_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$ManageAccessPointEventTearOff {
   const _$ManageAccessPointEventTearOff();
 
-// ignore: unused_element
   DoesAccessPointOpen doesAccessPointOpen() {
     return DoesAccessPointOpen();
   }
 
-// ignore: unused_element
   Initialized initialized() {
     return Initialized();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ManageAccessPointEvent = _$ManageAccessPointEventTearOff();
 
 /// @nodoc
 mixin _$ManageAccessPointEvent {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult doesAccessPointOpen(),
-    @required TResult initialized(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() doesAccessPointOpen,
+    required TResult Function() initialized,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult doesAccessPointOpen(),
-    TResult initialized(),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? doesAccessPointOpen,
+    TResult Function()? initialized,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult doesAccessPointOpen(DoesAccessPointOpen value),
-    @required TResult initialized(Initialized value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(DoesAccessPointOpen value) doesAccessPointOpen,
+    required TResult Function(Initialized value) initialized,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult doesAccessPointOpen(DoesAccessPointOpen value),
-    TResult initialized(Initialized value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(DoesAccessPointOpen value)? doesAccessPointOpen,
+    TResult Function(Initialized value)? initialized,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -91,6 +95,7 @@ class _$DoesAccessPointOpenCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$DoesAccessPointOpen implements DoesAccessPointOpen {
   _$DoesAccessPointOpen();
 
@@ -109,23 +114,20 @@ class _$DoesAccessPointOpen implements DoesAccessPointOpen {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult doesAccessPointOpen(),
-    @required TResult initialized(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() doesAccessPointOpen,
+    required TResult Function() initialized,
   }) {
-    assert(doesAccessPointOpen != null);
-    assert(initialized != null);
     return doesAccessPointOpen();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult doesAccessPointOpen(),
-    TResult initialized(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? doesAccessPointOpen,
+    TResult Function()? initialized,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (doesAccessPointOpen != null) {
       return doesAccessPointOpen();
     }
@@ -134,23 +136,20 @@ class _$DoesAccessPointOpen implements DoesAccessPointOpen {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult doesAccessPointOpen(DoesAccessPointOpen value),
-    @required TResult initialized(Initialized value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(DoesAccessPointOpen value) doesAccessPointOpen,
+    required TResult Function(Initialized value) initialized,
   }) {
-    assert(doesAccessPointOpen != null);
-    assert(initialized != null);
     return doesAccessPointOpen(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult doesAccessPointOpen(DoesAccessPointOpen value),
-    TResult initialized(Initialized value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(DoesAccessPointOpen value)? doesAccessPointOpen,
+    TResult Function(Initialized value)? initialized,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (doesAccessPointOpen != null) {
       return doesAccessPointOpen(this);
     }
@@ -182,6 +181,7 @@ class _$InitializedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Initialized implements Initialized {
   _$Initialized();
 
@@ -200,23 +200,20 @@ class _$Initialized implements Initialized {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult doesAccessPointOpen(),
-    @required TResult initialized(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() doesAccessPointOpen,
+    required TResult Function() initialized,
   }) {
-    assert(doesAccessPointOpen != null);
-    assert(initialized != null);
     return initialized();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult doesAccessPointOpen(),
-    TResult initialized(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? doesAccessPointOpen,
+    TResult Function()? initialized,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initialized != null) {
       return initialized();
     }
@@ -225,23 +222,20 @@ class _$Initialized implements Initialized {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult doesAccessPointOpen(DoesAccessPointOpen value),
-    @required TResult initialized(Initialized value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(DoesAccessPointOpen value) doesAccessPointOpen,
+    required TResult Function(Initialized value) initialized,
   }) {
-    assert(doesAccessPointOpen != null);
-    assert(initialized != null);
     return initialized(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult doesAccessPointOpen(DoesAccessPointOpen value),
-    TResult initialized(Initialized value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(DoesAccessPointOpen value)? doesAccessPointOpen,
+    TResult Function(Initialized value)? initialized,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initialized != null) {
       return initialized(this);
     }
@@ -257,102 +251,96 @@ abstract class Initialized implements ManageAccessPointEvent {
 class _$ManageAccessPointStateTearOff {
   const _$ManageAccessPointStateTearOff();
 
-// ignore: unused_element
   Initial initial() {
     return Initial();
   }
 
-// ignore: unused_element
   Loading loading() {
     return Loading();
   }
 
-// ignore: unused_element
   Loaded loaded() {
     return Loaded();
   }
 
-// ignore: unused_element
   IOSDevice iOSDevice() {
     return IOSDevice();
   }
 
-// ignore: unused_element
   CantDetermineAccessPointOpenOrNot cantDetermineAccessPointOpenOrNot() {
     return CantDetermineAccessPointOpenOrNot();
   }
 
-// ignore: unused_element
   AccessPointIsNotOpen accessPointIsNotOpen() {
     return AccessPointIsNotOpen();
   }
 
-// ignore: unused_element
   AccessPointIsOpen accessPointIsOpen() {
     return AccessPointIsOpen();
   }
 
-// ignore: unused_element
   Error error() {
     return Error();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ManageAccessPointState = _$ManageAccessPointStateTearOff();
 
 /// @nodoc
 mixin _$ManageAccessPointState {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loading(),
-    @required TResult loaded(),
-    @required TResult iOSDevice(),
-    @required TResult cantDetermineAccessPointOpenOrNot(),
-    @required TResult accessPointIsNotOpen(),
-    @required TResult accessPointIsOpen(),
-    @required TResult error(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function() iOSDevice,
+    required TResult Function() cantDetermineAccessPointOpenOrNot,
+    required TResult Function() accessPointIsNotOpen,
+    required TResult Function() accessPointIsOpen,
+    required TResult Function() error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loading(),
-    TResult loaded(),
-    TResult iOSDevice(),
-    TResult cantDetermineAccessPointOpenOrNot(),
-    TResult accessPointIsNotOpen(),
-    TResult accessPointIsOpen(),
-    TResult error(),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function()? iOSDevice,
+    TResult Function()? cantDetermineAccessPointOpenOrNot,
+    TResult Function()? accessPointIsNotOpen,
+    TResult Function()? accessPointIsOpen,
+    TResult Function()? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult loading(Loading value),
-    @required TResult loaded(Loaded value),
-    @required TResult iOSDevice(IOSDevice value),
-    @required
-        TResult cantDetermineAccessPointOpenOrNot(
-            CantDetermineAccessPointOpenOrNot value),
-    @required TResult accessPointIsNotOpen(AccessPointIsNotOpen value),
-    @required TResult accessPointIsOpen(AccessPointIsOpen value),
-    @required TResult error(Error value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(IOSDevice value) iOSDevice,
+    required TResult Function(CantDetermineAccessPointOpenOrNot value)
+        cantDetermineAccessPointOpenOrNot,
+    required TResult Function(AccessPointIsNotOpen value) accessPointIsNotOpen,
+    required TResult Function(AccessPointIsOpen value) accessPointIsOpen,
+    required TResult Function(Error value) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult loading(Loading value),
-    TResult loaded(Loaded value),
-    TResult iOSDevice(IOSDevice value),
-    TResult cantDetermineAccessPointOpenOrNot(
-        CantDetermineAccessPointOpenOrNot value),
-    TResult accessPointIsNotOpen(AccessPointIsNotOpen value),
-    TResult accessPointIsOpen(AccessPointIsOpen value),
-    TResult error(Error value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(IOSDevice value)? iOSDevice,
+    TResult Function(CantDetermineAccessPointOpenOrNot value)?
+        cantDetermineAccessPointOpenOrNot,
+    TResult Function(AccessPointIsNotOpen value)? accessPointIsNotOpen,
+    TResult Function(AccessPointIsOpen value)? accessPointIsOpen,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -390,6 +378,7 @@ class _$InitialCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Initial implements Initial {
   _$Initial();
 
@@ -408,41 +397,32 @@ class _$Initial implements Initial {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loading(),
-    @required TResult loaded(),
-    @required TResult iOSDevice(),
-    @required TResult cantDetermineAccessPointOpenOrNot(),
-    @required TResult accessPointIsNotOpen(),
-    @required TResult accessPointIsOpen(),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function() iOSDevice,
+    required TResult Function() cantDetermineAccessPointOpenOrNot,
+    required TResult Function() accessPointIsNotOpen,
+    required TResult Function() accessPointIsOpen,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(iOSDevice != null);
-    assert(cantDetermineAccessPointOpenOrNot != null);
-    assert(accessPointIsNotOpen != null);
-    assert(accessPointIsOpen != null);
-    assert(error != null);
     return initial();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loading(),
-    TResult loaded(),
-    TResult iOSDevice(),
-    TResult cantDetermineAccessPointOpenOrNot(),
-    TResult accessPointIsNotOpen(),
-    TResult accessPointIsOpen(),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function()? iOSDevice,
+    TResult Function()? cantDetermineAccessPointOpenOrNot,
+    TResult Function()? accessPointIsNotOpen,
+    TResult Function()? accessPointIsOpen,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initial != null) {
       return initial();
     }
@@ -451,44 +431,34 @@ class _$Initial implements Initial {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult loading(Loading value),
-    @required TResult loaded(Loaded value),
-    @required TResult iOSDevice(IOSDevice value),
-    @required
-        TResult cantDetermineAccessPointOpenOrNot(
-            CantDetermineAccessPointOpenOrNot value),
-    @required TResult accessPointIsNotOpen(AccessPointIsNotOpen value),
-    @required TResult accessPointIsOpen(AccessPointIsOpen value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(IOSDevice value) iOSDevice,
+    required TResult Function(CantDetermineAccessPointOpenOrNot value)
+        cantDetermineAccessPointOpenOrNot,
+    required TResult Function(AccessPointIsNotOpen value) accessPointIsNotOpen,
+    required TResult Function(AccessPointIsOpen value) accessPointIsOpen,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(iOSDevice != null);
-    assert(cantDetermineAccessPointOpenOrNot != null);
-    assert(accessPointIsNotOpen != null);
-    assert(accessPointIsOpen != null);
-    assert(error != null);
     return initial(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult loading(Loading value),
-    TResult loaded(Loaded value),
-    TResult iOSDevice(IOSDevice value),
-    TResult cantDetermineAccessPointOpenOrNot(
-        CantDetermineAccessPointOpenOrNot value),
-    TResult accessPointIsNotOpen(AccessPointIsNotOpen value),
-    TResult accessPointIsOpen(AccessPointIsOpen value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(IOSDevice value)? iOSDevice,
+    TResult Function(CantDetermineAccessPointOpenOrNot value)?
+        cantDetermineAccessPointOpenOrNot,
+    TResult Function(AccessPointIsNotOpen value)? accessPointIsNotOpen,
+    TResult Function(AccessPointIsOpen value)? accessPointIsOpen,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initial != null) {
       return initial(this);
     }
@@ -518,6 +488,7 @@ class _$LoadingCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Loading implements Loading {
   _$Loading();
 
@@ -536,41 +507,32 @@ class _$Loading implements Loading {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loading(),
-    @required TResult loaded(),
-    @required TResult iOSDevice(),
-    @required TResult cantDetermineAccessPointOpenOrNot(),
-    @required TResult accessPointIsNotOpen(),
-    @required TResult accessPointIsOpen(),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function() iOSDevice,
+    required TResult Function() cantDetermineAccessPointOpenOrNot,
+    required TResult Function() accessPointIsNotOpen,
+    required TResult Function() accessPointIsOpen,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(iOSDevice != null);
-    assert(cantDetermineAccessPointOpenOrNot != null);
-    assert(accessPointIsNotOpen != null);
-    assert(accessPointIsOpen != null);
-    assert(error != null);
     return loading();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loading(),
-    TResult loaded(),
-    TResult iOSDevice(),
-    TResult cantDetermineAccessPointOpenOrNot(),
-    TResult accessPointIsNotOpen(),
-    TResult accessPointIsOpen(),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function()? iOSDevice,
+    TResult Function()? cantDetermineAccessPointOpenOrNot,
+    TResult Function()? accessPointIsNotOpen,
+    TResult Function()? accessPointIsOpen,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loading != null) {
       return loading();
     }
@@ -579,44 +541,34 @@ class _$Loading implements Loading {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult loading(Loading value),
-    @required TResult loaded(Loaded value),
-    @required TResult iOSDevice(IOSDevice value),
-    @required
-        TResult cantDetermineAccessPointOpenOrNot(
-            CantDetermineAccessPointOpenOrNot value),
-    @required TResult accessPointIsNotOpen(AccessPointIsNotOpen value),
-    @required TResult accessPointIsOpen(AccessPointIsOpen value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(IOSDevice value) iOSDevice,
+    required TResult Function(CantDetermineAccessPointOpenOrNot value)
+        cantDetermineAccessPointOpenOrNot,
+    required TResult Function(AccessPointIsNotOpen value) accessPointIsNotOpen,
+    required TResult Function(AccessPointIsOpen value) accessPointIsOpen,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(iOSDevice != null);
-    assert(cantDetermineAccessPointOpenOrNot != null);
-    assert(accessPointIsNotOpen != null);
-    assert(accessPointIsOpen != null);
-    assert(error != null);
     return loading(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult loading(Loading value),
-    TResult loaded(Loaded value),
-    TResult iOSDevice(IOSDevice value),
-    TResult cantDetermineAccessPointOpenOrNot(
-        CantDetermineAccessPointOpenOrNot value),
-    TResult accessPointIsNotOpen(AccessPointIsNotOpen value),
-    TResult accessPointIsOpen(AccessPointIsOpen value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(IOSDevice value)? iOSDevice,
+    TResult Function(CantDetermineAccessPointOpenOrNot value)?
+        cantDetermineAccessPointOpenOrNot,
+    TResult Function(AccessPointIsNotOpen value)? accessPointIsNotOpen,
+    TResult Function(AccessPointIsOpen value)? accessPointIsOpen,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loading != null) {
       return loading(this);
     }
@@ -646,6 +598,7 @@ class _$LoadedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Loaded implements Loaded {
   _$Loaded();
 
@@ -664,41 +617,32 @@ class _$Loaded implements Loaded {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loading(),
-    @required TResult loaded(),
-    @required TResult iOSDevice(),
-    @required TResult cantDetermineAccessPointOpenOrNot(),
-    @required TResult accessPointIsNotOpen(),
-    @required TResult accessPointIsOpen(),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function() iOSDevice,
+    required TResult Function() cantDetermineAccessPointOpenOrNot,
+    required TResult Function() accessPointIsNotOpen,
+    required TResult Function() accessPointIsOpen,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(iOSDevice != null);
-    assert(cantDetermineAccessPointOpenOrNot != null);
-    assert(accessPointIsNotOpen != null);
-    assert(accessPointIsOpen != null);
-    assert(error != null);
     return loaded();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loading(),
-    TResult loaded(),
-    TResult iOSDevice(),
-    TResult cantDetermineAccessPointOpenOrNot(),
-    TResult accessPointIsNotOpen(),
-    TResult accessPointIsOpen(),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function()? iOSDevice,
+    TResult Function()? cantDetermineAccessPointOpenOrNot,
+    TResult Function()? accessPointIsNotOpen,
+    TResult Function()? accessPointIsOpen,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loaded != null) {
       return loaded();
     }
@@ -707,44 +651,34 @@ class _$Loaded implements Loaded {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult loading(Loading value),
-    @required TResult loaded(Loaded value),
-    @required TResult iOSDevice(IOSDevice value),
-    @required
-        TResult cantDetermineAccessPointOpenOrNot(
-            CantDetermineAccessPointOpenOrNot value),
-    @required TResult accessPointIsNotOpen(AccessPointIsNotOpen value),
-    @required TResult accessPointIsOpen(AccessPointIsOpen value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(IOSDevice value) iOSDevice,
+    required TResult Function(CantDetermineAccessPointOpenOrNot value)
+        cantDetermineAccessPointOpenOrNot,
+    required TResult Function(AccessPointIsNotOpen value) accessPointIsNotOpen,
+    required TResult Function(AccessPointIsOpen value) accessPointIsOpen,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(iOSDevice != null);
-    assert(cantDetermineAccessPointOpenOrNot != null);
-    assert(accessPointIsNotOpen != null);
-    assert(accessPointIsOpen != null);
-    assert(error != null);
     return loaded(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult loading(Loading value),
-    TResult loaded(Loaded value),
-    TResult iOSDevice(IOSDevice value),
-    TResult cantDetermineAccessPointOpenOrNot(
-        CantDetermineAccessPointOpenOrNot value),
-    TResult accessPointIsNotOpen(AccessPointIsNotOpen value),
-    TResult accessPointIsOpen(AccessPointIsOpen value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(IOSDevice value)? iOSDevice,
+    TResult Function(CantDetermineAccessPointOpenOrNot value)?
+        cantDetermineAccessPointOpenOrNot,
+    TResult Function(AccessPointIsNotOpen value)? accessPointIsNotOpen,
+    TResult Function(AccessPointIsOpen value)? accessPointIsOpen,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loaded != null) {
       return loaded(this);
     }
@@ -774,6 +708,7 @@ class _$IOSDeviceCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$IOSDevice implements IOSDevice {
   _$IOSDevice();
 
@@ -792,41 +727,32 @@ class _$IOSDevice implements IOSDevice {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loading(),
-    @required TResult loaded(),
-    @required TResult iOSDevice(),
-    @required TResult cantDetermineAccessPointOpenOrNot(),
-    @required TResult accessPointIsNotOpen(),
-    @required TResult accessPointIsOpen(),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function() iOSDevice,
+    required TResult Function() cantDetermineAccessPointOpenOrNot,
+    required TResult Function() accessPointIsNotOpen,
+    required TResult Function() accessPointIsOpen,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(iOSDevice != null);
-    assert(cantDetermineAccessPointOpenOrNot != null);
-    assert(accessPointIsNotOpen != null);
-    assert(accessPointIsOpen != null);
-    assert(error != null);
     return iOSDevice();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loading(),
-    TResult loaded(),
-    TResult iOSDevice(),
-    TResult cantDetermineAccessPointOpenOrNot(),
-    TResult accessPointIsNotOpen(),
-    TResult accessPointIsOpen(),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function()? iOSDevice,
+    TResult Function()? cantDetermineAccessPointOpenOrNot,
+    TResult Function()? accessPointIsNotOpen,
+    TResult Function()? accessPointIsOpen,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (iOSDevice != null) {
       return iOSDevice();
     }
@@ -835,44 +761,34 @@ class _$IOSDevice implements IOSDevice {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult loading(Loading value),
-    @required TResult loaded(Loaded value),
-    @required TResult iOSDevice(IOSDevice value),
-    @required
-        TResult cantDetermineAccessPointOpenOrNot(
-            CantDetermineAccessPointOpenOrNot value),
-    @required TResult accessPointIsNotOpen(AccessPointIsNotOpen value),
-    @required TResult accessPointIsOpen(AccessPointIsOpen value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(IOSDevice value) iOSDevice,
+    required TResult Function(CantDetermineAccessPointOpenOrNot value)
+        cantDetermineAccessPointOpenOrNot,
+    required TResult Function(AccessPointIsNotOpen value) accessPointIsNotOpen,
+    required TResult Function(AccessPointIsOpen value) accessPointIsOpen,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(iOSDevice != null);
-    assert(cantDetermineAccessPointOpenOrNot != null);
-    assert(accessPointIsNotOpen != null);
-    assert(accessPointIsOpen != null);
-    assert(error != null);
     return iOSDevice(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult loading(Loading value),
-    TResult loaded(Loaded value),
-    TResult iOSDevice(IOSDevice value),
-    TResult cantDetermineAccessPointOpenOrNot(
-        CantDetermineAccessPointOpenOrNot value),
-    TResult accessPointIsNotOpen(AccessPointIsNotOpen value),
-    TResult accessPointIsOpen(AccessPointIsOpen value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(IOSDevice value)? iOSDevice,
+    TResult Function(CantDetermineAccessPointOpenOrNot value)?
+        cantDetermineAccessPointOpenOrNot,
+    TResult Function(AccessPointIsNotOpen value)? accessPointIsNotOpen,
+    TResult Function(AccessPointIsOpen value)? accessPointIsOpen,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (iOSDevice != null) {
       return iOSDevice(this);
     }
@@ -907,6 +823,7 @@ class _$CantDetermineAccessPointOpenOrNotCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$CantDetermineAccessPointOpenOrNot
     implements CantDetermineAccessPointOpenOrNot {
   _$CantDetermineAccessPointOpenOrNot();
@@ -927,41 +844,32 @@ class _$CantDetermineAccessPointOpenOrNot
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loading(),
-    @required TResult loaded(),
-    @required TResult iOSDevice(),
-    @required TResult cantDetermineAccessPointOpenOrNot(),
-    @required TResult accessPointIsNotOpen(),
-    @required TResult accessPointIsOpen(),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function() iOSDevice,
+    required TResult Function() cantDetermineAccessPointOpenOrNot,
+    required TResult Function() accessPointIsNotOpen,
+    required TResult Function() accessPointIsOpen,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(iOSDevice != null);
-    assert(cantDetermineAccessPointOpenOrNot != null);
-    assert(accessPointIsNotOpen != null);
-    assert(accessPointIsOpen != null);
-    assert(error != null);
     return cantDetermineAccessPointOpenOrNot();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loading(),
-    TResult loaded(),
-    TResult iOSDevice(),
-    TResult cantDetermineAccessPointOpenOrNot(),
-    TResult accessPointIsNotOpen(),
-    TResult accessPointIsOpen(),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function()? iOSDevice,
+    TResult Function()? cantDetermineAccessPointOpenOrNot,
+    TResult Function()? accessPointIsNotOpen,
+    TResult Function()? accessPointIsOpen,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (cantDetermineAccessPointOpenOrNot != null) {
       return cantDetermineAccessPointOpenOrNot();
     }
@@ -970,44 +878,34 @@ class _$CantDetermineAccessPointOpenOrNot
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult loading(Loading value),
-    @required TResult loaded(Loaded value),
-    @required TResult iOSDevice(IOSDevice value),
-    @required
-        TResult cantDetermineAccessPointOpenOrNot(
-            CantDetermineAccessPointOpenOrNot value),
-    @required TResult accessPointIsNotOpen(AccessPointIsNotOpen value),
-    @required TResult accessPointIsOpen(AccessPointIsOpen value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(IOSDevice value) iOSDevice,
+    required TResult Function(CantDetermineAccessPointOpenOrNot value)
+        cantDetermineAccessPointOpenOrNot,
+    required TResult Function(AccessPointIsNotOpen value) accessPointIsNotOpen,
+    required TResult Function(AccessPointIsOpen value) accessPointIsOpen,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(iOSDevice != null);
-    assert(cantDetermineAccessPointOpenOrNot != null);
-    assert(accessPointIsNotOpen != null);
-    assert(accessPointIsOpen != null);
-    assert(error != null);
     return cantDetermineAccessPointOpenOrNot(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult loading(Loading value),
-    TResult loaded(Loaded value),
-    TResult iOSDevice(IOSDevice value),
-    TResult cantDetermineAccessPointOpenOrNot(
-        CantDetermineAccessPointOpenOrNot value),
-    TResult accessPointIsNotOpen(AccessPointIsNotOpen value),
-    TResult accessPointIsOpen(AccessPointIsOpen value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(IOSDevice value)? iOSDevice,
+    TResult Function(CantDetermineAccessPointOpenOrNot value)?
+        cantDetermineAccessPointOpenOrNot,
+    TResult Function(AccessPointIsNotOpen value)? accessPointIsNotOpen,
+    TResult Function(AccessPointIsOpen value)? accessPointIsOpen,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (cantDetermineAccessPointOpenOrNot != null) {
       return cantDetermineAccessPointOpenOrNot(this);
     }
@@ -1041,6 +939,7 @@ class _$AccessPointIsNotOpenCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$AccessPointIsNotOpen implements AccessPointIsNotOpen {
   _$AccessPointIsNotOpen();
 
@@ -1059,41 +958,32 @@ class _$AccessPointIsNotOpen implements AccessPointIsNotOpen {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loading(),
-    @required TResult loaded(),
-    @required TResult iOSDevice(),
-    @required TResult cantDetermineAccessPointOpenOrNot(),
-    @required TResult accessPointIsNotOpen(),
-    @required TResult accessPointIsOpen(),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function() iOSDevice,
+    required TResult Function() cantDetermineAccessPointOpenOrNot,
+    required TResult Function() accessPointIsNotOpen,
+    required TResult Function() accessPointIsOpen,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(iOSDevice != null);
-    assert(cantDetermineAccessPointOpenOrNot != null);
-    assert(accessPointIsNotOpen != null);
-    assert(accessPointIsOpen != null);
-    assert(error != null);
     return accessPointIsNotOpen();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loading(),
-    TResult loaded(),
-    TResult iOSDevice(),
-    TResult cantDetermineAccessPointOpenOrNot(),
-    TResult accessPointIsNotOpen(),
-    TResult accessPointIsOpen(),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function()? iOSDevice,
+    TResult Function()? cantDetermineAccessPointOpenOrNot,
+    TResult Function()? accessPointIsNotOpen,
+    TResult Function()? accessPointIsOpen,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (accessPointIsNotOpen != null) {
       return accessPointIsNotOpen();
     }
@@ -1102,44 +992,34 @@ class _$AccessPointIsNotOpen implements AccessPointIsNotOpen {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult loading(Loading value),
-    @required TResult loaded(Loaded value),
-    @required TResult iOSDevice(IOSDevice value),
-    @required
-        TResult cantDetermineAccessPointOpenOrNot(
-            CantDetermineAccessPointOpenOrNot value),
-    @required TResult accessPointIsNotOpen(AccessPointIsNotOpen value),
-    @required TResult accessPointIsOpen(AccessPointIsOpen value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(IOSDevice value) iOSDevice,
+    required TResult Function(CantDetermineAccessPointOpenOrNot value)
+        cantDetermineAccessPointOpenOrNot,
+    required TResult Function(AccessPointIsNotOpen value) accessPointIsNotOpen,
+    required TResult Function(AccessPointIsOpen value) accessPointIsOpen,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(iOSDevice != null);
-    assert(cantDetermineAccessPointOpenOrNot != null);
-    assert(accessPointIsNotOpen != null);
-    assert(accessPointIsOpen != null);
-    assert(error != null);
     return accessPointIsNotOpen(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult loading(Loading value),
-    TResult loaded(Loaded value),
-    TResult iOSDevice(IOSDevice value),
-    TResult cantDetermineAccessPointOpenOrNot(
-        CantDetermineAccessPointOpenOrNot value),
-    TResult accessPointIsNotOpen(AccessPointIsNotOpen value),
-    TResult accessPointIsOpen(AccessPointIsOpen value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(IOSDevice value)? iOSDevice,
+    TResult Function(CantDetermineAccessPointOpenOrNot value)?
+        cantDetermineAccessPointOpenOrNot,
+    TResult Function(AccessPointIsNotOpen value)? accessPointIsNotOpen,
+    TResult Function(AccessPointIsOpen value)? accessPointIsOpen,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (accessPointIsNotOpen != null) {
       return accessPointIsNotOpen(this);
     }
@@ -1171,6 +1051,7 @@ class _$AccessPointIsOpenCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$AccessPointIsOpen implements AccessPointIsOpen {
   _$AccessPointIsOpen();
 
@@ -1189,41 +1070,32 @@ class _$AccessPointIsOpen implements AccessPointIsOpen {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loading(),
-    @required TResult loaded(),
-    @required TResult iOSDevice(),
-    @required TResult cantDetermineAccessPointOpenOrNot(),
-    @required TResult accessPointIsNotOpen(),
-    @required TResult accessPointIsOpen(),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function() iOSDevice,
+    required TResult Function() cantDetermineAccessPointOpenOrNot,
+    required TResult Function() accessPointIsNotOpen,
+    required TResult Function() accessPointIsOpen,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(iOSDevice != null);
-    assert(cantDetermineAccessPointOpenOrNot != null);
-    assert(accessPointIsNotOpen != null);
-    assert(accessPointIsOpen != null);
-    assert(error != null);
     return accessPointIsOpen();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loading(),
-    TResult loaded(),
-    TResult iOSDevice(),
-    TResult cantDetermineAccessPointOpenOrNot(),
-    TResult accessPointIsNotOpen(),
-    TResult accessPointIsOpen(),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function()? iOSDevice,
+    TResult Function()? cantDetermineAccessPointOpenOrNot,
+    TResult Function()? accessPointIsNotOpen,
+    TResult Function()? accessPointIsOpen,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (accessPointIsOpen != null) {
       return accessPointIsOpen();
     }
@@ -1232,44 +1104,34 @@ class _$AccessPointIsOpen implements AccessPointIsOpen {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult loading(Loading value),
-    @required TResult loaded(Loaded value),
-    @required TResult iOSDevice(IOSDevice value),
-    @required
-        TResult cantDetermineAccessPointOpenOrNot(
-            CantDetermineAccessPointOpenOrNot value),
-    @required TResult accessPointIsNotOpen(AccessPointIsNotOpen value),
-    @required TResult accessPointIsOpen(AccessPointIsOpen value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(IOSDevice value) iOSDevice,
+    required TResult Function(CantDetermineAccessPointOpenOrNot value)
+        cantDetermineAccessPointOpenOrNot,
+    required TResult Function(AccessPointIsNotOpen value) accessPointIsNotOpen,
+    required TResult Function(AccessPointIsOpen value) accessPointIsOpen,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(iOSDevice != null);
-    assert(cantDetermineAccessPointOpenOrNot != null);
-    assert(accessPointIsNotOpen != null);
-    assert(accessPointIsOpen != null);
-    assert(error != null);
     return accessPointIsOpen(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult loading(Loading value),
-    TResult loaded(Loaded value),
-    TResult iOSDevice(IOSDevice value),
-    TResult cantDetermineAccessPointOpenOrNot(
-        CantDetermineAccessPointOpenOrNot value),
-    TResult accessPointIsNotOpen(AccessPointIsNotOpen value),
-    TResult accessPointIsOpen(AccessPointIsOpen value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(IOSDevice value)? iOSDevice,
+    TResult Function(CantDetermineAccessPointOpenOrNot value)?
+        cantDetermineAccessPointOpenOrNot,
+    TResult Function(AccessPointIsNotOpen value)? accessPointIsNotOpen,
+    TResult Function(AccessPointIsOpen value)? accessPointIsOpen,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (accessPointIsOpen != null) {
       return accessPointIsOpen(this);
     }
@@ -1299,6 +1161,7 @@ class _$ErrorCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Error implements Error {
   _$Error();
 
@@ -1317,41 +1180,32 @@ class _$Error implements Error {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loading(),
-    @required TResult loaded(),
-    @required TResult iOSDevice(),
-    @required TResult cantDetermineAccessPointOpenOrNot(),
-    @required TResult accessPointIsNotOpen(),
-    @required TResult accessPointIsOpen(),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function() iOSDevice,
+    required TResult Function() cantDetermineAccessPointOpenOrNot,
+    required TResult Function() accessPointIsNotOpen,
+    required TResult Function() accessPointIsOpen,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(iOSDevice != null);
-    assert(cantDetermineAccessPointOpenOrNot != null);
-    assert(accessPointIsNotOpen != null);
-    assert(accessPointIsOpen != null);
-    assert(error != null);
     return error();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loading(),
-    TResult loaded(),
-    TResult iOSDevice(),
-    TResult cantDetermineAccessPointOpenOrNot(),
-    TResult accessPointIsNotOpen(),
-    TResult accessPointIsOpen(),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function()? iOSDevice,
+    TResult Function()? cantDetermineAccessPointOpenOrNot,
+    TResult Function()? accessPointIsNotOpen,
+    TResult Function()? accessPointIsOpen,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error();
     }
@@ -1360,44 +1214,34 @@ class _$Error implements Error {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult loading(Loading value),
-    @required TResult loaded(Loaded value),
-    @required TResult iOSDevice(IOSDevice value),
-    @required
-        TResult cantDetermineAccessPointOpenOrNot(
-            CantDetermineAccessPointOpenOrNot value),
-    @required TResult accessPointIsNotOpen(AccessPointIsNotOpen value),
-    @required TResult accessPointIsOpen(AccessPointIsOpen value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(IOSDevice value) iOSDevice,
+    required TResult Function(CantDetermineAccessPointOpenOrNot value)
+        cantDetermineAccessPointOpenOrNot,
+    required TResult Function(AccessPointIsNotOpen value) accessPointIsNotOpen,
+    required TResult Function(AccessPointIsOpen value) accessPointIsOpen,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(loaded != null);
-    assert(iOSDevice != null);
-    assert(cantDetermineAccessPointOpenOrNot != null);
-    assert(accessPointIsNotOpen != null);
-    assert(accessPointIsOpen != null);
-    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult loading(Loading value),
-    TResult loaded(Loaded value),
-    TResult iOSDevice(IOSDevice value),
-    TResult cantDetermineAccessPointOpenOrNot(
-        CantDetermineAccessPointOpenOrNot value),
-    TResult accessPointIsNotOpen(AccessPointIsNotOpen value),
-    TResult accessPointIsOpen(AccessPointIsOpen value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(IOSDevice value)? iOSDevice,
+    TResult Function(CantDetermineAccessPointOpenOrNot value)?
+        cantDetermineAccessPointOpenOrNot,
+    TResult Function(AccessPointIsNotOpen value)? accessPointIsNotOpen,
+    TResult Function(AccessPointIsOpen value)? accessPointIsOpen,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this);
     }

@@ -9,6 +9,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kt_dart/kt.dart';
 
 class RoomsBlindsWidget extends StatelessWidget {
+  RoomsBlindsWidget(this.showDevicesOnlyFromRoomId, this.roomColorGradiant);
+
+  /// If not null show blinds only from this room
+  final String showDevicesOnlyFromRoomId;
+
+  final List<Color> roomColorGradiant;
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<BlindsWatcherBloc, BlindsWatcherState>(
@@ -20,20 +27,34 @@ class RoomsBlindsWidget extends StatelessWidget {
           ),
           loadSuccess: (state) {
             if (state.devices.size != 0) {
-              final List<Color> _gradientColor = GradientColors.sky;
-              final Map<String, List<DeviceEntity>> tempDevicesByRooms =
+              final Map<String?, List<DeviceEntity>> tempDevicesByRooms =
                   <String, List<DeviceEntity>>{};
 
               for (int i = 0; i < state.devices.size; i++) {
-                final DeviceEntity tempDevice = state.devices[i];
-                if (tempDevicesByRooms[tempDevice.roomId.getOrCrash()] ==
-                    null) {
-                  tempDevicesByRooms[tempDevice.roomId.getOrCrash()] = [
-                    tempDevice
-                  ];
+                final DeviceEntity tempDevice = state.devices[i]!;
+                if (showDevicesOnlyFromRoomId != null) {
+                  if (showDevicesOnlyFromRoomId ==
+                      tempDevice.roomId!.getOrCrash()) {
+                    if (tempDevicesByRooms[tempDevice.roomId!.getOrCrash()] ==
+                        null) {
+                      tempDevicesByRooms[tempDevice.roomId!.getOrCrash()] = [
+                        tempDevice
+                      ];
+                    } else {
+                      tempDevicesByRooms[tempDevice.roomId!.getOrCrash()]!
+                          .add(tempDevice);
+                    }
+                  }
                 } else {
-                  tempDevicesByRooms[tempDevice.roomId.getOrCrash()]
-                      .add(tempDevice);
+                  if (tempDevicesByRooms[tempDevice.roomId!.getOrCrash()] ==
+                      null) {
+                    tempDevicesByRooms[tempDevice.roomId!.getOrCrash()] = [
+                      tempDevice
+                    ];
+                  } else {
+                    tempDevicesByRooms[tempDevice.roomId!.getOrCrash()]!
+                        .add(tempDevice);
+                  }
                 }
               }
 
@@ -50,15 +71,19 @@ class RoomsBlindsWidget extends StatelessWidget {
                 child: ListView.builder(
                   padding: EdgeInsets.zero,
                   itemBuilder: (context, index) {
-                    gradientColorCounter++;
-                    if (gradientColorCounter > gradientColorsList.length - 1) {
+                    List<Color>? gradiantColor;
+                    if (roomColorGradiant != null) {
+                      gradiantColor = roomColorGradiant;
+                    } else if (gradientColorCounter >
+                        gradientColorsList.length - 1) {
                       gradientColorCounter = 0;
+                      gradiantColor = gradientColorsList[gradientColorCounter];
                     }
                     final devicesInRoom = devicesByRooms[index];
 
                     return RoomBlinds(
                       devicesInRoom,
-                      gradientColorsList[gradientColorCounter],
+                      gradiantColor,
                       'Room ${index + 1}',
                       maxLightsToShow: 50,
                     );
@@ -67,13 +92,36 @@ class RoomsBlindsWidget extends StatelessWidget {
                 ),
               );
             } else {
-              return Expanded(
-                  child: FlatButton(
-                onPressed: () {},
-                color: Colors.black,
-                child: const Text(
-                    'No blinds have been found.\nPlease add new blind'),
-              ));
+              return SingleChildScrollView(
+                reverse: true,
+                padding: const EdgeInsets.only(bottom: 15),
+                child: Column(
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.symmetric(vertical: 30),
+                      alignment: Alignment.center,
+                      child: Image.asset(
+                        'assets/cbj_logo.png',
+                        fit: BoxFit.fitHeight,
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text(
+                        'Blinds does not exist.',
+                        style: TextStyle(
+                            fontSize: 30,
+                            color: (Theme.of(context)
+                                .textTheme
+                                .bodyText1!
+                                .color)!),
+                      ),
+                    ),
+                  ],
+                ),
+              );
             }
           },
           loadFailure: (state) {

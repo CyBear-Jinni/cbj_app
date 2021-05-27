@@ -42,8 +42,10 @@ class AddRoutinePage extends StatelessWidget {
               height: 100,
             ),
             const Text('When to execute'),
-            FlatButton(
-                color: Colors.grey,
+            TextButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.grey),
+                ),
                 onPressed: () {
                   Navigator.push(
                       context,
@@ -55,20 +57,24 @@ class AddRoutinePage extends StatelessWidget {
               height: 30,
             ),
             const Text('Only if'),
-            FlatButton(
-                color: Colors.grey,
+            TextButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.grey),
+                ),
                 onPressed: () {},
                 child: Text(
                   'Select',
                   style: TextStyle(
-                      color: Theme.of(context).textTheme.bodyText1.color),
+                      color: (Theme.of(context).textTheme.bodyText1!.color)!),
                 )),
             const SizedBox(
               height: 30,
             ),
             const Text('Execute this'),
-            FlatButton(
-              color: Colors.grey,
+            TextButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.grey),
+              ),
               onPressed: () {},
               child: const Text('Select'),
             ),

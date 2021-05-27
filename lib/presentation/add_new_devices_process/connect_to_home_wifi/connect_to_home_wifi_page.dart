@@ -55,7 +55,7 @@ class ConnectToHomeWifiPage extends StatelessWidget {
                 'Connect To Home WiFi',
                 style: TextStyle(
                     fontSize: 25,
-                    color: Theme.of(context).textTheme.bodyText1.color),
+                    color: (Theme.of(context).textTheme.bodyText1!.color)!),
               ),
             ),
             const SizedBox(

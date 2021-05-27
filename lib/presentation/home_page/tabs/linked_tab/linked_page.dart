@@ -13,18 +13,24 @@ class LinkedPage extends StatelessWidget {
       context: context,
       actions: <BottomSheetAction>[
         BottomSheetAction(
-            title: '➕ Add Linked',
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (BuildContext context) => AddLinkedPage()));
-            },
-            textStyle: const TextStyle(color: Colors.green, fontSize: 23)),
+          title: const Text(
+            '➕ Add Linked',
+            style: TextStyle(color: Colors.green, fontSize: 23),
+          ),
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (BuildContext context) => AddLinkedPage()));
+          },
+        ),
         BottomSheetAction(
-            title: '⚙️ Linked Settings',
-            onPressed: () {},
-            textStyle: const TextStyle(color: Colors.blueGrey, fontSize: 23)),
+          title: const Text(
+            '⚙️ Linked Settings',
+            style: TextStyle(color: Colors.blueGrey, fontSize: 23),
+          ),
+          onPressed: () {},
+        ),
       ],
     );
   }

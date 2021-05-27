@@ -17,11 +17,10 @@ class LightsInTheRoomBlock extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        ExtendedNavigator.of(context).push(Routes.roomsLightsPage,
-            arguments: RoomsLightsPageArguments(
-              showDevicesOnlyFromRoomId: lightsInRoom[0].roomId.getOrCrash(),
-              roomColorGradiant: roomColorGradiant,
-            ));
+        context.router.push(RoomsLightsRoute(
+          showDevicesOnlyFromRoomId: lightsInRoom[0].roomId!.getOrCrash(),
+          roomColorGradiant: roomColorGradiant,
+        ));
       },
       child: Container(
         color: Colors.black.withOpacity(0.03),
@@ -41,31 +40,37 @@ class LightsInTheRoomBlock extends StatelessWidget {
                     ),
                   ),
                 ),
-                Expanded(
-                  child: Container(
-                    height: 55,
-                    alignment: Alignment.topLeft,
+                if (lightsInRoom.length > 1)
+                  Expanded(
                     child: Container(
-                      width: 28,
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Theme.of(context)
-                                .textTheme
-                                .bodyText1
-                                .color
-                                .withOpacity(0.5)),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Text(
-                        lightsInRoom.length.toString(),
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontSize: 13,
-                            color: Theme.of(context).textTheme.bodyText1.color),
+                      height: 55,
+                      alignment: Alignment.topLeft,
+                      child: Container(
+                        width: 28,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                              color: Theme.of(context)
+                                  .textTheme
+                                  .bodyText1!
+                                  .color!
+                                  .withOpacity(0.5)),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Text(
+                          lightsInRoom.length.toString(),
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: 13,
+                              color: (Theme.of(context)
+                                  .textTheme
+                                  .bodyText1!
+                                  .color)!),
+                        ),
                       ),
                     ),
-                  ),
-                )
+                  )
+                else
+                  const Expanded(child: Text('')),
               ],
             ),
             const SizedBox(
@@ -73,15 +78,15 @@ class LightsInTheRoomBlock extends StatelessWidget {
             ),
             if (lightsInRoom.length == 1)
               Text(
-                lightsInRoom[0].defaultName.getOrCrash(),
+                lightsInRoom[0].defaultName!.getOrCrash()!,
                 style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1.color),
+                    color: (Theme.of(context).textTheme.bodyText1!.color)!),
               )
             else
               Text(
                 'Room Name lights',
                 style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1.color),
+                    color: (Theme.of(context).textTheme.bodyText1!.color)!),
               ),
             const SizedBox(
               height: 10,
@@ -110,15 +115,20 @@ class LightsInTheRoomBlock extends StatelessWidget {
                           'Off',
                           style: TextStyle(
                               fontSize: 14,
-                              color:
-                                  Theme.of(context).textTheme.bodyText1.color),
+                              color: (Theme.of(context)
+                                  .textTheme
+                                  .bodyText1!
+                                  .color)!),
                         ),
                       ),
                       Text(
                         '·',
                         style: TextStyle(
                             fontSize: 14,
-                            color: Theme.of(context).textTheme.bodyText1.color),
+                            color: (Theme.of(context)
+                                .textTheme
+                                .bodyText1!
+                                .color)!),
                       ),
                       TextButton(
                         style: ButtonStyle(
@@ -137,8 +147,10 @@ class LightsInTheRoomBlock extends StatelessWidget {
                           'On',
                           style: TextStyle(
                               fontSize: 14,
-                              color:
-                                  Theme.of(context).textTheme.bodyText1.color),
+                              color: (Theme.of(context)
+                                  .textTheme
+                                  .bodyText1!
+                                  .color)!),
                         ),
                       ),
                     ],
@@ -153,7 +165,7 @@ class LightsInTheRoomBlock extends StatelessWidget {
   List<String> extractDevicesId() {
     final List<String> devicesIdList = [];
     lightsInRoom.forEach((element) {
-      devicesIdList.add(element.id.getOrCrash());
+      devicesIdList.add(element.id!.getOrCrash()!);
     });
     return devicesIdList;
   }

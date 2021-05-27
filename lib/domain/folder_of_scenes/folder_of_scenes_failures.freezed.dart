@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'folder_of_scenes_failures.dart';
 
@@ -9,49 +9,53 @@ part of 'folder_of_scenes_failures.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$FolderOfScenesFailuresTearOff {
   const _$FolderOfScenesFailuresTearOff();
 
-// ignore: unused_element
   _EmptyScenes<T> emptyScenesList<T>() {
     return _EmptyScenes<T>();
   }
 
-// ignore: unused_element
   _Unexpected<T> unexpected<T>() {
     return _Unexpected<T>();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $FolderOfScenesFailures = _$FolderOfScenesFailuresTearOff();
 
 /// @nodoc
 mixin _$FolderOfScenesFailures<T> {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult emptyScenesList(),
-    @required TResult unexpected(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() emptyScenesList,
+    required TResult Function() unexpected,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult emptyScenesList(),
-    TResult unexpected(),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? emptyScenesList,
+    TResult Function()? unexpected,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult emptyScenesList(_EmptyScenes<T> value),
-    @required TResult unexpected(_Unexpected<T> value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(_EmptyScenes<T> value) emptyScenesList,
+    required TResult Function(_Unexpected<T> value) unexpected,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult emptyScenesList(_EmptyScenes<T> value),
-    TResult unexpected(_Unexpected<T> value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_EmptyScenes<T> value)? emptyScenesList,
+    TResult Function(_Unexpected<T> value)? unexpected,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -91,6 +95,7 @@ class __$EmptyScenesCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
+
 class _$_EmptyScenes<T> implements _EmptyScenes<T> {
   const _$_EmptyScenes();
 
@@ -109,23 +114,20 @@ class _$_EmptyScenes<T> implements _EmptyScenes<T> {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult emptyScenesList(),
-    @required TResult unexpected(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() emptyScenesList,
+    required TResult Function() unexpected,
   }) {
-    assert(emptyScenesList != null);
-    assert(unexpected != null);
     return emptyScenesList();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult emptyScenesList(),
-    TResult unexpected(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? emptyScenesList,
+    TResult Function()? unexpected,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (emptyScenesList != null) {
       return emptyScenesList();
     }
@@ -134,23 +136,20 @@ class _$_EmptyScenes<T> implements _EmptyScenes<T> {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult emptyScenesList(_EmptyScenes<T> value),
-    @required TResult unexpected(_Unexpected<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_EmptyScenes<T> value) emptyScenesList,
+    required TResult Function(_Unexpected<T> value) unexpected,
   }) {
-    assert(emptyScenesList != null);
-    assert(unexpected != null);
     return emptyScenesList(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult emptyScenesList(_EmptyScenes<T> value),
-    TResult unexpected(_Unexpected<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_EmptyScenes<T> value)? emptyScenesList,
+    TResult Function(_Unexpected<T> value)? unexpected,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (emptyScenesList != null) {
       return emptyScenesList(this);
     }
@@ -182,6 +181,7 @@ class __$UnexpectedCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
+
 class _$_Unexpected<T> implements _Unexpected<T> {
   const _$_Unexpected();
 
@@ -200,23 +200,20 @@ class _$_Unexpected<T> implements _Unexpected<T> {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult emptyScenesList(),
-    @required TResult unexpected(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() emptyScenesList,
+    required TResult Function() unexpected,
   }) {
-    assert(emptyScenesList != null);
-    assert(unexpected != null);
     return unexpected();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult emptyScenesList(),
-    TResult unexpected(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? emptyScenesList,
+    TResult Function()? unexpected,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (unexpected != null) {
       return unexpected();
     }
@@ -225,23 +222,20 @@ class _$_Unexpected<T> implements _Unexpected<T> {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult emptyScenesList(_EmptyScenes<T> value),
-    @required TResult unexpected(_Unexpected<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_EmptyScenes<T> value) emptyScenesList,
+    required TResult Function(_Unexpected<T> value) unexpected,
   }) {
-    assert(emptyScenesList != null);
-    assert(unexpected != null);
     return unexpected(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult emptyScenesList(_EmptyScenes<T> value),
-    TResult unexpected(_Unexpected<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_EmptyScenes<T> value)? emptyScenesList,
+    TResult Function(_Unexpected<T> value)? unexpected,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (unexpected != null) {
       return unexpected(this);
     }

@@ -6,10 +6,10 @@ part 'create_home_entity.freezed.dart';
 @freezed
 abstract class CreateHomeEntity with _$CreateHomeEntity {
   const factory CreateHomeEntity({
-    @required HomeUniqueId id,
-    @required HomeName name,
-    HomeDevicesUserId homeDevicesUserId,
-    HomeDevicesUserEmail homeDevicesUserEmail,
-    HomeDevicesUserPassword homeDevicesUserPassword,
+    required HomeUniqueId id,
+    required HomeName name,
+    HomeDevicesUserId? homeDevicesUserId,
+    HomeDevicesUserEmail? homeDevicesUserEmail,
+    HomeDevicesUserPassword? homeDevicesUserPassword,
   }) = _CreateHomeEntity;
 }

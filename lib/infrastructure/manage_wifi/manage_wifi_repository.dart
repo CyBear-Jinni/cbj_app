@@ -46,8 +46,8 @@ class ManageWiFiRepository implements IManageNetworkRepository {
   Future<Either<HomeUserFailures, Unit>> connectToWiFi(
       ManageNetworkEntity networkEntity) async {
     try {
-      final String ssid = networkEntity.name.getOrCrash();
-      final String pass = networkEntity.pass.getOrCrash();
+      final String ssid = networkEntity.name!.getOrCrash();
+      final String pass = networkEntity.pass!.getOrCrash();
 
       final bool connectedToWiFiSuccess = await WiFiForIoTPlugin.connect(ssid,
           password: pass, security: networkSecurity);
@@ -67,8 +67,8 @@ class ManageWiFiRepository implements IManageNetworkRepository {
   Future<Either<HomeUserFailures, Unit>> openAccessPoint(
       ManageNetworkEntity networkEntity) async {
     try {
-      final String ssid = networkEntity.name.getOrCrash();
-      final String pass = networkEntity.pass.getOrCrash();
+      final String ssid = networkEntity.name!.getOrCrash();
+      final String pass = networkEntity.pass!.getOrCrash();
 
       final bool createdAccessPoint =
           await WiFiForIoTPlugin.registerWifiNetwork(

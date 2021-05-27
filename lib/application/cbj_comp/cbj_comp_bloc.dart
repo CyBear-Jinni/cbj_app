@@ -18,7 +18,8 @@ class CBJCompBloc extends Bloc<CBJCompEvent, CBJCompState> {
 
   final ICBJCompRepository _cBJCompRepository;
 
-  StreamSubscription<Either<CBJCompFailure, String>> _CBJCompStreamSubscription;
+  StreamSubscription<Either<CBJCompFailure, String>>?
+      _CBJCompStreamSubscription;
 
   @override
   Stream<CBJCompState> mapEventToState(
