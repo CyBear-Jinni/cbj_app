@@ -20,8 +20,8 @@ class RoomsBlindsPage extends StatelessWidget {
       {this.showDevicesOnlyFromRoomId, this.roomColorGradiant = null});
 
   /// If it have value will only show blinds in this room
-  final String showDevicesOnlyFromRoomId;
-  final List<Color> roomColorGradiant;
+  final String? showDevicesOnlyFromRoomId;
+  final List<Color>? roomColorGradiant;
 
   void cogFunction(BuildContext context) {
     Navigator.push(
@@ -98,7 +98,7 @@ class RoomsBlindsPage extends StatelessWidget {
                 ),
                 Expanded(
                   child: RoomsBlindsWidget(
-                      showDevicesOnlyFromRoomId, roomColorGradiant),
+                      showDevicesOnlyFromRoomId!, roomColorGradiant!),
                 ),
               ],
             ),

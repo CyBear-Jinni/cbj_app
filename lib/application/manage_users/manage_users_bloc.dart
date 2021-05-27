@@ -19,7 +19,7 @@ class ManageUsersBloc extends Bloc<ManageUsersEvent, ManageUsersState> {
 
   final IHomeUserRepository _userRepository;
 
-  StreamSubscription<Either<HomeUserFailures, KtList<HomeUserEntity>>>
+  StreamSubscription<Either<HomeUserFailures, KtList<HomeUserEntity>>>?
       _userStreamSubscription;
 
   @override
@@ -30,7 +30,7 @@ class ManageUsersBloc extends Bloc<ManageUsersEvent, ManageUsersState> {
       initialized: (e) async* {
         yield const ManageUsersState.inProgress();
         await _userStreamSubscription?.cancel();
-        _userStreamSubscription = _userRepository.getAllUsers().listen(
+        _userStreamSubscription = _userRepository!.getAllUsers().listen(
             (allUsersEvent) =>
                 add(ManageUsersEvent.userReceived(allUsersEvent)));
       },

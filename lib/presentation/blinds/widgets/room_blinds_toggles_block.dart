@@ -13,7 +13,7 @@ class RoomBlindsTogglesBlock extends StatelessWidget {
 
   final SmartRoomObject _smartRoomObject;
 
-  final int maxLightsToShow;
+  final int? maxLightsToShow;
 
   @override
   Widget build(BuildContext context) {
@@ -27,21 +27,21 @@ class RoomBlindsTogglesBlock extends StatelessWidget {
       const int maxLightsInRow = 2;
       int numberOfLightsToShow;
       if (maxLightsToShow != null &&
-          maxLightsToShow <= _smartRoomObject.getLights().length) {
-        numberOfLightsToShow = maxLightsToShow;
+          maxLightsToShow! <= _smartRoomObject.getLights()!.length) {
+        numberOfLightsToShow = maxLightsToShow!;
       } else {
-        numberOfLightsToShow = _smartRoomObject.getLights().length;
+        numberOfLightsToShow = _smartRoomObject.getLights()!.length;
       }
 
       for (int i = 0; i < numberOfLightsToShow; i += maxLightsInRow) {
         for (int v = 0; v < maxLightsInRow; v++) {
-          if (_smartRoomObject.getLights().length > i + v) {
+          if (_smartRoomObject.getLights()!.length > i + v) {
             widgetsForRow.add(
               Container(
                 margin: const EdgeInsets.symmetric(vertical: 5),
                 width: sizeBoxWidth + 15,
                 child: SmartDevicePage(
-                  _smartRoomObject.getLights()[i + v],
+                  _smartRoomObject.getLights()![i + v],
                 ),
               ),
             );
@@ -77,7 +77,7 @@ class RoomBlindsTogglesBlock extends StatelessWidget {
               end: Alignment.topLeft),
           borderRadius: const BorderRadius.all(Radius.circular(24)),
           border: Border.all(
-            color: Theme.of(context).textTheme.bodyText1.color,
+            color: (Theme.of(context).textTheme.bodyText1!.color)!,
             width: 0.6,
           )),
       child: Container(
@@ -100,7 +100,7 @@ class RoomBlindsTogglesBlock extends StatelessWidget {
               ),
               onPressed: () {
                 if (maxLightsToShow != null &&
-                    _smartRoomObject.getLights().length > maxLightsToShow) {
+                    _smartRoomObject.getLights()!.length > maxLightsToShow!) {
                   ExtendedNavigator.of(context)
                       .pushLightsInTheRoomPage(thisSmartRoom: _smartRoomObject);
                 }
@@ -111,16 +111,16 @@ class RoomBlindsTogglesBlock extends StatelessWidget {
                   Text(
                     _smartRoomObject.getRoomName(),
                     style: TextStyle(
-                      color: Theme.of(context).textTheme.bodyText1.color,
+                      color: Theme.of(context).textTheme.bodyText1!.color,
                       fontSize: 25,
                       decoration: TextDecoration.underline,
                     ),
                   ),
                   if (maxLightsToShow != null &&
-                      _smartRoomObject.getLights().length > maxLightsToShow)
+                      _smartRoomObject.getLights()!.length > maxLightsToShow!)
                     FaIcon(
                       FontAwesomeIcons.arrowRight,
-                      color: Theme.of(context).textTheme.bodyText1.color,
+                      color: Theme.of(context).textTheme.bodyText1!.color,
                       size: 20,
                     ),
                 ],

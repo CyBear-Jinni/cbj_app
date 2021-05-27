@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'boilers_actor_bloc.dart';
 
@@ -9,34 +9,33 @@ part of 'boilers_actor_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$BoilersActorEventTearOff {
   const _$BoilersActorEventTearOff();
 
-// ignore: unused_element
   Initialized initialized() {
     return const Initialized();
   }
 
-// ignore: unused_element
   _TurnOnAllBoilers turnOnAllBoilers(
-      List<String> boilersIdToTurnUp, BuildContext context) {
+      List<String?> boilersIdToTurnUp, BuildContext context) {
     return _TurnOnAllBoilers(
       boilersIdToTurnUp,
       context,
     );
   }
 
-// ignore: unused_element
   _TurnOffAllBoilers turnOffAllBoilers(
-      List<String> boilersIdToTurnOff, BuildContext context) {
+      List<String?> boilersIdToTurnOff, BuildContext context) {
     return _TurnOffAllBoilers(
       boilersIdToTurnOff,
       context,
     );
   }
 
-// ignore: unused_element
   _Deleted deleted(DeviceEntity deviceEntity) {
     return _Deleted(
       deviceEntity,
@@ -45,47 +44,50 @@ class _$BoilersActorEventTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $BoilersActorEvent = _$BoilersActorEventTearOff();
 
 /// @nodoc
 mixin _$BoilersActorEvent {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialized(),
-    @required
-        TResult turnOnAllBoilers(
-            List<String> boilersIdToTurnUp, BuildContext context),
-    @required
-        TResult turnOffAllBoilers(
-            List<String> boilersIdToTurnOff, BuildContext context),
-    @required TResult deleted(DeviceEntity deviceEntity),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(
+            List<String?> boilersIdToTurnUp, BuildContext context)
+        turnOnAllBoilers,
+    required TResult Function(
+            List<String?> boilersIdToTurnOff, BuildContext context)
+        turnOffAllBoilers,
+    required TResult Function(DeviceEntity deviceEntity) deleted,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialized(),
-    TResult turnOnAllBoilers(
-        List<String> boilersIdToTurnUp, BuildContext context),
-    TResult turnOffAllBoilers(
-        List<String> boilersIdToTurnOff, BuildContext context),
-    TResult deleted(DeviceEntity deviceEntity),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(List<String?> boilersIdToTurnUp, BuildContext context)?
+        turnOnAllBoilers,
+    TResult Function(List<String?> boilersIdToTurnOff, BuildContext context)?
+        turnOffAllBoilers,
+    TResult Function(DeviceEntity deviceEntity)? deleted,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialized(Initialized value),
-    @required TResult turnOnAllBoilers(_TurnOnAllBoilers value),
-    @required TResult turnOffAllBoilers(_TurnOffAllBoilers value),
-    @required TResult deleted(_Deleted value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(_TurnOnAllBoilers value) turnOnAllBoilers,
+    required TResult Function(_TurnOffAllBoilers value) turnOffAllBoilers,
+    required TResult Function(_Deleted value) deleted,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialized(Initialized value),
-    TResult turnOnAllBoilers(_TurnOnAllBoilers value),
-    TResult turnOffAllBoilers(_TurnOffAllBoilers value),
-    TResult deleted(_Deleted value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(_TurnOnAllBoilers value)? turnOnAllBoilers,
+    TResult Function(_TurnOffAllBoilers value)? turnOffAllBoilers,
+    TResult Function(_Deleted value)? deleted,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -125,6 +127,7 @@ class _$InitializedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Initialized implements Initialized {
   const _$Initialized();
 
@@ -143,35 +146,30 @@ class _$Initialized implements Initialized {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialized(),
-    @required
-        TResult turnOnAllBoilers(
-            List<String> boilersIdToTurnUp, BuildContext context),
-    @required
-        TResult turnOffAllBoilers(
-            List<String> boilersIdToTurnOff, BuildContext context),
-    @required TResult deleted(DeviceEntity deviceEntity),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(
+            List<String?> boilersIdToTurnUp, BuildContext context)
+        turnOnAllBoilers,
+    required TResult Function(
+            List<String?> boilersIdToTurnOff, BuildContext context)
+        turnOffAllBoilers,
+    required TResult Function(DeviceEntity deviceEntity) deleted,
   }) {
-    assert(initialized != null);
-    assert(turnOnAllBoilers != null);
-    assert(turnOffAllBoilers != null);
-    assert(deleted != null);
     return initialized();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialized(),
-    TResult turnOnAllBoilers(
-        List<String> boilersIdToTurnUp, BuildContext context),
-    TResult turnOffAllBoilers(
-        List<String> boilersIdToTurnOff, BuildContext context),
-    TResult deleted(DeviceEntity deviceEntity),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(List<String?> boilersIdToTurnUp, BuildContext context)?
+        turnOnAllBoilers,
+    TResult Function(List<String?> boilersIdToTurnOff, BuildContext context)?
+        turnOffAllBoilers,
+    TResult Function(DeviceEntity deviceEntity)? deleted,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initialized != null) {
       return initialized();
     }
@@ -180,29 +178,24 @@ class _$Initialized implements Initialized {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialized(Initialized value),
-    @required TResult turnOnAllBoilers(_TurnOnAllBoilers value),
-    @required TResult turnOffAllBoilers(_TurnOffAllBoilers value),
-    @required TResult deleted(_Deleted value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(_TurnOnAllBoilers value) turnOnAllBoilers,
+    required TResult Function(_TurnOffAllBoilers value) turnOffAllBoilers,
+    required TResult Function(_Deleted value) deleted,
   }) {
-    assert(initialized != null);
-    assert(turnOnAllBoilers != null);
-    assert(turnOffAllBoilers != null);
-    assert(deleted != null);
     return initialized(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialized(Initialized value),
-    TResult turnOnAllBoilers(_TurnOnAllBoilers value),
-    TResult turnOffAllBoilers(_TurnOffAllBoilers value),
-    TResult deleted(_Deleted value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(_TurnOnAllBoilers value)? turnOnAllBoilers,
+    TResult Function(_TurnOffAllBoilers value)? turnOffAllBoilers,
+    TResult Function(_Deleted value)? deleted,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initialized != null) {
       return initialized(this);
     }
@@ -219,7 +212,7 @@ abstract class _$TurnOnAllBoilersCopyWith<$Res> {
   factory _$TurnOnAllBoilersCopyWith(
           _TurnOnAllBoilers value, $Res Function(_TurnOnAllBoilers) then) =
       __$TurnOnAllBoilersCopyWithImpl<$Res>;
-  $Res call({List<String> boilersIdToTurnUp, BuildContext context});
+  $Res call({List<String?> boilersIdToTurnUp, BuildContext context});
 }
 
 /// @nodoc
@@ -235,26 +228,29 @@ class __$TurnOnAllBoilersCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object boilersIdToTurnUp = freezed,
-    Object context = freezed,
+    Object? boilersIdToTurnUp = freezed,
+    Object? context = freezed,
   }) {
     return _then(_TurnOnAllBoilers(
       boilersIdToTurnUp == freezed
           ? _value.boilersIdToTurnUp
-          : boilersIdToTurnUp as List<String>,
-      context == freezed ? _value.context : context as BuildContext,
+          : boilersIdToTurnUp // ignore: cast_nullable_to_non_nullable
+              as List<String?>,
+      context == freezed
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_TurnOnAllBoilers implements _TurnOnAllBoilers {
-  const _$_TurnOnAllBoilers(this.boilersIdToTurnUp, this.context)
-      : assert(boilersIdToTurnUp != null),
-        assert(context != null);
+  const _$_TurnOnAllBoilers(this.boilersIdToTurnUp, this.context);
 
   @override
-  final List<String> boilersIdToTurnUp;
+  final List<String?> boilersIdToTurnUp;
   @override
   final BuildContext context;
 
@@ -287,35 +283,30 @@ class _$_TurnOnAllBoilers implements _TurnOnAllBoilers {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialized(),
-    @required
-        TResult turnOnAllBoilers(
-            List<String> boilersIdToTurnUp, BuildContext context),
-    @required
-        TResult turnOffAllBoilers(
-            List<String> boilersIdToTurnOff, BuildContext context),
-    @required TResult deleted(DeviceEntity deviceEntity),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(
+            List<String?> boilersIdToTurnUp, BuildContext context)
+        turnOnAllBoilers,
+    required TResult Function(
+            List<String?> boilersIdToTurnOff, BuildContext context)
+        turnOffAllBoilers,
+    required TResult Function(DeviceEntity deviceEntity) deleted,
   }) {
-    assert(initialized != null);
-    assert(turnOnAllBoilers != null);
-    assert(turnOffAllBoilers != null);
-    assert(deleted != null);
     return turnOnAllBoilers(boilersIdToTurnUp, context);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialized(),
-    TResult turnOnAllBoilers(
-        List<String> boilersIdToTurnUp, BuildContext context),
-    TResult turnOffAllBoilers(
-        List<String> boilersIdToTurnOff, BuildContext context),
-    TResult deleted(DeviceEntity deviceEntity),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(List<String?> boilersIdToTurnUp, BuildContext context)?
+        turnOnAllBoilers,
+    TResult Function(List<String?> boilersIdToTurnOff, BuildContext context)?
+        turnOffAllBoilers,
+    TResult Function(DeviceEntity deviceEntity)? deleted,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (turnOnAllBoilers != null) {
       return turnOnAllBoilers(boilersIdToTurnUp, context);
     }
@@ -324,29 +315,24 @@ class _$_TurnOnAllBoilers implements _TurnOnAllBoilers {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialized(Initialized value),
-    @required TResult turnOnAllBoilers(_TurnOnAllBoilers value),
-    @required TResult turnOffAllBoilers(_TurnOffAllBoilers value),
-    @required TResult deleted(_Deleted value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(_TurnOnAllBoilers value) turnOnAllBoilers,
+    required TResult Function(_TurnOffAllBoilers value) turnOffAllBoilers,
+    required TResult Function(_Deleted value) deleted,
   }) {
-    assert(initialized != null);
-    assert(turnOnAllBoilers != null);
-    assert(turnOffAllBoilers != null);
-    assert(deleted != null);
     return turnOnAllBoilers(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialized(Initialized value),
-    TResult turnOnAllBoilers(_TurnOnAllBoilers value),
-    TResult turnOffAllBoilers(_TurnOffAllBoilers value),
-    TResult deleted(_Deleted value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(_TurnOnAllBoilers value)? turnOnAllBoilers,
+    TResult Function(_TurnOffAllBoilers value)? turnOffAllBoilers,
+    TResult Function(_Deleted value)? deleted,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (turnOnAllBoilers != null) {
       return turnOnAllBoilers(this);
     }
@@ -356,13 +342,14 @@ class _$_TurnOnAllBoilers implements _TurnOnAllBoilers {
 
 abstract class _TurnOnAllBoilers implements BoilersActorEvent {
   const factory _TurnOnAllBoilers(
-          List<String> boilersIdToTurnUp, BuildContext context) =
+          List<String?> boilersIdToTurnUp, BuildContext context) =
       _$_TurnOnAllBoilers;
 
-  List<String> get boilersIdToTurnUp;
-  BuildContext get context;
+  List<String?> get boilersIdToTurnUp => throw _privateConstructorUsedError;
+  BuildContext get context => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$TurnOnAllBoilersCopyWith<_TurnOnAllBoilers> get copyWith;
+  _$TurnOnAllBoilersCopyWith<_TurnOnAllBoilers> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -370,7 +357,7 @@ abstract class _$TurnOffAllBoilersCopyWith<$Res> {
   factory _$TurnOffAllBoilersCopyWith(
           _TurnOffAllBoilers value, $Res Function(_TurnOffAllBoilers) then) =
       __$TurnOffAllBoilersCopyWithImpl<$Res>;
-  $Res call({List<String> boilersIdToTurnOff, BuildContext context});
+  $Res call({List<String?> boilersIdToTurnOff, BuildContext context});
 }
 
 /// @nodoc
@@ -386,26 +373,29 @@ class __$TurnOffAllBoilersCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object boilersIdToTurnOff = freezed,
-    Object context = freezed,
+    Object? boilersIdToTurnOff = freezed,
+    Object? context = freezed,
   }) {
     return _then(_TurnOffAllBoilers(
       boilersIdToTurnOff == freezed
           ? _value.boilersIdToTurnOff
-          : boilersIdToTurnOff as List<String>,
-      context == freezed ? _value.context : context as BuildContext,
+          : boilersIdToTurnOff // ignore: cast_nullable_to_non_nullable
+              as List<String?>,
+      context == freezed
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_TurnOffAllBoilers implements _TurnOffAllBoilers {
-  const _$_TurnOffAllBoilers(this.boilersIdToTurnOff, this.context)
-      : assert(boilersIdToTurnOff != null),
-        assert(context != null);
+  const _$_TurnOffAllBoilers(this.boilersIdToTurnOff, this.context);
 
   @override
-  final List<String> boilersIdToTurnOff;
+  final List<String?> boilersIdToTurnOff;
   @override
   final BuildContext context;
 
@@ -438,35 +428,30 @@ class _$_TurnOffAllBoilers implements _TurnOffAllBoilers {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialized(),
-    @required
-        TResult turnOnAllBoilers(
-            List<String> boilersIdToTurnUp, BuildContext context),
-    @required
-        TResult turnOffAllBoilers(
-            List<String> boilersIdToTurnOff, BuildContext context),
-    @required TResult deleted(DeviceEntity deviceEntity),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(
+            List<String?> boilersIdToTurnUp, BuildContext context)
+        turnOnAllBoilers,
+    required TResult Function(
+            List<String?> boilersIdToTurnOff, BuildContext context)
+        turnOffAllBoilers,
+    required TResult Function(DeviceEntity deviceEntity) deleted,
   }) {
-    assert(initialized != null);
-    assert(turnOnAllBoilers != null);
-    assert(turnOffAllBoilers != null);
-    assert(deleted != null);
     return turnOffAllBoilers(boilersIdToTurnOff, context);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialized(),
-    TResult turnOnAllBoilers(
-        List<String> boilersIdToTurnUp, BuildContext context),
-    TResult turnOffAllBoilers(
-        List<String> boilersIdToTurnOff, BuildContext context),
-    TResult deleted(DeviceEntity deviceEntity),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(List<String?> boilersIdToTurnUp, BuildContext context)?
+        turnOnAllBoilers,
+    TResult Function(List<String?> boilersIdToTurnOff, BuildContext context)?
+        turnOffAllBoilers,
+    TResult Function(DeviceEntity deviceEntity)? deleted,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (turnOffAllBoilers != null) {
       return turnOffAllBoilers(boilersIdToTurnOff, context);
     }
@@ -475,29 +460,24 @@ class _$_TurnOffAllBoilers implements _TurnOffAllBoilers {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialized(Initialized value),
-    @required TResult turnOnAllBoilers(_TurnOnAllBoilers value),
-    @required TResult turnOffAllBoilers(_TurnOffAllBoilers value),
-    @required TResult deleted(_Deleted value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(_TurnOnAllBoilers value) turnOnAllBoilers,
+    required TResult Function(_TurnOffAllBoilers value) turnOffAllBoilers,
+    required TResult Function(_Deleted value) deleted,
   }) {
-    assert(initialized != null);
-    assert(turnOnAllBoilers != null);
-    assert(turnOffAllBoilers != null);
-    assert(deleted != null);
     return turnOffAllBoilers(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialized(Initialized value),
-    TResult turnOnAllBoilers(_TurnOnAllBoilers value),
-    TResult turnOffAllBoilers(_TurnOffAllBoilers value),
-    TResult deleted(_Deleted value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(_TurnOnAllBoilers value)? turnOnAllBoilers,
+    TResult Function(_TurnOffAllBoilers value)? turnOffAllBoilers,
+    TResult Function(_Deleted value)? deleted,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (turnOffAllBoilers != null) {
       return turnOffAllBoilers(this);
     }
@@ -507,13 +487,14 @@ class _$_TurnOffAllBoilers implements _TurnOffAllBoilers {
 
 abstract class _TurnOffAllBoilers implements BoilersActorEvent {
   const factory _TurnOffAllBoilers(
-          List<String> boilersIdToTurnOff, BuildContext context) =
+          List<String?> boilersIdToTurnOff, BuildContext context) =
       _$_TurnOffAllBoilers;
 
-  List<String> get boilersIdToTurnOff;
-  BuildContext get context;
+  List<String?> get boilersIdToTurnOff => throw _privateConstructorUsedError;
+  BuildContext get context => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$TurnOffAllBoilersCopyWith<_TurnOffAllBoilers> get copyWith;
+  _$TurnOffAllBoilersCopyWith<_TurnOffAllBoilers> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -536,20 +517,18 @@ class __$DeletedCopyWithImpl<$Res> extends _$BoilersActorEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object deviceEntity = freezed,
+    Object? deviceEntity = freezed,
   }) {
     return _then(_Deleted(
       deviceEntity == freezed
           ? _value.deviceEntity
-          : deviceEntity as DeviceEntity,
+          : deviceEntity // ignore: cast_nullable_to_non_nullable
+              as DeviceEntity,
     ));
   }
 
   @override
   $DeviceEntityCopyWith<$Res> get deviceEntity {
-    if (_value.deviceEntity == null) {
-      return null;
-    }
     return $DeviceEntityCopyWith<$Res>(_value.deviceEntity, (value) {
       return _then(_value.copyWith(deviceEntity: value));
     });
@@ -557,8 +536,9 @@ class __$DeletedCopyWithImpl<$Res> extends _$BoilersActorEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_Deleted implements _Deleted {
-  const _$_Deleted(this.deviceEntity) : assert(deviceEntity != null);
+  const _$_Deleted(this.deviceEntity);
 
   @override
   final DeviceEntity deviceEntity;
@@ -588,35 +568,30 @@ class _$_Deleted implements _Deleted {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialized(),
-    @required
-        TResult turnOnAllBoilers(
-            List<String> boilersIdToTurnUp, BuildContext context),
-    @required
-        TResult turnOffAllBoilers(
-            List<String> boilersIdToTurnOff, BuildContext context),
-    @required TResult deleted(DeviceEntity deviceEntity),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(
+            List<String?> boilersIdToTurnUp, BuildContext context)
+        turnOnAllBoilers,
+    required TResult Function(
+            List<String?> boilersIdToTurnOff, BuildContext context)
+        turnOffAllBoilers,
+    required TResult Function(DeviceEntity deviceEntity) deleted,
   }) {
-    assert(initialized != null);
-    assert(turnOnAllBoilers != null);
-    assert(turnOffAllBoilers != null);
-    assert(deleted != null);
     return deleted(deviceEntity);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialized(),
-    TResult turnOnAllBoilers(
-        List<String> boilersIdToTurnUp, BuildContext context),
-    TResult turnOffAllBoilers(
-        List<String> boilersIdToTurnOff, BuildContext context),
-    TResult deleted(DeviceEntity deviceEntity),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(List<String?> boilersIdToTurnUp, BuildContext context)?
+        turnOnAllBoilers,
+    TResult Function(List<String?> boilersIdToTurnOff, BuildContext context)?
+        turnOffAllBoilers,
+    TResult Function(DeviceEntity deviceEntity)? deleted,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (deleted != null) {
       return deleted(deviceEntity);
     }
@@ -625,29 +600,24 @@ class _$_Deleted implements _Deleted {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialized(Initialized value),
-    @required TResult turnOnAllBoilers(_TurnOnAllBoilers value),
-    @required TResult turnOffAllBoilers(_TurnOffAllBoilers value),
-    @required TResult deleted(_Deleted value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(_TurnOnAllBoilers value) turnOnAllBoilers,
+    required TResult Function(_TurnOffAllBoilers value) turnOffAllBoilers,
+    required TResult Function(_Deleted value) deleted,
   }) {
-    assert(initialized != null);
-    assert(turnOnAllBoilers != null);
-    assert(turnOffAllBoilers != null);
-    assert(deleted != null);
     return deleted(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialized(Initialized value),
-    TResult turnOnAllBoilers(_TurnOnAllBoilers value),
-    TResult turnOffAllBoilers(_TurnOffAllBoilers value),
-    TResult deleted(_Deleted value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(_TurnOnAllBoilers value)? turnOnAllBoilers,
+    TResult Function(_TurnOffAllBoilers value)? turnOffAllBoilers,
+    TResult Function(_Deleted value)? deleted,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (deleted != null) {
       return deleted(this);
     }
@@ -658,74 +628,75 @@ class _$_Deleted implements _Deleted {
 abstract class _Deleted implements BoilersActorEvent {
   const factory _Deleted(DeviceEntity deviceEntity) = _$_Deleted;
 
-  DeviceEntity get deviceEntity;
+  DeviceEntity get deviceEntity => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$DeletedCopyWith<_Deleted> get copyWith;
+  _$DeletedCopyWith<_Deleted> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$BoilersActorStateTearOff {
   const _$BoilersActorStateTearOff();
 
-// ignore: unused_element
   _Initial initial() {
     return const _Initial();
   }
 
-// ignore: unused_element
   _ActionInProgress actionInProgress() {
     return const _ActionInProgress();
   }
 
-// ignore: unused_element
   _DeleteFailure deleteFailure(DevicesFailure<dynamic> devicesFailure) {
     return _DeleteFailure(
       devicesFailure,
     );
   }
 
-// ignore: unused_element
   _DeleteSuccess deleteSuccess() {
     return const _DeleteSuccess();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $BoilersActorState = _$BoilersActorStateTearOff();
 
 /// @nodoc
 mixin _$BoilersActorState {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult actionInProgress(),
-    @required TResult deleteFailure(DevicesFailure<dynamic> devicesFailure),
-    @required TResult deleteSuccess(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() actionInProgress,
+    required TResult Function(DevicesFailure<dynamic> devicesFailure)
+        deleteFailure,
+    required TResult Function() deleteSuccess,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult actionInProgress(),
-    TResult deleteFailure(DevicesFailure<dynamic> devicesFailure),
-    TResult deleteSuccess(),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? actionInProgress,
+    TResult Function(DevicesFailure<dynamic> devicesFailure)? deleteFailure,
+    TResult Function()? deleteSuccess,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult actionInProgress(_ActionInProgress value),
-    @required TResult deleteFailure(_DeleteFailure value),
-    @required TResult deleteSuccess(_DeleteSuccess value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ActionInProgress value) actionInProgress,
+    required TResult Function(_DeleteFailure value) deleteFailure,
+    required TResult Function(_DeleteSuccess value) deleteSuccess,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult actionInProgress(_ActionInProgress value),
-    TResult deleteFailure(_DeleteFailure value),
-    TResult deleteSuccess(_DeleteSuccess value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ActionInProgress value)? actionInProgress,
+    TResult Function(_DeleteFailure value)? deleteFailure,
+    TResult Function(_DeleteSuccess value)? deleteSuccess,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -762,6 +733,7 @@ class __$InitialCopyWithImpl<$Res> extends _$BoilersActorStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_Initial implements _Initial {
   const _$_Initial();
 
@@ -780,29 +752,25 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult actionInProgress(),
-    @required TResult deleteFailure(DevicesFailure<dynamic> devicesFailure),
-    @required TResult deleteSuccess(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() actionInProgress,
+    required TResult Function(DevicesFailure<dynamic> devicesFailure)
+        deleteFailure,
+    required TResult Function() deleteSuccess,
   }) {
-    assert(initial != null);
-    assert(actionInProgress != null);
-    assert(deleteFailure != null);
-    assert(deleteSuccess != null);
     return initial();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult actionInProgress(),
-    TResult deleteFailure(DevicesFailure<dynamic> devicesFailure),
-    TResult deleteSuccess(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? actionInProgress,
+    TResult Function(DevicesFailure<dynamic> devicesFailure)? deleteFailure,
+    TResult Function()? deleteSuccess,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initial != null) {
       return initial();
     }
@@ -811,29 +779,24 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult actionInProgress(_ActionInProgress value),
-    @required TResult deleteFailure(_DeleteFailure value),
-    @required TResult deleteSuccess(_DeleteSuccess value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ActionInProgress value) actionInProgress,
+    required TResult Function(_DeleteFailure value) deleteFailure,
+    required TResult Function(_DeleteSuccess value) deleteSuccess,
   }) {
-    assert(initial != null);
-    assert(actionInProgress != null);
-    assert(deleteFailure != null);
-    assert(deleteSuccess != null);
     return initial(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult actionInProgress(_ActionInProgress value),
-    TResult deleteFailure(_DeleteFailure value),
-    TResult deleteSuccess(_DeleteSuccess value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ActionInProgress value)? actionInProgress,
+    TResult Function(_DeleteFailure value)? deleteFailure,
+    TResult Function(_DeleteSuccess value)? deleteSuccess,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initial != null) {
       return initial(this);
     }
@@ -865,6 +828,7 @@ class __$ActionInProgressCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_ActionInProgress implements _ActionInProgress {
   const _$_ActionInProgress();
 
@@ -883,29 +847,25 @@ class _$_ActionInProgress implements _ActionInProgress {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult actionInProgress(),
-    @required TResult deleteFailure(DevicesFailure<dynamic> devicesFailure),
-    @required TResult deleteSuccess(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() actionInProgress,
+    required TResult Function(DevicesFailure<dynamic> devicesFailure)
+        deleteFailure,
+    required TResult Function() deleteSuccess,
   }) {
-    assert(initial != null);
-    assert(actionInProgress != null);
-    assert(deleteFailure != null);
-    assert(deleteSuccess != null);
     return actionInProgress();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult actionInProgress(),
-    TResult deleteFailure(DevicesFailure<dynamic> devicesFailure),
-    TResult deleteSuccess(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? actionInProgress,
+    TResult Function(DevicesFailure<dynamic> devicesFailure)? deleteFailure,
+    TResult Function()? deleteSuccess,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (actionInProgress != null) {
       return actionInProgress();
     }
@@ -914,29 +874,24 @@ class _$_ActionInProgress implements _ActionInProgress {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult actionInProgress(_ActionInProgress value),
-    @required TResult deleteFailure(_DeleteFailure value),
-    @required TResult deleteSuccess(_DeleteSuccess value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ActionInProgress value) actionInProgress,
+    required TResult Function(_DeleteFailure value) deleteFailure,
+    required TResult Function(_DeleteSuccess value) deleteSuccess,
   }) {
-    assert(initial != null);
-    assert(actionInProgress != null);
-    assert(deleteFailure != null);
-    assert(deleteSuccess != null);
     return actionInProgress(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult actionInProgress(_ActionInProgress value),
-    TResult deleteFailure(_DeleteFailure value),
-    TResult deleteSuccess(_DeleteSuccess value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ActionInProgress value)? actionInProgress,
+    TResult Function(_DeleteFailure value)? deleteFailure,
+    TResult Function(_DeleteSuccess value)? deleteSuccess,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (actionInProgress != null) {
       return actionInProgress(this);
     }
@@ -971,20 +926,18 @@ class __$DeleteFailureCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object devicesFailure = freezed,
+    Object? devicesFailure = freezed,
   }) {
     return _then(_DeleteFailure(
       devicesFailure == freezed
           ? _value.devicesFailure
-          : devicesFailure as DevicesFailure<dynamic>,
+          : devicesFailure // ignore: cast_nullable_to_non_nullable
+              as DevicesFailure<dynamic>,
     ));
   }
 
   @override
   $DevicesFailureCopyWith<dynamic, $Res> get devicesFailure {
-    if (_value.devicesFailure == null) {
-      return null;
-    }
     return $DevicesFailureCopyWith<dynamic, $Res>(_value.devicesFailure,
         (value) {
       return _then(_value.copyWith(devicesFailure: value));
@@ -993,8 +946,9 @@ class __$DeleteFailureCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_DeleteFailure implements _DeleteFailure {
-  const _$_DeleteFailure(this.devicesFailure) : assert(devicesFailure != null);
+  const _$_DeleteFailure(this.devicesFailure);
 
   @override
   final DevicesFailure<dynamic> devicesFailure;
@@ -1025,29 +979,25 @@ class _$_DeleteFailure implements _DeleteFailure {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult actionInProgress(),
-    @required TResult deleteFailure(DevicesFailure<dynamic> devicesFailure),
-    @required TResult deleteSuccess(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() actionInProgress,
+    required TResult Function(DevicesFailure<dynamic> devicesFailure)
+        deleteFailure,
+    required TResult Function() deleteSuccess,
   }) {
-    assert(initial != null);
-    assert(actionInProgress != null);
-    assert(deleteFailure != null);
-    assert(deleteSuccess != null);
     return deleteFailure(devicesFailure);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult actionInProgress(),
-    TResult deleteFailure(DevicesFailure<dynamic> devicesFailure),
-    TResult deleteSuccess(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? actionInProgress,
+    TResult Function(DevicesFailure<dynamic> devicesFailure)? deleteFailure,
+    TResult Function()? deleteSuccess,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (deleteFailure != null) {
       return deleteFailure(devicesFailure);
     }
@@ -1056,29 +1006,24 @@ class _$_DeleteFailure implements _DeleteFailure {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult actionInProgress(_ActionInProgress value),
-    @required TResult deleteFailure(_DeleteFailure value),
-    @required TResult deleteSuccess(_DeleteSuccess value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ActionInProgress value) actionInProgress,
+    required TResult Function(_DeleteFailure value) deleteFailure,
+    required TResult Function(_DeleteSuccess value) deleteSuccess,
   }) {
-    assert(initial != null);
-    assert(actionInProgress != null);
-    assert(deleteFailure != null);
-    assert(deleteSuccess != null);
     return deleteFailure(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult actionInProgress(_ActionInProgress value),
-    TResult deleteFailure(_DeleteFailure value),
-    TResult deleteSuccess(_DeleteSuccess value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ActionInProgress value)? actionInProgress,
+    TResult Function(_DeleteFailure value)? deleteFailure,
+    TResult Function(_DeleteSuccess value)? deleteSuccess,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (deleteFailure != null) {
       return deleteFailure(this);
     }
@@ -1090,9 +1035,11 @@ abstract class _DeleteFailure implements BoilersActorState {
   const factory _DeleteFailure(DevicesFailure<dynamic> devicesFailure) =
       _$_DeleteFailure;
 
-  DevicesFailure<dynamic> get devicesFailure;
+  DevicesFailure<dynamic> get devicesFailure =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$DeleteFailureCopyWith<_DeleteFailure> get copyWith;
+  _$DeleteFailureCopyWith<_DeleteFailure> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1115,6 +1062,7 @@ class __$DeleteSuccessCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_DeleteSuccess implements _DeleteSuccess {
   const _$_DeleteSuccess();
 
@@ -1133,29 +1081,25 @@ class _$_DeleteSuccess implements _DeleteSuccess {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult actionInProgress(),
-    @required TResult deleteFailure(DevicesFailure<dynamic> devicesFailure),
-    @required TResult deleteSuccess(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() actionInProgress,
+    required TResult Function(DevicesFailure<dynamic> devicesFailure)
+        deleteFailure,
+    required TResult Function() deleteSuccess,
   }) {
-    assert(initial != null);
-    assert(actionInProgress != null);
-    assert(deleteFailure != null);
-    assert(deleteSuccess != null);
     return deleteSuccess();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult actionInProgress(),
-    TResult deleteFailure(DevicesFailure<dynamic> devicesFailure),
-    TResult deleteSuccess(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? actionInProgress,
+    TResult Function(DevicesFailure<dynamic> devicesFailure)? deleteFailure,
+    TResult Function()? deleteSuccess,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (deleteSuccess != null) {
       return deleteSuccess();
     }
@@ -1164,29 +1108,24 @@ class _$_DeleteSuccess implements _DeleteSuccess {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult actionInProgress(_ActionInProgress value),
-    @required TResult deleteFailure(_DeleteFailure value),
-    @required TResult deleteSuccess(_DeleteSuccess value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ActionInProgress value) actionInProgress,
+    required TResult Function(_DeleteFailure value) deleteFailure,
+    required TResult Function(_DeleteSuccess value) deleteSuccess,
   }) {
-    assert(initial != null);
-    assert(actionInProgress != null);
-    assert(deleteFailure != null);
-    assert(deleteSuccess != null);
     return deleteSuccess(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult actionInProgress(_ActionInProgress value),
-    TResult deleteFailure(_DeleteFailure value),
-    TResult deleteSuccess(_DeleteSuccess value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ActionInProgress value)? actionInProgress,
+    TResult Function(_DeleteFailure value)? deleteFailure,
+    TResult Function(_DeleteSuccess value)? deleteSuccess,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (deleteSuccess != null) {
       return deleteSuccess(this);
     }

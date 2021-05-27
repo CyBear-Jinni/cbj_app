@@ -7,8 +7,8 @@ class HiveLocalDbHelper {
 
   //
   // static Future<void> saveHome({
-  //   @required String id,
-  //   @required String defaultName,
+  //   required String id,
+  //   required String defaultName,
   // }) async {
   //   var path = Directory.current.path;
   //   // Hive..registerAdapter(HomeHiveAdapter());

@@ -116,7 +116,8 @@ class PickDatePage extends StatelessWidget {
                         style: TextStyle(
                             fontFamily: 'Raleway',
                             fontSize: 22.0,
-                            color: Theme.of(context).textTheme.bodyText2.color),
+                            color:
+                                Theme.of(context).textTheme.bodyText2!.color),
                       ),
                     ),
                   )

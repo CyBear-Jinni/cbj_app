@@ -36,7 +36,7 @@ class SceneWidget extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),
                 side: BorderSide(
-                    color: Theme.of(context).textTheme.bodyText1.color,
+                    color: (Theme.of(context).textTheme.bodyText1!.color)!,
                     width: 0.6),
               ),
               onPressed: () {
@@ -48,7 +48,7 @@ class SceneWidget extends StatelessWidget {
                 //   }
                 // });
               },
-              highlightColor: Theme.of(context).textTheme.bodyText1.color,
+              highlightColor: (Theme.of(context).textTheme.bodyText1!.color)!,
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
@@ -59,7 +59,7 @@ class SceneWidget extends StatelessWidget {
                   currentScene.name,
                   style: TextStyle(
                     fontSize: 23,
-                    color: Theme.of(context).textTheme.bodyText1.color,
+                    color: (Theme.of(context).textTheme.bodyText1!.color)!,
                   ),
                   textAlign: TextAlign.center,
                 ),

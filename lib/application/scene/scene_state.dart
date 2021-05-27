@@ -6,9 +6,9 @@ abstract class SceneState with _$SceneState {
 
   factory SceneState.initialized() => SceneState();
 
-  const factory SceneState.loading() = Loading;
+  const factory SceneState.loading() = _Loading;
 
-  const factory SceneState.loaded(Scene scene) = Loaded;
+  const factory SceneState.loaded(Scene scene) = _Loaded;
 
   const factory SceneState.error() = Error;
 }

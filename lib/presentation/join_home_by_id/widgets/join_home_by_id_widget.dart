@@ -50,7 +50,7 @@ class JoinHomeByIdWidget extends StatelessWidget {
               child: Text(
                 'Paste and search',
                 style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1.color),
+                    color: (Theme.of(context).textTheme.bodyText1!.color)!),
               ),
             ),
             const SizedBox(
@@ -69,17 +69,18 @@ class JoinHomeByIdWidget extends StatelessWidget {
                   width: 250,
                   child: TextFormField(
                     style: TextStyle(
-                        color: Theme.of(context).textTheme.bodyText1.color),
+                        color: (Theme.of(context).textTheme.bodyText1!.color)!),
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.greenAccent.withOpacity(0.3),
                       prefixIcon: Icon(
                         Icons.login,
-                        color: Theme.of(context).textTheme.bodyText1.color,
+                        color: (Theme.of(context).textTheme.bodyText1!.color)!,
                       ),
                       labelText: 'Home ID',
                       labelStyle: TextStyle(
-                          color: Theme.of(context).textTheme.bodyText1.color),
+                          color:
+                              (Theme.of(context).textTheme.bodyText1!.color)!),
                     ),
                     autocorrect: false,
                     onChanged: (value) {
@@ -104,7 +105,7 @@ class JoinHomeByIdWidget extends StatelessWidget {
               child: Text(
                 'Join Home from text form',
                 style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1.color),
+                    color: (Theme.of(context).textTheme.bodyText1!.color)!),
               ),
             ),
             state.map(

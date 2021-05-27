@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'create_home_dtos.dart';
 
@@ -8,6 +8,10 @@ part of 'create_home_dtos.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 CreateHomeDtos _$CreateHomeDtosFromJson(Map<String, dynamic> json) {
   return _CreateHomeDtos.fromJson(json);
 }
@@ -16,49 +20,43 @@ CreateHomeDtos _$CreateHomeDtosFromJson(Map<String, dynamic> json) {
 class _$CreateHomeDtosTearOff {
   const _$CreateHomeDtosTearOff();
 
-// ignore: unused_element
   _CreateHomeDtos call(
-      {@JsonKey(ignore: true) String id,
-      @JsonKey(ignore: true) String name,
-      @required String homeDevicesUserId,
-      @required String homeDevicesUserEmail,
-      @required String homeDevicesUserPassword,
-      @required @ServerTimestampConverter() FieldValue serverTimeStamp}) {
+      {@JsonKey(ignore: true) String? id,
+      @JsonKey(ignore: true) String? name,
+      required String homeDevicesUserId,
+      required String homeDevicesUserEmail,
+      required String homeDevicesUserPassword}) {
     return _CreateHomeDtos(
       id: id,
       name: name,
       homeDevicesUserId: homeDevicesUserId,
       homeDevicesUserEmail: homeDevicesUserEmail,
       homeDevicesUserPassword: homeDevicesUserPassword,
-      serverTimeStamp: serverTimeStamp,
     );
   }
 
-// ignore: unused_element
   CreateHomeDtos fromJson(Map<String, Object> json) {
     return CreateHomeDtos.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $CreateHomeDtos = _$CreateHomeDtosTearOff();
 
 /// @nodoc
 mixin _$CreateHomeDtos {
   @JsonKey(ignore: true)
-  String get id;
+  String? get id => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  String get name;
-  String get homeDevicesUserId;
-  String get homeDevicesUserEmail;
-  String get homeDevicesUserPassword;
-  @ServerTimestampConverter()
-  FieldValue get serverTimeStamp;
+  String? get name => throw _privateConstructorUsedError;
+  String get homeDevicesUserId => throw _privateConstructorUsedError;
+  String get homeDevicesUserEmail => throw _privateConstructorUsedError;
+  String get homeDevicesUserPassword => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $CreateHomeDtosCopyWith<CreateHomeDtos> get copyWith;
+  $CreateHomeDtosCopyWith<CreateHomeDtos> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -67,12 +65,11 @@ abstract class $CreateHomeDtosCopyWith<$Res> {
           CreateHomeDtos value, $Res Function(CreateHomeDtos) then) =
       _$CreateHomeDtosCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(ignore: true) String id,
-      @JsonKey(ignore: true) String name,
+      {@JsonKey(ignore: true) String? id,
+      @JsonKey(ignore: true) String? name,
       String homeDevicesUserId,
       String homeDevicesUserEmail,
-      String homeDevicesUserPassword,
-      @ServerTimestampConverter() FieldValue serverTimeStamp});
+      String homeDevicesUserPassword});
 }
 
 /// @nodoc
@@ -86,28 +83,33 @@ class _$CreateHomeDtosCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object name = freezed,
-    Object homeDevicesUserId = freezed,
-    Object homeDevicesUserEmail = freezed,
-    Object homeDevicesUserPassword = freezed,
-    Object serverTimeStamp = freezed,
+    Object? id = freezed,
+    Object? name = freezed,
+    Object? homeDevicesUserId = freezed,
+    Object? homeDevicesUserEmail = freezed,
+    Object? homeDevicesUserPassword = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as String,
-      name: name == freezed ? _value.name : name as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
       homeDevicesUserId: homeDevicesUserId == freezed
           ? _value.homeDevicesUserId
-          : homeDevicesUserId as String,
+          : homeDevicesUserId // ignore: cast_nullable_to_non_nullable
+              as String,
       homeDevicesUserEmail: homeDevicesUserEmail == freezed
           ? _value.homeDevicesUserEmail
-          : homeDevicesUserEmail as String,
+          : homeDevicesUserEmail // ignore: cast_nullable_to_non_nullable
+              as String,
       homeDevicesUserPassword: homeDevicesUserPassword == freezed
           ? _value.homeDevicesUserPassword
-          : homeDevicesUserPassword as String,
-      serverTimeStamp: serverTimeStamp == freezed
-          ? _value.serverTimeStamp
-          : serverTimeStamp as FieldValue,
+          : homeDevicesUserPassword // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -120,12 +122,11 @@ abstract class _$CreateHomeDtosCopyWith<$Res>
       __$CreateHomeDtosCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(ignore: true) String id,
-      @JsonKey(ignore: true) String name,
+      {@JsonKey(ignore: true) String? id,
+      @JsonKey(ignore: true) String? name,
       String homeDevicesUserId,
       String homeDevicesUserEmail,
-      String homeDevicesUserPassword,
-      @ServerTimestampConverter() FieldValue serverTimeStamp});
+      String homeDevicesUserPassword});
 }
 
 /// @nodoc
@@ -141,71 +142,67 @@ class __$CreateHomeDtosCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object name = freezed,
-    Object homeDevicesUserId = freezed,
-    Object homeDevicesUserEmail = freezed,
-    Object homeDevicesUserPassword = freezed,
-    Object serverTimeStamp = freezed,
+    Object? id = freezed,
+    Object? name = freezed,
+    Object? homeDevicesUserId = freezed,
+    Object? homeDevicesUserEmail = freezed,
+    Object? homeDevicesUserPassword = freezed,
   }) {
     return _then(_CreateHomeDtos(
-      id: id == freezed ? _value.id : id as String,
-      name: name == freezed ? _value.name : name as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
       homeDevicesUserId: homeDevicesUserId == freezed
           ? _value.homeDevicesUserId
-          : homeDevicesUserId as String,
+          : homeDevicesUserId // ignore: cast_nullable_to_non_nullable
+              as String,
       homeDevicesUserEmail: homeDevicesUserEmail == freezed
           ? _value.homeDevicesUserEmail
-          : homeDevicesUserEmail as String,
+          : homeDevicesUserEmail // ignore: cast_nullable_to_non_nullable
+              as String,
       homeDevicesUserPassword: homeDevicesUserPassword == freezed
           ? _value.homeDevicesUserPassword
-          : homeDevicesUserPassword as String,
-      serverTimeStamp: serverTimeStamp == freezed
-          ? _value.serverTimeStamp
-          : serverTimeStamp as FieldValue,
+          : homeDevicesUserPassword // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_CreateHomeDtos extends _CreateHomeDtos {
   const _$_CreateHomeDtos(
       {@JsonKey(ignore: true) this.id,
       @JsonKey(ignore: true) this.name,
-      @required this.homeDevicesUserId,
-      @required this.homeDevicesUserEmail,
-      @required this.homeDevicesUserPassword,
-      @required @ServerTimestampConverter() this.serverTimeStamp})
-      : assert(homeDevicesUserId != null),
-        assert(homeDevicesUserEmail != null),
-        assert(homeDevicesUserPassword != null),
-        assert(serverTimeStamp != null),
-        super._();
+      required this.homeDevicesUserId,
+      required this.homeDevicesUserEmail,
+      required this.homeDevicesUserPassword})
+      : super._();
 
   factory _$_CreateHomeDtos.fromJson(Map<String, dynamic> json) =>
       _$_$_CreateHomeDtosFromJson(json);
 
   @override
   @JsonKey(ignore: true)
-  final String id;
+  final String? id;
   @override
   @JsonKey(ignore: true)
-  final String name;
+  final String? name;
   @override
   final String homeDevicesUserId;
   @override
   final String homeDevicesUserEmail;
   @override
   final String homeDevicesUserPassword;
-  @override
-  @ServerTimestampConverter()
-  final FieldValue serverTimeStamp;
 
   @override
   String toString() {
-    return 'CreateHomeDtos(id: $id, name: $name, homeDevicesUserId: $homeDevicesUserId, homeDevicesUserEmail: $homeDevicesUserEmail, homeDevicesUserPassword: $homeDevicesUserPassword, serverTimeStamp: $serverTimeStamp)';
+    return 'CreateHomeDtos(id: $id, name: $name, homeDevicesUserId: $homeDevicesUserId, homeDevicesUserEmail: $homeDevicesUserEmail, homeDevicesUserPassword: $homeDevicesUserPassword)';
   }
 
   @override
@@ -225,10 +222,7 @@ class _$_CreateHomeDtos extends _CreateHomeDtos {
             (identical(
                     other.homeDevicesUserPassword, homeDevicesUserPassword) ||
                 const DeepCollectionEquality().equals(
-                    other.homeDevicesUserPassword, homeDevicesUserPassword)) &&
-            (identical(other.serverTimeStamp, serverTimeStamp) ||
-                const DeepCollectionEquality()
-                    .equals(other.serverTimeStamp, serverTimeStamp)));
+                    other.homeDevicesUserPassword, homeDevicesUserPassword)));
   }
 
   @override
@@ -238,8 +232,7 @@ class _$_CreateHomeDtos extends _CreateHomeDtos {
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(homeDevicesUserId) ^
       const DeepCollectionEquality().hash(homeDevicesUserEmail) ^
-      const DeepCollectionEquality().hash(homeDevicesUserPassword) ^
-      const DeepCollectionEquality().hash(serverTimeStamp);
+      const DeepCollectionEquality().hash(homeDevicesUserPassword);
 
   @JsonKey(ignore: true)
   @override
@@ -253,35 +246,31 @@ class _$_CreateHomeDtos extends _CreateHomeDtos {
 }
 
 abstract class _CreateHomeDtos extends CreateHomeDtos {
-  const _CreateHomeDtos._() : super._();
   const factory _CreateHomeDtos(
-          {@JsonKey(ignore: true) String id,
-          @JsonKey(ignore: true) String name,
-          @required String homeDevicesUserId,
-          @required String homeDevicesUserEmail,
-          @required String homeDevicesUserPassword,
-          @required @ServerTimestampConverter() FieldValue serverTimeStamp}) =
-      _$_CreateHomeDtos;
+      {@JsonKey(ignore: true) String? id,
+      @JsonKey(ignore: true) String? name,
+      required String homeDevicesUserId,
+      required String homeDevicesUserEmail,
+      required String homeDevicesUserPassword}) = _$_CreateHomeDtos;
+  const _CreateHomeDtos._() : super._();
 
   factory _CreateHomeDtos.fromJson(Map<String, dynamic> json) =
       _$_CreateHomeDtos.fromJson;
 
   @override
   @JsonKey(ignore: true)
-  String get id;
+  String? get id => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  String get name;
+  String? get name => throw _privateConstructorUsedError;
   @override
-  String get homeDevicesUserId;
+  String get homeDevicesUserId => throw _privateConstructorUsedError;
   @override
-  String get homeDevicesUserEmail;
+  String get homeDevicesUserEmail => throw _privateConstructorUsedError;
   @override
-  String get homeDevicesUserPassword;
-  @override
-  @ServerTimestampConverter()
-  FieldValue get serverTimeStamp;
+  String get homeDevicesUserPassword => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$CreateHomeDtosCopyWith<_CreateHomeDtos> get copyWith;
+  _$CreateHomeDtosCopyWith<_CreateHomeDtos> get copyWith =>
+      throw _privateConstructorUsedError;
 }

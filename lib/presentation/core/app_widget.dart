@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/auth/auth_bloc.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
@@ -58,10 +57,10 @@ class AppWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(8),
             ),
           ),
-          textTheme: const TextTheme(
-              bodyText1: TextStyle(color: Colors.white),
-              bodyText2: TextStyle(color: Colors.white70),
-              subtitle2: TextStyle(color: Colors.white)),
+          textTheme: TextTheme(
+            bodyText1: TextStyle(color: Colors.white),
+            bodyText2: TextStyle(color: Colors.white70),
+          ),
           fontFamily: 'gidole_regular',
         ),
       ),

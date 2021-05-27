@@ -19,18 +19,18 @@ Future<String> getCurrentWifiName() async {
       }
       if (status == LocationAuthorizationStatus.authorizedAlways ||
           status == LocationAuthorizationStatus.authorizedWhenInUse) {
-        wifiName = await _wifiInfo.getWifiName();
+        wifiName = (await _wifiInfo.getWifiName())!;
       } else {
-        wifiName = await _wifiInfo.getWifiName();
+        wifiName = (await _wifiInfo.getWifiName())!;
       }
     } else if (Platform.isAndroid) {
       final PermissionStatus status = await Permission.location.status;
-      if (status.isUndetermined || status.isDenied || status.isRestricted) {
+      if (status.isDenied || status.isRestricted) {
         if (await Permission.location.request().isGranted) {
 // Either the permission was already granted before or the user just granted it.
         }
       }
-      wifiName = await _wifiInfo.getWifiName();
+      wifiName = (await _wifiInfo.getWifiName())!;
     } else {
       print('Does not support this platform');
     }

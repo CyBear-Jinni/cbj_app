@@ -10,7 +10,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ConfigureNewCbjCompPage extends StatelessWidget {
   const ConfigureNewCbjCompPage({
-    @required this.cbjCompEntity,
+    required this.cbjCompEntity,
   });
 
   final CBJCompEntity cbjCompEntity;

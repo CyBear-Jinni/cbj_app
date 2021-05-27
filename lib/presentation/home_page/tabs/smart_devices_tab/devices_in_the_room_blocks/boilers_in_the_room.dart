@@ -8,8 +8,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class BoilersInTheRoom extends StatelessWidget {
   BoilersInTheRoom({this.boilersInRoom, this.roomColorGradiant});
 
-  final List<DeviceEntity> boilersInRoom;
-  final List<Color> roomColorGradiant;
+  final List<DeviceEntity>? boilersInRoom;
+  final List<Color>? roomColorGradiant;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,8 @@ class BoilersInTheRoom extends StatelessWidget {
       onTap: () {
         ExtendedNavigator.of(context).push(Routes.roomsBoilersPage,
             arguments: RoomsBoilersPageArguments(
-                showDevicesOnlyFromRoomId: boilersInRoom[0].roomId.getOrCrash(),
+                showDevicesOnlyFromRoomId:
+                    boilersInRoom![0].roomId.getOrCrash(),
                 roomColorGradiant: roomColorGradiant));
       },
       child: Container(
@@ -38,7 +39,7 @@ class BoilersInTheRoom extends StatelessWidget {
                     ),
                   ),
                 ),
-                if (boilersInRoom.length > 1)
+                if (boilersInRoom!.length > 1)
                   Expanded(
                     child: Container(
                       height: 55,
@@ -49,18 +50,20 @@ class BoilersInTheRoom extends StatelessWidget {
                           border: Border.all(
                               color: Theme.of(context)
                                   .textTheme
-                                  .bodyText1
-                                  .color
+                                  .bodyText1!
+                                  .color!
                                   .withOpacity(0.5)),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Text(
-                          boilersInRoom.length.toString(),
+                          boilersInRoom!.length.toString(),
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               fontSize: 13,
-                              color:
-                                  Theme.of(context).textTheme.bodyText1.color),
+                              color: (Theme.of(context)
+                                  .textTheme
+                                  .bodyText1!
+                                  .color)!),
                         ),
                       ),
                     ),
@@ -72,17 +75,17 @@ class BoilersInTheRoom extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            if (boilersInRoom.length == 1)
+            if (boilersInRoom!.length == 1)
               Text(
-                boilersInRoom[0].defaultName.getOrCrash(),
+                boilersInRoom[0].defaultName.getOrCrash()!,
                 style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1.color),
+                    color: (Theme.of(context).textTheme.bodyText1!.color)!),
               )
             else
               Text(
                 'Room Name boiler',
                 style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1.color),
+                    color: (Theme.of(context).textTheme.bodyText1!.color)!),
               ),
           ],
         ),
@@ -92,8 +95,8 @@ class BoilersInTheRoom extends StatelessWidget {
 
   List<String> extractDevicesId() {
     final List<String> devicesIdList = [];
-    boilersInRoom.forEach((element) {
-      devicesIdList.add(element.id.getOrCrash());
+    boilersInRoom!.forEach((element) {
+      devicesIdList.add(element.id!.getOrCrash()!);
     });
     return devicesIdList;
   }

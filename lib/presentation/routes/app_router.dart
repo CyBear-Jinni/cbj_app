@@ -1,4 +1,4 @@
-import 'package:auto_route/auto_route_annotations.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/presentation/add_new_devices_process/choose_device_vendor_to_add/choose_device_vendor_to_add_page.dart';
 import 'package:cybear_jinni/presentation/add_new_devices_process/configure_new_cbj_comp/configure_new_cbj_comp_page.dart';
 import 'package:cybear_jinni/presentation/add_new_devices_process/connect_to_home_wifi/connect_to_home_wifi_page.dart';
@@ -21,7 +21,6 @@ import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_pag
 import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_page_offline.dart';
 
 @MaterialAutoRouter(
-  generateNavigationHelperExtension: true,
   routes: <AutoRoute>[
     MaterialRoute(page: SplashPage, initial: true),
     MaterialRoute(page: IntroductionScreenPage),
@@ -46,24 +45,24 @@ import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_pag
   ],
 )
 class $AppRouter {
-  SplashPage splashPage;
-  IntroductionScreenPage introductionScreenPage;
-  SignInPage signInPage;
-  CreateHomePage createHomePage;
-  ScenesPage scenesPage;
-  ChooseDeviceVendorToAddPage chooseDeviceVendorToAddPage;
-  ConnectToHomeWifiPage connectToHomeWifiPage;
-  OpenAccessPointPage openAccessPointPage;
-  ScanForNewCBJCompsPage scanForNewCBJCompsPage;
-  ConfigureNewCbjCompPage configureNewCbjCompPage;
-  WhereToLoginPageMinimalPage whereToLoginPageMinimal;
-  WhereToLoginPageOffline whereToLoginPageOffline;
-  JoinHomeByIdPage joinHomeByIdPage;
-  HomePage homePage;
-  ManageUsersPage manageUsersPage;
-  AddUserToHomePage addUserToHomePage;
-  RoomsLightsPage roomsLightsPage;
-  LightsInTheRoomPage lightsInTheRoomPage;
-  RoomsBlindsPage roomsBlindsPage;
-  RoomsBoilersPage roomsBoilersPage;
+  late SplashPage splashPage;
+  late IntroductionScreenPage introductionScreenPage;
+  late SignInPage signInPage;
+  late CreateHomePage createHomePage;
+  late ScenesPage scenesPage;
+  late ChooseDeviceVendorToAddPage chooseDeviceVendorToAddPage;
+  late ConnectToHomeWifiPage connectToHomeWifiPage;
+  late OpenAccessPointPage openAccessPointPage;
+  late ScanForNewCBJCompsPage scanForNewCBJCompsPage;
+  late ConfigureNewCbjCompPage configureNewCbjCompPage;
+  late WhereToLoginPageMinimalPage whereToLoginPageMinimal;
+  late WhereToLoginPageOffline whereToLoginPageOffline;
+  late JoinHomeByIdPage joinHomeByIdPage;
+  late HomePage homePage;
+  late ManageUsersPage manageUsersPage;
+  late AddUserToHomePage addUserToHomePage;
+  late RoomsLightsPage roomsLightsPage;
+  late LightsInTheRoomPage lightsInTheRoomPage;
+  late RoomsBlindsPage roomsBlindsPage;
+  late RoomsBoilersPage roomsBoilersPage;
 }

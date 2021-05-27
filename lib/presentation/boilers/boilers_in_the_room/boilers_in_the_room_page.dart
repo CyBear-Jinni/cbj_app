@@ -7,9 +7,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// Page to show all the boilers in selected room
 class BoilersInTheRoomPage extends StatelessWidget {
-  BoilersInTheRoomPage({@required this.thisSmartRoom});
+  BoilersInTheRoomPage({required this.thisSmartRoom});
 
-  final SmartRoomObject thisSmartRoom;
+  final SmartRoomObject? thisSmartRoom;
   final List<Map<String, dynamic>> productsInThisRoom =
       <Map<String, dynamic>>[];
 
@@ -28,7 +28,7 @@ class BoilersInTheRoomPage extends StatelessWidget {
         child: Column(
           children: <Widget>[
             TopNavigationBar(
-              thisSmartRoom.getRoomName(),
+              thisSmartRoom!.getRoomName(),
               Icons.more_vert,
               () {},
               leftIcon: FontAwesomeIcons.arrowLeft,

@@ -5,6 +5,6 @@ abstract class BoilersWatcherEvent with _$BoilersWatcherEvent {
   const factory BoilersWatcherEvent.watchAllStarted() = _WatchAllBoilersStarted;
 
   const factory BoilersWatcherEvent.boilersReceived(
-          Either<DevicesFailure, KtList<DeviceEntity>> failureOrDevices) =
+          Either<DevicesFailure, KtList<DeviceEntity?>> failureOrDevices) =
       _BoilersReceived;
 }

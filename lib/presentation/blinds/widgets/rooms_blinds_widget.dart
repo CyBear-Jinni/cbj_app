@@ -27,32 +27,32 @@ class RoomsBlindsWidget extends StatelessWidget {
           ),
           loadSuccess: (state) {
             if (state.devices.size != 0) {
-              final Map<String, List<DeviceEntity>> tempDevicesByRooms =
+              final Map<String?, List<DeviceEntity>> tempDevicesByRooms =
                   <String, List<DeviceEntity>>{};
 
               for (int i = 0; i < state.devices.size; i++) {
                 final DeviceEntity tempDevice = state.devices[i];
                 if (showDevicesOnlyFromRoomId != null) {
                   if (showDevicesOnlyFromRoomId ==
-                      tempDevice.roomId.getOrCrash()) {
-                    if (tempDevicesByRooms[tempDevice.roomId.getOrCrash()] ==
+                      tempDevice.roomId!.getOrCrash()) {
+                    if (tempDevicesByRooms[tempDevice.roomId!.getOrCrash()] ==
                         null) {
-                      tempDevicesByRooms[tempDevice.roomId.getOrCrash()] = [
+                      tempDevicesByRooms[tempDevice.roomId!.getOrCrash()] = [
                         tempDevice
                       ];
                     } else {
-                      tempDevicesByRooms[tempDevice.roomId.getOrCrash()]
+                      tempDevicesByRooms[tempDevice.roomId!.getOrCrash()]!
                           .add(tempDevice);
                     }
                   }
                 } else {
-                  if (tempDevicesByRooms[tempDevice.roomId.getOrCrash()] ==
+                  if (tempDevicesByRooms[tempDevice.roomId!.getOrCrash()] ==
                       null) {
-                    tempDevicesByRooms[tempDevice.roomId.getOrCrash()] = [
+                    tempDevicesByRooms[tempDevice.roomId!.getOrCrash()] = [
                       tempDevice
                     ];
                   } else {
-                    tempDevicesByRooms[tempDevice.roomId.getOrCrash()]
+                    tempDevicesByRooms[tempDevice.roomId!.getOrCrash()]!
                         .add(tempDevice);
                   }
                 }
@@ -71,7 +71,7 @@ class RoomsBlindsWidget extends StatelessWidget {
                 child: ListView.builder(
                   padding: EdgeInsets.zero,
                   itemBuilder: (context, index) {
-                    List<Color> gradiantColor;
+                    List<Color>? gradiantColor;
                     if (roomColorGradiant != null) {
                       gradiantColor = roomColorGradiant;
                     } else if (gradientColorCounter >
@@ -113,7 +113,10 @@ class RoomsBlindsWidget extends StatelessWidget {
                         'Blinds does not exist.',
                         style: TextStyle(
                             fontSize: 30,
-                            color: Theme.of(context).textTheme.bodyText1.color),
+                            color: (Theme.of(context)
+                                .textTheme
+                                .bodyText1!
+                                .color)!),
                       ),
                     ),
                   ],

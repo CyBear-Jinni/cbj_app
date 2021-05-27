@@ -11,15 +11,15 @@ abstract class AllHomesOfUserDtos implements _$AllHomesOfUserDtos {
   const AllHomesOfUserDtos._();
 
   const factory AllHomesOfUserDtos({
-    @JsonKey(ignore: true) String id,
-    @required String name,
+    @JsonKey(ignore: true) String? id,
+    required String name,
   }) = _AllHomesOfUserDtos;
 
   factory AllHomesOfUserDtos.fromDomain(
       AllHomesOfUserEntity allHomesOfUserEntity) {
     return AllHomesOfUserDtos(
-      id: allHomesOfUserEntity.id.getOrCrash(),
-      name: allHomesOfUserEntity.name.getOrCrash(),
+      id: (allHomesOfUserEntity.id!.getOrCrash())!,
+      name: (allHomesOfUserEntity.name!.getOrCrash())!,
     );
   }
 
@@ -34,7 +34,8 @@ abstract class AllHomesOfUserDtos implements _$AllHomesOfUserDtos {
       _$AllHomesOfUserDtosFromJson(json);
 
   factory AllHomesOfUserDtos.fromFirestore(DocumentSnapshot doc) {
-    return AllHomesOfUserDtos.fromJson(doc.data()).copyWith(id: doc.id);
+    return AllHomesOfUserDtos.fromJson(doc.data()! as Map<String, dynamic>)
+        .copyWith(id: doc.id);
   }
 }
 

@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:clipboard_manager/clipboard_manager.dart';
+import 'package:clipboard/clipboard.dart';
 import 'package:cybear_jinni/application/manage_access_point/manage_access_point_bloc.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/cupertino.dart';
@@ -72,17 +72,18 @@ class OpenAccessPointWidget extends StatelessWidget {
                               ),
                             ),
                             onPressed: () {
-                              ClipboardManager.copyToClipBoard('CyBear Jinni');
-                              Fluttertoast.showToast(
-                                  msg: 'Copy',
-                                  toastLength: Toast.LENGTH_SHORT,
-                                  gravity: ToastGravity.SNACKBAR,
-                                  backgroundColor: Colors.lightBlue,
-                                  textColor: Theme.of(context)
-                                      .textTheme
-                                      .bodyText1
-                                      .color,
-                                  fontSize: 16.0);
+                              FlutterClipboard.copy('CyBear Jinni').then(
+                                (value) => Fluttertoast.showToast(
+                                    msg: 'Copy',
+                                    toastLength: Toast.LENGTH_SHORT,
+                                    gravity: ToastGravity.SNACKBAR,
+                                    backgroundColor: Colors.lightBlue,
+                                    textColor: Theme.of(context)
+                                        .textTheme
+                                        .bodyText1!
+                                        .color,
+                                    fontSize: 16.0),
+                              );
                             },
                             child: Column(
                               children: const <Widget>[
@@ -118,17 +119,18 @@ class OpenAccessPointWidget extends StatelessWidget {
                               ),
                             ),
                             onPressed: () {
-                              ClipboardManager.copyToClipBoard('CyBear Jinni');
-                              Fluttertoast.showToast(
-                                  msg: 'Copy',
-                                  toastLength: Toast.LENGTH_SHORT,
-                                  gravity: ToastGravity.SNACKBAR,
-                                  backgroundColor: Colors.lightBlue,
-                                  textColor: Theme.of(context)
-                                      .textTheme
-                                      .bodyText1
-                                      .color,
-                                  fontSize: 16.0);
+                              FlutterClipboard.copy('CyBear Jinni').then(
+                                (value) => Fluttertoast.showToast(
+                                    msg: 'Copy',
+                                    toastLength: Toast.LENGTH_SHORT,
+                                    gravity: ToastGravity.SNACKBAR,
+                                    backgroundColor: Colors.lightBlue,
+                                    textColor: Theme.of(context)
+                                        .textTheme
+                                        .bodyText1!
+                                        .color,
+                                    fontSize: 16.0),
+                              );
                             },
                             child: Column(
                               children: const <Widget>[

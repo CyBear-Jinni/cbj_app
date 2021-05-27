@@ -9,24 +9,24 @@ class SmartRoomObject {
       {this.lightsInTheRoom, this.blindsInTheRoom, this.boilersInTheRoom});
 
   final String _roomName;
-  final List<SmartDeviceObject> lightsInTheRoom;
+  final List<SmartDeviceObject>? lightsInTheRoom;
   List<Color> grediantColor;
-  List<SmartBlindsObject> blindsInTheRoom;
-  List<SmartBlindsObject> boilersInTheRoom;
+  List<SmartBlindsObject>? blindsInTheRoom;
+  List<SmartBlindsObject>? boilersInTheRoom;
 
   String getRoomName() {
     return _roomName;
   }
 
-  List<SmartDeviceObject> getLights() {
+  List<SmartDeviceObject>? getLights() {
     return lightsInTheRoom;
   }
 
-  List<SmartBlindsObject> getBlinds() {
+  List<SmartBlindsObject>? getBlinds() {
     return blindsInTheRoom;
   }
 
-  List<SmartBlindsObject> getBoilers() {
+  List<SmartBlindsObject>? getBoilers() {
     return blindsInTheRoom;
   }
 }

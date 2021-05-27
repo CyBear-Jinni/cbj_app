@@ -15,45 +15,45 @@ class RoomBoilers extends StatelessWidget {
   RoomBoilers(this._deviceEntityList, this._gradientColor, this._roomEntity,
       {this.maxBoilersToShow = 4});
 
-  final KtList<DeviceEntity> _deviceEntityList;
+  final KtList<DeviceEntity?>? _deviceEntityList;
 
-  final int maxBoilersToShow;
+  final int? maxBoilersToShow;
 
-  final int _maxBoilersInRow = 2;
+  final int? _maxBoilersInRow = 2;
 
-  final String _roomEntity;
+  final String? _roomEntity;
 
   final List<Color> _gradientColor;
 
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
-    final double sizeBoxWidth = screenSize.width * 0.25;
+    final Size? screenSize = MediaQuery.of(context).size;
+    final double? sizeBoxWidth = screenSize!.width * 0.25;
 
-    Widget createSwitchTableWidget() {
+    Widget? createSwitchTableWidget() {
       final List<Widget> columnOfBoilers = <Widget>[];
-      List<Widget> widgetsForRow = <Widget>[];
+      List<Widget>? widgetsForRow = <Widget>[];
 
-      final int _numberOfBoilersToShow =
-          _deviceEntityList.size > maxBoilersToShow
+      final int? _numberOfBoilersToShow =
+          _deviceEntityList!.size > maxBoilersToShow!
               ? maxBoilersToShow
-              : _deviceEntityList.size;
+              : _deviceEntityList!.size;
 
-      for (int i = 0; i < _numberOfBoilersToShow; i += _maxBoilersInRow) {
-        for (int v = 0; v < _maxBoilersInRow; v++) {
-          if (_deviceEntityList.size > i + v) {
-            final DeviceEntity deviceEntityTemp = _deviceEntityList[i + v];
-            if (deviceEntityTemp.failureOption.isSome()) {
-              widgetsForRow
+      for (int i = 0; i < _numberOfBoilersToShow!; i += _maxBoilersInRow!) {
+        for (int v = 0; v < _maxBoilersInRow!; v++) {
+          if (_deviceEntityList!.size > i + v) {
+            final DeviceEntity? deviceEntityTemp = _deviceEntityList![i + v];
+            if (deviceEntityTemp!.failureOption.isSome()) {
+              widgetsForRow!
                   .add(ErrorBoilersDeviceCard(device: deviceEntityTemp));
             } else {
-              widgetsForRow.add(Column(
+              widgetsForRow!.add(Column(
                 children: [
                   Text(
-                    deviceEntityTemp.defaultName.getOrCrash(),
+                    deviceEntityTemp.defaultName!.getOrCrash()!,
                     style: TextStyle(
                       fontSize: 19.0,
-                      color: Theme.of(context).textTheme.subtitle2.color,
+                      color: Theme.of(context).textTheme.bodyText1!.color,
                     ),
                   ),
                   const SizedBox(
@@ -61,7 +61,7 @@ class RoomBoilers extends StatelessWidget {
                   ),
                   Container(
                     margin: const EdgeInsets.symmetric(vertical: 5),
-                    width: sizeBoxWidth + 15,
+                    width: sizeBoxWidth! + 15,
                     child: BlocProvider(
                       create: (context) => getIt<BoilersActorBloc>(),
                       child: BoilersWidget(deviceEntityTemp),
@@ -71,14 +71,14 @@ class RoomBoilers extends StatelessWidget {
               ));
             }
           } else {
-            widgetsForRow.add(const SizedBox(
+            widgetsForRow!.add(const SizedBox(
               width: 110,
             ));
           }
         }
         final Widget rowOfBoilers = Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: widgetsForRow,
+          children: widgetsForRow!,
         );
         widgetsForRow = <Widget>[];
         columnOfBoilers.add(rowOfBoilers);
@@ -102,7 +102,7 @@ class RoomBoilers extends StatelessWidget {
             end: Alignment.topLeft),
         borderRadius: const BorderRadius.all(Radius.circular(24)),
         border: Border.all(
-          color: Theme.of(context).textTheme.subtitle2.color,
+          color: (Theme.of(context).textTheme.bodyText1!.color)!,
           width: 0.6,
         ),
       ),
@@ -126,7 +126,7 @@ class RoomBoilers extends StatelessWidget {
               ),
               onPressed: () {
                 if (maxBoilersToShow != null &&
-                    _deviceEntityList.size > maxBoilersToShow) {
+                    _deviceEntityList!.size > maxBoilersToShow!) {
                   // ExtendedNavigator.of(context).pushBoilersInTheRoomPage(
                   //     thisSmartRoom: _deviceEntityList);
                 }
@@ -135,18 +135,18 @@ class RoomBoilers extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text(
-                    _roomEntity,
+                    _roomEntity!,
                     style: TextStyle(
-                      color: Theme.of(context).textTheme.subtitle2.color,
+                      color: ((Theme.of(context).textTheme.bodyText1!.color)!)!,
                       fontSize: 25,
                       decoration: TextDecoration.underline,
                     ),
                   ),
                   if (maxBoilersToShow != null &&
-                      _deviceEntityList.size > maxBoilersToShow)
+                      _deviceEntityList!.size > maxBoilersToShow!)
                     FaIcon(
                       FontAwesomeIcons.arrowRight,
-                      color: Theme.of(context).textTheme.subtitle2.color,
+                      color: ((Theme.of(context).textTheme.bodyText1!.color)!)!,
                       size: 20,
                     ),
                 ],
@@ -155,7 +155,7 @@ class RoomBoilers extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.all(5),
             ),
-            createSwitchTableWidget(),
+            createSwitchTableWidget()!,
           ],
         ),
       ),

@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'all_homes_of_user_dtos.dart';
 
@@ -8,6 +8,10 @@ part of 'all_homes_of_user_dtos.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 AllHomesOfUserDtos _$AllHomesOfUserDtosFromJson(Map<String, dynamic> json) {
   return _AllHomesOfUserDtos.fromJson(json);
 }
@@ -16,34 +20,32 @@ AllHomesOfUserDtos _$AllHomesOfUserDtosFromJson(Map<String, dynamic> json) {
 class _$AllHomesOfUserDtosTearOff {
   const _$AllHomesOfUserDtosTearOff();
 
-// ignore: unused_element
   _AllHomesOfUserDtos call(
-      {@JsonKey(ignore: true) String id, @required String name}) {
+      {@JsonKey(ignore: true) String? id, required String name}) {
     return _AllHomesOfUserDtos(
       id: id,
       name: name,
     );
   }
 
-// ignore: unused_element
   AllHomesOfUserDtos fromJson(Map<String, Object> json) {
     return AllHomesOfUserDtos.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $AllHomesOfUserDtos = _$AllHomesOfUserDtosTearOff();
 
 /// @nodoc
 mixin _$AllHomesOfUserDtos {
   @JsonKey(ignore: true)
-  String get id;
-  String get name;
+  String? get id => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $AllHomesOfUserDtosCopyWith<AllHomesOfUserDtos> get copyWith;
+  $AllHomesOfUserDtosCopyWith<AllHomesOfUserDtos> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -51,7 +53,7 @@ abstract class $AllHomesOfUserDtosCopyWith<$Res> {
   factory $AllHomesOfUserDtosCopyWith(
           AllHomesOfUserDtos value, $Res Function(AllHomesOfUserDtos) then) =
       _$AllHomesOfUserDtosCopyWithImpl<$Res>;
-  $Res call({@JsonKey(ignore: true) String id, String name});
+  $Res call({@JsonKey(ignore: true) String? id, String name});
 }
 
 /// @nodoc
@@ -65,12 +67,18 @@ class _$AllHomesOfUserDtosCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object name = freezed,
+    Object? id = freezed,
+    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as String,
-      name: name == freezed ? _value.name : name as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -82,7 +90,7 @@ abstract class _$AllHomesOfUserDtosCopyWith<$Res>
           _AllHomesOfUserDtos value, $Res Function(_AllHomesOfUserDtos) then) =
       __$AllHomesOfUserDtosCopyWithImpl<$Res>;
   @override
-  $Res call({@JsonKey(ignore: true) String id, String name});
+  $Res call({@JsonKey(ignore: true) String? id, String name});
 }
 
 /// @nodoc
@@ -98,31 +106,35 @@ class __$AllHomesOfUserDtosCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object name = freezed,
+    Object? id = freezed,
+    Object? name = freezed,
   }) {
     return _then(_AllHomesOfUserDtos(
-      id: id == freezed ? _value.id : id as String,
-      name: name == freezed ? _value.name : name as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_AllHomesOfUserDtos extends _AllHomesOfUserDtos {
   const _$_AllHomesOfUserDtos(
-      {@JsonKey(ignore: true) this.id, @required this.name})
-      : assert(name != null),
-        super._();
+      {@JsonKey(ignore: true) this.id, required this.name})
+      : super._();
 
   factory _$_AllHomesOfUserDtos.fromJson(Map<String, dynamic> json) =>
       _$_$_AllHomesOfUserDtosFromJson(json);
 
   @override
   @JsonKey(ignore: true)
-  final String id;
+  final String? id;
   @override
   final String name;
 
@@ -159,20 +171,21 @@ class _$_AllHomesOfUserDtos extends _AllHomesOfUserDtos {
 }
 
 abstract class _AllHomesOfUserDtos extends AllHomesOfUserDtos {
-  const _AllHomesOfUserDtos._() : super._();
   const factory _AllHomesOfUserDtos(
-      {@JsonKey(ignore: true) String id,
-      @required String name}) = _$_AllHomesOfUserDtos;
+      {@JsonKey(ignore: true) String? id,
+      required String name}) = _$_AllHomesOfUserDtos;
+  const _AllHomesOfUserDtos._() : super._();
 
   factory _AllHomesOfUserDtos.fromJson(Map<String, dynamic> json) =
       _$_AllHomesOfUserDtos.fromJson;
 
   @override
   @JsonKey(ignore: true)
-  String get id;
+  String? get id => throw _privateConstructorUsedError;
   @override
-  String get name;
+  String get name => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$AllHomesOfUserDtosCopyWith<_AllHomesOfUserDtos> get copyWith;
+  _$AllHomesOfUserDtosCopyWith<_AllHomesOfUserDtos> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'add_user_to_home_failures.dart';
 
@@ -9,105 +9,105 @@ part of 'add_user_to_home_failures.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$AddUserToHomeFailuresTearOff {
   const _$AddUserToHomeFailuresTearOff();
 
-// ignore: unused_element
-  _Empty<T> empty<T>({@required T failedValue}) {
+  _Empty<T> empty<T>({required T failedValue}) {
     return _Empty<T>(
       failedValue: failedValue,
     );
   }
 
-// ignore: unused_element
   _Unexpected<T> unexpected<T>() {
     return _Unexpected<T>();
   }
 
-// ignore: unused_element
   _ValidateEmailNotEmpty<T> validateEmailNotEmpty<T>() {
     return _ValidateEmailNotEmpty<T>();
   }
 
-// ignore: unused_element
   _InsufficientPermission<T> insufficientPermission<T>() {
     return _InsufficientPermission<T>();
   }
 
-// ignore: unused_element
   CancelledByUser<T> cancelledByUser<T>() {
     return CancelledByUser<T>();
   }
 
-// ignore: unused_element
   ServerError<T> serverError<T>() {
     return ServerError<T>();
   }
 
-// ignore: unused_element
   EmailAlreadyExist<T> emailAlreadyExist<T>() {
     return EmailAlreadyExist<T>();
   }
 
-// ignore: unused_element
   CannotFindUser<T> cannotFindUser<T>() {
     return CannotFindUser<T>();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $AddUserToHomeFailures = _$AddUserToHomeFailuresTearOff();
 
 /// @nodoc
 mixin _$AddUserToHomeFailures<T> {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult empty(T failedValue),
-    @required TResult unexpected(),
-    @required TResult validateEmailNotEmpty(),
-    @required TResult insufficientPermission(),
-    @required TResult cancelledByUser(),
-    @required TResult serverError(),
-    @required TResult emailAlreadyExist(),
-    @required TResult cannotFindUser(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) empty,
+    required TResult Function() unexpected,
+    required TResult Function() validateEmailNotEmpty,
+    required TResult Function() insufficientPermission,
+    required TResult Function() cancelledByUser,
+    required TResult Function() serverError,
+    required TResult Function() emailAlreadyExist,
+    required TResult Function() cannotFindUser,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult empty(T failedValue),
-    TResult unexpected(),
-    TResult validateEmailNotEmpty(),
-    TResult insufficientPermission(),
-    TResult cancelledByUser(),
-    TResult serverError(),
-    TResult emailAlreadyExist(),
-    TResult cannotFindUser(),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? empty,
+    TResult Function()? unexpected,
+    TResult Function()? validateEmailNotEmpty,
+    TResult Function()? insufficientPermission,
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? emailAlreadyExist,
+    TResult Function()? cannotFindUser,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult empty(_Empty<T> value),
-    @required TResult unexpected(_Unexpected<T> value),
-    @required TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
-    @required TResult insufficientPermission(_InsufficientPermission<T> value),
-    @required TResult cancelledByUser(CancelledByUser<T> value),
-    @required TResult serverError(ServerError<T> value),
-    @required TResult emailAlreadyExist(EmailAlreadyExist<T> value),
-    @required TResult cannotFindUser(CannotFindUser<T> value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Empty<T> value) empty,
+    required TResult Function(_Unexpected<T> value) unexpected,
+    required TResult Function(_ValidateEmailNotEmpty<T> value)
+        validateEmailNotEmpty,
+    required TResult Function(_InsufficientPermission<T> value)
+        insufficientPermission,
+    required TResult Function(CancelledByUser<T> value) cancelledByUser,
+    required TResult Function(ServerError<T> value) serverError,
+    required TResult Function(EmailAlreadyExist<T> value) emailAlreadyExist,
+    required TResult Function(CannotFindUser<T> value) cannotFindUser,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult empty(_Empty<T> value),
-    TResult unexpected(_Unexpected<T> value),
-    TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
-    TResult insufficientPermission(_InsufficientPermission<T> value),
-    TResult cancelledByUser(CancelledByUser<T> value),
-    TResult serverError(ServerError<T> value),
-    TResult emailAlreadyExist(EmailAlreadyExist<T> value),
-    TResult cannotFindUser(CannotFindUser<T> value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_Unexpected<T> value)? unexpected,
+    TResult Function(_ValidateEmailNotEmpty<T> value)? validateEmailNotEmpty,
+    TResult Function(_InsufficientPermission<T> value)? insufficientPermission,
+    TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult Function(ServerError<T> value)? serverError,
+    TResult Function(EmailAlreadyExist<T> value)? emailAlreadyExist,
+    TResult Function(CannotFindUser<T> value)? cannotFindUser,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -146,18 +146,21 @@ class __$EmptyCopyWithImpl<T, $Res>
 
   @override
   $Res call({
-    Object failedValue = freezed,
+    Object? failedValue = freezed,
   }) {
     return _then(_Empty<T>(
-      failedValue:
-          failedValue == freezed ? _value.failedValue : failedValue as T,
+      failedValue: failedValue == freezed
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as T,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_Empty<T> implements _Empty<T> {
-  const _$_Empty({@required this.failedValue}) : assert(failedValue != null);
+  const _$_Empty({required this.failedValue});
 
   @override
   final T failedValue;
@@ -187,41 +190,32 @@ class _$_Empty<T> implements _Empty<T> {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult empty(T failedValue),
-    @required TResult unexpected(),
-    @required TResult validateEmailNotEmpty(),
-    @required TResult insufficientPermission(),
-    @required TResult cancelledByUser(),
-    @required TResult serverError(),
-    @required TResult emailAlreadyExist(),
-    @required TResult cannotFindUser(),
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) empty,
+    required TResult Function() unexpected,
+    required TResult Function() validateEmailNotEmpty,
+    required TResult Function() insufficientPermission,
+    required TResult Function() cancelledByUser,
+    required TResult Function() serverError,
+    required TResult Function() emailAlreadyExist,
+    required TResult Function() cannotFindUser,
   }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(validateEmailNotEmpty != null);
-    assert(insufficientPermission != null);
-    assert(cancelledByUser != null);
-    assert(serverError != null);
-    assert(emailAlreadyExist != null);
-    assert(cannotFindUser != null);
     return empty(failedValue);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult empty(T failedValue),
-    TResult unexpected(),
-    TResult validateEmailNotEmpty(),
-    TResult insufficientPermission(),
-    TResult cancelledByUser(),
-    TResult serverError(),
-    TResult emailAlreadyExist(),
-    TResult cannotFindUser(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? empty,
+    TResult Function()? unexpected,
+    TResult Function()? validateEmailNotEmpty,
+    TResult Function()? insufficientPermission,
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? emailAlreadyExist,
+    TResult Function()? cannotFindUser,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (empty != null) {
       return empty(failedValue);
     }
@@ -230,41 +224,34 @@ class _$_Empty<T> implements _Empty<T> {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult empty(_Empty<T> value),
-    @required TResult unexpected(_Unexpected<T> value),
-    @required TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
-    @required TResult insufficientPermission(_InsufficientPermission<T> value),
-    @required TResult cancelledByUser(CancelledByUser<T> value),
-    @required TResult serverError(ServerError<T> value),
-    @required TResult emailAlreadyExist(EmailAlreadyExist<T> value),
-    @required TResult cannotFindUser(CannotFindUser<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Empty<T> value) empty,
+    required TResult Function(_Unexpected<T> value) unexpected,
+    required TResult Function(_ValidateEmailNotEmpty<T> value)
+        validateEmailNotEmpty,
+    required TResult Function(_InsufficientPermission<T> value)
+        insufficientPermission,
+    required TResult Function(CancelledByUser<T> value) cancelledByUser,
+    required TResult Function(ServerError<T> value) serverError,
+    required TResult Function(EmailAlreadyExist<T> value) emailAlreadyExist,
+    required TResult Function(CannotFindUser<T> value) cannotFindUser,
   }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(validateEmailNotEmpty != null);
-    assert(insufficientPermission != null);
-    assert(cancelledByUser != null);
-    assert(serverError != null);
-    assert(emailAlreadyExist != null);
-    assert(cannotFindUser != null);
     return empty(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult empty(_Empty<T> value),
-    TResult unexpected(_Unexpected<T> value),
-    TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
-    TResult insufficientPermission(_InsufficientPermission<T> value),
-    TResult cancelledByUser(CancelledByUser<T> value),
-    TResult serverError(ServerError<T> value),
-    TResult emailAlreadyExist(EmailAlreadyExist<T> value),
-    TResult cannotFindUser(CannotFindUser<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_Unexpected<T> value)? unexpected,
+    TResult Function(_ValidateEmailNotEmpty<T> value)? validateEmailNotEmpty,
+    TResult Function(_InsufficientPermission<T> value)? insufficientPermission,
+    TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult Function(ServerError<T> value)? serverError,
+    TResult Function(EmailAlreadyExist<T> value)? emailAlreadyExist,
+    TResult Function(CannotFindUser<T> value)? cannotFindUser,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (empty != null) {
       return empty(this);
     }
@@ -273,11 +260,12 @@ class _$_Empty<T> implements _Empty<T> {
 }
 
 abstract class _Empty<T> implements AddUserToHomeFailures<T> {
-  const factory _Empty({@required T failedValue}) = _$_Empty<T>;
+  const factory _Empty({required T failedValue}) = _$_Empty<T>;
 
-  T get failedValue;
+  T get failedValue => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$EmptyCopyWith<T, _Empty<T>> get copyWith;
+  _$EmptyCopyWith<T, _Empty<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -300,6 +288,7 @@ class __$UnexpectedCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
+
 class _$_Unexpected<T> implements _Unexpected<T> {
   const _$_Unexpected();
 
@@ -318,41 +307,32 @@ class _$_Unexpected<T> implements _Unexpected<T> {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult empty(T failedValue),
-    @required TResult unexpected(),
-    @required TResult validateEmailNotEmpty(),
-    @required TResult insufficientPermission(),
-    @required TResult cancelledByUser(),
-    @required TResult serverError(),
-    @required TResult emailAlreadyExist(),
-    @required TResult cannotFindUser(),
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) empty,
+    required TResult Function() unexpected,
+    required TResult Function() validateEmailNotEmpty,
+    required TResult Function() insufficientPermission,
+    required TResult Function() cancelledByUser,
+    required TResult Function() serverError,
+    required TResult Function() emailAlreadyExist,
+    required TResult Function() cannotFindUser,
   }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(validateEmailNotEmpty != null);
-    assert(insufficientPermission != null);
-    assert(cancelledByUser != null);
-    assert(serverError != null);
-    assert(emailAlreadyExist != null);
-    assert(cannotFindUser != null);
     return unexpected();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult empty(T failedValue),
-    TResult unexpected(),
-    TResult validateEmailNotEmpty(),
-    TResult insufficientPermission(),
-    TResult cancelledByUser(),
-    TResult serverError(),
-    TResult emailAlreadyExist(),
-    TResult cannotFindUser(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? empty,
+    TResult Function()? unexpected,
+    TResult Function()? validateEmailNotEmpty,
+    TResult Function()? insufficientPermission,
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? emailAlreadyExist,
+    TResult Function()? cannotFindUser,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (unexpected != null) {
       return unexpected();
     }
@@ -361,41 +341,34 @@ class _$_Unexpected<T> implements _Unexpected<T> {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult empty(_Empty<T> value),
-    @required TResult unexpected(_Unexpected<T> value),
-    @required TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
-    @required TResult insufficientPermission(_InsufficientPermission<T> value),
-    @required TResult cancelledByUser(CancelledByUser<T> value),
-    @required TResult serverError(ServerError<T> value),
-    @required TResult emailAlreadyExist(EmailAlreadyExist<T> value),
-    @required TResult cannotFindUser(CannotFindUser<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Empty<T> value) empty,
+    required TResult Function(_Unexpected<T> value) unexpected,
+    required TResult Function(_ValidateEmailNotEmpty<T> value)
+        validateEmailNotEmpty,
+    required TResult Function(_InsufficientPermission<T> value)
+        insufficientPermission,
+    required TResult Function(CancelledByUser<T> value) cancelledByUser,
+    required TResult Function(ServerError<T> value) serverError,
+    required TResult Function(EmailAlreadyExist<T> value) emailAlreadyExist,
+    required TResult Function(CannotFindUser<T> value) cannotFindUser,
   }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(validateEmailNotEmpty != null);
-    assert(insufficientPermission != null);
-    assert(cancelledByUser != null);
-    assert(serverError != null);
-    assert(emailAlreadyExist != null);
-    assert(cannotFindUser != null);
     return unexpected(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult empty(_Empty<T> value),
-    TResult unexpected(_Unexpected<T> value),
-    TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
-    TResult insufficientPermission(_InsufficientPermission<T> value),
-    TResult cancelledByUser(CancelledByUser<T> value),
-    TResult serverError(ServerError<T> value),
-    TResult emailAlreadyExist(EmailAlreadyExist<T> value),
-    TResult cannotFindUser(CannotFindUser<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_Unexpected<T> value)? unexpected,
+    TResult Function(_ValidateEmailNotEmpty<T> value)? validateEmailNotEmpty,
+    TResult Function(_InsufficientPermission<T> value)? insufficientPermission,
+    TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult Function(ServerError<T> value)? serverError,
+    TResult Function(EmailAlreadyExist<T> value)? emailAlreadyExist,
+    TResult Function(CannotFindUser<T> value)? cannotFindUser,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (unexpected != null) {
       return unexpected(this);
     }
@@ -428,6 +401,7 @@ class __$ValidateEmailNotEmptyCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
+
 class _$_ValidateEmailNotEmpty<T> implements _ValidateEmailNotEmpty<T> {
   const _$_ValidateEmailNotEmpty();
 
@@ -446,41 +420,32 @@ class _$_ValidateEmailNotEmpty<T> implements _ValidateEmailNotEmpty<T> {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult empty(T failedValue),
-    @required TResult unexpected(),
-    @required TResult validateEmailNotEmpty(),
-    @required TResult insufficientPermission(),
-    @required TResult cancelledByUser(),
-    @required TResult serverError(),
-    @required TResult emailAlreadyExist(),
-    @required TResult cannotFindUser(),
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) empty,
+    required TResult Function() unexpected,
+    required TResult Function() validateEmailNotEmpty,
+    required TResult Function() insufficientPermission,
+    required TResult Function() cancelledByUser,
+    required TResult Function() serverError,
+    required TResult Function() emailAlreadyExist,
+    required TResult Function() cannotFindUser,
   }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(validateEmailNotEmpty != null);
-    assert(insufficientPermission != null);
-    assert(cancelledByUser != null);
-    assert(serverError != null);
-    assert(emailAlreadyExist != null);
-    assert(cannotFindUser != null);
     return validateEmailNotEmpty();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult empty(T failedValue),
-    TResult unexpected(),
-    TResult validateEmailNotEmpty(),
-    TResult insufficientPermission(),
-    TResult cancelledByUser(),
-    TResult serverError(),
-    TResult emailAlreadyExist(),
-    TResult cannotFindUser(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? empty,
+    TResult Function()? unexpected,
+    TResult Function()? validateEmailNotEmpty,
+    TResult Function()? insufficientPermission,
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? emailAlreadyExist,
+    TResult Function()? cannotFindUser,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (validateEmailNotEmpty != null) {
       return validateEmailNotEmpty();
     }
@@ -489,41 +454,34 @@ class _$_ValidateEmailNotEmpty<T> implements _ValidateEmailNotEmpty<T> {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult empty(_Empty<T> value),
-    @required TResult unexpected(_Unexpected<T> value),
-    @required TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
-    @required TResult insufficientPermission(_InsufficientPermission<T> value),
-    @required TResult cancelledByUser(CancelledByUser<T> value),
-    @required TResult serverError(ServerError<T> value),
-    @required TResult emailAlreadyExist(EmailAlreadyExist<T> value),
-    @required TResult cannotFindUser(CannotFindUser<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Empty<T> value) empty,
+    required TResult Function(_Unexpected<T> value) unexpected,
+    required TResult Function(_ValidateEmailNotEmpty<T> value)
+        validateEmailNotEmpty,
+    required TResult Function(_InsufficientPermission<T> value)
+        insufficientPermission,
+    required TResult Function(CancelledByUser<T> value) cancelledByUser,
+    required TResult Function(ServerError<T> value) serverError,
+    required TResult Function(EmailAlreadyExist<T> value) emailAlreadyExist,
+    required TResult Function(CannotFindUser<T> value) cannotFindUser,
   }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(validateEmailNotEmpty != null);
-    assert(insufficientPermission != null);
-    assert(cancelledByUser != null);
-    assert(serverError != null);
-    assert(emailAlreadyExist != null);
-    assert(cannotFindUser != null);
     return validateEmailNotEmpty(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult empty(_Empty<T> value),
-    TResult unexpected(_Unexpected<T> value),
-    TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
-    TResult insufficientPermission(_InsufficientPermission<T> value),
-    TResult cancelledByUser(CancelledByUser<T> value),
-    TResult serverError(ServerError<T> value),
-    TResult emailAlreadyExist(EmailAlreadyExist<T> value),
-    TResult cannotFindUser(CannotFindUser<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_Unexpected<T> value)? unexpected,
+    TResult Function(_ValidateEmailNotEmpty<T> value)? validateEmailNotEmpty,
+    TResult Function(_InsufficientPermission<T> value)? insufficientPermission,
+    TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult Function(ServerError<T> value)? serverError,
+    TResult Function(EmailAlreadyExist<T> value)? emailAlreadyExist,
+    TResult Function(CannotFindUser<T> value)? cannotFindUser,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (validateEmailNotEmpty != null) {
       return validateEmailNotEmpty(this);
     }
@@ -556,6 +514,7 @@ class __$InsufficientPermissionCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
+
 class _$_InsufficientPermission<T> implements _InsufficientPermission<T> {
   const _$_InsufficientPermission();
 
@@ -574,41 +533,32 @@ class _$_InsufficientPermission<T> implements _InsufficientPermission<T> {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult empty(T failedValue),
-    @required TResult unexpected(),
-    @required TResult validateEmailNotEmpty(),
-    @required TResult insufficientPermission(),
-    @required TResult cancelledByUser(),
-    @required TResult serverError(),
-    @required TResult emailAlreadyExist(),
-    @required TResult cannotFindUser(),
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) empty,
+    required TResult Function() unexpected,
+    required TResult Function() validateEmailNotEmpty,
+    required TResult Function() insufficientPermission,
+    required TResult Function() cancelledByUser,
+    required TResult Function() serverError,
+    required TResult Function() emailAlreadyExist,
+    required TResult Function() cannotFindUser,
   }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(validateEmailNotEmpty != null);
-    assert(insufficientPermission != null);
-    assert(cancelledByUser != null);
-    assert(serverError != null);
-    assert(emailAlreadyExist != null);
-    assert(cannotFindUser != null);
     return insufficientPermission();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult empty(T failedValue),
-    TResult unexpected(),
-    TResult validateEmailNotEmpty(),
-    TResult insufficientPermission(),
-    TResult cancelledByUser(),
-    TResult serverError(),
-    TResult emailAlreadyExist(),
-    TResult cannotFindUser(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? empty,
+    TResult Function()? unexpected,
+    TResult Function()? validateEmailNotEmpty,
+    TResult Function()? insufficientPermission,
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? emailAlreadyExist,
+    TResult Function()? cannotFindUser,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (insufficientPermission != null) {
       return insufficientPermission();
     }
@@ -617,41 +567,34 @@ class _$_InsufficientPermission<T> implements _InsufficientPermission<T> {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult empty(_Empty<T> value),
-    @required TResult unexpected(_Unexpected<T> value),
-    @required TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
-    @required TResult insufficientPermission(_InsufficientPermission<T> value),
-    @required TResult cancelledByUser(CancelledByUser<T> value),
-    @required TResult serverError(ServerError<T> value),
-    @required TResult emailAlreadyExist(EmailAlreadyExist<T> value),
-    @required TResult cannotFindUser(CannotFindUser<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Empty<T> value) empty,
+    required TResult Function(_Unexpected<T> value) unexpected,
+    required TResult Function(_ValidateEmailNotEmpty<T> value)
+        validateEmailNotEmpty,
+    required TResult Function(_InsufficientPermission<T> value)
+        insufficientPermission,
+    required TResult Function(CancelledByUser<T> value) cancelledByUser,
+    required TResult Function(ServerError<T> value) serverError,
+    required TResult Function(EmailAlreadyExist<T> value) emailAlreadyExist,
+    required TResult Function(CannotFindUser<T> value) cannotFindUser,
   }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(validateEmailNotEmpty != null);
-    assert(insufficientPermission != null);
-    assert(cancelledByUser != null);
-    assert(serverError != null);
-    assert(emailAlreadyExist != null);
-    assert(cannotFindUser != null);
     return insufficientPermission(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult empty(_Empty<T> value),
-    TResult unexpected(_Unexpected<T> value),
-    TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
-    TResult insufficientPermission(_InsufficientPermission<T> value),
-    TResult cancelledByUser(CancelledByUser<T> value),
-    TResult serverError(ServerError<T> value),
-    TResult emailAlreadyExist(EmailAlreadyExist<T> value),
-    TResult cannotFindUser(CannotFindUser<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_Unexpected<T> value)? unexpected,
+    TResult Function(_ValidateEmailNotEmpty<T> value)? validateEmailNotEmpty,
+    TResult Function(_InsufficientPermission<T> value)? insufficientPermission,
+    TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult Function(ServerError<T> value)? serverError,
+    TResult Function(EmailAlreadyExist<T> value)? emailAlreadyExist,
+    TResult Function(CannotFindUser<T> value)? cannotFindUser,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (insufficientPermission != null) {
       return insufficientPermission(this);
     }
@@ -683,6 +626,7 @@ class _$CancelledByUserCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
+
 class _$CancelledByUser<T> implements CancelledByUser<T> {
   const _$CancelledByUser();
 
@@ -701,41 +645,32 @@ class _$CancelledByUser<T> implements CancelledByUser<T> {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult empty(T failedValue),
-    @required TResult unexpected(),
-    @required TResult validateEmailNotEmpty(),
-    @required TResult insufficientPermission(),
-    @required TResult cancelledByUser(),
-    @required TResult serverError(),
-    @required TResult emailAlreadyExist(),
-    @required TResult cannotFindUser(),
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) empty,
+    required TResult Function() unexpected,
+    required TResult Function() validateEmailNotEmpty,
+    required TResult Function() insufficientPermission,
+    required TResult Function() cancelledByUser,
+    required TResult Function() serverError,
+    required TResult Function() emailAlreadyExist,
+    required TResult Function() cannotFindUser,
   }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(validateEmailNotEmpty != null);
-    assert(insufficientPermission != null);
-    assert(cancelledByUser != null);
-    assert(serverError != null);
-    assert(emailAlreadyExist != null);
-    assert(cannotFindUser != null);
     return cancelledByUser();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult empty(T failedValue),
-    TResult unexpected(),
-    TResult validateEmailNotEmpty(),
-    TResult insufficientPermission(),
-    TResult cancelledByUser(),
-    TResult serverError(),
-    TResult emailAlreadyExist(),
-    TResult cannotFindUser(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? empty,
+    TResult Function()? unexpected,
+    TResult Function()? validateEmailNotEmpty,
+    TResult Function()? insufficientPermission,
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? emailAlreadyExist,
+    TResult Function()? cannotFindUser,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (cancelledByUser != null) {
       return cancelledByUser();
     }
@@ -744,41 +679,34 @@ class _$CancelledByUser<T> implements CancelledByUser<T> {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult empty(_Empty<T> value),
-    @required TResult unexpected(_Unexpected<T> value),
-    @required TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
-    @required TResult insufficientPermission(_InsufficientPermission<T> value),
-    @required TResult cancelledByUser(CancelledByUser<T> value),
-    @required TResult serverError(ServerError<T> value),
-    @required TResult emailAlreadyExist(EmailAlreadyExist<T> value),
-    @required TResult cannotFindUser(CannotFindUser<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Empty<T> value) empty,
+    required TResult Function(_Unexpected<T> value) unexpected,
+    required TResult Function(_ValidateEmailNotEmpty<T> value)
+        validateEmailNotEmpty,
+    required TResult Function(_InsufficientPermission<T> value)
+        insufficientPermission,
+    required TResult Function(CancelledByUser<T> value) cancelledByUser,
+    required TResult Function(ServerError<T> value) serverError,
+    required TResult Function(EmailAlreadyExist<T> value) emailAlreadyExist,
+    required TResult Function(CannotFindUser<T> value) cannotFindUser,
   }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(validateEmailNotEmpty != null);
-    assert(insufficientPermission != null);
-    assert(cancelledByUser != null);
-    assert(serverError != null);
-    assert(emailAlreadyExist != null);
-    assert(cannotFindUser != null);
     return cancelledByUser(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult empty(_Empty<T> value),
-    TResult unexpected(_Unexpected<T> value),
-    TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
-    TResult insufficientPermission(_InsufficientPermission<T> value),
-    TResult cancelledByUser(CancelledByUser<T> value),
-    TResult serverError(ServerError<T> value),
-    TResult emailAlreadyExist(EmailAlreadyExist<T> value),
-    TResult cannotFindUser(CannotFindUser<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_Unexpected<T> value)? unexpected,
+    TResult Function(_ValidateEmailNotEmpty<T> value)? validateEmailNotEmpty,
+    TResult Function(_InsufficientPermission<T> value)? insufficientPermission,
+    TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult Function(ServerError<T> value)? serverError,
+    TResult Function(EmailAlreadyExist<T> value)? emailAlreadyExist,
+    TResult Function(CannotFindUser<T> value)? cannotFindUser,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (cancelledByUser != null) {
       return cancelledByUser(this);
     }
@@ -810,6 +738,7 @@ class _$ServerErrorCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
+
 class _$ServerError<T> implements ServerError<T> {
   const _$ServerError();
 
@@ -828,41 +757,32 @@ class _$ServerError<T> implements ServerError<T> {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult empty(T failedValue),
-    @required TResult unexpected(),
-    @required TResult validateEmailNotEmpty(),
-    @required TResult insufficientPermission(),
-    @required TResult cancelledByUser(),
-    @required TResult serverError(),
-    @required TResult emailAlreadyExist(),
-    @required TResult cannotFindUser(),
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) empty,
+    required TResult Function() unexpected,
+    required TResult Function() validateEmailNotEmpty,
+    required TResult Function() insufficientPermission,
+    required TResult Function() cancelledByUser,
+    required TResult Function() serverError,
+    required TResult Function() emailAlreadyExist,
+    required TResult Function() cannotFindUser,
   }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(validateEmailNotEmpty != null);
-    assert(insufficientPermission != null);
-    assert(cancelledByUser != null);
-    assert(serverError != null);
-    assert(emailAlreadyExist != null);
-    assert(cannotFindUser != null);
     return serverError();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult empty(T failedValue),
-    TResult unexpected(),
-    TResult validateEmailNotEmpty(),
-    TResult insufficientPermission(),
-    TResult cancelledByUser(),
-    TResult serverError(),
-    TResult emailAlreadyExist(),
-    TResult cannotFindUser(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? empty,
+    TResult Function()? unexpected,
+    TResult Function()? validateEmailNotEmpty,
+    TResult Function()? insufficientPermission,
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? emailAlreadyExist,
+    TResult Function()? cannotFindUser,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (serverError != null) {
       return serverError();
     }
@@ -871,41 +791,34 @@ class _$ServerError<T> implements ServerError<T> {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult empty(_Empty<T> value),
-    @required TResult unexpected(_Unexpected<T> value),
-    @required TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
-    @required TResult insufficientPermission(_InsufficientPermission<T> value),
-    @required TResult cancelledByUser(CancelledByUser<T> value),
-    @required TResult serverError(ServerError<T> value),
-    @required TResult emailAlreadyExist(EmailAlreadyExist<T> value),
-    @required TResult cannotFindUser(CannotFindUser<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Empty<T> value) empty,
+    required TResult Function(_Unexpected<T> value) unexpected,
+    required TResult Function(_ValidateEmailNotEmpty<T> value)
+        validateEmailNotEmpty,
+    required TResult Function(_InsufficientPermission<T> value)
+        insufficientPermission,
+    required TResult Function(CancelledByUser<T> value) cancelledByUser,
+    required TResult Function(ServerError<T> value) serverError,
+    required TResult Function(EmailAlreadyExist<T> value) emailAlreadyExist,
+    required TResult Function(CannotFindUser<T> value) cannotFindUser,
   }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(validateEmailNotEmpty != null);
-    assert(insufficientPermission != null);
-    assert(cancelledByUser != null);
-    assert(serverError != null);
-    assert(emailAlreadyExist != null);
-    assert(cannotFindUser != null);
     return serverError(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult empty(_Empty<T> value),
-    TResult unexpected(_Unexpected<T> value),
-    TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
-    TResult insufficientPermission(_InsufficientPermission<T> value),
-    TResult cancelledByUser(CancelledByUser<T> value),
-    TResult serverError(ServerError<T> value),
-    TResult emailAlreadyExist(EmailAlreadyExist<T> value),
-    TResult cannotFindUser(CannotFindUser<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_Unexpected<T> value)? unexpected,
+    TResult Function(_ValidateEmailNotEmpty<T> value)? validateEmailNotEmpty,
+    TResult Function(_InsufficientPermission<T> value)? insufficientPermission,
+    TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult Function(ServerError<T> value)? serverError,
+    TResult Function(EmailAlreadyExist<T> value)? emailAlreadyExist,
+    TResult Function(CannotFindUser<T> value)? cannotFindUser,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (serverError != null) {
       return serverError(this);
     }
@@ -937,6 +850,7 @@ class _$EmailAlreadyExistCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
+
 class _$EmailAlreadyExist<T> implements EmailAlreadyExist<T> {
   const _$EmailAlreadyExist();
 
@@ -955,41 +869,32 @@ class _$EmailAlreadyExist<T> implements EmailAlreadyExist<T> {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult empty(T failedValue),
-    @required TResult unexpected(),
-    @required TResult validateEmailNotEmpty(),
-    @required TResult insufficientPermission(),
-    @required TResult cancelledByUser(),
-    @required TResult serverError(),
-    @required TResult emailAlreadyExist(),
-    @required TResult cannotFindUser(),
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) empty,
+    required TResult Function() unexpected,
+    required TResult Function() validateEmailNotEmpty,
+    required TResult Function() insufficientPermission,
+    required TResult Function() cancelledByUser,
+    required TResult Function() serverError,
+    required TResult Function() emailAlreadyExist,
+    required TResult Function() cannotFindUser,
   }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(validateEmailNotEmpty != null);
-    assert(insufficientPermission != null);
-    assert(cancelledByUser != null);
-    assert(serverError != null);
-    assert(emailAlreadyExist != null);
-    assert(cannotFindUser != null);
     return emailAlreadyExist();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult empty(T failedValue),
-    TResult unexpected(),
-    TResult validateEmailNotEmpty(),
-    TResult insufficientPermission(),
-    TResult cancelledByUser(),
-    TResult serverError(),
-    TResult emailAlreadyExist(),
-    TResult cannotFindUser(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? empty,
+    TResult Function()? unexpected,
+    TResult Function()? validateEmailNotEmpty,
+    TResult Function()? insufficientPermission,
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? emailAlreadyExist,
+    TResult Function()? cannotFindUser,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (emailAlreadyExist != null) {
       return emailAlreadyExist();
     }
@@ -998,41 +903,34 @@ class _$EmailAlreadyExist<T> implements EmailAlreadyExist<T> {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult empty(_Empty<T> value),
-    @required TResult unexpected(_Unexpected<T> value),
-    @required TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
-    @required TResult insufficientPermission(_InsufficientPermission<T> value),
-    @required TResult cancelledByUser(CancelledByUser<T> value),
-    @required TResult serverError(ServerError<T> value),
-    @required TResult emailAlreadyExist(EmailAlreadyExist<T> value),
-    @required TResult cannotFindUser(CannotFindUser<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Empty<T> value) empty,
+    required TResult Function(_Unexpected<T> value) unexpected,
+    required TResult Function(_ValidateEmailNotEmpty<T> value)
+        validateEmailNotEmpty,
+    required TResult Function(_InsufficientPermission<T> value)
+        insufficientPermission,
+    required TResult Function(CancelledByUser<T> value) cancelledByUser,
+    required TResult Function(ServerError<T> value) serverError,
+    required TResult Function(EmailAlreadyExist<T> value) emailAlreadyExist,
+    required TResult Function(CannotFindUser<T> value) cannotFindUser,
   }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(validateEmailNotEmpty != null);
-    assert(insufficientPermission != null);
-    assert(cancelledByUser != null);
-    assert(serverError != null);
-    assert(emailAlreadyExist != null);
-    assert(cannotFindUser != null);
     return emailAlreadyExist(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult empty(_Empty<T> value),
-    TResult unexpected(_Unexpected<T> value),
-    TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
-    TResult insufficientPermission(_InsufficientPermission<T> value),
-    TResult cancelledByUser(CancelledByUser<T> value),
-    TResult serverError(ServerError<T> value),
-    TResult emailAlreadyExist(EmailAlreadyExist<T> value),
-    TResult cannotFindUser(CannotFindUser<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_Unexpected<T> value)? unexpected,
+    TResult Function(_ValidateEmailNotEmpty<T> value)? validateEmailNotEmpty,
+    TResult Function(_InsufficientPermission<T> value)? insufficientPermission,
+    TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult Function(ServerError<T> value)? serverError,
+    TResult Function(EmailAlreadyExist<T> value)? emailAlreadyExist,
+    TResult Function(CannotFindUser<T> value)? cannotFindUser,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (emailAlreadyExist != null) {
       return emailAlreadyExist(this);
     }
@@ -1064,6 +962,7 @@ class _$CannotFindUserCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
+
 class _$CannotFindUser<T> implements CannotFindUser<T> {
   const _$CannotFindUser();
 
@@ -1082,41 +981,32 @@ class _$CannotFindUser<T> implements CannotFindUser<T> {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult empty(T failedValue),
-    @required TResult unexpected(),
-    @required TResult validateEmailNotEmpty(),
-    @required TResult insufficientPermission(),
-    @required TResult cancelledByUser(),
-    @required TResult serverError(),
-    @required TResult emailAlreadyExist(),
-    @required TResult cannotFindUser(),
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) empty,
+    required TResult Function() unexpected,
+    required TResult Function() validateEmailNotEmpty,
+    required TResult Function() insufficientPermission,
+    required TResult Function() cancelledByUser,
+    required TResult Function() serverError,
+    required TResult Function() emailAlreadyExist,
+    required TResult Function() cannotFindUser,
   }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(validateEmailNotEmpty != null);
-    assert(insufficientPermission != null);
-    assert(cancelledByUser != null);
-    assert(serverError != null);
-    assert(emailAlreadyExist != null);
-    assert(cannotFindUser != null);
     return cannotFindUser();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult empty(T failedValue),
-    TResult unexpected(),
-    TResult validateEmailNotEmpty(),
-    TResult insufficientPermission(),
-    TResult cancelledByUser(),
-    TResult serverError(),
-    TResult emailAlreadyExist(),
-    TResult cannotFindUser(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? empty,
+    TResult Function()? unexpected,
+    TResult Function()? validateEmailNotEmpty,
+    TResult Function()? insufficientPermission,
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? emailAlreadyExist,
+    TResult Function()? cannotFindUser,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (cannotFindUser != null) {
       return cannotFindUser();
     }
@@ -1125,41 +1015,34 @@ class _$CannotFindUser<T> implements CannotFindUser<T> {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult empty(_Empty<T> value),
-    @required TResult unexpected(_Unexpected<T> value),
-    @required TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
-    @required TResult insufficientPermission(_InsufficientPermission<T> value),
-    @required TResult cancelledByUser(CancelledByUser<T> value),
-    @required TResult serverError(ServerError<T> value),
-    @required TResult emailAlreadyExist(EmailAlreadyExist<T> value),
-    @required TResult cannotFindUser(CannotFindUser<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Empty<T> value) empty,
+    required TResult Function(_Unexpected<T> value) unexpected,
+    required TResult Function(_ValidateEmailNotEmpty<T> value)
+        validateEmailNotEmpty,
+    required TResult Function(_InsufficientPermission<T> value)
+        insufficientPermission,
+    required TResult Function(CancelledByUser<T> value) cancelledByUser,
+    required TResult Function(ServerError<T> value) serverError,
+    required TResult Function(EmailAlreadyExist<T> value) emailAlreadyExist,
+    required TResult Function(CannotFindUser<T> value) cannotFindUser,
   }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(validateEmailNotEmpty != null);
-    assert(insufficientPermission != null);
-    assert(cancelledByUser != null);
-    assert(serverError != null);
-    assert(emailAlreadyExist != null);
-    assert(cannotFindUser != null);
     return cannotFindUser(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult empty(_Empty<T> value),
-    TResult unexpected(_Unexpected<T> value),
-    TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
-    TResult insufficientPermission(_InsufficientPermission<T> value),
-    TResult cancelledByUser(CancelledByUser<T> value),
-    TResult serverError(ServerError<T> value),
-    TResult emailAlreadyExist(EmailAlreadyExist<T> value),
-    TResult cannotFindUser(CannotFindUser<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_Unexpected<T> value)? unexpected,
+    TResult Function(_ValidateEmailNotEmpty<T> value)? validateEmailNotEmpty,
+    TResult Function(_InsufficientPermission<T> value)? insufficientPermission,
+    TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult Function(ServerError<T> value)? serverError,
+    TResult Function(EmailAlreadyExist<T> value)? emailAlreadyExist,
+    TResult Function(CannotFindUser<T> value)? cannotFindUser,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (cannotFindUser != null) {
       return cannotFindUser(this);
     }

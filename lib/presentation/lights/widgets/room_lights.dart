@@ -41,18 +41,18 @@ class RoomLights extends StatelessWidget {
       for (int i = 0; i < _numberOfLightsToShow; i += _maxLightsInRow) {
         for (int v = 0; v < _maxLightsInRow; v++) {
           if (_deviceEntityList.size > i + v) {
-            final DeviceEntity deviceEntityTemp = _deviceEntityList[i + v];
-            if (deviceEntityTemp.failureOption.isSome()) {
+            final DeviceEntity? deviceEntityTemp = _deviceEntityList[i + v];
+            if (deviceEntityTemp!.failureOption.isSome()) {
               widgetsForRow
                   .add(ErrorLightsDeviceCard(device: deviceEntityTemp));
             } else {
               widgetsForRow.add(Column(
                 children: [
                   Text(
-                    deviceEntityTemp.defaultName.getOrCrash(),
+                    deviceEntityTemp.defaultName.getOrCrash()!,
                     style: TextStyle(
                       fontSize: 19.0,
-                      color: Theme.of(context).textTheme.subtitle2.color,
+                      color: ((Theme.of(context).textTheme.bodyText1!.color)!)!,
                     ),
                   ),
                   const SizedBox(
@@ -101,7 +101,7 @@ class RoomLights extends StatelessWidget {
             end: Alignment.topLeft),
         borderRadius: const BorderRadius.all(Radius.circular(24)),
         border: Border.all(
-          color: Theme.of(context).textTheme.subtitle2.color,
+          color: ((Theme.of(context).textTheme.bodyText1!.color)!)!,
           width: 0.6,
         ),
       ),
@@ -134,7 +134,7 @@ class RoomLights extends StatelessWidget {
                   Text(
                     _roomEntity,
                     style: TextStyle(
-                      color: Theme.of(context).textTheme.subtitle2.color,
+                      color: ((Theme.of(context).textTheme.bodyText1!.color)!)!,
                       fontSize: 25,
                       decoration: TextDecoration.underline,
                     ),
@@ -143,7 +143,7 @@ class RoomLights extends StatelessWidget {
                       _deviceEntityList.size > maxLightsToShow)
                     FaIcon(
                       FontAwesomeIcons.arrowRight,
-                      color: Theme.of(context).textTheme.subtitle2.color,
+                      color: ((Theme.of(context).textTheme.bodyText1!.color)!)!,
                       size: 20,
                     ),
                 ],

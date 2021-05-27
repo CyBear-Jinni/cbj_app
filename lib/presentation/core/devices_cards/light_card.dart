@@ -11,10 +11,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class LightCard extends StatelessWidget {
   const LightCard(this._deviceEntity);
 
-  final DeviceEntity _deviceEntity;
+  final DeviceEntity? _deviceEntity;
 
   void _onChange(BuildContext context, bool value) {
-    final DeviceEntity tempDeviceEntity = _deviceEntity.copyWith(
+    final DeviceEntity tempDeviceEntity = _deviceEntity!.copyWith(
       state: DeviceState(DeviceStateGRPC.waitingInFirebase.toString()),
       action: DeviceAction(value.toString()),
     );
@@ -28,8 +28,8 @@ class LightCard extends StatelessWidget {
     final Size screenSize = MediaQuery.of(context).size;
     final double sizeBoxWidth = screenSize.width * 0.25;
 
-    final deviceState = _deviceEntity.state.getOrCrash();
-    final deviceAction = _deviceEntity.action.getOrCrash();
+    final deviceState = _deviceEntity!.state!.getOrCrash();
+    final deviceAction = _deviceEntity!.action!.getOrCrash();
 
     bool toggleValue = false;
     Color toggleColor = Colors.blueGrey;
@@ -61,10 +61,10 @@ class LightCard extends StatelessWidget {
               activeToggleColor: const Color(0xFF2F363D),
               inactiveToggleColor: Theme.of(context).primaryColor,
               activeSwitchBorder: Border.all(
-                color: Theme.of(context).textTheme.bodyText1.color,
+                color: (Theme.of(context).textTheme.bodyText1!.color)!,
               ),
               inactiveSwitchBorder: Border.all(
-                color: Theme.of(context).textTheme.bodyText1.color,
+                color: (Theme.of(context).textTheme.bodyText1!.color)!,
               ),
               activeColor: toggleColor,
               inactiveColor: toggleColor,
@@ -74,7 +74,7 @@ class LightCard extends StatelessWidget {
               ),
               inactiveIcon: Icon(
                 FontAwesomeIcons.lightbulb,
-                color: Theme.of(context).textTheme.bodyText1.color,
+                color: (Theme.of(context).textTheme.bodyText1!.color)!,
               ),
               onToggle: (bool value) => _onChange(context, value)
               // _onChange(context, value),

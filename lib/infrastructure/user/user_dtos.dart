@@ -11,20 +11,20 @@ abstract class UserDtos implements _$UserDtos {
   const UserDtos._();
 
   const factory UserDtos({
-    @JsonKey(ignore: true) String id,
-    @required String email,
-    @required String name,
-    String firstName,
-    String lastName,
+    @JsonKey(ignore: true) String? id,
+    required String email,
+    required String name,
+    String? firstName,
+    String? lastName,
   }) = _UserDtos;
 
   factory UserDtos.fromDomain(UserEntity userEntity) {
     return UserDtos(
-      id: userEntity.id.getOrCrash(),
-      email: userEntity.email.getOrCrash(),
-      name: userEntity.name.getOrCrash(),
-      firstName: userEntity.firstName.getOrCrash(),
-      lastName: userEntity.lastName.getOrCrash(),
+      id: userEntity.id!.getOrCrash(),
+      email: userEntity.email!.getOrCrash(),
+      name: userEntity.name!.getOrCrash(),
+      firstName: userEntity.firstName!.getOrCrash(),
+      lastName: userEntity.lastName!.getOrCrash(),
     );
   }
 

@@ -9,11 +9,11 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomeCardWidget extends StatelessWidget {
   const HomeCardWidget({
-    Key key,
-    @required this.home,
+    Key? key,
+    required this.home,
   }) : super(key: key);
 
-  final AllHomesOfUserEntity home;
+  final AllHomesOfUserEntity? home;
 
   @override
   Widget build(BuildContext context) {
@@ -42,10 +42,10 @@ class HomeCardWidget extends StatelessWidget {
             decoration: BoxDecoration(
               border: Border(
                 top: BorderSide(
-                  color: Theme.of(context).textTheme.subtitle2.color,
+                  color: ((Theme.of(context).textTheme.bodyText1!.color)!)!,
                 ),
                 bottom: BorderSide(
-                  color: Theme.of(context).textTheme.subtitle2.color,
+                  color: ((Theme.of(context).textTheme.bodyText1!.color)!)!,
                 ),
               ),
             ),
@@ -54,15 +54,18 @@ class HomeCardWidget extends StatelessWidget {
               child: ListTile(
                 leading: FaIcon(
                   FontAwesomeIcons.houseUser,
-                  color: Theme.of(context).textTheme.subtitle2.color,
+                  color: ((Theme.of(context).textTheme.bodyText1!.color)!)!,
                 ),
                 title: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      home.name.getOrCrash(),
+                      home!.name!.getOrCrash()!,
                       style: TextStyle(
-                          color: Theme.of(context).textTheme.subtitle2.color),
+                          color: ((Theme.of(context)
+                              .textTheme
+                              .bodyText1!
+                              .color)!)!),
                     ),
                   ],
                 ),

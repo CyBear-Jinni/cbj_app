@@ -10,11 +10,11 @@ abstract class Scene with _$Scene {
   const Scene._();
 
   const factory Scene({
-    @required UniqueId uniqueId,
-    @required String name,
-    @required KtList<String> scenesActionsToExecute,
-    @required Color backgroundColor,
-    IconData icon,
-    String image,
+    required UniqueId uniqueId,
+    required String name,
+    required KtList<String> scenesActionsToExecute,
+    required Color backgroundColor,
+    IconData? icon,
+    String? image,
   }) = _Scene;
 }

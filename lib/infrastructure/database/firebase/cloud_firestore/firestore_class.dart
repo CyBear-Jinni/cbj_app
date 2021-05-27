@@ -13,7 +13,9 @@ class FireStoreClass {
 
     FirebaseFirestore.instance.doc(fullPath).get().then((DocumentSnapshot ds) {
       FirebaseFirestore.instance.doc(fullPath).update({
-        smartInstanceName: !(ds.data()[smartInstanceName] == true.toString())
+        smartInstanceName:
+            ((ds.data() as Map<String, dynamic>)[smartInstanceName] ==
+                true.toString())
       });
     });
     return getDeviceStatus(roomName, smartInstanceName);
@@ -35,7 +37,8 @@ class FireStoreClass {
     final DocumentSnapshot documentSnapshot =
         await FirebaseFirestore.instance.doc(fullPath).get();
 
-    return documentSnapshot.data()[smartInstanceName].toString();
+    return (documentSnapshot.data() as Map<String, dynamic>)[smartInstanceName]
+        .toString();
   }
 
   String createDocumentFullPath(String roomName) {

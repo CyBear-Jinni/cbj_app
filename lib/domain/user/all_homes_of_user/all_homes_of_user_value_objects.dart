@@ -37,12 +37,13 @@ abstract class AllHomesOfUserValueObjectAbstract<T> {
   int get hashCode => value.hashCode;
 }
 
-class AllHomesOfUserUniqueId extends AllHomesOfUserValueObjectAbstract<String> {
+class AllHomesOfUserUniqueId
+    extends AllHomesOfUserValueObjectAbstract<String?> {
   factory AllHomesOfUserUniqueId() {
     return AllHomesOfUserUniqueId._(right(Uuid().v1()));
   }
 
-  factory AllHomesOfUserUniqueId.fromUniqueString(String uniqueId) {
+  factory AllHomesOfUserUniqueId.fromUniqueString(String? uniqueId) {
     assert(uniqueId != null);
     return AllHomesOfUserUniqueId._(right(uniqueId));
   }
@@ -50,16 +51,16 @@ class AllHomesOfUserUniqueId extends AllHomesOfUserValueObjectAbstract<String> {
   AllHomesOfUserUniqueId._(this.value);
 
   @override
-  final Either<AllHomesOfUserFailures<String>, String> value;
+  final Either<AllHomesOfUserFailures<String?>, String?> value;
 }
 
-class AllHomesOfUserName extends AllHomesOfUserValueObjectAbstract<String> {
+class AllHomesOfUserName extends AllHomesOfUserValueObjectAbstract<String?> {
   @override
-  final Either<AllHomesOfUserFailures<String>, String> value;
+  final Either<AllHomesOfUserFailures<String?>, String?> value;
 
   static const maxLength = 1000;
 
-  factory AllHomesOfUserName(String input) {
+  factory AllHomesOfUserName(String? input) {
     assert(input != null);
     return AllHomesOfUserName._(
       validateAllHomesOfUserNameNotEmpty(input),

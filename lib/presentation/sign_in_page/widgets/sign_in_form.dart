@@ -141,7 +141,7 @@ class SignInForm extends StatelessWidget {
               child: TextButton(
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(
-                      Theme.of(context).textTheme.bodyText1.color),
+                      (Theme.of(context).textTheme.bodyText1!.color)!),
                 ),
                 onPressed: () {
                   ExtendedNavigator.of(context)
@@ -150,7 +150,8 @@ class SignInForm extends StatelessWidget {
                 child: Text(
                   'For More Options',
                   style: TextStyle(
-                      color: Theme.of(context).textTheme.subtitle2.color),
+                      color:
+                          ((Theme.of(context).textTheme.bodyText1!.color)!)!),
                 ),
               ),
             ),

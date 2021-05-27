@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'device_dtos.dart';
 
@@ -8,6 +8,10 @@ part of 'device_dtos.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 DeviceDtos _$DeviceDtosFromJson(Map<String, dynamic> json) {
   return _DeviceDtos.fromJson(json);
 }
@@ -16,20 +20,18 @@ DeviceDtos _$DeviceDtosFromJson(Map<String, dynamic> json) {
 class _$DeviceDtosTearOff {
   const _$DeviceDtosTearOff();
 
-// ignore: unused_element
   _DeviceDtos call(
-      {@JsonKey(ignore: true) String id,
-      @required String defaultName,
-      @required String roomId,
-      @required String state,
-      String stateMassage,
-      @required String senderDeviceOs,
-      @required String senderDeviceModel,
-      @required String senderId,
-      @required String action,
-      @required String type,
-      @required String compUuid,
-      @required @ServerTimestampConverter() FieldValue serverTimeStamp}) {
+      {@JsonKey(ignore: true) String? id,
+      required String? defaultName,
+      required String? roomId,
+      required String? state,
+      String? stateMassage,
+      required String? senderDeviceOs,
+      required String? senderDeviceModel,
+      required String? senderId,
+      required String? action,
+      required String? type,
+      required String? compUuid}) {
     return _DeviceDtos(
       id: id,
       defaultName: defaultName,
@@ -42,40 +44,36 @@ class _$DeviceDtosTearOff {
       action: action,
       type: type,
       compUuid: compUuid,
-      serverTimeStamp: serverTimeStamp,
     );
   }
 
-// ignore: unused_element
   DeviceDtos fromJson(Map<String, Object> json) {
     return DeviceDtos.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $DeviceDtos = _$DeviceDtosTearOff();
 
 /// @nodoc
 mixin _$DeviceDtos {
   @JsonKey(ignore: true)
-  String get id;
-  String get defaultName;
-  String get roomId;
-  String get state;
-  String get stateMassage;
-  String get senderDeviceOs;
-  String get senderDeviceModel;
-  String get senderId;
-  String get action;
-  String get type;
-  String get compUuid;
-  @ServerTimestampConverter()
-  FieldValue get serverTimeStamp;
+  String? get id => throw _privateConstructorUsedError;
+  String? get defaultName => throw _privateConstructorUsedError;
+  String? get roomId => throw _privateConstructorUsedError;
+  String? get state => throw _privateConstructorUsedError;
+  String? get stateMassage => throw _privateConstructorUsedError;
+  String? get senderDeviceOs => throw _privateConstructorUsedError;
+  String? get senderDeviceModel => throw _privateConstructorUsedError;
+  String? get senderId => throw _privateConstructorUsedError;
+  String? get action => throw _privateConstructorUsedError;
+  String? get type => throw _privateConstructorUsedError;
+  String? get compUuid => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $DeviceDtosCopyWith<DeviceDtos> get copyWith;
+  $DeviceDtosCopyWith<DeviceDtos> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -84,18 +82,17 @@ abstract class $DeviceDtosCopyWith<$Res> {
           DeviceDtos value, $Res Function(DeviceDtos) then) =
       _$DeviceDtosCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(ignore: true) String id,
-      String defaultName,
-      String roomId,
-      String state,
-      String stateMassage,
-      String senderDeviceOs,
-      String senderDeviceModel,
-      String senderId,
-      String action,
-      String type,
-      String compUuid,
-      @ServerTimestampConverter() FieldValue serverTimeStamp});
+      {@JsonKey(ignore: true) String? id,
+      String? defaultName,
+      String? roomId,
+      String? state,
+      String? stateMassage,
+      String? senderDeviceOs,
+      String? senderDeviceModel,
+      String? senderId,
+      String? action,
+      String? type,
+      String? compUuid});
 }
 
 /// @nodoc
@@ -108,41 +105,63 @@ class _$DeviceDtosCopyWithImpl<$Res> implements $DeviceDtosCopyWith<$Res> {
 
   @override
   $Res call({
-    Object id = freezed,
-    Object defaultName = freezed,
-    Object roomId = freezed,
-    Object state = freezed,
-    Object stateMassage = freezed,
-    Object senderDeviceOs = freezed,
-    Object senderDeviceModel = freezed,
-    Object senderId = freezed,
-    Object action = freezed,
-    Object type = freezed,
-    Object compUuid = freezed,
-    Object serverTimeStamp = freezed,
+    Object? id = freezed,
+    Object? defaultName = freezed,
+    Object? roomId = freezed,
+    Object? state = freezed,
+    Object? stateMassage = freezed,
+    Object? senderDeviceOs = freezed,
+    Object? senderDeviceModel = freezed,
+    Object? senderId = freezed,
+    Object? action = freezed,
+    Object? type = freezed,
+    Object? compUuid = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as String,
-      defaultName:
-          defaultName == freezed ? _value.defaultName : defaultName as String,
-      roomId: roomId == freezed ? _value.roomId : roomId as String,
-      state: state == freezed ? _value.state : state as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      defaultName: defaultName == freezed
+          ? _value.defaultName
+          : defaultName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      roomId: roomId == freezed
+          ? _value.roomId
+          : roomId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      state: state == freezed
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as String?,
       stateMassage: stateMassage == freezed
           ? _value.stateMassage
-          : stateMassage as String,
+          : stateMassage // ignore: cast_nullable_to_non_nullable
+              as String?,
       senderDeviceOs: senderDeviceOs == freezed
           ? _value.senderDeviceOs
-          : senderDeviceOs as String,
+          : senderDeviceOs // ignore: cast_nullable_to_non_nullable
+              as String?,
       senderDeviceModel: senderDeviceModel == freezed
           ? _value.senderDeviceModel
-          : senderDeviceModel as String,
-      senderId: senderId == freezed ? _value.senderId : senderId as String,
-      action: action == freezed ? _value.action : action as String,
-      type: type == freezed ? _value.type : type as String,
-      compUuid: compUuid == freezed ? _value.compUuid : compUuid as String,
-      serverTimeStamp: serverTimeStamp == freezed
-          ? _value.serverTimeStamp
-          : serverTimeStamp as FieldValue,
+          : senderDeviceModel // ignore: cast_nullable_to_non_nullable
+              as String?,
+      senderId: senderId == freezed
+          ? _value.senderId
+          : senderId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      action: action == freezed
+          ? _value.action
+          : action // ignore: cast_nullable_to_non_nullable
+              as String?,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
+      compUuid: compUuid == freezed
+          ? _value.compUuid
+          : compUuid // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -154,18 +173,17 @@ abstract class _$DeviceDtosCopyWith<$Res> implements $DeviceDtosCopyWith<$Res> {
       __$DeviceDtosCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(ignore: true) String id,
-      String defaultName,
-      String roomId,
-      String state,
-      String stateMassage,
-      String senderDeviceOs,
-      String senderDeviceModel,
-      String senderId,
-      String action,
-      String type,
-      String compUuid,
-      @ServerTimestampConverter() FieldValue serverTimeStamp});
+      {@JsonKey(ignore: true) String? id,
+      String? defaultName,
+      String? roomId,
+      String? state,
+      String? stateMassage,
+      String? senderDeviceOs,
+      String? senderDeviceModel,
+      String? senderId,
+      String? action,
+      String? type,
+      String? compUuid});
 }
 
 /// @nodoc
@@ -180,107 +198,114 @@ class __$DeviceDtosCopyWithImpl<$Res> extends _$DeviceDtosCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object defaultName = freezed,
-    Object roomId = freezed,
-    Object state = freezed,
-    Object stateMassage = freezed,
-    Object senderDeviceOs = freezed,
-    Object senderDeviceModel = freezed,
-    Object senderId = freezed,
-    Object action = freezed,
-    Object type = freezed,
-    Object compUuid = freezed,
-    Object serverTimeStamp = freezed,
+    Object? id = freezed,
+    Object? defaultName = freezed,
+    Object? roomId = freezed,
+    Object? state = freezed,
+    Object? stateMassage = freezed,
+    Object? senderDeviceOs = freezed,
+    Object? senderDeviceModel = freezed,
+    Object? senderId = freezed,
+    Object? action = freezed,
+    Object? type = freezed,
+    Object? compUuid = freezed,
   }) {
     return _then(_DeviceDtos(
-      id: id == freezed ? _value.id : id as String,
-      defaultName:
-          defaultName == freezed ? _value.defaultName : defaultName as String,
-      roomId: roomId == freezed ? _value.roomId : roomId as String,
-      state: state == freezed ? _value.state : state as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      defaultName: defaultName == freezed
+          ? _value.defaultName
+          : defaultName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      roomId: roomId == freezed
+          ? _value.roomId
+          : roomId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      state: state == freezed
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as String?,
       stateMassage: stateMassage == freezed
           ? _value.stateMassage
-          : stateMassage as String,
+          : stateMassage // ignore: cast_nullable_to_non_nullable
+              as String?,
       senderDeviceOs: senderDeviceOs == freezed
           ? _value.senderDeviceOs
-          : senderDeviceOs as String,
+          : senderDeviceOs // ignore: cast_nullable_to_non_nullable
+              as String?,
       senderDeviceModel: senderDeviceModel == freezed
           ? _value.senderDeviceModel
-          : senderDeviceModel as String,
-      senderId: senderId == freezed ? _value.senderId : senderId as String,
-      action: action == freezed ? _value.action : action as String,
-      type: type == freezed ? _value.type : type as String,
-      compUuid: compUuid == freezed ? _value.compUuid : compUuid as String,
-      serverTimeStamp: serverTimeStamp == freezed
-          ? _value.serverTimeStamp
-          : serverTimeStamp as FieldValue,
+          : senderDeviceModel // ignore: cast_nullable_to_non_nullable
+              as String?,
+      senderId: senderId == freezed
+          ? _value.senderId
+          : senderId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      action: action == freezed
+          ? _value.action
+          : action // ignore: cast_nullable_to_non_nullable
+              as String?,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
+      compUuid: compUuid == freezed
+          ? _value.compUuid
+          : compUuid // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_DeviceDtos extends _DeviceDtos {
   const _$_DeviceDtos(
       {@JsonKey(ignore: true) this.id,
-      @required this.defaultName,
-      @required this.roomId,
-      @required this.state,
+      required this.defaultName,
+      required this.roomId,
+      required this.state,
       this.stateMassage,
-      @required this.senderDeviceOs,
-      @required this.senderDeviceModel,
-      @required this.senderId,
-      @required this.action,
-      @required this.type,
-      @required this.compUuid,
-      @required @ServerTimestampConverter() this.serverTimeStamp})
-      : assert(defaultName != null),
-        assert(roomId != null),
-        assert(state != null),
-        assert(senderDeviceOs != null),
-        assert(senderDeviceModel != null),
-        assert(senderId != null),
-        assert(action != null),
-        assert(type != null),
-        assert(compUuid != null),
-        assert(serverTimeStamp != null),
-        super._();
+      required this.senderDeviceOs,
+      required this.senderDeviceModel,
+      required this.senderId,
+      required this.action,
+      required this.type,
+      required this.compUuid})
+      : super._();
 
   factory _$_DeviceDtos.fromJson(Map<String, dynamic> json) =>
       _$_$_DeviceDtosFromJson(json);
 
   @override
   @JsonKey(ignore: true)
-  final String id;
+  final String? id;
   @override
-  final String defaultName;
+  final String? defaultName;
   @override
-  final String roomId;
+  final String? roomId;
   @override
-  final String state;
+  final String? state;
   @override
-  final String stateMassage;
+  final String? stateMassage;
   @override
-  final String senderDeviceOs;
+  final String? senderDeviceOs;
   @override
-  final String senderDeviceModel;
+  final String? senderDeviceModel;
   @override
-  final String senderId;
+  final String? senderId;
   @override
-  final String action;
+  final String? action;
   @override
-  final String type;
+  final String? type;
   @override
-  final String compUuid;
-  @override
-  @ServerTimestampConverter()
-  final FieldValue serverTimeStamp;
+  final String? compUuid;
 
   @override
   String toString() {
-    return 'DeviceDtos(id: $id, defaultName: $defaultName, roomId: $roomId, state: $state, stateMassage: $stateMassage, senderDeviceOs: $senderDeviceOs, senderDeviceModel: $senderDeviceModel, senderId: $senderId, action: $action, type: $type, compUuid: $compUuid, serverTimeStamp: $serverTimeStamp)';
+    return 'DeviceDtos(id: $id, defaultName: $defaultName, roomId: $roomId, state: $state, stateMassage: $stateMassage, senderDeviceOs: $senderDeviceOs, senderDeviceModel: $senderDeviceModel, senderId: $senderId, action: $action, type: $type, compUuid: $compUuid)';
   }
 
   @override
@@ -314,10 +339,7 @@ class _$_DeviceDtos extends _DeviceDtos {
                 const DeepCollectionEquality().equals(other.type, type)) &&
             (identical(other.compUuid, compUuid) ||
                 const DeepCollectionEquality()
-                    .equals(other.compUuid, compUuid)) &&
-            (identical(other.serverTimeStamp, serverTimeStamp) ||
-                const DeepCollectionEquality()
-                    .equals(other.serverTimeStamp, serverTimeStamp)));
+                    .equals(other.compUuid, compUuid)));
   }
 
   @override
@@ -333,8 +355,7 @@ class _$_DeviceDtos extends _DeviceDtos {
       const DeepCollectionEquality().hash(senderId) ^
       const DeepCollectionEquality().hash(action) ^
       const DeepCollectionEquality().hash(type) ^
-      const DeepCollectionEquality().hash(compUuid) ^
-      const DeepCollectionEquality().hash(serverTimeStamp);
+      const DeepCollectionEquality().hash(compUuid);
 
   @JsonKey(ignore: true)
   @override
@@ -348,52 +369,48 @@ class _$_DeviceDtos extends _DeviceDtos {
 }
 
 abstract class _DeviceDtos extends DeviceDtos {
-  const _DeviceDtos._() : super._();
   const factory _DeviceDtos(
-          {@JsonKey(ignore: true) String id,
-          @required String defaultName,
-          @required String roomId,
-          @required String state,
-          String stateMassage,
-          @required String senderDeviceOs,
-          @required String senderDeviceModel,
-          @required String senderId,
-          @required String action,
-          @required String type,
-          @required String compUuid,
-          @required @ServerTimestampConverter() FieldValue serverTimeStamp}) =
-      _$_DeviceDtos;
+      {@JsonKey(ignore: true) String? id,
+      required String? defaultName,
+      required String? roomId,
+      required String? state,
+      String? stateMassage,
+      required String? senderDeviceOs,
+      required String? senderDeviceModel,
+      required String? senderId,
+      required String? action,
+      required String? type,
+      required String? compUuid}) = _$_DeviceDtos;
+  const _DeviceDtos._() : super._();
 
   factory _DeviceDtos.fromJson(Map<String, dynamic> json) =
       _$_DeviceDtos.fromJson;
 
   @override
   @JsonKey(ignore: true)
-  String get id;
+  String? get id => throw _privateConstructorUsedError;
   @override
-  String get defaultName;
+  String? get defaultName => throw _privateConstructorUsedError;
   @override
-  String get roomId;
+  String? get roomId => throw _privateConstructorUsedError;
   @override
-  String get state;
+  String? get state => throw _privateConstructorUsedError;
   @override
-  String get stateMassage;
+  String? get stateMassage => throw _privateConstructorUsedError;
   @override
-  String get senderDeviceOs;
+  String? get senderDeviceOs => throw _privateConstructorUsedError;
   @override
-  String get senderDeviceModel;
+  String? get senderDeviceModel => throw _privateConstructorUsedError;
   @override
-  String get senderId;
+  String? get senderId => throw _privateConstructorUsedError;
   @override
-  String get action;
+  String? get action => throw _privateConstructorUsedError;
   @override
-  String get type;
+  String? get type => throw _privateConstructorUsedError;
   @override
-  String get compUuid;
-  @override
-  @ServerTimestampConverter()
-  FieldValue get serverTimeStamp;
+  String? get compUuid => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$DeviceDtosCopyWith<_DeviceDtos> get copyWith;
+  _$DeviceDtosCopyWith<_DeviceDtos> get copyWith =>
+      throw _privateConstructorUsedError;
 }

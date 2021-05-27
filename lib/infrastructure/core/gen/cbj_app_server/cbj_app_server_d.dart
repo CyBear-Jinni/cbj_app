@@ -35,14 +35,14 @@ class CBJAppServerD extends CyBearJinniAppServiceBase {
 
 /// Helper class to control the Server
 class CreateTheCBJAppServer {
-  static Server server;
+  static Server? server;
 
   ///  This function will create the server
   Future<void> createServer(StreamController<CompInfoSB> compInfoStream) async {
     await server?.shutdown();
     server = Server(<CBJAppServerD>[CBJAppServerD(compInfoStream)]);
-    await server.serve(port: 30055);
-    print('Server listening on port ${server.port}...');
+    await server!.serve(port: 30055);
+    print('Server listening on port ${server!.port}...');
   }
 
   static Future<void> shoutDownServer() async {

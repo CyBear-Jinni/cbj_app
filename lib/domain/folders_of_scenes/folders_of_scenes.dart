@@ -11,7 +11,7 @@ abstract class FoldersOfScenes with _$FoldersOfScenes {
   const FoldersOfScenes._();
 
   const factory FoldersOfScenes({
-    @required
+    required
         KtList<Either<FolderOfScenesFailures, FolderOfScenes>>
             foldersOfScenesList,
   }) = _FoldersOfScenes;

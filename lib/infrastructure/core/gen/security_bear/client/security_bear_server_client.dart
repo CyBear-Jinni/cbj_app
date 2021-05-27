@@ -45,7 +45,7 @@ class SecurityBearServerClient {
     return SBCommendStatus()..success = false;
   }
 
-  static Future<SBCommendStatus> setFirebaseAccountInformation(
+  static Future<SBCommendStatus?> setFirebaseAccountInformation(
       String deviceIp, ManageNetworkEntity secondWifiEntity) async {
     final ClientChannel channel = createSmartServerClient(deviceIp);
     final SecurityBearClient stub = SecurityBearClient(channel);
@@ -65,11 +65,11 @@ class SecurityBearServerClient {
 
       final SecurityBearSetup securityBearSetup = SecurityBearSetup()
         ..wiFiFirstPriority = WiFiInformation(
-            wiFiName: manageFirstNetworkEntity.name.getOrCrash(),
-            wiFiPassword: manageFirstNetworkEntity.pass.getOrCrash())
+            wiFiName: manageFirstNetworkEntity.name!.getOrCrash(),
+            wiFiPassword: manageFirstNetworkEntity.pass!.getOrCrash())
         ..wiFiSecondPriority = WiFiInformation(
-            wiFiName: secondWifiEntity.name.getOrCrash(),
-            wiFiPassword: secondWifiEntity.pass.getOrCrash());
+            wiFiName: secondWifiEntity.name!.getOrCrash(),
+            wiFiPassword: secondWifiEntity.pass!.getOrCrash());
 
       final SBFirebaseAccountAndSecurityBearSetup
           sBFirebaseAccountAndSecurityBearSetup =

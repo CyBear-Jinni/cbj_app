@@ -20,7 +20,7 @@ Future<List<SmartDeviceObject>> getAllDevices(String deviceIp) async {
   for (final SmartDeviceInfo smartDeviceInfo in compInfo.smartDevicesInComp) {
     print('Device type: $smartDeviceInfo');
     deviceTypeTemp = EnumHelper.stringToDt(
-        smartDeviceInfo.deviceTypesActions.deviceType.toString());
+        smartDeviceInfo.deviceTypesActions.deviceType.toString())!;
     switch (deviceTypeTemp) {
       case DeviceTypes.light:
         smartDeviceObjectTemp =

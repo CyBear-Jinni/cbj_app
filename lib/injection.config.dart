@@ -4,130 +4,144 @@
 // InjectableConfigGenerator
 // **************************************************************************
 
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:get_it/get_it.dart';
-import 'package:injectable/injectable.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+import 'package:cloud_firestore/cloud_firestore.dart' as _i4;
+import 'package:firebase_auth/firebase_auth.dart' as _i3;
+import 'package:get_it/get_it.dart' as _i1;
+import 'package:google_sign_in/google_sign_in.dart' as _i5;
+import 'package:injectable/injectable.dart' as _i2;
 
-import 'application/add_user_to_home/add_user_to_home_bloc.dart';
-import 'infrastructure/add_user_to_home/add_user_to_home_reposityory.dart';
-import 'application/auth/auth_bloc.dart';
-import 'application/blinds/blinds_actor/blinds_actor_bloc.dart';
-import 'application/blinds/blinds_watcher/blinds_watcher_bloc.dart';
-import 'application/boilers/boilers_actor/boilers_actor_bloc.dart';
-import 'application/boilers/boilers_watcher/boilers_watcher_bloc.dart';
-import 'application/cbj_comp/cbj_comp_bloc.dart';
-import 'infrastructure/cbj_comp/cbj_comp_repository.dart';
-import 'application/configure_new_cbj_comp/configure_new_cbj_comp_bloc.dart';
-import 'application/create_home/create_home_bloc.dart';
-import 'infrastructure/create_home/create_home_repository.dart';
-import 'application/devices/device_actor/device_actor_bloc.dart';
-import 'infrastructure/device/device_repository.dart';
-import 'application/devices/device_watcher/device_watcher_bloc.dart';
-import 'infrastructure/auth/firebase_auth_facade.dart';
-import 'infrastructure/core/firebase_injectable_module.dart';
-import 'application/folder_of_scenes/folder_of_scenes_bloc.dart';
-import 'infrastructure/folder_of_scenes/folder_of_scenes_repository.dart';
-import 'application/folders_of_scenes/folders_of_scenes_bloc.dart';
-import 'infrastructure/folders_of_scenes/folders_of_scenes_repository.dart';
-import 'infrastructure/home_user/home_user_repository.dart';
-import 'domain/add_user_to_home/i_add_user_to_home_repository.dart';
-import 'domain/auth/i_auth_facade.dart';
-import 'domain/cbj_comp/i_cbj_comp_repository.dart';
-import 'domain/create_home/i_create_home_repository.dart';
-import 'domain/devices/i_device_repository.dart';
-import 'domain/folder_of_scenes/i_folder_of_scenes_repository.dart';
-import 'domain/folders_of_scenes/i_folders_of_scenes_repository.dart';
-import 'domain/home_user/i_home_user_repository.dart';
-import 'domain/manage_network/i_manage_network_repository.dart';
-import 'domain/scene/i_scene_repository.dart';
-import 'domain/user/i_user_repository.dart';
-import 'application/join_home_by_id/join_home_by_id_bloc.dart';
-import 'application/light_toggle/light_toggle_bloc.dart';
-import 'application/lights/lights_actor/lights_actor_bloc.dart';
-import 'application/lights/lights_watcher/lights_watcher_bloc.dart';
-import 'application/manage_access_point/manage_access_point_bloc.dart';
-import 'application/manage_users/manage_users_bloc.dart';
-import 'infrastructure/manage_wifi/manage_wifi_repository.dart';
-import 'application/manage_wifi/manage_wifi_bloc.dart';
-import 'infrastructure/mock_example.dart';
-import 'application/scene/scene_bloc.dart';
-import 'infrastructure/scenes/scene_repository.dart';
-import 'application/auth/sign_in_form/sign_in_form_bloc.dart';
-import 'application/user_homes_list/user_homes_list_bloc.dart';
-import 'infrastructure/user/user_repository.dart';
+import 'application/add_user_to_home/add_user_to_home_bloc.dart' as _i39;
+import 'application/auth/auth_bloc.dart' as _i40;
+import 'application/auth/sign_in_form/sign_in_form_bloc.dart' as _i37;
+import 'application/blinds/blinds_actor/blinds_actor_bloc.dart' as _i41;
+import 'application/blinds/blinds_watcher/blinds_watcher_bloc.dart' as _i42;
+import 'application/boilers/boilers_actor/boilers_actor_bloc.dart' as _i43;
+import 'application/boilers/boilers_watcher/boilers_watcher_bloc.dart' as _i44;
+import 'application/cbj_comp/cbj_comp_bloc.dart' as _i45;
+import 'application/configure_new_cbj_comp/configure_new_cbj_comp_bloc.dart'
+    as _i46;
+import 'application/create_home/create_home_bloc.dart' as _i47;
+import 'application/devices/device_actor/device_actor_bloc.dart' as _i48;
+import 'application/devices/device_watcher/device_watcher_bloc.dart' as _i49;
+import 'application/folder_of_scenes/folder_of_scenes_bloc.dart' as _i50;
+import 'application/folders_of_scenes/folders_of_scenes_bloc.dart' as _i51;
+import 'application/join_home_by_id/join_home_by_id_bloc.dart' as _i28;
+import 'application/light_toggle/light_toggle_bloc.dart' as _i29;
+import 'application/lights/lights_actor/lights_actor_bloc.dart' as _i30;
+import 'application/lights/lights_watcher/lights_watcher_bloc.dart' as _i31;
+import 'application/manage_access_point/manage_access_point_bloc.dart' as _i32;
+import 'application/manage_users/manage_users_bloc.dart' as _i33;
+import 'application/manage_wifi/manage_wifi_bloc.dart' as _i34;
+import 'application/scene/scene_bloc.dart' as _i36;
+import 'application/user_homes_list/user_homes_list_bloc.dart' as _i38;
+import 'domain/add_user_to_home/i_add_user_to_home_repository.dart' as _i6;
+import 'domain/auth/i_auth_facade.dart' as _i8;
+import 'domain/cbj_comp/i_cbj_comp_repository.dart' as _i10;
+import 'domain/create_home/i_create_home_repository.dart' as _i12;
+import 'domain/devices/i_device_repository.dart' as _i14;
+import 'domain/folder_of_scenes/i_folder_of_scenes_repository.dart' as _i16;
+import 'domain/folders_of_scenes/i_folders_of_scenes_repository.dart' as _i18;
+import 'domain/home_user/i_home_user_repository.dart' as _i20;
+import 'domain/manage_network/i_manage_network_repository.dart' as _i22;
+import 'domain/scene/i_scene_repository.dart' as _i24;
+import 'domain/user/i_user_repository.dart' as _i26;
+import 'infrastructure/add_user_to_home/add_user_to_home_reposityory.dart'
+    as _i7;
+import 'infrastructure/auth/firebase_auth_facade.dart' as _i9;
+import 'infrastructure/cbj_comp/cbj_comp_repository.dart' as _i11;
+import 'infrastructure/core/firebase_injectable_module.dart' as _i52;
+import 'infrastructure/create_home/create_home_repository.dart' as _i13;
+import 'infrastructure/device/device_repository.dart' as _i15;
+import 'infrastructure/folder_of_scenes/folder_of_scenes_repository.dart'
+    as _i17;
+import 'infrastructure/folders_of_scenes/folders_of_scenes_repository.dart'
+    as _i19;
+import 'infrastructure/home_user/home_user_repository.dart' as _i21;
+import 'infrastructure/manage_wifi/manage_wifi_repository.dart' as _i23;
+import 'infrastructure/mock_example.dart' as _i35;
+import 'infrastructure/scenes/scene_repository.dart' as _i25;
+import 'infrastructure/user/user_repository.dart'
+    as _i27; // ignore_for_file: unnecessary_lambdas
 
-/// adds generated dependencies
-/// to the provided [GetIt] instance
-
-GetIt $initGetIt(
-  GetIt get, {
-  String environment,
-  EnvironmentFilter environmentFilter,
-}) {
-  final gh = GetItHelper(get, environment, environmentFilter);
+// ignore_for_file: lines_longer_than_80_chars
+/// initializes the registration of provided dependencies inside of [GetIt]
+_i1.GetIt $initGetIt(_i1.GetIt get,
+    {String? environment, _i2.EnvironmentFilter? environmentFilter}) {
+  final gh = _i2.GetItHelper(get, environment, environmentFilter);
   final firebaseInjectableModule = _$FirebaseInjectableModule();
-  gh.lazySingleton<FirebaseAuth>(() => firebaseInjectableModule.firebaseAuth);
-  gh.lazySingleton<FirebaseFirestore>(() => firebaseInjectableModule.firestore);
-  gh.lazySingleton<GoogleSignIn>(() => firebaseInjectableModule.googleSignIn);
-  gh.lazySingleton<IAddUserToHomeRepository>(
-      () => AddUserToHomeRepository(get<FirebaseFirestore>()));
-  gh.lazySingleton<IAuthFacade>(
-      () => FirebaseAuthFacade(get<FirebaseAuth>(), get<GoogleSignIn>()));
-  gh.lazySingleton<ICBJCompRepository>(() => CBJCompRepository());
-  gh.lazySingleton<ICreateHomeRepository>(() =>
-      CreateHomeRepository(get<FirebaseFirestore>(), get<FirebaseAuth>()));
-  gh.lazySingleton<IDeviceRepository>(
-      () => DeviceRepository(get<FirebaseFirestore>()));
-  gh.lazySingleton<IFolderOfScenesRepository>(() => FolderOfScenesRepository());
-  gh.lazySingleton<IFoldersOfScenesRepository>(
-      () => FoldersOfScenesRepository());
-  gh.lazySingleton<IHomeUserRepository>(
-      () => HomeUserRepository(get<FirebaseFirestore>()));
-  gh.lazySingleton<IManageNetworkRepository>(() => ManageWiFiRepository());
-  gh.lazySingleton<ISceneRepository>(() => SceneRepository());
-  gh.lazySingleton<IUserRepository>(
-      () => UserRepository(get<FirebaseFirestore>()));
-  gh.factory<JoinHomeByIdBloc>(() => JoinHomeByIdBloc(get<IUserRepository>()));
-  gh.factory<LightToggleBloc>(() => LightToggleBloc(get<IDeviceRepository>()));
-  gh.factory<LightsActorBloc>(() => LightsActorBloc(get<IDeviceRepository>()));
-  gh.factory<LightsWatcherBloc>(
-      () => LightsWatcherBloc(get<IDeviceRepository>()));
-  gh.factory<ManageAccessPointBloc>(
-      () => ManageAccessPointBloc(get<IManageNetworkRepository>()));
-  gh.factory<ManageUsersBloc>(
-      () => ManageUsersBloc(get<IHomeUserRepository>()));
-  gh.factory<ManageWifiBloc>(
-      () => ManageWifiBloc(get<IManageNetworkRepository>()));
-  gh.factory<MockExample>(() => MockExample());
-  gh.factory<SceneBloc>(() => SceneBloc(get<ISceneRepository>()));
-  gh.factory<SignInFormBloc>(() => SignInFormBloc(get<IAuthFacade>()));
-  gh.factory<UserHomesListBloc>(
-      () => UserHomesListBloc(get<IUserRepository>()));
-  gh.factory<AddUserToHomeBloc>(
-      () => AddUserToHomeBloc(get<IAddUserToHomeRepository>()));
-  gh.factory<AuthBloc>(() => AuthBloc(get<IAuthFacade>()));
-  gh.factory<BlindsActorBloc>(() => BlindsActorBloc(get<IDeviceRepository>()));
-  gh.factory<BlindsWatcherBloc>(
-      () => BlindsWatcherBloc(get<IDeviceRepository>()));
-  gh.factory<BoilersActorBloc>(
-      () => BoilersActorBloc(get<IDeviceRepository>()));
-  gh.factory<BoilersWatcherBloc>(
-      () => BoilersWatcherBloc(get<IDeviceRepository>()));
-  gh.factory<CBJCompBloc>(() => CBJCompBloc(get<ICBJCompRepository>()));
-  gh.factory<ConfigureNewCbjCompBloc>(() => ConfigureNewCbjCompBloc(
-      get<IDeviceRepository>(), get<ICBJCompRepository>()));
-  gh.factory<CreateHomeBloc>(
-      () => CreateHomeBloc(get<ICreateHomeRepository>()));
-  gh.factory<DeviceActorBloc>(() => DeviceActorBloc(get<IDeviceRepository>()));
-  gh.factory<DeviceWatcherBloc>(
-      () => DeviceWatcherBloc(get<IDeviceRepository>()));
-  gh.factory<FolderOfScenesBloc>(
-      () => FolderOfScenesBloc(get<IFolderOfScenesRepository>()));
-  gh.factory<FoldersOfScenesBloc>(
-      () => FoldersOfScenesBloc(get<IFoldersOfScenesRepository>()));
+  gh.lazySingleton<_i3.FirebaseAuth>(
+      () => firebaseInjectableModule.firebaseAuth);
+  gh.lazySingleton<_i4.FirebaseFirestore>(
+      () => firebaseInjectableModule.firestore);
+  gh.lazySingleton<_i5.GoogleSignIn>(
+      () => firebaseInjectableModule.googleSignIn);
+  gh.lazySingleton<_i6.IAddUserToHomeRepository>(
+      () => _i7.AddUserToHomeRepository(get<_i4.FirebaseFirestore>()));
+  gh.lazySingleton<_i8.IAuthFacade>(() =>
+      _i9.FirebaseAuthFacade(get<_i3.FirebaseAuth>(), get<_i5.GoogleSignIn>()));
+  gh.lazySingleton<_i10.ICBJCompRepository>(() => _i11.CBJCompRepository());
+  gh.lazySingleton<_i12.ICreateHomeRepository>(() => _i13.CreateHomeRepository(
+      get<_i4.FirebaseFirestore>(), get<_i3.FirebaseAuth>()));
+  gh.lazySingleton<_i14.IDeviceRepository>(
+      () => _i15.DeviceRepository(get<_i4.FirebaseFirestore>()));
+  gh.lazySingleton<_i16.IFolderOfScenesRepository>(
+      () => _i17.FolderOfScenesRepository());
+  gh.lazySingleton<_i18.IFoldersOfScenesRepository>(
+      () => _i19.FoldersOfScenesRepository());
+  gh.lazySingleton<_i20.IHomeUserRepository>(
+      () => _i21.HomeUserRepository(get<_i4.FirebaseFirestore>()));
+  gh.lazySingleton<_i22.IManageNetworkRepository>(
+      () => _i23.ManageWiFiRepository());
+  gh.lazySingleton<_i24.ISceneRepository>(() => _i25.SceneRepository());
+  gh.lazySingleton<_i26.IUserRepository>(
+      () => _i27.UserRepository(get<_i4.FirebaseFirestore>()));
+  gh.factory<_i28.JoinHomeByIdBloc>(
+      () => _i28.JoinHomeByIdBloc(get<_i26.IUserRepository>()));
+  gh.factory<_i29.LightToggleBloc>(
+      () => _i29.LightToggleBloc(get<_i14.IDeviceRepository>()));
+  gh.factory<_i30.LightsActorBloc>(
+      () => _i30.LightsActorBloc(get<_i14.IDeviceRepository>()));
+  gh.factory<_i31.LightsWatcherBloc>(
+      () => _i31.LightsWatcherBloc(get<_i14.IDeviceRepository>()));
+  gh.factory<_i32.ManageAccessPointBloc>(
+      () => _i32.ManageAccessPointBloc(get<_i22.IManageNetworkRepository>()));
+  gh.factory<_i33.ManageUsersBloc>(
+      () => _i33.ManageUsersBloc(get<_i20.IHomeUserRepository>()));
+  gh.factory<_i34.ManageWifiBloc>(
+      () => _i34.ManageWifiBloc(get<_i22.IManageNetworkRepository>()));
+  gh.factory<_i35.MockExample>(() => _i35.MockExample());
+  gh.factory<_i36.SceneBloc>(
+      () => _i36.SceneBloc(get<_i24.ISceneRepository>()));
+  gh.factory<_i37.SignInFormBloc>(
+      () => _i37.SignInFormBloc(get<_i8.IAuthFacade>()));
+  gh.factory<_i38.UserHomesListBloc>(
+      () => _i38.UserHomesListBloc(get<_i26.IUserRepository>()));
+  gh.factory<_i39.AddUserToHomeBloc>(
+      () => _i39.AddUserToHomeBloc(get<_i6.IAddUserToHomeRepository>()));
+  gh.factory<_i40.AuthBloc>(() => _i40.AuthBloc(get<_i8.IAuthFacade>()));
+  gh.factory<_i41.BlindsActorBloc>(
+      () => _i41.BlindsActorBloc(get<_i14.IDeviceRepository>()));
+  gh.factory<_i42.BlindsWatcherBloc>(
+      () => _i42.BlindsWatcherBloc(get<_i14.IDeviceRepository>()));
+  gh.factory<_i43.BoilersActorBloc>(
+      () => _i43.BoilersActorBloc(get<_i14.IDeviceRepository>()));
+  gh.factory<_i44.BoilersWatcherBloc>(
+      () => _i44.BoilersWatcherBloc(get<_i14.IDeviceRepository>()));
+  gh.factory<_i45.CBJCompBloc>(
+      () => _i45.CBJCompBloc(get<_i10.ICBJCompRepository>()));
+  gh.factory<_i46.ConfigureNewCbjCompBloc>(() => _i46.ConfigureNewCbjCompBloc(
+      get<_i14.IDeviceRepository>(), get<_i10.ICBJCompRepository>()));
+  gh.factory<_i47.CreateHomeBloc>(
+      () => _i47.CreateHomeBloc(get<_i12.ICreateHomeRepository>()));
+  gh.factory<_i48.DeviceActorBloc>(
+      () => _i48.DeviceActorBloc(get<_i14.IDeviceRepository>()));
+  gh.factory<_i49.DeviceWatcherBloc>(
+      () => _i49.DeviceWatcherBloc(get<_i14.IDeviceRepository>()));
+  gh.factory<_i50.FolderOfScenesBloc>(
+      () => _i50.FolderOfScenesBloc(get<_i16.IFolderOfScenesRepository>()));
+  gh.factory<_i51.FoldersOfScenesBloc>(
+      () => _i51.FoldersOfScenesBloc(get<_i18.IFoldersOfScenesRepository>()));
   return get;
 }
 
-class _$FirebaseInjectableModule extends FirebaseInjectableModule {}
+class _$FirebaseInjectableModule extends _i52.FirebaseInjectableModule {}

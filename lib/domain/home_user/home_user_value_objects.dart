@@ -37,14 +37,14 @@ abstract class HomeUserValueObjectAbstract<T> {
   int get hashCode => value.hashCode;
 }
 
-class HomeUserUniqueId extends HomeUserValueObjectAbstract<String> {
+class HomeUserUniqueId extends HomeUserValueObjectAbstract<String?> {
   factory HomeUserUniqueId() {
     return HomeUserUniqueId._(right(Uuid().v1()));
   }
 
-  factory HomeUserUniqueId.fromUniqueString(String uniqueId) {
+  factory HomeUserUniqueId.fromUniqueString(String? uniqueId) {
     assert(uniqueId != null);
-    return HomeUserUniqueId._(right(uniqueId));
+    return HomeUserUniqueId._(right(uniqueId!));
   }
 
   HomeUserUniqueId._(this.value);
@@ -53,13 +53,13 @@ class HomeUserUniqueId extends HomeUserValueObjectAbstract<String> {
   final Either<HomeUserFailures<String>, String> value;
 }
 
-class HomeUserEmail extends HomeUserValueObjectAbstract<String> {
+class HomeUserEmail extends HomeUserValueObjectAbstract<String?> {
   @override
-  final Either<HomeUserFailures<String>, String> value;
+  final Either<HomeUserFailures<String?>, String?> value;
 
   static const maxLength = 1000;
 
-  factory HomeUserEmail(String input) {
+  factory HomeUserEmail(String? input) {
     assert(input != null);
     return HomeUserEmail._(
       validateHomeUserEmailNotEmpty(input),
@@ -69,7 +69,7 @@ class HomeUserEmail extends HomeUserValueObjectAbstract<String> {
   const HomeUserEmail._(this.value);
 }
 
-class HomeUserName extends HomeUserValueObjectAbstract<String> {
+class HomeUserName extends HomeUserValueObjectAbstract<String?> {
   @override
   final Either<HomeUserFailures<String>, String> value;
 
@@ -85,7 +85,7 @@ class HomeUserName extends HomeUserValueObjectAbstract<String> {
   const HomeUserName._(this.value);
 }
 
-class HomeUserPermission extends HomeUserValueObjectAbstract<String> {
+class HomeUserPermission extends HomeUserValueObjectAbstract<String?> {
   @override
   final Either<HomeUserFailures<String>, String> value;
 

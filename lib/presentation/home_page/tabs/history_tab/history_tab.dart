@@ -16,7 +16,7 @@ class HistoryTab extends StatelessWidget {
           alignment: Alignment.centerRight,
           child: IconButton(
             icon: FaIcon(FontAwesomeIcons.cog,
-                color: Theme.of(context).textTheme.bodyText1.color),
+                color: (Theme.of(context).textTheme.bodyText1!.color)!),
             onPressed: () => Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -28,7 +28,7 @@ class HistoryTab extends StatelessWidget {
           'Actions_History',
           style: TextStyle(
               fontSize: 23.0,
-              color: Theme.of(context).textTheme.bodyText1.color,
+              color: (Theme.of(context).textTheme.bodyText1!.color)!,
               decoration: TextDecoration.underline),
         ).tr(),
         Container(

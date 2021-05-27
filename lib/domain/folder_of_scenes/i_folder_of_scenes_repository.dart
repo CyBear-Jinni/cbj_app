@@ -9,6 +9,6 @@ import 'package:kt_dart/collection.dart';
 abstract class IFolderOfScenesRepository {
   Future<Either<FoldersOfScenesFailures, KtList<Either<SceneFailure, Scene>>>>
       getAllScenesInFolder({
-    @required UniqueId uniqueId,
+    required UniqueId uniqueId,
   });
 }

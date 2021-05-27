@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'manage_network_failures.dart';
 
@@ -9,87 +9,89 @@ part of 'manage_network_failures.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$ManageNetworkFailuresTearOff {
   const _$ManageNetworkFailuresTearOff();
 
-// ignore: unused_element
-  _Empty<T> empty<T>({@required T failedValue}) {
+  _Empty<T> empty<T>({required T failedValue}) {
     return _Empty<T>(
       failedValue: failedValue,
     );
   }
 
-// ignore: unused_element
   _Unexpected<T> unexpected<T>() {
     return _Unexpected<T>();
   }
 
-// ignore: unused_element
   _ValidateEmailNotEmpty<T> validateEmailNotEmpty<T>() {
     return _ValidateEmailNotEmpty<T>();
   }
 
-// ignore: unused_element
   _InsufficientPermission<T> insufficientPermission<T>() {
     return _InsufficientPermission<T>();
   }
 
-// ignore: unused_element
   _wifiIsClosed<T> wifiIsClosed<T>() {
     return _wifiIsClosed<T>();
   }
 
-// ignore: unused_element
   _UnableToUpdate<T> unableToUpdate<T>() {
     return _UnableToUpdate<T>();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ManageNetworkFailures = _$ManageNetworkFailuresTearOff();
 
 /// @nodoc
 mixin _$ManageNetworkFailures<T> {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult empty(T failedValue),
-    @required TResult unexpected(),
-    @required TResult validateEmailNotEmpty(),
-    @required TResult insufficientPermission(),
-    @required TResult wifiIsClosed(),
-    @required TResult unableToUpdate(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) empty,
+    required TResult Function() unexpected,
+    required TResult Function() validateEmailNotEmpty,
+    required TResult Function() insufficientPermission,
+    required TResult Function() wifiIsClosed,
+    required TResult Function() unableToUpdate,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult empty(T failedValue),
-    TResult unexpected(),
-    TResult validateEmailNotEmpty(),
-    TResult insufficientPermission(),
-    TResult wifiIsClosed(),
-    TResult unableToUpdate(),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? empty,
+    TResult Function()? unexpected,
+    TResult Function()? validateEmailNotEmpty,
+    TResult Function()? insufficientPermission,
+    TResult Function()? wifiIsClosed,
+    TResult Function()? unableToUpdate,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult empty(_Empty<T> value),
-    @required TResult unexpected(_Unexpected<T> value),
-    @required TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
-    @required TResult insufficientPermission(_InsufficientPermission<T> value),
-    @required TResult wifiIsClosed(_wifiIsClosed<T> value),
-    @required TResult unableToUpdate(_UnableToUpdate<T> value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Empty<T> value) empty,
+    required TResult Function(_Unexpected<T> value) unexpected,
+    required TResult Function(_ValidateEmailNotEmpty<T> value)
+        validateEmailNotEmpty,
+    required TResult Function(_InsufficientPermission<T> value)
+        insufficientPermission,
+    required TResult Function(_wifiIsClosed<T> value) wifiIsClosed,
+    required TResult Function(_UnableToUpdate<T> value) unableToUpdate,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult empty(_Empty<T> value),
-    TResult unexpected(_Unexpected<T> value),
-    TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
-    TResult insufficientPermission(_InsufficientPermission<T> value),
-    TResult wifiIsClosed(_wifiIsClosed<T> value),
-    TResult unableToUpdate(_UnableToUpdate<T> value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_Unexpected<T> value)? unexpected,
+    TResult Function(_ValidateEmailNotEmpty<T> value)? validateEmailNotEmpty,
+    TResult Function(_InsufficientPermission<T> value)? insufficientPermission,
+    TResult Function(_wifiIsClosed<T> value)? wifiIsClosed,
+    TResult Function(_UnableToUpdate<T> value)? unableToUpdate,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -128,18 +130,21 @@ class __$EmptyCopyWithImpl<T, $Res>
 
   @override
   $Res call({
-    Object failedValue = freezed,
+    Object? failedValue = freezed,
   }) {
     return _then(_Empty<T>(
-      failedValue:
-          failedValue == freezed ? _value.failedValue : failedValue as T,
+      failedValue: failedValue == freezed
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as T,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_Empty<T> implements _Empty<T> {
-  const _$_Empty({@required this.failedValue}) : assert(failedValue != null);
+  const _$_Empty({required this.failedValue});
 
   @override
   final T failedValue;
@@ -169,35 +174,28 @@ class _$_Empty<T> implements _Empty<T> {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult empty(T failedValue),
-    @required TResult unexpected(),
-    @required TResult validateEmailNotEmpty(),
-    @required TResult insufficientPermission(),
-    @required TResult wifiIsClosed(),
-    @required TResult unableToUpdate(),
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) empty,
+    required TResult Function() unexpected,
+    required TResult Function() validateEmailNotEmpty,
+    required TResult Function() insufficientPermission,
+    required TResult Function() wifiIsClosed,
+    required TResult Function() unableToUpdate,
   }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(validateEmailNotEmpty != null);
-    assert(insufficientPermission != null);
-    assert(wifiIsClosed != null);
-    assert(unableToUpdate != null);
     return empty(failedValue);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult empty(T failedValue),
-    TResult unexpected(),
-    TResult validateEmailNotEmpty(),
-    TResult insufficientPermission(),
-    TResult wifiIsClosed(),
-    TResult unableToUpdate(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? empty,
+    TResult Function()? unexpected,
+    TResult Function()? validateEmailNotEmpty,
+    TResult Function()? insufficientPermission,
+    TResult Function()? wifiIsClosed,
+    TResult Function()? unableToUpdate,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (empty != null) {
       return empty(failedValue);
     }
@@ -206,35 +204,30 @@ class _$_Empty<T> implements _Empty<T> {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult empty(_Empty<T> value),
-    @required TResult unexpected(_Unexpected<T> value),
-    @required TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
-    @required TResult insufficientPermission(_InsufficientPermission<T> value),
-    @required TResult wifiIsClosed(_wifiIsClosed<T> value),
-    @required TResult unableToUpdate(_UnableToUpdate<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Empty<T> value) empty,
+    required TResult Function(_Unexpected<T> value) unexpected,
+    required TResult Function(_ValidateEmailNotEmpty<T> value)
+        validateEmailNotEmpty,
+    required TResult Function(_InsufficientPermission<T> value)
+        insufficientPermission,
+    required TResult Function(_wifiIsClosed<T> value) wifiIsClosed,
+    required TResult Function(_UnableToUpdate<T> value) unableToUpdate,
   }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(validateEmailNotEmpty != null);
-    assert(insufficientPermission != null);
-    assert(wifiIsClosed != null);
-    assert(unableToUpdate != null);
     return empty(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult empty(_Empty<T> value),
-    TResult unexpected(_Unexpected<T> value),
-    TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
-    TResult insufficientPermission(_InsufficientPermission<T> value),
-    TResult wifiIsClosed(_wifiIsClosed<T> value),
-    TResult unableToUpdate(_UnableToUpdate<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_Unexpected<T> value)? unexpected,
+    TResult Function(_ValidateEmailNotEmpty<T> value)? validateEmailNotEmpty,
+    TResult Function(_InsufficientPermission<T> value)? insufficientPermission,
+    TResult Function(_wifiIsClosed<T> value)? wifiIsClosed,
+    TResult Function(_UnableToUpdate<T> value)? unableToUpdate,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (empty != null) {
       return empty(this);
     }
@@ -243,11 +236,12 @@ class _$_Empty<T> implements _Empty<T> {
 }
 
 abstract class _Empty<T> implements ManageNetworkFailures<T> {
-  const factory _Empty({@required T failedValue}) = _$_Empty<T>;
+  const factory _Empty({required T failedValue}) = _$_Empty<T>;
 
-  T get failedValue;
+  T get failedValue => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$EmptyCopyWith<T, _Empty<T>> get copyWith;
+  _$EmptyCopyWith<T, _Empty<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -270,6 +264,7 @@ class __$UnexpectedCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
+
 class _$_Unexpected<T> implements _Unexpected<T> {
   const _$_Unexpected();
 
@@ -288,35 +283,28 @@ class _$_Unexpected<T> implements _Unexpected<T> {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult empty(T failedValue),
-    @required TResult unexpected(),
-    @required TResult validateEmailNotEmpty(),
-    @required TResult insufficientPermission(),
-    @required TResult wifiIsClosed(),
-    @required TResult unableToUpdate(),
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) empty,
+    required TResult Function() unexpected,
+    required TResult Function() validateEmailNotEmpty,
+    required TResult Function() insufficientPermission,
+    required TResult Function() wifiIsClosed,
+    required TResult Function() unableToUpdate,
   }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(validateEmailNotEmpty != null);
-    assert(insufficientPermission != null);
-    assert(wifiIsClosed != null);
-    assert(unableToUpdate != null);
     return unexpected();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult empty(T failedValue),
-    TResult unexpected(),
-    TResult validateEmailNotEmpty(),
-    TResult insufficientPermission(),
-    TResult wifiIsClosed(),
-    TResult unableToUpdate(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? empty,
+    TResult Function()? unexpected,
+    TResult Function()? validateEmailNotEmpty,
+    TResult Function()? insufficientPermission,
+    TResult Function()? wifiIsClosed,
+    TResult Function()? unableToUpdate,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (unexpected != null) {
       return unexpected();
     }
@@ -325,35 +313,30 @@ class _$_Unexpected<T> implements _Unexpected<T> {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult empty(_Empty<T> value),
-    @required TResult unexpected(_Unexpected<T> value),
-    @required TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
-    @required TResult insufficientPermission(_InsufficientPermission<T> value),
-    @required TResult wifiIsClosed(_wifiIsClosed<T> value),
-    @required TResult unableToUpdate(_UnableToUpdate<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Empty<T> value) empty,
+    required TResult Function(_Unexpected<T> value) unexpected,
+    required TResult Function(_ValidateEmailNotEmpty<T> value)
+        validateEmailNotEmpty,
+    required TResult Function(_InsufficientPermission<T> value)
+        insufficientPermission,
+    required TResult Function(_wifiIsClosed<T> value) wifiIsClosed,
+    required TResult Function(_UnableToUpdate<T> value) unableToUpdate,
   }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(validateEmailNotEmpty != null);
-    assert(insufficientPermission != null);
-    assert(wifiIsClosed != null);
-    assert(unableToUpdate != null);
     return unexpected(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult empty(_Empty<T> value),
-    TResult unexpected(_Unexpected<T> value),
-    TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
-    TResult insufficientPermission(_InsufficientPermission<T> value),
-    TResult wifiIsClosed(_wifiIsClosed<T> value),
-    TResult unableToUpdate(_UnableToUpdate<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_Unexpected<T> value)? unexpected,
+    TResult Function(_ValidateEmailNotEmpty<T> value)? validateEmailNotEmpty,
+    TResult Function(_InsufficientPermission<T> value)? insufficientPermission,
+    TResult Function(_wifiIsClosed<T> value)? wifiIsClosed,
+    TResult Function(_UnableToUpdate<T> value)? unableToUpdate,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (unexpected != null) {
       return unexpected(this);
     }
@@ -386,6 +369,7 @@ class __$ValidateEmailNotEmptyCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
+
 class _$_ValidateEmailNotEmpty<T> implements _ValidateEmailNotEmpty<T> {
   const _$_ValidateEmailNotEmpty();
 
@@ -404,35 +388,28 @@ class _$_ValidateEmailNotEmpty<T> implements _ValidateEmailNotEmpty<T> {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult empty(T failedValue),
-    @required TResult unexpected(),
-    @required TResult validateEmailNotEmpty(),
-    @required TResult insufficientPermission(),
-    @required TResult wifiIsClosed(),
-    @required TResult unableToUpdate(),
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) empty,
+    required TResult Function() unexpected,
+    required TResult Function() validateEmailNotEmpty,
+    required TResult Function() insufficientPermission,
+    required TResult Function() wifiIsClosed,
+    required TResult Function() unableToUpdate,
   }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(validateEmailNotEmpty != null);
-    assert(insufficientPermission != null);
-    assert(wifiIsClosed != null);
-    assert(unableToUpdate != null);
     return validateEmailNotEmpty();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult empty(T failedValue),
-    TResult unexpected(),
-    TResult validateEmailNotEmpty(),
-    TResult insufficientPermission(),
-    TResult wifiIsClosed(),
-    TResult unableToUpdate(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? empty,
+    TResult Function()? unexpected,
+    TResult Function()? validateEmailNotEmpty,
+    TResult Function()? insufficientPermission,
+    TResult Function()? wifiIsClosed,
+    TResult Function()? unableToUpdate,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (validateEmailNotEmpty != null) {
       return validateEmailNotEmpty();
     }
@@ -441,35 +418,30 @@ class _$_ValidateEmailNotEmpty<T> implements _ValidateEmailNotEmpty<T> {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult empty(_Empty<T> value),
-    @required TResult unexpected(_Unexpected<T> value),
-    @required TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
-    @required TResult insufficientPermission(_InsufficientPermission<T> value),
-    @required TResult wifiIsClosed(_wifiIsClosed<T> value),
-    @required TResult unableToUpdate(_UnableToUpdate<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Empty<T> value) empty,
+    required TResult Function(_Unexpected<T> value) unexpected,
+    required TResult Function(_ValidateEmailNotEmpty<T> value)
+        validateEmailNotEmpty,
+    required TResult Function(_InsufficientPermission<T> value)
+        insufficientPermission,
+    required TResult Function(_wifiIsClosed<T> value) wifiIsClosed,
+    required TResult Function(_UnableToUpdate<T> value) unableToUpdate,
   }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(validateEmailNotEmpty != null);
-    assert(insufficientPermission != null);
-    assert(wifiIsClosed != null);
-    assert(unableToUpdate != null);
     return validateEmailNotEmpty(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult empty(_Empty<T> value),
-    TResult unexpected(_Unexpected<T> value),
-    TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
-    TResult insufficientPermission(_InsufficientPermission<T> value),
-    TResult wifiIsClosed(_wifiIsClosed<T> value),
-    TResult unableToUpdate(_UnableToUpdate<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_Unexpected<T> value)? unexpected,
+    TResult Function(_ValidateEmailNotEmpty<T> value)? validateEmailNotEmpty,
+    TResult Function(_InsufficientPermission<T> value)? insufficientPermission,
+    TResult Function(_wifiIsClosed<T> value)? wifiIsClosed,
+    TResult Function(_UnableToUpdate<T> value)? unableToUpdate,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (validateEmailNotEmpty != null) {
       return validateEmailNotEmpty(this);
     }
@@ -502,6 +474,7 @@ class __$InsufficientPermissionCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
+
 class _$_InsufficientPermission<T> implements _InsufficientPermission<T> {
   const _$_InsufficientPermission();
 
@@ -520,35 +493,28 @@ class _$_InsufficientPermission<T> implements _InsufficientPermission<T> {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult empty(T failedValue),
-    @required TResult unexpected(),
-    @required TResult validateEmailNotEmpty(),
-    @required TResult insufficientPermission(),
-    @required TResult wifiIsClosed(),
-    @required TResult unableToUpdate(),
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) empty,
+    required TResult Function() unexpected,
+    required TResult Function() validateEmailNotEmpty,
+    required TResult Function() insufficientPermission,
+    required TResult Function() wifiIsClosed,
+    required TResult Function() unableToUpdate,
   }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(validateEmailNotEmpty != null);
-    assert(insufficientPermission != null);
-    assert(wifiIsClosed != null);
-    assert(unableToUpdate != null);
     return insufficientPermission();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult empty(T failedValue),
-    TResult unexpected(),
-    TResult validateEmailNotEmpty(),
-    TResult insufficientPermission(),
-    TResult wifiIsClosed(),
-    TResult unableToUpdate(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? empty,
+    TResult Function()? unexpected,
+    TResult Function()? validateEmailNotEmpty,
+    TResult Function()? insufficientPermission,
+    TResult Function()? wifiIsClosed,
+    TResult Function()? unableToUpdate,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (insufficientPermission != null) {
       return insufficientPermission();
     }
@@ -557,35 +523,30 @@ class _$_InsufficientPermission<T> implements _InsufficientPermission<T> {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult empty(_Empty<T> value),
-    @required TResult unexpected(_Unexpected<T> value),
-    @required TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
-    @required TResult insufficientPermission(_InsufficientPermission<T> value),
-    @required TResult wifiIsClosed(_wifiIsClosed<T> value),
-    @required TResult unableToUpdate(_UnableToUpdate<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Empty<T> value) empty,
+    required TResult Function(_Unexpected<T> value) unexpected,
+    required TResult Function(_ValidateEmailNotEmpty<T> value)
+        validateEmailNotEmpty,
+    required TResult Function(_InsufficientPermission<T> value)
+        insufficientPermission,
+    required TResult Function(_wifiIsClosed<T> value) wifiIsClosed,
+    required TResult Function(_UnableToUpdate<T> value) unableToUpdate,
   }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(validateEmailNotEmpty != null);
-    assert(insufficientPermission != null);
-    assert(wifiIsClosed != null);
-    assert(unableToUpdate != null);
     return insufficientPermission(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult empty(_Empty<T> value),
-    TResult unexpected(_Unexpected<T> value),
-    TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
-    TResult insufficientPermission(_InsufficientPermission<T> value),
-    TResult wifiIsClosed(_wifiIsClosed<T> value),
-    TResult unableToUpdate(_UnableToUpdate<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_Unexpected<T> value)? unexpected,
+    TResult Function(_ValidateEmailNotEmpty<T> value)? validateEmailNotEmpty,
+    TResult Function(_InsufficientPermission<T> value)? insufficientPermission,
+    TResult Function(_wifiIsClosed<T> value)? wifiIsClosed,
+    TResult Function(_UnableToUpdate<T> value)? unableToUpdate,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (insufficientPermission != null) {
       return insufficientPermission(this);
     }
@@ -617,6 +578,7 @@ class __$wifiIsClosedCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
+
 class _$_wifiIsClosed<T> implements _wifiIsClosed<T> {
   const _$_wifiIsClosed();
 
@@ -635,35 +597,28 @@ class _$_wifiIsClosed<T> implements _wifiIsClosed<T> {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult empty(T failedValue),
-    @required TResult unexpected(),
-    @required TResult validateEmailNotEmpty(),
-    @required TResult insufficientPermission(),
-    @required TResult wifiIsClosed(),
-    @required TResult unableToUpdate(),
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) empty,
+    required TResult Function() unexpected,
+    required TResult Function() validateEmailNotEmpty,
+    required TResult Function() insufficientPermission,
+    required TResult Function() wifiIsClosed,
+    required TResult Function() unableToUpdate,
   }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(validateEmailNotEmpty != null);
-    assert(insufficientPermission != null);
-    assert(wifiIsClosed != null);
-    assert(unableToUpdate != null);
     return wifiIsClosed();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult empty(T failedValue),
-    TResult unexpected(),
-    TResult validateEmailNotEmpty(),
-    TResult insufficientPermission(),
-    TResult wifiIsClosed(),
-    TResult unableToUpdate(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? empty,
+    TResult Function()? unexpected,
+    TResult Function()? validateEmailNotEmpty,
+    TResult Function()? insufficientPermission,
+    TResult Function()? wifiIsClosed,
+    TResult Function()? unableToUpdate,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (wifiIsClosed != null) {
       return wifiIsClosed();
     }
@@ -672,35 +627,30 @@ class _$_wifiIsClosed<T> implements _wifiIsClosed<T> {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult empty(_Empty<T> value),
-    @required TResult unexpected(_Unexpected<T> value),
-    @required TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
-    @required TResult insufficientPermission(_InsufficientPermission<T> value),
-    @required TResult wifiIsClosed(_wifiIsClosed<T> value),
-    @required TResult unableToUpdate(_UnableToUpdate<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Empty<T> value) empty,
+    required TResult Function(_Unexpected<T> value) unexpected,
+    required TResult Function(_ValidateEmailNotEmpty<T> value)
+        validateEmailNotEmpty,
+    required TResult Function(_InsufficientPermission<T> value)
+        insufficientPermission,
+    required TResult Function(_wifiIsClosed<T> value) wifiIsClosed,
+    required TResult Function(_UnableToUpdate<T> value) unableToUpdate,
   }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(validateEmailNotEmpty != null);
-    assert(insufficientPermission != null);
-    assert(wifiIsClosed != null);
-    assert(unableToUpdate != null);
     return wifiIsClosed(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult empty(_Empty<T> value),
-    TResult unexpected(_Unexpected<T> value),
-    TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
-    TResult insufficientPermission(_InsufficientPermission<T> value),
-    TResult wifiIsClosed(_wifiIsClosed<T> value),
-    TResult unableToUpdate(_UnableToUpdate<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_Unexpected<T> value)? unexpected,
+    TResult Function(_ValidateEmailNotEmpty<T> value)? validateEmailNotEmpty,
+    TResult Function(_InsufficientPermission<T> value)? insufficientPermission,
+    TResult Function(_wifiIsClosed<T> value)? wifiIsClosed,
+    TResult Function(_UnableToUpdate<T> value)? unableToUpdate,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (wifiIsClosed != null) {
       return wifiIsClosed(this);
     }
@@ -732,6 +682,7 @@ class __$UnableToUpdateCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
+
 class _$_UnableToUpdate<T> implements _UnableToUpdate<T> {
   const _$_UnableToUpdate();
 
@@ -750,35 +701,28 @@ class _$_UnableToUpdate<T> implements _UnableToUpdate<T> {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult empty(T failedValue),
-    @required TResult unexpected(),
-    @required TResult validateEmailNotEmpty(),
-    @required TResult insufficientPermission(),
-    @required TResult wifiIsClosed(),
-    @required TResult unableToUpdate(),
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) empty,
+    required TResult Function() unexpected,
+    required TResult Function() validateEmailNotEmpty,
+    required TResult Function() insufficientPermission,
+    required TResult Function() wifiIsClosed,
+    required TResult Function() unableToUpdate,
   }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(validateEmailNotEmpty != null);
-    assert(insufficientPermission != null);
-    assert(wifiIsClosed != null);
-    assert(unableToUpdate != null);
     return unableToUpdate();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult empty(T failedValue),
-    TResult unexpected(),
-    TResult validateEmailNotEmpty(),
-    TResult insufficientPermission(),
-    TResult wifiIsClosed(),
-    TResult unableToUpdate(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? empty,
+    TResult Function()? unexpected,
+    TResult Function()? validateEmailNotEmpty,
+    TResult Function()? insufficientPermission,
+    TResult Function()? wifiIsClosed,
+    TResult Function()? unableToUpdate,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (unableToUpdate != null) {
       return unableToUpdate();
     }
@@ -787,35 +731,30 @@ class _$_UnableToUpdate<T> implements _UnableToUpdate<T> {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult empty(_Empty<T> value),
-    @required TResult unexpected(_Unexpected<T> value),
-    @required TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
-    @required TResult insufficientPermission(_InsufficientPermission<T> value),
-    @required TResult wifiIsClosed(_wifiIsClosed<T> value),
-    @required TResult unableToUpdate(_UnableToUpdate<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Empty<T> value) empty,
+    required TResult Function(_Unexpected<T> value) unexpected,
+    required TResult Function(_ValidateEmailNotEmpty<T> value)
+        validateEmailNotEmpty,
+    required TResult Function(_InsufficientPermission<T> value)
+        insufficientPermission,
+    required TResult Function(_wifiIsClosed<T> value) wifiIsClosed,
+    required TResult Function(_UnableToUpdate<T> value) unableToUpdate,
   }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(validateEmailNotEmpty != null);
-    assert(insufficientPermission != null);
-    assert(wifiIsClosed != null);
-    assert(unableToUpdate != null);
     return unableToUpdate(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult empty(_Empty<T> value),
-    TResult unexpected(_Unexpected<T> value),
-    TResult validateEmailNotEmpty(_ValidateEmailNotEmpty<T> value),
-    TResult insufficientPermission(_InsufficientPermission<T> value),
-    TResult wifiIsClosed(_wifiIsClosed<T> value),
-    TResult unableToUpdate(_UnableToUpdate<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_Unexpected<T> value)? unexpected,
+    TResult Function(_ValidateEmailNotEmpty<T> value)? validateEmailNotEmpty,
+    TResult Function(_InsufficientPermission<T> value)? insufficientPermission,
+    TResult Function(_wifiIsClosed<T> value)? wifiIsClosed,
+    TResult Function(_UnableToUpdate<T> value)? unableToUpdate,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (unableToUpdate != null) {
       return unableToUpdate(this);
     }

@@ -9,8 +9,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class CreateHomeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    String homeName;
-    String devicesEmail;
+    String? homeName;
+    String? devicesEmail;
 
     return Column(
       children: [
@@ -27,16 +27,16 @@ class CreateHomeWidget extends StatelessWidget {
         SizedBox(
           width: 300,
           child: TextFormField(
-            style:
-                TextStyle(color: Theme.of(context).textTheme.bodyText1.color),
+            style: TextStyle(
+                color: (Theme.of(context).textTheme.bodyText1!.color)!),
             decoration: InputDecoration(
               filled: true,
               fillColor: Colors.greenAccent.withOpacity(0.3),
               prefixIcon: Icon(Icons.home_outlined,
-                  color: Theme.of(context).textTheme.bodyText1.color),
+                  color: (Theme.of(context).textTheme.bodyText1!.color)!),
               labelText: 'Home Name',
-              labelStyle:
-                  TextStyle(color: Theme.of(context).textTheme.bodyText1.color),
+              labelStyle: TextStyle(
+                  color: (Theme.of(context).textTheme.bodyText1!.color)!),
             ),
             autocorrect: false,
             onChanged: (value) {
@@ -61,18 +61,18 @@ class CreateHomeWidget extends StatelessWidget {
         SizedBox(
           width: 300,
           child: TextFormField(
-            style:
-                TextStyle(color: Theme.of(context).textTheme.bodyText1.color),
+            style: TextStyle(
+                color: (Theme.of(context).textTheme.bodyText1!.color)!),
             decoration: InputDecoration(
               filled: true,
               fillColor: Colors.greenAccent.withOpacity(0.3),
               prefixIcon: Icon(
                 Icons.alternate_email,
-                color: Theme.of(context).textTheme.bodyText1.color,
+                color: (Theme.of(context).textTheme.bodyText1!.color)!,
               ),
               labelText: 'Email for smart devices',
-              labelStyle:
-                  TextStyle(color: Theme.of(context).textTheme.bodyText1.color),
+              labelStyle: TextStyle(
+                  color: (Theme.of(context).textTheme.bodyText1!.color)!),
             ),
             autocorrect: false,
             onChanged: (value) {
@@ -89,7 +89,7 @@ class CreateHomeWidget extends StatelessWidget {
             'Smart devices needs account to function.\nPlease enter new email.',
             style: TextStyle(
                 fontSize: 15,
-                color: Theme.of(context).textTheme.bodyText1.color),
+                color: (Theme.of(context).textTheme.bodyText1!.color)!),
           ),
         ),
         const SizedBox(
@@ -102,12 +102,12 @@ class CreateHomeWidget extends StatelessWidget {
             onPressed: () {
               context
                   .read<CreateHomeBloc>()
-                  .add(CreateHomeEvent.createHome(homeName, devicesEmail));
+                  .add(CreateHomeEvent.createHome(homeName!, devicesEmail!));
             },
             child: Text(
               'Create Home',
-              style:
-                  TextStyle(color: Theme.of(context).textTheme.bodyText1.color),
+              style: TextStyle(
+                  color: (Theme.of(context).textTheme.bodyText1!.color)!),
             )),
         BlocBuilder<CreateHomeBloc, CreateHomeState>(
           builder: (context, state) {

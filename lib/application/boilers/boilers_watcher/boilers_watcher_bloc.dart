@@ -21,7 +21,7 @@ class BoilersWatcherBloc
       : super(BoilersWatcherState.initial());
 
   final IDeviceRepository _deviceRepository;
-  StreamSubscription<Either<DevicesFailure, KtList<DeviceEntity>>>
+  StreamSubscription<Either<DevicesFailure, KtList<DeviceEntity?>>>?
       _deviceStreamSubscription;
 
   @override

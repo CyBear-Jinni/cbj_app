@@ -20,8 +20,8 @@ class ManageWifiBloc extends Bloc<ManageWifiEvent, ManageWifiState> {
 
   final IManageNetworkRepository _manageWiFiRepository;
 
-  ManageWiFiName wifiName;
-  ManageWiFiPass wifiPassword;
+  ManageWiFiName? wifiName;
+  ManageWiFiPass? wifiPassword;
 
   @override
   Stream<ManageWifiState> mapEventToState(

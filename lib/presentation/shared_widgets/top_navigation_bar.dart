@@ -17,26 +17,26 @@ class TopNavigationBar extends StatelessWidget {
   });
 
   /// Page name to show in the left side of the navigation bar
-  final String pageName;
+  final String? pageName;
 
   /// Icon to show in the right side of the bar
-  final IconData rightIcon;
+  final IconData? rightIcon;
 
   /// Icon to show in the right side of the bar left to the first icon
   /// from the right
-  final IconData rightSecondIcon;
+  final IconData? rightSecondIcon;
 
   /// Icon to show in the left side of the bar
-  final IconData leftIcon;
+  final IconData? leftIcon;
 
   /// Function to execute when pressing the icon in the right side
-  final Function rightIconFunction;
+  final Function? rightIconFunction;
 
   /// What to execute if second right icon was pressed
-  final Function rightSecondFunction;
+  final Function? rightSecondFunction;
 
   /// What to execute if back button was pressed
-  final Function leftIconFunction;
+  final Function? leftIconFunction;
 
   @override
   Widget build(BuildContext context) {
@@ -56,18 +56,20 @@ class TopNavigationBar extends StatelessWidget {
                       icon: FaIcon(
                         leftIcon,
                         size: 19,
-                        color: Theme.of(context).textTheme.subtitle2.color,
+                        color:
+                            ((Theme.of(context).textTheme.bodyText1!.color)!)!,
                       ),
-                      onPressed: () => leftIconFunction(context),
+                      onPressed: () => leftIconFunction!(context),
                     ),
                   )
                 else
                   const SizedBox(),
                 Text(
-                  pageName,
+                  pageName!,
                   style: TextStyle(
                       fontSize: 16.0,
-                      color: Theme.of(context).textTheme.subtitle2.color),
+                      color:
+                          ((Theme.of(context).textTheme.bodyText1!.color)!)!),
                 ).tr(),
               ],
             ),
@@ -82,11 +84,14 @@ class TopNavigationBar extends StatelessWidget {
                           padding: MaterialStateProperty.all<EdgeInsets>(
                               EdgeInsets.zero),
                         ),
-                        onPressed: () => rightSecondFunction(context),
+                        onPressed: () => rightSecondFunction!(context),
                         child: FaIcon(
                           rightSecondIcon,
                           size: 19,
-                          color: Theme.of(context).textTheme.subtitle2.color,
+                          color: ((Theme.of(context)
+                              .textTheme
+                              .bodyText1!
+                              .color)!)!,
                         ),
                       ),
                     ),
@@ -97,11 +102,11 @@ class TopNavigationBar extends StatelessWidget {
                         padding: MaterialStateProperty.all<EdgeInsets>(
                             EdgeInsets.zero),
                       ),
-                      onPressed: () => rightIconFunction(context),
+                      onPressed: () => rightIconFunction!(context),
                       child: Icon(
                         rightIcon,
                         size: 26,
-                        color: Theme.of(context).textTheme.subtitle2.color,
+                        color: (Theme.of(context).textTheme.bodyText1!.color)!,
                       ),
                     ),
                   ),

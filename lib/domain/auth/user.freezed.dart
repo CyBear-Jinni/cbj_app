@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'user.dart';
 
@@ -9,12 +9,14 @@ part of 'user.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$MUserTearOff {
   const _$MUserTearOff();
 
-// ignore: unused_element
-  _MUser call({@required UniqueId id}) {
+  _MUser call({required UniqueId id}) {
     return _MUser(
       id: id,
     );
@@ -22,15 +24,14 @@ class _$MUserTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $MUser = _$MUserTearOff();
 
 /// @nodoc
 mixin _$MUser {
-  UniqueId get id;
+  UniqueId get id => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $MUserCopyWith<MUser> get copyWith;
+  $MUserCopyWith<MUser> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -50,10 +51,13 @@ class _$MUserCopyWithImpl<$Res> implements $MUserCopyWith<$Res> {
 
   @override
   $Res call({
-    Object id = freezed,
+    Object? id = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as UniqueId,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as UniqueId,
     ));
   }
 }
@@ -77,17 +81,21 @@ class __$MUserCopyWithImpl<$Res> extends _$MUserCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
+    Object? id = freezed,
   }) {
     return _then(_MUser(
-      id: id == freezed ? _value.id : id as UniqueId,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as UniqueId,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_MUser implements _MUser {
-  const _$_MUser({@required this.id}) : assert(id != null);
+  const _$_MUser({required this.id});
 
   @override
   final UniqueId id;
@@ -116,21 +124,20 @@ class _$_MUser implements _MUser {
 }
 
 abstract class _MUser implements MUser {
-  const factory _MUser({@required UniqueId id}) = _$_MUser;
+  const factory _MUser({required UniqueId id}) = _$_MUser;
 
   @override
-  UniqueId get id;
+  UniqueId get id => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$MUserCopyWith<_MUser> get copyWith;
+  _$MUserCopyWith<_MUser> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$MHomeTearOff {
   const _$MHomeTearOff();
 
-// ignore: unused_element
-  _MHome call({@required UniqueId id}) {
+  _MHome call({required UniqueId id}) {
     return _MHome(
       id: id,
     );
@@ -138,15 +145,14 @@ class _$MHomeTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $MHome = _$MHomeTearOff();
 
 /// @nodoc
 mixin _$MHome {
-  UniqueId get id;
+  UniqueId get id => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $MHomeCopyWith<MHome> get copyWith;
+  $MHomeCopyWith<MHome> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -166,10 +172,13 @@ class _$MHomeCopyWithImpl<$Res> implements $MHomeCopyWith<$Res> {
 
   @override
   $Res call({
-    Object id = freezed,
+    Object? id = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as UniqueId,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as UniqueId,
     ));
   }
 }
@@ -193,17 +202,21 @@ class __$MHomeCopyWithImpl<$Res> extends _$MHomeCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
+    Object? id = freezed,
   }) {
     return _then(_MHome(
-      id: id == freezed ? _value.id : id as UniqueId,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as UniqueId,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_MHome implements _MHome {
-  const _$_MHome({@required this.id}) : assert(id != null);
+  const _$_MHome({required this.id});
 
   @override
   final UniqueId id;
@@ -232,11 +245,11 @@ class _$_MHome implements _MHome {
 }
 
 abstract class _MHome implements MHome {
-  const factory _MHome({@required UniqueId id}) = _$_MHome;
+  const factory _MHome({required UniqueId id}) = _$_MHome;
 
   @override
-  UniqueId get id;
+  UniqueId get id => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$MHomeCopyWith<_MHome> get copyWith;
+  _$MHomeCopyWith<_MHome> get copyWith => throw _privateConstructorUsedError;
 }

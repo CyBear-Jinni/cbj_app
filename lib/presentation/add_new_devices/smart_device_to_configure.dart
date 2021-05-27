@@ -33,8 +33,8 @@ class SmartDeviceToConfigure extends StatelessWidget {
             onPressed: () {},
             child: Text(
               'Edit device',
-              style:
-                  TextStyle(color: Theme.of(context).textTheme.bodyText1.color),
+              style: TextStyle(
+                  color: (Theme.of(context).textTheme.bodyText1!.color)!),
             ),
           )
         ],

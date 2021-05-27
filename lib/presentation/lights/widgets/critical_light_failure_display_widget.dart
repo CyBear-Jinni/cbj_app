@@ -2,12 +2,12 @@ import 'package:cybear_jinni/domain/devices/devices_failures.dart';
 import 'package:flutter/material.dart';
 
 class CriticalLightFailureDisplay extends StatelessWidget {
-  final DevicesFailure failure;
-
   const CriticalLightFailureDisplay({
-    Key key,
-    @required this.failure,
+    Key? key,
+    required this.failure,
   }) : super(key: key);
+
+  final DevicesFailure? failure;
 
   @override
   Widget build(BuildContext context) {

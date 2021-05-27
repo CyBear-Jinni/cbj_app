@@ -9,7 +9,7 @@ abstract class IManageNetworkRepository {
   // CUD
 
   // C Read UD
-  static ManageNetworkEntity manageWiFiEntity;
+  static ManageNetworkEntity? manageWiFiEntity;
 
   Future<Either<HomeUserFailures, Unit>> doesWiFiEnabled();
 

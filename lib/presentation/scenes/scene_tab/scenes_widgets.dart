@@ -26,7 +26,7 @@ class ScenesWidgets extends StatelessWidget {
 
   List<Widget> scenes(BuildContext context) {
     return _scenesMap.keys
-        .map((String element) => SceneBlockWidget(element, _scenesMap[element],
+        .map((String element) => SceneBlockWidget(element, _scenesMap[element]!,
             _scenesMap.keys.toList().indexOf(element)))
         .toList();
   }
@@ -89,15 +89,15 @@ class ScenesWidgets extends StatelessWidget {
     );
   }
 
-  void containerForSheet<T>({BuildContext context, Widget child}) {
+  void containerForSheet<T>({BuildContext? context, Widget? child}) {
     showCupertinoModalPopup<T>(
-      context: context,
-      builder: (BuildContext context) => child,
-    ).then<void>((T value) {
+      context: context!,
+      builder: (BuildContext context) => child!,
+    ).then<void>((T? value) {
       Scaffold.of(context).showSnackBar(SnackBar(
         content: Text('You clicked $value'),
         duration: const Duration(milliseconds: 800),
       ));
-    });
+    }!);
   }
 }

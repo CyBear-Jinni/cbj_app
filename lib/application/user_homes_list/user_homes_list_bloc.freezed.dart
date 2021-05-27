@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'user_homes_list_bloc.dart';
 
@@ -9,24 +9,24 @@ part of 'user_homes_list_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$UserHomesListEventTearOff {
   const _$UserHomesListEventTearOff();
 
-// ignore: unused_element
   _WatchAllStarted watchAllStarted() {
     return const _WatchAllStarted();
   }
 
-// ignore: unused_element
   _JoinExistingHome joinExistingHome(
-      AllHomesOfUserEntity allHomesOfUserEntity) {
+      AllHomesOfUserEntity? allHomesOfUserEntity) {
     return _JoinExistingHome(
       allHomesOfUserEntity,
     );
   }
 
-// ignore: unused_element
   _AllHomesOfUserReceived allHomesOfUserReceived(
       Either<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>
           failureOrAllHomesOfUser) {
@@ -37,43 +37,49 @@ class _$UserHomesListEventTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $UserHomesListEvent = _$UserHomesListEventTearOff();
 
 /// @nodoc
 mixin _$UserHomesListEvent {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult watchAllStarted(),
-    @required
-        TResult joinExistingHome(AllHomesOfUserEntity allHomesOfUserEntity),
-    @required
-        TResult allHomesOfUserReceived(
+  TResult when<TResult extends Object?>({
+    required TResult Function() watchAllStarted,
+    required TResult Function(AllHomesOfUserEntity? allHomesOfUserEntity)
+        joinExistingHome,
+    required TResult Function(
             Either<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>
-                failureOrAllHomesOfUser),
-  });
+                failureOrAllHomesOfUser)
+        allHomesOfUserReceived,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchAllStarted(),
-    TResult joinExistingHome(AllHomesOfUserEntity allHomesOfUserEntity),
-    TResult allHomesOfUserReceived(
-        Either<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>
-            failureOrAllHomesOfUser),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? watchAllStarted,
+    TResult Function(AllHomesOfUserEntity? allHomesOfUserEntity)?
+        joinExistingHome,
+    TResult Function(
+            Either<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>
+                failureOrAllHomesOfUser)?
+        allHomesOfUserReceived,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult watchAllStarted(_WatchAllStarted value),
-    @required TResult joinExistingHome(_JoinExistingHome value),
-    @required TResult allHomesOfUserReceived(_AllHomesOfUserReceived value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchAllStarted value) watchAllStarted,
+    required TResult Function(_JoinExistingHome value) joinExistingHome,
+    required TResult Function(_AllHomesOfUserReceived value)
+        allHomesOfUserReceived,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchAllStarted(_WatchAllStarted value),
-    TResult joinExistingHome(_JoinExistingHome value),
-    TResult allHomesOfUserReceived(_AllHomesOfUserReceived value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchAllStarted value)? watchAllStarted,
+    TResult Function(_JoinExistingHome value)? joinExistingHome,
+    TResult Function(_AllHomesOfUserReceived value)? allHomesOfUserReceived,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -113,6 +119,7 @@ class __$WatchAllStartedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_WatchAllStarted implements _WatchAllStarted {
   const _$_WatchAllStarted();
 
@@ -131,32 +138,30 @@ class _$_WatchAllStarted implements _WatchAllStarted {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult watchAllStarted(),
-    @required
-        TResult joinExistingHome(AllHomesOfUserEntity allHomesOfUserEntity),
-    @required
-        TResult allHomesOfUserReceived(
+  TResult when<TResult extends Object?>({
+    required TResult Function() watchAllStarted,
+    required TResult Function(AllHomesOfUserEntity? allHomesOfUserEntity)
+        joinExistingHome,
+    required TResult Function(
             Either<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>
-                failureOrAllHomesOfUser),
+                failureOrAllHomesOfUser)
+        allHomesOfUserReceived,
   }) {
-    assert(watchAllStarted != null);
-    assert(joinExistingHome != null);
-    assert(allHomesOfUserReceived != null);
     return watchAllStarted();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchAllStarted(),
-    TResult joinExistingHome(AllHomesOfUserEntity allHomesOfUserEntity),
-    TResult allHomesOfUserReceived(
-        Either<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>
-            failureOrAllHomesOfUser),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? watchAllStarted,
+    TResult Function(AllHomesOfUserEntity? allHomesOfUserEntity)?
+        joinExistingHome,
+    TResult Function(
+            Either<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>
+                failureOrAllHomesOfUser)?
+        allHomesOfUserReceived,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (watchAllStarted != null) {
       return watchAllStarted();
     }
@@ -165,26 +170,23 @@ class _$_WatchAllStarted implements _WatchAllStarted {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult watchAllStarted(_WatchAllStarted value),
-    @required TResult joinExistingHome(_JoinExistingHome value),
-    @required TResult allHomesOfUserReceived(_AllHomesOfUserReceived value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchAllStarted value) watchAllStarted,
+    required TResult Function(_JoinExistingHome value) joinExistingHome,
+    required TResult Function(_AllHomesOfUserReceived value)
+        allHomesOfUserReceived,
   }) {
-    assert(watchAllStarted != null);
-    assert(joinExistingHome != null);
-    assert(allHomesOfUserReceived != null);
     return watchAllStarted(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchAllStarted(_WatchAllStarted value),
-    TResult joinExistingHome(_JoinExistingHome value),
-    TResult allHomesOfUserReceived(_AllHomesOfUserReceived value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchAllStarted value)? watchAllStarted,
+    TResult Function(_JoinExistingHome value)? joinExistingHome,
+    TResult Function(_AllHomesOfUserReceived value)? allHomesOfUserReceived,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (watchAllStarted != null) {
       return watchAllStarted(this);
     }
@@ -201,9 +203,9 @@ abstract class _$JoinExistingHomeCopyWith<$Res> {
   factory _$JoinExistingHomeCopyWith(
           _JoinExistingHome value, $Res Function(_JoinExistingHome) then) =
       __$JoinExistingHomeCopyWithImpl<$Res>;
-  $Res call({AllHomesOfUserEntity allHomesOfUserEntity});
+  $Res call({AllHomesOfUserEntity? allHomesOfUserEntity});
 
-  $AllHomesOfUserEntityCopyWith<$Res> get allHomesOfUserEntity;
+  $AllHomesOfUserEntityCopyWith<$Res>? get allHomesOfUserEntity;
 }
 
 /// @nodoc
@@ -219,21 +221,23 @@ class __$JoinExistingHomeCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object allHomesOfUserEntity = freezed,
+    Object? allHomesOfUserEntity = freezed,
   }) {
     return _then(_JoinExistingHome(
       allHomesOfUserEntity == freezed
           ? _value.allHomesOfUserEntity
-          : allHomesOfUserEntity as AllHomesOfUserEntity,
+          : allHomesOfUserEntity // ignore: cast_nullable_to_non_nullable
+              as AllHomesOfUserEntity?,
     ));
   }
 
   @override
-  $AllHomesOfUserEntityCopyWith<$Res> get allHomesOfUserEntity {
+  $AllHomesOfUserEntityCopyWith<$Res>? get allHomesOfUserEntity {
     if (_value.allHomesOfUserEntity == null) {
       return null;
     }
-    return $AllHomesOfUserEntityCopyWith<$Res>(_value.allHomesOfUserEntity,
+
+    return $AllHomesOfUserEntityCopyWith<$Res>(_value.allHomesOfUserEntity!,
         (value) {
       return _then(_value.copyWith(allHomesOfUserEntity: value));
     });
@@ -241,12 +245,12 @@ class __$JoinExistingHomeCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_JoinExistingHome implements _JoinExistingHome {
-  const _$_JoinExistingHome(this.allHomesOfUserEntity)
-      : assert(allHomesOfUserEntity != null);
+  const _$_JoinExistingHome(this.allHomesOfUserEntity);
 
   @override
-  final AllHomesOfUserEntity allHomesOfUserEntity;
+  final AllHomesOfUserEntity? allHomesOfUserEntity;
 
   @override
   String toString() {
@@ -274,32 +278,30 @@ class _$_JoinExistingHome implements _JoinExistingHome {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult watchAllStarted(),
-    @required
-        TResult joinExistingHome(AllHomesOfUserEntity allHomesOfUserEntity),
-    @required
-        TResult allHomesOfUserReceived(
+  TResult when<TResult extends Object?>({
+    required TResult Function() watchAllStarted,
+    required TResult Function(AllHomesOfUserEntity? allHomesOfUserEntity)
+        joinExistingHome,
+    required TResult Function(
             Either<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>
-                failureOrAllHomesOfUser),
+                failureOrAllHomesOfUser)
+        allHomesOfUserReceived,
   }) {
-    assert(watchAllStarted != null);
-    assert(joinExistingHome != null);
-    assert(allHomesOfUserReceived != null);
     return joinExistingHome(allHomesOfUserEntity);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchAllStarted(),
-    TResult joinExistingHome(AllHomesOfUserEntity allHomesOfUserEntity),
-    TResult allHomesOfUserReceived(
-        Either<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>
-            failureOrAllHomesOfUser),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? watchAllStarted,
+    TResult Function(AllHomesOfUserEntity? allHomesOfUserEntity)?
+        joinExistingHome,
+    TResult Function(
+            Either<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>
+                failureOrAllHomesOfUser)?
+        allHomesOfUserReceived,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (joinExistingHome != null) {
       return joinExistingHome(allHomesOfUserEntity);
     }
@@ -308,26 +310,23 @@ class _$_JoinExistingHome implements _JoinExistingHome {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult watchAllStarted(_WatchAllStarted value),
-    @required TResult joinExistingHome(_JoinExistingHome value),
-    @required TResult allHomesOfUserReceived(_AllHomesOfUserReceived value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchAllStarted value) watchAllStarted,
+    required TResult Function(_JoinExistingHome value) joinExistingHome,
+    required TResult Function(_AllHomesOfUserReceived value)
+        allHomesOfUserReceived,
   }) {
-    assert(watchAllStarted != null);
-    assert(joinExistingHome != null);
-    assert(allHomesOfUserReceived != null);
     return joinExistingHome(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchAllStarted(_WatchAllStarted value),
-    TResult joinExistingHome(_JoinExistingHome value),
-    TResult allHomesOfUserReceived(_AllHomesOfUserReceived value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchAllStarted value)? watchAllStarted,
+    TResult Function(_JoinExistingHome value)? joinExistingHome,
+    TResult Function(_AllHomesOfUserReceived value)? allHomesOfUserReceived,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (joinExistingHome != null) {
       return joinExistingHome(this);
     }
@@ -336,12 +335,14 @@ class _$_JoinExistingHome implements _JoinExistingHome {
 }
 
 abstract class _JoinExistingHome implements UserHomesListEvent {
-  const factory _JoinExistingHome(AllHomesOfUserEntity allHomesOfUserEntity) =
+  const factory _JoinExistingHome(AllHomesOfUserEntity? allHomesOfUserEntity) =
       _$_JoinExistingHome;
 
-  AllHomesOfUserEntity get allHomesOfUserEntity;
+  AllHomesOfUserEntity? get allHomesOfUserEntity =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$JoinExistingHomeCopyWith<_JoinExistingHome> get copyWith;
+  _$JoinExistingHomeCopyWith<_JoinExistingHome> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -367,21 +368,21 @@ class __$AllHomesOfUserReceivedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object failureOrAllHomesOfUser = freezed,
+    Object? failureOrAllHomesOfUser = freezed,
   }) {
     return _then(_AllHomesOfUserReceived(
       failureOrAllHomesOfUser == freezed
           ? _value.failureOrAllHomesOfUser
-          : failureOrAllHomesOfUser
+          : failureOrAllHomesOfUser // ignore: cast_nullable_to_non_nullable
               as Either<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_AllHomesOfUserReceived implements _AllHomesOfUserReceived {
-  const _$_AllHomesOfUserReceived(this.failureOrAllHomesOfUser)
-      : assert(failureOrAllHomesOfUser != null);
+  const _$_AllHomesOfUserReceived(this.failureOrAllHomesOfUser);
 
   @override
   final Either<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>
@@ -415,32 +416,30 @@ class _$_AllHomesOfUserReceived implements _AllHomesOfUserReceived {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult watchAllStarted(),
-    @required
-        TResult joinExistingHome(AllHomesOfUserEntity allHomesOfUserEntity),
-    @required
-        TResult allHomesOfUserReceived(
+  TResult when<TResult extends Object?>({
+    required TResult Function() watchAllStarted,
+    required TResult Function(AllHomesOfUserEntity? allHomesOfUserEntity)
+        joinExistingHome,
+    required TResult Function(
             Either<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>
-                failureOrAllHomesOfUser),
+                failureOrAllHomesOfUser)
+        allHomesOfUserReceived,
   }) {
-    assert(watchAllStarted != null);
-    assert(joinExistingHome != null);
-    assert(allHomesOfUserReceived != null);
     return allHomesOfUserReceived(failureOrAllHomesOfUser);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchAllStarted(),
-    TResult joinExistingHome(AllHomesOfUserEntity allHomesOfUserEntity),
-    TResult allHomesOfUserReceived(
-        Either<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>
-            failureOrAllHomesOfUser),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? watchAllStarted,
+    TResult Function(AllHomesOfUserEntity? allHomesOfUserEntity)?
+        joinExistingHome,
+    TResult Function(
+            Either<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>
+                failureOrAllHomesOfUser)?
+        allHomesOfUserReceived,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (allHomesOfUserReceived != null) {
       return allHomesOfUserReceived(failureOrAllHomesOfUser);
     }
@@ -449,26 +448,23 @@ class _$_AllHomesOfUserReceived implements _AllHomesOfUserReceived {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult watchAllStarted(_WatchAllStarted value),
-    @required TResult joinExistingHome(_JoinExistingHome value),
-    @required TResult allHomesOfUserReceived(_AllHomesOfUserReceived value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchAllStarted value) watchAllStarted,
+    required TResult Function(_JoinExistingHome value) joinExistingHome,
+    required TResult Function(_AllHomesOfUserReceived value)
+        allHomesOfUserReceived,
   }) {
-    assert(watchAllStarted != null);
-    assert(joinExistingHome != null);
-    assert(allHomesOfUserReceived != null);
     return allHomesOfUserReceived(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchAllStarted(_WatchAllStarted value),
-    TResult joinExistingHome(_JoinExistingHome value),
-    TResult allHomesOfUserReceived(_AllHomesOfUserReceived value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchAllStarted value)? watchAllStarted,
+    TResult Function(_JoinExistingHome value)? joinExistingHome,
+    TResult Function(_AllHomesOfUserReceived value)? allHomesOfUserReceived,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (allHomesOfUserReceived != null) {
       return allHomesOfUserReceived(this);
     }
@@ -482,38 +478,34 @@ abstract class _AllHomesOfUserReceived implements UserHomesListEvent {
           failureOrAllHomesOfUser) = _$_AllHomesOfUserReceived;
 
   Either<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>
-      get failureOrAllHomesOfUser;
+      get failureOrAllHomesOfUser => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$AllHomesOfUserReceivedCopyWith<_AllHomesOfUserReceived> get copyWith;
+  _$AllHomesOfUserReceivedCopyWith<_AllHomesOfUserReceived> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$UserHomesListStateTearOff {
   const _$UserHomesListStateTearOff();
 
-// ignore: unused_element
   _Initial initial() {
     return _Initial();
   }
 
-// ignore: unused_element
   _LoadInProgress loadInProgress() {
     return const _LoadInProgress();
   }
 
-// ignore: unused_element
   _LoadSuccess loadSuccess(KtList<AllHomesOfUserEntity> homes) {
     return _LoadSuccess(
       homes,
     );
   }
 
-// ignore: unused_element
   _EnterHome enterHome() {
     return const _EnterHome();
   }
 
-// ignore: unused_element
   _LoadFailure loadFailure(
       AllHomesOfUserFailures<dynamic> allHomesOfUserFailures) {
     return _LoadFailure(
@@ -521,7 +513,6 @@ class _$UserHomesListStateTearOff {
     );
   }
 
-// ignore: unused_element
   _LoadFailureEnteringHome loadFailureEnteringHome(
       HomeUserFailures<dynamic> allHomesOfUserFailures) {
     return _LoadFailureEnteringHome(
@@ -529,65 +520,68 @@ class _$UserHomesListStateTearOff {
     );
   }
 
-// ignore: unused_element
   Error error() {
     return const Error();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $UserHomesListState = _$UserHomesListStateTearOff();
 
 /// @nodoc
 mixin _$UserHomesListState {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loadInProgress(),
-    @required TResult loadSuccess(KtList<AllHomesOfUserEntity> homes),
-    @required TResult enterHome(),
-    @required
-        TResult loadFailure(
-            AllHomesOfUserFailures<dynamic> allHomesOfUserFailures),
-    @required
-        TResult loadFailureEnteringHome(
-            HomeUserFailures<dynamic> allHomesOfUserFailures),
-    @required TResult error(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function(KtList<AllHomesOfUserEntity> homes) loadSuccess,
+    required TResult Function() enterHome,
+    required TResult Function(
+            AllHomesOfUserFailures<dynamic> allHomesOfUserFailures)
+        loadFailure,
+    required TResult Function(HomeUserFailures<dynamic> allHomesOfUserFailures)
+        loadFailureEnteringHome,
+    required TResult Function() error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loadInProgress(),
-    TResult loadSuccess(KtList<AllHomesOfUserEntity> homes),
-    TResult enterHome(),
-    TResult loadFailure(AllHomesOfUserFailures<dynamic> allHomesOfUserFailures),
-    TResult loadFailureEnteringHome(
-        HomeUserFailures<dynamic> allHomesOfUserFailures),
-    TResult error(),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function(KtList<AllHomesOfUserEntity> homes)? loadSuccess,
+    TResult Function()? enterHome,
+    TResult Function(AllHomesOfUserFailures<dynamic> allHomesOfUserFailures)?
+        loadFailure,
+    TResult Function(HomeUserFailures<dynamic> allHomesOfUserFailures)?
+        loadFailureEnteringHome,
+    TResult Function()? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult loadInProgress(_LoadInProgress value),
-    @required TResult loadSuccess(_LoadSuccess value),
-    @required TResult enterHome(_EnterHome value),
-    @required TResult loadFailure(_LoadFailure value),
-    @required TResult loadFailureEnteringHome(_LoadFailureEnteringHome value),
-    @required TResult error(Error value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_EnterHome value) enterHome,
+    required TResult Function(_LoadFailure value) loadFailure,
+    required TResult Function(_LoadFailureEnteringHome value)
+        loadFailureEnteringHome,
+    required TResult Function(Error value) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult loadInProgress(_LoadInProgress value),
-    TResult loadSuccess(_LoadSuccess value),
-    TResult enterHome(_EnterHome value),
-    TResult loadFailure(_LoadFailure value),
-    TResult loadFailureEnteringHome(_LoadFailureEnteringHome value),
-    TResult error(Error value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_EnterHome value)? enterHome,
+    TResult Function(_LoadFailure value)? loadFailure,
+    TResult Function(_LoadFailureEnteringHome value)? loadFailureEnteringHome,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -625,6 +619,7 @@ class __$InitialCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_Initial implements _Initial {
   _$_Initial();
 
@@ -643,43 +638,35 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loadInProgress(),
-    @required TResult loadSuccess(KtList<AllHomesOfUserEntity> homes),
-    @required TResult enterHome(),
-    @required
-        TResult loadFailure(
-            AllHomesOfUserFailures<dynamic> allHomesOfUserFailures),
-    @required
-        TResult loadFailureEnteringHome(
-            HomeUserFailures<dynamic> allHomesOfUserFailures),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function(KtList<AllHomesOfUserEntity> homes) loadSuccess,
+    required TResult Function() enterHome,
+    required TResult Function(
+            AllHomesOfUserFailures<dynamic> allHomesOfUserFailures)
+        loadFailure,
+    required TResult Function(HomeUserFailures<dynamic> allHomesOfUserFailures)
+        loadFailureEnteringHome,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadSuccess != null);
-    assert(enterHome != null);
-    assert(loadFailure != null);
-    assert(loadFailureEnteringHome != null);
-    assert(error != null);
     return initial();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loadInProgress(),
-    TResult loadSuccess(KtList<AllHomesOfUserEntity> homes),
-    TResult enterHome(),
-    TResult loadFailure(AllHomesOfUserFailures<dynamic> allHomesOfUserFailures),
-    TResult loadFailureEnteringHome(
-        HomeUserFailures<dynamic> allHomesOfUserFailures),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function(KtList<AllHomesOfUserEntity> homes)? loadSuccess,
+    TResult Function()? enterHome,
+    TResult Function(AllHomesOfUserFailures<dynamic> allHomesOfUserFailures)?
+        loadFailure,
+    TResult Function(HomeUserFailures<dynamic> allHomesOfUserFailures)?
+        loadFailureEnteringHome,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initial != null) {
       return initial();
     }
@@ -688,38 +675,31 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult loadInProgress(_LoadInProgress value),
-    @required TResult loadSuccess(_LoadSuccess value),
-    @required TResult enterHome(_EnterHome value),
-    @required TResult loadFailure(_LoadFailure value),
-    @required TResult loadFailureEnteringHome(_LoadFailureEnteringHome value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_EnterHome value) enterHome,
+    required TResult Function(_LoadFailure value) loadFailure,
+    required TResult Function(_LoadFailureEnteringHome value)
+        loadFailureEnteringHome,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadSuccess != null);
-    assert(enterHome != null);
-    assert(loadFailure != null);
-    assert(loadFailureEnteringHome != null);
-    assert(error != null);
     return initial(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult loadInProgress(_LoadInProgress value),
-    TResult loadSuccess(_LoadSuccess value),
-    TResult enterHome(_EnterHome value),
-    TResult loadFailure(_LoadFailure value),
-    TResult loadFailureEnteringHome(_LoadFailureEnteringHome value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_EnterHome value)? enterHome,
+    TResult Function(_LoadFailure value)? loadFailure,
+    TResult Function(_LoadFailureEnteringHome value)? loadFailureEnteringHome,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initial != null) {
       return initial(this);
     }
@@ -751,6 +731,7 @@ class __$LoadInProgressCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_LoadInProgress implements _LoadInProgress {
   const _$_LoadInProgress();
 
@@ -769,43 +750,35 @@ class _$_LoadInProgress implements _LoadInProgress {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loadInProgress(),
-    @required TResult loadSuccess(KtList<AllHomesOfUserEntity> homes),
-    @required TResult enterHome(),
-    @required
-        TResult loadFailure(
-            AllHomesOfUserFailures<dynamic> allHomesOfUserFailures),
-    @required
-        TResult loadFailureEnteringHome(
-            HomeUserFailures<dynamic> allHomesOfUserFailures),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function(KtList<AllHomesOfUserEntity> homes) loadSuccess,
+    required TResult Function() enterHome,
+    required TResult Function(
+            AllHomesOfUserFailures<dynamic> allHomesOfUserFailures)
+        loadFailure,
+    required TResult Function(HomeUserFailures<dynamic> allHomesOfUserFailures)
+        loadFailureEnteringHome,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadSuccess != null);
-    assert(enterHome != null);
-    assert(loadFailure != null);
-    assert(loadFailureEnteringHome != null);
-    assert(error != null);
     return loadInProgress();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loadInProgress(),
-    TResult loadSuccess(KtList<AllHomesOfUserEntity> homes),
-    TResult enterHome(),
-    TResult loadFailure(AllHomesOfUserFailures<dynamic> allHomesOfUserFailures),
-    TResult loadFailureEnteringHome(
-        HomeUserFailures<dynamic> allHomesOfUserFailures),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function(KtList<AllHomesOfUserEntity> homes)? loadSuccess,
+    TResult Function()? enterHome,
+    TResult Function(AllHomesOfUserFailures<dynamic> allHomesOfUserFailures)?
+        loadFailure,
+    TResult Function(HomeUserFailures<dynamic> allHomesOfUserFailures)?
+        loadFailureEnteringHome,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loadInProgress != null) {
       return loadInProgress();
     }
@@ -814,38 +787,31 @@ class _$_LoadInProgress implements _LoadInProgress {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult loadInProgress(_LoadInProgress value),
-    @required TResult loadSuccess(_LoadSuccess value),
-    @required TResult enterHome(_EnterHome value),
-    @required TResult loadFailure(_LoadFailure value),
-    @required TResult loadFailureEnteringHome(_LoadFailureEnteringHome value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_EnterHome value) enterHome,
+    required TResult Function(_LoadFailure value) loadFailure,
+    required TResult Function(_LoadFailureEnteringHome value)
+        loadFailureEnteringHome,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadSuccess != null);
-    assert(enterHome != null);
-    assert(loadFailure != null);
-    assert(loadFailureEnteringHome != null);
-    assert(error != null);
     return loadInProgress(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult loadInProgress(_LoadInProgress value),
-    TResult loadSuccess(_LoadSuccess value),
-    TResult enterHome(_EnterHome value),
-    TResult loadFailure(_LoadFailure value),
-    TResult loadFailureEnteringHome(_LoadFailureEnteringHome value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_EnterHome value)? enterHome,
+    TResult Function(_LoadFailure value)? loadFailure,
+    TResult Function(_LoadFailureEnteringHome value)? loadFailureEnteringHome,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loadInProgress != null) {
       return loadInProgress(this);
     }
@@ -878,17 +844,21 @@ class __$LoadSuccessCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object homes = freezed,
+    Object? homes = freezed,
   }) {
     return _then(_LoadSuccess(
-      homes == freezed ? _value.homes : homes as KtList<AllHomesOfUserEntity>,
+      homes == freezed
+          ? _value.homes
+          : homes // ignore: cast_nullable_to_non_nullable
+              as KtList<AllHomesOfUserEntity>,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_LoadSuccess implements _LoadSuccess {
-  const _$_LoadSuccess(this.homes) : assert(homes != null);
+  const _$_LoadSuccess(this.homes);
 
   @override
   final KtList<AllHomesOfUserEntity> homes;
@@ -917,43 +887,35 @@ class _$_LoadSuccess implements _LoadSuccess {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loadInProgress(),
-    @required TResult loadSuccess(KtList<AllHomesOfUserEntity> homes),
-    @required TResult enterHome(),
-    @required
-        TResult loadFailure(
-            AllHomesOfUserFailures<dynamic> allHomesOfUserFailures),
-    @required
-        TResult loadFailureEnteringHome(
-            HomeUserFailures<dynamic> allHomesOfUserFailures),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function(KtList<AllHomesOfUserEntity> homes) loadSuccess,
+    required TResult Function() enterHome,
+    required TResult Function(
+            AllHomesOfUserFailures<dynamic> allHomesOfUserFailures)
+        loadFailure,
+    required TResult Function(HomeUserFailures<dynamic> allHomesOfUserFailures)
+        loadFailureEnteringHome,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadSuccess != null);
-    assert(enterHome != null);
-    assert(loadFailure != null);
-    assert(loadFailureEnteringHome != null);
-    assert(error != null);
     return loadSuccess(homes);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loadInProgress(),
-    TResult loadSuccess(KtList<AllHomesOfUserEntity> homes),
-    TResult enterHome(),
-    TResult loadFailure(AllHomesOfUserFailures<dynamic> allHomesOfUserFailures),
-    TResult loadFailureEnteringHome(
-        HomeUserFailures<dynamic> allHomesOfUserFailures),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function(KtList<AllHomesOfUserEntity> homes)? loadSuccess,
+    TResult Function()? enterHome,
+    TResult Function(AllHomesOfUserFailures<dynamic> allHomesOfUserFailures)?
+        loadFailure,
+    TResult Function(HomeUserFailures<dynamic> allHomesOfUserFailures)?
+        loadFailureEnteringHome,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loadSuccess != null) {
       return loadSuccess(homes);
     }
@@ -962,38 +924,31 @@ class _$_LoadSuccess implements _LoadSuccess {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult loadInProgress(_LoadInProgress value),
-    @required TResult loadSuccess(_LoadSuccess value),
-    @required TResult enterHome(_EnterHome value),
-    @required TResult loadFailure(_LoadFailure value),
-    @required TResult loadFailureEnteringHome(_LoadFailureEnteringHome value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_EnterHome value) enterHome,
+    required TResult Function(_LoadFailure value) loadFailure,
+    required TResult Function(_LoadFailureEnteringHome value)
+        loadFailureEnteringHome,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadSuccess != null);
-    assert(enterHome != null);
-    assert(loadFailure != null);
-    assert(loadFailureEnteringHome != null);
-    assert(error != null);
     return loadSuccess(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult loadInProgress(_LoadInProgress value),
-    TResult loadSuccess(_LoadSuccess value),
-    TResult enterHome(_EnterHome value),
-    TResult loadFailure(_LoadFailure value),
-    TResult loadFailureEnteringHome(_LoadFailureEnteringHome value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_EnterHome value)? enterHome,
+    TResult Function(_LoadFailure value)? loadFailure,
+    TResult Function(_LoadFailureEnteringHome value)? loadFailureEnteringHome,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loadSuccess != null) {
       return loadSuccess(this);
     }
@@ -1005,9 +960,10 @@ abstract class _LoadSuccess implements UserHomesListState {
   const factory _LoadSuccess(KtList<AllHomesOfUserEntity> homes) =
       _$_LoadSuccess;
 
-  KtList<AllHomesOfUserEntity> get homes;
+  KtList<AllHomesOfUserEntity> get homes => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$LoadSuccessCopyWith<_LoadSuccess> get copyWith;
+  _$LoadSuccessCopyWith<_LoadSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1029,6 +985,7 @@ class __$EnterHomeCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_EnterHome implements _EnterHome {
   const _$_EnterHome();
 
@@ -1047,43 +1004,35 @@ class _$_EnterHome implements _EnterHome {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loadInProgress(),
-    @required TResult loadSuccess(KtList<AllHomesOfUserEntity> homes),
-    @required TResult enterHome(),
-    @required
-        TResult loadFailure(
-            AllHomesOfUserFailures<dynamic> allHomesOfUserFailures),
-    @required
-        TResult loadFailureEnteringHome(
-            HomeUserFailures<dynamic> allHomesOfUserFailures),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function(KtList<AllHomesOfUserEntity> homes) loadSuccess,
+    required TResult Function() enterHome,
+    required TResult Function(
+            AllHomesOfUserFailures<dynamic> allHomesOfUserFailures)
+        loadFailure,
+    required TResult Function(HomeUserFailures<dynamic> allHomesOfUserFailures)
+        loadFailureEnteringHome,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadSuccess != null);
-    assert(enterHome != null);
-    assert(loadFailure != null);
-    assert(loadFailureEnteringHome != null);
-    assert(error != null);
     return enterHome();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loadInProgress(),
-    TResult loadSuccess(KtList<AllHomesOfUserEntity> homes),
-    TResult enterHome(),
-    TResult loadFailure(AllHomesOfUserFailures<dynamic> allHomesOfUserFailures),
-    TResult loadFailureEnteringHome(
-        HomeUserFailures<dynamic> allHomesOfUserFailures),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function(KtList<AllHomesOfUserEntity> homes)? loadSuccess,
+    TResult Function()? enterHome,
+    TResult Function(AllHomesOfUserFailures<dynamic> allHomesOfUserFailures)?
+        loadFailure,
+    TResult Function(HomeUserFailures<dynamic> allHomesOfUserFailures)?
+        loadFailureEnteringHome,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (enterHome != null) {
       return enterHome();
     }
@@ -1092,38 +1041,31 @@ class _$_EnterHome implements _EnterHome {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult loadInProgress(_LoadInProgress value),
-    @required TResult loadSuccess(_LoadSuccess value),
-    @required TResult enterHome(_EnterHome value),
-    @required TResult loadFailure(_LoadFailure value),
-    @required TResult loadFailureEnteringHome(_LoadFailureEnteringHome value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_EnterHome value) enterHome,
+    required TResult Function(_LoadFailure value) loadFailure,
+    required TResult Function(_LoadFailureEnteringHome value)
+        loadFailureEnteringHome,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadSuccess != null);
-    assert(enterHome != null);
-    assert(loadFailure != null);
-    assert(loadFailureEnteringHome != null);
-    assert(error != null);
     return enterHome(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult loadInProgress(_LoadInProgress value),
-    TResult loadSuccess(_LoadSuccess value),
-    TResult enterHome(_EnterHome value),
-    TResult loadFailure(_LoadFailure value),
-    TResult loadFailureEnteringHome(_LoadFailureEnteringHome value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_EnterHome value)? enterHome,
+    TResult Function(_LoadFailure value)? loadFailure,
+    TResult Function(_LoadFailureEnteringHome value)? loadFailureEnteringHome,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (enterHome != null) {
       return enterHome(this);
     }
@@ -1158,20 +1100,18 @@ class __$LoadFailureCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object allHomesOfUserFailures = freezed,
+    Object? allHomesOfUserFailures = freezed,
   }) {
     return _then(_LoadFailure(
       allHomesOfUserFailures == freezed
           ? _value.allHomesOfUserFailures
-          : allHomesOfUserFailures as AllHomesOfUserFailures<dynamic>,
+          : allHomesOfUserFailures // ignore: cast_nullable_to_non_nullable
+              as AllHomesOfUserFailures<dynamic>,
     ));
   }
 
   @override
   $AllHomesOfUserFailuresCopyWith<dynamic, $Res> get allHomesOfUserFailures {
-    if (_value.allHomesOfUserFailures == null) {
-      return null;
-    }
     return $AllHomesOfUserFailuresCopyWith<dynamic, $Res>(
         _value.allHomesOfUserFailures, (value) {
       return _then(_value.copyWith(allHomesOfUserFailures: value));
@@ -1180,9 +1120,9 @@ class __$LoadFailureCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_LoadFailure implements _LoadFailure {
-  const _$_LoadFailure(this.allHomesOfUserFailures)
-      : assert(allHomesOfUserFailures != null);
+  const _$_LoadFailure(this.allHomesOfUserFailures);
 
   @override
   final AllHomesOfUserFailures<dynamic> allHomesOfUserFailures;
@@ -1213,43 +1153,35 @@ class _$_LoadFailure implements _LoadFailure {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loadInProgress(),
-    @required TResult loadSuccess(KtList<AllHomesOfUserEntity> homes),
-    @required TResult enterHome(),
-    @required
-        TResult loadFailure(
-            AllHomesOfUserFailures<dynamic> allHomesOfUserFailures),
-    @required
-        TResult loadFailureEnteringHome(
-            HomeUserFailures<dynamic> allHomesOfUserFailures),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function(KtList<AllHomesOfUserEntity> homes) loadSuccess,
+    required TResult Function() enterHome,
+    required TResult Function(
+            AllHomesOfUserFailures<dynamic> allHomesOfUserFailures)
+        loadFailure,
+    required TResult Function(HomeUserFailures<dynamic> allHomesOfUserFailures)
+        loadFailureEnteringHome,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadSuccess != null);
-    assert(enterHome != null);
-    assert(loadFailure != null);
-    assert(loadFailureEnteringHome != null);
-    assert(error != null);
     return loadFailure(allHomesOfUserFailures);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loadInProgress(),
-    TResult loadSuccess(KtList<AllHomesOfUserEntity> homes),
-    TResult enterHome(),
-    TResult loadFailure(AllHomesOfUserFailures<dynamic> allHomesOfUserFailures),
-    TResult loadFailureEnteringHome(
-        HomeUserFailures<dynamic> allHomesOfUserFailures),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function(KtList<AllHomesOfUserEntity> homes)? loadSuccess,
+    TResult Function()? enterHome,
+    TResult Function(AllHomesOfUserFailures<dynamic> allHomesOfUserFailures)?
+        loadFailure,
+    TResult Function(HomeUserFailures<dynamic> allHomesOfUserFailures)?
+        loadFailureEnteringHome,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loadFailure != null) {
       return loadFailure(allHomesOfUserFailures);
     }
@@ -1258,38 +1190,31 @@ class _$_LoadFailure implements _LoadFailure {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult loadInProgress(_LoadInProgress value),
-    @required TResult loadSuccess(_LoadSuccess value),
-    @required TResult enterHome(_EnterHome value),
-    @required TResult loadFailure(_LoadFailure value),
-    @required TResult loadFailureEnteringHome(_LoadFailureEnteringHome value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_EnterHome value) enterHome,
+    required TResult Function(_LoadFailure value) loadFailure,
+    required TResult Function(_LoadFailureEnteringHome value)
+        loadFailureEnteringHome,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadSuccess != null);
-    assert(enterHome != null);
-    assert(loadFailure != null);
-    assert(loadFailureEnteringHome != null);
-    assert(error != null);
     return loadFailure(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult loadInProgress(_LoadInProgress value),
-    TResult loadSuccess(_LoadSuccess value),
-    TResult enterHome(_EnterHome value),
-    TResult loadFailure(_LoadFailure value),
-    TResult loadFailureEnteringHome(_LoadFailureEnteringHome value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_EnterHome value)? enterHome,
+    TResult Function(_LoadFailure value)? loadFailure,
+    TResult Function(_LoadFailureEnteringHome value)? loadFailureEnteringHome,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loadFailure != null) {
       return loadFailure(this);
     }
@@ -1301,9 +1226,11 @@ abstract class _LoadFailure implements UserHomesListState {
   const factory _LoadFailure(
       AllHomesOfUserFailures<dynamic> allHomesOfUserFailures) = _$_LoadFailure;
 
-  AllHomesOfUserFailures<dynamic> get allHomesOfUserFailures;
+  AllHomesOfUserFailures<dynamic> get allHomesOfUserFailures =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$LoadFailureCopyWith<_LoadFailure> get copyWith;
+  _$LoadFailureCopyWith<_LoadFailure> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1330,20 +1257,18 @@ class __$LoadFailureEnteringHomeCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object allHomesOfUserFailures = freezed,
+    Object? allHomesOfUserFailures = freezed,
   }) {
     return _then(_LoadFailureEnteringHome(
       allHomesOfUserFailures == freezed
           ? _value.allHomesOfUserFailures
-          : allHomesOfUserFailures as HomeUserFailures<dynamic>,
+          : allHomesOfUserFailures // ignore: cast_nullable_to_non_nullable
+              as HomeUserFailures<dynamic>,
     ));
   }
 
   @override
   $HomeUserFailuresCopyWith<dynamic, $Res> get allHomesOfUserFailures {
-    if (_value.allHomesOfUserFailures == null) {
-      return null;
-    }
     return $HomeUserFailuresCopyWith<dynamic, $Res>(
         _value.allHomesOfUserFailures, (value) {
       return _then(_value.copyWith(allHomesOfUserFailures: value));
@@ -1352,9 +1277,9 @@ class __$LoadFailureEnteringHomeCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_LoadFailureEnteringHome implements _LoadFailureEnteringHome {
-  const _$_LoadFailureEnteringHome(this.allHomesOfUserFailures)
-      : assert(allHomesOfUserFailures != null);
+  const _$_LoadFailureEnteringHome(this.allHomesOfUserFailures);
 
   @override
   final HomeUserFailures<dynamic> allHomesOfUserFailures;
@@ -1386,43 +1311,35 @@ class _$_LoadFailureEnteringHome implements _LoadFailureEnteringHome {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loadInProgress(),
-    @required TResult loadSuccess(KtList<AllHomesOfUserEntity> homes),
-    @required TResult enterHome(),
-    @required
-        TResult loadFailure(
-            AllHomesOfUserFailures<dynamic> allHomesOfUserFailures),
-    @required
-        TResult loadFailureEnteringHome(
-            HomeUserFailures<dynamic> allHomesOfUserFailures),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function(KtList<AllHomesOfUserEntity> homes) loadSuccess,
+    required TResult Function() enterHome,
+    required TResult Function(
+            AllHomesOfUserFailures<dynamic> allHomesOfUserFailures)
+        loadFailure,
+    required TResult Function(HomeUserFailures<dynamic> allHomesOfUserFailures)
+        loadFailureEnteringHome,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadSuccess != null);
-    assert(enterHome != null);
-    assert(loadFailure != null);
-    assert(loadFailureEnteringHome != null);
-    assert(error != null);
     return loadFailureEnteringHome(allHomesOfUserFailures);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loadInProgress(),
-    TResult loadSuccess(KtList<AllHomesOfUserEntity> homes),
-    TResult enterHome(),
-    TResult loadFailure(AllHomesOfUserFailures<dynamic> allHomesOfUserFailures),
-    TResult loadFailureEnteringHome(
-        HomeUserFailures<dynamic> allHomesOfUserFailures),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function(KtList<AllHomesOfUserEntity> homes)? loadSuccess,
+    TResult Function()? enterHome,
+    TResult Function(AllHomesOfUserFailures<dynamic> allHomesOfUserFailures)?
+        loadFailure,
+    TResult Function(HomeUserFailures<dynamic> allHomesOfUserFailures)?
+        loadFailureEnteringHome,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loadFailureEnteringHome != null) {
       return loadFailureEnteringHome(allHomesOfUserFailures);
     }
@@ -1431,38 +1348,31 @@ class _$_LoadFailureEnteringHome implements _LoadFailureEnteringHome {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult loadInProgress(_LoadInProgress value),
-    @required TResult loadSuccess(_LoadSuccess value),
-    @required TResult enterHome(_EnterHome value),
-    @required TResult loadFailure(_LoadFailure value),
-    @required TResult loadFailureEnteringHome(_LoadFailureEnteringHome value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_EnterHome value) enterHome,
+    required TResult Function(_LoadFailure value) loadFailure,
+    required TResult Function(_LoadFailureEnteringHome value)
+        loadFailureEnteringHome,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadSuccess != null);
-    assert(enterHome != null);
-    assert(loadFailure != null);
-    assert(loadFailureEnteringHome != null);
-    assert(error != null);
     return loadFailureEnteringHome(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult loadInProgress(_LoadInProgress value),
-    TResult loadSuccess(_LoadSuccess value),
-    TResult enterHome(_EnterHome value),
-    TResult loadFailure(_LoadFailure value),
-    TResult loadFailureEnteringHome(_LoadFailureEnteringHome value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_EnterHome value)? enterHome,
+    TResult Function(_LoadFailure value)? loadFailure,
+    TResult Function(_LoadFailureEnteringHome value)? loadFailureEnteringHome,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loadFailureEnteringHome != null) {
       return loadFailureEnteringHome(this);
     }
@@ -1475,9 +1385,11 @@ abstract class _LoadFailureEnteringHome implements UserHomesListState {
           HomeUserFailures<dynamic> allHomesOfUserFailures) =
       _$_LoadFailureEnteringHome;
 
-  HomeUserFailures<dynamic> get allHomesOfUserFailures;
+  HomeUserFailures<dynamic> get allHomesOfUserFailures =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$LoadFailureEnteringHomeCopyWith<_LoadFailureEnteringHome> get copyWith;
+  _$LoadFailureEnteringHomeCopyWith<_LoadFailureEnteringHome> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1497,6 +1409,7 @@ class _$ErrorCopyWithImpl<$Res> extends _$UserHomesListStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Error implements Error {
   const _$Error();
 
@@ -1515,43 +1428,35 @@ class _$Error implements Error {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loadInProgress(),
-    @required TResult loadSuccess(KtList<AllHomesOfUserEntity> homes),
-    @required TResult enterHome(),
-    @required
-        TResult loadFailure(
-            AllHomesOfUserFailures<dynamic> allHomesOfUserFailures),
-    @required
-        TResult loadFailureEnteringHome(
-            HomeUserFailures<dynamic> allHomesOfUserFailures),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function(KtList<AllHomesOfUserEntity> homes) loadSuccess,
+    required TResult Function() enterHome,
+    required TResult Function(
+            AllHomesOfUserFailures<dynamic> allHomesOfUserFailures)
+        loadFailure,
+    required TResult Function(HomeUserFailures<dynamic> allHomesOfUserFailures)
+        loadFailureEnteringHome,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadSuccess != null);
-    assert(enterHome != null);
-    assert(loadFailure != null);
-    assert(loadFailureEnteringHome != null);
-    assert(error != null);
     return error();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loadInProgress(),
-    TResult loadSuccess(KtList<AllHomesOfUserEntity> homes),
-    TResult enterHome(),
-    TResult loadFailure(AllHomesOfUserFailures<dynamic> allHomesOfUserFailures),
-    TResult loadFailureEnteringHome(
-        HomeUserFailures<dynamic> allHomesOfUserFailures),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function(KtList<AllHomesOfUserEntity> homes)? loadSuccess,
+    TResult Function()? enterHome,
+    TResult Function(AllHomesOfUserFailures<dynamic> allHomesOfUserFailures)?
+        loadFailure,
+    TResult Function(HomeUserFailures<dynamic> allHomesOfUserFailures)?
+        loadFailureEnteringHome,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error();
     }
@@ -1560,38 +1465,31 @@ class _$Error implements Error {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult loadInProgress(_LoadInProgress value),
-    @required TResult loadSuccess(_LoadSuccess value),
-    @required TResult enterHome(_EnterHome value),
-    @required TResult loadFailure(_LoadFailure value),
-    @required TResult loadFailureEnteringHome(_LoadFailureEnteringHome value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_EnterHome value) enterHome,
+    required TResult Function(_LoadFailure value) loadFailure,
+    required TResult Function(_LoadFailureEnteringHome value)
+        loadFailureEnteringHome,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadSuccess != null);
-    assert(enterHome != null);
-    assert(loadFailure != null);
-    assert(loadFailureEnteringHome != null);
-    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult loadInProgress(_LoadInProgress value),
-    TResult loadSuccess(_LoadSuccess value),
-    TResult enterHome(_EnterHome value),
-    TResult loadFailure(_LoadFailure value),
-    TResult loadFailureEnteringHome(_LoadFailureEnteringHome value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_EnterHome value)? enterHome,
+    TResult Function(_LoadFailure value)? loadFailure,
+    TResult Function(_LoadFailureEnteringHome value)? loadFailureEnteringHome,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this);
     }

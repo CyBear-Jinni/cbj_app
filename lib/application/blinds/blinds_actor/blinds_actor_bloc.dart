@@ -6,6 +6,7 @@ import 'package:cybear_jinni/domain/devices/device_entity.dart';
 import 'package:cybear_jinni/domain/devices/devices_failures.dart';
 import 'package:cybear_jinni/domain/devices/i_device_repository.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -29,7 +30,7 @@ class BlindsActorBloc extends Bloc<BlindsActorEvent, BlindsActorState> {
       moveUpAllBlinds: (_MoveUpAllBlinds value) async* {
         FlushbarHelper.createLoading(
           message: 'Pulling Up all blinds',
-          linearProgressIndicator: null,
+          linearProgressIndicator: LinearProgressIndicator(),
         ).show(value.context);
 
         _deviceRepository.moveUpBlinds(
@@ -38,7 +39,7 @@ class BlindsActorBloc extends Bloc<BlindsActorEvent, BlindsActorState> {
       stopAllBlinds: (_StopAllBlinds value) async* {
         FlushbarHelper.createLoading(
           message: 'Stopping all blinds',
-          linearProgressIndicator: null,
+          linearProgressIndicator: LinearProgressIndicator(),
         ).show(value.context);
 
         _deviceRepository.stopBlinds(
@@ -47,7 +48,7 @@ class BlindsActorBloc extends Bloc<BlindsActorEvent, BlindsActorState> {
       moveDownAllBlinds: (_MoveDownAllBlinds value) async* {
         FlushbarHelper.createLoading(
           message: 'Pulling down all blinds',
-          linearProgressIndicator: null,
+          linearProgressIndicator: LinearProgressIndicator(),
         ).show(value.context);
 
         _deviceRepository.moveDownBlinds(

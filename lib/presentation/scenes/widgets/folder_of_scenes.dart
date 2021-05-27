@@ -12,12 +12,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FolderOfScenesWidget extends StatelessWidget {
-  FolderOfScenesWidget({@required this.folderOfScenes});
+  FolderOfScenesWidget({required this.folderOfScenes});
 
-  final FolderOfScenes folderOfScenes;
+  final FolderOfScenes? folderOfScenes;
 
   Scene getTheScen(Either<SceneFailure, Scene> scenesList) {
-    return scenesList.fold((l) => null, (r) => r);
+    return scenesList.fold((l) => null!, (r) => r);
   }
 
   @override
@@ -56,7 +56,7 @@ class FolderOfScenesWidget extends StatelessWidget {
                           scene: getTheScen(scene),
                         ),
                       ),
-                    child: SceneWidget(scene.fold((l) => null, (r) => r)),
+                    child: SceneWidget(scene.fold((l) => null!, (r) => r)),
                   );
                 }
               },

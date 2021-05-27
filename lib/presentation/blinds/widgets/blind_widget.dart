@@ -19,8 +19,8 @@ class BlindWidget extends StatelessWidget {
     final Size screenSize = MediaQuery.of(context).size;
     final double sizeBoxWidth = screenSize.width * 0.25;
 
-    final deviceState = _deviceEntity.state.getOrCrash();
-    final deviceAction = _deviceEntity.action.getOrCrash();
+    final deviceState = _deviceEntity.state!.getOrCrash();
+    final deviceAction = _deviceEntity.action!.getOrCrash();
 
     bool toggleValue = false;
     Color toggleColor = Colors.blueGrey;
@@ -56,16 +56,17 @@ class BlindWidget extends StatelessWidget {
                   onPressed: () {
                     context.read<BlindsActorBloc>().add(
                           BlindsActorEvent.moveDownAllBlinds(
-                              [_deviceEntity.id.getOrCrash()], context),
+                              [_deviceEntity.id!.getOrCrash()], context),
                         );
                   },
                   child: Tab(
                     icon: FaIcon(FontAwesomeIcons.arrowDown,
-                        color: Theme.of(context).textTheme.bodyText1.color),
+                        color: (Theme.of(context).textTheme.bodyText1!.color)!),
                     child: Text(
                       'Down',
                       style: TextStyle(
-                          color: Theme.of(context).textTheme.bodyText1.color,
+                          color:
+                              (Theme.of(context).textTheme.bodyText1!.color)!,
                           fontSize: 16),
                     ).tr(),
                   ),
@@ -82,16 +83,17 @@ class BlindWidget extends StatelessWidget {
                   onPressed: () {
                     context.read<BlindsActorBloc>().add(
                           BlindsActorEvent.stopAllBlinds(
-                              [_deviceEntity.id.getOrCrash()], context),
+                              [_deviceEntity.id!.getOrCrash()], context),
                         );
                   },
                   child: Tab(
                     icon: FaIcon(FontAwesomeIcons.solidHandPaper,
-                        color: Theme.of(context).textTheme.bodyText1.color),
+                        color: (Theme.of(context).textTheme.bodyText1!.color)!),
                     child: Text(
                       'Stop',
                       style: TextStyle(
-                          color: Theme.of(context).textTheme.bodyText1.color,
+                          color:
+                              (Theme.of(context).textTheme.bodyText1!.color)!,
                           fontSize: 16),
                     ).tr(),
                   ),
@@ -108,16 +110,17 @@ class BlindWidget extends StatelessWidget {
                   onPressed: () {
                     context.read<BlindsActorBloc>().add(
                           BlindsActorEvent.moveUpAllBlinds(
-                              [_deviceEntity.id.getOrCrash()], context),
+                              [_deviceEntity.id!.getOrCrash()], context),
                         );
                   },
                   child: Tab(
                     icon: FaIcon(FontAwesomeIcons.arrowUp,
-                        color: Theme.of(context).textTheme.bodyText1.color),
+                        color: (Theme.of(context).textTheme.bodyText1!.color)!),
                     child: Text(
                       'Up',
                       style: TextStyle(
-                          color: Theme.of(context).textTheme.bodyText1.color,
+                          color:
+                              (Theme.of(context).textTheme.bodyText1!.color)!,
                           fontSize: 16),
                     ).tr(),
                   ),

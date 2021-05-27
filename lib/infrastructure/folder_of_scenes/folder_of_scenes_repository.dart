@@ -13,7 +13,7 @@ class FolderOfScenesRepository implements IFolderOfScenesRepository {
   @override
   Future<Either<FoldersOfScenesFailures, KtList<Either<SceneFailure, Scene>>>>
       getAllScenesInFolder({
-    UniqueId uniqueId,
+    UniqueId? uniqueId,
   }) async {
     // Either<FoldersOfScenesFailures, KtList<Either<SceneFailure, Scene>>
 

@@ -10,10 +10,10 @@ abstract class HomeUserEntity implements _$HomeUserEntity {
   const HomeUserEntity._();
 
   const factory HomeUserEntity({
-    @required HomeUserUniqueId id,
-    @required HomeUserEmail email,
-    @required HomeUserName name,
-    @required HomeUserPermission permission,
+    required HomeUserUniqueId? id,
+    required HomeUserEmail? email,
+    required HomeUserName? name,
+    required HomeUserPermission? permission,
   }) = _HomeUserEntity;
 
   factory HomeUserEntity.empty() => HomeUserEntity(
@@ -24,6 +24,6 @@ abstract class HomeUserEntity implements _$HomeUserEntity {
       );
 
   Option<HomeUserFailures<dynamic>> get failureOption {
-    return email.value.fold((f) => some(f), (_) => none());
+    return email!.value.fold((f) => some(f), (_) => none());
   }
 }

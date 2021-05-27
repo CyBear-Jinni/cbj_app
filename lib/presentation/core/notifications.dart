@@ -33,7 +33,7 @@ Future<void> initialisationNotifications() async {
       onSelectNotification: selectNotification);
 }
 
-Future selectNotification(String payload) async {
+Future selectNotification(String? payload) async {
   if (payload != null) {
     debugPrint('notification payload: $payload');
   }
@@ -44,7 +44,7 @@ Future selectNotification(String payload) async {
 }
 
 Future selectNotificationIos(
-    int id, String title, String body, String payload) async {
+    int? id, String? title, String? body, String? payload) async {
   if (payload != null) {
     debugPrint('notification payload: $payload');
   }
@@ -100,9 +100,9 @@ Future<void> showSoundUriNotification() async {
   /// this calls a method over a platform channel implemented within the
   /// example app to return the Uri for the default alarm sound and uses
   /// as the notification sound
-  final String alarmUri = await platform.invokeMethod('getAlarmUri');
+  final String? alarmUri = await platform.invokeMethod('getAlarmUri');
   final UriAndroidNotificationSound uriSound =
-      UriAndroidNotificationSound(alarmUri);
+      UriAndroidNotificationSound(alarmUri!);
   final AndroidNotificationDetails androidPlatformChannelSpecifics =
       AndroidNotificationDetails(
           'uri channel id', 'uri channel name', 'uri channel description',

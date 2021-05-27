@@ -9,9 +9,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class RoomBoilersTogglesBlock extends StatelessWidget {
   const RoomBoilersTogglesBlock(this._smartRoomObject, {this.maxBoilersToShow});
 
-  final SmartRoomObject _smartRoomObject;
+  final SmartRoomObject? _smartRoomObject;
 
-  final int maxBoilersToShow;
+  final int? maxBoilersToShow;
 
   @override
   Widget build(BuildContext context) {
@@ -25,21 +25,21 @@ class RoomBoilersTogglesBlock extends StatelessWidget {
       const int maxBoilersInRow = 2;
       int numberOfBoilersToShow;
       if (maxBoilersToShow != null &&
-          maxBoilersToShow <= _smartRoomObject.getBoilers().length) {
-        numberOfBoilersToShow = maxBoilersToShow;
+          maxBoilersToShow! <= _smartRoomObject!.getBoilers()!.length) {
+        numberOfBoilersToShow = maxBoilersToShow!;
       } else {
-        numberOfBoilersToShow = _smartRoomObject.getBoilers().length;
+        numberOfBoilersToShow = _smartRoomObject!.getBoilers()!.length;
       }
 
       for (int i = 0; i < numberOfBoilersToShow; i += maxBoilersInRow) {
         for (int v = 0; v < maxBoilersInRow; v++) {
-          if (_smartRoomObject.getBoilers().length > i + v) {
+          if (_smartRoomObject!.getBoilers()!.length > i + v) {
             widgetsForRow.add(
               Container(
                 margin: const EdgeInsets.symmetric(vertical: 5),
                 width: sizeBoxWidth + 15,
                 child: SmartDevicePage(
-                  _smartRoomObject.getBoilers()[i + v],
+                  _smartRoomObject!.getBoilers()![i + v],
                 ),
               ),
             );
@@ -70,12 +70,12 @@ class RoomBoilersTogglesBlock extends StatelessWidget {
       padding: const EdgeInsets.all(3),
       decoration: BoxDecoration(
           gradient: LinearGradient(
-              colors: _smartRoomObject.grediantColor,
+              colors: _smartRoomObject!.grediantColor,
               begin: Alignment.bottomLeft,
               end: Alignment.topLeft),
           borderRadius: const BorderRadius.all(Radius.circular(24)),
           border: Border.all(
-            color: Theme.of(context).textTheme.bodyText1.color,
+            color: (Theme.of(context).textTheme.bodyText1!.color)!,
             width: 0.6,
           )),
       child: Container(
@@ -107,18 +107,19 @@ class RoomBoilersTogglesBlock extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text(
-                    _smartRoomObject.getRoomName(),
+                    _smartRoomObject!.getRoomName(),
                     style: TextStyle(
-                      color: Theme.of(context).textTheme.bodyText1.color,
+                      color: (Theme.of(context).textTheme.bodyText1!.color)!,
                       fontSize: 25,
                       decoration: TextDecoration.underline,
                     ),
                   ),
                   if (maxBoilersToShow != null &&
-                      _smartRoomObject.getBoilers().length > maxBoilersToShow)
+                      _smartRoomObject!.getBoilers()!.length >
+                          maxBoilersToShow!)
                     FaIcon(
                       FontAwesomeIcons.arrowRight,
-                      color: Theme.of(context).textTheme.bodyText1.color,
+                      color: Theme.of(context).textTheme.bodyText1!.color,
                       size: 20,
                     ),
                 ],

@@ -18,7 +18,7 @@ class WhereToLoginPageOffline extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Choose type of login'),
       ),
-      backgroundColor: Colors.deepPurpleAccent[200].withOpacity(0.6),
+      backgroundColor: Colors.deepPurpleAccent[200]!.withOpacity(0.6),
       body: Column(
         children: <Widget>[
           const SizedBox(
@@ -34,7 +34,8 @@ class WhereToLoginPageOffline extends StatelessWidget {
               child: Text('What would you like to do',
                   style: TextStyle(
                       fontSize: 25,
-                      color: Theme.of(context).textTheme.subtitle2.color))),
+                      color:
+                          ((Theme.of(context).textTheme.bodyText1!.color)!)!))),
           Expanded(
             child: Center(
               child: Column(
@@ -50,7 +51,7 @@ class WhereToLoginPageOffline extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {
-                        ExtendedNavigator.of(context).replace(Routes.homePage);
+                        context.router.push(Routes.homePage);
                       },
                       child: Container(
                         margin: const EdgeInsets.only(left: 30),
@@ -59,7 +60,7 @@ class WhereToLoginPageOffline extends StatelessWidget {
                             FaIcon(FontAwesomeIcons.vial,
                                 color: Theme.of(context)
                                     .textTheme
-                                    .bodyText1
+                                    .bodyText1!
                                     .color),
                             const SizedBox(
                               width: 20,
@@ -70,7 +71,7 @@ class WhereToLoginPageOffline extends StatelessWidget {
                                   fontSize: 25,
                                   color: Theme.of(context)
                                       .textTheme
-                                      .subtitle2
+                                      .bodyText1!
                                       .color),
                             ),
                           ],
@@ -100,7 +101,7 @@ class WhereToLoginPageOffline extends StatelessWidget {
                             FaIcon(FontAwesomeIcons.tree,
                                 color: Theme.of(context)
                                     .textTheme
-                                    .bodyText1
+                                    .bodyText1!
                                     .color),
                             const SizedBox(
                               width: 20,
@@ -111,7 +112,7 @@ class WhereToLoginPageOffline extends StatelessWidget {
                                   fontSize: 25,
                                   color: Theme.of(context)
                                       .textTheme
-                                      .subtitle2
+                                      .bodyText1!
                                       .color),
                             ),
                           ],

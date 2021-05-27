@@ -31,28 +31,28 @@ class RoomsLightsWidget extends StatelessWidget {
                   <String, List<DeviceEntity>>{};
 
               for (int i = 0; i < state.devices.size; i++) {
-                final DeviceEntity tempDevice = state.devices[i];
+                final DeviceEntity tempDevice = state.devices[i]!;
                 if (showDevicesOnlyFromRoomId != null) {
                   if (showDevicesOnlyFromRoomId ==
-                      tempDevice.roomId.getOrCrash()) {
-                    if (tempDevicesByRooms[tempDevice.roomId.getOrCrash()] ==
+                      tempDevice.roomId!.getOrCrash()) {
+                    if (tempDevicesByRooms[tempDevice.roomId!.getOrCrash()] ==
                         null) {
-                      tempDevicesByRooms[tempDevice.roomId.getOrCrash()] = [
+                      tempDevicesByRooms[tempDevice.roomId!.getOrCrash()!] = [
                         tempDevice
                       ];
                     } else {
-                      tempDevicesByRooms[tempDevice.roomId.getOrCrash()]
+                      tempDevicesByRooms[tempDevice.roomId!.getOrCrash()]!
                           .add(tempDevice);
                     }
                   }
                 } else {
-                  if (tempDevicesByRooms[tempDevice.roomId.getOrCrash()] ==
+                  if (tempDevicesByRooms[tempDevice.roomId!.getOrCrash()] ==
                       null) {
-                    tempDevicesByRooms[tempDevice.roomId.getOrCrash()] = [
+                    tempDevicesByRooms[tempDevice.roomId!.getOrCrash()!] = [
                       tempDevice
                     ];
                   } else {
-                    tempDevicesByRooms[tempDevice.roomId.getOrCrash()]
+                    tempDevicesByRooms[tempDevice.roomId!.getOrCrash()]!
                         .add(tempDevice);
                   }
                 }
@@ -72,7 +72,7 @@ class RoomsLightsWidget extends StatelessWidget {
                   padding: EdgeInsets.zero,
                   itemBuilder: (context, index) {
                     gradientColorCounter++;
-                    List<Color> gradiantColor;
+                    List<Color> gradiantColor = GradientColors.sky;
                     if (roomColorGradiant != null) {
                       gradiantColor = roomColorGradiant;
                     } else if (gradientColorCounter >
@@ -114,7 +114,10 @@ class RoomsLightsWidget extends StatelessWidget {
                         'Lights does not exist.',
                         style: TextStyle(
                             fontSize: 30,
-                            color: Theme.of(context).textTheme.bodyText1.color),
+                            color: (Theme.of(context)
+                                .textTheme
+                                .bodyText1!
+                                .color)!),
                       ),
                     ),
                   ],

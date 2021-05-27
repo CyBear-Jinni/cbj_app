@@ -91,8 +91,8 @@ class SmartBlindsObject extends SmartDeviceObject {
   }
 
   Future<String> setBlindStateRemote(DeviceActions deviceAction) async {
-    return (await fireStoreClass.changeBlindsState(
-            roomName, name, deviceAction))
+    return (await fireStoreClass!
+            .changeBlindsState(roomName!, name!, deviceAction))
         .toString();
   }
 }

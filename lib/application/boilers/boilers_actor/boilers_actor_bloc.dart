@@ -6,6 +6,7 @@ import 'package:cybear_jinni/domain/devices/device_entity.dart';
 import 'package:cybear_jinni/domain/devices/devices_failures.dart';
 import 'package:cybear_jinni/domain/devices/i_device_repository.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -29,7 +30,7 @@ class BoilersActorBloc extends Bloc<BoilersActorEvent, BoilersActorState> {
       turnOnAllBoilers: (_TurnOnAllBoilers value) async* {
         FlushbarHelper.createLoading(
           message: 'Turning On boiler',
-          linearProgressIndicator: null,
+          linearProgressIndicator: LinearProgressIndicator(),
         ).show(value.context);
 
         _deviceRepository.turnOnDevices(
@@ -38,7 +39,7 @@ class BoilersActorBloc extends Bloc<BoilersActorEvent, BoilersActorState> {
       turnOffAllBoilers: (_TurnOffAllBoilers value) async* {
         FlushbarHelper.createLoading(
           message: 'Turning Off boiler',
-          linearProgressIndicator: null,
+          linearProgressIndicator: LinearProgressIndicator(),
         ).show(value.context);
 
         _deviceRepository.turnOffDevices(

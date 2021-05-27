@@ -47,12 +47,12 @@ class CBJCompRepository implements ICBJCompRepository {
 
       final String fireBaseProjectId = ConstantCredentials.fireBaseProjectId;
       final String fireBaseApiKey = ConstantCredentials.fireBaseApiKey;
-      final String userEmail = deviceUser.email.getOrCrash();
-      final String userPassword = deviceUser.pass.getOrCrash();
+      final String userEmail = deviceUser.email!.getOrCrash();
+      final String userPassword = deviceUser.pass!.getOrCrash();
       final String homeId = (await getIt<IAuthFacade>().getCurrentHome())
           .getOrElse(() => throw MissingCurrentHomeError())
           .id
-          .getOrCrash();
+          .getOrCrash()!;
 
       final FirebaseAccountInformation firebaseAccountInformation =
           FirebaseAccountInformation()
@@ -67,7 +67,7 @@ class CBJCompRepository implements ICBJCompRepository {
           firebaseAccountInformation: firebaseAccountInformation);
 
       final CommendStatus commendStatus = await SmartClient.compFirstSetup(
-          cBJCompEntity.lastKnownIp.getOrCrash(), firstSetupMessage);
+          cBJCompEntity.lastKnownIp!.getOrCrash(), firstSetupMessage);
 
       if (commendStatus.success) {
         return right(unit);
@@ -97,7 +97,7 @@ class CBJCompRepository implements ICBJCompRepository {
       final CompInfo compInfo = await compEntityToCompInfo(compEntity);
 
       final CommendStatus commendStatus = await SmartClient.setCompInfo(
-          compEntity.lastKnownIp.getOrCrash(), compInfo);
+          compEntity.lastKnownIp!.getOrCrash(), compInfo);
 
       if (commendStatus.success) {
         return right(unit);
@@ -161,21 +161,21 @@ class CBJCompRepository implements ICBJCompRepository {
               .getOrElse(() => throw "Device user can't be found");
 
       final CommendStatus commendStatus =
-          await SmartClient.setFirebaseAccountInformationFlutter(
-        compEntity.lastKnownIp.getOrCrash(),
+          (await SmartClient.setFirebaseAccountInformationFlutter(
+        compEntity.lastKnownIp!.getOrCrash(),
         deviceUser,
-      );
+      ))!;
 
       final ManageNetworkEntity manageWiFiEntity =
-          IManageNetworkRepository.manageWiFiEntity;
+          IManageNetworkRepository.manageWiFiEntity!;
 
       if (manageWiFiEntity == null) {
         return left(const CBJCompFailure.unexpected());
       }
 
       final SBCommendStatus sbCommendStatus =
-          await SecurityBearServerClient.setFirebaseAccountInformation(
-              compEntity.lastKnownIp.getOrCrash(), manageWiFiEntity);
+          (await SecurityBearServerClient.setFirebaseAccountInformation(
+              compEntity.lastKnownIp!.getOrCrash(), manageWiFiEntity))!;
 
       if (commendStatus.success) {
         return right(unit);
@@ -200,7 +200,7 @@ class CBJCompRepository implements ICBJCompRepository {
     }
 
     final CompSpecs compSpecs = CompSpecs(
-      compUuid: compEntity.compUuid.getOrCrash(),
+      compUuid: compEntity.compUuid!.getOrCrash(),
       compId: compEntity.id.getOrCrash(),
       pubspecYamlVersion: '',
     );
@@ -210,7 +210,7 @@ class CBJCompRepository implements ICBJCompRepository {
     final DeviceActions deviceAction = DeviceActions.actionNotSupported;
     final DeviceStateGRPC deviceStateGRPC = DeviceStateGRPC.waitingInComp;
 
-    compEntity.cBJCompDevices.getOrCrash().forEach((DeviceEntity element) {
+    compEntity.cBJCompDevices!.getOrCrash().forEach((DeviceEntity element) {
       final DeviceTypesActions deviceTypesActions = DeviceTypesActions(
         deviceAction: deviceAction,
         deviceStateGRPC: deviceStateGRPC,
@@ -219,14 +219,14 @@ class CBJCompRepository implements ICBJCompRepository {
       final SmartDeviceInfo smartDeviceInfo = SmartDeviceInfo(
         compSpecs: compSpecs,
         deviceTypesActions: deviceTypesActions,
-        defaultName: element.defaultName.getOrCrash(),
-        senderId: element.senderId.getOrCrash(),
+        defaultName: element.defaultName!.getOrCrash(),
+        senderId: element.senderId!.getOrCrash(),
         senderDeviceModel: deviceModelString,
         senderDeviceOs: Platform.operatingSystem,
-        state: element.state.getOrCrash(),
+        state: element.state!.getOrCrash(),
         stateMassage: 'Setting up device',
-        roomId: element.roomId.getOrCrash(),
-        id: element.id.getOrCrash(),
+        roomId: element.roomId!.getOrCrash(),
+        id: element.id!.getOrCrash(),
         serverTimeStamp: FieldValue.serverTimestamp().toString(),
       );
       smartDevicesList.add(smartDeviceInfo);
@@ -276,18 +276,18 @@ class CBJCompRepository implements ICBJCompRepository {
               .getOrElse(() => throw 'Error');
 
       final ManageNetworkEntity secondWifiEntityOrFailure =
-          IManageNetworkRepository.manageWiFiEntity;
+          IManageNetworkRepository.manageWiFiEntity!;
       if (secondWifiEntityOrFailure == null) {
         print('No second Wifi Entity, it is going to crash');
       }
 
       final SBCommendStatus commendStatus =
           await SecurityBearServerClient.setWiFisInformation(
-              compEntity.lastKnownIp.getOrCrash(),
-              firstWifiEntityOrFailure.name.getOrCrash(),
-              firstWifiEntityOrFailure.pass.getOrCrash(),
-              secondWifiEntityOrFailure.name.getOrCrash(),
-              secondWifiEntityOrFailure.pass.getOrCrash());
+              compEntity.lastKnownIp!.getOrCrash(),
+              firstWifiEntityOrFailure.name!.getOrCrash(),
+              firstWifiEntityOrFailure.pass!.getOrCrash(),
+              secondWifiEntityOrFailure.name!.getOrCrash(),
+              secondWifiEntityOrFailure.pass!.getOrCrash());
 
       if (commendStatus.success) {
         return right(unit);

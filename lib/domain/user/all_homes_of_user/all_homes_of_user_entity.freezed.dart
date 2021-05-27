@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'all_homes_of_user_entity.dart';
 
@@ -9,14 +9,16 @@ part of 'all_homes_of_user_entity.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$AllHomesOfUserEntityTearOff {
   const _$AllHomesOfUserEntityTearOff();
 
-// ignore: unused_element
   _AllHomesOfUserEntity call(
-      {@required AllHomesOfUserUniqueId id,
-      @required AllHomesOfUserName name}) {
+      {required AllHomesOfUserUniqueId? id,
+      required AllHomesOfUserName? name}) {
     return _AllHomesOfUserEntity(
       id: id,
       name: name,
@@ -25,16 +27,16 @@ class _$AllHomesOfUserEntityTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $AllHomesOfUserEntity = _$AllHomesOfUserEntityTearOff();
 
 /// @nodoc
 mixin _$AllHomesOfUserEntity {
-  AllHomesOfUserUniqueId get id;
-  AllHomesOfUserName get name;
+  AllHomesOfUserUniqueId? get id => throw _privateConstructorUsedError;
+  AllHomesOfUserName? get name => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $AllHomesOfUserEntityCopyWith<AllHomesOfUserEntity> get copyWith;
+  $AllHomesOfUserEntityCopyWith<AllHomesOfUserEntity> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -42,7 +44,7 @@ abstract class $AllHomesOfUserEntityCopyWith<$Res> {
   factory $AllHomesOfUserEntityCopyWith(AllHomesOfUserEntity value,
           $Res Function(AllHomesOfUserEntity) then) =
       _$AllHomesOfUserEntityCopyWithImpl<$Res>;
-  $Res call({AllHomesOfUserUniqueId id, AllHomesOfUserName name});
+  $Res call({AllHomesOfUserUniqueId? id, AllHomesOfUserName? name});
 }
 
 /// @nodoc
@@ -56,12 +58,18 @@ class _$AllHomesOfUserEntityCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object name = freezed,
+    Object? id = freezed,
+    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as AllHomesOfUserUniqueId,
-      name: name == freezed ? _value.name : name as AllHomesOfUserName,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as AllHomesOfUserUniqueId?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as AllHomesOfUserName?,
     ));
   }
 }
@@ -73,7 +81,7 @@ abstract class _$AllHomesOfUserEntityCopyWith<$Res>
           $Res Function(_AllHomesOfUserEntity) then) =
       __$AllHomesOfUserEntityCopyWithImpl<$Res>;
   @override
-  $Res call({AllHomesOfUserUniqueId id, AllHomesOfUserName name});
+  $Res call({AllHomesOfUserUniqueId? id, AllHomesOfUserName? name});
 }
 
 /// @nodoc
@@ -89,27 +97,32 @@ class __$AllHomesOfUserEntityCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object name = freezed,
+    Object? id = freezed,
+    Object? name = freezed,
   }) {
     return _then(_AllHomesOfUserEntity(
-      id: id == freezed ? _value.id : id as AllHomesOfUserUniqueId,
-      name: name == freezed ? _value.name : name as AllHomesOfUserName,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as AllHomesOfUserUniqueId?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as AllHomesOfUserName?,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_AllHomesOfUserEntity extends _AllHomesOfUserEntity {
-  const _$_AllHomesOfUserEntity({@required this.id, @required this.name})
-      : assert(id != null),
-        assert(name != null),
-        super._();
+  const _$_AllHomesOfUserEntity({required this.id, required this.name})
+      : super._();
 
   @override
-  final AllHomesOfUserUniqueId id;
+  final AllHomesOfUserUniqueId? id;
   @override
-  final AllHomesOfUserName name;
+  final AllHomesOfUserName? name;
 
   @override
   String toString() {
@@ -140,16 +153,17 @@ class _$_AllHomesOfUserEntity extends _AllHomesOfUserEntity {
 }
 
 abstract class _AllHomesOfUserEntity extends AllHomesOfUserEntity {
-  const _AllHomesOfUserEntity._() : super._();
   const factory _AllHomesOfUserEntity(
-      {@required AllHomesOfUserUniqueId id,
-      @required AllHomesOfUserName name}) = _$_AllHomesOfUserEntity;
+      {required AllHomesOfUserUniqueId? id,
+      required AllHomesOfUserName? name}) = _$_AllHomesOfUserEntity;
+  const _AllHomesOfUserEntity._() : super._();
 
   @override
-  AllHomesOfUserUniqueId get id;
+  AllHomesOfUserUniqueId? get id => throw _privateConstructorUsedError;
   @override
-  AllHomesOfUserName get name;
+  AllHomesOfUserName? get name => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$AllHomesOfUserEntityCopyWith<_AllHomesOfUserEntity> get copyWith;
+  _$AllHomesOfUserEntityCopyWith<_AllHomesOfUserEntity> get copyWith =>
+      throw _privateConstructorUsedError;
 }

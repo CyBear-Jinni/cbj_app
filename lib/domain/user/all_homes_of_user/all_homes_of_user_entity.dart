@@ -10,8 +10,8 @@ abstract class AllHomesOfUserEntity implements _$AllHomesOfUserEntity {
   const AllHomesOfUserEntity._();
 
   const factory AllHomesOfUserEntity({
-    @required AllHomesOfUserUniqueId id,
-    @required AllHomesOfUserName name,
+    required AllHomesOfUserUniqueId? id,
+    required AllHomesOfUserName? name,
   }) = _AllHomesOfUserEntity;
 
   factory AllHomesOfUserEntity.empty() => AllHomesOfUserEntity(
@@ -20,6 +20,6 @@ abstract class AllHomesOfUserEntity implements _$AllHomesOfUserEntity {
       );
 
   Option<AllHomesOfUserFailures<dynamic>> get failureOption {
-    return name.value.fold((f) => some(f), (_) => none());
+    return name!.value.fold((f) => some(f), (_) => none());
   }
 }

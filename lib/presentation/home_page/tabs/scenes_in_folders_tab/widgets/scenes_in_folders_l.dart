@@ -53,7 +53,7 @@ class ScenesInFoldersL extends StatelessWidget {
         color: Colors.black,
         image: DecorationImage(
           image: NetworkImage(
-            folderOfScenes.fold((l) => null, (r) => r.backgroundImageUrl),
+            folderOfScenes.fold((l) => null!, (r) => r.backgroundImageUrl!),
           ),
           fit: BoxFit.cover,
         ),
@@ -93,9 +93,9 @@ class ScenesInFoldersL extends StatelessWidget {
                 ),
               ),
               child: Text(
-                folderOfScenes.fold((l) => 'NoName', (r) => r.name),
+                folderOfScenes.fold((l) => 'NoName', (r) => r.name!),
                 style: TextStyle(
-                    color: Theme.of(context).textTheme.subtitle2.color,
+                    color: ((Theme.of(context).textTheme.bodyText1!.color)!)!,
                     fontSize: 30),
                 textAlign: TextAlign.center,
               ),

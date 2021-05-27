@@ -37,12 +37,12 @@ abstract class ValueObject<T> {
   int get hashCode => value.hashCode;
 }
 
-class UniqueId extends ValueObject<String> {
+class UniqueId extends ValueObject<String?> {
   factory UniqueId() {
     return UniqueId._(right(Uuid().v1()));
   }
 
-  factory UniqueId.fromUniqueString(String uniqueId) {
+  factory UniqueId.fromUniqueString(String? uniqueId) {
     assert(uniqueId != null);
     return UniqueId._(right(uniqueId));
   }
@@ -50,5 +50,5 @@ class UniqueId extends ValueObject<String> {
   const UniqueId._(this.value);
 
   @override
-  final Either<AuthValueFailure<String>, String> value;
+  final Either<AuthValueFailure<String?>, String?> value;
 }

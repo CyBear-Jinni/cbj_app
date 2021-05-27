@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'failures.dart';
 
@@ -9,18 +9,19 @@ part of 'failures.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$ValueFailureTearOff {
   const _$ValueFailureTearOff();
 
-// ignore: unused_element
   _Auth<T> auth<T>(AuthValueFailure<T> f) {
     return _Auth<T>(
       f,
     );
   }
 
-// ignore: unused_element
   _Devices<T> devices<T>(AuthValueFailure<T> f) {
     return _Devices<T>(
       f,
@@ -29,38 +30,42 @@ class _$ValueFailureTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ValueFailure = _$ValueFailureTearOff();
 
 /// @nodoc
 mixin _$ValueFailure<T> {
-  AuthValueFailure<T> get f;
+  AuthValueFailure<T> get f => throw _privateConstructorUsedError;
 
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult auth(AuthValueFailure<T> f),
-    @required TResult devices(AuthValueFailure<T> f),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function(AuthValueFailure<T> f) auth,
+    required TResult Function(AuthValueFailure<T> f) devices,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult auth(AuthValueFailure<T> f),
-    TResult devices(AuthValueFailure<T> f),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AuthValueFailure<T> f)? auth,
+    TResult Function(AuthValueFailure<T> f)? devices,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult auth(_Auth<T> value),
-    @required TResult devices(_Devices<T> value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Auth<T> value) auth,
+    required TResult Function(_Devices<T> value) devices,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult auth(_Auth<T> value),
-    TResult devices(_Devices<T> value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Auth<T> value)? auth,
+    TResult Function(_Devices<T> value)? devices,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $ValueFailureCopyWith<T, ValueFailure<T>> get copyWith;
+  $ValueFailureCopyWith<T, ValueFailure<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -84,18 +89,18 @@ class _$ValueFailureCopyWithImpl<T, $Res>
 
   @override
   $Res call({
-    Object f = freezed,
+    Object? f = freezed,
   }) {
     return _then(_value.copyWith(
-      f: f == freezed ? _value.f : f as AuthValueFailure<T>,
+      f: f == freezed
+          ? _value.f
+          : f // ignore: cast_nullable_to_non_nullable
+              as AuthValueFailure<T>,
     ));
   }
 
   @override
   $AuthValueFailureCopyWith<T, $Res> get f {
-    if (_value.f == null) {
-      return null;
-    }
     return $AuthValueFailureCopyWith<T, $Res>(_value.f, (value) {
       return _then(_value.copyWith(f: value));
     });
@@ -125,17 +130,21 @@ class __$AuthCopyWithImpl<T, $Res> extends _$ValueFailureCopyWithImpl<T, $Res>
 
   @override
   $Res call({
-    Object f = freezed,
+    Object? f = freezed,
   }) {
     return _then(_Auth<T>(
-      f == freezed ? _value.f : f as AuthValueFailure<T>,
+      f == freezed
+          ? _value.f
+          : f // ignore: cast_nullable_to_non_nullable
+              as AuthValueFailure<T>,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_Auth<T> implements _Auth<T> {
-  const _$_Auth(this.f) : assert(f != null);
+  const _$_Auth(this.f);
 
   @override
   final AuthValueFailure<T> f;
@@ -164,23 +173,20 @@ class _$_Auth<T> implements _Auth<T> {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult auth(AuthValueFailure<T> f),
-    @required TResult devices(AuthValueFailure<T> f),
+  TResult when<TResult extends Object?>({
+    required TResult Function(AuthValueFailure<T> f) auth,
+    required TResult Function(AuthValueFailure<T> f) devices,
   }) {
-    assert(auth != null);
-    assert(devices != null);
     return auth(f);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult auth(AuthValueFailure<T> f),
-    TResult devices(AuthValueFailure<T> f),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AuthValueFailure<T> f)? auth,
+    TResult Function(AuthValueFailure<T> f)? devices,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (auth != null) {
       return auth(f);
     }
@@ -189,23 +195,20 @@ class _$_Auth<T> implements _Auth<T> {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult auth(_Auth<T> value),
-    @required TResult devices(_Devices<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Auth<T> value) auth,
+    required TResult Function(_Devices<T> value) devices,
   }) {
-    assert(auth != null);
-    assert(devices != null);
     return auth(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult auth(_Auth<T> value),
-    TResult devices(_Devices<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Auth<T> value)? auth,
+    TResult Function(_Devices<T> value)? devices,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (auth != null) {
       return auth(this);
     }
@@ -217,10 +220,11 @@ abstract class _Auth<T> implements ValueFailure<T> {
   const factory _Auth(AuthValueFailure<T> f) = _$_Auth<T>;
 
   @override
-  AuthValueFailure<T> get f;
+  AuthValueFailure<T> get f => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$AuthCopyWith<T, _Auth<T>> get copyWith;
+  _$AuthCopyWith<T, _Auth<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -248,17 +252,21 @@ class __$DevicesCopyWithImpl<T, $Res>
 
   @override
   $Res call({
-    Object f = freezed,
+    Object? f = freezed,
   }) {
     return _then(_Devices<T>(
-      f == freezed ? _value.f : f as AuthValueFailure<T>,
+      f == freezed
+          ? _value.f
+          : f // ignore: cast_nullable_to_non_nullable
+              as AuthValueFailure<T>,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_Devices<T> implements _Devices<T> {
-  const _$_Devices(this.f) : assert(f != null);
+  const _$_Devices(this.f);
 
   @override
   final AuthValueFailure<T> f;
@@ -287,23 +295,20 @@ class _$_Devices<T> implements _Devices<T> {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult auth(AuthValueFailure<T> f),
-    @required TResult devices(AuthValueFailure<T> f),
+  TResult when<TResult extends Object?>({
+    required TResult Function(AuthValueFailure<T> f) auth,
+    required TResult Function(AuthValueFailure<T> f) devices,
   }) {
-    assert(auth != null);
-    assert(devices != null);
     return devices(f);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult auth(AuthValueFailure<T> f),
-    TResult devices(AuthValueFailure<T> f),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AuthValueFailure<T> f)? auth,
+    TResult Function(AuthValueFailure<T> f)? devices,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (devices != null) {
       return devices(f);
     }
@@ -312,23 +317,20 @@ class _$_Devices<T> implements _Devices<T> {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult auth(_Auth<T> value),
-    @required TResult devices(_Devices<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Auth<T> value) auth,
+    required TResult Function(_Devices<T> value) devices,
   }) {
-    assert(auth != null);
-    assert(devices != null);
     return devices(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult auth(_Auth<T> value),
-    TResult devices(_Devices<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Auth<T> value)? auth,
+    TResult Function(_Devices<T> value)? devices,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (devices != null) {
       return devices(this);
     }
@@ -340,39 +342,36 @@ abstract class _Devices<T> implements ValueFailure<T> {
   const factory _Devices(AuthValueFailure<T> f) = _$_Devices<T>;
 
   @override
-  AuthValueFailure<T> get f;
+  AuthValueFailure<T> get f => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$DevicesCopyWith<T, _Devices<T>> get copyWith;
+  _$DevicesCopyWith<T, _Devices<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$AuthValueFailureTearOff {
   const _$AuthValueFailureTearOff();
 
-// ignore: unused_element
-  InvalidEmail<T> invalidEmail<T>({@required String failedValue}) {
+  InvalidEmail<T> invalidEmail<T>({required String failedValue}) {
     return InvalidEmail<T>(
       failedValue: failedValue,
     );
   }
 
-// ignore: unused_element
-  ShortPassword<T> invalidPassword<T>({@required String failedValue}) {
+  ShortPassword<T> invalidPassword<T>({required String failedValue}) {
     return ShortPassword<T>(
       failedValue: failedValue,
     );
   }
 
-// ignore: unused_element
-  Empty<T> empty<T>({@required String failedValue}) {
+  Empty<T> empty<T>({required String failedValue}) {
     return Empty<T>(
       failedValue: failedValue,
     );
   }
 
-// ignore: unused_element
-  ListTooLong<T> listTooLong<T>({@required T failedValue, @required int max}) {
+  ListTooLong<T> listTooLong<T>({required T failedValue, required int max}) {
     return ListTooLong<T>(
       failedValue: failedValue,
       max: max,
@@ -381,41 +380,44 @@ class _$AuthValueFailureTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $AuthValueFailure = _$AuthValueFailureTearOff();
 
 /// @nodoc
 mixin _$AuthValueFailure<T> {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult invalidEmail(String failedValue),
-    @required TResult invalidPassword(String failedValue),
-    @required TResult empty(String failedValue),
-    @required TResult listTooLong(T failedValue, int max),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function(String failedValue) invalidEmail,
+    required TResult Function(String failedValue) invalidPassword,
+    required TResult Function(String failedValue) empty,
+    required TResult Function(T failedValue, int max) listTooLong,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult invalidEmail(String failedValue),
-    TResult invalidPassword(String failedValue),
-    TResult empty(String failedValue),
-    TResult listTooLong(T failedValue, int max),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String failedValue)? invalidEmail,
+    TResult Function(String failedValue)? invalidPassword,
+    TResult Function(String failedValue)? empty,
+    TResult Function(T failedValue, int max)? listTooLong,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult invalidEmail(InvalidEmail<T> value),
-    @required TResult invalidPassword(ShortPassword<T> value),
-    @required TResult empty(Empty<T> value),
-    @required TResult listTooLong(ListTooLong<T> value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(InvalidEmail<T> value) invalidEmail,
+    required TResult Function(ShortPassword<T> value) invalidPassword,
+    required TResult Function(Empty<T> value) empty,
+    required TResult Function(ListTooLong<T> value) listTooLong,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult invalidEmail(InvalidEmail<T> value),
-    TResult invalidPassword(ShortPassword<T> value),
-    TResult empty(Empty<T> value),
-    TResult listTooLong(ListTooLong<T> value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(ShortPassword<T> value)? invalidPassword,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(ListTooLong<T> value)? listTooLong,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -456,19 +458,21 @@ class _$InvalidEmailCopyWithImpl<T, $Res>
 
   @override
   $Res call({
-    Object failedValue = freezed,
+    Object? failedValue = freezed,
   }) {
     return _then(InvalidEmail<T>(
-      failedValue:
-          failedValue == freezed ? _value.failedValue : failedValue as String,
+      failedValue: failedValue == freezed
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
+
 class _$InvalidEmail<T> implements InvalidEmail<T> {
-  const _$InvalidEmail({@required this.failedValue})
-      : assert(failedValue != null);
+  const _$InvalidEmail({required this.failedValue});
 
   @override
   final String failedValue;
@@ -498,29 +502,24 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult invalidEmail(String failedValue),
-    @required TResult invalidPassword(String failedValue),
-    @required TResult empty(String failedValue),
-    @required TResult listTooLong(T failedValue, int max),
+  TResult when<TResult extends Object?>({
+    required TResult Function(String failedValue) invalidEmail,
+    required TResult Function(String failedValue) invalidPassword,
+    required TResult Function(String failedValue) empty,
+    required TResult Function(T failedValue, int max) listTooLong,
   }) {
-    assert(invalidEmail != null);
-    assert(invalidPassword != null);
-    assert(empty != null);
-    assert(listTooLong != null);
     return invalidEmail(failedValue);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult invalidEmail(String failedValue),
-    TResult invalidPassword(String failedValue),
-    TResult empty(String failedValue),
-    TResult listTooLong(T failedValue, int max),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String failedValue)? invalidEmail,
+    TResult Function(String failedValue)? invalidPassword,
+    TResult Function(String failedValue)? empty,
+    TResult Function(T failedValue, int max)? listTooLong,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (invalidEmail != null) {
       return invalidEmail(failedValue);
     }
@@ -529,29 +528,24 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult invalidEmail(InvalidEmail<T> value),
-    @required TResult invalidPassword(ShortPassword<T> value),
-    @required TResult empty(Empty<T> value),
-    @required TResult listTooLong(ListTooLong<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(InvalidEmail<T> value) invalidEmail,
+    required TResult Function(ShortPassword<T> value) invalidPassword,
+    required TResult Function(Empty<T> value) empty,
+    required TResult Function(ListTooLong<T> value) listTooLong,
   }) {
-    assert(invalidEmail != null);
-    assert(invalidPassword != null);
-    assert(empty != null);
-    assert(listTooLong != null);
     return invalidEmail(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult invalidEmail(InvalidEmail<T> value),
-    TResult invalidPassword(ShortPassword<T> value),
-    TResult empty(Empty<T> value),
-    TResult listTooLong(ListTooLong<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(ShortPassword<T> value)? invalidPassword,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(ListTooLong<T> value)? listTooLong,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (invalidEmail != null) {
       return invalidEmail(this);
     }
@@ -560,12 +554,12 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
 }
 
 abstract class InvalidEmail<T> implements AuthValueFailure<T> {
-  const factory InvalidEmail({@required String failedValue}) =
-      _$InvalidEmail<T>;
+  const factory InvalidEmail({required String failedValue}) = _$InvalidEmail<T>;
 
-  String get failedValue;
+  String get failedValue => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $InvalidEmailCopyWith<T, InvalidEmail<T>> get copyWith;
+  $InvalidEmailCopyWith<T, InvalidEmail<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -589,19 +583,21 @@ class _$ShortPasswordCopyWithImpl<T, $Res>
 
   @override
   $Res call({
-    Object failedValue = freezed,
+    Object? failedValue = freezed,
   }) {
     return _then(ShortPassword<T>(
-      failedValue:
-          failedValue == freezed ? _value.failedValue : failedValue as String,
+      failedValue: failedValue == freezed
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
+
 class _$ShortPassword<T> implements ShortPassword<T> {
-  const _$ShortPassword({@required this.failedValue})
-      : assert(failedValue != null);
+  const _$ShortPassword({required this.failedValue});
 
   @override
   final String failedValue;
@@ -631,29 +627,24 @@ class _$ShortPassword<T> implements ShortPassword<T> {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult invalidEmail(String failedValue),
-    @required TResult invalidPassword(String failedValue),
-    @required TResult empty(String failedValue),
-    @required TResult listTooLong(T failedValue, int max),
+  TResult when<TResult extends Object?>({
+    required TResult Function(String failedValue) invalidEmail,
+    required TResult Function(String failedValue) invalidPassword,
+    required TResult Function(String failedValue) empty,
+    required TResult Function(T failedValue, int max) listTooLong,
   }) {
-    assert(invalidEmail != null);
-    assert(invalidPassword != null);
-    assert(empty != null);
-    assert(listTooLong != null);
     return invalidPassword(failedValue);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult invalidEmail(String failedValue),
-    TResult invalidPassword(String failedValue),
-    TResult empty(String failedValue),
-    TResult listTooLong(T failedValue, int max),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String failedValue)? invalidEmail,
+    TResult Function(String failedValue)? invalidPassword,
+    TResult Function(String failedValue)? empty,
+    TResult Function(T failedValue, int max)? listTooLong,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (invalidPassword != null) {
       return invalidPassword(failedValue);
     }
@@ -662,29 +653,24 @@ class _$ShortPassword<T> implements ShortPassword<T> {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult invalidEmail(InvalidEmail<T> value),
-    @required TResult invalidPassword(ShortPassword<T> value),
-    @required TResult empty(Empty<T> value),
-    @required TResult listTooLong(ListTooLong<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(InvalidEmail<T> value) invalidEmail,
+    required TResult Function(ShortPassword<T> value) invalidPassword,
+    required TResult Function(Empty<T> value) empty,
+    required TResult Function(ListTooLong<T> value) listTooLong,
   }) {
-    assert(invalidEmail != null);
-    assert(invalidPassword != null);
-    assert(empty != null);
-    assert(listTooLong != null);
     return invalidPassword(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult invalidEmail(InvalidEmail<T> value),
-    TResult invalidPassword(ShortPassword<T> value),
-    TResult empty(Empty<T> value),
-    TResult listTooLong(ListTooLong<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(ShortPassword<T> value)? invalidPassword,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(ListTooLong<T> value)? listTooLong,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (invalidPassword != null) {
       return invalidPassword(this);
     }
@@ -693,12 +679,13 @@ class _$ShortPassword<T> implements ShortPassword<T> {
 }
 
 abstract class ShortPassword<T> implements AuthValueFailure<T> {
-  const factory ShortPassword({@required String failedValue}) =
+  const factory ShortPassword({required String failedValue}) =
       _$ShortPassword<T>;
 
-  String get failedValue;
+  String get failedValue => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ShortPasswordCopyWith<T, ShortPassword<T>> get copyWith;
+  $ShortPasswordCopyWith<T, ShortPassword<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -720,18 +707,21 @@ class _$EmptyCopyWithImpl<T, $Res>
 
   @override
   $Res call({
-    Object failedValue = freezed,
+    Object? failedValue = freezed,
   }) {
     return _then(Empty<T>(
-      failedValue:
-          failedValue == freezed ? _value.failedValue : failedValue as String,
+      failedValue: failedValue == freezed
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
+
 class _$Empty<T> implements Empty<T> {
-  const _$Empty({@required this.failedValue}) : assert(failedValue != null);
+  const _$Empty({required this.failedValue});
 
   @override
   final String failedValue;
@@ -761,29 +751,24 @@ class _$Empty<T> implements Empty<T> {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult invalidEmail(String failedValue),
-    @required TResult invalidPassword(String failedValue),
-    @required TResult empty(String failedValue),
-    @required TResult listTooLong(T failedValue, int max),
+  TResult when<TResult extends Object?>({
+    required TResult Function(String failedValue) invalidEmail,
+    required TResult Function(String failedValue) invalidPassword,
+    required TResult Function(String failedValue) empty,
+    required TResult Function(T failedValue, int max) listTooLong,
   }) {
-    assert(invalidEmail != null);
-    assert(invalidPassword != null);
-    assert(empty != null);
-    assert(listTooLong != null);
     return empty(failedValue);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult invalidEmail(String failedValue),
-    TResult invalidPassword(String failedValue),
-    TResult empty(String failedValue),
-    TResult listTooLong(T failedValue, int max),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String failedValue)? invalidEmail,
+    TResult Function(String failedValue)? invalidPassword,
+    TResult Function(String failedValue)? empty,
+    TResult Function(T failedValue, int max)? listTooLong,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (empty != null) {
       return empty(failedValue);
     }
@@ -792,29 +777,24 @@ class _$Empty<T> implements Empty<T> {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult invalidEmail(InvalidEmail<T> value),
-    @required TResult invalidPassword(ShortPassword<T> value),
-    @required TResult empty(Empty<T> value),
-    @required TResult listTooLong(ListTooLong<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(InvalidEmail<T> value) invalidEmail,
+    required TResult Function(ShortPassword<T> value) invalidPassword,
+    required TResult Function(Empty<T> value) empty,
+    required TResult Function(ListTooLong<T> value) listTooLong,
   }) {
-    assert(invalidEmail != null);
-    assert(invalidPassword != null);
-    assert(empty != null);
-    assert(listTooLong != null);
     return empty(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult invalidEmail(InvalidEmail<T> value),
-    TResult invalidPassword(ShortPassword<T> value),
-    TResult empty(Empty<T> value),
-    TResult listTooLong(ListTooLong<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(ShortPassword<T> value)? invalidPassword,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(ListTooLong<T> value)? listTooLong,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (empty != null) {
       return empty(this);
     }
@@ -823,11 +803,12 @@ class _$Empty<T> implements Empty<T> {
 }
 
 abstract class Empty<T> implements AuthValueFailure<T> {
-  const factory Empty({@required String failedValue}) = _$Empty<T>;
+  const factory Empty({required String failedValue}) = _$Empty<T>;
 
-  String get failedValue;
+  String get failedValue => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $EmptyCopyWith<T, Empty<T>> get copyWith;
+  $EmptyCopyWith<T, Empty<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -851,22 +832,26 @@ class _$ListTooLongCopyWithImpl<T, $Res>
 
   @override
   $Res call({
-    Object failedValue = freezed,
-    Object max = freezed,
+    Object? failedValue = freezed,
+    Object? max = freezed,
   }) {
     return _then(ListTooLong<T>(
-      failedValue:
-          failedValue == freezed ? _value.failedValue : failedValue as T,
-      max: max == freezed ? _value.max : max as int,
+      failedValue: failedValue == freezed
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as T,
+      max: max == freezed
+          ? _value.max
+          : max // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
 
 /// @nodoc
+
 class _$ListTooLong<T> implements ListTooLong<T> {
-  const _$ListTooLong({@required this.failedValue, @required this.max})
-      : assert(failedValue != null),
-        assert(max != null);
+  const _$ListTooLong({required this.failedValue, required this.max});
 
   @override
   final T failedValue;
@@ -902,29 +887,24 @@ class _$ListTooLong<T> implements ListTooLong<T> {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult invalidEmail(String failedValue),
-    @required TResult invalidPassword(String failedValue),
-    @required TResult empty(String failedValue),
-    @required TResult listTooLong(T failedValue, int max),
+  TResult when<TResult extends Object?>({
+    required TResult Function(String failedValue) invalidEmail,
+    required TResult Function(String failedValue) invalidPassword,
+    required TResult Function(String failedValue) empty,
+    required TResult Function(T failedValue, int max) listTooLong,
   }) {
-    assert(invalidEmail != null);
-    assert(invalidPassword != null);
-    assert(empty != null);
-    assert(listTooLong != null);
     return listTooLong(failedValue, max);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult invalidEmail(String failedValue),
-    TResult invalidPassword(String failedValue),
-    TResult empty(String failedValue),
-    TResult listTooLong(T failedValue, int max),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String failedValue)? invalidEmail,
+    TResult Function(String failedValue)? invalidPassword,
+    TResult Function(String failedValue)? empty,
+    TResult Function(T failedValue, int max)? listTooLong,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (listTooLong != null) {
       return listTooLong(failedValue, max);
     }
@@ -933,29 +913,24 @@ class _$ListTooLong<T> implements ListTooLong<T> {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult invalidEmail(InvalidEmail<T> value),
-    @required TResult invalidPassword(ShortPassword<T> value),
-    @required TResult empty(Empty<T> value),
-    @required TResult listTooLong(ListTooLong<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(InvalidEmail<T> value) invalidEmail,
+    required TResult Function(ShortPassword<T> value) invalidPassword,
+    required TResult Function(Empty<T> value) empty,
+    required TResult Function(ListTooLong<T> value) listTooLong,
   }) {
-    assert(invalidEmail != null);
-    assert(invalidPassword != null);
-    assert(empty != null);
-    assert(listTooLong != null);
     return listTooLong(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult invalidEmail(InvalidEmail<T> value),
-    TResult invalidPassword(ShortPassword<T> value),
-    TResult empty(Empty<T> value),
-    TResult listTooLong(ListTooLong<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(ShortPassword<T> value)? invalidPassword,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(ListTooLong<T> value)? listTooLong,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (listTooLong != null) {
       return listTooLong(this);
     }
@@ -964,11 +939,12 @@ class _$ListTooLong<T> implements ListTooLong<T> {
 }
 
 abstract class ListTooLong<T> implements AuthValueFailure<T> {
-  const factory ListTooLong({@required T failedValue, @required int max}) =
+  const factory ListTooLong({required T failedValue, required int max}) =
       _$ListTooLong<T>;
 
-  T get failedValue;
-  int get max;
+  T get failedValue => throw _privateConstructorUsedError;
+  int get max => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ListTooLongCopyWith<T, ListTooLong<T>> get copyWith;
+  $ListTooLongCopyWith<T, ListTooLong<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }

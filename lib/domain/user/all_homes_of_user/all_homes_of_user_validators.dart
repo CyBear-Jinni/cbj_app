@@ -12,9 +12,9 @@ Either<AllHomesOfUserFailures<String>, String>
   }
 }
 
-Either<AllHomesOfUserFailures<String>, String>
-    validateAllHomesOfUserNameNotEmpty(String input) {
-  if (input.isNotEmpty) {
+Either<AllHomesOfUserFailures<String?>, String?>
+    validateAllHomesOfUserNameNotEmpty(String? input) {
+  if (input!.isNotEmpty) {
     return right(input);
   } else {
     return left(AllHomesOfUserFailures.empty(

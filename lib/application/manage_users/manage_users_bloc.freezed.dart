@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'manage_users_bloc.dart';
 
@@ -9,23 +9,23 @@ part of 'manage_users_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$ManageUsersEventTearOff {
   const _$ManageUsersEventTearOff();
 
-// ignore: unused_element
   Initialized initialized() {
     return const Initialized();
   }
 
-// ignore: unused_element
   _AddByEmail addByEmail(String mail) {
     return _AddByEmail(
       mail,
     );
   }
 
-// ignore: unused_element
   _UserReceived userReceived(
       Either<HomeUserFailures, KtList<HomeUserEntity>> failureOrUsers) {
     return _UserReceived(
@@ -33,7 +33,6 @@ class _$ManageUsersEventTearOff {
     );
   }
 
-// ignore: unused_element
   _Deleted deleted(HomeUserEntity homeUserEntity) {
     return _Deleted(
       homeUserEntity,
@@ -42,44 +41,48 @@ class _$ManageUsersEventTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ManageUsersEvent = _$ManageUsersEventTearOff();
 
 /// @nodoc
 mixin _$ManageUsersEvent {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialized(),
-    @required TResult addByEmail(String mail),
-    @required
-        TResult userReceived(
-            Either<HomeUserFailures, KtList<HomeUserEntity>> failureOrUsers),
-    @required TResult deleted(HomeUserEntity homeUserEntity),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(String mail) addByEmail,
+    required TResult Function(
+            Either<HomeUserFailures, KtList<HomeUserEntity>> failureOrUsers)
+        userReceived,
+    required TResult Function(HomeUserEntity homeUserEntity) deleted,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialized(),
-    TResult addByEmail(String mail),
-    TResult userReceived(
-        Either<HomeUserFailures, KtList<HomeUserEntity>> failureOrUsers),
-    TResult deleted(HomeUserEntity homeUserEntity),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(String mail)? addByEmail,
+    TResult Function(
+            Either<HomeUserFailures, KtList<HomeUserEntity>> failureOrUsers)?
+        userReceived,
+    TResult Function(HomeUserEntity homeUserEntity)? deleted,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialized(Initialized value),
-    @required TResult addByEmail(_AddByEmail value),
-    @required TResult userReceived(_UserReceived value),
-    @required TResult deleted(_Deleted value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(_AddByEmail value) addByEmail,
+    required TResult Function(_UserReceived value) userReceived,
+    required TResult Function(_Deleted value) deleted,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialized(Initialized value),
-    TResult addByEmail(_AddByEmail value),
-    TResult userReceived(_UserReceived value),
-    TResult deleted(_Deleted value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(_AddByEmail value)? addByEmail,
+    TResult Function(_UserReceived value)? userReceived,
+    TResult Function(_Deleted value)? deleted,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -119,6 +122,7 @@ class _$InitializedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Initialized implements Initialized {
   const _$Initialized();
 
@@ -137,32 +141,28 @@ class _$Initialized implements Initialized {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialized(),
-    @required TResult addByEmail(String mail),
-    @required
-        TResult userReceived(
-            Either<HomeUserFailures, KtList<HomeUserEntity>> failureOrUsers),
-    @required TResult deleted(HomeUserEntity homeUserEntity),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(String mail) addByEmail,
+    required TResult Function(
+            Either<HomeUserFailures, KtList<HomeUserEntity>> failureOrUsers)
+        userReceived,
+    required TResult Function(HomeUserEntity homeUserEntity) deleted,
   }) {
-    assert(initialized != null);
-    assert(addByEmail != null);
-    assert(userReceived != null);
-    assert(deleted != null);
     return initialized();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialized(),
-    TResult addByEmail(String mail),
-    TResult userReceived(
-        Either<HomeUserFailures, KtList<HomeUserEntity>> failureOrUsers),
-    TResult deleted(HomeUserEntity homeUserEntity),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(String mail)? addByEmail,
+    TResult Function(
+            Either<HomeUserFailures, KtList<HomeUserEntity>> failureOrUsers)?
+        userReceived,
+    TResult Function(HomeUserEntity homeUserEntity)? deleted,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initialized != null) {
       return initialized();
     }
@@ -171,29 +171,24 @@ class _$Initialized implements Initialized {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialized(Initialized value),
-    @required TResult addByEmail(_AddByEmail value),
-    @required TResult userReceived(_UserReceived value),
-    @required TResult deleted(_Deleted value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(_AddByEmail value) addByEmail,
+    required TResult Function(_UserReceived value) userReceived,
+    required TResult Function(_Deleted value) deleted,
   }) {
-    assert(initialized != null);
-    assert(addByEmail != null);
-    assert(userReceived != null);
-    assert(deleted != null);
     return initialized(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialized(Initialized value),
-    TResult addByEmail(_AddByEmail value),
-    TResult userReceived(_UserReceived value),
-    TResult deleted(_Deleted value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(_AddByEmail value)? addByEmail,
+    TResult Function(_UserReceived value)? userReceived,
+    TResult Function(_Deleted value)? deleted,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initialized != null) {
       return initialized(this);
     }
@@ -226,17 +221,21 @@ class __$AddByEmailCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object mail = freezed,
+    Object? mail = freezed,
   }) {
     return _then(_AddByEmail(
-      mail == freezed ? _value.mail : mail as String,
+      mail == freezed
+          ? _value.mail
+          : mail // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_AddByEmail implements _AddByEmail {
-  const _$_AddByEmail(this.mail) : assert(mail != null);
+  const _$_AddByEmail(this.mail);
 
   @override
   final String mail;
@@ -265,32 +264,28 @@ class _$_AddByEmail implements _AddByEmail {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialized(),
-    @required TResult addByEmail(String mail),
-    @required
-        TResult userReceived(
-            Either<HomeUserFailures, KtList<HomeUserEntity>> failureOrUsers),
-    @required TResult deleted(HomeUserEntity homeUserEntity),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(String mail) addByEmail,
+    required TResult Function(
+            Either<HomeUserFailures, KtList<HomeUserEntity>> failureOrUsers)
+        userReceived,
+    required TResult Function(HomeUserEntity homeUserEntity) deleted,
   }) {
-    assert(initialized != null);
-    assert(addByEmail != null);
-    assert(userReceived != null);
-    assert(deleted != null);
     return addByEmail(mail);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialized(),
-    TResult addByEmail(String mail),
-    TResult userReceived(
-        Either<HomeUserFailures, KtList<HomeUserEntity>> failureOrUsers),
-    TResult deleted(HomeUserEntity homeUserEntity),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(String mail)? addByEmail,
+    TResult Function(
+            Either<HomeUserFailures, KtList<HomeUserEntity>> failureOrUsers)?
+        userReceived,
+    TResult Function(HomeUserEntity homeUserEntity)? deleted,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (addByEmail != null) {
       return addByEmail(mail);
     }
@@ -299,29 +294,24 @@ class _$_AddByEmail implements _AddByEmail {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialized(Initialized value),
-    @required TResult addByEmail(_AddByEmail value),
-    @required TResult userReceived(_UserReceived value),
-    @required TResult deleted(_Deleted value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(_AddByEmail value) addByEmail,
+    required TResult Function(_UserReceived value) userReceived,
+    required TResult Function(_Deleted value) deleted,
   }) {
-    assert(initialized != null);
-    assert(addByEmail != null);
-    assert(userReceived != null);
-    assert(deleted != null);
     return addByEmail(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialized(Initialized value),
-    TResult addByEmail(_AddByEmail value),
-    TResult userReceived(_UserReceived value),
-    TResult deleted(_Deleted value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(_AddByEmail value)? addByEmail,
+    TResult Function(_UserReceived value)? userReceived,
+    TResult Function(_Deleted value)? deleted,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (addByEmail != null) {
       return addByEmail(this);
     }
@@ -332,9 +322,10 @@ class _$_AddByEmail implements _AddByEmail {
 abstract class _AddByEmail implements ManageUsersEvent {
   const factory _AddByEmail(String mail) = _$_AddByEmail;
 
-  String get mail;
+  String get mail => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$AddByEmailCopyWith<_AddByEmail> get copyWith;
+  _$AddByEmailCopyWith<_AddByEmail> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -358,19 +349,21 @@ class __$UserReceivedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object failureOrUsers = freezed,
+    Object? failureOrUsers = freezed,
   }) {
     return _then(_UserReceived(
       failureOrUsers == freezed
           ? _value.failureOrUsers
-          : failureOrUsers as Either<HomeUserFailures, KtList<HomeUserEntity>>,
+          : failureOrUsers // ignore: cast_nullable_to_non_nullable
+              as Either<HomeUserFailures, KtList<HomeUserEntity>>,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_UserReceived implements _UserReceived {
-  const _$_UserReceived(this.failureOrUsers) : assert(failureOrUsers != null);
+  const _$_UserReceived(this.failureOrUsers);
 
   @override
   final Either<HomeUserFailures, KtList<HomeUserEntity>> failureOrUsers;
@@ -401,32 +394,28 @@ class _$_UserReceived implements _UserReceived {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialized(),
-    @required TResult addByEmail(String mail),
-    @required
-        TResult userReceived(
-            Either<HomeUserFailures, KtList<HomeUserEntity>> failureOrUsers),
-    @required TResult deleted(HomeUserEntity homeUserEntity),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(String mail) addByEmail,
+    required TResult Function(
+            Either<HomeUserFailures, KtList<HomeUserEntity>> failureOrUsers)
+        userReceived,
+    required TResult Function(HomeUserEntity homeUserEntity) deleted,
   }) {
-    assert(initialized != null);
-    assert(addByEmail != null);
-    assert(userReceived != null);
-    assert(deleted != null);
     return userReceived(failureOrUsers);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialized(),
-    TResult addByEmail(String mail),
-    TResult userReceived(
-        Either<HomeUserFailures, KtList<HomeUserEntity>> failureOrUsers),
-    TResult deleted(HomeUserEntity homeUserEntity),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(String mail)? addByEmail,
+    TResult Function(
+            Either<HomeUserFailures, KtList<HomeUserEntity>> failureOrUsers)?
+        userReceived,
+    TResult Function(HomeUserEntity homeUserEntity)? deleted,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (userReceived != null) {
       return userReceived(failureOrUsers);
     }
@@ -435,29 +424,24 @@ class _$_UserReceived implements _UserReceived {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialized(Initialized value),
-    @required TResult addByEmail(_AddByEmail value),
-    @required TResult userReceived(_UserReceived value),
-    @required TResult deleted(_Deleted value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(_AddByEmail value) addByEmail,
+    required TResult Function(_UserReceived value) userReceived,
+    required TResult Function(_Deleted value) deleted,
   }) {
-    assert(initialized != null);
-    assert(addByEmail != null);
-    assert(userReceived != null);
-    assert(deleted != null);
     return userReceived(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialized(Initialized value),
-    TResult addByEmail(_AddByEmail value),
-    TResult userReceived(_UserReceived value),
-    TResult deleted(_Deleted value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(_AddByEmail value)? addByEmail,
+    TResult Function(_UserReceived value)? userReceived,
+    TResult Function(_Deleted value)? deleted,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (userReceived != null) {
       return userReceived(this);
     }
@@ -470,9 +454,11 @@ abstract class _UserReceived implements ManageUsersEvent {
           Either<HomeUserFailures, KtList<HomeUserEntity>> failureOrUsers) =
       _$_UserReceived;
 
-  Either<HomeUserFailures, KtList<HomeUserEntity>> get failureOrUsers;
+  Either<HomeUserFailures, KtList<HomeUserEntity>> get failureOrUsers =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$UserReceivedCopyWith<_UserReceived> get copyWith;
+  _$UserReceivedCopyWith<_UserReceived> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -495,20 +481,18 @@ class __$DeletedCopyWithImpl<$Res> extends _$ManageUsersEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object homeUserEntity = freezed,
+    Object? homeUserEntity = freezed,
   }) {
     return _then(_Deleted(
       homeUserEntity == freezed
           ? _value.homeUserEntity
-          : homeUserEntity as HomeUserEntity,
+          : homeUserEntity // ignore: cast_nullable_to_non_nullable
+              as HomeUserEntity,
     ));
   }
 
   @override
   $HomeUserEntityCopyWith<$Res> get homeUserEntity {
-    if (_value.homeUserEntity == null) {
-      return null;
-    }
     return $HomeUserEntityCopyWith<$Res>(_value.homeUserEntity, (value) {
       return _then(_value.copyWith(homeUserEntity: value));
     });
@@ -516,8 +500,9 @@ class __$DeletedCopyWithImpl<$Res> extends _$ManageUsersEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_Deleted implements _Deleted {
-  const _$_Deleted(this.homeUserEntity) : assert(homeUserEntity != null);
+  const _$_Deleted(this.homeUserEntity);
 
   @override
   final HomeUserEntity homeUserEntity;
@@ -548,32 +533,28 @@ class _$_Deleted implements _Deleted {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialized(),
-    @required TResult addByEmail(String mail),
-    @required
-        TResult userReceived(
-            Either<HomeUserFailures, KtList<HomeUserEntity>> failureOrUsers),
-    @required TResult deleted(HomeUserEntity homeUserEntity),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(String mail) addByEmail,
+    required TResult Function(
+            Either<HomeUserFailures, KtList<HomeUserEntity>> failureOrUsers)
+        userReceived,
+    required TResult Function(HomeUserEntity homeUserEntity) deleted,
   }) {
-    assert(initialized != null);
-    assert(addByEmail != null);
-    assert(userReceived != null);
-    assert(deleted != null);
     return deleted(homeUserEntity);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialized(),
-    TResult addByEmail(String mail),
-    TResult userReceived(
-        Either<HomeUserFailures, KtList<HomeUserEntity>> failureOrUsers),
-    TResult deleted(HomeUserEntity homeUserEntity),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(String mail)? addByEmail,
+    TResult Function(
+            Either<HomeUserFailures, KtList<HomeUserEntity>> failureOrUsers)?
+        userReceived,
+    TResult Function(HomeUserEntity homeUserEntity)? deleted,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (deleted != null) {
       return deleted(homeUserEntity);
     }
@@ -582,29 +563,24 @@ class _$_Deleted implements _Deleted {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialized(Initialized value),
-    @required TResult addByEmail(_AddByEmail value),
-    @required TResult userReceived(_UserReceived value),
-    @required TResult deleted(_Deleted value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(_AddByEmail value) addByEmail,
+    required TResult Function(_UserReceived value) userReceived,
+    required TResult Function(_Deleted value) deleted,
   }) {
-    assert(initialized != null);
-    assert(addByEmail != null);
-    assert(userReceived != null);
-    assert(deleted != null);
     return deleted(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialized(Initialized value),
-    TResult addByEmail(_AddByEmail value),
-    TResult userReceived(_UserReceived value),
-    TResult deleted(_Deleted value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(_AddByEmail value)? addByEmail,
+    TResult Function(_UserReceived value)? userReceived,
+    TResult Function(_Deleted value)? deleted,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (deleted != null) {
       return deleted(this);
     }
@@ -615,116 +591,114 @@ class _$_Deleted implements _Deleted {
 abstract class _Deleted implements ManageUsersEvent {
   const factory _Deleted(HomeUserEntity homeUserEntity) = _$_Deleted;
 
-  HomeUserEntity get homeUserEntity;
+  HomeUserEntity get homeUserEntity => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$DeletedCopyWith<_Deleted> get copyWith;
+  _$DeletedCopyWith<_Deleted> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$ManageUsersStateTearOff {
   const _$ManageUsersStateTearOff();
 
-// ignore: unused_element
   _Initial initial() {
     return const _Initial();
   }
 
-// ignore: unused_element
   _InProgress inProgress() {
     return const _InProgress();
   }
 
-// ignore: unused_element
   _LoadSuccess loadSuccess(KtList<HomeUserEntity> homeUsers) {
     return _LoadSuccess(
       homeUsers,
     );
   }
 
-// ignore: unused_element
   _AddSuccess addSuccess(String email) {
     return _AddSuccess(
       email,
     );
   }
 
-// ignore: unused_element
   _DeleteFailure deleteFailure(HomeUserFailures<dynamic> homeUserFailures) {
     return _DeleteFailure(
       homeUserFailures,
     );
   }
 
-// ignore: unused_element
   _DeleteSuccess deleteSuccess() {
     return const _DeleteSuccess();
   }
 
-// ignore: unused_element
   _loadFailure loadFailure(HomeUserFailures<dynamic> homeUserFailure) {
     return _loadFailure(
       homeUserFailure,
     );
   }
 
-// ignore: unused_element
   Error error() {
     return const Error();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ManageUsersState = _$ManageUsersStateTearOff();
 
 /// @nodoc
 mixin _$ManageUsersState {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult inProgress(),
-    @required TResult loadSuccess(KtList<HomeUserEntity> homeUsers),
-    @required TResult addSuccess(String email),
-    @required TResult deleteFailure(HomeUserFailures<dynamic> homeUserFailures),
-    @required TResult deleteSuccess(),
-    @required TResult loadFailure(HomeUserFailures<dynamic> homeUserFailure),
-    @required TResult error(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() inProgress,
+    required TResult Function(KtList<HomeUserEntity> homeUsers) loadSuccess,
+    required TResult Function(String email) addSuccess,
+    required TResult Function(HomeUserFailures<dynamic> homeUserFailures)
+        deleteFailure,
+    required TResult Function() deleteSuccess,
+    required TResult Function(HomeUserFailures<dynamic> homeUserFailure)
+        loadFailure,
+    required TResult Function() error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult inProgress(),
-    TResult loadSuccess(KtList<HomeUserEntity> homeUsers),
-    TResult addSuccess(String email),
-    TResult deleteFailure(HomeUserFailures<dynamic> homeUserFailures),
-    TResult deleteSuccess(),
-    TResult loadFailure(HomeUserFailures<dynamic> homeUserFailure),
-    TResult error(),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? inProgress,
+    TResult Function(KtList<HomeUserEntity> homeUsers)? loadSuccess,
+    TResult Function(String email)? addSuccess,
+    TResult Function(HomeUserFailures<dynamic> homeUserFailures)? deleteFailure,
+    TResult Function()? deleteSuccess,
+    TResult Function(HomeUserFailures<dynamic> homeUserFailure)? loadFailure,
+    TResult Function()? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult inProgress(_InProgress value),
-    @required TResult loadSuccess(_LoadSuccess value),
-    @required TResult addSuccess(_AddSuccess value),
-    @required TResult deleteFailure(_DeleteFailure value),
-    @required TResult deleteSuccess(_DeleteSuccess value),
-    @required TResult loadFailure(_loadFailure value),
-    @required TResult error(Error value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_InProgress value) inProgress,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_AddSuccess value) addSuccess,
+    required TResult Function(_DeleteFailure value) deleteFailure,
+    required TResult Function(_DeleteSuccess value) deleteSuccess,
+    required TResult Function(_loadFailure value) loadFailure,
+    required TResult Function(Error value) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult inProgress(_InProgress value),
-    TResult loadSuccess(_LoadSuccess value),
-    TResult addSuccess(_AddSuccess value),
-    TResult deleteFailure(_DeleteFailure value),
-    TResult deleteSuccess(_DeleteSuccess value),
-    TResult loadFailure(_loadFailure value),
-    TResult error(Error value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_InProgress value)? inProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_AddSuccess value)? addSuccess,
+    TResult Function(_DeleteFailure value)? deleteFailure,
+    TResult Function(_DeleteSuccess value)? deleteSuccess,
+    TResult Function(_loadFailure value)? loadFailure,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -761,6 +735,7 @@ class __$InitialCopyWithImpl<$Res> extends _$ManageUsersStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_Initial implements _Initial {
   const _$_Initial();
 
@@ -779,41 +754,34 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult inProgress(),
-    @required TResult loadSuccess(KtList<HomeUserEntity> homeUsers),
-    @required TResult addSuccess(String email),
-    @required TResult deleteFailure(HomeUserFailures<dynamic> homeUserFailures),
-    @required TResult deleteSuccess(),
-    @required TResult loadFailure(HomeUserFailures<dynamic> homeUserFailure),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() inProgress,
+    required TResult Function(KtList<HomeUserEntity> homeUsers) loadSuccess,
+    required TResult Function(String email) addSuccess,
+    required TResult Function(HomeUserFailures<dynamic> homeUserFailures)
+        deleteFailure,
+    required TResult Function() deleteSuccess,
+    required TResult Function(HomeUserFailures<dynamic> homeUserFailure)
+        loadFailure,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(loadSuccess != null);
-    assert(addSuccess != null);
-    assert(deleteFailure != null);
-    assert(deleteSuccess != null);
-    assert(loadFailure != null);
-    assert(error != null);
     return initial();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult inProgress(),
-    TResult loadSuccess(KtList<HomeUserEntity> homeUsers),
-    TResult addSuccess(String email),
-    TResult deleteFailure(HomeUserFailures<dynamic> homeUserFailures),
-    TResult deleteSuccess(),
-    TResult loadFailure(HomeUserFailures<dynamic> homeUserFailure),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? inProgress,
+    TResult Function(KtList<HomeUserEntity> homeUsers)? loadSuccess,
+    TResult Function(String email)? addSuccess,
+    TResult Function(HomeUserFailures<dynamic> homeUserFailures)? deleteFailure,
+    TResult Function()? deleteSuccess,
+    TResult Function(HomeUserFailures<dynamic> homeUserFailure)? loadFailure,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initial != null) {
       return initial();
     }
@@ -822,41 +790,32 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult inProgress(_InProgress value),
-    @required TResult loadSuccess(_LoadSuccess value),
-    @required TResult addSuccess(_AddSuccess value),
-    @required TResult deleteFailure(_DeleteFailure value),
-    @required TResult deleteSuccess(_DeleteSuccess value),
-    @required TResult loadFailure(_loadFailure value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_InProgress value) inProgress,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_AddSuccess value) addSuccess,
+    required TResult Function(_DeleteFailure value) deleteFailure,
+    required TResult Function(_DeleteSuccess value) deleteSuccess,
+    required TResult Function(_loadFailure value) loadFailure,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(loadSuccess != null);
-    assert(addSuccess != null);
-    assert(deleteFailure != null);
-    assert(deleteSuccess != null);
-    assert(loadFailure != null);
-    assert(error != null);
     return initial(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult inProgress(_InProgress value),
-    TResult loadSuccess(_LoadSuccess value),
-    TResult addSuccess(_AddSuccess value),
-    TResult deleteFailure(_DeleteFailure value),
-    TResult deleteSuccess(_DeleteSuccess value),
-    TResult loadFailure(_loadFailure value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_InProgress value)? inProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_AddSuccess value)? addSuccess,
+    TResult Function(_DeleteFailure value)? deleteFailure,
+    TResult Function(_DeleteSuccess value)? deleteSuccess,
+    TResult Function(_loadFailure value)? loadFailure,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initial != null) {
       return initial(this);
     }
@@ -888,6 +847,7 @@ class __$InProgressCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_InProgress implements _InProgress {
   const _$_InProgress();
 
@@ -906,41 +866,34 @@ class _$_InProgress implements _InProgress {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult inProgress(),
-    @required TResult loadSuccess(KtList<HomeUserEntity> homeUsers),
-    @required TResult addSuccess(String email),
-    @required TResult deleteFailure(HomeUserFailures<dynamic> homeUserFailures),
-    @required TResult deleteSuccess(),
-    @required TResult loadFailure(HomeUserFailures<dynamic> homeUserFailure),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() inProgress,
+    required TResult Function(KtList<HomeUserEntity> homeUsers) loadSuccess,
+    required TResult Function(String email) addSuccess,
+    required TResult Function(HomeUserFailures<dynamic> homeUserFailures)
+        deleteFailure,
+    required TResult Function() deleteSuccess,
+    required TResult Function(HomeUserFailures<dynamic> homeUserFailure)
+        loadFailure,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(loadSuccess != null);
-    assert(addSuccess != null);
-    assert(deleteFailure != null);
-    assert(deleteSuccess != null);
-    assert(loadFailure != null);
-    assert(error != null);
     return inProgress();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult inProgress(),
-    TResult loadSuccess(KtList<HomeUserEntity> homeUsers),
-    TResult addSuccess(String email),
-    TResult deleteFailure(HomeUserFailures<dynamic> homeUserFailures),
-    TResult deleteSuccess(),
-    TResult loadFailure(HomeUserFailures<dynamic> homeUserFailure),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? inProgress,
+    TResult Function(KtList<HomeUserEntity> homeUsers)? loadSuccess,
+    TResult Function(String email)? addSuccess,
+    TResult Function(HomeUserFailures<dynamic> homeUserFailures)? deleteFailure,
+    TResult Function()? deleteSuccess,
+    TResult Function(HomeUserFailures<dynamic> homeUserFailure)? loadFailure,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (inProgress != null) {
       return inProgress();
     }
@@ -949,41 +902,32 @@ class _$_InProgress implements _InProgress {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult inProgress(_InProgress value),
-    @required TResult loadSuccess(_LoadSuccess value),
-    @required TResult addSuccess(_AddSuccess value),
-    @required TResult deleteFailure(_DeleteFailure value),
-    @required TResult deleteSuccess(_DeleteSuccess value),
-    @required TResult loadFailure(_loadFailure value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_InProgress value) inProgress,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_AddSuccess value) addSuccess,
+    required TResult Function(_DeleteFailure value) deleteFailure,
+    required TResult Function(_DeleteSuccess value) deleteSuccess,
+    required TResult Function(_loadFailure value) loadFailure,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(loadSuccess != null);
-    assert(addSuccess != null);
-    assert(deleteFailure != null);
-    assert(deleteSuccess != null);
-    assert(loadFailure != null);
-    assert(error != null);
     return inProgress(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult inProgress(_InProgress value),
-    TResult loadSuccess(_LoadSuccess value),
-    TResult addSuccess(_AddSuccess value),
-    TResult deleteFailure(_DeleteFailure value),
-    TResult deleteSuccess(_DeleteSuccess value),
-    TResult loadFailure(_loadFailure value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_InProgress value)? inProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_AddSuccess value)? addSuccess,
+    TResult Function(_DeleteFailure value)? deleteFailure,
+    TResult Function(_DeleteSuccess value)? deleteSuccess,
+    TResult Function(_loadFailure value)? loadFailure,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (inProgress != null) {
       return inProgress(this);
     }
@@ -1016,19 +960,21 @@ class __$LoadSuccessCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object homeUsers = freezed,
+    Object? homeUsers = freezed,
   }) {
     return _then(_LoadSuccess(
       homeUsers == freezed
           ? _value.homeUsers
-          : homeUsers as KtList<HomeUserEntity>,
+          : homeUsers // ignore: cast_nullable_to_non_nullable
+              as KtList<HomeUserEntity>,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_LoadSuccess implements _LoadSuccess {
-  const _$_LoadSuccess(this.homeUsers) : assert(homeUsers != null);
+  const _$_LoadSuccess(this.homeUsers);
 
   @override
   final KtList<HomeUserEntity> homeUsers;
@@ -1058,41 +1004,34 @@ class _$_LoadSuccess implements _LoadSuccess {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult inProgress(),
-    @required TResult loadSuccess(KtList<HomeUserEntity> homeUsers),
-    @required TResult addSuccess(String email),
-    @required TResult deleteFailure(HomeUserFailures<dynamic> homeUserFailures),
-    @required TResult deleteSuccess(),
-    @required TResult loadFailure(HomeUserFailures<dynamic> homeUserFailure),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() inProgress,
+    required TResult Function(KtList<HomeUserEntity> homeUsers) loadSuccess,
+    required TResult Function(String email) addSuccess,
+    required TResult Function(HomeUserFailures<dynamic> homeUserFailures)
+        deleteFailure,
+    required TResult Function() deleteSuccess,
+    required TResult Function(HomeUserFailures<dynamic> homeUserFailure)
+        loadFailure,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(loadSuccess != null);
-    assert(addSuccess != null);
-    assert(deleteFailure != null);
-    assert(deleteSuccess != null);
-    assert(loadFailure != null);
-    assert(error != null);
     return loadSuccess(homeUsers);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult inProgress(),
-    TResult loadSuccess(KtList<HomeUserEntity> homeUsers),
-    TResult addSuccess(String email),
-    TResult deleteFailure(HomeUserFailures<dynamic> homeUserFailures),
-    TResult deleteSuccess(),
-    TResult loadFailure(HomeUserFailures<dynamic> homeUserFailure),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? inProgress,
+    TResult Function(KtList<HomeUserEntity> homeUsers)? loadSuccess,
+    TResult Function(String email)? addSuccess,
+    TResult Function(HomeUserFailures<dynamic> homeUserFailures)? deleteFailure,
+    TResult Function()? deleteSuccess,
+    TResult Function(HomeUserFailures<dynamic> homeUserFailure)? loadFailure,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loadSuccess != null) {
       return loadSuccess(homeUsers);
     }
@@ -1101,41 +1040,32 @@ class _$_LoadSuccess implements _LoadSuccess {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult inProgress(_InProgress value),
-    @required TResult loadSuccess(_LoadSuccess value),
-    @required TResult addSuccess(_AddSuccess value),
-    @required TResult deleteFailure(_DeleteFailure value),
-    @required TResult deleteSuccess(_DeleteSuccess value),
-    @required TResult loadFailure(_loadFailure value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_InProgress value) inProgress,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_AddSuccess value) addSuccess,
+    required TResult Function(_DeleteFailure value) deleteFailure,
+    required TResult Function(_DeleteSuccess value) deleteSuccess,
+    required TResult Function(_loadFailure value) loadFailure,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(loadSuccess != null);
-    assert(addSuccess != null);
-    assert(deleteFailure != null);
-    assert(deleteSuccess != null);
-    assert(loadFailure != null);
-    assert(error != null);
     return loadSuccess(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult inProgress(_InProgress value),
-    TResult loadSuccess(_LoadSuccess value),
-    TResult addSuccess(_AddSuccess value),
-    TResult deleteFailure(_DeleteFailure value),
-    TResult deleteSuccess(_DeleteSuccess value),
-    TResult loadFailure(_loadFailure value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_InProgress value)? inProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_AddSuccess value)? addSuccess,
+    TResult Function(_DeleteFailure value)? deleteFailure,
+    TResult Function(_DeleteSuccess value)? deleteSuccess,
+    TResult Function(_loadFailure value)? loadFailure,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loadSuccess != null) {
       return loadSuccess(this);
     }
@@ -1146,9 +1076,10 @@ class _$_LoadSuccess implements _LoadSuccess {
 abstract class _LoadSuccess implements ManageUsersState {
   const factory _LoadSuccess(KtList<HomeUserEntity> homeUsers) = _$_LoadSuccess;
 
-  KtList<HomeUserEntity> get homeUsers;
+  KtList<HomeUserEntity> get homeUsers => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$LoadSuccessCopyWith<_LoadSuccess> get copyWith;
+  _$LoadSuccessCopyWith<_LoadSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1172,17 +1103,21 @@ class __$AddSuccessCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object email = freezed,
+    Object? email = freezed,
   }) {
     return _then(_AddSuccess(
-      email == freezed ? _value.email : email as String,
+      email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_AddSuccess implements _AddSuccess {
-  const _$_AddSuccess(this.email) : assert(email != null);
+  const _$_AddSuccess(this.email);
 
   @override
   final String email;
@@ -1211,41 +1146,34 @@ class _$_AddSuccess implements _AddSuccess {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult inProgress(),
-    @required TResult loadSuccess(KtList<HomeUserEntity> homeUsers),
-    @required TResult addSuccess(String email),
-    @required TResult deleteFailure(HomeUserFailures<dynamic> homeUserFailures),
-    @required TResult deleteSuccess(),
-    @required TResult loadFailure(HomeUserFailures<dynamic> homeUserFailure),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() inProgress,
+    required TResult Function(KtList<HomeUserEntity> homeUsers) loadSuccess,
+    required TResult Function(String email) addSuccess,
+    required TResult Function(HomeUserFailures<dynamic> homeUserFailures)
+        deleteFailure,
+    required TResult Function() deleteSuccess,
+    required TResult Function(HomeUserFailures<dynamic> homeUserFailure)
+        loadFailure,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(loadSuccess != null);
-    assert(addSuccess != null);
-    assert(deleteFailure != null);
-    assert(deleteSuccess != null);
-    assert(loadFailure != null);
-    assert(error != null);
     return addSuccess(email);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult inProgress(),
-    TResult loadSuccess(KtList<HomeUserEntity> homeUsers),
-    TResult addSuccess(String email),
-    TResult deleteFailure(HomeUserFailures<dynamic> homeUserFailures),
-    TResult deleteSuccess(),
-    TResult loadFailure(HomeUserFailures<dynamic> homeUserFailure),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? inProgress,
+    TResult Function(KtList<HomeUserEntity> homeUsers)? loadSuccess,
+    TResult Function(String email)? addSuccess,
+    TResult Function(HomeUserFailures<dynamic> homeUserFailures)? deleteFailure,
+    TResult Function()? deleteSuccess,
+    TResult Function(HomeUserFailures<dynamic> homeUserFailure)? loadFailure,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (addSuccess != null) {
       return addSuccess(email);
     }
@@ -1254,41 +1182,32 @@ class _$_AddSuccess implements _AddSuccess {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult inProgress(_InProgress value),
-    @required TResult loadSuccess(_LoadSuccess value),
-    @required TResult addSuccess(_AddSuccess value),
-    @required TResult deleteFailure(_DeleteFailure value),
-    @required TResult deleteSuccess(_DeleteSuccess value),
-    @required TResult loadFailure(_loadFailure value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_InProgress value) inProgress,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_AddSuccess value) addSuccess,
+    required TResult Function(_DeleteFailure value) deleteFailure,
+    required TResult Function(_DeleteSuccess value) deleteSuccess,
+    required TResult Function(_loadFailure value) loadFailure,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(loadSuccess != null);
-    assert(addSuccess != null);
-    assert(deleteFailure != null);
-    assert(deleteSuccess != null);
-    assert(loadFailure != null);
-    assert(error != null);
     return addSuccess(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult inProgress(_InProgress value),
-    TResult loadSuccess(_LoadSuccess value),
-    TResult addSuccess(_AddSuccess value),
-    TResult deleteFailure(_DeleteFailure value),
-    TResult deleteSuccess(_DeleteSuccess value),
-    TResult loadFailure(_loadFailure value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_InProgress value)? inProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_AddSuccess value)? addSuccess,
+    TResult Function(_DeleteFailure value)? deleteFailure,
+    TResult Function(_DeleteSuccess value)? deleteSuccess,
+    TResult Function(_loadFailure value)? loadFailure,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (addSuccess != null) {
       return addSuccess(this);
     }
@@ -1299,9 +1218,10 @@ class _$_AddSuccess implements _AddSuccess {
 abstract class _AddSuccess implements ManageUsersState {
   const factory _AddSuccess(String email) = _$_AddSuccess;
 
-  String get email;
+  String get email => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$AddSuccessCopyWith<_AddSuccess> get copyWith;
+  _$AddSuccessCopyWith<_AddSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1327,20 +1247,18 @@ class __$DeleteFailureCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object homeUserFailures = freezed,
+    Object? homeUserFailures = freezed,
   }) {
     return _then(_DeleteFailure(
       homeUserFailures == freezed
           ? _value.homeUserFailures
-          : homeUserFailures as HomeUserFailures<dynamic>,
+          : homeUserFailures // ignore: cast_nullable_to_non_nullable
+              as HomeUserFailures<dynamic>,
     ));
   }
 
   @override
   $HomeUserFailuresCopyWith<dynamic, $Res> get homeUserFailures {
-    if (_value.homeUserFailures == null) {
-      return null;
-    }
     return $HomeUserFailuresCopyWith<dynamic, $Res>(_value.homeUserFailures,
         (value) {
       return _then(_value.copyWith(homeUserFailures: value));
@@ -1349,9 +1267,9 @@ class __$DeleteFailureCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_DeleteFailure implements _DeleteFailure {
-  const _$_DeleteFailure(this.homeUserFailures)
-      : assert(homeUserFailures != null);
+  const _$_DeleteFailure(this.homeUserFailures);
 
   @override
   final HomeUserFailures<dynamic> homeUserFailures;
@@ -1382,41 +1300,34 @@ class _$_DeleteFailure implements _DeleteFailure {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult inProgress(),
-    @required TResult loadSuccess(KtList<HomeUserEntity> homeUsers),
-    @required TResult addSuccess(String email),
-    @required TResult deleteFailure(HomeUserFailures<dynamic> homeUserFailures),
-    @required TResult deleteSuccess(),
-    @required TResult loadFailure(HomeUserFailures<dynamic> homeUserFailure),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() inProgress,
+    required TResult Function(KtList<HomeUserEntity> homeUsers) loadSuccess,
+    required TResult Function(String email) addSuccess,
+    required TResult Function(HomeUserFailures<dynamic> homeUserFailures)
+        deleteFailure,
+    required TResult Function() deleteSuccess,
+    required TResult Function(HomeUserFailures<dynamic> homeUserFailure)
+        loadFailure,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(loadSuccess != null);
-    assert(addSuccess != null);
-    assert(deleteFailure != null);
-    assert(deleteSuccess != null);
-    assert(loadFailure != null);
-    assert(error != null);
     return deleteFailure(homeUserFailures);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult inProgress(),
-    TResult loadSuccess(KtList<HomeUserEntity> homeUsers),
-    TResult addSuccess(String email),
-    TResult deleteFailure(HomeUserFailures<dynamic> homeUserFailures),
-    TResult deleteSuccess(),
-    TResult loadFailure(HomeUserFailures<dynamic> homeUserFailure),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? inProgress,
+    TResult Function(KtList<HomeUserEntity> homeUsers)? loadSuccess,
+    TResult Function(String email)? addSuccess,
+    TResult Function(HomeUserFailures<dynamic> homeUserFailures)? deleteFailure,
+    TResult Function()? deleteSuccess,
+    TResult Function(HomeUserFailures<dynamic> homeUserFailure)? loadFailure,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (deleteFailure != null) {
       return deleteFailure(homeUserFailures);
     }
@@ -1425,41 +1336,32 @@ class _$_DeleteFailure implements _DeleteFailure {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult inProgress(_InProgress value),
-    @required TResult loadSuccess(_LoadSuccess value),
-    @required TResult addSuccess(_AddSuccess value),
-    @required TResult deleteFailure(_DeleteFailure value),
-    @required TResult deleteSuccess(_DeleteSuccess value),
-    @required TResult loadFailure(_loadFailure value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_InProgress value) inProgress,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_AddSuccess value) addSuccess,
+    required TResult Function(_DeleteFailure value) deleteFailure,
+    required TResult Function(_DeleteSuccess value) deleteSuccess,
+    required TResult Function(_loadFailure value) loadFailure,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(loadSuccess != null);
-    assert(addSuccess != null);
-    assert(deleteFailure != null);
-    assert(deleteSuccess != null);
-    assert(loadFailure != null);
-    assert(error != null);
     return deleteFailure(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult inProgress(_InProgress value),
-    TResult loadSuccess(_LoadSuccess value),
-    TResult addSuccess(_AddSuccess value),
-    TResult deleteFailure(_DeleteFailure value),
-    TResult deleteSuccess(_DeleteSuccess value),
-    TResult loadFailure(_loadFailure value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_InProgress value)? inProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_AddSuccess value)? addSuccess,
+    TResult Function(_DeleteFailure value)? deleteFailure,
+    TResult Function(_DeleteSuccess value)? deleteSuccess,
+    TResult Function(_loadFailure value)? loadFailure,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (deleteFailure != null) {
       return deleteFailure(this);
     }
@@ -1471,9 +1373,11 @@ abstract class _DeleteFailure implements ManageUsersState {
   const factory _DeleteFailure(HomeUserFailures<dynamic> homeUserFailures) =
       _$_DeleteFailure;
 
-  HomeUserFailures<dynamic> get homeUserFailures;
+  HomeUserFailures<dynamic> get homeUserFailures =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$DeleteFailureCopyWith<_DeleteFailure> get copyWith;
+  _$DeleteFailureCopyWith<_DeleteFailure> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1496,6 +1400,7 @@ class __$DeleteSuccessCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_DeleteSuccess implements _DeleteSuccess {
   const _$_DeleteSuccess();
 
@@ -1514,41 +1419,34 @@ class _$_DeleteSuccess implements _DeleteSuccess {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult inProgress(),
-    @required TResult loadSuccess(KtList<HomeUserEntity> homeUsers),
-    @required TResult addSuccess(String email),
-    @required TResult deleteFailure(HomeUserFailures<dynamic> homeUserFailures),
-    @required TResult deleteSuccess(),
-    @required TResult loadFailure(HomeUserFailures<dynamic> homeUserFailure),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() inProgress,
+    required TResult Function(KtList<HomeUserEntity> homeUsers) loadSuccess,
+    required TResult Function(String email) addSuccess,
+    required TResult Function(HomeUserFailures<dynamic> homeUserFailures)
+        deleteFailure,
+    required TResult Function() deleteSuccess,
+    required TResult Function(HomeUserFailures<dynamic> homeUserFailure)
+        loadFailure,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(loadSuccess != null);
-    assert(addSuccess != null);
-    assert(deleteFailure != null);
-    assert(deleteSuccess != null);
-    assert(loadFailure != null);
-    assert(error != null);
     return deleteSuccess();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult inProgress(),
-    TResult loadSuccess(KtList<HomeUserEntity> homeUsers),
-    TResult addSuccess(String email),
-    TResult deleteFailure(HomeUserFailures<dynamic> homeUserFailures),
-    TResult deleteSuccess(),
-    TResult loadFailure(HomeUserFailures<dynamic> homeUserFailure),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? inProgress,
+    TResult Function(KtList<HomeUserEntity> homeUsers)? loadSuccess,
+    TResult Function(String email)? addSuccess,
+    TResult Function(HomeUserFailures<dynamic> homeUserFailures)? deleteFailure,
+    TResult Function()? deleteSuccess,
+    TResult Function(HomeUserFailures<dynamic> homeUserFailure)? loadFailure,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (deleteSuccess != null) {
       return deleteSuccess();
     }
@@ -1557,41 +1455,32 @@ class _$_DeleteSuccess implements _DeleteSuccess {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult inProgress(_InProgress value),
-    @required TResult loadSuccess(_LoadSuccess value),
-    @required TResult addSuccess(_AddSuccess value),
-    @required TResult deleteFailure(_DeleteFailure value),
-    @required TResult deleteSuccess(_DeleteSuccess value),
-    @required TResult loadFailure(_loadFailure value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_InProgress value) inProgress,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_AddSuccess value) addSuccess,
+    required TResult Function(_DeleteFailure value) deleteFailure,
+    required TResult Function(_DeleteSuccess value) deleteSuccess,
+    required TResult Function(_loadFailure value) loadFailure,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(loadSuccess != null);
-    assert(addSuccess != null);
-    assert(deleteFailure != null);
-    assert(deleteSuccess != null);
-    assert(loadFailure != null);
-    assert(error != null);
     return deleteSuccess(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult inProgress(_InProgress value),
-    TResult loadSuccess(_LoadSuccess value),
-    TResult addSuccess(_AddSuccess value),
-    TResult deleteFailure(_DeleteFailure value),
-    TResult deleteSuccess(_DeleteSuccess value),
-    TResult loadFailure(_loadFailure value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_InProgress value)? inProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_AddSuccess value)? addSuccess,
+    TResult Function(_DeleteFailure value)? deleteFailure,
+    TResult Function(_DeleteSuccess value)? deleteSuccess,
+    TResult Function(_loadFailure value)? loadFailure,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (deleteSuccess != null) {
       return deleteSuccess(this);
     }
@@ -1626,20 +1515,18 @@ class __$loadFailureCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object homeUserFailure = freezed,
+    Object? homeUserFailure = freezed,
   }) {
     return _then(_loadFailure(
       homeUserFailure == freezed
           ? _value.homeUserFailure
-          : homeUserFailure as HomeUserFailures<dynamic>,
+          : homeUserFailure // ignore: cast_nullable_to_non_nullable
+              as HomeUserFailures<dynamic>,
     ));
   }
 
   @override
   $HomeUserFailuresCopyWith<dynamic, $Res> get homeUserFailure {
-    if (_value.homeUserFailure == null) {
-      return null;
-    }
     return $HomeUserFailuresCopyWith<dynamic, $Res>(_value.homeUserFailure,
         (value) {
       return _then(_value.copyWith(homeUserFailure: value));
@@ -1648,8 +1535,9 @@ class __$loadFailureCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_loadFailure implements _loadFailure {
-  const _$_loadFailure(this.homeUserFailure) : assert(homeUserFailure != null);
+  const _$_loadFailure(this.homeUserFailure);
 
   @override
   final HomeUserFailures<dynamic> homeUserFailure;
@@ -1680,41 +1568,34 @@ class _$_loadFailure implements _loadFailure {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult inProgress(),
-    @required TResult loadSuccess(KtList<HomeUserEntity> homeUsers),
-    @required TResult addSuccess(String email),
-    @required TResult deleteFailure(HomeUserFailures<dynamic> homeUserFailures),
-    @required TResult deleteSuccess(),
-    @required TResult loadFailure(HomeUserFailures<dynamic> homeUserFailure),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() inProgress,
+    required TResult Function(KtList<HomeUserEntity> homeUsers) loadSuccess,
+    required TResult Function(String email) addSuccess,
+    required TResult Function(HomeUserFailures<dynamic> homeUserFailures)
+        deleteFailure,
+    required TResult Function() deleteSuccess,
+    required TResult Function(HomeUserFailures<dynamic> homeUserFailure)
+        loadFailure,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(loadSuccess != null);
-    assert(addSuccess != null);
-    assert(deleteFailure != null);
-    assert(deleteSuccess != null);
-    assert(loadFailure != null);
-    assert(error != null);
     return loadFailure(homeUserFailure);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult inProgress(),
-    TResult loadSuccess(KtList<HomeUserEntity> homeUsers),
-    TResult addSuccess(String email),
-    TResult deleteFailure(HomeUserFailures<dynamic> homeUserFailures),
-    TResult deleteSuccess(),
-    TResult loadFailure(HomeUserFailures<dynamic> homeUserFailure),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? inProgress,
+    TResult Function(KtList<HomeUserEntity> homeUsers)? loadSuccess,
+    TResult Function(String email)? addSuccess,
+    TResult Function(HomeUserFailures<dynamic> homeUserFailures)? deleteFailure,
+    TResult Function()? deleteSuccess,
+    TResult Function(HomeUserFailures<dynamic> homeUserFailure)? loadFailure,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loadFailure != null) {
       return loadFailure(homeUserFailure);
     }
@@ -1723,41 +1604,32 @@ class _$_loadFailure implements _loadFailure {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult inProgress(_InProgress value),
-    @required TResult loadSuccess(_LoadSuccess value),
-    @required TResult addSuccess(_AddSuccess value),
-    @required TResult deleteFailure(_DeleteFailure value),
-    @required TResult deleteSuccess(_DeleteSuccess value),
-    @required TResult loadFailure(_loadFailure value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_InProgress value) inProgress,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_AddSuccess value) addSuccess,
+    required TResult Function(_DeleteFailure value) deleteFailure,
+    required TResult Function(_DeleteSuccess value) deleteSuccess,
+    required TResult Function(_loadFailure value) loadFailure,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(loadSuccess != null);
-    assert(addSuccess != null);
-    assert(deleteFailure != null);
-    assert(deleteSuccess != null);
-    assert(loadFailure != null);
-    assert(error != null);
     return loadFailure(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult inProgress(_InProgress value),
-    TResult loadSuccess(_LoadSuccess value),
-    TResult addSuccess(_AddSuccess value),
-    TResult deleteFailure(_DeleteFailure value),
-    TResult deleteSuccess(_DeleteSuccess value),
-    TResult loadFailure(_loadFailure value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_InProgress value)? inProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_AddSuccess value)? addSuccess,
+    TResult Function(_DeleteFailure value)? deleteFailure,
+    TResult Function(_DeleteSuccess value)? deleteSuccess,
+    TResult Function(_loadFailure value)? loadFailure,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loadFailure != null) {
       return loadFailure(this);
     }
@@ -1769,9 +1641,11 @@ abstract class _loadFailure implements ManageUsersState {
   const factory _loadFailure(HomeUserFailures<dynamic> homeUserFailure) =
       _$_loadFailure;
 
-  HomeUserFailures<dynamic> get homeUserFailure;
+  HomeUserFailures<dynamic> get homeUserFailure =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$loadFailureCopyWith<_loadFailure> get copyWith;
+  _$loadFailureCopyWith<_loadFailure> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1791,6 +1665,7 @@ class _$ErrorCopyWithImpl<$Res> extends _$ManageUsersStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Error implements Error {
   const _$Error();
 
@@ -1809,41 +1684,34 @@ class _$Error implements Error {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult inProgress(),
-    @required TResult loadSuccess(KtList<HomeUserEntity> homeUsers),
-    @required TResult addSuccess(String email),
-    @required TResult deleteFailure(HomeUserFailures<dynamic> homeUserFailures),
-    @required TResult deleteSuccess(),
-    @required TResult loadFailure(HomeUserFailures<dynamic> homeUserFailure),
-    @required TResult error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() inProgress,
+    required TResult Function(KtList<HomeUserEntity> homeUsers) loadSuccess,
+    required TResult Function(String email) addSuccess,
+    required TResult Function(HomeUserFailures<dynamic> homeUserFailures)
+        deleteFailure,
+    required TResult Function() deleteSuccess,
+    required TResult Function(HomeUserFailures<dynamic> homeUserFailure)
+        loadFailure,
+    required TResult Function() error,
   }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(loadSuccess != null);
-    assert(addSuccess != null);
-    assert(deleteFailure != null);
-    assert(deleteSuccess != null);
-    assert(loadFailure != null);
-    assert(error != null);
     return error();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult inProgress(),
-    TResult loadSuccess(KtList<HomeUserEntity> homeUsers),
-    TResult addSuccess(String email),
-    TResult deleteFailure(HomeUserFailures<dynamic> homeUserFailures),
-    TResult deleteSuccess(),
-    TResult loadFailure(HomeUserFailures<dynamic> homeUserFailure),
-    TResult error(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? inProgress,
+    TResult Function(KtList<HomeUserEntity> homeUsers)? loadSuccess,
+    TResult Function(String email)? addSuccess,
+    TResult Function(HomeUserFailures<dynamic> homeUserFailures)? deleteFailure,
+    TResult Function()? deleteSuccess,
+    TResult Function(HomeUserFailures<dynamic> homeUserFailure)? loadFailure,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error();
     }
@@ -1852,41 +1720,32 @@ class _$Error implements Error {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult inProgress(_InProgress value),
-    @required TResult loadSuccess(_LoadSuccess value),
-    @required TResult addSuccess(_AddSuccess value),
-    @required TResult deleteFailure(_DeleteFailure value),
-    @required TResult deleteSuccess(_DeleteSuccess value),
-    @required TResult loadFailure(_loadFailure value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_InProgress value) inProgress,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_AddSuccess value) addSuccess,
+    required TResult Function(_DeleteFailure value) deleteFailure,
+    required TResult Function(_DeleteSuccess value) deleteSuccess,
+    required TResult Function(_loadFailure value) loadFailure,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(loadSuccess != null);
-    assert(addSuccess != null);
-    assert(deleteFailure != null);
-    assert(deleteSuccess != null);
-    assert(loadFailure != null);
-    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult inProgress(_InProgress value),
-    TResult loadSuccess(_LoadSuccess value),
-    TResult addSuccess(_AddSuccess value),
-    TResult deleteFailure(_DeleteFailure value),
-    TResult deleteSuccess(_DeleteSuccess value),
-    TResult loadFailure(_loadFailure value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_InProgress value)? inProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_AddSuccess value)? addSuccess,
+    TResult Function(_DeleteFailure value)? deleteFailure,
+    TResult Function(_DeleteSuccess value)? deleteSuccess,
+    TResult Function(_loadFailure value)? loadFailure,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this);
     }
