@@ -122,6 +122,8 @@ dev_dependencies:
   auto_route_generator: ^2.1.0
   build_runner:
   flutter_launcher_icons: ^0.9.0
+  flutter_test:
+    sdk: flutter
   # Code generator for unions/pattern-matching/copy.
   freezed: ^0.14.2
   hive_generator: ^1.1.0
