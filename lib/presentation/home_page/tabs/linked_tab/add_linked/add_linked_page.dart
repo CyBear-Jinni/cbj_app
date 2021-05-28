@@ -59,7 +59,7 @@ class AddLinkedPage extends StatelessWidget {
                   child: Text(
                     'Set Home Location',
                     style: TextStyle(
-                        color: (Theme.of(context).textTheme.bodyText1!.color)!),
+                        color: Theme.of(context).textTheme.bodyText1!.color),
                   )),
             ),
             const SizedBox(

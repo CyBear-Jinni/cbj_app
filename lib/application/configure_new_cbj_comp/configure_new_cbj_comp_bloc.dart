@@ -25,7 +25,7 @@ part 'configure_new_cbj_comp_state.dart';
 class ConfigureNewCbjCompBloc
     extends Bloc<ConfigureNewCbjCompEvent, ConfigureNewCbjCompState> {
   ConfigureNewCbjCompBloc(this._deviceRepository, this._cBJCompRepository)
-      : super(ConfigureNewCbjCompState.initial());
+      : super(const ConfigureNewCbjCompState.initial());
 
   final IDeviceRepository _deviceRepository;
   double progressPercent = 0.0;
@@ -63,10 +63,10 @@ class ConfigureNewCbjCompBloc
         final CBJCompEntity compUpdatedData = value.cBJCompEntity;
         bool error = false;
 
-        final KtList<DeviceEntity>? devicesList =
+        final KtList<DeviceEntity> devicesList =
             compUpdatedData.cBJCompDevices!.getOrCrash();
 
-        for (final DeviceEntity device in devicesList!.asList()) {
+        for (final DeviceEntity device in devicesList.asList()) {
           final Either<DevicesFailure, Unit> createInCloudResponse =
               await _deviceRepository.create(device);
 
@@ -163,7 +163,7 @@ class ConfigureNewCbjCompBloc
         ConfigureNewCbjCompWidgets.deviceNameFieldKey;
     final List<DeviceEntity> deviceEntityList = [];
 
-    final String roomUuid = Uuid().v1();
+    final String roomUuid = const Uuid().v1();
 
     cbjCompEntity.cBJCompDevices!.getOrCrash().asList().forEach((deviceE) {
       try {

@@ -4,7 +4,7 @@ part of 'scene_bloc.dart';
 abstract class SceneState with _$SceneState {
   const factory SceneState() = _SceneState;
 
-  factory SceneState.initialized() => SceneState();
+  factory SceneState.initialized() => const SceneState();
 
   const factory SceneState.loading() = _Loading;
 

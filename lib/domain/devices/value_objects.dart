@@ -40,7 +40,7 @@ abstract class DevicesValueObjectAbstract<T> {
 
 class DeviceUniqueId extends DevicesValueObjectAbstract<String?> {
   factory DeviceUniqueId() {
-    return DeviceUniqueId._(right(Uuid().v1()));
+    return DeviceUniqueId._(right(const Uuid().v1()));
   }
 
   factory DeviceUniqueId.fromUniqueString(String? uniqueId) {
@@ -48,18 +48,13 @@ class DeviceUniqueId extends DevicesValueObjectAbstract<String?> {
     return DeviceUniqueId._(right(uniqueId));
   }
 
-  DeviceUniqueId._(this.value);
+  const DeviceUniqueId._(this.value);
 
   @override
   final Either<DevicesFailure<String?>, String?> value;
 }
 
 class DeviceDefaultName extends DevicesValueObjectAbstract<String?> {
-  @override
-  final Either<DevicesFailure<String?>, String?> value;
-
-  static const maxLength = 1000;
-
   factory DeviceDefaultName(String? input) {
     assert(input != null);
     return DeviceDefaultName._(
@@ -69,12 +64,14 @@ class DeviceDefaultName extends DevicesValueObjectAbstract<String?> {
   }
 
   const DeviceDefaultName._(this.value);
+
+  @override
+  final Either<DevicesFailure<String?>, String?> value;
+
+  static const maxLength = 1000;
 }
 
 class DeviceState extends DevicesValueObjectAbstract<String> {
-  @override
-  final Either<DevicesFailure<String>, String> value;
-
   factory DeviceState(String? input) {
     return DeviceState._(
       validateDeviceNotEmpty(input!)
@@ -83,12 +80,12 @@ class DeviceState extends DevicesValueObjectAbstract<String> {
   }
 
   const DeviceState._(this.value);
+
+  @override
+  final Either<DevicesFailure<String>, String> value;
 }
 
 class DeviceSenderDeviceOs extends DevicesValueObjectAbstract<String> {
-  @override
-  final Either<DevicesFailure<String>, String> value;
-
   factory DeviceSenderDeviceOs(String? input) {
     assert(input != null);
     return DeviceSenderDeviceOs._(
@@ -97,12 +94,12 @@ class DeviceSenderDeviceOs extends DevicesValueObjectAbstract<String> {
   }
 
   const DeviceSenderDeviceOs._(this.value);
+
+  @override
+  final Either<DevicesFailure<String>, String> value;
 }
 
 class DeviceStateMassage extends DevicesValueObjectAbstract<String> {
-  @override
-  final Either<DevicesFailure<String>, String> value;
-
   factory DeviceStateMassage(String? input) {
     assert(input != null);
     return DeviceStateMassage._(
@@ -111,12 +108,12 @@ class DeviceStateMassage extends DevicesValueObjectAbstract<String> {
   }
 
   const DeviceStateMassage._(this.value);
+
+  @override
+  final Either<DevicesFailure<String>, String> value;
 }
 
 class DeviceSenderDeviceModel extends DevicesValueObjectAbstract<String> {
-  @override
-  final Either<DevicesFailure<String>, String> value;
-
   factory DeviceSenderDeviceModel(String? input) {
     assert(input != null);
     return DeviceSenderDeviceModel._(
@@ -125,11 +122,14 @@ class DeviceSenderDeviceModel extends DevicesValueObjectAbstract<String> {
   }
 
   const DeviceSenderDeviceModel._(this.value);
+
+  @override
+  final Either<DevicesFailure<String>, String> value;
 }
 
 class DeviceSenderId extends DevicesValueObjectAbstract<String> {
   factory DeviceSenderId() {
-    return DeviceSenderId._(right(Uuid().v1()));
+    return DeviceSenderId._(right(const Uuid().v1()));
   }
 
   factory DeviceSenderId.fromUniqueString(String? uniqueId) {
@@ -137,16 +137,13 @@ class DeviceSenderId extends DevicesValueObjectAbstract<String> {
     return DeviceSenderId._(right(uniqueId!));
   }
 
-  DeviceSenderId._(this.value);
+  const DeviceSenderId._(this.value);
 
   @override
   final Either<DevicesFailure<String>, String> value;
 }
 
 class DeviceAction extends DevicesValueObjectAbstract<String> {
-  @override
-  final Either<DevicesFailure<String>, String> value;
-
   factory DeviceAction(String? input) {
     assert(input != null);
 
@@ -162,12 +159,12 @@ class DeviceAction extends DevicesValueObjectAbstract<String> {
   }
 
   const DeviceAction._(this.value);
+
+  @override
+  final Either<DevicesFailure<String>, String> value;
 }
 
 class DeviceType extends DevicesValueObjectAbstract<String> {
-  @override
-  final Either<DevicesFailure<String>, String> value;
-
   factory DeviceType(String? input) {
     assert(input != null);
     return DeviceType._(
@@ -177,12 +174,12 @@ class DeviceType extends DevicesValueObjectAbstract<String> {
   }
 
   const DeviceType._(this.value);
+
+  @override
+  final Either<DevicesFailure<String>, String> value;
 }
 
 class DeviceCompUuid extends DevicesValueObjectAbstract<String> {
-  @override
-  final Either<DevicesFailure<String>, String> value;
-
   factory DeviceCompUuid(String? input) {
     assert(input != null);
     return DeviceCompUuid._(
@@ -191,12 +188,12 @@ class DeviceCompUuid extends DevicesValueObjectAbstract<String> {
   }
 
   const DeviceCompUuid._(this.value);
+
+  @override
+  final Either<DevicesFailure<String>, String> value;
 }
 
 class DeviceLastKnownIp extends DevicesValueObjectAbstract<String> {
-  @override
-  final Either<DevicesFailure<String>, String> value;
-
   factory DeviceLastKnownIp(String input) {
     assert(input != null);
     return DeviceLastKnownIp._(
@@ -206,4 +203,7 @@ class DeviceLastKnownIp extends DevicesValueObjectAbstract<String> {
   }
 
   const DeviceLastKnownIp._(this.value);
+
+  @override
+  final Either<DevicesFailure<String>, String> value;
 }

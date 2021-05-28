@@ -109,7 +109,7 @@ class RoomBoilersTogglesBlock extends StatelessWidget {
                   Text(
                     _smartRoomObject!.getRoomName(),
                     style: TextStyle(
-                      color: (Theme.of(context).textTheme.bodyText1!.color)!,
+                      color: Theme.of(context).textTheme.bodyText1!.color,
                       fontSize: 25,
                       decoration: TextDecoration.underline,
                     ),

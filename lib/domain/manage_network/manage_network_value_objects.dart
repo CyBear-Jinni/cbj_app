@@ -37,9 +37,6 @@ abstract class ManageNetworkValueObjectAbstract<T> {
 }
 
 class ManageWiFiName extends ManageNetworkValueObjectAbstract<String> {
-  @override
-  final Either<ManageNetworkFailures<String>, String> value;
-
   factory ManageWiFiName(String input) {
     assert(input != null);
     return ManageWiFiName._(
@@ -48,12 +45,12 @@ class ManageWiFiName extends ManageNetworkValueObjectAbstract<String> {
   }
 
   const ManageWiFiName._(this.value);
+
+  @override
+  final Either<ManageNetworkFailures<String>, String> value;
 }
 
 class ManageWiFiPass extends ManageNetworkValueObjectAbstract<String> {
-  @override
-  final Either<ManageNetworkFailures<String>, String> value;
-
   factory ManageWiFiPass(String input) {
     assert(input != null);
     return ManageWiFiPass._(
@@ -62,4 +59,7 @@ class ManageWiFiPass extends ManageNetworkValueObjectAbstract<String> {
   }
 
   const ManageWiFiPass._(this.value);
+
+  @override
+  final Either<ManageNetworkFailures<String>, String> value;
 }

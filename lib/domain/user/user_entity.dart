@@ -7,8 +7,6 @@ part 'user_entity.freezed.dart';
 
 @freezed
 abstract class UserEntity implements _$UserEntity {
-  const UserEntity._();
-
   const factory UserEntity({
     required UserUniqueId? id,
     required UserEmail? email,
@@ -17,6 +15,8 @@ abstract class UserEntity implements _$UserEntity {
     UserFirstName? firstName,
     UserLastName? lastName,
   }) = _UserEntity;
+
+  const UserEntity._();
 
   factory UserEntity.empty() => UserEntity(
         id: UserUniqueId(),

@@ -13,6 +13,8 @@ class FolderOfScenesColorValueObjects extends ValueObject<Color> {
     );
   }
 
+  const FolderOfScenesColorValueObjects._(this.value);
+
   static const List<Color> predefinedColors = [
     Color(0xfffafafa), // canvas
     Color(0xfffa8072), // salmon
@@ -22,8 +24,6 @@ class FolderOfScenesColorValueObjects extends ValueObject<Color> {
     Color(0xff997950), // tortilla
     Color(0xfffffdd0), // cream
   ];
-
-  const FolderOfScenesColorValueObjects._(this.value);
 
   @override
   final Either<AuthValueFailure<Color>, Color> value;

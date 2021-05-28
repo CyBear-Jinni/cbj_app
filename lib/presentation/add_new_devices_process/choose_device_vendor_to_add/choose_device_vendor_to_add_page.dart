@@ -53,7 +53,7 @@ class ChooseDeviceVendorToAddPage extends StatelessWidget {
                 'Choose Device Vendor',
                 style: TextStyle(
                     fontSize: 25,
-                    color: (Theme.of(context).textTheme.bodyText1!.color)!),
+                    color: Theme.of(context).textTheme.bodyText1!.color),
               ),
             ),
             const SizedBox(
@@ -74,7 +74,7 @@ class ChooseDeviceVendorToAddPage extends StatelessWidget {
                 child: Text(
                   'CyBear Jinni',
                   style: TextStyle(
-                      color: (Theme.of(context).textTheme.bodyText1!.color)!,
+                      color: Theme.of(context).textTheme.bodyText1!.color,
                       fontSize: 30),
                 ),
               ),

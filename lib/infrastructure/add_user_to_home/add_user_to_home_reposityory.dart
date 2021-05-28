@@ -18,9 +18,9 @@ class AddUserToHomeRepository implements IAddUserToHomeRepository {
 
   final FirebaseFirestore _firestore;
 
+  @override
   @required
-  Future<Either<AddUserToHomeFailures, Unit>> create(
-      HomeUserEntity homeUserEntity) async {
+  Future<Either<AddUserToHomeFailures, Unit>> create(HomeUserEntity homeUserEntity) async {
     try {
       final devicesDoc = await _firestore.currentHomeDocument();
       //

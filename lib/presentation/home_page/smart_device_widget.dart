@@ -103,7 +103,11 @@ class _SmartDevicePage extends State<SmartDevicePage> {
             ),
             inactiveIcon: Icon(
               FontAwesomeIcons.lightbulb,
-              color: (Theme.of(context).textTheme.bodyText1!.color)!,
+              color: Theme
+                  .of(context)
+                  .textTheme
+                  .bodyText1!
+                  .color,
             ),
             onToggle: (bool value) => _onChange(value),
           ),

@@ -4,7 +4,7 @@ part of 'folder_of_scenes_bloc.dart';
 abstract class FolderOfScenesState with _$FolderOfScenesState {
   const factory FolderOfScenesState() = _FolderOfScenesState;
 
-  factory FolderOfScenesState.initialized() => FolderOfScenesState();
+  factory FolderOfScenesState.initialized() => const FolderOfScenesState();
 
   const factory FolderOfScenesState.loading() = Loading;
 

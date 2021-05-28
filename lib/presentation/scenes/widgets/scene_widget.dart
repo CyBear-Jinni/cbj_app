@@ -7,7 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SceneWidget extends StatelessWidget {
-  SceneWidget(this.currentScene);
+  const SceneWidget(this.currentScene);
 
   final Scene currentScene;
 
@@ -48,7 +48,7 @@ class SceneWidget extends StatelessWidget {
                 //   }
                 // });
               },
-              highlightColor: (Theme.of(context).textTheme.bodyText1!.color)!,
+              highlightColor: Theme.of(context).textTheme.bodyText1!.color,
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
@@ -59,7 +59,7 @@ class SceneWidget extends StatelessWidget {
                   currentScene.name,
                   style: TextStyle(
                     fontSize: 23,
-                    color: (Theme.of(context).textTheme.bodyText1!.color)!,
+                    color: Theme.of(context).textTheme.bodyText1!.color,
                   ),
                   textAlign: TextAlign.center,
                 ),

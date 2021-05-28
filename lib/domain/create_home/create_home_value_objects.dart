@@ -47,16 +47,13 @@ class HomeUniqueId extends CreateHomeValueObjectAbstract<String> {
     return HomeUniqueId._(right(uniqueId));
   }
 
-  HomeUniqueId._(this.value);
+  const HomeUniqueId._(this.value);
 
   @override
   final Either<CreateHomeFailure<String>, String> value;
 }
 
 class HomeName extends CreateHomeValueObjectAbstract<String> {
-  @override
-  final Either<CreateHomeFailure<String>, String> value;
-
   factory HomeName(String input) {
     assert(input != null);
     return HomeName._(
@@ -65,11 +62,16 @@ class HomeName extends CreateHomeValueObjectAbstract<String> {
   }
 
   const HomeName._(this.value);
+
+  @override
+  final Either<CreateHomeFailure<String>, String> value;
 }
 
 class HomeDevicesUserId extends CreateHomeValueObjectAbstract<String> {
+  const HomeDevicesUserId._(this.value);
+
   factory HomeDevicesUserId() {
-    return HomeDevicesUserId._(right(Uuid().v1()));
+    return HomeDevicesUserId._(right(const Uuid().v1()));
   }
 
   factory HomeDevicesUserId.fromUniqueString(String uniqueId) {
@@ -77,16 +79,11 @@ class HomeDevicesUserId extends CreateHomeValueObjectAbstract<String> {
     return HomeDevicesUserId._(right(uniqueId));
   }
 
-  HomeDevicesUserId._(this.value);
-
   @override
   final Either<CreateHomeFailure<String>, String> value;
 }
 
 class HomeDevicesUserEmail extends CreateHomeValueObjectAbstract<String> {
-  @override
-  final Either<CreateHomeFailure<String>, String> value;
-
   factory HomeDevicesUserEmail(String input) {
     assert(input != null);
     return HomeDevicesUserEmail._(
@@ -95,6 +92,9 @@ class HomeDevicesUserEmail extends CreateHomeValueObjectAbstract<String> {
   }
 
   const HomeDevicesUserEmail._(this.value);
+
+  @override
+  final Either<CreateHomeFailure<String>, String> value;
 }
 
 class HomeDevicesUserPassword extends CreateHomeValueObjectAbstract<String> {
@@ -107,7 +107,7 @@ class HomeDevicesUserPassword extends CreateHomeValueObjectAbstract<String> {
     return HomeDevicesUserPassword._(right(uniqueId));
   }
 
-  HomeDevicesUserPassword._(this.value);
+  const HomeDevicesUserPassword._(this.value);
 
   @override
   final Either<CreateHomeFailure<String>, String> value;

@@ -12,7 +12,8 @@ import 'package:kt_dart/collection.dart';
 /// Show boiler toggles in a container with the background color from smart room
 /// object
 class RoomBoilers extends StatelessWidget {
-  RoomBoilers(this._deviceEntityList, this._gradientColor, this._roomEntity,
+  const RoomBoilers(
+      this._deviceEntityList, this._gradientColor, this._roomEntity,
       {this.maxBoilersToShow = 4});
 
   final KtList<DeviceEntity?>? _deviceEntityList;
@@ -137,7 +138,7 @@ class RoomBoilers extends StatelessWidget {
                   Text(
                     _roomEntity!,
                     style: TextStyle(
-                      color: ((Theme.of(context).textTheme.bodyText1!.color)!),
+                      color: Theme.of(context).textTheme.bodyText1!.color,
                       fontSize: 25,
                       decoration: TextDecoration.underline,
                     ),
@@ -146,7 +147,7 @@ class RoomBoilers extends StatelessWidget {
                       _deviceEntityList!.size > maxBoilersToShow!)
                     FaIcon(
                       FontAwesomeIcons.arrowRight,
-                      color: ((Theme.of(context).textTheme.bodyText1!.color)!),
+                      color: Theme.of(context).textTheme.bodyText1!.color,
                       size: 20,
                     ),
                 ],

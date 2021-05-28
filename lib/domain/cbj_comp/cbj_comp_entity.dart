@@ -9,8 +9,6 @@ part 'cbj_comp_entity.freezed.dart';
 
 @freezed
 abstract class CBJCompEntity implements _$CBJCompEntity {
-  const CBJCompEntity._();
-
   const factory CBJCompEntity({
     required CBJCompUniqueId id,
     required CBJCompRoomId roomId,
@@ -25,6 +23,8 @@ abstract class CBJCompEntity implements _$CBJCompEntity {
     CBJCompUuid? compUuid,
     CBJCompLastKnownIp? lastKnownIp,
   }) = _CBJCompEntity;
+
+  const CBJCompEntity._();
 
   factory CBJCompEntity.empty() => CBJCompEntity(
         id: CBJCompUniqueId(),

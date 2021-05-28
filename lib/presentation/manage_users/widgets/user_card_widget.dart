@@ -16,7 +16,7 @@ class UserCard extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border(
           top: BorderSide(
-            color: ((Theme.of(context).textTheme.bodyText1!.color)!),
+            color: (Theme.of(context).textTheme.bodyText1!.color)!,
           ),
           bottom: BorderSide(
             color: (Theme.of(context).textTheme.bodyText1!.color)!,
@@ -28,7 +28,7 @@ class UserCard extends StatelessWidget {
         child: ListTile(
           leading: FaIcon(
             FontAwesomeIcons.userGraduate,
-            color: (Theme.of(context).textTheme.bodyText1!.color)!,
+            color: Theme.of(context).textTheme.bodyText1!.color,
           ),
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -36,7 +36,7 @@ class UserCard extends StatelessWidget {
               Text(
                 homeUser!.email!.getOrCrash()!,
                 style: TextStyle(
-                    color: (Theme.of(context).textTheme.bodyText1!.color)!),
+                    color: Theme.of(context).textTheme.bodyText1!.color),
               ),
             ],
           ),

@@ -12,7 +12,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 /// The user will choose where to login to, join into an existing home or
 /// create his new home
 class WhereToLoginPageMinimalPage extends StatelessWidget {
-  WhereToLoginPageMinimalPage();
+  const WhereToLoginPageMinimalPage();
 
   void backButtonFunction(BuildContext context) {
     Navigator.pop(context);
@@ -40,7 +40,7 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
               child: Text('What would you like to do',
                   style: TextStyle(
                       fontSize: 25,
-                      color: (Theme.of(context).textTheme.bodyText1!.color)))),
+                      color: Theme.of(context).textTheme.bodyText1!.color))),
           Expanded(
             child: Column(
               children: <Widget>[
@@ -64,10 +64,8 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
                       child: Row(
                         children: <Widget>[
                           FaIcon(FontAwesomeIcons.doorOpen,
-                              color: (Theme.of(context)
-                                  .textTheme
-                                  .bodyText1!
-                                  .color)),
+                              color:
+                                  Theme.of(context).textTheme.bodyText1!.color),
                           const SizedBox(
                             width: 20,
                           ),
@@ -105,10 +103,8 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
                       child: Row(
                         children: <Widget>[
                           FaIcon(FontAwesomeIcons.userFriends,
-                              color: (Theme.of(context)
-                                  .textTheme
-                                  .bodyText1!
-                                  .color)),
+                              color:
+                                  Theme.of(context).textTheme.bodyText1!.color),
                           const SizedBox(
                             width: 20,
                           ),

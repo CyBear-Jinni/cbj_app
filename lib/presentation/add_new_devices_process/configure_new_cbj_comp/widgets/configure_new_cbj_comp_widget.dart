@@ -13,7 +13,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:liquid_progress_indicator_ns/liquid_progress_indicator.dart';
 
 class ConfigureNewCbjCompWidgets extends StatelessWidget {
-  ConfigureNewCbjCompWidgets({
+  const ConfigureNewCbjCompWidgets({
     required this.cbjCompEntity,
   });
 
@@ -101,7 +101,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                   child: TextFormField(
                     controller: textEditingControllerTemp,
                     style: TextStyle(
-                        color: (Theme.of(context).textTheme.bodyText1!.color)!),
+                        color: Theme.of(context).textTheme.bodyText1!.color),
                     decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.black.withOpacity(0.2),
@@ -116,15 +116,12 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                         ),
                         prefixIcon: Icon(
                           FontAwesomeIcons.solidLightbulb,
-                          color:
-                              (Theme.of(context).textTheme.bodyText1!.color)!,
+                          color: Theme.of(context).textTheme.bodyText1!.color,
                         ),
                         labelText: '${device.type!.getOrCrash()} Name',
                         labelStyle: TextStyle(
-                            color: (Theme.of(context)
-                                .textTheme
-                                .bodyText1!
-                                .color)!)),
+                            color:
+                                Theme.of(context).textTheme.bodyText1!.color)),
                     autocorrect: false,
                     onChanged: (value) {
                       // roomName = value;
@@ -148,8 +145,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                     child: Text(
                       'Type ${device.type!.getOrCrash()} is not supported yet',
                       style: TextStyle(
-                          color:
-                              (Theme.of(context).textTheme.bodyText1!.color)!),
+                          color: Theme.of(context).textTheme.bodyText1!.color),
                     ),
                   ),
                 ),
@@ -166,7 +162,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    CBJCompEntity cbjCompEntityInBuild = cbjCompEntity;
+    final CBJCompEntity cbjCompEntityInBuild = cbjCompEntity;
     final Map<String, TextEditingController> _textEditingController = {};
     _textEditingController['allInSameRoom'] = TextEditingController();
 
@@ -179,7 +175,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
               Text(
                 'Configure devices',
                 style: TextStyle(
-                    color: (Theme.of(context).textTheme.bodyText1!.color)!),
+                    color: Theme.of(context).textTheme.bodyText1!.color),
               ),
               Expanded(
                 child: SingleChildScrollView(
@@ -189,7 +185,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                         children: [
                           Checkbox(
                             checkColor:
-                                (Theme.of(context).textTheme.bodyText1!.color)!,
+                                Theme.of(context).textTheme.bodyText1!.color,
                             activeColor: Colors.red,
                             value: true,
                             onChanged: (bool? value) {},
@@ -207,8 +203,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                       Text(
                         'Room Name',
                         style: TextStyle(
-                          color:
-                              (Theme.of(context).textTheme.bodyText1!.color)!,
+                          color: Theme.of(context).textTheme.bodyText1!.color,
                           fontSize: 30,
                         ),
                       ),
@@ -217,10 +212,8 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                         child: TextFormField(
                           controller: _textEditingController['allInSameRoom'],
                           style: TextStyle(
-                              color: (Theme.of(context)
-                                  .textTheme
-                                  .bodyText1!
-                                  .color)!),
+                              color:
+                                  Theme.of(context).textTheme.bodyText1!.color),
                           decoration: InputDecoration(
                               filled: true,
                               fillColor: Colors.greenAccent.withOpacity(0.3),
@@ -278,7 +271,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                     child: Text(
                       'Done',
                       style: TextStyle(
-                        color: (Theme.of(context).textTheme.bodyText1!.color)!,
+                        color: Theme.of(context).textTheme.bodyText1!.color,
                       ),
                     ),
                   ),
@@ -305,7 +298,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                   'Setting up computer',
                   style: TextStyle(
                       fontSize: 25,
-                      color: (Theme.of(context).textTheme.bodyText1!.color)!),
+                      color: Theme.of(context).textTheme.bodyText1!.color),
                 ),
               ),
               Expanded(
@@ -320,7 +313,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                           value: actionInProgress.progressPercentage,
                           valueColor: const AlwaysStoppedAnimation(Colors.pink),
                           backgroundColor:
-                              (Theme.of(context).textTheme.bodyText1!.color)!,
+                              Theme.of(context).textTheme.bodyText1!.color,
                           borderColor: Colors.red.withOpacity(0.9),
                           borderWidth: 4.0,
                           center: const Text(
@@ -336,10 +329,8 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                       Text(
                         'Please wait as we are setting your new computer',
                         style: TextStyle(
-                            color: (Theme.of(context)
-                                .textTheme
-                                .bodyText1!
-                                .color)!),
+                            color:
+                                Theme.of(context).textTheme.bodyText1!.color),
                       ),
                     ],
                   ),
@@ -357,15 +348,15 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
         errorInProcess: (value) {
           return Text(
             'Error in the process.',
-            style: TextStyle(
-                color: (Theme.of(context).textTheme.bodyText1!.color)!),
+            style:
+                TextStyle(color: Theme.of(context).textTheme.bodyText1!.color),
           );
         },
         completeSuccess: (CompleteSuccess value) {
           return Text(
             'Computer have been configured.',
-            style: TextStyle(
-                color: (Theme.of(context).textTheme.bodyText1!.color)!),
+            style:
+                TextStyle(color: Theme.of(context).textTheme.bodyText1!.color),
           );
         },
       );

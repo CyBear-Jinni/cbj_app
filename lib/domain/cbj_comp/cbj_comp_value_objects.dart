@@ -47,15 +47,15 @@ abstract class CBJCompValueObjectAbstract<T> {
 
 class CBJCompUniqueId extends CBJCompValueObjectAbstract<String> {
   factory CBJCompUniqueId() {
-    return CBJCompUniqueId._(right(Uuid().v1()));
+    return CBJCompUniqueId._(right(const Uuid().v1()));
   }
+
+  CBJCompUniqueId._(this.value);
 
   factory CBJCompUniqueId.fromUniqueString(String uniqueId) {
     assert(uniqueId != null);
     return CBJCompUniqueId._(right(uniqueId));
   }
-
-  CBJCompUniqueId._(this.value);
 
   @override
   final Either<CBJCompFailure<String>, String> value;
@@ -63,7 +63,7 @@ class CBJCompUniqueId extends CBJCompValueObjectAbstract<String> {
 
 class CBJCompRoomId extends CBJCompValueObjectAbstract<String> {
   factory CBJCompRoomId() {
-    return CBJCompRoomId._(right(Uuid().v1()));
+    return CBJCompRoomId._(right(const Uuid().v1()));
   }
 
   factory CBJCompRoomId.fromUniqueString(String uniqueId) {
@@ -71,18 +71,13 @@ class CBJCompRoomId extends CBJCompValueObjectAbstract<String> {
     return CBJCompRoomId._(right(uniqueId));
   }
 
-  CBJCompRoomId._(this.value);
+  const CBJCompRoomId._(this.value);
 
   @override
   final Either<CBJCompFailure<String>, String> value;
 }
 
 class CBJCompMacAddr extends CBJCompValueObjectAbstract<String> {
-  @override
-  final Either<CBJCompFailure<String>, String> value;
-
-  static const maxLength = 1000;
-
   factory CBJCompMacAddr(String input) {
     assert(input != null);
     return CBJCompMacAddr._(
@@ -92,14 +87,14 @@ class CBJCompMacAddr extends CBJCompValueObjectAbstract<String> {
   }
 
   const CBJCompMacAddr._(this.value);
-}
 
-class CBJCompDefaultName extends CBJCompValueObjectAbstract<String> {
   @override
   final Either<CBJCompFailure<String>, String> value;
 
   static const maxLength = 1000;
+}
 
+class CBJCompDefaultName extends CBJCompValueObjectAbstract<String> {
   factory CBJCompDefaultName(String input) {
     assert(input != null);
     return CBJCompDefaultName._(
@@ -109,24 +104,26 @@ class CBJCompDefaultName extends CBJCompValueObjectAbstract<String> {
   }
 
   const CBJCompDefaultName._(this.value);
+
+  @override
+  final Either<CBJCompFailure<String>, String> value;
+
+  static const maxLength = 1000;
 }
 
 class CBJCompDevices extends CBJCompValueObjectAbstract<KtList<DeviceEntity>> {
-  @override
-  final Either<CBJCompFailure<KtList<DeviceEntity>>, KtList<DeviceEntity>>
-      value;
-
   factory CBJCompDevices(KtList<DeviceEntity> input) {
     return CBJCompDevices._(validateCBJCompDevicesNotNull(input));
   }
 
   const CBJCompDevices._(this.value);
+
+  @override
+  final Either<CBJCompFailure<KtList<DeviceEntity>>, KtList<DeviceEntity>>
+      value;
 }
 
 class CBJCompOs extends CBJCompValueObjectAbstract<String> {
-  @override
-  final Either<CBJCompFailure<String>, String> value;
-
   factory CBJCompOs(String input) {
     assert(input != null);
     return CBJCompOs._(
@@ -135,6 +132,9 @@ class CBJCompOs extends CBJCompValueObjectAbstract<String> {
   }
 
   const CBJCompOs._(this.value);
+
+  @override
+  final Either<CBJCompFailure<String>, String> value;
 }
 
 class CBJCompModel extends CBJCompValueObjectAbstract<String> {

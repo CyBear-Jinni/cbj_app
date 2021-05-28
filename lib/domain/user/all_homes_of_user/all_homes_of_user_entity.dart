@@ -7,12 +7,12 @@ part 'all_homes_of_user_entity.freezed.dart';
 
 @freezed
 abstract class AllHomesOfUserEntity implements _$AllHomesOfUserEntity {
-  const AllHomesOfUserEntity._();
-
   const factory AllHomesOfUserEntity({
     required AllHomesOfUserUniqueId? id,
     required AllHomesOfUserName? name,
   }) = _AllHomesOfUserEntity;
+
+  const AllHomesOfUserEntity._();
 
   factory AllHomesOfUserEntity.empty() => AllHomesOfUserEntity(
         id: AllHomesOfUserUniqueId(),

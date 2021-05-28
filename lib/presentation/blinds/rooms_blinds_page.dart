@@ -16,8 +16,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 /// Blinds page that will call the blind widget file and add background
 /// and scaffold for it
 class RoomsBlindsPage extends StatelessWidget {
-  RoomsBlindsPage(
-      {this.showDevicesOnlyFromRoomId, this.roomColorGradiant = null});
+  const RoomsBlindsPage(
+      {this.showDevicesOnlyFromRoomId, this.roomColorGradiant});
 
   /// If it have value will only show blinds in this room
   final String? showDevicesOnlyFromRoomId;

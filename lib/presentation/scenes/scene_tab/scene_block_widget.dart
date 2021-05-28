@@ -25,43 +25,55 @@ class SceneBlockWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.fromLTRB(5, 0, 5, 10),
-      child: RaisedButton(
-        padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
-        color: colorList[_elementIndex],
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30),
-          side: BorderSide(
-              color: (Theme.of(context).textTheme.bodyText1!.color)!,
-              width: 0.6),
-        ),
-        onPressed: () {
-          smartDevicesWithWish
-              .forEach((SmartDeviceObject key, List<DeviceActions> value) {
-            for (final DeviceActions deviceActionForSmartDevice in value) {
-              key.executeWish(deviceActionForSmartDevice);
-            }
-          });
-        },
-        highlightColor: (Theme.of(context).textTheme.bodyText1!.color)!,
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(30),
-            color: Colors.black54,
-          ),
-          alignment: Alignment.center,
-          child: Text(
-            sceneName,
-            style: TextStyle(
-              fontSize: 25,
-              color: (Theme.of(context).textTheme.bodyText1!.color)!,
+      child: InkWell(
+        highlightColor: Theme.of(context).textTheme.bodyText1!.color,
+        child: ElevatedButton(
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(
+              colorList[_elementIndex],
             ),
-            textAlign: TextAlign.center,
+            padding: MaterialStateProperty.all<EdgeInsets>(
+              const EdgeInsets.all(5),
+            ),
+            side: MaterialStateProperty.all(
+              BorderSide.lerp(
+                  BorderSide(
+                      color: (Theme.of(context).textTheme.bodyText1!.color)!,
+                      width: 0.6),
+                  BorderSide(
+                      color: (Theme.of(context).textTheme.bodyText1!.color)!,
+                      width: 0.6),
+                  30),
+            ),
           ),
-          // Text(
-          //   _element,
-          //   style: const TextStyle(fontSize: 27),
-          //   textAlign: TextAlign.center,
-          // ),
+          onPressed: () {
+            smartDevicesWithWish
+                .forEach((SmartDeviceObject key, List<DeviceActions> value) {
+              for (final DeviceActions deviceActionForSmartDevice in value) {
+                key.executeWish(deviceActionForSmartDevice);
+              }
+            });
+          },
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(30),
+              color: Colors.black54,
+            ),
+            alignment: Alignment.center,
+            child: Text(
+              sceneName,
+              style: TextStyle(
+                fontSize: 25,
+                color: Theme.of(context).textTheme.bodyText1!.color,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            // Text(
+            //   _element,
+            //   style: const TextStyle(fontSize: 27),
+            //   textAlign: TextAlign.center,
+            // ),
+          ),
         ),
       ),
     );

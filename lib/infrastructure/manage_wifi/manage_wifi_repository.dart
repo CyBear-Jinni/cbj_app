@@ -5,7 +5,6 @@ import 'package:cybear_jinni/domain/manage_network/manage_network_value_objects.
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
-import 'package:kt_dart/src/collection/kt_list.dart';
 import 'package:wifi_iot/wifi_iot.dart';
 
 @LazySingleton(as: IManageNetworkRepository)

@@ -35,6 +35,8 @@ Future<List<SmartDeviceObject>> getAllDevices(String deviceIp) async {
       case DeviceTypes.boiler:
         // TODO: Handle this case.
         break;
+      case DeviceTypes.typeNotSupported:
+        break;
     }
   }
   return smartDeviceObjectList;

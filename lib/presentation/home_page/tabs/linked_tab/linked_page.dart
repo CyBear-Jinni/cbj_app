@@ -65,9 +65,7 @@ class LinkedPage extends StatelessWidget {
           child: Container(
             margin: const EdgeInsets.symmetric(horizontal: 3, vertical: 70),
             color: Colors.black.withOpacity(0.4),
-            child: ListView(
-              children: const [],
-            ),
+            child: ListView(),
           ),
         ),
       ],

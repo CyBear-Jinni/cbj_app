@@ -9,11 +9,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CBJCompCard extends StatelessWidget {
-  final CBJCompEntity cbjCompEntity;
-
   const CBJCompCard({
     required this.cbjCompEntity,
   });
+
+  final CBJCompEntity cbjCompEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -59,10 +59,8 @@ class CBJCompCard extends StatelessWidget {
                           'Type not supported ${compEntity.type!.getOrCrash()}'
                           ' yet',
                           style: TextStyle(
-                              color: (Theme.of(context)
-                                  .textTheme
-                                  .bodyText1!
-                                  .color)!),
+                              color:
+                                  Theme.of(context).textTheme.bodyText1!.color),
                         );
                       }
                     },
@@ -85,7 +83,7 @@ class CBJCompCard extends StatelessWidget {
             child: Text(
               'Set up computer',
               style: TextStyle(
-                  color: (Theme.of(context).textTheme.bodyText1!.color)!),
+                  color: Theme.of(context).textTheme.bodyText1!.color),
             ),
           ),
         ],
