@@ -1,7 +1,7 @@
 part of 'manage_users_bloc.dart';
 
 @freezed
-abstract class ManageUsersState with _$ManageUsersState {
+class ManageUsersState with _$ManageUsersState {
   const factory ManageUsersState.initial() = _Initial;
 
   const factory ManageUsersState.inProgress() = _InProgress;

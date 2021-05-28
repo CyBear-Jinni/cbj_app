@@ -39,7 +39,7 @@ abstract class ValueObject<T> {
 
 class UniqueId extends ValueObject<String?> {
   factory UniqueId() {
-    return UniqueId._(right(Uuid().v1()));
+    return UniqueId._(right(const Uuid().v1()));
   }
 
   factory UniqueId.fromUniqueString(String? uniqueId) {

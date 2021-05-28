@@ -1,7 +1,7 @@
 part of 'device_watcher_bloc.dart';
 
 @freezed
-abstract class DeviceWatcherState with _$DeviceWatcherState {
+class DeviceWatcherState with _$DeviceWatcherState {
   factory DeviceWatcherState.initial() = _Initial;
 
   const factory DeviceWatcherState.loadInProgress() = _LoadInProgress;

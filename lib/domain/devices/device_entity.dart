@@ -7,8 +7,6 @@ part 'device_entity.freezed.dart';
 
 @freezed
 abstract class DeviceEntity implements _$DeviceEntity {
-  const DeviceEntity._();
-
   const factory DeviceEntity({
     /// The smart device id
     required DeviceUniqueId? id,
@@ -44,6 +42,8 @@ abstract class DeviceEntity implements _$DeviceEntity {
     required DeviceCompUuid? compUuid,
     DeviceLastKnownIp? lastKnownIp,
   }) = _DeviceEnitie;
+
+  const DeviceEntity._();
 
   factory DeviceEntity.empty() => DeviceEntity(
         id: DeviceUniqueId(),

@@ -3,12 +3,13 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'add_user_to_home_failures.freezed.dart';
 
 @freezed
-abstract class AddUserToHomeFailures<T> {
+class AddUserToHomeFailures<T> {
   const factory AddUserToHomeFailures.empty({
     required T failedValue,
   }) = _Empty;
 
   const factory AddUserToHomeFailures.unexpected() = _Unexpected;
+
   const factory AddUserToHomeFailures.validateEmailNotEmpty() =
       _ValidateEmailNotEmpty;
 

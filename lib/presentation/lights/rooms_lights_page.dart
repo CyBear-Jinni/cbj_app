@@ -16,8 +16,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 /// Lights page that will call the lamps widget file and add background
 /// and scaffold for it
 class RoomsLightsPage extends StatelessWidget {
-  RoomsLightsPage(
-      {this.showDevicesOnlyFromRoomId, this.roomColorGradiant = null});
+  const RoomsLightsPage(
+      {this.showDevicesOnlyFromRoomId, this.roomColorGradiant});
 
   /// If it have value will only show lights in this room
   final String? showDevicesOnlyFromRoomId;

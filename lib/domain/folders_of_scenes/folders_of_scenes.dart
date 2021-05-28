@@ -7,12 +7,11 @@ import 'package:kt_dart/collection.dart';
 part 'folders_of_scenes.freezed.dart';
 
 @freezed
-abstract class FoldersOfScenes with _$FoldersOfScenes {
-  const FoldersOfScenes._();
-
+class FoldersOfScenes with _$FoldersOfScenes {
   const factory FoldersOfScenes({
-    required
-        KtList<Either<FolderOfScenesFailures, FolderOfScenes>>
-            foldersOfScenesList,
+    required KtList<Either<FolderOfScenesFailures, FolderOfScenes>>
+        foldersOfScenesList,
   }) = _FoldersOfScenes;
+
+  const FoldersOfScenes._();
 }

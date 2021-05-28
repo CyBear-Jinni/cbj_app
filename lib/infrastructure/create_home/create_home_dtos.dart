@@ -10,14 +10,13 @@ part 'create_home_dtos.g.dart';
 abstract class CreateHomeDtos implements _$CreateHomeDtos {
   const CreateHomeDtos._();
 
-  const factory CreateHomeDtos({
-    @JsonKey(ignore: true) String? id,
-    @JsonKey(ignore: true) String? name,
-    required String homeDevicesUserId,
-    required String homeDevicesUserEmail,
-    required String homeDevicesUserPassword,
-    // required @ServerTimestampConverter() FieldValue serverTimeStamp,
-  }) = _CreateHomeDtos;
+  factory CreateHomeDtos.fromJson(Map<String, dynamic> json) =>
+      _$CreateHomeDtosFromJson(json);
+
+  factory CreateHomeDtos.fromFirestore(DocumentSnapshot? doc) {
+    return CreateHomeDtos.fromJson(doc!.data() as Map<String, dynamic>)
+        .copyWith(id: doc.id);
+  }
 
   factory CreateHomeDtos.fromDomain(CreateHomeEntity createHomeEntity) {
     return CreateHomeDtos(
@@ -29,6 +28,15 @@ abstract class CreateHomeDtos implements _$CreateHomeDtos {
     );
   }
 
+  const factory CreateHomeDtos({
+    @JsonKey(ignore: true) String? id,
+    @JsonKey(ignore: true) String? name,
+    required String homeDevicesUserId,
+    required String homeDevicesUserEmail,
+    required String homeDevicesUserPassword,
+    // required @ServerTimestampConverter() FieldValue serverTimeStamp,
+  }) = _CreateHomeDtos;
+
   CreateHomeEntity toDomain() {
     return CreateHomeEntity(
       name: HomeName(' '),
@@ -38,14 +46,6 @@ abstract class CreateHomeDtos implements _$CreateHomeDtos {
       homeDevicesUserPassword:
           HomeDevicesUserPassword.fromUniqueString(homeDevicesUserPassword),
     );
-  }
-
-  factory CreateHomeDtos.fromJson(Map<String, dynamic> json) =>
-      _$CreateHomeDtosFromJson(json);
-
-  factory CreateHomeDtos.fromFirestore(DocumentSnapshot? doc) {
-    return CreateHomeDtos.fromJson(doc!.data() as Map<String, dynamic>)
-        .copyWith(id: doc.id);
   }
 }
 

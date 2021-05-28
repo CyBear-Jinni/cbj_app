@@ -1,7 +1,7 @@
 part of 'boilers_watcher_bloc.dart';
 
 @freezed
-abstract class BoilersWatcherState with _$BoilersWatcherState {
+class BoilersWatcherState with _$BoilersWatcherState {
   factory BoilersWatcherState.initial() = _Initial;
 
   const factory BoilersWatcherState.loadInProgress() = _LoadInProgress;

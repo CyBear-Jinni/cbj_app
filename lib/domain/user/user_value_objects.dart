@@ -39,7 +39,7 @@ abstract class UserValueObjectAbstract<T> {
 
 class UserUniqueId extends UserValueObjectAbstract<String?> {
   factory UserUniqueId() {
-    return UserUniqueId._(right(Uuid().v1()));
+    return UserUniqueId._(right(const Uuid().v1()));
   }
 
   factory UserUniqueId.fromUniqueString(String? uniqueId) {
@@ -47,18 +47,13 @@ class UserUniqueId extends UserValueObjectAbstract<String?> {
     return UserUniqueId._(right(uniqueId!));
   }
 
-  UserUniqueId._(this.value);
+  const UserUniqueId._(this.value);
 
   @override
   final Either<UserFailures<String>, String> value;
 }
 
 class UserEmail extends UserValueObjectAbstract<String> {
-  @override
-  final Either<UserFailures<String>, String> value;
-
-  static const maxLength = 1000;
-
   factory UserEmail(String input) {
     assert(input != null);
     return UserEmail._(
@@ -67,14 +62,14 @@ class UserEmail extends UserValueObjectAbstract<String> {
   }
 
   const UserEmail._(this.value);
-}
 
-class UserName extends UserValueObjectAbstract<String> {
   @override
   final Either<UserFailures<String>, String> value;
 
   static const maxLength = 1000;
+}
 
+class UserName extends UserValueObjectAbstract<String> {
   factory UserName(String input) {
     assert(input != null);
     return UserName._(
@@ -83,14 +78,14 @@ class UserName extends UserValueObjectAbstract<String> {
   }
 
   const UserName._(this.value);
-}
 
-class UserPass extends UserValueObjectAbstract<String> {
   @override
   final Either<UserFailures<String>, String> value;
 
   static const maxLength = 1000;
+}
 
+class UserPass extends UserValueObjectAbstract<String> {
   factory UserPass(String input) {
     assert(input != null);
     return UserPass._(
@@ -99,14 +94,14 @@ class UserPass extends UserValueObjectAbstract<String> {
   }
 
   const UserPass._(this.value);
-}
 
-class UserFirstName extends UserValueObjectAbstract<String> {
   @override
   final Either<UserFailures<String>, String> value;
 
   static const maxLength = 1000;
+}
 
+class UserFirstName extends UserValueObjectAbstract<String> {
   factory UserFirstName(String input) {
     assert(input != null);
     return UserFirstName._(
@@ -115,14 +110,14 @@ class UserFirstName extends UserValueObjectAbstract<String> {
   }
 
   const UserFirstName._(this.value);
-}
 
-class UserLastName extends UserValueObjectAbstract<String> {
   @override
   final Either<UserFailures<String>, String> value;
 
   static const maxLength = 1000;
+}
 
+class UserLastName extends UserValueObjectAbstract<String> {
   factory UserLastName(String input) {
     assert(input != null);
     return UserLastName._(
@@ -131,4 +126,9 @@ class UserLastName extends UserValueObjectAbstract<String> {
   }
 
   const UserLastName._(this.value);
+
+  @override
+  final Either<UserFailures<String>, String> value;
+
+  static const maxLength = 1000;
 }

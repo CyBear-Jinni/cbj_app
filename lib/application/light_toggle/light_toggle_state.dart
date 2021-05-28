@@ -1,7 +1,7 @@
 part of 'light_toggle_bloc.dart';
 
 @freezed
-abstract class LightToggleState with _$LightToggleState {
+class LightToggleState with _$LightToggleState {
   factory LightToggleState.initial() = _Initial;
 
   const factory LightToggleState.loadInProgress() = _LoadInProgress;

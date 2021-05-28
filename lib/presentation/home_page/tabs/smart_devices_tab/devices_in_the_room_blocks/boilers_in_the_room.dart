@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BoilersInTheRoom extends StatelessWidget {
-  BoilersInTheRoom({this.boilersInRoom, this.roomColorGradiant});
+  const BoilersInTheRoom({this.boilersInRoom, this.roomColorGradiant});
 
   final List<DeviceEntity>? boilersInRoom;
   final List<Color>? roomColorGradiant;
@@ -58,10 +58,8 @@ class BoilersInTheRoom extends StatelessWidget {
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               fontSize: 13,
-                              color: (Theme.of(context)
-                                  .textTheme
-                                  .bodyText1!
-                                  .color)!),
+                              color:
+                                  Theme.of(context).textTheme.bodyText1!.color),
                         ),
                       ),
                     ),
@@ -77,13 +75,13 @@ class BoilersInTheRoom extends StatelessWidget {
               Text(
                 boilersInRoom![0].defaultName!.getOrCrash()!,
                 style: TextStyle(
-                    color: (Theme.of(context).textTheme.bodyText1!.color)!),
+                    color: Theme.of(context).textTheme.bodyText1!.color),
               )
             else
               Text(
                 'Room Name boiler',
                 style: TextStyle(
-                    color: (Theme.of(context).textTheme.bodyText1!.color)!),
+                    color: Theme.of(context).textTheme.bodyText1!.color),
               ),
           ],
         ),

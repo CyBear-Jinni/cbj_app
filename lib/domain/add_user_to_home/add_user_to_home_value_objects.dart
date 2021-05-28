@@ -39,7 +39,7 @@ abstract class AddUserToHomeValueObjectAbstract<T> {
 
 class AddUserToHomeUniqueId extends AddUserToHomeValueObjectAbstract<String> {
   factory AddUserToHomeUniqueId() {
-    return AddUserToHomeUniqueId._(right(Uuid().v1()));
+    return AddUserToHomeUniqueId._(right(const Uuid().v1()));
   }
 
   factory AddUserToHomeUniqueId.fromUniqueString(String uniqueId) {
@@ -47,18 +47,13 @@ class AddUserToHomeUniqueId extends AddUserToHomeValueObjectAbstract<String> {
     return AddUserToHomeUniqueId._(right(uniqueId));
   }
 
-  AddUserToHomeUniqueId._(this.value);
+  const AddUserToHomeUniqueId._(this.value);
 
   @override
   final Either<AddUserToHomeFailures<String>, String> value;
 }
 
 class AddUserToHomeEmail extends AddUserToHomeValueObjectAbstract<String> {
-  @override
-  final Either<AddUserToHomeFailures<String>, String> value;
-
-  static const maxLength = 1000;
-
   factory AddUserToHomeEmail(String input) {
     assert(input != null);
     return AddUserToHomeEmail._(
@@ -67,12 +62,14 @@ class AddUserToHomeEmail extends AddUserToHomeValueObjectAbstract<String> {
   }
 
   const AddUserToHomeEmail._(this.value);
-}
 
-class AddUserToHomeName extends AddUserToHomeValueObjectAbstract<String> {
   @override
   final Either<AddUserToHomeFailures<String>, String> value;
 
+  static const maxLength = 1000;
+}
+
+class AddUserToHomeName extends AddUserToHomeValueObjectAbstract<String> {
   factory AddUserToHomeName(String input) {
     assert(input != null);
     return AddUserToHomeName._(
@@ -81,12 +78,12 @@ class AddUserToHomeName extends AddUserToHomeValueObjectAbstract<String> {
   }
 
   const AddUserToHomeName._(this.value);
+
+  @override
+  final Either<AddUserToHomeFailures<String>, String> value;
 }
 
 class AddUserToHomePermission extends AddUserToHomeValueObjectAbstract<String> {
-  @override
-  final Either<AddUserToHomeFailures<String>, String> value;
-
   factory AddUserToHomePermission(String input) {
     assert(input != null);
     return AddUserToHomePermission._(
@@ -95,4 +92,7 @@ class AddUserToHomePermission extends AddUserToHomeValueObjectAbstract<String> {
   }
 
   const AddUserToHomePermission._(this.value);
+
+  @override
+  final Either<AddUserToHomeFailures<String>, String> value;
 }

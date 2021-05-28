@@ -1,7 +1,7 @@
 part of 'manage_access_point_bloc.dart';
 
 @freezed
-abstract class ManageAccessPointState with _$ManageAccessPointState {
+class ManageAccessPointState with _$ManageAccessPointState {
   factory ManageAccessPointState.initial() = Initial;
 
   factory ManageAccessPointState.loading() = Loading;

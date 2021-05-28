@@ -39,7 +39,7 @@ abstract class HomeUserValueObjectAbstract<T> {
 
 class HomeUserUniqueId extends HomeUserValueObjectAbstract<String?> {
   factory HomeUserUniqueId() {
-    return HomeUserUniqueId._(right(Uuid().v1()));
+    return HomeUserUniqueId._(right(const Uuid().v1()));
   }
 
   factory HomeUserUniqueId.fromUniqueString(String? uniqueId) {
@@ -47,18 +47,13 @@ class HomeUserUniqueId extends HomeUserValueObjectAbstract<String?> {
     return HomeUserUniqueId._(right(uniqueId!));
   }
 
-  HomeUserUniqueId._(this.value);
+  const HomeUserUniqueId._(this.value);
 
   @override
   final Either<HomeUserFailures<String>, String> value;
 }
 
 class HomeUserEmail extends HomeUserValueObjectAbstract<String?> {
-  @override
-  final Either<HomeUserFailures<String?>, String?> value;
-
-  static const maxLength = 1000;
-
   factory HomeUserEmail(String? input) {
     assert(input != null);
     return HomeUserEmail._(
@@ -67,14 +62,14 @@ class HomeUserEmail extends HomeUserValueObjectAbstract<String?> {
   }
 
   const HomeUserEmail._(this.value);
+
+  @override
+  final Either<HomeUserFailures<String?>, String?> value;
+
+  static const maxLength = 1000;
 }
 
 class HomeUserName extends HomeUserValueObjectAbstract<String?> {
-  @override
-  final Either<HomeUserFailures<String>, String> value;
-
-  static const maxLength = 1000;
-
   factory HomeUserName(String input) {
     assert(input != null);
     return HomeUserName._(
@@ -83,14 +78,14 @@ class HomeUserName extends HomeUserValueObjectAbstract<String?> {
   }
 
   const HomeUserName._(this.value);
-}
 
-class HomeUserPermission extends HomeUserValueObjectAbstract<String?> {
   @override
   final Either<HomeUserFailures<String>, String> value;
 
   static const maxLength = 1000;
+}
 
+class HomeUserPermission extends HomeUserValueObjectAbstract<String?> {
   factory HomeUserPermission(String input) {
     assert(input != null);
     return HomeUserPermission._(
@@ -99,4 +94,9 @@ class HomeUserPermission extends HomeUserValueObjectAbstract<String?> {
   }
 
   const HomeUserPermission._(this.value);
+
+  @override
+  final Either<HomeUserFailures<String>, String> value;
+
+  static const maxLength = 1000;
 }

@@ -9,7 +9,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kt_dart/kt.dart';
 
 class RoomsBoilersWidget extends StatelessWidget {
-  RoomsBoilersWidget(this.showDevicesOnlyFromRoomId, this.roomColorGradiant);
+  const RoomsBoilersWidget(
+      this.showDevicesOnlyFromRoomId, this.roomColorGradiant);
 
   /// If not null show boilers only from this room
   final String showDevicesOnlyFromRoomId;
@@ -114,10 +115,8 @@ class RoomsBoilersWidget extends StatelessWidget {
                         'Boilers does not exist.',
                         style: TextStyle(
                             fontSize: 30,
-                            color: (Theme.of(context)
-                                .textTheme
-                                .bodyText1!
-                                .color)!),
+                            color:
+                                Theme.of(context).textTheme.bodyText1!.color),
                       ),
                     ),
                   ],

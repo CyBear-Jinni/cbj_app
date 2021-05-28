@@ -101,10 +101,11 @@ class SmartDevicesByRooms extends StatelessWidget {
                           'Rooms',
                           style: TextStyle(
                             fontSize: 35,
-                            color: ((Theme.of(context)
+                            color: Theme
+                                .of(context)
                                 .textTheme
                                 .bodyText1!
-                                .color)!),
+                                .color,
                           ),
                         ),
                       ],
@@ -210,8 +211,8 @@ class SmartDevicesByRooms extends StatelessWidget {
                                             getIt<BlindsActorBloc>(),
                                         child: BlindsInTheRoom(
                                           blindsInRoom:
-                                              (tempDevicesByRoomsByType[
-                                                  roomId]![deviceType])!,
+                                          tempDevicesByRoomsByType[roomId]![
+                                          deviceType],
                                           roomColorGradiant: roomColorGradiant,
                                         ),
                                       );
@@ -222,8 +223,8 @@ class SmartDevicesByRooms extends StatelessWidget {
                                             getIt<BlindsActorBloc>(),
                                         child: BoilersInTheRoom(
                                           boilersInRoom:
-                                              (tempDevicesByRoomsByType[
-                                                  roomId]![deviceType])!,
+                                          tempDevicesByRoomsByType[roomId]![
+                                          deviceType],
                                           roomColorGradiant: roomColorGradiant,
                                         ),
                                       );
@@ -263,7 +264,11 @@ class SmartDevicesByRooms extends StatelessWidget {
                           gravity: ToastGravity.CENTER,
                           backgroundColor: Colors.blueGrey,
                           textColor:
-                              (Theme.of(context).textTheme.bodyText1!.color)!,
+                          Theme
+                              .of(context)
+                              .textTheme
+                              .bodyText1!
+                              .color,
                           fontSize: 16.0);
                     },
                     child: const Text(

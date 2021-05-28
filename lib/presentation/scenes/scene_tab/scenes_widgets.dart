@@ -94,10 +94,10 @@ class ScenesWidgets extends StatelessWidget {
       context: context!,
       builder: (BuildContext context) => child!,
     ).then<void>((T? value) {
-      Scaffold.of(context).showSnackBar(SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: Text('You clicked $value'),
         duration: const Duration(milliseconds: 800),
       ));
-    }!);
+    });
   }
 }

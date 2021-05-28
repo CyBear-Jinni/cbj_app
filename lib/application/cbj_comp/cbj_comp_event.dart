@@ -1,7 +1,7 @@
 part of 'cbj_comp_bloc.dart';
 
 @freezed
-abstract class CBJCompEvent with _$CBJCompEvent {
+class CBJCompEvent with _$CBJCompEvent {
   const factory CBJCompEvent.initialized() = Initialized;
 
   const factory CBJCompEvent.watchAllStarted() = _WatchAllStarted;

@@ -8,7 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LightsInTheRoomBlock extends StatelessWidget {
-  LightsInTheRoomBlock(this.lightsInRoom, this.roomColorGradiant);
+  const LightsInTheRoomBlock(this.lightsInRoom, this.roomColorGradiant);
 
   final List<DeviceEntity> lightsInRoom;
   final List<Color> roomColorGradiant;
@@ -61,10 +61,8 @@ class LightsInTheRoomBlock extends StatelessWidget {
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               fontSize: 13,
-                              color: (Theme.of(context)
-                                  .textTheme
-                                  .bodyText1!
-                                  .color)!),
+                              color:
+                                  Theme.of(context).textTheme.bodyText1!.color),
                         ),
                       ),
                     ),
@@ -80,13 +78,13 @@ class LightsInTheRoomBlock extends StatelessWidget {
               Text(
                 lightsInRoom[0].defaultName!.getOrCrash()!,
                 style: TextStyle(
-                    color: (Theme.of(context).textTheme.bodyText1!.color)!),
+                    color: Theme.of(context).textTheme.bodyText1!.color),
               )
             else
               Text(
                 'Room Name lights',
                 style: TextStyle(
-                    color: (Theme.of(context).textTheme.bodyText1!.color)!),
+                    color: Theme.of(context).textTheme.bodyText1!.color),
               ),
             const SizedBox(
               height: 10,
@@ -115,20 +113,16 @@ class LightsInTheRoomBlock extends StatelessWidget {
                           'Off',
                           style: TextStyle(
                               fontSize: 14,
-                              color: (Theme.of(context)
-                                  .textTheme
-                                  .bodyText1!
-                                  .color)!),
+                              color:
+                                  Theme.of(context).textTheme.bodyText1!.color),
                         ),
                       ),
                       Text(
                         '·',
                         style: TextStyle(
                             fontSize: 14,
-                            color: (Theme.of(context)
-                                .textTheme
-                                .bodyText1!
-                                .color)!),
+                            color:
+                                Theme.of(context).textTheme.bodyText1!.color),
                       ),
                       TextButton(
                         style: ButtonStyle(
@@ -147,10 +141,8 @@ class LightsInTheRoomBlock extends StatelessWidget {
                           'On',
                           style: TextStyle(
                               fontSize: 14,
-                              color: (Theme.of(context)
-                                  .textTheme
-                                  .bodyText1!
-                                  .color)!),
+                              color:
+                                  Theme.of(context).textTheme.bodyText1!.color),
                         ),
                       ),
                     ],

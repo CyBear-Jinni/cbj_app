@@ -144,7 +144,7 @@ class CreateHomeRepository implements ICreateHomeRepository {
         return left(const CreateHomeFailure.insufficientPermission());
       } else {
         // log.error(e.toString());
-        return left(CreateHomeFailure.unexpected(failedValue: e.message!));
+        return left(CreateHomeFailure.unexpected(failedValue: e.message));
       }
     }
   }
@@ -184,7 +184,6 @@ class CreateHomeRepository implements ICreateHomeRepository {
     }
   }
 
-  @override
   Future<Either<CreateHomeFailure, Unit>> addHomeInfo(
       CreateHomeEntity createHomeEntity) async {
     try {
@@ -195,15 +194,15 @@ class CreateHomeRepository implements ICreateHomeRepository {
           .set({'home name': createHomeEntity.name.getOrCrash()});
 
       await homeDoc.homeInfoCollecttion
-          .doc(first_WiFi)
-          .set({wiFi_name: Uuid().v1(), wiFi_pass: Uuid().v1()});
+          .doc(firstWiFi)
+          .set({wiFiName: const Uuid().v1(), wiFiPass: const Uuid().v1()});
       return right(unit);
     } on PlatformException catch (e) {
       if (e.message!.contains('PERMISSION_DENIED')) {
         return left(const CreateHomeFailure.insufficientPermission());
       } else {
         // log.error(e.toString());
-        return left(CreateHomeFailure.unexpected(failedValue: e.message!));
+        return left(CreateHomeFailure.unexpected(failedValue: e.message));
       }
     }
   }
@@ -214,10 +213,10 @@ class CreateHomeRepository implements ICreateHomeRepository {
       final homeDoc = await _firestore.currentHomeDocument();
 
       final DocumentSnapshot documentSnapshot =
-          await homeDoc.homeInfoCollecttion.doc(first_WiFi).get();
+          await homeDoc.homeInfoCollecttion.doc(firstWiFi).get();
 
-      final String firstWifiName = documentSnapshot.get(wiFi_name).toString();
-      final String firstWifiPass = documentSnapshot.get(wiFi_pass).toString();
+      final String firstWifiName = documentSnapshot.get(wiFiName).toString();
+      final String firstWifiPass = documentSnapshot.get(wiFiPass).toString();
 
       return right(
         ManageNetworkEntity(
@@ -230,7 +229,7 @@ class CreateHomeRepository implements ICreateHomeRepository {
         return left(const CreateHomeFailure.insufficientPermission());
       } else {
         // log.error(e.toString());
-        return left(CreateHomeFailure.unexpected(failedValue: e.message!));
+        return left(CreateHomeFailure.unexpected(failedValue: e.message));
       }
     }
   }

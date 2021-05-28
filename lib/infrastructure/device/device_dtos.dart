@@ -8,8 +8,6 @@ part 'device_dtos.g.dart';
 
 @freezed
 abstract class DeviceDtos implements _$DeviceDtos {
-  const DeviceDtos._();
-
   const factory DeviceDtos({
     @JsonKey(ignore: true) String? id,
     required String? defaultName,
@@ -24,6 +22,8 @@ abstract class DeviceDtos implements _$DeviceDtos {
     required String? compUuid,
     // required ServerTimestampConverter() FieldValue serverTimeStamp,
   }) = _DeviceDtos;
+
+  const DeviceDtos._();
 
   factory DeviceDtos.fromDomain(DeviceEntity deviceEntity) {
     return DeviceDtos(
@@ -42,6 +42,14 @@ abstract class DeviceDtos implements _$DeviceDtos {
     );
   }
 
+  factory DeviceDtos.fromJson(Map<String, dynamic> json) =>
+      _$DeviceDtosFromJson(json);
+
+  factory DeviceDtos.fromFirestore(DocumentSnapshot doc) {
+    return DeviceDtos.fromJson(doc.data() as Map<String, dynamic>)
+        .copyWith(id: doc.id);
+  }
+
   DeviceEntity toDomain() {
     return DeviceEntity(
       id: DeviceUniqueId.fromUniqueString(id),
@@ -56,14 +64,6 @@ abstract class DeviceDtos implements _$DeviceDtos {
       type: DeviceType(type),
       compUuid: DeviceCompUuid(compUuid),
     );
-  }
-
-  factory DeviceDtos.fromJson(Map<String, dynamic> json) =>
-      _$DeviceDtosFromJson(json);
-
-  factory DeviceDtos.fromFirestore(DocumentSnapshot doc) {
-    return DeviceDtos.fromJson(doc.data() as Map<String, dynamic>)
-        .copyWith(id: doc.id);
   }
 }
 

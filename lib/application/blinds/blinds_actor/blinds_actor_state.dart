@@ -1,7 +1,7 @@
 part of 'blinds_actor_bloc.dart';
 
 @freezed
-abstract class BlindsActorState with _$BlindsActorState {
+class BlindsActorState with _$BlindsActorState {
   const factory BlindsActorState.initial() = _Initial;
 
   const factory BlindsActorState.actionInProgress() = _ActionInProgress;

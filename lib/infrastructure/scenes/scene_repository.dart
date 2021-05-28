@@ -23,8 +23,8 @@ class SceneRepository implements ISceneRepository {
     // );
     //
     //
-    KtList<String> scenesActionsList = [
-      'Gut Cilling',
+    final KtList<String> scenesActionsList = [
+      'Gut Calling',
       'Out Side North',
     ].toImmutableList();
 
@@ -39,7 +39,7 @@ class SceneRepository implements ISceneRepository {
         ),
       );
     } catch (e) {
-      return left(SceneFailure.unexpected());
+      return left(const SceneFailure.unexpected());
     }
   }
 }

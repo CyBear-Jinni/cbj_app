@@ -20,7 +20,7 @@ class SmartDevicesWidgets extends StatelessWidget {
       context: context,
       actions: <BottomSheetAction>[
         BottomSheetAction(
-          title: Text(
+          title: const Text(
             '➕ Add Devices',
             style: TextStyle(color: Colors.green, fontSize: 23),
           ),

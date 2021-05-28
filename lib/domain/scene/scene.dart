@@ -6,9 +6,7 @@ import 'package:kt_dart/collection.dart';
 part 'scene.freezed.dart';
 
 @freezed
-abstract class Scene with _$Scene {
-  const Scene._();
-
+class Scene with _$Scene {
   const factory Scene({
     required UniqueId uniqueId,
     required String name,
@@ -17,4 +15,6 @@ abstract class Scene with _$Scene {
     IconData? icon,
     String? image,
   }) = _Scene;
+
+  const Scene._();
 }

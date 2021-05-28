@@ -8,25 +8,18 @@ part 'all_homes_of_user_dtos.g.dart';
 
 @freezed
 abstract class AllHomesOfUserDtos implements _$AllHomesOfUserDtos {
-  const AllHomesOfUserDtos._();
-
   const factory AllHomesOfUserDtos({
     @JsonKey(ignore: true) String? id,
     required String name,
   }) = _AllHomesOfUserDtos;
 
+  const AllHomesOfUserDtos._();
+
   factory AllHomesOfUserDtos.fromDomain(
       AllHomesOfUserEntity allHomesOfUserEntity) {
     return AllHomesOfUserDtos(
-      id: (allHomesOfUserEntity.id!.getOrCrash())!,
+      id: allHomesOfUserEntity.id!.getOrCrash(),
       name: (allHomesOfUserEntity.name!.getOrCrash())!,
-    );
-  }
-
-  AllHomesOfUserEntity toDomain() {
-    return AllHomesOfUserEntity(
-      id: AllHomesOfUserUniqueId.fromUniqueString(id),
-      name: AllHomesOfUserName(name),
     );
   }
 
@@ -36,6 +29,13 @@ abstract class AllHomesOfUserDtos implements _$AllHomesOfUserDtos {
   factory AllHomesOfUserDtos.fromFirestore(DocumentSnapshot doc) {
     return AllHomesOfUserDtos.fromJson(doc.data()! as Map<String, dynamic>)
         .copyWith(id: doc.id);
+  }
+
+  AllHomesOfUserEntity toDomain() {
+    return AllHomesOfUserEntity(
+      id: AllHomesOfUserUniqueId.fromUniqueString(id),
+      name: AllHomesOfUserName(name),
+    );
   }
 }
 

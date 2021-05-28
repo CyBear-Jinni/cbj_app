@@ -8,7 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BlindsInTheRoom extends StatelessWidget {
-  BlindsInTheRoom({this.blindsInRoom, this.roomColorGradiant});
+  const BlindsInTheRoom({this.blindsInRoom, this.roomColorGradiant});
 
   final List<DeviceEntity?>? blindsInRoom;
   final List<Color>? roomColorGradiant;

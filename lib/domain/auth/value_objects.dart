@@ -4,9 +4,6 @@ import 'package:cybear_jinni/domain/core/value_validators.dart';
 import 'package:dartz/dartz.dart';
 
 class EmailAddress extends ValueObject<String> {
-  @override
-  final Either<AuthValueFailure<String>, String> value;
-
   factory EmailAddress(String input) {
     assert(input != null);
     return EmailAddress._(
@@ -15,12 +12,12 @@ class EmailAddress extends ValueObject<String> {
   }
 
   const EmailAddress._(this.value);
+
+  @override
+  final Either<AuthValueFailure<String>, String> value;
 }
 
 class Password extends ValueObject<String> {
-  @override
-  final Either<AuthValueFailure<String>, String> value;
-
   factory Password(String input) {
     assert(input != null);
     return Password._(
@@ -29,4 +26,7 @@ class Password extends ValueObject<String> {
   }
 
   const Password._(this.value);
+
+  @override
+  final Either<AuthValueFailure<String>, String> value;
 }
