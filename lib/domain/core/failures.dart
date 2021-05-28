@@ -4,7 +4,7 @@ part 'failures.freezed.dart';
 
 /// Example how to use multiple failures types in one class
 @freezed
-abstract class ValueFailure<T> with _$ValueFailure<T> {
+class ValueFailure<T> with _$ValueFailure<T> {
   const factory ValueFailure.auth(AuthValueFailure<T> f) = _Auth<T>;
 
   const factory ValueFailure.devices(AuthValueFailure<T> f) = _Devices<T>;
@@ -12,7 +12,7 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
 
 /// If multiple failures is not needed just call a specific failure class
 @freezed
-abstract class AuthValueFailure<T> with _$AuthValueFailure<T> {
+class AuthValueFailure<T> with _$AuthValueFailure<T> {
   const factory AuthValueFailure.invalidEmail({
     required String failedValue,
   }) = InvalidEmail<T>;

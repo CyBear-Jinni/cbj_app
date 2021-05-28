@@ -1,7 +1,7 @@
 part of 'cbj_comp_bloc.dart';
 
 @freezed
-abstract class CBJCompState with _$CBJCompState {
+class CBJCompState with _$CBJCompState {
   factory CBJCompState.initial() = _Initial;
 
   const factory CBJCompState.loadInProgress() = _LoadInProgress;

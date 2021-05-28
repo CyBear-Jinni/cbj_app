@@ -1,7 +1,7 @@
 part of 'scene_bloc.dart';
 
 @freezed
-abstract class SceneState with _$SceneState {
+class SceneState with _$SceneState {
   const factory SceneState() = _SceneState;
 
   factory SceneState.initialized() => const SceneState();

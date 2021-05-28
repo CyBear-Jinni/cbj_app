@@ -152,8 +152,7 @@ const MicrocontrollerSpecs$json = const {
 };
 
 /// Descriptor for `MicrocontrollerSpecs`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List microcontrollerSpecsDescriptor = $convert
-    .base64Decode(
+final $typed_data.Uint8List microcontrollerSpecsDescriptor = $convert.base64Decode(
     'ChRNaWNyb2NvbnRyb2xsZXJTcGVjcxIyChRtaWNyb2NvbnRyb2xsZXJNb2RlbBgfIAEoCVIUbWljcm9jb250cm9sbGVyTW9kZWwSMAoTbWljcm9jb250cm9sbGVyVHlwZRggIAEoCVITbWljcm9jb250cm9sbGVyVHlwZRIoCg9zb2Z0d2FyZVZlcnNpb24YISABKAlSD3NvZnR3YXJlVmVyc2lvbg==');
 @$core.Deprecated('Use smartDeviceInfoDescriptor instead')
 const SmartDeviceInfo$json = const {
@@ -257,8 +256,8 @@ const SmartDeviceUpdateDetails$json = const {
 
 /// Descriptor for `SmartDeviceUpdateDetails`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List smartDeviceUpdateDetailsDescriptor =
-$convert.base64Decode(
-    'ChhTbWFydERldmljZVVwZGF0ZURldGFpbHMSQgoLc21hcnREZXZpY2UYBiABKAsyIC5TbWFydENvbm5lY3Rpb24uU21hcnREZXZpY2VJbmZvUgtzbWFydERldmljZRIYCgduZXdOYW1lGAcgASgJUgduZXdOYW1l');
+    $convert.base64Decode(
+        'ChhTbWFydERldmljZVVwZGF0ZURldGFpbHMSQgoLc21hcnREZXZpY2UYBiABKAsyIC5TbWFydENvbm5lY3Rpb24uU21hcnREZXZpY2VJbmZvUgtzbWFydERldmljZRIYCgduZXdOYW1lGAcgASgJUgduZXdOYW1l');
 @$core.Deprecated('Use firebaseAccountInformationDescriptor instead')
 const FirebaseAccountInformation$json = const {
   '1': 'FirebaseAccountInformation',
@@ -285,8 +284,8 @@ const FirebaseAccountInformation$json = const {
 
 /// Descriptor for `FirebaseAccountInformation`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List firebaseAccountInformationDescriptor =
-$convert.base64Decode(
-    'ChpGaXJlYmFzZUFjY291bnRJbmZvcm1hdGlvbhIsChFmaXJlQmFzZVByb2plY3RJZBgIIAEoCVIRZmlyZUJhc2VQcm9qZWN0SWQSJgoOZmlyZUJhc2VBcGlLZXkYCSABKAlSDmZpcmVCYXNlQXBpS2V5EhwKCXVzZXJFbWFpbBgKIAEoCVIJdXNlckVtYWlsEiIKDHVzZXJQYXNzd29yZBgLIAEoCVIMdXNlclBhc3N3b3JkEhYKBmhvbWVJZBgMIAEoCVIGaG9tZUlk');
+    $convert.base64Decode(
+        'ChpGaXJlYmFzZUFjY291bnRJbmZvcm1hdGlvbhIsChFmaXJlQmFzZVByb2plY3RJZBgIIAEoCVIRZmlyZUJhc2VQcm9qZWN0SWQSJgoOZmlyZUJhc2VBcGlLZXkYCSABKAlSDmZpcmVCYXNlQXBpS2V5EhwKCXVzZXJFbWFpbBgKIAEoCVIJdXNlckVtYWlsEiIKDHVzZXJQYXNzd29yZBgLIAEoCVIMdXNlclBhc3N3b3JkEhYKBmhvbWVJZBgMIAEoCVIGaG9tZUlk');
 @$core.Deprecated('Use deviceTypesActionsDescriptor instead')
 const DeviceTypesActions$json = const {
   '1': 'DeviceTypesActions',
@@ -319,6 +318,5 @@ const DeviceTypesActions$json = const {
 };
 
 /// Descriptor for `DeviceTypesActions`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List deviceTypesActionsDescriptor = $convert
-    .base64Decode(
+final $typed_data.Uint8List deviceTypesActionsDescriptor = $convert.base64Decode(
     'ChJEZXZpY2VUeXBlc0FjdGlvbnMSPAoKZGV2aWNlVHlwZRgjIAEoDjIcLlNtYXJ0Q29ubmVjdGlvbi5EZXZpY2VUeXBlc1IKZGV2aWNlVHlwZRJCCgxkZXZpY2VBY3Rpb24YJCABKA4yHi5TbWFydENvbm5lY3Rpb24uRGV2aWNlQWN0aW9uc1IMZGV2aWNlQWN0aW9uEkoKD2RldmljZVN0YXRlR1JQQxglIAEoDjIgLlNtYXJ0Q29ubmVjdGlvbi5EZXZpY2VTdGF0ZUdSUENSD2RldmljZVN0YXRlR1JQQw==');

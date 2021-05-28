@@ -4,7 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'create_home_entity.freezed.dart';
 
 @freezed
-abstract class CreateHomeEntity with _$CreateHomeEntity {
+class CreateHomeEntity with _$CreateHomeEntity {
   const factory CreateHomeEntity({
     required HomeUniqueId id,
     required HomeName name,

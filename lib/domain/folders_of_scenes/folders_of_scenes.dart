@@ -7,7 +7,7 @@ import 'package:kt_dart/collection.dart';
 part 'folders_of_scenes.freezed.dart';
 
 @freezed
-abstract class FoldersOfScenes with _$FoldersOfScenes {
+class FoldersOfScenes with _$FoldersOfScenes {
   const factory FoldersOfScenes({
     required KtList<Either<FolderOfScenesFailures, FolderOfScenes>>
         foldersOfScenesList,

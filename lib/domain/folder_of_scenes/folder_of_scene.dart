@@ -9,7 +9,7 @@ import 'package:kt_dart/collection.dart';
 part 'folder_of_scene.freezed.dart';
 
 @freezed
-abstract class FolderOfScenes with _$FolderOfScenes {
+class FolderOfScenes with _$FolderOfScenes {
   const factory FolderOfScenes({
     required UniqueId? id,
     required String? name,

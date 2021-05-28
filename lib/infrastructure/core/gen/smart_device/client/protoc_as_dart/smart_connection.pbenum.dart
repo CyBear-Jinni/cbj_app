@@ -33,7 +33,7 @@ class DeviceTypes extends $pb.ProtobufEnum {
   ];
 
   static final $core.Map<$core.int, DeviceTypes> _byValue =
-  $pb.ProtobufEnum.initByValue(values);
+      $pb.ProtobufEnum.initByValue(values);
 
   static DeviceTypes? valueOf($core.int value) => _byValue[value];
 
@@ -79,7 +79,7 @@ class DeviceActions extends $pb.ProtobufEnum {
   ];
 
   static final $core.Map<$core.int, DeviceActions> _byValue =
-  $pb.ProtobufEnum.initByValue(values);
+      $pb.ProtobufEnum.initByValue(values);
 
   static DeviceActions? valueOf($core.int value) => _byValue[value];
 
@@ -128,7 +128,7 @@ class DeviceStateGRPC extends $pb.ProtobufEnum {
   ];
 
   static final $core.Map<$core.int, DeviceStateGRPC> _byValue =
-  $pb.ProtobufEnum.initByValue(values);
+      $pb.ProtobufEnum.initByValue(values);
 
   static DeviceStateGRPC? valueOf($core.int value) => _byValue[value];
 

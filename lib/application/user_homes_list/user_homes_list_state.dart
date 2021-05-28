@@ -1,7 +1,7 @@
 part of 'user_homes_list_bloc.dart';
 
 @freezed
-abstract class UserHomesListState with _$UserHomesListState {
+class UserHomesListState with _$UserHomesListState {
   factory UserHomesListState.initial() = _Initial;
 
   const factory UserHomesListState.loadInProgress() = _LoadInProgress;

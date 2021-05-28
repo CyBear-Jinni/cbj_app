@@ -1,7 +1,7 @@
 part of 'add_user_to_home_bloc.dart';
 
 @freezed
-abstract class AddUserToHomeEvent with _$AddUserToHomeEvent {
+class AddUserToHomeEvent with _$AddUserToHomeEvent {
   const factory AddUserToHomeEvent.emailChanged(String emailStr) = EmailChanged;
 
   const factory AddUserToHomeEvent.permissionChanged(String permission) =
