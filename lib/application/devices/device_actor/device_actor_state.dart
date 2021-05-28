@@ -1,7 +1,7 @@
 part of 'device_actor_bloc.dart';
 
 @freezed
-abstract class DeviceActorState with _$DeviceActorState {
+class DeviceActorState with _$DeviceActorState {
   const factory DeviceActorState.initial() = _Initial;
 
   const factory DeviceActorState.actionInProgress() = _ActionInProgress;

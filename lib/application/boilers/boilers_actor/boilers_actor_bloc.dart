@@ -16,7 +16,8 @@ part 'boilers_actor_state.dart';
 
 @injectable
 class BoilersActorBloc extends Bloc<BoilersActorEvent, BoilersActorState> {
-  BoilersActorBloc(this._deviceRepository) : super(BoilersActorState.initial());
+  BoilersActorBloc(this._deviceRepository)
+      : super(const BoilersActorState.initial());
 
   final IDeviceRepository _deviceRepository;
 
@@ -30,7 +31,7 @@ class BoilersActorBloc extends Bloc<BoilersActorEvent, BoilersActorState> {
       turnOnAllBoilers: (_TurnOnAllBoilers value) async* {
         FlushbarHelper.createLoading(
           message: 'Turning On boiler',
-          linearProgressIndicator: LinearProgressIndicator(),
+          linearProgressIndicator: const LinearProgressIndicator(),
         ).show(value.context);
 
         _deviceRepository.turnOnDevices(
@@ -39,7 +40,7 @@ class BoilersActorBloc extends Bloc<BoilersActorEvent, BoilersActorState> {
       turnOffAllBoilers: (_TurnOffAllBoilers value) async* {
         FlushbarHelper.createLoading(
           message: 'Turning Off boiler',
-          linearProgressIndicator: LinearProgressIndicator(),
+          linearProgressIndicator: const LinearProgressIndicator(),
         ).show(value.context);
 
         _deviceRepository.turnOffDevices(

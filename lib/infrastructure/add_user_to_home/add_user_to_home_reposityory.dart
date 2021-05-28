@@ -18,6 +18,7 @@ class AddUserToHomeRepository implements IAddUserToHomeRepository {
 
   final FirebaseFirestore _firestore;
 
+  @override
   @required
   Future<Either<AddUserToHomeFailures, Unit>> create(
       HomeUserEntity homeUserEntity) async {

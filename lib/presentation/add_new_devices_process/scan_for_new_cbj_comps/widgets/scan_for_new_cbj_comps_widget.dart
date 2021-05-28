@@ -29,7 +29,7 @@ class ScanForNewCBJCompsWidget extends StatelessWidget {
                 Text(
                   'Scanning For Devices',
                   style: TextStyle(
-                    color: (Theme.of(context).textTheme.bodyText1!.color)!,
+                    color: Theme.of(context).textTheme.bodyText1!.color,
                     fontSize: 26,
                   ),
                 ),

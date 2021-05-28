@@ -1,7 +1,7 @@
 part of 'boilers_actor_bloc.dart';
 
 @freezed
-abstract class BoilersActorState with _$BoilersActorState {
+class BoilersActorState with _$BoilersActorState {
   const factory BoilersActorState.initial() = _Initial;
 
   const factory BoilersActorState.actionInProgress() = _ActionInProgress;

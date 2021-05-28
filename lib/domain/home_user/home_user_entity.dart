@@ -7,14 +7,14 @@ part 'home_user_entity.freezed.dart';
 
 @freezed
 abstract class HomeUserEntity implements _$HomeUserEntity {
-  const HomeUserEntity._();
-
   const factory HomeUserEntity({
     required HomeUserUniqueId? id,
     required HomeUserEmail? email,
     required HomeUserName? name,
     required HomeUserPermission? permission,
   }) = _HomeUserEntity;
+
+  const HomeUserEntity._();
 
   factory HomeUserEntity.empty() => HomeUserEntity(
         id: HomeUserUniqueId(),

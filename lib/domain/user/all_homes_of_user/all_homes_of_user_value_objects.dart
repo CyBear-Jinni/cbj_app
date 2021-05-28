@@ -40,7 +40,7 @@ abstract class AllHomesOfUserValueObjectAbstract<T> {
 class AllHomesOfUserUniqueId
     extends AllHomesOfUserValueObjectAbstract<String?> {
   factory AllHomesOfUserUniqueId() {
-    return AllHomesOfUserUniqueId._(right(Uuid().v1()));
+    return AllHomesOfUserUniqueId._(right(const Uuid().v1()));
   }
 
   factory AllHomesOfUserUniqueId.fromUniqueString(String? uniqueId) {
@@ -48,18 +48,13 @@ class AllHomesOfUserUniqueId
     return AllHomesOfUserUniqueId._(right(uniqueId));
   }
 
-  AllHomesOfUserUniqueId._(this.value);
+  const AllHomesOfUserUniqueId._(this.value);
 
   @override
   final Either<AllHomesOfUserFailures<String?>, String?> value;
 }
 
 class AllHomesOfUserName extends AllHomesOfUserValueObjectAbstract<String?> {
-  @override
-  final Either<AllHomesOfUserFailures<String?>, String?> value;
-
-  static const maxLength = 1000;
-
   factory AllHomesOfUserName(String? input) {
     assert(input != null);
     return AllHomesOfUserName._(
@@ -68,4 +63,9 @@ class AllHomesOfUserName extends AllHomesOfUserValueObjectAbstract<String?> {
   }
 
   const AllHomesOfUserName._(this.value);
+
+  @override
+  final Either<AllHomesOfUserFailures<String?>, String?> value;
+
+  static const maxLength = 1000;
 }

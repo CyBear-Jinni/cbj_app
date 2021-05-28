@@ -109,7 +109,7 @@ class RoomLightsTogglesBlock extends StatelessWidget {
                   Text(
                     _smartRoomObject!.getRoomName(),
                     style: TextStyle(
-                      color: (Theme.of(context).textTheme.bodyText1!.color)!,
+                      color: Theme.of(context).textTheme.bodyText1!.color,
                       fontSize: 25,
                       decoration: TextDecoration.underline,
                     ),
@@ -118,7 +118,7 @@ class RoomLightsTogglesBlock extends StatelessWidget {
                       _smartRoomObject!.getLights()!.length > maxLightsToShow!)
                     FaIcon(
                       FontAwesomeIcons.arrowRight,
-                      color: (Theme.of(context).textTheme.bodyText1!.color)!,
+                      color: Theme.of(context).textTheme.bodyText1!.color,
                       size: 20,
                     ),
                 ],

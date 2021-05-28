@@ -15,7 +15,8 @@ part 'manage_users_state.dart';
 
 @injectable
 class ManageUsersBloc extends Bloc<ManageUsersEvent, ManageUsersState> {
-  ManageUsersBloc(this._userRepository) : super(ManageUsersState.initial());
+  ManageUsersBloc(this._userRepository)
+      : super(const ManageUsersState.initial());
 
   final IHomeUserRepository _userRepository;
 

@@ -8,8 +8,6 @@ part 'user_dtos.g.dart';
 
 @freezed
 abstract class UserDtos implements _$UserDtos {
-  const UserDtos._();
-
   const factory UserDtos({
     @JsonKey(ignore: true) String? id,
     required String email,
@@ -17,6 +15,8 @@ abstract class UserDtos implements _$UserDtos {
     String? firstName,
     String? lastName,
   }) = _UserDtos;
+
+  const UserDtos._();
 
   factory UserDtos.fromDomain(UserEntity userEntity) {
     return UserDtos(
@@ -28,6 +28,14 @@ abstract class UserDtos implements _$UserDtos {
     );
   }
 
+  factory UserDtos.fromJson(Map<String, dynamic> json) =>
+      _$UserDtosFromJson(json);
+
+  factory UserDtos.fromFirestore(DocumentSnapshot doc) {
+    return UserDtos.fromJson(doc.data()! as Map<String, dynamic>)
+        .copyWith(id: doc.id);
+  }
+
   UserEntity toDomain() {
     return UserEntity(
       id: UserUniqueId.fromUniqueString(id),
@@ -36,14 +44,6 @@ abstract class UserDtos implements _$UserDtos {
       firstName: UserFirstName(firstName!),
       lastName: UserLastName(lastName!),
     );
-  }
-
-  factory UserDtos.fromJson(Map<String, dynamic> json) =>
-      _$UserDtosFromJson(json);
-
-  factory UserDtos.fromFirestore(DocumentSnapshot doc) {
-    return UserDtos.fromJson(doc.data()! as Map<String, dynamic>)
-        .copyWith(id: doc.id);
   }
 }
 

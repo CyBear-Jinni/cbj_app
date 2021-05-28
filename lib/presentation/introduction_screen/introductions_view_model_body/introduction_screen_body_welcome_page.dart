@@ -19,21 +19,65 @@ class IntroductionScreenBodyWelcomePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 10.0),
-              RotateAnimatedTextKit(
-                text: const [
-                  'are OPEN SOURCE',
-                  'are FAIR',
-                  'are INNOVATIVE',
-                  'are PRIVATE',
-                  'are SECURE',
-                  'are EASY TO USE',
-                  'support LOCAL CONNECTION',
-                  'want a BETTER FUTURE',
+              AnimatedTextKit(
+                animatedTexts: [
+                  TypewriterAnimatedText(
+                    'are OPEN SOURCE',
+                    textStyle: TextStyle(
+                      fontSize: 20.0,
+                      color: Theme.of(context).textTheme.bodyText1!.color,
+                    ),
+                  ),
+                  TypewriterAnimatedText(
+                    'are FAIR',
+                    textStyle: TextStyle(
+                      fontSize: 20.0,
+                      color: Theme.of(context).textTheme.bodyText1!.color,
+                    ),
+                  ),
+                  TypewriterAnimatedText(
+                    'are INNOVATIVE',
+                    textStyle: TextStyle(
+                      fontSize: 20.0,
+                      color: Theme.of(context).textTheme.bodyText1!.color,
+                    ),
+                  ),
+                  TypewriterAnimatedText(
+                    'are PRIVATE',
+                    textStyle: TextStyle(
+                      fontSize: 20.0,
+                      color: Theme.of(context).textTheme.bodyText1!.color,
+                    ),
+                  ),
+                  TypewriterAnimatedText(
+                    'are SECURE',
+                    textStyle: TextStyle(
+                      fontSize: 20.0,
+                      color: Theme.of(context).textTheme.bodyText1!.color,
+                    ),
+                  ),
+                  TypewriterAnimatedText(
+                    'are EASY TO USE',
+                    textStyle: TextStyle(
+                      fontSize: 20.0,
+                      color: Theme.of(context).textTheme.bodyText1!.color,
+                    ),
+                  ),
+                  TypewriterAnimatedText(
+                    'support LOCAL CONNECTION',
+                    textStyle: TextStyle(
+                      fontSize: 20.0,
+                      color: Theme.of(context).textTheme.bodyText1!.color,
+                    ),
+                  ),
+                  TypewriterAnimatedText(
+                    'want a BETTER FUTURE',
+                    textStyle: TextStyle(
+                      fontSize: 20.0,
+                      color: Theme.of(context).textTheme.bodyText1!.color,
+                    ),
+                  ),
                 ],
-                textStyle: TextStyle(
-                  fontSize: 20.0,
-                  color: Theme.of(context).textTheme.bodyText1!.color,
-                ),
               ),
             ],
           ),

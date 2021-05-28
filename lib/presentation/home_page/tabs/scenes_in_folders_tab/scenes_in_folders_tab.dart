@@ -16,7 +16,7 @@ class ScenesInFoldersTab extends StatelessWidget {
       context: context,
       actions: <BottomSheetAction>[
         BottomSheetAction(
-          title: Text(
+          title: const Text(
             '➕ Add Scene',
             style: TextStyle(color: Colors.green, fontSize: 23),
           ),

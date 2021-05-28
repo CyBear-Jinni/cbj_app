@@ -1,7 +1,7 @@
 part of 'manage_wifi_bloc.dart';
 
 @freezed
-abstract class ManageWifiEvent with _$ManageWifiEvent {
+class ManageWifiEvent with _$ManageWifiEvent {
   factory ManageWifiEvent.connectToWiFi() = ConnectToWifi;
 
   factory ManageWifiEvent.scanForWiFiNetworks() = ScanForWiFiNetworks;

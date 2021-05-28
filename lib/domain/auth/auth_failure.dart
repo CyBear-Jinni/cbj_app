@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'auth_failure.freezed.dart';
 
 @freezed
-abstract class AuthFailure with _$AuthFailure {
+class AuthFailure with _$AuthFailure {
   /// When user canceled the auth
   const factory AuthFailure.cancelledByUser() = CancelledByUser;
 

@@ -65,7 +65,7 @@ class AddRoutinePage extends StatelessWidget {
                 child: Text(
                   'Select',
                   style: TextStyle(
-                      color: (Theme.of(context).textTheme.bodyText1!.color)!),
+                      color: Theme.of(context).textTheme.bodyText1!.color),
                 )),
             const SizedBox(
               height: 30,

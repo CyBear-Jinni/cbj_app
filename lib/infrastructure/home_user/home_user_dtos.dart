@@ -8,14 +8,14 @@ part 'home_user_dtos.g.dart';
 
 @freezed
 abstract class HomeUserDtos implements _$HomeUserDtos {
-  const HomeUserDtos._();
-
   const factory HomeUserDtos({
     @JsonKey(ignore: true) String? id,
     required String? email,
     required String? name,
     required String? permission,
   }) = _HomeUserDtos;
+
+  const HomeUserDtos._();
 
   factory HomeUserDtos.fromDomain(HomeUserEntity homeUserEntity) {
     return HomeUserDtos(
@@ -26,20 +26,20 @@ abstract class HomeUserDtos implements _$HomeUserDtos {
     );
   }
 
-  HomeUserEntity toDomain() {
-    return HomeUserEntity(
-        id: HomeUserUniqueId.fromUniqueString(id),
-        email: HomeUserEmail(email),
-        name: HomeUserName(name!),
-        permission: HomeUserPermission(permission!));
-  }
-
   factory HomeUserDtos.fromJson(Map<String, dynamic> json) =>
       _$HomeUserDtosFromJson(json);
 
   factory HomeUserDtos.fromFirestore(DocumentSnapshot doc) {
     return HomeUserDtos.fromJson(doc.data()! as Map<String, dynamic>)
         .copyWith(id: doc.id);
+  }
+
+  HomeUserEntity toDomain() {
+    return HomeUserEntity(
+        id: HomeUserUniqueId.fromUniqueString(id),
+        email: HomeUserEmail(email),
+        name: HomeUserName(name!),
+        permission: HomeUserPermission(permission!));
   }
 }
 

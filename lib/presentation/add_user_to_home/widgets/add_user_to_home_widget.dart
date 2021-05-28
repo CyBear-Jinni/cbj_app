@@ -48,14 +48,13 @@ class AddUserToHomeWidget extends StatelessWidget {
                   width: 300,
                   child: TextFormField(
                     style: TextStyle(
-                        color: (Theme.of(context).textTheme.bodyText1!.color)!),
+                        color: Theme.of(context).textTheme.bodyText1!.color),
                     decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.greenAccent.withOpacity(0.3),
                         prefixIcon: Icon(
                           Icons.alternate_email,
-                          color:
-                              (Theme.of(context).textTheme.bodyText1!.color)!,
+                          color: Theme.of(context).textTheme.bodyText1!.color,
                         ),
                         labelText: 'Email',
                         labelStyle: TextStyle(
@@ -87,7 +86,7 @@ class AddUserToHomeWidget extends StatelessWidget {
               child: Text(
                 'Add User',
                 style: TextStyle(
-                    color: (Theme.of(context).textTheme.bodyText1!.color)!),
+                    color: Theme.of(context).textTheme.bodyText1!.color),
               ),
             ),
             state.map(
@@ -109,8 +108,7 @@ class AddUserToHomeWidget extends StatelessWidget {
                       Text(
                         'User have been add successfully',
                         style: TextStyle(
-                            color:
-                                (Theme.of(context).textTheme.bodyText1!.color)!,
+                            color: Theme.of(context).textTheme.bodyText1!.color,
                             fontSize: 20),
                       ),
                       const SizedBox(
@@ -122,8 +120,7 @@ class AddUserToHomeWidget extends StatelessWidget {
                       Text(
                         'Copy home ID',
                         style: TextStyle(
-                            color:
-                                (Theme.of(context).textTheme.bodyText1!.color)!,
+                            color: Theme.of(context).textTheme.bodyText1!.color,
                             fontSize: 20),
                       ),
                       const SizedBox(
@@ -169,8 +166,7 @@ class AddUserToHomeWidget extends StatelessWidget {
                         'Please give home id to the user, he needs it to'
                         ' join the home.',
                         style: TextStyle(
-                            color:
-                                (Theme.of(context).textTheme.bodyText1!.color)!,
+                            color: Theme.of(context).textTheme.bodyText1!.color,
                             fontSize: 15),
                       ),
                     ],
@@ -182,7 +178,7 @@ class AddUserToHomeWidget extends StatelessWidget {
                   'Adding user Failed.\n'
                   'Did the user already created account with that email?',
                   style: TextStyle(
-                      color: (Theme.of(context).textTheme.bodyText1!.color)!),
+                      color: Theme.of(context).textTheme.bodyText1!.color),
                 );
               },
             )

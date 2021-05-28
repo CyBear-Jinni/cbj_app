@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SettingsPageOfBlinds extends StatelessWidget {
-  SettingsPageOfLights() {
+  SettingsPageOfBlinds() {
     // for (final SmartRoomObject smartRoomObject in rooms) {
     //   for (final SmartDeviceObject smartLightObject
     //       in smartRoomObject.getLights()) {
@@ -29,23 +29,23 @@ class SettingsPageOfBlinds extends StatelessWidget {
             title: Text(
               'Name:_',
               style: TextStyle(
-                  color: (Theme.of(context).textTheme.bodyText1!.color)!),
+                  color: Theme.of(context).textTheme.bodyText1!.color),
             ).tr(args: <String>[lightName]),
             subtitle: Text(
               'Room:_',
               style: TextStyle(
-                  color: (Theme.of(context).textTheme.bodyText1!.color)!),
+                  color: Theme.of(context).textTheme.bodyText1!.color),
             ).tr(args: <String>[roomName]),
             trailing: IconButton(
               icon: FaIcon(
                 FontAwesomeIcons.pen,
-                color: (Theme.of(context).textTheme.bodyText1!.color)!,
+                color: Theme.of(context).textTheme.bodyText1!.color,
               ),
               onPressed: () {},
             ),
           ),
           Divider(
-            color: (Theme.of(context).textTheme.bodyText1!.color)!,
+            color: Theme.of(context).textTheme.bodyText1!.color,
           ),
         ],
       );

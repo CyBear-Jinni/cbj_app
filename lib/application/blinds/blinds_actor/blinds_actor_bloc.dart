@@ -16,7 +16,8 @@ part 'blinds_actor_state.dart';
 
 @injectable
 class BlindsActorBloc extends Bloc<BlindsActorEvent, BlindsActorState> {
-  BlindsActorBloc(this._deviceRepository) : super(BlindsActorState.initial());
+  BlindsActorBloc(this._deviceRepository)
+      : super(const BlindsActorState.initial());
 
   final IDeviceRepository _deviceRepository;
 
@@ -30,7 +31,7 @@ class BlindsActorBloc extends Bloc<BlindsActorEvent, BlindsActorState> {
       moveUpAllBlinds: (_MoveUpAllBlinds value) async* {
         FlushbarHelper.createLoading(
           message: 'Pulling Up all blinds',
-          linearProgressIndicator: LinearProgressIndicator(),
+          linearProgressIndicator: const LinearProgressIndicator(),
         ).show(value.context);
 
         _deviceRepository.moveUpBlinds(
@@ -39,7 +40,7 @@ class BlindsActorBloc extends Bloc<BlindsActorEvent, BlindsActorState> {
       stopAllBlinds: (_StopAllBlinds value) async* {
         FlushbarHelper.createLoading(
           message: 'Stopping all blinds',
-          linearProgressIndicator: LinearProgressIndicator(),
+          linearProgressIndicator: const LinearProgressIndicator(),
         ).show(value.context);
 
         _deviceRepository.stopBlinds(
@@ -48,7 +49,7 @@ class BlindsActorBloc extends Bloc<BlindsActorEvent, BlindsActorState> {
       moveDownAllBlinds: (_MoveDownAllBlinds value) async* {
         FlushbarHelper.createLoading(
           message: 'Pulling down all blinds',
-          linearProgressIndicator: LinearProgressIndicator(),
+          linearProgressIndicator: const LinearProgressIndicator(),
         ).show(value.context);
 
         _deviceRepository.moveDownBlinds(

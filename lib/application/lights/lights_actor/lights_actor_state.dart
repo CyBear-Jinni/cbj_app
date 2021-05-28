@@ -1,7 +1,7 @@
 part of 'lights_actor_bloc.dart';
 
 @freezed
-abstract class LightsActorState with _$LightsActorState {
+class LightsActorState with _$LightsActorState {
   const factory LightsActorState.initial() = _Initial;
 
   const factory LightsActorState.actionInProgress() = _ActionInProgress;

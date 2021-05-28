@@ -14,8 +14,8 @@ class FireStoreClass {
     FirebaseFirestore.instance.doc(fullPath).get().then((DocumentSnapshot ds) {
       FirebaseFirestore.instance.doc(fullPath).update({
         smartInstanceName:
-            ((ds.data() as Map<String, dynamic>)[smartInstanceName] ==
-                true.toString())
+            (ds.data() as Map<String, dynamic>)[smartInstanceName] ==
+                true.toString()
       });
     });
     return getDeviceStatus(roomName, smartInstanceName);

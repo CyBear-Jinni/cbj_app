@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'devices_failures.freezed.dart';
 
 @freezed
-abstract class DevicesFailure<T> {
+class DevicesFailure<T> {
   const factory DevicesFailure.empty({
     required T failedValue,
   }) = _Empty;

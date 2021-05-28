@@ -16,7 +16,8 @@ part 'lights_actor_state.dart';
 
 @injectable
 class LightsActorBloc extends Bloc<LightsActorEvent, LightsActorState> {
-  LightsActorBloc(this._deviceRepository) : super(LightsActorState.initial());
+  LightsActorBloc(this._deviceRepository)
+      : super(const LightsActorState.initial());
 
   final IDeviceRepository _deviceRepository;
 
@@ -30,7 +31,7 @@ class LightsActorBloc extends Bloc<LightsActorEvent, LightsActorState> {
       turnOffAllLights: (_TurnOffAllLights value) async* {
         FlushbarHelper.createLoading(
           message: 'Turning Off all lights',
-          linearProgressIndicator: LinearProgressIndicator(),
+          linearProgressIndicator: const LinearProgressIndicator(),
         ).show(value.context);
 
         _deviceRepository.turnOffDevices(
@@ -39,7 +40,7 @@ class LightsActorBloc extends Bloc<LightsActorEvent, LightsActorState> {
       turnOnAllLights: (_TurnOnAllLights value) async* {
         FlushbarHelper.createLoading(
           message: 'Turning On all lights',
-          linearProgressIndicator: LinearProgressIndicator(),
+          linearProgressIndicator: const LinearProgressIndicator(),
         ).show(value.context);
 
         _deviceRepository.turnOnDevices(

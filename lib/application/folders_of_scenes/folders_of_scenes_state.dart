@@ -1,7 +1,7 @@
 part of 'folders_of_scenes_bloc.dart';
 
 @freezed
-abstract class FoldersOfScenesState with _$FoldersOfScenesState {
+class FoldersOfScenesState with _$FoldersOfScenesState {
   const factory FoldersOfScenesState({
     required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
   }) = _FoldersOfScenesState;

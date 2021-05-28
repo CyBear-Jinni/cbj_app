@@ -8,7 +8,7 @@ import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kt_dart/src/collection/kt_list.dart';
+import 'package:kt_dart/kt.dart';
 
 class CBJCompCardWithDevicesControll extends StatelessWidget {
   const CBJCompCardWithDevicesControll({
@@ -34,7 +34,7 @@ class CBJCompCardWithDevicesControll extends StatelessWidget {
               child: Text(
                 'Type: ${deviceEntity.type!.getOrCrash()}',
                 style: TextStyle(
-                    color: (Theme.of(context).textTheme.bodyText1!.color)!),
+                    color: Theme.of(context).textTheme.bodyText1!.color),
               ),
             ),
           ),
@@ -46,7 +46,7 @@ class CBJCompCardWithDevicesControll extends StatelessWidget {
             child: Text(
               'Type ${deviceEntity.type!.getOrCrash()} is not supported',
               style: TextStyle(
-                  color: (Theme.of(context).textTheme.bodyText1!.color)!),
+                  color: Theme.of(context).textTheme.bodyText1!.color),
             ),
           ),
         );
@@ -97,22 +97,22 @@ class CBJCompCardWithDevicesControll extends StatelessWidget {
               initial: (_) => Text(
                 'Initial',
                 style: TextStyle(
-                    color: (Theme.of(context).textTheme.bodyText1!.color)!),
+                    color: Theme.of(context).textTheme.bodyText1!.color),
               ),
               actionInProgress: (_) => Text(
                 'actionInProgress',
                 style: TextStyle(
-                    color: (Theme.of(context).textTheme.bodyText1!.color)!),
+                    color: Theme.of(context).textTheme.bodyText1!.color),
               ),
               deleteFailure: (_) => Text(
                 'deleteFailure',
                 style: TextStyle(
-                    color: (Theme.of(context).textTheme.bodyText1!.color)!),
+                    color: Theme.of(context).textTheme.bodyText1!.color),
               ),
               deleteSuccess: (_) => Text(
                 'deleteSuccess',
                 style: TextStyle(
-                    color: (Theme.of(context).textTheme.bodyText1!.color)!),
+                    color: Theme.of(context).textTheme.bodyText1!.color),
               ),
             ),
             TextButton(
@@ -128,7 +128,7 @@ class CBJCompCardWithDevicesControll extends StatelessWidget {
               child: Text(
                 'Set up computer',
                 style: TextStyle(
-                    color: (Theme.of(context).textTheme.bodyText1!.color)!),
+                    color: Theme.of(context).textTheme.bodyText1!.color),
               ),
             ),
           ],

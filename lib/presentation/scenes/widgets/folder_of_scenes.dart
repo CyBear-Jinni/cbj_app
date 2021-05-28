@@ -12,7 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FolderOfScenesWidget extends StatelessWidget {
-  FolderOfScenesWidget({required this.folderOfScenes});
+  const FolderOfScenesWidget({required this.folderOfScenes});
 
   final FolderOfScenes? folderOfScenes;
 

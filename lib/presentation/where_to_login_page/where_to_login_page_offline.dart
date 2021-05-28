@@ -6,7 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// The user will choose where to login to, options only for offline
 class WhereToLoginPageOffline extends StatelessWidget {
-  WhereToLoginPageOffline();
+  const WhereToLoginPageOffline();
 
   void leftIconFunction(BuildContext context) {
     Navigator.pop(context);
@@ -34,7 +34,7 @@ class WhereToLoginPageOffline extends StatelessWidget {
               child: Text('What would you like to do',
                   style: TextStyle(
                       fontSize: 25,
-                      color: (Theme.of(context).textTheme.bodyText1!.color)))),
+                      color: Theme.of(context).textTheme.bodyText1!.color))),
           Expanded(
             child: Center(
               child: Column(

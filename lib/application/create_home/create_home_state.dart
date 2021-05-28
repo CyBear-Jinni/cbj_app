@@ -1,7 +1,7 @@
 part of 'create_home_bloc.dart';
 
 @freezed
-abstract class CreateHomeState with _$CreateHomeState {
+class CreateHomeState with _$CreateHomeState {
   const factory CreateHomeState({
     required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
   }) = _CreateHomeState;

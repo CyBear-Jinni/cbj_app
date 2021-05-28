@@ -50,10 +50,8 @@ class ConnectToHomeWiFiWidget extends StatelessWidget {
                         width: 300,
                         child: TextFormField(
                           style: TextStyle(
-                              color: (Theme.of(context)
-                                  .textTheme
-                                  .bodyText1!
-                                  .color)!),
+                              color:
+                                  Theme.of(context).textTheme.bodyText1!.color),
                           decoration: InputDecoration(
                               filled: true,
                               fillColor: Colors.greenAccent.withOpacity(0.3),
@@ -85,19 +83,15 @@ class ConnectToHomeWiFiWidget extends StatelessWidget {
                         width: 300,
                         child: TextFormField(
                           style: TextStyle(
-                              color: (Theme.of(context)
-                                  .textTheme
-                                  .bodyText1!
-                                  .color)!),
+                              color:
+                                  Theme.of(context).textTheme.bodyText1!.color),
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.greenAccent.withOpacity(0.3),
                             prefixIcon: Icon(
                               Icons.vpn_key,
-                              color: (Theme.of(context)
-                                  .textTheme
-                                  .bodyText1!
-                                  .color)!,
+                              color:
+                                  Theme.of(context).textTheme.bodyText1!.color,
                             ),
                             labelText: 'Password',
                             labelStyle: TextStyle(
@@ -131,10 +125,8 @@ class ConnectToHomeWiFiWidget extends StatelessWidget {
                         child: Text(
                           'Connect to WiFi',
                           style: TextStyle(
-                              color: (Theme.of(context)
-                                  .textTheme
-                                  .bodyText1!
-                                  .color)!),
+                              color:
+                                  Theme.of(context).textTheme.bodyText1!.color),
                         ),
                       ),
                     ],

@@ -39,9 +39,10 @@ class JoinHomeByIdBloc extends Bloc<JoinHomeByIdEvent, JoinHomeByIdState> {
         if (getCurrentUser == null) {
           yield const JoinHomeByIdState.error();
         } else {
-          AllHomesOfUserEntity allHomesOfUserEntity = AllHomesOfUserEntity(
-              id: AllHomesOfUserUniqueId.fromUniqueString(e.id),
-              name: AllHomesOfUserName('home'));
+          final AllHomesOfUserEntity allHomesOfUserEntity =
+              AllHomesOfUserEntity(
+                  id: AllHomesOfUserUniqueId.fromUniqueString(e.id),
+                  name: AllHomesOfUserName('home'));
           final initialization = await _iUserRepository.addHome(
               getCurrentUser, allHomesOfUserEntity);
           yield initialization.fold(

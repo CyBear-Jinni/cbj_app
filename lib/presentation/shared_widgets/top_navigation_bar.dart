@@ -86,8 +86,7 @@ class TopNavigationBar extends StatelessWidget {
                         child: FaIcon(
                           rightSecondIcon,
                           size: 19,
-                          color:
-                              (Theme.of(context).textTheme.bodyText1!.color)!,
+                          color: Theme.of(context).textTheme.bodyText1!.color,
                         ),
                       ),
                     ),

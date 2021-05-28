@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'create_home_failure.freezed.dart';
 
 @freezed
-abstract class CreateHomeFailure<T> {
+class CreateHomeFailure<T> {
   const factory CreateHomeFailure.empty({
     required T failedValue,
   }) = _Empty;

@@ -14,19 +14,18 @@ class CriticalFailureBlindsDisplay extends StatelessWidget {
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           const Text(
             '😱',
             style: TextStyle(fontSize: 100),
           ),
-          Text(
+          const Text(
             'Unexpected error. \nPlease, contact support',
             // failure.maybeMap(
             //   insufficientPermission: (_) => 'Insufficient permissions',
             //   orElse: () => 'Unexpected error. \nPlease, contact support.',
             // ),
-            style: const TextStyle(fontSize: 24),
+            style: TextStyle(fontSize: 24),
             textAlign: TextAlign.center,
           ),
           TextButton(

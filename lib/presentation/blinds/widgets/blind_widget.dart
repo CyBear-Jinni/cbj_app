@@ -87,12 +87,11 @@ class BlindWidget extends StatelessWidget {
                   },
                   child: Tab(
                     icon: FaIcon(FontAwesomeIcons.solidHandPaper,
-                        color: (Theme.of(context).textTheme.bodyText1!.color)!),
+                        color: Theme.of(context).textTheme.bodyText1!.color),
                     child: Text(
                       'Stop',
                       style: TextStyle(
-                          color:
-                              (Theme.of(context).textTheme.bodyText1!.color)!,
+                          color: Theme.of(context).textTheme.bodyText1!.color,
                           fontSize: 16),
                     ).tr(),
                   ),

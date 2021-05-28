@@ -7,12 +7,12 @@ part 'manage_network_entity.freezed.dart';
 
 @freezed
 abstract class ManageNetworkEntity implements _$ManageNetworkEntity {
-  const ManageNetworkEntity._();
-
   const factory ManageNetworkEntity({
     required ManageWiFiName? name,
     ManageWiFiPass? pass,
   }) = _ManageNetworkEntity;
+
+  const ManageNetworkEntity._();
 
   factory ManageNetworkEntity.empty() => ManageNetworkEntity(
         name: ManageWiFiName(''),

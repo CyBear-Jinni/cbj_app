@@ -12,7 +12,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ScenesPage extends StatelessWidget {
-  ScenesPage(this.folderOfScenes);
+  const ScenesPage(this.folderOfScenes);
 
   final FolderOfScenes folderOfScenes;
 
