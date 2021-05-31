@@ -1,27 +1,27 @@
 import 'dart:io';
 
 import 'package:flutter/services.dart';
+import 'package:network_info_plus/network_info_plus.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:wifi_info_flutter/wifi_info_flutter.dart';
 
 ///  Does not work if you do not turn your location (not permission) on https://github.com/flutter/flutter/issues/51529 android 10+ rules
-Future<String> getCurrentWifiName() async {
-  String wifiName = '';
+Future<String?> getCurrentWifiName() async {
+  String? wifiName = '';
 
   try {
-    final WifiInfo _wifiInfo = WifiInfo();
+    final NetworkInfo _networkInfo = NetworkInfo();
 
     if (Platform.isIOS) {
       LocationAuthorizationStatus status =
-          await _wifiInfo.getLocationServiceAuthorization();
+          await _networkInfo.getLocationServiceAuthorization();
       if (status == LocationAuthorizationStatus.notDetermined) {
-        status = await _wifiInfo.requestLocationServiceAuthorization();
+        status = await _networkInfo.requestLocationServiceAuthorization();
       }
       if (status == LocationAuthorizationStatus.authorizedAlways ||
           status == LocationAuthorizationStatus.authorizedWhenInUse) {
-        wifiName = (await _wifiInfo.getWifiName())!;
+        wifiName = await NetworkInfo().getWifiName();
       } else {
-        wifiName = (await _wifiInfo.getWifiName())!;
+        wifiName = await NetworkInfo().getWifiName();
       }
     } else if (Platform.isAndroid) {
       final PermissionStatus status = await Permission.location.status;
@@ -30,7 +30,7 @@ Future<String> getCurrentWifiName() async {
 // Either the permission was already granted before or the user just granted it.
         }
       }
-      wifiName = (await _wifiInfo.getWifiName())!;
+      wifiName = await NetworkInfo().getWifiName();
     } else {
       print('Does not support this platform');
     }
