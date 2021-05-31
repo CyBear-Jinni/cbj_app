@@ -3,7 +3,7 @@ import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_device_o
 import 'package:cybear_jinni/infrastructure/objects/enums.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:wifi_info_flutter/wifi_info_flutter.dart';
+import 'package:network_info_plus/network_info_plus.dart';
 
 class AddNewDeviceWidgetPopup extends StatefulWidget {
   @override
@@ -18,7 +18,7 @@ class _AddNewDeviceWidgetPopup extends State<AddNewDeviceWidgetPopup> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   static Future<String?> getMyWifiIp() async {
-    return WifiInfo().getWifiIP();
+    return NetworkInfo().getWifiIP();
   }
 
 //  await (Connectivity().getWifiName());wifi network

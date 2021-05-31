@@ -1,6 +1,6 @@
 name: cybear_jinni
 description: CyBear Jinni app to interact with your CyBear Jinni Smart Devices
-version: 1.1.0+20
+version: 1.1.0+22
 homepage: https://github.com/CyBear-Jinni/CBJ_App
 author: Guy Luz
 
@@ -93,6 +93,8 @@ dependencies:
   kt_dart: ^0.9.1
   # Liquid progress indicator for Flutter.
   liquid_progress_indicator_ns: ^1.0.0
+  # Discover network info and configure themselves accordingly
+  network_info_plus: ^1.0.1
   # Finding commonly used locations on the filesystem
   path_provider: ^2.0.2
   # Popup that ask for the requested permission
@@ -109,8 +111,6 @@ dependencies:
   shared_preferences: ^2.0.6
   # Simple, fast generation of RFC4122 UUIDs.
   uuid: ^3.0.4
-  # Information about a device's connection to wifi
-  wifi_info_flutter: ^2.0.1
   # Get available wifi ssid list, user can connect to wifi with ssid and password, and create hotspot
   wifi_iot: ^0.3.3
 
