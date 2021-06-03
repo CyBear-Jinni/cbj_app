@@ -39,19 +39,19 @@ class CBJCompBloc extends Bloc<CBJCompEvent, CBJCompState> {
       },
       compDevicesReceived: (e) async* {
         final dynamic failureOrCompListDynamic = e.failureOrCBJCompList.fold(
-          (f) => CBJCompState.loadFailure(f),
+          (f) => f,
           (ip) => ip,
         );
 
-        if (failureOrCompListDynamic == CBJCompState) {
-          yield failureOrCompListDynamic;
+        if (failureOrCompListDynamic == CBJCompFailure) {
+          yield CBJCompState.loadFailure(
+              failureOrCompListDynamic as CBJCompFailure);
         } else {
-          final String failureOrCompListDynamicStr =
-              failureOrCompListDynamic as String;
+          final String ipAsString = failureOrCompListDynamic as String;
 
           final Either<CBJCompFailure, CBJCompEntity>
-              cBJCompEntityListOFailure = await _cBJCompRepository
-                  .getInformationFromDeviceByIp(failureOrCompListDynamicStr);
+              cBJCompEntityListOFailure =
+              await _cBJCompRepository.getInformationFromDeviceByIp(ipAsString);
           yield cBJCompEntityListOFailure.fold(
             (f) => CBJCompState.loadFailure(f),
             (r) => CBJCompState.loadSuccess(r),
