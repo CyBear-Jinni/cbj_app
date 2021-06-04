@@ -15,6 +15,7 @@ class DeviceTypes extends $pb.ProtobufEnum {
   static const DeviceTypes blinds = DeviceTypes._(2, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'blinds');
   static const DeviceTypes boiler = DeviceTypes._(3, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'boiler');
   static const DeviceTypes button = DeviceTypes._(4, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'button');
+  static const DeviceTypes buttonWithLight = DeviceTypes._(5, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'buttonWithLight');
   static const DeviceTypes hub = DeviceTypes._(7, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'hub');
   static const DeviceTypes phoneApp = DeviceTypes._(8, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'phoneApp');
   static const DeviceTypes computerApp = DeviceTypes._(9, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'computerApp');
@@ -26,6 +27,7 @@ class DeviceTypes extends $pb.ProtobufEnum {
     blinds,
     boiler,
     button,
+    buttonWithLight,
     hub,
     phoneApp,
     computerApp,
