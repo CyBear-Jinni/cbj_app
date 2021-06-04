@@ -15,6 +15,10 @@ class DeviceTypes extends $pb.ProtobufEnum {
   static const DeviceTypes blinds = DeviceTypes._(2, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'blinds');
   static const DeviceTypes boiler = DeviceTypes._(3, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'boiler');
   static const DeviceTypes button = DeviceTypes._(4, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'button');
+  static const DeviceTypes hub = DeviceTypes._(7, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'hub');
+  static const DeviceTypes phoneApp = DeviceTypes._(8, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'phoneApp');
+  static const DeviceTypes computerApp = DeviceTypes._(9, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'computerApp');
+  static const DeviceTypes browserApp = DeviceTypes._(10, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'browserApp');
 
   static const $core.List<DeviceTypes> values = <DeviceTypes> [
     typeNotSupported,
@@ -22,6 +26,10 @@ class DeviceTypes extends $pb.ProtobufEnum {
     blinds,
     boiler,
     button,
+    hub,
+    phoneApp,
+    computerApp,
+    browserApp,
   ];
 
   static final $core.Map<$core.int, DeviceTypes> _byValue = $pb.ProtobufEnum.initByValue(values);
@@ -57,6 +65,41 @@ class DeviceActions extends $pb.ProtobufEnum {
   static DeviceActions? valueOf($core.int value) => _byValue[value];
 
   const DeviceActions._($core.int v, $core.String n) : super(v, n);
+}
+
+class WhenToExecute extends $pb.ProtobufEnum {
+  static const WhenToExecute undefined = WhenToExecute._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'undefined');
+  static const WhenToExecute onOddNumberPress = WhenToExecute._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'onOddNumberPress');
+  static const WhenToExecute evenNumberPress = WhenToExecute._(2, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'evenNumberPress');
+  static const WhenToExecute betweenSelectedTime = WhenToExecute._(3, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'betweenSelectedTime');
+  static const WhenToExecute doNotBetweenSelectedTime = WhenToExecute._(4, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'doNotBetweenSelectedTime');
+  static const WhenToExecute allTheTime = WhenToExecute._(5, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'allTheTime');
+  static const WhenToExecute never = WhenToExecute._(6, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'never');
+  static const WhenToExecute onceNow = WhenToExecute._(7, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'onceNow');
+  static const WhenToExecute onceInSelectedTime = WhenToExecute._(8, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'onceInSelectedTime');
+  static const WhenToExecute onlyIfDeviceListIsAreInActionListState = WhenToExecute._(9, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'onlyIfDeviceListIsAreInActionListState');
+  static const WhenToExecute atHome = WhenToExecute._(10, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'atHome');
+  static const WhenToExecute outOfHome = WhenToExecute._(11, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'outOfHome');
+
+  static const $core.List<WhenToExecute> values = <WhenToExecute> [
+    undefined,
+    onOddNumberPress,
+    evenNumberPress,
+    betweenSelectedTime,
+    doNotBetweenSelectedTime,
+    allTheTime,
+    never,
+    onceNow,
+    onceInSelectedTime,
+    onlyIfDeviceListIsAreInActionListState,
+    atHome,
+    outOfHome,
+  ];
+
+  static final $core.Map<$core.int, WhenToExecute> _byValue = $pb.ProtobufEnum.initByValue(values);
+  static WhenToExecute? valueOf($core.int value) => _byValue[value];
+
+  const WhenToExecute._($core.int v, $core.String n) : super(v, n);
 }
 
 class DeviceStateGRPC extends $pb.ProtobufEnum {

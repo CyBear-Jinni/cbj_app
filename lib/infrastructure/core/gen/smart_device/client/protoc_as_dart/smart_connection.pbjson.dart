@@ -17,11 +17,15 @@ const DeviceTypes$json = const {
     const {'1': 'blinds', '2': 2},
     const {'1': 'boiler', '2': 3},
     const {'1': 'button', '2': 4},
+    const {'1': 'hub', '2': 7},
+    const {'1': 'phoneApp', '2': 8},
+    const {'1': 'computerApp', '2': 9},
+    const {'1': 'browserApp', '2': 10},
   ],
 };
 
 /// Descriptor for `DeviceTypes`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List deviceTypesDescriptor = $convert.base64Decode('CgtEZXZpY2VUeXBlcxIUChB0eXBlTm90U3VwcG9ydGVkEAASCQoFbGlnaHQQARIKCgZibGluZHMQAhIKCgZib2lsZXIQAxIKCgZidXR0b24QBA==');
+final $typed_data.Uint8List deviceTypesDescriptor = $convert.base64Decode('CgtEZXZpY2VUeXBlcxIUChB0eXBlTm90U3VwcG9ydGVkEAASCQoFbGlnaHQQARIKCgZibGluZHMQAhIKCgZib2lsZXIQAxIKCgZidXR0b24QBBIHCgNodWIQBxIMCghwaG9uZUFwcBAIEg8KC2NvbXB1dGVyQXBwEAkSDgoKYnJvd3NlckFwcBAK');
 @$core.Deprecated('Use deviceActionsDescriptor instead')
 const DeviceActions$json = const {
   '1': 'DeviceActions',
@@ -40,6 +44,27 @@ const DeviceActions$json = const {
 
 /// Descriptor for `DeviceActions`. Decode as a `google.protobuf.EnumDescriptorProto`.
 final $typed_data.Uint8List deviceActionsDescriptor = $convert.base64Decode('Cg1EZXZpY2VBY3Rpb25zEhYKEmFjdGlvbk5vdFN1cHBvcnRlZBAAEgYKAm9uEAESBwoDb2ZmEAISCgoGbW92ZVVwEAMSCAoEc3RvcBAEEgwKCG1vdmVEb3duEAUSCwoHcHJlc3NlZBAGEg0KCWxvbmdQcmVzcxAHEg0KCWRvdWJsZVRhcBAI');
+@$core.Deprecated('Use whenToExecuteDescriptor instead')
+const WhenToExecute$json = const {
+  '1': 'WhenToExecute',
+  '2': const [
+    const {'1': 'undefined', '2': 0},
+    const {'1': 'onOddNumberPress', '2': 1},
+    const {'1': 'evenNumberPress', '2': 2},
+    const {'1': 'betweenSelectedTime', '2': 3},
+    const {'1': 'doNotBetweenSelectedTime', '2': 4},
+    const {'1': 'allTheTime', '2': 5},
+    const {'1': 'never', '2': 6},
+    const {'1': 'onceNow', '2': 7},
+    const {'1': 'onceInSelectedTime', '2': 8},
+    const {'1': 'onlyIfDeviceListIsAreInActionListState', '2': 9},
+    const {'1': 'atHome', '2': 10},
+    const {'1': 'outOfHome', '2': 11},
+  ],
+};
+
+/// Descriptor for `WhenToExecute`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List whenToExecuteDescriptor = $convert.base64Decode('Cg1XaGVuVG9FeGVjdXRlEg0KCXVuZGVmaW5lZBAAEhQKEG9uT2RkTnVtYmVyUHJlc3MQARITCg9ldmVuTnVtYmVyUHJlc3MQAhIXChNiZXR3ZWVuU2VsZWN0ZWRUaW1lEAMSHAoYZG9Ob3RCZXR3ZWVuU2VsZWN0ZWRUaW1lEAQSDgoKYWxsVGhlVGltZRAFEgkKBW5ldmVyEAYSCwoHb25jZU5vdxAHEhYKEm9uY2VJblNlbGVjdGVkVGltZRAIEioKJm9ubHlJZkRldmljZUxpc3RJc0FyZUluQWN0aW9uTGlzdFN0YXRlEAkSCgoGYXRIb21lEAoSDQoJb3V0T2ZIb21lEAs=');
 @$core.Deprecated('Use deviceStateGRPCDescriptor instead')
 const DeviceStateGRPC$json = const {
   '1': 'DeviceStateGRPC',
