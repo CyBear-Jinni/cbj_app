@@ -17,6 +17,7 @@ const DeviceTypes$json = const {
     const {'1': 'blinds', '2': 2},
     const {'1': 'boiler', '2': 3},
     const {'1': 'button', '2': 4},
+    const {'1': 'buttonWithLight', '2': 5},
     const {'1': 'hub', '2': 7},
     const {'1': 'phoneApp', '2': 8},
     const {'1': 'computerApp', '2': 9},
@@ -25,7 +26,7 @@ const DeviceTypes$json = const {
 };
 
 /// Descriptor for `DeviceTypes`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List deviceTypesDescriptor = $convert.base64Decode('CgtEZXZpY2VUeXBlcxIUChB0eXBlTm90U3VwcG9ydGVkEAASCQoFbGlnaHQQARIKCgZibGluZHMQAhIKCgZib2lsZXIQAxIKCgZidXR0b24QBBIHCgNodWIQBxIMCghwaG9uZUFwcBAIEg8KC2NvbXB1dGVyQXBwEAkSDgoKYnJvd3NlckFwcBAK');
+final $typed_data.Uint8List deviceTypesDescriptor = $convert.base64Decode('CgtEZXZpY2VUeXBlcxIUChB0eXBlTm90U3VwcG9ydGVkEAASCQoFbGlnaHQQARIKCgZibGluZHMQAhIKCgZib2lsZXIQAxIKCgZidXR0b24QBBITCg9idXR0b25XaXRoTGlnaHQQBRIHCgNodWIQBxIMCghwaG9uZUFwcBAIEg8KC2NvbXB1dGVyQXBwEAkSDgoKYnJvd3NlckFwcBAK');
 @$core.Deprecated('Use deviceActionsDescriptor instead')
 const DeviceActions$json = const {
   '1': 'DeviceActions',
