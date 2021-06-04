@@ -306,7 +306,7 @@ class DeviceRepository implements IDeviceRepository {
         final DocumentReference deviceDocumentReference =
             devicesCollection.doc(element);
         updateDatabase(documentPath: deviceDocumentReference, fieldsToUpdate: {
-          'action': DeviceActions.moveUP.toString(),
+          'action': DeviceActions.moveUp.toString(),
           'state': DeviceStateGRPC.waitingInFirebase.toString()
         });
       });

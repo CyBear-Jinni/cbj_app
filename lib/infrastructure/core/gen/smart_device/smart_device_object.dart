@@ -178,7 +178,7 @@ class SmartDeviceObject {
       //   print('ChangeState not supported light');
       //   executeOutput = 'ChangeState not supported light';
       //   break;
-      case DeviceActions.moveUP:
+      case DeviceActions.moveUp:
         print('Blinds not supported for light');
         executeOutput = 'Blinds not supported for light';
         break;
