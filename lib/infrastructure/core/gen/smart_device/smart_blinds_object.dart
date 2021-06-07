@@ -13,7 +13,7 @@ class SmartBlindsObject extends SmartDeviceObject {
   Future<String> blindsUp() async {
     // Skipping for App on web browser because crash on connectivityResult line an setLightStateLocal
     if (kIsWeb) {
-      return setBlindStateRemote(DeviceActions.moveUP);
+      return setBlindStateRemote(DeviceActions.moveUp);
     }
 
     final ConnectivityResult connectivityResult =
@@ -28,7 +28,7 @@ class SmartBlindsObject extends SmartDeviceObject {
     } else if (connectivityResult == ConnectivityResult.wifi ||
         connectivityResult == ConnectivityResult.mobile) {
       print('Moving blinds up Remote');
-      return setBlindStateRemote(DeviceActions.moveUP);
+      return setBlindStateRemote(DeviceActions.moveUp);
     } else {
       print('Not connected to a network');
     }
