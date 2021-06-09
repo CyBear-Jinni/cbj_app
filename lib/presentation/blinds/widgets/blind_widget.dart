@@ -52,6 +52,10 @@ class BlindWidget extends StatelessWidget {
                     backgroundColor: MaterialStateProperty.all(
                       Colors.brown,
                     ),
+                    side: MaterialStateProperty.all(
+                      BorderSide.lerp(const BorderSide(color: Colors.white60),
+                          const BorderSide(color: Colors.white60), 22),
+                    ),
                   ),
                   onPressed: () {
                     context.read<BlindsActorBloc>().add(
@@ -78,6 +82,10 @@ class BlindWidget extends StatelessWidget {
                     backgroundColor: MaterialStateProperty.all(
                       Colors.grey,
                     ),
+                    side: MaterialStateProperty.all(
+                      BorderSide.lerp(const BorderSide(color: Colors.white60),
+                          const BorderSide(color: Colors.white60), 22),
+                    ),
                   ),
                   onPressed: () {
                     context.read<BlindsActorBloc>().add(
@@ -103,6 +111,10 @@ class BlindWidget extends StatelessWidget {
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(
                       Colors.amber,
+                    ),
+                    side: MaterialStateProperty.all(
+                      BorderSide.lerp(const BorderSide(color: Colors.white60),
+                          const BorderSide(color: Colors.white60), 22),
                     ),
                   ),
                   onPressed: () {

@@ -41,6 +41,7 @@ abstract class DeviceEntity implements _$DeviceEntity {
     required DeviceType? type,
     required DeviceCompUuid? compUuid,
     DeviceLastKnownIp? lastKnownIp,
+    DevicePowerConsumption? powerConsumption,
   }) = _DeviceEnitie;
 
   const DeviceEntity._();

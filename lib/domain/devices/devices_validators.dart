@@ -1,4 +1,5 @@
 import 'package:cybear_jinni/domain/devices/devices_failures.dart';
+import 'package:cybear_jinni/infrastructure/objects/enums.dart';
 import 'package:dartz/dartz.dart';
 
 Either<DevicesFailure<String>, String> validateDeviceNotEmpty(String input) {
@@ -8,6 +9,15 @@ Either<DevicesFailure<String>, String> validateDeviceNotEmpty(String input) {
     return left(DevicesFailure.empty(
       failedValue: input,
     ));
+  }
+}
+
+Either<DevicesFailure<String>, String> validatePowerConsumptionNotEmpty(
+    String input) {
+  if (double.tryParse(input) != null) {
+    return right(input);
+  } else {
+    return left(const DevicesFailure.powerConsumptionIsNotNumber());
   }
 }
 
@@ -23,27 +33,23 @@ Either<DevicesFailure<String>, String> validateDeviceMaxNameLength(
   }
 }
 
-// Todo: add check that the string/state exist in the string array that we
-//  created with the grpc
 Either<DevicesFailure<String>, String> validateDeviceStateExist(String input) {
-  return right(input);
+  if (EnumHelper.stringToDeviceState(input) != null) {
+    return right(input);
+  }
+  return left(const DevicesFailure.deviceActionDoesNotExist());
 }
 
-// Todo: add check that the string/state exist in the string array that we
-//  created with the grpc
 Either<DevicesFailure<String>, String> validateDeviceActionExist(String input) {
-  return right(input);
+  if (EnumHelper.stringToDeviceAction(input) != null) {
+    return right(input);
+  }
+  return left(const DevicesFailure.deviceActionDoesNotExist());
 }
 
-// Todo: add check that the string/type exist in the string array that we
-//  created with the grpc
 Either<DevicesFailure<String>, String> validateDeviceTypeExist(String input) {
-  return right(input);
-}
-
-// Todo: add check that the device type have the state that it trying
-//  to activate with the lists that we created from the grpc
-Either<DevicesFailure<String>, String> validateDeviceStateInTypeExist(
-    String input) {
-  return right(input);
+  if (EnumHelper.stringToDt(input) != null) {
+    return right(input);
+  }
+  return left(const DevicesFailure.deviceTypeDoesNotExist());
 }

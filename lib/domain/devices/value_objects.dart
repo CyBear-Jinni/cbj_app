@@ -207,3 +207,17 @@ class DeviceLastKnownIp extends DevicesValueObjectAbstract<String> {
   @override
   final Either<DevicesFailure<String>, String> value;
 }
+
+class DevicePowerConsumption extends DevicesValueObjectAbstract<String> {
+  factory DevicePowerConsumption(String input) {
+    assert(input != null);
+    return DevicePowerConsumption._(
+      validatePowerConsumptionNotEmpty(input),
+    );
+  }
+
+  const DevicePowerConsumption._(this.value);
+
+  @override
+  final Either<DevicesFailure<String>, String> value;
+}
