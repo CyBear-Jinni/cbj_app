@@ -7,10 +7,14 @@ import 'package:timezone/timezone.dart' as tz;
 
 Future<void> configureLocalTimeZone() async {
   tz.initializeTimeZones();
-  // final String timeZoneName = await platform.invokeMethod('getTimeZoneName');
+  
   final String timeZoneName = await FlutterNativeTimezone.getLocalTimezone();
-
-  tz.setLocalLocation(tz.getLocation(timeZoneName));
+  
+  try{
+    tz.setLocalLocation(tz.getLocation(timeZoneName));
+  }catch(e){
+    tz.setLocalLocation(tz.getLocation('US/Central'));
+  }
 }
 
 Future<void> initialisationNotifications() async {
