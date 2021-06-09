@@ -39,7 +39,7 @@ abstract class CreateHomeValueObjectAbstract<T> {
 
 class HomeUniqueId extends CreateHomeValueObjectAbstract<String> {
   factory HomeUniqueId() {
-    return HomeUniqueId._(right(Uuid().v1()));
+    return HomeUniqueId._(right(const Uuid().v1()));
   }
 
   factory HomeUniqueId.fromUniqueString(String uniqueId) {
@@ -68,11 +68,11 @@ class HomeName extends CreateHomeValueObjectAbstract<String> {
 }
 
 class HomeDevicesUserId extends CreateHomeValueObjectAbstract<String> {
-  const HomeDevicesUserId._(this.value);
-
   factory HomeDevicesUserId() {
     return HomeDevicesUserId._(right(const Uuid().v1()));
   }
+
+  const HomeDevicesUserId._(this.value);
 
   factory HomeDevicesUserId.fromUniqueString(String uniqueId) {
     assert(uniqueId != null);

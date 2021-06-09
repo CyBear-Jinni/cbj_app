@@ -8,6 +8,15 @@ part 'create_home_dtos.g.dart';
 
 @freezed
 abstract class CreateHomeDtos implements _$CreateHomeDtos {
+  const factory CreateHomeDtos({
+    @JsonKey(ignore: true) String? id,
+    @JsonKey(ignore: true) String? name,
+    required String homeDevicesUserId,
+    required String homeDevicesUserEmail,
+    required String homeDevicesUserPassword,
+    // required @ServerTimestampConverter() FieldValue serverTimeStamp,
+  }) = _CreateHomeDtos;
+
   const CreateHomeDtos._();
 
   factory CreateHomeDtos.fromJson(Map<String, dynamic> json) =>
@@ -23,19 +32,10 @@ abstract class CreateHomeDtos implements _$CreateHomeDtos {
       homeDevicesUserId: createHomeEntity.homeDevicesUserId!.getOrCrash(),
       homeDevicesUserEmail: createHomeEntity.homeDevicesUserEmail!.getOrCrash(),
       homeDevicesUserPassword:
-          createHomeEntity.homeDevicesUserPassword!.getOrCrash(),
+      createHomeEntity.homeDevicesUserPassword!.getOrCrash(),
       // serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }
-
-  const factory CreateHomeDtos({
-    @JsonKey(ignore: true) String? id,
-    @JsonKey(ignore: true) String? name,
-    required String homeDevicesUserId,
-    required String homeDevicesUserEmail,
-    required String homeDevicesUserPassword,
-    // required @ServerTimestampConverter() FieldValue serverTimeStamp,
-  }) = _CreateHomeDtos;
 
   CreateHomeEntity toDomain() {
     return CreateHomeEntity(
@@ -44,7 +44,7 @@ abstract class CreateHomeDtos implements _$CreateHomeDtos {
       homeDevicesUserId: HomeDevicesUserId(),
       homeDevicesUserEmail: HomeDevicesUserEmail(homeDevicesUserEmail),
       homeDevicesUserPassword:
-          HomeDevicesUserPassword.fromUniqueString(homeDevicesUserPassword),
+      HomeDevicesUserPassword.fromUniqueString(homeDevicesUserPassword),
     );
   }
 }
