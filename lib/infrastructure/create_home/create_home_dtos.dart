@@ -32,7 +32,7 @@ abstract class CreateHomeDtos implements _$CreateHomeDtos {
       homeDevicesUserId: createHomeEntity.homeDevicesUserId!.getOrCrash(),
       homeDevicesUserEmail: createHomeEntity.homeDevicesUserEmail!.getOrCrash(),
       homeDevicesUserPassword:
-      createHomeEntity.homeDevicesUserPassword!.getOrCrash(),
+          createHomeEntity.homeDevicesUserPassword!.getOrCrash(),
       // serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }
@@ -44,7 +44,7 @@ abstract class CreateHomeDtos implements _$CreateHomeDtos {
       homeDevicesUserId: HomeDevicesUserId(),
       homeDevicesUserEmail: HomeDevicesUserEmail(homeDevicesUserEmail),
       homeDevicesUserPassword:
-      HomeDevicesUserPassword.fromUniqueString(homeDevicesUserPassword),
+          HomeDevicesUserPassword.fromUniqueString(homeDevicesUserPassword),
     );
   }
 }
