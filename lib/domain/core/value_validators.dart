@@ -1,6 +1,5 @@
 import 'package:cybear_jinni/domain/core/failures.dart';
 import 'package:dartz/dartz.dart';
-import 'package:kt_dart/collection.dart';
 
 Either<AuthValueFailure<String>, String> validateEmailAddress(String input) {
   const emailRegex =
@@ -8,35 +7,36 @@ Either<AuthValueFailure<String>, String> validateEmailAddress(String input) {
   if (RegExp(emailRegex).hasMatch(input)) {
     return right(input);
   } else {
-    return left(AuthValueFailure.invalidEmail(failedValue: input));
+    return left(const AuthValueFailure.invalidEmail(
+        failedValue: 'Invalid email address'));
   }
 }
 
-Either<AuthValueFailure<String>, String> validateStringNotEmpty(String input) {
-  if (input.isNotEmpty) {
+Either<AuthValueFailure<String>, String> validateEmailWithoutSpace(
+    String input) {
+  if (!input.contains(' ') && !input.contains('\t')) {
     return right(input);
   } else {
-    return left(AuthValueFailure.empty(failedValue: input));
+    return left(const AuthValueFailure.containsSpace(
+        failedValue: 'Email cannot contain spaces'));
   }
 }
 
-// KtList is immutable list, you are modifying the list and not a copy
-Either<AuthValueFailure<KtList<T>>, KtList<T>> validateMaxLength<T>(
-  KtList<T> input,
-  int maxLength,
-) {
-  if (input.size <= maxLength) {
-    return right(input);
-  } else {
-    return left(
-        AuthValueFailure.listTooLong(failedValue: input, max: maxLength));
-  }
-}
-
-Either<AuthValueFailure<String>, String> validatePassword(String input) {
+Either<AuthValueFailure<String>, String> validatePasswordLength(String input) {
   if (input.length >= 6) {
     return right(input);
   } else {
-    return left(AuthValueFailure.invalidEmail(failedValue: input));
+    return left(const AuthValueFailure.shortPassword(
+        failedValue: 'Password length is too short'));
+  }
+}
+
+Either<AuthValueFailure<String>, String> validatePasswordWithoutSpace(
+    String input) {
+  if (!input.contains(' ') && !input.contains('\t')) {
+    return right(input);
+  } else {
+    return left(const AuthValueFailure.containsSpace(
+        failedValue: 'Password cannot contain spaces'));
   }
 }
