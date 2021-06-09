@@ -71,7 +71,8 @@ class SignInForm extends StatelessWidget {
                           .value
                           .fold(
                               (f) => f.maybeMap(
-                                  invalidEmail: (_) => 'Invalid Email',
+                                  invalidEmail: (result) => result.failedValue,
+                                  containsSpace: (result) => result.failedValue,
                                   orElse: () => null),
                               (r) => null),
                     ),
@@ -95,7 +96,8 @@ class SignInForm extends StatelessWidget {
                           .value
                           .fold(
                               (f) => f.maybeMap(
-                                  invalidEmail: (_) => 'Short Password',
+                                  shortPassword: (result) => result.failedValue,
+                                  containsSpace: (result) => result.failedValue,
                                   orElse: () => null),
                               (r) => null),
                     ),
