@@ -77,18 +77,18 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                 ),
               ),
             ),
-            Expanded(
-              child: SingleChildScrollView(
-                reverse: true,
-                child: Column(
-                  children: <Widget>[
-                    Divider(
-                      thickness: 0.5,
-                      height: 0.5,
-                      color: Theme.of(context).textTheme.bodyText1!.color,
-                    ),
-                    ListTile(
-                      tileColor: Colors.greenAccent.withOpacity(0.8),
+            SingleChildScrollView(
+              reverse: true,
+              child: Column(
+                children: <Widget>[
+                  Divider(
+                    thickness: 0.5,
+                    height: 0.5,
+                    color: Theme.of(context).textTheme.bodyText1!.color,
+                  ),
+                  Container(
+                    color: Colors.greenAccent.withOpacity(0.8),
+                    child: ListTile(
                       leading: FaIcon(
                         FontAwesomeIcons.signOutAlt,
                         color: Theme.of(context).textTheme.bodyText1!.color,
@@ -104,13 +104,15 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                         _fireBaseLogOut(context);
                       },
                     ),
-                    Divider(
-                      thickness: 0.5,
-                      height: 0.5,
-                      color: Theme.of(context).textTheme.bodyText1!.color,
-                    ),
-                    ListTile(
-                      tileColor: Colors.blue,
+                  ),
+                  Divider(
+                    thickness: 0.5,
+                    height: 0.5,
+                    color: Theme.of(context).textTheme.bodyText1!.color,
+                  ),
+                  Container(
+                    color: Colors.blue,
+                    child: ListTile(
                       leading: FaIcon(
                         FontAwesomeIcons.userPlus,
                         color: Theme.of(context).textTheme.bodyText1!.color,
@@ -126,13 +128,13 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                         context.router.push(const ManageUsersRoute());
                       },
                     ),
-                    Divider(
-                      thickness: 0.5,
-                      height: 0.5,
-                      color: Theme.of(context).textTheme.bodyText1!.color,
-                    ),
-                  ],
-                ),
+                  ),
+                  Divider(
+                    thickness: 0.5,
+                    height: 0.5,
+                    color: Theme.of(context).textTheme.bodyText1!.color,
+                  ),
+                ],
               ),
             ),
           ],
