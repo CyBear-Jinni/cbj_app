@@ -52,7 +52,6 @@ Future<Unit> main() async {
   Firebase.initializeApp();
 
   await configureLocalTimeZone();
-  // await _configureLocalTimeZone();
 
   await initialisationNotifications();
 
