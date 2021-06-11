@@ -81,7 +81,7 @@ class BlindsInTheRoom extends StatelessWidget {
               )
             else
               Text(
-                '${blindsInRoom![0]!.roomName!.getOrCrash()} blinds',
+                '${blindsInRoom![0]!.roomName!.getOrCrash()} Blinds',
                 style: TextStyle(
                     color: Theme.of(context).textTheme.bodyText1!.color),
               ),

@@ -82,7 +82,7 @@ class LightsInTheRoomBlock extends StatelessWidget {
               )
             else
               Text(
-                '${lightsInRoom[0].roomName!.getOrCrash()} lights',
+                '${lightsInRoom[0].roomName!.getOrCrash()} Lights',
                 style: TextStyle(
                     color: Theme.of(context).textTheme.bodyText1!.color),
               ),

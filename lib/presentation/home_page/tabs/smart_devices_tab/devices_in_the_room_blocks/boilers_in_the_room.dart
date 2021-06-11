@@ -79,7 +79,7 @@ class BoilersInTheRoom extends StatelessWidget {
               )
             else
               Text(
-                '${boilersInRoom![0].roomName!.getOrCrash()} boiler',
+                '${boilersInRoom![0].roomName!.getOrCrash()} Boilers',
                 style: TextStyle(
                     color: Theme.of(context).textTheme.bodyText1!.color),
               ),
