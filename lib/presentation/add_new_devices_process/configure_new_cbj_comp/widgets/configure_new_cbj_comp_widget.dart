@@ -201,7 +201,10 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                         ],
                       ),
                       Text(
-                        'Room Name',
+                        cbjCompEntityInBuild.cBJCompDevices!
+                            .getOrCrash()[0]
+                            .roomName!
+                            .getOrCrash()!,
                         style: TextStyle(
                           color: Theme.of(context).textTheme.bodyText1!.color,
                           fontSize: 30,
@@ -233,7 +236,10 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                                     .bodyText1!
                                     .color,
                               ),
-                              labelText: 'Room Name',
+                              labelText: cbjCompEntityInBuild.cBJCompDevices!
+                                  .getOrCrash()[0]
+                                  .roomName!
+                                  .getOrCrash(),
                               labelStyle: TextStyle(
                                   color: Theme.of(context)
                                       .textTheme

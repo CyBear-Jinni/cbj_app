@@ -17,6 +17,9 @@ abstract class DeviceEntity implements _$DeviceEntity {
     /// Room id that the smart device located in.
     required DeviceUniqueId? roomId,
 
+    /// Room name that the smart device located in.
+    required DeviceRoomName? roomName,
+
     /// Did the massage arrived or was it just sent.
     /// Currently will be 'set' (need change) or 'ack' for acknowledge
     /// (the action was reseved and executed correctly
@@ -47,9 +50,10 @@ abstract class DeviceEntity implements _$DeviceEntity {
   const DeviceEntity._();
 
   factory DeviceEntity.empty() => DeviceEntity(
-        id: DeviceUniqueId(),
+    id: DeviceUniqueId(),
         defaultName: DeviceDefaultName(''),
         roomId: DeviceUniqueId(),
+        roomName: DeviceRoomName(''),
         state: DeviceState(''),
         senderDeviceOs: DeviceSenderDeviceOs(''),
         senderDeviceModel: DeviceSenderDeviceModel(''),

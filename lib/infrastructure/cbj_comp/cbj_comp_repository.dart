@@ -248,6 +248,7 @@ class CBJCompRepository implements ICBJCompRepository {
           id: DeviceUniqueId.fromUniqueString(smartDeviceInfo.id),
           defaultName: DeviceDefaultName(smartDeviceInfo.defaultName),
           roomId: DeviceUniqueId.fromUniqueString(smartDeviceInfo.roomId),
+          roomName: DeviceRoomName('Missing room name'),
           state: DeviceState(
               smartDeviceInfo.deviceTypesActions.deviceStateGRPC.toString()),
           stateMassage: DeviceStateMassage(smartDeviceInfo.stateMassage),

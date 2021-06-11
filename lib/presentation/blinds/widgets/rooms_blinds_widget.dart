@@ -80,12 +80,13 @@ class RoomsBlindsWidget extends StatelessWidget {
                       gradientColorCounter = 0;
                       gradiantColor = gradientColorsList[gradientColorCounter];
                     }
-                    final devicesInRoom = devicesByRooms[index];
+                    final KtList<DeviceEntity> devicesInRoom =
+                        devicesByRooms[index];
 
                     return RoomBlinds(
                       devicesInRoom,
                       gradiantColor,
-                      'Room ${index + 1}',
+                      devicesInRoom[0].roomName!.getOrCrash()!,
                       maxLightsToShow: 50,
                     );
                   },

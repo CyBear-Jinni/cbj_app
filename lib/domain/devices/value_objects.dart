@@ -54,6 +54,19 @@ class DeviceUniqueId extends DevicesValueObjectAbstract<String?> {
   final Either<DevicesFailure<String?>, String?> value;
 }
 
+class DeviceRoomName extends DevicesValueObjectAbstract<String?> {
+  factory DeviceRoomName(String? input) {
+    return DeviceRoomName._(
+      validateRoomNameNotEmpty(input!),
+    );
+  }
+
+  const DeviceRoomName._(this.value);
+
+  @override
+  final Either<DevicesFailure<String>, String> value;
+}
+
 class DeviceDefaultName extends DevicesValueObjectAbstract<String?> {
   factory DeviceDefaultName(String? input) {
     assert(input != null);

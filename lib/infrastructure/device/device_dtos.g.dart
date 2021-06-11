@@ -10,6 +10,7 @@ _$_DeviceDtos _$_$_DeviceDtosFromJson(Map<String, dynamic> json) {
   return _$_DeviceDtos(
     defaultName: json['defaultName'] as String?,
     roomId: json['roomId'] as String?,
+    roomName: json['roomName'] as String?,
     state: json['state'] as String?,
     stateMassage: json['stateMassage'] as String?,
     senderDeviceOs: json['senderDeviceOs'] as String?,
@@ -25,6 +26,7 @@ Map<String, dynamic> _$_$_DeviceDtosToJson(_$_DeviceDtos instance) =>
     <String, dynamic>{
       'defaultName': instance.defaultName,
       'roomId': instance.roomId,
+      'roomName': instance.roomName,
       'state': instance.state,
       'stateMassage': instance.stateMassage,
       'senderDeviceOs': instance.senderDeviceOs,

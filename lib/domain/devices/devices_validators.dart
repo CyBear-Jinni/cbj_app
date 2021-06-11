@@ -21,6 +21,14 @@ Either<DevicesFailure<String>, String> validatePowerConsumptionNotEmpty(
   }
 }
 
+Either<DevicesFailure<String>, String> validateRoomNameNotEmpty(String input) {
+  if (input != null) {
+    return right(input);
+  } else {
+    return left(DevicesFailure.empty(failedValue: input));
+  }
+}
+
 Either<DevicesFailure<String>, String> validateDeviceMaxNameLength(
     String input, int maxLength) {
   if (input.length <= maxLength) {
