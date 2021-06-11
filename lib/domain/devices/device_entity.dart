@@ -50,7 +50,7 @@ abstract class DeviceEntity implements _$DeviceEntity {
   const DeviceEntity._();
 
   factory DeviceEntity.empty() => DeviceEntity(
-    id: DeviceUniqueId(),
+        id: DeviceUniqueId(),
         defaultName: DeviceDefaultName(''),
         roomId: DeviceUniqueId(),
         roomName: DeviceRoomName(''),
