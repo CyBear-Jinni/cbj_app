@@ -1,25 +1,35 @@
 import 'package:cybear_jinni/main.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/widgets.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_native_timezone/flutter_native_timezone.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
 
+FlutterLocalNotificationsPlugin? flutterLocalNotificationsPlugin;
+
 Future<void> configureLocalTimeZone() async {
   tz.initializeTimeZones();
-  // final String timeZoneName = await platform.invokeMethod('getTimeZoneName');
+
   final String timeZoneName = await FlutterNativeTimezone.getLocalTimezone();
 
-  tz.setLocalLocation(tz.getLocation(timeZoneName));
+  try {
+    tz.setLocalLocation(tz.getLocation(timeZoneName));
+  } catch (e) {
+    tz.setLocalLocation(tz.getLocation('US/Central'));
+  }
 }
 
 Future<void> initialisationNotifications() async {
-  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-      FlutterLocalNotificationsPlugin();
-// initialise the plugin. app_icon needs to be a added as a drawable resource
-// to the Android head project
+  if (kIsWeb) {
+    return;
+  }
+  flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
+
+  // initialise the plugin. app_icon needs to be a added as a drawable resource
+  // to the Android head project
   const AndroidInitializationSettings initializationSettingsAndroid =
-      AndroidInitializationSettings('cbj_app_logo');
+      AndroidInitializationSettings('cbj_app_icon_no_bg');
   const IOSInitializationSettings initializationSettingsIOS =
       IOSInitializationSettings(
           onDidReceiveLocalNotification: selectNotificationIos);
@@ -29,7 +39,7 @@ Future<void> initialisationNotifications() async {
       android: initializationSettingsAndroid,
       iOS: initializationSettingsIOS,
       macOS: initializationSettingsMacOS);
-  await flutterLocalNotificationsPlugin.initialize(initializationSettings,
+  await flutterLocalNotificationsPlugin!.initialize(initializationSettings,
       onSelectNotification: selectNotification);
 }
 
@@ -55,7 +65,10 @@ Future selectNotificationIos(
 }
 
 Future<void> zonedScheduleNotification() async {
-  await flutterLocalNotificationsPlugin.zonedSchedule(
+  if (kIsWeb) {
+    return;
+  }
+  await flutterLocalNotificationsPlugin!.zonedSchedule(
       0,
       'scheduled title',
       'scheduled body',
@@ -74,6 +87,9 @@ Future<void> zonedScheduleNotification() async {
 }
 
 Future<void> showNotificationCustomSound() async {
+  if (kIsWeb) {
+    return;
+  }
   const AndroidNotificationDetails androidPlatformChannelSpecifics =
       AndroidNotificationDetails(
     'your other channel id',
@@ -89,7 +105,7 @@ Future<void> showNotificationCustomSound() async {
       android: androidPlatformChannelSpecifics,
       iOS: iOSPlatformChannelSpecifics,
       macOS: macOSPlatformChannelSpecifics);
-  await flutterLocalNotificationsPlugin.show(
+  await flutterLocalNotificationsPlugin!.show(
       0,
       'custom sound notification title',
       'custom sound notification body',
@@ -97,6 +113,10 @@ Future<void> showNotificationCustomSound() async {
 }
 
 Future<void> showSoundUriNotification() async {
+  if (kIsWeb) {
+    return;
+  }
+
   /// this calls a method over a platform channel implemented within the
   /// example app to return the Uri for the default alarm sound and uses
   /// as the notification sound
@@ -110,6 +130,6 @@ Future<void> showSoundUriNotification() async {
           styleInformation: const DefaultStyleInformation(true, true));
   final NotificationDetails platformChannelSpecifics =
       NotificationDetails(android: androidPlatformChannelSpecifics);
-  await flutterLocalNotificationsPlugin.show(
-      0, 'uri sound title', 'uri sound body', platformChannelSpecifics);
+  await flutterLocalNotificationsPlugin!
+      .show(0, 'uri sound title', 'uri sound body', platformChannelSpecifics);
 }

@@ -100,7 +100,7 @@ class IntroductionScreenBodyWelcomePage extends StatelessWidget {
                   backgroundColor: Colors.transparent,
                   radius: 55.0,
                   child: Image.network(
-                    'https://user-images.githubusercontent.com/9304740/97103272-19572d00-16b4-11eb-8e47-394ec18b3809.png',
+                    'https://i.ibb.co/tHWm1NV/Cy-Bear-Jinni-smart-device-logo.png',
                   ),
                 ),
                 CircleAvatar(

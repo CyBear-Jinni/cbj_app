@@ -1,6 +1,6 @@
 name: cybear_jinni
 description: CyBear Jinni app to interact with your CyBear Jinni Smart Devices
-version: 1.1.0+20
+version: 1.1.0+23
 homepage: https://github.com/CyBear-Jinni/CBJ_App
 author: Guy Luz
 
@@ -38,14 +38,14 @@ dependencies:
   clipboard: ^0.1.3
   cloud_firestore: ^2.2.0
   # Allow discover network connectivity
-  connectivity: ^3.0.4
+  connectivity: ^3.0.6
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.3
   # Functional programming thingies, let you use multiple return types
   dartz: ^0.10.0-nullsafety.2
   # Get current device information from within the Flutter application.
-  device_info: ^2.0.1
+  device_info: ^2.0.2
   # Internationalization (Easy translations)
   easy_localization: ^3.0.0
 #  # Easy implementation of a Expansion type card
@@ -59,11 +59,11 @@ dependencies:
   flutter:
     sdk: flutter
   # Bloc for state management, replace StatefulWidget
-  flutter_bloc: ^7.0.0
+  flutter_bloc: ^7.0.1
   # A cross platform plugin for displaying local notifications.
-  flutter_local_notifications: ^5.0.0+4
+  flutter_local_notifications: ^6.0.0
   # Getting the local timezone of the os.
-  flutter_native_timezone: ^1.0.10
+  flutter_native_timezone: ^1.1.0
   # An easy to implement custom switch
   flutter_switch: ^0.3.1
   fluttertoast: ^8.0.7
@@ -88,11 +88,13 @@ dependencies:
   # Defines the annotations used by json_serializable to create code for JSON serialization and deserialization.
   json_annotation: ^4.0.1
   # Dart Build System builders for handling JSON.
-  json_serializable: ^4.1.2
+  json_serializable: ^4.1.3
   # Port of Kotlin's Kotlin Standard library for Dart/Flutter projects
   kt_dart: ^0.9.1
   # Liquid progress indicator for Flutter.
   liquid_progress_indicator_ns: ^1.0.0
+  # Discover network info and configure themselves accordingly
+  network_info_plus: ^1.0.1
   # Finding commonly used locations on the filesystem
   path_provider: ^2.0.2
   # Popup that ask for the requested permission
@@ -102,15 +104,13 @@ dependencies:
   # A wrapper around InheritedWidget to make them easier to use and more reusable.
   provider: ^5.0.0
   # Generate random colors that are visually pleasing
-  random_color: ^1.0.6-nullsafety
+  random_color: ^1.0.5
   # Implementation of the popular reactiveX api for asynchronous programming
-  rxdart: ^0.27.0
+  rxdart: ^0.27.1
   # reading and writing simple key-value pairs
   shared_preferences: ^2.0.6
   # Simple, fast generation of RFC4122 UUIDs.
   uuid: ^3.0.4
-  # Information about a device's connection to wifi
-  wifi_info_flutter: ^2.0.1
   # Get available wifi ssid list, user can connect to wifi with ssid and password, and create hotspot
   wifi_iot: ^0.3.3
 

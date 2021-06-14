@@ -244,10 +244,9 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                         ),
                       ),
                       if (cbjCompEntityInBuild.cBJCompDevices!
-                                  .getOrCrash()
-                                  .size <
-                              1 !=
-                          null)
+                              .getOrCrash()
+                              .size <
+                          1)
                         const Text('')
                       else
                         devicesList(cbjCompEntityInBuild,
