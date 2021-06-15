@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?><!-- Modify this file to customize your launch splash screen -->
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@android:color/white" />
-    <!-- <item android:drawable="@color/indigo" /> -->
+    <item>
+        <color android:color="@color/splash" />
+    </item>
 
     <item>
         <bitmap
             android:gravity="center"
-            android:src="@drawable/cbj_app_logo" />
+            android:src="@drawable/splash_icon" />
     </item>
 </layer-list>
