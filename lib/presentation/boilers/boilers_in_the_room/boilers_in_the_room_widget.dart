@@ -31,7 +31,7 @@ class BoilersInTheRoomWidget extends StatelessWidget {
             ListTile(
               leading: const CircleAvatar(
                 child: FaIcon(FontAwesomeIcons.thermometerThreeQuarters),
-//                backgroundImage: AssetImage('assets/cbj_app_logo.png'),
+//                backgroundImage: AssetImage('assets/cbj_logo.png'),
 //              backgroundImage: AssetImage(products[index]['image']),
               ),
               title: TextField(

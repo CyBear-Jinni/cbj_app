@@ -39,7 +39,7 @@ KtList<Either<FolderOfScenesFailures, FolderOfScenes>> getFolderOfScenes() {
     right(
       FolderOfScenes(
         id: UniqueId(),
-        name: 'Sima and Ami',
+        name: 'Sima And Ami',
         backgroundImageUrl:
             'https://live.staticflickr.com/5220/5486044345_f67abff3e9_h.jpg',
       ),
@@ -47,7 +47,7 @@ KtList<Either<FolderOfScenesFailures, FolderOfScenes>> getFolderOfScenes() {
     right(
       FolderOfScenes(
         id: UniqueId(),
-        name: 'South bathroom',
+        name: 'South Bathroom',
         backgroundImageUrl:
             'https://live.staticflickr.com/8430/7731774826_7c1627cfcd_h.jpg',
       ),
@@ -55,7 +55,7 @@ KtList<Either<FolderOfScenesFailures, FolderOfScenes>> getFolderOfScenes() {
     right(
       FolderOfScenes(
         id: UniqueId(),
-        name: 'Ami office',
+        name: 'Ami Office',
         backgroundImageUrl:
             'https://live.staticflickr.com/7160/6470998009_b7107d55fe_h.jpg',
       ),
@@ -63,7 +63,7 @@ KtList<Either<FolderOfScenesFailures, FolderOfScenes>> getFolderOfScenes() {
     right(
       FolderOfScenes(
         id: UniqueId(),
-        name: 'North bathroom',
+        name: 'North Bathroom',
         backgroundImageUrl:
             'https://live.staticflickr.com/1256/1471268812_c73d690f26_h.jpg',
       ),
@@ -71,7 +71,7 @@ KtList<Either<FolderOfScenesFailures, FolderOfScenes>> getFolderOfScenes() {
     right(
       FolderOfScenes(
         id: UniqueId(),
-        name: 'Sima office',
+        name: 'Sima Office',
         backgroundImageUrl:
             'https://live.staticflickr.com/1415/4592575839_15ca3982b7_c.jpg',
       ),
@@ -87,7 +87,7 @@ KtList<Either<FolderOfScenesFailures, FolderOfScenes>> getFolderOfScenes() {
     right(
       FolderOfScenes(
         id: UniqueId(),
-        name: 'Laundry room',
+        name: 'Laundry Room',
         backgroundImageUrl:
             'https://live.staticflickr.com/7034/13522716673_1e13298046_h.jpg',
       ),
@@ -95,7 +95,7 @@ KtList<Either<FolderOfScenesFailures, FolderOfScenes>> getFolderOfScenes() {
     right(
       FolderOfScenes(
         id: UniqueId(),
-        name: 'kitchen',
+        name: 'Kitchen',
         backgroundImageUrl:
             'https://images.unsplash.com/photo-1601334168590-1fbdffad285e?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=675&q=80',
       ),
@@ -111,7 +111,7 @@ KtList<Either<FolderOfScenesFailures, FolderOfScenes>> getFolderOfScenes() {
     right(
       FolderOfScenes(
         id: UniqueId(),
-        name: 'Living room',
+        name: 'Living Room',
         backgroundImageUrl:
             'https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
       ),
@@ -119,7 +119,7 @@ KtList<Either<FolderOfScenesFailures, FolderOfScenes>> getFolderOfScenes() {
     right(
       FolderOfScenes(
         id: UniqueId(),
-        name: 'OutSide',
+        name: 'Outside',
         backgroundImageUrl:
             'https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
       ),

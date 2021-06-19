@@ -223,7 +223,7 @@ class CBJCompRepository implements ICBJCompRepository {
         senderId: element.senderId!.getOrCrash(),
         senderDeviceModel: deviceModelString,
         senderDeviceOs: Platform.operatingSystem,
-        state: element.state!.getOrCrash(),
+        state: element.deviceStateGRPC!.getOrCrash(),
         stateMassage: 'Setting up device',
         roomId: element.roomId!.getOrCrash(),
         id: element.id!.getOrCrash(),
@@ -248,16 +248,17 @@ class CBJCompRepository implements ICBJCompRepository {
           id: DeviceUniqueId.fromUniqueString(smartDeviceInfo.id),
           defaultName: DeviceDefaultName(smartDeviceInfo.defaultName),
           roomId: DeviceUniqueId.fromUniqueString(smartDeviceInfo.roomId),
-          state: DeviceState(
+          roomName: DeviceRoomName('Missing room name'),
+          deviceStateGRPC: DeviceState(
               smartDeviceInfo.deviceTypesActions.deviceStateGRPC.toString()),
           stateMassage: DeviceStateMassage(smartDeviceInfo.stateMassage),
           senderDeviceOs: DeviceSenderDeviceOs(smartDeviceInfo.senderDeviceOs),
           senderDeviceModel:
               DeviceSenderDeviceModel(smartDeviceInfo.senderDeviceModel),
           senderId: DeviceSenderId.fromUniqueString(smartDeviceInfo.senderId),
-          action: DeviceAction(
+          deviceActions: DeviceAction(
               smartDeviceInfo.deviceTypesActions.deviceAction.toString()),
-          type: DeviceType(
+          deviceTypes: DeviceType(
               smartDeviceInfo.deviceTypesActions.deviceType.toString()),
           compUuid: DeviceCompUuid(smartDeviceInfo.compSpecs.compUuid),
           lastKnownIp: DeviceLastKnownIp(compIp));

@@ -54,6 +54,19 @@ class DeviceUniqueId extends DevicesValueObjectAbstract<String?> {
   final Either<DevicesFailure<String?>, String?> value;
 }
 
+class DeviceRoomName extends DevicesValueObjectAbstract<String?> {
+  factory DeviceRoomName(String? input) {
+    return DeviceRoomName._(
+      validateRoomNameNotEmpty(input!),
+    );
+  }
+
+  const DeviceRoomName._(this.value);
+
+  @override
+  final Either<DevicesFailure<String>, String> value;
+}
+
 class DeviceDefaultName extends DevicesValueObjectAbstract<String?> {
   factory DeviceDefaultName(String? input) {
     assert(input != null);
@@ -194,15 +207,56 @@ class DeviceCompUuid extends DevicesValueObjectAbstract<String> {
 }
 
 class DeviceLastKnownIp extends DevicesValueObjectAbstract<String> {
-  factory DeviceLastKnownIp(String input) {
+  factory DeviceLastKnownIp(String? input) {
     assert(input != null);
     return DeviceLastKnownIp._(
-      validateDeviceNotEmpty(input)
-          .flatMap((a) => validateDeviceTypeExist(input)),
+      validateLastKnownIpNotEmpty(input!),
     );
   }
 
   const DeviceLastKnownIp._(this.value);
+
+  @override
+  final Either<DevicesFailure<String>, String> value;
+}
+
+class DevicePowerConsumption extends DevicesValueObjectAbstract<String> {
+  factory DevicePowerConsumption(String input) {
+    assert(input != null);
+    return DevicePowerConsumption._(
+      validatePowerConsumptionNotEmpty(input),
+    );
+  }
+
+  const DevicePowerConsumption._(this.value);
+
+  @override
+  final Either<DevicesFailure<String>, String> value;
+}
+
+class DeviceMdnsName extends DevicesValueObjectAbstract<String> {
+  factory DeviceMdnsName(String? input) {
+    assert(input != null);
+    return DeviceMdnsName._(
+      validateMdnsNameNotEmpty(input!),
+    );
+  }
+
+  const DeviceMdnsName._(this.value);
+
+  @override
+  final Either<DevicesFailure<String>, String> value;
+}
+
+class DeviceSecondWiFiName extends DevicesValueObjectAbstract<String> {
+  factory DeviceSecondWiFiName(String? input) {
+    assert(input != null);
+    return DeviceSecondWiFiName._(
+      validateWiFiNameNotEmpty(input!),
+    );
+  }
+
+  const DeviceSecondWiFiName._(this.value);
 
   @override
   final Either<DevicesFailure<String>, String> value;

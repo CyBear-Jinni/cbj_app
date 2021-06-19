@@ -53,13 +53,14 @@ class SmartDevicesByRooms extends StatelessWidget {
             tempDevicesByRooms.forEach((k, v) {
               tempDevicesByRoomsByType[k!] = {};
               v.forEach((element) {
-                if (tempDevicesByRoomsByType[k]![element.type!.getOrCrash()] ==
+                if (tempDevicesByRoomsByType[k]![
+                        element.deviceTypes!.getOrCrash()] ==
                     null) {
-                  tempDevicesByRoomsByType[k]![element.type!.getOrCrash()] = [
-                    element
-                  ];
+                  tempDevicesByRoomsByType[k]![
+                      element.deviceTypes!.getOrCrash()] = [element];
                 } else {
-                  tempDevicesByRoomsByType[k]![element.type!.getOrCrash()]!
+                  tempDevicesByRoomsByType[k]![
+                          element.deviceTypes!.getOrCrash()]!
                       .add(element);
                 }
               });
@@ -101,11 +102,7 @@ class SmartDevicesByRooms extends StatelessWidget {
                           'Rooms',
                           style: TextStyle(
                             fontSize: 35,
-                            color: Theme
-                                .of(context)
-                                .textTheme
-                                .bodyText1!
-                                .color,
+                            color: Theme.of(context).textTheme.bodyText1!.color,
                           ),
                         ),
                       ],
@@ -156,7 +153,12 @@ class SmartDevicesByRooms extends StatelessWidget {
                                 margin: const EdgeInsets.only(top: 12),
                                 alignment: Alignment.topCenter,
                                 child: Text(
-                                  'Room Name',
+                                  tempDevicesByRoomsByType[roomId]!
+                                      .values
+                                      .first
+                                      .first
+                                      .roomName!
+                                      .getOrCrash()!,
                                   style: TextStyle(
                                       fontSize: 20,
                                       color: Theme.of(context)
@@ -211,8 +213,8 @@ class SmartDevicesByRooms extends StatelessWidget {
                                             getIt<BlindsActorBloc>(),
                                         child: BlindsInTheRoom(
                                           blindsInRoom:
-                                          tempDevicesByRoomsByType[roomId]![
-                                          deviceType],
+                                              tempDevicesByRoomsByType[roomId]![
+                                                  deviceType],
                                           roomColorGradiant: roomColorGradiant,
                                         ),
                                       );
@@ -223,8 +225,8 @@ class SmartDevicesByRooms extends StatelessWidget {
                                             getIt<BlindsActorBloc>(),
                                         child: BoilersInTheRoom(
                                           boilersInRoom:
-                                          tempDevicesByRoomsByType[roomId]![
-                                          deviceType],
+                                              tempDevicesByRoomsByType[roomId]![
+                                                  deviceType],
                                           roomColorGradiant: roomColorGradiant,
                                         ),
                                       );
@@ -264,11 +266,7 @@ class SmartDevicesByRooms extends StatelessWidget {
                           gravity: ToastGravity.CENTER,
                           backgroundColor: Colors.blueGrey,
                           textColor:
-                          Theme
-                              .of(context)
-                              .textTheme
-                              .bodyText1!
-                              .color,
+                              Theme.of(context).textTheme.bodyText1!.color,
                           fontSize: 16.0);
                     },
                     child: const Text(

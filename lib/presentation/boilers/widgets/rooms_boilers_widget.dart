@@ -86,7 +86,7 @@ class RoomsBoilersWidget extends StatelessWidget {
                     return RoomBoilers(
                       devicesInRoom,
                       gradiantColor,
-                      'Room ${index + 1}',
+                      devicesInRoom[0].roomName!.getOrCrash(),
                       maxBoilersToShow: 50,
                     );
                   },

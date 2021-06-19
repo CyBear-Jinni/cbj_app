@@ -23,4 +23,13 @@ class DevicesFailure<T> {
       _InsufficientPermission;
 
   const factory DevicesFailure.unableToUpdate() = _UnableToUpdate;
+
+  const factory DevicesFailure.powerConsumptionIsNotNumber() =
+      _PowerConsumptionIsNotNumber;
+
+  const factory DevicesFailure.deviceActionDoesNotExist() =
+      _DeviceActionDoesNotExist;
+
+  const factory DevicesFailure.deviceTypeDoesNotExist() =
+      _DeviceTypeDoesNotExist;
 }

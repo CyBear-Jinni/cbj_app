@@ -43,8 +43,7 @@ class LightsActorBloc extends Bloc<LightsActorEvent, LightsActorState> {
           linearProgressIndicator: const LinearProgressIndicator(),
         ).show(value.context);
 
-        _deviceRepository.turnOnDevices(
-            devicesId: value.lightsIdToTurnOn, forceUpdateLocation: 'R');
+        _deviceRepository.turnOnDevices(devicesId: value.lightsIdToTurnOn);
       },
     );
   }

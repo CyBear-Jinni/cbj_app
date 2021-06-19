@@ -70,4 +70,19 @@ class EnumHelper {
     }
     return null;
   }
+
+  ///  Convert deviceState to string
+  static String deviceStateToString(DeviceStateGRPC deviceState) {
+    return deviceState.toString().replaceAll('DeviceStateGRPC.', '');
+  }
+
+  ///  Convert string to deviceState
+  static DeviceStateGRPC? stringToDeviceState(String deviceDysyrString) {
+    for (final DeviceStateGRPC deviceState in DeviceStateGRPC.values) {
+      if (deviceStateToString(deviceState) == deviceDysyrString) {
+        return deviceState;
+      }
+    }
+    return null;
+  }
 }
