@@ -12,6 +12,17 @@ Either<DevicesFailure<String>, String> validateDeviceNotEmpty(String input) {
   }
 }
 
+Either<DevicesFailure<String>, String> validateLastKnownIpNotEmpty(
+    String input) {
+  if (input.isNotEmpty) {
+    return right(input);
+  } else {
+    return left(DevicesFailure.empty(
+      failedValue: input,
+    ));
+  }
+}
+
 Either<DevicesFailure<String>, String> validatePowerConsumptionNotEmpty(
     String input) {
   if (double.tryParse(input) != null) {
@@ -22,6 +33,22 @@ Either<DevicesFailure<String>, String> validatePowerConsumptionNotEmpty(
 }
 
 Either<DevicesFailure<String>, String> validateRoomNameNotEmpty(String input) {
+  if (input != null) {
+    return right(input);
+  } else {
+    return left(DevicesFailure.empty(failedValue: input));
+  }
+}
+
+Either<DevicesFailure<String>, String> validateMdnsNameNotEmpty(String input) {
+  if (input != null) {
+    return right(input);
+  } else {
+    return left(DevicesFailure.empty(failedValue: input));
+  }
+}
+
+Either<DevicesFailure<String>, String> validateWiFiNameNotEmpty(String input) {
   if (input != null) {
     return right(input);
   } else {

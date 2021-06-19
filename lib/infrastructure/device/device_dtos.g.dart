@@ -19,6 +19,9 @@ _$_DeviceDtos _$_$_DeviceDtosFromJson(Map<String, dynamic> json) {
     action: json['action'] as String?,
     type: json['type'] as String?,
     compUuid: json['compUuid'] as String?,
+    deviceSecondWiFi: json['deviceSecondWiFi'] as String?,
+    deviceMdnsName: json['deviceMdnsName'] as String?,
+    lastKnownIp: json['lastKnownIp'] as String?,
   );
 }
 
@@ -35,4 +38,7 @@ Map<String, dynamic> _$_$_DeviceDtosToJson(_$_DeviceDtos instance) =>
       'action': instance.action,
       'type': instance.type,
       'compUuid': instance.compUuid,
+      'deviceSecondWiFi': instance.deviceSecondWiFi,
+      'deviceMdnsName': instance.deviceMdnsName,
+      'lastKnownIp': instance.lastKnownIp,
     };

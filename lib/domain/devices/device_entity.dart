@@ -5,8 +5,11 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'device_entity.freezed.dart';
 
+/// Abstract smart device that exist inside a computer, the implementations will
+/// be actual device like blinds lights and more
 @freezed
 abstract class DeviceEntity implements _$DeviceEntity {
+  /// All public field of device entity
   const factory DeviceEntity({
     /// The smart device id
     required DeviceUniqueId? id,
@@ -21,17 +24,16 @@ abstract class DeviceEntity implements _$DeviceEntity {
     required DeviceRoomName? roomName,
 
     /// Did the massage arrived or was it just sent.
-    /// Currently will be 'set' (need change) or 'ack' for acknowledge
-    /// (the action was reseved and executed correctly
+    /// Will be 'set' (need change) or 'ack' for acknowledge
     required DeviceState? state,
 
-    /// If state didn't change the error discription will be found here.
+    /// If state didn't change the error description will be found here.
     DeviceStateMassage? stateMassage,
 
     /// Sender device os type, example: android, iphone, browser
     required DeviceSenderDeviceOs? senderDeviceOs,
 
-    /// The sender device model, example: onePlues 3T
+    /// The sender device model, example: onePlus 3T
     required DeviceSenderDeviceModel? senderDeviceModel,
 
     /// Last device sender id that activated the action
@@ -42,13 +44,26 @@ abstract class DeviceEntity implements _$DeviceEntity {
 
     /// The smart device type
     required DeviceType? type,
+
+    /// Unique id of the computer that the devices located in
     required DeviceCompUuid? compUuid,
+
+    /// Last known Ip of the computer that the device located in
     DeviceLastKnownIp? lastKnownIp,
+
+    /// Device power consumption in watts
     DevicePowerConsumption? powerConsumption,
+
+    /// Device mdns name
+    DeviceMdnsName? deviceMdnsName,
+
+    /// Device second WiFi
+    DeviceSecondWiFiName? deviceSecondWiFi,
   }) = _DeviceEnitie;
 
   const DeviceEntity._();
 
+  /// Empty instance of DeviceEntity
   factory DeviceEntity.empty() => DeviceEntity(
         id: DeviceUniqueId(),
         defaultName: DeviceDefaultName(''),
@@ -62,8 +77,11 @@ abstract class DeviceEntity implements _$DeviceEntity {
         action: DeviceAction(''),
         type: DeviceType(''),
         compUuid: DeviceCompUuid(''),
+        lastKnownIp: DeviceLastKnownIp(''),
       );
 
+  /// Will return failure if any of the fields failed or return unit if fields
+  /// have legit values
   Option<DevicesFailure<dynamic>> get failureOption {
     return defaultName!.value.fold((f) => some(f), (_) => none());
     //

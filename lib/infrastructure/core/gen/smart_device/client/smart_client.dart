@@ -164,7 +164,7 @@ class SmartClient {
       print('Caught error: $e');
     }
     await channel!.shutdown();
-    return 'error';
+    throw 'Error';
   }
 
   ///  Turn smart device off
@@ -183,7 +183,7 @@ class SmartClient {
       print('Caught error: $e');
     }
     await channel!.shutdown();
-    return 'error';
+    throw 'Error';
   }
 
   //  Blinds

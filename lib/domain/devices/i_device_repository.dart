@@ -34,7 +34,7 @@ abstract class IDeviceRepository {
 
   Future<Either<DevicesFailure, Unit>> updateWithDeviceEntity({
     required DeviceEntity deviceEntity,
-    String forceUpdateLocation,
+    String? forceUpdateLocation,
   });
 
   Future<Either<DevicesFailure, Unit>> turnOnDevices({

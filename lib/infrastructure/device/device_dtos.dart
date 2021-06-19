@@ -21,6 +21,10 @@ abstract class DeviceDtos implements _$DeviceDtos {
     required String? action,
     required String? type,
     required String? compUuid,
+    String? deviceSecondWiFi,
+    String? deviceMdnsName,
+    String? lastKnownIp,
+
     // required ServerTimestampConverter() FieldValue serverTimeStamp,
   }) = _DeviceDtos;
 
@@ -40,6 +44,9 @@ abstract class DeviceDtos implements _$DeviceDtos {
       action: deviceEntity.action!.getOrCrash(),
       type: deviceEntity.type!.getOrCrash(),
       compUuid: deviceEntity.compUuid!.getOrCrash(),
+      deviceSecondWiFi: deviceEntity.deviceSecondWiFi!.getOrCrash(),
+      deviceMdnsName: deviceEntity.deviceMdnsName!.getOrCrash(),
+      lastKnownIp: deviceEntity.lastKnownIp!.getOrCrash(),
       // serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }
@@ -66,6 +73,9 @@ abstract class DeviceDtos implements _$DeviceDtos {
       action: DeviceAction(action),
       type: DeviceType(type),
       compUuid: DeviceCompUuid(compUuid),
+      deviceSecondWiFi: DeviceSecondWiFiName(deviceSecondWiFi),
+      deviceMdnsName: DeviceMdnsName(deviceMdnsName),
+      lastKnownIp: DeviceLastKnownIp(lastKnownIp),
     );
   }
 }

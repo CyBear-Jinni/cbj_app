@@ -22,7 +22,8 @@ class SmartBlindsObject extends SmartDeviceObject {
     if (connectivityResult == ConnectivityResult.wifi &&
             await getCurrentWifiName() == SmartDeviceObject.homeWiFiName ||
         SmartDeviceObject.homeWiFiName == 'host') {
-      //  If current network is the network of the smart device set using the local method and not the remote
+      //  If current network is the network of the smart device set using the
+      //  local method and not the remote
       print('Moving blinds up LAN');
       return SmartClient.setSmartBlindsUp(this);
     } else if (connectivityResult == ConnectivityResult.wifi ||
