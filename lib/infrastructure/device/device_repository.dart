@@ -481,6 +481,16 @@ class DeviceRepository implements IDeviceRepository {
           final String deviceSuccessStatus =
               await SmartClient.setSmartDeviceOff(smartDeviceObject);
         }
+
+        final DocumentReference homeDoc =
+            await _firestore.currentHomeDocument();
+        final CollectionReference devicesCollection =
+            homeDoc.devicesCollecttion;
+        final DocumentReference deviceDocumentReference =
+            devicesCollection.doc(deviceEntity.id!.getOrCrash());
+        updateDatabase(documentPath: deviceDocumentReference, fieldsToUpdate: {
+          'lastKnownIp': lastKnownIp,
+        });
       }
 
       return right(unit);
