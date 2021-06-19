@@ -19,8 +19,8 @@ class BlindWidget extends StatelessWidget {
     final Size screenSize = MediaQuery.of(context).size;
     final double sizeBoxWidth = screenSize.width * 0.25;
 
-    final deviceState = _deviceEntity.state!.getOrCrash();
-    final deviceAction = _deviceEntity.action!.getOrCrash();
+    final deviceState = _deviceEntity.deviceStateGRPC!.getOrCrash();
+    final deviceAction = _deviceEntity.deviceActions!.getOrCrash();
 
     bool toggleValue = false;
     Color toggleColor = Colors.blueGrey;

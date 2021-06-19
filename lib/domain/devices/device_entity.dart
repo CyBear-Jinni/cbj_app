@@ -25,7 +25,7 @@ abstract class DeviceEntity implements _$DeviceEntity {
 
     /// Did the massage arrived or was it just sent.
     /// Will be 'set' (need change) or 'ack' for acknowledge
-    required DeviceState? state,
+    required DeviceState? deviceStateGRPC,
 
     /// If state didn't change the error description will be found here.
     DeviceStateMassage? stateMassage,
@@ -40,10 +40,10 @@ abstract class DeviceEntity implements _$DeviceEntity {
     required DeviceSenderId? senderId,
 
     /// What action to execute
-    required DeviceAction? action,
+    required DeviceAction? deviceActions,
 
     /// The smart device type
-    required DeviceType? type,
+    required DeviceType? deviceTypes,
 
     /// Unique id of the computer that the devices located in
     required DeviceCompUuid? compUuid,
@@ -65,17 +65,17 @@ abstract class DeviceEntity implements _$DeviceEntity {
 
   /// Empty instance of DeviceEntity
   factory DeviceEntity.empty() => DeviceEntity(
-        id: DeviceUniqueId(),
+    id: DeviceUniqueId(),
         defaultName: DeviceDefaultName(''),
         roomId: DeviceUniqueId(),
         roomName: DeviceRoomName(''),
-        state: DeviceState(''),
+        deviceStateGRPC: DeviceState(''),
         senderDeviceOs: DeviceSenderDeviceOs(''),
         senderDeviceModel: DeviceSenderDeviceModel(''),
         stateMassage: DeviceStateMassage(''),
         senderId: DeviceSenderId(),
-        action: DeviceAction(''),
-        type: DeviceType(''),
+        deviceActions: DeviceAction(''),
+        deviceTypes: DeviceType(''),
         compUuid: DeviceCompUuid(''),
         lastKnownIp: DeviceLastKnownIp(''),
       );

@@ -32,7 +32,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
     final List<Widget> widgetList = [];
 
     for (final DeviceEntity device in devicesList) {
-      if (device.type!.getOrCrash() !=
+      if (device.deviceTypes!.getOrCrash() !=
           DeviceTypes.typeNotSupported.toString()) {
         final TextEditingController textEditingControllerTemp =
             TextEditingController(
@@ -47,12 +47,13 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
             margin: const EdgeInsets.symmetric(vertical: 30),
             child: Column(
               children: [
-                if (device.type!.getOrCrash() == DeviceTypes.light.toString())
+                if (device.deviceTypes!.getOrCrash() ==
+                    DeviceTypes.light.toString())
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 40),
                     child: Row(
                       children: [
-                        Text('Type: ${device.type!.getOrCrash()}'),
+                        Text('Type: ${device.deviceTypes!.getOrCrash()}'),
                         Expanded(
                           child: Center(
                             child: BlocProvider(
@@ -64,13 +65,13 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                       ],
                     ),
                   )
-                else if (device.type!.getOrCrash() ==
+                else if (device.deviceTypes!.getOrCrash() ==
                     DeviceTypes.boiler.toString())
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 40),
                     child: Row(
                       children: [
-                        Text('Type: ${device.type!.getOrCrash()}'),
+                        Text('Type: ${device.deviceTypes!.getOrCrash()}'),
                         Expanded(
                           child: Center(
                             child: BlocProvider(
@@ -82,11 +83,11 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                       ],
                     ),
                   )
-                else if (device.type!.getOrCrash() ==
+                else if (device.deviceTypes!.getOrCrash() ==
                     DeviceTypes.blinds.toString())
                   Column(
                     children: [
-                      Text('Type: ${device.type!.getOrCrash()}'),
+                      Text('Type: ${device.deviceTypes!.getOrCrash()}'),
                       Center(
                         child: BlocProvider(
                           create: (context) => getIt<LightToggleBloc>(),
@@ -118,7 +119,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                           FontAwesomeIcons.solidLightbulb,
                           color: Theme.of(context).textTheme.bodyText1!.color,
                         ),
-                        labelText: '${device.type!.getOrCrash()} Name',
+                        labelText: '${device.deviceTypes!.getOrCrash()} Name',
                         labelStyle: TextStyle(
                             color:
                                 Theme.of(context).textTheme.bodyText1!.color)),
@@ -143,7 +144,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                 Expanded(
                   child: Center(
                     child: Text(
-                      'Type ${device.type!.getOrCrash()} is not supported yet',
+                      'Type ${device.deviceTypes!.getOrCrash()} is not supported yet',
                       style: TextStyle(
                           color: Theme.of(context).textTheme.bodyText1!.color),
                     ),
@@ -201,10 +202,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                         ],
                       ),
                       Text(
-                        cbjCompEntityInBuild.cBJCompDevices!
-                            .getOrCrash()[0]
-                            .roomName!
-                            .getOrCrash()!,
+                        'Room Name',
                         style: TextStyle(
                           color: Theme.of(context).textTheme.bodyText1!.color,
                           fontSize: 30,

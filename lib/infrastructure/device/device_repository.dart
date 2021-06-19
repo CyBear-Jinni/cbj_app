@@ -42,13 +42,18 @@ class DeviceRepository implements IDeviceRepository {
       return right<DevicesFailure, KtList<DeviceEntity?>>(
           allDevicesSnapshot.docs
               .map((e) {
-                if ((e.data()! as Map<String, dynamic>)['type'] ==
+                if ((e.data()! as Map<String, dynamic>)[
+                            GrpcClientTypes.deviceTypesTypeString] ==
                         DeviceTypes.light.toString() ||
-                    (e.data()! as Map<String, dynamic>)['type'] ==
+                    (e.data()! as Map<String, dynamic>)[
+                            GrpcClientTypes.deviceTypesTypeString] ==
                         DeviceTypes.blinds.toString() ||
-                    (e.data()! as Map<String, dynamic>)['type'] ==
+                    (e.data()! as Map<String, dynamic>)[
+                            GrpcClientTypes.deviceTypesTypeString] ==
                         DeviceTypes.boiler.toString()) {
                   return DeviceDtos.fromFirestore(e).toDomain();
+                } else {
+                  print('Type not supported');
                 }
               })
               .where((element) => element != null)
@@ -73,13 +78,18 @@ class DeviceRepository implements IDeviceRepository {
           (snapshot) => right<DevicesFailure, KtList<DeviceEntity?>>(
             snapshot.docs
                 .map((doc) {
-                  if ((doc.data()! as Map<String, dynamic>)['type'] ==
+                  if ((doc.data()! as Map<String, dynamic>)[
+                              GrpcClientTypes.deviceTypesTypeString] ==
                           DeviceTypes.light.toString() ||
-                      (doc.data()! as Map<String, dynamic>)['type'] ==
+                      (doc.data()! as Map<String, dynamic>)[
+                              GrpcClientTypes.deviceTypesTypeString] ==
                           DeviceTypes.blinds.toString() ||
-                      (doc.data()! as Map<String, dynamic>)['type'] ==
+                      (doc.data()! as Map<String, dynamic>)[
+                              GrpcClientTypes.deviceTypesTypeString] ==
                           DeviceTypes.boiler.toString()) {
                     return DeviceDtos.fromFirestore(doc).toDomain();
+                  } else {
+                    print('Type not supported');
                   }
                 })
                 .where((element) => element != null)
@@ -102,7 +112,8 @@ class DeviceRepository implements IDeviceRepository {
     // Light device type
     yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
           return right(r.toList().asList().where((element) {
-            return element!.type!.getOrCrash() == DeviceTypes.light.toString();
+            return element!.deviceTypes!.getOrCrash() ==
+                DeviceTypes.light.toString();
           }).toImmutableList());
         }));
   }
@@ -113,7 +124,8 @@ class DeviceRepository implements IDeviceRepository {
     // Blinds device type
     yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
           return right(r.toList().asList().where((element) {
-            return element!.type!.getOrCrash() == DeviceTypes.blinds.toString();
+            return element!.deviceTypes!.getOrCrash() ==
+                DeviceTypes.blinds.toString();
           }).toImmutableList());
         }));
   }
@@ -124,7 +136,8 @@ class DeviceRepository implements IDeviceRepository {
     // Boilers device type
     yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
           return right(r.toList().asList().where((element) {
-            return element!.type!.getOrCrash() == DeviceTypes.boiler.toString();
+            return element!.deviceTypes!.getOrCrash() ==
+                DeviceTypes.boiler.toString();
           }).toImmutableList());
         }));
   }
@@ -268,8 +281,10 @@ class DeviceRepository implements IDeviceRepository {
           updateDatabase(
               documentPath: deviceDocumentReference,
               fieldsToUpdate: {
-                'action': DeviceActions.on.toString(),
-                'state': DeviceStateGRPC.waitingInFirebase.toString()
+                GrpcClientTypes.deviceActionsTypeString:
+                    DeviceActions.on.toString(),
+                GrpcClientTypes.deviceStateGRPCTypeString:
+                    DeviceStateGRPC.waitingInFirebase.toString()
               });
         });
       }
@@ -297,8 +312,9 @@ class DeviceRepository implements IDeviceRepository {
         final DocumentReference deviceDocumentReference =
             devicesCollection.doc(element);
         updateDatabase(documentPath: deviceDocumentReference, fieldsToUpdate: {
-          'action': DeviceActions.off.toString(),
-          'state': DeviceStateGRPC.waitingInFirebase.toString()
+          GrpcClientTypes.deviceActionsTypeString: DeviceActions.off.toString(),
+          GrpcClientTypes.deviceStateGRPCTypeString:
+              DeviceStateGRPC.waitingInFirebase.toString()
         });
       });
     } on PlatformException catch (e) {
@@ -325,8 +341,10 @@ class DeviceRepository implements IDeviceRepository {
         final DocumentReference deviceDocumentReference =
             devicesCollection.doc(element);
         updateDatabase(documentPath: deviceDocumentReference, fieldsToUpdate: {
-          'action': DeviceActions.moveUp.toString(),
-          'state': DeviceStateGRPC.waitingInFirebase.toString()
+          GrpcClientTypes.deviceActionsTypeString:
+              DeviceActions.moveUp.toString(),
+          GrpcClientTypes.deviceStateGRPCTypeString:
+              DeviceStateGRPC.waitingInFirebase.toString()
         });
       });
     } on PlatformException catch (e) {
@@ -353,8 +371,10 @@ class DeviceRepository implements IDeviceRepository {
         final DocumentReference deviceDocumentReference =
             devicesCollection.doc(element);
         updateDatabase(documentPath: deviceDocumentReference, fieldsToUpdate: {
-          'action': DeviceActions.stop.toString(),
-          'state': DeviceStateGRPC.waitingInFirebase.toString()
+          GrpcClientTypes.deviceActionsTypeString:
+              DeviceActions.stop.toString(),
+          GrpcClientTypes.deviceStateGRPCTypeString:
+              DeviceStateGRPC.waitingInFirebase.toString()
         });
       });
     } on PlatformException catch (e) {
@@ -381,8 +401,10 @@ class DeviceRepository implements IDeviceRepository {
         final DocumentReference deviceDocumentReference =
             devicesCollection.doc(element);
         updateDatabase(documentPath: deviceDocumentReference, fieldsToUpdate: {
-          'action': DeviceActions.moveDown.toString(),
-          'state': DeviceStateGRPC.waitingInFirebase.toString()
+          GrpcClientTypes.deviceActionsTypeString:
+              DeviceActions.moveDown.toString(),
+          GrpcClientTypes.deviceStateGRPCTypeString:
+              DeviceStateGRPC.waitingInFirebase.toString()
         });
       });
     } on PlatformException catch (e) {
@@ -448,12 +470,12 @@ class DeviceRepository implements IDeviceRepository {
         lastKnownIp ??= deviceEntity.lastKnownIp?.getOrCrash();
 
         final SmartDeviceObject smartDeviceObject = SmartDeviceObject(
-          EnumHelper.stringToDt(deviceEntity.type!.getOrCrash()),
+          EnumHelper.stringToDt(deviceEntity.deviceTypes!.getOrCrash()),
           id,
           lastKnownIp!,
         );
 
-        if (deviceEntity.action!.getOrCrash().toLowerCase() ==
+        if (deviceEntity.deviceActions!.getOrCrash().toLowerCase() ==
             DeviceActions.on.toString()) {
           final String deviceSuccessStatus =
               await SmartClient.setSmartDeviceOn(smartDeviceObject);
@@ -468,12 +490,12 @@ class DeviceRepository implements IDeviceRepository {
         lastKnownIp = await getDeviceIpByDeviceAvahiName(mDnsName);
 
         final SmartDeviceObject smartDeviceObject = SmartDeviceObject(
-          EnumHelper.stringToDt(deviceEntity.type!.getOrCrash()),
+          EnumHelper.stringToDt(deviceEntity.deviceTypes!.getOrCrash()),
           id,
           lastKnownIp,
         );
 
-        if (deviceEntity.action!.getOrCrash().toLowerCase() ==
+        if (deviceEntity.deviceActions!.getOrCrash().toLowerCase() ==
             DeviceActions.on.toString()) {
           final String deviceSuccessStatus =
               await SmartClient.setSmartDeviceOn(smartDeviceObject);

@@ -53,13 +53,14 @@ class SmartDevicesByRooms extends StatelessWidget {
             tempDevicesByRooms.forEach((k, v) {
               tempDevicesByRoomsByType[k!] = {};
               v.forEach((element) {
-                if (tempDevicesByRoomsByType[k]![element.type!.getOrCrash()] ==
+                if (tempDevicesByRoomsByType[k]![
+                        element.deviceTypes!.getOrCrash()] ==
                     null) {
-                  tempDevicesByRoomsByType[k]![element.type!.getOrCrash()] = [
-                    element
-                  ];
+                  tempDevicesByRoomsByType[k]![
+                      element.deviceTypes!.getOrCrash()] = [element];
                 } else {
-                  tempDevicesByRoomsByType[k]![element.type!.getOrCrash()]!
+                  tempDevicesByRoomsByType[k]![
+                          element.deviceTypes!.getOrCrash()]!
                       .add(element);
                 }
               });
