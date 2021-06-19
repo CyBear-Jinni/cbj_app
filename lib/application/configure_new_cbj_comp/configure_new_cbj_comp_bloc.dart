@@ -20,7 +20,6 @@ import 'package:kt_dart/kt.dart';
 import 'package:uuid/uuid.dart';
 
 part 'configure_new_cbj_comp_bloc.freezed.dart';
-
 part 'configure_new_cbj_comp_event.dart';
 part 'configure_new_cbj_comp_state.dart';
 
