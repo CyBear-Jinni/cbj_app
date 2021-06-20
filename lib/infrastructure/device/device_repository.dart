@@ -19,6 +19,9 @@ import 'package:device_info/device_info.dart';
 import 'package:flutter/services.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
+import 'package:multicast_dns/multicast_dns.dart';
+import 'package:network_info_plus/network_info_plus.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 @LazySingleton(as: IDeviceRepository)
 class DeviceRepository implements IDeviceRepository {
@@ -39,13 +42,18 @@ class DeviceRepository implements IDeviceRepository {
       return right<DevicesFailure, KtList<DeviceEntity?>>(
           allDevicesSnapshot.docs
               .map((e) {
-                if ((e.data()! as Map<String, dynamic>)['type'] ==
+                if ((e.data()! as Map<String, dynamic>)[
+                            GrpcClientTypes.deviceTypesTypeString] ==
                         DeviceTypes.light.toString() ||
-                    (e.data()! as Map<String, dynamic>)['type'] ==
+                    (e.data()! as Map<String, dynamic>)[
+                            GrpcClientTypes.deviceTypesTypeString] ==
                         DeviceTypes.blinds.toString() ||
-                    (e.data()! as Map<String, dynamic>)['type'] ==
+                    (e.data()! as Map<String, dynamic>)[
+                            GrpcClientTypes.deviceTypesTypeString] ==
                         DeviceTypes.boiler.toString()) {
                   return DeviceDtos.fromFirestore(e).toDomain();
+                } else {
+                  print('Type not supported');
                 }
               })
               .where((element) => element != null)
@@ -70,13 +78,18 @@ class DeviceRepository implements IDeviceRepository {
           (snapshot) => right<DevicesFailure, KtList<DeviceEntity?>>(
             snapshot.docs
                 .map((doc) {
-                  if ((doc.data()! as Map<String, dynamic>)['type'] ==
+                  if ((doc.data()! as Map<String, dynamic>)[
+                              GrpcClientTypes.deviceTypesTypeString] ==
                           DeviceTypes.light.toString() ||
-                      (doc.data()! as Map<String, dynamic>)['type'] ==
+                      (doc.data()! as Map<String, dynamic>)[
+                              GrpcClientTypes.deviceTypesTypeString] ==
                           DeviceTypes.blinds.toString() ||
-                      (doc.data()! as Map<String, dynamic>)['type'] ==
+                      (doc.data()! as Map<String, dynamic>)[
+                              GrpcClientTypes.deviceTypesTypeString] ==
                           DeviceTypes.boiler.toString()) {
                     return DeviceDtos.fromFirestore(doc).toDomain();
+                  } else {
+                    print('Type not supported');
                   }
                 })
                 .where((element) => element != null)
@@ -99,7 +112,8 @@ class DeviceRepository implements IDeviceRepository {
     // Light device type
     yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
           return right(r.toList().asList().where((element) {
-            return element!.type!.getOrCrash() == DeviceTypes.light.toString();
+            return element!.deviceTypes!.getOrCrash() ==
+                DeviceTypes.light.toString();
           }).toImmutableList());
         }));
   }
@@ -110,7 +124,8 @@ class DeviceRepository implements IDeviceRepository {
     // Blinds device type
     yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
           return right(r.toList().asList().where((element) {
-            return element!.type!.getOrCrash() == DeviceTypes.blinds.toString();
+            return element!.deviceTypes!.getOrCrash() ==
+                DeviceTypes.blinds.toString();
           }).toImmutableList());
         }));
   }
@@ -121,7 +136,8 @@ class DeviceRepository implements IDeviceRepository {
     // Boilers device type
     yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
           return right(r.toList().asList().where((element) {
-            return element!.type!.getOrCrash() == DeviceTypes.boiler.toString();
+            return element!.deviceTypes!.getOrCrash() ==
+                DeviceTypes.boiler.toString();
           }).toImmutableList());
         }));
   }
@@ -196,10 +212,17 @@ class DeviceRepository implements IDeviceRepository {
   @override
   Future<Either<DevicesFailure, Unit>> updateWithDeviceEntity({
     required DeviceEntity deviceEntity,
-    String forceUpdateLocation = 'R',
+    String? forceUpdateLocation,
   }) async {
+    // Assumes that all devices configured for the same second WiFi
+    final String? firstDeviceSecondWifiName =
+        deviceEntity.deviceSecondWiFi?.value.getOrElse(() => '');
+
+    final String updateLocation = await whereToUpdateDevicesData(
+        forceUpdateLocation, firstDeviceSecondWifiName);
+
     try {
-      if (forceUpdateLocation == 'C') {
+      if (updateLocation == 'L') {
         return updateComputer(deviceEntity);
       }
       return updateRemoteDB(deviceEntity);
@@ -216,14 +239,22 @@ class DeviceRepository implements IDeviceRepository {
   @override
   Future<Either<DevicesFailure, Unit>> turnOnDevices(
       {List<String>? devicesId, String? forceUpdateLocation}) async {
-    try {
-      if (forceUpdateLocation == 'C') {
-        final List<DeviceEntity?> deviceEntityListToUpdate =
-            await getDeviceEntityListFromId(devicesId!);
-        deviceEntityListToUpdate[0] = deviceEntityListToUpdate[0]!
-            .copyWith(lastKnownIp: DeviceLastKnownIp('boiler.local'));
+    final List<DeviceEntity?> deviceEntityListToUpdate =
+        await getDeviceEntityListFromId(devicesId!);
 
+    // Assumes that all devices configured for the same second WiFi
+    final String? firstDeviceSecondWifiName = deviceEntityListToUpdate[0]
+        ?.deviceSecondWiFi
+        ?.value
+        .getOrElse(() => '');
+
+    final String updateLocation = await whereToUpdateDevicesData(
+        forceUpdateLocation, firstDeviceSecondWifiName);
+
+    try {
+      if (updateLocation == 'L') {
         Either<DevicesFailure, Unit>? devicesFailure;
+
         deviceEntityListToUpdate.forEach((element) async {
           final Either<DevicesFailure, Unit> deviceUpdateResponse =
               await updateComputer(element!);
@@ -243,14 +274,17 @@ class DeviceRepository implements IDeviceRepository {
         final CollectionReference devicesCollection =
             homeDoc.devicesCollecttion;
 
-        devicesId!.forEach((element) {
+        //TODO: Need to write once and not for each device
+        devicesId.forEach((element) {
           final DocumentReference deviceDocumentReference =
               devicesCollection.doc(element);
           updateDatabase(
               documentPath: deviceDocumentReference,
               fieldsToUpdate: {
-                'action': DeviceActions.on.toString(),
-                'state': DeviceStateGRPC.waitingInFirebase.toString()
+                GrpcClientTypes.deviceActionsTypeString:
+                    DeviceActions.on.toString(),
+                GrpcClientTypes.deviceStateGRPCTypeString:
+                    DeviceStateGRPC.waitingInFirebase.toString()
               });
         });
       }
@@ -278,8 +312,9 @@ class DeviceRepository implements IDeviceRepository {
         final DocumentReference deviceDocumentReference =
             devicesCollection.doc(element);
         updateDatabase(documentPath: deviceDocumentReference, fieldsToUpdate: {
-          'action': DeviceActions.off.toString(),
-          'state': DeviceStateGRPC.waitingInFirebase.toString()
+          GrpcClientTypes.deviceActionsTypeString: DeviceActions.off.toString(),
+          GrpcClientTypes.deviceStateGRPCTypeString:
+              DeviceStateGRPC.waitingInFirebase.toString()
         });
       });
     } on PlatformException catch (e) {
@@ -306,8 +341,10 @@ class DeviceRepository implements IDeviceRepository {
         final DocumentReference deviceDocumentReference =
             devicesCollection.doc(element);
         updateDatabase(documentPath: deviceDocumentReference, fieldsToUpdate: {
-          'action': DeviceActions.moveUP.toString(),
-          'state': DeviceStateGRPC.waitingInFirebase.toString()
+          GrpcClientTypes.deviceActionsTypeString:
+              DeviceActions.moveUp.toString(),
+          GrpcClientTypes.deviceStateGRPCTypeString:
+              DeviceStateGRPC.waitingInFirebase.toString()
         });
       });
     } on PlatformException catch (e) {
@@ -334,8 +371,10 @@ class DeviceRepository implements IDeviceRepository {
         final DocumentReference deviceDocumentReference =
             devicesCollection.doc(element);
         updateDatabase(documentPath: deviceDocumentReference, fieldsToUpdate: {
-          'action': DeviceActions.stop.toString(),
-          'state': DeviceStateGRPC.waitingInFirebase.toString()
+          GrpcClientTypes.deviceActionsTypeString:
+              DeviceActions.stop.toString(),
+          GrpcClientTypes.deviceStateGRPCTypeString:
+              DeviceStateGRPC.waitingInFirebase.toString()
         });
       });
     } on PlatformException catch (e) {
@@ -362,8 +401,10 @@ class DeviceRepository implements IDeviceRepository {
         final DocumentReference deviceDocumentReference =
             devicesCollection.doc(element);
         updateDatabase(documentPath: deviceDocumentReference, fieldsToUpdate: {
-          'action': DeviceActions.moveDown.toString(),
-          'state': DeviceStateGRPC.waitingInFirebase.toString()
+          GrpcClientTypes.deviceActionsTypeString:
+              DeviceActions.moveDown.toString(),
+          GrpcClientTypes.deviceStateGRPCTypeString:
+              DeviceStateGRPC.waitingInFirebase.toString()
         });
       });
     } on PlatformException catch (e) {
@@ -423,20 +464,55 @@ class DeviceRepository implements IDeviceRepository {
       DeviceEntity deviceEntity) async {
     try {
       final String id = deviceEntity.id!.getOrCrash()!;
-      final String lastKnownIp = deviceEntity.lastKnownIp!.getOrCrash();
+      String? lastKnownIp;
 
-      final SmartDeviceObject smartDeviceObject = SmartDeviceObject(
-        EnumHelper.stringToDt(deviceEntity.type!.getOrCrash()),
-        id,
-        lastKnownIp,
-      );
-      if (deviceEntity.action!.getOrCrash().toLowerCase() ==
-          DeviceActions.on.toString()) {
-        final String deviceSuccessStatus =
-            await SmartClient.setSmartDeviceOn(smartDeviceObject);
-      } else {
-        final String deviceSuccessStatus =
-            await SmartClient.setSmartDeviceOff(smartDeviceObject);
+      try {
+        lastKnownIp ??= deviceEntity.lastKnownIp?.getOrCrash();
+
+        final SmartDeviceObject smartDeviceObject = SmartDeviceObject(
+          EnumHelper.stringToDt(deviceEntity.deviceTypes!.getOrCrash()),
+          id,
+          lastKnownIp!,
+        );
+
+        if (deviceEntity.deviceActions!.getOrCrash().toLowerCase() ==
+            DeviceActions.on.toString()) {
+          final String deviceSuccessStatus =
+              await SmartClient.setSmartDeviceOn(smartDeviceObject);
+        } else {
+          final String deviceSuccessStatus =
+              await SmartClient.setSmartDeviceOff(smartDeviceObject);
+        }
+      } catch (e) {
+        print('This is the error $e');
+
+        final String mDnsName = deviceEntity.deviceMdnsName!.getOrCrash();
+        lastKnownIp = await getDeviceIpByDeviceAvahiName(mDnsName);
+
+        final SmartDeviceObject smartDeviceObject = SmartDeviceObject(
+          EnumHelper.stringToDt(deviceEntity.deviceTypes!.getOrCrash()),
+          id,
+          lastKnownIp,
+        );
+
+        if (deviceEntity.deviceActions!.getOrCrash().toLowerCase() ==
+            DeviceActions.on.toString()) {
+          final String deviceSuccessStatus =
+              await SmartClient.setSmartDeviceOn(smartDeviceObject);
+        } else {
+          final String deviceSuccessStatus =
+              await SmartClient.setSmartDeviceOff(smartDeviceObject);
+        }
+
+        final DocumentReference homeDoc =
+            await _firestore.currentHomeDocument();
+        final CollectionReference devicesCollection =
+            homeDoc.devicesCollecttion;
+        final DocumentReference deviceDocumentReference =
+            devicesCollection.doc(deviceEntity.id!.getOrCrash());
+        updateDatabase(documentPath: deviceDocumentReference, fieldsToUpdate: {
+          'lastKnownIp': lastKnownIp,
+        });
       }
 
       return right(unit);
@@ -460,5 +536,65 @@ class DeviceRepository implements IDeviceRepository {
       });
     });
     return deviceEntityList;
+  }
+
+  /// Search device IP by computer Avahi (mdns) name
+  Future<String> getDeviceIpByDeviceAvahiName(String mDnsName) async {
+    String deviceIp = '';
+    final String fullMdnsName = '$mDnsName.local';
+
+    final MDnsClient client = MDnsClient(rawDatagramSocketFactory:
+        (dynamic host, int port,
+            {bool? reuseAddress, bool? reusePort, int? ttl}) {
+      return RawDatagramSocket.bind(host, port, ttl: ttl!);
+    });
+    // Start the client with default options.
+
+    await client.start();
+    await for (final IPAddressResourceRecord record
+        in client.lookup<IPAddressResourceRecord>(
+            ResourceRecordQuery.addressIPv4(fullMdnsName))) {
+      deviceIp = record.address.address;
+      print('Found address (${record.address}).');
+    }
+
+    // await for (final IPAddressResourceRecord record
+    //     in client.lookup<IPAddressResourceRecord>(
+    //         ResourceRecordQuery.addressIPv6(fullMdnsName))) {
+    //   print('Found address (${record.address}).');
+    // }
+
+    client.stop();
+
+    print('Done.');
+
+    return deviceIp;
+  }
+
+  /// How to send the data, in the local network or the remote server/cloud
+  Future<String> whereToUpdateDevicesData(
+      String? forceUpdateLocation, String? deviceSecondWifiName) async {
+    String updateLocation;
+
+    if (forceUpdateLocation == null) {
+      final status = await Permission.location.status;
+      if (status.isDenied) {
+        Permission.location.request();
+      }
+
+      final String? wifiName = await NetworkInfo().getWifiName();
+
+      if (deviceSecondWifiName != null &&
+          deviceSecondWifiName.isNotEmpty &&
+          deviceSecondWifiName == wifiName) {
+        updateLocation = 'L'; // L for local network
+      } else {
+        updateLocation = 'R'; // R for remote
+      }
+    } else {
+      updateLocation = forceUpdateLocation;
+    }
+
+    return updateLocation;
   }
 }

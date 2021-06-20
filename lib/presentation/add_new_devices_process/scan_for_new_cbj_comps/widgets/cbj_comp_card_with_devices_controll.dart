@@ -24,7 +24,7 @@ class CBJCompCardWithDevicesControll extends StatelessWidget {
 
     for (final DeviceEntity deviceEntity in deviceEntityList.asList()) {
       //
-      if (deviceEntity.type!.getOrCrash() !=
+      if (deviceEntity.deviceTypes!.getOrCrash() !=
           DeviceTypes.typeNotSupported.toString()) {
         typesList.add(
           Container(
@@ -32,7 +32,7 @@ class CBJCompCardWithDevicesControll extends StatelessWidget {
             child: BlocProvider(
               create: (context) => getIt<DeviceActorBloc>(),
               child: Text(
-                'Type: ${deviceEntity.type!.getOrCrash()}',
+                'Type: ${deviceEntity.deviceTypes!.getOrCrash()}',
                 style: TextStyle(
                     color: Theme.of(context).textTheme.bodyText1!.color),
               ),
@@ -44,7 +44,7 @@ class CBJCompCardWithDevicesControll extends StatelessWidget {
           Container(
             color: Colors.orange.withOpacity(0.3),
             child: Text(
-              'Type ${deviceEntity.type!.getOrCrash()} is not supported',
+              'Type ${deviceEntity.deviceTypes!.getOrCrash()} is not supported',
               style: TextStyle(
                   color: Theme.of(context).textTheme.bodyText1!.color),
             ),

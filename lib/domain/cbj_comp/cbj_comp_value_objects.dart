@@ -138,9 +138,6 @@ class CBJCompOs extends CBJCompValueObjectAbstract<String> {
 }
 
 class CBJCompModel extends CBJCompValueObjectAbstract<String> {
-  @override
-  final Either<CBJCompFailure<String>, String> value;
-
   factory CBJCompModel(String input) {
     assert(input != null);
     return CBJCompModel._(
@@ -149,12 +146,12 @@ class CBJCompModel extends CBJCompValueObjectAbstract<String> {
   }
 
   const CBJCompModel._(this.value);
+
+  @override
+  final Either<CBJCompFailure<String>, String> value;
 }
 
 class CBJCompType extends CBJCompValueObjectAbstract<String> {
-  @override
-  final Either<CBJCompFailure<String>, String> value;
-
   factory CBJCompType(String input) {
     assert(input != null);
     return CBJCompType._(
@@ -164,12 +161,12 @@ class CBJCompType extends CBJCompValueObjectAbstract<String> {
   }
 
   const CBJCompType._(this.value);
+
+  @override
+  final Either<CBJCompFailure<String>, String> value;
 }
 
 class CBJCompUuid extends CBJCompValueObjectAbstract<String> {
-  @override
-  final Either<CBJCompFailure<String>, String> value;
-
   factory CBJCompUuid(String input) {
     assert(input != null);
     return CBJCompUuid._(
@@ -178,12 +175,12 @@ class CBJCompUuid extends CBJCompValueObjectAbstract<String> {
   }
 
   const CBJCompUuid._(this.value);
+
+  @override
+  final Either<CBJCompFailure<String>, String> value;
 }
 
 class CBJCompLastKnownIp extends CBJCompValueObjectAbstract<String> {
-  @override
-  final Either<CBJCompFailure<String>, String> value;
-
   factory CBJCompLastKnownIp(String input) {
     assert(input != null);
     return CBJCompLastKnownIp._(
@@ -193,4 +190,7 @@ class CBJCompLastKnownIp extends CBJCompValueObjectAbstract<String> {
   }
 
   const CBJCompLastKnownIp._(this.value);
+
+  @override
+  final Either<CBJCompFailure<String>, String> value;
 }

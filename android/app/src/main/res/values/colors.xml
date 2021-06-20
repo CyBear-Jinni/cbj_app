@@ -6,4 +6,6 @@
     <color name="deepPurple">#FF673AB7</color>
     <color name="indigo">#FF3F51B5</color>
 
+    <color name="splash">#ebe9e9</color>
+    <color name="ic_launcher_background">#FFFFFF</color>
 </resources>

@@ -19,7 +19,15 @@ class AuthValueFailure<T> with _$AuthValueFailure<T> {
 
   const factory AuthValueFailure.invalidPassword({
     required String failedValue,
+  }) = InvalidPassword<T>;
+
+  const factory AuthValueFailure.shortPassword({
+    required String failedValue,
   }) = ShortPassword<T>;
+
+  const factory AuthValueFailure.containsSpace({
+    required String failedValue,
+  }) = ContainsSpace<T>;
 
   const factory AuthValueFailure.empty({
     required String failedValue,

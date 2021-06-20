@@ -34,8 +34,7 @@ class BoilersActorBloc extends Bloc<BoilersActorEvent, BoilersActorState> {
           linearProgressIndicator: const LinearProgressIndicator(),
         ).show(value.context);
 
-        _deviceRepository.turnOnDevices(
-            devicesId: value.boilersIdToTurnUp, forceUpdateLocation: 'R');
+        _deviceRepository.turnOnDevices(devicesId: value.boilersIdToTurnUp);
       },
       turnOffAllBoilers: (_TurnOffAllBoilers value) async* {
         FlushbarHelper.createLoading(

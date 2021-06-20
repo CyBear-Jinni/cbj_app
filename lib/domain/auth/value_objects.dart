@@ -7,7 +7,8 @@ class EmailAddress extends ValueObject<String> {
   factory EmailAddress(String input) {
     assert(input != null);
     return EmailAddress._(
-      validateEmailAddress(input),
+      validateEmailAddress(input)
+          .flatMap((result) => validateEmailWithoutSpace(result)),
     );
   }
 
@@ -20,9 +21,8 @@ class EmailAddress extends ValueObject<String> {
 class Password extends ValueObject<String> {
   factory Password(String input) {
     assert(input != null);
-    return Password._(
-      validatePassword(input),
-    );
+    return Password._(validatePasswordLength(input)
+        .flatMap((result) => validatePasswordWithoutSpace(result)));
   }
 
   const Password._(this.value);

@@ -5,8 +5,11 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'device_entity.freezed.dart';
 
+/// Abstract smart device that exist inside a computer, the implementations will
+/// be actual device like blinds lights and more
 @freezed
 abstract class DeviceEntity implements _$DeviceEntity {
+  /// All public field of device entity
   const factory DeviceEntity({
     /// The smart device id
     required DeviceUniqueId? id,
@@ -17,48 +20,68 @@ abstract class DeviceEntity implements _$DeviceEntity {
     /// Room id that the smart device located in.
     required DeviceUniqueId? roomId,
 
-    /// Did the massage arrived or was it just sent.
-    /// Currently will be 'set' (need change) or 'ack' for acknowledge
-    /// (the action was reseved and executed correctly
-    required DeviceState? state,
+    /// Room name that the smart device located in.
+    required DeviceRoomName? roomName,
 
-    /// If state didn't change the error discription will be found here.
+    /// Did the massage arrived or was it just sent.
+    /// Will be 'set' (need change) or 'ack' for acknowledge
+    required DeviceState? deviceStateGRPC,
+
+    /// If state didn't change the error description will be found here.
     DeviceStateMassage? stateMassage,
 
     /// Sender device os type, example: android, iphone, browser
     required DeviceSenderDeviceOs? senderDeviceOs,
 
-    /// The sender device model, example: onePlues 3T
+    /// The sender device model, example: onePlus 3T
     required DeviceSenderDeviceModel? senderDeviceModel,
 
     /// Last device sender id that activated the action
     required DeviceSenderId? senderId,
 
     /// What action to execute
-    required DeviceAction? action,
+    required DeviceAction? deviceActions,
 
     /// The smart device type
-    required DeviceType? type,
+    required DeviceType? deviceTypes,
+
+    /// Unique id of the computer that the devices located in
     required DeviceCompUuid? compUuid,
+
+    /// Last known Ip of the computer that the device located in
     DeviceLastKnownIp? lastKnownIp,
+
+    /// Device power consumption in watts
+    DevicePowerConsumption? powerConsumption,
+
+    /// Device mdns name
+    DeviceMdnsName? deviceMdnsName,
+
+    /// Device second WiFi
+    DeviceSecondWiFiName? deviceSecondWiFi,
   }) = _DeviceEnitie;
 
   const DeviceEntity._();
 
+  /// Empty instance of DeviceEntity
   factory DeviceEntity.empty() => DeviceEntity(
         id: DeviceUniqueId(),
         defaultName: DeviceDefaultName(''),
         roomId: DeviceUniqueId(),
-        state: DeviceState(''),
+        roomName: DeviceRoomName(''),
+        deviceStateGRPC: DeviceState(''),
         senderDeviceOs: DeviceSenderDeviceOs(''),
         senderDeviceModel: DeviceSenderDeviceModel(''),
         stateMassage: DeviceStateMassage(''),
         senderId: DeviceSenderId(),
-        action: DeviceAction(''),
-        type: DeviceType(''),
+        deviceActions: DeviceAction(''),
+        deviceTypes: DeviceType(''),
         compUuid: DeviceCompUuid(''),
+        lastKnownIp: DeviceLastKnownIp(''),
       );
 
+  /// Will return failure if any of the fields failed or return unit if fields
+  /// have legit values
   Option<DevicesFailure<dynamic>> get failureOption {
     return defaultName!.value.fold((f) => some(f), (_) => none());
     //

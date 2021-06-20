@@ -86,7 +86,7 @@ class RoomsLightsWidget extends StatelessWidget {
                     return RoomLights(
                       devicesInRoom,
                       gradiantColor,
-                      'Room ${index + 1}',
+                      devicesInRoom[0].roomName!.getOrCrash()!,
                       maxLightsToShow: 50,
                     );
                   },
