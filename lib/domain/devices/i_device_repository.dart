@@ -11,6 +11,8 @@ abstract class IDeviceRepository {
 
   // C Read UD
 
+  Future<void> initiateHubConnection();
+
   Future<Either<DevicesFailure, KtList<DeviceEntity?>>> getAllDevices();
 
   Stream<Either<DevicesFailure, KtList<DeviceEntity?>>> watchAll();

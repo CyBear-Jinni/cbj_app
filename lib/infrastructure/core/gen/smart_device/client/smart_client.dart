@@ -14,6 +14,27 @@ class SmartClient {
   static ClientChannel? channel;
   static SmartServerClient? stub;
 
+  ///  Turn smart device on
+  static Future<void> createStreamWithHub(String addressToHub) async {
+    channel = await createSmartServerClient(addressToHub);
+    stub = SmartServerClient(channel!);
+    ResponseStream<RequestsAndStatusFromHub> response;
+    Stream<ClientStatusRequests> streamClientStatusRequests =
+        Stream.value(ClientStatusRequests());
+    try {
+      response = stub!.registerClient(streamClientStatusRequests);
+      response.listen((value) {
+        print('Greeter client received: $value');
+      });
+      // await channel!.shutdown();
+      // return response.success.toString();
+    } catch (e) {
+      print('Caught error: $e');
+    }
+    // await channel!.shutdown();
+    // throw 'Error';
+  }
+
   ///  Get comp info
   ///  getSmartDeviceStatus
   static Future<CompInfo> getCompInfo(String compIp) async {

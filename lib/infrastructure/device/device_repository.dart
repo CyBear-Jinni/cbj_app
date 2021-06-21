@@ -33,6 +33,11 @@ class DeviceRepository implements IDeviceRepository {
   // final DeviceLocalService _deviceLocalService;
 
   @override
+  Future<void> initiateHubConnection() async {
+    await SmartClient.createStreamWithHub('192.168.31.154');
+  }
+
+  @override
   Future<Either<DevicesFailure, KtList<DeviceEntity?>>> getAllDevices() async {
     final homeDoc = await _firestore.currentHomeDocument();
 
@@ -468,6 +473,8 @@ class DeviceRepository implements IDeviceRepository {
 
       try {
         lastKnownIp ??= deviceEntity.lastKnownIp?.getOrCrash();
+
+        lastKnownIp = '192.168.31.154';
 
         final SmartDeviceObject smartDeviceObject = SmartDeviceObject(
           EnumHelper.stringToDt(deviceEntity.deviceTypes!.getOrCrash()),

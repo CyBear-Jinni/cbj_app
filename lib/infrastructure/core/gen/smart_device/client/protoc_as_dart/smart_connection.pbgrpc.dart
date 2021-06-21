@@ -70,6 +70,18 @@ class SmartServerClient extends $grpc.Client {
           '/SmartConnection.SmartServer/setBlindsStop',
           ($0.SmartDeviceInfo value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CommendStatus.fromBuffer(value));
+  static final _$registerClient =
+      $grpc.ClientMethod<$0.ClientStatusRequests, $0.RequestsAndStatusFromHub>(
+          '/SmartConnection.SmartServer/RegisterClient',
+          ($0.ClientStatusRequests value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) =>
+              $0.RequestsAndStatusFromHub.fromBuffer(value));
+  static final _$registerHub = $grpc.ClientMethod<$0.HubStatusAndRequests,
+          $0.RequestsAndStatusFromClient>(
+      '/SmartConnection.SmartServer/RegisterHub',
+      ($0.HubStatusAndRequests value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $0.RequestsAndStatusFromClient.fromBuffer(value));
 
   SmartServerClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -137,6 +149,18 @@ class SmartServerClient extends $grpc.Client {
       $0.SmartDeviceInfo request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$setBlindsStop, request, options: options);
+  }
+
+  $grpc.ResponseStream<$0.RequestsAndStatusFromHub> registerClient(
+      $async.Stream<$0.ClientStatusRequests> request,
+      {$grpc.CallOptions? options}) {
+    return $createStreamingCall(_$registerClient, request, options: options);
+  }
+
+  $grpc.ResponseStream<$0.RequestsAndStatusFromClient> registerHub(
+      $async.Stream<$0.HubStatusAndRequests> request,
+      {$grpc.CallOptions? options}) {
+    return $createStreamingCall(_$registerHub, request, options: options);
   }
 }
 
@@ -225,6 +249,24 @@ abstract class SmartServerServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.SmartDeviceInfo.fromBuffer(value),
         ($0.CommendStatus value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.ClientStatusRequests,
+            $0.RequestsAndStatusFromHub>(
+        'RegisterClient',
+        registerClient,
+        true,
+        true,
+        ($core.List<$core.int> value) =>
+            $0.ClientStatusRequests.fromBuffer(value),
+        ($0.RequestsAndStatusFromHub value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.HubStatusAndRequests,
+            $0.RequestsAndStatusFromClient>(
+        'RegisterHub',
+        registerHub,
+        true,
+        true,
+        ($core.List<$core.int> value) =>
+            $0.HubStatusAndRequests.fromBuffer(value),
+        ($0.RequestsAndStatusFromClient value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.CommendStatus> firstSetup_Pre($grpc.ServiceCall call,
@@ -305,4 +347,8 @@ abstract class SmartServerServiceBase extends $grpc.Service {
       $grpc.ServiceCall call, $0.SmartDeviceInfo request);
   $async.Future<$0.CommendStatus> setBlindsStop(
       $grpc.ServiceCall call, $0.SmartDeviceInfo request);
+  $async.Stream<$0.RequestsAndStatusFromHub> registerClient(
+      $grpc.ServiceCall call, $async.Stream<$0.ClientStatusRequests> request);
+  $async.Stream<$0.RequestsAndStatusFromClient> registerHub(
+      $grpc.ServiceCall call, $async.Stream<$0.HubStatusAndRequests> request);
 }
