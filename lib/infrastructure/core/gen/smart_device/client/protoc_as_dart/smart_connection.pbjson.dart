@@ -101,26 +101,6 @@ const RequestsAndStatusFromHub$json = const {
 
 /// Descriptor for `RequestsAndStatusFromHub`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List requestsAndStatusFromHubDescriptor = $convert.base64Decode('ChhSZXF1ZXN0c0FuZFN0YXR1c0Zyb21IdWISUAoRYWxsUmVtb3RlQ29tbWFuZHMYKiABKAsyIi5TbWFydENvbm5lY3Rpb24uQWxsUmVtb3RlQ29tbWFuZHNSEWFsbFJlbW90ZUNvbW1hbmRz');
-@$core.Deprecated('Use hubStatusAndRequestsDescriptor instead')
-const HubStatusAndRequests$json = const {
-  '1': 'HubStatusAndRequests',
-  '2': const [
-    const {'1': 'allRemoteCommands', '3': 43, '4': 1, '5': 11, '6': '.SmartConnection.AllRemoteCommands', '10': 'allRemoteCommands'},
-  ],
-};
-
-/// Descriptor for `HubStatusAndRequests`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List hubStatusAndRequestsDescriptor = $convert.base64Decode('ChRIdWJTdGF0dXNBbmRSZXF1ZXN0cxJQChFhbGxSZW1vdGVDb21tYW5kcxgrIAEoCzIiLlNtYXJ0Q29ubmVjdGlvbi5BbGxSZW1vdGVDb21tYW5kc1IRYWxsUmVtb3RlQ29tbWFuZHM=');
-@$core.Deprecated('Use requestsAndStatusFromClientDescriptor instead')
-const RequestsAndStatusFromClient$json = const {
-  '1': 'RequestsAndStatusFromClient',
-  '2': const [
-    const {'1': 'allRemoteCommands', '3': 44, '4': 1, '5': 11, '6': '.SmartConnection.AllRemoteCommands', '10': 'allRemoteCommands'},
-  ],
-};
-
-/// Descriptor for `RequestsAndStatusFromClient`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List requestsAndStatusFromClientDescriptor = $convert.base64Decode('ChtSZXF1ZXN0c0FuZFN0YXR1c0Zyb21DbGllbnQSUAoRYWxsUmVtb3RlQ29tbWFuZHMYLCABKAsyIi5TbWFydENvbm5lY3Rpb24uQWxsUmVtb3RlQ29tbWFuZHNSEWFsbFJlbW90ZUNvbW1hbmRz');
 @$core.Deprecated('Use allRemoteCommandsDescriptor instead')
 const AllRemoteCommands$json = const {
   '1': 'AllRemoteCommands',

@@ -479,7 +479,7 @@ class DeviceRepository implements IDeviceRepository {
         final SmartDeviceObject smartDeviceObject = SmartDeviceObject(
           EnumHelper.stringToDt(deviceEntity.deviceTypes!.getOrCrash()),
           id,
-          lastKnownIp!,
+          lastKnownIp,
         );
 
         if (deviceEntity.deviceActions!.getOrCrash().toLowerCase() ==

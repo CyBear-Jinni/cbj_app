@@ -76,12 +76,12 @@ class SmartServerClient extends $grpc.Client {
           ($0.ClientStatusRequests value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $0.RequestsAndStatusFromHub.fromBuffer(value));
-  static final _$registerHub = $grpc.ClientMethod<$0.HubStatusAndRequests,
-          $0.RequestsAndStatusFromClient>(
-      '/SmartConnection.SmartServer/RegisterHub',
-      ($0.HubStatusAndRequests value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) =>
-          $0.RequestsAndStatusFromClient.fromBuffer(value));
+  static final _$registerHub =
+      $grpc.ClientMethod<$0.RequestsAndStatusFromHub, $0.ClientStatusRequests>(
+          '/SmartConnection.SmartServer/RegisterHub',
+          ($0.RequestsAndStatusFromHub value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) =>
+              $0.ClientStatusRequests.fromBuffer(value));
 
   SmartServerClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -157,8 +157,8 @@ class SmartServerClient extends $grpc.Client {
     return $createStreamingCall(_$registerClient, request, options: options);
   }
 
-  $grpc.ResponseStream<$0.RequestsAndStatusFromClient> registerHub(
-      $async.Stream<$0.HubStatusAndRequests> request,
+  $grpc.ResponseStream<$0.ClientStatusRequests> registerHub(
+      $async.Stream<$0.RequestsAndStatusFromHub> request,
       {$grpc.CallOptions? options}) {
     return $createStreamingCall(_$registerHub, request, options: options);
   }
@@ -258,15 +258,15 @@ abstract class SmartServerServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) =>
             $0.ClientStatusRequests.fromBuffer(value),
         ($0.RequestsAndStatusFromHub value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.HubStatusAndRequests,
-            $0.RequestsAndStatusFromClient>(
+    $addMethod($grpc.ServiceMethod<$0.RequestsAndStatusFromHub,
+            $0.ClientStatusRequests>(
         'RegisterHub',
         registerHub,
         true,
         true,
         ($core.List<$core.int> value) =>
-            $0.HubStatusAndRequests.fromBuffer(value),
-        ($0.RequestsAndStatusFromClient value) => value.writeToBuffer()));
+            $0.RequestsAndStatusFromHub.fromBuffer(value),
+        ($0.ClientStatusRequests value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.CommendStatus> firstSetup_Pre($grpc.ServiceCall call,
@@ -349,6 +349,6 @@ abstract class SmartServerServiceBase extends $grpc.Service {
       $grpc.ServiceCall call, $0.SmartDeviceInfo request);
   $async.Stream<$0.RequestsAndStatusFromHub> registerClient(
       $grpc.ServiceCall call, $async.Stream<$0.ClientStatusRequests> request);
-  $async.Stream<$0.RequestsAndStatusFromClient> registerHub(
-      $grpc.ServiceCall call, $async.Stream<$0.HubStatusAndRequests> request);
+  $async.Stream<$0.ClientStatusRequests> registerHub($grpc.ServiceCall call,
+      $async.Stream<$0.RequestsAndStatusFromHub> request);
 }
