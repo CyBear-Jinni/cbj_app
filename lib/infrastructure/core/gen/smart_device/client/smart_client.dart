@@ -22,7 +22,10 @@ class SmartClient {
     Stream<ClientStatusRequests> streamClientStatusRequests =
         Stream.value(ClientStatusRequests());
     try {
-      response = stub!.registerClient(streamClientStatusRequests);
+      NumberCreator n = NumberCreator();
+
+      response = stub!.registerClient(n.stream);
+
       response.listen((value) {
         print('Greeter client received: $value');
       });
@@ -301,4 +304,19 @@ class GrpcClientTypes {
   static final deviceTypesTypeString =
       deviceTypesType.toString().substring(0, 1).toLowerCase() +
           deviceTypesType.toString().substring(1);
+}
+
+class NumberCreator {
+  NumberCreator() {
+    Timer.periodic(Duration(seconds: 1), (timer) {
+      _controller.sink.add(ClientStatusRequests());
+      _count++;
+    });
+  }
+
+  var _count = 1;
+
+  final _controller = StreamController<ClientStatusRequests>();
+
+  Stream<ClientStatusRequests> get stream => _controller.stream;
 }
