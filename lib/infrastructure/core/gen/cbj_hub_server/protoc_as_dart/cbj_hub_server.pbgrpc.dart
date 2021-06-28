@@ -13,21 +13,21 @@ import 'package:grpc/service_api.dart' as $grpc;
 import 'cbj_hub_server.pb.dart' as $0;
 export 'cbj_hub_server.pb.dart';
 
-class CbjServerClient extends $grpc.Client {
+class CbjHubClient extends $grpc.Client {
   static final _$registerClient =
       $grpc.ClientMethod<$0.ClientStatusRequests, $0.RequestsAndStatusFromHub>(
-          '/HubServer.CbjServer/RegisterClient',
+          '/CbjHub.CbjHub/RegisterClient',
           ($0.ClientStatusRequests value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $0.RequestsAndStatusFromHub.fromBuffer(value));
   static final _$registerHub =
       $grpc.ClientMethod<$0.RequestsAndStatusFromHub, $0.ClientStatusRequests>(
-          '/HubServer.CbjServer/RegisterHub',
+          '/CbjHub.CbjHub/RegisterHub',
           ($0.RequestsAndStatusFromHub value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $0.ClientStatusRequests.fromBuffer(value));
 
-  CbjServerClient($grpc.ClientChannel channel,
+  CbjHubClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
       $core.Iterable<$grpc.ClientInterceptor>? interceptors})
       : super(channel, options: options, interceptors: interceptors);
@@ -45,10 +45,10 @@ class CbjServerClient extends $grpc.Client {
   }
 }
 
-abstract class CbjServerServiceBase extends $grpc.Service {
-  $core.String get $name => 'HubServer.CbjServer';
+abstract class CbjHubServiceBase extends $grpc.Service {
+  $core.String get $name => 'CbjHub.CbjHub';
 
-  CbjServerServiceBase() {
+  CbjHubServiceBase() {
     $addMethod($grpc.ServiceMethod<$0.ClientStatusRequests,
             $0.RequestsAndStatusFromHub>(
         'RegisterClient',
