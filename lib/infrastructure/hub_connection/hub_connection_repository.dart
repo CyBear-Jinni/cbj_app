@@ -8,7 +8,8 @@ import 'package:multicast_dns/multicast_dns.dart';
 @LazySingleton(as: IHubConnectionRepository)
 class HubConnectionRepository extends IHubConnectionRepository {
   Future<void> connectWithHub() async {
-    final String hubIp = await getDeviceIpByDeviceAvahiName('guy-computer');
+    // final String hubIp = await getDeviceIpByDeviceAvahiName('guy-computer');
+    const String hubIp = '192.168.31.154';
     await HubClient.createStreamWithHub(hubIp);
   }
 
@@ -21,19 +22,19 @@ class HubConnectionRepository extends IHubConnectionRepository {
   /// Search device IP by computer Avahi (mdns) name
   Future<String> getDeviceIpByDeviceAvahiName(String mDnsName) async {
     String deviceIp = '';
-    final String fullMdnsName = 'guy-computer.local';
+    final String fullMdnsName = '$mDnsName.local';
 
     final MDnsClient client = MDnsClient(rawDatagramSocketFactory:
         (dynamic host, int port,
             {bool? reuseAddress, bool? reusePort, int? ttl}) {
       return RawDatagramSocket.bind(host, port, ttl: ttl!);
     });
-    // Start the client with default options.
 
+    // Start the client with default options.
     await client.start();
     await for (final IPAddressResourceRecord record
         in client.lookup<IPAddressResourceRecord>(
-            ResourceRecordQuery.addressIPv4(fullMdnsName))) {
+            ResourceRecordQuery.addressIPv4(mDnsName))) {
       deviceIp = record.address.address;
       print('Found address (${record.address}).');
     }

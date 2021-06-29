@@ -12,23 +12,19 @@ class HubClient {
     channel = await createCbjHubClient(addressToHub);
     stub = CbjHubClient(channel!);
     ResponseStream<RequestsAndStatusFromHub> response;
-    Stream<ClientStatusRequests> streamClientStatusRequests =
+    final Stream<ClientStatusRequests> streamClientStatusRequests =
         Stream.value(ClientStatusRequests());
     try {
-      NumberCreator n = NumberCreator();
+      final HubRequestsToApp hubRequests = HubRequestsToApp();
+      AppRequestsToHub appRequestsToHub = AppRequestsToHub();
 
-      response = stub!.registerClient(n.stream);
+      response = stub!.registerClient(AppRequestsToHub.appRequestsToHubStream);
 
-      response.listen((value) {
-        print('Greeter client received: $value');
-      });
-      // await channel!.shutdown();
-      // return response.success.toString();
+      HubRequestsToApp.hubRequestsStreamController.sink.addStream(response);
     } catch (e) {
       print('Caught error: $e');
+      await channel?.shutdown();
     }
-    // await channel!.shutdown();
-    // throw 'Error';
   }
 
   static Future<ClientChannel> createCbjHubClient(String deviceIp) async {
@@ -68,17 +64,24 @@ class GrpcClientTypes {
           deviceTypesType.toString().substring(1);
 }
 
-class NumberCreator {
-  NumberCreator() {
-    Timer.periodic(Duration(seconds: 1), (timer) {
-      _controller.sink.add(ClientStatusRequests());
-      _count++;
-    });
-  }
+/// Requests and updates from hub to the app
+class HubRequestsToApp {
+  /// Stream controller of the requests from the hub
+  static final hubRequestsStreamController =
+      StreamController<RequestsAndStatusFromHub>();
 
-  var _count = 1;
+  /// Stream of the requests from the hub
+  static Stream<RequestsAndStatusFromHub> get hubRequestsStream =>
+      hubRequestsStreamController.stream;
+}
 
-  final _controller = StreamController<ClientStatusRequests>();
+///App requests for the hub to execute
+class AppRequestsToHub {
+  /// Stream controller of the app request for the hub
+  static final appRequestsToHubStreamController =
+      StreamController<ClientStatusRequests>();
 
-  Stream<ClientStatusRequests> get stream => _controller.stream;
+  /// Stream of the requests from the app to the hub
+  static Stream<ClientStatusRequests> get appRequestsToHubStream =>
+      appRequestsToHubStreamController.stream;
 }

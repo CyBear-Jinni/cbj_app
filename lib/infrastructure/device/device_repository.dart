@@ -8,6 +8,10 @@ import 'package:cybear_jinni/domain/devices/value_objects.dart';
 import 'package:cybear_jinni/domain/user/i_user_repository.dart';
 import 'package:cybear_jinni/domain/user/user_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/firestore_helpers.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/hub_client.dart'
+    as hubClient;
+import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart'
+    as hubGrpc;
 import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_as_dart/smart_connection.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/smart_client.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_device_object.dart';
@@ -79,28 +83,65 @@ class DeviceRepository implements IDeviceRepository {
   Stream<Either<DevicesFailure, KtList<DeviceEntity?>>> watchAll() async* {
     final homeDoc = await _firestore.currentHomeDocument();
 
-    yield* homeDoc.devicesCollecttion.snapshots().map(
-          (snapshot) => right<DevicesFailure, KtList<DeviceEntity?>>(
-            snapshot.docs
-                .map((doc) {
-                  if ((doc.data()! as Map<String, dynamic>)[
-                              GrpcClientTypes.deviceTypesTypeString] ==
-                          DeviceTypes.light.toString() ||
-                      (doc.data()! as Map<String, dynamic>)[
-                              GrpcClientTypes.deviceTypesTypeString] ==
-                          DeviceTypes.blinds.toString() ||
-                      (doc.data()! as Map<String, dynamic>)[
-                              GrpcClientTypes.deviceTypesTypeString] ==
-                          DeviceTypes.boiler.toString()) {
-                    return DeviceDtos.fromFirestore(doc).toDomain();
-                  } else {
-                    print('Type not supported');
-                  }
-                })
-                .where((element) => element != null)
-                .toImmutableList(),
-          ),
-        );
+    yield* hubClient.HubRequestsToApp.hubRequestsStream
+        .map((hubGrpc.RequestsAndStatusFromHub event) {
+      if (event.allRemoteCommands.smartDeviceInfo.deviceTypesActions.deviceType
+              .name
+              .toString() ==
+          'light') {
+        final hubGrpc.SmartDeviceInfo smartDeviceInfo =
+            event.allRemoteCommands.smartDeviceInfo;
+        return right<DevicesFailure, KtList<DeviceEntity?>>([
+          DeviceEntity(
+            id: DeviceUniqueId.fromUniqueString(smartDeviceInfo.id),
+            defaultName: DeviceDefaultName(smartDeviceInfo.defaultName),
+            roomName: DeviceRoomName('Test Room'),
+            senderDeviceOs:
+                DeviceSenderDeviceOs(smartDeviceInfo.senderDeviceOs),
+            deviceActions: DeviceAction(smartDeviceInfo
+                .deviceTypesActions.deviceAction.name
+                .toString()),
+            senderDeviceModel:
+                DeviceSenderDeviceModel(smartDeviceInfo.senderDeviceModel),
+            senderId: DeviceSenderId.fromUniqueString(smartDeviceInfo.senderId),
+            deviceStateGRPC: DeviceState(smartDeviceInfo
+                .deviceTypesActions.deviceStateGRPC.name
+                .toString()),
+            compUuid: DeviceCompUuid(smartDeviceInfo.compSpecs.compUuid),
+            roomId: DeviceUniqueId.fromUniqueString(smartDeviceInfo.roomId),
+            deviceTypes: DeviceType(
+                smartDeviceInfo.deviceTypesActions.deviceType.name.toString()),
+          )
+        ].toImmutableList());
+      }
+      return right([null].toImmutableList());
+      // return left(const DevicesFailure.empty(failedValue: 'sd'));
+      // return left<DevicesFailure, KtList<DeviceEntity>>(
+      //     DevicesFailure.insufficientPermission());
+    });
+
+    // homeDoc.devicesCollecttion.snapshots().map(
+    //       (snapshot) => right<DevicesFailure, KtList<DeviceEntity?>>(
+    //         snapshot.docs
+    //             .map((doc) {
+    //               if ((doc.data()! as Map<String, dynamic>)[
+    //                           GrpcClientTypes.deviceTypesTypeString] ==
+    //                       DeviceTypes.light.toString() ||
+    //                   (doc.data()! as Map<String, dynamic>)[
+    //                           GrpcClientTypes.deviceTypesTypeString] ==
+    //                       DeviceTypes.blinds.toString() ||
+    //                   (doc.data()! as Map<String, dynamic>)[
+    //                           GrpcClientTypes.deviceTypesTypeString] ==
+    //                       DeviceTypes.boiler.toString()) {
+    //                 return DeviceDtos.fromFirestore(doc).toDomain();
+    //               } else {
+    //                 print('Type not supported');
+    //               }
+    //             })
+    //             .where((element) => element != null)
+    //             .toImmutableList(),
+    //       ),
+    //     );
     //     .onErrorReturnWith((e) {
     //   if (e is PlatformException && e.message!.contains('PERMISSION_DENIED')) {
     //     return left<DevicesFailure, KtList<DeviceEntity>>( DevicesFailure.insufficientPermission());
@@ -115,6 +156,7 @@ class DeviceRepository implements IDeviceRepository {
   Stream<Either<DevicesFailure, KtList<DeviceEntity?>>> watchLights() async* {
     // Using watchAll devices from server function and filtering out only the
     // Light device type
+
     yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
           return right(r.toList().asList().where((element) {
             return element!.deviceTypes!.getOrCrash() ==

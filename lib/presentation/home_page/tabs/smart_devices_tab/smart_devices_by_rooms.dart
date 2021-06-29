@@ -32,6 +32,9 @@ class SmartDevicesByRooms extends StatelessWidget {
                 <String, List<DeviceEntity>>{};
 
             for (int i = 0; i < state.devices.size; i++) {
+              if (state.devices[i] == null) {
+                continue;
+              }
               final DeviceEntity tempDevice = state.devices[i]!;
               if (tempDevicesByRooms[tempDevice.roomId!.getOrCrash()] == null) {
                 tempDevicesByRooms[tempDevice.roomId!.getOrCrash()] = [
