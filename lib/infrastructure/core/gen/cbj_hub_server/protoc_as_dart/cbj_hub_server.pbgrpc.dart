@@ -14,34 +14,36 @@ import 'cbj_hub_server.pb.dart' as $0;
 export 'cbj_hub_server.pb.dart';
 
 class CbjHubClient extends $grpc.Client {
-  static final _$registerClient =
-      $grpc.ClientMethod<$0.ClientStatusRequests, $0.RequestsAndStatusFromHub>(
-          '/CbjHub.CbjHub/RegisterClient',
-          ($0.ClientStatusRequests value) => value.writeToBuffer(),
+  static final _$clientTransferDevices =
+      $grpc.ClientMethod<$0.SmartDeviceInfo, $0.SmartDeviceInfo>(
+          '/CbjHub.CbjHub/ClientTransferDevices',
+          ($0.SmartDeviceInfo value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
-              $0.RequestsAndStatusFromHub.fromBuffer(value));
-  static final _$registerHub =
-      $grpc.ClientMethod<$0.RequestsAndStatusFromHub, $0.ClientStatusRequests>(
-          '/CbjHub.CbjHub/RegisterHub',
-          ($0.RequestsAndStatusFromHub value) => value.writeToBuffer(),
+              $0.SmartDeviceInfo.fromBuffer(value));
+  static final _$hubTransferDevices =
+      $grpc.ClientMethod<$0.SmartDeviceInfo, $0.SmartDeviceInfo>(
+          '/CbjHub.CbjHub/HubTransferDevices',
+          ($0.SmartDeviceInfo value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
-              $0.ClientStatusRequests.fromBuffer(value));
+              $0.SmartDeviceInfo.fromBuffer(value));
 
   CbjHubClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
       $core.Iterable<$grpc.ClientInterceptor>? interceptors})
       : super(channel, options: options, interceptors: interceptors);
 
-  $grpc.ResponseStream<$0.RequestsAndStatusFromHub> registerClient(
-      $async.Stream<$0.ClientStatusRequests> request,
+  $grpc.ResponseStream<$0.SmartDeviceInfo> clientTransferDevices(
+      $async.Stream<$0.SmartDeviceInfo> request,
       {$grpc.CallOptions? options}) {
-    return $createStreamingCall(_$registerClient, request, options: options);
+    return $createStreamingCall(_$clientTransferDevices, request,
+        options: options);
   }
 
-  $grpc.ResponseStream<$0.ClientStatusRequests> registerHub(
-      $async.Stream<$0.RequestsAndStatusFromHub> request,
+  $grpc.ResponseStream<$0.SmartDeviceInfo> hubTransferDevices(
+      $async.Stream<$0.SmartDeviceInfo> request,
       {$grpc.CallOptions? options}) {
-    return $createStreamingCall(_$registerHub, request, options: options);
+    return $createStreamingCall(_$hubTransferDevices, request,
+        options: options);
   }
 }
 
@@ -49,28 +51,24 @@ abstract class CbjHubServiceBase extends $grpc.Service {
   $core.String get $name => 'CbjHub.CbjHub';
 
   CbjHubServiceBase() {
-    $addMethod($grpc.ServiceMethod<$0.ClientStatusRequests,
-            $0.RequestsAndStatusFromHub>(
-        'RegisterClient',
-        registerClient,
+    $addMethod($grpc.ServiceMethod<$0.SmartDeviceInfo, $0.SmartDeviceInfo>(
+        'ClientTransferDevices',
+        clientTransferDevices,
         true,
         true,
-        ($core.List<$core.int> value) =>
-            $0.ClientStatusRequests.fromBuffer(value),
-        ($0.RequestsAndStatusFromHub value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.RequestsAndStatusFromHub,
-            $0.ClientStatusRequests>(
-        'RegisterHub',
-        registerHub,
+        ($core.List<$core.int> value) => $0.SmartDeviceInfo.fromBuffer(value),
+        ($0.SmartDeviceInfo value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.SmartDeviceInfo, $0.SmartDeviceInfo>(
+        'HubTransferDevices',
+        hubTransferDevices,
         true,
         true,
-        ($core.List<$core.int> value) =>
-            $0.RequestsAndStatusFromHub.fromBuffer(value),
-        ($0.ClientStatusRequests value) => value.writeToBuffer()));
+        ($core.List<$core.int> value) => $0.SmartDeviceInfo.fromBuffer(value),
+        ($0.SmartDeviceInfo value) => value.writeToBuffer()));
   }
 
-  $async.Stream<$0.RequestsAndStatusFromHub> registerClient(
-      $grpc.ServiceCall call, $async.Stream<$0.ClientStatusRequests> request);
-  $async.Stream<$0.ClientStatusRequests> registerHub($grpc.ServiceCall call,
-      $async.Stream<$0.RequestsAndStatusFromHub> request);
+  $async.Stream<$0.SmartDeviceInfo> clientTransferDevices(
+      $grpc.ServiceCall call, $async.Stream<$0.SmartDeviceInfo> request);
+  $async.Stream<$0.SmartDeviceInfo> hubTransferDevices(
+      $grpc.ServiceCall call, $async.Stream<$0.SmartDeviceInfo> request);
 }

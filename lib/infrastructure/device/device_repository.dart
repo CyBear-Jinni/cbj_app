@@ -84,13 +84,9 @@ class DeviceRepository implements IDeviceRepository {
     final homeDoc = await _firestore.currentHomeDocument();
 
     yield* hubClient.HubRequestsToApp.hubRequestsStream
-        .map((hubGrpc.RequestsAndStatusFromHub event) {
-      if (event.allRemoteCommands.smartDeviceInfo.deviceTypesActions.deviceType
-              .name
-              .toString() ==
+        .map((hubGrpc.SmartDeviceInfo smartDeviceInfo) {
+      if (smartDeviceInfo.deviceTypesActions.deviceType.name.toString() ==
           'light') {
-        final hubGrpc.SmartDeviceInfo smartDeviceInfo =
-            event.allRemoteCommands.smartDeviceInfo;
         return right<DevicesFailure, KtList<DeviceEntity?>>([
           DeviceEntity(
             id: DeviceUniqueId.fromUniqueString(smartDeviceInfo.id),
@@ -114,8 +110,9 @@ class DeviceRepository implements IDeviceRepository {
           )
         ].toImmutableList());
       }
-      return right([null].toImmutableList());
-      // return left(const DevicesFailure.empty(failedValue: 'sd'));
+
+      // return right([null].toImmutableList());
+      return left(const DevicesFailure.empty(failedValue: 'sd'));
       // return left<DevicesFailure, KtList<DeviceEntity>>(
       //     DevicesFailure.insufficientPermission());
     });

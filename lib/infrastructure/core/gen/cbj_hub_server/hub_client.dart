@@ -11,14 +11,11 @@ class HubClient {
   static Future<void> createStreamWithHub(String addressToHub) async {
     channel = await createCbjHubClient(addressToHub);
     stub = CbjHubClient(channel!);
-    ResponseStream<RequestsAndStatusFromHub> response;
-    final Stream<ClientStatusRequests> streamClientStatusRequests =
-        Stream.value(ClientStatusRequests());
-    try {
-      final HubRequestsToApp hubRequests = HubRequestsToApp();
-      AppRequestsToHub appRequestsToHub = AppRequestsToHub();
+    ResponseStream<SmartDeviceInfo> response;
 
-      response = stub!.registerClient(AppRequestsToHub.appRequestsToHubStream);
+    try {
+      response =
+          stub!.clientTransferDevices(AppRequestsToHub.appRequestsToHubStream);
 
       HubRequestsToApp.hubRequestsStreamController.sink.addStream(response);
     } catch (e) {
@@ -68,10 +65,10 @@ class GrpcClientTypes {
 class HubRequestsToApp {
   /// Stream controller of the requests from the hub
   static final hubRequestsStreamController =
-      StreamController<RequestsAndStatusFromHub>();
+      StreamController<SmartDeviceInfo>();
 
   /// Stream of the requests from the hub
-  static Stream<RequestsAndStatusFromHub> get hubRequestsStream =>
+  static Stream<SmartDeviceInfo> get hubRequestsStream =>
       hubRequestsStreamController.stream;
 }
 
@@ -79,9 +76,9 @@ class HubRequestsToApp {
 class AppRequestsToHub {
   /// Stream controller of the app request for the hub
   static final appRequestsToHubStreamController =
-      StreamController<ClientStatusRequests>();
+      StreamController<SmartDeviceInfo>();
 
   /// Stream of the requests from the app to the hub
-  static Stream<ClientStatusRequests> get appRequestsToHubStream =>
+  static Stream<SmartDeviceInfo> get appRequestsToHubStream =>
       appRequestsToHubStreamController.stream;
 }
