@@ -9,7 +9,7 @@ part 'device_dtos.g.dart';
 @freezed
 abstract class DeviceDtos implements _$DeviceDtos {
   const factory DeviceDtos({
-    @JsonKey(ignore: true) String? id,
+    String? id,
     required String? defaultName,
     required String? roomId,
     required String? roomName,

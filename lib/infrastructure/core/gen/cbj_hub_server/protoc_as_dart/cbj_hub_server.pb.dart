@@ -15,13 +15,13 @@ export 'cbj_hub_server.pbenum.dart';
 
 class ClientStatusRequests extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ClientStatusRequests', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CbjHub'), createEmptyInstance: create)
-    ..aOM<AllRemoteCommands>(41, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'allRemoteCommands', protoName: 'allRemoteCommands', subBuilder: AllRemoteCommands.create)
+    ..aOS(41, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'allRemoteCommands', protoName: 'allRemoteCommands')
     ..hasRequiredFields = false
   ;
 
   ClientStatusRequests._() : super();
   factory ClientStatusRequests({
-    AllRemoteCommands? allRemoteCommands,
+    $core.String? allRemoteCommands,
   }) {
     final _result = create();
     if (allRemoteCommands != null) {
@@ -51,26 +51,24 @@ class ClientStatusRequests extends $pb.GeneratedMessage {
   static ClientStatusRequests? _defaultInstance;
 
   @$pb.TagNumber(41)
-  AllRemoteCommands get allRemoteCommands => $_getN(0);
+  $core.String get allRemoteCommands => $_getSZ(0);
   @$pb.TagNumber(41)
-  set allRemoteCommands(AllRemoteCommands v) { setField(41, v); }
+  set allRemoteCommands($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(41)
   $core.bool hasAllRemoteCommands() => $_has(0);
   @$pb.TagNumber(41)
   void clearAllRemoteCommands() => clearField(41);
-  @$pb.TagNumber(41)
-  AllRemoteCommands ensureAllRemoteCommands() => $_ensure(0);
 }
 
 class RequestsAndStatusFromHub extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'RequestsAndStatusFromHub', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CbjHub'), createEmptyInstance: create)
-    ..aOM<AllRemoteCommands>(42, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'allRemoteCommands', protoName: 'allRemoteCommands', subBuilder: AllRemoteCommands.create)
+    ..aOS(42, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'allRemoteCommands', protoName: 'allRemoteCommands')
     ..hasRequiredFields = false
   ;
 
   RequestsAndStatusFromHub._() : super();
   factory RequestsAndStatusFromHub({
-    AllRemoteCommands? allRemoteCommands,
+    $core.String? allRemoteCommands,
   }) {
     final _result = create();
     if (allRemoteCommands != null) {
@@ -100,15 +98,13 @@ class RequestsAndStatusFromHub extends $pb.GeneratedMessage {
   static RequestsAndStatusFromHub? _defaultInstance;
 
   @$pb.TagNumber(42)
-  AllRemoteCommands get allRemoteCommands => $_getN(0);
+  $core.String get allRemoteCommands => $_getSZ(0);
   @$pb.TagNumber(42)
-  set allRemoteCommands(AllRemoteCommands v) { setField(42, v); }
+  set allRemoteCommands($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(42)
   $core.bool hasAllRemoteCommands() => $_has(0);
   @$pb.TagNumber(42)
   void clearAllRemoteCommands() => clearField(42);
-  @$pb.TagNumber(42)
-  AllRemoteCommands ensureAllRemoteCommands() => $_ensure(0);
 }
 
 class AllRemoteCommands extends $pb.GeneratedMessage {

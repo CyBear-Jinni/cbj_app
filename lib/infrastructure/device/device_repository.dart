@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -84,31 +85,25 @@ class DeviceRepository implements IDeviceRepository {
     final homeDoc = await _firestore.currentHomeDocument();
 
     yield* hubClient.HubRequestsToApp.hubRequestsStream
-        .map((hubGrpc.SmartDeviceInfo smartDeviceInfo) {
-      if (smartDeviceInfo.deviceTypesActions.deviceType.name.toString() ==
-          'light') {
-        return right<DevicesFailure, KtList<DeviceEntity?>>([
-          DeviceEntity(
-            id: DeviceUniqueId.fromUniqueString(smartDeviceInfo.id),
-            defaultName: DeviceDefaultName(smartDeviceInfo.defaultName),
-            roomName: DeviceRoomName('Test Room'),
-            senderDeviceOs:
-                DeviceSenderDeviceOs(smartDeviceInfo.senderDeviceOs),
-            deviceActions: DeviceAction(smartDeviceInfo
-                .deviceTypesActions.deviceAction.name
-                .toString()),
-            senderDeviceModel:
-                DeviceSenderDeviceModel(smartDeviceInfo.senderDeviceModel),
-            senderId: DeviceSenderId.fromUniqueString(smartDeviceInfo.senderId),
-            deviceStateGRPC: DeviceState(smartDeviceInfo
-                .deviceTypesActions.deviceStateGRPC.name
-                .toString()),
-            compUuid: DeviceCompUuid(smartDeviceInfo.compSpecs.compUuid),
-            roomId: DeviceUniqueId.fromUniqueString(smartDeviceInfo.roomId),
-            deviceTypes: DeviceType(
-                smartDeviceInfo.deviceTypesActions.deviceType.name.toString()),
-          )
-        ].toImmutableList());
+        .map((hubGrpc.RequestsAndStatusFromHub requestsAndStatusFromHub) {
+      final String requestAsString = requestsAndStatusFromHub.allRemoteCommands;
+      final Map<String, dynamic> requestAsJson =
+          jsonDecode(requestAsString) as Map<String, dynamic>;
+      final String? deviceTypeAsString =
+          requestAsJson['deviceTypes'] as String?;
+      if (deviceTypeAsString == null) {
+        return left(const DevicesFailure.empty(
+            failedValue: 'deviceTypeAsString is null'));
+      }
+      final DeviceTypes? deviceType = EnumHelper.stringToDt(deviceTypeAsString);
+      if (deviceType != null) {
+        final DeviceDtos deviceDtos = DeviceDtos.fromJson(requestAsJson);
+        final DeviceEntity deviceEntity = deviceDtos.toDomain();
+
+        if (deviceType == DeviceTypes.light) {
+          return right<DevicesFailure, KtList<DeviceEntity?>>(
+              [deviceEntity].toImmutableList());
+        }
       }
 
       // return right([null].toImmutableList());

@@ -11,7 +11,7 @@ class HubClient {
   static Future<void> createStreamWithHub(String addressToHub) async {
     channel = await createCbjHubClient(addressToHub);
     stub = CbjHubClient(channel!);
-    ResponseStream<SmartDeviceInfo> response;
+    ResponseStream<RequestsAndStatusFromHub> response;
 
     try {
       response =
@@ -65,10 +65,10 @@ class GrpcClientTypes {
 class HubRequestsToApp {
   /// Stream controller of the requests from the hub
   static final hubRequestsStreamController =
-      StreamController<SmartDeviceInfo>();
+      StreamController<RequestsAndStatusFromHub>();
 
   /// Stream of the requests from the hub
-  static Stream<SmartDeviceInfo> get hubRequestsStream =>
+  static Stream<RequestsAndStatusFromHub> get hubRequestsStream =>
       hubRequestsStreamController.stream;
 }
 
@@ -76,9 +76,9 @@ class HubRequestsToApp {
 class AppRequestsToHub {
   /// Stream controller of the app request for the hub
   static final appRequestsToHubStreamController =
-      StreamController<SmartDeviceInfo>();
+      StreamController<ClientStatusRequests>();
 
   /// Stream of the requests from the app to the hub
-  static Stream<SmartDeviceInfo> get appRequestsToHubStream =>
+  static Stream<ClientStatusRequests> get appRequestsToHubStream =>
       appRequestsToHubStreamController.stream;
 }
