@@ -34,7 +34,7 @@ class RoomsLightsPage extends StatelessWidget {
             builder: (BuildContext context) => SettingsPageOfLights()));
   }
 
-  void backButtonFuntion(BuildContext context) {
+  void backButtonFunction(BuildContext context) {
     Navigator.pop(context);
   }
 
@@ -101,7 +101,7 @@ class RoomsLightsPage extends StatelessWidget {
                   Icons.more_vert,
                   cogFunction,
                   leftIcon: FontAwesomeIcons.arrowLeft,
-                  leftIconFunction: backButtonFuntion,
+                  leftIconFunction: backButtonFunction,
                   rightSecondIcon: FontAwesomeIcons.search,
                   rightSecondFunction: () {},
                 ),

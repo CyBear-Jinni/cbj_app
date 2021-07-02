@@ -30,7 +30,7 @@ class RoomsBlindsPage extends StatelessWidget {
             builder: (BuildContext context) => SettingsPageOfBlinds()));
   }
 
-  void backButtonFuntion(BuildContext context) {
+  void backButtonFunction(BuildContext context) {
     Navigator.pop(context);
   }
 
@@ -92,7 +92,7 @@ class RoomsBlindsPage extends StatelessWidget {
                   Icons.more_vert,
                   cogFunction,
                   leftIcon: FontAwesomeIcons.arrowLeft,
-                  leftIconFunction: backButtonFuntion,
+                  leftIconFunction: backButtonFunction,
                   rightSecondIcon: FontAwesomeIcons.search,
                   rightSecondFunction: () {},
                 ),

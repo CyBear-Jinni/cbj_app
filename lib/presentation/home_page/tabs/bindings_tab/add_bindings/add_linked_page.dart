@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// The page to add new routines
-class AddLinkedPage extends StatelessWidget {
-  void backButtonFuntion(BuildContext context) {
+class AddBindingsPage extends StatelessWidget {
+  void backButtonFunction(BuildContext context) {
     Navigator.pop(context);
   }
 
@@ -31,11 +31,11 @@ class AddLinkedPage extends StatelessWidget {
         child: Column(
           children: <Widget>[
             TopNavigationBar(
-              'Add Linked',
+              'Add Binding',
               null,
               () {},
               leftIcon: FontAwesomeIcons.arrowLeft,
-              leftIconFunction: backButtonFuntion,
+              leftIconFunction: backButtonFunction,
             ),
             const SizedBox(
               height: 100,

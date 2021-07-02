@@ -1,12 +1,12 @@
 import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
-import 'package:cybear_jinni/presentation/home_page/tabs/linked_tab/add_linked/add_linked_page.dart';
+import 'package:cybear_jinni/presentation/home_page/tabs/bindings_tab/add_bindins/add_linked_page.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// Page to see and interact with all the set routines
-class LinkedPage extends StatelessWidget {
+class BindingsPage extends StatelessWidget {
   /// Execute when user press the icon in top right side
   void userCogFunction(BuildContext context) {
     showAdaptiveActionSheet(
@@ -14,19 +14,19 @@ class LinkedPage extends StatelessWidget {
       actions: <BottomSheetAction>[
         BottomSheetAction(
           title: const Text(
-            '➕ Add Linked',
+            '➕ Add Binding',
             style: TextStyle(color: Colors.green, fontSize: 23),
           ),
           onPressed: () {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (BuildContext context) => AddLinkedPage()));
+                    builder: (BuildContext context) => AddBindingsPage()));
           },
         ),
         BottomSheetAction(
           title: const Text(
-            '⚙️ Linked Settings',
+            '⚙️ Bindings Settings',
             style: TextStyle(color: Colors.blueGrey, fontSize: 23),
           ),
           onPressed: () {},
@@ -46,7 +46,7 @@ class LinkedPage extends StatelessWidget {
     return Column(
       children: <Widget>[
         TopNavigationBar(
-          'Linked',
+          'Bindings',
           Icons.more_vert,
           userCogFunction,
           leftIcon: FontAwesomeIcons.userCog,
@@ -58,7 +58,7 @@ class LinkedPage extends StatelessWidget {
           height: 10,
         ),
         const Text(
-          'Linked List',
+          'Bindings List',
           style: TextStyle(fontSize: 30),
         ),
         Expanded(

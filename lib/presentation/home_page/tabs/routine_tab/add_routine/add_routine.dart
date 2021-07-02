@@ -5,7 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// The page to add new routines
 class AddRoutinePage extends StatelessWidget {
-  void backButtonFuntion(BuildContext context) {
+  void backButtonFunction(BuildContext context) {
     Navigator.pop(context);
   }
 
@@ -36,7 +36,7 @@ class AddRoutinePage extends StatelessWidget {
               null,
               () {},
               leftIcon: FontAwesomeIcons.arrowLeft,
-              leftIconFunction: backButtonFuntion,
+              leftIconFunction: backButtonFunction,
             ),
             const SizedBox(
               height: 100,
