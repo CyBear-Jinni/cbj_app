@@ -1,5 +1,5 @@
 import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
-import 'package:cybear_jinni/presentation/home_page/tabs/bindings_tab/add_bindins/add_linked_page.dart';
+import 'package:cybear_jinni/presentation/home_page/tabs/bindings_tab/add_bindings/add_bindings_page.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
