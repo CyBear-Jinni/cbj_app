@@ -81,26 +81,46 @@ const DeviceStateGRPC$json = const {
 
 /// Descriptor for `DeviceStateGRPC`. Decode as a `google.protobuf.EnumDescriptorProto`.
 final $typed_data.Uint8List deviceStateGRPCDescriptor = $convert.base64Decode('Cg9EZXZpY2VTdGF0ZUdSUEMSFQoRc3RhdGVOb3RTdXBwb3J0ZWQQABIYChRjYW5jZWxTdGF0ZUluUHJvY2VzcxABEgcKA2FjaxACEhIKDm5ld1N0YXRlRmFpbGVkEAMSFQoRd2FpdGluZ0luRmlyZWJhc2UQBBIRCg13YWl0aW5nSW5Db21wEAU=');
+@$core.Deprecated('Use sendingTypeDescriptor instead')
+const SendingType$json = const {
+  '1': 'SendingType',
+  '2': const [
+    const {'1': 'undefinedType', '2': 0},
+    const {'1': 'stringType', '2': 1},
+    const {'1': 'partialDeviceType', '2': 2},
+    const {'1': 'deviceType', '2': 3},
+    const {'1': 'mqttMassageType', '2': 4},
+    const {'1': 'sceneType', '2': 5},
+    const {'1': 'scheduleType', '2': 6},
+    const {'1': 'routineType', '2': 7},
+    const {'1': 'bindingsType', '2': 8},
+  ],
+};
+
+/// Descriptor for `SendingType`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List sendingTypeDescriptor = $convert.base64Decode('CgtTZW5kaW5nVHlwZRIRCg11bmRlZmluZWRUeXBlEAASDgoKc3RyaW5nVHlwZRABEhUKEXBhcnRpYWxEZXZpY2VUeXBlEAISDgoKZGV2aWNlVHlwZRADEhMKD21xdHRNYXNzYWdlVHlwZRAEEg0KCXNjZW5lVHlwZRAFEhAKDHNjaGVkdWxlVHlwZRAGEg8KC3JvdXRpbmVUeXBlEAcSEAoMYmluZGluZ3NUeXBlEAg=');
 @$core.Deprecated('Use clientStatusRequestsDescriptor instead')
 const ClientStatusRequests$json = const {
   '1': 'ClientStatusRequests',
   '2': const [
-    const {'1': 'allRemoteCommands', '3': 41, '4': 1, '5': 9, '10': 'allRemoteCommands'},
-  ],
-};
-
-/// Descriptor for `ClientStatusRequests`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List clientStatusRequestsDescriptor = $convert.base64Decode('ChRDbGllbnRTdGF0dXNSZXF1ZXN0cxIsChFhbGxSZW1vdGVDb21tYW5kcxgpIAEoCVIRYWxsUmVtb3RlQ29tbWFuZHM=');
-@$core.Deprecated('Use requestsAndStatusFromHubDescriptor instead')
-const RequestsAndStatusFromHub$json = const {
-  '1': 'RequestsAndStatusFromHub',
-  '2': const [
+    const {'1': 'sendingType', '3': 41, '4': 1, '5': 14, '6': '.CbjHub.SendingType', '10': 'sendingType'},
     const {'1': 'allRemoteCommands', '3': 42, '4': 1, '5': 9, '10': 'allRemoteCommands'},
   ],
 };
 
+/// Descriptor for `ClientStatusRequests`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List clientStatusRequestsDescriptor = $convert.base64Decode('ChRDbGllbnRTdGF0dXNSZXF1ZXN0cxI1CgtzZW5kaW5nVHlwZRgpIAEoDjITLkNiakh1Yi5TZW5kaW5nVHlwZVILc2VuZGluZ1R5cGUSLAoRYWxsUmVtb3RlQ29tbWFuZHMYKiABKAlSEWFsbFJlbW90ZUNvbW1hbmRz');
+@$core.Deprecated('Use requestsAndStatusFromHubDescriptor instead')
+const RequestsAndStatusFromHub$json = const {
+  '1': 'RequestsAndStatusFromHub',
+  '2': const [
+    const {'1': 'sendingType', '3': 43, '4': 1, '5': 14, '6': '.CbjHub.SendingType', '10': 'sendingType'},
+    const {'1': 'allRemoteCommands', '3': 44, '4': 1, '5': 9, '10': 'allRemoteCommands'},
+  ],
+};
+
 /// Descriptor for `RequestsAndStatusFromHub`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List requestsAndStatusFromHubDescriptor = $convert.base64Decode('ChhSZXF1ZXN0c0FuZFN0YXR1c0Zyb21IdWISLAoRYWxsUmVtb3RlQ29tbWFuZHMYKiABKAlSEWFsbFJlbW90ZUNvbW1hbmRz');
+final $typed_data.Uint8List requestsAndStatusFromHubDescriptor = $convert.base64Decode('ChhSZXF1ZXN0c0FuZFN0YXR1c0Zyb21IdWISNQoLc2VuZGluZ1R5cGUYKyABKA4yEy5DYmpIdWIuU2VuZGluZ1R5cGVSC3NlbmRpbmdUeXBlEiwKEWFsbFJlbW90ZUNvbW1hbmRzGCwgASgJUhFhbGxSZW1vdGVDb21tYW5kcw==');
 @$core.Deprecated('Use allRemoteCommandsDescriptor instead')
 const AllRemoteCommands$json = const {
   '1': 'AllRemoteCommands',

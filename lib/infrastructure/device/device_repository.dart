@@ -1,4 +1,4 @@
-import 'dart:convert';
+import 'dart:async';
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -9,10 +9,6 @@ import 'package:cybear_jinni/domain/devices/value_objects.dart';
 import 'package:cybear_jinni/domain/user/i_user_repository.dart';
 import 'package:cybear_jinni/domain/user/user_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/firestore_helpers.dart';
-import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/hub_client.dart'
-    as hubClient;
-import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart'
-    as hubGrpc;
 import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_as_dart/smart_connection.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/smart_client.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_device_object.dart';
@@ -82,35 +78,7 @@ class DeviceRepository implements IDeviceRepository {
 
   @override
   Stream<Either<DevicesFailure, KtList<DeviceEntity?>>> watchAll() async* {
-    final homeDoc = await _firestore.currentHomeDocument();
-
-    yield* hubClient.HubRequestsToApp.hubRequestsStream
-        .map((hubGrpc.RequestsAndStatusFromHub requestsAndStatusFromHub) {
-      final String requestAsString = requestsAndStatusFromHub.allRemoteCommands;
-      final Map<String, dynamic> requestAsJson =
-          jsonDecode(requestAsString) as Map<String, dynamic>;
-      final String? deviceTypeAsString =
-          requestAsJson['deviceTypes'] as String?;
-      if (deviceTypeAsString == null) {
-        return left(const DevicesFailure.empty(
-            failedValue: 'deviceTypeAsString is null'));
-      }
-      final DeviceTypes? deviceType = EnumHelper.stringToDt(deviceTypeAsString);
-      if (deviceType != null) {
-        final DeviceDtos deviceDtos = DeviceDtos.fromJson(requestAsJson);
-        final DeviceEntity deviceEntity = deviceDtos.toDomain();
-
-        if (deviceType == DeviceTypes.light) {
-          return right<DevicesFailure, KtList<DeviceEntity?>>(
-              [deviceEntity].toImmutableList());
-        }
-      }
-
-      // return right([null].toImmutableList());
-      return left(const DevicesFailure.empty(failedValue: 'sd'));
-      // return left<DevicesFailure, KtList<DeviceEntity>>(
-      //     DevicesFailure.insufficientPermission());
-    });
+    yield* DevicesStreams.devicesStream.map((event) => right(event));
 
     // homeDoc.devicesCollecttion.snapshots().map(
     //       (snapshot) => right<DevicesFailure, KtList<DeviceEntity?>>(
@@ -638,4 +606,15 @@ class DeviceRepository implements IDeviceRepository {
 
     return updateLocation;
   }
+}
+
+/// Stream of all devices
+class DevicesStreams {
+  /// Stream controller of the app request for the hub
+  static final devicesStreamController =
+      StreamController<KtList<DeviceEntity?>>();
+
+  /// Stream of the requests from the app to the hub
+  static Stream<KtList<DeviceEntity?>> get devicesStream =>
+      devicesStreamController.stream;
 }

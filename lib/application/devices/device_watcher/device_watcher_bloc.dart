@@ -22,6 +22,8 @@ class DeviceWatcherBloc extends Bloc<DeviceWatcherEvent, DeviceWatcherState> {
   StreamSubscription<Either<DevicesFailure, KtList<DeviceEntity?>>>?
       _deviceStreamSubscription;
 
+  List<DeviceEntity?> allDevices = <DeviceEntity?>[];
+
   @override
   Stream<DeviceWatcherState> mapEventToState(
     DeviceWatcherEvent event,
@@ -36,7 +38,10 @@ class DeviceWatcherBloc extends Bloc<DeviceWatcherEvent, DeviceWatcherState> {
       },
       devicesReceived: (e) async* {
         yield e.failureOrDevices.fold((f) => DeviceWatcherState.loadFailure(f),
-            (d) => DeviceWatcherState.loadSuccess(d));
+            (d) {
+          allDevices.addAll(d.asList());
+          return DeviceWatcherState.loadSuccess(allDevices.toImmutableList());
+        });
       },
     );
   }
