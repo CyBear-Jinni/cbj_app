@@ -1,4 +1,5 @@
-import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_device_object.dart';
+
+import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -14,8 +15,8 @@ class SettingsPageOfBlinds extends StatelessWidget {
     // }
   }
 
-  final List<SmartDeviceObject> allSmartDeviceLightDevices =
-      <SmartDeviceObject>[];
+  final List<DeviceEntity> allSmartDeviceLightDevices =
+      <DeviceEntity>[];
 
   @override
   Widget build(BuildContext context) {
@@ -101,8 +102,8 @@ class SettingsPageOfBlinds extends StatelessWidget {
                     background: Container(
                       color: Colors.red,
                     ),
-                    child: tile(allSmartDeviceLightDevices[index].roomName!,
-                        allSmartDeviceLightDevices[index].name!),
+                    child: tile(allSmartDeviceLightDevices[index].roomName!.getOrCrash()!,
+                        allSmartDeviceLightDevices[index].defaultName!.getOrCrash()!),
                   );
                 },
                 itemCount: allSmartDeviceLightDevices.length,

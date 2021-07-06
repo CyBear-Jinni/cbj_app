@@ -9,8 +9,7 @@ import 'package:flutter/material.dart' as _i2;
 
 import '../../domain/cbj_comp/cbj_comp_entity.dart' as _i24;
 import '../../domain/folder_of_scenes/folder_of_scene.dart' as _i23;
-import '../../infrastructure/core/gen/smart_device/smart_room_object.dart'
-    as _i25;
+import '../../domain/room/smart_room_object.dart' as _i25;
 import '../add_new_devices_process/choose_device_vendor_to_add/choose_device_vendor_to_add_page.dart'
     as _i14;
 import '../add_new_devices_process/configure_new_cbj_comp/configure_new_cbj_comp_page.dart'

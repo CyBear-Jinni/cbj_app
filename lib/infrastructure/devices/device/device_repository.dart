@@ -11,13 +11,7 @@ import 'package:cybear_jinni/domain/user/i_user_repository.dart';
 import 'package:cybear_jinni/domain/user/user_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/firestore_helpers.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/hub_client.dart';
-import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart'
-    as hub_client_grpc;
-import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_as_dart/smart_connection.pbgrpc.dart'
-    as smart_client_grpc;
-import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/smart_client.dart'
-    as smart_client;
-import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_device_object.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/devices/device/device_dtos.dart';
 import 'package:cybear_jinni/infrastructure/devices/device_helper.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums.dart';
@@ -51,13 +45,13 @@ class DeviceRepository implements IDeviceRepository {
   @override
   void addOrUpdateDeviceAndStateToWaiting(DeviceEntity deviceEntity) {
     addOrUpdateDevice(deviceEntity.copyWith(
-        deviceStateGRPC: DeviceState(EnumHelper.deviceStateToString(
-            smart_client_grpc.DeviceStateGRPC.waitingInComp))));
+        deviceStateGRPC: DeviceState(
+            EnumHelper.deviceStateToString(DeviceStateGRPC.waitingInComp))));
   }
 
   @override
   Future<void> initiateHubConnection() async {
-    await smart_client.SmartClient.createStreamWithHub('192.168.31.154');
+    await HubClient.createStreamWithHub('192.168.31.154');
   }
 
   @override
@@ -72,13 +66,13 @@ class DeviceRepository implements IDeviceRepository {
               .map((e) {
                 if ((e.data()! as Map<String, dynamic>)[
                             GrpcClientTypes.deviceTypesTypeString] ==
-                        smart_client_grpc.DeviceTypes.light.toString() ||
+                        DeviceTypes.light.toString() ||
                     (e.data()! as Map<String, dynamic>)[
                             GrpcClientTypes.deviceTypesTypeString] ==
-                        smart_client_grpc.DeviceTypes.blinds.toString() ||
+                        DeviceTypes.blinds.toString() ||
                     (e.data()! as Map<String, dynamic>)[
                             GrpcClientTypes.deviceTypesTypeString] ==
-                        smart_client_grpc.DeviceTypes.boiler.toString()) {
+                        DeviceTypes.boiler.toString()) {
                   return DeviceDtos.fromFirestore(e).toDomain();
                 } else {
                   print('Type not supported');
@@ -142,7 +136,7 @@ class DeviceRepository implements IDeviceRepository {
     yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
           return right(r.toList().asList().where((element) {
             return element!.deviceTypes!.getOrCrash() ==
-                smart_client_grpc.DeviceTypes.light.toString();
+                DeviceTypes.light.toString();
           }).toImmutableList());
         }));
   }
@@ -154,7 +148,7 @@ class DeviceRepository implements IDeviceRepository {
     yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
           return right(r.toList().asList().where((element) {
             return element!.deviceTypes!.getOrCrash() ==
-                smart_client_grpc.DeviceTypes.blinds.toString();
+                DeviceTypes.blinds.toString();
           }).toImmutableList());
         }));
   }
@@ -166,7 +160,7 @@ class DeviceRepository implements IDeviceRepository {
     yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
           return right(r.toList().asList().where((element) {
             return element!.deviceTypes!.getOrCrash() ==
-                smart_client_grpc.DeviceTypes.boiler.toString();
+                DeviceTypes.boiler.toString();
           }).toImmutableList());
         }));
   }
@@ -271,11 +265,11 @@ class DeviceRepository implements IDeviceRepository {
     final List<DeviceEntity?> deviceEntityListToUpdate =
         await getDeviceEntityListFromId(devicesId!);
 
-    final String waitingState = EnumHelper.deviceStateToString(
-        smart_client_grpc.DeviceStateGRPC.waitingInFirebase);
+    final String waitingState =
+        EnumHelper.deviceStateToString(DeviceStateGRPC.waitingInFirebase);
 
     final String actionLightOn =
-        EnumHelper.deviceActionToString(smart_client_grpc.DeviceActions.on);
+        EnumHelper.deviceActionToString(DeviceActions.on);
 
     try {
       deviceEntityListToUpdate.forEach((element) {
@@ -304,11 +298,11 @@ class DeviceRepository implements IDeviceRepository {
     final List<DeviceEntity?> deviceEntityListToUpdate =
         await getDeviceEntityListFromId(devicesId!);
 
-    final String waitingState = EnumHelper.deviceStateToString(
-        smart_client_grpc.DeviceStateGRPC.waitingInFirebase);
+    final String waitingState =
+        EnumHelper.deviceStateToString(DeviceStateGRPC.waitingInFirebase);
 
     final String actionLightOff =
-        EnumHelper.deviceActionToString(smart_client_grpc.DeviceActions.off);
+        EnumHelper.deviceActionToString(DeviceActions.off);
 
     try {
       deviceEntityListToUpdate.forEach((element) {
@@ -343,9 +337,9 @@ class DeviceRepository implements IDeviceRepository {
             devicesCollection.doc(element);
         updateDatabase(documentPath: deviceDocumentReference, fieldsToUpdate: {
           GrpcClientTypes.deviceActionsTypeString:
-              smart_client_grpc.DeviceActions.moveUp.toString(),
+              DeviceActions.moveUp.toString(),
           GrpcClientTypes.deviceStateGRPCTypeString:
-              smart_client_grpc.DeviceStateGRPC.waitingInFirebase.toString()
+              DeviceStateGRPC.waitingInFirebase.toString()
         });
       });
     } on PlatformException catch (e) {
@@ -373,9 +367,9 @@ class DeviceRepository implements IDeviceRepository {
             devicesCollection.doc(element);
         updateDatabase(documentPath: deviceDocumentReference, fieldsToUpdate: {
           GrpcClientTypes.deviceActionsTypeString:
-              smart_client_grpc.DeviceActions.stop.toString(),
+              DeviceActions.stop.toString(),
           GrpcClientTypes.deviceStateGRPCTypeString:
-              smart_client_grpc.DeviceStateGRPC.waitingInFirebase.toString()
+              DeviceStateGRPC.waitingInFirebase.toString()
         });
       });
     } on PlatformException catch (e) {
@@ -403,9 +397,9 @@ class DeviceRepository implements IDeviceRepository {
             devicesCollection.doc(element);
         updateDatabase(documentPath: deviceDocumentReference, fieldsToUpdate: {
           GrpcClientTypes.deviceActionsTypeString:
-              smart_client_grpc.DeviceActions.moveDown.toString(),
+              DeviceActions.moveDown.toString(),
           GrpcClientTypes.deviceStateGRPCTypeString:
-              smart_client_grpc.DeviceStateGRPC.waitingInFirebase.toString()
+              DeviceStateGRPC.waitingInFirebase.toString()
         });
       });
     } on PlatformException catch (e) {
@@ -476,23 +470,16 @@ class DeviceRepository implements IDeviceRepository {
 
         lastKnownIp = '192.168.31.154';
 
-        final SmartDeviceObject smartDeviceObject = SmartDeviceObject(
-          EnumHelper.stringToDt(deviceEntity.deviceTypes!.getOrCrash()),
-          id,
-          lastKnownIp,
-        );
-
-        final String waitingState = EnumHelper.deviceStateToString(
-            smart_client_grpc.DeviceStateGRPC.waitingInFirebase);
+        final String waitingState =
+            EnumHelper.deviceStateToString(DeviceStateGRPC.waitingInFirebase);
 
         deviceEntity.copyWith(deviceStateGRPC: DeviceState(waitingState));
         //
         final String deviceDtoAsString =
             DeviceHelper.convertDomainToJsonString(deviceEntity);
-        final hub_client_grpc.ClientStatusRequests clientStatusRequests =
-            hub_client_grpc.ClientStatusRequests(
+        final ClientStatusRequests clientStatusRequests = ClientStatusRequests(
           allRemoteCommands: deviceDtoAsString,
-          sendingType: hub_client_grpc.SendingType.deviceType,
+          sendingType: SendingType.deviceType,
         );
         AppRequestsToHub.appRequestsToHubStreamController.sink
             .add(clientStatusRequests);
@@ -501,23 +488,6 @@ class DeviceRepository implements IDeviceRepository {
 
         final String mDnsName = deviceEntity.deviceMdnsName!.getOrCrash();
         lastKnownIp = await getDeviceIpByDeviceAvahiName(mDnsName);
-
-        final SmartDeviceObject smartDeviceObject = SmartDeviceObject(
-          EnumHelper.stringToDt(deviceEntity.deviceTypes!.getOrCrash()),
-          id,
-          lastKnownIp,
-        );
-
-        if (deviceEntity.deviceActions!.getOrCrash().toLowerCase() ==
-            smart_client_grpc.DeviceActions.on.toString()) {
-          final String deviceSuccessStatus =
-              await smart_client.SmartClient.setSmartDeviceOn(
-                  smartDeviceObject);
-        } else {
-          final String deviceSuccessStatus =
-              await smart_client.SmartClient.setSmartDeviceOff(
-                  smartDeviceObject);
-        }
 
         final DocumentReference homeDoc =
             await _firestore.currentHomeDocument();

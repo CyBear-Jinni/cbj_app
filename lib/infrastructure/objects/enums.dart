@@ -35,7 +35,7 @@
 //   SBlindsStop //  Stop the blinds
 // }
 
-import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_as_dart/smart_connection.pbgrpc.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 
 class EnumHelper {
   static String dTToString(DeviceTypes deviceType) {

@@ -1,7 +1,7 @@
 import 'package:cybear_jinni/domain/devices/sonoff_s20/sonoff_s20_errors.dart';
 import 'package:cybear_jinni/domain/devices/sonoff_s20/sonoff_s20_failures.dart';
 import 'package:cybear_jinni/domain/devices/sonoff_s20/sonoff_s20_validators.dart';
-import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_as_dart/smart_connection.pbgrpc.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:uuid/uuid.dart';

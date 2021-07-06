@@ -5,7 +5,7 @@ import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/hub_client.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart'
     as hub_grpc;
-import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_as_dart/smart_connection.pbgrpc.dart'
+import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart'
     as smart_device;
 import 'package:cybear_jinni/infrastructure/devices/device/device_dtos.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums.dart';

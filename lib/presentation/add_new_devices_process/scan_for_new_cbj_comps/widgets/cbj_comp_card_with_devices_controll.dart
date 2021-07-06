@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/devices/device_actor/device_actor_bloc.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
 import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
-import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_as_dart/smart_connection.pbgrpc.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
