@@ -38,7 +38,7 @@ import 'domain/add_user_to_home/i_add_user_to_home_repository.dart' as _i6;
 import 'domain/auth/i_auth_facade.dart' as _i8;
 import 'domain/cbj_comp/i_cbj_comp_repository.dart' as _i10;
 import 'domain/create_home/i_create_home_repository.dart' as _i12;
-import 'domain/devices/i_device_repository.dart' as _i14;
+import 'domain/devices/device/i_device_repository.dart' as _i14;
 import 'domain/folder_of_scenes/i_folder_of_scenes_repository.dart' as _i16;
 import 'domain/folders_of_scenes/i_folders_of_scenes_repository.dart' as _i18;
 import 'domain/home_user/i_home_user_repository.dart' as _i20;
@@ -52,7 +52,7 @@ import 'infrastructure/auth/firebase_auth_facade.dart' as _i9;
 import 'infrastructure/cbj_comp/cbj_comp_repository.dart' as _i11;
 import 'infrastructure/core/firebase_injectable_module.dart' as _i54;
 import 'infrastructure/create_home/create_home_repository.dart' as _i13;
-import 'infrastructure/device/device_repository.dart' as _i15;
+import 'infrastructure/devices/device/device_repository.dart' as _i15;
 import 'infrastructure/folder_of_scenes/folder_of_scenes_repository.dart'
     as _i17;
 import 'infrastructure/folders_of_scenes/folders_of_scenes_repository.dart'

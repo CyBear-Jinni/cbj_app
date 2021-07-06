@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:cybear_jinni/domain/devices/device_entity.dart';
-import 'package:cybear_jinni/domain/devices/devices_failures.dart';
+import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
+import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
 import 'package:dartz/dartz.dart';
 import 'package:kt_dart/kt.dart';
 
@@ -10,6 +10,8 @@ abstract class IDeviceRepository {
   // CUD
 
   // C Read UD
+
+  void addOrUpdateDevice(DeviceEntity deviceEntity);
 
   Future<void> initiateHubConnection();
 

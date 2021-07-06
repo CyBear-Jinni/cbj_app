@@ -1,5 +1,5 @@
 import 'package:cybear_jinni/application/boilers/boilers_actor/boilers_actor_bloc.dart';
-import 'package:cybear_jinni/domain/devices/device_entity.dart';
+import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_as_dart/smart_connection.pb.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

@@ -1,6 +1,6 @@
 import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
-import 'package:cybear_jinni/domain/devices/device_entity.dart';
-import 'package:cybear_jinni/domain/devices/value_objects.dart';
+import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
+import 'package:cybear_jinni/domain/devices/device/value_objects.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_as_dart/smart_connection.pb.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

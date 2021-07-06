@@ -1,6 +1,6 @@
-import 'package:cybear_jinni/domain/devices/devices_errors.dart';
-import 'package:cybear_jinni/domain/devices/devices_failures.dart';
-import 'package:cybear_jinni/domain/devices/devices_validators.dart';
+import 'package:cybear_jinni/domain/devices/device/devices_errors.dart';
+import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
+import 'package:cybear_jinni/domain/devices/device/devices_validators.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_as_dart/smart_connection.pbgrpc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';

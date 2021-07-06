@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:cybear_jinni/domain/devices/device_entity.dart';
-import 'package:cybear_jinni/domain/devices/devices_failures.dart';
-import 'package:cybear_jinni/domain/devices/i_device_repository.dart';
+import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
+import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
+import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -22,8 +22,6 @@ class DeviceWatcherBloc extends Bloc<DeviceWatcherEvent, DeviceWatcherState> {
   StreamSubscription<Either<DevicesFailure, KtList<DeviceEntity?>>>?
       _deviceStreamSubscription;
 
-  List<DeviceEntity?> allDevices = <DeviceEntity?>[];
-
   @override
   Stream<DeviceWatcherState> mapEventToState(
     DeviceWatcherEvent event,
@@ -39,8 +37,7 @@ class DeviceWatcherBloc extends Bloc<DeviceWatcherEvent, DeviceWatcherState> {
       devicesReceived: (e) async* {
         yield e.failureOrDevices.fold((f) => DeviceWatcherState.loadFailure(f),
             (d) {
-          allDevices.addAll(d.asList());
-          return DeviceWatcherState.loadSuccess(allDevices.toImmutableList());
+          return DeviceWatcherState.loadSuccess(d);
         });
       },
     );

@@ -1,14 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:cybear_jinni/domain/devices/device_entity.dart';
-import 'package:cybear_jinni/domain/devices/value_objects.dart';
+import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
+import 'package:cybear_jinni/domain/devices/device/value_objects.dart';
+import 'package:cybear_jinni/infrastructure/devices/abstract_device/device_entity_dto_abstract.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'device_dtos.freezed.dart';
 part 'device_dtos.g.dart';
 
 @freezed
-abstract class DeviceDtos implements _$DeviceDtos {
-  const factory DeviceDtos({
+abstract class DeviceDtos implements _$DeviceDtos, DeviceEntityDtoAbstract {
+  factory DeviceDtos({
+    String? deviceDtoClass,
     String? id,
     required String? defaultName,
     required String? roomId,
@@ -28,10 +30,11 @@ abstract class DeviceDtos implements _$DeviceDtos {
     // required ServerTimestampConverter() FieldValue serverTimeStamp,
   }) = _DeviceDtos;
 
-  const DeviceDtos._();
+  DeviceDtos._();
 
   factory DeviceDtos.fromDomain(DeviceEntity deviceEntity) {
     return DeviceDtos(
+      deviceDtoClass: (DeviceDtos).toString(),
       id: deviceEntity.id!.getOrCrash(),
       defaultName: deviceEntity.defaultName!.getOrCrash(),
       roomId: deviceEntity.roomId!.getOrCrash(),
@@ -58,6 +61,9 @@ abstract class DeviceDtos implements _$DeviceDtos {
     return DeviceDtos.fromJson(doc.data() as Map<String, dynamic>)
         .copyWith(id: doc.id);
   }
+
+  @override
+  final String deviceDtoClassInstance = (DeviceDtos).toString();
 
   DeviceEntity toDomain() {
     return DeviceEntity(

@@ -1,5 +1,5 @@
 import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
-import 'package:cybear_jinni/domain/devices/device_entity.dart';
+import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/lights/widgets/error_lights_device_card_widget.dart';
 import 'package:cybear_jinni/presentation/lights/widgets/light_widget.dart';

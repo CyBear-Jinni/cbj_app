@@ -1,5 +1,8 @@
-import 'package:cybear_jinni/domain/devices/devices_failures.dart';
-import 'package:cybear_jinni/domain/devices/value_objects.dart';
+import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
+import 'package:cybear_jinni/domain/devices/device/value_objects.dart';
+import 'package:cybear_jinni/infrastructure/devices/abstract_device/device_entity_dto_abstract.dart';
+import 'package:cybear_jinni/infrastructure/devices/device/device_dtos.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -8,7 +11,7 @@ part 'device_entity.freezed.dart';
 /// Abstract smart device that exist inside a computer, the implementations will
 /// be actual device like blinds lights and more
 @freezed
-abstract class DeviceEntity implements _$DeviceEntity {
+abstract class DeviceEntity implements _$DeviceEntity, DeviceEntityAbstract {
   /// All public field of device entity
   const factory DeviceEntity({
     /// The smart device id
@@ -98,5 +101,29 @@ abstract class DeviceEntity implements _$DeviceEntity {
     //           .fold(() => right(unit), (f) => left(f)),
     //     )
     //     .fold((f) => some(f), (_) => none());
+  }
+
+  @override
+  DeviceEntityDtoAbstract toInfrastructure() {
+    print('DeviceDtos.fromDomain');
+    return DeviceDtos(
+      deviceDtoClass: (DeviceDtos).toString(),
+      id: this.id!.getOrCrash(),
+      defaultName: defaultName!.getOrCrash(),
+      roomId: roomId!.getOrCrash(),
+      roomName: roomName!.getOrCrash(),
+      deviceStateGRPC: deviceStateGRPC!.getOrCrash(),
+      stateMassage: stateMassage!.getOrCrash(),
+      senderDeviceOs: senderDeviceOs!.getOrCrash(),
+      senderDeviceModel: senderDeviceModel!.getOrCrash(),
+      senderId: senderId!.getOrCrash(),
+      deviceActions: deviceActions!.getOrCrash(),
+      deviceTypes: deviceTypes!.getOrCrash(),
+      compUuid: compUuid!.getOrCrash(),
+      deviceSecondWiFi: deviceSecondWiFi!.getOrCrash(),
+      deviceMdnsName: deviceMdnsName!.getOrCrash(),
+      lastKnownIp: lastKnownIp!.getOrCrash(),
+      // serverTimeStamp: FieldValue.serverTimestamp(),
+    );
   }
 }

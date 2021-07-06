@@ -8,6 +8,7 @@ part of 'device_dtos.dart';
 
 _$_DeviceDtos _$_$_DeviceDtosFromJson(Map<String, dynamic> json) {
   return _$_DeviceDtos(
+    deviceDtoClass: json['deviceDtoClass'] as String?,
     id: json['id'] as String?,
     defaultName: json['defaultName'] as String?,
     roomId: json['roomId'] as String?,
@@ -28,6 +29,7 @@ _$_DeviceDtos _$_$_DeviceDtosFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$_$_DeviceDtosToJson(_$_DeviceDtos instance) =>
     <String, dynamic>{
+      'deviceDtoClass': instance.deviceDtoClass,
       'id': instance.id,
       'defaultName': instance.defaultName,
       'roomId': instance.roomId,

@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/domain/devices/devices_failures.dart';
+import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums.dart';
 import 'package:dartz/dartz.dart';
 
