@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
 import 'package:cybear_jinni/domain/devices/device/value_objects.dart';
 import 'package:cybear_jinni/infrastructure/devices/abstract_device/device_entity_dto_abstract.dart';
@@ -57,11 +56,7 @@ abstract class DeviceDtos implements _$DeviceDtos, DeviceEntityDtoAbstract {
   factory DeviceDtos.fromJson(Map<String, dynamic> json) =>
       _$DeviceDtosFromJson(json);
 
-  factory DeviceDtos.fromFirestore(DocumentSnapshot doc) {
-    return DeviceDtos.fromJson(doc.data() as Map<String, dynamic>)
-        .copyWith(id: doc.id);
-  }
-
+  
   @override
   final String deviceDtoClassInstance = (DeviceDtos).toString();
 

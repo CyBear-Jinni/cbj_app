@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -8,7 +7,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class LeftNavigationDrawerHomePage extends StatelessWidget {
   Future<void> _fireBaseLogOut(BuildContext context) async {
     try {
-      await FirebaseAuth.instance.signOut();
       context.router.replace(const SignInRoute());
     } catch (e) {
       print(e); // TODO: show dialog with error

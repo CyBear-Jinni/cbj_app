@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cybear_jinni/domain/create_home/create_home_entity.dart';
 import 'package:cybear_jinni/domain/create_home/create_home_value_objects.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -21,11 +20,6 @@ abstract class CreateHomeDtos implements _$CreateHomeDtos {
 
   factory CreateHomeDtos.fromJson(Map<String, dynamic> json) =>
       _$CreateHomeDtosFromJson(json);
-
-  factory CreateHomeDtos.fromFirestore(DocumentSnapshot? doc) {
-    return CreateHomeDtos.fromJson(doc!.data() as Map<String, dynamic>)
-        .copyWith(id: doc.id);
-  }
 
   factory CreateHomeDtos.fromDomain(CreateHomeEntity createHomeEntity) {
     return CreateHomeDtos(

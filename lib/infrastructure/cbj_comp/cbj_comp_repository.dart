@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_failures.dart';
 import 'package:cybear_jinni/domain/cbj_comp/i_cbj_comp_repository.dart';
@@ -225,7 +224,7 @@ class CBJCompRepository implements ICBJCompRepository {
         stateMassage: 'Setting up device',
         roomId: element.roomId!.getOrCrash(),
         id: element.id!.getOrCrash(),
-        serverTimeStamp: FieldValue.serverTimestamp().toString(),
+        serverTimeStamp: DateTime.now().toString(),
       );
       smartDevicesList.add(smartDeviceInfo);
     });

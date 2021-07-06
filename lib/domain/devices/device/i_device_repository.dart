@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
 import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
 import 'package:dartz/dartz.dart';
@@ -36,7 +35,7 @@ abstract class IDeviceRepository {
 
   /// Update document in the database in the following fields
   Future<Either<DevicesFailure, Unit>> updateDatabase({
-    required DocumentReference documentPath,
+    required Map<String, dynamic> documentPath,
     required Map<String, dynamic> fieldsToUpdate,
     String forceUpdateLocation,
   });

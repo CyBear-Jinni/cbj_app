@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cybear_jinni/domain/user/all_homes_of_user/all_homes_of_user_entity.dart';
 import 'package:cybear_jinni/domain/user/all_homes_of_user/all_homes_of_user_value_objects.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -26,9 +25,9 @@ abstract class AllHomesOfUserDtos implements _$AllHomesOfUserDtos {
   factory AllHomesOfUserDtos.fromJson(Map<String, dynamic> json) =>
       _$AllHomesOfUserDtosFromJson(json);
 
-  factory AllHomesOfUserDtos.fromFirestore(DocumentSnapshot doc) {
-    return AllHomesOfUserDtos.fromJson(doc.data()! as Map<String, dynamic>)
-        .copyWith(id: doc.id);
+  factory AllHomesOfUserDtos.fromFirestore(Map<String, dynamic> doc) {
+    return AllHomesOfUserDtos.fromJson(doc);
+    // .copyWith(id: doc.id);
   }
 
   AllHomesOfUserEntity toDomain() {
@@ -39,14 +38,14 @@ abstract class AllHomesOfUserDtos implements _$AllHomesOfUserDtos {
   }
 }
 
-class ServerTimestampConverter implements JsonConverter<FieldValue, Object> {
+class ServerTimestampConverter implements JsonConverter<DateTime, Object> {
   const ServerTimestampConverter();
 
   @override
-  FieldValue fromJson(Object json) {
-    return FieldValue.serverTimestamp();
+  DateTime fromJson(Object json) {
+    return DateTime.now();
   }
 
   @override
-  Object toJson(FieldValue fieldValue) => fieldValue;
+  Object toJson(DateTime fieldValue) => fieldValue;
 }

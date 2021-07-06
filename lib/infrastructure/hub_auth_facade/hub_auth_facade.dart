@@ -7,26 +7,16 @@ import 'package:cybear_jinni/domain/core/value_objects.dart';
 import 'package:cybear_jinni/domain/user/i_user_repository.dart';
 import 'package:cybear_jinni/domain/user/user_entity.dart';
 import 'package:cybear_jinni/domain/user/user_value_objects.dart';
-import 'package:cybear_jinni/infrastructure/auth/firebase_user_mapper.dart';
 import 'package:cybear_jinni/infrastructure/core/hive_local_db/hive_local_db.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:dartz/dartz.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
 
-import 'firebase_user_mapper.dart';
-
 @LazySingleton(as: IAuthFacade)
-class FirebaseAuthFacade implements IAuthFacade {
-  FirebaseAuthFacade(this._firebaseAuth, this._googleSignIn);
-
-  final FirebaseAuth _firebaseAuth;
-  final GoogleSignIn _googleSignIn;
-
+class HubAuthFacade implements IAuthFacade {
   @override
   Future<Option<MUser>> getSignedInUser() async =>
-      optionOf(_firebaseAuth.currentUser?.toDomain());
+      optionOf(MUser(id: UniqueId()));
 
   @override
   Future<Option<MHome>> getCurrentHome() async => optionOf(MHome(
@@ -55,17 +45,17 @@ class FirebaseAuthFacade implements IAuthFacade {
     final passwordStr = password!.getOrCrash();
 
     try {
-      final UserCredential userCredential =
-          await _firebaseAuth.createUserWithEmailAndPassword(
-              email: emailAddressStr, password: passwordStr);
-
-      final String userIdString = userCredential.user!.uid;
+      // final UserCredential userCredential =
+      //     await _firebaseAuth.createUserWithEmailAndPassword(
+      //         email: emailAddressStr, password: passwordStr);
+      //
+      final String userIdString = '12344';
 
       final String userName =
           emailAddressStr.substring(0, emailAddressStr.indexOf('@'));
 
       final UserEntity userEntity = UserEntity(
-        id: UserUniqueId.fromUniqueString(userIdString),
+        id: UserUniqueId.fromUniqueString('12344'),
         email: UserEmail(emailAddressStr),
         name: UserName(userName),
         firstName: UserFirstName(' '),
@@ -77,8 +67,8 @@ class FirebaseAuthFacade implements IAuthFacade {
 
       final MUser mUser = MUser(id: UniqueId.fromUniqueString(userIdString));
       return right(mUser);
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'email-already-in-use') {
+    } catch (e) {
+      if (e == 'email-already-in-use') {
         return left(const AuthFailure.emailAlreadyInUse());
       } else {
         return left(const AuthFailure.serverError());
@@ -93,11 +83,9 @@ class FirebaseAuthFacade implements IAuthFacade {
     final passwordStr = password.getOrCrash();
 
     try {
-      await _firebaseAuth.signInWithEmailAndPassword(
-          email: emailAddressStr, password: passwordStr);
       return right(unit);
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'wrong-password' || e.code == 'user-not-found') {
+    } catch (e) {
+      if (e == 'wrong-password' || e == 'user-not-found') {
         return left(const AuthFailure.invalidEmailAndPasswordCombination());
       } else {
         return left(const AuthFailure.serverError());
@@ -106,30 +94,5 @@ class FirebaseAuthFacade implements IAuthFacade {
   }
 
   @override
-  Future<Either<AuthFailure, Unit>> signInWithGoogle() async {
-    try {
-      final googleUser = await _googleSignIn.signIn();
-
-      if (googleUser == null) {
-        return left(const AuthFailure.cancelledByUser());
-      }
-
-      final googleAuthentication = await googleUser.authentication;
-      final authCredential = GoogleAuthProvider.credential(
-        accessToken: googleAuthentication.accessToken,
-        idToken: googleAuthentication.idToken,
-      );
-      return _firebaseAuth
-          .signInWithCredential(authCredential)
-          .then((r) => right(unit));
-    } on FirebaseAuthException catch (_) {
-      return left(const AuthFailure.serverError());
-    }
-  }
-
-  @override
-  Future<void> signOut() => Future.wait([
-        _googleSignIn.signOut(),
-        _firebaseAuth.signOut(),
-      ]);
+  Future<void> signOut() => Future.wait([]);
 }

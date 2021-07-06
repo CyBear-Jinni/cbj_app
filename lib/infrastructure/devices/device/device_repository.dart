@@ -2,14 +2,12 @@ import 'dart:async';
 import 'dart:collection';
 import 'dart:io';
 
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
 import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
 import 'package:cybear_jinni/domain/devices/device/value_objects.dart';
 import 'package:cybear_jinni/domain/user/i_user_repository.dart';
 import 'package:cybear_jinni/domain/user/user_entity.dart';
-import 'package:cybear_jinni/infrastructure/core/firestore_helpers.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/hub_client.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/devices/device/device_dtos.dart';
@@ -28,10 +26,6 @@ import 'package:rxdart/rxdart.dart';
 
 @LazySingleton(as: IDeviceRepository)
 class DeviceRepository implements IDeviceRepository {
-  DeviceRepository(this._firestore);
-
-  final FirebaseFirestore _firestore;
-
   // final DeviceRemoteService _deviceRemoteService;
   // final DeviceLocalService _deviceLocalService;
   HashMap<String, DeviceEntity> allDevices = HashMap<String, DeviceEntity>();
@@ -56,30 +50,28 @@ class DeviceRepository implements IDeviceRepository {
 
   @override
   Future<Either<DevicesFailure, KtList<DeviceEntity?>>> getAllDevices() async {
-    final homeDoc = await _firestore.currentHomeDocument();
-
     try {
-      final QuerySnapshot allDevicesSnapshot =
-          await homeDoc.devicesCollecttion.get();
-      return right<DevicesFailure, KtList<DeviceEntity?>>(
-          allDevicesSnapshot.docs
-              .map((e) {
-                if ((e.data()! as Map<String, dynamic>)[
-                            GrpcClientTypes.deviceTypesTypeString] ==
-                        DeviceTypes.light.toString() ||
-                    (e.data()! as Map<String, dynamic>)[
-                            GrpcClientTypes.deviceTypesTypeString] ==
-                        DeviceTypes.blinds.toString() ||
-                    (e.data()! as Map<String, dynamic>)[
-                            GrpcClientTypes.deviceTypesTypeString] ==
-                        DeviceTypes.boiler.toString()) {
-                  return DeviceDtos.fromFirestore(e).toDomain();
-                } else {
-                  print('Type not supported');
-                }
-              })
-              .where((element) => element != null)
-              .toImmutableList());
+      // final QuerySnapshot allDevicesSnapshot =
+      //     await homeDoc.devicesCollecttion.get();
+      // return right<DevicesFailure, KtList<DeviceEntity?>>(
+      //     allDevicesSnapshot.docs
+      //         .map((e) {
+      //           if ((e.data()! as Map<String, dynamic>)[
+      //                       GrpcClientTypes.deviceTypesTypeString] ==
+      //                   DeviceTypes.light.toString() ||
+      //               (e.data()! as Map<String, dynamic>)[
+      //                       GrpcClientTypes.deviceTypesTypeString] ==
+      //                   DeviceTypes.blinds.toString() ||
+      //               (e.data()! as Map<String, dynamic>)[
+      //                       GrpcClientTypes.deviceTypesTypeString] ==
+      //                   DeviceTypes.boiler.toString()) {
+      //             return DeviceDtos.fromFirestore(e).toDomain();
+      //           } else {
+      //             print('Type not supported');
+      //           }
+      //         })
+      //         .where((element) => element != null)
+      //         .toImmutableList());
     } catch (e) {
       if (e is PlatformException && e.message!.contains('PERMISSION_DENIED')) {
         print('Insufficient permission while getting all devices');
@@ -90,6 +82,7 @@ class DeviceRepository implements IDeviceRepository {
         return left(const DevicesFailure.unexpected());
       }
     }
+    return left(const DevicesFailure.unexpected());
   }
 
   @override
@@ -197,12 +190,12 @@ class DeviceRepository implements IDeviceRepository {
           senderDeviceModel: DeviceSenderDeviceModel(deviceModelString),
           senderId: DeviceSenderId.fromUniqueString(currentUserId));
 
-      final homeDoc = await _firestore.currentHomeDocument();
+      // final homeDoc = await _firestore.currentHomeDocument();
       final deviceDtos = DeviceDtos.fromDomain(deviceEntityTemp);
 
-      await homeDoc.devicesCollecttion
-          .doc(deviceDtos.id)
-          .set(deviceDtos.toJson());
+      // await homeDoc.devicesCollecttion
+      //     .doc(deviceDtos.id)
+      //     .set(deviceDtos.toJson());
       return right(unit);
     } on PlatformException catch (e) {
       if (e.message!.contains('PERMISSION_DENIED')) {
@@ -216,11 +209,11 @@ class DeviceRepository implements IDeviceRepository {
 
   @override
   Future<Either<DevicesFailure, Unit>> updateDatabase(
-      {required DocumentReference documentPath,
+      {required Map<String, dynamic> documentPath,
       required Map<String, dynamic> fieldsToUpdate,
       String? forceUpdateLocation}) async {
     try {
-      await documentPath.update(fieldsToUpdate);
+      // await documentPath.update(fieldsToUpdate);
       return right(unit);
     } on PlatformException catch (e) {
       if (e.message!.contains('NOT_FOUND')) {
@@ -329,19 +322,19 @@ class DeviceRepository implements IDeviceRepository {
   Future<Either<DevicesFailure, Unit>> moveUpBlinds(
       {List<String>? devicesId, String? forceUpdateLocation}) async {
     try {
-      final DocumentReference homeDoc = await _firestore.currentHomeDocument();
-      final CollectionReference devicesCollection = homeDoc.devicesCollecttion;
+      // final DocumentReference homeDoc = await _firestore.currentHomeDocument();
+      // final CollectionReference devicesCollection = homeDoc.devicesCollecttion;
 
-      devicesId!.forEach((element) {
-        final DocumentReference deviceDocumentReference =
-            devicesCollection.doc(element);
-        updateDatabase(documentPath: deviceDocumentReference, fieldsToUpdate: {
-          GrpcClientTypes.deviceActionsTypeString:
-              DeviceActions.moveUp.toString(),
-          GrpcClientTypes.deviceStateGRPCTypeString:
-              DeviceStateGRPC.waitingInFirebase.toString()
-        });
-      });
+      // devicesId!.forEach((element) {
+      //   final DocumentReference deviceDocumentReference =
+      //       devicesCollection.doc(element);
+      //   updateDatabase(documentPath: deviceDocumentReference, fieldsToUpdate: {
+      //     GrpcClientTypes.deviceActionsTypeString:
+      //         DeviceActions.moveUp.toString(),
+      //     GrpcClientTypes.deviceStateGRPCTypeString:
+      //         DeviceStateGRPC.waitingInFirebase.toString()
+      //   });
+      // });
     } on PlatformException catch (e) {
       if (e.message!.contains('PERMISSION_DENIED')) {
         return left(const DevicesFailure.insufficientPermission());
@@ -359,19 +352,19 @@ class DeviceRepository implements IDeviceRepository {
   Future<Either<DevicesFailure, Unit>> stopBlinds(
       {List<String>? devicesId, String? forceUpdateLocation}) async {
     try {
-      final DocumentReference homeDoc = await _firestore.currentHomeDocument();
-      final CollectionReference devicesCollection = homeDoc.devicesCollecttion;
-
-      devicesId!.forEach((element) {
-        final DocumentReference deviceDocumentReference =
-            devicesCollection.doc(element);
-        updateDatabase(documentPath: deviceDocumentReference, fieldsToUpdate: {
-          GrpcClientTypes.deviceActionsTypeString:
-              DeviceActions.stop.toString(),
-          GrpcClientTypes.deviceStateGRPCTypeString:
-              DeviceStateGRPC.waitingInFirebase.toString()
-        });
-      });
+      // final DocumentReference homeDoc = await _firestore.currentHomeDocument();
+      // final CollectionReference devicesCollection = homeDoc.devicesCollecttion;
+      //
+      // devicesId!.forEach((element) {
+      //   final DocumentReference deviceDocumentReference =
+      //       devicesCollection.doc(element);
+      //   updateDatabase(documentPath: deviceDocumentReference, fieldsToUpdate: {
+      //     GrpcClientTypes.deviceActionsTypeString:
+      //         DeviceActions.stop.toString(),
+      //     GrpcClientTypes.deviceStateGRPCTypeString:
+      //         DeviceStateGRPC.waitingInFirebase.toString()
+      //   });
+      // });
     } on PlatformException catch (e) {
       if (e.message!.contains('PERMISSION_DENIED')) {
         return left(const DevicesFailure.insufficientPermission());
@@ -389,19 +382,19 @@ class DeviceRepository implements IDeviceRepository {
   Future<Either<DevicesFailure, Unit>> moveDownBlinds(
       {List<String>? devicesId, String? forceUpdateLocation}) async {
     try {
-      final DocumentReference homeDoc = await _firestore.currentHomeDocument();
-      final CollectionReference devicesCollection = homeDoc.devicesCollecttion;
-
-      devicesId!.forEach((element) {
-        final DocumentReference deviceDocumentReference =
-            devicesCollection.doc(element);
-        updateDatabase(documentPath: deviceDocumentReference, fieldsToUpdate: {
-          GrpcClientTypes.deviceActionsTypeString:
-              DeviceActions.moveDown.toString(),
-          GrpcClientTypes.deviceStateGRPCTypeString:
-              DeviceStateGRPC.waitingInFirebase.toString()
-        });
-      });
+      // final DocumentReference homeDoc = await _firestore.currentHomeDocument();
+      // final CollectionReference devicesCollection = homeDoc.devicesCollecttion;
+      //
+      // devicesId!.forEach((element) {
+      //   final DocumentReference deviceDocumentReference =
+      //       devicesCollection.doc(element);
+      //   updateDatabase(documentPath: deviceDocumentReference, fieldsToUpdate: {
+      //     GrpcClientTypes.deviceActionsTypeString:
+      //         DeviceActions.moveDown.toString(),
+      //     GrpcClientTypes.deviceStateGRPCTypeString:
+      //         DeviceStateGRPC.waitingInFirebase.toString()
+      //   });
+      // });
     } on PlatformException catch (e) {
       if (e.message!.contains('PERMISSION_DENIED')) {
         return left(const DevicesFailure.insufficientPermission());
@@ -418,10 +411,10 @@ class DeviceRepository implements IDeviceRepository {
   @override
   Future<Either<DevicesFailure, Unit>> delete(DeviceEntity deviceEntity) async {
     try {
-      final homeDoc = await _firestore.currentHomeDocument();
+      // final homeDoc = await _firestore.currentHomeDocument();
       final deviceDtos = DeviceDtos.fromDomain(deviceEntity);
 
-      await homeDoc.devicesCollecttion.doc(deviceDtos.id).delete();
+      // await homeDoc.devicesCollecttion.doc(deviceDtos.id).delete();
       return right(unit);
     } on PlatformException catch (e) {
       if (e.message!.contains('PERMISSION_DENIED')) {
@@ -440,12 +433,12 @@ class DeviceRepository implements IDeviceRepository {
     try {
       addOrUpdateDeviceAndStateToWaiting(deviceEntity);
 
-      final homeDoc = await _firestore.currentHomeDocument();
+      // final homeDoc = await _firestore.currentHomeDocument();
       final deviceDtos = DeviceDtos.fromDomain(deviceEntity);
 
-      await homeDoc.devicesCollecttion
-          .doc(deviceDtos.id)
-          .update(deviceDtos.toJson());
+      // await homeDoc.devicesCollecttion
+      //     .doc(deviceDtos.id)
+      //     .update(deviceDtos.toJson());
       return right(unit);
     } on PlatformException catch (e) {
       if (e.message!.contains('NOT_FOUND')) {
@@ -489,15 +482,15 @@ class DeviceRepository implements IDeviceRepository {
         final String mDnsName = deviceEntity.deviceMdnsName!.getOrCrash();
         lastKnownIp = await getDeviceIpByDeviceAvahiName(mDnsName);
 
-        final DocumentReference homeDoc =
-            await _firestore.currentHomeDocument();
-        final CollectionReference devicesCollection =
-            homeDoc.devicesCollecttion;
-        final DocumentReference deviceDocumentReference =
-            devicesCollection.doc(deviceEntity.id!.getOrCrash());
-        updateDatabase(documentPath: deviceDocumentReference, fieldsToUpdate: {
-          'lastKnownIp': lastKnownIp,
-        });
+        // final DocumentReference homeDoc =
+        //     await _firestore.currentHomeDocument();
+        // final CollectionReference devicesCollection =
+        //     homeDoc.devicesCollecttion;
+        // final DocumentReference deviceDocumentReference =
+        //     devicesCollection.doc(deviceEntity.id!.getOrCrash());
+        // updateDatabase(documentPath: deviceDocumentReference, fieldsToUpdate: {
+        //   'lastKnownIp': lastKnownIp,
+        // });
       }
 
       return right(unit);
