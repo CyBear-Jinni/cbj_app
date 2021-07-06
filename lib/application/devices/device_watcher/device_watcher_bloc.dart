@@ -19,6 +19,7 @@ class DeviceWatcherBloc extends Bloc<DeviceWatcherEvent, DeviceWatcherState> {
       : super(DeviceWatcherState.initial());
 
   final IDeviceRepository _deviceRepository;
+
   StreamSubscription<Either<DevicesFailure, KtList<DeviceEntity?>>>?
       _deviceStreamSubscription;
 
@@ -29,7 +30,6 @@ class DeviceWatcherBloc extends Bloc<DeviceWatcherEvent, DeviceWatcherState> {
     yield* event.map(
       watchAllStarted: (e) async* {
         yield const DeviceWatcherState.loadInProgress();
-        await _deviceStreamSubscription?.cancel();
         _deviceStreamSubscription = _deviceRepository.watchAll().listen(
             (eventWatch) =>
                 add(DeviceWatcherEvent.devicesReceived(eventWatch)));

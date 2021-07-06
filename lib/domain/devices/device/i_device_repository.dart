@@ -1,8 +1,11 @@
+import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
 import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
 import 'package:dartz/dartz.dart';
 import 'package:kt_dart/kt.dart';
+import 'package:rxdart/rxdart.dart';
 
 abstract class IDeviceRepository {
   // watch devices
@@ -12,6 +15,8 @@ abstract class IDeviceRepository {
   // C Read UD
 
   void addOrUpdateDevice(DeviceEntity deviceEntity);
+
+  void addOrUpdateDeviceAndStateToWaiting(DeviceEntity deviceEntity);
 
   Future<void> initiateHubConnection();
 
@@ -67,4 +72,7 @@ abstract class IDeviceRepository {
   });
 
   Future<Either<DevicesFailure, Unit>> delete(DeviceEntity deviceEntity);
+
+  BehaviorSubject<KtList<DeviceEntity?>> devicesStreamController =
+      BehaviorSubject<KtList<DeviceEntity?>>();
 }

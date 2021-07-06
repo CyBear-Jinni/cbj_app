@@ -30,6 +30,7 @@ import 'package:kt_dart/kt.dart';
 import 'package:multicast_dns/multicast_dns.dart';
 import 'package:network_info_plus/network_info_plus.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:rxdart/rxdart.dart';
 
 @LazySingleton(as: IDeviceRepository)
 class DeviceRepository implements IDeviceRepository {
@@ -44,8 +45,14 @@ class DeviceRepository implements IDeviceRepository {
   @override
   void addOrUpdateDevice(DeviceEntity deviceEntity) {
     allDevices[deviceEntity.id!.getOrCrash()!] = deviceEntity;
-    DevicesStreams.devicesStreamController.sink
-        .add(allDevices.values.toImmutableList());
+    devicesStreamController.sink.add(allDevices.values.toImmutableList());
+  }
+
+  @override
+  void addOrUpdateDeviceAndStateToWaiting(DeviceEntity deviceEntity) {
+    addOrUpdateDevice(deviceEntity.copyWith(
+        deviceStateGRPC: DeviceState(EnumHelper.deviceStateToString(
+            smart_client_grpc.DeviceStateGRPC.waitingInComp))));
   }
 
   @override
@@ -93,7 +100,7 @@ class DeviceRepository implements IDeviceRepository {
 
   @override
   Stream<Either<DevicesFailure, KtList<DeviceEntity?>>> watchAll() async* {
-    yield* DevicesStreams.devicesStream.map((event) => right(event));
+    yield* devicesStreamController.stream.map((event) => right(event));
 
     // homeDoc.devicesCollecttion.snapshots().map(
     //       (snapshot) => right<DevicesFailure, KtList<DeviceEntity?>>(
@@ -264,53 +271,20 @@ class DeviceRepository implements IDeviceRepository {
     final List<DeviceEntity?> deviceEntityListToUpdate =
         await getDeviceEntityListFromId(devicesId!);
 
-    // Assumes that all devices configured for the same second WiFi
-    final String? firstDeviceSecondWifiName = deviceEntityListToUpdate[0]
-        ?.deviceSecondWiFi
-        ?.value
-        .getOrElse(() => '');
+    final String waitingState = EnumHelper.deviceStateToString(
+        smart_client_grpc.DeviceStateGRPC.waitingInFirebase);
 
-    final String updateLocation = await whereToUpdateDevicesData(
-        forceUpdateLocation, firstDeviceSecondWifiName);
+    final String actionLightOn =
+        EnumHelper.deviceActionToString(smart_client_grpc.DeviceActions.on);
 
     try {
-      if (updateLocation == 'L') {
-        Either<DevicesFailure, Unit>? devicesFailure;
+      deviceEntityListToUpdate.forEach((element) {
+        final DeviceEntity dEntity = element!.copyWith(
+            deviceStateGRPC: DeviceState(waitingState),
+            deviceActions: DeviceAction(actionLightOn));
 
-        deviceEntityListToUpdate.forEach((element) async {
-          final Either<DevicesFailure, Unit> deviceUpdateResponse =
-              await updateComputer(element!);
-
-          if (deviceUpdateResponse.isLeft()) {
-            devicesFailure = deviceUpdateResponse;
-          }
-        });
-
-        if (devicesFailure != null) {
-          return devicesFailure!;
-        }
-        return right(unit);
-      } else {
-        final DocumentReference homeDoc =
-            await _firestore.currentHomeDocument();
-        final CollectionReference devicesCollection =
-            homeDoc.devicesCollecttion;
-
-        //TODO: Need to write once and not for each device
-        devicesId.forEach((element) {
-          final DocumentReference deviceDocumentReference =
-              devicesCollection.doc(element);
-          updateDatabase(
-              documentPath: deviceDocumentReference,
-              fieldsToUpdate: {
-                GrpcClientTypes.deviceActionsTypeString:
-                    smart_client_grpc.DeviceActions.on.toString(),
-                GrpcClientTypes.deviceStateGRPCTypeString: smart_client_grpc
-                    .DeviceStateGRPC.waitingInFirebase
-                    .toString()
-              });
-        });
-      }
+        updateWithDeviceEntity(deviceEntity: dEntity);
+      });
     } on PlatformException catch (e) {
       if (e.message!.contains('PERMISSION_DENIED')) {
         return left(const DevicesFailure.insufficientPermission());
@@ -327,19 +301,22 @@ class DeviceRepository implements IDeviceRepository {
   @override
   Future<Either<DevicesFailure, Unit>> turnOffDevices(
       {List<String>? devicesId, String? forceUpdateLocation}) async {
-    try {
-      final DocumentReference homeDoc = await _firestore.currentHomeDocument();
-      final CollectionReference devicesCollection = homeDoc.devicesCollecttion;
+    final List<DeviceEntity?> deviceEntityListToUpdate =
+        await getDeviceEntityListFromId(devicesId!);
 
-      devicesId!.forEach((element) {
-        final DocumentReference deviceDocumentReference =
-            devicesCollection.doc(element);
-        updateDatabase(documentPath: deviceDocumentReference, fieldsToUpdate: {
-          GrpcClientTypes.deviceActionsTypeString:
-              smart_client_grpc.DeviceActions.off.toString(),
-          GrpcClientTypes.deviceStateGRPCTypeString:
-              smart_client_grpc.DeviceStateGRPC.waitingInFirebase.toString()
-        });
+    final String waitingState = EnumHelper.deviceStateToString(
+        smart_client_grpc.DeviceStateGRPC.waitingInFirebase);
+
+    final String actionLightOff =
+        EnumHelper.deviceActionToString(smart_client_grpc.DeviceActions.off);
+
+    try {
+      deviceEntityListToUpdate.forEach((element) {
+        final DeviceEntity dea = element!.copyWith(
+            deviceStateGRPC: DeviceState(waitingState),
+            deviceActions: DeviceAction(actionLightOff));
+
+        updateWithDeviceEntity(deviceEntity: dea);
       });
     } on PlatformException catch (e) {
       if (e.message!.contains('PERMISSION_DENIED')) {
@@ -467,6 +444,8 @@ class DeviceRepository implements IDeviceRepository {
   Future<Either<DevicesFailure, Unit>> updateRemoteDB(
       DeviceEntity deviceEntity) async {
     try {
+      addOrUpdateDeviceAndStateToWaiting(deviceEntity);
+
       final homeDoc = await _firestore.currentHomeDocument();
       final deviceDtos = DeviceDtos.fromDomain(deviceEntity);
 
@@ -490,6 +469,8 @@ class DeviceRepository implements IDeviceRepository {
       final String id = deviceEntity.id!.getOrCrash()!;
       String? lastKnownIp;
 
+      addOrUpdateDeviceAndStateToWaiting(deviceEntity);
+
       try {
         lastKnownIp ??= deviceEntity.lastKnownIp?.getOrCrash();
 
@@ -501,26 +482,10 @@ class DeviceRepository implements IDeviceRepository {
           lastKnownIp,
         );
 
-        EnumHelper enumHelper = EnumHelper();
-        String waitingState = EnumHelper.deviceStateToString(
+        final String waitingState = EnumHelper.deviceStateToString(
             smart_client_grpc.DeviceStateGRPC.waitingInFirebase);
 
-        if (deviceEntity.deviceActions!.getOrCrash().toLowerCase() ==
-            smart_client_grpc.DeviceActions.on.toString()) {
-          String deviceActionString = EnumHelper.deviceActionToString(
-              smart_client_grpc.DeviceActions.on);
-
-          deviceEntity.copyWith(
-              deviceActions: DeviceAction(deviceActionString),
-              deviceStateGRPC: DeviceState(waitingState));
-        } else {
-          final String deviceActionString = EnumHelper.deviceActionToString(
-              smart_client_grpc.DeviceActions.off);
-
-          deviceEntity.copyWith(
-              deviceActions: DeviceAction(deviceActionString),
-              deviceStateGRPC: DeviceState(waitingState));
-        }
+        deviceEntity.copyWith(deviceStateGRPC: DeviceState(waitingState));
         //
         final String deviceDtoAsString =
             DeviceHelper.convertDomainToJsonString(deviceEntity);
@@ -641,15 +606,9 @@ class DeviceRepository implements IDeviceRepository {
 
     return updateLocation;
   }
-}
 
-/// Stream of all devices
-class DevicesStreams {
   /// Stream controller of the app request for the hub
-  static final devicesStreamController =
-      StreamController<KtList<DeviceEntity?>>();
-
-  /// Stream of the requests from the app to the hub
-  static Stream<KtList<DeviceEntity?>> get devicesStream =>
-      devicesStreamController.stream;
+  @override
+  BehaviorSubject<KtList<DeviceEntity?>> devicesStreamController =
+      BehaviorSubject<KtList<DeviceEntity?>>();
 }

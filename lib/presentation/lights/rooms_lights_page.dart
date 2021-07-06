@@ -3,7 +3,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/auth/auth_bloc.dart';
 import 'package:cybear_jinni/application/devices/device_actor/device_actor_bloc.dart';
 import 'package:cybear_jinni/application/lights/lights_watcher/lights_watcher_bloc.dart';
-import 'package:cybear_jinni/domain/hub_connection/i_hub_connection_repository.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/lights/settings_page_of_lights.dart';
@@ -17,11 +16,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 /// Lights page that will call the lamps widget file and add background
 /// and scaffold for it
 class RoomsLightsPage extends StatelessWidget {
-  RoomsLightsPage({this.showDevicesOnlyFromRoomId, this.roomColorGradiant}) {
-    ///TODO: Will be deleted after tests, as there is already instance that
-    /// start in the home page
-    getIt<IHubConnectionRepository>().connectWithHub();
-  }
+  RoomsLightsPage({this.showDevicesOnlyFromRoomId, this.roomColorGradiant});
 
   /// If it have value will only show lights in this room
   final String? showDevicesOnlyFromRoomId;
