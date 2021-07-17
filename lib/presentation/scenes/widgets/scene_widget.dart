@@ -43,7 +43,6 @@ class SceneWidget extends StatelessWidget {
               ),
               onPressed: () {
                 HapticFeedback.lightImpact();
-
                 // smartDevicesWithWish
                 //     .forEach((SmartDeviceObject key, List<DeviceActions> value) {
                 //   for (final DeviceActions deviceActionForSmartDevice in value) {
