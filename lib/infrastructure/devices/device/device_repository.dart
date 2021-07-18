@@ -45,7 +45,7 @@ class DeviceRepository implements IDeviceRepository {
 
   @override
   Future<void> initiateHubConnection() async {
-    await HubClient.createStreamWithHub('192.168.31.154');
+    // await HubClient.createStreamWithHub('192.168.31.154');
   }
 
   @override
