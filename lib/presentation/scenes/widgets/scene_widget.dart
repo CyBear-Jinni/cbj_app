@@ -30,14 +30,16 @@ class SceneWidget extends StatelessWidget {
         loaded: (sceneState) {
           return Container(
             margin: const EdgeInsets.fromLTRB(5, 0, 5, 10),
-            child: RaisedButton(
-              padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
-              color: currentScene.backgroundColor,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30),
-                side: BorderSide(
-                    color: (Theme.of(context).textTheme.bodyText1!.color)!,
-                    width: 0.6),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: currentScene.backgroundColor,
+                padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  side: BorderSide(
+                      color: (Theme.of(context).textTheme.bodyText1!.color)!,
+                      width: 0.6),
+                ),
               ),
               onPressed: () {
                 HapticFeedback.lightImpact();
@@ -48,7 +50,6 @@ class SceneWidget extends StatelessWidget {
                 //   }
                 // });
               },
-              highlightColor: Theme.of(context).textTheme.bodyText1!.color,
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
@@ -63,11 +64,6 @@ class SceneWidget extends StatelessWidget {
                   ),
                   textAlign: TextAlign.center,
                 ),
-                // Text(
-                //   _element,
-                //   style: const TextStyle(fontSize: 27),
-                //   textAlign: TextAlign.center,
-                // ),
               ),
             ),
           );
