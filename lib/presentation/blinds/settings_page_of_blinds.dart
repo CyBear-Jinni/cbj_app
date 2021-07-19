@@ -1,4 +1,3 @@
-
 import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -15,8 +14,7 @@ class SettingsPageOfBlinds extends StatelessWidget {
     // }
   }
 
-  final List<DeviceEntity> allSmartDeviceLightDevices =
-      <DeviceEntity>[];
+  final List<DeviceEntity> allSmartDeviceLightDevices = <DeviceEntity>[];
 
   @override
   Widget build(BuildContext context) {
@@ -57,6 +55,11 @@ class SettingsPageOfBlinds extends StatelessWidget {
     }
 
     return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: 0,
+        backgroundColor: Colors.black,
+        brightness: Brightness.dark,
+      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         //  FontAwesomeIcons.plus,
@@ -102,8 +105,13 @@ class SettingsPageOfBlinds extends StatelessWidget {
                     background: Container(
                       color: Colors.red,
                     ),
-                    child: tile(allSmartDeviceLightDevices[index].roomName!.getOrCrash()!,
-                        allSmartDeviceLightDevices[index].defaultName!.getOrCrash()!),
+                    child: tile(
+                        allSmartDeviceLightDevices[index]
+                            .roomName!
+                            .getOrCrash()!,
+                        allSmartDeviceLightDevices[index]
+                            .defaultName!
+                            .getOrCrash()!),
                   );
                 },
                 itemCount: allSmartDeviceLightDevices.length,

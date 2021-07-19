@@ -55,6 +55,11 @@ class SettingsPageOfLights extends StatelessWidget {
     }
 
     return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: 0,
+        backgroundColor: Colors.black,
+        brightness: Brightness.dark,
+      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         //  FontAwesomeIcons.plus,

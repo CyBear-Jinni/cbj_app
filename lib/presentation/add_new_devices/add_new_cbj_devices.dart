@@ -49,6 +49,11 @@ class _AddNewCBJDevices extends State<AddNewCBJDevices> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: 0,
+        backgroundColor: Colors.black,
+        brightness: Brightness.dark,
+      ),
       body: Container(
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(

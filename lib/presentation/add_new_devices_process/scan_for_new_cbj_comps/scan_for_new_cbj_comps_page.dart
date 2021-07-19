@@ -20,6 +20,11 @@ class ScanForNewCBJCompsPage extends StatelessWidget {
         create: (context) =>
             getIt<CBJCompBloc>()..add(const CBJCompEvent.watchAllStarted()),
         child: Scaffold(
+          appBar: AppBar(
+            toolbarHeight: 0,
+            backgroundColor: Colors.black,
+            brightness: Brightness.dark,
+          ),
           body: Container(
             color: Colors.black87,
             child: Column(
