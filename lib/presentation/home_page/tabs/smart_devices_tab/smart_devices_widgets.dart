@@ -126,10 +126,11 @@ class SmartDevicesWidgets extends StatelessWidget {
                               color: Colors.black12,
                               shape: CircleBorder(),
                             ),
-                            child: const CircleAvatar(
+                            child: CircleAvatar(
+                              backgroundColor: Colors.blue.withOpacity(0.9),
                               child: FaIcon(
                                 FontAwesomeIcons.plus,
-                                color: Colors.green,
+                                color: Colors.white,
                               ),
                             ),
                           ),

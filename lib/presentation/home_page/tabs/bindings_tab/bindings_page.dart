@@ -14,18 +14,6 @@ class BindingsPage extends StatelessWidget {
       actions: <BottomSheetAction>[
         BottomSheetAction(
           title: const Text(
-            '➕ Add Binding',
-            style: TextStyle(color: Colors.green, fontSize: 23),
-          ),
-          onPressed: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (BuildContext context) => AddBindingsPage()));
-          },
-        ),
-        BottomSheetAction(
-          title: const Text(
             '⚙️ Bindings Settings',
             style: TextStyle(color: Colors.blueGrey, fontSize: 23),
           ),
@@ -43,30 +31,77 @@ class BindingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        TopNavigationBar(
-          'Bindings',
-          Icons.more_vert,
-          userCogFunction,
-          leftIcon: FontAwesomeIcons.userCog,
-          leftIconFunction: leftIconFunction,
-          rightSecondIcon: FontAwesomeIcons.search,
-          rightSecondFunction: rightSecondFunction,
+    return Stack(
+      children: [
+        Column(
+          children: <Widget>[
+            TopNavigationBar(
+              'Bindings',
+              Icons.more_vert,
+              userCogFunction,
+              leftIcon: FontAwesomeIcons.userCog,
+              leftIconFunction: leftIconFunction,
+              rightSecondIcon: FontAwesomeIcons.search,
+              rightSecondFunction: rightSecondFunction,
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            const Text(
+              'Bindings List',
+              style: TextStyle(fontSize: 30),
+            ),
+            Expanded(
+              child: Container(
+                margin: const EdgeInsets.symmetric(horizontal: 3, vertical: 70),
+                color: Colors.black.withOpacity(0.4),
+                child: ListView(),
+              ),
+            ),
+          ],
         ),
-        const SizedBox(
-          height: 10,
-        ),
-        const Text(
-          'Bindings List',
-          style: TextStyle(fontSize: 30),
-        ),
-        Expanded(
-          child: Container(
-            margin: const EdgeInsets.symmetric(horizontal: 3, vertical: 70),
-            color: Colors.black.withOpacity(0.4),
-            child: ListView(),
-          ),
+        Column(
+          children: [
+            const Expanded(
+              child: Text(''),
+            ),
+            SizedBox(
+              height: 100,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Transform.scale(
+                    scale: 1.2,
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    AddBindingsPage()));
+                      },
+                      child: Ink(
+                        decoration: const ShapeDecoration(
+                          color: Colors.black12,
+                          shape: CircleBorder(),
+                        ),
+                        child: CircleAvatar(
+                          backgroundColor: Colors.blue.withOpacity(0.9),
+                          child: FaIcon(
+                            FontAwesomeIcons.plus,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 15,
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ],
     );
