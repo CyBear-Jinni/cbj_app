@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cybear_jinni/domain/add_user_to_home/add_user_to_home_failures.dart';
 import 'package:cybear_jinni/domain/add_user_to_home/i_add_user_to_home_repository.dart';
 import 'package:cybear_jinni/domain/auth/i_auth_facade.dart';
@@ -11,31 +10,21 @@ import 'package:cybear_jinni/domain/create_home/i_create_home_repository.dart';
 import 'package:cybear_jinni/domain/home_user/home_user_entity.dart';
 import 'package:cybear_jinni/domain/home_user/home_user_value_objects.dart';
 import 'package:cybear_jinni/domain/manage_network/manage_network_entity.dart';
-import 'package:cybear_jinni/domain/manage_network/manage_network_value_objects.dart';
 import 'package:cybear_jinni/domain/user/all_homes_of_user/all_homes_of_user_entity.dart';
 import 'package:cybear_jinni/domain/user/all_homes_of_user/all_homes_of_user_value_objects.dart';
 import 'package:cybear_jinni/domain/user/i_user_repository.dart';
 import 'package:cybear_jinni/domain/user/user_entity.dart';
 import 'package:cybear_jinni/domain/user/user_errors.dart';
 import 'package:cybear_jinni/domain/user/user_failures.dart';
-import 'package:cybear_jinni/domain/user/user_value_objects.dart';
-import 'package:cybear_jinni/infrastructure/core/firestore_helpers.dart';
 import 'package:cybear_jinni/infrastructure/core/hive_local_db/hive_local_db.dart';
 import 'package:cybear_jinni/infrastructure/create_home/create_home_dtos.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:dartz/dartz.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:injectable/injectable.dart';
-import 'package:uuid/uuid.dart';
 
 @LazySingleton(as: ICreateHomeRepository)
 class CreateHomeRepository implements ICreateHomeRepository {
-  CreateHomeRepository(this._firestore, this._firebaseAuth);
-
-  final FirebaseFirestore _firestore;
-  final FirebaseAuth _firebaseAuth;
-
   final String smartHomesPath = 'SmartHomes';
   final String usersInHomePath = 'Users';
 
@@ -130,14 +119,12 @@ class CreateHomeRepository implements ICreateHomeRepository {
   Future<Either<CreateHomeFailure, Unit>> addDeviceUserToHome(
       CreateHomeEntity createHomeEntity) async {
     try {
-      final homeDoc = await _firestore.currentHomeDocument();
-
       final CreateHomeDtos deviceHomeUserDtos =
           CreateHomeDtos.fromDomain(createHomeEntity);
 
-      await homeDoc.devicesUsersCollecttion
-          .doc('default')
-          .set(deviceHomeUserDtos.toJson());
+      // await homeDoc.devicesUsersCollecttion
+      //     .doc('default')
+      //     .set(deviceHomeUserDtos.toJson());
       return right(unit);
     } on PlatformException catch (e) {
       if (e.message!.contains('PERMISSION_DENIED')) {
@@ -152,26 +139,7 @@ class CreateHomeRepository implements ICreateHomeRepository {
   @override
   Future<Either<CreateHomeFailure, UserEntity>> getDeviceUserFromHome() async {
     try {
-      final homeDoc = await _firestore.currentHomeDocument();
-
-      final DocumentSnapshot deviceUserDocument =
-          await homeDoc.devicesUsersCollecttion.doc('default').get();
-
-      final String homeDevicesUserIdFromDocument =
-          deviceUserDocument.get(homeDevicesUserId).toString();
-      final String homeDevicesUserEmailFromDocument =
-          deviceUserDocument.get(homeDevicesUserEmail).toString();
-      final String homeDevicesUserPasswordFromDocument =
-          deviceUserDocument.get(homeDevicesUserPassword).toString();
-
-      final UserEntity userEntity = UserEntity(
-        id: UserUniqueId.fromUniqueString(homeDevicesUserIdFromDocument),
-        email: UserEmail(homeDevicesUserEmailFromDocument),
-        name: UserName('Smart Devices User'),
-        pass: UserPass(homeDevicesUserPasswordFromDocument),
-      );
-
-      return right(userEntity);
+      // return right(userEntity);
     } on PlatformException catch (e) {
       if (e.message!.contains('PERMISSION_DENIED')) {
         return left(const CreateHomeFailure.insufficientPermission());
@@ -182,20 +150,13 @@ class CreateHomeRepository implements ICreateHomeRepository {
     } catch (error) {
       return left(CreateHomeFailure.unexpected(failedValue: error.toString()));
     }
+    return left(
+        const CreateHomeFailure.unexpected(failedValue: 'Not implemented yet'));
   }
 
   Future<Either<CreateHomeFailure, Unit>> addHomeInfo(
       CreateHomeEntity createHomeEntity) async {
     try {
-      final homeDoc = await _firestore.currentHomeDocument();
-
-      await homeDoc.homeInfoCollecttion
-          .doc('default')
-          .set({'home name': createHomeEntity.name.getOrCrash()});
-
-      await homeDoc.homeInfoCollecttion
-          .doc(firstWiFi)
-          .set({wiFiName: const Uuid().v1(), wiFiPass: const Uuid().v1()});
       return right(unit);
     } on PlatformException catch (e) {
       if (e.message!.contains('PERMISSION_DENIED')) {
@@ -209,22 +170,7 @@ class CreateHomeRepository implements ICreateHomeRepository {
 
   @override
   Future<Either<CreateHomeFailure, ManageNetworkEntity>> getFirstWifi() async {
-    try {
-      final homeDoc = await _firestore.currentHomeDocument();
-
-      final DocumentSnapshot documentSnapshot =
-          await homeDoc.homeInfoCollecttion.doc(firstWiFi).get();
-
-      final String firstWifiName = documentSnapshot.get(wiFiName).toString();
-      final String firstWifiPass = documentSnapshot.get(wiFiPass).toString();
-
-      return right(
-        ManageNetworkEntity(
-          name: ManageWiFiName(firstWifiName),
-          pass: ManageWiFiPass(firstWifiPass),
-        ),
-      );
-    } on PlatformException catch (e) {
+    try {} on PlatformException catch (e) {
       if (e.message!.contains('PERMISSION_DENIED')) {
         return left(const CreateHomeFailure.insufficientPermission());
       } else {
@@ -232,6 +178,8 @@ class CreateHomeRepository implements ICreateHomeRepository {
         return left(CreateHomeFailure.unexpected(failedValue: e.message));
       }
     }
+    return left(
+        const CreateHomeFailure.unexpected(failedValue: 'Not implemented yet'));
   }
 
   @override

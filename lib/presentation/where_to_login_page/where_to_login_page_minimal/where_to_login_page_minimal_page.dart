@@ -21,8 +21,8 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepPurpleAccent[200]!.withOpacity(0.6),
       appBar: AppBar(
+        backgroundColor: Colors.deepPurpleAccent[200]!.withOpacity(0.6),
         title: const Text('Choose type of login'),
       ),
       body: Column(

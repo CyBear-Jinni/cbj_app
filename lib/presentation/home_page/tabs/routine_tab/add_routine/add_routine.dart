@@ -5,13 +5,18 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// The page to add new routines
 class AddRoutinePage extends StatelessWidget {
-  void backButtonFuntion(BuildContext context) {
+  void backButtonFunction(BuildContext context) {
     Navigator.pop(context);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: 0,
+        backgroundColor: Colors.black,
+        brightness: Brightness.dark,
+      ),
       body: Container(
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
@@ -36,7 +41,7 @@ class AddRoutinePage extends StatelessWidget {
               null,
               () {},
               leftIcon: FontAwesomeIcons.arrowLeft,
-              leftIconFunction: backButtonFuntion,
+              leftIconFunction: backButtonFunction,
             ),
             const SizedBox(
               height: 100,

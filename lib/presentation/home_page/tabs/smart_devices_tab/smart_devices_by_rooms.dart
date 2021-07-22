@@ -1,9 +1,8 @@
 import 'package:cybear_jinni/application/blinds/blinds_actor/blinds_actor_bloc.dart';
 import 'package:cybear_jinni/application/devices/device_watcher/device_watcher_bloc.dart';
 import 'package:cybear_jinni/application/lights/lights_actor/lights_actor_bloc.dart';
-import 'package:cybear_jinni/domain/devices/device_entity.dart';
-import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_as_dart/smart_connection.pb.dart';
-import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_as_dart/smart_connection.pbgrpc.dart';
+import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/blinds_in_the_room.dart';
@@ -32,6 +31,9 @@ class SmartDevicesByRooms extends StatelessWidget {
                 <String, List<DeviceEntity>>{};
 
             for (int i = 0; i < state.devices.size; i++) {
+              if (state.devices[i] == null) {
+                continue;
+              }
               final DeviceEntity tempDevice = state.devices[i]!;
               if (tempDevicesByRooms[tempDevice.roomId!.getOrCrash()] == null) {
                 tempDevicesByRooms[tempDevice.roomId!.getOrCrash()] = [
@@ -184,7 +186,7 @@ class SmartDevicesByRooms extends StatelessWidget {
                                   gridDelegate:
                                       const SliverGridDelegateWithMaxCrossAxisExtent(
                                     maxCrossAxisExtent: 200,
-                                    childAspectRatio: 1.1,
+                                    childAspectRatio: 1.4,
                                     crossAxisSpacing: 8,
                                     mainAxisSpacing: 4,
                                   ),

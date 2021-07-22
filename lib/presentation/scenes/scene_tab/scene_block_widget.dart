@@ -1,5 +1,5 @@
-import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_as_dart/smart_connection.pbgrpc.dart';
-import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_device_object.dart';
+import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +15,7 @@ class SceneBlockWidget extends StatelessWidget {
   static final List<MaterialColor> colorList = Colors.primaries;
 
   /// Map of smart devices with list of wishes for this scene to execute
-  final Map<SmartDeviceObject, List<DeviceActions>> smartDevicesWithWish;
+  final Map<DeviceEntity, List<DeviceActions>> smartDevicesWithWish;
 
   /// Name of the scene to be displayed
   final String sceneName;
@@ -48,10 +48,10 @@ class SceneBlockWidget extends StatelessWidget {
           ),
           onPressed: () {
             smartDevicesWithWish
-                .forEach((SmartDeviceObject key, List<DeviceActions> value) {
-              for (final DeviceActions deviceActionForSmartDevice in value) {
-                key.executeWish(deviceActionForSmartDevice);
-              }
+                .forEach((DeviceEntity key, List<DeviceActions> value) {
+              // for (final DeviceActions deviceActionForSmartDevice in value) {
+              //   key.executeWish(deviceActionForSmartDevice);
+              // }
             });
           },
           child: Container(

@@ -1,7 +1,7 @@
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_errors.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_failures.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_validators.dart';
-import 'package:cybear_jinni/domain/devices/device_entity.dart';
+import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:kt_dart/collection.dart';

@@ -1,6 +1,9 @@
+import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
+import 'package:cybear_jinni/domain/hub_connection/i_hub_connection_repository.dart';
+import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/home_page/bottom_navigation_bar_home_page.dart';
 import 'package:cybear_jinni/presentation/home_page/left_navigation_drawer_home_page.dart';
-import 'package:cybear_jinni/presentation/home_page/tabs/linked_tab/linked_page.dart';
+import 'package:cybear_jinni/presentation/home_page/tabs/bindings_tab/bindings_page.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/routine_tab/routines_page.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/scenes_in_folders_tab/scenes_in_folders_tab.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/smart_devices_widgets.dart';
@@ -8,18 +11,28 @@ import 'package:flutter/material.dart';
 
 /// Home page to show all the tabs
 class HomePage extends StatefulWidget {
+  HomePage() {}
+
   @override
   State<StatefulWidget> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    getIt<IDeviceRepository>().initiateHubConnection();
+    getIt<IHubConnectionRepository>().connectWithHub();
+
+    super.initState();
+  }
+
   /// Tab num, value will be the default tab to show
   int _currentTabNum = 0;
   final _pages = [
     ScenesInFoldersTab(),
     SmartDevicesWidgets(),
     RoutinesPage(),
-    LinkedPage(),
+    BindingsPage(),
   ];
   final _pageController = PageController();
 

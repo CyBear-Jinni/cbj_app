@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/lights/lights_actor/lights_actor_bloc.dart';
-import 'package:cybear_jinni/domain/devices/device_entity.dart';
+import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -23,8 +23,8 @@ class LightsInTheRoomBlock extends StatelessWidget {
         ));
       },
       child: Container(
-        color: Colors.black.withOpacity(0.03),
-        margin: const EdgeInsets.all(5),
+        color: Colors.amber.withOpacity(0.03),
+        margin: const EdgeInsets.symmetric(horizontal: 5),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

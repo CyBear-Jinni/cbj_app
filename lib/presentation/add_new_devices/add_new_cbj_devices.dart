@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_device_object.dart';
+import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +9,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 /// This page will show all the CyBear Jinni devices that have connected to the
 /// hotspot of the app device.
 class AddNewCBJDevices extends StatefulWidget {
-  static List<SmartDeviceObject> newDevicesList = [];
+  static List<DeviceEntity> newDevicesList = [];
   static List<String> newDevicesStringList = <String>[];
 
   @override
@@ -49,6 +49,11 @@ class _AddNewCBJDevices extends State<AddNewCBJDevices> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: 0,
+        backgroundColor: Colors.black,
+        brightness: Brightness.dark,
+      ),
       body: Container(
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(

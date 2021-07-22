@@ -17,13 +17,6 @@ class ScenesInFoldersTab extends StatelessWidget {
       actions: <BottomSheetAction>[
         BottomSheetAction(
           title: const Text(
-            '➕ Add Scene',
-            style: TextStyle(color: Colors.green, fontSize: 23),
-          ),
-          onPressed: () {},
-        ),
-        BottomSheetAction(
-          title: const Text(
             '⚙️ Scenes Settings',
             style: TextStyle(
               color: Colors.blueGrey,
@@ -51,23 +44,64 @@ class ScenesInFoldersTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        TopNavigationBar(
-          'Scenes',
-          Icons.more_vert,
-          userCogFunction,
-          leftIcon: FontAwesomeIcons.userCog,
-          leftIconFunction: leftIconFunction,
-          rightSecondIcon: FontAwesomeIcons.search,
-          rightSecondFunction: rightSecondFunction,
+    return Stack(
+      children: [
+        Column(
+          children: <Widget>[
+            TopNavigationBar(
+              'Scenes',
+              Icons.more_vert,
+              userCogFunction,
+              leftIcon: FontAwesomeIcons.userCog,
+              leftIconFunction: leftIconFunction,
+              rightSecondIcon: FontAwesomeIcons.search,
+              rightSecondFunction: rightSecondFunction,
+            ),
+            Expanded(
+              child: BlocProvider(
+                create: (context) => getIt<FoldersOfScenesBloc>()
+                  ..add(const FoldersOfScenesEvent.initialized()),
+                child: ScenesInFoldersL(),
+              ),
+            ),
+          ],
         ),
-        Expanded(
-          child: BlocProvider(
-            create: (context) => getIt<FoldersOfScenesBloc>()
-              ..add(const FoldersOfScenesEvent.initialized()),
-            child: ScenesInFoldersL(),
-          ),
+        Column(
+          children: [
+            const Expanded(
+              child: Text(''),
+            ),
+            SizedBox(
+              height: 100,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Transform.scale(
+                    scale: 1.2,
+                    child: GestureDetector(
+                      onTap: () {},
+                      child: Ink(
+                        decoration: const ShapeDecoration(
+                          color: Colors.black12,
+                          shape: CircleBorder(),
+                        ),
+                        child: CircleAvatar(
+                          backgroundColor: Colors.blue.withOpacity(0.9),
+                          child: FaIcon(
+                            FontAwesomeIcons.plus,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 15,
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ],
     );

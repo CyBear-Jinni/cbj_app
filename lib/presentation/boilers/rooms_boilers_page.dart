@@ -30,7 +30,7 @@ class RoomsBoilersPage extends StatelessWidget {
             builder: (BuildContext context) => SettingsPageOfBoilers()));
   }
 
-  void backButtonFuntion(BuildContext context) {
+  void backButtonFunction(BuildContext context) {
     Navigator.pop(context);
   }
 
@@ -97,7 +97,7 @@ class RoomsBoilersPage extends StatelessWidget {
                   Icons.more_vert,
                   cogFunction,
                   leftIcon: FontAwesomeIcons.arrowLeft,
-                  leftIconFunction: backButtonFuntion,
+                  leftIconFunction: backButtonFunction,
                   rightSecondIcon: FontAwesomeIcons.search,
                   rightSecondFunction: () {},
                 ),

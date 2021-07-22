@@ -1,5 +1,5 @@
 import 'package:cybear_jinni/application/boilers/boilers_actor/boilers_actor_bloc.dart';
-import 'package:cybear_jinni/domain/devices/device_entity.dart';
+import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/boilers/widgets/boilers_widget.dart';
 import 'package:cybear_jinni/presentation/boilers/widgets/error_boilers_device_card_widget.dart';
