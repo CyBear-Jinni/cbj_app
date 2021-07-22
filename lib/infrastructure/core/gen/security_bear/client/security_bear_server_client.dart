@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:cybear_jinni/domain/create_home/i_create_home_repository.dart';
 import 'package:cybear_jinni/domain/manage_network/manage_network_entity.dart';
-import 'package:cybear_jinni/infrastructure/core/constant_credentials.dart';
+// import 'package:cybear_jinni/infrastructure/core/constant_credentials.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/security_bear/client/protoc_as_dart/security_bear_connections.pbgrpc.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:grpc/grpc.dart';
@@ -50,13 +50,13 @@ class SecurityBearServerClient {
     final ClientChannel channel = createSmartServerClient(deviceIp);
     final SecurityBearClient stub = SecurityBearClient(channel);
     SBCommendStatus responseSBCommendStatus = SBCommendStatus();
-
-    final SBFirebaseAccountInformation sbFirebaseAccountInformation =
-        SBFirebaseAccountInformation()
-          ..fireBaseProjectId = ConstantCredentials.fireBaseProjectId
-          ..fireBaseApiKey = ConstantCredentials.fireBaseApiKey
-          ..userEmail = ''
-          ..userPassword = '';
+    //
+    // final SBFirebaseAccountInformation sbFirebaseAccountInformation =
+    //     SBFirebaseAccountInformation()
+    //       ..fireBaseProjectId = ConstantCredentials.fireBaseProjectId
+    //       ..fireBaseApiKey = ConstantCredentials.fireBaseApiKey
+    //       ..userEmail = ''
+    //       ..userPassword = '';
 
     try {
       final ManageNetworkEntity manageFirstNetworkEntity =
@@ -70,16 +70,16 @@ class SecurityBearServerClient {
         ..wiFiSecondPriority = WiFiInformation(
             wiFiName: secondWifiEntity.name!.getOrCrash(),
             wiFiPassword: secondWifiEntity.pass!.getOrCrash());
-
-      final SBFirebaseAccountAndSecurityBearSetup
-          sBFirebaseAccountAndSecurityBearSetup =
-          SBFirebaseAccountAndSecurityBearSetup()
-            ..sBFirebaseAccountInformation = sbFirebaseAccountInformation
-            ..securityBearSetup = securityBearSetup;
-
-      responseSBCommendStatus =
-          await stub.setFirebaseAccountAndSecurityBearSetup(
-              sBFirebaseAccountAndSecurityBearSetup);
+      //
+      // final SBFirebaseAccountAndSecurityBearSetup
+      //     sBFirebaseAccountAndSecurityBearSetup =
+      //     SBFirebaseAccountAndSecurityBearSetup()
+      //       ..sBFirebaseAccountInformation = sbFirebaseAccountInformation
+      //       ..securityBearSetup = securityBearSetup;
+      //
+      // responseSBCommendStatus =
+      //     await stub.setFirebaseAccountAndSecurityBearSetup(
+      //         sBFirebaseAccountAndSecurityBearSetup);
 
       print('Greeter client received: ${responseSBCommendStatus.toString()}');
       await channel.shutdown();
