@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    Fore more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+  -->
+  <base href="/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta content="A new Flutter project." name="description">
+
+  <!-- iOS meta tags & icons -->
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta content="black" name="apple-mobile-web-app-status-bar-style">
+  <meta content="cbj_app" name="apple-mobile-web-app-title">
+  <link href="icons/Icon-192.png" rel="apple-touch-icon">
+
+  <!-- Favicon -->
+  <link href="favicon.png" rel="icon" type="image/png"/>
+
+  <title>cbj_app</title>
+  <link href="manifest.json" rel="manifest">
+</head>
+<body>
+
+
+<!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+
+<!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
+
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+
+
+<script defer src="./init-firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyBKKkg-pzHF4PptsSmx5FiOVMLM9xbnj0M",
+    authDomain: "smarthometest-3295f.firebaseapp.com",
+    databaseURL: "https://smarthometest-3295f.firebaseio.com",
+    projectId: "smarthometest-3295f",
+    storageBucket: "smarthometest-3295f.appspot.com",
+    messagingSenderId: "907181373877",
+    appId: "1:907181373877:web:5a4179498c455fb55d81fc",
+    measurementId: "G-J1S190FE3E"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  var db = firebase.firestore();
+  firebase.analytics();
+
+
+
+</script>
+
+
+<!-- This script installs service_worker.js to provide PWA functionality to
+     application. For more information, see:
+     https://developers.google.com/web/fundamentals/primers/service-workers -->
+<script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('flutter-first-frame', function () {
+        navigator.serviceWorker.register('flutter_service_worker.js');
+      });
+    }
+
+</script>
+<script src="main.dart.js" type="application/javascript"></script>
+</body>
+</html>
