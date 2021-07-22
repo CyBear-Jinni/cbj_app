@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cybear_jinni/domain/home_user/home_user_entity.dart';
 import 'package:cybear_jinni/domain/home_user/home_user_value_objects.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -29,9 +28,8 @@ abstract class HomeUserDtos implements _$HomeUserDtos {
   factory HomeUserDtos.fromJson(Map<String, dynamic> json) =>
       _$HomeUserDtosFromJson(json);
 
-  factory HomeUserDtos.fromFirestore(DocumentSnapshot doc) {
-    return HomeUserDtos.fromJson(doc.data()! as Map<String, dynamic>)
-        .copyWith(id: doc.id);
+  factory HomeUserDtos.fromFirestore(Map<String, dynamic> doc) {
+    return HomeUserDtos.fromJson(doc);
   }
 
   HomeUserEntity toDomain() {
@@ -43,14 +41,14 @@ abstract class HomeUserDtos implements _$HomeUserDtos {
   }
 }
 
-class ServerTimestampConverter implements JsonConverter<FieldValue, Object> {
+class ServerTimestampConverter implements JsonConverter<DateTime, Object> {
   const ServerTimestampConverter();
 
   @override
-  FieldValue fromJson(Object json) {
-    return FieldValue.serverTimestamp();
+  DateTime fromJson(Object json) {
+    return DateTime.now();
   }
 
   @override
-  Object toJson(FieldValue fieldValue) => fieldValue;
+  Object toJson(DateTime fieldValue) => fieldValue;
 }

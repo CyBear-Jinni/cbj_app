@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/blinds/blinds_actor/blinds_actor_bloc.dart';
-import 'package:cybear_jinni/domain/devices/device_entity.dart';
+import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -81,7 +81,7 @@ class BlindsInTheRoom extends StatelessWidget {
               )
             else
               Text(
-                'Room Name blinds',
+                '${blindsInRoom![0]!.roomName!.getOrCrash()} Blinds',
                 style: TextStyle(
                     color: Theme.of(context).textTheme.bodyText1!.color),
               ),

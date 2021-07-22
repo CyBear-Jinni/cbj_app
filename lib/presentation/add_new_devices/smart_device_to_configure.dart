@@ -1,14 +1,12 @@
-import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_device_object.dart';
+import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/smart_device_type_and_toggle_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SmartDeviceToConfigure extends StatelessWidget {
-  SmartDeviceToConfigure(this.smartDeviceObject) {
-    SmartDeviceObject.setHomeWiFiName('host');
-  }
+  SmartDeviceToConfigure(this.smartDeviceObject);
 
-  final SmartDeviceObject smartDeviceObject;
+  final DeviceEntity smartDeviceObject;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +17,7 @@ class SmartDeviceToConfigure extends StatelessWidget {
         children: <Widget>[
           SmartDeviceTypeAndToggleBar(smartDeviceObject),
           Text(
-            'Device Name: ${smartDeviceObject.name}',
+            'Device Name: ${smartDeviceObject.defaultName!.getOrCrash()}',
             style: const TextStyle(fontSize: 21),
           ),
           const SizedBox(

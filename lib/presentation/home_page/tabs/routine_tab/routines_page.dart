@@ -15,18 +15,6 @@ class RoutinesPage extends StatelessWidget {
       actions: <BottomSheetAction>[
         BottomSheetAction(
           title: const Text(
-            '➕ Add Routine',
-            style: TextStyle(color: Colors.green, fontSize: 23),
-          ),
-          onPressed: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (BuildContext context) => AddRoutinePage()));
-          },
-        ),
-        BottomSheetAction(
-          title: const Text(
             '⚙️ Routines Settings',
             style: TextStyle(color: Colors.blueGrey, fontSize: 23),
           ),
@@ -44,38 +32,88 @@ class RoutinesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        TopNavigationBar(
-          'Routines',
-          Icons.more_vert,
-          userCogFunction,
-          leftIcon: FontAwesomeIcons.userCog,
-          leftIconFunction: leftIconFunction,
-          rightSecondIcon: FontAwesomeIcons.search,
-          rightSecondFunction: rightSecondFunction,
-        ),
-        Expanded(
-          child: Container(
-            margin: const EdgeInsets.symmetric(horizontal: 4),
-            child: ListView(
-              children: const [
-                SizedBox(
-                  height: 44,
-                ),
-                AlarmClockWidget(
-                    '15:35',
-                    'Going to sleep',
-                    'assets/gif/sleep3.gif',
-                    'Need to wake up in the morning every day and eating all I can bofay.\nNow with no time for delay, lats go and concur the bay'),
-                SizedBox(
-                  height: 44,
-                ),
-                AlarmClockWidget('17:40', 'Going to sleep',
-                    'assets/gif/sleep1.gif', 'Need to wake up in the morning'),
-              ],
+    return Stack(
+      children: [
+        Column(
+          children: <Widget>[
+            TopNavigationBar(
+              'Routines',
+              Icons.more_vert,
+              userCogFunction,
+              leftIcon: FontAwesomeIcons.userCog,
+              leftIconFunction: leftIconFunction,
+              rightSecondIcon: FontAwesomeIcons.search,
+              rightSecondFunction: rightSecondFunction,
             ),
-          ),
+            Expanded(
+              child: Container(
+                margin: const EdgeInsets.symmetric(horizontal: 4),
+                child: ListView(
+                  children: const [
+                    SizedBox(
+                      height: 44,
+                    ),
+                    AlarmClockWidget(
+                        '15:35',
+                        'Going to sleep',
+                        'assets/gif/sleep3.gif',
+                        'Need to wake up in the morning every day and eating all I can bofay.\nNow with no time for delay, lats go and concur the bay'),
+                    SizedBox(
+                      height: 44,
+                    ),
+                    AlarmClockWidget(
+                        '17:40',
+                        'Going to sleep',
+                        'assets/gif/sleep1.gif',
+                        'Need to wake up in the morning'),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+        Column(
+          children: [
+            const Expanded(
+              child: Text(''),
+            ),
+            SizedBox(
+              height: 100,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Transform.scale(
+                    scale: 1.2,
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    AddRoutinePage()));
+                      },
+                      child: Ink(
+                        decoration: const ShapeDecoration(
+                          color: Colors.black12,
+                          shape: CircleBorder(),
+                        ),
+                        child: CircleAvatar(
+                          backgroundColor: Colors.blue.withOpacity(0.9),
+                          child: FaIcon(
+                            FontAwesomeIcons.plus,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 15,
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ],
     );

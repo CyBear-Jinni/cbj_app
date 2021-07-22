@@ -1,5 +1,5 @@
-import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_as_dart/smart_connection.pbgrpc.dart';
-import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_device_object.dart';
+import 'package:cybear_jinni/domain/devices/device/value_objects.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +38,7 @@ class _AddNewDeviceWidgetPopup extends State<AddNewDeviceWidgetPopup> {
                 if (value!.isEmpty) {
                   return 'IP_is_required'.tr();
                 }
-                if (SmartDeviceObject.legitIp(value)) {
+                if (DeviceLastKnownIp(value) == null) {
                   return 'IP_syntax_is_incorrect'.tr();
                 }
                 return null;

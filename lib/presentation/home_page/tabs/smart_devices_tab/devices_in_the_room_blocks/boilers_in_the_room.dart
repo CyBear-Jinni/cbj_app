@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/domain/devices/device_entity.dart';
+import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -79,7 +79,7 @@ class BoilersInTheRoom extends StatelessWidget {
               )
             else
               Text(
-                'Room Name boiler',
+                '${boilersInRoom![0].roomName!.getOrCrash()} Boilers',
                 style: TextStyle(
                     color: Theme.of(context).textTheme.bodyText1!.color),
               ),

@@ -1,6 +1,6 @@
 import 'package:cybear_jinni/application/boilers/boilers_actor/boilers_actor_bloc.dart';
-import 'package:cybear_jinni/domain/devices/device_entity.dart';
-import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_as_dart/smart_connection.pb.dart';
+import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -33,8 +33,8 @@ class BoilersWidget extends StatelessWidget {
     final Size screenSize = MediaQuery.of(context).size;
     final double sizeBoxWidth = screenSize.width * 0.25;
 
-    final deviceState = _deviceEntity.state!.getOrCrash();
-    final deviceAction = _deviceEntity.action!.getOrCrash();
+    final deviceState = _deviceEntity.deviceStateGRPC!.getOrCrash();
+    final deviceAction = _deviceEntity.deviceActions!.getOrCrash();
 
     bool toggleValue = false;
     Color toggleColor = Colors.blueGrey;

@@ -33,7 +33,7 @@ class BottomNavigationBarHomePage extends StatelessWidget {
         ),
         BottomNavigationBarItem(
           icon: const FaIcon(FontAwesomeIcons.link),
-          label: 'Linked'.tr(),
+          label: 'Bindings'.tr(),
         ),
       ],
     );

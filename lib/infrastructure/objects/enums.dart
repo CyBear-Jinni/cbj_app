@@ -35,7 +35,7 @@
 //   SBlindsStop //  Stop the blinds
 // }
 
-import 'package:cybear_jinni/infrastructure/core/gen/smart_device/client/protoc_as_dart/smart_connection.pbgrpc.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 
 class EnumHelper {
   static String dTToString(DeviceTypes deviceType) {
@@ -66,6 +66,21 @@ class EnumHelper {
     for (final DeviceActions deviceAction in DeviceActions.values) {
       if (deviceActionToString(deviceAction) == deviceActionString) {
         return deviceAction;
+      }
+    }
+    return null;
+  }
+
+  ///  Convert deviceState to string
+  static String deviceStateToString(DeviceStateGRPC deviceState) {
+    return deviceState.toString().replaceAll('DeviceStateGRPC.', '');
+  }
+
+  ///  Convert string to deviceState
+  static DeviceStateGRPC? stringToDeviceState(String deviceDysyrString) {
+    for (final DeviceStateGRPC deviceState in DeviceStateGRPC.values) {
+      if (deviceStateToString(deviceState) == deviceDysyrString) {
+        return deviceState;
       }
     }
     return null;

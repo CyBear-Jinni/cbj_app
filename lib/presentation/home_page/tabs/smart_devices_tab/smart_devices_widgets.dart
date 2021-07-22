@@ -21,15 +21,6 @@ class SmartDevicesWidgets extends StatelessWidget {
       actions: <BottomSheetAction>[
         BottomSheetAction(
           title: const Text(
-            '➕ Add Devices',
-            style: TextStyle(color: Colors.green, fontSize: 23),
-          ),
-          onPressed: () {
-            context.router.push(const ConnectToHomeWifiRoute());
-          },
-        ),
-        BottomSheetAction(
-          title: const Text(
             '⚙️ Devices Settings',
             style: TextStyle(color: Colors.blueGrey, fontSize: 23),
           ),
@@ -96,19 +87,62 @@ class SmartDevicesWidgets extends StatelessWidget {
             },
           ),
         ],
-        child: Column(
-          children: <Widget>[
-            TopNavigationBar(
-              'Devices',
-              Icons.more_vert,
-              userCogFunction,
-              leftIcon: FontAwesomeIcons.userCog,
-              leftIconFunction: leftIconFunction,
-              rightSecondIcon: FontAwesomeIcons.search,
-              rightSecondFunction: rightSecondFunction,
+        child: Stack(
+          children: [
+            Column(
+              children: <Widget>[
+                TopNavigationBar(
+                  'Devices',
+                  Icons.more_vert,
+                  userCogFunction,
+                  leftIcon: FontAwesomeIcons.userCog,
+                  leftIconFunction: leftIconFunction,
+                  rightSecondIcon: FontAwesomeIcons.search,
+                  rightSecondFunction: rightSecondFunction,
+                ),
+                Expanded(
+                  child: SmartDevicesByRooms(),
+                ),
+              ],
             ),
-            Expanded(
-              child: SmartDevicesByRooms(),
+            Column(
+              children: [
+                const Expanded(
+                  child: Text(''),
+                ),
+                SizedBox(
+                  height: 100,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Transform.scale(
+                        scale: 1.2,
+                        child: GestureDetector(
+                          onTap: () {
+                            context.router.push(const ConnectToHomeWifiRoute());
+                          },
+                          child: Ink(
+                            decoration: const ShapeDecoration(
+                              color: Colors.black12,
+                              shape: CircleBorder(),
+                            ),
+                            child: CircleAvatar(
+                              backgroundColor: Colors.blue.withOpacity(0.9),
+                              child: FaIcon(
+                                FontAwesomeIcons.plus,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 15,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ],
         ),

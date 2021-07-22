@@ -1,6 +1,9 @@
 import 'dart:async';
 
-import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_device_object.dart';
+import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
+import 'package:cybear_jinni/domain/devices/device/value_objects.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cybear_jinni/infrastructure/objects/enums.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +13,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class SmartDevicePage extends StatefulWidget {
   const SmartDevicePage(this.device);
 
-  final SmartDeviceObject device;
+  final DeviceEntity device;
 
   @override
   State<StatefulWidget> createState() {
@@ -20,7 +23,7 @@ class SmartDevicePage extends StatefulWidget {
 
 class _SmartDevicePage extends State<SmartDevicePage> {
   bool _switchState = false;
-  SmartDeviceObject? _device;
+  DeviceEntity? _device;
   bool _isLoading = true;
 
   @override
@@ -35,7 +38,7 @@ class _SmartDevicePage extends State<SmartDevicePage> {
 
   Future<void> getAndUpdateState() async {
     try {
-      final bool stateValue = await getDeviceState();
+      final bool stateValue = await getDeviceAction();
       if (mounted) {
         _isLoading = false;
         setState(() {
@@ -48,13 +51,17 @@ class _SmartDevicePage extends State<SmartDevicePage> {
   }
 
   //  Send request to device to retrieve his state on or off
-  Future<bool> getDeviceState() async {
-    return _switchState = await _device!.getDeviceStateAsBool();
+  Future<bool> getDeviceAction() async {
+    return _switchState = EnumHelper.stringToDeviceAction(
+            await _device!.deviceActions!.getOrCrash()) ==
+        DeviceActions.on;
   }
 
   Future<void> _onChange(bool value) async {
     print('OnChange $value');
-    _device!.setLightState(value);
+    _device = _device?.copyWith(
+        deviceActions: DeviceAction(EnumHelper.deviceActionToString(
+            value ? DeviceActions.on : DeviceActions.off)));
     if (mounted) {
       setState(() {
         _switchState = value;
@@ -68,7 +75,7 @@ class _SmartDevicePage extends State<SmartDevicePage> {
     return Column(
       children: <Widget>[
         Text(
-          _device!.name!, //  Show device name
+          _device!.defaultName!.getOrCrash()!, //  Show device name
           style: TextStyle(
             fontSize: 19.0,
             color: Theme.of(context).textTheme.bodyText2!.color,

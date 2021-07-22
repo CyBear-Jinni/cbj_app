@@ -5,10 +5,12 @@ import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_failures.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_value_objects.dart';
 import 'package:cybear_jinni/domain/cbj_comp/i_cbj_comp_repository.dart';
-import 'package:cybear_jinni/domain/devices/device_entity.dart';
-import 'package:cybear_jinni/domain/devices/devices_failures.dart';
-import 'package:cybear_jinni/domain/devices/i_device_repository.dart';
-import 'package:cybear_jinni/domain/devices/value_objects.dart';
+import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
+import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
+import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
+import 'package:cybear_jinni/domain/devices/device/value_objects.dart';
+import 'package:cybear_jinni/domain/manage_network/i_manage_network_repository.dart';
+import 'package:cybear_jinni/domain/manage_network/manage_network_entity.dart';
 import 'package:cybear_jinni/presentation/add_new_devices_process/configure_new_cbj_comp/widgets/configure_new_cbj_comp_widget.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/widgets.dart';
@@ -28,6 +30,8 @@ class ConfigureNewCbjCompBloc
       : super(const ConfigureNewCbjCompState.initial());
 
   final IDeviceRepository _deviceRepository;
+
+  /// Progress counter for setting new devices
   double progressPercent = 0.0;
 
   final ICBJCompRepository _cBJCompRepository;
@@ -164,6 +168,11 @@ class ConfigureNewCbjCompBloc
     final List<DeviceEntity> deviceEntityList = [];
 
     final String roomUuid = const Uuid().v1();
+    final String roomName = _textEditingController['allInSameRoom']!.text;
+
+    final ManageNetworkEntity manageWiFiEntity =
+        IManageNetworkRepository.manageWiFiEntity!;
+    final String secondWiFi = manageWiFiEntity.name!.getOrCrash();
 
     cbjCompEntity.cBJCompDevices!.getOrCrash().asList().forEach((deviceE) {
       try {
@@ -173,6 +182,9 @@ class ConfigureNewCbjCompBloc
         deviceEntityList.add(
           deviceE.copyWith(
             defaultName: DeviceDefaultName(deviceName),
+            roomName: DeviceRoomName(roomName),
+            deviceMdnsName: DeviceMdnsName(deviceName),
+            deviceSecondWiFi: DeviceSecondWiFiName(secondWiFi),
             roomId: DeviceUniqueId.fromUniqueString(roomUuid),
           ),
         );

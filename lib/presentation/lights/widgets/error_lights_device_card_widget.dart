@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/domain/devices/device_entity.dart';
+import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
 import 'package:flutter/material.dart';
 
 class ErrorLightsDeviceCard extends StatelessWidget {

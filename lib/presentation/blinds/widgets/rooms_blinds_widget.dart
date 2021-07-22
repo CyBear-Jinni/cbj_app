@@ -1,5 +1,5 @@
 import 'package:cybear_jinni/application/blinds/blinds_watcher/blinds_watcher_bloc.dart';
-import 'package:cybear_jinni/domain/devices/device_entity.dart';
+import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
 import 'package:cybear_jinni/presentation/blinds/widgets/critical_failure_blinds_display_widget.dart';
 import 'package:cybear_jinni/presentation/blinds/widgets/room_blinds.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
@@ -80,12 +80,13 @@ class RoomsBlindsWidget extends StatelessWidget {
                       gradientColorCounter = 0;
                       gradiantColor = gradientColorsList[gradientColorCounter];
                     }
-                    final devicesInRoom = devicesByRooms[index];
+                    final KtList<DeviceEntity> devicesInRoom =
+                        devicesByRooms[index];
 
                     return RoomBlinds(
                       devicesInRoom,
                       gradiantColor,
-                      'Room ${index + 1}',
+                      devicesInRoom[0].roomName!.getOrCrash()!,
                       maxLightsToShow: 50,
                     );
                   },

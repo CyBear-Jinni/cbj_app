@@ -7,7 +7,6 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:random_color/random_color.dart';
 
 class ScenesInFoldersL extends StatelessWidget {
   @override
@@ -47,7 +46,6 @@ class ScenesInFoldersL extends StatelessWidget {
   Widget scenesFoldersWidget(BuildContext context,
       Either<FolderOfScenesFailures<dynamic>, FolderOfScenes> folderOfScenes) {
     const double borderRadius = 5;
-    final ColorBrightness lightColorB = ColorBrightness.light;
     return Container(
       decoration: BoxDecoration(
         color: Colors.black,

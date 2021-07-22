@@ -1,4 +1,5 @@
-import 'package:cybear_jinni/infrastructure/core/gen/smart_device/smart_room_object.dart';
+
+import 'package:cybear_jinni/domain/room/smart_room_object.dart';
 import 'package:cybear_jinni/presentation/home_page/smart_device_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

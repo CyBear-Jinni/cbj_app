@@ -1,19 +1,12 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cybear_jinni/domain/home_user/home_user_entity.dart';
 import 'package:cybear_jinni/domain/home_user/home_user_failures.dart';
 import 'package:cybear_jinni/domain/home_user/i_home_user_repository.dart';
-import 'package:cybear_jinni/infrastructure/core/firestore_helpers.dart';
-import 'package:cybear_jinni/infrastructure/home_user/home_user_dtos.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
 
 @LazySingleton(as: IHomeUserRepository)
 class HomeUserRepository implements IHomeUserRepository {
-  HomeUserRepository(this._firestore);
-
-  final FirebaseFirestore _firestore;
-
   @override
   Future<Either<HomeUserFailures, Unit>> add(
       HomeUserEntity homeUserEntity) async {
@@ -61,24 +54,23 @@ class HomeUserRepository implements IHomeUserRepository {
   @override
   Stream<Either<HomeUserFailures, KtList<HomeUserEntity>>>
       getAllUsers() async* {
-    final homeDocument = await _firestore.currentHomeDocument();
-
-    yield* homeDocument.usersCollecttion.snapshots().map(
-              (snapshot) => right<HomeUserFailures, KtList<HomeUserEntity>>(
-                snapshot.docs
-                    .map((doc) => HomeUserDtos.fromFirestore(doc).toDomain())
-                    .toImmutableList(),
-              ),
-            )
-        //     .onErrorReturnWith((e) {
-        //   if (e is PlatformException && e.message!.contains('PERMISSION_DENIED')) {
-        //     return left(const UserFailures.insufficientPermission());
-        //   } else {
-        //     // log.error(e.toString());
-        //     return left(const UserFailures.unexpected());
-        //   }
-        // })
-        ;
+    // final homeDocument = await _firestore.currentHomeDocument();
+    //
+    // yield* homeDocument.usersCollecttion.snapshots().map(
+    //           (snapshot) => right<HomeUserFailures, KtList<HomeUserEntity>>(
+    //             snapshot.docs
+    //                 .map((doc) => HomeUserDtos.fromFirestore(doc).toDomain())
+    //                 .toImmutableList(),
+    //           ),
+    //         );
+    //     .onErrorReturnWith((e) {
+    //   if (e is PlatformException && e.message!.contains('PERMISSION_DENIED')) {
+    //     return left(const UserFailures.insufficientPermission());
+    //   } else {
+    //     // log.error(e.toString());
+    //     return left(const UserFailures.unexpected());
+    //   }
+    // })
   }
 
   @override

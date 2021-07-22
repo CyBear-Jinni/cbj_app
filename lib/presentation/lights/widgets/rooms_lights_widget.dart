@@ -1,5 +1,5 @@
 import 'package:cybear_jinni/application/lights/lights_watcher/lights_watcher_bloc.dart';
-import 'package:cybear_jinni/domain/devices/device_entity.dart';
+import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/lights/widgets/critical_light_failure_display_widget.dart';
 import 'package:cybear_jinni/presentation/lights/widgets/room_lights.dart';
@@ -86,7 +86,7 @@ class RoomsLightsWidget extends StatelessWidget {
                     return RoomLights(
                       devicesInRoom,
                       gradiantColor,
-                      'Room ${index + 1}',
+                      devicesInRoom[0].roomName!.getOrCrash()!,
                       maxLightsToShow: 50,
                     );
                   },

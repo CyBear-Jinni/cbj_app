@@ -16,8 +16,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 /// Lights page that will call the lamps widget file and add background
 /// and scaffold for it
 class RoomsLightsPage extends StatelessWidget {
-  const RoomsLightsPage(
-      {this.showDevicesOnlyFromRoomId, this.roomColorGradiant});
+  RoomsLightsPage({this.showDevicesOnlyFromRoomId, this.roomColorGradiant});
 
   /// If it have value will only show lights in this room
   final String? showDevicesOnlyFromRoomId;
@@ -30,7 +29,7 @@ class RoomsLightsPage extends StatelessWidget {
             builder: (BuildContext context) => SettingsPageOfLights()));
   }
 
-  void backButtonFuntion(BuildContext context) {
+  void backButtonFunction(BuildContext context) {
     Navigator.pop(context);
   }
 
@@ -86,7 +85,6 @@ class RoomsLightsPage extends StatelessWidget {
             brightness: Brightness.dark,
           ),
           body: Container(
-            width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
               gradient: BacgroundGradient.getBacground(context),
             ),
@@ -97,7 +95,7 @@ class RoomsLightsPage extends StatelessWidget {
                   Icons.more_vert,
                   cogFunction,
                   leftIcon: FontAwesomeIcons.arrowLeft,
-                  leftIconFunction: backButtonFuntion,
+                  leftIconFunction: backButtonFunction,
                   rightSecondIcon: FontAwesomeIcons.search,
                   rightSecondFunction: () {},
                 ),

@@ -6,6 +6,14 @@ analyzer:
     missing_required_param: error
     missing_return: error
     must_be_immutable: error
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+    - "**/*.pb.dart"
+    - "**/*.pbenum.dart"
+    - "**/*.pbgrpc.dart"
+    - "**/*.pbjson.dart"
+    - "**/*.gr.dart"
 
 linter:
   rules:

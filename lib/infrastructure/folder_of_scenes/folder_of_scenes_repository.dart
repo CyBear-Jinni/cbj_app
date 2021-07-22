@@ -5,6 +5,7 @@ import 'package:cybear_jinni/domain/scene/scene.dart';
 import 'package:cybear_jinni/domain/scene/scene_failures.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
 
@@ -27,7 +28,7 @@ class FolderOfScenesRepository implements IFolderOfScenesRepository {
           uniqueId: UniqueId(),
           name: 'Entrance lights OFF\n-----------\n  ⛩️  🛑',
           scenesActionsToExecute: ['On All', 'Off All'].toImmutableList(),
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: HexColor('#E9D7FF'),
         ),
       ),
       right(
@@ -43,7 +44,7 @@ class FolderOfScenesRepository implements IFolderOfScenesRepository {
           uniqueId: UniqueId(),
           name: 'Go to sleep\n-----------\n 😴',
           scenesActionsToExecute: ['On All', 'Off All'].toImmutableList(),
-          backgroundColor: Colors.green,
+          backgroundColor: Colors.greenAccent,
         ),
       ),
       right(
@@ -51,23 +52,22 @@ class FolderOfScenesRepository implements IFolderOfScenesRepository {
           uniqueId: UniqueId(),
           name: 'Welcome home',
           scenesActionsToExecute: ['On All', 'Off All'].toImmutableList(),
-          backgroundColor: Colors.pinkAccent,
+          backgroundColor: HexColor('#DAEEFF'),
         ),
       ),
       right(
         Scene(
-          uniqueId: UniqueId(),
-          name: 'Going out',
-          scenesActionsToExecute: ['On All', 'Off All'].toImmutableList(),
-          backgroundColor: Colors.blueGrey,
-        ),
+            uniqueId: UniqueId(),
+            name: 'Going out',
+            scenesActionsToExecute: ['On All', 'Off All'].toImmutableList(),
+            backgroundColor: HexColor('#FFD6CF')),
       ),
       right(
         Scene(
           uniqueId: UniqueId(),
           name: 'Going for a walk',
           scenesActionsToExecute: ['On All', 'Off All'].toImmutableList(),
-          backgroundColor: Colors.white12,
+          backgroundColor: HexColor('#FEDE7A'),
         ),
       ),
       right(
@@ -83,7 +83,7 @@ class FolderOfScenesRepository implements IFolderOfScenesRepository {
           uniqueId: UniqueId(),
           name: 'Date night',
           scenesActionsToExecute: ['On All', 'Off All'].toImmutableList(),
-          backgroundColor: Colors.greenAccent,
+          backgroundColor: Colors.pinkAccent,
         ),
       ),
       right(
@@ -91,7 +91,7 @@ class FolderOfScenesRepository implements IFolderOfScenesRepository {
           uniqueId: UniqueId(),
           name: 'Party',
           scenesActionsToExecute: ['On All', 'Off All'].toImmutableList(),
-          backgroundColor: Colors.brown.withOpacity(0.5),
+          backgroundColor: Colors.blueGrey,
         ),
       ),
     ].toImmutableList();
