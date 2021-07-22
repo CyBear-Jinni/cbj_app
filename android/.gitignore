@@ -1,0 +1,11 @@
+/.gradle
+/captures/
+/gradlew
+/gradlew.bat
+/local.properties
+
+app/google-services.json
+
+GeneratedPluginRegistrant.java
+gradle-wrapper.jar
+key.properties
