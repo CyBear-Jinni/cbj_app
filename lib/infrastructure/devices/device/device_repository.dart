@@ -548,23 +548,27 @@ class DeviceRepository implements IDeviceRepository {
       String? forceUpdateLocation, String? deviceSecondWifiName) async {
     String updateLocation;
 
-    if (forceUpdateLocation == null) {
-      final status = await Permission.location.status;
-      if (status.isDenied) {
-        Permission.location.request();
-      }
+    try {
+      if (forceUpdateLocation == null) {
+        final status = await Permission.location.status;
+        if (status.isDenied) {
+          Permission.location.request();
+        }
 
-      final String? wifiName = await NetworkInfo().getWifiName();
+        final String? wifiName = await NetworkInfo().getWifiName();
 
-      if (deviceSecondWifiName != null &&
-          deviceSecondWifiName.isNotEmpty &&
-          deviceSecondWifiName == wifiName) {
-        updateLocation = 'L'; // L for local network
+        if (deviceSecondWifiName != null &&
+            deviceSecondWifiName.isNotEmpty &&
+            deviceSecondWifiName == wifiName) {
+          updateLocation = 'L'; // L for local network
+        } else {
+          updateLocation = 'R'; // R for remote
+        }
       } else {
-        updateLocation = 'R'; // R for remote
+        updateLocation = forceUpdateLocation;
       }
-    } else {
-      updateLocation = forceUpdateLocation;
+    } catch (exception) {
+      updateLocation = 'L';
     }
 
     return updateLocation;
