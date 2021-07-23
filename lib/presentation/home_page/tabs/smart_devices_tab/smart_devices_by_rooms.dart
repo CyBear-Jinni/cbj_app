@@ -186,7 +186,7 @@ class SmartDevicesByRooms extends StatelessWidget {
                                   gridDelegate:
                                       const SliverGridDelegateWithMaxCrossAxisExtent(
                                     maxCrossAxisExtent: 200,
-                                    childAspectRatio: 1.1,
+                                    childAspectRatio: 1.4,
                                     crossAxisSpacing: 8,
                                     mainAxisSpacing: 4,
                                   ),

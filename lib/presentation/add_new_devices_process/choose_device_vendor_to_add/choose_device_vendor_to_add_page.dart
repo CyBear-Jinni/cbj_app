@@ -13,6 +13,11 @@ class ChooseDeviceVendorToAddPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: 0,
+        backgroundColor: Colors.black,
+        brightness: Brightness.dark,
+      ),
       body: Container(
         decoration: BoxDecoration(
           // Box decoration takes a gradient

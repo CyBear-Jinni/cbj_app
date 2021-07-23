@@ -23,8 +23,8 @@ class LightsInTheRoomBlock extends StatelessWidget {
         ));
       },
       child: Container(
-        color: Colors.black.withOpacity(0.03),
-        margin: const EdgeInsets.all(5),
+        color: Colors.amber.withOpacity(0.03),
+        margin: const EdgeInsets.symmetric(horizontal: 5),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
