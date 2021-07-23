@@ -10,10 +10,8 @@ FlutterLocalNotificationsPlugin? flutterLocalNotificationsPlugin;
 
 Future<void> configureLocalTimeZone() async {
   tz.initializeTimeZones();
-
-  final String timeZoneName = await FlutterNativeTimezone.getLocalTimezone();
-
   try {
+    final String timeZoneName = await FlutterNativeTimezone.getLocalTimezone();
     tz.setLocalLocation(tz.getLocation(timeZoneName));
   } catch (e) {
     tz.setLocalLocation(tz.getLocation('US/Central'));
