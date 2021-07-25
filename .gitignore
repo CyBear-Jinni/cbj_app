@@ -16,7 +16,8 @@ lib/generated_plugin_registrant.dart
 # Obfuscation related
 app.*.map.json
 
-
+injection.config.dart
+*.gr.dart
 
 
 

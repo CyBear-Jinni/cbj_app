@@ -119,7 +119,8 @@ class SmartDevicesWidgets extends StatelessWidget {
                         scale: 1.2,
                         child: GestureDetector(
                           onTap: () {
-                            context.router.push(const ConnectToHomeWifiRoute());
+                            context.router
+                                .push(const ChooseDeviceVendorToAddRoute());
                           },
                           child: Ink(
                             decoration: const ShapeDecoration(
@@ -128,7 +129,7 @@ class SmartDevicesWidgets extends StatelessWidget {
                             ),
                             child: CircleAvatar(
                               backgroundColor: Colors.blue.withOpacity(0.9),
-                              child: FaIcon(
+                              child: const FaIcon(
                                 FontAwesomeIcons.plus,
                                 color: Colors.white,
                               ),
