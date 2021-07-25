@@ -87,7 +87,7 @@ class ScenesInFoldersTab extends StatelessWidget {
                         ),
                         child: CircleAvatar(
                           backgroundColor: Colors.blue.withOpacity(0.9),
-                          child: FaIcon(
+                          child: const FaIcon(
                             FontAwesomeIcons.plus,
                             color: Colors.white,
                           ),
