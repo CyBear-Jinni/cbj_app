@@ -2,6 +2,7 @@ import 'package:cybear_jinni/domain/vendors/i_vendor_repository.dart';
 import 'package:cybear_jinni/domain/vendors/vendor.dart';
 import 'package:cybear_jinni/domain/vendors/vendor_failures.dart';
 import 'package:cybear_jinni/domain/vendors/vendor_value_objects.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
@@ -10,13 +11,45 @@ import 'package:kt_dart/kt.dart';
 class VendorsRepository implements IVendorsRepository {
   @override
   Future<Either<VendorFailure, KtList<Vendor>>> getVendors() async {
-    return right(VendorsMocData().getAllVendors());
+    final List<Vendor> vendorsWithIcons = [];
+
+    // Add icons to supported vendors and services
+    for (final VendorsAndServices vendorsAndServices
+        in VendorsAndServices.values) {
+      if (vendorsAndServices.name ==
+          VendorsAndServices.VendorsAndServicesNotSupported.name) {
+        continue;
+      }
+      vendorsWithIcons
+          .add(vendorPlusImageFromVandorName(vendorsAndServices.name));
+      print(vendorsAndServices.name);
+    }
+    return right(vendorsWithIcons.toImmutableList());
+  }
+
+  Vendor vendorPlusImageFromVandorName(String vendorName) {
+    for (final Vendor vendor
+        in VendorsMocDataWithImages().getAllVendors().asList()) {
+      if (vendor.name.getOrCrash().toLowerCase() == vendorName.toLowerCase()) {
+        return vendor;
+      }
+    }
+
+    return Vendor(
+        name: VendorName(vendorName),
+        image:
+            'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.seilevel.com%2Frequirements%2Fwp-content%2Fplugins%2Fstormhill_author_page%2Fimg%2Fimage-not-found.png&f=1&nofb=1');
   }
 }
 
-class VendorsMocData {
+class VendorsMocDataWithImages {
   KtList<Vendor> getAllVendors() {
     return [
+      Vendor(
+        name: VendorName('Tasmota'),
+        image:
+            'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.kyAWxT4tVBWL6O2sCJKqaAHaHa%26pid%3DApi&f=1',
+      ),
       Vendor(
         name: VendorName('Sonoff'),
         image:
