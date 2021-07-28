@@ -9,6 +9,21 @@
 import 'dart:core' as $core;
 import 'package:protobuf/protobuf.dart' as $pb;
 
+class VendorsAndServices extends $pb.ProtobufEnum {
+  static const VendorsAndServices VendorsAndServicesNotSupported = VendorsAndServices._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'VendorsAndServicesNotSupported');
+  static const VendorsAndServices tasmota = VendorsAndServices._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'tasmota');
+
+  static const $core.List<VendorsAndServices> values = <VendorsAndServices> [
+    VendorsAndServicesNotSupported,
+    tasmota,
+  ];
+
+  static final $core.Map<$core.int, VendorsAndServices> _byValue = $pb.ProtobufEnum.initByValue(values);
+  static VendorsAndServices? valueOf($core.int value) => _byValue[value];
+
+  const VendorsAndServices._($core.int v, $core.String n) : super(v, n);
+}
+
 class DeviceTypes extends $pb.ProtobufEnum {
   static const DeviceTypes typeNotSupported = DeviceTypes._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'typeNotSupported');
   static const DeviceTypes light = DeviceTypes._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'light');
