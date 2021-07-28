@@ -1,4 +1,4 @@
-package com.cybear_jinni.CBJ_App
+package com.cybearjinni.cbj_app
 
 import io.flutter.embedding.android.FlutterActivity
 
