@@ -12,10 +12,12 @@ import 'package:protobuf/protobuf.dart' as $pb;
 class VendorsAndServices extends $pb.ProtobufEnum {
   static const VendorsAndServices VendorsAndServicesNotSupported = VendorsAndServices._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'VendorsAndServicesNotSupported');
   static const VendorsAndServices tasmota = VendorsAndServices._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'tasmota');
+  static const VendorsAndServices yeelight = VendorsAndServices._(2, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'yeelight');
 
   static const $core.List<VendorsAndServices> values = <VendorsAndServices> [
     VendorsAndServicesNotSupported,
     tasmota,
+    yeelight,
   ];
 
   static final $core.Map<$core.int, VendorsAndServices> _byValue = $pb.ProtobufEnum.initByValue(values);

@@ -14,11 +14,12 @@ const VendorsAndServices$json = const {
   '2': const [
     const {'1': 'VendorsAndServicesNotSupported', '2': 0},
     const {'1': 'tasmota', '2': 1},
+    const {'1': 'yeelight', '2': 2},
   ],
 };
 
 /// Descriptor for `VendorsAndServices`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List vendorsAndServicesDescriptor = $convert.base64Decode('ChJWZW5kb3JzQW5kU2VydmljZXMSIgoeVmVuZG9yc0FuZFNlcnZpY2VzTm90U3VwcG9ydGVkEAASCwoHdGFzbW90YRAB');
+final $typed_data.Uint8List vendorsAndServicesDescriptor = $convert.base64Decode('ChJWZW5kb3JzQW5kU2VydmljZXMSIgoeVmVuZG9yc0FuZFNlcnZpY2VzTm90U3VwcG9ydGVkEAASCwoHdGFzbW90YRABEgwKCHllZWxpZ2h0EAI=');
 @$core.Deprecated('Use deviceTypesDescriptor instead')
 const DeviceTypes$json = const {
   '1': 'DeviceTypes',
