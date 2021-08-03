@@ -31,6 +31,7 @@ abstract class DeviceDtos implements _$DeviceDtos, DeviceEntityDtoAbstract {
 
   DeviceDtos._();
 
+  @override
   factory DeviceDtos.fromDomain(DeviceEntity deviceEntity) {
     return DeviceDtos(
       deviceDtoClass: (DeviceDtos).toString(),
@@ -56,7 +57,6 @@ abstract class DeviceDtos implements _$DeviceDtos, DeviceEntityDtoAbstract {
   factory DeviceDtos.fromJson(Map<String, dynamic> json) =>
       _$DeviceDtosFromJson(json);
 
-  
   @override
   final String deviceDtoClassInstance = (DeviceDtos).toString();
 

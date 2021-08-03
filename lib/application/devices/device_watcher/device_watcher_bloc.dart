@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
 import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
@@ -20,7 +21,7 @@ class DeviceWatcherBloc extends Bloc<DeviceWatcherEvent, DeviceWatcherState> {
 
   final IDeviceRepository _deviceRepository;
 
-  StreamSubscription<Either<DevicesFailure, KtList<DeviceEntity?>>>?
+  StreamSubscription<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>?
       _deviceStreamSubscription;
 
   @override
@@ -37,7 +38,8 @@ class DeviceWatcherBloc extends Bloc<DeviceWatcherEvent, DeviceWatcherState> {
       devicesReceived: (e) async* {
         yield e.failureOrDevices.fold((f) => DeviceWatcherState.loadFailure(f),
             (d) {
-          return DeviceWatcherState.loadSuccess(d);
+          return DeviceWatcherState.loadSuccess(
+              d.map((v) => v! as DeviceEntity).toMutableList());
         });
       },
     );

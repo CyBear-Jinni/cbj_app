@@ -36,6 +36,7 @@ abstract class EspHomeDtos implements _$EspHomeDtos, DeviceEntityDtoAbstract {
   @override
   final String deviceDtoClassInstance = (EspHomeDtos).toString();
 
+  @override
   factory EspHomeDtos.fromDomain(EspHomeDE esphomeDE) {
     return EspHomeDtos(
       deviceDtoClass: (EspHomeDtos).toString(),

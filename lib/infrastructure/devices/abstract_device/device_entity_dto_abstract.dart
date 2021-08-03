@@ -7,7 +7,8 @@ class DeviceEntityDtoAbstract {
 
   final String deviceDtoClassInstance = (DeviceEntityDtoAbstract).toString();
 
-  factory DeviceEntityDtoAbstract.fromDomain() {
+  factory DeviceEntityDtoAbstract.fromDomain(
+      DeviceEntityAbstract deviceEntityDtoAbstract) {
     print('DeviceEntityDtoAbstract.fromDomain');
     return DeviceEntityDtoAbstract();
   }
@@ -33,6 +34,6 @@ class DeviceEntityDtoAbstract {
 
   DeviceEntityAbstract toDomain() {
     print('ToDomain');
-    return DeviceEntityAbstract();
+    return DeviceEntityEmpty();
   }
 }

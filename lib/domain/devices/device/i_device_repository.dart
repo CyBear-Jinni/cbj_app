@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
+import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
 import 'package:dartz/dartz.dart';
 import 'package:kt_dart/kt.dart';
@@ -13,25 +13,27 @@ abstract class IDeviceRepository {
 
   // C Read UD
 
-  void addOrUpdateDevice(DeviceEntity deviceEntity);
+  void addOrUpdateDevice(DeviceEntityAbstract deviceEntity);
 
-  void addOrUpdateDeviceAndStateToWaiting(DeviceEntity deviceEntity);
+  void addOrUpdateDeviceAndStateToWaiting(DeviceEntityAbstract deviceEntity);
 
   Future<void> initiateHubConnection();
 
-  Future<Either<DevicesFailure, KtList<DeviceEntity?>>> getAllDevices();
+  Future<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>> getAllDevices();
 
-  Stream<Either<DevicesFailure, KtList<DeviceEntity?>>> watchAll();
+  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>> watchAll();
 
-  Stream<Either<DevicesFailure, KtList<DeviceEntity?>>> watchLights();
+  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>> watchLights();
 
-  Stream<Either<DevicesFailure, KtList<DeviceEntity?>>> watchBlinds();
+  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>> watchBlinds();
 
-  Stream<Either<DevicesFailure, KtList<DeviceEntity?>>> watchBoilers();
+  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>> watchBoilers();
 
-  Stream<Either<DevicesFailure, KtList<DeviceEntity?>>> watchUncompleted();
+  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
+      watchUncompleted();
 
-  Future<Either<DevicesFailure, Unit>> create(DeviceEntity deviceEntity);
+  Future<Either<DevicesFailure, Unit>> create(
+      DeviceEntityAbstract deviceEntity);
 
   /// Update document in the database in the following fields
   Future<Either<DevicesFailure, Unit>> updateDatabase({
@@ -41,7 +43,7 @@ abstract class IDeviceRepository {
   });
 
   Future<Either<DevicesFailure, Unit>> updateWithDeviceEntity({
-    required DeviceEntity deviceEntity,
+    required DeviceEntityAbstract deviceEntity,
     String? forceUpdateLocation,
   });
 
@@ -70,8 +72,9 @@ abstract class IDeviceRepository {
     String forceUpdateLocation,
   });
 
-  Future<Either<DevicesFailure, Unit>> delete(DeviceEntity deviceEntity);
+  Future<Either<DevicesFailure, Unit>> delete(
+      DeviceEntityAbstract deviceEntity);
 
-  BehaviorSubject<KtList<DeviceEntity?>> devicesStreamController =
-      BehaviorSubject<KtList<DeviceEntity?>>();
+  BehaviorSubject<KtList<DeviceEntityAbstract?>> devicesStreamController =
+      BehaviorSubject<KtList<DeviceEntityAbstract?>>();
 }

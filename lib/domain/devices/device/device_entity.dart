@@ -1,8 +1,10 @@
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/devices/device/value_objects.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/devices/abstract_device/device_entity_dto_abstract.dart';
 import 'package:cybear_jinni/infrastructure/devices/device/device_dtos.dart';
+import 'package:cybear_jinni/infrastructure/objects/enums.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -101,6 +103,52 @@ abstract class DeviceEntity implements _$DeviceEntity, DeviceEntityAbstract {
     //           .fold(() => right(unit), (f) => left(f)),
     //     )
     //     .fold((f) => some(f), (_) => none());
+  }
+
+  @override
+  String getDeviceId() {
+    return this.id!.getOrCrash()!;
+  }
+
+  @override
+  String getDeviceType() {
+    return deviceTypes!.getOrCrash();
+  }
+
+  @override
+  DeviceEntityAbstract copyWithDeviceState(DeviceStateGRPC deviceState) {
+    return copyWith(
+        deviceStateGRPC:
+            DeviceState(EnumHelper.deviceStateToString(deviceState)));
+  }
+
+  @override
+  DeviceEntityAbstract copyWithDeviceAction(DeviceActions deviceActions) {
+    return copyWith(
+        deviceActions:
+            DeviceAction(EnumHelper.deviceActionToString(deviceActions)));
+  }
+
+  @override
+  DeviceEntityAbstract copyWithStateMassage(String stateMassage) {
+    return copyWith(stateMassage: DeviceStateMassage(stateMassage));
+  }
+
+  @override
+  DeviceEntityAbstract copyWithSenderDeviceOs(String senderDeviceOs) {
+    return copyWith(senderDeviceOs: DeviceSenderDeviceOs(senderDeviceOs));
+  }
+
+  @override
+  DeviceEntityAbstract copyWithDeviceSenderDeviceModel(
+      String deviceSenderDeviceModel) {
+    return copyWith(
+        senderDeviceModel: DeviceSenderDeviceModel(deviceSenderDeviceModel));
+  }
+
+  @override
+  DeviceEntityAbstract copyWithSenderId(String userId) {
+    return copyWith(senderId: DeviceSenderId.fromUniqueString(userId));
   }
 
   @override
