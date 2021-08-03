@@ -1,8 +1,10 @@
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/esphome/esphome_failures.dart';
 import 'package:cybear_jinni/domain/devices/esphome/esphome_value_objects.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/devices/abstract_device/device_entity_dto_abstract.dart';
 import 'package:cybear_jinni/infrastructure/devices/esphome/esphome_dtos.dart';
+import 'package:cybear_jinni/infrastructure/objects/enums.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -101,6 +103,52 @@ abstract class EspHomeDE implements _$EspHomeDE, DeviceEntityAbstract {
     //           .fold(() => right(unit), (f) => left(f)),
     //     )
     //     .fold((f) => some(f), (_) => none());
+  }
+
+  @override
+  String getDeviceId() {
+    return this.id!.getOrCrash()!;
+  }
+
+  @override
+  String getDeviceType() {
+    return deviceTypes!.getOrCrash();
+  }
+
+  @override
+  DeviceEntityAbstract copyWithDeviceState(DeviceStateGRPC deviceState) {
+    return copyWith(
+        deviceStateGRPC:
+            EspHomeState(EnumHelper.deviceStateToString(deviceState)));
+  }
+
+  @override
+  DeviceEntityAbstract copyWithDeviceAction(DeviceActions deviceActions) {
+    return copyWith(
+        deviceActions:
+            EspHomeAction(EnumHelper.deviceActionToString(deviceActions)));
+  }
+
+  @override
+  DeviceEntityAbstract copyWithStateMassage(String stateMassage) {
+    return copyWith(stateMassage: EspHomeStateMassage(stateMassage));
+  }
+
+  @override
+  DeviceEntityAbstract copyWithSenderDeviceOs(String senderDeviceOs) {
+    return copyWith(senderDeviceOs: EspHomeSenderDeviceOs(senderDeviceOs));
+  }
+
+  @override
+  DeviceEntityAbstract copyWithDeviceSenderDeviceModel(
+      String deviceSenderDeviceModel) {
+    return copyWith(
+        senderDeviceModel: EspHomeSenderDeviceModel(deviceSenderDeviceModel));
+  }
+
+  @override
+  DeviceEntityAbstract copyWithSenderId(String userId) {
+    return copyWith(senderId: EspHomeSenderId.fromUniqueString(userId));
   }
 
   @override

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
 import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
@@ -21,7 +22,7 @@ class BoilersWatcherBloc
       : super(BoilersWatcherState.initial());
 
   final IDeviceRepository _deviceRepository;
-  StreamSubscription<Either<DevicesFailure, KtList<DeviceEntity?>>>?
+  StreamSubscription<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>?
       _deviceStreamSubscription;
 
   @override
@@ -37,8 +38,10 @@ class BoilersWatcherBloc
                 add(BoilersWatcherEvent.boilersReceived(eventWatch)));
       },
       boilersReceived: (e) async* {
-        yield e.failureOrDevices.fold((f) => BoilersWatcherState.loadFailure(f),
-            (d) => BoilersWatcherState.loadSuccess(d));
+        yield e.failureOrDevices.fold(
+            (f) => BoilersWatcherState.loadFailure(f),
+            (d) => BoilersWatcherState.loadSuccess(
+                d.map((v) => v! as DeviceEntity).toMutableList()));
       },
     );
   }

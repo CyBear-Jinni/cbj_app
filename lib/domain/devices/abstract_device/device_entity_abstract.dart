@@ -1,15 +1,64 @@
+import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/devices/abstract_device/device_entity_dto_abstract.dart';
 
-class DeviceEntityAbstract {
+abstract class DeviceEntityAbstract {
+  /// The smart device id
+  String getDeviceId();
+
+  /// Smart device type, blinds, light, colorful light
+  String getDeviceType();
+
+  /// Copy with device state to waiting or ack
+  DeviceEntityAbstract copyWithDeviceState(DeviceStateGRPC deviceStateGRPC) {
+    return this;
+  }
+
+  /// Copy with device action
+  DeviceEntityAbstract copyWithDeviceAction(DeviceActions deviceActions) {
+    return this;
+  }
+
+  /// Copy with stateMassage
+  DeviceEntityAbstract copyWithStateMassage(String stateMassage) {
+    return this;
+  }
+
+  /// Copy with senderDeviceOs
+  DeviceEntityAbstract copyWithSenderDeviceOs(String senderDeviceOs) {
+    return this;
+  }
+
+  /// Copy with deviceSenderDeviceModel
+  DeviceEntityAbstract copyWithDeviceSenderDeviceModel(
+      String deviceSenderDeviceModel) {
+    return this;
+  }
+
+  /// Copy with currentUserId
+  DeviceEntityAbstract copyWithSenderId(String userId) {
+    return this;
+  }
+
   DeviceEntityDtoAbstract toInfrastructure() {
     return DeviceEntityDtoAbstract();
   }
 
-  /// The smart device id
-  // DeviceUniqueId? id;
-  //
-  // /// The default name of the device
-  // DeviceDefaultName? defaultName;
+// /// The default name of the device
+// DeviceDefaultName? defaultName;
+}
+
+class DeviceEntityEmpty extends DeviceEntityAbstract {
+  @override
+  String getDeviceId() {
+    // TODO: implement getDeviceId
+    throw UnimplementedError();
+  }
+
+  @override
+  String getDeviceType() {
+    // TODO: implement getDeviceType
+    throw UnimplementedError();
+  }
 }
 
 //
