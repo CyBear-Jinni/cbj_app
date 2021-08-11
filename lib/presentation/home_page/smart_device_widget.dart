@@ -1,7 +1,7 @@
 import 'dart:async';
 
+import 'package:cybear_jinni/domain/devices/abstract_device/value_objects_core.dart';
 import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
-import 'package:cybear_jinni/domain/devices/device/value_objects.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums.dart';
 import 'package:flutter/cupertino.dart';

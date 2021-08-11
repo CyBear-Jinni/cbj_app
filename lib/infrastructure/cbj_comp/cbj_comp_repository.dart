@@ -5,8 +5,8 @@ import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_failures.dart';
 import 'package:cybear_jinni/domain/cbj_comp/i_cbj_comp_repository.dart';
 import 'package:cybear_jinni/domain/create_home/i_create_home_repository.dart';
+import 'package:cybear_jinni/domain/devices/abstract_device/value_objects_core.dart';
 import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
-import 'package:cybear_jinni/domain/devices/device/value_objects.dart';
 import 'package:cybear_jinni/domain/manage_network/i_manage_network_repository.dart';
 import 'package:cybear_jinni/domain/manage_network/manage_network_entity.dart';
 import 'package:cybear_jinni/domain/user/user_entity.dart';
@@ -242,9 +242,9 @@ class CBJCompRepository implements ICBJCompRepository {
 
     for (final SmartDeviceInfo smartDeviceInfo in compInfo.smartDevicesInComp) {
       final DeviceEntity deviceEntity = DeviceEntity(
-          id: DeviceUniqueId.fromUniqueString(smartDeviceInfo.id),
+          id: CoreUniqueId.fromUniqueString(smartDeviceInfo.id),
           defaultName: DeviceDefaultName(smartDeviceInfo.defaultName),
-          roomId: DeviceUniqueId.fromUniqueString(smartDeviceInfo.roomId),
+          roomId: CoreUniqueId.fromUniqueString(smartDeviceInfo.roomId),
           roomName: DeviceRoomName('Missing room name'),
           deviceStateGRPC: DeviceState(
               smartDeviceInfo.deviceTypesActions.deviceStateGRPC.toString()),

@@ -5,10 +5,10 @@ import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_failures.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_value_objects.dart';
 import 'package:cybear_jinni/domain/cbj_comp/i_cbj_comp_repository.dart';
+import 'package:cybear_jinni/domain/devices/abstract_device/value_objects_core.dart';
 import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
 import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
-import 'package:cybear_jinni/domain/devices/device/value_objects.dart';
 import 'package:cybear_jinni/domain/manage_network/i_manage_network_repository.dart';
 import 'package:cybear_jinni/domain/manage_network/manage_network_entity.dart';
 import 'package:cybear_jinni/presentation/add_new_devices_process/configure_new_cbj_comp/widgets/configure_new_cbj_comp_widget.dart';
@@ -185,7 +185,7 @@ class ConfigureNewCbjCompBloc
             roomName: DeviceRoomName(roomName),
             deviceMdnsName: DeviceMdnsName(deviceName),
             deviceSecondWiFi: DeviceSecondWiFiName(secondWiFi),
-            roomId: DeviceUniqueId.fromUniqueString(roomUuid),
+            roomId: CoreUniqueId.fromUniqueString(roomUuid),
           ),
         );
       } catch (e) {

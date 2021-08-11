@@ -1,9 +1,10 @@
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/devices/abstract_device/value_objects_core.dart';
 import 'package:cybear_jinni/domain/devices/esphome/esphome_failures.dart';
 import 'package:cybear_jinni/domain/devices/esphome/esphome_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cybear_jinni/infrastructure/devices/abstract_device/device_entity_dto_abstract.dart';
 import 'package:cybear_jinni/infrastructure/devices/esphome/esphome_dtos.dart';
+import 'package:cybear_jinni/infrastructure/generic_devices/abstract_device/device_entity_dto_abstract.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';

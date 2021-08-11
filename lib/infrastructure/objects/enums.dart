@@ -56,6 +56,24 @@ class EnumHelper {
     return null;
   }
 
+  static String deviceVendorToString(VendorsAndServices vendorsAndServices) {
+    return vendorsAndServices.toString().replaceAll('VendorsAndServices.', '');
+  }
+
+  static VendorsAndServices? stringToDeviceVendor(String deviceVendorAsString) {
+    String deviceTypeAsStringTemp = deviceVendorAsString;
+    if (deviceTypeAsStringTemp.contains('Object')) {
+      deviceTypeAsStringTemp = deviceTypeAsStringTemp.substring(
+          0, deviceTypeAsStringTemp.indexOf('Object'));
+    }
+    for (final VendorsAndServices deviceType in VendorsAndServices.values) {
+      if (deviceVendorToString(deviceType) == deviceTypeAsStringTemp) {
+        return deviceType;
+      }
+    }
+    return null;
+  }
+
   ///  Convert deviceAction to string
   static String deviceActionToString(DeviceActions deviceAction) {
     return deviceAction.toString().replaceAll('DeviceActions.', '');

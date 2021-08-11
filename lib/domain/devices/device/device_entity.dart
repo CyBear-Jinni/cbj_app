@@ -1,9 +1,9 @@
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/devices/abstract_device/value_objects_core.dart';
 import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
-import 'package:cybear_jinni/domain/devices/device/value_objects.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cybear_jinni/infrastructure/devices/abstract_device/device_entity_dto_abstract.dart';
 import 'package:cybear_jinni/infrastructure/devices/device/device_dtos.dart';
+import 'package:cybear_jinni/infrastructure/generic_devices/abstract_device/device_entity_dto_abstract.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -17,13 +17,13 @@ abstract class DeviceEntity implements _$DeviceEntity, DeviceEntityAbstract {
   /// All public field of device entity
   const factory DeviceEntity({
     /// The smart device id
-    required DeviceUniqueId? id,
+    required CoreUniqueId? id,
 
     /// The default name of the device
     required DeviceDefaultName? defaultName,
 
     /// Room id that the smart device located in.
-    required DeviceUniqueId? roomId,
+    required CoreUniqueId? roomId,
 
     /// Room name that the smart device located in.
     required DeviceRoomName? roomName,
@@ -70,9 +70,9 @@ abstract class DeviceEntity implements _$DeviceEntity, DeviceEntityAbstract {
 
   /// Empty instance of DeviceEntity
   factory DeviceEntity.empty() => DeviceEntity(
-        id: DeviceUniqueId(),
+    id: CoreUniqueId(),
         defaultName: DeviceDefaultName(''),
-        roomId: DeviceUniqueId(),
+        roomId: CoreUniqueId(),
         roomName: DeviceRoomName(''),
         deviceStateGRPC: DeviceState(''),
         senderDeviceOs: DeviceSenderDeviceOs(''),
@@ -88,7 +88,7 @@ abstract class DeviceEntity implements _$DeviceEntity, DeviceEntityAbstract {
   /// Will return failure if any of the fields failed or return unit if fields
   /// have legit values
   Option<DevicesFailure<dynamic>> get failureOption {
-    return defaultName!.value.fold((f) => some(f), (_) => none());
+    return defaultName.value.fold((f) => some(f), (_) => none());
     //
     // return body.failureOrUnit
     //     .andThen(todos.failureOrUnit)

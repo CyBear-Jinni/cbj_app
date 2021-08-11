@@ -1,7 +1,7 @@
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/esphome/esphome_device_entity.dart';
 import 'package:cybear_jinni/domain/devices/esphome/esphome_value_objects.dart';
-import 'package:cybear_jinni/infrastructure/devices/abstract_device/device_entity_dto_abstract.dart';
+import 'package:cybear_jinni/infrastructure/generic_devices/abstract_device/device_entity_dto_abstract.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'esphome_dtos.freezed.dart';
