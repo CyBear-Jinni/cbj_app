@@ -7,7 +7,6 @@ import 'package:cybear_jinni/infrastructure/generic_devices/abstract_device/devi
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'generic_light_device_dtos.freezed.dart';
-
 part 'generic_light_device_dtos.g.dart';
 
 @freezed

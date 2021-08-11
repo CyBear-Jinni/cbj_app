@@ -82,7 +82,8 @@ abstract class DeviceEntityAbstract {
   }
 
   /// Copy with deviceSenderDeviceModel
-  DeviceEntityAbstract copyWithDeviceSenderDeviceModel(String deviceSenderDeviceModel) {
+  DeviceEntityAbstract copyWithDeviceSenderDeviceModel(
+      String deviceSenderDeviceModel) {
     return this;
   }
 
@@ -148,7 +149,7 @@ class DeviceEntityEmpty extends DeviceEntityAbstract {
 //
 //   const DeviceEntityAbstract._();
 //
-//   /// Empty instance of DeviceEntity
+//   /// Empty instance of GenericLightDE
 //   factory DeviceEntityAbstract.empty() => DeviceEntityAbstract(
 //         id: DeviceUniqueId(),
 //         defaultName: DeviceDefaultName(''),

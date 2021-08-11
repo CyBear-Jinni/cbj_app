@@ -52,7 +52,7 @@ class DeviceRepository implements IDeviceRepository {
     try {
       // final QuerySnapshot allDevicesSnapshot =
       //     await homeDoc.devicesCollecttion.get();
-      // return right<DevicesFailure, KtList<DeviceEntity?>>(
+      // return right<DevicesFailure, KtList<GenericLightDE?>>(
       //     allDevicesSnapshot.docs
       //         .map((e) {
       //           if ((e.data()! as Map<String, dynamic>)[
@@ -90,7 +90,7 @@ class DeviceRepository implements IDeviceRepository {
     yield* devicesStreamController.stream.map((event) => right(event));
 
     // homeDoc.devicesCollecttion.snapshots().map(
-    //       (snapshot) => right<DevicesFailure, KtList<DeviceEntity?>>(
+    //       (snapshot) => right<DevicesFailure, KtList<GenericLightDE?>>(
     //         snapshot.docs
     //             .map((doc) {
     //               if ((doc.data()! as Map<String, dynamic>)[
@@ -113,7 +113,7 @@ class DeviceRepository implements IDeviceRepository {
     //     );
     //     .onErrorReturnWith((e) {
     //   if (e is PlatformException && e.message!.contains('PERMISSION_DENIED')) {
-    //     return left<DevicesFailure, KtList<DeviceEntity>>( DevicesFailure.insufficientPermission());
+    //     return left<DevicesFailure, KtList<GenericLightDE>>( DevicesFailure.insufficientPermission());
     //   } else {
     //     // log.error(e.toString());
     //     // return left( DevicesFailure.unexpected());

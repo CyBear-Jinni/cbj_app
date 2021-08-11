@@ -6,9 +6,9 @@ import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_failures.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_value_objects.dart';
 import 'package:cybear_jinni/domain/cbj_comp/i_cbj_comp_repository.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/value_objects_core.dart';
-import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
 import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
+import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/domain/manage_network/i_manage_network_repository.dart';
 import 'package:cybear_jinni/domain/manage_network/manage_network_entity.dart';
 import 'package:cybear_jinni/presentation/add_new_devices_process/configure_new_cbj_comp/widgets/configure_new_cbj_comp_widget.dart';
@@ -67,10 +67,10 @@ class ConfigureNewCbjCompBloc
         final CBJCompEntity compUpdatedData = value.cBJCompEntity;
         bool error = false;
 
-        final KtList<DeviceEntity> devicesList =
+        final KtList<GenericLightDE> devicesList =
             compUpdatedData.cBJCompDevices!.getOrCrash();
 
-        for (final DeviceEntity device in devicesList.asList()) {
+        for (final GenericLightDE device in devicesList.asList()) {
           final Either<DevicesFailure, Unit> createInCloudResponse =
               await _deviceRepository.create(device);
 
@@ -165,7 +165,7 @@ class ConfigureNewCbjCompBloc
       Map<String, TextEditingController> _textEditingController) {
     final String deviceNameFieldKey =
         ConfigureNewCbjCompWidgets.deviceNameFieldKey;
-    final List<DeviceEntity> deviceEntityList = [];
+    final List<GenericLightDE> deviceEntityList = [];
 
     final String roomUuid = const Uuid().v1();
     final String roomName = _textEditingController['allInSameRoom']!.text;
@@ -177,17 +177,12 @@ class ConfigureNewCbjCompBloc
     cbjCompEntity.cBJCompDevices!.getOrCrash().asList().forEach((deviceE) {
       try {
         final String deviceName = _textEditingController[
-                '$deviceNameFieldKey/${deviceE.id!.getOrCrash()}']!
+                '$deviceNameFieldKey/${deviceE.uniqueId.getOrCrash()}']!
             .text;
-        deviceEntityList.add(
-          deviceE.copyWith(
-            defaultName: DeviceDefaultName(deviceName),
-            roomName: DeviceRoomName(roomName),
-            deviceMdnsName: DeviceMdnsName(deviceName),
-            deviceSecondWiFi: DeviceSecondWiFiName(secondWiFi),
-            roomId: CoreUniqueId.fromUniqueString(roomUuid),
-          ),
-        );
+        deviceEntityList.add(deviceE
+          ..defaultName = DeviceDefaultName(deviceName)
+          ..roomName = DeviceRoomName(roomName)
+          ..roomId = CoreUniqueId.fromUniqueString(roomUuid));
       } catch (e) {
         print("Can't add unsupported device");
       }

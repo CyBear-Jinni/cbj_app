@@ -3,8 +3,8 @@ part of 'light_toggle_bloc.dart';
 @freezed
 class LightToggleEvent with _$LightToggleEvent {
   const factory LightToggleEvent.changeAction(
-      DeviceEntity deviceEntity, bool forceStraightToComputer) = _ChangeState;
+      GenericLightDE deviceEntity, bool forceStraightToComputer) = _ChangeState;
 
-  const factory LightToggleEvent.create(DeviceEntity deviceEntity) =
+  const factory LightToggleEvent.create(GenericLightDE deviceEntity) =
       _CreateDevice;
 }

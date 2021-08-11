@@ -1,7 +1,7 @@
 import 'package:cybear_jinni/application/configure_new_cbj_comp/configure_new_cbj_comp_bloc.dart';
 import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
-import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/core/devices_cards/blinds_card.dart';
@@ -26,19 +26,19 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
       CBJCompEntity cbjCompEntityForDeviceList,
       Map<String, TextEditingController> _textEditingController,
       BuildContext context) {
-    final List<DeviceEntity> devicesList =
+    final List<GenericLightDE> devicesList =
         cbjCompEntityForDeviceList.cBJCompDevices!.getOrCrash().asList();
 
     final List<Widget> widgetList = [];
 
-    for (final DeviceEntity device in devicesList) {
-      if (device.deviceTypes!.getOrCrash() !=
+    for (final GenericLightDE device in devicesList) {
+      if (device.deviceTypes.getOrCrash() !=
           DeviceTypes.typeNotSupported.toString()) {
         final TextEditingController textEditingControllerTemp =
             TextEditingController(
-                text: device.defaultName!.value.getOrElse(() => ''));
+                text: device.defaultName.value.getOrElse(() => ''));
         _textEditingController[
-                '$deviceNameFieldKey/${device.id!.value.getOrElse(() => 'deviceId')}'] =
+                '$deviceNameFieldKey/${device.uniqueId.value.getOrElse(() => 'deviceId')}'] =
             textEditingControllerTemp;
         widgetList.add(
           Container(
@@ -47,13 +47,13 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
             margin: const EdgeInsets.symmetric(vertical: 30),
             child: Column(
               children: [
-                if (device.deviceTypes!.getOrCrash() ==
+                if (device.deviceTypes.getOrCrash() ==
                     DeviceTypes.light.toString())
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 40),
                     child: Row(
                       children: [
-                        Text('Type: ${device.deviceTypes!.getOrCrash()}'),
+                        Text('Type: ${device.deviceTypes.getOrCrash()}'),
                         Expanded(
                           child: Center(
                             child: BlocProvider(
@@ -65,13 +65,13 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                       ],
                     ),
                   )
-                else if (device.deviceTypes!.getOrCrash() ==
+                else if (device.deviceTypes.getOrCrash() ==
                     DeviceTypes.boiler.toString())
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 40),
                     child: Row(
                       children: [
-                        Text('Type: ${device.deviceTypes!.getOrCrash()}'),
+                        Text('Type: ${device.deviceTypes.getOrCrash()}'),
                         Expanded(
                           child: Center(
                             child: BlocProvider(
@@ -83,11 +83,11 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                       ],
                     ),
                   )
-                else if (device.deviceTypes!.getOrCrash() ==
+                else if (device.deviceTypes.getOrCrash() ==
                     DeviceTypes.blinds.toString())
                   Column(
                     children: [
-                      Text('Type: ${device.deviceTypes!.getOrCrash()}'),
+                      Text('Type: ${device.deviceTypes.getOrCrash()}'),
                       Center(
                         child: BlocProvider(
                           create: (context) => getIt<LightToggleBloc>(),
@@ -119,7 +119,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                           FontAwesomeIcons.solidLightbulb,
                           color: Theme.of(context).textTheme.bodyText1!.color,
                         ),
-                        labelText: '${device.deviceTypes!.getOrCrash()} Name',
+                        labelText: '${device.deviceTypes.getOrCrash()} Name',
                         labelStyle: TextStyle(
                             color:
                                 Theme.of(context).textTheme.bodyText1!.color)),
@@ -144,7 +144,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                 Expanded(
                   child: Center(
                     child: Text(
-                      'Type ${device.deviceTypes!.getOrCrash()} is not supported yet',
+                      'Type ${device.deviceTypes.getOrCrash()} is not supported yet',
                       style: TextStyle(
                           color: Theme.of(context).textTheme.bodyText1!.color),
                     ),
@@ -236,7 +236,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                               ),
                               labelText: cbjCompEntityInBuild.cBJCompDevices!
                                   .getOrCrash()[0]
-                                  .roomName!
+                                  .roomName
                                   .getOrCrash(),
                               labelStyle: TextStyle(
                                   color: Theme.of(context)

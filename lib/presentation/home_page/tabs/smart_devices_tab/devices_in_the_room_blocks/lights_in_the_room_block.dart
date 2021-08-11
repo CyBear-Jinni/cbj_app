@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/lights/lights_actor/lights_actor_bloc.dart';
-import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +10,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class LightsInTheRoomBlock extends StatelessWidget {
   const LightsInTheRoomBlock(this.lightsInRoom, this.roomColorGradiant);
 
-  final List<DeviceEntity> lightsInRoom;
+  final List<GenericLightDE> lightsInRoom;
   final List<Color> roomColorGradiant;
 
   @override
@@ -18,7 +18,7 @@ class LightsInTheRoomBlock extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         context.router.push(RoomsLightsRoute(
-          showDevicesOnlyFromRoomId: lightsInRoom[0].roomId!.getOrCrash(),
+          showDevicesOnlyFromRoomId: lightsInRoom[0].roomId.getOrCrash(),
           roomColorGradiant: roomColorGradiant,
         ));
       },
@@ -76,13 +76,13 @@ class LightsInTheRoomBlock extends StatelessWidget {
             ),
             if (lightsInRoom.length == 1)
               Text(
-                lightsInRoom[0].defaultName!.getOrCrash()!,
+                lightsInRoom[0].defaultName.getOrCrash()!,
                 style: TextStyle(
                     color: Theme.of(context).textTheme.bodyText1!.color),
               )
             else
               Text(
-                '${lightsInRoom[0].roomName!.getOrCrash()} Lights',
+                '${lightsInRoom[0].roomName.getOrCrash()} Lights',
                 style: TextStyle(
                     color: Theme.of(context).textTheme.bodyText1!.color),
               ),
@@ -157,7 +157,7 @@ class LightsInTheRoomBlock extends StatelessWidget {
   List<String> extractDevicesId() {
     final List<String> devicesIdList = [];
     lightsInRoom.forEach((element) {
-      devicesIdList.add(element.id!.getOrCrash()!);
+      devicesIdList.add(element.uniqueId.getOrCrash()!);
     });
     return devicesIdList;
   }
