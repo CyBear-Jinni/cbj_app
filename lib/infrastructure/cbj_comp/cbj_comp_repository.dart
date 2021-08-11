@@ -5,8 +5,9 @@ import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_failures.dart';
 import 'package:cybear_jinni/domain/cbj_comp/i_cbj_comp_repository.dart';
 import 'package:cybear_jinni/domain/create_home/i_create_home_repository.dart';
-import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
-import 'package:cybear_jinni/domain/devices/device/value_objects.dart';
+import 'package:cybear_jinni/domain/devices/abstract_device/value_objects_core.dart';
+import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_value_objects.dart';
 import 'package:cybear_jinni/domain/manage_network/i_manage_network_repository.dart';
 import 'package:cybear_jinni/domain/manage_network/manage_network_entity.dart';
 import 'package:cybear_jinni/domain/user/user_entity.dart';
@@ -129,7 +130,7 @@ class CBJCompRepository implements ICBJCompRepository {
       //
       // final CompSpecs compSpecs = compInfo.compSpecs;
       //
-      // final KtList<DeviceEntity> deviceEntityList =
+      // final KtList<GenericLightDE> deviceEntityList =
       //     compDevicesToDevicesList(compInfo, compIp);
       //
       // final CBJCompEntity cbjCompEntity = CBJCompEntity(
@@ -207,7 +208,7 @@ class CBJCompRepository implements ICBJCompRepository {
     final DeviceActions deviceAction = DeviceActions.actionNotSupported;
     final DeviceStateGRPC deviceStateGRPC = DeviceStateGRPC.waitingInComp;
 
-    compEntity.cBJCompDevices!.getOrCrash().forEach((DeviceEntity element) {
+    compEntity.cBJCompDevices!.getOrCrash().forEach((GenericLightDE element) {
       final DeviceTypesActions deviceTypesActions = DeviceTypesActions(
         deviceAction: deviceAction,
         deviceStateGRPC: deviceStateGRPC,
@@ -216,14 +217,14 @@ class CBJCompRepository implements ICBJCompRepository {
       final SmartDeviceInfo smartDeviceInfo = SmartDeviceInfo(
         compSpecs: compSpecs,
         deviceTypesActions: deviceTypesActions,
-        defaultName: element.defaultName!.getOrCrash(),
-        senderId: element.senderId!.getOrCrash(),
+        defaultName: element.defaultName.getOrCrash(),
+        senderId: element.senderId.getOrCrash(),
         senderDeviceModel: deviceModelString,
         senderDeviceOs: Platform.operatingSystem,
-        state: element.deviceStateGRPC!.getOrCrash(),
+        state: element.deviceStateGRPC.getOrCrash(),
         stateMassage: 'Setting up device',
-        roomId: element.roomId!.getOrCrash(),
-        id: element.id!.getOrCrash(),
+        roomId: element.roomId.getOrCrash(),
+        id: element.uniqueId.getOrCrash(),
         serverTimeStamp: DateTime.now().toString(),
       );
       smartDevicesList.add(smartDeviceInfo);
@@ -236,15 +237,15 @@ class CBJCompRepository implements ICBJCompRepository {
     return compInfo;
   }
 
-  KtList<DeviceEntity> compDevicesToDevicesList(
+  KtList<GenericLightDE> compDevicesToDevicesList(
       CompInfo compInfo, String compIp) {
-    final List<DeviceEntity> deviceEntityList = [];
+    final List<GenericLightDE> deviceEntityList = [];
 
     for (final SmartDeviceInfo smartDeviceInfo in compInfo.smartDevicesInComp) {
-      final DeviceEntity deviceEntity = DeviceEntity(
-          id: DeviceUniqueId.fromUniqueString(smartDeviceInfo.id),
+      final GenericLightDE deviceEntity = GenericLightDE(
+          uniqueId: CoreUniqueId.fromUniqueString(smartDeviceInfo.id),
           defaultName: DeviceDefaultName(smartDeviceInfo.defaultName),
-          roomId: DeviceUniqueId.fromUniqueString(smartDeviceInfo.roomId),
+          roomId: CoreUniqueId.fromUniqueString(smartDeviceInfo.roomId),
           roomName: DeviceRoomName('Missing room name'),
           deviceStateGRPC: DeviceState(
               smartDeviceInfo.deviceTypesActions.deviceStateGRPC.toString()),
@@ -253,12 +254,11 @@ class CBJCompRepository implements ICBJCompRepository {
           senderDeviceModel:
               DeviceSenderDeviceModel(smartDeviceInfo.senderDeviceModel),
           senderId: DeviceSenderId.fromUniqueString(smartDeviceInfo.senderId),
-          deviceActions: DeviceAction(
+          deviceVendor: DeviceVendor(
+              VendorsAndServices.VendorsAndServicesNotSupported.toString()),
+          lightSwitchState: GenericLightSwitchState(
               smartDeviceInfo.deviceTypesActions.deviceAction.toString()),
-          deviceTypes: DeviceType(
-              smartDeviceInfo.deviceTypesActions.deviceType.toString()),
-          compUuid: DeviceCompUuid(smartDeviceInfo.compSpecs.compUuid),
-          lastKnownIp: DeviceLastKnownIp(compIp));
+          compUuid: DeviceCompUuid(smartDeviceInfo.compSpecs.compUuid));
       deviceEntityList.add(deviceEntity);
     }
     return deviceEntityList.toImmutableList();

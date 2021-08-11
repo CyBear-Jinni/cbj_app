@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums.dart';
 import 'package:cybear_jinni/presentation/home_page/smart_device_widget.dart';
@@ -11,12 +11,12 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class SmartDeviceTypeAndToggleBar extends StatelessWidget {
   const SmartDeviceTypeAndToggleBar(this._smartDeviceObject);
 
-  final DeviceEntity _smartDeviceObject;
+  final GenericLightDE _smartDeviceObject;
 
   @override
   Widget build(BuildContext context) {
     final DeviceTypes deviceType =
-        EnumHelper.stringToDt(_smartDeviceObject.deviceTypes!.getOrCrash())!;
+        EnumHelper.stringToDt(_smartDeviceObject.deviceTypes.getOrCrash())!;
     return Row(
       children: <Widget>[
         if (deviceType == DeviceTypes.light)

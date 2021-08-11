@@ -1,9 +1,9 @@
-import 'package:cybear_jinni/domain/devices/esphome/esphome_failures.dart';
+import 'package:cybear_jinni/domain/devices/abstract_device/core_failures.dart';
 
-class EspHomeUnexpectedValueError extends Error {
-  EspHomeUnexpectedValueError(this.deviceValueFailure);
+class CoreUnexpectedValueError extends Error {
+  CoreUnexpectedValueError(this.deviceValueFailure);
 
-  final EspHomeFailure deviceValueFailure;
+  final CoreFailure deviceValueFailure;
 
   @override
   String toString() {

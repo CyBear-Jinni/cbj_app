@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 import 'package:flutter/material.dart';
 
 class ErrorBoilersDeviceCard extends StatelessWidget {
@@ -7,7 +7,7 @@ class ErrorBoilersDeviceCard extends StatelessWidget {
     required this.device,
   }) : super(key: key);
 
-  final DeviceEntity? device;
+  final GenericLightDE? device;
 
   @override
   Widget build(BuildContext context) {

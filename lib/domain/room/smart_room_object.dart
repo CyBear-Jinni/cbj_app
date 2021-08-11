@@ -1,33 +1,31 @@
 import 'dart:core';
 import 'dart:ui';
 
-import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
-
-
+import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 
 class SmartRoomObject {
   SmartRoomObject(this._roomName, this.grediantColor,
       {this.lightsInTheRoom, this.blindsInTheRoom, this.boilersInTheRoom});
 
   final String _roomName;
-  final List<DeviceEntity>? lightsInTheRoom;
+  final List<GenericLightDE>? lightsInTheRoom;
   List<Color> grediantColor;
-  List<DeviceEntity>? blindsInTheRoom;
-  List<DeviceEntity>? boilersInTheRoom;
+  List<GenericLightDE>? blindsInTheRoom;
+  List<GenericLightDE>? boilersInTheRoom;
 
   String getRoomName() {
     return _roomName;
   }
 
-  List<DeviceEntity>? getLights() {
+  List<GenericLightDE>? getLights() {
     return lightsInTheRoom;
   }
 
-  List<DeviceEntity>? getBlinds() {
+  List<GenericLightDE>? getBlinds() {
     return blindsInTheRoom;
   }
 
-  List<DeviceEntity>? getBoilers() {
+  List<GenericLightDE>? getBoilers() {
     return blindsInTheRoom;
   }
 }

@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -6,15 +6,15 @@ import 'package:flutter/material.dart';
 class BlindsCard extends StatelessWidget {
   const BlindsCard(this._deviceEntity);
 
-  final DeviceEntity _deviceEntity;
+  final GenericLightDE _deviceEntity;
 
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
     final double sizeBoxWidth = screenSize.width * 0.25;
 
-    final deviceState = _deviceEntity.deviceStateGRPC!.getOrCrash();
-    final deviceAction = _deviceEntity.deviceActions!.getOrCrash();
+    final deviceState = _deviceEntity.deviceStateGRPC.getOrCrash();
+    final deviceAction = _deviceEntity.lightSwitchState!.getOrCrash();
 
     bool toggleValue = false;
     Color toggleColor = Colors.blueGrey;

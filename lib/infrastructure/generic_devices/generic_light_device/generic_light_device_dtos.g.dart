@@ -1,13 +1,14 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'device_dtos.dart';
+part of 'generic_light_device_dtos.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DeviceDtos _$_$_DeviceDtosFromJson(Map<String, dynamic> json) {
-  return _$_DeviceDtos(
+_$_GenericLightDeviceDtos _$_$_GenericLightDeviceDtosFromJson(
+    Map<String, dynamic> json) {
+  return _$_GenericLightDeviceDtos(
     deviceDtoClass: json['deviceDtoClass'] as String?,
     id: json['id'] as String?,
     defaultName: json['defaultName'] as String?,
@@ -18,16 +19,14 @@ _$_DeviceDtos _$_$_DeviceDtosFromJson(Map<String, dynamic> json) {
     senderDeviceOs: json['senderDeviceOs'] as String?,
     senderDeviceModel: json['senderDeviceModel'] as String?,
     senderId: json['senderId'] as String?,
-    deviceActions: json['deviceActions'] as String?,
+    lightSwitchState: json['lightSwitchState'] as String?,
     deviceTypes: json['deviceTypes'] as String?,
     compUuid: json['compUuid'] as String?,
-    deviceSecondWiFi: json['deviceSecondWiFi'] as String?,
-    deviceMdnsName: json['deviceMdnsName'] as String?,
-    lastKnownIp: json['lastKnownIp'] as String?,
   );
 }
 
-Map<String, dynamic> _$_$_DeviceDtosToJson(_$_DeviceDtos instance) =>
+Map<String, dynamic> _$_$_GenericLightDeviceDtosToJson(
+        _$_GenericLightDeviceDtos instance) =>
     <String, dynamic>{
       'deviceDtoClass': instance.deviceDtoClass,
       'id': instance.id,
@@ -39,10 +38,7 @@ Map<String, dynamic> _$_$_DeviceDtosToJson(_$_DeviceDtos instance) =>
       'senderDeviceOs': instance.senderDeviceOs,
       'senderDeviceModel': instance.senderDeviceModel,
       'senderId': instance.senderId,
-      'deviceActions': instance.deviceActions,
+      'lightSwitchState': instance.lightSwitchState,
       'deviceTypes': instance.deviceTypes,
       'compUuid': instance.compUuid,
-      'deviceSecondWiFi': instance.deviceSecondWiFi,
-      'deviceMdnsName': instance.deviceMdnsName,
-      'lastKnownIp': instance.lastKnownIp,
     };

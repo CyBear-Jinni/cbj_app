@@ -7,8 +7,8 @@ import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_da
     as hub_grpc;
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart'
     as smart_device;
-import 'package:cybear_jinni/infrastructure/devices/abstract_device/device_entity_dto_abstract.dart';
-import 'package:cybear_jinni/infrastructure/devices/device/device_dtos.dart';
+import 'package:cybear_jinni/infrastructure/generic_devices/abstract_device/device_entity_dto_abstract.dart';
+import 'package:cybear_jinni/infrastructure/generic_devices/generic_light_device/generic_light_device_dtos.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums.dart';
 import 'package:cybear_jinni/injection.dart';
 
@@ -33,12 +33,12 @@ class HubRequestRouting {
             EnumHelper.stringToDt(deviceTypeAsString);
         if (deviceType != null) {
           final DeviceEntityDtoAbstract deviceDtos =
-              DeviceDtos.fromJson(requestAsJson);
+              GenericLightDeviceDtos.fromJson(requestAsJson);
           final DeviceEntityAbstract deviceEntity = deviceDtos.toDomain();
 
           if (deviceType == smart_device.DeviceTypes.light) {
             getIt<IDeviceRepository>().addOrUpdateDevice(deviceEntity);
-            // return right<DevicesFailure, KtList<DeviceEntity?>>(
+            // return right<DevicesFailure, KtList<GenericLightDE?>>(
             //     [deviceEntity].toImmutableList());
           }
         }
@@ -49,7 +49,7 @@ class HubRequestRouting {
 
       // return right([null].toImmutableList());
       // return left(const DevicesFailure.empty(failedValue: 'sd'));
-      // return left<DevicesFailure, KtList<DeviceEntity>>(
+      // return left<DevicesFailure, KtList<GenericLightDE>>(
       //     DevicesFailure.insufficientPermission());
     });
   }
