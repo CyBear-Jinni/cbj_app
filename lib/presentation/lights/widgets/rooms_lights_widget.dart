@@ -118,7 +118,7 @@ class RoomsLightsWidget extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 30,
                             color:
-                            Theme.of(context).textTheme.bodyText1!.color),
+                                Theme.of(context).textTheme.bodyText1!.color),
                       ),
                     ),
                   ],

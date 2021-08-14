@@ -104,6 +104,7 @@ class GenericLightDE extends DeviceEntityAbstract {
       deviceTypes: deviceTypes.getOrCrash(),
       compUuid: compUuid.getOrCrash(),
       lightSwitchState: lightSwitchState!.getOrCrash(),
+      deviceVendor: deviceVendor.getOrCrash(),
       // serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }
