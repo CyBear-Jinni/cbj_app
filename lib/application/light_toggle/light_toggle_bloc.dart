@@ -27,17 +27,20 @@ class LightToggleBloc extends Bloc<LightToggleEvent, LightToggleState> {
         final actionResult = await _deviceRepository.create(event.deviceEntity);
       },
       changeAction: (e) async* {
+        // ..lightSwitchState = GenericLightSwitchState(value.toString());
+
         const LightToggleState.loadInProgress();
 
         Either<DevicesFailure, Unit> actionResult;
 
-        if (e.forceStraightToComputer) {
-          actionResult = await _deviceRepository.updateWithDeviceEntity(
-              deviceEntity: event.deviceEntity, forceUpdateLocation: 'R');
+        if (e.changeToState) {
+          actionResult = await _deviceRepository
+              .turnOnDevices(devicesId: [e.deviceEntity.getDeviceId()]);
         } else {
-          actionResult = await _deviceRepository.updateWithDeviceEntity(
-              deviceEntity: event.deviceEntity);
+          actionResult = await _deviceRepository
+              .turnOffDevices(devicesId: [e.deviceEntity.getDeviceId()]);
         }
+
         yield actionResult.fold(
           (devicesFailure) => LightToggleState.loadFailure(devicesFailure),
           (_) => const LightToggleState.loadSuccess(),

@@ -26,19 +26,19 @@ class GenericLightDE extends DeviceEntityAbstract {
     DevicePowerConsumption? powerConsumption,
     required this.lightSwitchState,
   }) : super(
-    uniqueId: uniqueId,
-    defaultName: defaultName,
-    roomId: roomId,
-    deviceTypes: DeviceType(DeviceTypes.light.toString()),
-    deviceVendor: deviceVendor,
-    deviceStateGRPC: deviceStateGRPC,
-    compUuid: compUuid,
-    roomName: roomName,
-    senderDeviceModel: senderDeviceModel,
-    senderDeviceOs: senderDeviceOs,
-    senderId: senderId,
-    stateMassage: stateMassage,
-  );
+          uniqueId: uniqueId,
+          defaultName: defaultName,
+          roomId: roomId,
+          deviceTypes: DeviceType(DeviceTypes.light.toString()),
+          deviceVendor: deviceVendor,
+          deviceStateGRPC: deviceStateGRPC,
+          compUuid: compUuid,
+          roomName: roomName,
+          senderDeviceModel: senderDeviceModel,
+          senderDeviceOs: senderDeviceOs,
+          senderId: senderId,
+          stateMassage: stateMassage,
+        );
 
   /// State of the light on/off
   GenericLightSwitchState? lightSwitchState;
@@ -104,6 +104,7 @@ class GenericLightDE extends DeviceEntityAbstract {
       deviceTypes: deviceTypes.getOrCrash(),
       compUuid: compUuid.getOrCrash(),
       lightSwitchState: lightSwitchState!.getOrCrash(),
+      deviceVendor: deviceVendor.getOrCrash(),
       // serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }

@@ -22,6 +22,7 @@ _$_GenericLightDeviceDtos _$_$_GenericLightDeviceDtosFromJson(
     lightSwitchState: json['lightSwitchState'] as String?,
     deviceTypes: json['deviceTypes'] as String?,
     compUuid: json['compUuid'] as String?,
+    deviceVendor: json['deviceVendor'] as String?,
   );
 }
 
@@ -41,4 +42,5 @@ Map<String, dynamic> _$_$_GenericLightDeviceDtosToJson(
       'lightSwitchState': instance.lightSwitchState,
       'deviceTypes': instance.deviceTypes,
       'compUuid': instance.compUuid,
+      'deviceVendor': instance.deviceVendor,
     };

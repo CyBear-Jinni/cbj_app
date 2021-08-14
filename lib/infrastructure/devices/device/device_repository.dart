@@ -5,6 +5,8 @@ import 'dart:io';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
+import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_value_objects.dart';
 import 'package:cybear_jinni/domain/user/i_user_repository.dart';
 import 'package:cybear_jinni/domain/user/user_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/hub_client.dart';
@@ -230,7 +232,6 @@ class DeviceRepository implements IDeviceRepository {
   @override
   Future<Either<DevicesFailure, Unit>> updateWithDeviceEntity({
     required DeviceEntityAbstract deviceEntity,
-    String? forceUpdateLocation,
   }) async {
     const String updateLocation = 'L';
 
@@ -257,10 +258,12 @@ class DeviceRepository implements IDeviceRepository {
 
     try {
       deviceEntityListToUpdate.forEach((element) {
-        final DeviceEntityAbstract dEntity = element!
-            .copyWithDeviceState(DeviceStateGRPC.waitingInFirebase)
-            .copyWithDeviceAction(DeviceActions.on);
-        updateWithDeviceEntity(deviceEntity: dEntity);
+        if (element is GenericLightDE) {
+          element.lightSwitchState =
+              GenericLightSwitchState(DeviceActions.on.toString());
+        }
+
+        updateWithDeviceEntity(deviceEntity: element!);
       });
     } on PlatformException catch (e) {
       if (e.message!.contains('PERMISSION_DENIED')) {
@@ -283,9 +286,12 @@ class DeviceRepository implements IDeviceRepository {
 
     try {
       deviceEntityListToUpdate.forEach((element) {
-        final DeviceEntityAbstract dea = element!
-            .copyWithDeviceState(DeviceStateGRPC.waitingInFirebase)
-            .copyWithDeviceAction(DeviceActions.off);
+        final DeviceEntityAbstract dea =
+            element!.copyWithDeviceState(DeviceStateGRPC.waitingInFirebase);
+        if (dea is GenericLightDE) {
+          dea.lightSwitchState =
+              GenericLightSwitchState(DeviceActions.off.toString());
+        }
 
         updateWithDeviceEntity(deviceEntity: dea);
       });

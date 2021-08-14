@@ -39,7 +39,7 @@ dependencies:
   # More customization when notifying your user.
   another_flushbar: ^1.10.24
   # Declarative routing solution, where everything needed for navigation is automatically generated for you.
-  auto_route: ^2.2.0
+  auto_route: ^2.3.0
   # Helps implement the BLoC pattern.
   bloc: ^7.0.0
   # Copy text from and to clipboard
@@ -51,7 +51,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.3
   # Functional programming thingies, let you use multiple return types
-  dartz: ^0.10.0-nullsafety.2
+  dartz: ^0.10.0
   # Get current device information from within the Flutter application.
   device_info: ^2.0.2
   # Internationalization (Easy translations)
@@ -68,13 +68,13 @@ dependencies:
   # Bloc for state management, replace StatefulWidget
   flutter_bloc: ^7.1.0
   # A cross platform plugin for displaying local notifications.
-  flutter_local_notifications: ^8.0.0
+  flutter_local_notifications: ^8.1.1+1
   # Getting the local timezone of the os.
   flutter_native_timezone: ^2.0.0
   # An easy to implement custom switch
   flutter_switch: ^0.3.2
   # Toast Library for Flutter, Easily create toast messages in single line of code.
-  fluttertoast: ^8.0.7
+  fluttertoast: ^8.0.8
   # Font Awesome Icon pack available as Flutter Icons.
   font_awesome_flutter: ^9.1.0
   # Annotations for freezed
@@ -84,7 +84,7 @@ dependencies:
   # Secure authentication system for signing in with a Google account on Android and iOS
 #  google_sign_in: ^5.0.4
   # A high performance, open source, general RPC framework that puts mobile and HTTP/2 first.
-  grpc: ^3.0.0
+  grpc: ^3.0.1
   # Add hex color codes to your flutter projects
   hexcolor: ^2.0.4
   # Lightweight and blazing fast key-value database

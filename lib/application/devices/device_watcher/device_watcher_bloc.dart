@@ -38,7 +38,7 @@ class DeviceWatcherBloc extends Bloc<DeviceWatcherEvent, DeviceWatcherState> {
       devicesReceived: (e) async* {
         yield e.failureOrDevices.fold((f) => DeviceWatcherState.loadFailure(f),
             (d) {
-              return DeviceWatcherState.loadSuccess(
+          return DeviceWatcherState.loadSuccess(
               d.map((v) => v! as GenericLightDE).toMutableList());
         });
       },
