@@ -119,7 +119,7 @@ class BlindWidget extends StatelessWidget {
                   ),
                   onPressed: () {
                     context.read<BlindsActorBloc>().add(
-                      BlindsActorEvent.moveUpAllBlinds(
+                          BlindsActorEvent.moveUpAllBlinds(
                               [_deviceEntity.uniqueId.getOrCrash()!], context),
                         );
                   },

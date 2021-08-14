@@ -255,7 +255,7 @@ class CBJCompRepository implements ICBJCompRepository {
               DeviceSenderDeviceModel(smartDeviceInfo.senderDeviceModel),
           senderId: DeviceSenderId.fromUniqueString(smartDeviceInfo.senderId),
           deviceVendor: DeviceVendor(
-              VendorsAndServices.VendorsAndServicesNotSupported.toString()),
+              VendorsAndServices.vendorsAndServicesNotSupported.toString()),
           lightSwitchState: GenericLightSwitchState(
               smartDeviceInfo.deviceTypesActions.deviceAction.toString()),
           compUuid: DeviceCompUuid(smartDeviceInfo.compSpecs.compUuid));

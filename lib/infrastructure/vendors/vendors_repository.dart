@@ -17,7 +17,7 @@ class VendorsRepository implements IVendorsRepository {
     for (final VendorsAndServices vendorsAndServices
         in VendorsAndServices.values) {
       if (vendorsAndServices.name ==
-          VendorsAndServices.VendorsAndServicesNotSupported.name) {
+          VendorsAndServices.vendorsAndServicesNotSupported.name) {
         continue;
       }
       vendorsWithIcons
