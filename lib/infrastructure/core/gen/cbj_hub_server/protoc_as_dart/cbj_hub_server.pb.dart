@@ -1061,7 +1061,7 @@ class DeviceTypesActions extends $pb.GeneratedMessage {
     ..e<DeviceTypes>(35, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'deviceType', $pb.PbFieldType.OE, protoName: 'deviceType', defaultOrMaker: DeviceTypes.typeNotSupported, valueOf: DeviceTypes.valueOf, enumValues: DeviceTypes.values)
     ..e<DeviceActions>(36, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'deviceAction', $pb.PbFieldType.OE, protoName: 'deviceAction', defaultOrMaker: DeviceActions.actionNotSupported, valueOf: DeviceActions.valueOf, enumValues: DeviceActions.values)
     ..e<DeviceStateGRPC>(37, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'deviceStateGRPC', $pb.PbFieldType.OE, protoName: 'deviceStateGRPC', defaultOrMaker: DeviceStateGRPC.stateNotSupported, valueOf: DeviceStateGRPC.valueOf, enumValues: DeviceStateGRPC.values)
-    ..e<VendorsAndServices>(46, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vendorsAndServices', $pb.PbFieldType.OE, protoName: 'vendorsAndServices', defaultOrMaker: VendorsAndServices.VendorsAndServicesNotSupported, valueOf: VendorsAndServices.valueOf, enumValues: VendorsAndServices.values)
+    ..e<VendorsAndServices>(46, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vendorsAndServices', $pb.PbFieldType.OE, protoName: 'vendorsAndServices', defaultOrMaker: VendorsAndServices.vendorsAndServicesNotSupported, valueOf: VendorsAndServices.valueOf, enumValues: VendorsAndServices.values)
     ..hasRequiredFields = false
   ;
 
