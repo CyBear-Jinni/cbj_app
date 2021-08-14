@@ -36,6 +36,7 @@ class LightsWatcherBloc extends Bloc<LightsWatcherEvent, LightsWatcherState> {
                 add(LightsWatcherEvent.devicesReceived(eventWatch)));
       },
       devicesReceived: (e) async* {
+        yield const LightsWatcherState.loadInProgress();
         yield e.failureOrDevices.fold(
             (f) => LightsWatcherState.loadFailure(f),
             (d) => LightsWatcherState.loadSuccess(

@@ -7,7 +7,7 @@ class LightsWatcherState with _$LightsWatcherState {
   const factory LightsWatcherState.loadInProgress() = _LoadInProgress;
 
   const factory LightsWatcherState.loadSuccess(
-      KtList<GenericLightDE?> devices) = _LoadSuccess;
+      KtList<GenericLightDE?> devices) = _loadSuccess;
 
   const factory LightsWatcherState.loadFailure(DevicesFailure devicesFailure) =
       _loadFailure;

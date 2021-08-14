@@ -27,7 +27,7 @@ abstract class CBJCompEntity implements _$CBJCompEntity {
   const CBJCompEntity._();
 
   factory CBJCompEntity.empty() => CBJCompEntity(
-    id: CBJCompUniqueId(),
+        id: CBJCompUniqueId(),
         roomId: CBJCompRoomId(),
         cBJCompDevices: CBJCompDevices(<GenericLightDE>[].toImmutableList()),
         name: CBJCompDefaultName(''),

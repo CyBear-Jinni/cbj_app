@@ -21,6 +21,8 @@ class RoomsLightsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<LightsWatcherBloc, LightsWatcherState>(
       builder: (context, state) {
+        print('Lights loadSuccess');
+
         return state.map(
           initial: (_) => Container(),
           loadInProgress: (_) => const Center(
@@ -116,7 +118,7 @@ class RoomsLightsWidget extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 30,
                             color:
-                                Theme.of(context).textTheme.bodyText1!.color),
+                            Theme.of(context).textTheme.bodyText1!.color),
                       ),
                     ),
                   ],
