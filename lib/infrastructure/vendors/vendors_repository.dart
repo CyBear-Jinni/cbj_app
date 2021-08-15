@@ -81,6 +81,11 @@ class VendorsMocDataWithImages {
             'https://play-lh.googleusercontent.com/bteU9OSFF9z596eUOkGgM3XpWF2-b1VsKvmwWFitaI4qMwVPmx3lS09fHFDx8-CX3Q=s180',
       ),
       Vendor(
+        name: VendorName('ESPHome'),
+        image:
+            'https://pbs.twimg.com/profile_images/1099243589014573056/JuViMFXW_400x400.png',
+      ),
+      Vendor(
         name: VendorName('Ring'),
         image:
             'https://play-lh.googleusercontent.com/fbIl2IKPAG4_3lNnwsi0qMBTJEgOsIwBUYzrs5_GIRYRBHov_a5eJ0bMxEUNMu67G4Ws=s180',
