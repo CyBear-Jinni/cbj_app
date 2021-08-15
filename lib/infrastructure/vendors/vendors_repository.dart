@@ -17,7 +17,7 @@ class VendorsRepository implements IVendorsRepository {
     for (final VendorsAndServices vendorsAndServices
         in VendorsAndServices.values) {
       if (vendorsAndServices.name ==
-          VendorsAndServices.VendorsAndServicesNotSupported.name) {
+          VendorsAndServices.vendorsAndServicesNotSupported.name) {
         continue;
       }
       vendorsWithIcons
@@ -79,6 +79,11 @@ class VendorsMocDataWithImages {
         name: VendorName('Yeelight'),
         image:
             'https://play-lh.googleusercontent.com/bteU9OSFF9z596eUOkGgM3XpWF2-b1VsKvmwWFitaI4qMwVPmx3lS09fHFDx8-CX3Q=s180',
+      ),
+      Vendor(
+        name: VendorName('ESPHome'),
+        image:
+            'https://pbs.twimg.com/profile_images/1099243589014573056/JuViMFXW_400x400.png',
       ),
       Vendor(
         name: VendorName('Ring'),

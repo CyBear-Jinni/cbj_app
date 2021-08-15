@@ -105,7 +105,7 @@ class DeviceEntityEmpty extends DeviceEntityAbstract {
       : super(
           uniqueId: CoreUniqueId(),
           deviceVendor: DeviceVendor(
-              VendorsAndServices.VendorsAndServicesNotSupported.toString()),
+              VendorsAndServices.vendorsAndServicesNotSupported.toString()),
           deviceStateGRPC: DeviceState(DeviceTypes.typeNotSupported.toString()),
           compUuid: DeviceCompUuid(Uuid().v1().toString()),
           defaultName: DeviceDefaultName('No Name'),
