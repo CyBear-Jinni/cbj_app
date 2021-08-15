@@ -9,6 +9,25 @@
 import 'dart:core' as $core;
 import 'package:protobuf/protobuf.dart' as $pb;
 
+class VendorsAndServices extends $pb.ProtobufEnum {
+  static const VendorsAndServices vendorsAndServicesNotSupported = VendorsAndServices._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'vendorsAndServicesNotSupported');
+  static const VendorsAndServices tasmota = VendorsAndServices._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'tasmota');
+  static const VendorsAndServices espHome = VendorsAndServices._(2, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'espHome');
+  static const VendorsAndServices yeelight = VendorsAndServices._(3, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'yeelight');
+
+  static const $core.List<VendorsAndServices> values = <VendorsAndServices> [
+    vendorsAndServicesNotSupported,
+    tasmota,
+    espHome,
+    yeelight,
+  ];
+
+  static final $core.Map<$core.int, VendorsAndServices> _byValue = $pb.ProtobufEnum.initByValue(values);
+  static VendorsAndServices? valueOf($core.int value) => _byValue[value];
+
+  const VendorsAndServices._($core.int v, $core.String n) : super(v, n);
+}
+
 class DeviceTypes extends $pb.ProtobufEnum {
   static const DeviceTypes typeNotSupported = DeviceTypes._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'typeNotSupported');
   static const DeviceTypes light = DeviceTypes._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'light');
@@ -20,6 +39,12 @@ class DeviceTypes extends $pb.ProtobufEnum {
   static const DeviceTypes phoneApp = DeviceTypes._(8, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'phoneApp');
   static const DeviceTypes computerApp = DeviceTypes._(9, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'computerApp');
   static const DeviceTypes browserApp = DeviceTypes._(10, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'browserApp');
+  static const DeviceTypes switch_ = DeviceTypes._(11, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'switch');
+  static const DeviceTypes dimmableLight = DeviceTypes._(12, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'dimmableLight');
+  static const DeviceTypes cctLight = DeviceTypes._(13, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'cctLight');
+  static const DeviceTypes rgbLights = DeviceTypes._(14, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'rgbLights');
+  static const DeviceTypes rgbwLights = DeviceTypes._(15, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'rgbwLights');
+  static const DeviceTypes rgbcctLights = DeviceTypes._(16, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'rgbcctLights');
 
   static const $core.List<DeviceTypes> values = <DeviceTypes> [
     typeNotSupported,
@@ -32,6 +57,12 @@ class DeviceTypes extends $pb.ProtobufEnum {
     phoneApp,
     computerApp,
     browserApp,
+    switch_,
+    dimmableLight,
+    cctLight,
+    rgbLights,
+    rgbwLights,
+    rgbcctLights,
   ];
 
   static final $core.Map<$core.int, DeviceTypes> _byValue = $pb.ProtobufEnum.initByValue(values);

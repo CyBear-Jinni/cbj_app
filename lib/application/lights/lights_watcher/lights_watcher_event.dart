@@ -5,6 +5,6 @@ class LightsWatcherEvent with _$LightsWatcherEvent {
   const factory LightsWatcherEvent.watchAllStarted() = _WatchAllStarted;
 
   const factory LightsWatcherEvent.devicesReceived(
-          Either<DevicesFailure, KtList<DeviceEntity?>> failureOrDevices) =
-      _DevicesReceived;
+      Either<DevicesFailure, KtList<DeviceEntityAbstract?>>
+          failureOrDevices) = _DevicesReceived;
 }

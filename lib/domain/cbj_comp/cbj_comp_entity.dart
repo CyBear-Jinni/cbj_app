@@ -1,6 +1,6 @@
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_failures.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_value_objects.dart';
-import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/kt.dart';
@@ -29,7 +29,7 @@ abstract class CBJCompEntity implements _$CBJCompEntity {
   factory CBJCompEntity.empty() => CBJCompEntity(
         id: CBJCompUniqueId(),
         roomId: CBJCompRoomId(),
-        cBJCompDevices: CBJCompDevices(<DeviceEntity>[].toImmutableList()),
+        cBJCompDevices: CBJCompDevices(<GenericLightDE>[].toImmutableList()),
         name: CBJCompDefaultName(''),
         macAddr: CBJCompMacAddr(''),
         compOs: CBJCompOs(''),

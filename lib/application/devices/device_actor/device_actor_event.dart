@@ -4,5 +4,6 @@ part of 'device_actor_bloc.dart';
 class DeviceActorEvent with _$DeviceActorEvent {
   const factory DeviceActorEvent.initialized() = Initialized;
 
-  const factory DeviceActorEvent.deleted(DeviceEntity deviceEntity) = _Deleted;
+  const factory DeviceActorEvent.deleted(GenericLightDE deviceEntity) =
+      _Deleted;
 }

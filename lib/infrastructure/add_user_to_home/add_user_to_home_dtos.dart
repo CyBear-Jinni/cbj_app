@@ -19,7 +19,7 @@
 //     required String lastName,
 //   }) = _AddUserDtos;
 //
-//   factory AddUserDtos.fromDomain(DeviceEntity deviceEntity) {
+//   factory AddUserDtos.fromDomain(GenericLightDE deviceEntity) {
 //     return AddUserDtos(
 //       id: deviceEntity.id.getOrCrash(),
 //       defaultName: deviceEntity.defaultName.getOrCrash(),
@@ -27,8 +27,8 @@
 //     );
 //   }
 //
-//   DeviceEntity toDomain() {
-//     return DeviceEntity(
+//   GenericLightDE toDomain() {
+//     return GenericLightDE(
 //       id: DeviceUniqueId.fromUniqueString(id),
 //       defaultName: DeviceDefaultName(defaultName),
 //       roomId: DeviceUniqueId.fromUniqueString(roomId),

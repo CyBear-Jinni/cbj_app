@@ -1061,6 +1061,7 @@ class DeviceTypesActions extends $pb.GeneratedMessage {
     ..e<DeviceTypes>(35, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'deviceType', $pb.PbFieldType.OE, protoName: 'deviceType', defaultOrMaker: DeviceTypes.typeNotSupported, valueOf: DeviceTypes.valueOf, enumValues: DeviceTypes.values)
     ..e<DeviceActions>(36, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'deviceAction', $pb.PbFieldType.OE, protoName: 'deviceAction', defaultOrMaker: DeviceActions.actionNotSupported, valueOf: DeviceActions.valueOf, enumValues: DeviceActions.values)
     ..e<DeviceStateGRPC>(37, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'deviceStateGRPC', $pb.PbFieldType.OE, protoName: 'deviceStateGRPC', defaultOrMaker: DeviceStateGRPC.stateNotSupported, valueOf: DeviceStateGRPC.valueOf, enumValues: DeviceStateGRPC.values)
+    ..e<VendorsAndServices>(46, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'vendorsAndServices', $pb.PbFieldType.OE, protoName: 'vendorsAndServices', defaultOrMaker: VendorsAndServices.vendorsAndServicesNotSupported, valueOf: VendorsAndServices.valueOf, enumValues: VendorsAndServices.values)
     ..hasRequiredFields = false
   ;
 
@@ -1069,6 +1070,7 @@ class DeviceTypesActions extends $pb.GeneratedMessage {
     DeviceTypes? deviceType,
     DeviceActions? deviceAction,
     DeviceStateGRPC? deviceStateGRPC,
+    VendorsAndServices? vendorsAndServices,
   }) {
     final _result = create();
     if (deviceType != null) {
@@ -1079,6 +1081,9 @@ class DeviceTypesActions extends $pb.GeneratedMessage {
     }
     if (deviceStateGRPC != null) {
       _result.deviceStateGRPC = deviceStateGRPC;
+    }
+    if (vendorsAndServices != null) {
+      _result.vendorsAndServices = vendorsAndServices;
     }
     return _result;
   }
@@ -1129,5 +1134,14 @@ class DeviceTypesActions extends $pb.GeneratedMessage {
   $core.bool hasDeviceStateGRPC() => $_has(2);
   @$pb.TagNumber(37)
   void clearDeviceStateGRPC() => clearField(37);
+
+  @$pb.TagNumber(46)
+  VendorsAndServices get vendorsAndServices => $_getN(3);
+  @$pb.TagNumber(46)
+  set vendorsAndServices(VendorsAndServices v) { setField(46, v); }
+  @$pb.TagNumber(46)
+  $core.bool hasVendorsAndServices() => $_has(3);
+  @$pb.TagNumber(46)
+  void clearVendorsAndServices() => clearField(46);
 }
 

@@ -1,5 +1,5 @@
 import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
-import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/lights/widgets/error_lights_device_card_widget.dart';
 import 'package:cybear_jinni/presentation/lights/widgets/light_widget.dart';
@@ -16,7 +16,7 @@ class RoomLights extends StatelessWidget {
       this._deviceEntityList, this._gradientColor, this._roomEntity,
       {this.maxLightsToShow = 4});
 
-  final KtList<DeviceEntity> _deviceEntityList;
+  final KtList<GenericLightDE> _deviceEntityList;
 
   final int maxLightsToShow;
 
@@ -42,7 +42,7 @@ class RoomLights extends StatelessWidget {
       for (int i = 0; i < _numberOfLightsToShow; i += _maxLightsInRow) {
         for (int v = 0; v < _maxLightsInRow; v++) {
           if (_deviceEntityList.size > i + v) {
-            final DeviceEntity? deviceEntityTemp = _deviceEntityList[i + v];
+            final GenericLightDE? deviceEntityTemp = _deviceEntityList[i + v];
             if (deviceEntityTemp!.failureOption.isSome()) {
               widgetsForRow
                   .add(ErrorLightsDeviceCard(device: deviceEntityTemp));
@@ -50,7 +50,7 @@ class RoomLights extends StatelessWidget {
               widgetsForRow.add(Column(
                 children: [
                   Text(
-                    deviceEntityTemp.defaultName!.getOrCrash()!,
+                    deviceEntityTemp.defaultName.getOrCrash()!,
                     style: TextStyle(
                       fontSize: 19.0,
                       color: Theme.of(context).textTheme.bodyText1!.color,

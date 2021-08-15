@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/devices/device_actor/device_actor_bloc.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
-import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
@@ -37,15 +37,15 @@ class CBJCompCard extends StatelessWidget {
                 : ListView.builder(
                     padding: EdgeInsets.zero,
                     itemBuilder: (context, index) {
-                      final DeviceEntity compEntity =
+                      final GenericLightDE compEntity =
                           cbjCompEntity.cBJCompDevices!.getOrCrash()[index];
-                      if (compEntity.deviceTypes!.getOrCrash() ==
+                      if (compEntity.deviceTypes.getOrCrash() ==
                           DeviceTypes.light.toString()) {
                         return Center(
                           child: BlocProvider(
                             create: (context) => getIt<DeviceActorBloc>(),
                             child: Text(
-                              compEntity.defaultName!.getOrCrash()!,
+                              compEntity.defaultName.getOrCrash()!,
                               style: TextStyle(
                                   color: Theme.of(context)
                                       .textTheme
@@ -57,7 +57,7 @@ class CBJCompCard extends StatelessWidget {
                       } else {
                         return Text(
                           'Type not supported '
-                          '${compEntity.deviceTypes!.getOrCrash()} yet',
+                          '${compEntity.deviceTypes.getOrCrash()} yet',
                           style: TextStyle(
                               color:
                                   Theme.of(context).textTheme.bodyText1!.color),

@@ -8,6 +8,19 @@
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
+@$core.Deprecated('Use vendorsAndServicesDescriptor instead')
+const VendorsAndServices$json = const {
+  '1': 'VendorsAndServices',
+  '2': const [
+    const {'1': 'vendorsAndServicesNotSupported', '2': 0},
+    const {'1': 'tasmota', '2': 1},
+    const {'1': 'espHome', '2': 2},
+    const {'1': 'yeelight', '2': 3},
+  ],
+};
+
+/// Descriptor for `VendorsAndServices`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List vendorsAndServicesDescriptor = $convert.base64Decode('ChJWZW5kb3JzQW5kU2VydmljZXMSIgoedmVuZG9yc0FuZFNlcnZpY2VzTm90U3VwcG9ydGVkEAASCwoHdGFzbW90YRABEgsKB2VzcEhvbWUQAhIMCgh5ZWVsaWdodBAD');
 @$core.Deprecated('Use deviceTypesDescriptor instead')
 const DeviceTypes$json = const {
   '1': 'DeviceTypes',
@@ -22,11 +35,17 @@ const DeviceTypes$json = const {
     const {'1': 'phoneApp', '2': 8},
     const {'1': 'computerApp', '2': 9},
     const {'1': 'browserApp', '2': 10},
+    const {'1': 'switch', '2': 11},
+    const {'1': 'dimmableLight', '2': 12},
+    const {'1': 'cctLight', '2': 13},
+    const {'1': 'rgbLights', '2': 14},
+    const {'1': 'rgbwLights', '2': 15},
+    const {'1': 'rgbcctLights', '2': 16},
   ],
 };
 
 /// Descriptor for `DeviceTypes`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List deviceTypesDescriptor = $convert.base64Decode('CgtEZXZpY2VUeXBlcxIUChB0eXBlTm90U3VwcG9ydGVkEAASCQoFbGlnaHQQARIKCgZibGluZHMQAhIKCgZib2lsZXIQAxIKCgZidXR0b24QBBITCg9idXR0b25XaXRoTGlnaHQQBRIHCgNodWIQBxIMCghwaG9uZUFwcBAIEg8KC2NvbXB1dGVyQXBwEAkSDgoKYnJvd3NlckFwcBAK');
+final $typed_data.Uint8List deviceTypesDescriptor = $convert.base64Decode('CgtEZXZpY2VUeXBlcxIUChB0eXBlTm90U3VwcG9ydGVkEAASCQoFbGlnaHQQARIKCgZibGluZHMQAhIKCgZib2lsZXIQAxIKCgZidXR0b24QBBITCg9idXR0b25XaXRoTGlnaHQQBRIHCgNodWIQBxIMCghwaG9uZUFwcBAIEg8KC2NvbXB1dGVyQXBwEAkSDgoKYnJvd3NlckFwcBAKEgoKBnN3aXRjaBALEhEKDWRpbW1hYmxlTGlnaHQQDBIMCghjY3RMaWdodBANEg0KCXJnYkxpZ2h0cxAOEg4KCnJnYndMaWdodHMQDxIQCgxyZ2JjY3RMaWdodHMQEA==');
 @$core.Deprecated('Use deviceActionsDescriptor instead')
 const DeviceActions$json = const {
   '1': 'DeviceActions',
@@ -263,6 +282,7 @@ final $typed_data.Uint8List firebaseAccountInformationDescriptor = $convert.base
 const DeviceTypesActions$json = const {
   '1': 'DeviceTypesActions',
   '2': const [
+    const {'1': 'vendorsAndServices', '3': 46, '4': 1, '5': 14, '6': '.CbjHub.VendorsAndServices', '10': 'vendorsAndServices'},
     const {'1': 'deviceType', '3': 35, '4': 1, '5': 14, '6': '.CbjHub.DeviceTypes', '10': 'deviceType'},
     const {'1': 'deviceAction', '3': 36, '4': 1, '5': 14, '6': '.CbjHub.DeviceActions', '10': 'deviceAction'},
     const {'1': 'deviceStateGRPC', '3': 37, '4': 1, '5': 14, '6': '.CbjHub.DeviceStateGRPC', '10': 'deviceStateGRPC'},
@@ -270,4 +290,4 @@ const DeviceTypesActions$json = const {
 };
 
 /// Descriptor for `DeviceTypesActions`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List deviceTypesActionsDescriptor = $convert.base64Decode('ChJEZXZpY2VUeXBlc0FjdGlvbnMSMwoKZGV2aWNlVHlwZRgjIAEoDjITLkNiakh1Yi5EZXZpY2VUeXBlc1IKZGV2aWNlVHlwZRI5CgxkZXZpY2VBY3Rpb24YJCABKA4yFS5DYmpIdWIuRGV2aWNlQWN0aW9uc1IMZGV2aWNlQWN0aW9uEkEKD2RldmljZVN0YXRlR1JQQxglIAEoDjIXLkNiakh1Yi5EZXZpY2VTdGF0ZUdSUENSD2RldmljZVN0YXRlR1JQQw==');
+final $typed_data.Uint8List deviceTypesActionsDescriptor = $convert.base64Decode('ChJEZXZpY2VUeXBlc0FjdGlvbnMSSgoSdmVuZG9yc0FuZFNlcnZpY2VzGC4gASgOMhouQ2JqSHViLlZlbmRvcnNBbmRTZXJ2aWNlc1ISdmVuZG9yc0FuZFNlcnZpY2VzEjMKCmRldmljZVR5cGUYIyABKA4yEy5DYmpIdWIuRGV2aWNlVHlwZXNSCmRldmljZVR5cGUSOQoMZGV2aWNlQWN0aW9uGCQgASgOMhUuQ2JqSHViLkRldmljZUFjdGlvbnNSDGRldmljZUFjdGlvbhJBCg9kZXZpY2VTdGF0ZUdSUEMYJSABKA4yFy5DYmpIdWIuRGV2aWNlU3RhdGVHUlBDUg9kZXZpY2VTdGF0ZUdSUEM=');

@@ -1,5 +1,5 @@
 import 'package:cybear_jinni/application/boilers/boilers_watcher/boilers_watcher_bloc.dart';
-import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/presentation/boilers/widgets/critical_boilers_failure_display_widget.dart';
 import 'package:cybear_jinni/presentation/boilers/widgets/room_boilers.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
@@ -28,38 +28,38 @@ class RoomsBoilersWidget extends StatelessWidget {
           ),
           loadSuccess: (state) {
             if (state.devices.size != 0) {
-              final Map<String?, List<DeviceEntity>> tempDevicesByRooms =
-                  <String, List<DeviceEntity>>{};
+              final Map<String?, List<GenericLightDE>> tempDevicesByRooms =
+                  <String, List<GenericLightDE>>{};
 
               for (int i = 0; i < state.devices.size; i++) {
-                final DeviceEntity tempDevice = state.devices[i]!;
+                final GenericLightDE tempDevice = state.devices[i]!;
                 if (showDevicesOnlyFromRoomId != null) {
                   if (showDevicesOnlyFromRoomId ==
-                      tempDevice.roomId!.getOrCrash()) {
-                    if (tempDevicesByRooms[tempDevice.roomId!.getOrCrash()] ==
+                      tempDevice.roomId.getOrCrash()) {
+                    if (tempDevicesByRooms[tempDevice.roomId.getOrCrash()] ==
                         null) {
-                      tempDevicesByRooms[tempDevice.roomId!.getOrCrash()] = [
+                      tempDevicesByRooms[tempDevice.roomId.getOrCrash()] = [
                         tempDevice
                       ];
                     } else {
-                      tempDevicesByRooms[tempDevice.roomId!.getOrCrash()]!
+                      tempDevicesByRooms[tempDevice.roomId.getOrCrash()]!
                           .add(tempDevice);
                     }
                   }
                 } else {
-                  if (tempDevicesByRooms[tempDevice.roomId!.getOrCrash()] ==
+                  if (tempDevicesByRooms[tempDevice.roomId.getOrCrash()] ==
                       null) {
-                    tempDevicesByRooms[tempDevice.roomId!.getOrCrash()] = [
+                    tempDevicesByRooms[tempDevice.roomId.getOrCrash()] = [
                       tempDevice
                     ];
                   } else {
-                    tempDevicesByRooms[tempDevice.roomId!.getOrCrash()]!
+                    tempDevicesByRooms[tempDevice.roomId.getOrCrash()]!
                         .add(tempDevice);
                   }
                 }
               }
 
-              final List<KtList<DeviceEntity>> devicesByRooms = [];
+              final List<KtList<GenericLightDE>> devicesByRooms = [];
 
               tempDevicesByRooms.forEach((k, v) {
                 devicesByRooms.add(v.toImmutableList());
@@ -86,7 +86,7 @@ class RoomsBoilersWidget extends StatelessWidget {
                     return RoomBoilers(
                       devicesInRoom,
                       gradiantColor,
-                      devicesInRoom[0].roomName!.getOrCrash(),
+                      devicesInRoom[0].roomName.getOrCrash(),
                       maxBoilersToShow: 50,
                     );
                   },

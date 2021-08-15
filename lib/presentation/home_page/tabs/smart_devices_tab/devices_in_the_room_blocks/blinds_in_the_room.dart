@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/blinds/blinds_actor/blinds_actor_bloc.dart';
-import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +10,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class BlindsInTheRoom extends StatelessWidget {
   const BlindsInTheRoom({this.blindsInRoom, this.roomColorGradiant});
 
-  final List<DeviceEntity?>? blindsInRoom;
+  final List<GenericLightDE?>? blindsInRoom;
   final List<Color>? roomColorGradiant;
 
   @override
@@ -18,7 +18,7 @@ class BlindsInTheRoom extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         context.router.push(RoomsBlindsRoute(
-            showDevicesOnlyFromRoomId: blindsInRoom![0]!.roomId!.getOrCrash(),
+            showDevicesOnlyFromRoomId: blindsInRoom![0]!.roomId.getOrCrash(),
             roomColorGradiant: roomColorGradiant));
       },
       child: Container(
@@ -75,13 +75,13 @@ class BlindsInTheRoom extends StatelessWidget {
             ),
             if (blindsInRoom!.length == 1)
               Text(
-                blindsInRoom![0]!.defaultName!.getOrCrash()!,
+                blindsInRoom![0]!.defaultName.getOrCrash()!,
                 style: TextStyle(
                     color: Theme.of(context).textTheme.bodyText1!.color),
               )
             else
               Text(
-                '${blindsInRoom![0]!.roomName!.getOrCrash()} Blinds',
+                '${blindsInRoom![0]!.roomName.getOrCrash()} Blinds',
                 style: TextStyle(
                     color: Theme.of(context).textTheme.bodyText1!.color),
               ),
@@ -153,7 +153,7 @@ class BlindsInTheRoom extends StatelessWidget {
   List<String> extractDevicesId() {
     final List<String> devicesIdList = [];
     blindsInRoom!.forEach((element) {
-      devicesIdList.add(element!.id!.getOrCrash()!);
+      devicesIdList.add(element!.uniqueId.getOrCrash()!);
     });
     return devicesIdList;
   }

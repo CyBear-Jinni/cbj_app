@@ -12,6 +12,7 @@ environment:
 flutter_icons:
   ios: true
   android: true
+  windows: true
   image_path: "assets/cbj_icon.png"
   adaptive_icon_background: "#FFFFFF"
   adaptive_icon_foreground: "assets/cbj_icon_adaptive.png"
@@ -38,7 +39,7 @@ dependencies:
   # More customization when notifying your user.
   another_flushbar: ^1.10.24
   # Declarative routing solution, where everything needed for navigation is automatically generated for you.
-  auto_route: ^2.2.0
+  auto_route: ^2.3.0
   # Helps implement the BLoC pattern.
   bloc: ^7.0.0
   # Copy text from and to clipboard
@@ -50,7 +51,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.3
   # Functional programming thingies, let you use multiple return types
-  dartz: ^0.10.0-nullsafety.2
+  dartz: ^0.10.0
   # Get current device information from within the Flutter application.
   device_info: ^2.0.2
   # Internationalization (Easy translations)
@@ -65,14 +66,16 @@ dependencies:
   flutter:
     sdk: flutter
   # Bloc for state management, replace StatefulWidget
-  flutter_bloc: ^7.0.1
+  flutter_bloc: ^7.1.0
   # A cross platform plugin for displaying local notifications.
-  flutter_local_notifications: ^6.0.0
+  flutter_local_notifications: ^8.1.1+1
   # Getting the local timezone of the os.
   flutter_native_timezone: ^2.0.0
   # An easy to implement custom switch
   flutter_switch: ^0.3.2
-  fluttertoast: ^8.0.7
+  # Toast Library for Flutter, Easily create toast messages in single line of code.
+  fluttertoast: ^8.0.8
+  # Font Awesome Icon pack available as Flutter Icons.
   font_awesome_flutter: ^9.1.0
   # Annotations for freezed
   freezed_annotation: ^0.14.2
@@ -81,11 +84,12 @@ dependencies:
   # Secure authentication system for signing in with a Google account on Android and iOS
 #  google_sign_in: ^5.0.4
   # A high performance, open source, general RPC framework that puts mobile and HTTP/2 first.
-  grpc: ^3.0.0
+  grpc: ^3.0.1
   # Add hex color codes to your flutter projects
   hexcolor: ^2.0.4
   # Lightweight and blazing fast key-value database
   hive: ^2.0.4
+  # Extension for Hive. Makes it easier to use Hive in Flutter apps.
   hive_flutter: ^1.1.0
   # A composable, multi-platform, Future-based API for HTTP requests.
   http: ^0.13.3
@@ -108,7 +112,7 @@ dependencies:
   # Finding commonly used locations on the filesystem
   path_provider: ^2.0.2
   # Popup that ask for the requested permission
-  permission_handler: ^8.1.3
+  permission_handler: ^8.1.4+2
   # Provides runtime support for a Dart implementation of protobufs.
   protobuf: ^2.0.0
   # A wrapper around InheritedWidget to make them easier to use and more reusable.
@@ -126,14 +130,20 @@ dependencies:
 dev_dependencies:
   # Generator for auto_route library.
   auto_route_generator: ^2.1.0
+  # A build system for Dart code generation and modular compilation.
   build_runner:
-  flutter_launcher_icons: ^0.9.0
+
+  # Package which simplifies the task of updating your Flutter app's launcher icon.
+  flutter_launcher_icons: ^0.9.1
   flutter_test:
     sdk: flutter
   # Code generator for unions/pattern-matching/copy.
   freezed: ^0.14.2
+  # Extension for Hive. Automatically generates TypeAdapters to store any class.
   hive_generator: ^1.1.0
+  # Convenient code generator for get_it.
   injectable_generator: ^1.4.1
   # Collection of lint rules for Dart and Flutter projects.
   lint: ^1.5.3
+  # Mock framework with APIs for Fakes, Mocks, behavior verification, and stubbing.
   mockito: ^5.0.12

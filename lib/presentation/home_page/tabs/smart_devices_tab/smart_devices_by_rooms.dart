@@ -1,7 +1,7 @@
 import 'package:cybear_jinni/application/blinds/blinds_actor/blinds_actor_bloc.dart';
 import 'package:cybear_jinni/application/devices/device_watcher/device_watcher_bloc.dart';
 import 'package:cybear_jinni/application/lights/lights_actor/lights_actor_bloc.dart';
-import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
@@ -27,42 +27,42 @@ class SmartDevicesByRooms extends StatelessWidget {
         ),
         loadSuccess: (state) {
           if (state.devices.size != 0) {
-            final Map<String?, List<DeviceEntity>> tempDevicesByRooms =
-                <String, List<DeviceEntity>>{};
+            final Map<String?, List<GenericLightDE>> tempDevicesByRooms =
+                <String, List<GenericLightDE>>{};
 
             for (int i = 0; i < state.devices.size; i++) {
               if (state.devices[i] == null) {
                 continue;
               }
-              final DeviceEntity tempDevice = state.devices[i]!;
-              if (tempDevicesByRooms[tempDevice.roomId!.getOrCrash()] == null) {
-                tempDevicesByRooms[tempDevice.roomId!.getOrCrash()] = [
+              final GenericLightDE tempDevice = state.devices[i]!;
+              if (tempDevicesByRooms[tempDevice.roomId.getOrCrash()] == null) {
+                tempDevicesByRooms[tempDevice.roomId.getOrCrash()] = [
                   tempDevice
                 ];
               } else {
-                tempDevicesByRooms[tempDevice.roomId!.getOrCrash()]!
+                tempDevicesByRooms[tempDevice.roomId.getOrCrash()]!
                     .add(tempDevice);
               }
             }
 
-            final Map<String, Map<String, List<DeviceEntity>>>
+            final Map<String, Map<String, List<GenericLightDE>>>
                 tempDevicesByRoomsByType =
-                <String, Map<String, List<DeviceEntity>>>{};
+                <String, Map<String, List<GenericLightDE>>>{};
 
-            final Map<String, List<DeviceEntity>> tempDevicesByType =
-                <String, List<DeviceEntity>>{};
+            final Map<String, List<GenericLightDE>> tempDevicesByType =
+                <String, List<GenericLightDE>>{};
 
             tempDevicesByRooms.forEach((k, v) {
               tempDevicesByRoomsByType[k!] = {};
               v.forEach((element) {
                 if (tempDevicesByRoomsByType[k]![
-                        element.deviceTypes!.getOrCrash()] ==
+                        element.deviceTypes.getOrCrash()] ==
                     null) {
                   tempDevicesByRoomsByType[k]![
-                      element.deviceTypes!.getOrCrash()] = [element];
+                      element.deviceTypes.getOrCrash()] = [element];
                 } else {
                   tempDevicesByRoomsByType[k]![
-                          element.deviceTypes!.getOrCrash()]!
+                          element.deviceTypes.getOrCrash()]!
                       .add(element);
                 }
               });
@@ -159,7 +159,7 @@ class SmartDevicesByRooms extends StatelessWidget {
                                       .values
                                       .first
                                       .first
-                                      .roomName!
+                                      .roomName
                                       .getOrCrash()!,
                                   style: TextStyle(
                                       fontSize: 20,
