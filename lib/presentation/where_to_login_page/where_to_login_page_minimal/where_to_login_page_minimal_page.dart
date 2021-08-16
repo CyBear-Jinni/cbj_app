@@ -145,8 +145,8 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
                       BlocListener<AuthBloc, AuthState>(
                         listener: (context, state) {
                           state.maybeMap(
-                            unauthenticated: (_) =>
-                                context.router.replace(const SignInRoute()),
+                            unauthenticated: (_) => context.router
+                                .replace(const ConnectToHubRoute()),
                             orElse: () {},
                           );
                         },
