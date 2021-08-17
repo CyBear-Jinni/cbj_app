@@ -6,8 +6,7 @@ class HubInNetworkState with _$HubInNetworkState {
 
   const factory HubInNetworkState.loadInProgress() = _LoadInProgress;
 
-  const factory HubInNetworkState.loadSuccess(KtList<GenericLightDE?> devices) =
-      _loadSuccess;
+  const factory HubInNetworkState.loadSuccess() = _loadSuccess;
 
   const factory HubInNetworkState.loadFailure(DevicesFailure devicesFailure) =
       _loadFailure;
