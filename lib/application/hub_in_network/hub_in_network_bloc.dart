@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
+import 'package:cybear_jinni/domain/hub/hub_failures.dart';
 import 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -30,8 +31,7 @@ class HubInNetworkBloc extends Bloc<HubInNetworkEvent, HubInNetworkState> {
       searchHubInNetwork: (e) async* {
         yield const HubInNetworkState.loadInProgress();
         yield (await _hubConnectionRepository.searchForHub()).fold(
-            (l) => const HubInNetworkState.loadFailure(
-                DevicesFailure.unexpected()),
+                (l) => HubInNetworkState.loadFailure(l),
             (r) => const HubInNetworkState.loadSuccess());
       },
     );

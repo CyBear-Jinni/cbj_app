@@ -19,4 +19,7 @@ class HubFailures<T> {
   const factory HubFailures.unableToUpdate() = _UnableToUpdate;
 
   const factory HubFailures.cantFindHubInNetwork() = _CantFindHubInNetwork;
+
+  const factory HubFailures.automaticHubSearchNotSupportedOnWeb() =
+      _AutomaticHubSearchNotSupportedOnWeb;
 }
