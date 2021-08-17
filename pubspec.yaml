@@ -111,8 +111,6 @@ dependencies:
   multicast_dns: ^0.3.0
   # Discover network info and configure themselves accordingly
   network_info_plus: ^1.0.2
-  # Networking Tools for discover open ports, devices on subnet and many other things.
-  network_tools: ^0.0.4
   # Finding commonly used locations on the filesystem
   path_provider: ^2.0.2
   # Popup that ask for the requested permission

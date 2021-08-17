@@ -1,6 +1,6 @@
 import 'package:cybear_jinni/application/hub_in_network/hub_in_network_bloc.dart';
 import 'package:cybear_jinni/injection.dart';
-import 'package:cybear_jinni/presentation/connect_to_hub/widgets/sign_in_form.dart';
+import 'package:cybear_jinni/presentation/connect_to_hub/widgets/cbj_hub_in_network.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -133,7 +133,7 @@ class ConnectToHubPage extends StatelessWidget {
                       child: RichText(
                         text: TextSpan(
                           style:
-                          TextStyle(color: Colors.white.withOpacity(0.9)),
+                              TextStyle(color: Colors.white.withOpacity(0.9)),
                           /*defining default style is optional */
                           children: <TextSpan>[
                             const TextSpan(

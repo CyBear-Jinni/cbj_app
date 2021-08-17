@@ -8,7 +8,7 @@ class HubInNetworkState with _$HubInNetworkState {
 
   const factory HubInNetworkState.loadSuccess() = _loadSuccess;
 
-  const factory HubInNetworkState.loadFailure(DevicesFailure devicesFailure) =
+  const factory HubInNetworkState.loadFailure(HubFailures hubFailure) =
       _loadFailure;
 
   const factory HubInNetworkState.lightError() = LightError;
