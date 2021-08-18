@@ -52,7 +52,7 @@ class RoomsBoilersPage extends StatelessWidget {
             listener: (context, state) {
               state.maybeMap(
                 unauthenticated: (_) =>
-                    context.router.replace(const SignInRoute()),
+                    context.router.replace(const ConnectToHubRoute()),
                 orElse: () {},
               );
             },

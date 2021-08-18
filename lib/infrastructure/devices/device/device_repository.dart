@@ -44,9 +44,7 @@ class DeviceRepository implements IDeviceRepository {
   }
 
   @override
-  Future<void> initiateHubConnection() async {
-    // await HubClient.createStreamWithHub('192.168.31.154');
-  }
+  Future<void> initiateHubConnection() async {}
 
   @override
   Future<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
@@ -413,13 +411,10 @@ class DeviceRepository implements IDeviceRepository {
       DeviceEntityAbstract deviceEntity) async {
     try {
       final String id = deviceEntity.getDeviceId();
-      String? lastKnownIp;
 
       addOrUpdateDeviceAndStateToWaiting(deviceEntity);
 
       try {
-        lastKnownIp = '192.168.31.154';
-
         deviceEntity.copyWithDeviceState(DeviceStateGRPC.waitingInFirebase);
         //
         final String deviceDtoAsString =
