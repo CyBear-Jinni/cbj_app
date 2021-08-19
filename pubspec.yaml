@@ -39,7 +39,7 @@ dependencies:
   # More customization when notifying your user.
   another_flushbar: ^1.10.24
   # Declarative routing solution, where everything needed for navigation is automatically generated for you.
-  auto_route: ^2.3.0
+  auto_route: ^2.1.0
   # Helps implement the BLoC pattern.
   bloc: ^7.1.0
   # Copy text from and to clipboard
@@ -94,7 +94,7 @@ dependencies:
   # A composable, multi-platform, Future-based API for HTTP requests.
   http: ^0.13.3
   # Convenient code generator for get_it
-  injectable: ^1.5.0
+  injectable: ^1.4.1
   # Allow you to have a screen at launcher for example
   introduction_screen: ^2.1.0
   # Defines the annotations used by json_serializable to create code for JSON serialization and deserialization.
