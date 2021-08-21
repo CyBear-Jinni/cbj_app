@@ -5,8 +5,8 @@ import 'package:cybear_jinni/application/devices/device_actor/device_actor_bloc.
 import 'package:cybear_jinni/application/lights/lights_watcher/lights_watcher_bloc.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
-import 'package:cybear_jinni/presentation/lights/settings_page_of_lights.dart';
-import 'package:cybear_jinni/presentation/lights/widgets/rooms_lights_widget.dart';
+import 'package:cybear_jinni/presentation/device_full_screen_page/lights/settings_page_of_lights.dart';
+import 'package:cybear_jinni/presentation/device_full_screen_page/lights/widgets/rooms_lights_widget.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/material.dart';

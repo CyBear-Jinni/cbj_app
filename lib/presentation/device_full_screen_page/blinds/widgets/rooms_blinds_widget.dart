@@ -1,28 +1,26 @@
-import 'package:cybear_jinni/application/lights/lights_watcher/lights_watcher_bloc.dart';
+import 'package:cybear_jinni/application/blinds/blinds_watcher/blinds_watcher_bloc.dart';
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
-import 'package:cybear_jinni/presentation/lights/widgets/critical_light_failure_display_widget.dart';
-import 'package:cybear_jinni/presentation/lights/widgets/room_lights.dart';
+import 'package:cybear_jinni/presentation/device_full_screen_page/blinds/widgets/critical_failure_blinds_display_widget.dart';
+import 'package:cybear_jinni/presentation/device_full_screen_page/blinds/widgets/room_blinds.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kt_dart/kt.dart';
 
-class RoomsLightsWidget extends StatelessWidget {
-  const RoomsLightsWidget(
+class RoomsBlindsWidget extends StatelessWidget {
+  const RoomsBlindsWidget(
       this.showDevicesOnlyFromRoomId, this.roomColorGradiant);
 
-  /// If not null show lights only from this room
+  /// If not null show blinds only from this room
   final String showDevicesOnlyFromRoomId;
 
   final List<Color> roomColorGradiant;
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<LightsWatcherBloc, LightsWatcherState>(
+    return BlocBuilder<BlindsWatcherBloc, BlindsWatcherState>(
       builder: (context, state) {
-        print('Lights loadSuccess');
-
         return state.map(
           initial: (_) => Container(),
           loadInProgress: (_) => const Center(
@@ -30,7 +28,7 @@ class RoomsLightsWidget extends StatelessWidget {
           ),
           loadSuccess: (state) {
             if (state.devices.size != 0) {
-              final Map<String, List<GenericLightDE>> tempDevicesByRooms =
+              final Map<String?, List<GenericLightDE>> tempDevicesByRooms =
                   <String, List<GenericLightDE>>{};
 
               for (int i = 0; i < state.devices.size; i++) {
@@ -40,7 +38,7 @@ class RoomsLightsWidget extends StatelessWidget {
                       tempDevice.roomId.getOrCrash()) {
                     if (tempDevicesByRooms[tempDevice.roomId.getOrCrash()] ==
                         null) {
-                      tempDevicesByRooms[tempDevice.roomId.getOrCrash()!] = [
+                      tempDevicesByRooms[tempDevice.roomId.getOrCrash()] = [
                         tempDevice
                       ];
                     } else {
@@ -51,7 +49,7 @@ class RoomsLightsWidget extends StatelessWidget {
                 } else {
                   if (tempDevicesByRooms[tempDevice.roomId.getOrCrash()] ==
                       null) {
-                    tempDevicesByRooms[tempDevice.roomId.getOrCrash()!] = [
+                    tempDevicesByRooms[tempDevice.roomId.getOrCrash()] = [
                       tempDevice
                     ];
                   } else {
@@ -74,8 +72,7 @@ class RoomsLightsWidget extends StatelessWidget {
                 child: ListView.builder(
                   padding: EdgeInsets.zero,
                   itemBuilder: (context, index) {
-                    gradientColorCounter++;
-                    List<Color> gradiantColor = GradientColors.sky;
+                    List<Color>? gradiantColor;
                     if (roomColorGradiant != null) {
                       gradiantColor = roomColorGradiant;
                     } else if (gradientColorCounter >
@@ -83,9 +80,10 @@ class RoomsLightsWidget extends StatelessWidget {
                       gradientColorCounter = 0;
                       gradiantColor = gradientColorsList[gradientColorCounter];
                     }
-                    final devicesInRoom = devicesByRooms[index];
+                    final KtList<GenericLightDE> devicesInRoom =
+                        devicesByRooms[index];
 
-                    return RoomLights(
+                    return RoomBlinds(
                       devicesInRoom,
                       gradiantColor,
                       devicesInRoom[0].roomName.getOrCrash()!,
@@ -114,7 +112,7 @@ class RoomsLightsWidget extends StatelessWidget {
                         Navigator.pop(context);
                       },
                       child: Text(
-                        'Lights does not exist.',
+                        'Blinds does not exist.',
                         style: TextStyle(
                             fontSize: 30,
                             color:
@@ -127,11 +125,11 @@ class RoomsLightsWidget extends StatelessWidget {
             }
           },
           loadFailure: (state) {
-            return CriticalLightFailureDisplay(
+            return CriticalFailureBlindsDisplay(
               failure: state.devicesFailure,
             );
           },
-          lightError: (LightError value) {
+          blindError: (BlindError value) {
             return const Text('Error');
           },
         );

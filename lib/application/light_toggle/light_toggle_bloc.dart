@@ -34,11 +34,11 @@ class LightToggleBloc extends Bloc<LightToggleEvent, LightToggleState> {
         Either<DevicesFailure, Unit> actionResult;
 
         if (e.changeToState) {
-          actionResult = await _deviceRepository
-              .turnOnDevices(devicesId: [e.deviceEntity.getDeviceId()]);
+          actionResult = await _deviceRepository.turnOnDevices(
+              devicesId: [e.deviceEntity.uniqueId.getOrCrash()!]);
         } else {
-          actionResult = await _deviceRepository
-              .turnOffDevices(devicesId: [e.deviceEntity.getDeviceId()]);
+          actionResult = await _deviceRepository.turnOffDevices(
+              devicesId: [e.deviceEntity.uniqueId.getOrCrash()!]);
         }
 
         yield actionResult.fold(

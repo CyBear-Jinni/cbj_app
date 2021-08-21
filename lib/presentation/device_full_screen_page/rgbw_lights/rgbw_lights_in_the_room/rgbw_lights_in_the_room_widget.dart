@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// The widget to show all the lights in selected room
-class LightsInTheRoomWidget extends StatelessWidget {
-  const LightsInTheRoomWidget(
+class RgbwLightsInTheRoomWidget extends StatelessWidget {
+  const RgbwLightsInTheRoomWidget(
       this.products, this.updateProduct, this.deleteProduct);
 
   final Function updateProduct;

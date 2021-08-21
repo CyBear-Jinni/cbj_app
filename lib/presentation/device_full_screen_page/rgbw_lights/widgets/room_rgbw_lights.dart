@@ -1,7 +1,8 @@
-import 'package:cybear_jinni/application/blinds/blinds_actor/blinds_actor_bloc.dart';
+import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/injection.dart';
-import 'package:cybear_jinni/presentation/blinds/widgets/blind_widget.dart';
+import 'package:cybear_jinni/presentation/device_full_screen_page/rgbw_lights/widgets/error_rgbw_lights_device_card_widget.dart';
+import 'package:cybear_jinni/presentation/device_full_screen_page/rgbw_lights/widgets/rgbw_light_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,8 +11,8 @@ import 'package:kt_dart/collection.dart';
 
 /// Show light toggles in a container with the background color from smart room
 /// object
-class RoomBlinds extends StatelessWidget {
-  const RoomBlinds(
+class RoomRgbwLights extends StatelessWidget {
+  const RoomRgbwLights(
       this._deviceEntityList, this._gradientColor, this._roomEntity,
       {this.maxLightsToShow = 4});
 
@@ -23,7 +24,7 @@ class RoomBlinds extends StatelessWidget {
 
   final String _roomEntity;
 
-  final List<Color>? _gradientColor;
+  final List<Color> _gradientColor;
 
   @override
   Widget build(BuildContext context) {
@@ -32,38 +33,59 @@ class RoomBlinds extends StatelessWidget {
 
     Widget createSwitchTableWidget() {
       final List<Widget> columnOfLights = <Widget>[];
+      List<Widget> widgetsForRow = <Widget>[];
 
-      final int _numberOfBlindsToShow = _deviceEntityList.size;
+      final int _numberOfLightsToShow = _deviceEntityList.size > maxLightsToShow
+          ? maxLightsToShow
+          : _deviceEntityList.size;
 
-      for (int i = 0; i < _numberOfBlindsToShow; i++) {
-        final GenericLightDE deviceEntityTemp = _deviceEntityList[i];
-
-        columnOfLights.add(Column(
-          children: [
-            Text(
-              deviceEntityTemp.defaultName.getOrCrash()!,
-              style: TextStyle(
-                fontSize: 19.0,
-                color: Theme.of(context).textTheme.bodyText2!.color,
-              ),
-            ),
-            const SizedBox(
-              height: 3,
-            ),
-            Container(
-              margin: const EdgeInsets.symmetric(vertical: 5),
-              child: BlocProvider(
-                create: (context) => getIt<BlindsActorBloc>(),
-                child: BlindWidget(deviceEntityTemp),
-              ),
-            ),
-          ],
-        ));
-
-        columnOfLights.add(const SizedBox(
-          height: 5,
-        ));
+      for (int i = 0; i < _numberOfLightsToShow; i += _maxLightsInRow) {
+        for (int v = 0; v < _maxLightsInRow; v++) {
+          if (_deviceEntityList.size > i + v) {
+            final GenericLightDE? deviceEntityTemp = _deviceEntityList[i + v];
+            if (deviceEntityTemp!.failureOption.isSome()) {
+              widgetsForRow
+                  .add(ErrorRgbwLightsDeviceCard(device: deviceEntityTemp));
+            } else {
+              widgetsForRow.add(Column(
+                children: [
+                  Text(
+                    deviceEntityTemp.defaultName.getOrCrash()!,
+                    style: TextStyle(
+                      fontSize: 19.0,
+                      color: Theme.of(context).textTheme.bodyText1!.color,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 3,
+                  ),
+                  Container(
+                    margin: const EdgeInsets.symmetric(vertical: 5),
+                    width: sizeBoxWidth + 15,
+                    child: BlocProvider(
+                      create: (context) => getIt<LightToggleBloc>(),
+                      child: RgbwLightWidget(deviceEntityTemp),
+                    ),
+                  ),
+                ],
+              ));
+            }
+          } else {
+            widgetsForRow.add(const SizedBox(
+              width: 110,
+            ));
+          }
+        }
+        final Widget rowOfLights = Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: widgetsForRow,
+        );
+        widgetsForRow = <Widget>[];
+        columnOfLights.add(rowOfLights);
       }
+      columnOfLights.add(const SizedBox(
+        height: 5,
+      ));
 
       return Column(
         children: columnOfLights,
@@ -75,7 +97,7 @@ class RoomBlinds extends StatelessWidget {
       padding: const EdgeInsets.all(3),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-            colors: _gradientColor!,
+            colors: _gradientColor,
             begin: Alignment.bottomLeft,
             end: Alignment.topLeft),
         borderRadius: const BorderRadius.all(Radius.circular(24)),
@@ -98,9 +120,7 @@ class RoomBlinds extends StatelessWidget {
             ),
             TextButton(
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(
-                  Colors.transparent,
-                ),
+                backgroundColor: MaterialStateProperty.all(Colors.transparent),
               ),
               onPressed: () {
                 if (maxLightsToShow != null &&

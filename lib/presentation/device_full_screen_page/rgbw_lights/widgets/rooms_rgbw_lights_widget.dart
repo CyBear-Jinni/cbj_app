@@ -1,26 +1,28 @@
-import 'package:cybear_jinni/application/boilers/boilers_watcher/boilers_watcher_bloc.dart';
+import 'package:cybear_jinni/application/lights/lights_watcher/lights_watcher_bloc.dart';
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
-import 'package:cybear_jinni/presentation/boilers/widgets/critical_boilers_failure_display_widget.dart';
-import 'package:cybear_jinni/presentation/boilers/widgets/room_boilers.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
+import 'package:cybear_jinni/presentation/device_full_screen_page/rgbw_lights/widgets/critical_rgbw_light_failure_display_widget.dart';
+import 'package:cybear_jinni/presentation/device_full_screen_page/rgbw_lights/widgets/room_rgbw_lights.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kt_dart/kt.dart';
 
-class RoomsBoilersWidget extends StatelessWidget {
-  const RoomsBoilersWidget(
+class RoomsRgbwLightsWidget extends StatelessWidget {
+  const RoomsRgbwLightsWidget(
       this.showDevicesOnlyFromRoomId, this.roomColorGradiant);
 
-  /// If not null show boilers only from this room
+  /// If not null show lights only from this room
   final String showDevicesOnlyFromRoomId;
 
   final List<Color> roomColorGradiant;
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<BoilersWatcherBloc, BoilersWatcherState>(
+    return BlocBuilder<LightsWatcherBloc, LightsWatcherState>(
       builder: (context, state) {
+        print('Lights loadSuccess');
+
         return state.map(
           initial: (_) => Container(),
           loadInProgress: (_) => const Center(
@@ -28,7 +30,7 @@ class RoomsBoilersWidget extends StatelessWidget {
           ),
           loadSuccess: (state) {
             if (state.devices.size != 0) {
-              final Map<String?, List<GenericLightDE>> tempDevicesByRooms =
+              final Map<String, List<GenericLightDE>> tempDevicesByRooms =
                   <String, List<GenericLightDE>>{};
 
               for (int i = 0; i < state.devices.size; i++) {
@@ -38,7 +40,7 @@ class RoomsBoilersWidget extends StatelessWidget {
                       tempDevice.roomId.getOrCrash()) {
                     if (tempDevicesByRooms[tempDevice.roomId.getOrCrash()] ==
                         null) {
-                      tempDevicesByRooms[tempDevice.roomId.getOrCrash()] = [
+                      tempDevicesByRooms[tempDevice.roomId.getOrCrash()!] = [
                         tempDevice
                       ];
                     } else {
@@ -49,7 +51,7 @@ class RoomsBoilersWidget extends StatelessWidget {
                 } else {
                   if (tempDevicesByRooms[tempDevice.roomId.getOrCrash()] ==
                       null) {
-                    tempDevicesByRooms[tempDevice.roomId.getOrCrash()] = [
+                    tempDevicesByRooms[tempDevice.roomId.getOrCrash()!] = [
                       tempDevice
                     ];
                   } else {
@@ -83,11 +85,11 @@ class RoomsBoilersWidget extends StatelessWidget {
                     }
                     final devicesInRoom = devicesByRooms[index];
 
-                    return RoomBoilers(
+                    return RoomRgbwLights(
                       devicesInRoom,
                       gradiantColor,
-                      devicesInRoom[0].roomName.getOrCrash(),
-                      maxBoilersToShow: 50,
+                      devicesInRoom[0].roomName.getOrCrash()!,
+                      maxLightsToShow: 50,
                     );
                   },
                   itemCount: devicesByRooms.length,
@@ -112,7 +114,7 @@ class RoomsBoilersWidget extends StatelessWidget {
                         Navigator.pop(context);
                       },
                       child: Text(
-                        'Boilers does not exist.',
+                        'Lights does not exist.',
                         style: TextStyle(
                             fontSize: 30,
                             color:
@@ -125,11 +127,11 @@ class RoomsBoilersWidget extends StatelessWidget {
             }
           },
           loadFailure: (state) {
-            return CriticalBoilersFailureDisplay(
+            return CriticalRgbwLightFailureDisplay(
               failure: state.devicesFailure,
             );
           },
-          boilerError: (value) {
+          lightError: (LightError value) {
             return const Text('Error');
           },
         );

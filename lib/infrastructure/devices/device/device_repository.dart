@@ -33,7 +33,7 @@ class DeviceRepository implements IDeviceRepository {
 
   @override
   void addOrUpdateDevice(DeviceEntityAbstract deviceEntity) {
-    allDevices[deviceEntity.getDeviceId()] = deviceEntity;
+    allDevices[deviceEntity.uniqueId.getOrCrash()!] = deviceEntity;
     devicesStreamController.sink.add(allDevices.values.toImmutableList());
   }
 
@@ -129,7 +129,8 @@ class DeviceRepository implements IDeviceRepository {
 
     yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
           return right(r.toList().asList().where((element) {
-            return element!.getDeviceType() == DeviceTypes.light.toString();
+            return element!.uniqueId.getOrCrash()! ==
+                DeviceTypes.light.toString();
           }).toImmutableList());
         }));
   }
@@ -141,7 +142,8 @@ class DeviceRepository implements IDeviceRepository {
     // Blinds device type
     yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
           return right(r.toList().asList().where((element) {
-            return element!.getDeviceType() == DeviceTypes.blinds.toString();
+            return element!.uniqueId.getOrCrash()! ==
+                DeviceTypes.blinds.toString();
           }).toImmutableList());
         }));
   }
@@ -153,7 +155,8 @@ class DeviceRepository implements IDeviceRepository {
     // Boilers device type
     yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
           return right(r.toList().asList().where((element) {
-            return element!.getDeviceType() == DeviceTypes.boiler.toString();
+            return element!.uniqueId.getOrCrash()! ==
+                DeviceTypes.boiler.toString();
           }).toImmutableList());
         }));
   }
@@ -410,7 +413,7 @@ class DeviceRepository implements IDeviceRepository {
   Future<Either<DevicesFailure, Unit>> updateComputer(
       DeviceEntityAbstract deviceEntity) async {
     try {
-      final String id = deviceEntity.getDeviceId();
+      final String id = deviceEntity.uniqueId.getOrCrash()!;
 
       addOrUpdateDeviceAndStateToWaiting(deviceEntity);
 

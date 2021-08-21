@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/cupertino.dart';
@@ -7,6 +8,20 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BoilersInTheRoom extends StatelessWidget {
   const BoilersInTheRoom({this.boilersInRoom, this.roomColorGradiant});
+
+  factory BoilersInTheRoom.withAbstractDevice(
+      List<DeviceEntityAbstract> tempDeviceInRoom,
+      List<Color> temproomColorGradiant) {
+    List<GenericLightDE> tempLightsInRoom = [];
+
+    tempDeviceInRoom.forEach((element) {
+      tempLightsInRoom.add(element as GenericLightDE);
+    });
+
+    return BoilersInTheRoom(
+        boilersInRoom: tempLightsInRoom,
+        roomColorGradiant: temproomColorGradiant);
+  }
 
   final List<GenericLightDE>? boilersInRoom;
   final List<Color>? roomColorGradiant;
