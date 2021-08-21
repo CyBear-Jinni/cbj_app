@@ -7,6 +7,8 @@ import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_value_objects.dart';
+import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rgbw_light_value_objects.dart';
 import 'package:cybear_jinni/domain/user/i_user_repository.dart';
 import 'package:cybear_jinni/domain/user/user_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/hub_client.dart';
@@ -33,7 +35,7 @@ class DeviceRepository implements IDeviceRepository {
 
   @override
   void addOrUpdateDevice(DeviceEntityAbstract deviceEntity) {
-    allDevices[deviceEntity.getDeviceId()] = deviceEntity;
+    allDevices[deviceEntity.uniqueId.getOrCrash()!] = deviceEntity;
     devicesStreamController.sink.add(allDevices.values.toImmutableList());
   }
 
@@ -129,7 +131,8 @@ class DeviceRepository implements IDeviceRepository {
 
     yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
           return right(r.toList().asList().where((element) {
-            return element!.getDeviceType() == DeviceTypes.light.toString();
+            return element!.uniqueId.getOrCrash()! ==
+                DeviceTypes.light.toString();
           }).toImmutableList());
         }));
   }
@@ -141,7 +144,8 @@ class DeviceRepository implements IDeviceRepository {
     // Blinds device type
     yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
           return right(r.toList().asList().where((element) {
-            return element!.getDeviceType() == DeviceTypes.blinds.toString();
+            return element!.uniqueId.getOrCrash()! ==
+                DeviceTypes.blinds.toString();
           }).toImmutableList());
         }));
   }
@@ -153,7 +157,8 @@ class DeviceRepository implements IDeviceRepository {
     // Boilers device type
     yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
           return right(r.toList().asList().where((element) {
-            return element!.getDeviceType() == DeviceTypes.boiler.toString();
+            return element!.uniqueId.getOrCrash()! ==
+                DeviceTypes.boiler.toString();
           }).toImmutableList());
         }));
   }
@@ -192,8 +197,7 @@ class DeviceRepository implements IDeviceRepository {
           .copyWithDeviceSenderDeviceModel(deviceModelString)
           .copyWithSenderId(currentUserId);
 
-      // final homeDoc = await _firestore.currentHomeDocument();
-      final deviceDtos = DeviceEntityDtoAbstract.fromDomain(deviceEntityTemp);
+      DeviceEntityDtoAbstract.fromDomain(deviceEntityTemp);
 
       // await homeDoc.devicesCollecttion
       //     .doc(deviceDtos.id)
@@ -255,14 +259,25 @@ class DeviceRepository implements IDeviceRepository {
         await getDeviceEntityListFromId(devicesId!);
 
     try {
-      deviceEntityListToUpdate.forEach((element) {
-        if (element is GenericLightDE) {
-          element.lightSwitchState =
+      for (final DeviceEntityAbstract? deviceEntity
+          in deviceEntityListToUpdate) {
+        if (deviceEntity == null) {
+          continue;
+        }
+        if (deviceEntity is GenericLightDE) {
+          deviceEntity.lightSwitchState =
               GenericLightSwitchState(DeviceActions.on.toString());
+        } else if (deviceEntity is GenericRgbwLightDE) {
+          deviceEntity.lightSwitchState =
+              GenericRgbwLightSwitchState(DeviceActions.on.toString());
+        } else {
+          print('On action not supported for'
+              ' ${deviceEntity.deviceTypes.getOrCrash()} type');
+          continue;
         }
 
-        updateWithDeviceEntity(deviceEntity: element!);
-      });
+        updateWithDeviceEntity(deviceEntity: deviceEntity);
+      }
     } on PlatformException catch (e) {
       if (e.message!.contains('PERMISSION_DENIED')) {
         return left(const DevicesFailure.insufficientPermission());
@@ -283,16 +298,25 @@ class DeviceRepository implements IDeviceRepository {
         await getDeviceEntityListFromId(devicesId!);
 
     try {
-      deviceEntityListToUpdate.forEach((element) {
-        final DeviceEntityAbstract dea =
-            element!.copyWithDeviceState(DeviceStateGRPC.waitingInFirebase);
-        if (dea is GenericLightDE) {
-          dea.lightSwitchState =
+      for (final DeviceEntityAbstract? deviceEntity
+          in deviceEntityListToUpdate) {
+        if (deviceEntity == null) {
+          continue;
+        }
+        if (deviceEntity is GenericLightDE) {
+          deviceEntity.lightSwitchState =
               GenericLightSwitchState(DeviceActions.off.toString());
+        } else if (deviceEntity is GenericRgbwLightDE) {
+          deviceEntity.lightSwitchState =
+              GenericRgbwLightSwitchState(DeviceActions.off.toString());
+        } else {
+          print('Off action not supported for'
+              ' ${deviceEntity.deviceTypes.getOrCrash()} type');
+          continue;
         }
 
-        updateWithDeviceEntity(deviceEntity: dea);
-      });
+        updateWithDeviceEntity(deviceEntity: deviceEntity);
+      }
     } on PlatformException catch (e) {
       if (e.message!.contains('PERMISSION_DENIED')) {
         return left(const DevicesFailure.insufficientPermission());
@@ -410,8 +434,6 @@ class DeviceRepository implements IDeviceRepository {
   Future<Either<DevicesFailure, Unit>> updateComputer(
       DeviceEntityAbstract deviceEntity) async {
     try {
-      final String id = deviceEntity.getDeviceId();
-
       addOrUpdateDeviceAndStateToWaiting(deviceEntity);
 
       try {

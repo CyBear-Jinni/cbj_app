@@ -55,12 +55,6 @@ abstract class DeviceEntityAbstract {
   /// Unique id of the computer that the GenericLight located in
   DeviceCompUuid compUuid;
 
-  /// The smart device id
-  String getDeviceId();
-
-  /// Smart device type, blinds, light, colorful light
-  String getDeviceType();
-
   /// Copy with device state to waiting or ack
   DeviceEntityAbstract copyWithDeviceState(DeviceStateGRPC deviceStateGRPC) {
     return this;
@@ -117,18 +111,6 @@ class DeviceEntityEmpty extends DeviceEntityAbstract {
           senderId: DeviceSenderId(),
           stateMassage: DeviceStateMassage('go'),
         );
-
-  @override
-  String getDeviceId() {
-    // TODO: implement getDeviceId
-    throw UnimplementedError();
-  }
-
-  @override
-  String getDeviceType() {
-    // TODO: implement getDeviceType
-    throw UnimplementedError();
-  }
 }
 
 //

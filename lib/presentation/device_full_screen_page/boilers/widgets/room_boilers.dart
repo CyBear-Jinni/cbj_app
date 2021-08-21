@@ -1,53 +1,54 @@
-import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
+import 'package:cybear_jinni/application/boilers/boilers_actor/boilers_actor_bloc.dart';
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/injection.dart';
-import 'package:cybear_jinni/presentation/lights/widgets/error_lights_device_card_widget.dart';
-import 'package:cybear_jinni/presentation/lights/widgets/light_widget.dart';
+import 'package:cybear_jinni/presentation/device_full_screen_page/boilers/widgets/boilers_widget.dart';
+import 'package:cybear_jinni/presentation/device_full_screen_page/boilers/widgets/error_boilers_device_card_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kt_dart/collection.dart';
 
-/// Show light toggles in a container with the background color from smart room
+/// Show boiler toggles in a container with the background color from smart room
 /// object
-class RoomLights extends StatelessWidget {
-  const RoomLights(
+class RoomBoilers extends StatelessWidget {
+  const RoomBoilers(
       this._deviceEntityList, this._gradientColor, this._roomEntity,
-      {this.maxLightsToShow = 4});
+      {this.maxBoilersToShow = 4});
 
-  final KtList<GenericLightDE> _deviceEntityList;
+  final KtList<GenericLightDE?>? _deviceEntityList;
 
-  final int maxLightsToShow;
+  final int? maxBoilersToShow;
 
-  final int _maxLightsInRow = 2;
+  final int? _maxBoilersInRow = 2;
 
-  final String _roomEntity;
+  final String? _roomEntity;
 
   final List<Color> _gradientColor;
 
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
-    final double sizeBoxWidth = screenSize.width * 0.25;
+    final Size? screenSize = MediaQuery.of(context).size;
+    final double? sizeBoxWidth = screenSize!.width * 0.25;
 
-    Widget createSwitchTableWidget() {
-      final List<Widget> columnOfLights = <Widget>[];
-      List<Widget> widgetsForRow = <Widget>[];
+    Widget? createSwitchTableWidget() {
+      final List<Widget> columnOfBoilers = <Widget>[];
+      List<Widget>? widgetsForRow = <Widget>[];
 
-      final int _numberOfLightsToShow = _deviceEntityList.size > maxLightsToShow
-          ? maxLightsToShow
-          : _deviceEntityList.size;
+      final int? _numberOfBoilersToShow =
+          _deviceEntityList!.size > maxBoilersToShow!
+              ? maxBoilersToShow
+              : _deviceEntityList!.size;
 
-      for (int i = 0; i < _numberOfLightsToShow; i += _maxLightsInRow) {
-        for (int v = 0; v < _maxLightsInRow; v++) {
-          if (_deviceEntityList.size > i + v) {
-            final GenericLightDE? deviceEntityTemp = _deviceEntityList[i + v];
+      for (int i = 0; i < _numberOfBoilersToShow!; i += _maxBoilersInRow!) {
+        for (int v = 0; v < _maxBoilersInRow!; v++) {
+          if (_deviceEntityList!.size > i + v) {
+            final GenericLightDE? deviceEntityTemp = _deviceEntityList![i + v];
             if (deviceEntityTemp!.failureOption.isSome()) {
-              widgetsForRow
-                  .add(ErrorLightsDeviceCard(device: deviceEntityTemp));
+              widgetsForRow!
+                  .add(ErrorBoilersDeviceCard(device: deviceEntityTemp));
             } else {
-              widgetsForRow.add(Column(
+              widgetsForRow!.add(Column(
                 children: [
                   Text(
                     deviceEntityTemp.defaultName.getOrCrash()!,
@@ -61,34 +62,34 @@ class RoomLights extends StatelessWidget {
                   ),
                   Container(
                     margin: const EdgeInsets.symmetric(vertical: 5),
-                    width: sizeBoxWidth + 15,
+                    width: sizeBoxWidth! + 15,
                     child: BlocProvider(
-                      create: (context) => getIt<LightToggleBloc>(),
-                      child: LightWidget(deviceEntityTemp),
+                      create: (context) => getIt<BoilersActorBloc>(),
+                      child: BoilersWidget(deviceEntityTemp),
                     ),
                   ),
                 ],
               ));
             }
           } else {
-            widgetsForRow.add(const SizedBox(
+            widgetsForRow!.add(const SizedBox(
               width: 110,
             ));
           }
         }
-        final Widget rowOfLights = Row(
+        final Widget rowOfBoilers = Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: widgetsForRow,
+          children: widgetsForRow!,
         );
         widgetsForRow = <Widget>[];
-        columnOfLights.add(rowOfLights);
+        columnOfBoilers.add(rowOfBoilers);
       }
-      columnOfLights.add(const SizedBox(
+      columnOfBoilers.add(const SizedBox(
         height: 5,
       ));
 
       return Column(
-        children: columnOfLights,
+        children: columnOfBoilers,
       );
     }
 
@@ -120,12 +121,14 @@ class RoomLights extends StatelessWidget {
             ),
             TextButton(
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.transparent),
+                backgroundColor: MaterialStateProperty.all(
+                  Colors.transparent,
+                ),
               ),
               onPressed: () {
-                if (maxLightsToShow != null &&
-                    _deviceEntityList.size > maxLightsToShow) {
-                  // ExtendedNavigator.of(context).pushLightsInTheRoomPage(
+                if (maxBoilersToShow != null &&
+                    _deviceEntityList!.size > maxBoilersToShow!) {
+                  // ExtendedNavigator.of(context).pushBoilersInTheRoomPage(
                   //     thisSmartRoom: _deviceEntityList);
                 }
               },
@@ -133,15 +136,15 @@ class RoomLights extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text(
-                    _roomEntity,
+                    _roomEntity!,
                     style: TextStyle(
                       color: Theme.of(context).textTheme.bodyText1!.color,
                       fontSize: 25,
                       decoration: TextDecoration.underline,
                     ),
                   ),
-                  if (maxLightsToShow != null &&
-                      _deviceEntityList.size > maxLightsToShow)
+                  if (maxBoilersToShow != null &&
+                      _deviceEntityList!.size > maxBoilersToShow!)
                     FaIcon(
                       FontAwesomeIcons.arrowRight,
                       color: Theme.of(context).textTheme.bodyText1!.color,
@@ -153,7 +156,7 @@ class RoomLights extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.all(5),
             ),
-            createSwitchTableWidget(),
+            createSwitchTableWidget()!,
           ],
         ),
       ),

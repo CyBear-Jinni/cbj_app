@@ -1,14 +1,16 @@
 import 'package:cybear_jinni/application/blinds/blinds_actor/blinds_actor_bloc.dart';
 import 'package:cybear_jinni/application/devices/device_watcher/device_watcher_bloc.dart';
 import 'package:cybear_jinni/application/lights/lights_actor/lights_actor_bloc.dart';
+import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
+import 'package:cybear_jinni/presentation/device_full_screen_page/lights/widgets/critical_light_failure_display_widget.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/blinds_in_the_room.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/boilers_in_the_room.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/lights_in_the_room_block.dart';
-import 'package:cybear_jinni/presentation/lights/widgets/critical_light_failure_display_widget.dart';
+import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/rgbw_lights_in_the_room_block.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -27,14 +29,14 @@ class SmartDevicesByRooms extends StatelessWidget {
         ),
         loadSuccess: (state) {
           if (state.devices.size != 0) {
-            final Map<String?, List<GenericLightDE>> tempDevicesByRooms =
-                <String, List<GenericLightDE>>{};
+            final Map<String?, List<DeviceEntityAbstract>> tempDevicesByRooms =
+                <String, List<DeviceEntityAbstract>>{};
 
             for (int i = 0; i < state.devices.size; i++) {
               if (state.devices[i] == null) {
                 continue;
               }
-              final GenericLightDE tempDevice = state.devices[i]!;
+              final DeviceEntityAbstract tempDevice = state.devices[i]!;
               if (tempDevicesByRooms[tempDevice.roomId.getOrCrash()] == null) {
                 tempDevicesByRooms[tempDevice.roomId.getOrCrash()] = [
                   tempDevice
@@ -45,9 +47,9 @@ class SmartDevicesByRooms extends StatelessWidget {
               }
             }
 
-            final Map<String, Map<String, List<GenericLightDE>>>
+            final Map<String, Map<String, List<DeviceEntityAbstract>>>
                 tempDevicesByRoomsByType =
-                <String, Map<String, List<GenericLightDE>>>{};
+                <String, Map<String, List<DeviceEntityAbstract>>>{};
 
             final Map<String, List<GenericLightDE>> tempDevicesByType =
                 <String, List<GenericLightDE>>{};
@@ -203,21 +205,33 @@ class SmartDevicesByRooms extends StatelessWidget {
                                       return BlocProvider(
                                         create: (context) =>
                                             getIt<LightsActorBloc>(),
-                                        child: LightsInTheRoomBlock(
-                                            tempDevicesByRoomsByType[roomId]![
-                                                deviceType]!,
-                                            roomColorGradiant),
+                                        child: LightsInTheRoomBlock
+                                            .withAbstractDevice(
+                                                tempDevicesByRoomsByType[
+                                                    roomId]![deviceType]!,
+                                                roomColorGradiant),
+                                      );
+                                    } else if (deviceType ==
+                                        DeviceTypes.rgbwLights.toString()) {
+                                      return BlocProvider(
+                                        create: (context) =>
+                                            getIt<LightsActorBloc>(),
+                                        child: RgbwLightsInTheRoomBlock
+                                            .withAbstractDevice(
+                                                tempDevicesByRoomsByType[
+                                                    roomId]![deviceType]!,
+                                                roomColorGradiant),
                                       );
                                     } else if (deviceType ==
                                         DeviceTypes.blinds.toString()) {
                                       return BlocProvider(
                                         create: (context) =>
                                             getIt<BlindsActorBloc>(),
-                                        child: BlindsInTheRoom(
-                                          blindsInRoom:
-                                              tempDevicesByRoomsByType[roomId]![
-                                                  deviceType],
-                                          roomColorGradiant: roomColorGradiant,
+                                        child:
+                                            BlindsInTheRoom.withAbstractDevice(
+                                          tempDevicesByRoomsByType[roomId]![
+                                              deviceType]!,
+                                          roomColorGradiant,
                                         ),
                                       );
                                     } else if (deviceType ==
@@ -225,11 +239,11 @@ class SmartDevicesByRooms extends StatelessWidget {
                                       return BlocProvider(
                                         create: (context) =>
                                             getIt<BlindsActorBloc>(),
-                                        child: BoilersInTheRoom(
-                                          boilersInRoom:
-                                              tempDevicesByRoomsByType[roomId]![
-                                                  deviceType],
-                                          roomColorGradiant: roomColorGradiant,
+                                        child:
+                                            BoilersInTheRoom.withAbstractDevice(
+                                          tempDevicesByRoomsByType[roomId]![
+                                              deviceType]!,
+                                          roomColorGradiant,
                                         ),
                                       );
                                     }

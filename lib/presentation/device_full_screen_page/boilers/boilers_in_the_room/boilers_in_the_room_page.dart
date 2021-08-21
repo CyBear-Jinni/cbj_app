@@ -1,13 +1,13 @@
 import 'package:cybear_jinni/domain/room/smart_room_object.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
-import 'package:cybear_jinni/presentation/lights/widgets/room_lights_toggles_block.dart';
+import 'package:cybear_jinni/presentation/device_full_screen_page/boilers/widgets/room_boilers_toggles_block.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-/// Page to show all the lights in selected room
-class LightsInTheRoomPage extends StatelessWidget {
-  LightsInTheRoomPage({required this.thisSmartRoom});
+/// Page to show all the boilers in selected room
+class BoilersInTheRoomPage extends StatelessWidget {
+  BoilersInTheRoomPage({required this.thisSmartRoom});
 
   final SmartRoomObject? thisSmartRoom;
   final List<Map<String, dynamic>> productsInThisRoom =
@@ -45,7 +45,7 @@ class LightsInTheRoomPage extends StatelessWidget {
               child: Container(
                 margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 20),
                 child: SingleChildScrollView(
-                  child: RoomLightsTogglesBlock(thisSmartRoom),
+                  child: RoomBoilersTogglesBlock(thisSmartRoom),
                 ),
               ),
             ),
