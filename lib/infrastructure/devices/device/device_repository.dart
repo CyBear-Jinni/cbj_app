@@ -52,27 +52,7 @@ class DeviceRepository implements IDeviceRepository {
   Future<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
       getAllDevices() async {
     try {
-      // final QuerySnapshot allDevicesSnapshot =
-      //     await homeDoc.devicesCollecttion.get();
-      // return right<DevicesFailure, KtList<GenericLightDE?>>(
-      //     allDevicesSnapshot.docs
-      //         .map((e) {
-      //           if ((e.data()! as Map<String, dynamic>)[
-      //                       GrpcClientTypes.deviceTypesTypeString] ==
-      //                   DeviceTypes.light.toString() ||
-      //               (e.data()! as Map<String, dynamic>)[
-      //                       GrpcClientTypes.deviceTypesTypeString] ==
-      //                   DeviceTypes.blinds.toString() ||
-      //               (e.data()! as Map<String, dynamic>)[
-      //                       GrpcClientTypes.deviceTypesTypeString] ==
-      //                   DeviceTypes.boiler.toString()) {
-      //             return DeviceDtos.fromFirestore(e).toDomain();
-      //           } else {
-      //             print('Type not supported');
-      //           }
-      //         })
-      //         .where((element) => element != null)
-      //         .toImmutableList());
+      return right(allDevices.values.toImmutableList());
     } catch (e) {
       if (e is PlatformException && e.message!.contains('PERMISSION_DENIED')) {
         print('Insufficient permission while getting all devices');
@@ -90,37 +70,6 @@ class DeviceRepository implements IDeviceRepository {
   Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
       watchAll() async* {
     yield* devicesStreamController.stream.map((event) => right(event));
-
-    // homeDoc.devicesCollecttion.snapshots().map(
-    //       (snapshot) => right<DevicesFailure, KtList<GenericLightDE?>>(
-    //         snapshot.docs
-    //             .map((doc) {
-    //               if ((doc.data()! as Map<String, dynamic>)[
-    //                           GrpcClientTypes.deviceTypesTypeString] ==
-    //                       DeviceTypes.light.toString() ||
-    //                   (doc.data()! as Map<String, dynamic>)[
-    //                           GrpcClientTypes.deviceTypesTypeString] ==
-    //                       DeviceTypes.blinds.toString() ||
-    //                   (doc.data()! as Map<String, dynamic>)[
-    //                           GrpcClientTypes.deviceTypesTypeString] ==
-    //                       DeviceTypes.boiler.toString()) {
-    //                 return DeviceDtos.fromFirestore(doc).toDomain();
-    //               } else {
-    //                 print('Type not supported');
-    //               }
-    //             })
-    //             .where((element) => element != null)
-    //             .toImmutableList(),
-    //       ),
-    //     );
-    //     .onErrorReturnWith((e) {
-    //   if (e is PlatformException && e.message!.contains('PERMISSION_DENIED')) {
-    //     return left<DevicesFailure, KtList<GenericLightDE>>( DevicesFailure.insufficientPermission());
-    //   } else {
-    //     // log.error(e.toString());
-    //     // return left( DevicesFailure.unexpected());
-    //   }
-    // });
   }
 
   @override
@@ -128,11 +77,12 @@ class DeviceRepository implements IDeviceRepository {
       watchLights() async* {
     // Using watchAll devices from server function and filtering out only the
     // Light device type
-
     yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
           return right(r.toList().asList().where((element) {
-            return element!.uniqueId.getOrCrash()! ==
-                DeviceTypes.light.toString();
+            return element!.deviceTypes.getOrCrash() ==
+                    DeviceTypes.light.toString() ||
+                element.deviceTypes.getOrCrash() ==
+                    DeviceTypes.rgbwLights.toString();
           }).toImmutableList());
         }));
   }
@@ -199,9 +149,6 @@ class DeviceRepository implements IDeviceRepository {
 
       DeviceEntityDtoAbstract.fromDomain(deviceEntityTemp);
 
-      // await homeDoc.devicesCollecttion
-      //     .doc(deviceDtos.id)
-      //     .set(deviceDtos.toJson());
       return right(unit);
     } on PlatformException catch (e) {
       if (e.message!.contains('PERMISSION_DENIED')) {

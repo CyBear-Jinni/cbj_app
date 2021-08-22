@@ -1,4 +1,5 @@
 import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
+import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/lights/widgets/error_lights_device_card_widget.dart';
@@ -16,7 +17,7 @@ class RoomLights extends StatelessWidget {
       this._deviceEntityList, this._gradientColor, this._roomEntity,
       {this.maxLightsToShow = 4});
 
-  final KtList<GenericLightDE> _deviceEntityList;
+  final KtList<DeviceEntityAbstract> _deviceEntityList;
 
   final int maxLightsToShow;
 
@@ -41,9 +42,11 @@ class RoomLights extends StatelessWidget {
 
       for (int i = 0; i < _numberOfLightsToShow; i += _maxLightsInRow) {
         for (int v = 0; v < _maxLightsInRow; v++) {
-          if (_deviceEntityList.size > i + v) {
-            final GenericLightDE? deviceEntityTemp = _deviceEntityList[i + v];
-            if (deviceEntityTemp!.failureOption.isSome()) {
+          if (_deviceEntityList.size > i + v &&
+              _deviceEntityList[i + v] is GenericLightDE) {
+            final GenericLightDE deviceEntityTemp =
+                _deviceEntityList[i + v] as GenericLightDE;
+            if (deviceEntityTemp.failureOption.isSome()) {
               widgetsForRow
                   .add(ErrorLightsDeviceCard(device: deviceEntityTemp));
             } else {

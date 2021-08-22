@@ -1,5 +1,6 @@
 import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
-import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
+import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/rgbw_lights/widgets/error_rgbw_lights_device_card_widget.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/rgbw_lights/widgets/rgbw_light_widget.dart';
@@ -16,7 +17,7 @@ class RoomRgbwLights extends StatelessWidget {
       this._deviceEntityList, this._gradientColor, this._roomEntity,
       {this.maxLightsToShow = 4});
 
-  final KtList<GenericLightDE> _deviceEntityList;
+  final KtList<DeviceEntityAbstract> _deviceEntityList;
 
   final int maxLightsToShow;
 
@@ -41,8 +42,10 @@ class RoomRgbwLights extends StatelessWidget {
 
       for (int i = 0; i < _numberOfLightsToShow; i += _maxLightsInRow) {
         for (int v = 0; v < _maxLightsInRow; v++) {
-          if (_deviceEntityList.size > i + v) {
-            final GenericLightDE? deviceEntityTemp = _deviceEntityList[i + v];
+          if (_deviceEntityList.size > i + v &&
+              _deviceEntityList[i + v] is GenericRgbwLightDE) {
+            final GenericRgbwLightDE? deviceEntityTemp =
+                _deviceEntityList[i + v] as GenericRgbwLightDE;
             if (deviceEntityTemp!.failureOption.isSome()) {
               widgetsForRow
                   .add(ErrorRgbwLightsDeviceCard(device: deviceEntityTemp));
