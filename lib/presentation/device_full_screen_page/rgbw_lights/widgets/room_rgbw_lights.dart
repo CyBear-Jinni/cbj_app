@@ -1,8 +1,10 @@
 import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
-import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
+import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/rgbw_lights/widgets/error_rgbw_lights_device_card_widget.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/rgbw_lights/widgets/rgbw_light_widget.dart';
+import 'package:flex_color_picker/flex_color_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,11 +18,9 @@ class RoomRgbwLights extends StatelessWidget {
       this._deviceEntityList, this._gradientColor, this._roomEntity,
       {this.maxLightsToShow = 4});
 
-  final KtList<GenericLightDE> _deviceEntityList;
+  final KtList<DeviceEntityAbstract> _deviceEntityList;
 
   final int maxLightsToShow;
-
-  final int _maxLightsInRow = 2;
 
   final String _roomEntity;
 
@@ -39,11 +39,19 @@ class RoomRgbwLights extends StatelessWidget {
           ? maxLightsToShow
           : _deviceEntityList.size;
 
-      for (int i = 0; i < _numberOfLightsToShow; i += _maxLightsInRow) {
-        for (int v = 0; v < _maxLightsInRow; v++) {
-          if (_deviceEntityList.size > i + v) {
-            final GenericLightDE? deviceEntityTemp = _deviceEntityList[i + v];
-            if (deviceEntityTemp!.failureOption.isSome()) {
+      int maxLightsInRow = 2;
+
+      if (screenSize.width < 580) {
+        maxLightsInRow = 1;
+      }
+
+      for (int i = 0; i < _numberOfLightsToShow; i += maxLightsInRow) {
+        for (int v = 0; v < maxLightsInRow; v++) {
+          if (_deviceEntityList.size > i + v &&
+              _deviceEntityList[i + v] is GenericRgbwLightDE) {
+            final GenericRgbwLightDE deviceEntityTemp =
+                _deviceEntityList[i + v] as GenericRgbwLightDE;
+            if (deviceEntityTemp.failureOption.isSome()) {
               widgetsForRow
                   .add(ErrorRgbwLightsDeviceCard(device: deviceEntityTemp));
             } else {
@@ -66,6 +74,15 @@ class RoomRgbwLights extends StatelessWidget {
                       create: (context) => getIt<LightToggleBloc>(),
                       child: RgbwLightWidget(deviceEntityTemp),
                     ),
+                  ),
+                  ColorPicker(
+                    onColorChanged: (_) {},
+                    pickersEnabled: const <ColorPickerType, bool>{
+                      ColorPickerType.accent: false,
+                      ColorPickerType.primary: false,
+                      ColorPickerType.wheel: true,
+                    },
+                    enableShadesSelection: false,
                   ),
                 ],
               ));

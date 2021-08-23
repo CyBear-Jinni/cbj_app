@@ -1,5 +1,5 @@
 import 'package:cybear_jinni/application/lights/lights_watcher/lights_watcher_bloc.dart';
-import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
+import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/lights/widgets/critical_light_failure_display_widget.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/lights/widgets/room_lights.dart';
@@ -30,11 +30,11 @@ class RoomsLightsWidget extends StatelessWidget {
           ),
           loadSuccess: (state) {
             if (state.devices.size != 0) {
-              final Map<String, List<GenericLightDE>> tempDevicesByRooms =
-                  <String, List<GenericLightDE>>{};
+              final Map<String, List<DeviceEntityAbstract>> tempDevicesByRooms =
+                  <String, List<DeviceEntityAbstract>>{};
 
               for (int i = 0; i < state.devices.size; i++) {
-                final GenericLightDE tempDevice = state.devices[i]!;
+                final DeviceEntityAbstract tempDevice = state.devices[i]!;
                 if (showDevicesOnlyFromRoomId != null) {
                   if (showDevicesOnlyFromRoomId ==
                       tempDevice.roomId.getOrCrash()) {
@@ -61,7 +61,7 @@ class RoomsLightsWidget extends StatelessWidget {
                 }
               }
 
-              final List<KtList<GenericLightDE>> devicesByRooms = [];
+              final List<KtList<DeviceEntityAbstract>> devicesByRooms = [];
 
               tempDevicesByRooms.forEach((k, v) {
                 devicesByRooms.add(v.toImmutableList());

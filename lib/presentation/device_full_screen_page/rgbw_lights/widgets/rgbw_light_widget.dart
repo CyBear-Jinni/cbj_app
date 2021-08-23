@@ -1,5 +1,5 @@
 import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
-import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +12,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class RgbwLightWidget extends StatelessWidget {
   const RgbwLightWidget(this._deviceEntity);
 
-  final GenericLightDE? _deviceEntity;
+  final GenericRgbwLightDE? _deviceEntity;
 
   void _onChange(BuildContext context, bool value) {
     context.read<LightToggleBloc>().add(
