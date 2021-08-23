@@ -11,14 +11,16 @@ import 'package:protobuf/protobuf.dart' as $pb;
 
 class VendorsAndServices extends $pb.ProtobufEnum {
   static const VendorsAndServices vendorsAndServicesNotSupported = VendorsAndServices._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'vendorsAndServicesNotSupported');
-  static const VendorsAndServices tasmota = VendorsAndServices._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'tasmota');
-  static const VendorsAndServices espHome = VendorsAndServices._(2, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'espHome');
-  static const VendorsAndServices yeelight = VendorsAndServices._(3, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'yeelight');
+  static const VendorsAndServices espHome = VendorsAndServices._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'espHome');
+  static const VendorsAndServices switcher = VendorsAndServices._(2, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'switcher');
+  static const VendorsAndServices tasmota = VendorsAndServices._(3, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'tasmota');
+  static const VendorsAndServices yeelight = VendorsAndServices._(4, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'yeelight');
 
   static const $core.List<VendorsAndServices> values = <VendorsAndServices> [
     vendorsAndServicesNotSupported,
-    tasmota,
     espHome,
+    switcher,
+    tasmota,
     yeelight,
   ];
 
