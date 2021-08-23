@@ -4,6 +4,8 @@ import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstra
 import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/hub_client.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cybear_jinni/infrastructure/generic_devices/generic_blinds_device/generic_blinds_device_dtos.dart';
+import 'package:cybear_jinni/infrastructure/generic_devices/generic_boiler_device/generic_boiler_device_dtos.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_light_device/generic_light_device_dtos.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_rgbw_light_device/generic_rgbw_light_device_dtos.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums.dart';
@@ -35,15 +37,24 @@ class HubRequestRouting {
 
         switch (deviceType) {
           case DeviceTypes.light:
-            print('Adding Light device type');
-
             deviceEntity =
                 GenericLightDeviceDtos.fromJson(requestAsJson).toDomain();
+            print('Adding Light device type');
             break;
           case DeviceTypes.rgbwLights:
             deviceEntity =
                 GenericRgbwLightDeviceDtos.fromJson(requestAsJson).toDomain();
             print('Adding rgbW light device type');
+            break;
+          case DeviceTypes.blinds:
+            deviceEntity =
+                GenericBlindsDeviceDtos.fromJson(requestAsJson).toDomain();
+            print('Adding Blinds device type');
+            break;
+          case DeviceTypes.boiler:
+            deviceEntity =
+                GenericBoilerDeviceDtos.fromJson(requestAsJson).toDomain();
+            print('Adding Boiler device type');
             break;
           default:
             print('Device type is $deviceType is not supported');
