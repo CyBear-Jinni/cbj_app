@@ -12,6 +12,7 @@ environment:
 flutter_icons:
   ios: true
   android: true
+  windows: true
   image_path: "assets/cbj_icon.png"
   adaptive_icon_background: "#FFFFFF"
   adaptive_icon_foreground: "assets/cbj_icon_adaptive.png"

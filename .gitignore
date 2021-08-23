@@ -132,10 +132,18 @@ coverage/
 # Symbols
 app.*.symbols
 
-# Exceptions to above rules.
-!**/ios/**/default.mode1v3
-!**/ios/**/default.mode2v3
-!**/ios/**/default.pbxuser
-!**/ios/**/default.perspectivev3
-!/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
-!/dev/ci/**/Gemfile.lock
+
+# Directory created by dartdoc
+# If you don't generate documentation locally you can remove this line.
+doc/api/
+smart_home_flutter/gen/
+/SmartDevice/parts/
+/SmartDevice/prime/
+/SmartDevice/stage/
+/SmartDevice/*.snap
+/SmartDevice/*_armhf.txt
+/FlutterApp/smart_home_flutter/ios/Flutter/flutter_export_environment.sh
+/FlutterApp/smart_home_flutter/.flutter-plugins-dependencies
+
+/Files/googlePlayStore/
+
