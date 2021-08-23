@@ -236,6 +236,7 @@ class SmartDevicesByRooms extends StatelessWidget {
                                       );
                                     } else if (deviceType ==
                                         DeviceTypes.boiler.toString()) {
+                                      //TODO: Boiler should not user Blinds block
                                       return BlocProvider(
                                         create: (context) =>
                                             getIt<BlindsActorBloc>(),
