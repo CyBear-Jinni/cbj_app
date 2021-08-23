@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/presentation/home_page/smart_device_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -6,7 +6,7 @@ class DevicesList extends StatefulWidget {
   const DevicesList(this.devices,
       {this.howMuchToShow, this.axis = Axis.vertical});
 
-  final List<DeviceEntity>? devices;
+  final List<GenericLightDE>? devices;
   final int? howMuchToShow;
   final Axis? axis;
 
@@ -17,7 +17,7 @@ class DevicesList extends StatefulWidget {
 }
 
 class _DevicesList extends State<DevicesList> {
-  List<DeviceEntity>? _devices;
+  List<GenericLightDE>? _devices;
   int? _howMuchToShow;
   Axis? _axis;
 

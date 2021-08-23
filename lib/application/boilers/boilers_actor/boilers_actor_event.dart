@@ -12,5 +12,6 @@ class BoilersActorEvent with _$BoilersActorEvent {
           List<String>? boilersIdToTurnOff, BuildContext context) =
       _TurnOffAllBoilers;
 
-  const factory BoilersActorEvent.deleted(DeviceEntity deviceEntity) = _Deleted;
+  const factory BoilersActorEvent.deleted(GenericLightDE deviceEntity) =
+      _Deleted;
 }

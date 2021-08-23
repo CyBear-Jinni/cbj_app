@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
+import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
 import 'package:dartz/dartz.dart';
@@ -27,17 +27,20 @@ class LightToggleBloc extends Bloc<LightToggleEvent, LightToggleState> {
         final actionResult = await _deviceRepository.create(event.deviceEntity);
       },
       changeAction: (e) async* {
+        // ..lightSwitchState = GenericLightSwitchState(value.toString());
+
         const LightToggleState.loadInProgress();
 
         Either<DevicesFailure, Unit> actionResult;
 
-        if (e.forceStraightToComputer) {
-          actionResult = await _deviceRepository.updateWithDeviceEntity(
-              deviceEntity: event.deviceEntity, forceUpdateLocation: 'R');
+        if (e.changeToState) {
+          actionResult = await _deviceRepository.turnOnDevices(
+              devicesId: [e.deviceEntity.uniqueId.getOrCrash()!]);
         } else {
-          actionResult = await _deviceRepository.updateWithDeviceEntity(
-              deviceEntity: event.deviceEntity);
+          actionResult = await _deviceRepository.turnOffDevices(
+              devicesId: [e.deviceEntity.uniqueId.getOrCrash()!]);
         }
+
         yield actionResult.fold(
           (devicesFailure) => LightToggleState.loadFailure(devicesFailure),
           (_) => const LightToggleState.loadSuccess(),

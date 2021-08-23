@@ -2,17 +2,19 @@ import 'dart:async';
 import 'dart:collection';
 import 'dart:io';
 
-import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
+import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
-import 'package:cybear_jinni/domain/devices/device/value_objects.dart';
+import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_value_objects.dart';
+import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rgbw_light_value_objects.dart';
 import 'package:cybear_jinni/domain/user/i_user_repository.dart';
 import 'package:cybear_jinni/domain/user/user_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/hub_client.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cybear_jinni/infrastructure/devices/device/device_dtos.dart';
 import 'package:cybear_jinni/infrastructure/devices/device_helper.dart';
-import 'package:cybear_jinni/infrastructure/objects/enums.dart';
+import 'package:cybear_jinni/infrastructure/generic_devices/abstract_device/device_entity_dto_abstract.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:dartz/dartz.dart';
 import 'package:device_info/device_info.dart';
@@ -28,50 +30,29 @@ import 'package:rxdart/rxdart.dart';
 class DeviceRepository implements IDeviceRepository {
   // final DeviceRemoteService _deviceRemoteService;
   // final DeviceLocalService _deviceLocalService;
-  HashMap<String, DeviceEntity> allDevices = HashMap<String, DeviceEntity>();
+  HashMap<String, DeviceEntityAbstract> allDevices =
+      HashMap<String, DeviceEntityAbstract>();
 
   @override
-  void addOrUpdateDevice(DeviceEntity deviceEntity) {
-    allDevices[deviceEntity.id!.getOrCrash()!] = deviceEntity;
+  void addOrUpdateDevice(DeviceEntityAbstract deviceEntity) {
+    allDevices[deviceEntity.uniqueId.getOrCrash()!] = deviceEntity;
     devicesStreamController.sink.add(allDevices.values.toImmutableList());
   }
 
   @override
-  void addOrUpdateDeviceAndStateToWaiting(DeviceEntity deviceEntity) {
-    addOrUpdateDevice(deviceEntity.copyWith(
-        deviceStateGRPC: DeviceState(
-            EnumHelper.deviceStateToString(DeviceStateGRPC.waitingInComp))));
+  void addOrUpdateDeviceAndStateToWaiting(DeviceEntityAbstract deviceEntity) {
+    addOrUpdateDevice(
+        deviceEntity.copyWithDeviceState(DeviceStateGRPC.waitingInComp));
   }
 
   @override
-  Future<void> initiateHubConnection() async {
-    // await HubClient.createStreamWithHub('192.168.31.154');
-  }
+  Future<void> initiateHubConnection() async {}
 
   @override
-  Future<Either<DevicesFailure, KtList<DeviceEntity?>>> getAllDevices() async {
+  Future<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
+      getAllDevices() async {
     try {
-      // final QuerySnapshot allDevicesSnapshot =
-      //     await homeDoc.devicesCollecttion.get();
-      // return right<DevicesFailure, KtList<DeviceEntity?>>(
-      //     allDevicesSnapshot.docs
-      //         .map((e) {
-      //           if ((e.data()! as Map<String, dynamic>)[
-      //                       GrpcClientTypes.deviceTypesTypeString] ==
-      //                   DeviceTypes.light.toString() ||
-      //               (e.data()! as Map<String, dynamic>)[
-      //                       GrpcClientTypes.deviceTypesTypeString] ==
-      //                   DeviceTypes.blinds.toString() ||
-      //               (e.data()! as Map<String, dynamic>)[
-      //                       GrpcClientTypes.deviceTypesTypeString] ==
-      //                   DeviceTypes.boiler.toString()) {
-      //             return DeviceDtos.fromFirestore(e).toDomain();
-      //           } else {
-      //             print('Type not supported');
-      //           }
-      //         })
-      //         .where((element) => element != null)
-      //         .toImmutableList());
+      return right(allDevices.values.toImmutableList());
     } catch (e) {
       if (e is PlatformException && e.message!.contains('PERMISSION_DENIED')) {
         print('Insufficient permission while getting all devices');
@@ -86,86 +67,62 @@ class DeviceRepository implements IDeviceRepository {
   }
 
   @override
-  Stream<Either<DevicesFailure, KtList<DeviceEntity?>>> watchAll() async* {
+  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
+      watchAll() async* {
     yield* devicesStreamController.stream.map((event) => right(event));
-
-    // homeDoc.devicesCollecttion.snapshots().map(
-    //       (snapshot) => right<DevicesFailure, KtList<DeviceEntity?>>(
-    //         snapshot.docs
-    //             .map((doc) {
-    //               if ((doc.data()! as Map<String, dynamic>)[
-    //                           GrpcClientTypes.deviceTypesTypeString] ==
-    //                       DeviceTypes.light.toString() ||
-    //                   (doc.data()! as Map<String, dynamic>)[
-    //                           GrpcClientTypes.deviceTypesTypeString] ==
-    //                       DeviceTypes.blinds.toString() ||
-    //                   (doc.data()! as Map<String, dynamic>)[
-    //                           GrpcClientTypes.deviceTypesTypeString] ==
-    //                       DeviceTypes.boiler.toString()) {
-    //                 return DeviceDtos.fromFirestore(doc).toDomain();
-    //               } else {
-    //                 print('Type not supported');
-    //               }
-    //             })
-    //             .where((element) => element != null)
-    //             .toImmutableList(),
-    //       ),
-    //     );
-    //     .onErrorReturnWith((e) {
-    //   if (e is PlatformException && e.message!.contains('PERMISSION_DENIED')) {
-    //     return left<DevicesFailure, KtList<DeviceEntity>>( DevicesFailure.insufficientPermission());
-    //   } else {
-    //     // log.error(e.toString());
-    //     // return left( DevicesFailure.unexpected());
-    //   }
-    // });
   }
 
   @override
-  Stream<Either<DevicesFailure, KtList<DeviceEntity?>>> watchLights() async* {
+  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
+      watchLights() async* {
     // Using watchAll devices from server function and filtering out only the
     // Light device type
-
     yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
           return right(r.toList().asList().where((element) {
-            return element!.deviceTypes!.getOrCrash() ==
-                DeviceTypes.light.toString();
+            return element!.deviceTypes.getOrCrash() ==
+                    DeviceTypes.light.toString() ||
+                element.deviceTypes.getOrCrash() ==
+                    DeviceTypes.rgbwLights.toString();
           }).toImmutableList());
         }));
   }
 
   @override
-  Stream<Either<DevicesFailure, KtList<DeviceEntity?>>> watchBlinds() async* {
+  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
+      watchBlinds() async* {
     // Using watchAll devices from server function and filtering out only the
     // Blinds device type
     yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
           return right(r.toList().asList().where((element) {
-            return element!.deviceTypes!.getOrCrash() ==
+            return element!.uniqueId.getOrCrash()! ==
                 DeviceTypes.blinds.toString();
           }).toImmutableList());
         }));
   }
 
   @override
-  Stream<Either<DevicesFailure, KtList<DeviceEntity?>>> watchBoilers() async* {
+  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
+      watchBoilers() async* {
     // Using watchAll devices from server function and filtering out only the
     // Boilers device type
     yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
           return right(r.toList().asList().where((element) {
-            return element!.deviceTypes!.getOrCrash() ==
+            return element!.uniqueId.getOrCrash()! ==
                 DeviceTypes.boiler.toString();
           }).toImmutableList());
         }));
   }
 
   @override
-  Stream<Either<DevicesFailure, KtList<DeviceEntity>>> watchUncompleted() {
+  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract>>>
+      watchUncompleted() {
     // TODO: implement watchUncompleted
     throw UnimplementedError();
   }
 
   @override
-  Future<Either<DevicesFailure, Unit>> create(DeviceEntity deviceEntity) async {
+  Future<Either<DevicesFailure, Unit>> create(
+      DeviceEntityAbstract deviceEntity) async {
     try {
       String deviceModelString = 'No Model found';
       final DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
@@ -184,18 +141,14 @@ class DeviceRepository implements IDeviceRepository {
               .getOrElse(() => throw 'Cant get current user');
       final String currentUserId = currentUserEntity.id!.getOrCrash()!;
 
-      final DeviceEntity deviceEntityTemp = deviceEntity.copyWith(
-          stateMassage: DeviceStateMassage('Setting up device'),
-          senderDeviceOs: DeviceSenderDeviceOs(Platform.operatingSystem),
-          senderDeviceModel: DeviceSenderDeviceModel(deviceModelString),
-          senderId: DeviceSenderId.fromUniqueString(currentUserId));
+      final DeviceEntityAbstract deviceEntityTemp = deviceEntity
+          .copyWithStateMassage('Setting up device')
+          .copyWithSenderDeviceOs(Platform.operatingSystem)
+          .copyWithDeviceSenderDeviceModel(deviceModelString)
+          .copyWithSenderId(currentUserId);
 
-      // final homeDoc = await _firestore.currentHomeDocument();
-      final deviceDtos = DeviceDtos.fromDomain(deviceEntityTemp);
+      DeviceEntityDtoAbstract.fromDomain(deviceEntityTemp);
 
-      // await homeDoc.devicesCollecttion
-      //     .doc(deviceDtos.id)
-      //     .set(deviceDtos.toJson());
       return right(unit);
     } on PlatformException catch (e) {
       if (e.message!.contains('PERMISSION_DENIED')) {
@@ -227,15 +180,9 @@ class DeviceRepository implements IDeviceRepository {
 
   @override
   Future<Either<DevicesFailure, Unit>> updateWithDeviceEntity({
-    required DeviceEntity deviceEntity,
-    String? forceUpdateLocation,
+    required DeviceEntityAbstract deviceEntity,
   }) async {
-    // Assumes that all devices configured for the same second WiFi
-    final String? firstDeviceSecondWifiName =
-        deviceEntity.deviceSecondWiFi?.value.getOrElse(() => '');
-
-    final String updateLocation = await whereToUpdateDevicesData(
-        forceUpdateLocation, firstDeviceSecondWifiName);
+    const String updateLocation = 'L';
 
     try {
       if (updateLocation == 'L') {
@@ -255,23 +202,29 @@ class DeviceRepository implements IDeviceRepository {
   @override
   Future<Either<DevicesFailure, Unit>> turnOnDevices(
       {List<String>? devicesId, String? forceUpdateLocation}) async {
-    final List<DeviceEntity?> deviceEntityListToUpdate =
+    final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
         await getDeviceEntityListFromId(devicesId!);
 
-    final String waitingState =
-        EnumHelper.deviceStateToString(DeviceStateGRPC.waitingInFirebase);
-
-    final String actionLightOn =
-        EnumHelper.deviceActionToString(DeviceActions.on);
-
     try {
-      deviceEntityListToUpdate.forEach((element) {
-        final DeviceEntity dEntity = element!.copyWith(
-            deviceStateGRPC: DeviceState(waitingState),
-            deviceActions: DeviceAction(actionLightOn));
+      for (final DeviceEntityAbstract? deviceEntity
+          in deviceEntityListToUpdate) {
+        if (deviceEntity == null) {
+          continue;
+        }
+        if (deviceEntity is GenericLightDE) {
+          deviceEntity.lightSwitchState =
+              GenericLightSwitchState(DeviceActions.on.toString());
+        } else if (deviceEntity is GenericRgbwLightDE) {
+          deviceEntity.lightSwitchState =
+              GenericRgbwLightSwitchState(DeviceActions.on.toString());
+        } else {
+          print('On action not supported for'
+              ' ${deviceEntity.deviceTypes.getOrCrash()} type');
+          continue;
+        }
 
-        updateWithDeviceEntity(deviceEntity: dEntity);
-      });
+        updateWithDeviceEntity(deviceEntity: deviceEntity);
+      }
     } on PlatformException catch (e) {
       if (e.message!.contains('PERMISSION_DENIED')) {
         return left(const DevicesFailure.insufficientPermission());
@@ -288,23 +241,29 @@ class DeviceRepository implements IDeviceRepository {
   @override
   Future<Either<DevicesFailure, Unit>> turnOffDevices(
       {List<String>? devicesId, String? forceUpdateLocation}) async {
-    final List<DeviceEntity?> deviceEntityListToUpdate =
+    final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
         await getDeviceEntityListFromId(devicesId!);
 
-    final String waitingState =
-        EnumHelper.deviceStateToString(DeviceStateGRPC.waitingInFirebase);
-
-    final String actionLightOff =
-        EnumHelper.deviceActionToString(DeviceActions.off);
-
     try {
-      deviceEntityListToUpdate.forEach((element) {
-        final DeviceEntity dea = element!.copyWith(
-            deviceStateGRPC: DeviceState(waitingState),
-            deviceActions: DeviceAction(actionLightOff));
+      for (final DeviceEntityAbstract? deviceEntity
+          in deviceEntityListToUpdate) {
+        if (deviceEntity == null) {
+          continue;
+        }
+        if (deviceEntity is GenericLightDE) {
+          deviceEntity.lightSwitchState =
+              GenericLightSwitchState(DeviceActions.off.toString());
+        } else if (deviceEntity is GenericRgbwLightDE) {
+          deviceEntity.lightSwitchState =
+              GenericRgbwLightSwitchState(DeviceActions.off.toString());
+        } else {
+          print('Off action not supported for'
+              ' ${deviceEntity.deviceTypes.getOrCrash()} type');
+          continue;
+        }
 
-        updateWithDeviceEntity(deviceEntity: dea);
-      });
+        updateWithDeviceEntity(deviceEntity: deviceEntity);
+      }
     } on PlatformException catch (e) {
       if (e.message!.contains('PERMISSION_DENIED')) {
         return left(const DevicesFailure.insufficientPermission());
@@ -409,64 +368,23 @@ class DeviceRepository implements IDeviceRepository {
   }
 
   @override
-  Future<Either<DevicesFailure, Unit>> delete(DeviceEntity deviceEntity) async {
-    try {
-      // final homeDoc = await _firestore.currentHomeDocument();
-      final deviceDtos = DeviceDtos.fromDomain(deviceEntity);
-
-      // await homeDoc.devicesCollecttion.doc(deviceDtos.id).delete();
-      return right(unit);
-    } on PlatformException catch (e) {
-      if (e.message!.contains('PERMISSION_DENIED')) {
-        return left(const DevicesFailure.insufficientPermission());
-      } else if (e.message!.contains('NOT_FOUND')) {
-        return left(const DevicesFailure.unableToUpdate());
-      } else {
-        // log.error(e.toString());
-        return left(const DevicesFailure.unexpected());
-      }
-    }
+  Future<Either<DevicesFailure, Unit>> delete(
+      DeviceEntityAbstract deviceEntity) async {
+    return left(const DevicesFailure.unexpected());
   }
 
   Future<Either<DevicesFailure, Unit>> updateRemoteDB(
-      DeviceEntity deviceEntity) async {
-    try {
-      addOrUpdateDeviceAndStateToWaiting(deviceEntity);
-
-      // final homeDoc = await _firestore.currentHomeDocument();
-      final deviceDtos = DeviceDtos.fromDomain(deviceEntity);
-
-      // await homeDoc.devicesCollecttion
-      //     .doc(deviceDtos.id)
-      //     .update(deviceDtos.toJson());
-      return right(unit);
-    } on PlatformException catch (e) {
-      if (e.message!.contains('NOT_FOUND')) {
-        return left(const DevicesFailure.unableToUpdate());
-      } else {
-        // log.error(e.toString());
-        return left(const DevicesFailure.unexpected());
-      }
-    }
+      DeviceEntityAbstract deviceEntity) async {
+    return left(const DevicesFailure.unexpected());
   }
 
   Future<Either<DevicesFailure, Unit>> updateComputer(
-      DeviceEntity deviceEntity) async {
+      DeviceEntityAbstract deviceEntity) async {
     try {
-      final String id = deviceEntity.id!.getOrCrash()!;
-      String? lastKnownIp;
-
       addOrUpdateDeviceAndStateToWaiting(deviceEntity);
 
       try {
-        lastKnownIp ??= deviceEntity.lastKnownIp?.getOrCrash();
-
-        lastKnownIp = '192.168.31.154';
-
-        final String waitingState =
-            EnumHelper.deviceStateToString(DeviceStateGRPC.waitingInFirebase);
-
-        deviceEntity.copyWith(deviceStateGRPC: DeviceState(waitingState));
+        deviceEntity.copyWithDeviceState(DeviceStateGRPC.waitingInFirebase);
         //
         final String deviceDtoAsString =
             DeviceHelper.convertDomainToJsonString(deviceEntity);
@@ -478,9 +396,6 @@ class DeviceRepository implements IDeviceRepository {
             .add(clientStatusRequests);
       } catch (e) {
         print('This is the error $e');
-
-        final String mDnsName = deviceEntity.deviceMdnsName!.getOrCrash();
-        lastKnownIp = await getDeviceIpByDeviceAvahiName(mDnsName);
 
         // final DocumentReference homeDoc =
         //     await _firestore.currentHomeDocument();
@@ -500,9 +415,9 @@ class DeviceRepository implements IDeviceRepository {
     }
   }
 
-  Future<List<DeviceEntity?>> getDeviceEntityListFromId(
+  Future<List<DeviceEntityAbstract?>> getDeviceEntityListFromId(
       List<String> deviceIdList) async {
-    final List<DeviceEntity> deviceEntityList = [];
+    final List<DeviceEntityAbstract> deviceEntityList = [];
 
     deviceIdList.forEach((deviceId) {
       deviceEntityList.add(allDevices[deviceId]!);
@@ -576,6 +491,6 @@ class DeviceRepository implements IDeviceRepository {
 
   /// Stream controller of the app request for the hub
   @override
-  BehaviorSubject<KtList<DeviceEntity?>> devicesStreamController =
-      BehaviorSubject<KtList<DeviceEntity?>>();
+  BehaviorSubject<KtList<DeviceEntityAbstract?>> devicesStreamController =
+      BehaviorSubject<KtList<DeviceEntityAbstract?>>();
 }

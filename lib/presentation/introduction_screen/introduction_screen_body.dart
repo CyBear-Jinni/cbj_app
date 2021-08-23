@@ -127,7 +127,7 @@ class IntroductionScreenBody extends StatelessWidget {
           ),
         ),
         onDone: () {
-          context.router.replace(const SignInRoute());
+          context.router.replace(const ConnectToHubRoute());
         },
       ),
     );

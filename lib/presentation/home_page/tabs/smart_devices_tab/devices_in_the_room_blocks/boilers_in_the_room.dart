@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
+import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +9,21 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class BoilersInTheRoom extends StatelessWidget {
   const BoilersInTheRoom({this.boilersInRoom, this.roomColorGradiant});
 
-  final List<DeviceEntity>? boilersInRoom;
+  factory BoilersInTheRoom.withAbstractDevice(
+      List<DeviceEntityAbstract> tempDeviceInRoom,
+      List<Color> temproomColorGradiant) {
+    List<GenericLightDE> tempLightsInRoom = [];
+
+    tempDeviceInRoom.forEach((element) {
+      tempLightsInRoom.add(element as GenericLightDE);
+    });
+
+    return BoilersInTheRoom(
+        boilersInRoom: tempLightsInRoom,
+        roomColorGradiant: temproomColorGradiant);
+  }
+
+  final List<GenericLightDE>? boilersInRoom;
   final List<Color>? roomColorGradiant;
 
   @override
@@ -16,7 +31,7 @@ class BoilersInTheRoom extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         context.router.push(RoomsBoilersRoute(
-            showDevicesOnlyFromRoomId: boilersInRoom![0].roomId!.getOrCrash(),
+            showDevicesOnlyFromRoomId: boilersInRoom![0].roomId.getOrCrash(),
             roomColorGradiant: roomColorGradiant));
       },
       child: Container(
@@ -73,13 +88,13 @@ class BoilersInTheRoom extends StatelessWidget {
             ),
             if (boilersInRoom!.length == 1)
               Text(
-                boilersInRoom![0].defaultName!.getOrCrash()!,
+                boilersInRoom![0].defaultName.getOrCrash()!,
                 style: TextStyle(
                     color: Theme.of(context).textTheme.bodyText1!.color),
               )
             else
               Text(
-                '${boilersInRoom![0].roomName!.getOrCrash()} Boilers',
+                '${boilersInRoom![0].roomName.getOrCrash()} Boilers',
                 style: TextStyle(
                     color: Theme.of(context).textTheme.bodyText1!.color),
               ),
@@ -92,7 +107,7 @@ class BoilersInTheRoom extends StatelessWidget {
   List<String> extractDevicesId() {
     final List<String> devicesIdList = [];
     boilersInRoom!.forEach((element) {
-      devicesIdList.add(element.id!.getOrCrash()!);
+      devicesIdList.add(element.uniqueId.getOrCrash()!);
     });
     return devicesIdList;
   }

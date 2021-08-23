@@ -14,5 +14,6 @@ class BlindsActorEvent with _$BlindsActorEvent {
           List<String>? blindsIdToTurnDown, BuildContext context) =
       _MoveDownAllBlinds;
 
-  const factory BlindsActorEvent.deleted(DeviceEntity deviceEntity) = _Deleted;
+  const factory BlindsActorEvent.deleted(GenericLightDE deviceEntity) =
+      _Deleted;
 }

@@ -1,8 +1,7 @@
 import 'dart:convert';
 
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
-
-import 'abstract_device/device_entity_dto_abstract.dart';
+import 'package:cybear_jinni/infrastructure/generic_devices/abstract_device/device_entity_dto_abstract.dart';
 
 class DeviceHelper {
   /// Dto to json

@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/domain/devices/device/device_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/smart_device_type_and_toggle_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class SmartDeviceToConfigure extends StatelessWidget {
   SmartDeviceToConfigure(this.smartDeviceObject);
 
-  final DeviceEntity smartDeviceObject;
+  final GenericLightDE smartDeviceObject;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class SmartDeviceToConfigure extends StatelessWidget {
         children: <Widget>[
           SmartDeviceTypeAndToggleBar(smartDeviceObject),
           Text(
-            'Device Name: ${smartDeviceObject.defaultName!.getOrCrash()}',
+            'Device Name: ${smartDeviceObject.defaultName.getOrCrash()}',
             style: const TextStyle(fontSize: 21),
           ),
           const SizedBox(

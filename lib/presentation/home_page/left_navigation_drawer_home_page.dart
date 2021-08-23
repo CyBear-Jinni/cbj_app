@@ -7,7 +7,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class LeftNavigationDrawerHomePage extends StatelessWidget {
   Future<void> _fireBaseLogOut(BuildContext context) async {
     try {
-      context.router.replace(const SignInRoute());
+      context.router.replace(const ConnectToHubRoute());
     } catch (e) {
       print(e); // TODO: show dialog with error
     }

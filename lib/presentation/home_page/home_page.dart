@@ -1,5 +1,5 @@
 import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
-import 'package:cybear_jinni/domain/hub_connection/i_hub_connection_repository.dart';
+import 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/home_page/bottom_navigation_bar_home_page.dart';
 import 'package:cybear_jinni/presentation/home_page/left_navigation_drawer_home_page.dart';
