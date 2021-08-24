@@ -5,6 +5,7 @@ import 'package:cybear_jinni/domain/hub/hub_failures.dart';
 import 'package:cybear_jinni/domain/hub/hub_value_objects.dart';
 import 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/hub_client.dart';
+import 'package:cybear_jinni/injection.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
@@ -17,6 +18,18 @@ import 'package:ping_discover_network_forked/ping_discover_network_forked.dart';
 
 @LazySingleton(as: IHubConnectionRepository)
 class HubConnectionRepository extends IHubConnectionRepository {
+  HubConnectionRepository() {
+    if (currentEnv == Env.prod) {
+      hubPort = 60055;
+    } else {
+      hubPort = 50055;
+    }
+  }
+
+  /// Port to connect to the cbj hub, will change according to the current
+  /// running environment
+  late int hubPort;
+
   static HubEntity? hubEntity;
 
   Future<void> connectWithHub() async {
@@ -24,7 +37,8 @@ class HubConnectionRepository extends IHubConnectionRepository {
       await searchForHub();
     }
 
-    await HubClient.createStreamWithHub(hubEntity!.lastKnownIp!.getOrCrash());
+    await HubClient.createStreamWithHub(
+        hubEntity!.lastKnownIp!.getOrCrash(), hubPort);
   }
 
   @override
@@ -110,14 +124,13 @@ class HubConnectionRepository extends IHubConnectionRepository {
     final String? wifiIP = await NetworkInfo().getWifiIP();
 
     final String subnet = wifiIP!.substring(0, wifiIP.lastIndexOf('.'));
-    const int port = 50055;
 
     final Stream<NetworkAddress> stream =
-        NetworkAnalyzer.discover2(subnet, port);
+        NetworkAnalyzer.discover2(subnet, hubPort);
 
-    await for (final NetworkAddress addr in stream) {
-      if (addr.exists) {
-        print('Found device: ${addr.ip}');
+    await for (final NetworkAddress address in stream) {
+      if (address.exists) {
+        print('Found device: ${address.ip}');
 
         final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
         final String? wifiName = await NetworkInfo().getWifiName();
@@ -126,7 +139,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
           hubEntity = HubEntity(
               hubNetworkBssid: HubNetworkBssid(wifiBSSID),
               networkName: HubNetworkName(wifiName),
-              lastKnownIp: HubNetworkIp(addr.ip.toString()));
+              lastKnownIp: HubNetworkIp(address.ip.toString()));
           return right(unit);
         }
       }
