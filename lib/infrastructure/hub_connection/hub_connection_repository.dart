@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:cybear_jinni/domain/hub/hub_entity.dart';
 import 'package:cybear_jinni/domain/hub/hub_failures.dart';
 import 'package:cybear_jinni/domain/hub/hub_value_objects.dart';
@@ -33,12 +34,25 @@ class HubConnectionRepository extends IHubConnectionRepository {
   static HubEntity? hubEntity;
 
   Future<void> connectWithHub() async {
-    if (hubEntity?.lastKnownIp?.getOrCrash() == null) {
-      await searchForHub();
-    }
+    final ConnectivityResult connectivityResult =
+        await Connectivity().checkConnectivity();
 
-    await HubClient.createStreamWithHub(
-        hubEntity!.lastKnownIp!.getOrCrash(), hubPort);
+    final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
+
+    if (connectivityResult == ConnectivityResult.wifi &&
+        hubEntity?.hubNetworkBssid.getOrCrash() == wifiBSSID) {
+      if (hubEntity?.lastKnownIp?.getOrCrash() == null) {
+        await searchForHub();
+      }
+
+      await HubClient.createStreamWithHub(
+          hubEntity!.lastKnownIp!.getOrCrash(), hubPort);
+      return;
+    } else {
+      // await HubClient.createStreamWithHub('', 50051);
+      // await HubClient.createStreamWithHub('127.0.0.1', 50051);
+      print('Test remote pipes');
+    }
   }
 
   @override
@@ -82,42 +96,11 @@ class HubConnectionRepository extends IHubConnectionRepository {
 
   @override
   Future<Either<HubFailures, Unit>> searchForHub() async {
-    Location location = Location();
+    final Either<HubFailures, Unit> locationRequest =
+        await askLocationPermissionAndLocationOn();
 
-    bool _serviceEnabled;
-    PermissionStatus _permissionGranted;
-    LocationData _locationData;
-
-    int permissionCounter = 0;
-
-    if (kIsWeb) {
-      return left(const HubFailures.automaticHubSearchNotSupportedOnWeb());
-    }
-    if (!Platform.isLinux && !Platform.isWindows) {
-      while (true) {
-        _permissionGranted = await location.hasPermission();
-        if (_permissionGranted == PermissionStatus.denied) {
-          _permissionGranted = await location.requestPermission();
-          if (_permissionGranted != PermissionStatus.granted) {
-            print('Permission to use location is denied');
-            permissionCounter++;
-            if (permissionCounter > 5) {
-              permission_handler.openAppSettings();
-            }
-            continue;
-          }
-        }
-
-        _serviceEnabled = await location.serviceEnabled();
-        if (!_serviceEnabled) {
-          _serviceEnabled = await location.requestService();
-          if (!_serviceEnabled) {
-            print('Location is disabled');
-            continue;
-          }
-        }
-        break;
-      }
+    if (locationRequest.isLeft()) {
+      return locationRequest;
     }
 
     print('searchForHub');
@@ -150,5 +133,45 @@ class HubConnectionRepository extends IHubConnectionRepository {
   @override
   Future<void> saveHubIP(String hubIP) async {
     print('saveHubIP');
+  }
+
+  Future<Either<HubFailures, Unit>> askLocationPermissionAndLocationOn() async {
+    final Location location = Location();
+
+    bool _serviceEnabled;
+    PermissionStatus _permissionGranted;
+
+    int permissionCounter = 0;
+
+    if (kIsWeb) {
+      return left(const HubFailures.automaticHubSearchNotSupportedOnWeb());
+    }
+    if (!Platform.isLinux && !Platform.isWindows) {
+      while (true) {
+        _permissionGranted = await location.hasPermission();
+        if (_permissionGranted == PermissionStatus.denied) {
+          _permissionGranted = await location.requestPermission();
+          if (_permissionGranted != PermissionStatus.granted) {
+            print('Permission to use location is denied');
+            permissionCounter++;
+            if (permissionCounter > 5) {
+              permission_handler.openAppSettings();
+            }
+            continue;
+          }
+        }
+
+        _serviceEnabled = await location.serviceEnabled();
+        if (!_serviceEnabled) {
+          _serviceEnabled = await location.requestService();
+          if (!_serviceEnabled) {
+            print('Location is disabled');
+            continue;
+          }
+        }
+        break;
+      }
+    }
+    return right(unit);
   }
 }
