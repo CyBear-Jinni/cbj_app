@@ -84,11 +84,6 @@ class GenericLightDE extends DeviceEntityAbstract {
   // }
 
   @override
-  String getDeviceId() {
-    return uniqueId.getOrCrash()!;
-  }
-
-  @override
   DeviceEntityDtoAbstract toInfrastructure() {
     return GenericLightDeviceDtos(
       deviceDtoClass: (GenericLightDeviceDtos).toString(),
@@ -107,10 +102,5 @@ class GenericLightDE extends DeviceEntityAbstract {
       deviceVendor: deviceVendor.getOrCrash(),
       // serverTimeStamp: FieldValue.serverTimestamp(),
     );
-  }
-
-  @override
-  String getDeviceType() {
-    return DeviceTypes.light.toString();
   }
 }

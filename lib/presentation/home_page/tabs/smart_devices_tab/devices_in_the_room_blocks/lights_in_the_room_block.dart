@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/lights/lights_actor/lights_actor_bloc.dart';
+import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/cupertino.dart';
@@ -9,6 +10,18 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LightsInTheRoomBlock extends StatelessWidget {
   const LightsInTheRoomBlock(this.lightsInRoom, this.roomColorGradiant);
+
+  factory LightsInTheRoomBlock.withAbstractDevice(
+      List<DeviceEntityAbstract> tempDeviceInRoom,
+      List<Color> tempRoomColorGradiant) {
+    List<GenericLightDE> tempLightsInRoom = [];
+
+    tempDeviceInRoom.forEach((element) {
+      tempLightsInRoom.add(element as GenericLightDE);
+    });
+
+    return LightsInTheRoomBlock(tempLightsInRoom, tempRoomColorGradiant);
+  }
 
   final List<GenericLightDE> lightsInRoom;
   final List<Color> roomColorGradiant;

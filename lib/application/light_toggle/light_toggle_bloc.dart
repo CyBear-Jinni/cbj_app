@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
-import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -34,11 +34,11 @@ class LightToggleBloc extends Bloc<LightToggleEvent, LightToggleState> {
         Either<DevicesFailure, Unit> actionResult;
 
         if (e.changeToState) {
-          actionResult = await _deviceRepository
-              .turnOnDevices(devicesId: [e.deviceEntity.getDeviceId()]);
+          actionResult = await _deviceRepository.turnOnDevices(
+              devicesId: [e.deviceEntity.uniqueId.getOrCrash()!]);
         } else {
-          actionResult = await _deviceRepository
-              .turnOffDevices(devicesId: [e.deviceEntity.getDeviceId()]);
+          actionResult = await _deviceRepository.turnOffDevices(
+              devicesId: [e.deviceEntity.uniqueId.getOrCrash()!]);
         }
 
         yield actionResult.fold(

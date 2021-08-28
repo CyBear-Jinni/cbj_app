@@ -7,7 +7,7 @@ class DeviceWatcherState with _$DeviceWatcherState {
   const factory DeviceWatcherState.loadInProgress() = _LoadInProgress;
 
   const factory DeviceWatcherState.loadSuccess(
-      KtList<GenericLightDE?> devices) = _LoadSuccess;
+      KtList<DeviceEntityAbstract?> devices) = _LoadSuccess;
 
   const factory DeviceWatcherState.loadFailure(DevicesFailure devicesFailure) =
       _loadFailure;

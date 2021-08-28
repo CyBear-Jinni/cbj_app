@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/blinds/blinds_actor/blinds_actor_bloc.dart';
-import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
+import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/devices/generic_blinds_device/generic_blinds_entity.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,21 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class BlindsInTheRoom extends StatelessWidget {
   const BlindsInTheRoom({this.blindsInRoom, this.roomColorGradiant});
 
-  final List<GenericLightDE?>? blindsInRoom;
+  factory BlindsInTheRoom.withAbstractDevice(
+      List<DeviceEntityAbstract> tempDeviceInRoom,
+      List<Color> temproomColorGradiant) {
+    List<GenericBlindsDE> tempLightsInRoom = [];
+
+    tempDeviceInRoom.forEach((element) {
+      tempLightsInRoom.add(element as GenericBlindsDE);
+    });
+
+    return BlindsInTheRoom(
+        blindsInRoom: tempLightsInRoom,
+        roomColorGradiant: temproomColorGradiant);
+  }
+
+  final List<GenericBlindsDE?>? blindsInRoom;
   final List<Color>? roomColorGradiant;
 
   @override
