@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
-import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_boiler_device/generic_boiler_entity.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -12,10 +12,10 @@ class BoilersInTheRoom extends StatelessWidget {
   factory BoilersInTheRoom.withAbstractDevice(
       List<DeviceEntityAbstract> tempDeviceInRoom,
       List<Color> temproomColorGradiant) {
-    List<GenericLightDE> tempLightsInRoom = [];
+    List<GenericBoilerDE> tempLightsInRoom = [];
 
     tempDeviceInRoom.forEach((element) {
-      tempLightsInRoom.add(element as GenericLightDE);
+      tempLightsInRoom.add(element as GenericBoilerDE);
     });
 
     return BoilersInTheRoom(
@@ -23,7 +23,7 @@ class BoilersInTheRoom extends StatelessWidget {
         roomColorGradiant: temproomColorGradiant);
   }
 
-  final List<GenericLightDE>? boilersInRoom;
+  final List<GenericBoilerDE>? boilersInRoom;
   final List<Color>? roomColorGradiant;
 
   @override

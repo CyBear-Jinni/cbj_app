@@ -1,10 +1,12 @@
 import 'dart:io';
 
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:cybear_jinni/domain/hub/hub_entity.dart';
 import 'package:cybear_jinni/domain/hub/hub_failures.dart';
 import 'package:cybear_jinni/domain/hub/hub_value_objects.dart';
 import 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/hub_client.dart';
+import 'package:cybear_jinni/injection.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
@@ -17,14 +19,40 @@ import 'package:ping_discover_network_forked/ping_discover_network_forked.dart';
 
 @LazySingleton(as: IHubConnectionRepository)
 class HubConnectionRepository extends IHubConnectionRepository {
+  HubConnectionRepository() {
+    if (currentEnv == Env.prod) {
+      hubPort = 60055;
+    } else {
+      hubPort = 50055;
+    }
+  }
+
+  /// Port to connect to the cbj hub, will change according to the current
+  /// running environment
+  late int hubPort;
+
   static HubEntity? hubEntity;
 
   Future<void> connectWithHub() async {
-    if (hubEntity?.lastKnownIp?.getOrCrash() == null) {
-      await searchForHub();
-    }
+    final ConnectivityResult connectivityResult =
+        await Connectivity().checkConnectivity();
 
-    await HubClient.createStreamWithHub(hubEntity!.lastKnownIp!.getOrCrash());
+    final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
+
+    if (connectivityResult == ConnectivityResult.wifi &&
+        hubEntity?.hubNetworkBssid.getOrCrash() == wifiBSSID) {
+      if (hubEntity?.lastKnownIp?.getOrCrash() == null) {
+        await searchForHub();
+      }
+
+      await HubClient.createStreamWithHub(
+          hubEntity!.lastKnownIp!.getOrCrash(), hubPort);
+      return;
+    } else {
+      // await HubClient.createStreamWithHub('', 50051);
+      // await HubClient.createStreamWithHub('127.0.0.1', 50051);
+      print('Test remote pipes');
+    }
   }
 
   @override
@@ -68,11 +96,50 @@ class HubConnectionRepository extends IHubConnectionRepository {
 
   @override
   Future<Either<HubFailures, Unit>> searchForHub() async {
-    Location location = Location();
+    final Either<HubFailures, Unit> locationRequest =
+        await askLocationPermissionAndLocationOn();
+
+    if (locationRequest.isLeft()) {
+      return locationRequest;
+    }
+
+    print('searchForHub');
+    final String? wifiIP = await NetworkInfo().getWifiIP();
+
+    final String subnet = wifiIP!.substring(0, wifiIP.lastIndexOf('.'));
+
+    final Stream<NetworkAddress> stream =
+        NetworkAnalyzer.discover2(subnet, hubPort);
+
+    await for (final NetworkAddress address in stream) {
+      if (address.exists) {
+        print('Found device: ${address.ip}');
+
+        final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
+        final String? wifiName = await NetworkInfo().getWifiName();
+
+        if (wifiBSSID != null && wifiName != null) {
+          hubEntity = HubEntity(
+              hubNetworkBssid: HubNetworkBssid(wifiBSSID),
+              networkName: HubNetworkName(wifiName),
+              lastKnownIp: HubNetworkIp(address.ip.toString()));
+          return right(unit);
+        }
+      }
+    }
+    return left(const HubFailures.cantFindHubInNetwork());
+  }
+
+  @override
+  Future<void> saveHubIP(String hubIP) async {
+    print('saveHubIP');
+  }
+
+  Future<Either<HubFailures, Unit>> askLocationPermissionAndLocationOn() async {
+    final Location location = Location();
 
     bool _serviceEnabled;
     PermissionStatus _permissionGranted;
-    LocationData _locationData;
 
     int permissionCounter = 0;
 
@@ -105,37 +172,6 @@ class HubConnectionRepository extends IHubConnectionRepository {
         break;
       }
     }
-
-    print('searchForHub');
-    final String? wifiIP = await NetworkInfo().getWifiIP();
-
-    final String subnet = wifiIP!.substring(0, wifiIP.lastIndexOf('.'));
-    const int port = 50055;
-
-    final Stream<NetworkAddress> stream =
-        NetworkAnalyzer.discover2(subnet, port);
-
-    await for (final NetworkAddress addr in stream) {
-      if (addr.exists) {
-        print('Found device: ${addr.ip}');
-
-        final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
-        final String? wifiName = await NetworkInfo().getWifiName();
-
-        if (wifiBSSID != null && wifiName != null) {
-          hubEntity = HubEntity(
-              hubNetworkBssid: HubNetworkBssid(wifiBSSID),
-              networkName: HubNetworkName(wifiName),
-              lastKnownIp: HubNetworkIp(addr.ip.toString()));
-          return right(unit);
-        }
-      }
-    }
-    return left(const HubFailures.cantFindHubInNetwork());
-  }
-
-  @override
-  Future<void> saveHubIP(String hubIP) async {
-    print('saveHubIP');
+    return right(unit);
   }
 }

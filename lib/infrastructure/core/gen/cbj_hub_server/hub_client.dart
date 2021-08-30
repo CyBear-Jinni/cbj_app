@@ -9,8 +9,9 @@ class HubClient {
   static CbjHubClient? stub;
 
   ///  Turn smart device on
-  static Future<void> createStreamWithHub(String addressToHub) async {
-    channel = await createCbjHubClient(addressToHub);
+  static Future<void> createStreamWithHub(
+      String addressToHub, int hubPort) async {
+    channel = await _createCbjHubClient(addressToHub, hubPort);
     stub = CbjHubClient(channel!);
     ResponseStream<RequestsAndStatusFromHub> response;
 
@@ -27,41 +28,14 @@ class HubClient {
     }
   }
 
-  static Future<ClientChannel> createCbjHubClient(String deviceIp) async {
+  static Future<ClientChannel> _createCbjHubClient(
+      String deviceIp, int hubPort) async {
     await channel?.shutdown();
     return ClientChannel(deviceIp,
-        port: 50055,
+        port: hubPort,
         options:
             const ChannelOptions(credentials: ChannelCredentials.insecure()));
   }
-}
-
-/// Cleaner way to get grpc client types
-class GrpcClientTypes {
-  /// DeviceStateGRPC type
-  static final deviceStateGRPCType =
-      DeviceStateGRPC.stateNotSupported.runtimeType;
-
-  /// DeviceStateGRPC type as string
-  static final deviceStateGRPCTypeString =
-      deviceStateGRPCType.toString().substring(0, 1).toLowerCase() +
-          deviceStateGRPCType.toString().substring(1);
-
-  /// DeviceActions type as string
-  static final deviceActionsType = DeviceActions.actionNotSupported.runtimeType;
-
-  /// DeviceActions type as string
-  static final deviceActionsTypeString =
-      deviceActionsType.toString().substring(0, 1).toLowerCase() +
-          deviceActionsType.toString().substring(1);
-
-  /// DeviceActions type as string
-  static final deviceTypesType = DeviceTypes.typeNotSupported.runtimeType;
-
-  /// DeviceActions type as string
-  static final deviceTypesTypeString =
-      deviceTypesType.toString().substring(0, 1).toLowerCase() +
-          deviceTypesType.toString().substring(1);
 }
 
 /// Requests and updates from hub to the app
