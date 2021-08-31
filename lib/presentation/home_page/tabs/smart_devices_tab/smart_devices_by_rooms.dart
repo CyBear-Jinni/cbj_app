@@ -192,7 +192,7 @@ class SmartDevicesByRooms extends StatelessWidget {
                                     maxCrossAxisExtent: 200,
                                     childAspectRatio: 1.4,
                                     crossAxisSpacing: 8,
-                                    mainAxisSpacing: 4,
+                                    mainAxisSpacing: 20,
                                   ),
                                   itemCount: tempDevicesByRoomsByType[roomId]!
                                       .keys

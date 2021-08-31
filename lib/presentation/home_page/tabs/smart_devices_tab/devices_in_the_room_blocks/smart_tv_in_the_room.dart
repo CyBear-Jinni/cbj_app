@@ -31,10 +31,10 @@ class SmartTvInTheRoom extends StatelessWidget {
         // context.router.push(RoomsSmartTvsRoute(
         //     showDevicesOnlyFromRoomId: smart_tvsInRoom![0].roomId.getOrCrash(),
         //     roomColorGradiant: roomColorGradiant));
-        print('Not supported');
+        print('TV page is not supported');
       },
       child: Container(
-        color: Colors.black.withOpacity(0.03),
+        color: Colors.amber.withOpacity(0.03),
         margin: const EdgeInsets.all(5),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
