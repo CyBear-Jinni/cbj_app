@@ -34,8 +34,7 @@ class BlindsActorBloc extends Bloc<BlindsActorEvent, BlindsActorState> {
           linearProgressIndicator: const LinearProgressIndicator(),
         ).show(value.context);
 
-        _deviceRepository.moveUpBlinds(
-            devicesId: value.blindsIdToTurnUp, forceUpdateLocation: 'R');
+        _deviceRepository.moveUpBlinds(devicesId: value.blindsIdToTurnUp);
       },
       stopAllBlinds: (_StopAllBlinds value) async* {
         FlushbarHelper.createLoading(
@@ -43,8 +42,7 @@ class BlindsActorBloc extends Bloc<BlindsActorEvent, BlindsActorState> {
           linearProgressIndicator: const LinearProgressIndicator(),
         ).show(value.context);
 
-        _deviceRepository.stopBlinds(
-            devicesId: value.blindsIdToStop, forceUpdateLocation: 'R');
+        _deviceRepository.stopBlinds(devicesId: value.blindsIdToStop);
       },
       moveDownAllBlinds: (_MoveDownAllBlinds value) async* {
         FlushbarHelper.createLoading(
@@ -52,8 +50,7 @@ class BlindsActorBloc extends Bloc<BlindsActorEvent, BlindsActorState> {
           linearProgressIndicator: const LinearProgressIndicator(),
         ).show(value.context);
 
-        _deviceRepository.moveDownBlinds(
-            devicesId: value.blindsIdToTurnDown, forceUpdateLocation: 'R');
+        _deviceRepository.moveDownBlinds(devicesId: value.blindsIdToTurnDown);
       },
     );
   }
