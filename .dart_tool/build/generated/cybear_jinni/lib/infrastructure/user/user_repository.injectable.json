@@ -1,1 +1,0 @@
-[{"type":{"import":"package:cybear_jinni/domain/user/i_user_repository.dart","name":"IUserRepository","isNullable":false},"typeImpl":{"import":"package:cybear_jinni/infrastructure/user/user_repository.dart","name":"UserRepository","isNullable":false},"isAsync":false,"preResolve":false,"injectableType":2,"dependsOn":[],"environments":[],"dependencies":[],"constructorName":""}]
