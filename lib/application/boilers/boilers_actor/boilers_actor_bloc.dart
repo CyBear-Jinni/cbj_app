@@ -42,8 +42,7 @@ class BoilersActorBloc extends Bloc<BoilersActorEvent, BoilersActorState> {
           linearProgressIndicator: const LinearProgressIndicator(),
         ).show(value.context);
 
-        _deviceRepository.turnOffDevices(
-            devicesId: value.boilersIdToTurnOff, forceUpdateLocation: 'R');
+        _deviceRepository.turnOffDevices(devicesId: value.boilersIdToTurnOff);
       },
     );
   }

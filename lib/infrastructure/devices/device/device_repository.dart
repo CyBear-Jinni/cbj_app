@@ -114,6 +114,17 @@ class DeviceRepository implements IDeviceRepository {
   }
 
   @override
+  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
+      watchSmartTv() async* {
+    yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
+          return right(r.toList().asList().where((element) {
+            return element!.uniqueId.getOrCrash()! ==
+                DeviceTypes.smartTV.toString();
+          }).toImmutableList());
+        }));
+  }
+
+  @override
   Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract>>>
       watchUncompleted() {
     // TODO: implement watchUncompleted

@@ -10,39 +10,39 @@ import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
-part 'lights_actor_bloc.freezed.dart';
-part 'lights_actor_event.dart';
-part 'lights_actor_state.dart';
+part 'smart_tv_actor_bloc.freezed.dart';
+part 'smart_tv_actor_event.dart';
+part 'smart_tv_actor_state.dart';
 
 @injectable
-class LightsActorBloc extends Bloc<LightsActorEvent, LightsActorState> {
-  LightsActorBloc(this._deviceRepository)
-      : super(const LightsActorState.initial());
+class SmartTvActorBloc extends Bloc<SmartTvActorEvent, SmartTvActorState> {
+  SmartTvActorBloc(this._deviceRepository)
+      : super(const SmartTvActorState.initial());
 
   final IDeviceRepository _deviceRepository;
 
   @override
-  Stream<LightsActorState> mapEventToState(
-    LightsActorEvent event,
+  Stream<SmartTvActorState> mapEventToState(
+    SmartTvActorEvent event,
   ) async* {
     yield* event.map(
       deleted: (e) async* {},
       initialized: (e) async* {},
-      turnOffAllLights: (_TurnOffAllLights value) async* {
+      turnOnTv: (_MoveUpAllSmartTv value) async* {
         FlushbarHelper.createLoading(
-          message: 'Turning Off all lights',
+          message: 'Pulling Up all smart_tv',
           linearProgressIndicator: const LinearProgressIndicator(),
         ).show(value.context);
 
-        _deviceRepository.turnOffDevices(devicesId: value.lightsIdToTurnOff);
+        _deviceRepository.turnOnDevices(devicesId: value.smartTvIdToTurnOn);
       },
-      turnOnAllLights: (_TurnOnAllLights value) async* {
+      turnOff: (_StopAllSmartTv value) async* {
         FlushbarHelper.createLoading(
-          message: 'Turning On all lights',
+          message: 'Pulling Up all smart_tv',
           linearProgressIndicator: const LinearProgressIndicator(),
         ).show(value.context);
 
-        _deviceRepository.turnOnDevices(devicesId: value.lightsIdToTurnOn);
+        _deviceRepository.turnOffDevices(devicesId: value.smartTvIdToTurnOff);
       },
     );
   }

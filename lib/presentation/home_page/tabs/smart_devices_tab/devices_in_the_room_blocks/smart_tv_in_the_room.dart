@@ -1,38 +1,37 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
-import 'package:cybear_jinni/domain/devices/generic_boiler_device/generic_boiler_entity.dart';
-import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
+import 'package:cybear_jinni/domain/devices/generic_smart_tv/generic_smart_tv_entity.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class BoilersInTheRoom extends StatelessWidget {
-  const BoilersInTheRoom({this.boilersInRoom, this.roomColorGradiant});
+class SmartTvInTheRoom extends StatelessWidget {
+  const SmartTvInTheRoom({this.smartTvsInRoom, this.roomColorGradiant});
 
-  factory BoilersInTheRoom.withAbstractDevice(
+  factory SmartTvInTheRoom.withAbstractDevice(
       List<DeviceEntityAbstract> tempDeviceInRoom,
-      List<Color> temproomColorGradiant) {
-    List<GenericBoilerDE> tempLightsInRoom = [];
+      List<Color> tempRoomColorGradiant) {
+    List<GenericSmartTvDE> tempLightsInRoom = [];
 
     tempDeviceInRoom.forEach((element) {
-      tempLightsInRoom.add(element as GenericBoilerDE);
+      tempLightsInRoom.add(element as GenericSmartTvDE);
     });
 
-    return BoilersInTheRoom(
-        boilersInRoom: tempLightsInRoom,
-        roomColorGradiant: temproomColorGradiant);
+    return SmartTvInTheRoom(
+        smartTvsInRoom: tempLightsInRoom,
+        roomColorGradiant: tempRoomColorGradiant);
   }
 
-  final List<GenericBoilerDE>? boilersInRoom;
+  final List<GenericSmartTvDE>? smartTvsInRoom;
   final List<Color>? roomColorGradiant;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.router.push(RoomsBoilersRoute(
-            showDevicesOnlyFromRoomId: boilersInRoom![0].roomId.getOrCrash(),
-            roomColorGradiant: roomColorGradiant));
+        // context.router.push(RoomsSmartTvsRoute(
+        //     showDevicesOnlyFromRoomId: smart_tvsInRoom![0].roomId.getOrCrash(),
+        //     roomColorGradiant: roomColorGradiant));
+        print('TV page is not supported');
       },
       child: Container(
         color: Colors.amber.withOpacity(0.03),
@@ -47,12 +46,12 @@ class BoilersInTheRoom extends StatelessWidget {
                 const Expanded(
                   child: CircleAvatar(
                     child: FaIcon(
-                      FontAwesomeIcons.thermometerThreeQuarters,
-                      color: Colors.redAccent,
+                      FontAwesomeIcons.tv,
+                      color: Colors.green,
                     ),
                   ),
                 ),
-                if (boilersInRoom!.length > 1)
+                if (smartTvsInRoom!.length > 1)
                   Expanded(
                     child: Container(
                       height: 55,
@@ -69,7 +68,7 @@ class BoilersInTheRoom extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Text(
-                          boilersInRoom!.length.toString(),
+                          smartTvsInRoom!.length.toString(),
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               fontSize: 13,
@@ -86,15 +85,15 @@ class BoilersInTheRoom extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            if (boilersInRoom!.length == 1)
+            if (smartTvsInRoom!.length == 1)
               Text(
-                boilersInRoom![0].defaultName.getOrCrash()!,
+                smartTvsInRoom![0].defaultName.getOrCrash()!,
                 style: TextStyle(
                     color: Theme.of(context).textTheme.bodyText1!.color),
               )
             else
               Text(
-                '${boilersInRoom![0].roomName.getOrCrash()} Boilers',
+                '${smartTvsInRoom![0].roomName.getOrCrash()} SmartTvs',
                 style: TextStyle(
                     color: Theme.of(context).textTheme.bodyText1!.color),
               ),
@@ -106,7 +105,7 @@ class BoilersInTheRoom extends StatelessWidget {
 
   List<String> extractDevicesId() {
     final List<String> devicesIdList = [];
-    boilersInRoom!.forEach((element) {
+    smartTvsInRoom!.forEach((element) {
       devicesIdList.add(element.uniqueId.getOrCrash()!);
     });
     return devicesIdList;

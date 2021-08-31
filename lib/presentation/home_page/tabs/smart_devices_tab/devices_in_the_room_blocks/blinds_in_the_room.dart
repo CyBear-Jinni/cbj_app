@@ -37,7 +37,7 @@ class BlindsInTheRoom extends StatelessWidget {
             roomColorGradiant: roomColorGradiant));
       },
       child: Container(
-        color: Colors.black.withOpacity(0.03),
+        color: Colors.amber.withOpacity(0.03),
         margin: const EdgeInsets.all(5),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

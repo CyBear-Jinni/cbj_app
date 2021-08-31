@@ -17,7 +17,8 @@ class VendorsRepository implements IVendorsRepository {
     for (final VendorsAndServices vendorsAndServices
         in VendorsAndServices.values) {
       if (vendorsAndServices.name ==
-          VendorsAndServices.vendorsAndServicesNotSupported.name) {
+              VendorsAndServices.vendorsAndServicesNotSupported.name ||
+          vendorsAndServices.name == VendorsAndServices.google.name) {
         continue;
       }
       vendorsWithIcons
@@ -94,6 +95,11 @@ class VendorsMocDataWithImages {
         name: VendorName('Ring'),
         image:
             'https://play-lh.googleusercontent.com/fbIl2IKPAG4_3lNnwsi0qMBTJEgOsIwBUYzrs5_GIRYRBHov_a5eJ0bMxEUNMu67G4Ws=s180',
+      ),
+      Vendor(
+        name: VendorName('Google'),
+        image:
+            'https://play-lh.googleusercontent.com/DKoidc0T3T1KvYC2stChcX9zwmjKj1pgmg3hXzGBDQXM8RG_7JjgiuS0CLOh8DUa7as=s180',
       ),
     ].toImmutableList();
   }
