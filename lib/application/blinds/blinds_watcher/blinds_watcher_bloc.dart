@@ -36,6 +36,7 @@ class BlindsWatcherBloc extends Bloc<BlindsWatcherEvent, BlindsWatcherState> {
             (eventWatch) => add(BlindsWatcherEvent.blindsReceived(eventWatch)));
       },
       blindsReceived: (e) async* {
+        yield const BlindsWatcherState.loadInProgress();
         yield e.failureOrDevices.fold(
             (f) => BlindsWatcherState.loadFailure(f),
             (d) => BlindsWatcherState.loadSuccess(

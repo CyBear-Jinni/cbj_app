@@ -91,7 +91,7 @@ class RoomsRgbwLightsPage extends StatelessWidget {
             child: Column(
               children: [
                 TopNavigationBar(
-                  'Lights',
+                  'RGBw Lights',
                   Icons.more_vert,
                   cogFunction,
                   leftIcon: FontAwesomeIcons.arrowLeft,
