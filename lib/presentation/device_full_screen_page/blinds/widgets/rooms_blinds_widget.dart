@@ -1,5 +1,5 @@
 import 'package:cybear_jinni/application/blinds/blinds_watcher/blinds_watcher_bloc.dart';
-import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_blinds_device/generic_blinds_entity.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/blinds/widgets/critical_failure_blinds_display_widget.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/blinds/widgets/room_blinds.dart';
@@ -28,11 +28,11 @@ class RoomsBlindsWidget extends StatelessWidget {
           ),
           loadSuccess: (state) {
             if (state.devices.size != 0) {
-              final Map<String?, List<GenericLightDE>> tempDevicesByRooms =
-                  <String, List<GenericLightDE>>{};
+              final Map<String?, List<GenericBlindsDE>> tempDevicesByRooms =
+                  <String, List<GenericBlindsDE>>{};
 
               for (int i = 0; i < state.devices.size; i++) {
-                final GenericLightDE tempDevice = state.devices[i]!;
+                final GenericBlindsDE tempDevice = state.devices[i]!;
                 if (showDevicesOnlyFromRoomId != null) {
                   if (showDevicesOnlyFromRoomId ==
                       tempDevice.roomId.getOrCrash()) {
@@ -59,7 +59,7 @@ class RoomsBlindsWidget extends StatelessWidget {
                 }
               }
 
-              final List<KtList<GenericLightDE>> devicesByRooms = [];
+              final List<KtList<GenericBlindsDE>> devicesByRooms = [];
 
               tempDevicesByRooms.forEach((k, v) {
                 devicesByRooms.add(v.toImmutableList());
@@ -80,7 +80,7 @@ class RoomsBlindsWidget extends StatelessWidget {
                       gradientColorCounter = 0;
                       gradiantColor = gradientColorsList[gradientColorCounter];
                     }
-                    final KtList<GenericLightDE> devicesInRoom =
+                    final KtList<GenericBlindsDE> devicesInRoom =
                         devicesByRooms[index];
 
                     return RoomBlinds(

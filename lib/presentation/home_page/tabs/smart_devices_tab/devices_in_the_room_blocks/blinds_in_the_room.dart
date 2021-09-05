@@ -38,7 +38,7 @@ class BlindsInTheRoom extends StatelessWidget {
       },
       child: Container(
         color: Colors.amber.withOpacity(0.03),
-        margin: const EdgeInsets.all(5),
+        margin: const EdgeInsets.symmetric(horizontal: 5),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -86,7 +86,7 @@ class BlindsInTheRoom extends StatelessWidget {
               ],
             ),
             const SizedBox(
-              height: 10,
+              height: 0,
             ),
             if (blindsInRoom!.length == 1)
               Text(
@@ -117,7 +117,7 @@ class BlindsInTheRoom extends StatelessWidget {
                             const BorderSide(width: 0.2),
                           ),
                           padding: MaterialStateProperty.all<EdgeInsets>(
-                              const EdgeInsets.all(0)),
+                              EdgeInsets.zero),
                         ),
                         onPressed: () {
                           context.read<BlindsActorBloc>().add(
@@ -144,7 +144,7 @@ class BlindsInTheRoom extends StatelessWidget {
                             const BorderSide(width: 0.2),
                           ),
                           padding: MaterialStateProperty.all<EdgeInsets>(
-                              const EdgeInsets.all(0)),
+                              EdgeInsets.zero),
                         ),
                         onPressed: () {
                           context.read<BlindsActorBloc>().add(
