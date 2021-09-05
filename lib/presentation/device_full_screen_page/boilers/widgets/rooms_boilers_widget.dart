@@ -1,5 +1,5 @@
 import 'package:cybear_jinni/application/boilers/boilers_watcher/boilers_watcher_bloc.dart';
-import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_boiler_device/generic_boiler_entity.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/boilers/widgets/room_boilers.dart';
 import 'package:flutter/cupertino.dart';
@@ -29,11 +29,11 @@ class RoomsBoilersWidget extends StatelessWidget {
           ),
           loadSuccess: (state) {
             if (state.devices.size != 0) {
-              final Map<String?, List<GenericLightDE>> tempDevicesByRooms =
-                  <String, List<GenericLightDE>>{};
+              final Map<String?, List<GenericBoilerDE>> tempDevicesByRooms =
+                  <String, List<GenericBoilerDE>>{};
 
               for (int i = 0; i < state.devices.size; i++) {
-                final GenericLightDE tempDevice = state.devices[i]!;
+                final GenericBoilerDE tempDevice = state.devices[i]!;
                 if (showDevicesOnlyFromRoomId != null) {
                   if (showDevicesOnlyFromRoomId ==
                       tempDevice.roomId.getOrCrash()) {
@@ -60,7 +60,7 @@ class RoomsBoilersWidget extends StatelessWidget {
                 }
               }
 
-              final List<KtList<GenericLightDE>> devicesByRooms = [];
+              final List<KtList<GenericBoilerDE>> devicesByRooms = [];
 
               tempDevicesByRooms.forEach((k, v) {
                 devicesByRooms.add(v.toImmutableList());

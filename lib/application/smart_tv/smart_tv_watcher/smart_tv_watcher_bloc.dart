@@ -38,6 +38,8 @@ class SmartTvWatcherBloc
                 add(SmartTvWatcherEvent.smart_tvReceived(eventWatch)));
       },
       smart_tvReceived: (e) async* {
+        yield const SmartTvWatcherState.loadInProgress();
+
         yield e.failureOrDevices.fold(
             (f) => SmartTvWatcherState.loadFailure(f),
             (d) => SmartTvWatcherState.loadSuccess(

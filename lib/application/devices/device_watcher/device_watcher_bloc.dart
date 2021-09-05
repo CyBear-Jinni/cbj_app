@@ -35,6 +35,8 @@ class DeviceWatcherBloc extends Bloc<DeviceWatcherEvent, DeviceWatcherState> {
                 add(DeviceWatcherEvent.devicesReceived(eventWatch)));
       },
       devicesReceived: (e) async* {
+        yield const DeviceWatcherState.loadInProgress();
+
         yield e.failureOrDevices.fold((f) => DeviceWatcherState.loadFailure(f),
             (d) {
           return DeviceWatcherState.loadSuccess(

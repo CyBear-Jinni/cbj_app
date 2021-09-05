@@ -5,6 +5,8 @@ import 'dart:io';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
+import 'package:cybear_jinni/domain/devices/generic_boiler_device/generic_boiler_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_boiler_device/generic_boiler_value_objects.dart';
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_value_objects.dart';
 import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
@@ -94,7 +96,7 @@ class DeviceRepository implements IDeviceRepository {
     // Blinds device type
     yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
           return right(r.toList().asList().where((element) {
-            return element!.uniqueId.getOrCrash()! ==
+            return element!.deviceTypes.getOrCrash() ==
                 DeviceTypes.blinds.toString();
           }).toImmutableList());
         }));
@@ -107,7 +109,7 @@ class DeviceRepository implements IDeviceRepository {
     // Boilers device type
     yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
           return right(r.toList().asList().where((element) {
-            return element!.uniqueId.getOrCrash()! ==
+            return element!.deviceTypes.getOrCrash() ==
                 DeviceTypes.boiler.toString();
           }).toImmutableList());
         }));
@@ -118,7 +120,7 @@ class DeviceRepository implements IDeviceRepository {
       watchSmartTv() async* {
     yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
           return right(r.toList().asList().where((element) {
-            return element!.uniqueId.getOrCrash()! ==
+            return element!.deviceTypes.getOrCrash() ==
                 DeviceTypes.smartTV.toString();
           }).toImmutableList());
         }));
@@ -228,6 +230,9 @@ class DeviceRepository implements IDeviceRepository {
         } else if (deviceEntity is GenericRgbwLightDE) {
           deviceEntity.lightSwitchState =
               GenericRgbwLightSwitchState(DeviceActions.on.toString());
+        } else if (deviceEntity is GenericBoilerDE) {
+          deviceEntity.boilerSwitchState =
+              GenericBoilerSwitchState(DeviceActions.on.toString());
         } else {
           print('On action not supported for'
               ' ${deviceEntity.deviceTypes.getOrCrash()} type');
@@ -267,6 +272,9 @@ class DeviceRepository implements IDeviceRepository {
         } else if (deviceEntity is GenericRgbwLightDE) {
           deviceEntity.lightSwitchState =
               GenericRgbwLightSwitchState(DeviceActions.off.toString());
+        } else if (deviceEntity is GenericBoilerDE) {
+          deviceEntity.boilerSwitchState =
+              GenericBoilerSwitchState(DeviceActions.off.toString());
         } else {
           print('Off action not supported for'
               ' ${deviceEntity.deviceTypes.getOrCrash()} type');
