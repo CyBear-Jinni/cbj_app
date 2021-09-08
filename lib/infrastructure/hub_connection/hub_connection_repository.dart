@@ -39,8 +39,9 @@ class HubConnectionRepository extends IHubConnectionRepository {
 
     final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
 
-    if (connectivityResult == ConnectivityResult.wifi &&
-        hubEntity?.hubNetworkBssid.getOrCrash() == wifiBSSID) {
+    // if (connectivityResult == ConnectivityResult.wifi &&
+    //     hubEntity?.hubNetworkBssid.getOrCrash() == wifiBSSID) {
+    if (true) {
       if (hubEntity?.lastKnownIp?.getOrCrash() == null) {
         await searchForHub();
       }
