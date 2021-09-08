@@ -26,8 +26,21 @@ class SmartDevicesByRooms extends StatelessWidget {
         builder: (context, state) {
       return state.map(
         initial: (_) => Container(),
-        loadInProgress: (_) => const Center(
-          child: CircularProgressIndicator(),
+        loadInProgress: (_) => Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            CircularProgressIndicator(),
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              'Searching for CyBear Jinni Hub',
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.blue,
+              ),
+            ),
+          ],
         ),
         loadSuccess: (state) {
           if (state.devices.size != 0) {
