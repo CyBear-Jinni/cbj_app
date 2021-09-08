@@ -38,6 +38,8 @@ class CBJCompBloc extends Bloc<CBJCompEvent, CBJCompState> {
         });
       },
       compDevicesReceived: (e) async* {
+        yield const CBJCompState.loadInProgress();
+
         final dynamic failureOrCompListDynamic = e.failureOrCBJCompList.fold(
           (f) => f,
           (ip) => ip,

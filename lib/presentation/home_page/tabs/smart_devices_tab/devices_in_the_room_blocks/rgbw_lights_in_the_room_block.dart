@@ -48,7 +48,7 @@ class RgbwLightsInTheRoomBlock extends StatelessWidget {
                 const Expanded(
                   child: CircleAvatar(
                     child: FaIcon(
-                      FontAwesomeIcons.solidLightbulb,
+                      FontAwesomeIcons.lightbulb,
                       color: Colors.amberAccent,
                     ),
                   ),

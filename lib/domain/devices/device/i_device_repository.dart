@@ -29,6 +29,8 @@ abstract class IDeviceRepository {
 
   Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>> watchBoilers();
 
+  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>> watchSmartTv();
+
   Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
       watchUncompleted();
 
@@ -39,7 +41,6 @@ abstract class IDeviceRepository {
   Future<Either<DevicesFailure, Unit>> updateDatabase({
     required Map<String, dynamic> documentPath,
     required Map<String, dynamic> fieldsToUpdate,
-    String forceUpdateLocation,
   });
 
   Future<Either<DevicesFailure, Unit>> updateWithDeviceEntity({
@@ -48,27 +49,22 @@ abstract class IDeviceRepository {
 
   Future<Either<DevicesFailure, Unit>> turnOnDevices({
     required List<String>? devicesId,
-    String forceUpdateLocation,
   });
 
   Future<Either<DevicesFailure, Unit>> turnOffDevices({
     required List<String>? devicesId,
-    String forceUpdateLocation,
   });
 
   Future<Either<DevicesFailure, Unit>> moveUpBlinds({
     required List<String>? devicesId,
-    String forceUpdateLocation,
   });
 
   Future<Either<DevicesFailure, Unit>> stopBlinds({
     required List<String>? devicesId,
-    String forceUpdateLocation,
   });
 
   Future<Either<DevicesFailure, Unit>> moveDownBlinds({
     required List<String>? devicesId,
-    String forceUpdateLocation,
   });
 
   Future<Either<DevicesFailure, Unit>> delete(

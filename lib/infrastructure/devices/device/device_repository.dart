@@ -5,6 +5,10 @@ import 'dart:io';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
+import 'package:cybear_jinni/domain/devices/generic_blinds_device/generic_blinds_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_blinds_device/generic_blinds_value_objects.dart';
+import 'package:cybear_jinni/domain/devices/generic_boiler_device/generic_boiler_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_boiler_device/generic_boiler_value_objects.dart';
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_value_objects.dart';
 import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
@@ -94,7 +98,7 @@ class DeviceRepository implements IDeviceRepository {
     // Blinds device type
     yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
           return right(r.toList().asList().where((element) {
-            return element!.uniqueId.getOrCrash()! ==
+            return element!.deviceTypes.getOrCrash() ==
                 DeviceTypes.blinds.toString();
           }).toImmutableList());
         }));
@@ -107,8 +111,19 @@ class DeviceRepository implements IDeviceRepository {
     // Boilers device type
     yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
           return right(r.toList().asList().where((element) {
-            return element!.uniqueId.getOrCrash()! ==
+            return element!.deviceTypes.getOrCrash() ==
                 DeviceTypes.boiler.toString();
+          }).toImmutableList());
+        }));
+  }
+
+  @override
+  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
+      watchSmartTv() async* {
+    yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
+          return right(r.toList().asList().where((element) {
+            return element!.deviceTypes.getOrCrash() ==
+                DeviceTypes.smartTV.toString();
           }).toImmutableList());
         }));
   }
@@ -217,6 +232,9 @@ class DeviceRepository implements IDeviceRepository {
         } else if (deviceEntity is GenericRgbwLightDE) {
           deviceEntity.lightSwitchState =
               GenericRgbwLightSwitchState(DeviceActions.on.toString());
+        } else if (deviceEntity is GenericBoilerDE) {
+          deviceEntity.boilerSwitchState =
+              GenericBoilerSwitchState(DeviceActions.on.toString());
         } else {
           print('On action not supported for'
               ' ${deviceEntity.deviceTypes.getOrCrash()} type');
@@ -256,6 +274,9 @@ class DeviceRepository implements IDeviceRepository {
         } else if (deviceEntity is GenericRgbwLightDE) {
           deviceEntity.lightSwitchState =
               GenericRgbwLightSwitchState(DeviceActions.off.toString());
+        } else if (deviceEntity is GenericBoilerDE) {
+          deviceEntity.boilerSwitchState =
+              GenericBoilerSwitchState(DeviceActions.off.toString());
         } else {
           print('Off action not supported for'
               ' ${deviceEntity.deviceTypes.getOrCrash()} type');
@@ -280,20 +301,26 @@ class DeviceRepository implements IDeviceRepository {
   @override
   Future<Either<DevicesFailure, Unit>> moveUpBlinds(
       {List<String>? devicesId, String? forceUpdateLocation}) async {
-    try {
-      // final DocumentReference homeDoc = await _firestore.currentHomeDocument();
-      // final CollectionReference devicesCollection = homeDoc.devicesCollecttion;
+    final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
+        await getDeviceEntityListFromId(devicesId!);
 
-      // devicesId!.forEach((element) {
-      //   final DocumentReference deviceDocumentReference =
-      //       devicesCollection.doc(element);
-      //   updateDatabase(documentPath: deviceDocumentReference, fieldsToUpdate: {
-      //     GrpcClientTypes.deviceActionsTypeString:
-      //         DeviceActions.moveUp.toString(),
-      //     GrpcClientTypes.deviceStateGRPCTypeString:
-      //         DeviceStateGRPC.waitingInFirebase.toString()
-      //   });
-      // });
+    try {
+      for (final DeviceEntityAbstract? deviceEntity
+          in deviceEntityListToUpdate) {
+        if (deviceEntity == null) {
+          continue;
+        }
+        if (deviceEntity is GenericBlindsDE) {
+          deviceEntity.blindsSwitchState =
+              GenericBlindsSwitchState(DeviceActions.moveUp.toString());
+        } else {
+          print('Off action not supported for'
+              ' ${deviceEntity.deviceTypes.getOrCrash()} type');
+          continue;
+        }
+
+        updateWithDeviceEntity(deviceEntity: deviceEntity);
+      }
     } on PlatformException catch (e) {
       if (e.message!.contains('PERMISSION_DENIED')) {
         return left(const DevicesFailure.insufficientPermission());
@@ -310,20 +337,26 @@ class DeviceRepository implements IDeviceRepository {
   @override
   Future<Either<DevicesFailure, Unit>> stopBlinds(
       {List<String>? devicesId, String? forceUpdateLocation}) async {
+    final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
+        await getDeviceEntityListFromId(devicesId!);
+
     try {
-      // final DocumentReference homeDoc = await _firestore.currentHomeDocument();
-      // final CollectionReference devicesCollection = homeDoc.devicesCollecttion;
-      //
-      // devicesId!.forEach((element) {
-      //   final DocumentReference deviceDocumentReference =
-      //       devicesCollection.doc(element);
-      //   updateDatabase(documentPath: deviceDocumentReference, fieldsToUpdate: {
-      //     GrpcClientTypes.deviceActionsTypeString:
-      //         DeviceActions.stop.toString(),
-      //     GrpcClientTypes.deviceStateGRPCTypeString:
-      //         DeviceStateGRPC.waitingInFirebase.toString()
-      //   });
-      // });
+      for (final DeviceEntityAbstract? deviceEntity
+          in deviceEntityListToUpdate) {
+        if (deviceEntity == null) {
+          continue;
+        }
+        if (deviceEntity is GenericBlindsDE) {
+          deviceEntity.blindsSwitchState =
+              GenericBlindsSwitchState(DeviceActions.stop.toString());
+        } else {
+          print('Off action not supported for'
+              ' ${deviceEntity.deviceTypes.getOrCrash()} type');
+          continue;
+        }
+
+        updateWithDeviceEntity(deviceEntity: deviceEntity);
+      }
     } on PlatformException catch (e) {
       if (e.message!.contains('PERMISSION_DENIED')) {
         return left(const DevicesFailure.insufficientPermission());
@@ -340,20 +373,26 @@ class DeviceRepository implements IDeviceRepository {
   @override
   Future<Either<DevicesFailure, Unit>> moveDownBlinds(
       {List<String>? devicesId, String? forceUpdateLocation}) async {
+    final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
+        await getDeviceEntityListFromId(devicesId!);
+
     try {
-      // final DocumentReference homeDoc = await _firestore.currentHomeDocument();
-      // final CollectionReference devicesCollection = homeDoc.devicesCollecttion;
-      //
-      // devicesId!.forEach((element) {
-      //   final DocumentReference deviceDocumentReference =
-      //       devicesCollection.doc(element);
-      //   updateDatabase(documentPath: deviceDocumentReference, fieldsToUpdate: {
-      //     GrpcClientTypes.deviceActionsTypeString:
-      //         DeviceActions.moveDown.toString(),
-      //     GrpcClientTypes.deviceStateGRPCTypeString:
-      //         DeviceStateGRPC.waitingInFirebase.toString()
-      //   });
-      // });
+      for (final DeviceEntityAbstract? deviceEntity
+          in deviceEntityListToUpdate) {
+        if (deviceEntity == null) {
+          continue;
+        }
+        if (deviceEntity is GenericBlindsDE) {
+          deviceEntity.blindsSwitchState =
+              GenericBlindsSwitchState(DeviceActions.moveDown.toString());
+        } else {
+          print('Off action not supported for'
+              ' ${deviceEntity.deviceTypes.getOrCrash()} type');
+          continue;
+        }
+
+        updateWithDeviceEntity(deviceEntity: deviceEntity);
+      }
     } on PlatformException catch (e) {
       if (e.message!.contains('PERMISSION_DENIED')) {
         return left(const DevicesFailure.insufficientPermission());

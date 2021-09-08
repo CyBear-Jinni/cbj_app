@@ -1,6 +1,7 @@
 import 'package:cybear_jinni/application/blinds/blinds_actor/blinds_actor_bloc.dart';
 import 'package:cybear_jinni/application/devices/device_watcher/device_watcher_bloc.dart';
 import 'package:cybear_jinni/application/lights/lights_actor/lights_actor_bloc.dart';
+import 'package:cybear_jinni/application/smart_tv/smart_tv_actor/smart_tv_actor_bloc.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
@@ -11,6 +12,7 @@ import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devic
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/boilers_in_the_room.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/lights_in_the_room_block.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/rgbw_lights_in_the_room_block.dart';
+import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/smart_tv_in_the_room.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -24,8 +26,21 @@ class SmartDevicesByRooms extends StatelessWidget {
         builder: (context, state) {
       return state.map(
         initial: (_) => Container(),
-        loadInProgress: (_) => const Center(
-          child: CircularProgressIndicator(),
+        loadInProgress: (_) => Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            CircularProgressIndicator(),
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              'Searching for CyBear Jinni Hub',
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.blue,
+              ),
+            ),
+          ],
         ),
         loadSuccess: (state) {
           if (state.devices.size != 0) {
@@ -190,7 +205,7 @@ class SmartDevicesByRooms extends StatelessWidget {
                                     maxCrossAxisExtent: 200,
                                     childAspectRatio: 1.4,
                                     crossAxisSpacing: 8,
-                                    mainAxisSpacing: 4,
+                                    mainAxisSpacing: 20,
                                   ),
                                   itemCount: tempDevicesByRoomsByType[roomId]!
                                       .keys
@@ -242,6 +257,18 @@ class SmartDevicesByRooms extends StatelessWidget {
                                             getIt<BlindsActorBloc>(),
                                         child:
                                             BoilersInTheRoom.withAbstractDevice(
+                                          tempDevicesByRoomsByType[roomId]![
+                                              deviceType]!,
+                                          roomColorGradiant,
+                                        ),
+                                      );
+                                    } else if (deviceType ==
+                                        DeviceTypes.smartTV.toString()) {
+                                      return BlocProvider(
+                                        create: (context) =>
+                                            getIt<SmartTvActorBloc>(),
+                                        child:
+                                            SmartTvInTheRoom.withAbstractDevice(
                                           tempDevicesByRoomsByType[roomId]![
                                               deviceType]!,
                                           roomColorGradiant,

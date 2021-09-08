@@ -1,5 +1,5 @@
 import 'package:cybear_jinni/application/blinds/blinds_actor/blinds_actor_bloc.dart';
-import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_blinds_device/generic_blinds_entity.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/blinds/widgets/blind_widget.dart';
 import 'package:flutter/cupertino.dart';
@@ -15,7 +15,7 @@ class RoomBlinds extends StatelessWidget {
       this._deviceEntityList, this._gradientColor, this._roomEntity,
       {this.maxLightsToShow = 4});
 
-  final KtList<GenericLightDE> _deviceEntityList;
+  final KtList<GenericBlindsDE> _deviceEntityList;
 
   final int maxLightsToShow;
 
@@ -36,7 +36,7 @@ class RoomBlinds extends StatelessWidget {
       final int _numberOfBlindsToShow = _deviceEntityList.size;
 
       for (int i = 0; i < _numberOfBlindsToShow; i++) {
-        final GenericLightDE deviceEntityTemp = _deviceEntityList[i];
+        final GenericBlindsDE deviceEntityTemp = _deviceEntityList[i];
 
         columnOfLights.add(Column(
           children: [
