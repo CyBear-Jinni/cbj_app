@@ -104,7 +104,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
     try {
       if (Platform.isAndroid || Platform.isIOS) {
         final Either<HubFailures, Unit> locationRequest =
-        await askLocationPermissionAndLocationOn();
+            await askLocationPermissionAndLocationOn();
 
         if (locationRequest.isLeft()) {
           return locationRequest;
@@ -121,7 +121,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
       print('subnet IP $subnet');
 
       final Stream<NetworkAddress> stream =
-      NetworkAnalyzer.discover2(subnet, hubPort);
+          NetworkAnalyzer.discover2(subnet, hubPort);
 
       await for (final NetworkAddress address in stream) {
         if (address.exists) {
