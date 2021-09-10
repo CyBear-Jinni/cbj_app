@@ -34,8 +34,12 @@ class HubConnectionRepository extends IHubConnectionRepository {
   static HubEntity? hubEntity;
 
   Future<void> connectWithHub() async {
-    final ConnectivityResult connectivityResult =
-        await Connectivity().checkConnectivity();
+    try {
+      final ConnectivityResult connectivityResult =
+          await Connectivity().checkConnectivity();
+    } catch (e) {
+      print('Cant check connectivity this is probably PC, error: $e');
+    }
 
     final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
 
