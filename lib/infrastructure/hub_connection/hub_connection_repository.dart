@@ -41,8 +41,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
       print('Cant check connectivity this is probably PC, error: $e');
     }
 
-    // Maybe need network-manager plug in snap instead of network-manager-observe
-    // final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
+    final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
 
     // if (connectivityResult == ConnectivityResult.wifi &&
     //     hubEntity?.hubNetworkBssid.getOrCrash() == wifiBSSID) {
@@ -102,36 +101,47 @@ class HubConnectionRepository extends IHubConnectionRepository {
 
   @override
   Future<Either<HubFailures, Unit>> searchForHub() async {
-    final Either<HubFailures, Unit> locationRequest =
+    try {
+      if (Platform.isAndroid || Platform.isIOS) {
+        final Either<HubFailures, Unit> locationRequest =
         await askLocationPermissionAndLocationOn();
 
-    if (locationRequest.isLeft()) {
-      return locationRequest;
-    }
+        if (locationRequest.isLeft()) {
+          return locationRequest;
+        }
+      } else {
+        print('Out');
+      }
 
-    print('searchForHub');
-    final String? wifiIP = await NetworkInfo().getWifiIP();
+      print('searchForHub');
+      final String? wifiIP = await NetworkInfo().getWifiIP();
 
-    final String subnet = wifiIP!.substring(0, wifiIP.lastIndexOf('.'));
+      final String subnet = wifiIP!.substring(0, wifiIP.lastIndexOf('.'));
 
-    final Stream<NetworkAddress> stream =
-        NetworkAnalyzer.discover2(subnet, hubPort);
+      print('subnet IP $subnet');
 
-    await for (final NetworkAddress address in stream) {
-      if (address.exists) {
-        print('Found device: ${address.ip}');
+      final Stream<NetworkAddress> stream =
+      NetworkAnalyzer.discover2(subnet, hubPort);
 
-        final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
-        final String? wifiName = await NetworkInfo().getWifiName();
+      await for (final NetworkAddress address in stream) {
+        if (address.exists) {
+          print('Found device: ${address.ip}');
 
-        if (wifiBSSID != null && wifiName != null) {
-          hubEntity = HubEntity(
+          final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
+          final String? wifiName = await NetworkInfo().getWifiName();
+
+          if (wifiBSSID != null && wifiName != null) {
+            hubEntity = HubEntity(
               hubNetworkBssid: HubNetworkBssid(wifiBSSID),
               networkName: HubNetworkName(wifiName),
-              lastKnownIp: HubNetworkIp(address.ip.toString()));
-          return right(unit);
+              lastKnownIp: HubNetworkIp(address.ip),
+            );
+            return right(unit);
+          }
         }
       }
+    } catch (e) {
+      print('Exception searchForHub $e');
     }
     return left(const HubFailures.cantFindHubInNetwork());
   }
