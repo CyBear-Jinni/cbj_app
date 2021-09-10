@@ -41,7 +41,8 @@ class HubConnectionRepository extends IHubConnectionRepository {
       print('Cant check connectivity this is probably PC, error: $e');
     }
 
-    final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
+    // Maybe need network-manager plug in snap instead of network-manager-observe
+    // final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
 
     // if (connectivityResult == ConnectivityResult.wifi &&
     //     hubEntity?.hubNetworkBssid.getOrCrash() == wifiBSSID) {
