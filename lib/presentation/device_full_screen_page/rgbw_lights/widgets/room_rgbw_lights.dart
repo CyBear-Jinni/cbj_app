@@ -8,15 +8,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:hsv_color_pickers/hsv_color_pickers.dart';
 import 'package:kt_dart/collection.dart';
 
 /// Show light toggles in a container with the background color from smart room
 /// object
 class RoomRgbwLights extends StatelessWidget {
   const RoomRgbwLights(
-      this._deviceEntityList, this._gradientColor, this._roomEntity,
-      {this.maxLightsToShow = 4});
+    this._deviceEntityList,
+    this._gradientColor,
+    this._roomEntity, {
+    this.maxLightsToShow = 4,
+  });
 
   final KtList<DeviceEntityAbstract> _deviceEntityList;
 
@@ -100,12 +102,6 @@ class RoomRgbwLights extends StatelessWidget {
                       create: (context) => getIt<LightToggleBloc>(),
                       child: RgbwLightWidget(deviceEntityTemp),
                     ),
-                  ),
-                  HuePicker(
-                    initialColor: HSVColor.fromColor(Colors.green),
-                    onChanged: (HSVColor color) {
-                      // do something with color
-                    },
                   ),
                 ],
               ));

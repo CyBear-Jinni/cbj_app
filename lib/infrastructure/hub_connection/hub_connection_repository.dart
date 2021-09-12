@@ -102,15 +102,11 @@ class HubConnectionRepository extends IHubConnectionRepository {
   @override
   Future<Either<HubFailures, Unit>> searchForHub() async {
     try {
-      if (Platform.isAndroid || Platform.isIOS) {
-        final Either<HubFailures, Unit> locationRequest =
-            await askLocationPermissionAndLocationOn();
+      final Either<HubFailures, Unit> locationRequest =
+          await askLocationPermissionAndLocationOn();
 
-        if (locationRequest.isLeft()) {
-          return locationRequest;
-        }
-      } else {
-        print('Out');
+      if (locationRequest.isLeft()) {
+        return locationRequest;
       }
 
       print('searchForHub');
