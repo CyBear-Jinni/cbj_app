@@ -29,6 +29,10 @@ abstract class GenericRgbwLightDeviceDtos
     required String? lightSwitchState,
     required String? lightColorTemperature,
     required String? lightBrightness,
+    required String? lightColorAlpha,
+    required String? lightColorHue,
+    required String? lightColorSaturation,
+    required String? lightColorValue,
 
     // required ServerTimestampConverter() FieldValue serverTimeStamp,
   }) = _GenericRgbwLightDeviceDtos;
@@ -39,7 +43,8 @@ abstract class GenericRgbwLightDeviceDtos
   final String deviceDtoClassInstance = (GenericRgbwLightDeviceDtos).toString();
 
   factory GenericRgbwLightDeviceDtos.fromDomain(
-      GenericRgbwLightDE genericRgbwLightDE) {
+    GenericRgbwLightDE genericRgbwLightDE,
+  ) {
     return GenericRgbwLightDeviceDtos(
       deviceDtoClass: (GenericRgbwLightDeviceDtos).toString(),
       id: genericRgbwLightDE.uniqueId.getOrCrash(),
@@ -57,7 +62,13 @@ abstract class GenericRgbwLightDeviceDtos
       deviceVendor: genericRgbwLightDE.deviceVendor.getOrCrash(),
       lightColorTemperature:
           genericRgbwLightDE.lightColorTemperature!.getOrCrash(),
-      lightBrightness: genericRgbwLightDE.lightBrightness!.getOrCrash(),
+      lightBrightness: genericRgbwLightDE.lightBrightness.getOrCrash(),
+
+      lightColorAlpha: genericRgbwLightDE.lightColorAlpha.getOrCrash(),
+      lightColorHue: genericRgbwLightDE.lightColorHue.getOrCrash(),
+      lightColorSaturation:
+          genericRgbwLightDE.lightColorSaturation.getOrCrash(),
+      lightColorValue: genericRgbwLightDE.lightColorValue.getOrCrash(),
       // serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }
@@ -82,6 +93,11 @@ abstract class GenericRgbwLightDeviceDtos
       lightColorTemperature:
           GenericRgbwLightColorTemperature(lightColorTemperature),
       lightBrightness: GenericRgbwLightBrightness(lightBrightness),
+      lightColorAlpha: GenericRgbwLightColorAlpha(lightColorAlpha),
+      lightColorHue: GenericRgbwLightColorHue(lightColorHue),
+      lightColorSaturation:
+          GenericRgbwLightColorSaturation(lightColorSaturation),
+      lightColorValue: GenericRgbwLightColorValue(lightColorValue),
     );
   }
 }

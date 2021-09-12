@@ -38,7 +38,7 @@ dependencies:
   # More customization when notifying your user.
   another_flushbar: ^1.10.24
   # Declarative routing solution, where everything needed for navigation is automatically generated for you.
-  auto_route: ^2.3.0
+  auto_route: ^2.3.2
   # Helps implement the BLoC pattern.
   bloc: ^7.1.0
   # Copy text from and to clipboard
@@ -68,7 +68,7 @@ dependencies:
   # Bloc for state management, replace StatefulWidget
   flutter_bloc: ^7.2.0
   # A cross platform plugin for displaying local notifications.
-  flutter_local_notifications: ^8.1.1+2
+  flutter_local_notifications: ^8.2.0
   # Getting the local timezone of the os.
   flutter_native_timezone: ^2.0.0
   # An easy to implement custom switch
@@ -116,7 +116,7 @@ dependencies:
   # Finding commonly used locations on the filesystem
   path_provider: ^2.0.3
   # Popup that ask for the requested permission
-  permission_handler: ^8.1.4+2
+  permission_handler: ^8.1.6
   # Allows to ping IP subnet and discover network devices.
   ping_discover_network_forked: ^0.0.1
   # Provides runtime support for a Dart implementation of protobufs.
@@ -137,7 +137,7 @@ dependencies:
 
 dev_dependencies:
   # Generator for auto_route library.
-  auto_route_generator: ^2.3.0
+  auto_route_generator: ^2.3.2
   # A build system for Dart code generation and modular compilation.
   build_runner:
 
