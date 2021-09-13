@@ -3,7 +3,6 @@ import 'package:cybear_jinni/application/folder_of_scenes/folder_of_scenes_bloc.
 import 'package:cybear_jinni/domain/folder_of_scenes/folder_of_scene.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
-import 'package:cybear_jinni/presentation/scenes/scene_tab/settings_page_of_scenes.dart';
 import 'package:cybear_jinni/presentation/scenes/widgets/folder_of_scenes.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
@@ -33,13 +32,7 @@ class ScenesPage extends StatelessWidget {
             '⚙️ Scenes Settings',
             style: TextStyle(color: Colors.blueGrey, fontSize: 23),
           ),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (BuildContext context) => SettingsPageOfScenes()),
-            );
-          },
+          onPressed: () {},
         ),
       ],
     );

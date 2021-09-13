@@ -14,12 +14,13 @@ class VendorWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Fluttertoast.showToast(
-            msg: vendor.name.getOrCrash(),
-            toastLength: Toast.LENGTH_SHORT,
-            gravity: ToastGravity.SNACKBAR,
-            backgroundColor: Colors.lightBlue,
-            textColor: Theme.of(context).textTheme.bodyText1!.color,
-            fontSize: 16.0);
+          msg: vendor.name.getOrCrash(),
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.SNACKBAR,
+          backgroundColor: Colors.lightBlue,
+          textColor: Theme.of(context).textTheme.bodyText1!.color,
+          fontSize: 16.0,
+        );
       },
       child: Container(
         height: 100,

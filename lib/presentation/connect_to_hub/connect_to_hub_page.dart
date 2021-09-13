@@ -100,12 +100,13 @@ class ConnectToHubPage extends StatelessWidget {
           GestureDetector(
             onTap: () {
               Fluttertoast.showToast(
-                  msg: 'Connecting Hub to wireless network is not supported',
-                  toastLength: Toast.LENGTH_SHORT,
-                  gravity: ToastGravity.SNACKBAR,
-                  backgroundColor: Colors.lightBlue,
-                  textColor: Theme.of(context).textTheme.bodyText1!.color,
-                  fontSize: 16.0);
+                msg: 'Connecting Hub to wireless network is not supported',
+                toastLength: Toast.LENGTH_SHORT,
+                gravity: ToastGravity.SNACKBAR,
+                backgroundColor: Colors.lightBlue,
+                textColor: Theme.of(context).textTheme.bodyText1!.color,
+                fontSize: 16.0,
+              );
             },
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 30),
