@@ -27,14 +27,14 @@ class BottomNavigationBarHomePage extends StatelessWidget {
           icon: const FaIcon(FontAwesomeIcons.solidLightbulb),
           label: 'Devices'.tr(),
         ),
-        BottomNavigationBarItem(
-          icon: const FaIcon(FontAwesomeIcons.history),
-          label: 'Routines'.tr(),
-        ),
-        BottomNavigationBarItem(
-          icon: const FaIcon(FontAwesomeIcons.link),
-          label: 'Bindings'.tr(),
-        ),
+        // BottomNavigationBarItem(
+        //   icon: const FaIcon(FontAwesomeIcons.history),
+        //   label: 'Routines'.tr(),
+        // ),
+        // BottomNavigationBarItem(
+        //   icon: const FaIcon(FontAwesomeIcons.link),
+        //   label: 'Bindings'.tr(),
+        // ),
       ],
     );
   }

@@ -74,15 +74,16 @@ class OpenAccessPointWidget extends StatelessWidget {
                             onPressed: () {
                               FlutterClipboard.copy('CyBear Jinni').then(
                                 (value) => Fluttertoast.showToast(
-                                    msg: 'Copy',
-                                    toastLength: Toast.LENGTH_SHORT,
-                                    gravity: ToastGravity.SNACKBAR,
-                                    backgroundColor: Colors.lightBlue,
-                                    textColor: Theme.of(context)
-                                        .textTheme
-                                        .bodyText1!
-                                        .color,
-                                    fontSize: 16.0),
+                                  msg: 'Copy',
+                                  toastLength: Toast.LENGTH_SHORT,
+                                  gravity: ToastGravity.SNACKBAR,
+                                  backgroundColor: Colors.lightBlue,
+                                  textColor: Theme.of(context)
+                                      .textTheme
+                                      .bodyText1!
+                                      .color,
+                                  fontSize: 16.0,
+                                ),
                               );
                             },
                             child: Column(
@@ -121,15 +122,16 @@ class OpenAccessPointWidget extends StatelessWidget {
                             onPressed: () {
                               FlutterClipboard.copy('CyBear Jinni').then(
                                 (value) => Fluttertoast.showToast(
-                                    msg: 'Copy',
-                                    toastLength: Toast.LENGTH_SHORT,
-                                    gravity: ToastGravity.SNACKBAR,
-                                    backgroundColor: Colors.lightBlue,
-                                    textColor: Theme.of(context)
-                                        .textTheme
-                                        .bodyText1!
-                                        .color,
-                                    fontSize: 16.0),
+                                  msg: 'Copy',
+                                  toastLength: Toast.LENGTH_SHORT,
+                                  gravity: ToastGravity.SNACKBAR,
+                                  backgroundColor: Colors.lightBlue,
+                                  textColor: Theme.of(context)
+                                      .textTheme
+                                      .bodyText1!
+                                      .color,
+                                  fontSize: 16.0,
+                                ),
                               );
                             },
                             child: Column(

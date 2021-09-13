@@ -3,8 +3,6 @@ import 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/home_page/bottom_navigation_bar_home_page.dart';
 import 'package:cybear_jinni/presentation/home_page/left_navigation_drawer_home_page.dart';
-import 'package:cybear_jinni/presentation/home_page/tabs/bindings_tab/bindings_page.dart';
-import 'package:cybear_jinni/presentation/home_page/tabs/routine_tab/routines_page.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/scenes_in_folders_tab/scenes_in_folders_tab.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/smart_devices_widgets.dart';
 import 'package:flutter/material.dart';
@@ -31,8 +29,8 @@ class _HomePageState extends State<HomePage> {
   final _pages = [
     ScenesInFoldersTab(),
     SmartDevicesWidgets(),
-    RoutinesPage(),
-    BindingsPage(),
+    // RoutinesPage(),
+    // BindingsPage(),
   ];
   final _pageController = PageController();
 
