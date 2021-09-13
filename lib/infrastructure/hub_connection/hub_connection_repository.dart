@@ -11,6 +11,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:location/location.dart';
+import 'package:logger/logger.dart';
 import 'package:multicast_dns/multicast_dns.dart';
 import 'package:network_info_plus/network_info_plus.dart';
 import 'package:permission_handler/permission_handler.dart'
@@ -101,6 +102,8 @@ class HubConnectionRepository extends IHubConnectionRepository {
 
   @override
   Future<Either<HubFailures, Unit>> searchForHub() async {
+    final Logger logger = Logger();
+
     try {
       final Either<HubFailures, Unit> locationRequest =
           await askLocationPermissionAndLocationOn();
@@ -109,19 +112,19 @@ class HubConnectionRepository extends IHubConnectionRepository {
         return locationRequest;
       }
 
-      print('searchForHub');
+      logger.i('searchForHub');
       final String? wifiIP = await NetworkInfo().getWifiIP();
 
       final String subnet = wifiIP!.substring(0, wifiIP.lastIndexOf('.'));
 
-      print('subnet IP $subnet');
+      logger.i('subnet IP $subnet');
 
       final Stream<NetworkAddress> stream =
           NetworkAnalyzer.discover2(subnet, hubPort);
 
       await for (final NetworkAddress address in stream) {
         if (address.exists) {
-          print('Found device: ${address.ip}');
+          logger.i('Found device: ${address.ip}');
 
           final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
           final String? wifiName = await NetworkInfo().getWifiName();
@@ -137,7 +140,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
         }
       }
     } catch (e) {
-      print('Exception searchForHub $e');
+      logger.w('Exception searchForHub $e');
     }
     return left(const HubFailures.cantFindHubInNetwork());
   }
