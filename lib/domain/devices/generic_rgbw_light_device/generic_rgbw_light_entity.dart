@@ -26,6 +26,10 @@ class GenericRgbwLightDE extends DeviceEntityAbstract {
     DevicePowerConsumption? powerConsumption,
     required this.lightSwitchState,
     required this.lightColorTemperature,
+    required this.lightColorAlpha,
+    required this.lightColorHue,
+    required this.lightColorSaturation,
+    required this.lightColorValue,
     required this.lightBrightness,
   }) : super(
           uniqueId: uniqueId,
@@ -48,8 +52,20 @@ class GenericRgbwLightDE extends DeviceEntityAbstract {
   /// Color temperature in int
   GenericRgbwLightColorTemperature? lightColorTemperature;
 
+  /// Color alpha in double
+  GenericRgbwLightColorAlpha lightColorAlpha;
+
+  /// Color hue in double
+  GenericRgbwLightColorHue lightColorHue;
+
+  /// Color saturation in double
+  GenericRgbwLightColorSaturation lightColorSaturation;
+
+  /// Color value in double
+  GenericRgbwLightColorValue lightColorValue;
+
   /// Brightness 0-100%
-  GenericRgbwLightBrightness? lightBrightness;
+  GenericRgbwLightBrightness lightBrightness;
 
   /// Empty instance of GenericLightEntity
   factory GenericRgbwLightDE.empty() => GenericRgbwLightDE(
@@ -69,6 +85,10 @@ class GenericRgbwLightDE extends DeviceEntityAbstract {
             GenericRgbwLightSwitchState(DeviceActions.off.toString()),
         lightColorTemperature: GenericRgbwLightColorTemperature(''),
         lightBrightness: GenericRgbwLightBrightness(''),
+        lightColorAlpha: GenericRgbwLightColorAlpha(''),
+        lightColorHue: GenericRgbwLightColorHue(''),
+        lightColorSaturation: GenericRgbwLightColorSaturation(''),
+        lightColorValue: GenericRgbwLightColorValue(''),
       );
 
   Option<CoreFailure<dynamic>> get failureOption =>
@@ -112,8 +132,12 @@ class GenericRgbwLightDE extends DeviceEntityAbstract {
       compUuid: compUuid.getOrCrash(),
       lightSwitchState: lightSwitchState!.getOrCrash(),
       deviceVendor: deviceVendor.getOrCrash(),
-      lightColorTemperature: lightBrightness!.getOrCrash(),
-      lightBrightness: lightBrightness!.getOrCrash(),
+      lightColorTemperature: lightBrightness.getOrCrash(),
+      lightBrightness: lightBrightness.getOrCrash(),
+      lightColorAlpha: lightColorAlpha.getOrCrash(),
+      lightColorHue: lightColorHue.getOrCrash(),
+      lightColorSaturation: lightColorSaturation.getOrCrash(),
+      lightColorValue: lightColorValue.getOrCrash(),
       // serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }

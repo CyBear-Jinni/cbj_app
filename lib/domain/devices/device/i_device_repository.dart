@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/widgets.dart';
 import 'package:kt_dart/kt.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -53,6 +54,11 @@ abstract class IDeviceRepository {
 
   Future<Either<DevicesFailure, Unit>> turnOffDevices({
     required List<String>? devicesId,
+  });
+
+  Future<Either<DevicesFailure, Unit>> changeColorDevices({
+    required List<String>? devicesId,
+    required HSVColor colorToChange,
   });
 
   Future<Either<DevicesFailure, Unit>> moveUpBlinds({
