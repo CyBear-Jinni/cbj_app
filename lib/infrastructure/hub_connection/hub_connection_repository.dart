@@ -7,11 +7,11 @@ import 'package:cybear_jinni/domain/hub/hub_value_objects.dart';
 import 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/hub_client.dart';
 import 'package:cybear_jinni/injection.dart';
+import 'package:cybear_jinni/utils.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:location/location.dart';
-import 'package:logger/logger.dart';
 import 'package:multicast_dns/multicast_dns.dart';
 import 'package:network_info_plus/network_info_plus.dart';
 import 'package:permission_handler/permission_handler.dart'
@@ -102,8 +102,6 @@ class HubConnectionRepository extends IHubConnectionRepository {
 
   @override
   Future<Either<HubFailures, Unit>> searchForHub() async {
-    final Logger logger = Logger();
-
     try {
       final Either<HubFailures, Unit> locationRequest =
           await askLocationPermissionAndLocationOn();
