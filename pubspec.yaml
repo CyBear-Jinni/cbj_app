@@ -1,6 +1,6 @@
 name: cybear_jinni
 description: CyBear Jinni app to interact with your CyBear Jinni Smart Devices
-version: 1.1.0+28
+version: 1.1.0+29
 homepage: https://cybearjinni.com+
 
 publish_to: 'none'
@@ -109,6 +109,8 @@ dependencies:
   liquid_progress_indicator_ns: ^1.0.0
   # Handles getting a location on
   location: ^4.3.0
+  # Small, easy to use and extensible logger which prints beautiful logs.
+  logger: ^1.1.0
   # Service discovery over multicast DNS (mDNS), Bonjour, and Avahi.
   multicast_dns: ^0.3.1
   # Discover network info and configure themselves accordingly

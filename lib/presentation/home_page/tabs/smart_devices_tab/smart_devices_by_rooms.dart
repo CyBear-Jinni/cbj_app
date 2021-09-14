@@ -288,37 +288,42 @@ class SmartDevicesByRooms extends StatelessWidget {
               ),
             );
           } else {
-            return SingleChildScrollView(
-              reverse: true,
-              padding: const EdgeInsets.only(bottom: 15),
-              child: Column(
-                children: [
-                  Container(
-                    margin: const EdgeInsets.symmetric(vertical: 30),
-                    alignment: Alignment.center,
-                    child: Image.asset(
-                      'assets/cbj_logo.png',
-                      fit: BoxFit.fitHeight,
+            return GestureDetector(
+              onTap: () {
+                Fluttertoast.showToast(
+                  msg: 'Add new device by pressing the plus button',
+                  toastLength: Toast.LENGTH_LONG,
+                  gravity: ToastGravity.CENTER,
+                  backgroundColor: Colors.blueGrey,
+                  textColor: Theme.of(context).textTheme.bodyText1!.color,
+                  fontSize: 16.0,
+                );
+              },
+              child: SingleChildScrollView(
+                reverse: true,
+                padding: const EdgeInsets.only(bottom: 15),
+                child: Column(
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.symmetric(vertical: 30),
+                      alignment: Alignment.center,
+                      child: Image.asset(
+                        'assets/cbj_logo.png',
+                        fit: BoxFit.fitHeight,
+                      ),
                     ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      Fluttertoast.showToast(
-                          msg: 'Add new device by pressing the three dots '
-                              'in the top corner',
-                          toastLength: Toast.LENGTH_LONG,
-                          gravity: ToastGravity.CENTER,
-                          backgroundColor: Colors.blueGrey,
-                          textColor:
-                              Theme.of(context).textTheme.bodyText1!.color,
-                          fontSize: 16.0);
-                    },
-                    child: const Text(
-                      'Devices list is empty.',
-                      style: TextStyle(fontSize: 30),
+                    Align(
+                      alignment: Alignment.topCenter,
+                      child: Text(
+                        'Devices list is empty',
+                        style: TextStyle(
+                          fontSize: 30,
+                          color: Theme.of(context).primaryColor,
+                        ),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             );
           }

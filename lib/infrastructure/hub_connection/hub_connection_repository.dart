@@ -7,6 +7,7 @@ import 'package:cybear_jinni/domain/hub/hub_value_objects.dart';
 import 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/hub_client.dart';
 import 'package:cybear_jinni/injection.dart';
+import 'package:cybear_jinni/utils.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
@@ -109,19 +110,19 @@ class HubConnectionRepository extends IHubConnectionRepository {
         return locationRequest;
       }
 
-      print('searchForHub');
+      logger.i('searchForHub');
       final String? wifiIP = await NetworkInfo().getWifiIP();
 
       final String subnet = wifiIP!.substring(0, wifiIP.lastIndexOf('.'));
 
-      print('subnet IP $subnet');
+      logger.i('subnet IP $subnet');
 
       final Stream<NetworkAddress> stream =
           NetworkAnalyzer.discover2(subnet, hubPort);
 
       await for (final NetworkAddress address in stream) {
         if (address.exists) {
-          print('Found device: ${address.ip}');
+          logger.i('Found device: ${address.ip}');
 
           final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
           final String? wifiName = await NetworkInfo().getWifiName();
@@ -137,7 +138,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
         }
       }
     } catch (e) {
-      print('Exception searchForHub $e');
+      logger.w('Exception searchForHub $e');
     }
     return left(const HubFailures.cantFindHubInNetwork());
   }

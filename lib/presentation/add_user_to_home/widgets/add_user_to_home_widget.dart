@@ -135,15 +135,14 @@ class AddUserToHomeWidget extends StatelessWidget {
                         onPressed: () {
                           FlutterClipboard.copy(s.homeId).then(
                             (value) => Fluttertoast.showToast(
-                                msg: 'Copy',
-                                toastLength: Toast.LENGTH_SHORT,
-                                gravity: ToastGravity.SNACKBAR,
-                                backgroundColor: Colors.lightBlue,
-                                textColor: Theme.of(context)
-                                    .textTheme
-                                    .bodyText1!
-                                    .color,
-                                fontSize: 16.0),
+                              msg: 'Copy',
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.SNACKBAR,
+                              backgroundColor: Colors.lightBlue,
+                              textColor:
+                                  Theme.of(context).textTheme.bodyText1!.color,
+                              fontSize: 16.0,
+                            ),
                           );
                         },
                         child: Column(
