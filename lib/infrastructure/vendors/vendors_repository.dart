@@ -19,7 +19,8 @@ class VendorsRepository implements IVendorsRepository {
       if (vendorsAndServices.name ==
               VendorsAndServices.vendorsAndServicesNotSupported.name ||
           vendorsAndServices.name == VendorsAndServices.google.name ||
-          vendorsAndServices.name == VendorsAndServices.xiaomiMiio.name) {
+          vendorsAndServices.name == VendorsAndServices.xiaomiMiio.name ||
+          vendorsAndServices.name == VendorsAndServices.lifx.name) {
         continue;
       }
       vendorsWithIcons
@@ -56,6 +57,11 @@ class VendorsMocDataWithImages {
         name: VendorName('Xiaomi Mi'),
         image:
             'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.designbust.com%2Fdownload%2F1629%2Fpng%2Fxiaomi_logo512.png&f=1&nofb=1',
+      ),
+      Vendor(
+        name: VendorName('Lifx'),
+        image:
+            'https://play-lh.googleusercontent.com/k61DT9oYt_BPdzjAFokLY5e-He-YSl7-eZHeieaVO45XDAwQ6ebegsS_ZsQytca2zWM=s180',
       ),
       Vendor(
         name: VendorName('Switcher'),
