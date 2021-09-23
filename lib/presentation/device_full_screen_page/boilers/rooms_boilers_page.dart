@@ -25,9 +25,11 @@ class RoomsBoilersPage extends StatelessWidget {
 
   void cogFunction(BuildContext context) {
     Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (BuildContext context) => SettingsPageOfBoilers()));
+      context,
+      MaterialPageRoute(
+        builder: (BuildContext context) => SettingsPageOfBoilers(),
+      ),
+    );
   }
 
   void backButtonFunction(BuildContext context) {

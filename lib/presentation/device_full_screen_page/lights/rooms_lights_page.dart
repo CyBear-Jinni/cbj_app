@@ -24,9 +24,11 @@ class RoomsLightsPage extends StatelessWidget {
 
   void cogFunction(BuildContext context) {
     Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (BuildContext context) => SettingsPageOfLights()));
+      context,
+      MaterialPageRoute(
+        builder: (BuildContext context) => SettingsPageOfLights(),
+      ),
+    );
   }
 
   void backButtonFunction(BuildContext context) {

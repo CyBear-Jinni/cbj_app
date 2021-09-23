@@ -18,7 +18,8 @@ class VendorsRepository implements IVendorsRepository {
         in VendorsAndServices.values) {
       if (vendorsAndServices.name ==
               VendorsAndServices.vendorsAndServicesNotSupported.name ||
-          vendorsAndServices.name == VendorsAndServices.google.name) {
+          vendorsAndServices.name == VendorsAndServices.google.name ||
+          vendorsAndServices.name == VendorsAndServices.xiaomiMiio.name) {
         continue;
       }
       vendorsWithIcons
@@ -50,6 +51,11 @@ class VendorsMocDataWithImages {
         name: VendorName('Tasmota'),
         image:
             'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.kyAWxT4tVBWL6O2sCJKqaAHaHa%26pid%3DApi&f=1',
+      ),
+      Vendor(
+        name: VendorName('Xiaomi Mi'),
+        image:
+            'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.designbust.com%2Fdownload%2F1629%2Fpng%2Fxiaomi_logo512.png&f=1&nofb=1',
       ),
       Vendor(
         name: VendorName('Switcher'),
