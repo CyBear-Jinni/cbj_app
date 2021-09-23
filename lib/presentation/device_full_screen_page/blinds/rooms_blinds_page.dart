@@ -25,9 +25,11 @@ class RoomsBlindsPage extends StatelessWidget {
 
   void cogFunction(BuildContext context) {
     Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (BuildContext context) => SettingsPageOfBlinds()));
+      context,
+      MaterialPageRoute(
+        builder: (BuildContext context) => SettingsPageOfBlinds(),
+      ),
+    );
   }
 
   void backButtonFunction(BuildContext context) {

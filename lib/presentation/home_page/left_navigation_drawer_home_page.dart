@@ -119,8 +119,8 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                       title: Text(
                         'Manage Users',
                         style: TextStyle(
-                            color:
-                                Theme.of(context).textTheme.bodyText1!.color),
+                          color: Theme.of(context).textTheme.bodyText1!.color,
+                        ),
                       ),
                       onTap: () {
                         context.router.push(const ManageUsersRoute());

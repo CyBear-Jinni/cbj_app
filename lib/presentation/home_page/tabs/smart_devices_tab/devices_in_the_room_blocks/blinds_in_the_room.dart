@@ -32,9 +32,11 @@ class BlindsInTheRoom extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.router.push(RoomsBlindsRoute(
-            showDevicesOnlyFromRoomId: blindsInRoom![0]!.roomId.getOrCrash(),
-            roomColorGradiant: roomColorGradiant));
+        context.router.push(
+          RoomsBlindsRoute(
+              showDevicesOnlyFromRoomId: blindsInRoom![0]!.roomId.getOrCrash(),
+              roomColorGradiant: roomColorGradiant),
+        );
       },
       child: Container(
         color: Colors.amber.withOpacity(0.03),
