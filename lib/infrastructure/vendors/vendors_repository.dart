@@ -19,12 +19,18 @@ class VendorsRepository implements IVendorsRepository {
       if (vendorsAndServices.name ==
               VendorsAndServices.vendorsAndServicesNotSupported.name ||
           vendorsAndServices.name == VendorsAndServices.google.name ||
-          vendorsAndServices.name == VendorsAndServices.xiaomiMiio.name ||
-          vendorsAndServices.name == VendorsAndServices.lifx.name) {
+          vendorsAndServices.name == VendorsAndServices.miHome.name ||
+          vendorsAndServices.name == VendorsAndServices.lifx.name ||
+          vendorsAndServices.name == VendorsAndServices.tuyaSmart.name) {
         continue;
       }
-      vendorsWithIcons
-          .add(vendorPlusImageFromVandorName(vendorsAndServices.name));
+      Vendor v = vendorPlusImageFromVandorName(vendorsAndServices.name);
+      if (vendorsAndServices.name ==
+          VendorsAndServices.switcherSmartHome.name) {
+        v = v.copyWith(name: VendorName('Switcher'));
+      }
+      vendorsWithIcons.add(v);
+
       print(vendorsAndServices.name);
     }
     return right(vendorsWithIcons.toImmutableList());
@@ -64,7 +70,7 @@ class VendorsMocDataWithImages {
             'https://play-lh.googleusercontent.com/k61DT9oYt_BPdzjAFokLY5e-He-YSl7-eZHeieaVO45XDAwQ6ebegsS_ZsQytca2zWM=s180',
       ),
       Vendor(
-        name: VendorName('Switcher'),
+        name: VendorName('SwitcherSmartHome'),
         image:
             'https://play-lh.googleusercontent.com/8L6vVAT2cC78V622nxSznr7Mm_MgMsH25TopH-ZIm5HMwAHRy0qTX29FlHF6_kbBsQ=s180',
       ),
@@ -79,7 +85,7 @@ class VendorsMocDataWithImages {
             'https://www.opc-router.de/wp-content/uploads/2018/07/mqtt_icon_128px.png',
       ),
       Vendor(
-        name: VendorName('Tuya'),
+        name: VendorName('TuyaSmart'),
         image:
             'https://play-lh.googleusercontent.com/KGM9NYnyox9TXwoaY3PKl1PfQ2rTPp1rnpNNtmlbgozJZykhZhGKsL3z9myoj4ccayLS=s180',
       ),

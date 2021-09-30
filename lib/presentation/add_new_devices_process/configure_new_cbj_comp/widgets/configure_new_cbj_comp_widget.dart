@@ -298,7 +298,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                 ),
                 alignment: Alignment.center,
                 child: Text(
-                  'Setting up computer',
+                  'Setting up comptter',
                   style: TextStyle(
                       fontSize: 25,
                       color: Theme.of(context).textTheme.bodyText1!.color),
@@ -332,8 +332,8 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                       Text(
                         'Please wait as we are setting your new computer',
                         style: TextStyle(
-                            color:
-                                Theme.of(context).textTheme.bodyText1!.color),
+                          color: Theme.of(context).textTheme.bodyText1!.color,
+                        ),
                       ),
                     ],
                   ),
