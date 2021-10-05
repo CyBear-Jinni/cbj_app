@@ -150,3 +150,6 @@ smart_home_flutter/gen/
 
 /Files/googlePlayStore/
 
+.fvm/
+.idea/
+
