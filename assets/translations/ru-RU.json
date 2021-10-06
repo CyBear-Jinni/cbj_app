@@ -58,7 +58,7 @@
   "Update": "Обновить",
   "IP": "IP-адрес",
   "This_is_firebase": "Это - firebase",
-  "Device_with_ip:_": "Устройство с IP-адресом: {}"
+  "Device_with_ip:_": "Устройство с IP-адресом: {}",
   "Update_WiFi_configuration": "Обновите настройки WiFi",
   "WiFi_name_is_required": "Имя WiFi-сети обязательно",
   "WiFi_Name": "Имя WiFi-сети",
