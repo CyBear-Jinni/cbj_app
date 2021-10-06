@@ -44,7 +44,7 @@ class VendorsAndServices extends $pb.ProtobufEnum {
       7,
       const $core.bool.fromEnvironment('protobuf.omit_enum_names')
           ? ''
-          : 'generic_lifx_login');
+          : 'lifx');
   static const VendorsAndServices tuyaSmart = VendorsAndServices._(
       8,
       const $core.bool.fromEnvironment('protobuf.omit_enum_names')

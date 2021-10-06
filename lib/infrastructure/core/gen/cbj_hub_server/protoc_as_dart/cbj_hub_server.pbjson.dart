@@ -14,7 +14,7 @@ const VendorsAndServices$json = const {
     const {'1': 'yeelight', '2': 4},
     const {'1': 'google', '2': 5},
     const {'1': 'miHome', '2': 6},
-    const {'1': 'generic_lifx_login', '2': 7},
+    const {'1': 'lifx', '2': 7},
     const {'1': 'tuyaSmart', '2': 8},
   ],
 };
