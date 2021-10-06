@@ -5,6 +5,7 @@ import 'package:cybear_jinni/presentation/add_new_devices_process/connect_to_hom
 import 'package:cybear_jinni/presentation/add_new_devices_process/open_access_point/open_access_pointi_page.dart';
 import 'package:cybear_jinni/presentation/add_new_devices_process/scan_for_new_cbj_comps/scan_for_new_cbj_comps_page.dart';
 import 'package:cybear_jinni/presentation/add_user_to_home/add_user_to_home_page.dart';
+import 'package:cybear_jinni/presentation/add_vendors_pages/add_lifx_vendor/add_lifx_vendor_page.dart';
 import 'package:cybear_jinni/presentation/connect_to_hub/connect_to_hub_page.dart';
 import 'package:cybear_jinni/presentation/create_home/create_home_page.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/blinds/rooms_blinds_page.dart';
@@ -41,6 +42,7 @@ import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_pag
     AutoRoute(page: AddUserToHomePage),
     AutoRoute(page: ScenesPage),
     AutoRoute(page: ChooseDeviceVendorToAddPage),
+    AutoRoute(page: AddLifxVendorPage),
     AutoRoute(page: ConnectToHomeWifiPage),
     AutoRoute(page: OpenAccessPointPage),
     AutoRoute(page: ScanForNewCBJCompsPage),
@@ -61,6 +63,7 @@ class $AppRouter {
   late CreateHomePage createHomePage;
   late ScenesPage scenesPage;
   late ChooseDeviceVendorToAddPage chooseDeviceVendorToAddPage;
+  late AddLifxVendorPage addLifxVendorPage;
   late ConnectToHomeWifiPage connectToHomeWifiPage;
   late OpenAccessPointPage openAccessPointPage;
   late ScanForNewCBJCompsPage scanForNewCBJCompsPage;

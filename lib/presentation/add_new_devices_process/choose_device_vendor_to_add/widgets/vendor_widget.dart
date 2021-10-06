@@ -1,4 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/domain/vendors/vendor.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -13,14 +16,20 @@ class VendorWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Fluttertoast.showToast(
-          msg: vendor.name.getOrCrash(),
-          toastLength: Toast.LENGTH_SHORT,
-          gravity: ToastGravity.SNACKBAR,
-          backgroundColor: Colors.lightBlue,
-          textColor: Theme.of(context).textTheme.bodyText1!.color,
-          fontSize: 16.0,
-        );
+        if (vendor.name.getOrCrash().toLowerCase() ==
+            VendorsAndServices.lifx.name) {
+          context.router.replace(const AddLifxVendorRoute());
+        } else {
+          Fluttertoast.showToast(
+            msg: '${vendor.name.getOrCrash()} devices will be add automatically'
+                ' for you',
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.SNACKBAR,
+            backgroundColor: Colors.lightBlue,
+            textColor: Theme.of(context).textTheme.bodyText1!.color,
+            fontSize: 16.0,
+          );
+        }
       },
       child: Container(
         height: 100,

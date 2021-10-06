@@ -20,7 +20,6 @@ class VendorsRepository implements IVendorsRepository {
               VendorsAndServices.vendorsAndServicesNotSupported.name ||
           vendorsAndServices.name == VendorsAndServices.google.name ||
           vendorsAndServices.name == VendorsAndServices.miHome.name ||
-          vendorsAndServices.name == VendorsAndServices.lifx.name ||
           vendorsAndServices.name == VendorsAndServices.tuyaSmart.name) {
         continue;
       }
