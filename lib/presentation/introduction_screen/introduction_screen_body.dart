@@ -99,8 +99,9 @@ class IntroductionScreenBody extends StatelessWidget {
                 Text(
                   'Our Vision',
                   style: TextStyle(
-                      color: Theme.of(context).textTheme.bodyText1!.color,
-                      fontSize: 30),
+                    color: Theme.of(context).textTheme.bodyText1!.color,
+                    fontSize: 30,
+                  ),
                 ),
               ],
             ),

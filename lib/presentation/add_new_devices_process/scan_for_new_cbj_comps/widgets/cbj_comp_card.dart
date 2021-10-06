@@ -78,12 +78,14 @@ class CBJCompCard extends StatelessWidget {
             ),
             onPressed: () {
               context.router.replace(
-                  ConfigureNewCbjCompRoute(cbjCompEntity: cbjCompEntity));
+                ConfigureNewCbjCompRoute(cbjCompEntity: cbjCompEntity),
+              );
             },
             child: Text(
               'Set up computer',
               style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyText1!.color),
+                color: Theme.of(context).textTheme.bodyText1!.color,
+              ),
             ),
           ),
         ],
