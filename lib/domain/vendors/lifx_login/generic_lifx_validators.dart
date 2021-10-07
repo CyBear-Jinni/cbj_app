@@ -1,9 +1,10 @@
-import 'package:cybear_jinni/domain/devices/abstract_device/core_failures.dart';
+import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:dartz/dartz.dart';
 
-Either<CoreFailure<String>, String> validateGenericLifxStateNotEmty(
-    String input) {
+Either<CoreLoginFailure<String>, String> validateGenericLifxStateNotEmty(
+  String input,
+) {
   if (input != null) {
     if (input == true.toString()) {
       return right(DeviceActions.on.toString());
@@ -12,6 +13,6 @@ Either<CoreFailure<String>, String> validateGenericLifxStateNotEmty(
     }
     return right(input);
   } else {
-    return left(CoreFailure.empty(failedValue: input));
+    return left(CoreLoginFailure.empty(failedValue: input));
   }
 }

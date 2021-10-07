@@ -1,8 +1,9 @@
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/application/auth/auth_bloc.dart';
 import 'package:cybear_jinni/application/lifix_auth/lifx_sign_in_form/lifx_sign_in_form_bloc.dart';
+import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
+import 'package:dartz/dartz.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,23 +17,22 @@ class LifxSignInForm extends StatelessWidget {
       listener: (context, state) {
         state.authFailureOrSuccessOption.fold(
           () {},
-          (either) => either.fold(
-              (failure) => {
+          (Either<CoreLoginFailure, Unit> either) => either.fold(
+              (CoreLoginFailure failure) => {
                     FlushbarHelper.createError(
-                      message: failure.map(
-                        cancelledByUser: (_) => 'Cancelled',
-                        serverError: (_) => 'Server error',
-                        emailAlreadyInUse: (_) => 'Email already in use',
-                        invalidEmailAndPasswordCombination: (_) =>
-                            'Invalid email and password combination',
-                      ),
+                      message: 'Validation error',
+                      // failure.map(
+                      //   cancelledByUser: (_) => 'Cancelled',
+                      //   serverError: (_) => 'Server error',
+                      //   invalidApiKey: (_) => 'Email already in use',
+                      // ),
                     ).show(context),
                   }, (_) {
             context.router.push(const WhereToLoginRouteMinimalRoute());
 
-            context
-                .read()<AuthBloc>()
-                .add(const AuthEvent.authCheckRequested());
+            // context
+            //     .read()<LifxSignInFormBloc>()
+            //     .add(const LifxSignInFormEvent.());
           }),
         );
       },
@@ -70,53 +70,30 @@ class LifxSignInForm extends StatelessWidget {
                     ),
                     TextFormField(
                       decoration: const InputDecoration(
-                        prefixIcon: Icon(Icons.email),
-                        labelText: 'Email',
+                        prefixIcon: Icon(Icons.vpn_key),
+                        labelText: 'Lifx API Key',
                       ),
                       autocorrect: false,
                       onChanged: (value) => context
                           .read<LifxSignInFormBloc>()
-                          .add(LifxSignInFormEvent.emailChanged(value)),
+                          .add(LifxSignInFormEvent.apiKeyChanged(value)),
                       validator: (_) => context
                           .read<LifxSignInFormBloc>()
                           .state
-                          .emailAddress
+                          .lifxApiKey
                           .value
                           .fold(
-                            (f) => f.maybeMap(
-                              invalidEmail: (result) => result.failedValue,
-                              containsSpace: (result) => result.failedValue,
-                              orElse: () => null,
-                            ),
+                            (CoreLoginFailure f) => 'Validation error',
+                            //   f.maybeMap(
+                            // invalidEmail: (result) => result.failedValue,
+                            // containsSpace: (result) => result.failedValue,
+                            // orElse: () => null,
+                            // ),
                             (r) => null,
                           ),
                     ),
                     const SizedBox(
                       height: 8,
-                    ),
-                    TextFormField(
-                      decoration: const InputDecoration(
-                        prefixIcon: Icon(Icons.lock),
-                        labelText: 'Password',
-                      ),
-                      autocorrect: false,
-                      obscureText: true,
-                      onChanged: (value) => context
-                          .read<LifxSignInFormBloc>()
-                          .add(LifxSignInFormEvent.passwordChanged(value)),
-                      validator: (_) => context
-                          .read<LifxSignInFormBloc>()
-                          .state
-                          .password
-                          .value
-                          .fold(
-                            (f) => f.maybeMap(
-                              shortPassword: (result) => result.failedValue,
-                              containsSpace: (result) => result.failedValue,
-                              orElse: () => null,
-                            ),
-                            (r) => null,
-                          ),
                     ),
                     Row(
                       children: [
@@ -125,21 +102,10 @@ class LifxSignInForm extends StatelessWidget {
                             onPressed: () {
                               context.read<LifxSignInFormBloc>().add(
                                     const LifxSignInFormEvent
-                                        .signInWithEmailAndPasswordPassed(),
+                                        .signInWithApiKey(),
                                   );
                             },
                             child: const Text('SIGN IN'),
-                          ),
-                        ),
-                        Expanded(
-                          child: TextButton(
-                            onPressed: () {
-                              context.read<LifxSignInFormBloc>().add(
-                                    const LifxSignInFormEvent
-                                        .registerWithEmailAndPassword(),
-                                  );
-                            },
-                            child: const Text('REGISTER'),
                           ),
                         ),
                       ],

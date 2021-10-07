@@ -1,6 +1,6 @@
-import 'package:cybear_jinni/domain/vendors_login/login_abstract/core_login_errors.dart';
-import 'package:cybear_jinni/domain/vendors_login/login_abstract/core_login_failures.dart';
-import 'package:cybear_jinni/domain/vendors_login/login_abstract/core_login_validators.dart';
+import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.dart';
+import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_validators.dart';
+import 'package:cybear_jinni/domain/vendors/vendor_errors.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:uuid/uuid.dart';
@@ -11,10 +11,10 @@ abstract class ValueObjectCoreLogin<T> {
 
   Either<CoreLoginFailure<T>, T> get value;
 
-  /// Throws [UnexpectedValueError] containing the [AuthValueFailure]
+  /// Throws [UnexpectedValueError] containing the [CoreLoginFailure]
   T getOrCrash() {
     // id = identity - same as writing (right) => right
-    return value.fold((f) => throw CoreLoginUnexpectedValueError(f), id);
+    return value.fold((f) => throw VendorUnexpectedValueError(f), id);
   }
 
   Either<CoreLoginFailure<dynamic>, Unit> get failureOrUnit {
@@ -57,7 +57,7 @@ class CoreLoginVendor extends ValueObjectCoreLogin<String> {
   factory CoreLoginVendor(String? input) {
     assert(input != null);
     return CoreLoginVendor._(
-      validateLoginVendorExist(input!),
+      validateLoginNotEmpty(input!),
     );
   }
 

@@ -1,4 +1,6 @@
 import 'package:cybear_jinni/domain/vendors/i_vendor_repository.dart';
+import 'package:cybear_jinni/domain/vendors/lifx_login/generic_lifx_entity.dart';
+import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.dart';
 import 'package:cybear_jinni/domain/vendors/vendor.dart';
 import 'package:cybear_jinni/domain/vendors/vendor_failures.dart';
 import 'package:cybear_jinni/domain/vendors/vendor_value_objects.dart';
@@ -47,6 +49,14 @@ class VendorsRepository implements IVendorsRepository {
         name: VendorName(vendorName),
         image:
             'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.seilevel.com%2Frequirements%2Fwp-content%2Fplugins%2Fstormhill_author_page%2Fimg%2Fimage-not-found.png&f=1&nofb=1');
+  }
+
+  @override
+  Future<Either<CoreLoginValueFailure, KtList<Vendor>>> loginWithLifx(
+    GenericLifxDE genericLifxDE,
+  ) async {
+    // TODO: implement loginWithLifx
+    throw UnimplementedError();
   }
 }
 

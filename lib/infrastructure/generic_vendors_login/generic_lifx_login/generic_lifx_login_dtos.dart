@@ -1,6 +1,6 @@
-import 'package:cybear_jinni/domain/vendors_login/lifx_login/generic_lifx_entity.dart';
-import 'package:cybear_jinni/domain/vendors_login/login_abstract/login_entity_abstract.dart';
-import 'package:cybear_jinni/domain/vendors_login/login_abstract/value_login_objects_core.dart';
+import 'package:cybear_jinni/domain/vendors/lifx_login/generic_lifx_entity.dart';
+import 'package:cybear_jinni/domain/vendors/login_abstract/login_entity_abstract.dart';
+import 'package:cybear_jinni/domain/vendors/login_abstract/value_login_objects_core.dart';
 import 'package:cybear_jinni/infrastructure/generic_vendors_login/generic_login_abstract/login_entity_dto_abstract.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

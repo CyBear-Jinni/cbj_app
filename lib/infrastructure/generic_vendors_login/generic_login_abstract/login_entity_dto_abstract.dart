@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/domain/vendors_login/login_abstract/login_entity_abstract.dart';
+import 'package:cybear_jinni/domain/vendors/login_abstract/login_entity_abstract.dart';
 import 'package:cybear_jinni/infrastructure/generic_vendors_login/generic_lifx_login/generic_lifx_login_dtos.dart';
 
 class LoginEntityDtoAbstract {

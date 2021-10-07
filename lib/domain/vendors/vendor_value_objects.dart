@@ -1,5 +1,5 @@
+import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.dart';
 import 'package:cybear_jinni/domain/vendors/vendor_errors.dart';
-import 'package:cybear_jinni/domain/vendors/vendor_failures.dart';
 import 'package:cybear_jinni/domain/vendors/vendor_validators.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
@@ -8,15 +8,15 @@ import 'package:flutter/foundation.dart';
 abstract class VendorValueObjectAbstract<T> {
   const VendorValueObjectAbstract();
 
-  Either<VendorFailure<T>, T> get value;
+  Either<CoreLoginFailure<T>, T> get value;
 
-  /// Throws [UnexpectedValueError] containing the [VendorFailure]
+  /// Throws [UnexpectedValueError] containing the [CoreLoginFailure]
   T getOrCrash() {
     // id = identity - same as writing (right) => right
     return value.fold((f) => throw VendorUnexpectedValueError(f), id);
   }
 
-  Either<VendorFailure<dynamic>, Unit> get failureOrUnit {
+  Either<CoreLoginFailure<dynamic>, Unit> get failureOrUnit {
     return value.fold((l) => left(l), (r) => right(unit));
   }
 
@@ -47,5 +47,5 @@ class VendorName extends VendorValueObjectAbstract<String> {
   const VendorName._(this.value);
 
   @override
-  final Either<VendorFailure<String>, String> value;
+  final Either<CoreLoginFailure<String>, String> value;
 }
