@@ -1,8 +1,12 @@
 import 'package:cybear_jinni/domain/vendors/i_vendor_repository.dart';
+import 'package:cybear_jinni/domain/vendors/lifx_login/generic_lifx_login_entity.dart';
+import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.dart';
 import 'package:cybear_jinni/domain/vendors/vendor.dart';
 import 'package:cybear_jinni/domain/vendors/vendor_failures.dart';
 import 'package:cybear_jinni/domain/vendors/vendor_value_objects.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/hub_client.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cybear_jinni/infrastructure/vendors/vendor_helper.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
@@ -47,6 +51,27 @@ class VendorsRepository implements IVendorsRepository {
         name: VendorName(vendorName),
         image:
             'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.seilevel.com%2Frequirements%2Fwp-content%2Fplugins%2Fstormhill_author_page%2Fimg%2Fimage-not-found.png&f=1&nofb=1');
+  }
+
+  @override
+  Future<Either<CoreLoginFailure, Unit>> loginWithLifx(
+    GenericLifxLoginDE genericLifxDE,
+  ) async {
+    try {
+      final String loginDtoAsString =
+          VendorHelper.convertDomainToJsonString(genericLifxDE);
+
+      final ClientStatusRequests clientStatusRequests = ClientStatusRequests(
+        allRemoteCommands: loginDtoAsString,
+        sendingType: SendingType.vendorLoginType,
+      );
+
+      AppRequestsToHub.appRequestsToHubStreamController.sink
+          .add(clientStatusRequests);
+      return right(unit);
+    } catch (e) {
+      return left(CoreLoginFailure.unexpected());
+    }
   }
 }
 

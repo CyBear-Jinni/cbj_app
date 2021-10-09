@@ -31,15 +31,18 @@ class LightsWatcherBloc extends Bloc<LightsWatcherEvent, LightsWatcherState> {
         yield const LightsWatcherState.loadInProgress();
         await _deviceStreamSubscription?.cancel();
         _deviceStreamSubscription = _deviceRepository.watchLights().listen(
-            (eventWatch) =>
-                add(LightsWatcherEvent.devicesReceived(eventWatch)));
+              (eventWatch) =>
+                  add(LightsWatcherEvent.devicesReceived(eventWatch)),
+            );
       },
       devicesReceived: (e) async* {
         yield const LightsWatcherState.loadInProgress();
         yield e.failureOrDevices.fold(
-            (f) => LightsWatcherState.loadFailure(f),
-            (d) => LightsWatcherState.loadSuccess(
-                d.map((v) => v!).toMutableList()));
+          (f) => LightsWatcherState.loadFailure(f),
+          (d) => LightsWatcherState.loadSuccess(
+            d.map((v) => v!).toMutableList(),
+          ),
+        );
       },
     );
   }

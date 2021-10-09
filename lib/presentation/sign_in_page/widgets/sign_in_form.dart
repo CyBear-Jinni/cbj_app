@@ -71,11 +71,13 @@ class SignInForm extends StatelessWidget {
                           .emailAddress
                           .value
                           .fold(
-                              (f) => f.maybeMap(
-                                  invalidEmail: (result) => result.failedValue,
-                                  containsSpace: (result) => result.failedValue,
-                                  orElse: () => null),
-                              (r) => null),
+                            (f) => f.maybeMap(
+                              invalidEmail: (result) => result.failedValue,
+                              containsSpace: (result) => result.failedValue,
+                              orElse: () => null,
+                            ),
+                            (r) => null,
+                          ),
                     ),
                     const SizedBox(
                       height: 8,
@@ -96,11 +98,13 @@ class SignInForm extends StatelessWidget {
                           .password
                           .value
                           .fold(
-                              (f) => f.maybeMap(
-                                  shortPassword: (result) => result.failedValue,
-                                  containsSpace: (result) => result.failedValue,
-                                  orElse: () => null),
-                              (r) => null),
+                            (f) => f.maybeMap(
+                              shortPassword: (result) => result.failedValue,
+                              containsSpace: (result) => result.failedValue,
+                              orElse: () => null,
+                            ),
+                            (r) => null,
+                          ),
                     ),
                     Row(
                       children: [

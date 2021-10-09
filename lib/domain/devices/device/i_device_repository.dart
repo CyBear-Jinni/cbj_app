@@ -74,7 +74,8 @@ abstract class IDeviceRepository {
   });
 
   Future<Either<DevicesFailure, Unit>> delete(
-      DeviceEntityAbstract deviceEntity);
+    DeviceEntityAbstract deviceEntity,
+  );
 
   BehaviorSubject<KtList<DeviceEntityAbstract?>> devicesStreamController =
       BehaviorSubject<KtList<DeviceEntityAbstract?>>();

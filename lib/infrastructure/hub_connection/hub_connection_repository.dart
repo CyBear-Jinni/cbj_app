@@ -52,7 +52,9 @@ class HubConnectionRepository extends IHubConnectionRepository {
       }
 
       await HubClient.createStreamWithHub(
-          hubEntity!.lastKnownIp!.getOrCrash(), hubPort);
+        hubEntity!.lastKnownIp!.getOrCrash(),
+        hubPort,
+      );
       return;
     } else {
       // await HubClient.createStreamWithHub('', 50051);

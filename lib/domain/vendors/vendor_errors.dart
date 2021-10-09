@@ -1,9 +1,9 @@
-import 'package:cybear_jinni/domain/vendors/vendor_failures.dart';
+import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.dart';
 
 class VendorUnexpectedValueError extends Error {
   VendorUnexpectedValueError(this.vendorValueFailure);
 
-  final VendorFailure vendorValueFailure;
+  final CoreLoginFailure vendorValueFailure;
 
   @override
   String toString() {
