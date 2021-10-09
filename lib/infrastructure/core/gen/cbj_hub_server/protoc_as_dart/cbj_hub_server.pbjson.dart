@@ -14,15 +14,18 @@ const VendorsAndServices$json = const {
   '2': const [
     const {'1': 'vendorsAndServicesNotSupported', '2': 0},
     const {'1': 'espHome', '2': 1},
-    const {'1': 'switcher', '2': 2},
+    const {'1': 'switcherSmartHome', '2': 2},
     const {'1': 'tasmota', '2': 3},
     const {'1': 'yeelight', '2': 4},
     const {'1': 'google', '2': 5},
+    const {'1': 'miHome', '2': 6},
+    const {'1': 'lifx', '2': 7},
+    const {'1': 'tuyaSmart', '2': 8},
   ],
 };
 
 /// Descriptor for `VendorsAndServices`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List vendorsAndServicesDescriptor = $convert.base64Decode('ChJWZW5kb3JzQW5kU2VydmljZXMSIgoedmVuZG9yc0FuZFNlcnZpY2VzTm90U3VwcG9ydGVkEAASCwoHZXNwSG9tZRABEgwKCHN3aXRjaGVyEAISCwoHdGFzbW90YRADEgwKCHllZWxpZ2h0EAQSCgoGZ29vZ2xlEAU=');
+final $typed_data.Uint8List vendorsAndServicesDescriptor = $convert.base64Decode('ChJWZW5kb3JzQW5kU2VydmljZXMSIgoedmVuZG9yc0FuZFNlcnZpY2VzTm90U3VwcG9ydGVkEAASCwoHZXNwSG9tZRABEhUKEXN3aXRjaGVyU21hcnRIb21lEAISCwoHdGFzbW90YRADEgwKCHllZWxpZ2h0EAQSCgoGZ29vZ2xlEAUSCgoGbWlIb21lEAYSCAoEbGlmeBAHEg0KCXR1eWFTbWFydBAI');
 @$core.Deprecated('Use deviceTypesDescriptor instead')
 const DeviceTypes$json = const {
   '1': 'DeviceTypes',
