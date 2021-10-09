@@ -42,7 +42,7 @@ Future<Unit> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
 //  debugPaintSizeEnabled = true;
-  configureDependencies(Env.dev);
+  configureDependencies(Env.prod);
 
   await configureLocalTimeZone();
 
