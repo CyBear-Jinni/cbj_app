@@ -1,4 +1,5 @@
 import 'package:cybear_jinni/domain/vendors/lifx_login/generic_lifx_entity.dart';
+import 'package:cybear_jinni/domain/vendors/lifx_login/generic_lifx_value_objects.dart';
 import 'package:cybear_jinni/domain/vendors/login_abstract/login_entity_abstract.dart';
 import 'package:cybear_jinni/domain/vendors/login_abstract/value_login_objects_core.dart';
 import 'package:cybear_jinni/infrastructure/generic_vendors_login/generic_login_abstract/login_entity_dto_abstract.dart';
@@ -14,6 +15,7 @@ abstract class GenericLifxLoginDtos
     // @JsonKey(ignore: true)
     required String? senderUniqueId,
     required String? loginVendor,
+    required String? lifxApiKey,
     // required ServerTimestampConverter() FieldValue serverTimeStamp,
   }) = _GenericLifxLoginDtos;
 
@@ -26,6 +28,7 @@ abstract class GenericLifxLoginDtos
     return GenericLifxLoginDtos(
       senderUniqueId: genericLifxDE.senderUniqueId.getOrCrash(),
       loginVendor: genericLifxDE.loginVendor.getOrCrash(),
+      lifxApiKey: genericLifxDE.lifxApiKey.getOrCrash(),
 
       // serverTimeStamp: FieldValue.serverTimestamp(),
     );
@@ -37,7 +40,7 @@ abstract class GenericLifxLoginDtos
   LoginEntityAbstract toDomain() {
     return GenericLifxDE(
       senderUniqueId: CoreLoginSenderId.fromUniqueString(senderUniqueId),
-      loginVendor: CoreLoginVendor(loginVendor),
+      lifxApiKey: GenericLifxApiKey(lifxApiKey),
     );
   }
 }

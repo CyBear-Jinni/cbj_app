@@ -9,7 +9,7 @@ import 'lifx_login/generic_lifx_entity.dart';
 abstract class IVendorsRepository {
   Future<Either<VendorFailure, KtList<Vendor>>> getVendors();
 
-  Future<Either<CoreLoginValueFailure, KtList<Vendor>>> loginWithLifx(
+  Future<Either<CoreLoginFailure, Unit>> loginWithLifx(
     GenericLifxDE genericLifxDE,
   );
 }

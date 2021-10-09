@@ -3,15 +3,15 @@ import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.d
 import 'package:cybear_jinni/domain/vendors/login_abstract/value_login_objects_core.dart';
 import 'package:dartz/dartz.dart';
 
-class GenericLifxSwitchState extends ValueObjectCoreLogin<String> {
-  factory GenericLifxSwitchState(String? input) {
+class GenericLifxApiKey extends ValueObjectCoreLogin<String> {
+  factory GenericLifxApiKey(String? input) {
     assert(input != null);
-    return GenericLifxSwitchState._(
-      validateGenericLifxStateNotEmty(input!),
+    return GenericLifxApiKey._(
+      validateGenericLifxApiKeyNotEmty(input!),
     );
   }
 
-  const GenericLifxSwitchState._(this.value);
+  const GenericLifxApiKey._(this.value);
 
   @override
   final Either<CoreLoginFailure<String>, String> value;

@@ -4,7 +4,9 @@ import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.d
 import 'package:cybear_jinni/domain/vendors/vendor.dart';
 import 'package:cybear_jinni/domain/vendors/vendor_failures.dart';
 import 'package:cybear_jinni/domain/vendors/vendor_value_objects.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/hub_client.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cybear_jinni/infrastructure/vendors/vendor_helper.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
@@ -52,11 +54,24 @@ class VendorsRepository implements IVendorsRepository {
   }
 
   @override
-  Future<Either<CoreLoginValueFailure, KtList<Vendor>>> loginWithLifx(
+  Future<Either<CoreLoginFailure, Unit>> loginWithLifx(
     GenericLifxDE genericLifxDE,
   ) async {
-    // TODO: implement loginWithLifx
-    throw UnimplementedError();
+    try {
+      final String loginDtoAsString =
+          VendorHelper.convertDomainToJsonString(genericLifxDE);
+
+      final ClientStatusRequests clientStatusRequests = ClientStatusRequests(
+        allRemoteCommands: loginDtoAsString,
+        sendingType: SendingType.vendorLoginType,
+      );
+
+      AppRequestsToHub.appRequestsToHubStreamController.sink
+          .add(clientStatusRequests);
+      return right(unit);
+    } catch (e) {
+      return left(CoreLoginFailure.unexpected());
+    }
   }
 }
 

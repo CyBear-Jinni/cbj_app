@@ -506,7 +506,7 @@ class DeviceRepository implements IDeviceRepository {
 
       try {
         deviceEntity.copyWithDeviceState(DeviceStateGRPC.waitingInFirebase);
-        //
+
         final String deviceDtoAsString =
             DeviceHelper.convertDomainToJsonString(deviceEntity);
         final ClientStatusRequests clientStatusRequests = ClientStatusRequests(

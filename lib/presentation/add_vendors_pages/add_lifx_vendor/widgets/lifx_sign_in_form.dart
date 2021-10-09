@@ -4,6 +4,7 @@ import 'package:cybear_jinni/application/lifix_auth/lifx_sign_in_form/lifx_sign_
 import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:dartz/dartz.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -105,7 +106,7 @@ class LifxSignInForm extends StatelessWidget {
                                         .signInWithApiKey(),
                                   );
                             },
-                            child: const Text('SIGN IN'),
+                            child: const Text('SIGN IN').tr(),
                           ),
                         ),
                       ],
@@ -136,7 +137,7 @@ class LifxSignInForm extends StatelessWidget {
                   style: TextStyle(
                     color: Theme.of(context).textTheme.bodyText1!.color,
                   ),
-                ),
+                ).tr(),
               ),
             ),
           ],

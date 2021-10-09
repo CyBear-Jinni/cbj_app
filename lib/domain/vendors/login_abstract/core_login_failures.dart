@@ -10,12 +10,14 @@ class CoreLoginValueFailure<T> with _$CoreLoginValueFailure<T> {
 
 @freezed
 class CoreLoginFailure<T> {
+  const factory CoreLoginFailure.unexpected() = _Unexpected<T>;
+
   const factory CoreLoginFailure.empty({
-    required T failedValue,
+    required String failedValue,
   }) = _Empty<T>;
 
   const factory CoreLoginFailure.exceedingLength({
-    required T failedValue,
+    required String failedValueFailure,
     required int max,
   }) = _ExceedingLength<T>;
 }

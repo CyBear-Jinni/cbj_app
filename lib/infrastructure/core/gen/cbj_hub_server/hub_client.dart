@@ -10,7 +10,9 @@ class HubClient {
 
   ///  Turn smart device on
   static Future<void> createStreamWithHub(
-      String addressToHub, int hubPort) async {
+    String addressToHub,
+    int hubPort,
+  ) async {
     channel = await _createCbjHubClient(addressToHub, hubPort);
     stub = CbjHubClient(channel!);
     ResponseStream<RequestsAndStatusFromHub> response;
@@ -29,12 +31,15 @@ class HubClient {
   }
 
   static Future<ClientChannel> _createCbjHubClient(
-      String deviceIp, int hubPort) async {
+    String deviceIp,
+    int hubPort,
+  ) async {
     await channel?.shutdown();
-    return ClientChannel(deviceIp,
-        port: hubPort,
-        options:
-            const ChannelOptions(credentials: ChannelCredentials.insecure()));
+    return ClientChannel(
+      deviceIp,
+      port: hubPort,
+      options: const ChannelOptions(credentials: ChannelCredentials.insecure()),
+    );
   }
 }
 
