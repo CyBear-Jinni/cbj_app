@@ -4,7 +4,6 @@ import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rg
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/rgbw_lights/widgets/error_rgbw_lights_device_card_widget.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/rgbw_lights/widgets/rgbw_light_widget.dart';
-import 'package:flex_color_picker/flex_color_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,8 +14,11 @@ import 'package:kt_dart/collection.dart';
 /// object
 class RoomRgbwLights extends StatelessWidget {
   const RoomRgbwLights(
-      this._deviceEntityList, this._gradientColor, this._roomEntity,
-      {this.maxLightsToShow = 4});
+    this._deviceEntityList,
+    this._gradientColor,
+    this._roomEntity, {
+    this.maxLightsToShow = 4,
+  });
 
   final KtList<DeviceEntityAbstract> _deviceEntityList;
 
@@ -67,6 +69,32 @@ class RoomRgbwLights extends StatelessWidget {
                   const SizedBox(
                     height: 3,
                   ),
+                  // TODO: Add the brightness slider
+                  // SleekCircularSlider(
+                  //   onChangeStart: (double value) {},
+                  //   onChange: (value) {},
+                  //   onChangeEnd: (double value) {},
+                  //   appearance: CircularSliderAppearance(
+                  //     customColors: CustomSliderColors(
+                  //       trackColor: Colors.white,
+                  //       progressBarColor:
+                  //           const Color(0xFFFFDF5D).withOpacity(0.7),
+                  //       hideShadow: true,
+                  //     ),
+                  //     infoProperties: InfoProperties(
+                  //         topLabelText: 'On/Off\n',
+                  //         topLabelStyle: const TextStyle(
+                  //             color: Color(0xFFFFDF5D), fontSize: 17),
+                  //         mainLabelStyle: const TextStyle(
+                  //             color: Color(0xFFFFDF5D), fontSize: 12),
+                  //         modifier: (double value) {
+                  //           return '${value.round()}%';
+                  //         },
+                  //         bottomLabelStyle: const TextStyle(
+                  //             color: Color(0xFFFFDF5D), fontSize: 12),
+                  //         bottomLabelText: 'Brightness'),
+                  //   ),
+                  // ),
                   Container(
                     margin: const EdgeInsets.symmetric(vertical: 5),
                     width: sizeBoxWidth + 15,
@@ -74,15 +102,6 @@ class RoomRgbwLights extends StatelessWidget {
                       create: (context) => getIt<LightToggleBloc>(),
                       child: RgbwLightWidget(deviceEntityTemp),
                     ),
-                  ),
-                  ColorPicker(
-                    onColorChanged: (_) {},
-                    pickersEnabled: const <ColorPickerType, bool>{
-                      ColorPickerType.accent: false,
-                      ColorPickerType.primary: false,
-                      ColorPickerType.wheel: true,
-                    },
-                    enableShadesSelection: false,
                   ),
                 ],
               ));

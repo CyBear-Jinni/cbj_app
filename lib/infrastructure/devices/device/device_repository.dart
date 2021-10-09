@@ -5,6 +5,10 @@ import 'dart:io';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
+import 'package:cybear_jinni/domain/devices/generic_blinds_device/generic_blinds_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_blinds_device/generic_blinds_value_objects.dart';
+import 'package:cybear_jinni/domain/devices/generic_boiler_device/generic_boiler_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_boiler_device/generic_boiler_value_objects.dart';
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_value_objects.dart';
 import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
@@ -19,6 +23,7 @@ import 'package:cybear_jinni/injection.dart';
 import 'package:dartz/dartz.dart';
 import 'package:device_info/device_info.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/src/painting/colors.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
 import 'package:multicast_dns/multicast_dns.dart';
@@ -42,7 +47,10 @@ class DeviceRepository implements IDeviceRepository {
   @override
   void addOrUpdateDeviceAndStateToWaiting(DeviceEntityAbstract deviceEntity) {
     addOrUpdateDevice(
-        deviceEntity.copyWithDeviceState(DeviceStateGRPC.waitingInComp));
+      deviceEntity.copyWithDeviceState(
+        DeviceStateGRPC.waitingInComp,
+      ),
+    );
   }
 
   @override
@@ -78,12 +86,14 @@ class DeviceRepository implements IDeviceRepository {
     // Using watchAll devices from server function and filtering out only the
     // Light device type
     yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
-          return right(r.toList().asList().where((element) {
-            return element!.deviceTypes.getOrCrash() ==
-                    DeviceTypes.light.toString() ||
-                element.deviceTypes.getOrCrash() ==
-                    DeviceTypes.rgbwLights.toString();
-          }).toImmutableList());
+          return right(
+            r.toList().asList().where((element) {
+              return element!.deviceTypes.getOrCrash() ==
+                      DeviceTypes.light.toString() ||
+                  element.deviceTypes.getOrCrash() ==
+                      DeviceTypes.rgbwLights.toString();
+            }).toImmutableList(),
+          );
         }));
   }
 
@@ -93,10 +103,12 @@ class DeviceRepository implements IDeviceRepository {
     // Using watchAll devices from server function and filtering out only the
     // Blinds device type
     yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
-          return right(r.toList().asList().where((element) {
-            return element!.uniqueId.getOrCrash()! ==
-                DeviceTypes.blinds.toString();
-          }).toImmutableList());
+          return right(
+            r.toList().asList().where((element) {
+              return element!.deviceTypes.getOrCrash() ==
+                  DeviceTypes.blinds.toString();
+            }).toImmutableList(),
+          );
         }));
   }
 
@@ -106,10 +118,25 @@ class DeviceRepository implements IDeviceRepository {
     // Using watchAll devices from server function and filtering out only the
     // Boilers device type
     yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
-          return right(r.toList().asList().where((element) {
-            return element!.uniqueId.getOrCrash()! ==
-                DeviceTypes.boiler.toString();
-          }).toImmutableList());
+          return right(
+            r.toList().asList().where((element) {
+              return element!.deviceTypes.getOrCrash() ==
+                  DeviceTypes.boiler.toString();
+            }).toImmutableList(),
+          );
+        }));
+  }
+
+  @override
+  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
+      watchSmartTv() async* {
+    yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
+          return right(
+            r.toList().asList().where((element) {
+              return element!.deviceTypes.getOrCrash() ==
+                  DeviceTypes.smartTV.toString();
+            }).toImmutableList(),
+          );
         }));
   }
 
@@ -200,8 +227,10 @@ class DeviceRepository implements IDeviceRepository {
   }
 
   @override
-  Future<Either<DevicesFailure, Unit>> turnOnDevices(
-      {List<String>? devicesId, String? forceUpdateLocation}) async {
+  Future<Either<DevicesFailure, Unit>> turnOnDevices({
+    List<String>? devicesId,
+    String? forceUpdateLocation,
+  }) async {
     final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
         await getDeviceEntityListFromId(devicesId!);
 
@@ -217,9 +246,14 @@ class DeviceRepository implements IDeviceRepository {
         } else if (deviceEntity is GenericRgbwLightDE) {
           deviceEntity.lightSwitchState =
               GenericRgbwLightSwitchState(DeviceActions.on.toString());
+        } else if (deviceEntity is GenericBoilerDE) {
+          deviceEntity.boilerSwitchState =
+              GenericBoilerSwitchState(DeviceActions.on.toString());
         } else {
-          print('On action not supported for'
-              ' ${deviceEntity.deviceTypes.getOrCrash()} type');
+          print(
+            'On action not supported for'
+            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+          );
           continue;
         }
 
@@ -239,8 +273,10 @@ class DeviceRepository implements IDeviceRepository {
   }
 
   @override
-  Future<Either<DevicesFailure, Unit>> turnOffDevices(
-      {List<String>? devicesId, String? forceUpdateLocation}) async {
+  Future<Either<DevicesFailure, Unit>> turnOffDevices({
+    List<String>? devicesId,
+    String? forceUpdateLocation,
+  }) async {
     final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
         await getDeviceEntityListFromId(devicesId!);
 
@@ -256,9 +292,14 @@ class DeviceRepository implements IDeviceRepository {
         } else if (deviceEntity is GenericRgbwLightDE) {
           deviceEntity.lightSwitchState =
               GenericRgbwLightSwitchState(DeviceActions.off.toString());
+        } else if (deviceEntity is GenericBoilerDE) {
+          deviceEntity.boilerSwitchState =
+              GenericBoilerSwitchState(DeviceActions.off.toString());
         } else {
-          print('Off action not supported for'
-              ' ${deviceEntity.deviceTypes.getOrCrash()} type');
+          print(
+            'Off action not supported for'
+            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+          );
           continue;
         }
 
@@ -278,22 +319,40 @@ class DeviceRepository implements IDeviceRepository {
   }
 
   @override
-  Future<Either<DevicesFailure, Unit>> moveUpBlinds(
-      {List<String>? devicesId, String? forceUpdateLocation}) async {
-    try {
-      // final DocumentReference homeDoc = await _firestore.currentHomeDocument();
-      // final CollectionReference devicesCollection = homeDoc.devicesCollecttion;
+  Future<Either<DevicesFailure, Unit>> changeColorDevices({
+    required List<String>? devicesId,
+    required HSVColor colorToChange,
+  }) async {
+    final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
+        await getDeviceEntityListFromId(devicesId!);
 
-      // devicesId!.forEach((element) {
-      //   final DocumentReference deviceDocumentReference =
-      //       devicesCollection.doc(element);
-      //   updateDatabase(documentPath: deviceDocumentReference, fieldsToUpdate: {
-      //     GrpcClientTypes.deviceActionsTypeString:
-      //         DeviceActions.moveUp.toString(),
-      //     GrpcClientTypes.deviceStateGRPCTypeString:
-      //         DeviceStateGRPC.waitingInFirebase.toString()
-      //   });
-      // });
+    try {
+      for (final DeviceEntityAbstract? deviceEntity
+          in deviceEntityListToUpdate) {
+        if (deviceEntity == null) {
+          continue;
+        }
+        if (deviceEntity is GenericRgbwLightDE) {
+          deviceEntity
+            ..lightColorAlpha =
+                GenericRgbwLightColorAlpha(colorToChange.alpha.toString())
+            ..lightColorHue =
+                GenericRgbwLightColorHue(colorToChange.hue.toString())
+            ..lightColorSaturation = GenericRgbwLightColorSaturation(
+              colorToChange.saturation.toString(),
+            )
+            ..lightColorValue =
+                GenericRgbwLightColorValue(colorToChange.value.toString());
+        } else {
+          print(
+            'Off action not supported for'
+            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+          );
+          continue;
+        }
+
+        updateWithDeviceEntity(deviceEntity: deviceEntity);
+      }
     } on PlatformException catch (e) {
       if (e.message!.contains('PERMISSION_DENIED')) {
         return left(const DevicesFailure.insufficientPermission());
@@ -308,22 +367,32 @@ class DeviceRepository implements IDeviceRepository {
   }
 
   @override
-  Future<Either<DevicesFailure, Unit>> stopBlinds(
-      {List<String>? devicesId, String? forceUpdateLocation}) async {
+  Future<Either<DevicesFailure, Unit>> moveUpBlinds({
+    List<String>? devicesId,
+    String? forceUpdateLocation,
+  }) async {
+    final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
+        await getDeviceEntityListFromId(devicesId!);
+
     try {
-      // final DocumentReference homeDoc = await _firestore.currentHomeDocument();
-      // final CollectionReference devicesCollection = homeDoc.devicesCollecttion;
-      //
-      // devicesId!.forEach((element) {
-      //   final DocumentReference deviceDocumentReference =
-      //       devicesCollection.doc(element);
-      //   updateDatabase(documentPath: deviceDocumentReference, fieldsToUpdate: {
-      //     GrpcClientTypes.deviceActionsTypeString:
-      //         DeviceActions.stop.toString(),
-      //     GrpcClientTypes.deviceStateGRPCTypeString:
-      //         DeviceStateGRPC.waitingInFirebase.toString()
-      //   });
-      // });
+      for (final DeviceEntityAbstract? deviceEntity
+          in deviceEntityListToUpdate) {
+        if (deviceEntity == null) {
+          continue;
+        }
+        if (deviceEntity is GenericBlindsDE) {
+          deviceEntity.blindsSwitchState =
+              GenericBlindsSwitchState(DeviceActions.moveUp.toString());
+        } else {
+          print(
+            'Off action not supported for'
+            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+          );
+          continue;
+        }
+
+        updateWithDeviceEntity(deviceEntity: deviceEntity);
+      }
     } on PlatformException catch (e) {
       if (e.message!.contains('PERMISSION_DENIED')) {
         return left(const DevicesFailure.insufficientPermission());
@@ -338,22 +407,72 @@ class DeviceRepository implements IDeviceRepository {
   }
 
   @override
-  Future<Either<DevicesFailure, Unit>> moveDownBlinds(
-      {List<String>? devicesId, String? forceUpdateLocation}) async {
+  Future<Either<DevicesFailure, Unit>> stopBlinds({
+    List<String>? devicesId,
+    String? forceUpdateLocation,
+  }) async {
+    final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
+        await getDeviceEntityListFromId(devicesId!);
+
     try {
-      // final DocumentReference homeDoc = await _firestore.currentHomeDocument();
-      // final CollectionReference devicesCollection = homeDoc.devicesCollecttion;
-      //
-      // devicesId!.forEach((element) {
-      //   final DocumentReference deviceDocumentReference =
-      //       devicesCollection.doc(element);
-      //   updateDatabase(documentPath: deviceDocumentReference, fieldsToUpdate: {
-      //     GrpcClientTypes.deviceActionsTypeString:
-      //         DeviceActions.moveDown.toString(),
-      //     GrpcClientTypes.deviceStateGRPCTypeString:
-      //         DeviceStateGRPC.waitingInFirebase.toString()
-      //   });
-      // });
+      for (final DeviceEntityAbstract? deviceEntity
+          in deviceEntityListToUpdate) {
+        if (deviceEntity == null) {
+          continue;
+        }
+        if (deviceEntity is GenericBlindsDE) {
+          deviceEntity.blindsSwitchState =
+              GenericBlindsSwitchState(DeviceActions.stop.toString());
+        } else {
+          print(
+            'Off action not supported for'
+            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+          );
+          continue;
+        }
+
+        updateWithDeviceEntity(deviceEntity: deviceEntity);
+      }
+    } on PlatformException catch (e) {
+      if (e.message!.contains('PERMISSION_DENIED')) {
+        return left(const DevicesFailure.insufficientPermission());
+      } else if (e.message!.contains('NOT_FOUND')) {
+        return left(const DevicesFailure.unableToUpdate());
+      } else {
+        // log.error(e.toString());
+        return left(const DevicesFailure.unexpected());
+      }
+    }
+    return right(unit);
+  }
+
+  @override
+  Future<Either<DevicesFailure, Unit>> moveDownBlinds({
+    List<String>? devicesId,
+    String? forceUpdateLocation,
+  }) async {
+    final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
+        await getDeviceEntityListFromId(devicesId!);
+
+    try {
+      for (final DeviceEntityAbstract? deviceEntity
+          in deviceEntityListToUpdate) {
+        if (deviceEntity == null) {
+          continue;
+        }
+        if (deviceEntity is GenericBlindsDE) {
+          deviceEntity.blindsSwitchState =
+              GenericBlindsSwitchState(DeviceActions.moveDown.toString());
+        } else {
+          print(
+            'Off action not supported for'
+            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+          );
+          continue;
+        }
+
+        updateWithDeviceEntity(deviceEntity: deviceEntity);
+      }
     } on PlatformException catch (e) {
       if (e.message!.contains('PERMISSION_DENIED')) {
         return left(const DevicesFailure.insufficientPermission());
@@ -374,12 +493,14 @@ class DeviceRepository implements IDeviceRepository {
   }
 
   Future<Either<DevicesFailure, Unit>> updateRemoteDB(
-      DeviceEntityAbstract deviceEntity) async {
+    DeviceEntityAbstract deviceEntity,
+  ) async {
     return left(const DevicesFailure.unexpected());
   }
 
   Future<Either<DevicesFailure, Unit>> updateComputer(
-      DeviceEntityAbstract deviceEntity) async {
+    DeviceEntityAbstract deviceEntity,
+  ) async {
     try {
       addOrUpdateDeviceAndStateToWaiting(deviceEntity);
 
@@ -416,7 +537,8 @@ class DeviceRepository implements IDeviceRepository {
   }
 
   Future<List<DeviceEntityAbstract?>> getDeviceEntityListFromId(
-      List<String> deviceIdList) async {
+    List<String> deviceIdList,
+  ) async {
     final List<DeviceEntityAbstract> deviceEntityList = [];
 
     deviceIdList.forEach((deviceId) {
@@ -430,9 +552,13 @@ class DeviceRepository implements IDeviceRepository {
     String deviceIp = '';
     final String fullMdnsName = '$mDnsName.local';
 
-    final MDnsClient client = MDnsClient(rawDatagramSocketFactory:
-        (dynamic host, int port,
-            {bool? reuseAddress, bool? reusePort, int? ttl}) {
+    final MDnsClient client = MDnsClient(rawDatagramSocketFactory: (
+      dynamic host,
+      int port, {
+      bool? reuseAddress,
+      bool? reusePort,
+      int? ttl,
+    }) {
       return RawDatagramSocket.bind(host, port, ttl: ttl!);
     });
     // Start the client with default options.
@@ -440,7 +566,8 @@ class DeviceRepository implements IDeviceRepository {
     await client.start();
     await for (final IPAddressResourceRecord record
         in client.lookup<IPAddressResourceRecord>(
-            ResourceRecordQuery.addressIPv4(fullMdnsName))) {
+      ResourceRecordQuery.addressIPv4(fullMdnsName),
+    )) {
       deviceIp = record.address.address;
       print('Found address (${record.address}).');
     }
@@ -460,7 +587,9 @@ class DeviceRepository implements IDeviceRepository {
 
   /// How to send the data, in the local network or the remote server/cloud
   Future<String> whereToUpdateDevicesData(
-      String? forceUpdateLocation, String? deviceSecondWifiName) async {
+    String? forceUpdateLocation,
+    String? deviceSecondWifiName,
+  ) async {
     String updateLocation;
 
     try {

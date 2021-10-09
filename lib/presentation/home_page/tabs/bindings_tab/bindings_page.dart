@@ -3,6 +3,7 @@ import 'package:cybear_jinni/presentation/home_page/tabs/bindings_tab/add_bindin
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// Page to see and interact with all the set routines
@@ -47,15 +48,41 @@ class BindingsPage extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            const Text(
-              'Bindings List',
-              style: TextStyle(fontSize: 30),
-            ),
             Expanded(
-              child: Container(
-                margin: const EdgeInsets.symmetric(horizontal: 3, vertical: 70),
-                color: Colors.black.withOpacity(0.4),
-                child: ListView(),
+              child: GestureDetector(
+                onTap: () {
+                  Fluttertoast.showToast(
+                    msg: 'Add new binding by pressing the plus button',
+                    toastLength: Toast.LENGTH_LONG,
+                    gravity: ToastGravity.CENTER,
+                    backgroundColor: Colors.blueGrey,
+                    textColor: Theme.of(context).textTheme.bodyText1!.color,
+                    fontSize: 16.0,
+                  );
+                },
+                child: ListView(
+                  reverse: true,
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.symmetric(vertical: 30),
+                      alignment: Alignment.center,
+                      child: Image.asset(
+                        'assets/cbj_logo.png',
+                        fit: BoxFit.fitHeight,
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.topCenter,
+                      child: Text(
+                        'Bindings list is empty',
+                        style: TextStyle(
+                          fontSize: 30,
+                          color: Theme.of(context).primaryColor,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
@@ -75,10 +102,12 @@ class BindingsPage extends StatelessWidget {
                     child: GestureDetector(
                       onTap: () {
                         Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (BuildContext context) =>
-                                    AddBindingsPage()));
+                          context,
+                          MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                AddBindingsPage(),
+                          ),
+                        );
                       },
                       child: Ink(
                         decoration: const ShapeDecoration(
@@ -87,7 +116,7 @@ class BindingsPage extends StatelessWidget {
                         ),
                         child: CircleAvatar(
                           backgroundColor: Colors.blue.withOpacity(0.9),
-                          child: FaIcon(
+                          child: const FaIcon(
                             FontAwesomeIcons.plus,
                             color: Colors.white,
                           ),

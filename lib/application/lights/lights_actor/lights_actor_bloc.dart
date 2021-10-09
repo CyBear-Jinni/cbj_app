@@ -34,8 +34,7 @@ class LightsActorBloc extends Bloc<LightsActorEvent, LightsActorState> {
           linearProgressIndicator: const LinearProgressIndicator(),
         ).show(value.context);
 
-        _deviceRepository.turnOffDevices(
-            devicesId: value.lightsIdToTurnOff, forceUpdateLocation: 'R');
+        _deviceRepository.turnOffDevices(devicesId: value.lightsIdToTurnOff);
       },
       turnOnAllLights: (_TurnOnAllLights value) async* {
         FlushbarHelper.createLoading(

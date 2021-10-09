@@ -7,6 +7,7 @@ import 'package:cybear_jinni/domain/hub/hub_value_objects.dart';
 import 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/hub_client.dart';
 import 'package:cybear_jinni/injection.dart';
+import 'package:cybear_jinni/utils.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
@@ -34,13 +35,18 @@ class HubConnectionRepository extends IHubConnectionRepository {
   static HubEntity? hubEntity;
 
   Future<void> connectWithHub() async {
-    final ConnectivityResult connectivityResult =
-        await Connectivity().checkConnectivity();
+    try {
+      final ConnectivityResult connectivityResult =
+          await Connectivity().checkConnectivity();
+    } catch (e) {
+      print('Cant check connectivity this is probably PC, error: $e');
+    }
 
     final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
 
-    if (connectivityResult == ConnectivityResult.wifi &&
-        hubEntity?.hubNetworkBssid.getOrCrash() == wifiBSSID) {
+    // if (connectivityResult == ConnectivityResult.wifi &&
+    //     hubEntity?.hubNetworkBssid.getOrCrash() == wifiBSSID) {
+    if (true) {
       if (hubEntity?.lastKnownIp?.getOrCrash() == null) {
         await searchForHub();
       }
@@ -96,36 +102,43 @@ class HubConnectionRepository extends IHubConnectionRepository {
 
   @override
   Future<Either<HubFailures, Unit>> searchForHub() async {
-    final Either<HubFailures, Unit> locationRequest =
-        await askLocationPermissionAndLocationOn();
+    try {
+      final Either<HubFailures, Unit> locationRequest =
+          await askLocationPermissionAndLocationOn();
 
-    if (locationRequest.isLeft()) {
-      return locationRequest;
-    }
+      if (locationRequest.isLeft()) {
+        return locationRequest;
+      }
 
-    print('searchForHub');
-    final String? wifiIP = await NetworkInfo().getWifiIP();
+      logger.i('searchForHub');
+      final String? wifiIP = await NetworkInfo().getWifiIP();
 
-    final String subnet = wifiIP!.substring(0, wifiIP.lastIndexOf('.'));
+      final String subnet = wifiIP!.substring(0, wifiIP.lastIndexOf('.'));
 
-    final Stream<NetworkAddress> stream =
-        NetworkAnalyzer.discover2(subnet, hubPort);
+      logger.i('subnet IP $subnet');
 
-    await for (final NetworkAddress address in stream) {
-      if (address.exists) {
-        print('Found device: ${address.ip}');
+      final Stream<NetworkAddress> stream =
+          NetworkAnalyzer.discover2(subnet, hubPort);
 
-        final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
-        final String? wifiName = await NetworkInfo().getWifiName();
+      await for (final NetworkAddress address in stream) {
+        if (address.exists) {
+          logger.i('Found device: ${address.ip}');
 
-        if (wifiBSSID != null && wifiName != null) {
-          hubEntity = HubEntity(
+          final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
+          final String? wifiName = await NetworkInfo().getWifiName();
+
+          if (wifiBSSID != null && wifiName != null) {
+            hubEntity = HubEntity(
               hubNetworkBssid: HubNetworkBssid(wifiBSSID),
               networkName: HubNetworkName(wifiName),
-              lastKnownIp: HubNetworkIp(address.ip.toString()));
-          return right(unit);
+              lastKnownIp: HubNetworkIp(address.ip),
+            );
+            return right(unit);
+          }
         }
       }
+    } catch (e) {
+      logger.w('Exception searchForHub $e');
     }
     return left(const HubFailures.cantFindHubInNetwork());
   }

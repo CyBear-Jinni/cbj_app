@@ -17,6 +17,9 @@ lib/generated_plugin_registrant.dart
 app.*.map.json
 
 injection.config.dart
+*.injectable.json
+*.g.part
+*.g.dart
 *.gr.dart
 
 

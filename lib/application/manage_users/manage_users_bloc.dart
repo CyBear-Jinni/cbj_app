@@ -36,6 +36,8 @@ class ManageUsersBloc extends Bloc<ManageUsersEvent, ManageUsersState> {
                 add(ManageUsersEvent.userReceived(allUsersEvent)));
       },
       userReceived: (e) async* {
+        yield const ManageUsersState.inProgress();
+
         yield e.failureOrUsers.fold(
           (f) => ManageUsersState.loadFailure(f),
           (user) => ManageUsersState.loadSuccess(user),

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/widgets.dart';
 import 'package:kt_dart/kt.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -29,6 +30,8 @@ abstract class IDeviceRepository {
 
   Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>> watchBoilers();
 
+  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>> watchSmartTv();
+
   Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
       watchUncompleted();
 
@@ -39,7 +42,6 @@ abstract class IDeviceRepository {
   Future<Either<DevicesFailure, Unit>> updateDatabase({
     required Map<String, dynamic> documentPath,
     required Map<String, dynamic> fieldsToUpdate,
-    String forceUpdateLocation,
   });
 
   Future<Either<DevicesFailure, Unit>> updateWithDeviceEntity({
@@ -48,27 +50,27 @@ abstract class IDeviceRepository {
 
   Future<Either<DevicesFailure, Unit>> turnOnDevices({
     required List<String>? devicesId,
-    String forceUpdateLocation,
   });
 
   Future<Either<DevicesFailure, Unit>> turnOffDevices({
     required List<String>? devicesId,
-    String forceUpdateLocation,
+  });
+
+  Future<Either<DevicesFailure, Unit>> changeColorDevices({
+    required List<String>? devicesId,
+    required HSVColor colorToChange,
   });
 
   Future<Either<DevicesFailure, Unit>> moveUpBlinds({
     required List<String>? devicesId,
-    String forceUpdateLocation,
   });
 
   Future<Either<DevicesFailure, Unit>> stopBlinds({
     required List<String>? devicesId,
-    String forceUpdateLocation,
   });
 
   Future<Either<DevicesFailure, Unit>> moveDownBlinds({
     required List<String>? devicesId,
-    String forceUpdateLocation,
   });
 
   Future<Either<DevicesFailure, Unit>> delete(
