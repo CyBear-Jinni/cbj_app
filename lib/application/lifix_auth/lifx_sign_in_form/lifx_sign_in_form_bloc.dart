@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:cybear_jinni/domain/vendors/i_vendor_repository.dart';
-import 'package:cybear_jinni/domain/vendors/lifx_login/generic_lifx_entity.dart';
-import 'package:cybear_jinni/domain/vendors/lifx_login/generic_lifx_value_objects.dart';
+import 'package:cybear_jinni/domain/vendors/lifx_login/generic_lifx_login_entity.dart';
+import 'package:cybear_jinni/domain/vendors/lifx_login/generic_lifx_login_value_objects.dart';
 import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.dart';
 import 'package:cybear_jinni/domain/vendors/login_abstract/value_login_objects_core.dart';
 import 'package:dartz/dartz.dart';
@@ -33,14 +33,14 @@ class LifxSignInFormBloc
     yield* event.map(
       apiKeyChanged: (ApiKeyChanged value) async* {
         yield state.copyWith(
-          lifxApiKey: GenericLifxApiKey(value.apiKeyStr),
+          lifxApiKey: GenericLifxLoginApiKey(value.apiKeyStr),
           authFailureOrSuccessOption: none(),
         );
       },
       signInWithApiKey: (e) async* {
-        final GenericLifxDE genericLifxDE = GenericLifxDE(
+        final GenericLifxLoginDE genericLifxDE = GenericLifxLoginDE(
           senderUniqueId: CoreLoginSenderId.fromUniqueString('Me'),
-          lifxApiKey: GenericLifxApiKey(state.lifxApiKey.getOrCrash()),
+          lifxApiKey: GenericLifxLoginApiKey(state.lifxApiKey.getOrCrash()),
         );
         _vendorRepository.loginWithLifx(genericLifxDE);
         //   yield* _performActionOnAuthFacadeWithEmailAndPassword(

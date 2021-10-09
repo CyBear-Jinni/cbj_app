@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/domain/vendors/lifx_login/generic_lifx_value_objects.dart';
+import 'package:cybear_jinni/domain/vendors/lifx_login/generic_lifx_login_value_objects.dart';
 import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.dart';
 import 'package:cybear_jinni/domain/vendors/login_abstract/login_entity_abstract.dart';
 import 'package:cybear_jinni/domain/vendors/login_abstract/value_login_objects_core.dart';
@@ -9,23 +9,23 @@ import 'package:dartz/dartz.dart';
 
 /// Abstract smart GenericLifx that exist inside a computer, the
 /// implementations will be actual GenericLifx like blinds lifxs and more
-class GenericLifxDE extends LoginEntityAbstract {
+class GenericLifxLoginDE extends LoginEntityAbstract {
   /// All public field of GenericLifx entity
-  GenericLifxDE({
+  GenericLifxLoginDE({
     required CoreLoginSenderId senderUniqueId,
     required this.lifxApiKey,
   }) : super(
           senderUniqueId: senderUniqueId,
-          loginVendor: CoreLoginVendor(VendorsAndServices.tuyaSmart.name),
+          loginVendor: CoreLoginVendor(VendorsAndServices.lifx.name),
         );
 
   /// Lifx api key
-  GenericLifxApiKey lifxApiKey;
+  GenericLifxLoginApiKey lifxApiKey;
 
   /// Empty instance of GenericLifxEntity
-  factory GenericLifxDE.empty() => GenericLifxDE(
+  factory GenericLifxLoginDE.empty() => GenericLifxLoginDE(
         senderUniqueId: CoreLoginSenderId.fromUniqueString(''),
-        lifxApiKey: GenericLifxApiKey(''),
+        lifxApiKey: GenericLifxLoginApiKey(''),
       );
 
   Option<CoreLoginFailure<dynamic>> get failureOption =>

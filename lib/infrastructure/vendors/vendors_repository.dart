@@ -1,5 +1,5 @@
 import 'package:cybear_jinni/domain/vendors/i_vendor_repository.dart';
-import 'package:cybear_jinni/domain/vendors/lifx_login/generic_lifx_entity.dart';
+import 'package:cybear_jinni/domain/vendors/lifx_login/generic_lifx_login_entity.dart';
 import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.dart';
 import 'package:cybear_jinni/domain/vendors/vendor.dart';
 import 'package:cybear_jinni/domain/vendors/vendor_failures.dart';
@@ -55,7 +55,7 @@ class VendorsRepository implements IVendorsRepository {
 
   @override
   Future<Either<CoreLoginFailure, Unit>> loginWithLifx(
-    GenericLifxDE genericLifxDE,
+    GenericLifxLoginDE genericLifxDE,
   ) async {
     try {
       final String loginDtoAsString =
