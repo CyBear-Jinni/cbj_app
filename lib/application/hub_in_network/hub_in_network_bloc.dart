@@ -31,8 +31,9 @@ class HubInNetworkBloc extends Bloc<HubInNetworkEvent, HubInNetworkState> {
       searchHubInNetwork: (e) async* {
         yield const HubInNetworkState.loadInProgress();
         yield (await _hubConnectionRepository.searchForHub()).fold(
-            (l) => HubInNetworkState.loadFailure(l),
-            (r) => const HubInNetworkState.loadSuccess());
+          (l) => HubInNetworkState.loadFailure(l),
+          (r) => const HubInNetworkState.loadSuccess(),
+        );
       },
     );
   }

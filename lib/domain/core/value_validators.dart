@@ -10,18 +10,23 @@ Either<AuthValueFailure<String>, String> validateEmailAddress(String input) {
     return right(input);
   } else {
     return left(
-        AuthValueFailure.invalidEmail(failedValue: 'Email_is_invalid'.tr()));
+      AuthValueFailure.invalidEmail(failedValue: 'Email_is_invalid'.tr()),
+    );
   }
 }
 
 /// Checking if the email contains spaces or tabs (' ' or \t)
 Either<AuthValueFailure<String>, String> validateEmailWithoutSpace(
-    String input) {
+  String input,
+) {
   if (!input.contains(' ') && !input.contains('\t')) {
     return right(input);
   } else {
-    return left(AuthValueFailure.containsSpace(
-        failedValue: 'Email_cannot_contain_spaces'.tr()));
+    return left(
+      AuthValueFailure.containsSpace(
+        failedValue: 'Email_cannot_contain_spaces'.tr(),
+      ),
+    );
   }
 }
 
@@ -31,19 +36,26 @@ Either<AuthValueFailure<String>, String> validatePasswordLength(String input) {
   if (input.length >= maxLength) {
     return right(input);
   } else {
-    return left(AuthValueFailure.shortPassword(
+    return left(
+      AuthValueFailure.shortPassword(
         failedValue: 'Password_must_be_bigger_than__characters'
-            .tr(args: <String>[maxLength.toString()])));
+            .tr(args: <String>[maxLength.toString()]),
+      ),
+    );
   }
 }
 
 /// Checking if the password contains spaces or tabs (' ' or \t).
 Either<AuthValueFailure<String>, String> validatePasswordWithoutSpace(
-    String input) {
+  String input,
+) {
   if (!input.contains(' ') && !input.contains('\t')) {
     return right(input);
   } else {
-    return left(AuthValueFailure.containsSpace(
-        failedValue: 'Password_cannot_contain_spaces'.tr()));
+    return left(
+      AuthValueFailure.containsSpace(
+        failedValue: 'Password_cannot_contain_spaces'.tr(),
+      ),
+    );
   }
 }

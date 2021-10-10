@@ -45,19 +45,20 @@ class GenericLightDE extends DeviceEntityAbstract {
 
   /// Empty instance of GenericLightEntity
   factory GenericLightDE.empty() => GenericLightDE(
-      uniqueId: CoreUniqueId(),
-      defaultName: DeviceDefaultName(''),
-      roomId: CoreUniqueId(),
-      roomName: DeviceRoomName(''),
-      deviceStateGRPC: DeviceState(''),
-      senderDeviceOs: DeviceSenderDeviceOs(''),
-      senderDeviceModel: DeviceSenderDeviceModel(''),
-      stateMassage: DeviceStateMassage(''),
-      senderId: DeviceSenderId(),
-      deviceVendor: DeviceVendor(''),
-      compUuid: DeviceCompUuid(''),
-      powerConsumption: DevicePowerConsumption(''),
-      lightSwitchState: GenericLightSwitchState(DeviceActions.off.toString()));
+        uniqueId: CoreUniqueId(),
+        defaultName: DeviceDefaultName(''),
+        roomId: CoreUniqueId(),
+        roomName: DeviceRoomName(''),
+        deviceStateGRPC: DeviceState(''),
+        senderDeviceOs: DeviceSenderDeviceOs(''),
+        senderDeviceModel: DeviceSenderDeviceModel(''),
+        stateMassage: DeviceStateMassage(''),
+        senderId: DeviceSenderId(),
+        deviceVendor: DeviceVendor(''),
+        compUuid: DeviceCompUuid(''),
+        powerConsumption: DevicePowerConsumption(''),
+        lightSwitchState: GenericLightSwitchState(DeviceActions.off.toString()),
+      );
 
   Option<CoreFailure<dynamic>> get failureOption =>
       defaultName.value.fold((f) => some(f), (_) => none());

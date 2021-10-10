@@ -5,7 +5,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 /// The widget to show all the lights in selected room
 class LightsInTheRoomWidget extends StatelessWidget {
   const LightsInTheRoomWidget(
-      this.products, this.updateProduct, this.deleteProduct);
+    this.products,
+    this.updateProduct,
+    this.deleteProduct,
+  );
 
   final Function updateProduct;
   final Function deleteProduct;
@@ -40,15 +43,18 @@ class LightsInTheRoomWidget extends StatelessWidget {
                   border: InputBorder.none,
                   hintText: products[index]['title'.tr()].toString(),
                   hintStyle: TextStyle(
-                      color: Theme.of(context).textTheme.bodyText1!.color),
+                    color: Theme.of(context).textTheme.bodyText1!.color,
+                  ),
                 ),
                 style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1!.color),
+                  color: Theme.of(context).textTheme.bodyText1!.color,
+                ),
               ),
               subtitle: Text(
                 products[index]['number'.tr()].toString(),
                 style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1!.color),
+                  color: Theme.of(context).textTheme.bodyText1!.color,
+                ),
               ),
               trailing: IconButton(
                 color: Theme.of(context).textTheme.bodyText1!.color,

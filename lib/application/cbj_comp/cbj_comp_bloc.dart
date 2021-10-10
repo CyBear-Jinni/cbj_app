@@ -47,7 +47,8 @@ class CBJCompBloc extends Bloc<CBJCompEvent, CBJCompState> {
 
         if (failureOrCompListDynamic == CBJCompFailure) {
           yield CBJCompState.loadFailure(
-              failureOrCompListDynamic as CBJCompFailure);
+            failureOrCompListDynamic as CBJCompFailure,
+          );
         } else {
           final String ipAsString = failureOrCompListDynamic as String;
 
@@ -64,8 +65,10 @@ class CBJCompBloc extends Bloc<CBJCompEvent, CBJCompState> {
         final actionResult =
             await _cBJCompRepository.updateCompInfo(e.cBJCompEntity);
 
-        yield actionResult.fold((f) => CBJCompState.loadFailure(f),
-            (r) => const CBJCompState.loadSuccessTemp());
+        yield actionResult.fold(
+          (f) => CBJCompState.loadFailure(f),
+          (r) => const CBJCompState.loadSuccessTemp(),
+        );
       },
     );
   }

@@ -10,8 +10,10 @@ abstract class IAddUserToHomeRepository {
   // C Read UD
 
   Future<Either<AddUserToHomeFailures, String>> add(
-      HomeUserEntity homeUserEntity);
+    HomeUserEntity homeUserEntity,
+  );
 
   Future<Either<AddUserToHomeFailures, Unit>> create(
-      HomeUserEntity homeUserEntity);
+    HomeUserEntity homeUserEntity,
+  );
 }

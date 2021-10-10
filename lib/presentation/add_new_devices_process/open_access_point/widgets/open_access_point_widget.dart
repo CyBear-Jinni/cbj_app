@@ -30,7 +30,7 @@ class OpenAccessPointWidget extends StatelessWidget {
                             .read<ManageAccessPointBloc>()
                             .add(ManageAccessPointEvent.initialized());
                       },
-                      child: const Text('Create Access Pint'));
+                      child: const Text('Create Access Pint'),);
                 },
                 loading: (_) {
                   return const CircularProgressIndicator(

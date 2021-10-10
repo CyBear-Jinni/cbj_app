@@ -44,41 +44,42 @@ class ManageUsersPage extends StatelessWidget {
         ),
       ],
       child: MultiBlocListener(
-          listeners: [
-            BlocListener<AuthBloc, AuthState>(
-              listener: (context, state) {
-                state.maybeMap(
-                  unauthenticated: (_) =>
-                      context.router.replace(const ConnectToHubRoute()),
-                  orElse: () {},
-                );
-              },
+        listeners: [
+          BlocListener<AuthBloc, AuthState>(
+            listener: (context, state) {
+              state.maybeMap(
+                unauthenticated: (_) =>
+                    context.router.replace(const ConnectToHubRoute()),
+                orElse: () {},
+              );
+            },
+          ),
+        ],
+        child: Scaffold(
+          appBar: AppBar(
+            toolbarHeight: 0,
+            backgroundColor: Colors.black,
+            brightness: Brightness.dark,
+          ),
+          body: Container(
+            color: Colors.black87,
+            child: Column(
+              children: [
+                TopNavigationBar(
+                  'Users',
+                  Icons.more_vert,
+                  userCogFunction,
+                  leftIcon: FontAwesomeIcons.arrowLeft,
+                  leftIconFunction: leftIconFunction,
+                ),
+                Expanded(
+                  child: ManageUsersWidget(),
+                ),
+              ],
             ),
-          ],
-          child: Scaffold(
-            appBar: AppBar(
-              toolbarHeight: 0,
-              backgroundColor: Colors.black,
-              brightness: Brightness.dark,
-            ),
-            body: Container(
-              color: Colors.black87,
-              child: Column(
-                children: [
-                  TopNavigationBar(
-                    'Users',
-                    Icons.more_vert,
-                    userCogFunction,
-                    leftIcon: FontAwesomeIcons.arrowLeft,
-                    leftIconFunction: leftIconFunction,
-                  ),
-                  Expanded(
-                    child: ManageUsersWidget(),
-                  ),
-                ],
-              ),
-            ),
-          )),
+          ),
+        ),
+      ),
     );
   }
 }

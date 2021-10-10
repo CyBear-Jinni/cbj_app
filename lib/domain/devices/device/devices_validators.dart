@@ -6,25 +6,31 @@ Either<DevicesFailure<String>, String> validateDeviceNotEmpty(String input) {
   if (input.isNotEmpty) {
     return right(input);
   } else {
-    return left(DevicesFailure.empty(
-      failedValue: input,
-    ));
+    return left(
+      DevicesFailure.empty(
+        failedValue: input,
+      ),
+    );
   }
 }
 
 Either<DevicesFailure<String>, String> validateLastKnownIpNotEmpty(
-    String input) {
+  String input,
+) {
   if (input.isNotEmpty) {
     return right(input);
   } else {
-    return left(DevicesFailure.empty(
-      failedValue: input,
-    ));
+    return left(
+      DevicesFailure.empty(
+        failedValue: input,
+      ),
+    );
   }
 }
 
 Either<DevicesFailure<String>, String> validatePowerConsumptionNotEmpty(
-    String input) {
+  String input,
+) {
   if (double.tryParse(input) != null) {
     return right(input);
   } else {
@@ -57,14 +63,18 @@ Either<DevicesFailure<String>, String> validateWiFiNameNotEmpty(String input) {
 }
 
 Either<DevicesFailure<String>, String> validateDeviceMaxNameLength(
-    String input, int maxLength) {
+  String input,
+  int maxLength,
+) {
   if (input.length <= maxLength) {
     return right(input);
   } else {
-    return left(DevicesFailure.exceedingLength(
-      failedValue: input,
-      max: maxLength,
-    ));
+    return left(
+      DevicesFailure.exceedingLength(
+        failedValue: input,
+        max: maxLength,
+      ),
+    );
   }
 }
 

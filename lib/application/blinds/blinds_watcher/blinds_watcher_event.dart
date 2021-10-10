@@ -6,5 +6,5 @@ class BlindsWatcherEvent with _$BlindsWatcherEvent {
 
   const factory BlindsWatcherEvent.blindsReceived(
       Either<DevicesFailure, KtList<DeviceEntityAbstract?>>
-          failureOrDevices) = _blindsReceived;
+          failureOrDevices,) = _blindsReceived;
 }

@@ -14,8 +14,11 @@ import 'package:kt_dart/collection.dart';
 /// object
 class RoomLights extends StatelessWidget {
   const RoomLights(
-      this._deviceEntityList, this._gradientColor, this._roomEntity,
-      {this.maxLightsToShow = 4});
+    this._deviceEntityList,
+    this._gradientColor,
+    this._roomEntity, {
+    this.maxLightsToShow = 4,
+  });
 
   final KtList<DeviceEntityAbstract> _deviceEntityList;
 
@@ -50,33 +53,37 @@ class RoomLights extends StatelessWidget {
               widgetsForRow
                   .add(ErrorLightsDeviceCard(device: deviceEntityTemp));
             } else {
-              widgetsForRow.add(Column(
-                children: [
-                  Text(
-                    deviceEntityTemp.defaultName.getOrCrash()!,
-                    style: TextStyle(
-                      fontSize: 19.0,
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+              widgetsForRow.add(
+                Column(
+                  children: [
+                    Text(
+                      deviceEntityTemp.defaultName.getOrCrash()!,
+                      style: TextStyle(
+                        fontSize: 19.0,
+                        color: Theme.of(context).textTheme.bodyText1!.color,
+                      ),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 3,
-                  ),
-                  Container(
-                    margin: const EdgeInsets.symmetric(vertical: 5),
-                    width: sizeBoxWidth + 15,
-                    child: BlocProvider(
-                      create: (context) => getIt<LightToggleBloc>(),
-                      child: LightWidget(deviceEntityTemp),
+                    const SizedBox(
+                      height: 3,
                     ),
-                  ),
-                ],
-              ));
+                    Container(
+                      margin: const EdgeInsets.symmetric(vertical: 5),
+                      width: sizeBoxWidth + 15,
+                      child: BlocProvider(
+                        create: (context) => getIt<LightToggleBloc>(),
+                        child: LightWidget(deviceEntityTemp),
+                      ),
+                    ),
+                  ],
+                ),
+              );
             }
           } else {
-            widgetsForRow.add(const SizedBox(
-              width: 110,
-            ));
+            widgetsForRow.add(
+              const SizedBox(
+                width: 110,
+              ),
+            );
           }
         }
         final Widget rowOfLights = Row(
@@ -86,9 +93,11 @@ class RoomLights extends StatelessWidget {
         widgetsForRow = <Widget>[];
         columnOfLights.add(rowOfLights);
       }
-      columnOfLights.add(const SizedBox(
-        height: 5,
-      ));
+      columnOfLights.add(
+        const SizedBox(
+          height: 5,
+        ),
+      );
 
       return Column(
         children: columnOfLights,
@@ -100,9 +109,10 @@ class RoomLights extends StatelessWidget {
       padding: const EdgeInsets.all(3),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-            colors: _gradientColor,
-            begin: Alignment.bottomLeft,
-            end: Alignment.topLeft),
+          colors: _gradientColor,
+          begin: Alignment.bottomLeft,
+          end: Alignment.topLeft,
+        ),
         borderRadius: const BorderRadius.all(Radius.circular(24)),
         border: Border.all(
           color: (Theme.of(context).textTheme.bodyText1!.color)!,

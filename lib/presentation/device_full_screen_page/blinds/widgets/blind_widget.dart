@@ -53,24 +53,32 @@ class BlindWidget extends StatelessWidget {
                       Colors.brown,
                     ),
                     side: MaterialStateProperty.all(
-                      BorderSide.lerp(const BorderSide(color: Colors.white60),
-                          const BorderSide(color: Colors.white60), 22),
+                      BorderSide.lerp(
+                        const BorderSide(color: Colors.white60),
+                        const BorderSide(color: Colors.white60),
+                        22,
+                      ),
                     ),
                   ),
                   onPressed: () {
                     context.read<BlindsActorBloc>().add(
                           BlindsActorEvent.moveDownAllBlinds(
-                              [_deviceEntity.uniqueId.getOrCrash()!], context),
+                            [_deviceEntity.uniqueId.getOrCrash()!],
+                            context,
+                          ),
                         );
                   },
                   child: Tab(
-                    icon: FaIcon(FontAwesomeIcons.arrowDown,
-                        color: Theme.of(context).textTheme.bodyText1!.color),
+                    icon: FaIcon(
+                      FontAwesomeIcons.arrowDown,
+                      color: Theme.of(context).textTheme.bodyText1!.color,
+                    ),
                     child: Text(
                       'Down',
                       style: TextStyle(
-                          color: Theme.of(context).textTheme.bodyText1!.color,
-                          fontSize: 16),
+                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        fontSize: 16,
+                      ),
                     ).tr(),
                   ),
                 ),
@@ -83,24 +91,32 @@ class BlindWidget extends StatelessWidget {
                       Colors.grey,
                     ),
                     side: MaterialStateProperty.all(
-                      BorderSide.lerp(const BorderSide(color: Colors.white60),
-                          const BorderSide(color: Colors.white60), 22),
+                      BorderSide.lerp(
+                        const BorderSide(color: Colors.white60),
+                        const BorderSide(color: Colors.white60),
+                        22,
+                      ),
                     ),
                   ),
                   onPressed: () {
                     context.read<BlindsActorBloc>().add(
                           BlindsActorEvent.stopAllBlinds(
-                              [_deviceEntity.uniqueId.getOrCrash()!], context),
+                            [_deviceEntity.uniqueId.getOrCrash()!],
+                            context,
+                          ),
                         );
                   },
                   child: Tab(
-                    icon: FaIcon(FontAwesomeIcons.solidHandPaper,
-                        color: Theme.of(context).textTheme.bodyText1!.color),
+                    icon: FaIcon(
+                      FontAwesomeIcons.solidHandPaper,
+                      color: Theme.of(context).textTheme.bodyText1!.color,
+                    ),
                     child: Text(
                       'Stop',
                       style: TextStyle(
-                          color: Theme.of(context).textTheme.bodyText1!.color,
-                          fontSize: 16),
+                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        fontSize: 16,
+                      ),
                     ).tr(),
                   ),
                 ),
@@ -113,24 +129,32 @@ class BlindWidget extends StatelessWidget {
                       Colors.amber,
                     ),
                     side: MaterialStateProperty.all(
-                      BorderSide.lerp(const BorderSide(color: Colors.white60),
-                          const BorderSide(color: Colors.white60), 22),
+                      BorderSide.lerp(
+                        const BorderSide(color: Colors.white60),
+                        const BorderSide(color: Colors.white60),
+                        22,
+                      ),
                     ),
                   ),
                   onPressed: () {
                     context.read<BlindsActorBloc>().add(
                           BlindsActorEvent.moveUpAllBlinds(
-                              [_deviceEntity.uniqueId.getOrCrash()!], context),
+                            [_deviceEntity.uniqueId.getOrCrash()!],
+                            context,
+                          ),
                         );
                   },
                   child: Tab(
-                    icon: FaIcon(FontAwesomeIcons.arrowUp,
-                        color: Theme.of(context).textTheme.bodyText1!.color),
+                    icon: FaIcon(
+                      FontAwesomeIcons.arrowUp,
+                      color: Theme.of(context).textTheme.bodyText1!.color,
+                    ),
                     child: Text(
                       'Up',
                       style: TextStyle(
-                          color: Theme.of(context).textTheme.bodyText1!.color,
-                          fontSize: 16),
+                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        fontSize: 16,
+                      ),
                     ).tr(),
                   ),
                 ),

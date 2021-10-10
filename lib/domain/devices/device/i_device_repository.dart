@@ -36,7 +36,8 @@ abstract class IDeviceRepository {
       watchUncompleted();
 
   Future<Either<DevicesFailure, Unit>> create(
-      DeviceEntityAbstract deviceEntity);
+    DeviceEntityAbstract deviceEntity,
+  );
 
   /// Update document in the database in the following fields
   Future<Either<DevicesFailure, Unit>> updateDatabase({

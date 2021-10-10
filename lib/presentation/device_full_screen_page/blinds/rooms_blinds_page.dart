@@ -17,7 +17,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 /// and scaffold for it
 class RoomsBlindsPage extends StatelessWidget {
   const RoomsBlindsPage(
-      {this.showDevicesOnlyFromRoomId, this.roomColorGradiant});
+      {this.showDevicesOnlyFromRoomId, this.roomColorGradiant,});
 
   /// If it have value will only show blinds in this room
   final String? showDevicesOnlyFromRoomId;
@@ -105,7 +105,7 @@ class RoomsBlindsPage extends StatelessWidget {
                 ),
                 Expanded(
                   child: RoomsBlindsWidget(
-                      showDevicesOnlyFromRoomId!, roomColorGradiant!),
+                      showDevicesOnlyFromRoomId!, roomColorGradiant!,),
                 ),
               ],
             ),

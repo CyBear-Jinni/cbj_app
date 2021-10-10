@@ -6,7 +6,8 @@ class LoginEntityDtoAbstract {
   LoginEntityDtoAbstract();
 
   factory LoginEntityDtoAbstract.fromDomain(
-      LoginEntityAbstract loginEntityDtoAbstract) {
+    LoginEntityAbstract loginEntityDtoAbstract,
+  ) {
     print('LoginEntityDtoAbstract.fromDomain');
     return LoginEntityDtoAbstract();
   }

@@ -17,31 +17,32 @@ class ScanForNewCBJCompsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (context) =>
-            getIt<CBJCompBloc>()..add(const CBJCompEvent.watchAllStarted()),
-        child: Scaffold(
-          appBar: AppBar(
-            toolbarHeight: 0,
-            backgroundColor: Colors.black,
-            brightness: Brightness.dark,
+      create: (context) =>
+          getIt<CBJCompBloc>()..add(const CBJCompEvent.watchAllStarted()),
+      child: Scaffold(
+        appBar: AppBar(
+          toolbarHeight: 0,
+          backgroundColor: Colors.black,
+          brightness: Brightness.dark,
+        ),
+        body: Container(
+          color: Colors.black87,
+          child: Column(
+            children: [
+              TopNavigationBar(
+                'Add CBJ Devices',
+                null,
+                null,
+                leftIcon: FontAwesomeIcons.arrowLeft,
+                leftIconFunction: leftIconFunction,
+              ),
+              Expanded(
+                child: ScanForNewCBJCompsWidget(),
+              ),
+            ],
           ),
-          body: Container(
-            color: Colors.black87,
-            child: Column(
-              children: [
-                TopNavigationBar(
-                  'Add CBJ Devices',
-                  null,
-                  null,
-                  leftIcon: FontAwesomeIcons.arrowLeft,
-                  leftIconFunction: leftIconFunction,
-                ),
-                Expanded(
-                  child: ScanForNewCBJCompsWidget(),
-                ),
-              ],
-            ),
-          ),
-        ));
+        ),
+      ),
+    );
   }
 }

@@ -3,7 +3,8 @@ import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_da
 import 'package:dartz/dartz.dart';
 
 Either<CoreFailure<String>, String> validateGenericLightStateNotEmty(
-    String input) {
+  String input,
+) {
   if (input != null) {
     if (input == true.toString()) {
       return right(DeviceActions.on.toString());

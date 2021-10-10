@@ -68,7 +68,9 @@ class UserRepository implements IUserRepository {
 
   @override
   Future<Either<HomeUserFailures, Unit>> addHome(
-      UserEntity userEntity, AllHomesOfUserEntity allHomesOfUserEntity) async {
+    UserEntity userEntity,
+    AllHomesOfUserEntity allHomesOfUserEntity,
+  ) async {
     try {
       // final usersCollection = await _firestore.usersCollection();
       // final homeCollection = await _firestore.homeCollection();
@@ -138,7 +140,8 @@ class UserRepository implements IUserRepository {
 
   @override
   Future<Either<HomeUserFailures, Unit>> joinExistingHome(
-      AllHomesOfUserEntity allHomesOfUserEntity) async {
+    AllHomesOfUserEntity allHomesOfUserEntity,
+  ) async {
     try {
       // final homeCollection = await _firestore.homeCollection();
 

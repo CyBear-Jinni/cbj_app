@@ -9,7 +9,8 @@ import 'package:kt_dart/collection.dart';
 class HomeUserRepository implements IHomeUserRepository {
   @override
   Future<Either<HomeUserFailures, Unit>> add(
-      HomeUserEntity homeUserEntity) async {
+    HomeUserEntity homeUserEntity,
+  ) async {
     // try {
     //   final devicesDoc = await _firestore.homeDocument();
     //   final deviceDtos = DeviceDtos.fromDomain(deviceEntity);
@@ -31,7 +32,8 @@ class HomeUserRepository implements IHomeUserRepository {
 
   @override
   Future<Either<HomeUserFailures, Unit>> delete(
-      HomeUserEntity deviceEntity) async {
+    HomeUserEntity deviceEntity,
+  ) async {
     // try {
     //   final devicesDoc = await _firestore.homeDocument();
     //   final deviceDtos = DeviceDtos.fromDomain(deviceEntity);
@@ -75,7 +77,8 @@ class HomeUserRepository implements IHomeUserRepository {
 
   @override
   Future<Either<HomeUserFailures, Unit>> update(
-      HomeUserEntity deviceEntity) async {
+    HomeUserEntity deviceEntity,
+  ) async {
     // try {
     //   final devicesDoc = await _firestore.homeDocument();
     //   final deviceDtos = DeviceDtos.fromDomain(deviceEntity);

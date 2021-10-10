@@ -10,8 +10,8 @@ class CBJCompEvent with _$CBJCompEvent {
       _ChangeState;
 
   const factory CBJCompEvent.compDevicesReceived(
-          Either<CBJCompFailure, String> failureOrCBJCompList) =
-      _CompDevicesReceived;
+    Either<CBJCompFailure, String> failureOrCBJCompList,
+  ) = _CompDevicesReceived;
 
   const factory CBJCompEvent.create(CBJCompEntity cBJCompEntity) =
       _CreateDevice;

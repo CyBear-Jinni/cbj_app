@@ -5,8 +5,10 @@ Either<CoreLoginFailure<String>, String> validVendorNameNotEmpty(String input) {
   if (input.isNotEmpty) {
     return right(input);
   } else {
-    return left(CoreLoginFailure.empty(
-      failedValue: input,
-    ));
+    return left(
+      CoreLoginFailure.empty(
+        failedValue: input,
+      ),
+    );
   }
 }

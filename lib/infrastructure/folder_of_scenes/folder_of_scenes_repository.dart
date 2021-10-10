@@ -60,7 +60,7 @@ class FolderOfScenesRepository implements IFolderOfScenesRepository {
             uniqueId: UniqueId(),
             name: 'Going out',
             scenesActionsToExecute: ['On All', 'Off All'].toImmutableList(),
-            backgroundColor: HexColor('#FFD6CF')),
+            backgroundColor: HexColor('#FFD6CF'),),
       ),
       right(
         Scene(
