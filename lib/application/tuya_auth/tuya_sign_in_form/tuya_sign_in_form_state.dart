@@ -17,7 +17,7 @@ class TuyaSignInFormState with _$TuyaSignInFormState {
         tuyaUserName: GenericTuyaLoginUserName(''),
         tuyaUserPassword: GenericTuyaLoginUserPassword(''),
         tuyaCountryCode: GenericTuyaLoginCountryCode(''),
-        tuyaBizType: GenericTuyaLoginBizType(''),
+        tuyaBizType: GenericTuyaLoginBizType('tuya'),
         tuyaLoginRegion: GenericTuyaLoginRegion(''),
         showErrorMessages: false,
         isSubmitting: false,

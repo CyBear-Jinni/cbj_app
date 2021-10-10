@@ -61,25 +61,25 @@ class TuyaSignInFormBloc
       },
       userPasswordChanged: (UserPasswordChanged value) async* {
         yield state.copyWith(
-          tuyaUserName: GenericTuyaLoginUserName(value.userPasswordStr),
+          tuyaUserPassword: GenericTuyaLoginUserPassword(value.userPasswordStr),
           authFailureOrSuccessOption: none(),
         );
       },
       countryCodeChanged: (CountryCodeChanged value) async* {
         yield state.copyWith(
-          tuyaUserName: GenericTuyaLoginUserName(value.countryCodeStr),
+          tuyaCountryCode: GenericTuyaLoginCountryCode(value.countryCodeStr),
           authFailureOrSuccessOption: none(),
         );
       },
       bizTypeChanged: (BizTypeChanged value) async* {
         yield state.copyWith(
-          tuyaUserName: GenericTuyaLoginUserName(value.bizTypeStr),
+          tuyaBizType: GenericTuyaLoginBizType(value.bizTypeStr),
           authFailureOrSuccessOption: none(),
         );
       },
       regionChanged: (RegionChanged value) async* {
         yield state.copyWith(
-          tuyaUserName: GenericTuyaLoginUserName(value.regionStr),
+          tuyaLoginRegion: GenericTuyaLoginRegion(value.regionStr),
           authFailureOrSuccessOption: none(),
         );
       },

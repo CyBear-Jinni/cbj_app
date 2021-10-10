@@ -15,7 +15,7 @@ class TuyaSignInFormEvent with _$TuyaSignInFormEvent {
   const factory TuyaSignInFormEvent.bizTypeChanged(String bizTypeStr) =
       BizTypeChanged;
 
-  const factory TuyaSignInFormEvent.regionChanged(String regionStr) =
+  const factory TuyaSignInFormEvent.regionChanged(String? regionStr) =
       RegionChanged;
 
   const factory TuyaSignInFormEvent.signIn() = SignInWithApiKey;
