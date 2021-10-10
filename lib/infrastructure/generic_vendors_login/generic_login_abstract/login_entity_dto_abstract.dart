@@ -1,5 +1,6 @@
 import 'package:cybear_jinni/domain/vendors/login_abstract/login_entity_abstract.dart';
 import 'package:cybear_jinni/infrastructure/generic_vendors_login/generic_lifx_login/generic_lifx_login_dtos.dart';
+import 'package:cybear_jinni/infrastructure/generic_vendors_login/generic_tuya_login/generic_tuya_login_dtos.dart';
 
 class LoginEntityDtoAbstract {
   LoginEntityDtoAbstract();
@@ -16,6 +17,8 @@ class LoginEntityDtoAbstract {
 
     if (jsonLoginDtoClass == (GenericLifxLoginDtos).toString()) {
       loginEntityDtoAbstract = GenericLifxLoginDtos.fromJson(json);
+    } else if (jsonLoginDtoClass == (GenericTuyaLoginDtos).toString()) {
+      loginEntityDtoAbstract = GenericTuyaLoginDtos.fromJson(json);
     } else {
       throw 'DtoClassTypeDoesNotExist';
     }

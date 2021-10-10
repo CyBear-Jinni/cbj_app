@@ -1,6 +1,8 @@
 import 'package:cybear_jinni/domain/vendors/i_vendor_repository.dart';
 import 'package:cybear_jinni/domain/vendors/lifx_login/generic_lifx_login_entity.dart';
 import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.dart';
+import 'package:cybear_jinni/domain/vendors/login_abstract/login_entity_abstract.dart';
+import 'package:cybear_jinni/domain/vendors/tuya_login/generic_tuya_login_entity.dart';
 import 'package:cybear_jinni/domain/vendors/vendor.dart';
 import 'package:cybear_jinni/domain/vendors/vendor_failures.dart';
 import 'package:cybear_jinni/domain/vendors/vendor_value_objects.dart';
@@ -23,8 +25,7 @@ class VendorsRepository implements IVendorsRepository {
       if (vendorsAndServices.name ==
               VendorsAndServices.vendorsAndServicesNotSupported.name ||
           vendorsAndServices.name == VendorsAndServices.google.name ||
-          vendorsAndServices.name == VendorsAndServices.miHome.name ||
-          vendorsAndServices.name == VendorsAndServices.tuyaSmart.name) {
+          vendorsAndServices.name == VendorsAndServices.miHome.name) {
         continue;
       }
       Vendor v = vendorPlusImageFromVandorName(vendorsAndServices.name);
@@ -57,9 +58,22 @@ class VendorsRepository implements IVendorsRepository {
   Future<Either<CoreLoginFailure, Unit>> loginWithLifx(
     GenericLifxLoginDE genericLifxDE,
   ) async {
+    return loginWithVendor(genericLifxDE);
+  }
+
+  @override
+  Future<Either<CoreLoginFailure, Unit>> loginWithTuya(
+    GenericTuyaLoginDE genericTuyaDE,
+  ) async {
+    return loginWithVendor(genericTuyaDE);
+  }
+
+  Future<Either<CoreLoginFailure, Unit>> loginWithVendor(
+    LoginEntityAbstract genericVendorDE,
+  ) async {
     try {
       final String loginDtoAsString =
-          VendorHelper.convertDomainToJsonString(genericLifxDE);
+          VendorHelper.convertDomainToJsonString(genericVendorDE);
 
       final ClientStatusRequests clientStatusRequests = ClientStatusRequests(
         allRemoteCommands: loginDtoAsString,
@@ -70,7 +84,7 @@ class VendorsRepository implements IVendorsRepository {
           .add(clientStatusRequests);
       return right(unit);
     } catch (e) {
-      return left(CoreLoginFailure.unexpected());
+      return left(const CoreLoginFailure.unexpected());
     }
   }
 }

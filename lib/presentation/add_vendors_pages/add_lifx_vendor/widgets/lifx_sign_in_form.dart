@@ -1,6 +1,6 @@
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/application/lifix_auth/lifx_sign_in_form/lifx_sign_in_form_bloc.dart';
+import 'package:cybear_jinni/application/lifx_auth/lifx_sign_in_form/lifx_sign_in_form_bloc.dart';
 import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:dartz/dartz.dart';
@@ -8,6 +8,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class LifxSignInForm extends StatelessWidget {
   @override
@@ -71,7 +73,9 @@ class LifxSignInForm extends StatelessWidget {
                     ),
                     TextFormField(
                       decoration: const InputDecoration(
-                        prefixIcon: Icon(Icons.vpn_key),
+                        prefixIcon: FaIcon(
+                          FontAwesomeIcons.key,
+                        ),
                         labelText: 'Lifx API Key',
                       ),
                       autocorrect: false,
@@ -125,15 +129,13 @@ class LifxSignInForm extends StatelessWidget {
               alignment: Alignment.bottomRight,
               child: TextButton(
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
-                    Theme.of(context).textTheme.bodyText1!.color,
-                  ),
+                  backgroundColor: MaterialStateProperty.all(Colors.pink),
                 ),
                 onPressed: () {
-                  context.router.push(const WhereToLoginRouteOffline());
+                  launch('https://cloud.lifx.com/');
                 },
                 child: Text(
-                  'For More Options',
+                  'Get Lifx API key from Lifx website',
                   style: TextStyle(
                     color: Theme.of(context).textTheme.bodyText1!.color,
                   ),

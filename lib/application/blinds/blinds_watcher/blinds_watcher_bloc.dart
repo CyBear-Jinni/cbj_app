@@ -33,14 +33,18 @@ class BlindsWatcherBloc extends Bloc<BlindsWatcherEvent, BlindsWatcherState> {
         yield const BlindsWatcherState.loadInProgress();
         await _deviceStreamSubscription?.cancel();
         _deviceStreamSubscription = _deviceRepository.watchBlinds().listen(
-            (eventWatch) => add(BlindsWatcherEvent.blindsReceived(eventWatch)));
+              (eventWatch) =>
+                  add(BlindsWatcherEvent.blindsReceived(eventWatch)),
+            );
       },
       blindsReceived: (e) async* {
         yield const BlindsWatcherState.loadInProgress();
         yield e.failureOrDevices.fold(
-            (f) => BlindsWatcherState.loadFailure(f),
-            (d) => BlindsWatcherState.loadSuccess(
-                d.map((v) => v! as GenericBlindsDE).toMutableList()));
+          (f) => BlindsWatcherState.loadFailure(f),
+          (d) => BlindsWatcherState.loadSuccess(
+            d.map((v) => v! as GenericBlindsDE).toMutableList(),
+          ),
+        );
       },
     );
   }

@@ -14,6 +14,8 @@ analyzer:
     - "**/*.pbgrpc.dart"
     - "**/*.pbjson.dart"
     - "**/*.gr.dart"
+    - "lib/infrastructure/core/gen/**"
+
 
 linter:
   rules:
