@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:hsv_color_pickers/widgets/hue_picker.dart';
 
 /// Show light toggles in a container with the background color from smart room
 /// object
@@ -45,38 +46,55 @@ class RgbwLightWidget extends StatelessWidget {
     return BlocConsumer<LightToggleBloc, LightToggleState>(
       listener: (context, state) {},
       builder: (context, state) {
-        return Container(
-          margin: const EdgeInsets.symmetric(vertical: 5),
-          width: sizeBoxWidth + 15,
-          child: FlutterSwitch(
-              width: screenSize.width * 0.2,
-              height: screenSize.height * 0.05,
-              toggleSize: screenSize.height * 0.05,
-              value: toggleValue,
-              borderRadius: 25.0,
-              padding: 0.0,
-              activeToggleColor: const Color(0xFF2F363D),
-              inactiveToggleColor: Colors.deepPurple,
-              activeSwitchBorder: Border.all(
-                color: (Theme.of(context).textTheme.bodyText1!.color)!,
-              ),
-              inactiveSwitchBorder: Border.all(
-                color: (Theme.of(context).textTheme.bodyText1!.color)!,
-              ),
-              activeColor: toggleColor,
-              inactiveColor: toggleColor,
-              activeIcon: const Icon(
-                FontAwesomeIcons.solidLightbulb,
-                color: Color(0xFFF8E3A1),
-              ),
-              inactiveIcon: Icon(
-                FontAwesomeIcons.lightbulb,
-                color: Theme.of(context).textTheme.bodyText1!.color,
-              ),
-              onToggle: (bool value) => _onChange(context, value)
-              // _onChange(context, value),
+        return Column(
+          children: [
+            Container(
+              margin: const EdgeInsets.symmetric(vertical: 5),
+              width: sizeBoxWidth + 15,
+              child: FlutterSwitch(
+                  width: screenSize.width * 0.2,
+                  height: screenSize.height * 0.05,
+                  toggleSize: screenSize.height * 0.05,
+                  value: toggleValue,
+                  borderRadius: 25.0,
+                  padding: 0.0,
+                  activeToggleColor: const Color(0xFF2F363D),
+                  inactiveToggleColor: Colors.deepPurple,
+                  activeSwitchBorder: Border.all(
+                    color: (Theme.of(context).textTheme.bodyText1!.color)!,
+                  ),
+                  inactiveSwitchBorder: Border.all(
+                    color: (Theme.of(context).textTheme.bodyText1!.color)!,
+                  ),
+                  activeColor: toggleColor,
+                  inactiveColor: toggleColor,
+                  activeIcon: const Icon(
+                    FontAwesomeIcons.solidLightbulb,
+                    color: Color(0xFFF8E3A1),
+                  ),
+                  inactiveIcon: Icon(
+                    FontAwesomeIcons.lightbulb,
+                    color: Theme.of(context).textTheme.bodyText1!.color,
+                  ),
+                  onToggle: (bool value) => _onChange(context, value)
+                  // _onChange(context, value),
 
-              ),
+                  ),
+            ),
+            HuePicker(
+              initialColor: HSVColor.fromColor(Colors.green),
+              onChanged: (HSVColor color) {
+                context.read<LightToggleBloc>().add(
+                      LightToggleEvent.changeColor(
+                        _deviceEntity!,
+                        color,
+                      ),
+                    );
+                print('Colors is ss $color');
+                // do something with color
+              },
+            ),
+          ],
         );
       },
     );

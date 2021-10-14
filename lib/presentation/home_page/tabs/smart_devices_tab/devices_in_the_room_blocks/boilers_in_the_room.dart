@@ -30,12 +30,14 @@ class BoilersInTheRoom extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.router.push(RoomsBoilersRoute(
-            showDevicesOnlyFromRoomId: boilersInRoom![0].roomId.getOrCrash(),
-            roomColorGradiant: roomColorGradiant));
+        context.router.push(
+          RoomsBoilersRoute(
+              showDevicesOnlyFromRoomId: boilersInRoom![0].roomId.getOrCrash(),
+              roomColorGradiant: roomColorGradiant),
+        );
       },
       child: Container(
-        color: Colors.black.withOpacity(0.03),
+        color: Colors.amber.withOpacity(0.03),
         margin: const EdgeInsets.all(5),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

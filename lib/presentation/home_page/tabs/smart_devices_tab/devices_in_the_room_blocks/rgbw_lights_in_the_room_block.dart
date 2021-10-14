@@ -30,10 +30,12 @@ class RgbwLightsInTheRoomBlock extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.router.push(RoomsRgbwLightsRoute(
-          showDevicesOnlyFromRoomId: lightsInRoom[0].roomId.getOrCrash(),
-          roomColorGradiant: roomColorGradiant,
-        ));
+        context.router.push(
+          RoomsRgbwLightsRoute(
+            showDevicesOnlyFromRoomId: lightsInRoom[0].roomId.getOrCrash(),
+            roomColorGradiant: roomColorGradiant,
+          ),
+        );
       },
       child: Container(
         color: Colors.amber.withOpacity(0.03),
@@ -48,7 +50,7 @@ class RgbwLightsInTheRoomBlock extends StatelessWidget {
                 const Expanded(
                   child: CircleAvatar(
                     child: FaIcon(
-                      FontAwesomeIcons.solidLightbulb,
+                      FontAwesomeIcons.lightbulb,
                       color: Colors.amberAccent,
                     ),
                   ),

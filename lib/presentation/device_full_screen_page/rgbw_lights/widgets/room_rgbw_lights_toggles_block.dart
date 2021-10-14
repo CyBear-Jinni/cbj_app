@@ -101,7 +101,8 @@ class RoomRgbwLightsTogglesBlock extends StatelessWidget {
                 if (maxLightsToShow != null &&
                     _smartRoomObject!.getLights()!.length > maxLightsToShow!) {
                   context.router.push(
-                      LightsInTheRoomRoute(thisSmartRoom: _smartRoomObject));
+                    LightsInTheRoomRoute(thisSmartRoom: _smartRoomObject),
+                  );
                 }
               },
               child: Row(

@@ -1,9 +1,9 @@
 import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
-import 'package:cybear_jinni/presentation/home_page/tabs/routine_tab/add_routine/add_routine.dart';
-import 'package:cybear_jinni/presentation/home_page/tabs/routine_tab/alarm_clock_widget.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// Page to see and interact with all the set routines
@@ -46,27 +46,42 @@ class RoutinesPage extends StatelessWidget {
               rightSecondFunction: rightSecondFunction,
             ),
             Expanded(
-              child: Container(
-                margin: const EdgeInsets.symmetric(horizontal: 4),
-                child: ListView(
-                  children: const [
-                    SizedBox(
-                      height: 44,
-                    ),
-                    AlarmClockWidget(
-                        '15:35',
-                        'Going to sleep',
-                        'assets/gif/sleep3.gif',
-                        'Need to wake up in the morning every day and eating all I can bofay.\nNow with no time for delay, lats go and concur the bay'),
-                    SizedBox(
-                      height: 44,
-                    ),
-                    AlarmClockWidget(
-                        '17:40',
-                        'Going to sleep',
-                        'assets/gif/sleep1.gif',
-                        'Need to wake up in the morning'),
-                  ],
+              child: GestureDetector(
+                onTap: () {
+                  Fluttertoast.showToast(
+                    msg: 'Add new routine by pressing the plus button',
+                    toastLength: Toast.LENGTH_LONG,
+                    gravity: ToastGravity.CENTER,
+                    backgroundColor: Colors.blueGrey,
+                    textColor: Theme.of(context).textTheme.bodyText1!.color,
+                    fontSize: 16.0,
+                  );
+                },
+                child: Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 4),
+                  child: ListView(
+                    reverse: true,
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.symmetric(vertical: 30),
+                        alignment: Alignment.center,
+                        child: Image.asset(
+                          'assets/cbj_logo.png',
+                          fit: BoxFit.fitHeight,
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment.topCenter,
+                        child: Text(
+                          'Routines list is empty',
+                          style: TextStyle(
+                            fontSize: 30,
+                            color: Theme.of(context).primaryColor,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -86,11 +101,21 @@ class RoutinesPage extends StatelessWidget {
                     scale: 1.2,
                     child: GestureDetector(
                       onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (BuildContext context) =>
-                                    AddRoutinePage()));
+                        Fluttertoast.showToast(
+                          msg: 'Adding Routines currently not supported',
+                          toastLength: Toast.LENGTH_SHORT,
+                          gravity: ToastGravity.SNACKBAR,
+                          backgroundColor: Colors.lightBlue,
+                          textColor:
+                              Theme.of(context).textTheme.bodyText1!.color,
+                          fontSize: 16.0,
+                        );
+                        // Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(
+                        //     builder: (BuildContext context) => AddRoutinePage(),
+                        //   ),
+                        // );
                       },
                       child: Ink(
                         decoration: const ShapeDecoration(
@@ -99,7 +124,7 @@ class RoutinesPage extends StatelessWidget {
                         ),
                         child: CircleAvatar(
                           backgroundColor: Colors.blue.withOpacity(0.9),
-                          child: FaIcon(
+                          child: const FaIcon(
                             FontAwesomeIcons.plus,
                             color: Colors.white,
                           ),

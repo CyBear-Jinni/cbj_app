@@ -63,9 +63,10 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
                       margin: const EdgeInsets.only(left: 30),
                       child: Row(
                         children: <Widget>[
-                          FaIcon(FontAwesomeIcons.doorOpen,
-                              color:
-                                  Theme.of(context).textTheme.bodyText1!.color),
+                          FaIcon(
+                            FontAwesomeIcons.doorOpen,
+                            color: Theme.of(context).textTheme.bodyText1!.color,
+                          ),
                           const SizedBox(
                             width: 20,
                           ),

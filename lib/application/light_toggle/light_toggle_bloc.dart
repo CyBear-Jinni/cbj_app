@@ -5,6 +5,7 @@ import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstra
 import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/widgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -35,15 +36,23 @@ class LightToggleBloc extends Bloc<LightToggleEvent, LightToggleState> {
 
         if (e.changeToState) {
           actionResult = await _deviceRepository.turnOnDevices(
-              devicesId: [e.deviceEntity.uniqueId.getOrCrash()!]);
+            devicesId: [e.deviceEntity.uniqueId.getOrCrash()!],
+          );
         } else {
           actionResult = await _deviceRepository.turnOffDevices(
-              devicesId: [e.deviceEntity.uniqueId.getOrCrash()!]);
+            devicesId: [e.deviceEntity.uniqueId.getOrCrash()!],
+          );
         }
 
         yield actionResult.fold(
           (devicesFailure) => LightToggleState.loadFailure(devicesFailure),
           (_) => const LightToggleState.loadSuccess(),
+        );
+      },
+      changeColor: (_ChangeColor e) async* {
+        await _deviceRepository.changeColorDevices(
+          devicesId: [e.deviceEntity.uniqueId.getOrCrash()!],
+          colorToChange: e.newColor,
         );
       },
     );

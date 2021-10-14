@@ -26,10 +26,11 @@ class SmartDevicesWidgets extends StatelessWidget {
           ),
           onPressed: () {
             Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (BuildContext context) =>
-                        SettingsPageSmartDevices()));
+              context,
+              MaterialPageRoute(
+                builder: (BuildContext context) => SettingsPageSmartDevices(),
+              ),
+            );
           },
         ),
       ],
@@ -87,63 +88,19 @@ class SmartDevicesWidgets extends StatelessWidget {
             },
           ),
         ],
-        child: Stack(
-          children: [
-            Column(
-              children: <Widget>[
-                TopNavigationBar(
-                  'Devices',
-                  Icons.more_vert,
-                  userCogFunction,
-                  leftIcon: FontAwesomeIcons.userCog,
-                  leftIconFunction: leftIconFunction,
-                  rightSecondIcon: FontAwesomeIcons.search,
-                  rightSecondFunction: rightSecondFunction,
-                ),
-                Expanded(
-                  child: SmartDevicesByRooms(),
-                ),
-              ],
+        child: Column(
+          children: <Widget>[
+            TopNavigationBar(
+              'Devices',
+              Icons.more_vert,
+              userCogFunction,
+              leftIcon: FontAwesomeIcons.userCog,
+              leftIconFunction: leftIconFunction,
+              rightSecondIcon: FontAwesomeIcons.search,
+              rightSecondFunction: rightSecondFunction,
             ),
-            Column(
-              children: [
-                const Expanded(
-                  child: Text(''),
-                ),
-                SizedBox(
-                  height: 100,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Transform.scale(
-                        scale: 1.2,
-                        child: GestureDetector(
-                          onTap: () {
-                            context.router
-                                .push(const ChooseDeviceVendorToAddRoute());
-                          },
-                          child: Ink(
-                            decoration: const ShapeDecoration(
-                              color: Colors.black12,
-                              shape: CircleBorder(),
-                            ),
-                            child: CircleAvatar(
-                              backgroundColor: Colors.blue.withOpacity(0.9),
-                              child: const FaIcon(
-                                FontAwesomeIcons.plus,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 15,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+            Expanded(
+              child: SmartDevicesByRooms(),
             ),
           ],
         ),

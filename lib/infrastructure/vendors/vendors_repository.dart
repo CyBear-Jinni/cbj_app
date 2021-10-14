@@ -17,11 +17,19 @@ class VendorsRepository implements IVendorsRepository {
     for (final VendorsAndServices vendorsAndServices
         in VendorsAndServices.values) {
       if (vendorsAndServices.name ==
-          VendorsAndServices.vendorsAndServicesNotSupported.name) {
+              VendorsAndServices.vendorsAndServicesNotSupported.name ||
+          vendorsAndServices.name == VendorsAndServices.google.name ||
+          vendorsAndServices.name == VendorsAndServices.miHome.name ||
+          vendorsAndServices.name == VendorsAndServices.tuyaSmart.name) {
         continue;
       }
-      vendorsWithIcons
-          .add(vendorPlusImageFromVandorName(vendorsAndServices.name));
+      Vendor v = vendorPlusImageFromVandorName(vendorsAndServices.name);
+      if (vendorsAndServices.name ==
+          VendorsAndServices.switcherSmartHome.name) {
+        v = v.copyWith(name: VendorName('Switcher'));
+      }
+      vendorsWithIcons.add(v);
+
       print(vendorsAndServices.name);
     }
     return right(vendorsWithIcons.toImmutableList());
@@ -51,7 +59,17 @@ class VendorsMocDataWithImages {
             'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.kyAWxT4tVBWL6O2sCJKqaAHaHa%26pid%3DApi&f=1',
       ),
       Vendor(
-        name: VendorName('Switcher'),
+        name: VendorName('Xiaomi Mi'),
+        image:
+            'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.designbust.com%2Fdownload%2F1629%2Fpng%2Fxiaomi_logo512.png&f=1&nofb=1',
+      ),
+      Vendor(
+        name: VendorName('Lifx'),
+        image:
+            'https://play-lh.googleusercontent.com/k61DT9oYt_BPdzjAFokLY5e-He-YSl7-eZHeieaVO45XDAwQ6ebegsS_ZsQytca2zWM=s180',
+      ),
+      Vendor(
+        name: VendorName('SwitcherSmartHome'),
         image:
             'https://play-lh.googleusercontent.com/8L6vVAT2cC78V622nxSznr7Mm_MgMsH25TopH-ZIm5HMwAHRy0qTX29FlHF6_kbBsQ=s180',
       ),
@@ -66,7 +84,7 @@ class VendorsMocDataWithImages {
             'https://www.opc-router.de/wp-content/uploads/2018/07/mqtt_icon_128px.png',
       ),
       Vendor(
-        name: VendorName('Tuya'),
+        name: VendorName('TuyaSmart'),
         image:
             'https://play-lh.googleusercontent.com/KGM9NYnyox9TXwoaY3PKl1PfQ2rTPp1rnpNNtmlbgozJZykhZhGKsL3z9myoj4ccayLS=s180',
       ),
@@ -94,6 +112,11 @@ class VendorsMocDataWithImages {
         name: VendorName('Ring'),
         image:
             'https://play-lh.googleusercontent.com/fbIl2IKPAG4_3lNnwsi0qMBTJEgOsIwBUYzrs5_GIRYRBHov_a5eJ0bMxEUNMu67G4Ws=s180',
+      ),
+      Vendor(
+        name: VendorName('Google'),
+        image:
+            'https://play-lh.googleusercontent.com/DKoidc0T3T1KvYC2stChcX9zwmjKj1pgmg3hXzGBDQXM8RG_7JjgiuS0CLOh8DUa7as=s180',
       ),
     ].toImmutableList();
   }

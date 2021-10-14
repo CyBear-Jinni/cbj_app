@@ -36,6 +36,8 @@ class UserHomesListBloc extends Bloc<UserHomesListEvent, UserHomesListState> {
                 UserHomesListEvent.allHomesOfUserReceived(failureOrDevices)));
       },
       allHomesOfUserReceived: (e) async* {
+        yield const UserHomesListState.loadInProgress();
+
         yield e.failureOrAllHomesOfUser.fold(
             (f) => UserHomesListState.loadFailure(f),
             (allHomes) => UserHomesListState.loadSuccess(allHomes));

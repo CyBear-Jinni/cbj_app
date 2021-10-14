@@ -18,10 +18,11 @@ class HistoryTab extends StatelessWidget {
             icon: FaIcon(FontAwesomeIcons.cog,
                 color: Theme.of(context).textTheme.bodyText1!.color),
             onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (BuildContext context) =>
-                        SettingsPageOfHistory())),
+              context,
+              MaterialPageRoute(
+                builder: (BuildContext context) => SettingsPageOfHistory(),
+              ),
+            ),
           ),
         ),
         Text(
