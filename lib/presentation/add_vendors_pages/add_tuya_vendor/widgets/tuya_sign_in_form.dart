@@ -2,15 +2,49 @@ import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/tuya_auth/tuya_sign_in_form/tuya_sign_in_form_bloc.dart';
 import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.dart';
+import 'package:cybear_jinni/presentation/add_vendors_pages/add_tuya_vendor/widgets/country_dial_codes.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
-import 'package:dartz/dartz.dart';
+import 'package:dartz/dartz.dart' as dartz;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:geocoding/geocoding.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:location/location.dart';
 
-class TuyaSignInForm extends StatelessWidget {
+class TuyaSignInForm extends StatefulWidget {
+  @override
+  State<TuyaSignInForm> createState() => _TuyaSignInFormState();
+}
+
+class _TuyaSignInFormState extends State<TuyaSignInForm> {
+  final TextEditingController _countryCode = TextEditingController();
+
+  Future<void> getCountryCode(BuildContext context) async {
+    final Position position = await Geolocator.getCurrentPosition();
+    final List<Placemark> placemarks =
+        await placemarkFromCoordinates(position.latitude, position.longitude);
+    final Placemark place = placemarks[0];
+
+    for (int i = 0; i < countryDialCodes.length; i++) {
+      if (countryDialCodes[i]['name']!.toLowerCase() ==
+          place.country!.toLowerCase()) {
+        setState(() {
+          _countryCode.text = countryDialCodes[i]['dial_code'].toString();
+        });
+        break;
+      }
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getCountryCode(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
@@ -19,7 +53,7 @@ class TuyaSignInForm extends StatelessWidget {
       listener: (context, state) {
         state.authFailureOrSuccessOption.fold(
           () {},
-          (Either<CoreLoginFailure, Unit> either) => either.fold(
+          (dartz.Either<CoreLoginFailure, dartz.Unit> either) => either.fold(
               (CoreLoginFailure failure) => {
                     FlushbarHelper.createError(
                       message: 'Validation error',
@@ -126,6 +160,8 @@ class TuyaSignInForm extends StatelessWidget {
                       height: 8,
                     ),
                     TextFormField(
+                      keyboardType: TextInputType.phone,
+                      controller: _countryCode,
                       decoration: const InputDecoration(
                         prefixIcon: FaIcon(FontAwesomeIcons.flag),
                         labelText: 'Tuya Country Code',

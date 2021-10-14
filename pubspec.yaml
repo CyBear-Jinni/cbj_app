@@ -79,10 +79,15 @@ dependencies:
   font_awesome_flutter: ^9.1.0
   # Annotations for freezed
   freezed_annotation: ^0.14.3
+  # A plugin for converting coordinates into String.
+  geocoding: ^2.0.1
+  # A plugin for getting the Location of the device.
+  geolocator: ^7.7.0
   # Service locator
   get_it: ^7.2.0
   # Secure authentication system for signing in with a Google account on Android and iOS
 #  google_sign_in: ^5.0.4
+  
   # A high performance, open source, general RPC framework that puts mobile and HTTP/2 first.
   grpc: ^3.0.2
   # Add hex color codes to your flutter projects
