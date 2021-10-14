@@ -22,6 +22,8 @@ class HubClient {
 
       response =
           stub!.clientTransferDevices(AppRequestsToHub.appRequestsToHubStream);
+      AppRequestsToHub.appRequestsToHubStreamController.sink
+          .add(ClientStatusRequests(sendingType: SendingType.firstConnection));
 
       HubRequestsToApp.hubRequestsStreamController.sink.addStream(response);
     } catch (e) {
