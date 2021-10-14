@@ -370,14 +370,16 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
             return Text(
               'Error in the process.',
               style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyText1!.color,),
+                color: Theme.of(context).textTheme.bodyText1!.color,
+              ),
             );
           },
           completeSuccess: (CompleteSuccess value) {
             return Text(
               'Computer have been configured.',
               style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyText1!.color,),
+                color: Theme.of(context).textTheme.bodyText1!.color,
+              ),
             );
           },
         );
