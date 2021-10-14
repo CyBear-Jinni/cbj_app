@@ -32,8 +32,9 @@ class ManageUsersBloc extends Bloc<ManageUsersEvent, ManageUsersState> {
         yield const ManageUsersState.inProgress();
         await _userStreamSubscription?.cancel();
         _userStreamSubscription = _userRepository.getAllUsers().listen(
-            (allUsersEvent) =>
-                add(ManageUsersEvent.userReceived(allUsersEvent)));
+              (allUsersEvent) =>
+                  add(ManageUsersEvent.userReceived(allUsersEvent)),
+            );
       },
       userReceived: (e) async* {
         yield const ManageUsersState.inProgress();

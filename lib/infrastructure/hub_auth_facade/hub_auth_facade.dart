@@ -19,8 +19,11 @@ class HubAuthFacade implements IAuthFacade {
       optionOf(MUser(id: UniqueId()));
 
   @override
-  Future<Option<MHome>> getCurrentHome() async => optionOf(MHome(
-      id: UniqueId.fromUniqueString(await HiveLocalDbHelper.getHomeId())));
+  Future<Option<MHome>> getCurrentHome() async => optionOf(
+        MHome(
+          id: UniqueId.fromUniqueString(await HiveLocalDbHelper.getHomeId()),
+        ),
+      );
 
   @override
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword({
@@ -30,7 +33,9 @@ class HubAuthFacade implements IAuthFacade {
     final Either<AuthFailure, MUser>
         registerWithEmailAndPasswordReturnUserIdOutput =
         await registerWithEmailAndPasswordReturnUserId(
-            emailAddress: emailAddress, password: password);
+      emailAddress: emailAddress,
+      password: password,
+    );
 
     return registerWithEmailAndPasswordReturnUserIdOutput.fold(
       (l) => left(const AuthFailure.emailAlreadyInUse()),
@@ -39,8 +44,10 @@ class HubAuthFacade implements IAuthFacade {
   }
 
   @override
-  Future<Either<AuthFailure, MUser>> registerWithEmailAndPasswordReturnUserId(
-      {EmailAddress? emailAddress, Password? password}) async {
+  Future<Either<AuthFailure, MUser>> registerWithEmailAndPasswordReturnUserId({
+    EmailAddress? emailAddress,
+    Password? password,
+  }) async {
     final emailAddressStr = emailAddress!.getOrCrash();
     final passwordStr = password!.getOrCrash();
 
@@ -77,8 +84,10 @@ class HubAuthFacade implements IAuthFacade {
   }
 
   @override
-  Future<Either<AuthFailure, Unit>> signInWithEmailAndPassword(
-      {required EmailAddress emailAddress, required Password password}) async {
+  Future<Either<AuthFailure, Unit>> signInWithEmailAndPassword({
+    required EmailAddress emailAddress,
+    required Password password,
+  }) async {
     final emailAddressStr = emailAddress.getOrCrash();
     final passwordStr = password.getOrCrash();
 

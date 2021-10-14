@@ -15,10 +15,13 @@ abstract class IUserRepository {
   Future<Either<HomeUserFailures, Unit>> create(UserEntity deviceEntity);
 
   Future<Either<HomeUserFailures, Unit>> addHome(
-      UserEntity userEntity, AllHomesOfUserEntity allHomesOfUserEntity);
+    UserEntity userEntity,
+    AllHomesOfUserEntity allHomesOfUserEntity,
+  );
 
   Future<Either<HomeUserFailures, Unit>> joinExistingHome(
-      AllHomesOfUserEntity allHomesOfUserEntity);
+    AllHomesOfUserEntity allHomesOfUserEntity,
+  );
 
   Stream<Either<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>>
       watchAll();

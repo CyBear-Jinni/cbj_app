@@ -81,7 +81,7 @@ class ConnectToHubPage extends StatelessWidget {
                               child: BlocProvider(
                                 create: (context) => getIt<HubInNetworkBloc>()
                                   ..add(const HubInNetworkEvent
-                                      .searchHubInNetwork()),
+                                      .searchHubInNetwork(),),
                                 child: CbjHubInNetwork(),
                               ),
                             ),
@@ -139,11 +139,11 @@ class ConnectToHubPage extends StatelessWidget {
                           children: <TextSpan>[
                             const TextSpan(
                                 text: 'Wireless Network\n',
-                                style: TextStyle(fontSize: 16)),
+                                style: TextStyle(fontSize: 16),),
                             TextSpan(
                                 text: 'Connect a CyBear Jinni Hub to WiFi '
                                     'network',
-                                style: TextStyle(color: HexColor('#D6D6D6'))),
+                                style: TextStyle(color: HexColor('#D6D6D6')),),
                           ],
                         ),
                       ),

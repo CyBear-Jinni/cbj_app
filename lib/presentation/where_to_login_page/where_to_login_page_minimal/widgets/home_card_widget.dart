@@ -62,7 +62,8 @@ class HomeCardWidget extends StatelessWidget {
                     Text(
                       home!.name!.getOrCrash()!,
                       style: TextStyle(
-                          color: Theme.of(context).textTheme.bodyText1!.color),
+                        color: Theme.of(context).textTheme.bodyText1!.color,
+                      ),
                     ),
                   ],
                 ),

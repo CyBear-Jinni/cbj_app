@@ -6,9 +6,11 @@ Either<AddUserToHomeFailures<String>, String>
   if (input.isNotEmpty) {
     return right(input);
   } else {
-    return left(AddUserToHomeFailures.empty(
-      failedValue: input,
-    ));
+    return left(
+      AddUserToHomeFailures.empty(
+        failedValue: input,
+      ),
+    );
   }
 }
 
@@ -17,8 +19,10 @@ Either<AddUserToHomeFailures<String>, String>
   if (input.isNotEmpty) {
     return right(input);
   } else {
-    return left(AddUserToHomeFailures.empty(
-      failedValue: input,
-    ));
+    return left(
+      AddUserToHomeFailures.empty(
+        failedValue: input,
+      ),
+    );
   }
 }

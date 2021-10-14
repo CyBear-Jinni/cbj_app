@@ -112,17 +112,20 @@ class PickDatePage extends StatelessWidget {
                             MaterialStateProperty.all(Colors.black),
                         side: MaterialStateProperty.all(
                           BorderSide.lerp(
-                              const BorderSide(), const BorderSide(), 30),
+                            const BorderSide(),
+                            const BorderSide(),
+                            30,
+                          ),
                         ),
                       ),
                       onPressed: () {},
                       child: Text(
                         'OK',
                         style: TextStyle(
-                            fontFamily: 'Raleway',
-                            fontSize: 22.0,
-                            color:
-                                Theme.of(context).textTheme.bodyText2!.color),
+                          fontFamily: 'Raleway',
+                          fontSize: 22.0,
+                          color: Theme.of(context).textTheme.bodyText2!.color,
+                        ),
                       ),
                     ),
                   )

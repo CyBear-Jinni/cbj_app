@@ -45,8 +45,11 @@ class _HomePageState extends State<HomePage> {
   void callback(int index) {
     setState(() {
       _currentTabNum = index;
-      _pageController.animateToPage(_currentTabNum,
-          duration: const Duration(milliseconds: 200), curve: Curves.linear);
+      _pageController.animateToPage(
+        _currentTabNum,
+        duration: const Duration(milliseconds: 200),
+        curve: Curves.linear,
+      );
     });
   }
 

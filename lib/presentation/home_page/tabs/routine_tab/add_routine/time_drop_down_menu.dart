@@ -50,7 +50,8 @@ class _TimeDropDownMenuState extends State<TimeDropDownMenu> {
             child: Text(
               value!,
               style: TextStyle(
-                  color: (Theme.of(context).textTheme.bodyText1!.color)!),
+                color: (Theme.of(context).textTheme.bodyText1!.color)!,
+              ),
             ),
           );
         }).toList(),

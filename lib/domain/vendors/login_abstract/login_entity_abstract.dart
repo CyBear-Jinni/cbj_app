@@ -59,7 +59,7 @@ class LoginEntityEmpty extends LoginEntityAbstract {
       : super(
           senderUniqueId: CoreLoginSenderId(),
           loginVendor: CoreLoginVendor(
-              VendorsAndServices.vendorsAndServicesNotSupported.toString()),
+              VendorsAndServices.vendorsAndServicesNotSupported.toString(),),
         );
 }
 

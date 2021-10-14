@@ -103,7 +103,9 @@ class RoomsLightsPage extends StatelessWidget {
                 ),
                 Expanded(
                   child: RoomsLightsWidget(
-                      showDevicesOnlyFromRoomId!, roomColorGradiant!),
+                    showDevicesOnlyFromRoomId!,
+                    roomColorGradiant!,
+                  ),
                 ),
               ],
             ),

@@ -7,7 +7,8 @@ class BoilersWatcherState with _$BoilersWatcherState {
   const factory BoilersWatcherState.loadInProgress() = _LoadInProgress;
 
   const factory BoilersWatcherState.loadSuccess(
-      KtList<GenericBoilerDE?> devices) = _LoadSuccess;
+    KtList<GenericBoilerDE?> devices,
+  ) = _LoadSuccess;
 
   const factory BoilersWatcherState.loadFailure(DevicesFailure devicesFailure) =
       _loadFailure;

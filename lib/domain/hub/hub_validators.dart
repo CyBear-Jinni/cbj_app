@@ -5,8 +5,10 @@ Either<HubFailures<String>, String> validateStringNotEmpty(String input) {
   if (input.isNotEmpty) {
     return right(input);
   } else {
-    return left(HubFailures.empty(
-      failedValue: input,
-    ));
+    return left(
+      HubFailures.empty(
+        failedValue: input,
+      ),
+    );
   }
 }

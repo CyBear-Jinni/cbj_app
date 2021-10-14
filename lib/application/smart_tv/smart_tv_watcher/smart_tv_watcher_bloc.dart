@@ -34,16 +34,19 @@ class SmartTvWatcherBloc
         yield const SmartTvWatcherState.loadInProgress();
         await _deviceStreamSubscription?.cancel();
         _deviceStreamSubscription = _deviceRepository.watchSmartTv().listen(
-            (eventWatch) =>
-                add(SmartTvWatcherEvent.smart_tvReceived(eventWatch)));
+              (eventWatch) =>
+                  add(SmartTvWatcherEvent.smart_tvReceived(eventWatch)),
+            );
       },
       smart_tvReceived: (e) async* {
         yield const SmartTvWatcherState.loadInProgress();
 
         yield e.failureOrDevices.fold(
-            (f) => SmartTvWatcherState.loadFailure(f),
-            (d) => SmartTvWatcherState.loadSuccess(
-                d.map((v) => v! as GenericLightDE).toMutableList()));
+          (f) => SmartTvWatcherState.loadFailure(f),
+          (d) => SmartTvWatcherState.loadSuccess(
+            d.map((v) => v! as GenericLightDE).toMutableList(),
+          ),
+        );
       },
     );
   }

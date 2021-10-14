@@ -25,14 +25,16 @@ class SmartDeviceToConfigure extends StatelessWidget {
           ),
           TextButton(
             style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(
-              Colors.lightGreen,
-            )),
+              backgroundColor: MaterialStateProperty.all(
+                Colors.lightGreen,
+              ),
+            ),
             onPressed: () {},
             child: Text(
               'Edit device',
               style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyText1!.color),
+                color: Theme.of(context).textTheme.bodyText1!.color,
+              ),
             ),
           )
         ],

@@ -6,9 +6,11 @@ Either<CoreFailure<String>, String> validateDeviceNotEmpty(String input) {
   if (input.isNotEmpty) {
     return right(input);
   } else {
-    return left(CoreFailure.empty(
-      failedValue: input,
-    ));
+    return left(
+      CoreFailure.empty(
+        failedValue: input,
+      ),
+    );
   }
 }
 
@@ -16,14 +18,17 @@ Either<CoreFailure<String>, String> validateLastKnownIpNotEmpty(String input) {
   if (input.isNotEmpty) {
     return right(input);
   } else {
-    return left(CoreFailure.empty(
-      failedValue: input,
-    ));
+    return left(
+      CoreFailure.empty(
+        failedValue: input,
+      ),
+    );
   }
 }
 
 Either<CoreFailure<String>, String> validatePowerConsumptionNotEmpty(
-    String input) {
+  String input,
+) {
   if (double.tryParse(input) != null) {
     return right(input);
   } else {
@@ -56,14 +61,18 @@ Either<CoreFailure<String>, String> validateWiFiNameNotEmpty(String input) {
 }
 
 Either<CoreFailure<String>, String> validateDeviceMaxNameLength(
-    String input, int maxLength) {
+  String input,
+  int maxLength,
+) {
   if (input.length <= maxLength) {
     return right(input);
   } else {
-    return left(CoreFailure.exceedingLength(
-      failedValue: input,
-      max: maxLength,
-    ));
+    return left(
+      CoreFailure.exceedingLength(
+        failedValue: input,
+        max: maxLength,
+      ),
+    );
   }
 }
 

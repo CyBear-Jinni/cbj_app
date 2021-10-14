@@ -57,59 +57,63 @@ class RoomRgbwLights extends StatelessWidget {
               widgetsForRow
                   .add(ErrorRgbwLightsDeviceCard(device: deviceEntityTemp));
             } else {
-              widgetsForRow.add(Column(
-                children: [
-                  Text(
-                    deviceEntityTemp.defaultName.getOrCrash()!,
-                    style: TextStyle(
-                      fontSize: 19.0,
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+              widgetsForRow.add(
+                Column(
+                  children: [
+                    Text(
+                      deviceEntityTemp.defaultName.getOrCrash()!,
+                      style: TextStyle(
+                        fontSize: 19.0,
+                        color: Theme.of(context).textTheme.bodyText1!.color,
+                      ),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 3,
-                  ),
-                  // TODO: Add the brightness slider
-                  // SleekCircularSlider(
-                  //   onChangeStart: (double value) {},
-                  //   onChange: (value) {},
-                  //   onChangeEnd: (double value) {},
-                  //   appearance: CircularSliderAppearance(
-                  //     customColors: CustomSliderColors(
-                  //       trackColor: Colors.white,
-                  //       progressBarColor:
-                  //           const Color(0xFFFFDF5D).withOpacity(0.7),
-                  //       hideShadow: true,
-                  //     ),
-                  //     infoProperties: InfoProperties(
-                  //         topLabelText: 'On/Off\n',
-                  //         topLabelStyle: const TextStyle(
-                  //             color: Color(0xFFFFDF5D), fontSize: 17),
-                  //         mainLabelStyle: const TextStyle(
-                  //             color: Color(0xFFFFDF5D), fontSize: 12),
-                  //         modifier: (double value) {
-                  //           return '${value.round()}%';
-                  //         },
-                  //         bottomLabelStyle: const TextStyle(
-                  //             color: Color(0xFFFFDF5D), fontSize: 12),
-                  //         bottomLabelText: 'Brightness'),
-                  //   ),
-                  // ),
-                  Container(
-                    margin: const EdgeInsets.symmetric(vertical: 5),
-                    width: sizeBoxWidth + 15,
-                    child: BlocProvider(
-                      create: (context) => getIt<LightToggleBloc>(),
-                      child: RgbwLightWidget(deviceEntityTemp),
+                    const SizedBox(
+                      height: 3,
                     ),
-                  ),
-                ],
-              ));
+                    // TODO: Add the brightness slider
+                    // SleekCircularSlider(
+                    //   onChangeStart: (double value) {},
+                    //   onChange: (value) {},
+                    //   onChangeEnd: (double value) {},
+                    //   appearance: CircularSliderAppearance(
+                    //     customColors: CustomSliderColors(
+                    //       trackColor: Colors.white,
+                    //       progressBarColor:
+                    //           const Color(0xFFFFDF5D).withOpacity(0.7),
+                    //       hideShadow: true,
+                    //     ),
+                    //     infoProperties: InfoProperties(
+                    //         topLabelText: 'On/Off\n',
+                    //         topLabelStyle: const TextStyle(
+                    //             color: Color(0xFFFFDF5D), fontSize: 17),
+                    //         mainLabelStyle: const TextStyle(
+                    //             color: Color(0xFFFFDF5D), fontSize: 12),
+                    //         modifier: (double value) {
+                    //           return '${value.round()}%';
+                    //         },
+                    //         bottomLabelStyle: const TextStyle(
+                    //             color: Color(0xFFFFDF5D), fontSize: 12),
+                    //         bottomLabelText: 'Brightness'),
+                    //   ),
+                    // ),
+                    Container(
+                      margin: const EdgeInsets.symmetric(vertical: 5),
+                      width: sizeBoxWidth + 15,
+                      child: BlocProvider(
+                        create: (context) => getIt<LightToggleBloc>(),
+                        child: RgbwLightWidget(deviceEntityTemp),
+                      ),
+                    ),
+                  ],
+                ),
+              );
             }
           } else {
-            widgetsForRow.add(const SizedBox(
-              width: 110,
-            ));
+            widgetsForRow.add(
+              const SizedBox(
+                width: 110,
+              ),
+            );
           }
         }
         final Widget rowOfLights = Row(
@@ -119,9 +123,11 @@ class RoomRgbwLights extends StatelessWidget {
         widgetsForRow = <Widget>[];
         columnOfLights.add(rowOfLights);
       }
-      columnOfLights.add(const SizedBox(
-        height: 5,
-      ));
+      columnOfLights.add(
+        const SizedBox(
+          height: 5,
+        ),
+      );
 
       return Column(
         children: columnOfLights,
@@ -133,9 +139,10 @@ class RoomRgbwLights extends StatelessWidget {
       padding: const EdgeInsets.all(3),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-            colors: _gradientColor,
-            begin: Alignment.bottomLeft,
-            end: Alignment.topLeft),
+          colors: _gradientColor,
+          begin: Alignment.bottomLeft,
+          end: Alignment.topLeft,
+        ),
         borderRadius: const BorderRadius.all(Radius.circular(24)),
         border: Border.all(
           color: (Theme.of(context).textTheme.bodyText1!.color)!,

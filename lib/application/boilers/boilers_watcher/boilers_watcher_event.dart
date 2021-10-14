@@ -6,5 +6,5 @@ class BoilersWatcherEvent with _$BoilersWatcherEvent {
 
   const factory BoilersWatcherEvent.boilersReceived(
       Either<DevicesFailure, KtList<DeviceEntityAbstract?>>
-          failureOrDevices) = _BoilersReceived;
+          failureOrDevices,) = _BoilersReceived;
 }

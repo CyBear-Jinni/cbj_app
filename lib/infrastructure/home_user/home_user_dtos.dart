@@ -34,10 +34,11 @@ abstract class HomeUserDtos implements _$HomeUserDtos {
 
   HomeUserEntity toDomain() {
     return HomeUserEntity(
-        id: HomeUserUniqueId.fromUniqueString(id),
-        email: HomeUserEmail(email),
-        name: HomeUserName(name!),
-        permission: HomeUserPermission(permission!));
+      id: HomeUserUniqueId.fromUniqueString(id),
+      email: HomeUserEmail(email),
+      name: HomeUserName(name!),
+      permission: HomeUserPermission(permission!),
+    );
   }
 }
 

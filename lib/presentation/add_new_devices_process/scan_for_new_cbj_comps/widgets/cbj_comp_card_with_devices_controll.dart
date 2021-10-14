@@ -34,7 +34,8 @@ class CBJCompCardWithDevicesControll extends StatelessWidget {
               child: Text(
                 'Type: ${deviceEntity.deviceTypes.getOrCrash()}',
                 style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1!.color),
+                  color: Theme.of(context).textTheme.bodyText1!.color,
+                ),
               ),
             ),
           ),
@@ -46,7 +47,8 @@ class CBJCompCardWithDevicesControll extends StatelessWidget {
             child: Text(
               'Type ${deviceEntity.deviceTypes.getOrCrash()} is not supported',
               style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyText1!.color),
+                color: Theme.of(context).textTheme.bodyText1!.color,
+              ),
             ),
           ),
         );
@@ -66,75 +68,83 @@ class CBJCompCardWithDevicesControll extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<DeviceActorBloc, DeviceActorState>(
-        builder: (context, state) {
-      return Container(
-        margin: const EdgeInsets.all(15.0),
-        padding: const EdgeInsets.all(3.0),
-        decoration: BoxDecoration(
-          border: Border.all(
-              color: (Theme.of(context).textTheme.bodyText1!.color)!),
-          color: Colors.purpleAccent.withOpacity(0.2),
-        ),
-        child: Column(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                border: Border(
-                  top: BorderSide(
-                    color: (Theme.of(context).textTheme.bodyText1!.color)!,
+      builder: (context, state) {
+        return Container(
+          margin: const EdgeInsets.all(15.0),
+          padding: const EdgeInsets.all(3.0),
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: (Theme.of(context).textTheme.bodyText1!.color)!,
+            ),
+            color: Colors.purpleAccent.withOpacity(0.2),
+          ),
+          child: Column(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  border: Border(
+                    top: BorderSide(
+                      color: (Theme.of(context).textTheme.bodyText1!.color)!,
+                    ),
+                    bottom: BorderSide(
+                      color: (Theme.of(context).textTheme.bodyText1!.color)!,
+                    ),
                   ),
-                  bottom: BorderSide(
-                    color: (Theme.of(context).textTheme.bodyText1!.color)!,
+                ),
+                child: devicesTypes(context),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              state.map(
+                initial: (_) => Text(
+                  'Initial',
+                  style: TextStyle(
+                    color: Theme.of(context).textTheme.bodyText1!.color,
+                  ),
+                ),
+                actionInProgress: (_) => Text(
+                  'actionInProgress',
+                  style: TextStyle(
+                    color: Theme.of(context).textTheme.bodyText1!.color,
+                  ),
+                ),
+                deleteFailure: (_) => Text(
+                  'deleteFailure',
+                  style: TextStyle(
+                    color: Theme.of(context).textTheme.bodyText1!.color,
+                  ),
+                ),
+                deleteSuccess: (_) => Text(
+                  'deleteSuccess',
+                  style: TextStyle(
+                    color: Theme.of(context).textTheme.bodyText1!.color,
                   ),
                 ),
               ),
-              child: devicesTypes(context),
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            state.map(
-              initial: (_) => Text(
-                'Initial',
-                style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1!.color),
-              ),
-              actionInProgress: (_) => Text(
-                'actionInProgress',
-                style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1!.color),
-              ),
-              deleteFailure: (_) => Text(
-                'deleteFailure',
-                style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1!.color),
-              ),
-              deleteSuccess: (_) => Text(
-                'deleteSuccess',
-                style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1!.color),
-              ),
-            ),
-            TextButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(
-                  Colors.greenAccent,
+              TextButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(
+                    Colors.greenAccent,
+                  ),
+                ),
+                onPressed: () {
+                  context.router.replace(
+                    ConfigureNewCbjCompRoute(cbjCompEntity: cbjCompEntity),
+                  );
+                },
+                child: Text(
+                  'Set up computer',
+                  style: TextStyle(
+                    color: Theme.of(context).textTheme.bodyText1!.color,
+                  ),
                 ),
               ),
-              onPressed: () {
-                context.router.replace(
-                    ConfigureNewCbjCompRoute(cbjCompEntity: cbjCompEntity));
-              },
-              child: Text(
-                'Set up computer',
-                style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1!.color),
-              ),
-            ),
-          ],
-        ),
-      );
-    });
+            ],
+          ),
+        );
+      },
+    );
   }
 }
 // CBJCompBloc

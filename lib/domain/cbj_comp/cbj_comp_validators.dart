@@ -7,9 +7,11 @@ Either<CBJCompFailure<String>, String> validateCBJCompNotEmpty(String input) {
   if (input.isNotEmpty) {
     return right(input);
   } else {
-    return left(CBJCompFailure.empty(
-      failedValue: input,
-    ));
+    return left(
+      CBJCompFailure.empty(
+        failedValue: input,
+      ),
+    );
   }
 }
 
@@ -18,21 +20,27 @@ Either<CBJCompFailure<KtList<GenericLightDE>>, KtList<GenericLightDE>>
   if (input != null) {
     return right(input);
   } else {
-    return left(CBJCompFailure.empty(
-      failedValue: input,
-    ));
+    return left(
+      CBJCompFailure.empty(
+        failedValue: input,
+      ),
+    );
   }
 }
 
 Either<CBJCompFailure<String>, String> validateCBJCompMaxNameLength(
-    String input, int maxLength) {
+  String input,
+  int maxLength,
+) {
   if (input.length <= maxLength) {
     return right(input);
   } else {
-    return left(CBJCompFailure.exceedingLength(
-      failedValue: input,
-      max: maxLength,
-    ));
+    return left(
+      CBJCompFailure.exceedingLength(
+        failedValue: input,
+        max: maxLength,
+      ),
+    );
   }
 }
 
@@ -41,7 +49,8 @@ Either<CBJCompFailure<String>, String> validateCBJCompStateExist(String input) {
 }
 
 Either<CBJCompFailure<String>, String> validateCBJCompActionExist(
-    String input) {
+  String input,
+) {
   return right(input);
 }
 
@@ -50,6 +59,7 @@ Either<CBJCompFailure<String>, String> validateCBJCompTypeExist(String input) {
 }
 
 Either<CBJCompFailure<String>, String> validateCBJCompStateInTypeExist(
-    String input) {
+  String input,
+) {
   return right(input);
 }

@@ -49,9 +49,10 @@ class VendorsRepository implements IVendorsRepository {
     }
 
     return Vendor(
-        name: VendorName(vendorName),
-        image:
-            'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.seilevel.com%2Frequirements%2Fwp-content%2Fplugins%2Fstormhill_author_page%2Fimg%2Fimage-not-found.png&f=1&nofb=1');
+      name: VendorName(vendorName),
+      image:
+          'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.seilevel.com%2Frequirements%2Fwp-content%2Fplugins%2Fstormhill_author_page%2Fimg%2Fimage-not-found.png&f=1&nofb=1',
+    );
   }
 
   @override

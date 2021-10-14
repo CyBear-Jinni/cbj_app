@@ -6,9 +6,11 @@ Either<AllHomesOfUserFailures<String>, String>
   if (input.isNotEmpty) {
     return right(input);
   } else {
-    return left(AllHomesOfUserFailures.empty(
-      failedValue: input,
-    ));
+    return left(
+      AllHomesOfUserFailures.empty(
+        failedValue: input,
+      ),
+    );
   }
 }
 
@@ -17,8 +19,10 @@ Either<AllHomesOfUserFailures<String?>, String?>
   if (input!.isNotEmpty) {
     return right(input);
   } else {
-    return left(AllHomesOfUserFailures.empty(
-      failedValue: input,
-    ));
+    return left(
+      AllHomesOfUserFailures.empty(
+        failedValue: input,
+      ),
+    );
   }
 }

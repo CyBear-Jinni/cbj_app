@@ -53,7 +53,8 @@ class _SmartDevicePage extends State<SmartDevicePage> {
   //  Send request to device to retrieve his state on or off
   Future<bool> getDeviceAction() async {
     return _switchState = EnumHelper.stringToDeviceAction(
-            await _device!.lightSwitchState!.getOrCrash()) ==
+          await _device!.lightSwitchState!.getOrCrash(),
+        ) ==
         DeviceActions.on;
   }
 
@@ -61,8 +62,10 @@ class _SmartDevicePage extends State<SmartDevicePage> {
     print('OnChange $value');
     _device
       ?..lightSwitchState = GenericLightSwitchState(
-          EnumHelper.deviceActionToString(
-              value ? DeviceActions.on : DeviceActions.off));
+        EnumHelper.deviceActionToString(
+          value ? DeviceActions.on : DeviceActions.off,
+        ),
+      );
     if (mounted) {
       setState(() {
         _switchState = value;

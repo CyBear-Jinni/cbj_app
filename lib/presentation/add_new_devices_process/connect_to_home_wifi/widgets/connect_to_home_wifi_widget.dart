@@ -51,7 +51,7 @@ class ConnectToHomeWiFiWidget extends StatelessWidget {
                         child: TextFormField(
                           style: TextStyle(
                               color:
-                                  Theme.of(context).textTheme.bodyText1!.color),
+                                  Theme.of(context).textTheme.bodyText1!.color,),
                           decoration: InputDecoration(
                               filled: true,
                               fillColor: Colors.greenAccent.withOpacity(0.3),
@@ -67,7 +67,7 @@ class ConnectToHomeWiFiWidget extends StatelessWidget {
                                   color: Theme.of(context)
                                       .textTheme
                                       .bodyText1!
-                                      .color)),
+                                      .color,),),
                           autocorrect: false,
                           onChanged: (value) {
                             context
@@ -84,7 +84,7 @@ class ConnectToHomeWiFiWidget extends StatelessWidget {
                         child: TextFormField(
                           style: TextStyle(
                               color:
-                                  Theme.of(context).textTheme.bodyText1!.color),
+                                  Theme.of(context).textTheme.bodyText1!.color,),
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.greenAccent.withOpacity(0.3),
@@ -98,7 +98,7 @@ class ConnectToHomeWiFiWidget extends StatelessWidget {
                                 color: Theme.of(context)
                                     .textTheme
                                     .bodyText1!
-                                    .color),
+                                    .color,),
                           ),
                           autocorrect: false,
                           onChanged: (value) {
@@ -126,7 +126,7 @@ class ConnectToHomeWiFiWidget extends StatelessWidget {
                           'Connect to WiFi',
                           style: TextStyle(
                               color:
-                                  Theme.of(context).textTheme.bodyText1!.color),
+                                  Theme.of(context).textTheme.bodyText1!.color,),
                         ),
                       ),
                     ],

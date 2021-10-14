@@ -10,6 +10,7 @@ class UnexpectedScenesValueError extends Error {
     const explanation =
         'Encountered a ValueFailure at an unrecoverable point. Terminating.';
     return Error.safeToString(
-        '$explanation Failure was: $foldersOfScenesFailures');
+      '$explanation Failure was: $foldersOfScenesFailures',
+    );
   }
 }

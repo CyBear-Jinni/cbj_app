@@ -4,8 +4,13 @@ import 'dart:ui';
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 
 class SmartRoomObject {
-  SmartRoomObject(this._roomName, this.grediantColor,
-      {this.lightsInTheRoom, this.blindsInTheRoom, this.boilersInTheRoom});
+  SmartRoomObject(
+    this._roomName,
+    this.grediantColor, {
+    this.lightsInTheRoom,
+    this.blindsInTheRoom,
+    this.boilersInTheRoom,
+  });
 
   final String _roomName;
   final List<GenericLightDE>? lightsInTheRoom;

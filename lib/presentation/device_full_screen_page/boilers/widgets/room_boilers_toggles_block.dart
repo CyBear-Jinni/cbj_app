@@ -1,4 +1,3 @@
-
 import 'package:cybear_jinni/domain/room/smart_room_object.dart';
 import 'package:cybear_jinni/presentation/home_page/smart_device_widget.dart';
 import 'package:flutter/cupertino.dart';
@@ -45,9 +44,11 @@ class RoomBoilersTogglesBlock extends StatelessWidget {
               ),
             );
           } else {
-            widgetsForRow.add(const SizedBox(
-              width: 110,
-            ));
+            widgetsForRow.add(
+              const SizedBox(
+                width: 110,
+              ),
+            );
           }
         }
         final Widget rowOfBoilers = Row(
@@ -57,9 +58,11 @@ class RoomBoilersTogglesBlock extends StatelessWidget {
         widgetsForRow = <Widget>[];
         columnOfBoilers.add(rowOfBoilers);
       }
-      columnOfBoilers.add(const SizedBox(
-        height: 5,
-      ));
+      columnOfBoilers.add(
+        const SizedBox(
+          height: 5,
+        ),
+      );
 
       return Column(
         children: columnOfBoilers,
@@ -70,15 +73,17 @@ class RoomBoilersTogglesBlock extends StatelessWidget {
       margin: EdgeInsets.only(bottom: screenSize.height * 0.02),
       padding: const EdgeInsets.all(3),
       decoration: BoxDecoration(
-          gradient: LinearGradient(
-              colors: _smartRoomObject!.grediantColor,
-              begin: Alignment.bottomLeft,
-              end: Alignment.topLeft),
-          borderRadius: const BorderRadius.all(Radius.circular(24)),
-          border: Border.all(
-            color: (Theme.of(context).textTheme.bodyText1!.color)!,
-            width: 0.6,
-          )),
+        gradient: LinearGradient(
+          colors: _smartRoomObject!.grediantColor,
+          begin: Alignment.bottomLeft,
+          end: Alignment.topLeft,
+        ),
+        borderRadius: const BorderRadius.all(Radius.circular(24)),
+        border: Border.all(
+          color: (Theme.of(context).textTheme.bodyText1!.color)!,
+          width: 0.6,
+        ),
+      ),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),

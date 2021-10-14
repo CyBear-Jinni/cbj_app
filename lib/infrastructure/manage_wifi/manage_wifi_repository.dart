@@ -43,17 +43,23 @@ class ManageWiFiRepository implements IManageNetworkRepository {
 
   @override
   Future<Either<HomeUserFailures, Unit>> connectToWiFi(
-      ManageNetworkEntity networkEntity) async {
+    ManageNetworkEntity networkEntity,
+  ) async {
     try {
       final String ssid = networkEntity.name!.getOrCrash();
       final String pass = networkEntity.pass!.getOrCrash();
 
-      final bool connectedToWiFiSuccess = await WiFiForIoTPlugin.connect(ssid,
-          password: pass, security: networkSecurity);
+      final bool connectedToWiFiSuccess = await WiFiForIoTPlugin.connect(
+        ssid,
+        password: pass,
+        security: networkSecurity,
+      );
 
       if (connectedToWiFiSuccess) {
         IManageNetworkRepository.manageWiFiEntity = ManageNetworkEntity(
-            name: ManageWiFiName(ssid), pass: ManageWiFiPass(pass));
+          name: ManageWiFiName(ssid),
+          pass: ManageWiFiPass(pass),
+        );
         return right(unit);
       }
       return left(const HomeUserFailures.cannotConnectToWiFi());
@@ -64,7 +70,8 @@ class ManageWiFiRepository implements IManageNetworkRepository {
 
   @override
   Future<Either<HomeUserFailures, Unit>> openAccessPoint(
-      ManageNetworkEntity networkEntity) async {
+    ManageNetworkEntity networkEntity,
+  ) async {
     try {
       final String ssid = networkEntity.name!.getOrCrash();
       final String pass = networkEntity.pass!.getOrCrash();

@@ -12,8 +12,9 @@ class LightsInTheRoomBlock extends StatelessWidget {
   const LightsInTheRoomBlock(this.lightsInRoom, this.roomColorGradiant);
 
   factory LightsInTheRoomBlock.withAbstractDevice(
-      List<DeviceEntityAbstract> tempDeviceInRoom,
-      List<Color> tempRoomColorGradiant) {
+    List<DeviceEntityAbstract> tempDeviceInRoom,
+    List<Color> tempRoomColorGradiant,
+  ) {
     List<GenericLightDE> tempLightsInRoom = [];
 
     tempDeviceInRoom.forEach((element) {
@@ -64,20 +65,21 @@ class LightsInTheRoomBlock extends StatelessWidget {
                         width: 28,
                         decoration: BoxDecoration(
                           border: Border.all(
-                              color: Theme.of(context)
-                                  .textTheme
-                                  .bodyText1!
-                                  .color!
-                                  .withOpacity(0.5)),
+                            color: Theme.of(context)
+                                .textTheme
+                                .bodyText1!
+                                .color!
+                                .withOpacity(0.5),
+                          ),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Text(
                           lightsInRoom.length.toString(),
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                              fontSize: 13,
-                              color:
-                                  Theme.of(context).textTheme.bodyText1!.color),
+                            fontSize: 13,
+                            color: Theme.of(context).textTheme.bodyText1!.color,
+                          ),
                         ),
                       ),
                     ),
@@ -93,76 +95,86 @@ class LightsInTheRoomBlock extends StatelessWidget {
               Text(
                 lightsInRoom[0].defaultName.getOrCrash()!,
                 style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1!.color),
+                  color: Theme.of(context).textTheme.bodyText1!.color,
+                ),
               )
             else
               Text(
                 '${lightsInRoom[0].roomName.getOrCrash()} Lights',
                 style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1!.color),
+                  color: Theme.of(context).textTheme.bodyText1!.color,
+                ),
               ),
             const SizedBox(
               height: 10,
             ),
             BlocConsumer<LightsActorBloc, LightsActorState>(
-                listener: (context, state) {},
-                builder: (context, state) {
-                  return Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      TextButton(
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(
-                            Colors.grey.withOpacity(0.6),
-                          ),
-                          side: MaterialStateProperty.all(
-                            const BorderSide(width: 0.2),
-                          ),
+              listener: (context, state) {},
+              builder: (context, state) {
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    TextButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                          Colors.grey.withOpacity(0.6),
                         ),
-                        onPressed: () {
-                          context.read<LightsActorBloc>().add(
+                        side: MaterialStateProperty.all(
+                          const BorderSide(width: 0.2),
+                        ),
+                      ),
+                      onPressed: () {
+                        context.read<LightsActorBloc>().add(
                               LightsActorEvent.turnOffAllLights(
-                                  extractDevicesId(), context));
-                        },
-                        child: Text(
-                          'Off',
-                          style: TextStyle(
-                              fontSize: 14,
-                              color:
-                                  Theme.of(context).textTheme.bodyText1!.color),
-                        ),
-                      ),
-                      Text(
-                        '·',
+                                extractDevicesId(),
+                                context,
+                              ),
+                            );
+                      },
+                      child: Text(
+                        'Off',
                         style: TextStyle(
-                            fontSize: 14,
-                            color:
-                                Theme.of(context).textTheme.bodyText1!.color),
-                      ),
-                      TextButton(
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(
-                              Colors.grey.withOpacity(0.6)),
-                          side: MaterialStateProperty.all(
-                            const BorderSide(width: 0.2),
-                          ),
+                          fontSize: 14,
+                          color: Theme.of(context).textTheme.bodyText1!.color,
                         ),
-                        onPressed: () {
-                          context.read<LightsActorBloc>().add(
+                      ),
+                    ),
+                    Text(
+                      '·',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Theme.of(context).textTheme.bodyText1!.color,
+                      ),
+                    ),
+                    TextButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                          Colors.grey.withOpacity(0.6),
+                        ),
+                        side: MaterialStateProperty.all(
+                          const BorderSide(width: 0.2),
+                        ),
+                      ),
+                      onPressed: () {
+                        context.read<LightsActorBloc>().add(
                               LightsActorEvent.turnOnAllLights(
-                                  extractDevicesId(), context));
-                        },
-                        child: Text(
-                          'On',
-                          style: TextStyle(
-                              fontSize: 14,
-                              color:
-                                  Theme.of(context).textTheme.bodyText1!.color),
+                                extractDevicesId(),
+                                context,
+                              ),
+                            );
+                      },
+                      child: Text(
+                        'On',
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Theme.of(context).textTheme.bodyText1!.color,
                         ),
                       ),
-                    ],
-                  );
-                }),
+                    ),
+                  ],
+                );
+              },
+            ),
           ],
         ),
       ),
