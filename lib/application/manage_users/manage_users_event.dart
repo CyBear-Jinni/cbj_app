@@ -7,8 +7,8 @@ class ManageUsersEvent with _$ManageUsersEvent {
   const factory ManageUsersEvent.addByEmail(String mail) = _AddByEmail;
 
   const factory ManageUsersEvent.userReceived(
-          Either<HomeUserFailures, KtList<HomeUserEntity>> failureOrUsers) =
-      _UserReceived;
+    Either<HomeUserFailures, KtList<HomeUserEntity>> failureOrUsers,
+  ) = _UserReceived;
 
   const factory ManageUsersEvent.deleted(HomeUserEntity homeUserEntity) =
       _Deleted;

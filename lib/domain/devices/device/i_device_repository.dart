@@ -36,7 +36,8 @@ abstract class IDeviceRepository {
       watchUncompleted();
 
   Future<Either<DevicesFailure, Unit>> create(
-      DeviceEntityAbstract deviceEntity);
+    DeviceEntityAbstract deviceEntity,
+  );
 
   /// Update document in the database in the following fields
   Future<Either<DevicesFailure, Unit>> updateDatabase({
@@ -74,7 +75,8 @@ abstract class IDeviceRepository {
   });
 
   Future<Either<DevicesFailure, Unit>> delete(
-      DeviceEntityAbstract deviceEntity);
+    DeviceEntityAbstract deviceEntity,
+  );
 
   BehaviorSubject<KtList<DeviceEntityAbstract?>> devicesStreamController =
       BehaviorSubject<KtList<DeviceEntityAbstract?>>();

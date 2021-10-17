@@ -7,15 +7,18 @@ class UserHomesListState with _$UserHomesListState {
   const factory UserHomesListState.loadInProgress() = _LoadInProgress;
 
   const factory UserHomesListState.loadSuccess(
-      KtList<AllHomesOfUserEntity> homes) = _LoadSuccess;
+    KtList<AllHomesOfUserEntity> homes,
+  ) = _LoadSuccess;
 
   const factory UserHomesListState.enterHome() = _EnterHome;
 
   const factory UserHomesListState.loadFailure(
-      AllHomesOfUserFailures allHomesOfUserFailures) = _LoadFailure;
+    AllHomesOfUserFailures allHomesOfUserFailures,
+  ) = _LoadFailure;
 
   const factory UserHomesListState.loadFailureEnteringHome(
-      HomeUserFailures allHomesOfUserFailures) = _LoadFailureEnteringHome;
+    HomeUserFailures allHomesOfUserFailures,
+  ) = _LoadFailureEnteringHome;
 
   const factory UserHomesListState.error() = Error;
 }

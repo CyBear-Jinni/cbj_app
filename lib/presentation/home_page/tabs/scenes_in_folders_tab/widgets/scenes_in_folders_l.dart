@@ -43,8 +43,10 @@ class ScenesInFoldersL extends StatelessWidget {
     );
   }
 
-  Widget scenesFoldersWidget(BuildContext context,
-      Either<FolderOfScenesFailures<dynamic>, FolderOfScenes> folderOfScenes) {
+  Widget scenesFoldersWidget(
+    BuildContext context,
+    Either<FolderOfScenesFailures<dynamic>, FolderOfScenes> folderOfScenes,
+  ) {
     const double borderRadius = 5;
     return Container(
       decoration: BoxDecoration(
@@ -69,9 +71,11 @@ class ScenesInFoldersL extends StatelessWidget {
           ),
         ),
         onPressed: () {
-          context.router.push(ScenesRoute(
-            folderOfScenes: folderOfScenes.fold((l) => null!, (r) => r),
-          ));
+          context.router.push(
+            ScenesRoute(
+              folderOfScenes: folderOfScenes.fold((l) => null!, (r) => r),
+            ),
+          );
         },
         child: Column(
           children: [
@@ -90,8 +94,9 @@ class ScenesInFoldersL extends StatelessWidget {
               child: Text(
                 folderOfScenes.fold((l) => 'NoName', (r) => r.name!),
                 style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1!.color,
-                    fontSize: 30),
+                  color: Theme.of(context).textTheme.bodyText1!.color,
+                  fontSize: 30,
+                ),
                 textAlign: TextAlign.center,
               ),
             ),

@@ -28,7 +28,11 @@ class AlarmClockWidget extends StatefulWidget {
 
 class _AlarmClockState extends State<AlarmClockWidget> {
   _AlarmClockState(
-      this.headerText, this.subText, this.backgroundImage, this.content);
+    this.headerText,
+    this.subText,
+    this.backgroundImage,
+    this.content,
+  );
 
   final String subText;
 
@@ -43,32 +47,33 @@ class _AlarmClockState extends State<AlarmClockWidget> {
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: Container(
-      decoration: BoxDecoration(
+      child: Container(
+        decoration: BoxDecoration(
           borderRadius: const BorderRadius.all(Radius.circular(20)),
           border: Border.all(
             color: (Theme.of(context).textTheme.bodyText1!.color)!,
             width: 0.6,
-          )),
-      child: ExpansionTileCard(
-        // borderRadius: 20,
-        // background: Image.asset(
-        //   backgroundImage,
-        //   fit: BoxFit.cover,
-        // ),
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  headerText,
-                  style: const TextStyle(
-                    fontSize: 30,
+          ),
+        ),
+        child: ExpansionTileCard(
+          // borderRadius: 20,
+          // background: Image.asset(
+          //   backgroundImage,
+          //   fit: BoxFit.cover,
+          // ),
+          title: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    headerText,
+                    style: const TextStyle(
+                      fontSize: 30,
+                    ),
                   ),
-                ),
-                Switch(
+                  Switch(
                     value: isSwitched,
                     inactiveTrackColor: Colors.grey.withOpacity(0.6),
                     onChanged: (value) async {
@@ -78,22 +83,24 @@ class _AlarmClockState extends State<AlarmClockWidget> {
                       });
                       // await zonedScheduleNotification();
                       await showNotificationCustomSound();
-                    }),
-              ],
-            ),
-            Text(
-              subText,
-              style: const TextStyle(fontSize: 20),
-            ),
+                    },
+                  ),
+                ],
+              ),
+              Text(
+                subText,
+                style: const TextStyle(fontSize: 20),
+              ),
+            ],
+          ),
+          children: <Widget>[
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 7),
+              child: Text(content, style: const TextStyle(fontSize: 20)),
+            )
           ],
         ),
-        children: <Widget>[
-          Container(
-            margin: const EdgeInsets.symmetric(horizontal: 7),
-            child: Text(content, style: const TextStyle(fontSize: 20)),
-          )
-        ],
       ),
-    ));
+    );
   }
 }

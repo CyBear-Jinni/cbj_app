@@ -31,16 +31,20 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
             height: 30,
           ),
           Container(
-              width: MediaQuery.of(context).size.width - 20,
-              decoration: const BoxDecoration(
-                color: Colors.black38,
-                borderRadius: BorderRadius.all(Radius.circular(10)),
+            width: MediaQuery.of(context).size.width - 20,
+            decoration: const BoxDecoration(
+              color: Colors.black38,
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+            ),
+            alignment: Alignment.center,
+            child: Text(
+              'What would you like to do',
+              style: TextStyle(
+                fontSize: 25,
+                color: Theme.of(context).textTheme.bodyText1!.color,
               ),
-              alignment: Alignment.center,
-              child: Text('What would you like to do',
-                  style: TextStyle(
-                      fontSize: 25,
-                      color: Theme.of(context).textTheme.bodyText1!.color))),
+            ),
+          ),
           Expanded(
             child: Column(
               children: <Widget>[
@@ -63,20 +67,20 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
                       margin: const EdgeInsets.only(left: 30),
                       child: Row(
                         children: <Widget>[
-                          FaIcon(FontAwesomeIcons.doorOpen,
-                              color:
-                                  Theme.of(context).textTheme.bodyText1!.color),
+                          FaIcon(
+                            FontAwesomeIcons.doorOpen,
+                            color: Theme.of(context).textTheme.bodyText1!.color,
+                          ),
                           const SizedBox(
                             width: 20,
                           ),
                           Text(
                             'Create Your Home',
                             style: TextStyle(
-                                fontSize: 25,
-                                color: Theme.of(context)
-                                    .textTheme
-                                    .bodyText1!
-                                    .color),
+                              fontSize: 25,
+                              color:
+                                  Theme.of(context).textTheme.bodyText1!.color,
+                            ),
                           ),
                         ],
                       ),
@@ -102,20 +106,20 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
                       margin: const EdgeInsets.only(left: 30),
                       child: Row(
                         children: <Widget>[
-                          FaIcon(FontAwesomeIcons.userFriends,
-                              color:
-                                  Theme.of(context).textTheme.bodyText1!.color),
+                          FaIcon(
+                            FontAwesomeIcons.userFriends,
+                            color: Theme.of(context).textTheme.bodyText1!.color,
+                          ),
                           const SizedBox(
                             width: 20,
                           ),
                           Text(
                             'Join Existing Home',
                             style: TextStyle(
-                                fontSize: 25,
-                                color: Theme.of(context)
-                                    .textTheme
-                                    .bodyText1!
-                                    .color),
+                              fontSize: 25,
+                              color:
+                                  Theme.of(context).textTheme.bodyText1!.color,
+                            ),
                           ),
                         ],
                       ),
@@ -154,7 +158,9 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
                     ],
                     child: Expanded(
                       child: Container(
-                          color: Colors.black54, child: UserHomesListWidget()),
+                        color: Colors.black54,
+                        child: UserHomesListWidget(),
+                      ),
                     ),
                   ),
                 ),

@@ -45,20 +45,21 @@ class GenericBoilerDE extends DeviceEntityAbstract {
 
   /// Empty instance of GenericBoilerEntity
   factory GenericBoilerDE.empty() => GenericBoilerDE(
-      uniqueId: CoreUniqueId(),
-      defaultName: DeviceDefaultName(''),
-      roomId: CoreUniqueId(),
-      roomName: DeviceRoomName(''),
-      deviceStateGRPC: DeviceState(''),
-      senderDeviceOs: DeviceSenderDeviceOs(''),
-      senderDeviceModel: DeviceSenderDeviceModel(''),
-      stateMassage: DeviceStateMassage(''),
-      senderId: DeviceSenderId(),
-      deviceVendor: DeviceVendor(''),
-      compUuid: DeviceCompUuid(''),
-      powerConsumption: DevicePowerConsumption(''),
-      boilerSwitchState:
-          GenericBoilerSwitchState(DeviceActions.off.toString()));
+        uniqueId: CoreUniqueId(),
+        defaultName: DeviceDefaultName(''),
+        roomId: CoreUniqueId(),
+        roomName: DeviceRoomName(''),
+        deviceStateGRPC: DeviceState(''),
+        senderDeviceOs: DeviceSenderDeviceOs(''),
+        senderDeviceModel: DeviceSenderDeviceModel(''),
+        stateMassage: DeviceStateMassage(''),
+        senderId: DeviceSenderId(),
+        deviceVendor: DeviceVendor(''),
+        compUuid: DeviceCompUuid(''),
+        powerConsumption: DevicePowerConsumption(''),
+        boilerSwitchState:
+            GenericBoilerSwitchState(DeviceActions.off.toString()),
+      );
 
   //
   // /// Will return failure if any of the fields failed or return unit if fields
@@ -109,23 +110,33 @@ class GenericBoilerDE extends DeviceEntityAbstract {
 
   /// Please override the following methods
   Future<Either<CoreFailure, Unit>> executeDeviceAction(
-      DeviceEntityAbstract newEntity) async {
+    DeviceEntityAbstract newEntity,
+  ) async {
     print('Please override this method in the non generic implementation');
-    return left(const CoreFailure.actionExcecuter(
-        failedValue: 'Action does not exist'));
+    return left(
+      const CoreFailure.actionExcecuter(
+        failedValue: 'Action does not exist',
+      ),
+    );
   }
 
   /// Please override the following methods
   Future<Either<CoreFailure, Unit>> turnOnBoiler() async {
     print('Please override this method in the non generic implementation');
-    return left(const CoreFailure.actionExcecuter(
-        failedValue: 'Action does not exist'));
+    return left(
+      const CoreFailure.actionExcecuter(
+        failedValue: 'Action does not exist',
+      ),
+    );
   }
 
   /// Please override the following methods
   Future<Either<CoreFailure, Unit>> turnOffBoiler() async {
     print('Please override this method in the non generic implementation');
-    return left(const CoreFailure.actionExcecuter(
-        failedValue: 'Action does not exist'));
+    return left(
+      const CoreFailure.actionExcecuter(
+        failedValue: 'Action does not exist',
+      ),
+    );
   }
 }

@@ -13,7 +13,7 @@ import 'package:kt_dart/collection.dart';
 class RoomBlinds extends StatelessWidget {
   const RoomBlinds(
       this._deviceEntityList, this._gradientColor, this._roomEntity,
-      {this.maxLightsToShow = 4});
+      {this.maxLightsToShow = 4,});
 
   final KtList<GenericBlindsDE> _deviceEntityList;
 
@@ -58,11 +58,11 @@ class RoomBlinds extends StatelessWidget {
               ),
             ),
           ],
-        ));
+        ),);
 
         columnOfLights.add(const SizedBox(
           height: 5,
-        ));
+        ),);
       }
 
       return Column(
@@ -77,7 +77,7 @@ class RoomBlinds extends StatelessWidget {
         gradient: LinearGradient(
             colors: _gradientColor!,
             begin: Alignment.bottomLeft,
-            end: Alignment.topLeft),
+            end: Alignment.topLeft,),
         borderRadius: const BorderRadius.all(Radius.circular(24)),
         border: Border.all(
           color: (Theme.of(context).textTheme.bodyText1!.color)!,

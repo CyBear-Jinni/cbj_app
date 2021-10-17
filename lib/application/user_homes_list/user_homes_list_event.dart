@@ -5,9 +5,11 @@ class UserHomesListEvent with _$UserHomesListEvent {
   const factory UserHomesListEvent.watchAllStarted() = _WatchAllStarted;
 
   const factory UserHomesListEvent.joinExistingHome(
-      AllHomesOfUserEntity? allHomesOfUserEntity) = _JoinExistingHome;
+    AllHomesOfUserEntity? allHomesOfUserEntity,
+  ) = _JoinExistingHome;
 
   const factory UserHomesListEvent.allHomesOfUserReceived(
-      Either<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>
-          failureOrAllHomesOfUser) = _AllHomesOfUserReceived;
+    Either<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>
+        failureOrAllHomesOfUser,
+  ) = _AllHomesOfUserReceived;
 }

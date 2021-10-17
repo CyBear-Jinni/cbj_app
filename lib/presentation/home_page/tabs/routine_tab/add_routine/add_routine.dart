@@ -48,30 +48,35 @@ class AddRoutinePage extends StatelessWidget {
             ),
             const Text('When to execute'),
             TextButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.grey),
-                ),
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (BuildContext context) => PickDatePage()));
-                },
-                child: const Text('Select')),
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.grey),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (BuildContext context) => PickDatePage(),
+                  ),
+                );
+              },
+              child: const Text('Select'),
+            ),
             const SizedBox(
               height: 30,
             ),
             const Text('Only if'),
             TextButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.grey),
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.grey),
+              ),
+              onPressed: () {},
+              child: Text(
+                'Select',
+                style: TextStyle(
+                  color: Theme.of(context).textTheme.bodyText1!.color,
                 ),
-                onPressed: () {},
-                child: Text(
-                  'Select',
-                  style: TextStyle(
-                      color: Theme.of(context).textTheme.bodyText1!.color),
-                )),
+              ),
+            ),
             const SizedBox(
               height: 30,
             ),

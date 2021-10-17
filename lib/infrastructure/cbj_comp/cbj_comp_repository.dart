@@ -31,7 +31,8 @@ class CBJCompRepository implements ICBJCompRepository {
 
   @override
   Future<Either<CBJCompFailure, Unit>> firstSetup(
-      CBJCompEntity cBJCompEntity) async {
+    CBJCompEntity cBJCompEntity,
+  ) async {
     try {
       // final CompInfo compInfo = await compEntityToCompInfo(cBJCompEntity);
       //
@@ -86,7 +87,8 @@ class CBJCompRepository implements ICBJCompRepository {
 
   @override
   Future<Either<CBJCompFailure, Unit>> updateCompInfo(
-      CBJCompEntity compEntity) async {
+    CBJCompEntity compEntity,
+  ) async {
     try {
       // final CompInfo compInfo = await compEntityToCompInfo(compEntity);
       //
@@ -124,7 +126,8 @@ class CBJCompRepository implements ICBJCompRepository {
 
   @override
   Future<Either<CBJCompFailure, CBJCompEntity>> getInformationFromDeviceByIp(
-      String compIp) async {
+    String compIp,
+  ) async {
     try {
       // final CompInfo compInfo = await SmartClient.getCompInfo(compIp);
       //
@@ -150,7 +153,8 @@ class CBJCompRepository implements ICBJCompRepository {
 
   @override
   Future<Either<CBJCompFailure, Unit>> setFirebaseAccountInformation(
-      CBJCompEntity compEntity) async {
+    CBJCompEntity compEntity,
+  ) async {
     try {
       final UserEntity deviceUser =
           (await getIt<ICreateHomeRepository>().getDeviceUserFromHome())
@@ -173,7 +177,9 @@ class CBJCompRepository implements ICBJCompRepository {
 
       final SBCommendStatus sbCommendStatus =
           (await SecurityBearServerClient.setFirebaseAccountInformation(
-              compEntity.lastKnownIp!.getOrCrash(), manageWiFiEntity))!;
+        compEntity.lastKnownIp!.getOrCrash(),
+        manageWiFiEntity,
+      ))!;
 
       if (commendStatus.success) {
         return right(unit);
@@ -238,27 +244,33 @@ class CBJCompRepository implements ICBJCompRepository {
   }
 
   KtList<GenericLightDE> compDevicesToDevicesList(
-      CompInfo compInfo, String compIp) {
+    CompInfo compInfo,
+    String compIp,
+  ) {
     final List<GenericLightDE> deviceEntityList = [];
 
     for (final SmartDeviceInfo smartDeviceInfo in compInfo.smartDevicesInComp) {
       final GenericLightDE deviceEntity = GenericLightDE(
-          uniqueId: CoreUniqueId.fromUniqueString(smartDeviceInfo.id),
-          defaultName: DeviceDefaultName(smartDeviceInfo.defaultName),
-          roomId: CoreUniqueId.fromUniqueString(smartDeviceInfo.roomId),
-          roomName: DeviceRoomName('Missing room name'),
-          deviceStateGRPC: DeviceState(
-              smartDeviceInfo.deviceTypesActions.deviceStateGRPC.toString()),
-          stateMassage: DeviceStateMassage(smartDeviceInfo.stateMassage),
-          senderDeviceOs: DeviceSenderDeviceOs(smartDeviceInfo.senderDeviceOs),
-          senderDeviceModel:
-              DeviceSenderDeviceModel(smartDeviceInfo.senderDeviceModel),
-          senderId: DeviceSenderId.fromUniqueString(smartDeviceInfo.senderId),
-          deviceVendor: DeviceVendor(
-              VendorsAndServices.vendorsAndServicesNotSupported.toString()),
-          lightSwitchState: GenericLightSwitchState(
-              smartDeviceInfo.deviceTypesActions.deviceAction.toString()),
-          compUuid: DeviceCompUuid(smartDeviceInfo.compSpecs.compUuid));
+        uniqueId: CoreUniqueId.fromUniqueString(smartDeviceInfo.id),
+        defaultName: DeviceDefaultName(smartDeviceInfo.defaultName),
+        roomId: CoreUniqueId.fromUniqueString(smartDeviceInfo.roomId),
+        roomName: DeviceRoomName('Missing room name'),
+        deviceStateGRPC: DeviceState(
+          smartDeviceInfo.deviceTypesActions.deviceStateGRPC.toString(),
+        ),
+        stateMassage: DeviceStateMassage(smartDeviceInfo.stateMassage),
+        senderDeviceOs: DeviceSenderDeviceOs(smartDeviceInfo.senderDeviceOs),
+        senderDeviceModel:
+            DeviceSenderDeviceModel(smartDeviceInfo.senderDeviceModel),
+        senderId: DeviceSenderId.fromUniqueString(smartDeviceInfo.senderId),
+        deviceVendor: DeviceVendor(
+          VendorsAndServices.vendorsAndServicesNotSupported.toString(),
+        ),
+        lightSwitchState: GenericLightSwitchState(
+          smartDeviceInfo.deviceTypesActions.deviceAction.toString(),
+        ),
+        compUuid: DeviceCompUuid(smartDeviceInfo.compSpecs.compUuid),
+      );
       deviceEntityList.add(deviceEntity);
     }
     return deviceEntityList.toImmutableList();
@@ -281,11 +293,12 @@ class CBJCompRepository implements ICBJCompRepository {
 
       final SBCommendStatus commendStatus =
           await SecurityBearServerClient.setWiFisInformation(
-              compEntity.lastKnownIp!.getOrCrash(),
-              firstWifiEntityOrFailure.name!.getOrCrash(),
-              firstWifiEntityOrFailure.pass!.getOrCrash(),
-              secondWifiEntityOrFailure.name!.getOrCrash(),
-              secondWifiEntityOrFailure.pass!.getOrCrash());
+        compEntity.lastKnownIp!.getOrCrash(),
+        firstWifiEntityOrFailure.name!.getOrCrash(),
+        firstWifiEntityOrFailure.pass!.getOrCrash(),
+        secondWifiEntityOrFailure.name!.getOrCrash(),
+        secondWifiEntityOrFailure.pass!.getOrCrash(),
+      );
 
       if (commendStatus.success) {
         return right(unit);

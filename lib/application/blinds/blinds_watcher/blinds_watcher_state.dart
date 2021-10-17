@@ -7,7 +7,8 @@ class BlindsWatcherState with _$BlindsWatcherState {
   const factory BlindsWatcherState.loadInProgress() = _LoadInProgress;
 
   const factory BlindsWatcherState.loadSuccess(
-      KtList<GenericBlindsDE?> devices) = _LoadSuccess;
+    KtList<GenericBlindsDE?> devices,
+  ) = _LoadSuccess;
 
   const factory BlindsWatcherState.loadFailure(DevicesFailure devicesFailure) =
       _loadFailure;

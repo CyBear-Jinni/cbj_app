@@ -46,7 +46,9 @@ class EnumHelper {
     String deviceTypeAsStringTemp = deviceTypeAsString;
     if (deviceTypeAsStringTemp.contains('Object')) {
       deviceTypeAsStringTemp = deviceTypeAsStringTemp.substring(
-          0, deviceTypeAsStringTemp.indexOf('Object'));
+        0,
+        deviceTypeAsStringTemp.indexOf('Object'),
+      );
     }
     for (final DeviceTypes deviceType in DeviceTypes.values) {
       if (dTToString(deviceType) == deviceTypeAsStringTemp) {
@@ -64,7 +66,9 @@ class EnumHelper {
     String deviceTypeAsStringTemp = deviceVendorAsString;
     if (deviceTypeAsStringTemp.contains('Object')) {
       deviceTypeAsStringTemp = deviceTypeAsStringTemp.substring(
-          0, deviceTypeAsStringTemp.indexOf('Object'));
+        0,
+        deviceTypeAsStringTemp.indexOf('Object'),
+      );
     }
     for (final VendorsAndServices deviceType in VendorsAndServices.values) {
       if (deviceVendorToString(deviceType) == deviceTypeAsStringTemp) {

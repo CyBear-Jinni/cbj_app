@@ -15,25 +15,26 @@ class SignInForm extends StatelessWidget {
     return BlocConsumer<SignInFormBloc, SignInFormState>(
       listener: (context, state) {
         state.authFailureOrSuccessOption.fold(
-            () {},
-            (either) => either.fold(
-                    (failure) => {
-                          FlushbarHelper.createError(
-                            message: failure.map(
-                              cancelledByUser: (_) => 'Cancelled',
-                              serverError: (_) => 'Server error',
-                              emailAlreadyInUse: (_) => 'Email already in use',
-                              invalidEmailAndPasswordCombination: (_) =>
-                                  'Invalid email and password combination',
-                            ),
-                          ).show(context),
-                        }, (_) {
-                  context.router.push(const WhereToLoginRouteMinimalRoute());
+          () {},
+          (either) => either.fold(
+              (failure) => {
+                    FlushbarHelper.createError(
+                      message: failure.map(
+                        cancelledByUser: (_) => 'Cancelled',
+                        serverError: (_) => 'Server error',
+                        emailAlreadyInUse: (_) => 'Email already in use',
+                        invalidEmailAndPasswordCombination: (_) =>
+                            'Invalid email and password combination',
+                      ),
+                    ).show(context),
+                  }, (_) {
+            context.router.push(const WhereToLoginRouteMinimalRoute());
 
-                  context
-                      .read()<AuthBloc>()
-                      .add(const AuthEvent.authCheckRequested());
-                }));
+            context
+                .read()<AuthBloc>()
+                .add(const AuthEvent.authCheckRequested());
+          }),
+        );
       },
       builder: (context, state) {
         return Column(
@@ -70,11 +71,13 @@ class SignInForm extends StatelessWidget {
                           .emailAddress
                           .value
                           .fold(
-                              (f) => f.maybeMap(
-                                  invalidEmail: (result) => result.failedValue,
-                                  containsSpace: (result) => result.failedValue,
-                                  orElse: () => null),
-                              (r) => null),
+                            (f) => f.maybeMap(
+                              invalidEmail: (result) => result.failedValue,
+                              containsSpace: (result) => result.failedValue,
+                              orElse: () => null,
+                            ),
+                            (r) => null,
+                          ),
                     ),
                     const SizedBox(
                       height: 8,
@@ -95,11 +98,13 @@ class SignInForm extends StatelessWidget {
                           .password
                           .value
                           .fold(
-                              (f) => f.maybeMap(
-                                  shortPassword: (result) => result.failedValue,
-                                  containsSpace: (result) => result.failedValue,
-                                  orElse: () => null),
-                              (r) => null),
+                            (f) => f.maybeMap(
+                              shortPassword: (result) => result.failedValue,
+                              containsSpace: (result) => result.failedValue,
+                              orElse: () => null,
+                            ),
+                            (r) => null,
+                          ),
                     ),
                     Row(
                       children: [
@@ -142,7 +147,8 @@ class SignInForm extends StatelessWidget {
               child: TextButton(
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(
-                      Theme.of(context).textTheme.bodyText1!.color),
+                    Theme.of(context).textTheme.bodyText1!.color,
+                  ),
                 ),
                 onPressed: () {
                   context.router.push(const WhereToLoginRouteOffline());
@@ -150,7 +156,8 @@ class SignInForm extends StatelessWidget {
                 child: Text(
                   'For More Options',
                   style: TextStyle(
-                      color: Theme.of(context).textTheme.bodyText1!.color),
+                    color: Theme.of(context).textTheme.bodyText1!.color,
+                  ),
                 ),
               ),
             ),

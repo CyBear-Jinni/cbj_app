@@ -1,8 +1,14 @@
 import 'package:cybear_jinni/domain/vendors/i_vendor_repository.dart';
+import 'package:cybear_jinni/domain/vendors/lifx_login/generic_lifx_login_entity.dart';
+import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.dart';
+import 'package:cybear_jinni/domain/vendors/login_abstract/login_entity_abstract.dart';
+import 'package:cybear_jinni/domain/vendors/tuya_login/generic_tuya_login_entity.dart';
 import 'package:cybear_jinni/domain/vendors/vendor.dart';
 import 'package:cybear_jinni/domain/vendors/vendor_failures.dart';
 import 'package:cybear_jinni/domain/vendors/vendor_value_objects.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/hub_client.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cybear_jinni/infrastructure/vendors/vendor_helper.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
@@ -18,11 +24,17 @@ class VendorsRepository implements IVendorsRepository {
         in VendorsAndServices.values) {
       if (vendorsAndServices.name ==
               VendorsAndServices.vendorsAndServicesNotSupported.name ||
-          vendorsAndServices.name == VendorsAndServices.google.name) {
+          vendorsAndServices.name == VendorsAndServices.google.name ||
+          vendorsAndServices.name == VendorsAndServices.miHome.name) {
         continue;
       }
-      vendorsWithIcons
-          .add(vendorPlusImageFromVandorName(vendorsAndServices.name));
+      Vendor v = vendorPlusImageFromVandorName(vendorsAndServices.name);
+      if (vendorsAndServices.name ==
+          VendorsAndServices.switcherSmartHome.name) {
+        v = v.copyWith(name: VendorName('Switcher'));
+      }
+      vendorsWithIcons.add(v);
+
       print(vendorsAndServices.name);
     }
     return right(vendorsWithIcons.toImmutableList());
@@ -37,9 +49,44 @@ class VendorsRepository implements IVendorsRepository {
     }
 
     return Vendor(
-        name: VendorName(vendorName),
-        image:
-            'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.seilevel.com%2Frequirements%2Fwp-content%2Fplugins%2Fstormhill_author_page%2Fimg%2Fimage-not-found.png&f=1&nofb=1');
+      name: VendorName(vendorName),
+      image:
+          'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.seilevel.com%2Frequirements%2Fwp-content%2Fplugins%2Fstormhill_author_page%2Fimg%2Fimage-not-found.png&f=1&nofb=1',
+    );
+  }
+
+  @override
+  Future<Either<CoreLoginFailure, Unit>> loginWithLifx(
+    GenericLifxLoginDE genericLifxDE,
+  ) async {
+    return loginWithVendor(genericLifxDE);
+  }
+
+  @override
+  Future<Either<CoreLoginFailure, Unit>> loginWithTuya(
+    GenericTuyaLoginDE genericTuyaDE,
+  ) async {
+    return loginWithVendor(genericTuyaDE);
+  }
+
+  Future<Either<CoreLoginFailure, Unit>> loginWithVendor(
+    LoginEntityAbstract genericVendorDE,
+  ) async {
+    try {
+      final String loginDtoAsString =
+          VendorHelper.convertDomainToJsonString(genericVendorDE);
+
+      final ClientStatusRequests clientStatusRequests = ClientStatusRequests(
+        allRemoteCommands: loginDtoAsString,
+        sendingType: SendingType.vendorLoginType,
+      );
+
+      AppRequestsToHub.appRequestsToHubStreamController.sink
+          .add(clientStatusRequests);
+      return right(unit);
+    } catch (e) {
+      return left(const CoreLoginFailure.unexpected());
+    }
   }
 }
 
@@ -52,7 +99,17 @@ class VendorsMocDataWithImages {
             'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.kyAWxT4tVBWL6O2sCJKqaAHaHa%26pid%3DApi&f=1',
       ),
       Vendor(
-        name: VendorName('Switcher'),
+        name: VendorName('Xiaomi Mi'),
+        image:
+            'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.designbust.com%2Fdownload%2F1629%2Fpng%2Fxiaomi_logo512.png&f=1&nofb=1',
+      ),
+      Vendor(
+        name: VendorName('Lifx'),
+        image:
+            'https://play-lh.googleusercontent.com/k61DT9oYt_BPdzjAFokLY5e-He-YSl7-eZHeieaVO45XDAwQ6ebegsS_ZsQytca2zWM=s180',
+      ),
+      Vendor(
+        name: VendorName('SwitcherSmartHome'),
         image:
             'https://play-lh.googleusercontent.com/8L6vVAT2cC78V622nxSznr7Mm_MgMsH25TopH-ZIm5HMwAHRy0qTX29FlHF6_kbBsQ=s180',
       ),
@@ -67,7 +124,7 @@ class VendorsMocDataWithImages {
             'https://www.opc-router.de/wp-content/uploads/2018/07/mqtt_icon_128px.png',
       ),
       Vendor(
-        name: VendorName('Tuya'),
+        name: VendorName('TuyaSmart'),
         image:
             'https://play-lh.googleusercontent.com/KGM9NYnyox9TXwoaY3PKl1PfQ2rTPp1rnpNNtmlbgozJZykhZhGKsL3z9myoj4ccayLS=s180',
       ),

@@ -106,7 +106,7 @@ dependencies:
   # Port of Kotlin's Kotlin Standard library for Dart/Flutter projects
   kt_dart: ^0.9.1
   # Liquid progress indicator for Flutter.
-  liquid_progress_indicator_ns: ^1.0.0
+  liquid_progress_indicator: ^0.4.0
   # Handles getting a location on
   location: ^4.3.0
   # Small, easy to use and extensible logger which prints beautiful logs.
@@ -131,6 +131,8 @@ dependencies:
   shared_preferences: ^2.0.7
   # Highly customizable circular slider/progress bar & spinner.
   sleek_circular_slider: ^2.0.1
+  # Plugin for launching a URL
+  url_launcher: ^6.0.12
   # Simple, fast generation of RFC4122 UUIDs.
   uuid: ^3.0.4
   # Get available wifi ssid list, user can connect to wifi with ssid and password, and create hotspot

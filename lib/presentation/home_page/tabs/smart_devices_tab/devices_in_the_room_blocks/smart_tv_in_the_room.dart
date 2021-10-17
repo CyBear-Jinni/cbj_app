@@ -8,8 +8,9 @@ class SmartTvInTheRoom extends StatelessWidget {
   const SmartTvInTheRoom({this.smartTvsInRoom, this.roomColorGradiant});
 
   factory SmartTvInTheRoom.withAbstractDevice(
-      List<DeviceEntityAbstract> tempDeviceInRoom,
-      List<Color> tempRoomColorGradiant) {
+    List<DeviceEntityAbstract> tempDeviceInRoom,
+    List<Color> tempRoomColorGradiant,
+  ) {
     List<GenericSmartTvDE> tempLightsInRoom = [];
 
     tempDeviceInRoom.forEach((element) {
@@ -17,8 +18,9 @@ class SmartTvInTheRoom extends StatelessWidget {
     });
 
     return SmartTvInTheRoom(
-        smartTvsInRoom: tempLightsInRoom,
-        roomColorGradiant: tempRoomColorGradiant);
+      smartTvsInRoom: tempLightsInRoom,
+      roomColorGradiant: tempRoomColorGradiant,
+    );
   }
 
   final List<GenericSmartTvDE>? smartTvsInRoom;
@@ -60,20 +62,21 @@ class SmartTvInTheRoom extends StatelessWidget {
                         width: 28,
                         decoration: BoxDecoration(
                           border: Border.all(
-                              color: Theme.of(context)
-                                  .textTheme
-                                  .bodyText1!
-                                  .color!
-                                  .withOpacity(0.5)),
+                            color: Theme.of(context)
+                                .textTheme
+                                .bodyText1!
+                                .color!
+                                .withOpacity(0.5),
+                          ),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Text(
                           smartTvsInRoom!.length.toString(),
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                              fontSize: 13,
-                              color:
-                                  Theme.of(context).textTheme.bodyText1!.color),
+                            fontSize: 13,
+                            color: Theme.of(context).textTheme.bodyText1!.color,
+                          ),
                         ),
                       ),
                     ),
@@ -89,13 +92,15 @@ class SmartTvInTheRoom extends StatelessWidget {
               Text(
                 smartTvsInRoom![0].defaultName.getOrCrash()!,
                 style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1!.color),
+                  color: Theme.of(context).textTheme.bodyText1!.color,
+                ),
               )
             else
               Text(
                 '${smartTvsInRoom![0].roomName.getOrCrash()} SmartTvs',
                 style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1!.color),
+                  color: Theme.of(context).textTheme.bodyText1!.color,
+                ),
               ),
           ],
         ),

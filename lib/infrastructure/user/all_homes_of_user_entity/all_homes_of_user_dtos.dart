@@ -15,7 +15,8 @@ abstract class AllHomesOfUserDtos implements _$AllHomesOfUserDtos {
   const AllHomesOfUserDtos._();
 
   factory AllHomesOfUserDtos.fromDomain(
-      AllHomesOfUserEntity allHomesOfUserEntity) {
+    AllHomesOfUserEntity allHomesOfUserEntity,
+  ) {
     return AllHomesOfUserDtos(
       id: allHomesOfUserEntity.id!.getOrCrash(),
       name: (allHomesOfUserEntity.name!.getOrCrash())!,

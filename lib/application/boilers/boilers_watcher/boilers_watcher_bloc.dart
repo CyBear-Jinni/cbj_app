@@ -34,15 +34,18 @@ class BoilersWatcherBloc
         yield const BoilersWatcherState.loadInProgress();
         await _deviceStreamSubscription?.cancel();
         _deviceStreamSubscription = _deviceRepository.watchBoilers().listen(
-            (eventWatch) =>
-                add(BoilersWatcherEvent.boilersReceived(eventWatch)));
+              (eventWatch) =>
+                  add(BoilersWatcherEvent.boilersReceived(eventWatch)),
+            );
       },
       boilersReceived: (e) async* {
         yield const BoilersWatcherState.loadInProgress();
         yield e.failureOrDevices.fold(
-            (f) => BoilersWatcherState.loadFailure(f),
-            (d) => BoilersWatcherState.loadSuccess(
-                d.map((v) => v! as GenericBoilerDE).toMutableList()));
+          (f) => BoilersWatcherState.loadFailure(f),
+          (d) => BoilersWatcherState.loadSuccess(
+            d.map((v) => v! as GenericBoilerDE).toMutableList(),
+          ),
+        );
       },
     );
   }

@@ -55,17 +55,19 @@ class AddBindingsPage extends StatelessWidget {
             SizedBox(
               height: 50,
               child: TextButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.grey),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.grey),
+                ),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text(
+                  'Set Home Location',
+                  style: TextStyle(
+                    color: Theme.of(context).textTheme.bodyText1!.color,
                   ),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: Text(
-                    'Set Home Location',
-                    style: TextStyle(
-                        color: Theme.of(context).textTheme.bodyText1!.color),
-                  )),
+                ),
+              ),
             ),
             const SizedBox(
               height: 50,

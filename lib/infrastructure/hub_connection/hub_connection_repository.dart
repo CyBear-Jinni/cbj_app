@@ -52,7 +52,9 @@ class HubConnectionRepository extends IHubConnectionRepository {
       }
 
       await HubClient.createStreamWithHub(
-          hubEntity!.lastKnownIp!.getOrCrash(), hubPort);
+        hubEntity!.lastKnownIp!.getOrCrash(),
+        hubPort,
+      );
       return;
     } else {
       // await HubClient.createStreamWithHub('', 50051);
@@ -72,17 +74,24 @@ class HubConnectionRepository extends IHubConnectionRepository {
     String deviceIp = '';
     final String fullMdnsName = '$mDnsName.local';
 
-    final MDnsClient client = MDnsClient(rawDatagramSocketFactory:
-        (dynamic host, int port,
-            {bool? reuseAddress, bool? reusePort, int? ttl}) {
-      return RawDatagramSocket.bind(host, port, ttl: ttl!);
-    });
+    final MDnsClient client = MDnsClient(
+      rawDatagramSocketFactory: (
+        dynamic host,
+        int port, {
+        bool? reuseAddress,
+        bool? reusePort,
+        int? ttl,
+      }) {
+        return RawDatagramSocket.bind(host, port, ttl: ttl!);
+      },
+    );
 
     // Start the client with default options.
     await client.start();
     await for (final IPAddressResourceRecord record
         in client.lookup<IPAddressResourceRecord>(
-            ResourceRecordQuery.addressIPv4(mDnsName))) {
+      ResourceRecordQuery.addressIPv4(mDnsName),
+    )) {
       deviceIp = record.address.address;
       print('Found address (${record.address}).');
     }

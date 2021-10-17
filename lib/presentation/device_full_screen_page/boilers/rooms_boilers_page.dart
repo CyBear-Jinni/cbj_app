@@ -16,8 +16,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 /// Boilers page that will call the lamps widget file and add background
 /// and scaffold for it
 class RoomsBoilersPage extends StatelessWidget {
-  const RoomsBoilersPage(
-      {this.showDevicesOnlyFromRoomId, this.roomColorGradiant});
+  const RoomsBoilersPage({
+    this.showDevicesOnlyFromRoomId,
+    this.roomColorGradiant,
+  });
 
   /// If it have value will only show boilers in this room
   final String? showDevicesOnlyFromRoomId;
@@ -25,9 +27,11 @@ class RoomsBoilersPage extends StatelessWidget {
 
   void cogFunction(BuildContext context) {
     Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (BuildContext context) => SettingsPageOfBoilers()));
+      context,
+      MaterialPageRoute(
+        builder: (BuildContext context) => SettingsPageOfBoilers(),
+      ),
+    );
   }
 
   void backButtonFunction(BuildContext context) {
@@ -103,7 +107,9 @@ class RoomsBoilersPage extends StatelessWidget {
                 ),
                 Expanded(
                   child: RoomsBoilersWidget(
-                      showDevicesOnlyFromRoomId!, roomColorGradiant!),
+                    showDevicesOnlyFromRoomId!,
+                    roomColorGradiant!,
+                  ),
                 ),
               ],
             ),

@@ -94,7 +94,7 @@ class DeviceRepository implements IDeviceRepository {
                       DeviceTypes.rgbwLights.toString();
             }).toImmutableList(),
           );
-        }));
+        }),);
   }
 
   @override
@@ -109,7 +109,7 @@ class DeviceRepository implements IDeviceRepository {
                   DeviceTypes.blinds.toString();
             }).toImmutableList(),
           );
-        }));
+        }),);
   }
 
   @override
@@ -124,7 +124,7 @@ class DeviceRepository implements IDeviceRepository {
                   DeviceTypes.boiler.toString();
             }).toImmutableList(),
           );
-        }));
+        }),);
   }
 
   @override
@@ -137,7 +137,7 @@ class DeviceRepository implements IDeviceRepository {
                   DeviceTypes.smartTV.toString();
             }).toImmutableList(),
           );
-        }));
+        }),);
   }
 
   @override
@@ -149,7 +149,7 @@ class DeviceRepository implements IDeviceRepository {
 
   @override
   Future<Either<DevicesFailure, Unit>> create(
-      DeviceEntityAbstract deviceEntity) async {
+      DeviceEntityAbstract deviceEntity,) async {
     try {
       String deviceModelString = 'No Model found';
       final DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
@@ -191,7 +191,7 @@ class DeviceRepository implements IDeviceRepository {
   Future<Either<DevicesFailure, Unit>> updateDatabase(
       {required Map<String, dynamic> documentPath,
       required Map<String, dynamic> fieldsToUpdate,
-      String? forceUpdateLocation}) async {
+      String? forceUpdateLocation,}) async {
     try {
       // await documentPath.update(fieldsToUpdate);
       return right(unit);
@@ -488,7 +488,7 @@ class DeviceRepository implements IDeviceRepository {
 
   @override
   Future<Either<DevicesFailure, Unit>> delete(
-      DeviceEntityAbstract deviceEntity) async {
+      DeviceEntityAbstract deviceEntity,) async {
     return left(const DevicesFailure.unexpected());
   }
 
@@ -506,7 +506,7 @@ class DeviceRepository implements IDeviceRepository {
 
       try {
         deviceEntity.copyWithDeviceState(DeviceStateGRPC.waitingInFirebase);
-        //
+
         final String deviceDtoAsString =
             DeviceHelper.convertDomainToJsonString(deviceEntity);
         final ClientStatusRequests clientStatusRequests = ClientStatusRequests(
@@ -560,7 +560,7 @@ class DeviceRepository implements IDeviceRepository {
       int? ttl,
     }) {
       return RawDatagramSocket.bind(host, port, ttl: ttl!);
-    });
+    },);
     // Start the client with default options.
 
     await client.start();

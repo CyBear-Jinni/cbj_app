@@ -30,7 +30,7 @@ abstract class GenericBlindsDeviceDtos
       required String? deviceVendor
 
       // required ServerTimestampConverter() FieldValue serverTimeStamp,
-      }) = _GenericBlindsDeviceDtos;
+      ,}) = _GenericBlindsDeviceDtos;
 
   GenericBlindsDeviceDtos._();
 

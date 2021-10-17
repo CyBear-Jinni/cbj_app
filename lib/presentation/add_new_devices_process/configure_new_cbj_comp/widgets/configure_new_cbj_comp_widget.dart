@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:liquid_progress_indicator_ns/liquid_progress_indicator.dart';
+import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
 
 class ConfigureNewCbjCompWidgets extends StatelessWidget {
   const ConfigureNewCbjCompWidgets({
@@ -23,9 +23,10 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
   static String devicesDefaultRoomNameField = '';
 
   Widget devicesList(
-      CBJCompEntity cbjCompEntityForDeviceList,
-      Map<String, TextEditingController> _textEditingController,
-      BuildContext context) {
+    CBJCompEntity cbjCompEntityForDeviceList,
+    Map<String, TextEditingController> _textEditingController,
+    BuildContext context,
+  ) {
     final List<GenericLightDE> devicesList =
         cbjCompEntityForDeviceList.cBJCompDevices!.getOrCrash().asList();
 
@@ -36,7 +37,8 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
           DeviceTypes.typeNotSupported.toString()) {
         final TextEditingController textEditingControllerTemp =
             TextEditingController(
-                text: device.defaultName.value.getOrElse(() => ''));
+          text: device.defaultName.value.getOrElse(() => ''),
+        );
         _textEditingController[
                 '$deviceNameFieldKey/${device.uniqueId.value.getOrElse(() => 'deviceId')}'] =
             textEditingControllerTemp;
@@ -102,27 +104,28 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                   child: TextFormField(
                     controller: textEditingControllerTemp,
                     style: TextStyle(
-                        color: Theme.of(context).textTheme.bodyText1!.color),
+                      color: Theme.of(context).textTheme.bodyText1!.color,
+                    ),
                     decoration: InputDecoration(
-                        filled: true,
-                        fillColor: Colors.black.withOpacity(0.2),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: (Theme.of(context)
-                                  .textTheme
-                                  .bodyText1!
-                                  .color)!,
-                              width: 2.0),
-                          borderRadius: BorderRadius.circular(15.0),
+                      filled: true,
+                      fillColor: Colors.black.withOpacity(0.2),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color:
+                              (Theme.of(context).textTheme.bodyText1!.color)!,
+                          width: 2.0,
                         ),
-                        prefixIcon: Icon(
-                          FontAwesomeIcons.solidLightbulb,
-                          color: Theme.of(context).textTheme.bodyText1!.color,
-                        ),
-                        labelText: '${device.deviceTypes.getOrCrash()} Name',
-                        labelStyle: TextStyle(
-                            color:
-                                Theme.of(context).textTheme.bodyText1!.color)),
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                      prefixIcon: Icon(
+                        FontAwesomeIcons.solidLightbulb,
+                        color: Theme.of(context).textTheme.bodyText1!.color,
+                      ),
+                      labelText: '${device.deviceTypes.getOrCrash()} Name',
+                      labelStyle: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1!.color,
+                      ),
+                    ),
                     autocorrect: false,
                     onChanged: (value) {
                       // roomName = value;
@@ -146,7 +149,8 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                     child: Text(
                       'Type ${device.deviceTypes.getOrCrash()} is not supported yet',
                       style: TextStyle(
-                          color: Theme.of(context).textTheme.bodyText1!.color),
+                        color: Theme.of(context).textTheme.bodyText1!.color,
+                      ),
                     ),
                   ),
                 ),
@@ -168,63 +172,67 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
     _textEditingController['allInSameRoom'] = TextEditingController();
 
     return BlocBuilder<ConfigureNewCbjCompBloc, ConfigureNewCbjCompState>(
-        builder: (context, state) {
-      return state.map(
-        initial: (_) {
-          return Column(
-            children: [
-              Text(
-                'Configure devices',
-                style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1!.color),
-              ),
-              Expanded(
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          Checkbox(
-                            checkColor:
-                                Theme.of(context).textTheme.bodyText1!.color,
-                            activeColor: Colors.red,
-                            value: true,
-                            onChanged: (bool? value) {},
-                          ),
-                          Text(
-                            'All devices in the same room',
-                            style: TextStyle(
+      builder: (context, state) {
+        return state.map(
+          initial: (_) {
+            return Column(
+              children: [
+                Text(
+                  'Configure devices',
+                  style: TextStyle(
+                    color: Theme.of(context).textTheme.bodyText1!.color,
+                  ),
+                ),
+                Expanded(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            Checkbox(
+                              checkColor:
+                                  Theme.of(context).textTheme.bodyText1!.color,
+                              activeColor: Colors.red,
+                              value: true,
+                              onChanged: (bool? value) {},
+                            ),
+                            Text(
+                              'All devices in the same room',
+                              style: TextStyle(
                                 color: Theme.of(context)
                                     .textTheme
                                     .bodyText1!
-                                    .color),
-                          ),
-                        ],
-                      ),
-                      Text(
-                        'Room Name',
-                        style: TextStyle(
-                          color: Theme.of(context).textTheme.bodyText1!.color,
-                          fontSize: 30,
+                                    .color,
+                              ),
+                            ),
+                          ],
                         ),
-                      ),
-                      SizedBox(
-                        width: 300,
-                        child: TextFormField(
-                          controller: _textEditingController['allInSameRoom'],
+                        Text(
+                          'Room Name',
                           style: TextStyle(
+                            color: Theme.of(context).textTheme.bodyText1!.color,
+                            fontSize: 30,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 300,
+                          child: TextFormField(
+                            controller: _textEditingController['allInSameRoom'],
+                            style: TextStyle(
                               color:
-                                  Theme.of(context).textTheme.bodyText1!.color),
-                          decoration: InputDecoration(
+                                  Theme.of(context).textTheme.bodyText1!.color,
+                            ),
+                            decoration: InputDecoration(
                               filled: true,
                               fillColor: Colors.greenAccent.withOpacity(0.3),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                    color: Theme.of(context)
-                                        .textTheme
-                                        .bodyText1!
-                                        .color!,
-                                    width: 2.0),
+                                  color: Theme.of(context)
+                                      .textTheme
+                                      .bodyText1!
+                                      .color!,
+                                  width: 2.0,
+                                ),
                                 borderRadius: BorderRadius.circular(15.0),
                               ),
                               prefixIcon: Icon(
@@ -239,130 +247,143 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                                   .roomName
                                   .getOrCrash(),
                               labelStyle: TextStyle(
-                                  color: Theme.of(context)
-                                      .textTheme
-                                      .bodyText1!
-                                      .color)),
-                          autocorrect: false,
-                          onChanged: (value) {},
-                        ),
-                      ),
-                      if (cbjCompEntityInBuild.cBJCompDevices!
-                              .getOrCrash()
-                              .size <
-                          1)
-                        const Text('')
-                      else
-                        devicesList(cbjCompEntityInBuild,
-                            _textEditingController, context),
-                    ],
-                  ),
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  TextButton(
-                    style: TextButton.styleFrom(
-                      backgroundColor: Colors.greenAccent,
-                    ),
-                    onPressed: () async {
-                      context.read<ConfigureNewCbjCompBloc>().add(
-                          ConfigureNewCbjCompEvent.setupNewDevice(
-                              cbjCompEntityInBuild, _textEditingController));
-                    },
-                    child: Text(
-                      'Done',
-                      style: TextStyle(
-                        color: Theme.of(context).textTheme.bodyText1!.color,
-                      ),
-                    ),
-                  ),
-                ],
-              )
-            ],
-          );
-        },
-        actionInProgress: (actionInProgress) {
-          return Column(
-            children: [
-              const SizedBox(
-                height: 30,
-              ),
-              Container(
-                height: 35,
-                width: MediaQuery.of(context).size.width - 20,
-                decoration: const BoxDecoration(
-                  color: Colors.black38,
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
-                ),
-                alignment: Alignment.center,
-                child: Text(
-                  'Setting up computer',
-                  style: TextStyle(
-                      fontSize: 25,
-                      color: Theme.of(context).textTheme.bodyText1!.color),
-                ),
-              ),
-              Expanded(
-                child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        height: 80,
-                        width: 250,
-                        child: LiquidLinearProgressIndicator(
-                          value: actionInProgress.progressPercentage,
-                          valueColor: const AlwaysStoppedAnimation(Colors.pink),
-                          backgroundColor:
-                              Theme.of(context).textTheme.bodyText1!.color,
-                          borderColor: Colors.red.withOpacity(0.9),
-                          borderWidth: 4.0,
-                          center: const Text(
-                            'Loading...',
-                            style: TextStyle(color: Colors.black),
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .bodyText1!
+                                    .color,
+                              ),
+                            ),
+                            autocorrect: false,
+                            onChanged: (value) {},
                           ),
-                          borderRadius: 2,
                         ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Text(
-                        'Please wait as we are setting your new computer',
-                        style: TextStyle(
-                            color:
-                                Theme.of(context).textTheme.bodyText1!.color),
-                      ),
-                    ],
+                        if (cbjCompEntityInBuild.cBJCompDevices!
+                                .getOrCrash()
+                                .size <
+                            1)
+                          const Text('')
+                        else
+                          devicesList(
+                            cbjCompEntityInBuild,
+                            _textEditingController,
+                            context,
+                          ),
+                      ],
+                    ),
                   ),
                 ),
-                // child: Center(
-                //   child: CircularProgressIndicator(
-                //     backgroundColor: Colors.cyan,
-                //     strokeWidth: 5,
-                //   ),
-                // ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        backgroundColor: Colors.greenAccent,
+                      ),
+                      onPressed: () async {
+                        context.read<ConfigureNewCbjCompBloc>().add(
+                              ConfigureNewCbjCompEvent.setupNewDevice(
+                                cbjCompEntityInBuild,
+                                _textEditingController,
+                              ),
+                            );
+                      },
+                      child: Text(
+                        'Done',
+                        style: TextStyle(
+                          color: Theme.of(context).textTheme.bodyText1!.color,
+                        ),
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            );
+          },
+          actionInProgress: (actionInProgress) {
+            return Column(
+              children: [
+                const SizedBox(
+                  height: 30,
+                ),
+                Container(
+                  height: 35,
+                  width: MediaQuery.of(context).size.width - 20,
+                  decoration: const BoxDecoration(
+                    color: Colors.black38,
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                  ),
+                  alignment: Alignment.center,
+                  child: Text(
+                    'Setting up comptter',
+                    style: TextStyle(
+                      fontSize: 25,
+                      color: Theme.of(context).textTheme.bodyText1!.color,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          height: 80,
+                          width: 250,
+                          child: LiquidLinearProgressIndicator(
+                            value: actionInProgress.progressPercentage,
+                            valueColor:
+                                const AlwaysStoppedAnimation(Colors.pink),
+                            backgroundColor:
+                                Theme.of(context).textTheme.bodyText1!.color,
+                            borderColor: Colors.red.withOpacity(0.9),
+                            borderWidth: 4.0,
+                            center: const Text(
+                              'Loading...',
+                              style: TextStyle(color: Colors.black),
+                            ),
+                            borderRadius: 2,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Text(
+                          'Please wait as we are setting your new computer',
+                          style: TextStyle(
+                            color: Theme.of(context).textTheme.bodyText1!.color,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  // child: Center(
+                  //   child: CircularProgressIndicator(
+                  //     backgroundColor: Colors.cyan,
+                  //     strokeWidth: 5,
+                  //   ),
+                  // ),
+                ),
+              ],
+            );
+          },
+          errorInProcess: (value) {
+            return Text(
+              'Error in the process.',
+              style: TextStyle(
+                color: Theme.of(context).textTheme.bodyText1!.color,
               ),
-            ],
-          );
-        },
-        errorInProcess: (value) {
-          return Text(
-            'Error in the process.',
-            style:
-                TextStyle(color: Theme.of(context).textTheme.bodyText1!.color),
-          );
-        },
-        completeSuccess: (CompleteSuccess value) {
-          return Text(
-            'Computer have been configured.',
-            style:
-                TextStyle(color: Theme.of(context).textTheme.bodyText1!.color),
-          );
-        },
-      );
-    });
+            );
+          },
+          completeSuccess: (CompleteSuccess value) {
+            return Text(
+              'Computer have been configured.',
+              style: TextStyle(
+                color: Theme.of(context).textTheme.bodyText1!.color,
+              ),
+            );
+          },
+        );
+      },
+    );
   }
 }

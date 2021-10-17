@@ -116,8 +116,10 @@ class ConfigureNewCbjCompBloc
             error = true;
           },
           (r) => add(
-              ConfigureNewCbjCompEvent.checkOperationsCompletedSuccessfully(
-                  compUpdatedData)),
+            ConfigureNewCbjCompEvent.checkOperationsCompletedSuccessfully(
+              compUpdatedData,
+            ),
+          ),
         );
         if (error) {
           yield const ConfigureNewCbjCompState.errorInProcess();
@@ -153,16 +155,21 @@ class ConfigureNewCbjCompBloc
         } else {
           progressPercent += 0.3;
           yield ConfigureNewCbjCompState.actionInProgress(progressPercent);
-          add(ConfigureNewCbjCompEvent.checkOperationsCompletedSuccessfully(
-              compUpdatedData));
+          add(
+            ConfigureNewCbjCompEvent.checkOperationsCompletedSuccessfully(
+              compUpdatedData,
+            ),
+          );
         }
       },
     );
   }
 
   /// Organize all the data from the text fields to updated CBJCompEntity
-  CBJCompEntity newCBJCompEntity(CBJCompEntity cbjCompEntity,
-      Map<String, TextEditingController> _textEditingController) {
+  CBJCompEntity newCBJCompEntity(
+    CBJCompEntity cbjCompEntity,
+    Map<String, TextEditingController> _textEditingController,
+  ) {
     final String deviceNameFieldKey =
         ConfigureNewCbjCompWidgets.deviceNameFieldKey;
     final List<GenericLightDE> deviceEntityList = [];
@@ -179,16 +186,19 @@ class ConfigureNewCbjCompBloc
         final String deviceName = _textEditingController[
                 '$deviceNameFieldKey/${deviceE.uniqueId.getOrCrash()}']!
             .text;
-        deviceEntityList.add(deviceE
-          ..defaultName = DeviceDefaultName(deviceName)
-          ..roomName = DeviceRoomName(roomName)
-          ..roomId = CoreUniqueId.fromUniqueString(roomUuid));
+        deviceEntityList.add(
+          deviceE
+            ..defaultName = DeviceDefaultName(deviceName)
+            ..roomName = DeviceRoomName(roomName)
+            ..roomId = CoreUniqueId.fromUniqueString(roomUuid),
+        );
       } catch (e) {
         print("Can't add unsupported device");
       }
     });
     final CBJCompEntity compUpdatedData = cbjCompEntity.copyWith(
-        cBJCompDevices: CBJCompDevices(deviceEntityList.toImmutableList()));
+      cBJCompDevices: CBJCompDevices(deviceEntityList.toImmutableList()),
+    );
 
     return compUpdatedData;
   }

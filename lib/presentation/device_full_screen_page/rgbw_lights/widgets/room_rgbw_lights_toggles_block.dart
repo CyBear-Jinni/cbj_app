@@ -9,8 +9,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 /// Show light toggles in a container with the background color from smart room
 /// object
 class RoomRgbwLightsTogglesBlock extends StatelessWidget {
-  const RoomRgbwLightsTogglesBlock(this._smartRoomObject,
-      {this.maxLightsToShow});
+  const RoomRgbwLightsTogglesBlock(
+    this._smartRoomObject, {
+    this.maxLightsToShow,
+  });
 
   final SmartRoomObject? _smartRoomObject;
 
@@ -47,9 +49,11 @@ class RoomRgbwLightsTogglesBlock extends StatelessWidget {
               ),
             );
           } else {
-            widgetsForRow.add(const SizedBox(
-              width: 110,
-            ));
+            widgetsForRow.add(
+              const SizedBox(
+                width: 110,
+              ),
+            );
           }
         }
         final Widget rowOfLights = Row(
@@ -59,9 +63,11 @@ class RoomRgbwLightsTogglesBlock extends StatelessWidget {
         widgetsForRow = <Widget>[];
         columnOfLights.add(rowOfLights);
       }
-      columnOfLights.add(const SizedBox(
-        height: 5,
-      ));
+      columnOfLights.add(
+        const SizedBox(
+          height: 5,
+        ),
+      );
 
       return Column(
         children: columnOfLights,
@@ -72,15 +78,17 @@ class RoomRgbwLightsTogglesBlock extends StatelessWidget {
       margin: EdgeInsets.only(bottom: screenSize.height * 0.02),
       padding: const EdgeInsets.all(3),
       decoration: BoxDecoration(
-          gradient: LinearGradient(
-              colors: _smartRoomObject!.grediantColor,
-              begin: Alignment.bottomLeft,
-              end: Alignment.topLeft),
-          borderRadius: const BorderRadius.all(Radius.circular(24)),
-          border: Border.all(
-            color: (Theme.of(context).textTheme.bodyText1!.color)!,
-            width: 0.6,
-          )),
+        gradient: LinearGradient(
+          colors: _smartRoomObject!.grediantColor,
+          begin: Alignment.bottomLeft,
+          end: Alignment.topLeft,
+        ),
+        borderRadius: const BorderRadius.all(Radius.circular(24)),
+        border: Border.all(
+          color: (Theme.of(context).textTheme.bodyText1!.color)!,
+          width: 0.6,
+        ),
+      ),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
@@ -101,7 +109,8 @@ class RoomRgbwLightsTogglesBlock extends StatelessWidget {
                 if (maxLightsToShow != null &&
                     _smartRoomObject!.getLights()!.length > maxLightsToShow!) {
                   context.router.push(
-                      LightsInTheRoomRoute(thisSmartRoom: _smartRoomObject));
+                    LightsInTheRoomRoute(thisSmartRoom: _smartRoomObject),
+                  );
                 }
               },
               child: Row(

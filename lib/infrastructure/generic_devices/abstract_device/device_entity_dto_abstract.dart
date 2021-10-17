@@ -4,10 +4,9 @@ import 'package:cybear_jinni/infrastructure/generic_devices/generic_light_device
 class DeviceEntityDtoAbstract {
   DeviceEntityDtoAbstract();
 
-  final String deviceDtoClassInstance = (DeviceEntityDtoAbstract).toString();
-
   factory DeviceEntityDtoAbstract.fromDomain(
-      DeviceEntityAbstract deviceEntityDtoAbstract) {
+    DeviceEntityAbstract deviceEntityDtoAbstract,
+  ) {
     print('DeviceEntityDtoAbstract.fromDomain');
     return DeviceEntityDtoAbstract();
   }
@@ -23,6 +22,8 @@ class DeviceEntityDtoAbstract {
     }
     return deviceEntityDtoAbstract;
   }
+
+  final String deviceDtoClassInstance = (DeviceEntityDtoAbstract).toString();
 
   Map<String, dynamic> toJson() {
     print('DeviceEntityDtoAbstract to Json');

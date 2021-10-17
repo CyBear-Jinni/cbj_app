@@ -66,8 +66,9 @@ class TopNavigationBar extends StatelessWidget {
                 Text(
                   pageName!,
                   style: TextStyle(
-                      fontSize: 16.0,
-                      color: Theme.of(context).textTheme.bodyText1!.color),
+                    fontSize: 16.0,
+                    color: Theme.of(context).textTheme.bodyText1!.color,
+                  ),
                 ).tr(),
               ],
             ),
@@ -80,7 +81,8 @@ class TopNavigationBar extends StatelessWidget {
                       child: TextButton(
                         style: ButtonStyle(
                           padding: MaterialStateProperty.all<EdgeInsets>(
-                              EdgeInsets.zero),
+                            EdgeInsets.zero,
+                          ),
                         ),
                         onPressed: () => rightSecondFunction!(context),
                         child: FaIcon(
@@ -95,7 +97,8 @@ class TopNavigationBar extends StatelessWidget {
                     child: TextButton(
                       style: ButtonStyle(
                         padding: MaterialStateProperty.all<EdgeInsets>(
-                            EdgeInsets.zero),
+                          EdgeInsets.zero,
+                        ),
                       ),
                       onPressed: () => rightIconFunction!(context),
                       child: Icon(

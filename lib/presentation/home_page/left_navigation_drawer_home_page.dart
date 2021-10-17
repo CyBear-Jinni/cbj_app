@@ -38,9 +38,9 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                         Text(
                           'Settings',
                           style: TextStyle(
-                              color:
-                                  Theme.of(context).textTheme.bodyText1!.color,
-                              fontSize: 18),
+                            color: Theme.of(context).textTheme.bodyText1!.color,
+                            fontSize: 18,
+                          ),
                         )
                       ],
                     ),
@@ -62,9 +62,9 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                         Text(
                           'CyBear Jinni',
                           style: TextStyle(
-                              color:
-                                  Theme.of(context).textTheme.bodyText1!.color,
-                              fontSize: 20),
+                            color: Theme.of(context).textTheme.bodyText1!.color,
+                            fontSize: 20,
+                          ),
                         ),
                       ],
                     ),
@@ -95,8 +95,8 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                       title: Text(
                         'Log Out',
                         style: TextStyle(
-                            color:
-                                Theme.of(context).textTheme.bodyText1!.color),
+                          color: Theme.of(context).textTheme.bodyText1!.color,
+                        ),
                       ),
                       onTap: () {
                         _fireBaseLogOut(context);
@@ -119,8 +119,8 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                       title: Text(
                         'Manage Users',
                         style: TextStyle(
-                            color:
-                                Theme.of(context).textTheme.bodyText1!.color),
+                          color: Theme.of(context).textTheme.bodyText1!.color,
+                        ),
                       ),
                       onTap: () {
                         context.router.push(const ManageUsersRoute());

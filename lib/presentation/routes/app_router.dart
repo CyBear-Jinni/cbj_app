@@ -5,6 +5,8 @@ import 'package:cybear_jinni/presentation/add_new_devices_process/connect_to_hom
 import 'package:cybear_jinni/presentation/add_new_devices_process/open_access_point/open_access_pointi_page.dart';
 import 'package:cybear_jinni/presentation/add_new_devices_process/scan_for_new_cbj_comps/scan_for_new_cbj_comps_page.dart';
 import 'package:cybear_jinni/presentation/add_user_to_home/add_user_to_home_page.dart';
+import 'package:cybear_jinni/presentation/add_vendors_pages/add_lifx_vendor/add_lifx_vendor_page.dart';
+import 'package:cybear_jinni/presentation/add_vendors_pages/add_tuya_vendor/add_tuya_vendor_page.dart';
 import 'package:cybear_jinni/presentation/connect_to_hub/connect_to_hub_page.dart';
 import 'package:cybear_jinni/presentation/create_home/create_home_page.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/blinds/rooms_blinds_page.dart';
@@ -17,6 +19,7 @@ import 'package:cybear_jinni/presentation/home_page/home_page.dart';
 import 'package:cybear_jinni/presentation/introduction_screen/introduction_screen_page.dart';
 import 'package:cybear_jinni/presentation/join_home_by_id/join_home_by_id_page.dart';
 import 'package:cybear_jinni/presentation/manage_users/manage_users_page.dart';
+import 'package:cybear_jinni/presentation/plus_button/plus_button.dart';
 import 'package:cybear_jinni/presentation/scenes/scenes_page.dart';
 import 'package:cybear_jinni/presentation/sign_in_page/sign_in_page.dart';
 import 'package:cybear_jinni/presentation/splash/splash_page.dart';
@@ -35,10 +38,13 @@ import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_pag
     AutoRoute(page: WhereToLoginPageOffline),
     AutoRoute(page: JoinHomeByIdPage),
     AutoRoute(page: HomePage),
+    AutoRoute(page: PlusButtonPage),
     AutoRoute(page: ManageUsersPage),
     AutoRoute(page: AddUserToHomePage),
     AutoRoute(page: ScenesPage),
     AutoRoute(page: ChooseDeviceVendorToAddPage),
+    AutoRoute(page: AddLifxVendorPage),
+    AutoRoute(page: AddTuyaVendorPage),
     AutoRoute(page: ConnectToHomeWifiPage),
     AutoRoute(page: OpenAccessPointPage),
     AutoRoute(page: ScanForNewCBJCompsPage),
@@ -59,6 +65,8 @@ class $AppRouter {
   late CreateHomePage createHomePage;
   late ScenesPage scenesPage;
   late ChooseDeviceVendorToAddPage chooseDeviceVendorToAddPage;
+  late AddLifxVendorPage addLifxVendorPage;
+  late AddTuyaVendorPage addTuyaVendorPage;
   late ConnectToHomeWifiPage connectToHomeWifiPage;
   late OpenAccessPointPage openAccessPointPage;
   late ScanForNewCBJCompsPage scanForNewCBJCompsPage;
@@ -67,6 +75,7 @@ class $AppRouter {
   late WhereToLoginPageOffline whereToLoginPageOffline;
   late JoinHomeByIdPage joinHomeByIdPage;
   late HomePage homePage;
+  late PlusButtonPage plusButtonPage;
   late ManageUsersPage manageUsersPage;
   late AddUserToHomePage addUserToHomePage;
   late RoomsLightsPage roomsLightsPage;

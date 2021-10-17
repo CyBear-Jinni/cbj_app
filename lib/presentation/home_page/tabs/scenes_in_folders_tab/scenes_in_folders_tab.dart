@@ -36,64 +36,23 @@ class ScenesInFoldersTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Column(
-          children: <Widget>[
-            TopNavigationBar(
-              'Scenes',
-              Icons.more_vert,
-              userCogFunction,
-              leftIcon: FontAwesomeIcons.userCog,
-              leftIconFunction: leftIconFunction,
-              rightSecondIcon: FontAwesomeIcons.search,
-              rightSecondFunction: rightSecondFunction,
-            ),
-            Expanded(
-              child: BlocProvider(
-                create: (context) => getIt<FoldersOfScenesBloc>()
-                  ..add(const FoldersOfScenesEvent.initialized()),
-                child: ScenesInFoldersL(),
-              ),
-            ),
-          ],
+    return Column(
+      children: <Widget>[
+        TopNavigationBar(
+          'Scenes',
+          Icons.more_vert,
+          userCogFunction,
+          leftIcon: FontAwesomeIcons.userCog,
+          leftIconFunction: leftIconFunction,
+          rightSecondIcon: FontAwesomeIcons.search,
+          rightSecondFunction: rightSecondFunction,
         ),
-        Column(
-          children: [
-            const Expanded(
-              child: Text(''),
-            ),
-            SizedBox(
-              height: 100,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Transform.scale(
-                    scale: 1.2,
-                    child: GestureDetector(
-                      onTap: () {},
-                      child: Ink(
-                        decoration: const ShapeDecoration(
-                          color: Colors.black12,
-                          shape: CircleBorder(),
-                        ),
-                        child: CircleAvatar(
-                          backgroundColor: Colors.blue.withOpacity(0.9),
-                          child: const FaIcon(
-                            FontAwesomeIcons.plus,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 15,
-                  ),
-                ],
-              ),
-            ),
-          ],
+        Expanded(
+          child: BlocProvider(
+            create: (context) => getIt<FoldersOfScenesBloc>()
+              ..add(const FoldersOfScenesEvent.initialized()),
+            child: ScenesInFoldersL(),
+          ),
         ),
       ],
     );

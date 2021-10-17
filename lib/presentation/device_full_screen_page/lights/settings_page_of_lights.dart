@@ -28,12 +28,14 @@ class SettingsPageOfLights extends StatelessWidget {
             title: Text(
               'Name:_',
               style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyText1!.color),
+                color: Theme.of(context).textTheme.bodyText1!.color,
+              ),
             ).tr(args: <String>[lightName]),
             subtitle: Text(
               'Room:_',
               style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyText1!.color),
+                color: Theme.of(context).textTheme.bodyText1!.color,
+              ),
             ).tr(args: <String>[roomName]),
             trailing: IconButton(
               icon: FaIcon(
@@ -106,12 +108,11 @@ class SettingsPageOfLights extends StatelessWidget {
                       color: Colors.red,
                     ),
                     child: tile(
-                        allSmartDeviceLightDevices[index]
-                            .roomName
-                            .getOrCrash()!,
-                        allSmartDeviceLightDevices[index]
-                            .defaultName
-                            .getOrCrash()!),
+                      allSmartDeviceLightDevices[index].roomName.getOrCrash()!,
+                      allSmartDeviceLightDevices[index]
+                          .defaultName
+                          .getOrCrash()!,
+                    ),
                   );
                 },
                 itemCount: allSmartDeviceLightDevices.length,

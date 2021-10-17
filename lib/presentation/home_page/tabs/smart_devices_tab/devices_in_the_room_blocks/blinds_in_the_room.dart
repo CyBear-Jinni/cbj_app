@@ -12,8 +12,9 @@ class BlindsInTheRoom extends StatelessWidget {
   const BlindsInTheRoom({this.blindsInRoom, this.roomColorGradiant});
 
   factory BlindsInTheRoom.withAbstractDevice(
-      List<DeviceEntityAbstract> tempDeviceInRoom,
-      List<Color> temproomColorGradiant) {
+    List<DeviceEntityAbstract> tempDeviceInRoom,
+    List<Color> temproomColorGradiant,
+  ) {
     List<GenericBlindsDE> tempLightsInRoom = [];
 
     tempDeviceInRoom.forEach((element) {
@@ -21,8 +22,9 @@ class BlindsInTheRoom extends StatelessWidget {
     });
 
     return BlindsInTheRoom(
-        blindsInRoom: tempLightsInRoom,
-        roomColorGradiant: temproomColorGradiant);
+      blindsInRoom: tempLightsInRoom,
+      roomColorGradiant: temproomColorGradiant,
+    );
   }
 
   final List<GenericBlindsDE?>? blindsInRoom;
@@ -32,9 +34,12 @@ class BlindsInTheRoom extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.router.push(RoomsBlindsRoute(
+        context.router.push(
+          RoomsBlindsRoute(
             showDevicesOnlyFromRoomId: blindsInRoom![0]!.roomId.getOrCrash(),
-            roomColorGradiant: roomColorGradiant));
+            roomColorGradiant: roomColorGradiant,
+          ),
+        );
       },
       child: Container(
         color: Colors.amber.withOpacity(0.03),
@@ -63,20 +68,21 @@ class BlindsInTheRoom extends StatelessWidget {
                         width: 28,
                         decoration: BoxDecoration(
                           border: Border.all(
-                              color: Theme.of(context)
-                                  .textTheme
-                                  .bodyText1!
-                                  .color!
-                                  .withOpacity(0.5)),
+                            color: Theme.of(context)
+                                .textTheme
+                                .bodyText1!
+                                .color!
+                                .withOpacity(0.5),
+                          ),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Text(
                           blindsInRoom!.length.toString(),
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                              fontSize: 13,
-                              color:
-                                  Theme.of(context).textTheme.bodyText1!.color),
+                            fontSize: 13,
+                            color: Theme.of(context).textTheme.bodyText1!.color,
+                          ),
                         ),
                       ),
                     ),
@@ -92,73 +98,86 @@ class BlindsInTheRoom extends StatelessWidget {
               Text(
                 blindsInRoom![0]!.defaultName.getOrCrash()!,
                 style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1!.color),
+                  color: Theme.of(context).textTheme.bodyText1!.color,
+                ),
               )
             else
               Text(
                 '${blindsInRoom![0]!.roomName.getOrCrash()} Blinds',
                 style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1!.color),
+                  color: Theme.of(context).textTheme.bodyText1!.color,
+                ),
               ),
             const SizedBox(
               height: 10,
             ),
             BlocConsumer<BlindsActorBloc, BlindsActorState>(
-                listener: (context, state) {},
-                builder: (context, state) {
-                  return Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      TextButton(
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(
-                              Colors.grey.withOpacity(0.6)),
-                          side: MaterialStateProperty.all(
-                            const BorderSide(width: 0.2),
-                          ),
-                          padding: MaterialStateProperty.all<EdgeInsets>(
-                              EdgeInsets.zero),
+              listener: (context, state) {},
+              builder: (context, state) {
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    TextButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                          Colors.grey.withOpacity(0.6),
                         ),
-                        onPressed: () {
-                          context.read<BlindsActorBloc>().add(
+                        side: MaterialStateProperty.all(
+                          const BorderSide(width: 0.2),
+                        ),
+                        padding: MaterialStateProperty.all<EdgeInsets>(
+                          EdgeInsets.zero,
+                        ),
+                      ),
+                      onPressed: () {
+                        context.read<BlindsActorBloc>().add(
                               BlindsActorEvent.moveDownAllBlinds(
-                                  extractDevicesId(), context));
-                        },
-                        child: FaIcon(
-                          FontAwesomeIcons.chevronDown,
-                          color: Theme.of(context).textTheme.bodyText2!.color,
+                                extractDevicesId(),
+                                context,
+                              ),
+                            );
+                      },
+                      child: FaIcon(
+                        FontAwesomeIcons.chevronDown,
+                        color: Theme.of(context).textTheme.bodyText2!.color,
+                      ),
+                    ),
+                    Text(
+                      '·',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Theme.of(context).textTheme.bodyText1!.color,
+                      ),
+                    ),
+                    TextButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                          Colors.grey.withOpacity(0.6),
+                        ),
+                        side: MaterialStateProperty.all(
+                          const BorderSide(width: 0.2),
+                        ),
+                        padding: MaterialStateProperty.all<EdgeInsets>(
+                          EdgeInsets.zero,
                         ),
                       ),
-                      Text(
-                        '·',
-                        style: TextStyle(
-                            fontSize: 14,
-                            color:
-                                Theme.of(context).textTheme.bodyText1!.color),
-                      ),
-                      TextButton(
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(
-                              Colors.grey.withOpacity(0.6)),
-                          side: MaterialStateProperty.all(
-                            const BorderSide(width: 0.2),
-                          ),
-                          padding: MaterialStateProperty.all<EdgeInsets>(
-                              EdgeInsets.zero),
-                        ),
-                        onPressed: () {
-                          context.read<BlindsActorBloc>().add(
+                      onPressed: () {
+                        context.read<BlindsActorBloc>().add(
                               BlindsActorEvent.moveUpAllBlinds(
-                                  extractDevicesId(), context));
-                        },
-                        child: FaIcon(
-                          FontAwesomeIcons.chevronUp,
-                          color: Theme.of(context).textTheme.bodyText2!.color,
-                        ),
+                                extractDevicesId(),
+                                context,
+                              ),
+                            );
+                      },
+                      child: FaIcon(
+                        FontAwesomeIcons.chevronUp,
+                        color: Theme.of(context).textTheme.bodyText2!.color,
                       ),
-                    ],
-                  );
-                }),
+                    ),
+                  ],
+                );
+              },
+            ),
           ],
         ),
       ),

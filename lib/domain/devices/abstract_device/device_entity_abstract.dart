@@ -77,7 +77,8 @@ abstract class DeviceEntityAbstract {
 
   /// Copy with deviceSenderDeviceModel
   DeviceEntityAbstract copyWithDeviceSenderDeviceModel(
-      String deviceSenderDeviceModel) {
+    String deviceSenderDeviceModel,
+  ) {
     return this;
   }
 
@@ -99,7 +100,8 @@ class DeviceEntityEmpty extends DeviceEntityAbstract {
       : super(
           uniqueId: CoreUniqueId(),
           deviceVendor: DeviceVendor(
-              VendorsAndServices.vendorsAndServicesNotSupported.toString()),
+            VendorsAndServices.vendorsAndServicesNotSupported.toString(),
+          ),
           deviceStateGRPC: DeviceState(DeviceTypes.typeNotSupported.toString()),
           compUuid: DeviceCompUuid(Uuid().v1().toString()),
           defaultName: DeviceDefaultName('No Name'),

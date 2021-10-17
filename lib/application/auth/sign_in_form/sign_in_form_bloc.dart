@@ -7,7 +7,6 @@ import 'package:cybear_jinni/domain/auth/value_objects.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:meta/meta.dart';
 
 part 'sign_in_form_bloc.freezed.dart';
 part 'sign_in_form_event.dart';
@@ -27,34 +26,40 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
   Stream<SignInFormState> mapEventToState(
     SignInFormEvent event,
   ) async* {
-    yield* event.map(emailChanged: (e) async* {
-      yield state.copyWith(
-        emailAddress: EmailAddress(e.emailStr),
-        authFailureOrSuccessOption: none(),
-      );
-    }, passwordChanged: (e) async* {
-      yield state.copyWith(
-        password: Password(e.passwordStr),
-        authFailureOrSuccessOption: none(),
-      );
-    }, registerWithEmailAndPassword: (e) async* {
-      yield* _performActionOnAuthFacadeWithEmailAndPassword(
-        _authFacade.registerWithEmailAndPassword,
-      );
-    }, signInWithEmailAndPasswordPassed: (e) async* {
-      yield* _performActionOnAuthFacadeWithEmailAndPassword(
-        _authFacade.signInWithEmailAndPassword,
-      );
-    }, signInWithGooglePressed: (e) async* {
-      yield state.copyWith(
-        isSubmitting: true,
-        authFailureOrSuccessOption: none(),
-      );
-      yield state.copyWith(
-        isSubmitting: false,
-        authFailureOrSuccessOption: Some(right(unit)),
-      );
-    });
+    yield* event.map(
+      emailChanged: (e) async* {
+        yield state.copyWith(
+          emailAddress: EmailAddress(e.emailStr),
+          authFailureOrSuccessOption: none(),
+        );
+      },
+      passwordChanged: (e) async* {
+        yield state.copyWith(
+          password: Password(e.passwordStr),
+          authFailureOrSuccessOption: none(),
+        );
+      },
+      registerWithEmailAndPassword: (e) async* {
+        yield* _performActionOnAuthFacadeWithEmailAndPassword(
+          _authFacade.registerWithEmailAndPassword,
+        );
+      },
+      signInWithEmailAndPasswordPassed: (e) async* {
+        yield* _performActionOnAuthFacadeWithEmailAndPassword(
+          _authFacade.signInWithEmailAndPassword,
+        );
+      },
+      signInWithGooglePressed: (e) async* {
+        yield state.copyWith(
+          isSubmitting: true,
+          authFailureOrSuccessOption: none(),
+        );
+        yield state.copyWith(
+          isSubmitting: false,
+          authFailureOrSuccessOption: Some(right(unit)),
+        );
+      },
+    );
   }
 
   Stream<SignInFormState> _performActionOnAuthFacadeWithEmailAndPassword(
@@ -75,7 +80,9 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
       );
 
       failureOrSuccess = await forwardedCall(
-          emailAddress: state.emailAddress, password: state.password);
+        emailAddress: state.emailAddress,
+        password: state.password,
+      );
     }
     yield state.copyWith(
       isSubmitting: false,

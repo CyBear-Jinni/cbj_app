@@ -24,9 +24,11 @@ class RoomsRgbwLightsPage extends StatelessWidget {
 
   void cogFunction(BuildContext context) {
     Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (BuildContext context) => SettingsPageOfRgbwLights()));
+      context,
+      MaterialPageRoute(
+        builder: (BuildContext context) => SettingsPageOfRgbwLights(),
+      ),
+    );
   }
 
   void backButtonFunction(BuildContext context) {
@@ -101,7 +103,9 @@ class RoomsRgbwLightsPage extends StatelessWidget {
                 ),
                 Expanded(
                   child: RoomsRgbwLightsWidget(
-                      showDevicesOnlyFromRoomId!, roomColorGradiant!),
+                    showDevicesOnlyFromRoomId!,
+                    roomColorGradiant!,
+                  ),
                 ),
               ],
             ),
