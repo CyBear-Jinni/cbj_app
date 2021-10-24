@@ -152,32 +152,27 @@ class TuyaSignInForm extends StatelessWidget {
                     const SizedBox(
                       height: 8,
                     ),
-                    TextFormField(
-                      decoration: const InputDecoration(
-                        prefixIcon: FaIcon(FontAwesomeIcons.globe),
-                        labelText: 'Tuya Region',
+                    DropdownButton<String>(
+                      icon: const Icon(Icons.arrow_drop_down),
+                      iconSize: 24,
+                      hint: Text("Tuya Region"),
+                      elevation: 16,
+                      underline: Container(
+                        height: 2,
                       ),
-                      autocorrect: false,
                       onChanged: (value) => context
                           .read<TuyaSignInFormBloc>()
                           .add(TuyaSignInFormEvent.regionChanged(value)),
-                      validator: (_) => context
-                          .read<TuyaSignInFormBloc>()
-                          .state
-                          .tuyaLoginRegion
-                          .value
-                          .fold(
-                            (CoreLoginFailure f) => 'Validation error',
-                            //   f.maybeMap(
-                            // invalidEmail: (result) => result.failedValue,
-                            // containsSpace: (result) => result.failedValue,
-                            // orElse: () => null,
-                            // ),
-                            (r) => null,
-                          ),
-                    ),
-                    const SizedBox(
-                      height: 8,
+                      items: <String>[
+                        'cn',
+                        'eu',
+                        'us',
+                      ].map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
                     ),
                     Row(
                       children: [
