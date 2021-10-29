@@ -10,6 +10,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+String? region = 'cn';
+
 class TuyaSignInForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -152,31 +154,31 @@ class TuyaSignInForm extends StatelessWidget {
                     const SizedBox(
                       height: 8,
                     ),
-                    TextFormField(
-                      decoration: const InputDecoration(
-                        prefixIcon: FaIcon(FontAwesomeIcons.globe),
-                        labelText: 'Tuya Region',
+                    Text("Select Region:        "),
+                    DropdownButton<String>(
+                      value: context.read<TuyaSignInFormBloc>().state.tuyaLoginRegion.getOrCrash(),
+                      icon: const Icon(Icons.arrow_drop_down),
+                      iconSize: 24,
+                      hint: Text('Tuya Region'),
+                      elevation: 16,
+                      underline: Container(
+                        height: 2,
                       ),
-                      autocorrect: false,
                       onChanged: (value) => context
                           .read<TuyaSignInFormBloc>()
                           .add(TuyaSignInFormEvent.regionChanged(value)),
-                      validator: (_) => context
-                          .read<TuyaSignInFormBloc>()
-                          .state
-                          .tuyaLoginRegion
-                          .value
-                          .fold(
-                            (CoreLoginFailure f) => 'Validation error',
-                            //   f.maybeMap(
-                            // invalidEmail: (result) => result.failedValue,
-                            // containsSpace: (result) => result.failedValue,
-                            // orElse: () => null,
-                            // ),
-                            (r) => null,
-                          ),
+                      items: <String>[
+                        'cn',
+                        'eu',
+                        'us',
+                      ].map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
                     ),
-                    const SizedBox(
+		    const SizedBox(
                       height: 8,
                     ),
                     Row(
