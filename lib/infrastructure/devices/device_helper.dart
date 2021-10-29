@@ -6,7 +6,8 @@ import 'package:cybear_jinni/infrastructure/generic_devices/abstract_device/devi
 class DeviceHelper {
   /// Dto to json
   static Map<String, dynamic> convertDtoToJson(
-      DeviceEntityDtoAbstract deviceEntityDto,) {
+    DeviceEntityDtoAbstract deviceEntityDto,
+  ) {
     return deviceEntityDto.toJson();
   }
 
@@ -27,30 +28,35 @@ class DeviceHelper {
 
   /// Device entity to dto
   static DeviceEntityDtoAbstract convertDomainToDto(
-      DeviceEntityAbstract deviceEntity,) {
+    DeviceEntityAbstract deviceEntity,
+  ) {
     return deviceEntity.toInfrastructure();
   }
 
   /// Dto to device entity
   static DeviceEntityAbstract convertDtoToDomain(
-      DeviceEntityDtoAbstract deviceEntityDto,) {
+    DeviceEntityDtoAbstract deviceEntityDto,
+  ) {
     return deviceEntityDto.toDomain();
   }
 
   // Extras methods
 
   static String convertDtoToJsonString(
-      DeviceEntityDtoAbstract deviceEntityDto,) {
+    DeviceEntityDtoAbstract deviceEntityDto,
+  ) {
     return convertJsonToJsonString(convertDtoToJson(deviceEntityDto));
   }
 
   static DeviceEntityAbstract convertJsonStringToDomain(String jsonString) {
     return convertDtoToDomain(
-        convertJsonToDto(convertJsonStringToJson(jsonString)),);
+      convertJsonToDto(convertJsonStringToJson(jsonString)),
+    );
   }
 
   static String convertDomainToJsonString(DeviceEntityAbstract deviceEntity) {
     return convertJsonToJsonString(
-        convertDtoToJson(convertDomainToDto(deviceEntity)),);
+      convertDtoToJson(convertDomainToDto(deviceEntity)),
+    );
   }
 }

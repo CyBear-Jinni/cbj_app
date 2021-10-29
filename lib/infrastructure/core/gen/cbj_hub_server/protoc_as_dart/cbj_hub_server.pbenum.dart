@@ -381,20 +381,63 @@ class DeviceStateGRPC extends $pb.ProtobufEnum {
 }
 
 class SendingType extends $pb.ProtobufEnum {
+  static const SendingType undefinedType = SendingType._(
+      0,
+      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          ? ''
+          : 'undefinedType');
+  static const SendingType stringType = SendingType._(
+      1,
+      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          ? ''
+          : 'stringType');
+  static const SendingType partialDeviceType = SendingType._(
+      2,
+      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          ? ''
+          : 'partialDeviceType');
+  static const SendingType deviceType = SendingType._(
+      3,
+      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          ? ''
+          : 'deviceType');
+  static const SendingType mqttMassageType = SendingType._(
+      4,
+      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          ? ''
+          : 'mqttMassageType');
+  static const SendingType sceneType = SendingType._(
+      5,
+      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          ? ''
+          : 'sceneType');
+  static const SendingType scheduleType = SendingType._(
+      6,
+      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          ? ''
+          : 'scheduleType');
+  static const SendingType routineType = SendingType._(
+      7,
+      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          ? ''
+          : 'routineType');
+  static const SendingType bindingsType = SendingType._(
+      8,
+      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          ? ''
+          : 'bindingsType');
+  static const SendingType vendorLoginType = SendingType._(
+      9,
+      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          ? ''
+          : 'vendorLoginType');
+  static const SendingType firstConnection = SendingType._(
+      10,
+      const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+          ? ''
+          : 'firstConnection');
 
-  static const SendingType undefinedType = SendingType._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'undefinedType');
-  static const SendingType stringType = SendingType._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'stringType');
-  static const SendingType partialDeviceType = SendingType._(2, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'partialDeviceType');
-  static const SendingType deviceType = SendingType._(3, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'deviceType');
-  static const SendingType mqttMassageType = SendingType._(4, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'mqttMassageType');
-  static const SendingType sceneType = SendingType._(5, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'sceneType');
-  static const SendingType scheduleType = SendingType._(6, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'scheduleType');
-  static const SendingType routineType = SendingType._(7, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'routineType');
-  static const SendingType bindingsType = SendingType._(8, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'bindingsType');
-  static const SendingType vendorLoginType = SendingType._(9, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'vendorLoginType');
-  static const SendingType firstConnection = SendingType._(10, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'firstConnection');
-
-  static const $core.List<SendingType> values = <SendingType> [
+  static const $core.List<SendingType> values = <SendingType>[
     undefinedType,
     stringType,
     partialDeviceType,

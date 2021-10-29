@@ -20,17 +20,18 @@ class OpenAccessPointWidget extends StatelessWidget {
               state.map(
                 initial: (value) {
                   return TextButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(
-                          Colors.greenAccent,
-                        ),
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(
+                        Colors.greenAccent,
                       ),
-                      onPressed: () {
-                        context
-                            .read<ManageAccessPointBloc>()
-                            .add(ManageAccessPointEvent.initialized());
-                      },
-                      child: const Text('Create Access Pint'),);
+                    ),
+                    onPressed: () {
+                      context
+                          .read<ManageAccessPointBloc>()
+                          .add(ManageAccessPointEvent.initialized());
+                    },
+                    child: const Text('Create Access Pint'),
+                  );
                 },
                 loading: (_) {
                   return const CircularProgressIndicator(
