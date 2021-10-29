@@ -156,7 +156,11 @@ class TuyaSignInForm extends StatelessWidget {
                     ),
                     Text("Select Region:        "),
                     DropdownButton<String>(
-                      value: context.read<TuyaSignInFormBloc>().state.tuyaLoginRegion.getOrCrash(),
+                      value: context
+                          .read<TuyaSignInFormBloc>()
+                          .state
+                          .tuyaLoginRegion
+                          .getOrCrash(),
                       icon: const Icon(Icons.arrow_drop_down),
                       iconSize: 24,
                       hint: Text('Tuya Region'),
@@ -178,7 +182,7 @@ class TuyaSignInForm extends StatelessWidget {
                         );
                       }).toList(),
                     ),
-		    const SizedBox(
+                    const SizedBox(
                       height: 8,
                     ),
                     Row(

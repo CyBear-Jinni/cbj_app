@@ -14,7 +14,6 @@ part 'tuya_sign_in_form_bloc.freezed.dart';
 part 'tuya_sign_in_form_event.dart';
 part 'tuya_sign_in_form_state.dart';
 
-
 @injectable
 class TuyaSignInFormBloc
     extends Bloc<TuyaSignInFormEvent, TuyaSignInFormState> {
