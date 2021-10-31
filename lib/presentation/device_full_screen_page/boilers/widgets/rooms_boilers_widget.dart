@@ -11,7 +11,9 @@ import 'critical_boilers_failure_display_widget.dart';
 
 class RoomsBoilersWidget extends StatelessWidget {
   const RoomsBoilersWidget(
-      this.showDevicesOnlyFromRoomId, this.roomColorGradiant);
+    this.showDevicesOnlyFromRoomId,
+    this.roomColorGradiant,
+  );
 
   /// If not null show boilers only from this room
   final String showDevicesOnlyFromRoomId;
@@ -115,9 +117,9 @@ class RoomsBoilersWidget extends StatelessWidget {
                       child: Text(
                         'Boilers does not exist.',
                         style: TextStyle(
-                            fontSize: 30,
-                            color:
-                                Theme.of(context).textTheme.bodyText1!.color),
+                          fontSize: 30,
+                          color: Theme.of(context).textTheme.bodyText1!.color,
+                        ),
                       ),
                     ),
                   ],

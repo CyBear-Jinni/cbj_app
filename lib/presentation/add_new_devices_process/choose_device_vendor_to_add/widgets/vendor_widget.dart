@@ -17,8 +17,11 @@ class VendorWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         if (vendor.name.getOrCrash().toLowerCase() ==
-            VendorsAndServices.lifx.name) {
-          context.router.replace(const AddLifxVendorRoute());
+            VendorsAndServices.lifx.name.toLowerCase()) {
+          context.router.push(const AddLifxVendorRoute());
+        } else if (vendor.name.getOrCrash().toLowerCase() ==
+            VendorsAndServices.tuyaSmart.name.toLowerCase()) {
+          context.router.push(const AddTuyaVendorRoute());
         } else {
           Fluttertoast.showToast(
             msg: '${vendor.name.getOrCrash()} devices will be add automatically'

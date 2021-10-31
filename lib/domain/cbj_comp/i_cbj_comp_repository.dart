@@ -14,7 +14,8 @@ abstract class ICBJCompRepository {
   Stream<Either<CBJCompFailure, String>> getConnectedComputersIP();
 
   Future<Either<CBJCompFailure, CBJCompEntity>> getInformationFromDeviceByIp(
-      String compIp);
+    String compIp,
+  );
 
   Future<Either<CBJCompFailure, Unit>> firstSetup(CBJCompEntity cBJCompEntity);
 
@@ -25,7 +26,8 @@ abstract class ICBJCompRepository {
   Future<Either<CBJCompFailure, Unit>> updateCompInfo(CBJCompEntity compEntity);
 
   Future<Either<CBJCompFailure, Unit>> setFirebaseAccountInformation(
-      CBJCompEntity compEntity);
+    CBJCompEntity compEntity,
+  );
 
   Future<Either<CBJCompFailure, Unit>> setSecurityBearWiFiInformation(
     CBJCompEntity compEntity,

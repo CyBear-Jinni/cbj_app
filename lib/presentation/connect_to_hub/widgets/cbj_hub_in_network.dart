@@ -37,20 +37,24 @@ class CbjHubInNetwork extends StatelessWidget {
                       height: 20,
                     ),
                     TextButton(
-                        style: TextButton.styleFrom(
-                            backgroundColor: Colors.white.withOpacity(0.8)),
-                        onPressed: () {
-                          context.read<HubInNetworkBloc>().add(
-                              const HubInNetworkEvent.searchHubInNetwork());
-                        },
-                        child: const Text('Retry')),
+                      style: TextButton.styleFrom(
+                        backgroundColor: Colors.white.withOpacity(0.8),
+                      ),
+                      onPressed: () {
+                        context.read<HubInNetworkBloc>().add(
+                              const HubInNetworkEvent.searchHubInNetwork(),
+                            );
+                      },
+                      child: const Text('Retry'),
+                    ),
                   ],
                 ),
               );
             } else if (failure.hubFailure ==
                 const HubFailures.automaticHubSearchNotSupportedOnWeb()) {
               return const Text(
-                  'Automatic search does not supported on the web');
+                'Automatic search does not supported on the web',
+              );
             }
             return const Text('Unexpected error');
           },

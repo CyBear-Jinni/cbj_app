@@ -27,6 +27,8 @@ class HubRequestRouting {
           return;
         }
 
+        ///TODO: add request type login support
+
         final DeviceTypes? deviceType =
             EnumHelper.stringToDt(deviceTypeAsString);
 

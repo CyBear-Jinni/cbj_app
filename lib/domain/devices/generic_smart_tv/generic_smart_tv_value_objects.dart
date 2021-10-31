@@ -3,7 +3,6 @@ import 'package:cybear_jinni/domain/devices/abstract_device/value_objects_core.d
 import 'package:cybear_jinni/domain/devices/generic_smart_tv/generic_smart_tv_validators.dart';
 import 'package:dartz/dartz.dart';
 
-
 class GenericSmartTvSwitchState extends ValueObjectCore<String> {
   factory GenericSmartTvSwitchState(String? input) {
     assert(input != null);

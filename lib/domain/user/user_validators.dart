@@ -5,9 +5,11 @@ Either<UserFailures<String>, String> validateUserEmailNotEmpty(String input) {
   if (input.isNotEmpty) {
     return right(input);
   } else {
-    return left(UserFailures.empty(
-      failedValue: input,
-    ));
+    return left(
+      UserFailures.empty(
+        failedValue: input,
+      ),
+    );
   }
 }
 
@@ -15,8 +17,10 @@ Either<UserFailures<String>, String> validateUserNameNotEmpty(String input) {
   if (input.isNotEmpty) {
     return right(input);
   } else {
-    return left(UserFailures.empty(
-      failedValue: input,
-    ));
+    return left(
+      UserFailures.empty(
+        failedValue: input,
+      ),
+    );
   }
 }

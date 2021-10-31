@@ -47,10 +47,11 @@ class CBJCompCard extends StatelessWidget {
                             child: Text(
                               compEntity.defaultName.getOrCrash()!,
                               style: TextStyle(
-                                  color: Theme.of(context)
-                                      .textTheme
-                                      .bodyText1!
-                                      .color),
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .bodyText1!
+                                    .color,
+                              ),
                             ),
                           ),
                         );
@@ -59,8 +60,8 @@ class CBJCompCard extends StatelessWidget {
                           'Type not supported '
                           '${compEntity.deviceTypes.getOrCrash()} yet',
                           style: TextStyle(
-                              color:
-                                  Theme.of(context).textTheme.bodyText1!.color),
+                            color: Theme.of(context).textTheme.bodyText1!.color,
+                          ),
                         );
                       }
                     },

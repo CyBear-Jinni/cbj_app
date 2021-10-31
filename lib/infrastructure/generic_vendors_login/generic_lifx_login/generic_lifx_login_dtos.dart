@@ -1,6 +1,7 @@
-import 'package:cybear_jinni/domain/vendors_login/lifx_login/generic_lifx_entity.dart';
-import 'package:cybear_jinni/domain/vendors_login/login_abstract/login_entity_abstract.dart';
-import 'package:cybear_jinni/domain/vendors_login/login_abstract/value_login_objects_core.dart';
+import 'package:cybear_jinni/domain/vendors/lifx_login/generic_lifx_login_entity.dart';
+import 'package:cybear_jinni/domain/vendors/lifx_login/generic_lifx_login_value_objects.dart';
+import 'package:cybear_jinni/domain/vendors/login_abstract/login_entity_abstract.dart';
+import 'package:cybear_jinni/domain/vendors/login_abstract/value_login_objects_core.dart';
 import 'package:cybear_jinni/infrastructure/generic_vendors_login/generic_login_abstract/login_entity_dto_abstract.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -14,6 +15,7 @@ abstract class GenericLifxLoginDtos
     // @JsonKey(ignore: true)
     required String? senderUniqueId,
     required String? loginVendor,
+    required String? lifxApiKey,
     // required ServerTimestampConverter() FieldValue serverTimeStamp,
   }) = _GenericLifxLoginDtos;
 
@@ -22,10 +24,11 @@ abstract class GenericLifxLoginDtos
   @override
   final String loginDtoClassInstance = (GenericLifxLoginDtos).toString();
 
-  factory GenericLifxLoginDtos.fromDomain(GenericLifxDE genericLifxDE) {
+  factory GenericLifxLoginDtos.fromDomain(GenericLifxLoginDE genericLifxDE) {
     return GenericLifxLoginDtos(
       senderUniqueId: genericLifxDE.senderUniqueId.getOrCrash(),
       loginVendor: genericLifxDE.loginVendor.getOrCrash(),
+      lifxApiKey: genericLifxDE.lifxApiKey.getOrCrash(),
 
       // serverTimeStamp: FieldValue.serverTimestamp(),
     );
@@ -35,9 +38,9 @@ abstract class GenericLifxLoginDtos
       _$GenericLifxLoginDtosFromJson(json);
 
   LoginEntityAbstract toDomain() {
-    return GenericLifxDE(
+    return GenericLifxLoginDE(
       senderUniqueId: CoreLoginSenderId.fromUniqueString(senderUniqueId),
-      loginVendor: CoreLoginVendor(loginVendor),
+      lifxApiKey: GenericLifxLoginApiKey(lifxApiKey),
     );
   }
 }

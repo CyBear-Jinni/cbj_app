@@ -6,12 +6,14 @@ import 'package:dartz/dartz.dart';
 
 abstract class ICreateHomeRepository {
   Future<Either<CreateHomeFailure, Unit>> createNewHome(
-      CreateHomeEntity createHomeEntity);
+    CreateHomeEntity createHomeEntity,
+  );
 
   Future<Either<CreateHomeFailure, Unit>> addUserToHome(UserEntity userEntity);
 
   Future<Either<CreateHomeFailure, Unit>> addDeviceUserToHome(
-      CreateHomeEntity createHomeEntity);
+    CreateHomeEntity createHomeEntity,
+  );
 
   Future<Either<CreateHomeFailure, UserEntity>> getDeviceUserFromHome();
 

@@ -15,12 +15,13 @@ class CreateHomeWidget extends StatelessWidget {
     return Column(
       children: [
         Container(
-            color: Colors.black54,
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
-            child: const Text(
-              'Name for your home',
-              style: TextStyle(fontSize: 20),
-            )),
+          color: Colors.black54,
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+          child: const Text(
+            'Name for your home',
+            style: TextStyle(fontSize: 20),
+          ),
+        ),
         const SizedBox(
           height: 20,
         ),
@@ -32,11 +33,14 @@ class CreateHomeWidget extends StatelessWidget {
             decoration: InputDecoration(
               filled: true,
               fillColor: Colors.greenAccent.withOpacity(0.3),
-              prefixIcon: Icon(Icons.home_outlined,
-                  color: Theme.of(context).textTheme.bodyText1!.color),
+              prefixIcon: Icon(
+                Icons.home_outlined,
+                color: Theme.of(context).textTheme.bodyText1!.color,
+              ),
               labelText: 'Home Name',
               labelStyle: TextStyle(
-                  color: Theme.of(context).textTheme.bodyText1!.color),
+                color: Theme.of(context).textTheme.bodyText1!.color,
+              ),
             ),
             autocorrect: false,
             onChanged: (value) {
@@ -72,7 +76,8 @@ class CreateHomeWidget extends StatelessWidget {
               ),
               labelText: 'Email for smart devices',
               labelStyle: TextStyle(
-                  color: Theme.of(context).textTheme.bodyText1!.color),
+                color: Theme.of(context).textTheme.bodyText1!.color,
+              ),
             ),
             autocorrect: false,
             onChanged: (value) {
@@ -88,27 +93,30 @@ class CreateHomeWidget extends StatelessWidget {
           child: Text(
             'Smart devices needs account to function.\nPlease enter new email.',
             style: TextStyle(
-                fontSize: 15,
-                color: Theme.of(context).textTheme.bodyText1!.color),
+              fontSize: 15,
+              color: Theme.of(context).textTheme.bodyText1!.color,
+            ),
           ),
         ),
         const SizedBox(
           height: 20,
         ),
         TextButton(
-            style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(Colors.pinkAccent),
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(Colors.pinkAccent),
+          ),
+          onPressed: () {
+            context
+                .read<CreateHomeBloc>()
+                .add(CreateHomeEvent.createHome(homeName!, devicesEmail!));
+          },
+          child: Text(
+            'Create Home',
+            style: TextStyle(
+              color: Theme.of(context).textTheme.bodyText1!.color,
             ),
-            onPressed: () {
-              context
-                  .read<CreateHomeBloc>()
-                  .add(CreateHomeEvent.createHome(homeName!, devicesEmail!));
-            },
-            child: Text(
-              'Create Home',
-              style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyText1!.color),
-            )),
+          ),
+        ),
         BlocBuilder<CreateHomeBloc, CreateHomeState>(
           builder: (context, state) {
             return state.map(

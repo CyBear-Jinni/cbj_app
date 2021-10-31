@@ -11,26 +11,26 @@ part 'generic_light_device_dtos.g.dart';
 @freezed
 abstract class GenericLightDeviceDtos
     implements _$GenericLightDeviceDtos, DeviceEntityDtoAbstract {
-  factory GenericLightDeviceDtos(
-      {
-      // @JsonKey(ignore: true)
-      String? deviceDtoClass,
-      String? id,
-      required String? defaultName,
-      required String? roomId,
-      required String? roomName,
-      required String? deviceStateGRPC,
-      String? stateMassage,
-      required String? senderDeviceOs,
-      required String? senderDeviceModel,
-      required String? senderId,
-      required String? lightSwitchState,
-      required String? deviceTypes,
-      required String? compUuid,
-      required String? deviceVendor
+  factory GenericLightDeviceDtos({
+    // @JsonKey(ignore: true)
+    String? deviceDtoClass,
+    String? id,
+    required String? defaultName,
+    required String? roomId,
+    required String? roomName,
+    required String? deviceStateGRPC,
+    String? stateMassage,
+    required String? senderDeviceOs,
+    required String? senderDeviceModel,
+    required String? senderId,
+    required String? lightSwitchState,
+    required String? deviceTypes,
+    required String? compUuid,
+    required String? deviceVendor
 
-      // required ServerTimestampConverter() FieldValue serverTimeStamp,
-      }) = _GenericLightDeviceDtos;
+    // required ServerTimestampConverter() FieldValue serverTimeStamp,
+    ,
+  }) = _GenericLightDeviceDtos;
 
   GenericLightDeviceDtos._();
 

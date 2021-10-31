@@ -59,8 +59,9 @@ class OpenAccessPointPage extends StatelessWidget {
               child: Text(
                 'Open Access Point',
                 style: TextStyle(
-                    fontSize: 25,
-                    color: Theme.of(context).textTheme.bodyText1!.color),
+                  fontSize: 25,
+                  color: Theme.of(context).textTheme.bodyText1!.color,
+                ),
               ),
             ),
             const SizedBox(

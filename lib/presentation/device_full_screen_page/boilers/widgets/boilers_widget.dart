@@ -18,12 +18,16 @@ class BoilersWidget extends StatelessWidget {
     if (value) {
       context.read<BoilersActorBloc>().add(
             BoilersActorEvent.turnOnAllBoilers(
-                [_deviceEntity.uniqueId.getOrCrash()!], context),
+              [_deviceEntity.uniqueId.getOrCrash()!],
+              context,
+            ),
           );
     } else {
       context.read<BoilersActorBloc>().add(
             BoilersActorEvent.turnOffAllBoilers(
-                [_deviceEntity.uniqueId.getOrCrash()!], context),
+              [_deviceEntity.uniqueId.getOrCrash()!],
+              context,
+            ),
           );
     }
   }
@@ -57,34 +61,35 @@ class BoilersWidget extends StatelessWidget {
           margin: const EdgeInsets.symmetric(vertical: 5),
           width: sizeBoxWidth + 15,
           child: FlutterSwitch(
-              width: screenSize.width * 0.2,
-              height: screenSize.height * 0.05,
-              toggleSize: screenSize.height * 0.05,
-              value: toggleValue,
-              borderRadius: 25.0,
-              padding: 0.0,
-              activeToggleColor: const Color(0xFF2F363D),
-              inactiveToggleColor: Colors.deepPurple,
-              activeSwitchBorder: Border.all(
-                color: (Theme.of(context).textTheme.bodyText1!.color)!,
-              ),
-              inactiveSwitchBorder: Border.all(
-                color: (Theme.of(context).textTheme.bodyText1!.color)!,
-              ),
-              activeColor: toggleColor,
-              inactiveColor: toggleColor,
-              activeIcon: const Icon(
-                FontAwesomeIcons.thermometerThreeQuarters,
-                color: Color(0xFFF8E3A1),
-              ),
-              inactiveIcon: Icon(
-                FontAwesomeIcons.thermometerThreeQuarters,
-                color: Theme.of(context).textTheme.bodyText1!.color,
-              ),
-              onToggle: (bool value) => _onChange(context, value)
-              // _onChange(context, value),
+            width: screenSize.width * 0.2,
+            height: screenSize.height * 0.05,
+            toggleSize: screenSize.height * 0.05,
+            value: toggleValue,
+            borderRadius: 25.0,
+            padding: 0.0,
+            activeToggleColor: const Color(0xFF2F363D),
+            inactiveToggleColor: Colors.deepPurple,
+            activeSwitchBorder: Border.all(
+              color: (Theme.of(context).textTheme.bodyText1!.color)!,
+            ),
+            inactiveSwitchBorder: Border.all(
+              color: (Theme.of(context).textTheme.bodyText1!.color)!,
+            ),
+            activeColor: toggleColor,
+            inactiveColor: toggleColor,
+            activeIcon: const Icon(
+              FontAwesomeIcons.thermometerThreeQuarters,
+              color: Color(0xFFF8E3A1),
+            ),
+            inactiveIcon: Icon(
+              FontAwesomeIcons.thermometerThreeQuarters,
+              color: Theme.of(context).textTheme.bodyText1!.color,
+            ),
+            onToggle: (bool value) => _onChange(context, value)
+            // _onChange(context, value),
 
-              ),
+            ,
+          ),
         );
       },
     );

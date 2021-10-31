@@ -10,8 +10,9 @@ class BoilersInTheRoom extends StatelessWidget {
   const BoilersInTheRoom({this.boilersInRoom, this.roomColorGradiant});
 
   factory BoilersInTheRoom.withAbstractDevice(
-      List<DeviceEntityAbstract> tempDeviceInRoom,
-      List<Color> temproomColorGradiant) {
+    List<DeviceEntityAbstract> tempDeviceInRoom,
+    List<Color> temproomColorGradiant,
+  ) {
     List<GenericBoilerDE> tempLightsInRoom = [];
 
     tempDeviceInRoom.forEach((element) {
@@ -19,8 +20,9 @@ class BoilersInTheRoom extends StatelessWidget {
     });
 
     return BoilersInTheRoom(
-        boilersInRoom: tempLightsInRoom,
-        roomColorGradiant: temproomColorGradiant);
+      boilersInRoom: tempLightsInRoom,
+      roomColorGradiant: temproomColorGradiant,
+    );
   }
 
   final List<GenericBoilerDE>? boilersInRoom;
@@ -32,8 +34,9 @@ class BoilersInTheRoom extends StatelessWidget {
       onTap: () {
         context.router.push(
           RoomsBoilersRoute(
-              showDevicesOnlyFromRoomId: boilersInRoom![0].roomId.getOrCrash(),
-              roomColorGradiant: roomColorGradiant),
+            showDevicesOnlyFromRoomId: boilersInRoom![0].roomId.getOrCrash(),
+            roomColorGradiant: roomColorGradiant,
+          ),
         );
       },
       child: Container(
@@ -63,20 +66,21 @@ class BoilersInTheRoom extends StatelessWidget {
                         width: 28,
                         decoration: BoxDecoration(
                           border: Border.all(
-                              color: Theme.of(context)
-                                  .textTheme
-                                  .bodyText1!
-                                  .color!
-                                  .withOpacity(0.5)),
+                            color: Theme.of(context)
+                                .textTheme
+                                .bodyText1!
+                                .color!
+                                .withOpacity(0.5),
+                          ),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Text(
                           boilersInRoom!.length.toString(),
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                              fontSize: 13,
-                              color:
-                                  Theme.of(context).textTheme.bodyText1!.color),
+                            fontSize: 13,
+                            color: Theme.of(context).textTheme.bodyText1!.color,
+                          ),
                         ),
                       ),
                     ),
@@ -92,13 +96,15 @@ class BoilersInTheRoom extends StatelessWidget {
               Text(
                 boilersInRoom![0].defaultName.getOrCrash()!,
                 style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1!.color),
+                  color: Theme.of(context).textTheme.bodyText1!.color,
+                ),
               )
             else
               Text(
                 '${boilersInRoom![0].roomName.getOrCrash()} Boilers',
                 style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1!.color),
+                  color: Theme.of(context).textTheme.bodyText1!.color,
+                ),
               ),
           ],
         ),

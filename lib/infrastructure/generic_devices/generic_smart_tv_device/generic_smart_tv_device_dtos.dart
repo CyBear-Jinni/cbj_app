@@ -11,26 +11,26 @@ part 'generic_smart_tv_device_dtos.g.dart';
 @freezed
 abstract class GenericSmartTvDeviceDtos
     implements _$GenericSmartTvDeviceDtos, DeviceEntityDtoAbstract {
-  factory GenericSmartTvDeviceDtos(
-      {
-      // @JsonKey(ignore: true)
-      String? deviceDtoClass,
-      String? id,
-      required String? defaultName,
-      required String? roomId,
-      required String? roomName,
-      required String? deviceStateGRPC,
-      String? stateMassage,
-      required String? senderDeviceOs,
-      required String? senderDeviceModel,
-      required String? senderId,
-      required String? smartTvSwitchState,
-      required String? deviceTypes,
-      required String? compUuid,
-      required String? deviceVendor
+  factory GenericSmartTvDeviceDtos({
+    // @JsonKey(ignore: true)
+    String? deviceDtoClass,
+    String? id,
+    required String? defaultName,
+    required String? roomId,
+    required String? roomName,
+    required String? deviceStateGRPC,
+    String? stateMassage,
+    required String? senderDeviceOs,
+    required String? senderDeviceModel,
+    required String? senderId,
+    required String? smartTvSwitchState,
+    required String? deviceTypes,
+    required String? compUuid,
+    required String? deviceVendor
 
-      // required ServerTimestampConverter() FieldValue serverTimeStamp,
-      }) = _GenericSmartTvDeviceDtos;
+    // required ServerTimestampConverter() FieldValue serverTimeStamp,
+    ,
+  }) = _GenericSmartTvDeviceDtos;
 
   GenericSmartTvDeviceDtos._();
 
@@ -38,7 +38,8 @@ abstract class GenericSmartTvDeviceDtos
   final String deviceDtoClassInstance = (GenericSmartTvDeviceDtos).toString();
 
   factory GenericSmartTvDeviceDtos.fromDomain(
-      GenericSmartTvDE genericSmartTvDE) {
+    GenericSmartTvDE genericSmartTvDE,
+  ) {
     return GenericSmartTvDeviceDtos(
       deviceDtoClass: (GenericSmartTvDeviceDtos).toString(),
       id: genericSmartTvDE.uniqueId.getOrCrash(),

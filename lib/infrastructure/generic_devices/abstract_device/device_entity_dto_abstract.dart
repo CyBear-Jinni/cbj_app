@@ -5,7 +5,8 @@ class DeviceEntityDtoAbstract {
   DeviceEntityDtoAbstract();
 
   factory DeviceEntityDtoAbstract.fromDomain(
-      DeviceEntityAbstract deviceEntityDtoAbstract) {
+    DeviceEntityAbstract deviceEntityDtoAbstract,
+  ) {
     print('DeviceEntityDtoAbstract.fromDomain');
     return DeviceEntityDtoAbstract();
   }

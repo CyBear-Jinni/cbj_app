@@ -5,7 +5,8 @@ class ConfigureNewCbjCompState with _$ConfigureNewCbjCompState {
   const factory ConfigureNewCbjCompState.initial() = _Initial;
 
   const factory ConfigureNewCbjCompState.actionInProgress(
-      double progressPercentage) = ActionInProgress;
+    double progressPercentage,
+  ) = ActionInProgress;
 
   const factory ConfigureNewCbjCompState.completeSuccess() = CompleteSuccess;
 

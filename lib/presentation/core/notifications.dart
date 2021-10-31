@@ -30,15 +30,19 @@ Future<void> initialisationNotifications() async {
       AndroidInitializationSettings('ic_launcher_foreground');
   const IOSInitializationSettings initializationSettingsIOS =
       IOSInitializationSettings(
-          onDidReceiveLocalNotification: selectNotificationIos);
+    onDidReceiveLocalNotification: selectNotificationIos,
+  );
   const MacOSInitializationSettings initializationSettingsMacOS =
       MacOSInitializationSettings();
   const InitializationSettings initializationSettings = InitializationSettings(
-      android: initializationSettingsAndroid,
-      iOS: initializationSettingsIOS,
-      macOS: initializationSettingsMacOS);
-  await flutterLocalNotificationsPlugin!.initialize(initializationSettings,
-      onSelectNotification: selectNotification);
+    android: initializationSettingsAndroid,
+    iOS: initializationSettingsIOS,
+    macOS: initializationSettingsMacOS,
+  );
+  await flutterLocalNotificationsPlugin!.initialize(
+    initializationSettings,
+    onSelectNotification: selectNotification,
+  );
 }
 
 Future selectNotification(String? payload) async {
@@ -52,7 +56,11 @@ Future selectNotification(String? payload) async {
 }
 
 Future selectNotificationIos(
-    int? id, String? title, String? body, String? payload) async {
+  int? id,
+  String? title,
+  String? body,
+  String? payload,
+) async {
   if (payload != null) {
     debugPrint('notification payload: $payload');
   }
@@ -67,21 +75,24 @@ Future<void> zonedScheduleNotification() async {
     return;
   }
   await flutterLocalNotificationsPlugin!.zonedSchedule(
-      0,
-      'scheduled title',
-      'scheduled body',
-      tz.TZDateTime.now(tz.local).add(const Duration(seconds: 5)),
-      const NotificationDetails(
-          android: AndroidNotificationDetails(
+    0,
+    'scheduled title',
+    'scheduled body',
+    tz.TZDateTime.now(tz.local).add(const Duration(seconds: 5)),
+    const NotificationDetails(
+      android: AndroidNotificationDetails(
         'your channel id',
         'your channel name',
         'your channel description',
         sound: RawResourceAndroidNotificationSound(
-            'alarm_clock_the_journey_of_waking_up_created_by_omer_luz'),
-      )),
-      androidAllowWhileIdle: true,
-      uiLocalNotificationDateInterpretation:
-          UILocalNotificationDateInterpretation.absoluteTime);
+          'alarm_clock_the_journey_of_waking_up_created_by_omer_luz',
+        ),
+      ),
+    ),
+    androidAllowWhileIdle: true,
+    uiLocalNotificationDateInterpretation:
+        UILocalNotificationDateInterpretation.absoluteTime,
+  );
 }
 
 Future<void> showNotificationCustomSound() async {
@@ -100,14 +111,16 @@ Future<void> showNotificationCustomSound() async {
   const MacOSNotificationDetails macOSPlatformChannelSpecifics =
       MacOSNotificationDetails(sound: 'alert_sfx_created_by_omer_luz.wav');
   const NotificationDetails platformChannelSpecifics = NotificationDetails(
-      android: androidPlatformChannelSpecifics,
-      iOS: iOSPlatformChannelSpecifics,
-      macOS: macOSPlatformChannelSpecifics);
+    android: androidPlatformChannelSpecifics,
+    iOS: iOSPlatformChannelSpecifics,
+    macOS: macOSPlatformChannelSpecifics,
+  );
   await flutterLocalNotificationsPlugin!.show(
-      0,
-      'custom sound notification title',
-      'custom sound notification body',
-      platformChannelSpecifics);
+    0,
+    'custom sound notification title',
+    'custom sound notification body',
+    platformChannelSpecifics,
+  );
 }
 
 Future<void> showSoundUriNotification() async {
@@ -123,9 +136,12 @@ Future<void> showSoundUriNotification() async {
       UriAndroidNotificationSound(alarmUri!);
   final AndroidNotificationDetails androidPlatformChannelSpecifics =
       AndroidNotificationDetails(
-          'uri channel id', 'uri channel name', 'uri channel description',
-          sound: uriSound,
-          styleInformation: const DefaultStyleInformation(true, true));
+    'uri channel id',
+    'uri channel name',
+    'uri channel description',
+    sound: uriSound,
+    styleInformation: const DefaultStyleInformation(true, true),
+  );
   final NotificationDetails platformChannelSpecifics =
       NotificationDetails(android: androidPlatformChannelSpecifics);
   await flutterLocalNotificationsPlugin!

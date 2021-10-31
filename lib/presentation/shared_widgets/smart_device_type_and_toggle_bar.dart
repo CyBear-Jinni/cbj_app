@@ -39,17 +39,19 @@ class SmartDeviceTypeAndToggleBar extends StatelessWidget {
           'Device_type:_',
           textAlign: TextAlign.center,
           style: TextStyle(
-              fontSize: 20,
-              color: Theme.of(context).textTheme.bodyText1!.color,
-              backgroundColor: Colors.blueGrey
+            fontSize: 20,
+            color: Theme.of(context).textTheme.bodyText1!.color,
+            backgroundColor: Colors.blueGrey
 //                color: (Theme.of(context).textTheme.bodyText1!.color)!,
-              ),
+            ,
+          ),
         ).tr(args: <String>[EnumHelper.dTToString(deviceType)]),
         if (deviceType == DeviceTypes.light)
           SizedBox(
             width: 100,
             child: SmartDevicePage(
-                _smartDeviceObject), // The actual render of the device
+              _smartDeviceObject,
+            ), // The actual render of the device
           )
         else
           Container(),

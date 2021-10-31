@@ -17,10 +17,12 @@ abstract class IManageNetworkRepository {
       scanWiFiNetworks();
 
   Future<Either<HomeUserFailures, Unit>> connectToWiFi(
-      ManageNetworkEntity networkEntity);
+    ManageNetworkEntity networkEntity,
+  );
 
   Future<Either<HomeUserFailures, Unit>> openAccessPoint(
-      ManageNetworkEntity networkEntity);
+    ManageNetworkEntity networkEntity,
+  );
 
   Future<Either<HomeUserFailures, Unit>> doesAccessPointOpen();
 }

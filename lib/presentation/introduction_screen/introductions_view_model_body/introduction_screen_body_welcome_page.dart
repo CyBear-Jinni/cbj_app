@@ -84,13 +84,14 @@ class IntroductionScreenBodyWelcomePage extends StatelessWidget {
         ),
         Container(
           decoration: BoxDecoration(
-              color: ((Theme.of(context).textTheme.bodyText1!.color)!)
-                  .withOpacity(0.3),
-              border: Border.all(
-                color: (Theme.of(context).textTheme.bodyText1!.color)!,
-              ),
-              // Make rounded corners
-              borderRadius: BorderRadius.circular(30)),
+            color: ((Theme.of(context).textTheme.bodyText1!.color)!)
+                .withOpacity(0.3),
+            border: Border.all(
+              color: (Theme.of(context).textTheme.bodyText1!.color)!,
+            ),
+            // Make rounded corners
+            borderRadius: BorderRadius.circular(30),
+          ),
           height: 160,
           child: SizedBox(
             child: Row(

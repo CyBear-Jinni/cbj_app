@@ -10,7 +10,9 @@ import 'package:kt_dart/kt.dart';
 
 class RoomsRgbwLightsWidget extends StatelessWidget {
   const RoomsRgbwLightsWidget(
-      this.showDevicesOnlyFromRoomId, this.roomColorGradiant);
+    this.showDevicesOnlyFromRoomId,
+    this.roomColorGradiant,
+  );
 
   /// If not null show lights only from this room
   final String showDevicesOnlyFromRoomId;
@@ -116,9 +118,9 @@ class RoomsRgbwLightsWidget extends StatelessWidget {
                       child: Text(
                         'Lights does not exist.',
                         style: TextStyle(
-                            fontSize: 30,
-                            color:
-                                Theme.of(context).textTheme.bodyText1!.color),
+                          fontSize: 30,
+                          color: Theme.of(context).textTheme.bodyText1!.color,
+                        ),
                       ),
                     ),
                   ],

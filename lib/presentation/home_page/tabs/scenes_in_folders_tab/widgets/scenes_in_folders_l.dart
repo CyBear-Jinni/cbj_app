@@ -94,8 +94,9 @@ class ScenesInFoldersL extends StatelessWidget {
               child: Text(
                 folderOfScenes.fold((l) => 'NoName', (r) => r.name!),
                 style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1!.color,
-                    fontSize: 30),
+                  color: Theme.of(context).textTheme.bodyText1!.color,
+                  fontSize: 30,
+                ),
                 textAlign: TextAlign.center,
               ),
             ),

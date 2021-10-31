@@ -33,7 +33,8 @@ class BlindsCard extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(top: 30),
       child: const Text(
-          'Blinds action is not yet supported when adding new blinds'),
+        'Blinds action is not yet supported when adding new blinds',
+      ),
     );
     //   BlocConsumer<LightToggleBloc, LightToggleState>(
     //   listener: (context, state) {},

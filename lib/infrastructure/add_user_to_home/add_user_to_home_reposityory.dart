@@ -18,7 +18,8 @@ class AddUserToHomeRepository implements IAddUserToHomeRepository {
   @override
   @required
   Future<Either<AddUserToHomeFailures, Unit>> create(
-      HomeUserEntity homeUserEntity) async {
+    HomeUserEntity homeUserEntity,
+  ) async {
     try {
       // final devicesDoc = await _firestore.currentHomeDocument();
       //
@@ -41,7 +42,8 @@ class AddUserToHomeRepository implements IAddUserToHomeRepository {
   }
 
   Future<Either<AddUserToHomeFailures, Map<String, dynamic>>> getUserByEmail(
-      String email) async {
+    String email,
+  ) async {
     try {
       // final devicesDoc = await _firestore.usersCollection();
       // final QuerySnapshot querySnapshot =
@@ -62,13 +64,16 @@ class AddUserToHomeRepository implements IAddUserToHomeRepository {
 
   @override
   Future<Either<AddUserToHomeFailures, String>> add(
-      HomeUserEntity homeUserEntity) async {
+    HomeUserEntity homeUserEntity,
+  ) async {
     try {
       final Either<AddUserToHomeFailures, Map<String, dynamic>>
           userDocOrFailure =
           await getUserByEmail(homeUserEntity.email!.getOrCrash()!);
       final Map<String, dynamic> userDocument = userDocOrFailure.fold(
-          (f) => throw AddUserToHomeUnexpectedValueError(f), (r) => r);
+        (f) => throw AddUserToHomeUnexpectedValueError(f),
+        (r) => r,
+      );
 
       //   required AddUserToHomeEmail email,
       // required AddUserToHomeName name,

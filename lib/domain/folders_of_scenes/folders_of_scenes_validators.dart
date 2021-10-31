@@ -3,7 +3,8 @@ import 'package:dartz/dartz.dart';
 import 'package:kt_dart/collection.dart';
 
 Either<FoldersOfScenesFailures<KtList<T>>, KtList<T>> validateScenesList<T>(
-    KtList<T> scenesList) {
+  KtList<T> scenesList,
+) {
   if (scenesList.isNotEmpty()) {
     return right(scenesList);
   } else {

@@ -36,7 +36,8 @@ class UserCard extends StatelessWidget {
               Text(
                 homeUser!.email!.getOrCrash()!,
                 style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1!.color),
+                  color: Theme.of(context).textTheme.bodyText1!.color,
+                ),
               ),
             ],
           ),

@@ -10,6 +10,7 @@ class ManageNetworkUnexpectedValueError extends Error {
     const explanation =
         'Encountered a ValueFailure at an unrecoverable point. Terminating.';
     return Error.safeToString(
-        '$explanation Failure was: $homeUserValueFailure');
+      '$explanation Failure was: $homeUserValueFailure',
+    );
   }
 }

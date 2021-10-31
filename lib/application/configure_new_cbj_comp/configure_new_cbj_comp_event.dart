@@ -8,21 +8,26 @@ class ConfigureNewCbjCompEvent with _$ConfigureNewCbjCompEvent {
       _Deleted;
 
   const factory ConfigureNewCbjCompEvent.setupNewDevice(
-          CBJCompEntity cBJCompEntity,
-          Map<String, TextEditingController> textEditingController) =
-      _SetupNewDevice;
+    CBJCompEntity cBJCompEntity,
+    Map<String, TextEditingController> textEditingController,
+  ) = _SetupNewDevice;
   const factory ConfigureNewCbjCompEvent.saveDevicesToCloud(
-      CBJCompEntity cBJCompEntity) = _SaveDevicesToCloud;
+    CBJCompEntity cBJCompEntity,
+  ) = _SaveDevicesToCloud;
 
   const factory ConfigureNewCbjCompEvent.saveDevicesToComputer(
-      CBJCompEntity cBJCompEntity) = _SaveDevicesToComputer;
+    CBJCompEntity cBJCompEntity,
+  ) = _SaveDevicesToComputer;
 
   const factory ConfigureNewCbjCompEvent.sendFirebaseInformation(
-      CBJCompEntity cBJCompEntity) = _SendFirebaseInformation;
+    CBJCompEntity cBJCompEntity,
+  ) = _SendFirebaseInformation;
 
   const factory ConfigureNewCbjCompEvent.sendHotSpotInformation(
-      CBJCompEntity cBJCompEntity) = _SendHotSpotInformation;
+    CBJCompEntity cBJCompEntity,
+  ) = _SendHotSpotInformation;
 
   const factory ConfigureNewCbjCompEvent.checkOperationsCompletedSuccessfully(
-      CBJCompEntity cBJCompEntity) = _CheckOperationsCompletedSuccessfully;
+    CBJCompEntity cBJCompEntity,
+  ) = _CheckOperationsCompletedSuccessfully;
 }

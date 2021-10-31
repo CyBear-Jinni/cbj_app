@@ -12,8 +12,11 @@ import 'package:kt_dart/collection.dart';
 /// object
 class RoomBlinds extends StatelessWidget {
   const RoomBlinds(
-      this._deviceEntityList, this._gradientColor, this._roomEntity,
-      {this.maxLightsToShow = 4});
+    this._deviceEntityList,
+    this._gradientColor,
+    this._roomEntity, {
+    this.maxLightsToShow = 4,
+  });
 
   final KtList<GenericBlindsDE> _deviceEntityList;
 
@@ -38,31 +41,35 @@ class RoomBlinds extends StatelessWidget {
       for (int i = 0; i < _numberOfBlindsToShow; i++) {
         final GenericBlindsDE deviceEntityTemp = _deviceEntityList[i];
 
-        columnOfLights.add(Column(
-          children: [
-            Text(
-              deviceEntityTemp.defaultName.getOrCrash()!,
-              style: TextStyle(
-                fontSize: 19.0,
-                color: Theme.of(context).textTheme.bodyText2!.color,
+        columnOfLights.add(
+          Column(
+            children: [
+              Text(
+                deviceEntityTemp.defaultName.getOrCrash()!,
+                style: TextStyle(
+                  fontSize: 19.0,
+                  color: Theme.of(context).textTheme.bodyText2!.color,
+                ),
               ),
-            ),
-            const SizedBox(
-              height: 3,
-            ),
-            Container(
-              margin: const EdgeInsets.symmetric(vertical: 5),
-              child: BlocProvider(
-                create: (context) => getIt<BlindsActorBloc>(),
-                child: BlindWidget(deviceEntityTemp),
+              const SizedBox(
+                height: 3,
               ),
-            ),
-          ],
-        ));
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 5),
+                child: BlocProvider(
+                  create: (context) => getIt<BlindsActorBloc>(),
+                  child: BlindWidget(deviceEntityTemp),
+                ),
+              ),
+            ],
+          ),
+        );
 
-        columnOfLights.add(const SizedBox(
-          height: 5,
-        ));
+        columnOfLights.add(
+          const SizedBox(
+            height: 5,
+          ),
+        );
       }
 
       return Column(
@@ -75,9 +82,10 @@ class RoomBlinds extends StatelessWidget {
       padding: const EdgeInsets.all(3),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-            colors: _gradientColor!,
-            begin: Alignment.bottomLeft,
-            end: Alignment.topLeft),
+          colors: _gradientColor!,
+          begin: Alignment.bottomLeft,
+          end: Alignment.topLeft,
+        ),
         borderRadius: const BorderRadius.all(Radius.circular(24)),
         border: Border.all(
           color: (Theme.of(context).textTheme.bodyText1!.color)!,
