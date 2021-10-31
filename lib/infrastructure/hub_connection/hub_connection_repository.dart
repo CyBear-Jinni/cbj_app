@@ -57,8 +57,8 @@ class HubConnectionRepository extends IHubConnectionRepository {
       );
       return;
     } else {
-      // await HubClient.createStreamWithHub('', 50051);
-      // await HubClient.createStreamWithHub('127.0.0.1', 50051);
+      // await HubClient.createStreamWithHub('', 50056);
+      // await HubClient.createStreamWithHub('127.0.0.1', 50056);
       print('Test remote pipes');
     }
   }

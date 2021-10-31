@@ -20,6 +20,7 @@ import 'package:cybear_jinni/presentation/introduction_screen/introduction_scree
 import 'package:cybear_jinni/presentation/join_home_by_id/join_home_by_id_page.dart';
 import 'package:cybear_jinni/presentation/manage_users/manage_users_page.dart';
 import 'package:cybear_jinni/presentation/plus_button/plus_button.dart';
+import 'package:cybear_jinni/presentation/remote_pipes/remote_pipes_page.dart';
 import 'package:cybear_jinni/presentation/scenes/scenes_page.dart';
 import 'package:cybear_jinni/presentation/sign_in_page/sign_in_page.dart';
 import 'package:cybear_jinni/presentation/splash/splash_page.dart';
@@ -39,6 +40,7 @@ import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_pag
     AutoRoute(page: JoinHomeByIdPage),
     AutoRoute(page: HomePage),
     AutoRoute(page: PlusButtonPage),
+    AutoRoute(page: RemotePipesPage),
     AutoRoute(page: ManageUsersPage),
     AutoRoute(page: AddUserToHomePage),
     AutoRoute(page: ScenesPage),
@@ -76,6 +78,7 @@ class $AppRouter {
   late JoinHomeByIdPage joinHomeByIdPage;
   late HomePage homePage;
   late PlusButtonPage plusButtonPage;
+  late RemotePipesPage remotePipesPage;
   late ManageUsersPage manageUsersPage;
   late AddUserToHomePage addUserToHomePage;
   late RoomsLightsPage roomsLightsPage;
