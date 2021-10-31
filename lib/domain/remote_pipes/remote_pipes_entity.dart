@@ -1,5 +1,6 @@
 import 'package:cybear_jinni/domain/remote_pipes/remote_pipes_failures.dart';
 import 'package:cybear_jinni/domain/remote_pipes/remote_pipes_value_objects.dart';
+import 'package:cybear_jinni/infrastructure/remote_pipes/remote_pipes_dtos.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -19,5 +20,14 @@ abstract class RemotePipesEntity implements _$RemotePipesEntity {
 
   Option<RemotePipesFailures<dynamic>> get failureOption {
     return domainName!.value.fold((f) => some(f), (_) => none());
+  }
+
+  @override
+  RemotePipesDtos toInfrastructure() {
+    return RemotePipesDtos(
+      domainName: domainName!.getOrCrash(),
+
+      // serverTimeStamp: FieldValue.serverTimestamp(),
+    );
   }
 }
