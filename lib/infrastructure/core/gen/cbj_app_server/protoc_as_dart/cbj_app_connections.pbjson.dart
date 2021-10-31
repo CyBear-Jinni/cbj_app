@@ -8,7 +8,6 @@
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
-
 @$core.Deprecated('Use compInfoSBDescriptor instead')
 const CompInfoSB$json = const {
   '1': 'CompInfoSB',
@@ -18,8 +17,7 @@ const CompInfoSB$json = const {
 };
 
 /// Descriptor for `CompInfoSB`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List compInfoSBDescriptor =
-    $convert.base64Decode('CgpDb21wSW5mb1NCEhYKBmNvbXBJUBgCIAEoCVIGY29tcElQ');
+final $typed_data.Uint8List compInfoSBDescriptor = $convert.base64Decode('CgpDb21wSW5mb1NCEhYKBmNvbXBJUBgCIAEoCVIGY29tcElQ');
 @$core.Deprecated('Use cBJCommendStatusDescriptor instead')
 const CBJCommendStatus$json = const {
   '1': 'CBJCommendStatus',
@@ -29,5 +27,4 @@ const CBJCommendStatus$json = const {
 };
 
 /// Descriptor for `CBJCommendStatus`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List cBJCommendStatusDescriptor = $convert.base64Decode(
-    'ChBDQkpDb21tZW5kU3RhdHVzEhgKB3N1Y2Nlc3MYASABKAhSB3N1Y2Nlc3M=');
+final $typed_data.Uint8List cBJCommendStatusDescriptor = $convert.base64Decode('ChBDQkpDb21tZW5kU3RhdHVzEhgKB3N1Y2Nlc3MYASABKAhSB3N1Y2Nlc3M=');
