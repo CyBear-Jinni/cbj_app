@@ -85,16 +85,18 @@ class DeviceRepository implements IDeviceRepository {
       watchLights() async* {
     // Using watchAll devices from server function and filtering out only the
     // Light device type
-    yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
-          return right(
-            r.toList().asList().where((element) {
-              return element!.deviceTypes.getOrCrash() ==
-                      DeviceTypes.light.toString() ||
-                  element.deviceTypes.getOrCrash() ==
-                      DeviceTypes.rgbwLights.toString();
-            }).toImmutableList(),
-          );
-        }),);
+    yield* watchAll().map(
+      (event) => event.fold((l) => left(l), (r) {
+        return right(
+          r.toList().asList().where((element) {
+            return element!.deviceTypes.getOrCrash() ==
+                    DeviceTypes.light.toString() ||
+                element.deviceTypes.getOrCrash() ==
+                    DeviceTypes.rgbwLights.toString();
+          }).toImmutableList(),
+        );
+      }),
+    );
   }
 
   @override
@@ -102,14 +104,16 @@ class DeviceRepository implements IDeviceRepository {
       watchBlinds() async* {
     // Using watchAll devices from server function and filtering out only the
     // Blinds device type
-    yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
-          return right(
-            r.toList().asList().where((element) {
-              return element!.deviceTypes.getOrCrash() ==
-                  DeviceTypes.blinds.toString();
-            }).toImmutableList(),
-          );
-        }),);
+    yield* watchAll().map(
+      (event) => event.fold((l) => left(l), (r) {
+        return right(
+          r.toList().asList().where((element) {
+            return element!.deviceTypes.getOrCrash() ==
+                DeviceTypes.blinds.toString();
+          }).toImmutableList(),
+        );
+      }),
+    );
   }
 
   @override
@@ -117,27 +121,31 @@ class DeviceRepository implements IDeviceRepository {
       watchBoilers() async* {
     // Using watchAll devices from server function and filtering out only the
     // Boilers device type
-    yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
-          return right(
-            r.toList().asList().where((element) {
-              return element!.deviceTypes.getOrCrash() ==
-                  DeviceTypes.boiler.toString();
-            }).toImmutableList(),
-          );
-        }),);
+    yield* watchAll().map(
+      (event) => event.fold((l) => left(l), (r) {
+        return right(
+          r.toList().asList().where((element) {
+            return element!.deviceTypes.getOrCrash() ==
+                DeviceTypes.boiler.toString();
+          }).toImmutableList(),
+        );
+      }),
+    );
   }
 
   @override
   Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
       watchSmartTv() async* {
-    yield* watchAll().map((event) => event.fold((l) => left(l), (r) {
-          return right(
-            r.toList().asList().where((element) {
-              return element!.deviceTypes.getOrCrash() ==
-                  DeviceTypes.smartTV.toString();
-            }).toImmutableList(),
-          );
-        }),);
+    yield* watchAll().map(
+      (event) => event.fold((l) => left(l), (r) {
+        return right(
+          r.toList().asList().where((element) {
+            return element!.deviceTypes.getOrCrash() ==
+                DeviceTypes.smartTV.toString();
+          }).toImmutableList(),
+        );
+      }),
+    );
   }
 
   @override
@@ -149,7 +157,8 @@ class DeviceRepository implements IDeviceRepository {
 
   @override
   Future<Either<DevicesFailure, Unit>> create(
-      DeviceEntityAbstract deviceEntity,) async {
+    DeviceEntityAbstract deviceEntity,
+  ) async {
     try {
       String deviceModelString = 'No Model found';
       final DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
@@ -188,10 +197,11 @@ class DeviceRepository implements IDeviceRepository {
   }
 
   @override
-  Future<Either<DevicesFailure, Unit>> updateDatabase(
-      {required Map<String, dynamic> documentPath,
-      required Map<String, dynamic> fieldsToUpdate,
-      String? forceUpdateLocation,}) async {
+  Future<Either<DevicesFailure, Unit>> updateDatabase({
+    required Map<String, dynamic> documentPath,
+    required Map<String, dynamic> fieldsToUpdate,
+    String? forceUpdateLocation,
+  }) async {
     try {
       // await documentPath.update(fieldsToUpdate);
       return right(unit);
@@ -488,7 +498,8 @@ class DeviceRepository implements IDeviceRepository {
 
   @override
   Future<Either<DevicesFailure, Unit>> delete(
-      DeviceEntityAbstract deviceEntity,) async {
+    DeviceEntityAbstract deviceEntity,
+  ) async {
     return left(const DevicesFailure.unexpected());
   }
 
@@ -552,15 +563,17 @@ class DeviceRepository implements IDeviceRepository {
     String deviceIp = '';
     final String fullMdnsName = '$mDnsName.local';
 
-    final MDnsClient client = MDnsClient(rawDatagramSocketFactory: (
-      dynamic host,
-      int port, {
-      bool? reuseAddress,
-      bool? reusePort,
-      int? ttl,
-    }) {
-      return RawDatagramSocket.bind(host, port, ttl: ttl!);
-    },);
+    final MDnsClient client = MDnsClient(
+      rawDatagramSocketFactory: (
+        dynamic host,
+        int port, {
+        bool? reuseAddress,
+        bool? reusePort,
+        int? ttl,
+      }) {
+        return RawDatagramSocket.bind(host, port, ttl: ttl!);
+      },
+    );
     // Start the client with default options.
 
     await client.start();
