@@ -39,8 +39,7 @@ class RemotePipesPage extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<RemotePipesBloc>(
-          create: (context) => getIt<RemotePipesBloc>()
-            ..add(const RemotePipesEvent.initialized()),
+          create: (context) => getIt<RemotePipesBloc>(),
         ),
       ],
       child: MultiBlocListener(

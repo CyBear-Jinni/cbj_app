@@ -1,6 +1,9 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:cybear_jinni/domain/remote_pipes/i_remote_pipes_repository.dart';
+import 'package:cybear_jinni/domain/remote_pipes/remote_pipes_entity.dart';
+import 'package:cybear_jinni/domain/remote_pipes/remote_pipes_value_objects.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -10,23 +13,21 @@ part 'remote_pipes_state.dart';
 
 @injectable
 class RemotePipesBloc extends Bloc<RemotePipesEvent, RemotePipesState> {
-  RemotePipesBloc() : super(RemotePipesState.initial());
+  RemotePipesBloc(this._remotePipesRepository)
+      : super(RemotePipesState.initial());
 
-  // final IAddUserToHomeRepository _addUserToHomeRepo;
+  final IRemotePipesRepository _remotePipesRepository;
 
   @override
   Stream<RemotePipesState> mapEventToState(
     RemotePipesEvent event,
   ) async* {
     yield* event.map(
-      initialized: (Initialized value) async* {
-        yield const RemotePipesState.initial();
-      },
-      remotePipesUrlChanged: (RemotePipesUrlChanged value) async* {
-        // yield state.copyWith(
-        //   emailAddress: AddUserEmail(e.emailStr),
-        //   addUserFailureOrSuccessOption: none(),
-        // );
+      initialized: (Initialized value) async* {},
+      remotePipesDomainChanged: (RemotePipesDomainChanged value) async* {
+        yield state.copyWith(
+          remotePipesDomainName: RemotePipesDomain(value.remotePipesDomain),
+        );
       },
       permissionChanged: (e) async* {
         // yield state.copyWith(
@@ -35,18 +36,15 @@ class RemotePipesBloc extends Bloc<RemotePipesEvent, RemotePipesState> {
         // );
       },
       addRemotePipeUrl: (e) async* {
-        // yield const RemotePipesState.actionInProgress();
-        //
-        // final HomeUserEntity addUserHomeEntity =
-        //     HomeUserEntity.empty().copyWith(
-        //   email: HomeUserEmail(e.email),
-        //   permission: HomeUserPermission('Admin'),
-        // );
-        // final userOption = await _addUserToHomeRepo.add(addUserHomeEntity);
-        // yield userOption.fold(
-        //   (_) => const RemotePipesState.addingHomeFailure(),
-        //   (homeID) => RemotePipesState.addingUserSuccess(homeID),
-        // );
+        final RemotePipesEntity remotePipesEntity =
+            RemotePipesEntity.empty().copyWith(
+          domainName: RemotePipesDomain(
+            state.remotePipesDomainName.getOrCrash(),
+          ),
+        );
+
+        final remotePipesSetDomainResponse = await _remotePipesRepository
+            .setRemotePipesDomainName(remotePipesEntity);
       },
     );
   }

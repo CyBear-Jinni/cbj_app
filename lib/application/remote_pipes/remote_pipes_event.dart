@@ -4,8 +4,9 @@ part of 'remote_pipes_bloc.dart';
 class RemotePipesEvent with _$RemotePipesEvent {
   const factory RemotePipesEvent.initialized() = Initialized;
 
-  const factory RemotePipesEvent.remotePipesUrlChanged(String emailStr) =
-      RemotePipesUrlChanged;
+  const factory RemotePipesEvent.remotePipesDomainChanged(
+    String remotePipesDomain,
+  ) = RemotePipesDomainChanged;
 
   const factory RemotePipesEvent.permissionChanged(String permission) =
       PermissionChanged;

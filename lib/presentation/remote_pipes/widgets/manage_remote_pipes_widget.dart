@@ -14,113 +14,55 @@ class RemotePipesWidget extends StatelessWidget {
 
     return BlocBuilder<RemotePipesBloc, RemotePipesState>(
       builder: (context, state) {
-        return state.map(
-          initial: (_) {
-            return Container(
-              margin: const EdgeInsets.symmetric(horizontal: 30),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    'Please insert the Remote Pipes domain',
-                    style: TextStyle(color: Colors.black, fontSize: 25),
-                  ),
-                  const SizedBox(
-                    height: 60,
-                  ),
-                  TextFormField(
-                    decoration: const InputDecoration(
-                      prefixIcon: FaIcon(FontAwesomeIcons.globe),
-                      labelText: 'Remote Pipes domain',
-                    ),
-                    autocorrect: false,
-                    onChanged: (value) => context
-                        .read<RemotePipesBloc>()
-                        .add(RemotePipesEvent.remotePipesUrlChanged(value)),
-                    // validator: (_) => context
-                    //     .read<TuyaSignInFormBloc>()
-                    //     .state
-                    //     .tuyaUserName
-                    //     .value
-                    //     .fold(
-                    //       (CoreLoginFailure f) => 'Validation error',
-                    //       //   f.maybeMap(
-                    //       // invalidEmail: (result) => result.failedValue,
-                    //       // containsSpace: (result) => result.failedValue,
-                    //       // orElse: () => null,
-                    //       // ),
-                    //       (r) => null,
-                    //     ),
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      context.read<RemotePipesBloc>().add(
-                            const RemotePipesEvent.addRemotePipeUrl(),
-                          );
-                    },
-                    child: const Text('Connect'),
-                  ),
-                ],
+        return Container(
+          margin: const EdgeInsets.symmetric(horizontal: 30),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                'Please insert the Remote Pipes domain',
+                style: TextStyle(color: Colors.black, fontSize: 25),
               ),
-            );
-          },
-          addingRemotePipeFailure: (AddingRemotePipeFailure value) {
-            return const Text(
-              'adding Remote Pipe Failure',
-              style: TextStyle(color: Colors.black),
-            );
-          },
-          actionInProgress: (ActionInProgress value) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          },
-          addingRemotePipeSuccess: (AddingRemotePipeSuccess value) {
-            return const Text(
-              'adding Remote Pipe Success',
-              style: TextStyle(color: Colors.black),
-            );
-          },
-          // initial: (_) => Container(),
-          // inProgress: (state) => const Center(
-          //   child: CircularProgressIndicator(),
-          // ),
-          // loadSuccess: (state) {
-          //   return Container(
-          //     margin: const EdgeInsets.symmetric(vertical: 100),
-          //     child: ListView.builder(
-          //       reverse: true,
-          //       padding: EdgeInsets.zero,
-          //       itemBuilder: (context, index) {
-          //         final homeUser = state.homeUsers[index];
-          //         if (homeUser.failureOption.isSome()) {
-          //           return ErrorUserCard(homeUser: homeUser);
-          //         } else {
-          //           return UserCard(homeUser: homeUser);
-          //         }
-          //       },
-          //       itemCount: state.homeUsers.size,
-          //     ),
-          //   );
-          // },
-          // loadFailure: (state) {
-          //   return const Text('Load Failure');
-          // },
-          // addSuccess: (state) {
-          //   return const Text('Add Success');
-          // },
-          // deleteFailure: (state) {
-          //   return const Text('Delete Failure');
-          // },
-          // deleteSuccess: (state) {
-          //   return const Text('Delete Success');
-          // },
-          // error: (state) {
-          //   return const Text('Error');
-          // },
+              const SizedBox(
+                height: 60,
+              ),
+              TextFormField(
+                decoration: const InputDecoration(
+                  prefixIcon: FaIcon(FontAwesomeIcons.globe),
+                  labelText: 'Remote Pipes domain',
+                ),
+                autocorrect: false,
+                onChanged: (value) => context
+                    .read<RemotePipesBloc>()
+                    .add(RemotePipesEvent.remotePipesDomainChanged(value)),
+                // validator: (_) => context
+                //     .read<TuyaSignInFormBloc>()
+                //     .state
+                //     .tuyaUserName
+                //     .value
+                //     .fold(
+                //       (CoreLoginFailure f) => 'Validation error',
+                //       //   f.maybeMap(
+                //       // invalidEmail: (result) => result.failedValue,
+                //       // containsSpace: (result) => result.failedValue,
+                //       // orElse: () => null,
+                //       // ),
+                //       (r) => null,
+                //     ),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              TextButton(
+                onPressed: () {
+                  context.read<RemotePipesBloc>().add(
+                        const RemotePipesEvent.addRemotePipeUrl(),
+                      );
+                },
+                child: const Text('Connect'),
+              ),
+            ],
+          ),
         );
       },
     );
