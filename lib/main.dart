@@ -1,3 +1,4 @@
+import 'package:cybear_jinni/domain/local_db/i_local_db_repository.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/core/app_widget.dart';
 import 'package:cybear_jinni/presentation/core/notifications.dart';
@@ -49,6 +50,7 @@ Future<Unit> main() async {
   await initialisationNotifications();
 
   await initializeHive();
+  getIt<ILocalDbRepository>();
 
   runApp(
     /// Use https://lingohub.com/developers/supported-locales/language-designators-with-regions

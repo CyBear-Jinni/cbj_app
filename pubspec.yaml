@@ -151,6 +151,8 @@ dev_dependencies:
     sdk: flutter
   # Code generator for unions/pattern-matching/copy.
   freezed: ^0.14.5
+  # Automatically generates TypeAdapters to store any class.
+  hive_generator: ^1.1.1
 #  # Extension for Hive. Automatically generates TypeAdapters to store any class.
 #  hive_generator: ^1.1.0
   # Convenient code generator for get_it.
