@@ -7,6 +7,7 @@ import 'package:cybear_jinni/presentation/add_new_devices_process/scan_for_new_c
 import 'package:cybear_jinni/presentation/add_user_to_home/add_user_to_home_page.dart';
 import 'package:cybear_jinni/presentation/add_vendors_pages/add_lifx_vendor/add_lifx_vendor_page.dart';
 import 'package:cybear_jinni/presentation/add_vendors_pages/add_tuya_vendor/add_tuya_vendor_page.dart';
+import 'package:cybear_jinni/presentation/connect_to_hub/connect_to_hub_more_page.dart';
 import 'package:cybear_jinni/presentation/connect_to_hub/connect_to_hub_page.dart';
 import 'package:cybear_jinni/presentation/create_home/create_home_page.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/blinds/rooms_blinds_page.dart';
@@ -33,6 +34,7 @@ import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_pag
     AutoRoute(page: SplashPage, initial: true),
     AutoRoute(page: IntroductionScreenPage),
     AutoRoute(page: ConnectToHubPage),
+    AutoRoute(page: ConnectToHubMorePage),
     AutoRoute(page: SignInPage),
     AutoRoute(page: CreateHomePage),
     AutoRoute(page: WhereToLoginPageMinimalPage),
@@ -63,6 +65,7 @@ class $AppRouter {
   late SplashPage splashPage;
   late IntroductionScreenPage introductionScreenPage;
   late ConnectToHubPage connectToHubPage;
+  late ConnectToHubMorePage connectToHubMorePage;
   late SignInPage signInPage;
   late CreateHomePage createHomePage;
   late ScenesPage scenesPage;

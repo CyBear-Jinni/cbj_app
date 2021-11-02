@@ -5,7 +5,9 @@ import 'package:cybear_jinni/domain/hub/hub_entity.dart';
 import 'package:cybear_jinni/domain/hub/hub_failures.dart';
 import 'package:cybear_jinni/domain/hub/hub_value_objects.dart';
 import 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
+import 'package:cybear_jinni/domain/local_db/i_local_db_repository.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/hub_client.dart';
+import 'package:cybear_jinni/infrastructure/hub_connection/hub_dtos.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:dartz/dartz.dart';
@@ -35,31 +37,78 @@ class HubConnectionRepository extends IHubConnectionRepository {
   static HubEntity? hubEntity;
 
   Future<void> connectWithHub() async {
-    try {
-      final ConnectivityResult connectivityResult =
-          await Connectivity().checkConnectivity();
-    } catch (e) {
-      print('Cant check connectivity this is probably PC, error: $e');
+    if (hubEntity == null) {
+      try {
+        String? hubNetworkBssid;
+        (await getIt<ILocalDbRepository>().getHubEntityNetworkBssid()).fold(
+          (l) => throw 'Error getting Hub network Bssid',
+          (r) => hubNetworkBssid = r,
+        );
+
+        String? hubNetworkName;
+        (await getIt<ILocalDbRepository>().getHubEntityNetworkName()).fold(
+          (l) => throw 'Error getting Hub network name',
+          (r) => hubNetworkName = r,
+        );
+
+        String? hubNetworkIp;
+        (await getIt<ILocalDbRepository>().getHubEntityLastKnownIp()).fold(
+          (l) => throw 'Error getting Hub network IP',
+          (r) => hubNetworkIp = r,
+        );
+        hubEntity = HubDtos(
+          hubNetworkBssid: hubNetworkBssid!,
+          lastKnownIp: hubNetworkIp!,
+          networkName: hubNetworkName!,
+        ).toDomain();
+      } catch (e) {
+        logger.e('Crashed while setting Hub info from local db: $e');
+      }
     }
 
-    final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
+    ConnectivityResult? connectivityResult;
+    try {
+      connectivityResult = await Connectivity().checkConnectivity();
+    } catch (e) {
+      logger.w('Cant check connectivity this is probably PC, error: $e');
+    }
 
-    // if (connectivityResult == ConnectivityResult.wifi &&
-    //     hubEntity?.hubNetworkBssid.getOrCrash() == wifiBSSID) {
-    if (true) {
-      if (hubEntity?.lastKnownIp?.getOrCrash() == null) {
+    // Last Number of bssid can change fix?, need to check if more numbers
+    // can do that
+    final String? savedWifiBssid = hubEntity?.hubNetworkBssid.getOrCrash();
+    final String? savedWifiBssidWithoutLastNumber =
+        savedWifiBssid?.substring(0, savedWifiBssid.lastIndexOf(':'));
+
+    final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
+    final String? wifiBSSIDWithoutLastNumber =
+        wifiBSSID?.substring(0, wifiBSSID.lastIndexOf(':'));
+
+    // Check if you are connected to the home local network for direct
+    // communication with the Hub.
+    // This block can be false also if user does not improve some permissions
+    // or #256 if the app run on the computer and connected with ethernet cable
+    // (not effecting connection with WiFi)
+    if (connectivityResult != null &&
+        connectivityResult == ConnectivityResult.wifi &&
+        savedWifiBssidWithoutLastNumber != null &&
+        wifiBSSIDWithoutLastNumber != null &&
+        savedWifiBssidWithoutLastNumber == wifiBSSIDWithoutLastNumber) {
+      logger.i('Connect using direct connection to Hub');
+      if (hubEntity?.lastKnownIp.getOrCrash() == null) {
         await searchForHub();
       }
 
       await HubClient.createStreamWithHub(
-        hubEntity!.lastKnownIp!.getOrCrash(),
+        hubEntity!.lastKnownIp.getOrCrash(),
         hubPort,
       );
       return;
     } else {
-      // await HubClient.createStreamWithHub('', 50056);
-      // await HubClient.createStreamWithHub('127.0.0.1', 50056);
-      print('Test remote pipes');
+      logger.i('Connect using Remote Pipes');
+      (await getIt<ILocalDbRepository>().getRemotePipesDnsName()).fold(
+        (l) => logger.e('Cant find local Remote Pipes Dns name'),
+        (r) => HubClient.createStreamWithHub(r, 50056),
+      );
     }
   }
 
@@ -93,7 +142,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
       ResourceRecordQuery.addressIPv4(mDnsName),
     )) {
       deviceIp = record.address.address;
-      print('Found address (${record.address}).');
+      logger.i('Found address (${record.address}).');
     }
 
     // await for (final IPAddressResourceRecord record
@@ -141,6 +190,18 @@ class HubConnectionRepository extends IHubConnectionRepository {
               hubNetworkBssid: HubNetworkBssid(wifiBSSID),
               networkName: HubNetworkName(wifiName),
               lastKnownIp: HubNetworkIp(address.ip),
+            );
+
+            final HubDtos hubDtos = hubEntity!.toInfrastructure();
+
+            (await getIt<ILocalDbRepository>().saveHubEntity(
+              hubNetworkBssid: hubDtos.hubNetworkBssid,
+              networkName: hubDtos.networkName,
+              lastKnownIp: hubDtos.lastKnownIp,
+            ))
+                .fold(
+              (l) => logger.e('Cant find local Remote Pipes Dns name'),
+              (r) => logger.i('Found CyBear Jinni Hub'),
             );
             return right(unit);
           }
