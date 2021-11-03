@@ -57,10 +57,11 @@ class FolderOfScenesRepository implements IFolderOfScenesRepository {
       ),
       right(
         Scene(
-            uniqueId: UniqueId(),
-            name: 'Going out',
-            scenesActionsToExecute: ['On All', 'Off All'].toImmutableList(),
-            backgroundColor: HexColor('#FFD6CF'),),
+          uniqueId: UniqueId(),
+          name: 'Going out',
+          scenesActionsToExecute: ['On All', 'Off All'].toImmutableList(),
+          backgroundColor: HexColor('#FFD6CF'),
+        ),
       ),
       right(
         Scene(

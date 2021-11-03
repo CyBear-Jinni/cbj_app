@@ -1,6 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/hub_in_network/hub_in_network_bloc.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/connect_to_hub/widgets/cbj_hub_in_network.dart';
+import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -80,8 +82,10 @@ class ConnectToHubPage extends StatelessWidget {
                             child: Center(
                               child: BlocProvider(
                                 create: (context) => getIt<HubInNetworkBloc>()
-                                  ..add(const HubInNetworkEvent
-                                      .searchHubInNetwork(),),
+                                  ..add(
+                                    const HubInNetworkEvent
+                                        .searchHubInNetwork(),
+                                  ),
                                 child: CbjHubInNetwork(),
                               ),
                             ),
@@ -138,12 +142,14 @@ class ConnectToHubPage extends StatelessWidget {
                           /*defining default style is optional */
                           children: <TextSpan>[
                             const TextSpan(
-                                text: 'Wireless Network\n',
-                                style: TextStyle(fontSize: 16),),
+                              text: 'Wireless Network\n',
+                              style: TextStyle(fontSize: 16),
+                            ),
                             TextSpan(
-                                text: 'Connect a CyBear Jinni Hub to WiFi '
-                                    'network',
-                                style: TextStyle(color: HexColor('#D6D6D6')),),
+                              text: 'Connect a CyBear Jinni Hub to WiFi '
+                                  'network',
+                              style: TextStyle(color: HexColor('#D6D6D6')),
+                            ),
                           ],
                         ),
                       ),
@@ -163,13 +169,7 @@ class ConnectToHubPage extends StatelessWidget {
               children: [
                 TextButton(
                   onPressed: () async {
-                    Fluttertoast.showToast(
-                      msg: 'More options not supported',
-                      toastLength: Toast.LENGTH_SHORT,
-                      gravity: ToastGravity.SNACKBAR,
-                      backgroundColor: Colors.lightBlue,
-                      textColor: Theme.of(context).textTheme.bodyText1!.color,
-                    );
+                    context.router.push(const ConnectToHubMoreRoute());
                   },
                   style: TextButton.styleFrom(
                     minimumSize: const Size(70, 30),

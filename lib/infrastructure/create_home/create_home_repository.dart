@@ -16,8 +16,8 @@ import 'package:cybear_jinni/domain/user/i_user_repository.dart';
 import 'package:cybear_jinni/domain/user/user_entity.dart';
 import 'package:cybear_jinni/domain/user/user_errors.dart';
 import 'package:cybear_jinni/domain/user/user_failures.dart';
-import 'package:cybear_jinni/infrastructure/core/hive_local_db/hive_local_db.dart';
 import 'package:cybear_jinni/infrastructure/create_home/create_home_dtos.dart';
+import 'package:cybear_jinni/infrastructure/hive_local_db/hive_local_db.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/services.dart';
@@ -30,7 +30,8 @@ class CreateHomeRepository implements ICreateHomeRepository {
 
   @override
   Future<Either<CreateHomeFailure, Unit>> createNewHome(
-      CreateHomeEntity? createHomeEntity,) async {
+    CreateHomeEntity? createHomeEntity,
+  ) async {
     try {
       if (createHomeEntity!.homeDevicesUserEmail!.getOrCrash() == null ||
           createHomeEntity.homeDevicesUserEmail!.getOrCrash().isEmpty) {
@@ -41,51 +42,61 @@ class CreateHomeRepository implements ICreateHomeRepository {
           createHomeEntity.copyWith(id: HomeUniqueId());
 
       final UserEntity userEntity =
-          (await getIt<IUserRepository>().getCurrentUser()).getOrElse(() =>
-              throw UserUnexpectedValueError(const UserFailures.unexpected()),);
+          (await getIt<IUserRepository>().getCurrentUser()).getOrElse(
+        () => throw UserUnexpectedValueError(const UserFailures.unexpected()),
+      );
 
       // Create user for devices
       final registerDeviceUser =
           await getIt<IAuthFacade>().registerWithEmailAndPasswordReturnUserId(
         emailAddress: EmailAddress(
-            createHomeEntityWithId.homeDevicesUserEmail!.getOrCrash(),),
+          createHomeEntityWithId.homeDevicesUserEmail!.getOrCrash(),
+        ),
         password: Password(
-            createHomeEntityWithId.homeDevicesUserPassword!.getOrCrash(),),
+          createHomeEntityWithId.homeDevicesUserPassword!.getOrCrash(),
+        ),
       );
-      final MUser deviceUserId = registerDeviceUser.getOrElse(() =>
-          throw UserUnexpectedValueError(const UserFailures.unexpected()),);
+      final MUser deviceUserId = registerDeviceUser.getOrElse(
+        () => throw UserUnexpectedValueError(const UserFailures.unexpected()),
+      );
       createHomeEntityWithId = createHomeEntityWithId.copyWith(
-          homeDevicesUserId: HomeDevicesUserId.fromUniqueString(
-              deviceUserId.id.getOrCrash()!,),);
+        homeDevicesUserId: HomeDevicesUserId.fromUniqueString(
+          deviceUserId.id.getOrCrash()!,
+        ),
+      );
 
       // create home with the current user
       await HiveLocalDbHelper.setHomeId(createHomeEntityWithId.id.getOrCrash());
 
       final creatingHomeWithUser = await addUserToHome(userEntity);
 
-      creatingHomeWithUser.getOrElse(() =>
-          throw UserUnexpectedValueError(const UserFailures.unexpected()),);
+      creatingHomeWithUser.getOrElse(
+        () => throw UserUnexpectedValueError(const UserFailures.unexpected()),
+      );
 
       // Add the home its info like name
 
       final addHomeInfoRes = await addHomeInfo(createHomeEntityWithId);
 
-      addHomeInfoRes.getOrElse(() =>
-          throw UserUnexpectedValueError(const UserFailures.unexpected()),);
+      addHomeInfoRes.getOrElse(
+        () => throw UserUnexpectedValueError(const UserFailures.unexpected()),
+      );
 
       // Add the devices user info to home
       final saveDeviceAccountToHome =
           await addDeviceUserToHome(createHomeEntityWithId);
 
-      saveDeviceAccountToHome.getOrElse(() =>
-          throw UserUnexpectedValueError(const UserFailures.unexpected()),);
+      saveDeviceAccountToHome.getOrElse(
+        () => throw UserUnexpectedValueError(const UserFailures.unexpected()),
+      );
 
       // Add home to user homes list
       final addingHomeToUserHomesList =
           await addHomeToUserHomesList(userEntity, createHomeEntityWithId);
 
-      addingHomeToUserHomesList.getOrElse(() =>
-          throw UserUnexpectedValueError(const UserFailures.unexpected()),);
+      addingHomeToUserHomesList.getOrElse(
+        () => throw UserUnexpectedValueError(const UserFailures.unexpected()),
+      );
 
       return right(unit);
     } catch (e) {
@@ -94,7 +105,9 @@ class CreateHomeRepository implements ICreateHomeRepository {
   }
 
   Future<Either<CreateHomeFailure, Unit>> addHomeToUserHomesList(
-      UserEntity userEntity, CreateHomeEntity createHomeEntity,) async {
+    UserEntity userEntity,
+    CreateHomeEntity createHomeEntity,
+  ) async {
     try {
       final String homeId = createHomeEntity.id.getOrCrash();
       final String homeName = createHomeEntity.name.getOrCrash();
@@ -105,19 +118,24 @@ class CreateHomeRepository implements ICreateHomeRepository {
       final addHomeToUserHomesList = await getIt<IUserRepository>()
           .addHome(userEntity, allHomesOfUserEntity);
 
-      addHomeToUserHomesList.getOrElse(() =>
-          throw UserUnexpectedValueError(const UserFailures.unexpected()),);
+      addHomeToUserHomesList.getOrElse(
+        () => throw UserUnexpectedValueError(const UserFailures.unexpected()),
+      );
 
       return right(unit);
     } catch (e) {
-      return left(const CreateHomeFailure.unexpected(
-          failedValue: 'Failure adding home to user homes list',),);
+      return left(
+        const CreateHomeFailure.unexpected(
+          failedValue: 'Failure adding home to user homes list',
+        ),
+      );
     }
   }
 
   @override
   Future<Either<CreateHomeFailure, Unit>> addDeviceUserToHome(
-      CreateHomeEntity createHomeEntity,) async {
+    CreateHomeEntity createHomeEntity,
+  ) async {
     try {
       final CreateHomeDtos deviceHomeUserDtos =
           CreateHomeDtos.fromDomain(createHomeEntity);
@@ -151,11 +169,13 @@ class CreateHomeRepository implements ICreateHomeRepository {
       return left(CreateHomeFailure.unexpected(failedValue: error.toString()));
     }
     return left(
-        const CreateHomeFailure.unexpected(failedValue: 'Not implemented yet'),);
+      const CreateHomeFailure.unexpected(failedValue: 'Not implemented yet'),
+    );
   }
 
   Future<Either<CreateHomeFailure, Unit>> addHomeInfo(
-      CreateHomeEntity createHomeEntity,) async {
+    CreateHomeEntity createHomeEntity,
+  ) async {
     try {
       return right(unit);
     } on PlatformException catch (e) {
@@ -179,12 +199,14 @@ class CreateHomeRepository implements ICreateHomeRepository {
       }
     }
     return left(
-        const CreateHomeFailure.unexpected(failedValue: 'Not implemented yet'),);
+      const CreateHomeFailure.unexpected(failedValue: 'Not implemented yet'),
+    );
   }
 
   @override
   Future<Either<CreateHomeFailure, Unit>> addUserToHome(
-      UserEntity userEntity,) async {
+    UserEntity userEntity,
+  ) async {
     try {
       final String currentUserUid = userEntity.id!.getOrCrash()!;
       final String currentUserEmail = userEntity.email!.getOrCrash();
@@ -199,12 +221,16 @@ class CreateHomeRepository implements ICreateHomeRepository {
 
       final Either<AddUserToHomeFailures, Unit> createHome =
           await getIt<IAddUserToHomeRepository>().create(homeUserEntity);
-      createHome.getOrElse(() =>
-          throw UserUnexpectedValueError(const UserFailures.unexpected()),);
+      createHome.getOrElse(
+        () => throw UserUnexpectedValueError(const UserFailures.unexpected()),
+      );
       return right(unit);
     } catch (e) {
-      return left(const CreateHomeFailure.unexpected(
-          failedValue: 'Failure addUserToHome',),);
+      return left(
+        const CreateHomeFailure.unexpected(
+          failedValue: 'Failure addUserToHome',
+        ),
+      );
     }
   }
 }
