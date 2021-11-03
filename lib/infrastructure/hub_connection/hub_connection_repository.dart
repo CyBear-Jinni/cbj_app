@@ -94,7 +94,22 @@ class HubConnectionRepository extends IHubConnectionRepository {
         wifiBSSIDWithoutLastNumber != null &&
         savedWifiBssidWithoutLastNumber == wifiBSSIDWithoutLastNumber) {
       logger.i('Connect using direct connection to Hub');
-      if (hubEntity?.lastKnownIp.getOrCrash() == null) {
+
+      if (hubEntity?.lastKnownIp.getOrCrash() != null) {
+        Socket? testHubConnection;
+        try {
+          testHubConnection = await Socket.connect(
+            hubEntity!.lastKnownIp.getOrCrash(),
+            hubPort,
+            timeout: const Duration(milliseconds: 500),
+          );
+          testHubConnection.destroy();
+        } catch (e) {
+          testHubConnection?.destroy();
+
+          await searchForHub();
+        }
+      } else {
         await searchForHub();
       }
 
@@ -102,6 +117,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
         hubEntity!.lastKnownIp.getOrCrash(),
         hubPort,
       );
+
       return;
     } else {
       logger.i('Connect using Remote Pipes');
@@ -109,6 +125,8 @@ class HubConnectionRepository extends IHubConnectionRepository {
         (l) => logger.e('Cant find local Remote Pipes Dns name'),
         (r) => HubClient.createStreamWithHub(r, 50056),
       );
+      // Here for easy find and local testing
+      // HubClient.createStreamWithHub('127.0.0.1', 50056);
     }
   }
 

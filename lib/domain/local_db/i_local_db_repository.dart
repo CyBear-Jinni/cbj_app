@@ -2,8 +2,8 @@ import 'package:cybear_jinni/domain/local_db/local_db_failures.dart';
 import 'package:dartz/dartz.dart';
 
 abstract class ILocalDbRepository {
-  String remotePipesBoxPath = 'remotePipesBox';
-  String hubEntityBoxPath = 'hubEntityBox';
+  String remotePipesBoxName = 'remotePipesBox';
+  String hubEntityBoxName = 'hubEntityBox';
 
   Future<Either<LocalDbFailures, Unit>> saveRemotePipes({
     required String remotePipesDomainName,

@@ -2,7 +2,7 @@ import 'package:cybear_jinni/domain/local_db/local_db_errors.dart';
 import 'package:cybear_jinni/domain/local_db/local_db_failures.dart';
 import 'package:cybear_jinni/domain/local_db/local_db_validators.dart';
 import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:uuid/uuid.dart';
 
 @immutable

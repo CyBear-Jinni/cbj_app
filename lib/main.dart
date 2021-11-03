@@ -6,8 +6,6 @@ import 'package:dartz/dartz.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:hive/hive.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:rxdart/rxdart.dart';
 
 /// Streams are created so that app can respond to notification-related events
@@ -34,10 +32,6 @@ class ReceivedNotification {
   final String? payload;
 }
 
-Future<void> initializeHive() async {
-  await Hive.initFlutter();
-}
-
 Future<Unit> main() async {
   // needed if you intend to initialize in the `main` function
   WidgetsFlutterBinding.ensureInitialized();
@@ -49,7 +43,6 @@ Future<Unit> main() async {
 
   await initialisationNotifications();
 
-  await initializeHive();
   getIt<ILocalDbRepository>();
 
   runApp(

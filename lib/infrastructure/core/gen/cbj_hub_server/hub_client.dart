@@ -10,7 +10,7 @@ class HubClient {
   static CbjHubClient? stub;
 
   ///  Creates a stream with the Hub
-  static Future<void> createStreamWithHub(
+  static Future createStreamWithHub(
     String addressToHub,
     int hubPort,
   ) async {

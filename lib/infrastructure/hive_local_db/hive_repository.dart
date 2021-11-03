@@ -5,6 +5,7 @@ import 'package:cybear_jinni/infrastructure/hive_local_db/hive_objects/remote_pi
 import 'package:cybear_jinni/utils.dart';
 import 'package:dartz/dartz.dart';
 import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: ILocalDbRepository)
@@ -14,6 +15,7 @@ class HiveRepository extends ILocalDbRepository {
   }
 
   Future<void> asyncConstractor() async {
+    await Hive.initFlutter();
     Hive.registerAdapter(RemotePipesHiveModelAdapter());
     Hive.registerAdapter(HubEntityHiveModelAdapter());
   }
@@ -24,7 +26,7 @@ class HiveRepository extends ILocalDbRepository {
   }) async {
     try {
       final Box<RemotePipesHiveModel> remotePipesBox =
-          await Hive.openBox<RemotePipesHiveModel>(remotePipesBoxPath);
+          await Hive.openBox<RemotePipesHiveModel>(remotePipesBoxName);
 
       final RemotePipesHiveModel remotePipesHiveModel = RemotePipesHiveModel()
         ..domainName = remotePipesDomainName;
@@ -40,12 +42,11 @@ class HiveRepository extends ILocalDbRepository {
         'Remote Pipes got saved to local storage with domain name is: '
         '$remotePipesDomainName',
       );
-
-      return right(unit);
     } catch (e) {
       logger.e('Error saving Remote Pipes to local storage');
       return left(const LocalDbFailures.unexpected());
     }
+    return right(unit);
   }
 
   @override
@@ -56,7 +57,7 @@ class HiveRepository extends ILocalDbRepository {
   }) async {
     try {
       final Box<HubEntityHiveModel> hubEntityBox =
-          await Hive.openBox<HubEntityHiveModel>(hubEntityBoxPath);
+          await Hive.openBox<HubEntityHiveModel>(hubEntityBoxName);
 
       final HubEntityHiveModel hubEntityHiveModel = HubEntityHiveModel()
         ..hubNetworkBssid = hubNetworkBssid
@@ -71,19 +72,18 @@ class HiveRepository extends ILocalDbRepository {
 
       await hubEntityBox.close();
       logger.i('Hub entity got saved to local storage');
-
-      return right(unit);
     } catch (e) {
       logger.e('Error saving Hub entity to local storage: $e');
       return left(const LocalDbFailures.unexpected());
     }
+    return right(unit);
   }
 
   @override
   Future<Either<LocalDbFailures, String>> getRemotePipesDnsName() async {
     try {
       final Box<RemotePipesHiveModel> remotePipesBox =
-          await Hive.openBox<RemotePipesHiveModel>(remotePipesBoxPath);
+          await Hive.openBox<RemotePipesHiveModel>(remotePipesBoxName);
 
       final List<RemotePipesHiveModel> remotePipesHiveModelFromDb =
           remotePipesBox.values.toList().cast<RemotePipesHiveModel>();
@@ -111,7 +111,7 @@ class HiveRepository extends ILocalDbRepository {
   Future<Either<LocalDbFailures, String>> getHubEntityLastKnownIp() async {
     try {
       final Box<HubEntityHiveModel> hubEntityBox =
-          await Hive.openBox<HubEntityHiveModel>(hubEntityBoxPath);
+          await Hive.openBox<HubEntityHiveModel>(hubEntityBoxName);
 
       final List<HubEntityHiveModel> hubEntityHiveModelFromDb =
           hubEntityBox.values.toList().cast<HubEntityHiveModel>();
@@ -138,7 +138,7 @@ class HiveRepository extends ILocalDbRepository {
   Future<Either<LocalDbFailures, String>> getHubEntityNetworkBssid() async {
     try {
       final Box<HubEntityHiveModel> hubEntityBox =
-          await Hive.openBox<HubEntityHiveModel>(hubEntityBoxPath);
+          await Hive.openBox<HubEntityHiveModel>(hubEntityBoxName);
 
       final List<HubEntityHiveModel> hubEntityHiveModelFromDb =
           hubEntityBox.values.toList().cast<HubEntityHiveModel>();
@@ -148,7 +148,7 @@ class HiveRepository extends ILocalDbRepository {
             hubEntityHiveModelFromDb[0].hubNetworkBssid;
         logger.i(
           'Hub entity network bssid is: '
-          '${hubEntityHiveModelFromDb[0].lastKnownIp}',
+          '${hubEntityHiveModelFromDb[0].hubNetworkBssid}',
         );
         await hubEntityBox.close();
 
@@ -166,7 +166,7 @@ class HiveRepository extends ILocalDbRepository {
   Future<Either<LocalDbFailures, String>> getHubEntityNetworkName() async {
     try {
       final Box<HubEntityHiveModel> hubEntityBox =
-          await Hive.openBox<HubEntityHiveModel>(hubEntityBoxPath);
+          await Hive.openBox<HubEntityHiveModel>(hubEntityBoxName);
 
       final List<HubEntityHiveModel> hubEntityHiveModelFromDb =
           hubEntityBox.values.toList().cast<HubEntityHiveModel>();
@@ -175,7 +175,7 @@ class HiveRepository extends ILocalDbRepository {
         final String hubNetworkName = hubEntityHiveModelFromDb[0].networkName;
         logger.i(
           'Hub entity network name is: '
-          '${hubEntityHiveModelFromDb[0].lastKnownIp}',
+          '${hubEntityHiveModelFromDb[0].networkName}',
         );
         await hubEntityBox.close();
 

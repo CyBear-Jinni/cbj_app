@@ -2,7 +2,8 @@ import 'package:cybear_jinni/domain/local_db/local_db_failures.dart';
 import 'package:dartz/dartz.dart';
 
 Either<LocalDbFailures<String>, String> validateLocalDbEmailNotEmpty(
-    String input) {
+  String input,
+) {
   if (input.isNotEmpty) {
     return right(input);
   } else {
@@ -15,7 +16,8 @@ Either<LocalDbFailures<String>, String> validateLocalDbEmailNotEmpty(
 }
 
 Either<LocalDbFailures<String>, String> validateLocalDbNameNotEmpty(
-    String input) {
+  String input,
+) {
   if (input.isNotEmpty) {
     return right(input);
   } else {
