@@ -1,0 +1,54 @@
+import 'package:cybear_jinni/domain/hub/hub_entity.dart';
+import 'package:cybear_jinni/domain/hub/hub_value_objects.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'hub_dtos.freezed.dart';
+part 'hub_dtos.g.dart';
+
+@freezed
+abstract class HubDtos implements _$HubDtos {
+  factory HubDtos({
+    // @JsonKey(ignore: true)
+
+    required String hubNetworkBssid,
+    required String networkName,
+    required String lastKnownIp,
+    // required ServerTimestampConverter() FieldValue serverTimeStamp,
+  }) = _HubDtos;
+
+  HubDtos._();
+
+  @override
+  final String deviceDtoClassInstance = (HubDtos).toString();
+
+  factory HubDtos.fromDomain(HubEntity hubDE) {
+    return HubDtos(
+      hubNetworkBssid: hubDE.hubNetworkBssid.getOrCrash(),
+      networkName: hubDE.networkName.getOrCrash(),
+      lastKnownIp: hubDE.lastKnownIp.getOrCrash(),
+    );
+  }
+
+  factory HubDtos.fromJson(Map<String, dynamic> json) =>
+      _$HubDtosFromJson(json);
+
+  HubEntity toDomain() {
+    return HubEntity(
+      hubNetworkBssid: HubNetworkBssid(hubNetworkBssid),
+      networkName: HubNetworkName(networkName),
+      lastKnownIp: HubNetworkIp(lastKnownIp),
+    );
+  }
+}
+
+// class ServerTimestampConverter implements JsonConverter<FieldValue, Object> {
+//   const ServerTimestampConverter();
+//
+//   @override
+//   FieldValue fromJson(Object json) {
+//     return FieldValue.serverTimestamp();
+//   }
+//
+//   @override
+//   Object toJson(FieldValue fieldValue) => fieldValue;
+// }

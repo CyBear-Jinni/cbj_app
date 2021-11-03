@@ -112,6 +112,30 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                     color: Colors.blue,
                     child: ListTile(
                       leading: FaIcon(
+                        FontAwesomeIcons.globe,
+                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        size: 25,
+                      ),
+                      title: Text(
+                        'Add Remote Control Support',
+                        style: TextStyle(
+                          color: Theme.of(context).textTheme.bodyText1!.color,
+                        ),
+                      ),
+                      onTap: () {
+                        context.router.push(const RemotePipesRoute());
+                      },
+                    ),
+                  ),
+                  Divider(
+                    thickness: 0.5,
+                    height: 0.5,
+                    color: Theme.of(context).textTheme.bodyText1!.color,
+                  ),
+                  Container(
+                    color: Colors.redAccent,
+                    child: ListTile(
+                      leading: FaIcon(
                         FontAwesomeIcons.userPlus,
                         color: Theme.of(context).textTheme.bodyText1!.color,
                         size: 25,

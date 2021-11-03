@@ -7,6 +7,7 @@ import 'package:cybear_jinni/presentation/add_new_devices_process/scan_for_new_c
 import 'package:cybear_jinni/presentation/add_user_to_home/add_user_to_home_page.dart';
 import 'package:cybear_jinni/presentation/add_vendors_pages/add_lifx_vendor/add_lifx_vendor_page.dart';
 import 'package:cybear_jinni/presentation/add_vendors_pages/add_tuya_vendor/add_tuya_vendor_page.dart';
+import 'package:cybear_jinni/presentation/connect_to_hub/connect_to_hub_more_page.dart';
 import 'package:cybear_jinni/presentation/connect_to_hub/connect_to_hub_page.dart';
 import 'package:cybear_jinni/presentation/create_home/create_home_page.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/blinds/rooms_blinds_page.dart';
@@ -20,6 +21,7 @@ import 'package:cybear_jinni/presentation/introduction_screen/introduction_scree
 import 'package:cybear_jinni/presentation/join_home_by_id/join_home_by_id_page.dart';
 import 'package:cybear_jinni/presentation/manage_users/manage_users_page.dart';
 import 'package:cybear_jinni/presentation/plus_button/plus_button.dart';
+import 'package:cybear_jinni/presentation/remote_pipes/remote_pipes_page.dart';
 import 'package:cybear_jinni/presentation/scenes/scenes_page.dart';
 import 'package:cybear_jinni/presentation/sign_in_page/sign_in_page.dart';
 import 'package:cybear_jinni/presentation/splash/splash_page.dart';
@@ -32,6 +34,7 @@ import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_pag
     AutoRoute(page: SplashPage, initial: true),
     AutoRoute(page: IntroductionScreenPage),
     AutoRoute(page: ConnectToHubPage),
+    AutoRoute(page: ConnectToHubMorePage),
     AutoRoute(page: SignInPage),
     AutoRoute(page: CreateHomePage),
     AutoRoute(page: WhereToLoginPageMinimalPage),
@@ -39,6 +42,7 @@ import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_pag
     AutoRoute(page: JoinHomeByIdPage),
     AutoRoute(page: HomePage),
     AutoRoute(page: PlusButtonPage),
+    AutoRoute(page: RemotePipesPage),
     AutoRoute(page: ManageUsersPage),
     AutoRoute(page: AddUserToHomePage),
     AutoRoute(page: ScenesPage),
@@ -61,6 +65,7 @@ class $AppRouter {
   late SplashPage splashPage;
   late IntroductionScreenPage introductionScreenPage;
   late ConnectToHubPage connectToHubPage;
+  late ConnectToHubMorePage connectToHubMorePage;
   late SignInPage signInPage;
   late CreateHomePage createHomePage;
   late ScenesPage scenesPage;
@@ -76,6 +81,7 @@ class $AppRouter {
   late JoinHomeByIdPage joinHomeByIdPage;
   late HomePage homePage;
   late PlusButtonPage plusButtonPage;
+  late RemotePipesPage remotePipesPage;
   late ManageUsersPage manageUsersPage;
   late AddUserToHomePage addUserToHomePage;
   late RoomsLightsPage roomsLightsPage;

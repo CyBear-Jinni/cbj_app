@@ -2,7 +2,7 @@ import 'package:cybear_jinni/domain/add_user_to_home/add_user_to_home_errors.dar
 import 'package:cybear_jinni/domain/add_user_to_home/add_user_to_home_failures.dart';
 import 'package:cybear_jinni/domain/add_user_to_home/i_add_user_to_home_repository.dart';
 import 'package:cybear_jinni/domain/home_user/home_user_entity.dart';
-import 'package:cybear_jinni/infrastructure/core/hive_local_db/hive_local_db.dart';
+import 'package:cybear_jinni/infrastructure/hive_local_db/hive_local_db.dart';
 import 'package:cybear_jinni/infrastructure/home_user/home_user_dtos.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
