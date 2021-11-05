@@ -83,7 +83,6 @@ Future<void> zonedScheduleNotification() async {
       android: AndroidNotificationDetails(
         'your channel id',
         'your channel name',
-        'your channel description',
         sound: RawResourceAndroidNotificationSound(
           'alarm_clock_the_journey_of_waking_up_created_by_omer_luz',
         ),
@@ -103,7 +102,6 @@ Future<void> showNotificationCustomSound() async {
       AndroidNotificationDetails(
     'your other channel id',
     'your other channel name',
-    'your other channel description',
     sound: RawResourceAndroidNotificationSound('alert_sfx_created_by_omer_luz'),
   );
   const IOSNotificationDetails iOSPlatformChannelSpecifics =
@@ -138,7 +136,6 @@ Future<void> showSoundUriNotification() async {
       AndroidNotificationDetails(
     'uri channel id',
     'uri channel name',
-    'uri channel description',
     sound: uriSound,
     styleInformation: const DefaultStyleInformation(true, true),
   );
