@@ -18,6 +18,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SmartDevicesByRooms extends StatelessWidget {
   @override
@@ -280,7 +281,20 @@ class SmartDevicesByRooms extends StatelessWidget {
                                         ),
                                       );
                                     }
-                                    return const Text('Not Supported');
+
+                                    return Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: const [
+                                        CircleAvatar(
+                                          child: FaIcon(
+                                            FontAwesomeIcons.lowVision,
+                                            color: Colors.red,
+                                          ),
+                                        ),
+                                        Text('Not Supported'),
+                                      ],
+                                    );
                                   },
                                 ),
                               ],
