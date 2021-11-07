@@ -27,14 +27,14 @@ class _HomePageState extends State<HomePage> {
   }
 
   /// Tab num, value will be the default tab to show
-  int _currentTabNum = 0;
+  int _currentTabNum = 1;
   final _pages = [
     ScenesInFoldersTab(),
     SmartDevicesWidgets(),
     // BindingsPage(),
     // RoutinesPage(),
   ];
-  final _pageController = PageController();
+  final _pageController = PageController(initialPage: 1);
 
   @override
   void dispose() {

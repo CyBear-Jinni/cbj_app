@@ -95,6 +95,7 @@ class HiveRepository extends ILocalDbRepository {
           'Remote pipes domain name is: '
           '${remotePipesHiveModelFromDb[0].domainName}',
         );
+
         await remotePipesBox.close();
 
         return right(remotePipesDnsName);
