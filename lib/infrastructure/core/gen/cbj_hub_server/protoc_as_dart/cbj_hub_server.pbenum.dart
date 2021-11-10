@@ -154,6 +154,8 @@ class DeviceStateGRPC extends $pb.ProtobufEnum {
   static const DeviceStateGRPC newStateFailed = DeviceStateGRPC._(3, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'newStateFailed');
   static const DeviceStateGRPC waitingInFirebase = DeviceStateGRPC._(4, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'waitingInFirebase');
   static const DeviceStateGRPC waitingInComp = DeviceStateGRPC._(5, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'waitingInComp');
+  static const DeviceStateGRPC noDevicesToTransfer = DeviceStateGRPC._(6, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'noDevicesToTransfer');
+  static const DeviceStateGRPC pingNow = DeviceStateGRPC._(7, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'pingNow');
 
   static const $core.List<DeviceStateGRPC> values = <DeviceStateGRPC> [
     stateNotSupported,
@@ -162,6 +164,8 @@ class DeviceStateGRPC extends $pb.ProtobufEnum {
     newStateFailed,
     waitingInFirebase,
     waitingInComp,
+    noDevicesToTransfer,
+    pingNow,
   ];
 
   static final $core.Map<$core.int, DeviceStateGRPC> _byValue = $pb.ProtobufEnum.initByValue(values);
