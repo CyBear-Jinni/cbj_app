@@ -101,11 +101,13 @@ const DeviceStateGRPC$json = const {
     const {'1': 'newStateFailed', '2': 3},
     const {'1': 'waitingInFirebase', '2': 4},
     const {'1': 'waitingInComp', '2': 5},
+    const {'1': 'noDevicesToTransfer', '2': 6},
+    const {'1': 'pingNow', '2': 7},
   ],
 };
 
 /// Descriptor for `DeviceStateGRPC`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List deviceStateGRPCDescriptor = $convert.base64Decode('Cg9EZXZpY2VTdGF0ZUdSUEMSFQoRc3RhdGVOb3RTdXBwb3J0ZWQQABIYChRjYW5jZWxTdGF0ZUluUHJvY2VzcxABEgcKA2FjaxACEhIKDm5ld1N0YXRlRmFpbGVkEAMSFQoRd2FpdGluZ0luRmlyZWJhc2UQBBIRCg13YWl0aW5nSW5Db21wEAU=');
+final $typed_data.Uint8List deviceStateGRPCDescriptor = $convert.base64Decode('Cg9EZXZpY2VTdGF0ZUdSUEMSFQoRc3RhdGVOb3RTdXBwb3J0ZWQQABIYChRjYW5jZWxTdGF0ZUluUHJvY2VzcxABEgcKA2FjaxACEhIKDm5ld1N0YXRlRmFpbGVkEAMSFQoRd2FpdGluZ0luRmlyZWJhc2UQBBIRCg13YWl0aW5nSW5Db21wEAUSFwoTbm9EZXZpY2VzVG9UcmFuc2ZlchAGEgsKB3BpbmdOb3cQBw==');
 @$core.Deprecated('Use sendingTypeDescriptor instead')
 const SendingType$json = const {
   '1': 'SendingType',
