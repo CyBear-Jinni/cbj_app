@@ -3,6 +3,7 @@ import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstra
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/lights/widgets/critical_light_failure_display_widget.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/lights/widgets/room_lights.dart';
+import 'package:cybear_jinni/utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,7 +24,7 @@ class RoomsLightsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<LightsWatcherBloc, LightsWatcherState>(
       builder: (context, state) {
-        print('Lights loadSuccess');
+        logger.v('Lights loadSuccess');
 
         return state.map(
           initial: (_) => Container(),

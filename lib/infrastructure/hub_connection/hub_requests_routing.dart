@@ -13,6 +13,7 @@ import 'package:cybear_jinni/infrastructure/generic_devices/generic_smart_tv_dev
 import 'package:cybear_jinni/infrastructure/objects/enums.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/utils.dart';
+import 'package:grpc/grpc.dart';
 
 class HubRequestRouting {
   static Future<void> navigateRequest() async {
@@ -74,6 +75,12 @@ class HubRequestRouting {
         }
 
         getIt<IDeviceRepository>().addOrUpdateDevice(deviceEntity);
+      }
+    }).onError((error) {
+      if (error is GrpcError && error.code == 1) {
+        logger.v('Hub have disconnected');
+      } else {
+        logger.e('Hub stream error: $error');
       }
     });
   }
