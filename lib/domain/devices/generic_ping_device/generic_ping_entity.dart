@@ -1,18 +1,18 @@
 import 'package:cybear_jinni/domain/devices/abstract_device/core_failures.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/value_objects_core.dart';
-import 'package:cybear_jinni/domain/devices/generic_empty_device/generic_empty_value_objects.dart';
+import 'package:cybear_jinni/domain/devices/generic_ping_device/generic_ping_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/abstract_device/device_entity_dto_abstract.dart';
-import 'package:cybear_jinni/infrastructure/generic_devices/generic_empty_device/generic_empty_device_dtos.dart';
+import 'package:cybear_jinni/infrastructure/generic_devices/generic_ping_device/generic_ping_device_dtos.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:dartz/dartz.dart';
 
-/// Abstract smart GenericEmpty that exist inside a computer, the
-/// implementations will be actual GenericEmpty like blinds emptys and more
-class GenericEmptyDE extends DeviceEntityAbstract {
-  /// All public field of GenericEmpty entity
-  GenericEmptyDE({
+/// Abstract smart GenericPing that exist inside a computer, the
+/// implementations will be actual GenericPing like blinds pings and more
+class GenericPingDE extends DeviceEntityAbstract {
+  /// All public field of GenericPing entity
+  GenericPingDE({
     required CoreUniqueId uniqueId,
     required CoreUniqueId roomId,
     required DeviceVendor deviceVendor,
@@ -25,7 +25,7 @@ class GenericEmptyDE extends DeviceEntityAbstract {
     required DeviceSenderId senderId,
     required DeviceCompUuid compUuid,
     DevicePowerConsumption? powerConsumption,
-    required this.emptySwitchState,
+    required this.pingSwitchState,
   }) : super(
           uniqueId: uniqueId,
           defaultName: defaultName,
@@ -41,25 +41,26 @@ class GenericEmptyDE extends DeviceEntityAbstract {
           stateMassage: stateMassage,
         );
 
-  /// Empty instance of GenericEmptyEntity
-  factory GenericEmptyDE.empty() => GenericEmptyDE(
+  /// Ping instance of GenericPingEntity
+  factory GenericPingDE.empty() => GenericPingDE(
         uniqueId: CoreUniqueId(),
-        defaultName: DeviceDefaultName(''),
+        defaultName: DeviceDefaultName('Ping device'),
         roomId: CoreUniqueId(),
-        roomName: DeviceRoomName(''),
-        deviceStateGRPC: DeviceState(''),
-        senderDeviceOs: DeviceSenderDeviceOs(''),
-        senderDeviceModel: DeviceSenderDeviceModel(''),
-        stateMassage: DeviceStateMassage(''),
+        roomName: DeviceRoomName('Discovered'),
+        deviceStateGRPC: DeviceState(DeviceStateGRPC.ack.toString()),
+        senderDeviceOs: DeviceSenderDeviceOs('Hub'),
+        senderDeviceModel: DeviceSenderDeviceModel('Hub'),
+        stateMassage: DeviceStateMassage('Test'),
         senderId: DeviceSenderId(),
-        deviceVendor: DeviceVendor(''),
-        compUuid: DeviceCompUuid(''),
-        powerConsumption: DevicePowerConsumption(''),
-        emptySwitchState: GenericEmptySwitchState(DeviceActions.off.toString()),
+        deviceVendor: DeviceVendor(
+            VendorsAndServices.vendorsAndServicesNotSupported.toString()),
+        compUuid: DeviceCompUuid('Test'),
+        powerConsumption: DevicePowerConsumption('Test'),
+        pingSwitchState: GenericPingSwitchState(DeviceActions.off.toString()),
       );
 
-  /// State of the empty on/off
-  GenericEmptySwitchState? emptySwitchState;
+  /// State of the ping on/off
+  GenericPingSwitchState? pingSwitchState;
 
   //
   // /// Will return failure if any of the fields failed or return unit if fields
@@ -75,7 +76,7 @@ class GenericEmptyDE extends DeviceEntityAbstract {
   //           // Getting the failureOption from the TodoItem ENTITY - NOT a failureOrUnit from a VALUE OBJECT
   //           .map((todoItem) => todoItem.failureOption)
   //           .filter((o) => o.isSome())
-  //           // If we can't get the 0th element, the list is empty. In such a case, it's valid.
+  //           // If we can't get the 0th element, the list is ping. In such a case, it's valid.
   //           .getOrElse(0, (_) => none())
   //           .fold(() => right(unit), (f) => left(f)),
   //     )
@@ -89,8 +90,8 @@ class GenericEmptyDE extends DeviceEntityAbstract {
 
   @override
   DeviceEntityDtoAbstract toInfrastructure() {
-    return GenericEmptyDeviceDtos(
-      deviceDtoClass: (GenericEmptyDeviceDtos).toString(),
+    return GenericPingDeviceDtos(
+      deviceDtoClass: (GenericPingDeviceDtos).toString(),
       id: uniqueId.getOrCrash(),
       defaultName: defaultName.getOrCrash(),
       roomId: roomId.getOrCrash(),
@@ -102,7 +103,7 @@ class GenericEmptyDE extends DeviceEntityAbstract {
       senderId: senderId.getOrCrash(),
       deviceTypes: deviceTypes.getOrCrash(),
       compUuid: compUuid.getOrCrash(),
-      emptySwitchState: emptySwitchState!.getOrCrash(),
+      pingSwitchState: pingSwitchState!.getOrCrash(),
       deviceVendor: deviceVendor.getOrCrash(),
       // serverTimeStamp: FieldValue.serverTimestamp(),
     );
@@ -122,7 +123,7 @@ class GenericEmptyDE extends DeviceEntityAbstract {
   }
 
   /// Please override the following methods
-  Future<Either<CoreFailure, Unit>> turnOnEmpty() async {
+  Future<Either<CoreFailure, Unit>> turnOnPing() async {
     logger.w('Please override this method in the non generic implementation');
     return left(
       const CoreFailure.actionExcecuter(
@@ -132,7 +133,7 @@ class GenericEmptyDE extends DeviceEntityAbstract {
   }
 
   /// Please override the following methods
-  Future<Either<CoreFailure, Unit>> turnOffEmpty() async {
+  Future<Either<CoreFailure, Unit>> turnOffPing() async {
     logger.w('Please override this method in the non generic implementation');
     return left(
       const CoreFailure.actionExcecuter(

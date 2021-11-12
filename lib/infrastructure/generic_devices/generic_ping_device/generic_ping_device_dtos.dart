@@ -1,17 +1,17 @@
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/value_objects_core.dart';
-import 'package:cybear_jinni/domain/devices/generic_empty_device/generic_empty_entity.dart';
-import 'package:cybear_jinni/domain/devices/generic_empty_device/generic_empty_value_objects.dart';
+import 'package:cybear_jinni/domain/devices/generic_ping_device/generic_ping_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_ping_device/generic_ping_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/abstract_device/device_entity_dto_abstract.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'generic_empty_device_dtos.freezed.dart';
-part 'generic_empty_device_dtos.g.dart';
+part 'generic_ping_device_dtos.freezed.dart';
+part 'generic_ping_device_dtos.g.dart';
 
 @freezed
-abstract class GenericEmptyDeviceDtos
-    implements _$GenericEmptyDeviceDtos, DeviceEntityDtoAbstract {
-  factory GenericEmptyDeviceDtos({
+abstract class GenericPingDeviceDtos
+    implements _$GenericPingDeviceDtos, DeviceEntityDtoAbstract {
+  factory GenericPingDeviceDtos({
     // @JsonKey(ignore: true)
     String? deviceDtoClass,
     String? id,
@@ -23,46 +23,46 @@ abstract class GenericEmptyDeviceDtos
     required String? senderDeviceOs,
     required String? senderDeviceModel,
     required String? senderId,
-    required String? emptySwitchState,
+    required String? pingSwitchState,
     required String? deviceTypes,
     required String? compUuid,
     required String? deviceVendor
 
     // required ServerTimestampConverter() FieldValue serverTimeStamp,
     ,
-  }) = _GenericEmptyDeviceDtos;
+  }) = _GenericPingDeviceDtos;
 
-  GenericEmptyDeviceDtos._();
+  GenericPingDeviceDtos._();
 
-  factory GenericEmptyDeviceDtos.fromDomain(GenericEmptyDE genericEmptyDE) {
-    return GenericEmptyDeviceDtos(
-      deviceDtoClass: (GenericEmptyDeviceDtos).toString(),
-      id: genericEmptyDE.uniqueId.getOrCrash(),
-      defaultName: genericEmptyDE.defaultName.getOrCrash(),
-      roomId: genericEmptyDE.roomId.getOrCrash(),
-      roomName: genericEmptyDE.roomName.getOrCrash(),
-      deviceStateGRPC: genericEmptyDE.deviceStateGRPC.getOrCrash(),
-      stateMassage: genericEmptyDE.stateMassage.getOrCrash(),
-      senderDeviceOs: genericEmptyDE.senderDeviceOs.getOrCrash(),
-      senderDeviceModel: genericEmptyDE.senderDeviceModel.getOrCrash(),
-      senderId: genericEmptyDE.senderId.getOrCrash(),
-      emptySwitchState: genericEmptyDE.emptySwitchState!.getOrCrash(),
-      deviceTypes: genericEmptyDE.deviceTypes.getOrCrash(),
-      compUuid: genericEmptyDE.compUuid.getOrCrash(),
-      deviceVendor: genericEmptyDE.deviceVendor.getOrCrash(),
+  factory GenericPingDeviceDtos.fromDomain(GenericPingDE genericPingDE) {
+    return GenericPingDeviceDtos(
+      deviceDtoClass: (GenericPingDeviceDtos).toString(),
+      id: genericPingDE.uniqueId.getOrCrash(),
+      defaultName: genericPingDE.defaultName.getOrCrash(),
+      roomId: genericPingDE.roomId.getOrCrash(),
+      roomName: genericPingDE.roomName.getOrCrash(),
+      deviceStateGRPC: genericPingDE.deviceStateGRPC.getOrCrash(),
+      stateMassage: genericPingDE.stateMassage.getOrCrash(),
+      senderDeviceOs: genericPingDE.senderDeviceOs.getOrCrash(),
+      senderDeviceModel: genericPingDE.senderDeviceModel.getOrCrash(),
+      senderId: genericPingDE.senderId.getOrCrash(),
+      pingSwitchState: genericPingDE.pingSwitchState!.getOrCrash(),
+      deviceTypes: genericPingDE.deviceTypes.getOrCrash(),
+      compUuid: genericPingDE.compUuid.getOrCrash(),
+      deviceVendor: genericPingDE.deviceVendor.getOrCrash(),
       // serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }
 
-  factory GenericEmptyDeviceDtos.fromJson(Map<String, dynamic> json) =>
-      _$GenericEmptyDeviceDtosFromJson(json);
+  factory GenericPingDeviceDtos.fromJson(Map<String, dynamic> json) =>
+      _$GenericPingDeviceDtosFromJson(json);
 
   @override
-  final String deviceDtoClassInstance = (GenericEmptyDeviceDtos).toString();
+  final String deviceDtoClassInstance = (GenericPingDeviceDtos).toString();
 
   @override
   DeviceEntityAbstract toDomain() {
-    return GenericEmptyDE(
+    return GenericPingDE(
       uniqueId: CoreUniqueId.fromUniqueString(id),
       defaultName: DeviceDefaultName(defaultName),
       roomId: CoreUniqueId.fromUniqueString(roomId),
@@ -74,7 +74,7 @@ abstract class GenericEmptyDeviceDtos
       senderId: DeviceSenderId.fromUniqueString(senderId),
       deviceVendor: DeviceVendor(deviceVendor),
       compUuid: DeviceCompUuid(compUuid),
-      emptySwitchState: GenericEmptySwitchState(emptySwitchState),
+      pingSwitchState: GenericPingSwitchState(pingSwitchState),
     );
   }
 }
