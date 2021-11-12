@@ -1,6 +1,6 @@
 name: cybear_jinni
 description: CyBear Jinni app to interact with your CyBear Jinni Smart Devices
-version: 1.1.1+34
+version: 1.1.1+35
 homepage: https://cybearjinni.com
 
 publish_to: 'none'
@@ -48,8 +48,9 @@ dependencies:
   connectivity_plus: ^2.0.2
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.3
+  cupertino_icons: ^1.0.4
   # Functional programming thingies, let you use multiple return types
+  # Functional programming thingipes, let you use multiple return types
   dartz: ^0.10.0
   # Get current device information from within the Flutter application.
   device_info: ^2.0.3
@@ -66,9 +67,9 @@ dependencies:
   flutter:
     sdk: flutter
   # Bloc for state management, replace StatefulWidget
-  flutter_bloc: ^7.3.2
+  flutter_bloc: ^7.3.3
   # A cross platform plugin for displaying local notifications.
-  flutter_local_notifications: ^9.0.2
+  flutter_local_notifications: ^9.1.0
   # Getting the local timezone of the os.
   flutter_native_timezone: ^2.0.0
   # An easy to implement custom switch
@@ -150,7 +151,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   # Code generator for unions/pattern-matching/copy.
-  freezed: ^0.15.0+1
+  freezed: ^0.15.1+1
   # Automatically generates TypeAdapters to store any class.
   hive_generator: ^1.1.1
 #  # Extension for Hive. Automatically generates TypeAdapters to store any class.
