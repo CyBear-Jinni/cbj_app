@@ -1,7 +1,5 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/hub_in_network/hub_in_network_bloc.dart';
 import 'package:cybear_jinni/domain/hub/hub_failures.dart';
-import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,11 +18,7 @@ class CbjHubInNetwork extends StatelessWidget {
             width: 70,
             child: CircularProgressIndicator(),
           ),
-          loadSuccess: (_) {
-            context.router.replace(const HomeRoute());
-
-            return const Text('Found hub');
-          },
+          loadSuccess: (_) => const Text('Found hub'),
           loadFailure: (failure) {
             if (failure.hubFailure ==
                 const HubFailures.cantFindHubInNetwork()) {

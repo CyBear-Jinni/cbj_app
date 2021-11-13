@@ -81,11 +81,11 @@ class ConnectToHubPage extends StatelessWidget {
                           Expanded(
                             child: Center(
                               child: BlocProvider(
-                                create: (context) => getIt<HubInNetworkBloc>()
-                                  ..add(
-                                    const HubInNetworkEvent
-                                        .searchHubInNetwork(),
-                                  ),
+                                create: (BuildContext context) =>
+                                    getIt<HubInNetworkBloc>()
+                                      ..add(
+                                        HubInNetworkEvent.initialEvent(context),
+                                      ),
                                 child: CbjHubInNetwork(),
                               ),
                             ),
