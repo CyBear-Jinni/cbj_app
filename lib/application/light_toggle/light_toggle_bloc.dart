@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
+import 'package:cybear_jinni/utils.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/widgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -19,6 +20,10 @@ class LightToggleBloc extends Bloc<LightToggleEvent, LightToggleState> {
 
   final IDeviceRepository _deviceRepository;
 
+  int sendNewColorEachMiliseconds = 200;
+  Timer? timeFromLastColorChange;
+  HSVColor? lastColoredPicked;
+
   @override
   Stream<LightToggleState> mapEventToState(
     LightToggleEvent event,
@@ -28,8 +33,6 @@ class LightToggleBloc extends Bloc<LightToggleEvent, LightToggleState> {
         final actionResult = await _deviceRepository.create(event.deviceEntity);
       },
       changeAction: (e) async* {
-        // ..lightSwitchState = GenericLightSwitchState(value.toString());
-
         const LightToggleState.loadInProgress();
 
         Either<DevicesFailure, Unit> actionResult;
@@ -50,11 +53,26 @@ class LightToggleBloc extends Bloc<LightToggleEvent, LightToggleState> {
         );
       },
       changeColor: (_ChangeColor e) async* {
-        await _deviceRepository.changeColorDevices(
-          devicesId: [e.deviceEntity.uniqueId.getOrCrash()!],
-          colorToChange: e.newColor,
-        );
+        lastColoredPicked = e.newColor;
+        timeFromLastColorChange ??=
+            Timer(Duration(milliseconds: sendNewColorEachMiliseconds), () {
+          changeColorOncePerTimer(e);
+        });
       },
+    );
+  }
+
+  /// This function will make sure that the app sends color once each x seconds.
+  /// Moving the hand on the color slider sends tons of requests with
+  /// different colors which is not efficient and some device can't even handle
+  /// so many requests.
+  Future<void> changeColorOncePerTimer(_ChangeColor e) async {
+    timeFromLastColorChange = null;
+
+    logger.w('Changing color per timer test');
+    await _deviceRepository.changeColorDevices(
+      devicesId: [e.deviceEntity.uniqueId.getOrCrash()!],
+      colorToChange: lastColoredPicked!,
     );
   }
 }

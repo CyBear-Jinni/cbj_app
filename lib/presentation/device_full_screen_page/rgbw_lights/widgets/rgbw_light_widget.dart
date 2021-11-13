@@ -91,8 +91,6 @@ class RgbwLightWidget extends StatelessWidget {
                         color,
                       ),
                     );
-                print('Colors is ss $color');
-                // do something with color
               },
             ),
           ],
