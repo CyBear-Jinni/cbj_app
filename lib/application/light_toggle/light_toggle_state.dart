@@ -9,6 +9,6 @@ class LightToggleState with _$LightToggleState {
 
   factory LightToggleState.initial() => LightToggleState(
         hsvColor: HSVColor.fromColor(Colors.white),
-        brightness: 1,
+        brightness: 100,
       );
 }

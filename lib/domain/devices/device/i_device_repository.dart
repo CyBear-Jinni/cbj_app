@@ -64,6 +64,11 @@ abstract class IDeviceRepository {
     required HSVColor colorToChange,
   });
 
+  Future<Either<DevicesFailure, Unit>> changeBrightnessDevices({
+    required List<String>? devicesId,
+    required int brightnessToChange,
+  });
+
   Future<Either<DevicesFailure, Unit>> moveUpBlinds({
     required List<String>? devicesId,
   });
