@@ -4,14 +4,14 @@ import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_da
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:hsv_color_pickers/widgets/hue_picker.dart';
 
 /// Show light toggles in a container with the background color from smart room
 /// object
 class RgbwLightWidget extends StatelessWidget {
-  const RgbwLightWidget(this._deviceEntity);
+  RgbwLightWidget(this._deviceEntity);
 
   final GenericRgbwLightDE? _deviceEntity;
 
@@ -49,50 +49,119 @@ class RgbwLightWidget extends StatelessWidget {
         return Column(
           children: [
             Container(
-              margin: const EdgeInsets.symmetric(vertical: 5),
-              width: sizeBoxWidth + 15,
-              child: FlutterSwitch(
-                width: screenSize.width * 0.2,
-                height: screenSize.height * 0.05,
-                toggleSize: screenSize.height * 0.05,
-                value: toggleValue,
-                borderRadius: 25.0,
-                padding: 0.0,
-                activeToggleColor: const Color(0xFF2F363D),
-                inactiveToggleColor: Colors.deepPurple,
-                activeSwitchBorder: Border.all(
-                  color: (Theme.of(context).textTheme.bodyText1!.color)!,
-                ),
-                inactiveSwitchBorder: Border.all(
-                  color: (Theme.of(context).textTheme.bodyText1!.color)!,
-                ),
-                activeColor: toggleColor,
-                inactiveColor: toggleColor,
-                activeIcon: const Icon(
-                  FontAwesomeIcons.solidLightbulb,
-                  color: Color(0xFFF8E3A1),
-                ),
-                inactiveIcon: Icon(
-                  FontAwesomeIcons.lightbulb,
-                  color: Theme.of(context).textTheme.bodyText1!.color,
-                ),
-                onToggle: (bool value) => _onChange(context, value)
-                // _onChange(context, value),
-
-                ,
+              margin: const EdgeInsets.symmetric(horizontal: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    _deviceEntity!.defaultName.getOrCrash()!,
+                    style: TextStyle(
+                      fontSize: 19.0,
+                      color: Theme.of(context).textTheme.bodyText1!.color,
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.symmetric(vertical: 5),
+                    width: sizeBoxWidth + 15,
+                    child: FlutterSwitch(
+                      width: screenSize.width * 0.2,
+                      height: screenSize.height * 0.05,
+                      toggleSize: screenSize.height * 0.05,
+                      value: toggleValue,
+                      borderRadius: 25.0,
+                      padding: 0.0,
+                      activeToggleColor: const Color(0xFF2F363D),
+                      inactiveToggleColor: Colors.deepPurple,
+                      activeSwitchBorder: Border.all(
+                        color: (Theme.of(context).textTheme.bodyText1!.color)!,
+                      ),
+                      inactiveSwitchBorder: Border.all(
+                        color: (Theme.of(context).textTheme.bodyText1!.color)!,
+                      ),
+                      activeColor: toggleColor,
+                      inactiveColor: toggleColor,
+                      activeIcon: const Icon(
+                        FontAwesomeIcons.solidLightbulb,
+                        color: Color(0xFFF8E3A1),
+                      ),
+                      inactiveIcon: Icon(
+                        FontAwesomeIcons.lightbulb,
+                        color: Theme.of(context).textTheme.bodyText1!.color,
+                      ),
+                      onToggle: (bool value) => _onChange(context, value),
+                    ),
+                  ),
+                ],
               ),
             ),
-            HuePicker(
-              initialColor: HSVColor.fromColor(Colors.green),
-              onChanged: (HSVColor color) {
-                context.read<LightToggleBloc>().add(
-                      LightToggleEvent.changeColor(
-                        _deviceEntity!,
-                        color,
-                      ),
-                    );
-              },
+            const SizedBox(
+              height: 3,
             ),
+            SizedBox(
+              height: 100,
+              width: screenSize.width,
+              child: ColorPickerArea(
+                state.hsvColor,
+                (HSVColor color) {
+                  context.read<LightToggleBloc>().add(
+                        LightToggleEvent.changeColor(
+                          _deviceEntity!,
+                          color,
+                        ),
+                      );
+                },
+                PaletteType.hsvWithValue,
+              ),
+            ),
+            // Container(
+            //   color: Colors.white,
+            //   padding: const EdgeInsets.symmetric(horizontal: 10),
+            //   child: Row(
+            //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //     children: const [
+            //       Text(
+            //         'White',
+            //         style: TextStyle(color: Colors.grey, fontSize: 18),
+            //       ),
+            //       Text(
+            //         'Color',
+            //         style: TextStyle(color: Colors.grey, fontSize: 18),
+            //       ),
+            //     ],
+            //   ),
+            // ),
+            Container(
+              color: Colors.white,
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Row(
+                children: [
+                  const FaIcon(
+                    FontAwesomeIcons.solidSun,
+                    color: Colors.black,
+                  ),
+                  Expanded(
+                    child: Slider(
+                      thumbColor: Colors.white,
+                      activeColor: Colors.orangeAccent.shade100,
+                      inactiveColor: Colors.grey,
+                      value: state.brightness,
+                      onChanged: (brightness) {
+                        context.read<LightToggleBloc>().add(
+                              LightToggleEvent.changeBrightness(
+                                _deviceEntity!,
+                                brightness,
+                              ),
+                            );
+                      },
+                    ),
+                  ),
+                  Text(
+                    '${state.brightness.toString().substring(0, 3)}%',
+                    style: const TextStyle(color: Colors.black),
+                  ),
+                ],
+              ),
+            )
           ],
         );
       },

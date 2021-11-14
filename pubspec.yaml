@@ -68,6 +68,8 @@ dependencies:
     sdk: flutter
   # Bloc for state management, replace StatefulWidget
   flutter_bloc: ^7.3.3
+  # HSV(HSB)/HSL/RGB/Material color picker
+  flutter_colorpicker: ^1.0.1
   # A cross platform plugin for displaying local notifications.
   flutter_local_notifications: ^9.1.1
   # Getting the local timezone of the os.
@@ -92,8 +94,6 @@ dependencies:
   hive: ^2.0.4
   # Extension for Hive. Makes it easier to use Hive in Flutter apps.
   hive_flutter: ^1.1.0
-  # Let the user pick the hue of a HSVColor by selecting it on the slider.
-  hsv_color_pickers: ^0.1.0
   # A composable, multi-platform, Future-based API for HTTP requests.
   http: ^0.13.4
   # Convenient code generator for get_it

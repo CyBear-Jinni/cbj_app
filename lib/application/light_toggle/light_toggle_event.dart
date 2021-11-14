@@ -12,6 +12,11 @@ class LightToggleEvent with _$LightToggleEvent {
     HSVColor newColor,
   ) = _ChangeColor;
 
+  const factory LightToggleEvent.changeBrightness(
+    DeviceEntityAbstract deviceEntity,
+    double brightness,
+  ) = _ChangeBrightness;
+
   const factory LightToggleEvent.create(DeviceEntityAbstract deviceEntity) =
       _CreateDevice;
 }
