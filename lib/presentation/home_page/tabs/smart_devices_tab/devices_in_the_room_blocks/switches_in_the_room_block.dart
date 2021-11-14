@@ -88,9 +88,6 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
                   const Expanded(child: Text('')),
               ],
             ),
-            const SizedBox(
-              height: 10,
-            ),
             if (switchesInRoom.length == 1)
               Text(
                 switchesInRoom[0].defaultName.getOrCrash()!,
