@@ -9,13 +9,13 @@ import 'package:flutter/widgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
-part 'light_toggle_bloc.freezed.dart';
-part 'light_toggle_event.dart';
-part 'light_toggle_state.dart';
+part 'switch_toggle_bloc.freezed.dart';
+part 'switch_toggle_event.dart';
+part 'switch_toggle_state.dart';
 
 @injectable
-class LightToggleBloc extends Bloc<LightToggleEvent, LightToggleState> {
-  LightToggleBloc(this._deviceRepository) : super(LightToggleState.initial());
+class SwitchToggleBloc extends Bloc<SwitchToggleEvent, SwitchToggleState> {
+  SwitchToggleBloc(this._deviceRepository) : super(SwitchToggleState.initial());
 
   final IDeviceRepository _deviceRepository;
 
@@ -24,15 +24,15 @@ class LightToggleBloc extends Bloc<LightToggleEvent, LightToggleState> {
   HSVColor? lastColoredPicked;
 
   @override
-  Stream<LightToggleState> mapEventToState(
-    LightToggleEvent event,
+  Stream<SwitchToggleState> mapEventToState(
+    SwitchToggleEvent event,
   ) async* {
     yield* event.map(
       create: (e) async* {
         final actionResult = await _deviceRepository.create(event.deviceEntity);
       },
       changeAction: (e) async* {
-        const LightToggleState.loadInProgress();
+        const SwitchToggleState.loadInProgress();
 
         Either<DevicesFailure, Unit> actionResult;
 
@@ -47,8 +47,8 @@ class LightToggleBloc extends Bloc<LightToggleEvent, LightToggleState> {
         }
 
         yield actionResult.fold(
-          (devicesFailure) => LightToggleState.loadFailure(devicesFailure),
-          (_) => const LightToggleState.loadSuccess(),
+          (devicesFailure) => SwitchToggleState.loadFailure(devicesFailure),
+          (_) => const SwitchToggleState.loadSuccess(),
         );
       },
       changeColor: (_ChangeColor e) async* {

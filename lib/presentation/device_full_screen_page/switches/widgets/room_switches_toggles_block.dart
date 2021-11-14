@@ -1,45 +1,46 @@
 import 'package:cybear_jinni/domain/room/smart_room_object.dart';
-import 'package:cybear_jinni/presentation/device_full_screen_page/boilers/smart_boiler_widget.dart';
+import 'package:cybear_jinni/presentation/device_full_screen_page/switches/smart_switch_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-/// Show boiler toggles in a container with the background color from smart room
+/// Show switch toggles in a container with the background color from smart room
 /// object
-class RoomBoilersTogglesBlock extends StatelessWidget {
-  const RoomBoilersTogglesBlock(this._smartRoomObject, {this.maxBoilersToShow});
+class RoomSwitchesTogglesBlock extends StatelessWidget {
+  const RoomSwitchesTogglesBlock(this._smartRoomObject,
+      {this.maxSwitchesToShow});
 
   final SmartRoomObject? _smartRoomObject;
 
-  final int? maxBoilersToShow;
+  final int? maxSwitchesToShow;
 
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
     final double sizeBoxWidth = screenSize.width * 0.25;
 
-    /// Creates column of rows of boiler switches
+    /// Creates column of rows of switch switches
     Widget createSwitchTableWidget() {
-      final List<Widget> columnOfBoilers = <Widget>[];
+      final List<Widget> columnOfSwitches = <Widget>[];
       List<Widget> widgetsForRow = <Widget>[];
-      const int maxBoilersInRow = 2;
-      int numberOfBoilersToShow;
-      if (maxBoilersToShow != null &&
-          maxBoilersToShow! <= _smartRoomObject!.getBoilers()!.length) {
-        numberOfBoilersToShow = maxBoilersToShow!;
+      const int maxSwitchesInRow = 2;
+      int numberOfSwitchesToShow;
+      if (maxSwitchesToShow != null &&
+          maxSwitchesToShow! <= _smartRoomObject!.getSwitches()!.length) {
+        numberOfSwitchesToShow = maxSwitchesToShow!;
       } else {
-        numberOfBoilersToShow = _smartRoomObject!.getBoilers()!.length;
+        numberOfSwitchesToShow = _smartRoomObject!.getSwitches()!.length;
       }
 
-      for (int i = 0; i < numberOfBoilersToShow; i += maxBoilersInRow) {
-        for (int v = 0; v < maxBoilersInRow; v++) {
-          if (_smartRoomObject!.getBoilers()!.length > i + v) {
+      for (int i = 0; i < numberOfSwitchesToShow; i += maxSwitchesInRow) {
+        for (int v = 0; v < maxSwitchesInRow; v++) {
+          if (_smartRoomObject!.getSwitches()!.length > i + v) {
             widgetsForRow.add(
               Container(
                 margin: const EdgeInsets.symmetric(vertical: 5),
                 width: sizeBoxWidth + 15,
-                child: SmartBoilerPage(
-                  _smartRoomObject!.getBoilers()![i + v],
+                child: SmartSwitchPage(
+                  _smartRoomObject!.getSwitches()![i + v],
                 ),
               ),
             );
@@ -51,21 +52,21 @@ class RoomBoilersTogglesBlock extends StatelessWidget {
             );
           }
         }
-        final Widget rowOfBoilers = Row(
+        final Widget rowOfSwitches = Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: widgetsForRow,
         );
         widgetsForRow = <Widget>[];
-        columnOfBoilers.add(rowOfBoilers);
+        columnOfSwitches.add(rowOfSwitches);
       }
-      columnOfBoilers.add(
+      columnOfSwitches.add(
         const SizedBox(
           height: 5,
         ),
       );
 
       return Column(
-        children: columnOfBoilers,
+        children: columnOfSwitches,
       );
     }
 
@@ -98,16 +99,16 @@ class RoomBoilersTogglesBlock extends StatelessWidget {
             ),
             TextButton(
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(
-                  Colors.transparent,
-                ),
+                backgroundColor: MaterialStateProperty.all(Colors.transparent),
               ),
               onPressed: () {
-                // if (maxBoilersToShow != null &&
-                //     _smartRoomObject.getBoilers().length > maxBoilersToShow) {
-                //   ExtendedNavigator.of(context).pushBoilersInTheRoomPage(
-                //       thisSmartRoom: _smartRoomObject);
-                // }
+                if (maxSwitchesToShow != null &&
+                    _smartRoomObject!.getSwitches()!.length >
+                        maxSwitchesToShow!) {
+                  // context.router.push(
+                  //   SwitchesInTheRoomRoute(thisSmartRoom: _smartRoomObject),
+                  // );
+                }
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -120,9 +121,9 @@ class RoomBoilersTogglesBlock extends StatelessWidget {
                       decoration: TextDecoration.underline,
                     ),
                   ),
-                  if (maxBoilersToShow != null &&
-                      _smartRoomObject!.getBoilers()!.length >
-                          maxBoilersToShow!)
+                  if (maxSwitchesToShow != null &&
+                      _smartRoomObject!.getSwitches()!.length >
+                          maxSwitchesToShow!)
                     FaIcon(
                       FontAwesomeIcons.arrowRight,
                       color: Theme.of(context).textTheme.bodyText1!.color,

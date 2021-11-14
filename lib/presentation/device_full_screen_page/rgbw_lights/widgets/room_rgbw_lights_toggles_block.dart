@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/domain/room/smart_room_object.dart';
-import 'package:cybear_jinni/presentation/home_page/smart_device_widget.dart';
+import 'package:cybear_jinni/presentation/device_full_screen_page/rgbw_lights/smart_rgbw_lighte_widget.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -30,21 +30,21 @@ class RoomRgbwLightsTogglesBlock extends StatelessWidget {
       const int maxLightsInRow = 2;
       int numberOfLightsToShow;
       if (maxLightsToShow != null &&
-          maxLightsToShow! <= _smartRoomObject!.getLights()!.length) {
+          maxLightsToShow! <= _smartRoomObject!.getRgbwLightsColor()!.length) {
         numberOfLightsToShow = maxLightsToShow!;
       } else {
-        numberOfLightsToShow = _smartRoomObject!.getLights()!.length;
+        numberOfLightsToShow = _smartRoomObject!.getRgbwLightsColor()!.length;
       }
 
       for (int i = 0; i < numberOfLightsToShow; i += maxLightsInRow) {
         for (int v = 0; v < maxLightsInRow; v++) {
-          if (_smartRoomObject!.getLights()!.length > i + v) {
+          if (_smartRoomObject!.getRgbwLightsColor()!.length > i + v) {
             widgetsForRow.add(
               Container(
                 margin: const EdgeInsets.symmetric(vertical: 5),
                 width: sizeBoxWidth + 15,
-                child: SmartDevicePage(
-                  _smartRoomObject!.getLights()![i + v],
+                child: SmartRgbwLightPage(
+                  _smartRoomObject!.getRgbwLightsColor()![i + v],
                 ),
               ),
             );

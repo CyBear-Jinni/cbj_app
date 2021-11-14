@@ -2,6 +2,7 @@ import 'package:cybear_jinni/application/blinds/blinds_actor/blinds_actor_bloc.d
 import 'package:cybear_jinni/application/devices/device_watcher/device_watcher_bloc.dart';
 import 'package:cybear_jinni/application/lights/lights_actor/lights_actor_bloc.dart';
 import 'package:cybear_jinni/application/smart_tv/smart_tv_actor/smart_tv_actor_bloc.dart';
+import 'package:cybear_jinni/application/switches/switches_actor/switches_actor_bloc.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
@@ -13,6 +14,7 @@ import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devic
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/lights_in_the_room_block.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/rgbw_lights_in_the_room_block.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/smart_tv_in_the_room.dart';
+import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/switches_in_the_room_block.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -244,6 +246,18 @@ class SmartDevicesByRooms extends StatelessWidget {
                                         ),
                                       );
                                     } else if (deviceType ==
+                                        DeviceTypes.switch_.toString()) {
+                                      return BlocProvider(
+                                        create: (context) =>
+                                            getIt<SwitchesActorBloc>(),
+                                        child: SwitchesInTheRoomBlock
+                                            .withAbstractDevice(
+                                          tempDevicesByRoomsByType[roomId]![
+                                              deviceType]!,
+                                          roomColorGradiant,
+                                        ),
+                                      );
+                                    } else if (deviceType ==
                                         DeviceTypes.blinds.toString()) {
                                       return BlocProvider(
                                         create: (context) =>
@@ -281,7 +295,6 @@ class SmartDevicesByRooms extends StatelessWidget {
                                         ),
                                       );
                                     }
-
                                     return Column(
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,

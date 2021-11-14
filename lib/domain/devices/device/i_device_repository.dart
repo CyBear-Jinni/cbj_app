@@ -32,6 +32,8 @@ abstract class IDeviceRepository {
 
   Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>> watchSmartTv();
 
+  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>> watchSwitches();
+
   Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
       watchUncompleted();
 
