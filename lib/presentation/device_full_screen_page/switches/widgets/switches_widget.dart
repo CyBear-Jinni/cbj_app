@@ -67,11 +67,11 @@ class SwitchWidget extends StatelessWidget {
             inactiveColor: toggleColor,
             activeIcon: const FaIcon(
               FontAwesomeIcons.flickr,
-              color: Color(0xFFF8E3A1),
+              color: Colors.white,
             ),
-            inactiveIcon: FaIcon(
+            inactiveIcon: const FaIcon(
               FontAwesomeIcons.flickr,
-              color: Theme.of(context).textTheme.bodyText1!.color,
+              color: Colors.white70,
             ),
             onToggle: (bool value) => _onChange(context, value)
             // _onChange(context, value),
