@@ -32,6 +32,8 @@ abstract class IDeviceRepository {
 
   Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>> watchSmartTv();
 
+  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>> watchSwitches();
+
   Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
       watchUncompleted();
 
@@ -60,6 +62,11 @@ abstract class IDeviceRepository {
   Future<Either<DevicesFailure, Unit>> changeColorDevices({
     required List<String>? devicesId,
     required HSVColor colorToChange,
+  });
+
+  Future<Either<DevicesFailure, Unit>> changeBrightnessDevices({
+    required List<String>? devicesId,
+    required int brightnessToChange,
   });
 
   Future<Either<DevicesFailure, Unit>> moveUpBlinds({

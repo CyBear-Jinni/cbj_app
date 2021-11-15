@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
-import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_value_objects.dart';
+import 'package:cybear_jinni/domain/devices/generic_boiler_device/generic_boiler_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_boiler_device/generic_boiler_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums.dart';
 import 'package:flutter/cupertino.dart';
@@ -10,26 +10,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class SmartDevicePage extends StatefulWidget {
-  const SmartDevicePage(this.device);
+class SmartBoilerPage extends StatefulWidget {
+  const SmartBoilerPage(this.genericBoilerBoiler);
 
-  final GenericLightDE device;
+  final GenericBoilerDE genericBoilerBoiler;
 
   @override
   State<StatefulWidget> createState() {
-    return _SmartDevicePage();
+    return _SmartBoilerPage();
   }
 }
 
-class _SmartDevicePage extends State<SmartDevicePage> {
+class _SmartBoilerPage extends State<SmartBoilerPage> {
   bool _switchState = false;
-  GenericLightDE? _device;
+  GenericBoilerDE? _boiler;
   bool _isLoading = true;
 
   @override
   void initState() {
     super.initState();
-    _device = widget.device;
+    _boiler = widget.genericBoilerBoiler;
     getAndUpdateState();
 
     WidgetsBinding.instance!
@@ -38,7 +38,7 @@ class _SmartDevicePage extends State<SmartDevicePage> {
 
   Future<void> getAndUpdateState() async {
     try {
-      final bool stateValue = await getDeviceAction();
+      final bool stateValue = await getBoilerAction();
       if (mounted) {
         _isLoading = false;
         setState(() {
@@ -50,18 +50,18 @@ class _SmartDevicePage extends State<SmartDevicePage> {
     }
   }
 
-  //  Send request to device to retrieve his state on or off
-  Future<bool> getDeviceAction() async {
+  //  Send request to boiler to retrieve his state on or off
+  Future<bool> getBoilerAction() async {
     return _switchState = EnumHelper.stringToDeviceAction(
-          await _device!.lightSwitchState!.getOrCrash(),
+          await _boiler!.boilerSwitchState!.getOrCrash(),
         ) ==
         DeviceActions.on;
   }
 
   Future<void> _onChange(bool value) async {
     print('OnChange $value');
-    _device
-      ?..lightSwitchState = GenericLightSwitchState(
+    _boiler
+      ?..boilerSwitchState = GenericBoilerSwitchState(
         EnumHelper.deviceActionToString(
           value ? DeviceActions.on : DeviceActions.off,
         ),
@@ -79,7 +79,7 @@ class _SmartDevicePage extends State<SmartDevicePage> {
     return Column(
       children: <Widget>[
         Text(
-          _device!.defaultName.getOrCrash()!, //  Show device name
+          _boiler!.defaultName.getOrCrash()!, //  Show boiler name
           style: TextStyle(
             fontSize: 19.0,
             color: Theme.of(context).textTheme.bodyText2!.color,
@@ -109,11 +109,11 @@ class _SmartDevicePage extends State<SmartDevicePage> {
             activeColor: const Color(0xFFFFDF5D),
             inactiveColor: Theme.of(context).primaryColorDark,
             activeIcon: const Icon(
-              FontAwesomeIcons.solidLightbulb,
+              FontAwesomeIcons.temperatureHigh,
               color: Color(0xFFF8E3A1),
             ),
             inactiveIcon: Icon(
-              FontAwesomeIcons.lightbulb,
+              FontAwesomeIcons.temperatureHigh,
               color: Theme.of(context).textTheme.bodyText1!.color,
             ),
             onToggle: (bool value) => _onChange(value),

@@ -91,9 +91,6 @@ class BlindsInTheRoom extends StatelessWidget {
                   const Expanded(child: Text('')),
               ],
             ),
-            const SizedBox(
-              height: 0,
-            ),
             if (blindsInRoom!.length == 1)
               Text(
                 blindsInRoom![0]!.defaultName.getOrCrash()!,

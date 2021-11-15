@@ -2,6 +2,7 @@ import 'package:cybear_jinni/application/remote_pipes/remote_pipes_bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// Show light toggles in a container with the background color from smart room
@@ -55,9 +56,18 @@ class RemotePipesWidget extends StatelessWidget {
               ),
               TextButton(
                 onPressed: () {
+                  Fluttertoast.showToast(
+                    msg: 'Sending domain name to the Hub',
+                    toastLength: Toast.LENGTH_LONG,
+                    gravity: ToastGravity.BOTTOM,
+                    backgroundColor: Colors.blueGrey,
+                    textColor: Theme.of(context).textTheme.bodyText1!.color,
+                    fontSize: 16.0,
+                  );
                   context.read<RemotePipesBloc>().add(
                         const RemotePipesEvent.addRemotePipeUrl(),
                       );
+                  Navigator.pop(context);
                 },
                 child: const Text('Connect'),
               ),

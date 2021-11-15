@@ -11,6 +11,7 @@ import 'package:cybear_jinni/infrastructure/generic_devices/generic_light_device
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_ping_device/generic_ping_device_dtos.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_rgbw_light_device/generic_rgbw_light_device_dtos.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_smart_tv_device/generic_smart_tv_device_dtos.dart';
+import 'package:cybear_jinni/infrastructure/generic_devices/generic_switch_device/generic_switch_device_dtos.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/utils.dart';
@@ -72,6 +73,11 @@ class HubRequestRouting {
           case DeviceTypes.smartTV:
             deviceEntity =
                 GenericSmartTvDeviceDtos.fromJson(requestAsJson).toDomain();
+            logger.i('Adding Smart TV device type');
+            break;
+          case DeviceTypes.switch_:
+            deviceEntity =
+                GenericSwitchDeviceDtos.fromJson(requestAsJson).toDomain();
             logger.i('Adding Smart TV device type');
             break;
           default:

@@ -8,6 +8,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -109,6 +110,20 @@ class LifxSignInForm extends StatelessWidget {
                                     const LifxSignInFormEvent
                                         .signInWithApiKey(),
                                   );
+
+                              Fluttertoast.showToast(
+                                msg: 'Sign in to Lifix, please restart the app '
+                                    'to see the new devices',
+                                toastLength: Toast.LENGTH_LONG,
+                                gravity: ToastGravity.BOTTOM,
+                                backgroundColor: Colors.deepPurple,
+                                textColor: Theme.of(context)
+                                    .textTheme
+                                    .bodyText1!
+                                    .color,
+                                fontSize: 16.0,
+                              );
+                              Navigator.pop(context);
                             },
                             child: const Text('SIGN IN').tr(),
                           ),

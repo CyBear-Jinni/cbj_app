@@ -1,5 +1,5 @@
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
-import 'package:cybear_jinni/presentation/home_page/smart_device_widget.dart';
+import 'package:cybear_jinni/presentation/device_full_screen_page/lights/smart_lighte_widget.dart';
 import 'package:flutter/material.dart';
 
 class DevicesList extends StatefulWidget {
@@ -37,7 +37,7 @@ class _DevicesList extends State<DevicesList> {
   }
 
   Widget _buildItemList(BuildContext context, int index) {
-    return SmartDevicePage(_devices![index]);
+    return SmartLightPage(_devices![index]);
   }
 
   @override

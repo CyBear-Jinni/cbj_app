@@ -88,9 +88,6 @@ class RgbwLightsInTheRoomBlock extends StatelessWidget {
                   const Expanded(child: Text('')),
               ],
             ),
-            const SizedBox(
-              height: 10,
-            ),
             if (lightsInRoom.length == 1)
               Text(
                 lightsInRoom[0].defaultName.getOrCrash()!,
@@ -100,7 +97,7 @@ class RgbwLightsInTheRoomBlock extends StatelessWidget {
               )
             else
               Text(
-                '${lightsInRoom[0].roomName.getOrCrash()} Lights',
+                '${lightsInRoom[0].roomName.getOrCrash()} RGBW Lights',
                 style: TextStyle(
                   color: Theme.of(context).textTheme.bodyText1!.color,
                 ),
