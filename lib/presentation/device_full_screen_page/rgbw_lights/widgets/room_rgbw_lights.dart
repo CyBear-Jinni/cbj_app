@@ -31,7 +31,7 @@ class RoomRgbwLights extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
-    final double sizeBoxWidth = screenSize.width * 0.25;
+    final double sizeBoxWidth = screenSize.width - 18;
 
     Widget createSwitchTableWidget() {
       final List<Widget> columnOfLights = <Widget>[];
@@ -41,7 +41,7 @@ class RoomRgbwLights extends StatelessWidget {
           ? maxLightsToShow
           : _deviceEntityList.size;
 
-      int maxLightsInRow = 2;
+      int maxLightsInRow = 1;
 
       if (screenSize.width < 580) {
         maxLightsInRow = 1;
@@ -57,54 +57,21 @@ class RoomRgbwLights extends StatelessWidget {
               widgetsForRow
                   .add(ErrorRgbwLightsDeviceCard(device: deviceEntityTemp));
             } else {
+              EdgeInsets widgetMargin;
+              if (i == _numberOfLightsToShow - 1) {
+                widgetMargin = const EdgeInsets.only(top: 5);
+              } else {
+                widgetMargin = const EdgeInsets.symmetric(vertical: 5);
+              }
+
               widgetsForRow.add(
-                Column(
-                  children: [
-                    Text(
-                      deviceEntityTemp.defaultName.getOrCrash()!,
-                      style: TextStyle(
-                        fontSize: 19.0,
-                        color: Theme.of(context).textTheme.bodyText1!.color,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 3,
-                    ),
-                    // TODO: Add the brightness slider
-                    // SleekCircularSlider(
-                    //   onChangeStart: (double value) {},
-                    //   onChange: (value) {},
-                    //   onChangeEnd: (double value) {},
-                    //   appearance: CircularSliderAppearance(
-                    //     customColors: CustomSliderColors(
-                    //       trackColor: Colors.white,
-                    //       progressBarColor:
-                    //           const Color(0xFFFFDF5D).withOpacity(0.7),
-                    //       hideShadow: true,
-                    //     ),
-                    //     infoProperties: InfoProperties(
-                    //         topLabelText: 'On/Off\n',
-                    //         topLabelStyle: const TextStyle(
-                    //             color: Color(0xFFFFDF5D), fontSize: 17),
-                    //         mainLabelStyle: const TextStyle(
-                    //             color: Color(0xFFFFDF5D), fontSize: 12),
-                    //         modifier: (double value) {
-                    //           return '${value.round()}%';
-                    //         },
-                    //         bottomLabelStyle: const TextStyle(
-                    //             color: Color(0xFFFFDF5D), fontSize: 12),
-                    //         bottomLabelText: 'Brightness'),
-                    //   ),
-                    // ),
-                    Container(
-                      margin: const EdgeInsets.symmetric(vertical: 5),
-                      width: sizeBoxWidth + 15,
-                      child: BlocProvider(
-                        create: (context) => getIt<LightToggleBloc>(),
-                        child: RgbwLightWidget(deviceEntityTemp),
-                      ),
-                    ),
-                  ],
+                Container(
+                  margin: widgetMargin,
+                  width: sizeBoxWidth,
+                  child: BlocProvider(
+                    create: (context) => getIt<LightToggleBloc>(),
+                    child: RgbwLightWidget(deviceEntityTemp),
+                  ),
                 ),
               );
             }
@@ -123,11 +90,6 @@ class RoomRgbwLights extends StatelessWidget {
         widgetsForRow = <Widget>[];
         columnOfLights.add(rowOfLights);
       }
-      columnOfLights.add(
-        const SizedBox(
-          height: 5,
-        ),
-      );
 
       return Column(
         children: columnOfLights,
@@ -197,6 +159,16 @@ class RoomRgbwLights extends StatelessWidget {
               padding: EdgeInsets.all(5),
             ),
             createSwitchTableWidget(),
+            Container(
+              height: 20,
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(30),
+                  bottomRight: Radius.circular(30),
+                ),
+                color: Colors.white,
+              ),
+            ),
           ],
         ),
       ),

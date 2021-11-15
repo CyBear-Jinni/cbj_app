@@ -85,9 +85,6 @@ class SmartTvInTheRoom extends StatelessWidget {
                   const Expanded(child: Text('')),
               ],
             ),
-            const SizedBox(
-              height: 10,
-            ),
             if (smartTvsInRoom!.length == 1)
               Text(
                 smartTvsInRoom![0].defaultName.getOrCrash()!,

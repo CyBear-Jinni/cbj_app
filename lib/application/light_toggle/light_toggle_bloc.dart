@@ -5,7 +5,7 @@ import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstra
 import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
 import 'package:dartz/dartz.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -28,10 +28,6 @@ class LightToggleBloc extends Bloc<LightToggleEvent, LightToggleState> {
         final actionResult = await _deviceRepository.create(event.deviceEntity);
       },
       changeAction: (e) async* {
-        // ..lightSwitchState = GenericLightSwitchState(value.toString());
-
-        const LightToggleState.loadInProgress();
-
         Either<DevicesFailure, Unit> actionResult;
 
         if (e.changeToState) {
@@ -43,16 +39,20 @@ class LightToggleBloc extends Bloc<LightToggleEvent, LightToggleState> {
             devicesId: [e.deviceEntity.uniqueId.getOrCrash()!],
           );
         }
-
-        yield actionResult.fold(
-          (devicesFailure) => LightToggleState.loadFailure(devicesFailure),
-          (_) => const LightToggleState.loadSuccess(),
-        );
       },
       changeColor: (_ChangeColor e) async* {
-        await _deviceRepository.changeColorDevices(
+        yield state.copyWith(hsvColor: e.newColor);
+        _deviceRepository.changeColorDevices(
           devicesId: [e.deviceEntity.uniqueId.getOrCrash()!],
           colorToChange: e.newColor,
+        );
+      },
+      changeBrightness: (_ChangeBrightness value) async* {
+        yield state.copyWith(brightness: value.brightness);
+
+        _deviceRepository.changeBrightnessDevices(
+          devicesId: [value.deviceEntity.uniqueId.getOrCrash()!],
+          brightnessToChange: value.brightness.round(),
         );
       },
     );

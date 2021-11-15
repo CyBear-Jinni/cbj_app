@@ -41,7 +41,7 @@ class BoilersInTheRoom extends StatelessWidget {
       },
       child: Container(
         color: Colors.amber.withOpacity(0.03),
-        margin: const EdgeInsets.all(5),
+        margin: const EdgeInsets.symmetric(horizontal: 5),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -90,7 +90,7 @@ class BoilersInTheRoom extends StatelessWidget {
               ],
             ),
             const SizedBox(
-              height: 10,
+              height: 0,
             ),
             if (boilersInRoom!.length == 1)
               Text(
@@ -106,6 +106,9 @@ class BoilersInTheRoom extends StatelessWidget {
                   color: Theme.of(context).textTheme.bodyText1!.color,
                 ),
               ),
+            const SizedBox(
+              height: 10,
+            ),
           ],
         ),
       ),
