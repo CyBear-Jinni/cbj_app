@@ -67,6 +67,12 @@ class GenericRgbwLightDE extends DeviceEntityAbstract {
   /// Brightness 0-100%
   GenericRgbwLightBrightness lightBrightness;
 
+  int sendNewColorEachMiliseconds = 200;
+  bool doesWaitingToSendColorRequest = false;
+
+  int sendNewBrightnessEachMiliseconds = 200;
+  bool doesWaitingToSendBrightnessRequest = false;
+
   /// Empty instance of GenericLightEntity
   factory GenericRgbwLightDE.empty() => GenericRgbwLightDE(
         uniqueId: CoreUniqueId(),

@@ -143,6 +143,7 @@ class RgbwLightWidget extends StatelessWidget {
                         inactiveColor: Colors.grey,
                         value: state.brightness,
                         divisions: 100,
+                        min: 1,
                         max: 100,
                         onChanged: (brightness) {
                           context.read<LightToggleBloc>().add(

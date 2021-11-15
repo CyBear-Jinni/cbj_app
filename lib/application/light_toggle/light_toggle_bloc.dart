@@ -19,10 +19,6 @@ class LightToggleBloc extends Bloc<LightToggleEvent, LightToggleState> {
 
   final IDeviceRepository _deviceRepository;
 
-  int sendNewColorEachMiliseconds = 200;
-  Timer? timeFromLastColorChange;
-  HSVColor? lastColoredPicked;
-
   @override
   Stream<LightToggleState> mapEventToState(
     LightToggleEvent event,
@@ -45,32 +41,20 @@ class LightToggleBloc extends Bloc<LightToggleEvent, LightToggleState> {
         }
       },
       changeColor: (_ChangeColor e) async* {
-        lastColoredPicked = e.newColor;
-        timeFromLastColorChange ??=
-            Timer(Duration(milliseconds: sendNewColorEachMiliseconds), () {
-          changeColorOncePerTimer(e);
-          timeFromLastColorChange = null;
-        });
-        yield state.copyWith(hsvColor: lastColoredPicked!);
+        yield state.copyWith(hsvColor: e.newColor);
+        _deviceRepository.changeColorDevices(
+          devicesId: [e.deviceEntity.uniqueId.getOrCrash()!],
+          colorToChange: e.newColor,
+        );
       },
       changeBrightness: (_ChangeBrightness value) async* {
+        yield state.copyWith(brightness: value.brightness);
+
         _deviceRepository.changeBrightnessDevices(
           devicesId: [value.deviceEntity.uniqueId.getOrCrash()!],
           brightnessToChange: value.brightness.round(),
         );
-        yield state.copyWith(brightness: value.brightness);
       },
-    );
-  }
-
-  /// This function will make sure that the app sends color once each x seconds.
-  /// Moving the hand on the color slider sends tons of requests with
-  /// different colors which is not efficient and some device can't even handle
-  /// so many requests.
-  Future<void> changeColorOncePerTimer(_ChangeColor e) async {
-    await _deviceRepository.changeColorDevices(
-      devicesId: [e.deviceEntity.uniqueId.getOrCrash()!],
-      colorToChange: lastColoredPicked!,
     );
   }
 }

@@ -387,7 +387,29 @@ class DeviceRepository implements IDeviceRepository {
           continue;
         }
 
-        updateWithDeviceEntity(deviceEntity: deviceEntity);
+        try {
+          if (!deviceEntity.doesWaitingToSendColorRequest) {
+            deviceEntity.doesWaitingToSendColorRequest = true;
+
+            final Future<Either<DevicesFailure, Unit>> updateEntityResponse =
+                updateWithDeviceEntity(deviceEntity: deviceEntity);
+
+            await Future.delayed(
+              Duration(milliseconds: deviceEntity.sendNewColorEachMiliseconds),
+            );
+            deviceEntity.doesWaitingToSendColorRequest = false;
+
+            return updateEntityResponse;
+          }
+        } catch (e) {
+          await Future.delayed(
+            Duration(
+              milliseconds: deviceEntity.sendNewBrightnessEachMiliseconds,
+            ),
+          );
+          deviceEntity.doesWaitingToSendColorRequest = false;
+          return left(const DevicesFailure.unexpected());
+        }
       }
     } on PlatformException catch (e) {
       if (e.message!.contains('PERMISSION_DENIED')) {
@@ -403,9 +425,10 @@ class DeviceRepository implements IDeviceRepository {
   }
 
   @override
-  Future<Either<DevicesFailure, Unit>> changeBrightnessDevices(
-      {required List<String>? devicesId,
-      required int brightnessToChange}) async {
+  Future<Either<DevicesFailure, Unit>> changeBrightnessDevices({
+    required List<String>? devicesId,
+    required int brightnessToChange,
+  }) async {
     final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
         await getDeviceEntityListFromId(devicesId!);
 
@@ -426,7 +449,30 @@ class DeviceRepository implements IDeviceRepository {
           continue;
         }
 
-        updateWithDeviceEntity(deviceEntity: deviceEntity);
+        try {
+          if (!deviceEntity.doesWaitingToSendBrightnessRequest) {
+            deviceEntity.doesWaitingToSendBrightnessRequest = true;
+
+            final Future<Either<DevicesFailure, Unit>> updateEntityResponse =
+                updateWithDeviceEntity(deviceEntity: deviceEntity);
+
+            await Future.delayed(
+              Duration(
+                milliseconds: deviceEntity.sendNewBrightnessEachMiliseconds,
+              ),
+            );
+            deviceEntity.doesWaitingToSendBrightnessRequest = false;
+            return updateEntityResponse;
+          }
+        } catch (e) {
+          await Future.delayed(
+            Duration(
+              milliseconds: deviceEntity.sendNewBrightnessEachMiliseconds,
+            ),
+          );
+          deviceEntity.doesWaitingToSendBrightnessRequest = false;
+          return left(const DevicesFailure.unexpected());
+        }
       }
     } on PlatformException catch (e) {
       if (e.message!.contains('PERMISSION_DENIED')) {
