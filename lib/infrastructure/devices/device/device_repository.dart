@@ -24,7 +24,7 @@ import 'package:cybear_jinni/infrastructure/generic_devices/abstract_device/devi
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:dartz/dartz.dart';
-import 'package:device_info/device_info.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/src/painting/colors.dart';
 import 'package:injectable/injectable.dart';
@@ -184,12 +184,12 @@ class DeviceRepository implements IDeviceRepository {
       final DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
       if (Platform.isAndroid) {
         final AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
-        print(androidInfo.model);
-        deviceModelString = androidInfo.model;
+        logger.i(androidInfo.model);
+        deviceModelString = androidInfo.model!;
       } else if (Platform.isIOS) {
         final IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
-        print(iosInfo.utsname.machine);
-        deviceModelString = iosInfo.model;
+        logger.i(iosInfo.utsname.machine);
+        deviceModelString = iosInfo.model!;
       }
 
       final UserEntity currentUserEntity =

@@ -16,8 +16,9 @@ import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_da
 import 'package:cybear_jinni/infrastructure/core/gen/security_bear/client/protoc_as_dart/security_bear_connections.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/security_bear/client/security_bear_server_client.dart';
 import 'package:cybear_jinni/injection.dart';
+import 'package:cybear_jinni/utils.dart';
 import 'package:dartz/dartz.dart';
-import 'package:device_info/device_info.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
 
@@ -195,12 +196,12 @@ class CBJCompRepository implements ICBJCompRepository {
     final DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
     if (Platform.isAndroid) {
       final AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
-      print(androidInfo.model);
-      deviceModelString = androidInfo.model;
+      logger.i(androidInfo.model);
+      deviceModelString = androidInfo.model!;
     } else if (Platform.isIOS) {
       final IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
-      print(iosInfo.utsname.machine);
-      deviceModelString = iosInfo.model;
+      logger.i(iosInfo.utsname.machine);
+      deviceModelString = iosInfo.model!;
     }
 
     final CompSpecs compSpecs = CompSpecs(
