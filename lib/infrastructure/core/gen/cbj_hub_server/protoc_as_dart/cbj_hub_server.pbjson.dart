@@ -8,6 +8,46 @@
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
+@$core.Deprecated('Use sendingTypeDescriptor instead')
+const SendingType$json = const {
+  '1': 'SendingType',
+  '2': const [
+    const {'1': 'undefinedType', '2': 0},
+    const {'1': 'stringType', '2': 1},
+    const {'1': 'partialDeviceType', '2': 2},
+    const {'1': 'deviceType', '2': 3},
+    const {'1': 'mqttMassageType', '2': 4},
+    const {'1': 'sceneType', '2': 5},
+    const {'1': 'scheduleType', '2': 6},
+    const {'1': 'routineType', '2': 7},
+    const {'1': 'bindingsType', '2': 8},
+    const {'1': 'vendorLoginType', '2': 9},
+    const {'1': 'firstConnection', '2': 10},
+    const {'1': 'remotePipesInformation', '2': 11},
+    const {'1': 'getHubDeviceInfo', '2': 12},
+    const {'1': 'responseHubDeviceInfo', '2': 13},
+  ],
+};
+
+/// Descriptor for `SendingType`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List sendingTypeDescriptor = $convert.base64Decode('CgtTZW5kaW5nVHlwZRIRCg11bmRlZmluZWRUeXBlEAASDgoKc3RyaW5nVHlwZRABEhUKEXBhcnRpYWxEZXZpY2VUeXBlEAISDgoKZGV2aWNlVHlwZRADEhMKD21xdHRNYXNzYWdlVHlwZRAEEg0KCXNjZW5lVHlwZRAFEhAKDHNjaGVkdWxlVHlwZRAGEg8KC3JvdXRpbmVUeXBlEAcSEAoMYmluZGluZ3NUeXBlEAgSEwoPdmVuZG9yTG9naW5UeXBlEAkSEwoPZmlyc3RDb25uZWN0aW9uEAoSGgoWcmVtb3RlUGlwZXNJbmZvcm1hdGlvbhALEhQKEGdldEh1YkRldmljZUluZm8QDBIZChVyZXNwb25zZUh1YkRldmljZUluZm8QDQ==');
+@$core.Deprecated('Use deviceStateGRPCDescriptor instead')
+const DeviceStateGRPC$json = const {
+  '1': 'DeviceStateGRPC',
+  '2': const [
+    const {'1': 'stateNotSupported', '2': 0},
+    const {'1': 'cancelStateInProcess', '2': 1},
+    const {'1': 'ack', '2': 2},
+    const {'1': 'newStateFailed', '2': 3},
+    const {'1': 'waitingInFirebase', '2': 4},
+    const {'1': 'waitingInComp', '2': 5},
+    const {'1': 'noDevicesToTransfer', '2': 6},
+    const {'1': 'pingNow', '2': 7},
+  ],
+};
+
+/// Descriptor for `DeviceStateGRPC`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List deviceStateGRPCDescriptor = $convert.base64Decode('Cg9EZXZpY2VTdGF0ZUdSUEMSFQoRc3RhdGVOb3RTdXBwb3J0ZWQQABIYChRjYW5jZWxTdGF0ZUluUHJvY2VzcxABEgcKA2FjaxACEhIKDm5ld1N0YXRlRmFpbGVkEAMSFQoRd2FpdGluZ0luRmlyZWJhc2UQBBIRCg13YWl0aW5nSW5Db21wEAUSFwoTbm9EZXZpY2VzVG9UcmFuc2ZlchAGEgsKB3BpbmdOb3cQBw==');
 @$core.Deprecated('Use vendorsAndServicesDescriptor instead')
 const VendorsAndServices$json = const {
   '1': 'VendorsAndServices',
@@ -91,44 +131,6 @@ const WhenToExecute$json = const {
 
 /// Descriptor for `WhenToExecute`. Decode as a `google.protobuf.EnumDescriptorProto`.
 final $typed_data.Uint8List whenToExecuteDescriptor = $convert.base64Decode('Cg1XaGVuVG9FeGVjdXRlEg0KCXVuZGVmaW5lZBAAEhQKEG9uT2RkTnVtYmVyUHJlc3MQARITCg9ldmVuTnVtYmVyUHJlc3MQAhIXChNiZXR3ZWVuU2VsZWN0ZWRUaW1lEAMSHAoYZG9Ob3RCZXR3ZWVuU2VsZWN0ZWRUaW1lEAQSDgoKYWxsVGhlVGltZRAFEgkKBW5ldmVyEAYSCwoHb25jZU5vdxAHEhYKEm9uY2VJblNlbGVjdGVkVGltZRAIEioKJm9ubHlJZkRldmljZUxpc3RJc0FyZUluQWN0aW9uTGlzdFN0YXRlEAkSCgoGYXRIb21lEAoSDQoJb3V0T2ZIb21lEAs=');
-@$core.Deprecated('Use deviceStateGRPCDescriptor instead')
-const DeviceStateGRPC$json = const {
-  '1': 'DeviceStateGRPC',
-  '2': const [
-    const {'1': 'stateNotSupported', '2': 0},
-    const {'1': 'cancelStateInProcess', '2': 1},
-    const {'1': 'ack', '2': 2},
-    const {'1': 'newStateFailed', '2': 3},
-    const {'1': 'waitingInFirebase', '2': 4},
-    const {'1': 'waitingInComp', '2': 5},
-    const {'1': 'noDevicesToTransfer', '2': 6},
-    const {'1': 'pingNow', '2': 7},
-  ],
-};
-
-/// Descriptor for `DeviceStateGRPC`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List deviceStateGRPCDescriptor = $convert.base64Decode('Cg9EZXZpY2VTdGF0ZUdSUEMSFQoRc3RhdGVOb3RTdXBwb3J0ZWQQABIYChRjYW5jZWxTdGF0ZUluUHJvY2VzcxABEgcKA2FjaxACEhIKDm5ld1N0YXRlRmFpbGVkEAMSFQoRd2FpdGluZ0luRmlyZWJhc2UQBBIRCg13YWl0aW5nSW5Db21wEAUSFwoTbm9EZXZpY2VzVG9UcmFuc2ZlchAGEgsKB3BpbmdOb3cQBw==');
-@$core.Deprecated('Use sendingTypeDescriptor instead')
-const SendingType$json = const {
-  '1': 'SendingType',
-  '2': const [
-    const {'1': 'undefinedType', '2': 0},
-    const {'1': 'stringType', '2': 1},
-    const {'1': 'partialDeviceType', '2': 2},
-    const {'1': 'deviceType', '2': 3},
-    const {'1': 'mqttMassageType', '2': 4},
-    const {'1': 'sceneType', '2': 5},
-    const {'1': 'scheduleType', '2': 6},
-    const {'1': 'routineType', '2': 7},
-    const {'1': 'bindingsType', '2': 8},
-    const {'1': 'vendorLoginType', '2': 9},
-    const {'1': 'firstConnection', '2': 10},
-    const {'1': 'remotePipesInformation', '2': 11},
-  ],
-};
-
-/// Descriptor for `SendingType`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List sendingTypeDescriptor = $convert.base64Decode('CgtTZW5kaW5nVHlwZRIRCg11bmRlZmluZWRUeXBlEAASDgoKc3RyaW5nVHlwZRABEhUKEXBhcnRpYWxEZXZpY2VUeXBlEAISDgoKZGV2aWNlVHlwZRADEhMKD21xdHRNYXNzYWdlVHlwZRAEEg0KCXNjZW5lVHlwZRAFEhAKDHNjaGVkdWxlVHlwZRAGEg8KC3JvdXRpbmVUeXBlEAcSEAoMYmluZGluZ3NUeXBlEAgSEwoPdmVuZG9yTG9naW5UeXBlEAkSEwoPZmlyc3RDb25uZWN0aW9uEAoSGgoWcmVtb3RlUGlwZXNJbmZvcm1hdGlvbhAL');
 @$core.Deprecated('Use clientStatusRequestsDescriptor instead')
 const ClientStatusRequests$json = const {
   '1': 'ClientStatusRequests',
