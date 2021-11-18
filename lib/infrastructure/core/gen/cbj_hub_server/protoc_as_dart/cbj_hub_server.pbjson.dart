@@ -178,13 +178,25 @@ final $typed_data.Uint8List firstSetupMessageDescriptor = $convert.base64Decode(
 const CompInfo$json = const {
   '1': 'CompInfo',
   '2': const [
+    const {'1': 'cbjInfo', '3': 47, '4': 1, '5': 11, '6': '.CbjHub.CbjIno', '10': 'cbjInfo'},
     const {'1': 'compSpecs', '3': 21, '4': 1, '5': 11, '6': '.CbjHub.CompSpecs', '10': 'compSpecs'},
-    const {'1': 'smartDevicesInComp', '3': 28, '4': 3, '5': 11, '6': '.CbjHub.SmartDeviceInfo', '10': 'smartDevicesInComp'},
   ],
 };
 
 /// Descriptor for `CompInfo`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List compInfoDescriptor = $convert.base64Decode('CghDb21wSW5mbxIvCgljb21wU3BlY3MYFSABKAsyES5DYmpIdWIuQ29tcFNwZWNzUgljb21wU3BlY3MSRwoSc21hcnREZXZpY2VzSW5Db21wGBwgAygLMhcuQ2JqSHViLlNtYXJ0RGV2aWNlSW5mb1ISc21hcnREZXZpY2VzSW5Db21w');
+final $typed_data.Uint8List compInfoDescriptor = $convert.base64Decode('CghDb21wSW5mbxIoCgdjYmpJbmZvGC8gASgLMg4uQ2JqSHViLkNiaklub1IHY2JqSW5mbxIvCgljb21wU3BlY3MYFSABKAsyES5DYmpIdWIuQ29tcFNwZWNzUgljb21wU3BlY3M=');
+@$core.Deprecated('Use cbjInoDescriptor instead')
+const CbjIno$json = const {
+  '1': 'CbjIno',
+  '2': const [
+    const {'1': 'deviceName', '3': 48, '4': 1, '5': 9, '10': 'deviceName'},
+    const {'1': 'pubspecYamlVersion', '3': 27, '4': 1, '5': 9, '10': 'pubspecYamlVersion'},
+    const {'1': 'protoLastGenDate', '3': 49, '4': 1, '5': 9, '10': 'protoLastGenDate'},
+  ],
+};
+
+/// Descriptor for `CbjIno`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List cbjInoDescriptor = $convert.base64Decode('CgZDYmpJbm8SHgoKZGV2aWNlTmFtZRgwIAEoCVIKZGV2aWNlTmFtZRIuChJwdWJzcGVjWWFtbFZlcnNpb24YGyABKAlSEnB1YnNwZWNZYW1sVmVyc2lvbhIqChBwcm90b0xhc3RHZW5EYXRlGDEgASgJUhBwcm90b0xhc3RHZW5EYXRl');
 @$core.Deprecated('Use compSpecsDescriptor instead')
 const CompSpecs$json = const {
   '1': 'CompSpecs',
@@ -194,12 +206,11 @@ const CompSpecs$json = const {
     const {'1': 'compOs', '3': 24, '4': 1, '5': 9, '10': 'compOs'},
     const {'1': 'compModel', '3': 25, '4': 1, '5': 9, '10': 'compModel'},
     const {'1': 'compType', '3': 26, '4': 1, '5': 9, '10': 'compType'},
-    const {'1': 'pubspecYamlVersion', '3': 27, '4': 1, '5': 9, '10': 'pubspecYamlVersion'},
   ],
 };
 
 /// Descriptor for `CompSpecs`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List compSpecsDescriptor = $convert.base64Decode('CglDb21wU3BlY3MSFgoGY29tcElkGBYgASgJUgZjb21wSWQSGgoIY29tcFV1aWQYFyABKAlSCGNvbXBVdWlkEhYKBmNvbXBPcxgYIAEoCVIGY29tcE9zEhwKCWNvbXBNb2RlbBgZIAEoCVIJY29tcE1vZGVsEhoKCGNvbXBUeXBlGBogASgJUghjb21wVHlwZRIuChJwdWJzcGVjWWFtbFZlcnNpb24YGyABKAlSEnB1YnNwZWNZYW1sVmVyc2lvbg==');
+final $typed_data.Uint8List compSpecsDescriptor = $convert.base64Decode('CglDb21wU3BlY3MSFgoGY29tcElkGBYgASgJUgZjb21wSWQSGgoIY29tcFV1aWQYFyABKAlSCGNvbXBVdWlkEhYKBmNvbXBPcxgYIAEoCVIGY29tcE9zEhwKCWNvbXBNb2RlbBgZIAEoCVIJY29tcE1vZGVsEhoKCGNvbXBUeXBlGBogASgJUghjb21wVHlwZQ==');
 @$core.Deprecated('Use microcontrollerSpecsDescriptor instead')
 const MicrocontrollerSpecs$json = const {
   '1': 'MicrocontrollerSpecs',
