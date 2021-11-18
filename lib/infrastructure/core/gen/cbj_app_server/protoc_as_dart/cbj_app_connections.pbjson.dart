@@ -60,8 +60,9 @@ const CompAppSpecs$json = const {
     const {'1': 'compOs', '3': 10, '4': 1, '5': 9, '10': 'compOs'},
     const {'1': 'compModel', '3': 11, '4': 1, '5': 9, '10': 'compModel'},
     const {'1': 'compType', '3': 12, '4': 1, '5': 9, '10': 'compType'},
+    const {'1': 'compIp', '3': 13, '4': 1, '5': 9, '10': 'compIp'},
   ],
 };
 
 /// Descriptor for `CompAppSpecs`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List compAppSpecsDescriptor = $convert.base64Decode('CgxDb21wQXBwU3BlY3MSFgoGY29tcElkGAggASgJUgZjb21wSWQSGgoIY29tcFV1aWQYCSABKAlSCGNvbXBVdWlkEhYKBmNvbXBPcxgKIAEoCVIGY29tcE9zEhwKCWNvbXBNb2RlbBgLIAEoCVIJY29tcE1vZGVsEhoKCGNvbXBUeXBlGAwgASgJUghjb21wVHlwZQ==');
+final $typed_data.Uint8List compAppSpecsDescriptor = $convert.base64Decode('CgxDb21wQXBwU3BlY3MSFgoGY29tcElkGAggASgJUgZjb21wSWQSGgoIY29tcFV1aWQYCSABKAlSCGNvbXBVdWlkEhYKBmNvbXBPcxgKIAEoCVIGY29tcE9zEhwKCWNvbXBNb2RlbBgLIAEoCVIJY29tcE1vZGVsEhoKCGNvbXBUeXBlGAwgASgJUghjb21wVHlwZRIWCgZjb21wSXAYDSABKAlSBmNvbXBJcA==');

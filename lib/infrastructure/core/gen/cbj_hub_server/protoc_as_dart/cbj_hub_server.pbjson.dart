@@ -206,11 +206,12 @@ const CompHubSpecs$json = const {
     const {'1': 'compOs', '3': 24, '4': 1, '5': 9, '10': 'compOs'},
     const {'1': 'compModel', '3': 25, '4': 1, '5': 9, '10': 'compModel'},
     const {'1': 'compType', '3': 26, '4': 1, '5': 9, '10': 'compType'},
+    const {'1': 'compIp', '3': 50, '4': 1, '5': 9, '10': 'compIp'},
   ],
 };
 
 /// Descriptor for `CompHubSpecs`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List compHubSpecsDescriptor = $convert.base64Decode('CgxDb21wSHViU3BlY3MSFgoGY29tcElkGBYgASgJUgZjb21wSWQSGgoIY29tcFV1aWQYFyABKAlSCGNvbXBVdWlkEhYKBmNvbXBPcxgYIAEoCVIGY29tcE9zEhwKCWNvbXBNb2RlbBgZIAEoCVIJY29tcE1vZGVsEhoKCGNvbXBUeXBlGBogASgJUghjb21wVHlwZQ==');
+final $typed_data.Uint8List compHubSpecsDescriptor = $convert.base64Decode('CgxDb21wSHViU3BlY3MSFgoGY29tcElkGBYgASgJUgZjb21wSWQSGgoIY29tcFV1aWQYFyABKAlSCGNvbXBVdWlkEhYKBmNvbXBPcxgYIAEoCVIGY29tcE9zEhwKCWNvbXBNb2RlbBgZIAEoCVIJY29tcE1vZGVsEhoKCGNvbXBUeXBlGBogASgJUghjb21wVHlwZRIWCgZjb21wSXAYMiABKAlSBmNvbXBJcA==');
 @$core.Deprecated('Use microcontrollerSpecsDescriptor instead')
 const MicrocontrollerSpecs$json = const {
   '1': 'MicrocontrollerSpecs',

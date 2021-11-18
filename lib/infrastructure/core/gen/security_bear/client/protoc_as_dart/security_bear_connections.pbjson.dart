@@ -96,8 +96,9 @@ const CompSecurityBearSpecs$json = const {
     const {'1': 'compOs', '3': 19, '4': 1, '5': 9, '10': 'compOs'},
     const {'1': 'compModel', '3': 20, '4': 1, '5': 9, '10': 'compModel'},
     const {'1': 'compType', '3': 21, '4': 1, '5': 9, '10': 'compType'},
+    const {'1': 'compIp', '3': 22, '4': 1, '5': 9, '10': 'compIp'},
   ],
 };
 
 /// Descriptor for `CompSecurityBearSpecs`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List compSecurityBearSpecsDescriptor = $convert.base64Decode('ChVDb21wU2VjdXJpdHlCZWFyU3BlY3MSFgoGY29tcElkGBEgASgJUgZjb21wSWQSGgoIY29tcFV1aWQYEiABKAlSCGNvbXBVdWlkEhYKBmNvbXBPcxgTIAEoCVIGY29tcE9zEhwKCWNvbXBNb2RlbBgUIAEoCVIJY29tcE1vZGVsEhoKCGNvbXBUeXBlGBUgASgJUghjb21wVHlwZQ==');
+final $typed_data.Uint8List compSecurityBearSpecsDescriptor = $convert.base64Decode('ChVDb21wU2VjdXJpdHlCZWFyU3BlY3MSFgoGY29tcElkGBEgASgJUgZjb21wSWQSGgoIY29tcFV1aWQYEiABKAlSCGNvbXBVdWlkEhYKBmNvbXBPcxgTIAEoCVIGY29tcE9zEhwKCWNvbXBNb2RlbBgUIAEoCVIJY29tcE1vZGVsEhoKCGNvbXBUeXBlGBUgASgJUghjb21wVHlwZRIWCgZjb21wSXAYFiABKAlSBmNvbXBJcA==');
