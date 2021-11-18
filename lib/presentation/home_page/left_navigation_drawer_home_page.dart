@@ -109,6 +109,30 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                     color: Theme.of(context).textTheme.bodyText1!.color,
                   ),
                   Container(
+                    color: Colors.orangeAccent,
+                    child: ListTile(
+                      leading: FaIcon(
+                        FontAwesomeIcons.info,
+                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        size: 25,
+                      ),
+                      title: Text(
+                        'Software Info',
+                        style: TextStyle(
+                          color: Theme.of(context).textTheme.bodyText1!.color,
+                        ),
+                      ),
+                      onTap: () {
+                        context.router.push(const SoftwareInfoRoute());
+                      },
+                    ),
+                  ),
+                  Divider(
+                    thickness: 0.5,
+                    height: 0.5,
+                    color: Theme.of(context).textTheme.bodyText1!.color,
+                  ),
+                  Container(
                     color: Colors.blue,
                     child: ListTile(
                       leading: FaIcon(
