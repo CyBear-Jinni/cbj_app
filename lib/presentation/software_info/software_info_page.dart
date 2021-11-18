@@ -8,6 +8,7 @@ import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart
 import 'package:cybear_jinni/presentation/software_info/widgets/software_info_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -39,7 +40,8 @@ class SoftwareInfoPage extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<SoftwareInfoBloc>(
-          create: (context) => getIt<SoftwareInfoBloc>(),
+          create: (context) => getIt<SoftwareInfoBloc>()
+            ..add(const SoftwareInfoEvent.initialized()),
         ),
       ],
       child: MultiBlocListener(
@@ -58,7 +60,9 @@ class SoftwareInfoPage extends StatelessWidget {
           appBar: AppBar(
             toolbarHeight: 0,
             backgroundColor: Colors.black,
-            brightness: Brightness.dark,
+            systemOverlayStyle: const SystemUiOverlayStyle(
+              statusBarIconBrightness: Brightness.light,
+            ),
           ),
           body: Container(
             color: Colors.black87,

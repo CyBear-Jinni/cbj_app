@@ -1,6 +1,5 @@
 import 'package:cybear_jinni/domain/software_info/software_info_errors.dart';
 import 'package:cybear_jinni/domain/software_info/software_info_failures.dart';
-import 'package:cybear_jinni/domain/software_info/software_info_validators.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 
@@ -36,15 +35,129 @@ abstract class SoftwareInfoValueObjectAbstract<T> {
   int get hashCode => value.hashCode;
 }
 
-class SoftwareInfoDomain extends SoftwareInfoValueObjectAbstract<String> {
-  factory SoftwareInfoDomain(String input) {
-    assert(input != null);
-    return SoftwareInfoDomain._(
-      validateSoftwareInfoEmpty(input),
-    );
+class SoftwareInfoDeviceName extends SoftwareInfoValueObjectAbstract<String> {
+  factory SoftwareInfoDeviceName(String input) {
+    if (input == null) {
+      input = '';
+    }
+    return SoftwareInfoDeviceName._(right(input));
   }
 
-  const SoftwareInfoDomain._(this.value);
+  const SoftwareInfoDeviceName._(this.value);
+
+  @override
+  final Either<SoftwareInfoFailures<String>, String> value;
+}
+
+class SoftwareInfoPubspecYamlVersion
+    extends SoftwareInfoValueObjectAbstract<String> {
+  factory SoftwareInfoPubspecYamlVersion(String input) {
+    if (input == null) {
+      input = '';
+    }
+    return SoftwareInfoPubspecYamlVersion._(right(input));
+  }
+
+  const SoftwareInfoPubspecYamlVersion._(this.value);
+
+  @override
+  final Either<SoftwareInfoFailures<String>, String> value;
+}
+
+class SoftwareInfoProtoLastGenDate
+    extends SoftwareInfoValueObjectAbstract<String> {
+  factory SoftwareInfoProtoLastGenDate(String input) {
+    if (input == null) {
+      input = '';
+    }
+    return SoftwareInfoProtoLastGenDate._(right(input));
+  }
+
+  const SoftwareInfoProtoLastGenDate._(this.value);
+
+  @override
+  final Either<SoftwareInfoFailures<String>, String> value;
+}
+
+class SoftwareInfoCompId extends SoftwareInfoValueObjectAbstract<String> {
+  factory SoftwareInfoCompId(String input) {
+    if (input == null) {
+      input = '';
+    }
+    return SoftwareInfoCompId._(right(input));
+  }
+
+  const SoftwareInfoCompId._(this.value);
+
+  @override
+  final Either<SoftwareInfoFailures<String>, String> value;
+}
+
+class SoftwareInfoCompUuid extends SoftwareInfoValueObjectAbstract<String> {
+  factory SoftwareInfoCompUuid(String input) {
+    if (input == null) {
+      input = '';
+    }
+    return SoftwareInfoCompUuid._(right(input));
+  }
+
+  const SoftwareInfoCompUuid._(this.value);
+
+  @override
+  final Either<SoftwareInfoFailures<String>, String> value;
+}
+
+class SoftwareInfoCompOs extends SoftwareInfoValueObjectAbstract<String> {
+  factory SoftwareInfoCompOs(String input) {
+    if (input == null) {
+      input = '';
+    }
+    return SoftwareInfoCompOs._(right(input));
+  }
+
+  const SoftwareInfoCompOs._(this.value);
+
+  @override
+  final Either<SoftwareInfoFailures<String>, String> value;
+}
+
+class SoftwareInfoCompModel extends SoftwareInfoValueObjectAbstract<String> {
+  factory SoftwareInfoCompModel(String input) {
+    if (input == null) {
+      input = '';
+    }
+    return SoftwareInfoCompModel._(right(input));
+  }
+
+  const SoftwareInfoCompModel._(this.value);
+
+  @override
+  final Either<SoftwareInfoFailures<String>, String> value;
+}
+
+class SoftwareInfoCompType extends SoftwareInfoValueObjectAbstract<String> {
+  factory SoftwareInfoCompType(String input) {
+    if (input == null) {
+      input = '';
+    }
+    return SoftwareInfoCompType._(right(input));
+  }
+
+  const SoftwareInfoCompType._(this.value);
+
+  @override
+  final Either<SoftwareInfoFailures<String>, String> value;
+}
+
+class SoftwareInfoCompIp extends SoftwareInfoValueObjectAbstract<String> {
+  factory SoftwareInfoCompIp(String input) {
+    if (input == null) {
+      input = '';
+    }
+    return SoftwareInfoCompIp._(right(input));
+  }
+
+  const SoftwareInfoCompIp._(this.value);
 
   @override
   final Either<SoftwareInfoFailures<String>, String> value;

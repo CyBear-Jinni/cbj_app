@@ -9,7 +9,15 @@ part 'software_info_dtos.g.dart';
 abstract class SoftwareInfoDtos implements _$SoftwareInfoDtos {
   factory SoftwareInfoDtos({
     // @JsonKey(ignore: true)
-    required String domainName,
+    required String deviceName,
+    required String pubspecYamlVersion,
+    required String protoLastGenDate,
+    required String compId,
+    required String compUuid,
+    required String compOs,
+    required String compModel,
+    required String compType,
+    required String compIp,
     // required ServerTimestampConverter() FieldValue serverTimeStamp,
   }) = _SoftwareInfoDtos;
 
@@ -18,10 +26,17 @@ abstract class SoftwareInfoDtos implements _$SoftwareInfoDtos {
   @override
   final String deviceDtoClassInstance = (SoftwareInfoDtos).toString();
 
-  factory SoftwareInfoDtos.fromDomain(SoftwareInfoEntity remotePipesDE) {
+  factory SoftwareInfoDtos.fromDomain(SoftwareInfoEntity softwareInfoEntity) {
     return SoftwareInfoDtos(
-      domainName: remotePipesDE.domainName!.getOrCrash(),
-      // serverTimeStamp: FieldValue.serverTimestamp(),
+      deviceName: softwareInfoEntity.deviceName.getOrCrash(),
+      pubspecYamlVersion: softwareInfoEntity.pubspecYamlVersion.getOrCrash(),
+      protoLastGenDate: softwareInfoEntity.protoLastGenDate.getOrCrash(),
+      compId: softwareInfoEntity.compId.getOrCrash(),
+      compUuid: softwareInfoEntity.compUuid.getOrCrash(),
+      compOs: softwareInfoEntity.compOs.getOrCrash(),
+      compModel: softwareInfoEntity.compModel.getOrCrash(),
+      compType: softwareInfoEntity.compType.getOrCrash(),
+      compIp: softwareInfoEntity.compIp.getOrCrash(),
     );
   }
 
@@ -30,7 +45,15 @@ abstract class SoftwareInfoDtos implements _$SoftwareInfoDtos {
 
   SoftwareInfoEntity toDomain() {
     return SoftwareInfoEntity(
-      domainName: SoftwareInfoDomain(domainName),
+      deviceName: SoftwareInfoDeviceName(deviceName),
+      pubspecYamlVersion: SoftwareInfoPubspecYamlVersion(pubspecYamlVersion),
+      protoLastGenDate: SoftwareInfoProtoLastGenDate(protoLastGenDate),
+      compId: SoftwareInfoCompId(compId),
+      compUuid: SoftwareInfoCompUuid(compUuid),
+      compOs: SoftwareInfoCompOs(compOs),
+      compModel: SoftwareInfoCompModel(compModel),
+      compType: SoftwareInfoCompType(deviceName),
+      compIp: SoftwareInfoCompIp(compType),
     );
   }
 }
