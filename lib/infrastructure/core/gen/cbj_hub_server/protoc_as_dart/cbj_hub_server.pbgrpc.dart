@@ -26,6 +26,10 @@ class CbjHubClient extends $grpc.Client {
           ($0.RequestsAndStatusFromHub value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $0.ClientStatusRequests.fromBuffer(value));
+  static final _$getCompInfo = $grpc.ClientMethod<$0.CompInfo, $0.CompInfo>(
+      '/CbjHub.CbjHub/getCompInfo',
+      ($0.CompInfo value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.CompInfo.fromBuffer(value));
 
   CbjHubClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -44,6 +48,11 @@ class CbjHubClient extends $grpc.Client {
       {$grpc.CallOptions? options}) {
     return $createStreamingCall(_$hubTransferDevices, request,
         options: options);
+  }
+
+  $grpc.ResponseFuture<$0.CompInfo> getCompInfo($0.CompInfo request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getCompInfo, request, options: options);
   }
 }
 
@@ -69,6 +78,18 @@ abstract class CbjHubServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) =>
             $0.RequestsAndStatusFromHub.fromBuffer(value),
         ($0.ClientStatusRequests value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.CompInfo, $0.CompInfo>(
+        'getCompInfo',
+        getCompInfo_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.CompInfo.fromBuffer(value),
+        ($0.CompInfo value) => value.writeToBuffer()));
+  }
+
+  $async.Future<$0.CompInfo> getCompInfo_Pre(
+      $grpc.ServiceCall call, $async.Future<$0.CompInfo> request) async {
+    return getCompInfo(call, await request);
   }
 
   $async.Stream<$0.RequestsAndStatusFromHub> clientTransferDevices(
@@ -76,4 +97,6 @@ abstract class CbjHubServiceBase extends $grpc.Service {
   $async.Stream<$0.ClientStatusRequests> hubTransferDevices(
       $grpc.ServiceCall call,
       $async.Stream<$0.RequestsAndStatusFromHub> request);
+  $async.Future<$0.CompInfo> getCompInfo(
+      $grpc.ServiceCall call, $0.CompInfo request);
 }

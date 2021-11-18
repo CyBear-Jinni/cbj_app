@@ -64,3 +64,40 @@ const SBFirebaseAccountInformation$json = const {
 
 /// Descriptor for `SBFirebaseAccountInformation`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List sBFirebaseAccountInformationDescriptor = $convert.base64Decode('ChxTQkZpcmViYXNlQWNjb3VudEluZm9ybWF0aW9uEiwKEWZpcmVCYXNlUHJvamVjdElkGAYgASgJUhFmaXJlQmFzZVByb2plY3RJZBImCg5maXJlQmFzZUFwaUtleRgHIAEoCVIOZmlyZUJhc2VBcGlLZXkSHAoJdXNlckVtYWlsGAggASgJUgl1c2VyRW1haWwSIgoMdXNlclBhc3N3b3JkGAkgASgJUgx1c2VyUGFzc3dvcmQ=');
+@$core.Deprecated('Use compInfoDescriptor instead')
+const CompInfo$json = const {
+  '1': 'CompInfo',
+  '2': const [
+    const {'1': 'cbjInfo', '3': 12, '4': 1, '5': 11, '6': '.SecurityBearConnections.CbjIno', '10': 'cbjInfo'},
+    const {'1': 'compSpecs', '3': 13, '4': 1, '5': 11, '6': '.SecurityBearConnections.CompSpecs', '10': 'compSpecs'},
+  ],
+};
+
+/// Descriptor for `CompInfo`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List compInfoDescriptor = $convert.base64Decode('CghDb21wSW5mbxI5CgdjYmpJbmZvGAwgASgLMh8uU2VjdXJpdHlCZWFyQ29ubmVjdGlvbnMuQ2JqSW5vUgdjYmpJbmZvEkAKCWNvbXBTcGVjcxgNIAEoCzIiLlNlY3VyaXR5QmVhckNvbm5lY3Rpb25zLkNvbXBTcGVjc1IJY29tcFNwZWNz');
+@$core.Deprecated('Use cbjInoDescriptor instead')
+const CbjIno$json = const {
+  '1': 'CbjIno',
+  '2': const [
+    const {'1': 'deviceName', '3': 14, '4': 1, '5': 9, '10': 'deviceName'},
+    const {'1': 'pubspecYamlVersion', '3': 15, '4': 1, '5': 9, '10': 'pubspecYamlVersion'},
+    const {'1': 'protoLastGenDate', '3': 16, '4': 1, '5': 9, '10': 'protoLastGenDate'},
+  ],
+};
+
+/// Descriptor for `CbjIno`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List cbjInoDescriptor = $convert.base64Decode('CgZDYmpJbm8SHgoKZGV2aWNlTmFtZRgOIAEoCVIKZGV2aWNlTmFtZRIuChJwdWJzcGVjWWFtbFZlcnNpb24YDyABKAlSEnB1YnNwZWNZYW1sVmVyc2lvbhIqChBwcm90b0xhc3RHZW5EYXRlGBAgASgJUhBwcm90b0xhc3RHZW5EYXRl');
+@$core.Deprecated('Use compSpecsDescriptor instead')
+const CompSpecs$json = const {
+  '1': 'CompSpecs',
+  '2': const [
+    const {'1': 'compId', '3': 17, '4': 1, '5': 9, '10': 'compId'},
+    const {'1': 'compUuid', '3': 18, '4': 1, '5': 9, '10': 'compUuid'},
+    const {'1': 'compOs', '3': 19, '4': 1, '5': 9, '10': 'compOs'},
+    const {'1': 'compModel', '3': 20, '4': 1, '5': 9, '10': 'compModel'},
+    const {'1': 'compType', '3': 21, '4': 1, '5': 9, '10': 'compType'},
+  ],
+};
+
+/// Descriptor for `CompSpecs`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List compSpecsDescriptor = $convert.base64Decode('CglDb21wU3BlY3MSFgoGY29tcElkGBEgASgJUgZjb21wSWQSGgoIY29tcFV1aWQYEiABKAlSCGNvbXBVdWlkEhYKBmNvbXBPcxgTIAEoCVIGY29tcE9zEhwKCWNvbXBNb2RlbBgUIAEoCVIJY29tcE1vZGVsEhoKCGNvbXBUeXBlGBUgASgJUghjb21wVHlwZQ==');
