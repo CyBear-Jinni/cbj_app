@@ -186,14 +186,14 @@ class AllRemoteCommands extends $pb.GeneratedMessage {
 
 class FirstSetupMessage extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'FirstSetupMessage', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CbjHub'), createEmptyInstance: create)
-    ..aOM<CompInfo>(38, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'compInfo', protoName: 'compInfo', subBuilder: CompInfo.create)
+    ..aOM<CompHubInfo>(38, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'compInfo', protoName: 'compInfo', subBuilder: CompHubInfo.create)
     ..aOM<FirebaseAccountInformation>(39, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'firebaseAccountInformation', protoName: 'firebaseAccountInformation', subBuilder: FirebaseAccountInformation.create)
     ..hasRequiredFields = false
   ;
 
   FirstSetupMessage._() : super();
   factory FirstSetupMessage({
-    CompInfo? compInfo,
+    CompHubInfo? compInfo,
     FirebaseAccountInformation? firebaseAccountInformation,
   }) {
     final _result = create();
@@ -227,15 +227,15 @@ class FirstSetupMessage extends $pb.GeneratedMessage {
   static FirstSetupMessage? _defaultInstance;
 
   @$pb.TagNumber(38)
-  CompInfo get compInfo => $_getN(0);
+  CompHubInfo get compInfo => $_getN(0);
   @$pb.TagNumber(38)
-  set compInfo(CompInfo v) { setField(38, v); }
+  set compInfo(CompHubInfo v) { setField(38, v); }
   @$pb.TagNumber(38)
   $core.bool hasCompInfo() => $_has(0);
   @$pb.TagNumber(38)
   void clearCompInfo() => clearField(38);
   @$pb.TagNumber(38)
-  CompInfo ensureCompInfo() => $_ensure(0);
+  CompHubInfo ensureCompInfo() => $_ensure(0);
 
   @$pb.TagNumber(39)
   FirebaseAccountInformation get firebaseAccountInformation => $_getN(1);
@@ -249,17 +249,17 @@ class FirstSetupMessage extends $pb.GeneratedMessage {
   FirebaseAccountInformation ensureFirebaseAccountInformation() => $_ensure(1);
 }
 
-class CompInfo extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CompInfo', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CbjHub'), createEmptyInstance: create)
-    ..aOM<CompSpecs>(21, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'compSpecs', protoName: 'compSpecs', subBuilder: CompSpecs.create)
-    ..aOM<CbjIno>(47, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'cbjInfo', protoName: 'cbjInfo', subBuilder: CbjIno.create)
+class CompHubInfo extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CompHubInfo', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CbjHub'), createEmptyInstance: create)
+    ..aOM<CompHubSpecs>(21, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'compSpecs', protoName: 'compSpecs', subBuilder: CompHubSpecs.create)
+    ..aOM<CbjHubIno>(47, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'cbjInfo', protoName: 'cbjInfo', subBuilder: CbjHubIno.create)
     ..hasRequiredFields = false
   ;
 
-  CompInfo._() : super();
-  factory CompInfo({
-    CompSpecs? compSpecs,
-    CbjIno? cbjInfo,
+  CompHubInfo._() : super();
+  factory CompHubInfo({
+    CompHubSpecs? compSpecs,
+    CbjHubIno? cbjInfo,
   }) {
     final _result = create();
     if (compSpecs != null) {
@@ -270,60 +270,60 @@ class CompInfo extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory CompInfo.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory CompInfo.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  factory CompHubInfo.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory CompHubInfo.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  CompInfo clone() => CompInfo()..mergeFromMessage(this);
+  CompHubInfo clone() => CompHubInfo()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  CompInfo copyWith(void Function(CompInfo) updates) => super.copyWith((message) => updates(message as CompInfo)) as CompInfo; // ignore: deprecated_member_use
+  CompHubInfo copyWith(void Function(CompHubInfo) updates) => super.copyWith((message) => updates(message as CompHubInfo)) as CompHubInfo; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static CompInfo create() => CompInfo._();
-  CompInfo createEmptyInstance() => create();
-  static $pb.PbList<CompInfo> createRepeated() => $pb.PbList<CompInfo>();
+  static CompHubInfo create() => CompHubInfo._();
+  CompHubInfo createEmptyInstance() => create();
+  static $pb.PbList<CompHubInfo> createRepeated() => $pb.PbList<CompHubInfo>();
   @$core.pragma('dart2js:noInline')
-  static CompInfo getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CompInfo>(create);
-  static CompInfo? _defaultInstance;
+  static CompHubInfo getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CompHubInfo>(create);
+  static CompHubInfo? _defaultInstance;
 
   @$pb.TagNumber(21)
-  CompSpecs get compSpecs => $_getN(0);
+  CompHubSpecs get compSpecs => $_getN(0);
   @$pb.TagNumber(21)
-  set compSpecs(CompSpecs v) { setField(21, v); }
+  set compSpecs(CompHubSpecs v) { setField(21, v); }
   @$pb.TagNumber(21)
   $core.bool hasCompSpecs() => $_has(0);
   @$pb.TagNumber(21)
   void clearCompSpecs() => clearField(21);
   @$pb.TagNumber(21)
-  CompSpecs ensureCompSpecs() => $_ensure(0);
+  CompHubSpecs ensureCompSpecs() => $_ensure(0);
 
   @$pb.TagNumber(47)
-  CbjIno get cbjInfo => $_getN(1);
+  CbjHubIno get cbjInfo => $_getN(1);
   @$pb.TagNumber(47)
-  set cbjInfo(CbjIno v) { setField(47, v); }
+  set cbjInfo(CbjHubIno v) { setField(47, v); }
   @$pb.TagNumber(47)
   $core.bool hasCbjInfo() => $_has(1);
   @$pb.TagNumber(47)
   void clearCbjInfo() => clearField(47);
   @$pb.TagNumber(47)
-  CbjIno ensureCbjInfo() => $_ensure(1);
+  CbjHubIno ensureCbjInfo() => $_ensure(1);
 }
 
-class CbjIno extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CbjIno', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CbjHub'), createEmptyInstance: create)
+class CbjHubIno extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CbjHubIno', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CbjHub'), createEmptyInstance: create)
     ..aOS(27, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pubspecYamlVersion', protoName: 'pubspecYamlVersion')
     ..aOS(48, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'deviceName', protoName: 'deviceName')
     ..aOS(49, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'protoLastGenDate', protoName: 'protoLastGenDate')
     ..hasRequiredFields = false
   ;
 
-  CbjIno._() : super();
-  factory CbjIno({
+  CbjHubIno._() : super();
+  factory CbjHubIno({
     $core.String? pubspecYamlVersion,
     $core.String? deviceName,
     $core.String? protoLastGenDate,
@@ -340,26 +340,26 @@ class CbjIno extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory CbjIno.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory CbjIno.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  factory CbjHubIno.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory CbjHubIno.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  CbjIno clone() => CbjIno()..mergeFromMessage(this);
+  CbjHubIno clone() => CbjHubIno()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  CbjIno copyWith(void Function(CbjIno) updates) => super.copyWith((message) => updates(message as CbjIno)) as CbjIno; // ignore: deprecated_member_use
+  CbjHubIno copyWith(void Function(CbjHubIno) updates) => super.copyWith((message) => updates(message as CbjHubIno)) as CbjHubIno; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static CbjIno create() => CbjIno._();
-  CbjIno createEmptyInstance() => create();
-  static $pb.PbList<CbjIno> createRepeated() => $pb.PbList<CbjIno>();
+  static CbjHubIno create() => CbjHubIno._();
+  CbjHubIno createEmptyInstance() => create();
+  static $pb.PbList<CbjHubIno> createRepeated() => $pb.PbList<CbjHubIno>();
   @$core.pragma('dart2js:noInline')
-  static CbjIno getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CbjIno>(create);
-  static CbjIno? _defaultInstance;
+  static CbjHubIno getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CbjHubIno>(create);
+  static CbjHubIno? _defaultInstance;
 
   @$pb.TagNumber(27)
   $core.String get pubspecYamlVersion => $_getSZ(0);
@@ -389,8 +389,8 @@ class CbjIno extends $pb.GeneratedMessage {
   void clearProtoLastGenDate() => clearField(49);
 }
 
-class CompSpecs extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CompSpecs', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CbjHub'), createEmptyInstance: create)
+class CompHubSpecs extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CompHubSpecs', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CbjHub'), createEmptyInstance: create)
     ..aOS(22, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'compId', protoName: 'compId')
     ..aOS(23, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'compUuid', protoName: 'compUuid')
     ..aOS(24, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'compOs', protoName: 'compOs')
@@ -399,8 +399,8 @@ class CompSpecs extends $pb.GeneratedMessage {
     ..hasRequiredFields = false
   ;
 
-  CompSpecs._() : super();
-  factory CompSpecs({
+  CompHubSpecs._() : super();
+  factory CompHubSpecs({
     $core.String? compId,
     $core.String? compUuid,
     $core.String? compOs,
@@ -425,26 +425,26 @@ class CompSpecs extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory CompSpecs.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory CompSpecs.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  factory CompHubSpecs.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory CompHubSpecs.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  CompSpecs clone() => CompSpecs()..mergeFromMessage(this);
+  CompHubSpecs clone() => CompHubSpecs()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  CompSpecs copyWith(void Function(CompSpecs) updates) => super.copyWith((message) => updates(message as CompSpecs)) as CompSpecs; // ignore: deprecated_member_use
+  CompHubSpecs copyWith(void Function(CompHubSpecs) updates) => super.copyWith((message) => updates(message as CompHubSpecs)) as CompHubSpecs; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static CompSpecs create() => CompSpecs._();
-  CompSpecs createEmptyInstance() => create();
-  static $pb.PbList<CompSpecs> createRepeated() => $pb.PbList<CompSpecs>();
+  static CompHubSpecs create() => CompHubSpecs._();
+  CompHubSpecs createEmptyInstance() => create();
+  static $pb.PbList<CompHubSpecs> createRepeated() => $pb.PbList<CompHubSpecs>();
   @$core.pragma('dart2js:noInline')
-  static CompSpecs getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CompSpecs>(create);
-  static CompSpecs? _defaultInstance;
+  static CompHubSpecs getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CompHubSpecs>(create);
+  static CompHubSpecs? _defaultInstance;
 
   @$pb.TagNumber(22)
   $core.String get compId => $_getSZ(0);
@@ -579,7 +579,7 @@ class SmartDeviceInfo extends $pb.GeneratedMessage {
     ..aOS(19, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'serverTimeStamp', protoName: 'serverTimeStamp')
     ..aOS(20, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'stateMassage', protoName: 'stateMassage')
     ..aOB(29, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isComputer', protoName: 'isComputer')
-    ..aOM<CompSpecs>(30, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'compSpecs', protoName: 'compSpecs', subBuilder: CompSpecs.create)
+    ..aOM<CompHubSpecs>(30, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'compSpecs', protoName: 'compSpecs', subBuilder: CompHubSpecs.create)
     ..aOM<MicrocontrollerSpecs>(31, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'microcontrollerSpecsSpecs', protoName: 'microcontrollerSpecsSpecs', subBuilder: MicrocontrollerSpecs.create)
     ..aOM<DeviceTypesActions>(34, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'deviceTypesActions', protoName: 'deviceTypesActions', subBuilder: DeviceTypesActions.create)
     ..aOM<MqttMassage>(43, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'mqttMassage', protoName: 'mqttMassage', subBuilder: MqttMassage.create)
@@ -598,7 +598,7 @@ class SmartDeviceInfo extends $pb.GeneratedMessage {
     $core.String? serverTimeStamp,
     $core.String? stateMassage,
     $core.bool? isComputer,
-    CompSpecs? compSpecs,
+    CompHubSpecs? compSpecs,
     MicrocontrollerSpecs? microcontrollerSpecsSpecs,
     DeviceTypesActions? deviceTypesActions,
     MqttMassage? mqttMassage,
@@ -760,15 +760,15 @@ class SmartDeviceInfo extends $pb.GeneratedMessage {
   void clearIsComputer() => clearField(29);
 
   @$pb.TagNumber(30)
-  CompSpecs get compSpecs => $_getN(10);
+  CompHubSpecs get compSpecs => $_getN(10);
   @$pb.TagNumber(30)
-  set compSpecs(CompSpecs v) { setField(30, v); }
+  set compSpecs(CompHubSpecs v) { setField(30, v); }
   @$pb.TagNumber(30)
   $core.bool hasCompSpecs() => $_has(10);
   @$pb.TagNumber(30)
   void clearCompSpecs() => clearField(30);
   @$pb.TagNumber(30)
-  CompSpecs ensureCompSpecs() => $_ensure(10);
+  CompHubSpecs ensureCompSpecs() => $_ensure(10);
 
   @$pb.TagNumber(31)
   MicrocontrollerSpecs get microcontrollerSpecsSpecs => $_getN(11);

@@ -25,10 +25,12 @@ class SecurityBearClient extends $grpc.Client {
       '/SecurityBearConnections.SecurityBear/SetFirebaseAccountAndSecurityBearSetup',
       ($0.SBFirebaseAccountAndSecurityBearSetup value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.SBCommendStatus.fromBuffer(value));
-  static final _$getCompInfo = $grpc.ClientMethod<$0.CompInfo, $0.CompInfo>(
-      '/SecurityBearConnections.SecurityBear/getCompInfo',
-      ($0.CompInfo value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $0.CompInfo.fromBuffer(value));
+  static final _$getCompSecurityBearInfo =
+      $grpc.ClientMethod<$0.CompSecurityBearInfo, $0.CompSecurityBearInfo>(
+          '/SecurityBearConnections.SecurityBear/getCompSecurityBearInfo',
+          ($0.CompSecurityBearInfo value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) =>
+              $0.CompSecurityBearInfo.fromBuffer(value));
 
   SecurityBearClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -49,9 +51,11 @@ class SecurityBearClient extends $grpc.Client {
         options: options);
   }
 
-  $grpc.ResponseFuture<$0.CompInfo> getCompInfo($0.CompInfo request,
+  $grpc.ResponseFuture<$0.CompSecurityBearInfo> getCompSecurityBearInfo(
+      $0.CompSecurityBearInfo request,
       {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$getCompInfo, request, options: options);
+    return $createUnaryCall(_$getCompSecurityBearInfo, request,
+        options: options);
   }
 }
 
@@ -75,13 +79,15 @@ abstract class SecurityBearServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) =>
             $0.SBFirebaseAccountAndSecurityBearSetup.fromBuffer(value),
         ($0.SBCommendStatus value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.CompInfo, $0.CompInfo>(
-        'getCompInfo',
-        getCompInfo_Pre,
-        false,
-        false,
-        ($core.List<$core.int> value) => $0.CompInfo.fromBuffer(value),
-        ($0.CompInfo value) => value.writeToBuffer()));
+    $addMethod(
+        $grpc.ServiceMethod<$0.CompSecurityBearInfo, $0.CompSecurityBearInfo>(
+            'getCompSecurityBearInfo',
+            getCompSecurityBearInfo_Pre,
+            false,
+            false,
+            ($core.List<$core.int> value) =>
+                $0.CompSecurityBearInfo.fromBuffer(value),
+            ($0.CompSecurityBearInfo value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.SBCommendStatus> setWiFiInformation_Pre(
@@ -96,15 +102,16 @@ abstract class SecurityBearServiceBase extends $grpc.Service {
     return setFirebaseAccountAndSecurityBearSetup(call, await request);
   }
 
-  $async.Future<$0.CompInfo> getCompInfo_Pre(
-      $grpc.ServiceCall call, $async.Future<$0.CompInfo> request) async {
-    return getCompInfo(call, await request);
+  $async.Future<$0.CompSecurityBearInfo> getCompSecurityBearInfo_Pre(
+      $grpc.ServiceCall call,
+      $async.Future<$0.CompSecurityBearInfo> request) async {
+    return getCompSecurityBearInfo(call, await request);
   }
 
   $async.Future<$0.SBCommendStatus> setWiFiInformation(
       $grpc.ServiceCall call, $0.SecurityBearSetup request);
   $async.Future<$0.SBCommendStatus> setFirebaseAccountAndSecurityBearSetup(
       $grpc.ServiceCall call, $0.SBFirebaseAccountAndSecurityBearSetup request);
-  $async.Future<$0.CompInfo> getCompInfo(
-      $grpc.ServiceCall call, $0.CompInfo request);
+  $async.Future<$0.CompSecurityBearInfo> getCompSecurityBearInfo(
+      $grpc.ServiceCall call, $0.CompSecurityBearInfo request);
 }
