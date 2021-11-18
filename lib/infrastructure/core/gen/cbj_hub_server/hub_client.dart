@@ -28,9 +28,30 @@ class HubClient {
 
       HubRequestsToApp.hubRequestsStreamController.sink.addStream(response);
     } catch (e) {
-      logger.e('Caught error: $e');
+      logger.e('Caught error while stream with hub\n$e');
       await channel?.shutdown();
     }
+  }
+
+  ///  Get Hub computer and software info
+  static Future<CompHubInfo?> getHubCompInfo(
+    String addressToHub,
+    int hubPort,
+    CompHubInfo compHubInfo,
+  ) async {
+    // channel = await _createCbjHubClient(addressToHub, hubPort);
+    // stub = CbjHubClient(channel!);
+    CompHubInfo response;
+
+    try {
+      response = await stub!.getCompHubInfo(compHubInfo);
+
+      return response;
+    } catch (e) {
+      logger.e('Caught error\n$e');
+      await channel?.shutdown();
+    }
+    return null;
   }
 
   static Future<ClientChannel> _createCbjHubClient(

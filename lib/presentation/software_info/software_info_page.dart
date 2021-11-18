@@ -70,7 +70,7 @@ class SoftwareInfoPage extends StatelessWidget {
               children: [
                 TopNavigationBar(
                   'Software Info',
-                  Icons.more_vert,
+                  null,
                   userCogFunction,
                   leftIcon: FontAwesomeIcons.arrowLeft,
                   leftIconFunction: leftIconFunction,

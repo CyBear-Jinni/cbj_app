@@ -16,7 +16,7 @@ class SoftwareInfoWidget extends StatelessWidget {
       builder: (context, state) {
         return state.map(
           initial: (Initial value) {
-            return const CircularProgressIndicator();
+            return const Center(child: CircularProgressIndicator());
           },
           gotSoftwareInfoEntities: (GotSoftwareInfoEntities value) {
             final Map<String, SoftwareInfoEntity> softwareInfoEntities =
