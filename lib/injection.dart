@@ -17,4 +17,7 @@ abstract class Env {
   static const String test = 'test';
   static const String dev = 'dev';
   static const String prod = 'prod';
+
+  /// Demo of the app with fake data
+  static const String demo = 'demo';
 }

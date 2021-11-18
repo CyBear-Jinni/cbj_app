@@ -18,6 +18,11 @@ class CBJAppServerD extends CyBearJinniAppServiceBase {
     return Future<CBJCommendStatus>.value(CBJCommendStatus()..success = true);
   }
 
+  @override
+  Future<CompAppInfo> getCompAppInfo(ServiceCall call, CompAppInfo request) {
+    return Future<CompAppInfo>.value(CompAppInfo());
+  }
+
 //   Future<void> cBJAppGetSmartDeviceInformationAsync(
 //       SmartDeviceInfo smartDevice) async {
 //     final String smartDeviceIp = smartDevice.smartDeviceIP;

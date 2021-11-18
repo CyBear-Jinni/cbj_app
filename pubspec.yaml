@@ -38,7 +38,7 @@ dependencies:
   # More customization when notifying your user.
   another_flushbar: ^1.10.25
   # Declarative routing solution, where everything needed for navigation is automatically generated for you.
-  auto_route: ^3.1.2
+  auto_route: ^3.1.3
   # Helps implement the BLoC pattern.
   bloc: ^7.2.1
   # Copy text from and to clipboard
@@ -69,7 +69,7 @@ dependencies:
   # Bloc for state management, replace StatefulWidget
   flutter_bloc: ^7.3.3
   # HSV(HSB)/HSL/RGB/Material color picker
-  flutter_colorpicker: ^1.0.1
+  flutter_colorpicker: ^1.0.2
   # A cross platform plugin for displaying local notifications.
   flutter_local_notifications: ^9.1.2
   # Getting the local timezone of the os.
@@ -133,7 +133,7 @@ dependencies:
   # Highly customizable circular slider/progress bar & spinner.
   sleek_circular_slider: ^2.0.1
   # Plugin for launching a URL
-  url_launcher: ^6.0.12
+  url_launcher: ^6.0.13
   # Simple, fast generation of RFC4122 UUIDs.
   uuid: ^3.0.5
   # Get available wifi ssid list, user can connect to wifi with ssid and password, and create hotspot

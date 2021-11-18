@@ -111,6 +111,7 @@ class RgbwLightWidget extends StatelessWidget {
                   PaletteType.hsvWithValue,
                 ),
               ),
+
               // Container(
               //   color: Colors.white,
               //   padding: const EdgeInsets.symmetric(horizontal: 10),
