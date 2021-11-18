@@ -103,17 +103,17 @@ class CBJCommendStatus extends $pb.GeneratedMessage {
   void clearSuccess() => clearField(1);
 }
 
-class CompInfo extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CompInfo', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CBJAppConnections'), createEmptyInstance: create)
-    ..aOM<CbjIno>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'cbjInfo', protoName: 'cbjInfo', subBuilder: CbjIno.create)
-    ..aOM<CompSpecs>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'compSpecs', protoName: 'compSpecs', subBuilder: CompSpecs.create)
+class CompAppInfo extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CompAppInfo', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CBJAppConnections'), createEmptyInstance: create)
+    ..aOM<CbjAppIno>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'cbjInfo', protoName: 'cbjInfo', subBuilder: CbjAppIno.create)
+    ..aOM<CompAppSpecs>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'compSpecs', protoName: 'compSpecs', subBuilder: CompAppSpecs.create)
     ..hasRequiredFields = false
   ;
 
-  CompInfo._() : super();
-  factory CompInfo({
-    CbjIno? cbjInfo,
-    CompSpecs? compSpecs,
+  CompAppInfo._() : super();
+  factory CompAppInfo({
+    CbjAppIno? cbjInfo,
+    CompAppSpecs? compSpecs,
   }) {
     final _result = create();
     if (cbjInfo != null) {
@@ -124,60 +124,60 @@ class CompInfo extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory CompInfo.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory CompInfo.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  factory CompAppInfo.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory CompAppInfo.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  CompInfo clone() => CompInfo()..mergeFromMessage(this);
+  CompAppInfo clone() => CompAppInfo()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  CompInfo copyWith(void Function(CompInfo) updates) => super.copyWith((message) => updates(message as CompInfo)) as CompInfo; // ignore: deprecated_member_use
+  CompAppInfo copyWith(void Function(CompAppInfo) updates) => super.copyWith((message) => updates(message as CompAppInfo)) as CompAppInfo; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static CompInfo create() => CompInfo._();
-  CompInfo createEmptyInstance() => create();
-  static $pb.PbList<CompInfo> createRepeated() => $pb.PbList<CompInfo>();
+  static CompAppInfo create() => CompAppInfo._();
+  CompAppInfo createEmptyInstance() => create();
+  static $pb.PbList<CompAppInfo> createRepeated() => $pb.PbList<CompAppInfo>();
   @$core.pragma('dart2js:noInline')
-  static CompInfo getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CompInfo>(create);
-  static CompInfo? _defaultInstance;
+  static CompAppInfo getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CompAppInfo>(create);
+  static CompAppInfo? _defaultInstance;
 
   @$pb.TagNumber(3)
-  CbjIno get cbjInfo => $_getN(0);
+  CbjAppIno get cbjInfo => $_getN(0);
   @$pb.TagNumber(3)
-  set cbjInfo(CbjIno v) { setField(3, v); }
+  set cbjInfo(CbjAppIno v) { setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasCbjInfo() => $_has(0);
   @$pb.TagNumber(3)
   void clearCbjInfo() => clearField(3);
   @$pb.TagNumber(3)
-  CbjIno ensureCbjInfo() => $_ensure(0);
+  CbjAppIno ensureCbjInfo() => $_ensure(0);
 
   @$pb.TagNumber(4)
-  CompSpecs get compSpecs => $_getN(1);
+  CompAppSpecs get compSpecs => $_getN(1);
   @$pb.TagNumber(4)
-  set compSpecs(CompSpecs v) { setField(4, v); }
+  set compSpecs(CompAppSpecs v) { setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasCompSpecs() => $_has(1);
   @$pb.TagNumber(4)
   void clearCompSpecs() => clearField(4);
   @$pb.TagNumber(4)
-  CompSpecs ensureCompSpecs() => $_ensure(1);
+  CompAppSpecs ensureCompSpecs() => $_ensure(1);
 }
 
-class CbjIno extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CbjIno', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CBJAppConnections'), createEmptyInstance: create)
+class CbjAppIno extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CbjAppIno', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CBJAppConnections'), createEmptyInstance: create)
     ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'deviceName', protoName: 'deviceName')
     ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pubspecYamlVersion', protoName: 'pubspecYamlVersion')
     ..aOS(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'protoLastGenDate', protoName: 'protoLastGenDate')
     ..hasRequiredFields = false
   ;
 
-  CbjIno._() : super();
-  factory CbjIno({
+  CbjAppIno._() : super();
+  factory CbjAppIno({
     $core.String? deviceName,
     $core.String? pubspecYamlVersion,
     $core.String? protoLastGenDate,
@@ -194,26 +194,26 @@ class CbjIno extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory CbjIno.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory CbjIno.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  factory CbjAppIno.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory CbjAppIno.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  CbjIno clone() => CbjIno()..mergeFromMessage(this);
+  CbjAppIno clone() => CbjAppIno()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  CbjIno copyWith(void Function(CbjIno) updates) => super.copyWith((message) => updates(message as CbjIno)) as CbjIno; // ignore: deprecated_member_use
+  CbjAppIno copyWith(void Function(CbjAppIno) updates) => super.copyWith((message) => updates(message as CbjAppIno)) as CbjAppIno; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static CbjIno create() => CbjIno._();
-  CbjIno createEmptyInstance() => create();
-  static $pb.PbList<CbjIno> createRepeated() => $pb.PbList<CbjIno>();
+  static CbjAppIno create() => CbjAppIno._();
+  CbjAppIno createEmptyInstance() => create();
+  static $pb.PbList<CbjAppIno> createRepeated() => $pb.PbList<CbjAppIno>();
   @$core.pragma('dart2js:noInline')
-  static CbjIno getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CbjIno>(create);
-  static CbjIno? _defaultInstance;
+  static CbjAppIno getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CbjAppIno>(create);
+  static CbjAppIno? _defaultInstance;
 
   @$pb.TagNumber(5)
   $core.String get deviceName => $_getSZ(0);
@@ -243,8 +243,8 @@ class CbjIno extends $pb.GeneratedMessage {
   void clearProtoLastGenDate() => clearField(7);
 }
 
-class CompSpecs extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CompSpecs', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CBJAppConnections'), createEmptyInstance: create)
+class CompAppSpecs extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CompAppSpecs', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CBJAppConnections'), createEmptyInstance: create)
     ..aOS(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'compId', protoName: 'compId')
     ..aOS(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'compUuid', protoName: 'compUuid')
     ..aOS(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'compOs', protoName: 'compOs')
@@ -253,8 +253,8 @@ class CompSpecs extends $pb.GeneratedMessage {
     ..hasRequiredFields = false
   ;
 
-  CompSpecs._() : super();
-  factory CompSpecs({
+  CompAppSpecs._() : super();
+  factory CompAppSpecs({
     $core.String? compId,
     $core.String? compUuid,
     $core.String? compOs,
@@ -279,26 +279,26 @@ class CompSpecs extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory CompSpecs.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory CompSpecs.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  factory CompAppSpecs.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory CompAppSpecs.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  CompSpecs clone() => CompSpecs()..mergeFromMessage(this);
+  CompAppSpecs clone() => CompAppSpecs()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  CompSpecs copyWith(void Function(CompSpecs) updates) => super.copyWith((message) => updates(message as CompSpecs)) as CompSpecs; // ignore: deprecated_member_use
+  CompAppSpecs copyWith(void Function(CompAppSpecs) updates) => super.copyWith((message) => updates(message as CompAppSpecs)) as CompAppSpecs; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static CompSpecs create() => CompSpecs._();
-  CompSpecs createEmptyInstance() => create();
-  static $pb.PbList<CompSpecs> createRepeated() => $pb.PbList<CompSpecs>();
+  static CompAppSpecs create() => CompAppSpecs._();
+  CompAppSpecs createEmptyInstance() => create();
+  static $pb.PbList<CompAppSpecs> createRepeated() => $pb.PbList<CompAppSpecs>();
   @$core.pragma('dart2js:noInline')
-  static CompSpecs getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CompSpecs>(create);
-  static CompSpecs? _defaultInstance;
+  static CompAppSpecs getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CompAppSpecs>(create);
+  static CompAppSpecs? _defaultInstance;
 
   @$pb.TagNumber(8)
   $core.String get compId => $_getSZ(0);
