@@ -45,12 +45,13 @@ const CbjAppIno$json = const {
   '2': const [
     const {'1': 'deviceName', '3': 5, '4': 1, '5': 9, '10': 'deviceName'},
     const {'1': 'pubspecYamlVersion', '3': 6, '4': 1, '5': 9, '10': 'pubspecYamlVersion'},
+    const {'1': 'pubspecYamlBuildNumber', '3': 14, '4': 1, '5': 9, '10': 'pubspecYamlBuildNumber'},
     const {'1': 'protoLastGenDate', '3': 7, '4': 1, '5': 9, '10': 'protoLastGenDate'},
   ],
 };
 
 /// Descriptor for `CbjAppIno`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List cbjAppInoDescriptor = $convert.base64Decode('CglDYmpBcHBJbm8SHgoKZGV2aWNlTmFtZRgFIAEoCVIKZGV2aWNlTmFtZRIuChJwdWJzcGVjWWFtbFZlcnNpb24YBiABKAlSEnB1YnNwZWNZYW1sVmVyc2lvbhIqChBwcm90b0xhc3RHZW5EYXRlGAcgASgJUhBwcm90b0xhc3RHZW5EYXRl');
+final $typed_data.Uint8List cbjAppInoDescriptor = $convert.base64Decode('CglDYmpBcHBJbm8SHgoKZGV2aWNlTmFtZRgFIAEoCVIKZGV2aWNlTmFtZRIuChJwdWJzcGVjWWFtbFZlcnNpb24YBiABKAlSEnB1YnNwZWNZYW1sVmVyc2lvbhI2ChZwdWJzcGVjWWFtbEJ1aWxkTnVtYmVyGA4gASgJUhZwdWJzcGVjWWFtbEJ1aWxkTnVtYmVyEioKEHByb3RvTGFzdEdlbkRhdGUYByABKAlSEHByb3RvTGFzdEdlbkRhdGU=');
 @$core.Deprecated('Use compAppSpecsDescriptor instead')
 const CompAppSpecs$json = const {
   '1': 'CompAppSpecs',

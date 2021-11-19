@@ -81,12 +81,13 @@ const CbjSecurityBearIno$json = const {
   '2': const [
     const {'1': 'deviceName', '3': 14, '4': 1, '5': 9, '10': 'deviceName'},
     const {'1': 'pubspecYamlVersion', '3': 15, '4': 1, '5': 9, '10': 'pubspecYamlVersion'},
+    const {'1': 'pubspecYamlBuildNumber', '3': 23, '4': 1, '5': 9, '10': 'pubspecYamlBuildNumber'},
     const {'1': 'protoLastGenDate', '3': 16, '4': 1, '5': 9, '10': 'protoLastGenDate'},
   ],
 };
 
 /// Descriptor for `CbjSecurityBearIno`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List cbjSecurityBearInoDescriptor = $convert.base64Decode('ChJDYmpTZWN1cml0eUJlYXJJbm8SHgoKZGV2aWNlTmFtZRgOIAEoCVIKZGV2aWNlTmFtZRIuChJwdWJzcGVjWWFtbFZlcnNpb24YDyABKAlSEnB1YnNwZWNZYW1sVmVyc2lvbhIqChBwcm90b0xhc3RHZW5EYXRlGBAgASgJUhBwcm90b0xhc3RHZW5EYXRl');
+final $typed_data.Uint8List cbjSecurityBearInoDescriptor = $convert.base64Decode('ChJDYmpTZWN1cml0eUJlYXJJbm8SHgoKZGV2aWNlTmFtZRgOIAEoCVIKZGV2aWNlTmFtZRIuChJwdWJzcGVjWWFtbFZlcnNpb24YDyABKAlSEnB1YnNwZWNZYW1sVmVyc2lvbhI2ChZwdWJzcGVjWWFtbEJ1aWxkTnVtYmVyGBcgASgJUhZwdWJzcGVjWWFtbEJ1aWxkTnVtYmVyEioKEHByb3RvTGFzdEdlbkRhdGUYECABKAlSEHByb3RvTGFzdEdlbkRhdGU=');
 @$core.Deprecated('Use compSecurityBearSpecsDescriptor instead')
 const CompSecurityBearSpecs$json = const {
   '1': 'CompSecurityBearSpecs',
