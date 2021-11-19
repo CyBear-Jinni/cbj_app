@@ -406,6 +406,7 @@ class CbjSecurityBearIno extends $pb.GeneratedMessage {
     ..aOS(14, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'deviceName', protoName: 'deviceName')
     ..aOS(15, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pubspecYamlVersion', protoName: 'pubspecYamlVersion')
     ..aOS(16, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'protoLastGenDate', protoName: 'protoLastGenDate')
+    ..aOS(23, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pubspecYamlBuildNumber', protoName: 'pubspecYamlBuildNumber')
     ..hasRequiredFields = false
   ;
 
@@ -414,6 +415,7 @@ class CbjSecurityBearIno extends $pb.GeneratedMessage {
     $core.String? deviceName,
     $core.String? pubspecYamlVersion,
     $core.String? protoLastGenDate,
+    $core.String? pubspecYamlBuildNumber,
   }) {
     final _result = create();
     if (deviceName != null) {
@@ -424,6 +426,9 @@ class CbjSecurityBearIno extends $pb.GeneratedMessage {
     }
     if (protoLastGenDate != null) {
       _result.protoLastGenDate = protoLastGenDate;
+    }
+    if (pubspecYamlBuildNumber != null) {
+      _result.pubspecYamlBuildNumber = pubspecYamlBuildNumber;
     }
     return _result;
   }
@@ -474,6 +479,15 @@ class CbjSecurityBearIno extends $pb.GeneratedMessage {
   $core.bool hasProtoLastGenDate() => $_has(2);
   @$pb.TagNumber(16)
   void clearProtoLastGenDate() => clearField(16);
+
+  @$pb.TagNumber(23)
+  $core.String get pubspecYamlBuildNumber => $_getSZ(3);
+  @$pb.TagNumber(23)
+  set pubspecYamlBuildNumber($core.String v) { $_setString(3, v); }
+  @$pb.TagNumber(23)
+  $core.bool hasPubspecYamlBuildNumber() => $_has(3);
+  @$pb.TagNumber(23)
+  void clearPubspecYamlBuildNumber() => clearField(23);
 }
 
 class CompSecurityBearSpecs extends $pb.GeneratedMessage {
