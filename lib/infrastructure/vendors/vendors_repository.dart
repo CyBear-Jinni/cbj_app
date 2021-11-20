@@ -6,8 +6,8 @@ import 'package:cybear_jinni/domain/vendors/tuya_login/generic_tuya_login_entity
 import 'package:cybear_jinni/domain/vendors/vendor.dart';
 import 'package:cybear_jinni/domain/vendors/vendor_failures.dart';
 import 'package:cybear_jinni/domain/vendors/vendor_value_objects.dart';
-import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/hub_client.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
 import 'package:cybear_jinni/infrastructure/vendors/vendor_helper.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';

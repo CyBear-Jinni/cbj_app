@@ -35,7 +35,7 @@ class SoftwareInfoBloc extends Bloc<SoftwareInfoEvent, SoftwareInfoState> {
 
         if (appInfoEntity != null) {
           softwaresInfo.addEntries([MapEntry('App Server', appInfoEntity!)]);
-          // yield SoftwareInfoState.gotSoftwareInfoEntities(softwaresInfo);
+          yield SoftwareInfoState.gotSoftwareInfoEntities(softwaresInfo);
         }
 
         SoftwareInfoEntity? hubInfoEntity;
@@ -48,9 +48,9 @@ class SoftwareInfoBloc extends Bloc<SoftwareInfoEvent, SoftwareInfoState> {
 
         if (hubInfoEntity != null) {
           softwaresInfo.addEntries([MapEntry('Hub Server', hubInfoEntity!)]);
+          yield SoftwareInfoState.initial();
+          yield SoftwareInfoState.gotSoftwareInfoEntities(softwaresInfo);
         }
-
-        yield SoftwareInfoState.gotSoftwareInfoEntities(softwaresInfo);
 
         SoftwareInfoEntity? securityBearInfoEntity;
         (await _softwareInfoRepository.getSecurityBearSoftwareInfo()).fold(
@@ -64,6 +64,7 @@ class SoftwareInfoBloc extends Bloc<SoftwareInfoEvent, SoftwareInfoState> {
           softwaresInfo.addEntries([
             MapEntry('Security Bear Server', securityBearInfoEntity!),
           ]);
+          yield SoftwareInfoState.initial();
           yield SoftwareInfoState.gotSoftwareInfoEntities(softwaresInfo);
         }
       },

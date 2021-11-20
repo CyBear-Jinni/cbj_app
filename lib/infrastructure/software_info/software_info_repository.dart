@@ -28,6 +28,7 @@ class SoftwareInfoRepository implements ISoftwareInfoRepository {
       final CbjAppIno cbjAppIno = CbjAppIno(
         deviceName: 'cbj App',
         pubspecYamlVersion: packageInfo.version,
+        pubspecYamlBuildNumber: packageInfo.buildNumber,
         protoLastGenDate: appServerProtocGenDate,
       );
 

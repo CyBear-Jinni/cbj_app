@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cybear_jinni/infrastructure/hub_connection/hub_requests_routing.dart';
+import 'package:cybear_jinni/infrastructure/hub_client/hub_requests_routing.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:grpc/grpc.dart';
 
