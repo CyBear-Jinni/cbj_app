@@ -44,11 +44,9 @@ class HubClient {
     CompHubInfo response;
 
     try {
-      response = await stub!.getCompHubInfo(compHubInfo);
-
-      return response;
+      return await stub!.getCompHubInfo(compHubInfo);
     } catch (e) {
-      logger.e('Caught error\n$e');
+      logger.e('Caught error while trying to get Hub comp info\n$e');
       await channel?.shutdown();
     }
     return null;

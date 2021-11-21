@@ -6,7 +6,7 @@ import 'package:cybear_jinni/domain/hub/hub_failures.dart';
 import 'package:cybear_jinni/domain/hub/hub_value_objects.dart';
 import 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
 import 'package:cybear_jinni/domain/local_db/i_local_db_repository.dart';
-import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pb.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
 import 'package:cybear_jinni/infrastructure/hub_client/hub_dtos.dart';
 import 'package:cybear_jinni/injection.dart';
@@ -63,7 +63,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
           networkName: hubNetworkName!,
         ).toDomain();
       } catch (e) {
-        logger.e('Crashed while setting Hub info from local db: $e');
+        logger.e('Crashed while setting Hub info from local db\n$e');
       }
     }
 
@@ -71,7 +71,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
     try {
       connectivityResult = await Connectivity().checkConnectivity();
     } catch (e) {
-      logger.w('Cant check connectivity this is probably PC, error: $e');
+      logger.w('Cant check connectivity this is probably PC, error\n$e');
     }
 
     // Last Number of bssid can change fix?, need to check if more numbers
@@ -160,7 +160,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
           networkName: hubNetworkName!,
         ).toDomain();
       } catch (e) {
-        logger.e('Crashed while setting Hub info from local db: $e');
+        logger.e('Crashed while setting Hub info from local db\n$e');
       }
     }
 
@@ -168,7 +168,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
     try {
       connectivityResult = await Connectivity().checkConnectivity();
     } catch (e) {
-      logger.w('Cant check connectivity this is probably PC, error: $e');
+      logger.w('Cant check connectivity this is probably PC, error\n$e');
     }
 
     // Last Number of bssid can change fix?, need to check if more numbers
@@ -351,7 +351,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
         }
       }
     } catch (e) {
-      logger.w('Exception searchForHub $e');
+      logger.w('Exception searchForHub\n$e');
     }
     return left(const HubFailures.cantFindHubInNetwork());
   }

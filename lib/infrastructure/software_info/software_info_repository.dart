@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:cybear_jinni/domain/hub/hub_failures.dart';
 import 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
+import 'package:cybear_jinni/domain/security_bear/i_security_bear_connection_repository.dart';
+import 'package:cybear_jinni/domain/security_bear/security_bear_failures.dart';
 import 'package:cybear_jinni/domain/software_info/i_software_info_repository.dart';
 import 'package:cybear_jinni/domain/software_info/software_info_entity.dart';
 import 'package:cybear_jinni/domain/software_info/software_info_failures.dart';
@@ -9,6 +11,8 @@ import 'package:cybear_jinni/infrastructure/core/gen/cbj_app_server/proto_gen_da
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_app_server/protoc_as_dart/cbj_app_connections.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/proto_gen_date.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/security_bear/client/protoc_as_dart/security_bear_connections.pbgrpc.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/security_bear/proto_gen_date.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:dartz/dartz.dart';
@@ -78,7 +82,27 @@ class SoftwareInfoRepository implements ISoftwareInfoRepository {
   @override
   Future<Either<SoftwareInfoFailures, SoftwareInfoEntity>>
       getSecurityBearSoftwareInfo() async {
-    return left(const SoftwareInfoFailures.unexpected());
+    try {
+      CompSecurityBearInfo? appInfoForSecurityBear =
+          (await getAppInfoForSecurityBear()).fold((l) => null, (r) => r);
+
+      appInfoForSecurityBear ??= CompSecurityBearInfo();
+
+      final Either<SecurityBearFailures, CompSecurityBearInfo>
+          securityBearResponse =
+          await getIt<ISecurityBearConnectionRepository>()
+              .getSecurityBearCompInfo(appInfoForSecurityBear);
+
+      return securityBearResponse.fold(
+        (l) => left(const SoftwareInfoFailures.unexpected()),
+        (r) {
+          return right(SoftwareInfoEntity.compSecurityBearInfo(r));
+        },
+      );
+    } catch (e) {
+      logger.e('Software info from Security Bear error\n$e');
+      return left(const SoftwareInfoFailures.unexpected());
+    }
   }
 
   Future<Either<SoftwareInfoFailures, CompHubInfo>> getAppInfoForHub() async {
@@ -100,6 +124,34 @@ class SoftwareInfoRepository implements ISoftwareInfoRepository {
       final CompHubInfo compAppInfo = CompHubInfo(
         cbjInfo: cbjHubIno,
         compSpecs: compHubSpecs,
+      );
+
+      return right(compAppInfo);
+    } catch (e) {
+      return left(const SoftwareInfoFailures.unexpected());
+    }
+  }
+
+  Future<Either<SoftwareInfoFailures, CompSecurityBearInfo>>
+      getAppInfoForSecurityBear() async {
+    try {
+      final PackageInfo packageInfo = await PackageInfo.fromPlatform();
+      final NetworkInfo _networkInfo = NetworkInfo();
+
+      final CbjSecurityBearIno cbjSecurityBearIno = CbjSecurityBearIno(
+        deviceName: 'cbj App',
+        pubspecYamlVersion: packageInfo.version,
+        protoLastGenDate: securityBearClientProtocGenDate,
+      );
+
+      final CompSecurityBearSpecs compSecurityBearSpecs = CompSecurityBearSpecs(
+        compOs: Platform.operatingSystem,
+        compIp: await _networkInfo.getWifiIP(),
+      );
+
+      final CompSecurityBearInfo compAppInfo = CompSecurityBearInfo(
+        cbjInfo: cbjSecurityBearIno,
+        compSpecs: compSecurityBearSpecs,
       );
 
       return right(compAppInfo);

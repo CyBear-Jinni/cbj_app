@@ -6,9 +6,7 @@ import 'package:cybear_jinni/domain/cbj_comp/i_cbj_comp_repository.dart';
 import 'package:cybear_jinni/domain/create_home/i_create_home_repository.dart';
 import 'package:cybear_jinni/domain/manage_network/i_manage_network_repository.dart';
 import 'package:cybear_jinni/domain/manage_network/manage_network_entity.dart';
-import 'package:cybear_jinni/domain/user/user_entity.dart';
 import 'package:cybear_jinni/infrastructure/cbj_app_server/cbj_app_server_d.dart';
-import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/security_bear/client/protoc_as_dart/security_bear_connections.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/security_bear_client/security_bear_server_client.dart';
 import 'package:cybear_jinni/injection.dart';
@@ -145,45 +143,6 @@ class CBJCompRepository implements ICBJCompRepository {
     return left(const CBJCompFailure.unexpected());
   }
 
-  @override
-  Future<Either<CBJCompFailure, Unit>> setFirebaseAccountInformation(
-    CBJCompEntity compEntity,
-  ) async {
-    try {
-      final UserEntity deviceUser =
-          (await getIt<ICreateHomeRepository>().getDeviceUserFromHome())
-              .getOrElse(() => throw "Device user can't be found");
-
-      // final CommendStatus commendStatus =
-      //     (await SmartClient.setFirebaseAccountInformationFlutter(
-      //   compEntity.lastKnownIp!.getOrCrash(),
-      //   deviceUser,
-      // ))!;
-
-      CommendStatus commendStatus = CommendStatus(success: false);
-
-      final ManageNetworkEntity manageWiFiEntity =
-          IManageNetworkRepository.manageWiFiEntity!;
-
-      if (manageWiFiEntity == null) {
-        return left(const CBJCompFailure.unexpected());
-      }
-
-      final SBCommendStatus sbCommendStatus =
-          (await SecurityBearServerClient.setFirebaseAccountInformation(
-        compEntity.lastKnownIp!.getOrCrash(),
-        manageWiFiEntity,
-      ))!;
-
-      if (commendStatus.success) {
-        return right(unit);
-      }
-      return left(const CBJCompFailure.unexpected());
-    } catch (e) {
-      return left(const CBJCompFailure.unexpected());
-    }
-  }
-
   // Future<CompHubInfo> compEntityToCompInfo(CBJCompEntity compEntity) async {
   //   String deviceModelString = 'No Model found';
   //   final DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
@@ -282,14 +241,22 @@ class CBJCompRepository implements ICBJCompRepository {
       if (secondWifiEntityOrFailure == null) {
         print('No second Wifi Entity, it is going to crash');
       }
+      int securityBearPort;
+
+      if (currentEnv == Env.dev) {
+        securityBearPort = 60052;
+      } else {
+        securityBearPort = 50052;
+      }
 
       final SBCommendStatus commendStatus =
           await SecurityBearServerClient.setWiFisInformation(
-        compEntity.lastKnownIp!.getOrCrash(),
-        firstWifiEntityOrFailure.name!.getOrCrash(),
-        firstWifiEntityOrFailure.pass!.getOrCrash(),
-        secondWifiEntityOrFailure.name!.getOrCrash(),
-        secondWifiEntityOrFailure.pass!.getOrCrash(),
+        deviceIp: compEntity.lastKnownIp!.getOrCrash(),
+        devicePort: securityBearPort,
+        firstWiFiName: firstWifiEntityOrFailure.name!.getOrCrash(),
+        firstWiFiPassword: firstWifiEntityOrFailure.pass!.getOrCrash(),
+        secondWiFiName: secondWifiEntityOrFailure.name!.getOrCrash(),
+        secondWiFiPassword: secondWifiEntityOrFailure.pass!.getOrCrash(),
       );
 
       if (commendStatus.success) {

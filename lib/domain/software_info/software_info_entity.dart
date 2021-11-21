@@ -2,6 +2,7 @@ import 'package:cybear_jinni/domain/software_info/software_info_failures.dart';
 import 'package:cybear_jinni/domain/software_info/software_info_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_app_server/protoc_as_dart/cbj_app_connections.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/security_bear/client/protoc_as_dart/security_bear_connections.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/software_info/software_info_dtos.dart';
 import 'package:dartz/dartz.dart';
 
@@ -61,6 +62,28 @@ class SoftwareInfoEntity {
           SoftwareInfoPubspecYamlVersion(cbjHubIno.pubspecYamlVersion),
       protoLastGenDate:
           SoftwareInfoProtoLastGenDate(cbjHubIno.protoLastGenDate),
+      compId: SoftwareInfoCompId(compAppSpecs.compId),
+      compUuid: SoftwareInfoCompUuid(compAppSpecs.compUuid),
+      compOs: SoftwareInfoCompOs(compAppSpecs.compOs),
+      compModel: SoftwareInfoCompModel(compAppSpecs.compModel),
+      compType: SoftwareInfoCompType(compAppSpecs.compType),
+      compIp: SoftwareInfoCompIp(compAppSpecs.compIp),
+    );
+  }
+
+  factory SoftwareInfoEntity.compSecurityBearInfo(
+    CompSecurityBearInfo compSecurityBearInfo,
+  ) {
+    final CbjSecurityBearIno securityBearIno = compSecurityBearInfo.cbjInfo;
+
+    final CompSecurityBearSpecs compAppSpecs = compSecurityBearInfo.compSpecs;
+
+    return SoftwareInfoEntity(
+      deviceName: SoftwareInfoDeviceName(securityBearIno.deviceName),
+      pubspecYamlVersion:
+          SoftwareInfoPubspecYamlVersion(securityBearIno.pubspecYamlVersion),
+      protoLastGenDate:
+          SoftwareInfoProtoLastGenDate(securityBearIno.protoLastGenDate),
       compId: SoftwareInfoCompId(compAppSpecs.compId),
       compUuid: SoftwareInfoCompUuid(compAppSpecs.compUuid),
       compOs: SoftwareInfoCompOs(compAppSpecs.compOs),

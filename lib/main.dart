@@ -33,11 +33,11 @@ class ReceivedNotification {
 }
 
 Future<Unit> main() async {
+  configureDependencies(Env.prod);
   // needed if you intend to initialize in the `main` function
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
 //  debugPaintSizeEnabled = true;
-  configureDependencies(Env.prod);
 
   await configureLocalTimeZone();
 

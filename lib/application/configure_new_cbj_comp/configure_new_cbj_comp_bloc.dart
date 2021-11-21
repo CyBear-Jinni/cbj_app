@@ -107,20 +107,20 @@ class ConfigureNewCbjCompBloc
 
         bool error = false;
 
-        final Either<CBJCompFailure, Unit> updateAllDevices =
-            await _cBJCompRepository
-                .setFirebaseAccountInformation(compUpdatedData);
-
-        updateAllDevices.fold(
-          (l) {
-            error = true;
-          },
-          (r) => add(
-            ConfigureNewCbjCompEvent.checkOperationsCompletedSuccessfully(
-              compUpdatedData,
-            ),
-          ),
-        );
+        // final Either<CBJCompFailure, Unit> updateAllDevices =
+        //     await _cBJCompRepository
+        //         .setFirebaseAccountInformation(compUpdatedData);
+        //
+        // updateAllDevices.fold(
+        //   (l) {
+        //     error = true;
+        //   },
+        //   (r) => add(
+        //     ConfigureNewCbjCompEvent.checkOperationsCompletedSuccessfully(
+        //       compUpdatedData,
+        //     ),
+        //   ),
+        // );
         if (error) {
           yield const ConfigureNewCbjCompState.errorInProcess();
         } else {

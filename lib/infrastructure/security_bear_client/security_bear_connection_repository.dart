@@ -1,0 +1,262 @@
+import 'dart:io';
+
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:cybear_jinni/domain/security_bear/i_security_bear_connection_repository.dart';
+import 'package:cybear_jinni/domain/security_bear/security_bear_entity.dart';
+import 'package:cybear_jinni/domain/security_bear/security_bear_failures.dart';
+import 'package:cybear_jinni/domain/security_bear/security_bear_value_objects.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/security_bear/client/protoc_as_dart/security_bear_connections.pbgrpc.dart';
+import 'package:cybear_jinni/infrastructure/security_bear_client/security_bear_server_client.dart';
+import 'package:cybear_jinni/injection.dart';
+import 'package:cybear_jinni/utils.dart';
+import 'package:dartz/dartz.dart';
+import 'package:flutter/foundation.dart';
+import 'package:injectable/injectable.dart';
+import 'package:location/location.dart';
+import 'package:network_info_plus/network_info_plus.dart';
+import 'package:permission_handler/permission_handler.dart'
+    as permission_handler;
+import 'package:ping_discover_network_forked/ping_discover_network_forked.dart';
+
+@LazySingleton(as: ISecurityBearConnectionRepository)
+class SecurityBearConnectionRepository
+    extends ISecurityBearConnectionRepository {
+  SecurityBearConnectionRepository() {
+    if (currentEnv == Env.dev) {
+      securityBearPort = 60052;
+    } else {
+      securityBearPort = 50052;
+    }
+  }
+
+  /// Port to connect to the cbj securityBear, will change according to the current
+  /// running environment
+  late int securityBearPort;
+
+  static SecurityBearEntity? securityBearEntity;
+
+  // Future<void> connectWithSecurityBear() async {
+  //   if (securityBearEntity == null) {
+  //     try {
+  //       String? securityBearNetworkBssid;
+  //
+  //       String? securityBearNetworkName;
+  //
+  //       String? securityBearNetworkIp;
+  //
+  //       securityBearEntity = SecurityBearDtos(
+  //         securityBearNetworkBssid: securityBearNetworkBssid!,
+  //         lastKnownIp: securityBearNetworkIp!,
+  //         networkName: securityBearNetworkName!,
+  //       ).toDomain();
+  //     } catch (e) {
+  //       logger.e('Crashed while setting SecurityBear info from local db: $e');
+  //     }
+  //   }
+  //
+  //   ConnectivityResult? connectivityResult;
+  //   try {
+  //     connectivityResult = await Connectivity().checkConnectivity();
+  //   } catch (e) {
+  //     logger.w('Cant check connectivity this is probably PC, error: $e');
+  //   }
+  //
+  //   // Last Number of bssid can change fix?, need to check if more numbers
+  //   // can do that
+  //   final String? savedWifiBssid =
+  //       securityBearEntity?.securityBearNetworkBssid.getOrCrash();
+  //   final String? savedWifiBssidWithoutLastNumber =
+  //       savedWifiBssid?.substring(0, savedWifiBssid.lastIndexOf(':'));
+  //
+  //   final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
+  //   final String? wifiBSSIDWithoutLastNumber =
+  //       wifiBSSID?.substring(0, wifiBSSID.lastIndexOf(':'));
+  //
+  //   // Check if you are connected to the home local network for direct
+  //   // communication with the SecurityBear.
+  //   // This block can be false also if user does not improve some permissions
+  //   // or #256 if the app run on the computer and connected with ethernet cable
+  //   // (not effecting connection with WiFi)
+  //   if (connectivityResult != null &&
+  //       connectivityResult == ConnectivityResult.wifi &&
+  //       savedWifiBssidWithoutLastNumber != null &&
+  //       wifiBSSIDWithoutLastNumber != null &&
+  //       savedWifiBssidWithoutLastNumber == wifiBSSIDWithoutLastNumber) {
+  //     logger.i('Connect using direct connection to SecurityBear');
+  //
+  //     if (securityBearEntity?.lastKnownIp.getOrCrash() != null) {
+  //       Socket? testSecurityBearConnection;
+  //       try {
+  //         testSecurityBearConnection = await Socket.connect(
+  //           securityBearEntity!.lastKnownIp.getOrCrash(),
+  //           securityBearPort,
+  //           timeout: const Duration(milliseconds: 500),
+  //         );
+  //         testSecurityBearConnection.destroy();
+  //       } catch (e) {
+  //         testSecurityBearConnection?.destroy();
+  //
+  //         await searchForSecurityBear();
+  //       }
+  //     } else {
+  //       await searchForSecurityBear();
+  //     }
+  //
+  //     await SecurityBearServerClient.createStreamWithSecurityBear(
+  //       securityBearEntity!.lastKnownIp.getOrCrash(),
+  //       securityBearPort,
+  //     );
+  //
+  //     return;
+  //   } else {
+  //     logger.i('Connect using Remote Pipes');
+  //     SecurityBearServerClient.createStreamWithSecurityBear(r, 50056);
+  //     // Here for easy find and local testing
+  //     // SecurityBearServerClient.createStreamWithSecurityBear('127.0.0.1', 50056);
+  //   }
+  // }
+
+  @override
+  Future<Either<SecurityBearFailures, CompSecurityBearInfo>>
+      getSecurityBearCompInfo(
+    CompSecurityBearInfo appInfoForSecurityBear,
+  ) async {
+    ConnectivityResult? connectivityResult;
+    try {
+      connectivityResult = await Connectivity().checkConnectivity();
+    } catch (e) {
+      logger.w('Cant check connectivity this is probably PC, error\n$e');
+    }
+
+    final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
+    final String? wifiBSSIDWithoutLastNumber =
+        wifiBSSID?.substring(0, wifiBSSID.lastIndexOf(':'));
+
+    // Check if you are connected to the home local network for direct
+    // communication with the SecurityBear.
+    // This block can be false also if user does not improve some permissions
+    // or #256 if the app run on the computer and connected with ethernet cable
+    // (not effecting connection with WiFi)
+    if (connectivityResult != null &&
+        connectivityResult == ConnectivityResult.wifi) {
+      logger.i('Connect using direct connection to SecurityBear');
+
+      await searchForSecurityBear();
+
+      if (securityBearEntity == null) {
+        logger.e("Can't find Security Bear device in the local network");
+        return left(const SecurityBearFailures.unexpected());
+      }
+
+      try {
+        final CompSecurityBearInfo? compSecurityBearInfo =
+            await SecurityBearServerClient.getSecurityBearCompInfo(
+          addressToSecurityBear: securityBearEntity!.lastKnownIp.getOrCrash(),
+          securityBearPort: securityBearPort,
+          compSecurityBearInfo: appInfoForSecurityBear,
+        );
+
+        if (compSecurityBearInfo == null) {
+          return left(const SecurityBearFailures.unexpected());
+        }
+        return right(compSecurityBearInfo);
+      } catch (e) {
+        logger.e('Error getting securityBearInfo\n$e');
+        return left(const SecurityBearFailures.unexpected());
+      }
+
+      // return;
+    } else {
+      logger.i("Can't connect to Security Bear Out side of WiFi");
+    }
+
+    return left(const SecurityBearFailures.unexpected());
+  }
+
+  @override
+  Future<Either<SecurityBearFailures, Unit>> searchForSecurityBear() async {
+    try {
+      securityBearEntity = null;
+      final Either<SecurityBearFailures, Unit> locationRequest =
+          await askLocationPermissionAndLocationOn();
+
+      if (locationRequest.isLeft()) {
+        return locationRequest;
+      }
+
+      logger.i('search for Security Bear');
+      final String? wifiIP = await NetworkInfo().getWifiIP();
+
+      final String subnet = wifiIP!.substring(0, wifiIP.lastIndexOf('.'));
+
+      logger.i('subnet IP $subnet');
+
+      final Stream<NetworkAddress> stream =
+          NetworkAnalyzer.discover2(subnet, securityBearPort);
+
+      await for (final NetworkAddress address in stream) {
+        if (address.exists) {
+          logger.i('Found device: ${address.ip}');
+
+          final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
+          final String? wifiName = await NetworkInfo().getWifiName();
+
+          if (wifiBSSID != null && wifiName != null) {
+            securityBearEntity = SecurityBearEntity(
+              securityBearNetworkBssid: SecurityBearNetworkBssid(wifiBSSID),
+              networkName: SecurityBearNetworkName(wifiName),
+              lastKnownIp: SecurityBearNetworkIp(address.ip),
+            );
+
+            return right(unit);
+          }
+        }
+      }
+    } catch (e) {
+      logger.w('Exception searchForSecurityBear $e');
+    }
+    return left(const SecurityBearFailures.cantFindSecurityBearInNetwork());
+  }
+
+  Future<Either<SecurityBearFailures, Unit>>
+      askLocationPermissionAndLocationOn() async {
+    final Location location = Location();
+
+    bool _serviceEnabled;
+    PermissionStatus _permissionGranted;
+
+    int permissionCounter = 0;
+
+    if (kIsWeb) {
+      return left(const SecurityBearFailures
+          .automaticSecurityBearSearchNotSupportedOnWeb());
+    }
+    if (!Platform.isLinux && !Platform.isWindows) {
+      while (true) {
+        _permissionGranted = await location.hasPermission();
+        if (_permissionGranted == PermissionStatus.denied) {
+          _permissionGranted = await location.requestPermission();
+          if (_permissionGranted != PermissionStatus.granted) {
+            print('Permission to use location is denied');
+            permissionCounter++;
+            if (permissionCounter > 5) {
+              permission_handler.openAppSettings();
+            }
+            continue;
+          }
+        }
+
+        _serviceEnabled = await location.serviceEnabled();
+        if (!_serviceEnabled) {
+          _serviceEnabled = await location.requestService();
+          if (!_serviceEnabled) {
+            print('Location is disabled');
+            continue;
+          }
+        }
+        break;
+      }
+    }
+    return right(unit);
+  }
+}
