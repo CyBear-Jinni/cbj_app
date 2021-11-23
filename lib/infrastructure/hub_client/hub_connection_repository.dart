@@ -24,10 +24,10 @@ import 'package:ping_discover_network_forked/ping_discover_network_forked.dart';
 @LazySingleton(as: IHubConnectionRepository)
 class HubConnectionRepository extends IHubConnectionRepository {
   HubConnectionRepository() {
-    if (currentEnv == Env.dev) {
-      hubPort = 60055;
-    } else {
+    if (currentEnv == Env.prod) {
       hubPort = 50055;
+    } else {
+      hubPort = 60055;
     }
   }
 

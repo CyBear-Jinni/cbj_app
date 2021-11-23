@@ -78,7 +78,7 @@ class HubRequestRouting {
           case DeviceTypes.switch_:
             deviceEntity =
                 GenericSwitchDeviceDtos.fromJson(requestAsJson).toDomain();
-            logger.i('Adding Smart TV device type');
+            logger.i('Adding Switch device type');
             break;
           default:
             if (deviceStateGRPC == DeviceStateGRPC.pingNow) {
