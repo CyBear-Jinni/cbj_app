@@ -28,7 +28,7 @@ class SmartTvActorBloc extends Bloc<SmartTvActorEvent, SmartTvActorState> {
     yield* event.map(
       deleted: (e) async* {},
       initialized: (e) async* {},
-      turnOnTv: (_MoveUpAllSmartTv value) async* {
+      turnOnTv: (MoveUpAllSmartTv value) async* {
         FlushbarHelper.createLoading(
           message: 'Pulling Up all smart_tv',
           linearProgressIndicator: const LinearProgressIndicator(),
@@ -36,7 +36,7 @@ class SmartTvActorBloc extends Bloc<SmartTvActorEvent, SmartTvActorState> {
 
         _deviceRepository.turnOnDevices(devicesId: value.smartTvIdToTurnOn);
       },
-      turnOff: (_StopAllSmartTv value) async* {
+      turnOff: (StopAllSmartTv value) async* {
         FlushbarHelper.createLoading(
           message: 'Pulling Up all smart_tv',
           linearProgressIndicator: const LinearProgressIndicator(),

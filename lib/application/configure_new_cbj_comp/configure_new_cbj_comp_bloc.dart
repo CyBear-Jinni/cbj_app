@@ -43,7 +43,7 @@ class ConfigureNewCbjCompBloc
     yield* event.map(
       deleted: (e) async* {},
       initialized: (e) async* {},
-      setupNewDevice: (_SetupNewDevice value) async* {
+      setupNewDevice: (SetupNewDevice value) async* {
         yield ConfigureNewCbjCompState.actionInProgress(progressPercent);
 
         final CBJCompEntity compUpdatedData = newCBJCompEntity(
@@ -63,7 +63,7 @@ class ConfigureNewCbjCompBloc
         //   yield const ConfigureNewCbjCompState.errorInProcess();
         // }
       },
-      saveDevicesToCloud: (_SaveDevicesToCloud value) async* {
+      saveDevicesToCloud: (SaveDevicesToCloud value) async* {
         final CBJCompEntity compUpdatedData = value.cBJCompEntity;
         bool error = false;
 
@@ -90,7 +90,7 @@ class ConfigureNewCbjCompBloc
           add(ConfigureNewCbjCompEvent.saveDevicesToComputer(compUpdatedData));
         }
       },
-      saveDevicesToComputer: (_SaveDevicesToComputer value) async* {
+      saveDevicesToComputer: (SaveDevicesToComputer value) async* {
         final CBJCompEntity compUpdatedData = value.cBJCompEntity;
 
         final bool error = await initialNewDevice(compUpdatedData);
@@ -102,7 +102,7 @@ class ConfigureNewCbjCompBloc
           yield const ConfigureNewCbjCompState.errorInProcess();
         }
       },
-      sendFirebaseInformation: (_SendFirebaseInformation value) async* {
+      sendFirebaseInformation: (SendFirebaseInformation value) async* {
         final CBJCompEntity compUpdatedData = value.cBJCompEntity;
 
         bool error = false;
@@ -129,12 +129,12 @@ class ConfigureNewCbjCompBloc
         }
       },
       checkOperationsCompletedSuccessfully:
-          (_CheckOperationsCompletedSuccessfully value) async* {
+          (CheckOperationsCompletedSuccessfully value) async* {
         progressPercent += 0.3;
         yield ConfigureNewCbjCompState.actionInProgress(progressPercent);
         yield const ConfigureNewCbjCompState.completeSuccess();
       },
-      sendHotSpotInformation: (_SendHotSpotInformation value) async* {
+      sendHotSpotInformation: (SendHotSpotInformation value) async* {
         bool error = false;
 
         final CBJCompEntity compUpdatedData = value.cBJCompEntity;

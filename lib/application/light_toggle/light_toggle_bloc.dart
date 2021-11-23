@@ -40,14 +40,14 @@ class LightToggleBloc extends Bloc<LightToggleEvent, LightToggleState> {
           );
         }
       },
-      changeColor: (_ChangeColor e) async* {
+      changeColor: (ChangeColor e) async* {
         yield state.copyWith(hsvColor: e.newColor);
         _deviceRepository.changeColorDevices(
           devicesId: [e.deviceEntity.uniqueId.getOrCrash()!],
           colorToChange: e.newColor,
         );
       },
-      changeBrightness: (_ChangeBrightness value) async* {
+      changeBrightness: (ChangeBrightness value) async* {
         yield state.copyWith(brightness: value.brightness);
 
         _deviceRepository.changeBrightnessDevices(

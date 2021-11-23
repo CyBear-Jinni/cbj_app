@@ -33,7 +33,7 @@ class HubInNetworkBloc extends Bloc<HubInNetworkEvent, HubInNetworkState> {
     HubInNetworkEvent event,
   ) async* {
     yield* event.map(
-      initialEvent: (_InitialEvent value) async* {
+      initialEvent: (InitialEvent value) async* {
         context = value.context;
         add(const HubInNetworkEvent.searchHubInNetwork());
       },

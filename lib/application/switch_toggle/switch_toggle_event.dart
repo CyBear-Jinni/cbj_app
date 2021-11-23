@@ -5,13 +5,13 @@ class SwitchToggleEvent with _$SwitchToggleEvent {
   const factory SwitchToggleEvent.changeAction(
     DeviceEntityAbstract deviceEntity,
     bool changeToState,
-  ) = _ChangeState;
+  ) = ChangeState;
 
   const factory SwitchToggleEvent.changeColor(
     DeviceEntityAbstract deviceEntity,
     HSVColor newColor,
-  ) = _ChangeColor;
+  ) = ChangeColor;
 
   const factory SwitchToggleEvent.create(DeviceEntityAbstract deviceEntity) =
-      _CreateDevice;
+      CreateDevice;
 }

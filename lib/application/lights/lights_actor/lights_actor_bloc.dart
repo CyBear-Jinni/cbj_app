@@ -28,7 +28,7 @@ class LightsActorBloc extends Bloc<LightsActorEvent, LightsActorState> {
     yield* event.map(
       deleted: (e) async* {},
       initialized: (e) async* {},
-      turnOffAllLights: (_TurnOffAllLights value) async* {
+      turnOffAllLights: (TurnOffAllLights value) async* {
         FlushbarHelper.createLoading(
           message: 'Turning Off all lights',
           linearProgressIndicator: const LinearProgressIndicator(),
@@ -36,7 +36,7 @@ class LightsActorBloc extends Bloc<LightsActorEvent, LightsActorState> {
 
         _deviceRepository.turnOffDevices(devicesId: value.lightsIdToTurnOff);
       },
-      turnOnAllLights: (_TurnOnAllLights value) async* {
+      turnOnAllLights: (TurnOnAllLights value) async* {
         FlushbarHelper.createLoading(
           message: 'Turning On all lights',
           linearProgressIndicator: const LinearProgressIndicator(),

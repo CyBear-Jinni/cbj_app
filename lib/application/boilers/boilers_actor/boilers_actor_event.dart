@@ -7,13 +7,13 @@ class BoilersActorEvent with _$BoilersActorEvent {
   const factory BoilersActorEvent.turnOnAllBoilers(
     List<String>? boilersIdToTurnUp,
     BuildContext context,
-  ) = _TurnOnAllBoilers;
+  ) = TurnOnAllBoilers;
 
   const factory BoilersActorEvent.turnOffAllBoilers(
     List<String>? boilersIdToTurnOff,
     BuildContext context,
-  ) = _TurnOffAllBoilers;
+  ) = TurnOffAllBoilers;
 
   const factory BoilersActorEvent.deleted(GenericBoilerDE deviceEntity) =
-      _Deleted;
+      Deleted;
 }

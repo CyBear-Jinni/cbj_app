@@ -7,18 +7,17 @@ class BlindsActorEvent with _$BlindsActorEvent {
   const factory BlindsActorEvent.moveUpAllBlinds(
     List<String>? blindsIdToTurnUp,
     BuildContext context,
-  ) = _MoveUpAllBlinds;
+  ) = MoveUpAllBlinds;
 
   const factory BlindsActorEvent.stopAllBlinds(
     List<String>? blindsIdToStop,
     BuildContext context,
-  ) = _StopAllBlinds;
+  ) = StopAllBlinds;
 
   const factory BlindsActorEvent.moveDownAllBlinds(
     List<String>? blindsIdToTurnDown,
     BuildContext context,
-  ) = _MoveDownAllBlinds;
+  ) = MoveDownAllBlinds;
 
-  const factory BlindsActorEvent.deleted(GenericLightDE deviceEntity) =
-      _Deleted;
+  const factory BlindsActorEvent.deleted(GenericLightDE deviceEntity) = Deleted;
 }

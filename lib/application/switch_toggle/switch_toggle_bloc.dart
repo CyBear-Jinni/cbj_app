@@ -51,7 +51,7 @@ class SwitchToggleBloc extends Bloc<SwitchToggleEvent, SwitchToggleState> {
           (_) => const SwitchToggleState.loadSuccess(),
         );
       },
-      changeColor: (_ChangeColor e) async* {
+      changeColor: (ChangeColor e) async* {
         lastColoredPicked = e.newColor;
         timeFromLastColorChange ??=
             Timer(Duration(milliseconds: sendNewColorEachMiliseconds), () {
@@ -66,7 +66,7 @@ class SwitchToggleBloc extends Bloc<SwitchToggleEvent, SwitchToggleState> {
   /// Moving the hand on the color slider sends tons of requests with
   /// different colors which is not efficient and some device can't even handle
   /// so many requests.
-  Future<void> changeColorOncePerTimer(_ChangeColor e) async {
+  Future<void> changeColorOncePerTimer(ChangeColor e) async {
     await _deviceRepository.changeColorDevices(
       devicesId: [e.deviceEntity.uniqueId.getOrCrash()!],
       colorToChange: lastColoredPicked!,

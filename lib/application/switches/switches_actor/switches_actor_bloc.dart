@@ -28,7 +28,7 @@ class SwitchesActorBloc extends Bloc<SwitchesActorEvent, SwitchesActorState> {
     yield* event.map(
       deleted: (e) async* {},
       initialized: (e) async* {},
-      turnOffAllSwitches: (_TurnOffAllSwitches value) async* {
+      turnOffAllSwitches: (TurnOffAllSwitches value) async* {
         FlushbarHelper.createLoading(
           message: 'Turning Off all switches',
           linearProgressIndicator: const LinearProgressIndicator(),
@@ -36,7 +36,7 @@ class SwitchesActorBloc extends Bloc<SwitchesActorEvent, SwitchesActorState> {
 
         _deviceRepository.turnOffDevices(devicesId: value.switchesIdToTurnOff);
       },
-      turnOnAllSwitches: (_TurnOnAllSwitches value) async* {
+      turnOnAllSwitches: (TurnOnAllSwitches value) async* {
         FlushbarHelper.createLoading(
           message: 'Turning On all switches',
           linearProgressIndicator: const LinearProgressIndicator(),

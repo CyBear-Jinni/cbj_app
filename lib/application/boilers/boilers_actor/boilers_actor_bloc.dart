@@ -28,7 +28,7 @@ class BoilersActorBloc extends Bloc<BoilersActorEvent, BoilersActorState> {
     yield* event.map(
       deleted: (e) async* {},
       initialized: (e) async* {},
-      turnOnAllBoilers: (_TurnOnAllBoilers value) async* {
+      turnOnAllBoilers: (TurnOnAllBoilers value) async* {
         FlushbarHelper.createLoading(
           message: 'Turning On boiler',
           linearProgressIndicator: const LinearProgressIndicator(),
@@ -36,7 +36,7 @@ class BoilersActorBloc extends Bloc<BoilersActorEvent, BoilersActorState> {
 
         _deviceRepository.turnOnDevices(devicesId: value.boilersIdToTurnUp);
       },
-      turnOffAllBoilers: (_TurnOffAllBoilers value) async* {
+      turnOffAllBoilers: (TurnOffAllBoilers value) async* {
         FlushbarHelper.createLoading(
           message: 'Turning Off boiler',
           linearProgressIndicator: const LinearProgressIndicator(),

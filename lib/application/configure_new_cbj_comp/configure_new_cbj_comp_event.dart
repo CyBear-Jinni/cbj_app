@@ -5,29 +5,29 @@ class ConfigureNewCbjCompEvent with _$ConfigureNewCbjCompEvent {
   const factory ConfigureNewCbjCompEvent.initialized() = Initialized;
 
   const factory ConfigureNewCbjCompEvent.deleted(GenericLightDE deviceEntity) =
-      _Deleted;
+      Deleted;
 
   const factory ConfigureNewCbjCompEvent.setupNewDevice(
     CBJCompEntity cBJCompEntity,
     Map<String, TextEditingController> textEditingController,
-  ) = _SetupNewDevice;
+  ) = SetupNewDevice;
   const factory ConfigureNewCbjCompEvent.saveDevicesToCloud(
     CBJCompEntity cBJCompEntity,
-  ) = _SaveDevicesToCloud;
+  ) = SaveDevicesToCloud;
 
   const factory ConfigureNewCbjCompEvent.saveDevicesToComputer(
     CBJCompEntity cBJCompEntity,
-  ) = _SaveDevicesToComputer;
+  ) = SaveDevicesToComputer;
 
   const factory ConfigureNewCbjCompEvent.sendFirebaseInformation(
     CBJCompEntity cBJCompEntity,
-  ) = _SendFirebaseInformation;
+  ) = SendFirebaseInformation;
 
   const factory ConfigureNewCbjCompEvent.sendHotSpotInformation(
     CBJCompEntity cBJCompEntity,
-  ) = _SendHotSpotInformation;
+  ) = SendHotSpotInformation;
 
   const factory ConfigureNewCbjCompEvent.checkOperationsCompletedSuccessfully(
     CBJCompEntity cBJCompEntity,
-  ) = _CheckOperationsCompletedSuccessfully;
+  ) = CheckOperationsCompletedSuccessfully;
 }
