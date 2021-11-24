@@ -18,7 +18,8 @@ class LightToggleBloc extends Bloc<LightToggleEvent, LightToggleState> {
   LightToggleBloc(this._deviceRepository) : super(LightToggleState.initial()) {
     on<CreateDevice>(_create);
     on<ChangeState>(_changeAction);
-    on<ChangeColor>(_changeColor);
+    on<ChangeColorTemperature>(_changeColorTemperature);
+    on<ChangeHsvColor>(_changeHsvColor);
     on<ChangeBrightness>(_changeBrightness);
   }
 
@@ -48,14 +49,25 @@ class LightToggleBloc extends Bloc<LightToggleEvent, LightToggleState> {
     }
   }
 
-  Future<void> _changeColor(
-    ChangeColor event,
+  Future<void> _changeColorTemperature(
+    ChangeColorTemperature event,
     Emitter<LightToggleState> emit,
   ) async {
-    emit(state.copyWith(hsvColor: event.newColor));
-    _deviceRepository.changeColorDevices(
+    emit(state.copyWith(colorTemperature: event.newColorTemperature));
+    _deviceRepository.changeColorTemperatureDevices(
       devicesId: [event.deviceEntity.uniqueId.getOrCrash()!],
-      colorToChange: event.newColor,
+      colorTemperatureToChange: event.newColorTemperature,
+    );
+  }
+
+  Future<void> _changeHsvColor(
+    ChangeHsvColor event,
+    Emitter<LightToggleState> emit,
+  ) async {
+    emit(state.copyWith(hsvColor: event.newHsvColor));
+    _deviceRepository.changeHsvColorDevices(
+      devicesId: [event.deviceEntity.uniqueId.getOrCrash()!],
+      hsvColorToChange: event.newHsvColor,
     );
   }
 

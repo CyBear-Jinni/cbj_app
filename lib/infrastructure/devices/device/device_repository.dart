@@ -355,9 +355,75 @@ class DeviceRepository implements IDeviceRepository {
   }
 
   @override
-  Future<Either<DevicesFailure, Unit>> changeColorDevices({
+  Future<Either<DevicesFailure, Unit>> changeColorTemperatureDevices({
     required List<String>? devicesId,
-    required HSVColor colorToChange,
+    required int colorTemperatureToChange,
+  }) async {
+    final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
+        await getDeviceEntityListFromId(devicesId!);
+
+    try {
+      for (final DeviceEntityAbstract? deviceEntity
+          in deviceEntityListToUpdate) {
+        if (deviceEntity == null) {
+          continue;
+        }
+        if (deviceEntity is GenericRgbwLightDE) {
+          deviceEntity.lightColorTemperature = GenericRgbwLightColorTemperature(
+            colorTemperatureToChange.toString(),
+          );
+        } else {
+          logger.w(
+            'Off action not supported for'
+            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+          );
+          continue;
+        }
+
+        try {
+          if (!deviceEntity.doesWaitingToSendTemperatureColorRequest) {
+            deviceEntity.doesWaitingToSendTemperatureColorRequest = true;
+
+            final Future<Either<DevicesFailure, Unit>> updateEntityResponse =
+                updateWithDeviceEntity(deviceEntity: deviceEntity);
+
+            await Future.delayed(
+              Duration(
+                milliseconds:
+                    deviceEntity.sendNewTemperatureColorEachMiliseconds,
+              ),
+            );
+            deviceEntity.doesWaitingToSendTemperatureColorRequest = false;
+
+            return updateEntityResponse;
+          }
+        } catch (e) {
+          await Future.delayed(
+            Duration(
+              milliseconds: deviceEntity.sendNewTemperatureColorEachMiliseconds,
+            ),
+          );
+          deviceEntity.doesWaitingToSendTemperatureColorRequest = false;
+          return left(const DevicesFailure.unexpected());
+        }
+      }
+    } on PlatformException catch (e) {
+      if (e.message!.contains('PERMISSION_DENIED')) {
+        return left(const DevicesFailure.insufficientPermission());
+      } else if (e.message!.contains('NOT_FOUND')) {
+        return left(const DevicesFailure.unableToUpdate());
+      } else {
+        // log.error(e.toString());
+        return left(const DevicesFailure.unexpected());
+      }
+    }
+    return right(unit);
+  }
+
+  @override
+  Future<Either<DevicesFailure, Unit>> changeHsvColorDevices({
+    required List<String>? devicesId,
+    required HSVColor hsvColorToChange,
   }) async {
     final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
         await getDeviceEntityListFromId(devicesId!);
@@ -371,14 +437,14 @@ class DeviceRepository implements IDeviceRepository {
         if (deviceEntity is GenericRgbwLightDE) {
           deviceEntity
             ..lightColorAlpha =
-                GenericRgbwLightColorAlpha(colorToChange.alpha.toString())
+                GenericRgbwLightColorAlpha(hsvColorToChange.alpha.toString())
             ..lightColorHue =
-                GenericRgbwLightColorHue(colorToChange.hue.toString())
+                GenericRgbwLightColorHue(hsvColorToChange.hue.toString())
             ..lightColorSaturation = GenericRgbwLightColorSaturation(
-              colorToChange.saturation.toString(),
+              hsvColorToChange.saturation.toString(),
             )
             ..lightColorValue =
-                GenericRgbwLightColorValue(colorToChange.value.toString());
+                GenericRgbwLightColorValue(hsvColorToChange.value.toString());
         } else {
           logger.w(
             'Off action not supported for'
@@ -388,26 +454,28 @@ class DeviceRepository implements IDeviceRepository {
         }
 
         try {
-          if (!deviceEntity.doesWaitingToSendColorRequest) {
-            deviceEntity.doesWaitingToSendColorRequest = true;
+          if (!deviceEntity.doesWaitingToSendHsvColorRequest) {
+            deviceEntity.doesWaitingToSendHsvColorRequest = true;
 
             final Future<Either<DevicesFailure, Unit>> updateEntityResponse =
                 updateWithDeviceEntity(deviceEntity: deviceEntity);
 
             await Future.delayed(
-              Duration(milliseconds: deviceEntity.sendNewColorEachMiliseconds),
+              Duration(
+                milliseconds: deviceEntity.sendNewHsvColorEachMiliseconds,
+              ),
             );
-            deviceEntity.doesWaitingToSendColorRequest = false;
+            deviceEntity.doesWaitingToSendHsvColorRequest = false;
 
             return updateEntityResponse;
           }
         } catch (e) {
           await Future.delayed(
             Duration(
-              milliseconds: deviceEntity.sendNewBrightnessEachMiliseconds,
+              milliseconds: deviceEntity.sendNewHsvColorEachMiliseconds,
             ),
           );
-          deviceEntity.doesWaitingToSendColorRequest = false;
+          deviceEntity.doesWaitingToSendHsvColorRequest = false;
           return left(const DevicesFailure.unexpected());
         }
       }

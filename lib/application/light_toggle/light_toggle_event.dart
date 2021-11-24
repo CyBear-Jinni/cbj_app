@@ -7,10 +7,15 @@ class LightToggleEvent with _$LightToggleEvent {
     bool changeToState,
   ) = ChangeState;
 
-  const factory LightToggleEvent.changeColor(
+  const factory LightToggleEvent.changeColorTemperature(
     DeviceEntityAbstract deviceEntity,
-    HSVColor newColor,
-  ) = ChangeColor;
+    int newColorTemperature,
+  ) = ChangeColorTemperature;
+
+  const factory LightToggleEvent.changeHsvColor(
+    DeviceEntityAbstract deviceEntity,
+    HSVColor newHsvColor,
+  ) = ChangeHsvColor;
 
   const factory LightToggleEvent.changeBrightness(
     DeviceEntityAbstract deviceEntity,

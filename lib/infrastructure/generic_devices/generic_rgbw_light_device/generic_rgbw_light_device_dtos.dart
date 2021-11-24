@@ -61,7 +61,7 @@ abstract class GenericRgbwLightDeviceDtos
       compUuid: genericRgbwLightDE.compUuid.getOrCrash(),
       deviceVendor: genericRgbwLightDE.deviceVendor.getOrCrash(),
       lightColorTemperature:
-          genericRgbwLightDE.lightColorTemperature!.getOrCrash(),
+          genericRgbwLightDE.lightColorTemperature.getOrCrash(),
       lightBrightness: genericRgbwLightDE.lightBrightness.getOrCrash(),
 
       lightColorAlpha: genericRgbwLightDE.lightColorAlpha.getOrCrash(),

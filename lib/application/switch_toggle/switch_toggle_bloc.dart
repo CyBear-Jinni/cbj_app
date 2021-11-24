@@ -78,9 +78,9 @@ class SwitchToggleBloc extends Bloc<SwitchToggleEvent, SwitchToggleState> {
   /// different colors which is not efficient and some device can't even handle
   /// so many requests.
   Future<void> changeColorOncePerTimer(ChangeColor e) async {
-    await _deviceRepository.changeColorDevices(
+    await _deviceRepository.changeHsvColorDevices(
       devicesId: [e.deviceEntity.uniqueId.getOrCrash()!],
-      colorToChange: lastColoredPicked!,
+      hsvColorToChange: lastColoredPicked!,
     );
   }
 }
