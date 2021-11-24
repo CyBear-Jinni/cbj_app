@@ -20,7 +20,10 @@ part 'hub_in_network_state.dart';
 @injectable
 class HubInNetworkBloc extends Bloc<HubInNetworkEvent, HubInNetworkState> {
   HubInNetworkBloc(this._hubConnectionRepository)
-      : super(HubInNetworkState.initial());
+      : super(HubInNetworkState.initial()) {
+    on<InitialEvent>(_initialEvent);
+    on<WatchAllStarted>(_searchHubInNetwork);
+  }
 
   final IHubConnectionRepository _hubConnectionRepository;
   StreamSubscription<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>?
@@ -28,23 +31,25 @@ class HubInNetworkBloc extends Bloc<HubInNetworkEvent, HubInNetworkState> {
 
   BuildContext? context;
 
-  @override
-  Stream<HubInNetworkState> mapEventToState(
-    HubInNetworkEvent event,
-  ) async* {
-    yield* event.map(
-      initialEvent: (InitialEvent value) async* {
-        context = value.context;
-        add(const HubInNetworkEvent.searchHubInNetwork());
-      },
-      searchHubInNetwork: (e) async* {
-        yield const HubInNetworkState.loadInProgress();
-        yield (await _hubConnectionRepository.searchForHub())
-            .fold((l) => HubInNetworkState.loadFailure(l), (r) {
-          context?.router.replace(const HomeRoute());
-          return const HubInNetworkState.loadSuccess();
-        });
-      },
+  Future<void> _initialEvent(
+    InitialEvent event,
+    Emitter<HubInNetworkState> emit,
+  ) async {
+    context = event.context;
+    add(const HubInNetworkEvent.searchHubInNetwork());
+  }
+
+  Future<void> _searchHubInNetwork(
+    WatchAllStarted event,
+    Emitter<HubInNetworkState> emit,
+  ) async {
+    emit(const HubInNetworkState.loadInProgress());
+    emit(
+      (await _hubConnectionRepository.searchForHub())
+          .fold((l) => HubInNetworkState.loadFailure(l), (r) {
+        context?.router.replace(const HomeRoute());
+        return const HubInNetworkState.loadSuccess();
+      }),
     );
   }
 

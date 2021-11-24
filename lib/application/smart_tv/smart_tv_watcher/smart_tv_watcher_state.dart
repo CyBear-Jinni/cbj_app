@@ -2,16 +2,16 @@ part of 'smart_tv_watcher_bloc.dart';
 
 @freezed
 class SmartTvWatcherState with _$SmartTvWatcherState {
-  factory SmartTvWatcherState.initial() = _Initial;
+  factory SmartTvWatcherState.initial() = Initial;
 
-  const factory SmartTvWatcherState.loadInProgress() = _LoadInProgress;
+  const factory SmartTvWatcherState.loadInProgress() = LoadInProgress;
 
   const factory SmartTvWatcherState.loadSuccess(
     KtList<GenericLightDE?> devices,
-  ) = _LoadSuccess;
+  ) = LoadSuccess;
 
   const factory SmartTvWatcherState.loadFailure(DevicesFailure devicesFailure) =
-      _loadFailure;
+      LoadFailure;
 
   const factory SmartTvWatcherState.blindError() = BlindError;
 }

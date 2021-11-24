@@ -6,5 +6,5 @@ class SmartTvWatcherEvent with _$SmartTvWatcherEvent {
 
   const factory SmartTvWatcherEvent.smart_tvReceived(
     Either<DevicesFailure, KtList<DeviceEntityAbstract?>> failureOrDevices,
-  ) = smart_tvReceived;
+  ) = Smart_tvReceived;
 }

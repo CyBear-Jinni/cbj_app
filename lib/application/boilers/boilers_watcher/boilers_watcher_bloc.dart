@@ -19,34 +19,38 @@ part 'boilers_watcher_state.dart';
 class BoilersWatcherBloc
     extends Bloc<BoilersWatcherEvent, BoilersWatcherState> {
   BoilersWatcherBloc(this._deviceRepository)
-      : super(BoilersWatcherState.initial());
+      : super(BoilersWatcherState.initial()) {
+    on<WatchAllBoilersStarted>(_watchAllStarted);
+    on<BoilersReceived>(_boilersReceived);
+  }
 
   final IDeviceRepository _deviceRepository;
   StreamSubscription<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>?
       _deviceStreamSubscription;
 
-  @override
-  Stream<BoilersWatcherState> mapEventToState(
-    BoilersWatcherEvent event,
-  ) async* {
-    yield* event.map(
-      watchAllStarted: (e) async* {
-        yield const BoilersWatcherState.loadInProgress();
-        await _deviceStreamSubscription?.cancel();
-        _deviceStreamSubscription = _deviceRepository.watchBoilers().listen(
-              (eventWatch) =>
-                  add(BoilersWatcherEvent.boilersReceived(eventWatch)),
-            );
-      },
-      boilersReceived: (e) async* {
-        yield const BoilersWatcherState.loadInProgress();
-        yield e.failureOrDevices.fold(
-          (f) => BoilersWatcherState.loadFailure(f),
-          (d) => BoilersWatcherState.loadSuccess(
-            d.map((v) => v! as GenericBoilerDE).toMutableList(),
-          ),
+  Future<void> _watchAllStarted(
+    WatchAllBoilersStarted event,
+    Emitter<BoilersWatcherState> emit,
+  ) async {
+    emit(const BoilersWatcherState.loadInProgress());
+    await _deviceStreamSubscription?.cancel();
+    _deviceStreamSubscription = _deviceRepository.watchBoilers().listen(
+          (eventWatch) => add(BoilersWatcherEvent.boilersReceived(eventWatch)),
         );
-      },
+  }
+
+  Future<void> _boilersReceived(
+    BoilersReceived event,
+    Emitter<BoilersWatcherState> emit,
+  ) async {
+    emit(const BoilersWatcherState.loadInProgress());
+    emit(
+      event.failureOrDevices.fold(
+        (f) => BoilersWatcherState.loadFailure(f),
+        (d) => BoilersWatcherState.loadSuccess(
+          d.map((v) => v! as GenericBoilerDE).toMutableList(),
+        ),
+      ),
     );
   }
 

@@ -13,62 +13,65 @@ part 'software_info_state.dart';
 @injectable
 class SoftwareInfoBloc extends Bloc<SoftwareInfoEvent, SoftwareInfoState> {
   SoftwareInfoBloc(this._softwareInfoRepository)
-      : super(SoftwareInfoState.initial());
+      : super(SoftwareInfoState.initial()) {
+    on<Initialized>(_initialized);
+    on<GetSoftwareInfo>(_getSoftwareInfo);
+  }
 
   final ISoftwareInfoRepository _softwareInfoRepository;
 
   Map<String, SoftwareInfoEntity> softwaresInfo = {};
 
-  @override
-  Stream<SoftwareInfoState> mapEventToState(
-    SoftwareInfoEvent event,
-  ) async* {
-    yield* event.map(
-      initialized: (Initialized value) async* {
-        SoftwareInfoEntity? appInfoEntity;
-        (await _softwareInfoRepository.getAppSoftwareInfo()).fold(
-          (l) => l,
-          (r) {
-            appInfoEntity = r;
-          },
-        );
-
-        if (appInfoEntity != null) {
-          softwaresInfo.addEntries([MapEntry('App Server', appInfoEntity!)]);
-          yield SoftwareInfoState.gotSoftwareInfoEntities(softwaresInfo);
-        }
-
-        SoftwareInfoEntity? hubInfoEntity;
-        (await _softwareInfoRepository.getHubSoftwareInfo()).fold(
-          (l) => l,
-          (r) {
-            hubInfoEntity = r;
-          },
-        );
-
-        if (hubInfoEntity != null) {
-          softwaresInfo.addEntries([MapEntry('Hub Server', hubInfoEntity!)]);
-          yield SoftwareInfoState.initial();
-          yield SoftwareInfoState.gotSoftwareInfoEntities(softwaresInfo);
-        }
-
-        SoftwareInfoEntity? securityBearInfoEntity;
-        (await _softwareInfoRepository.getSecurityBearSoftwareInfo()).fold(
-          (l) => l,
-          (r) {
-            securityBearInfoEntity = r;
-          },
-        );
-
-        if (securityBearInfoEntity != null) {
-          softwaresInfo.addEntries([
-            MapEntry('Security Bear Server', securityBearInfoEntity!),
-          ]);
-          yield SoftwareInfoState.initial();
-          yield SoftwareInfoState.gotSoftwareInfoEntities(softwaresInfo);
-        }
+  Future<void> _initialized(
+    Initialized event,
+    Emitter<SoftwareInfoState> emit,
+  ) async {
+    SoftwareInfoEntity? appInfoEntity;
+    (await _softwareInfoRepository.getAppSoftwareInfo()).fold(
+      (l) => l,
+      (r) {
+        appInfoEntity = r;
       },
-      getSoftwareInfo: (GetSoftwareInfo value) async* {},
     );
+
+    if (appInfoEntity != null) {
+      softwaresInfo.addEntries([MapEntry('App Server', appInfoEntity!)]);
+      emit(SoftwareInfoState.gotSoftwareInfoEntities(softwaresInfo));
+    }
+
+    SoftwareInfoEntity? hubInfoEntity;
+    (await _softwareInfoRepository.getHubSoftwareInfo()).fold(
+      (l) => l,
+      (r) {
+        hubInfoEntity = r;
+      },
+    );
+
+    if (hubInfoEntity != null) {
+      softwaresInfo.addEntries([MapEntry('Hub Server', hubInfoEntity!)]);
+      emit(SoftwareInfoState.initial());
+      emit(SoftwareInfoState.gotSoftwareInfoEntities(softwaresInfo));
+    }
+
+    SoftwareInfoEntity? securityBearInfoEntity;
+    (await _softwareInfoRepository.getSecurityBearSoftwareInfo()).fold(
+      (l) => l,
+      (r) {
+        securityBearInfoEntity = r;
+      },
+    );
+
+    if (securityBearInfoEntity != null) {
+      softwaresInfo.addEntries([
+        MapEntry('Security Bear Server', securityBearInfoEntity!),
+      ]);
+      emit(SoftwareInfoState.initial());
+      emit(SoftwareInfoState.gotSoftwareInfoEntities(softwaresInfo));
+    }
   }
+
+  Future<void> _getSoftwareInfo(
+    GetSoftwareInfo event,
+    Emitter<SoftwareInfoState> emit,
+  ) async {}
 }

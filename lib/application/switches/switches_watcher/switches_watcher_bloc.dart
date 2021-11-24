@@ -17,34 +17,38 @@ part 'switches_watcher_state.dart';
 class SwitchesWatcherBloc
     extends Bloc<SwitchesWatcherEvent, SwitchesWatcherState> {
   SwitchesWatcherBloc(this._deviceRepository)
-      : super(SwitchesWatcherState.initial());
+      : super(SwitchesWatcherState.initial()) {
+    on<WatchAllStarted>(_watchAllStarted);
+    on<DevicesReceived>(_devicesReceived);
+  }
 
   final IDeviceRepository _deviceRepository;
   StreamSubscription<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>?
       _deviceStreamSubscription;
 
-  @override
-  Stream<SwitchesWatcherState> mapEventToState(
-    SwitchesWatcherEvent event,
-  ) async* {
-    yield* event.map(
-      watchAllStarted: (e) async* {
-        yield const SwitchesWatcherState.loadInProgress();
-        await _deviceStreamSubscription?.cancel();
-        _deviceStreamSubscription = _deviceRepository.watchSwitches().listen(
-              (eventWatch) =>
-                  add(SwitchesWatcherEvent.devicesReceived(eventWatch)),
-            );
-      },
-      devicesReceived: (e) async* {
-        yield const SwitchesWatcherState.loadInProgress();
-        yield e.failureOrDevices.fold(
-          (f) => SwitchesWatcherState.loadFailure(f),
-          (d) => SwitchesWatcherState.loadSuccess(
-            d.map((v) => v!).toMutableList(),
-          ),
+  Future<void> _watchAllStarted(
+    WatchAllStarted event,
+    Emitter<SwitchesWatcherState> emit,
+  ) async {
+    emit(const SwitchesWatcherState.loadInProgress());
+    await _deviceStreamSubscription?.cancel();
+    _deviceStreamSubscription = _deviceRepository.watchSwitches().listen(
+          (eventWatch) => add(SwitchesWatcherEvent.devicesReceived(eventWatch)),
         );
-      },
+  }
+
+  Future<void> _devicesReceived(
+    DevicesReceived event,
+    Emitter<SwitchesWatcherState> emit,
+  ) async {
+    emit(const SwitchesWatcherState.loadInProgress());
+    emit(
+      event.failureOrDevices.fold(
+        (f) => SwitchesWatcherState.loadFailure(f),
+        (d) => SwitchesWatcherState.loadSuccess(
+          d.map((v) => v!).toMutableList(),
+        ),
+      ),
     );
   }
 

@@ -16,45 +16,58 @@ part 'user_homes_list_state.dart';
 
 @injectable
 class UserHomesListBloc extends Bloc<UserHomesListEvent, UserHomesListState> {
-  UserHomesListBloc(this._userRepository) : super(UserHomesListState.initial());
+  UserHomesListBloc(this._userRepository)
+      : super(UserHomesListState.initial()) {
+    on<WatchAllStarted>(_watchAllStarted);
+    on<AllHomesOfUserReceived>(_allHomesOfUserReceived);
+    on<JoinExistingHome>(_joinExistingHome);
+  }
 
   final IUserRepository _userRepository;
   StreamSubscription<
           Either<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>>?
       _userHomesStreamSubscription;
 
-  @override
-  Stream<UserHomesListState> mapEventToState(
-    UserHomesListEvent event,
-  ) async* {
-    yield* event.map(
-      watchAllStarted: (e) async* {
-        yield const UserHomesListState.loadInProgress();
-        await _userHomesStreamSubscription?.cancel();
-        _userHomesStreamSubscription = _userRepository.watchAll().listen(
-              (failureOrDevices) => add(
-                UserHomesListEvent.allHomesOfUserReceived(failureOrDevices),
-              ),
-            );
-      },
-      allHomesOfUserReceived: (e) async* {
-        yield const UserHomesListState.loadInProgress();
-
-        yield e.failureOrAllHomesOfUser.fold(
-          (f) => UserHomesListState.loadFailure(f),
-          (allHomes) => UserHomesListState.loadSuccess(allHomes),
+  Future<void> _watchAllStarted(
+    WatchAllStarted event,
+    Emitter<UserHomesListState> emit,
+  ) async {
+    emit(const UserHomesListState.loadInProgress());
+    await _userHomesStreamSubscription?.cancel();
+    _userHomesStreamSubscription = _userRepository.watchAll().listen(
+          (failureOrDevices) => add(
+            UserHomesListEvent.allHomesOfUserReceived(failureOrDevices),
+          ),
         );
-      },
-      joinExistingHome: (e) async* {
-        yield const UserHomesListState.loadInProgress();
+  }
 
-        final Either<HomeUserFailures, Unit> joinHomeOutput =
-            await _userRepository.joinExistingHome(e.allHomesOfUserEntity!);
-        yield joinHomeOutput.fold(
-          (f) => UserHomesListState.loadFailureEnteringHome(f),
-          (r) => const UserHomesListState.enterHome(),
-        );
-      },
+  Future<void> _allHomesOfUserReceived(
+    AllHomesOfUserReceived event,
+    Emitter<UserHomesListState> emit,
+  ) async {
+    emit(const UserHomesListState.loadInProgress());
+
+    emit(
+      event.failureOrAllHomesOfUser.fold(
+        (f) => UserHomesListState.loadFailure(f),
+        (allHomes) => UserHomesListState.loadSuccess(allHomes),
+      ),
+    );
+  }
+
+  Future<void> _joinExistingHome(
+    JoinExistingHome event,
+    Emitter<UserHomesListState> emit,
+  ) async {
+    emit(const UserHomesListState.loadInProgress());
+
+    final Either<HomeUserFailures, Unit> joinHomeOutput =
+        await _userRepository.joinExistingHome(event.allHomesOfUserEntity!);
+    emit(
+      joinHomeOutput.fold(
+        (f) => UserHomesListState.loadFailureEnteringHome(f),
+        (r) => const UserHomesListState.enterHome(),
+      ),
     );
   }
 

@@ -15,46 +15,59 @@ part 'light_toggle_state.dart';
 
 @injectable
 class LightToggleBloc extends Bloc<LightToggleEvent, LightToggleState> {
-  LightToggleBloc(this._deviceRepository) : super(LightToggleState.initial());
+  LightToggleBloc(this._deviceRepository) : super(LightToggleState.initial()) {
+    on<CreateDevice>(_create);
+    on<ChangeState>(_changeAction);
+    on<ChangeColor>(_changeColor);
+    on<ChangeBrightness>(_changeBrightness);
+  }
 
   final IDeviceRepository _deviceRepository;
 
-  @override
-  Stream<LightToggleState> mapEventToState(
-    LightToggleEvent event,
-  ) async* {
-    yield* event.map(
-      create: (e) async* {
-        final actionResult = await _deviceRepository.create(event.deviceEntity);
-      },
-      changeAction: (e) async* {
-        Either<DevicesFailure, Unit> actionResult;
+  Future<void> _create(
+    CreateDevice event,
+    Emitter<LightToggleState> emit,
+  ) async {
+    final actionResult = await _deviceRepository.create(event.deviceEntity);
+  }
 
-        if (e.changeToState) {
-          actionResult = await _deviceRepository.turnOnDevices(
-            devicesId: [e.deviceEntity.uniqueId.getOrCrash()!],
-          );
-        } else {
-          actionResult = await _deviceRepository.turnOffDevices(
-            devicesId: [e.deviceEntity.uniqueId.getOrCrash()!],
-          );
-        }
-      },
-      changeColor: (ChangeColor e) async* {
-        yield state.copyWith(hsvColor: e.newColor);
-        _deviceRepository.changeColorDevices(
-          devicesId: [e.deviceEntity.uniqueId.getOrCrash()!],
-          colorToChange: e.newColor,
-        );
-      },
-      changeBrightness: (ChangeBrightness value) async* {
-        yield state.copyWith(brightness: value.brightness);
+  Future<void> _changeAction(
+    ChangeState event,
+    Emitter<LightToggleState> emit,
+  ) async {
+    Either<DevicesFailure, Unit> actionResult;
 
-        _deviceRepository.changeBrightnessDevices(
-          devicesId: [value.deviceEntity.uniqueId.getOrCrash()!],
-          brightnessToChange: value.brightness.round(),
-        );
-      },
+    if (event.changeToState) {
+      actionResult = await _deviceRepository.turnOnDevices(
+        devicesId: [event.deviceEntity.uniqueId.getOrCrash()!],
+      );
+    } else {
+      actionResult = await _deviceRepository.turnOffDevices(
+        devicesId: [event.deviceEntity.uniqueId.getOrCrash()!],
+      );
+    }
+  }
+
+  Future<void> _changeColor(
+    ChangeColor event,
+    Emitter<LightToggleState> emit,
+  ) async {
+    emit(state.copyWith(hsvColor: event.newColor));
+    _deviceRepository.changeColorDevices(
+      devicesId: [event.deviceEntity.uniqueId.getOrCrash()!],
+      colorToChange: event.newColor,
+    );
+  }
+
+  Future<void> _changeBrightness(
+    ChangeBrightness event,
+    Emitter<LightToggleState> emit,
+  ) async {
+    emit(state.copyWith(brightness: event.brightness));
+
+    _deviceRepository.changeBrightnessDevices(
+      devicesId: [event.deviceEntity.uniqueId.getOrCrash()!],
+      brightnessToChange: event.brightness.round(),
     );
   }
 }

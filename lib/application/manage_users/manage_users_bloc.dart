@@ -16,38 +16,51 @@ part 'manage_users_state.dart';
 @injectable
 class ManageUsersBloc extends Bloc<ManageUsersEvent, ManageUsersState> {
   ManageUsersBloc(this._userRepository)
-      : super(const ManageUsersState.initial());
+      : super(const ManageUsersState.initial()) {
+    on<Initialized>(_initialized);
+    on<UserReceived>(_userReceived);
+    on<AddByEmail>(_addByEmail);
+    on<Deleted>(_deleted);
+  }
 
   final IHomeUserRepository _userRepository;
 
   StreamSubscription<Either<HomeUserFailures, KtList<HomeUserEntity>>>?
       _userStreamSubscription;
 
-  @override
-  Stream<ManageUsersState> mapEventToState(
-    ManageUsersEvent event,
-  ) async* {
-    yield* event.map(
-      initialized: (e) async* {
-        yield const ManageUsersState.inProgress();
-        await _userStreamSubscription?.cancel();
-        _userStreamSubscription = _userRepository.getAllUsers().listen(
-              (allUsersEvent) =>
-                  add(ManageUsersEvent.userReceived(allUsersEvent)),
-            );
-      },
-      userReceived: (e) async* {
-        yield const ManageUsersState.inProgress();
-
-        yield e.failureOrUsers.fold(
-          (f) => ManageUsersState.loadFailure(f),
-          (user) => ManageUsersState.loadSuccess(user),
+  Future<void> _initialized(
+    Initialized event,
+    Emitter<ManageUsersState> emit,
+  ) async {
+    emit(const ManageUsersState.inProgress());
+    await _userStreamSubscription?.cancel();
+    _userStreamSubscription = _userRepository.getAllUsers().listen(
+          (allUsersEvent) => add(ManageUsersEvent.userReceived(allUsersEvent)),
         );
-      },
-      addByEmail: (e) async* {},
-      deleted: (e) async* {},
+  }
+
+  Future<void> _userReceived(
+    UserReceived event,
+    Emitter<ManageUsersState> emit,
+  ) async {
+    emit(const ManageUsersState.inProgress());
+
+    emit(
+      event.failureOrUsers.fold(
+        (f) => ManageUsersState.loadFailure(f),
+        (user) => ManageUsersState.loadSuccess(user),
+      ),
     );
   }
+
+  Future<void> _addByEmail(
+    AddByEmail event,
+    Emitter<ManageUsersState> emit,
+  ) async {}
+  Future<void> _deleted(
+    Deleted event,
+    Emitter<ManageUsersState> emit,
+  ) async {}
 
   @override
   Future<void> close() async {

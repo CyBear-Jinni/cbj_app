@@ -12,22 +12,22 @@ part 'scene_state.dart';
 
 @injectable
 class SceneBloc extends Bloc<SceneEvent, SceneState> {
-  SceneBloc(this._iSceneRepository) : super(SceneState.initialized());
+  SceneBloc(this._iSceneRepository) : super(SceneState.initialized()) {
+    on<Initialized>(_initialized);
+  }
 
   final ISceneRepository _iSceneRepository;
 
-  @override
-  Stream<SceneState> mapEventToState(
-    SceneEvent event,
-  ) async* {
-    yield* event.map(
-      initialized: (e) async* {
-        final sceneList = await _iSceneRepository.getScene();
-        yield sceneList.fold(
-          (f) => const SceneState.error(),
-          (sceneState) => SceneState.loaded(sceneState),
-        );
-      },
+  Future<void> _initialized(
+    Initialized event,
+    Emitter<SceneState> emit,
+  ) async {
+    final sceneList = await _iSceneRepository.getScene();
+    emit(
+      sceneList.fold(
+        (f) => const SceneState.error(),
+        (sceneState) => SceneState.loaded(sceneState),
+      ),
     );
   }
 }

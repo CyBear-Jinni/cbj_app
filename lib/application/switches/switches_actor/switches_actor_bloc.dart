@@ -17,33 +17,46 @@ part 'switches_actor_state.dart';
 @injectable
 class SwitchesActorBloc extends Bloc<SwitchesActorEvent, SwitchesActorState> {
   SwitchesActorBloc(this._deviceRepository)
-      : super(const SwitchesActorState.initial());
+      : super(const SwitchesActorState.initial()) {
+    on<Initialized>(_initialized);
+    on<Deleted>(_deleted);
+    on<TurnOffAllSwitches>(_turnOffAllSwitches);
+    on<TurnOnAllSwitches>(_turnOnAllSwitches);
+  }
 
   final IDeviceRepository _deviceRepository;
 
-  @override
-  Stream<SwitchesActorState> mapEventToState(
-    SwitchesActorEvent event,
-  ) async* {
-    yield* event.map(
-      deleted: (e) async* {},
-      initialized: (e) async* {},
-      turnOffAllSwitches: (TurnOffAllSwitches value) async* {
-        FlushbarHelper.createLoading(
-          message: 'Turning Off all switches',
-          linearProgressIndicator: const LinearProgressIndicator(),
-        ).show(value.context);
+  Future<void> _initialized(
+    Initialized event,
+    Emitter<SwitchesActorState> emit,
+  ) async {}
 
-        _deviceRepository.turnOffDevices(devicesId: value.switchesIdToTurnOff);
-      },
-      turnOnAllSwitches: (TurnOnAllSwitches value) async* {
-        FlushbarHelper.createLoading(
-          message: 'Turning On all switches',
-          linearProgressIndicator: const LinearProgressIndicator(),
-        ).show(value.context);
+  Future<void> _deleted(
+    Deleted event,
+    Emitter<SwitchesActorState> emit,
+  ) async {}
 
-        _deviceRepository.turnOnDevices(devicesId: value.switchesIdToTurnOn);
-      },
-    );
+  Future<void> _turnOffAllSwitches(
+    TurnOffAllSwitches event,
+    Emitter<SwitchesActorState> emit,
+  ) async {
+    FlushbarHelper.createLoading(
+      message: 'Turning Off all switches',
+      linearProgressIndicator: const LinearProgressIndicator(),
+    ).show(event.context);
+
+    _deviceRepository.turnOffDevices(devicesId: event.switchesIdToTurnOff);
+  }
+
+  Future<void> _turnOnAllSwitches(
+    TurnOnAllSwitches event,
+    Emitter<SwitchesActorState> emit,
+  ) async {
+    FlushbarHelper.createLoading(
+      message: 'Turning On all switches',
+      linearProgressIndicator: const LinearProgressIndicator(),
+    ).show(event.context);
+
+    _deviceRepository.turnOnDevices(devicesId: event.switchesIdToTurnOn);
   }
 }

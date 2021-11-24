@@ -11,7 +11,7 @@ class BlindsWatcherState with _$BlindsWatcherState {
   ) = LoadSuccess;
 
   const factory BlindsWatcherState.loadFailure(DevicesFailure devicesFailure) =
-      loadFailure;
+      LoadFailure;
 
   const factory BlindsWatcherState.blindError() = BlindError;
 }
