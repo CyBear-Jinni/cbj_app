@@ -407,6 +407,7 @@ class CbjSecurityBearIno extends $pb.GeneratedMessage {
     ..aOS(15, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pubspecYamlVersion', protoName: 'pubspecYamlVersion')
     ..aOS(16, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'protoLastGenDate', protoName: 'protoLastGenDate')
     ..aOS(23, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pubspecYamlBuildNumber', protoName: 'pubspecYamlBuildNumber')
+    ..aOS(24, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'dartSdkVersion', protoName: 'dartSdkVersion')
     ..hasRequiredFields = false
   ;
 
@@ -416,6 +417,7 @@ class CbjSecurityBearIno extends $pb.GeneratedMessage {
     $core.String? pubspecYamlVersion,
     $core.String? protoLastGenDate,
     $core.String? pubspecYamlBuildNumber,
+    $core.String? dartSdkVersion,
   }) {
     final _result = create();
     if (deviceName != null) {
@@ -429,6 +431,9 @@ class CbjSecurityBearIno extends $pb.GeneratedMessage {
     }
     if (pubspecYamlBuildNumber != null) {
       _result.pubspecYamlBuildNumber = pubspecYamlBuildNumber;
+    }
+    if (dartSdkVersion != null) {
+      _result.dartSdkVersion = dartSdkVersion;
     }
     return _result;
   }
@@ -488,6 +493,15 @@ class CbjSecurityBearIno extends $pb.GeneratedMessage {
   $core.bool hasPubspecYamlBuildNumber() => $_has(3);
   @$pb.TagNumber(23)
   void clearPubspecYamlBuildNumber() => clearField(23);
+
+  @$pb.TagNumber(24)
+  $core.String get dartSdkVersion => $_getSZ(4);
+  @$pb.TagNumber(24)
+  set dartSdkVersion($core.String v) { $_setString(4, v); }
+  @$pb.TagNumber(24)
+  $core.bool hasDartSdkVersion() => $_has(4);
+  @$pb.TagNumber(24)
+  void clearDartSdkVersion() => clearField(24);
 }
 
 class CompSecurityBearSpecs extends $pb.GeneratedMessage {
