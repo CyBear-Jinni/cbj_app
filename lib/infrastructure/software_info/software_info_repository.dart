@@ -34,6 +34,7 @@ class SoftwareInfoRepository implements ISoftwareInfoRepository {
         pubspecYamlVersion: packageInfo.version,
         pubspecYamlBuildNumber: packageInfo.buildNumber,
         protoLastGenDate: appServerProtocGenDate,
+        dartSdkVersion: Platform.version,
       );
 
       final CompAppSpecs compAppSpecs = CompAppSpecs(
@@ -114,6 +115,7 @@ class SoftwareInfoRepository implements ISoftwareInfoRepository {
         deviceName: 'cbj App',
         pubspecYamlVersion: packageInfo.version,
         protoLastGenDate: hubClientProtocGenDate,
+        dartSdkVersion: Platform.version,
       );
 
       final CompHubSpecs compHubSpecs = CompHubSpecs(
@@ -142,6 +144,7 @@ class SoftwareInfoRepository implements ISoftwareInfoRepository {
         deviceName: 'cbj App',
         pubspecYamlVersion: packageInfo.version,
         protoLastGenDate: securityBearClientProtocGenDate,
+        dartSdkVersion: Platform.version,
       );
 
       final CompSecurityBearSpecs compSecurityBearSpecs = CompSecurityBearSpecs(

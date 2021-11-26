@@ -11,6 +11,7 @@ class SoftwareInfoEntity {
     required this.deviceName,
     required this.pubspecYamlVersion,
     required this.protoLastGenDate,
+    required this.dartSdkVersion,
     required this.compId,
     required this.compUuid,
     required this.compOs,
@@ -23,6 +24,7 @@ class SoftwareInfoEntity {
         deviceName: SoftwareInfoDeviceName(''),
         pubspecYamlVersion: SoftwareInfoPubspecYamlVersion(''),
         protoLastGenDate: SoftwareInfoProtoLastGenDate(''),
+        dartSdkVersion: SoftwareInfoDartSdkVersion(''),
         compId: SoftwareInfoCompId(''),
         compUuid: SoftwareInfoCompUuid(''),
         compOs: SoftwareInfoCompOs(''),
@@ -42,6 +44,7 @@ class SoftwareInfoEntity {
           SoftwareInfoPubspecYamlVersion(cbjAppIno.pubspecYamlVersion),
       protoLastGenDate:
           SoftwareInfoProtoLastGenDate(cbjAppIno.protoLastGenDate),
+      dartSdkVersion: SoftwareInfoDartSdkVersion(cbjAppIno.dartSdkVersion),
       compId: SoftwareInfoCompId(compAppSpecs.compId),
       compUuid: SoftwareInfoCompUuid(compAppSpecs.compUuid),
       compOs: SoftwareInfoCompOs(compAppSpecs.compOs),
@@ -62,6 +65,7 @@ class SoftwareInfoEntity {
           SoftwareInfoPubspecYamlVersion(cbjHubIno.pubspecYamlVersion),
       protoLastGenDate:
           SoftwareInfoProtoLastGenDate(cbjHubIno.protoLastGenDate),
+      dartSdkVersion: SoftwareInfoDartSdkVersion(cbjHubIno.dartSdkVersion),
       compId: SoftwareInfoCompId(compAppSpecs.compId),
       compUuid: SoftwareInfoCompUuid(compAppSpecs.compUuid),
       compOs: SoftwareInfoCompOs(compAppSpecs.compOs),
@@ -84,6 +88,8 @@ class SoftwareInfoEntity {
           SoftwareInfoPubspecYamlVersion(securityBearIno.pubspecYamlVersion),
       protoLastGenDate:
           SoftwareInfoProtoLastGenDate(securityBearIno.protoLastGenDate),
+      dartSdkVersion:
+          SoftwareInfoDartSdkVersion(securityBearIno.dartSdkVersion),
       compId: SoftwareInfoCompId(compAppSpecs.compId),
       compUuid: SoftwareInfoCompUuid(compAppSpecs.compUuid),
       compOs: SoftwareInfoCompOs(compAppSpecs.compOs),
@@ -96,6 +102,7 @@ class SoftwareInfoEntity {
   SoftwareInfoDeviceName deviceName;
   SoftwareInfoPubspecYamlVersion pubspecYamlVersion;
   SoftwareInfoProtoLastGenDate protoLastGenDate;
+  SoftwareInfoDartSdkVersion dartSdkVersion;
   SoftwareInfoCompId compId;
   SoftwareInfoCompUuid compUuid;
   SoftwareInfoCompOs compOs;
@@ -113,6 +120,7 @@ class SoftwareInfoEntity {
       deviceName: deviceName.getOrCrash(),
       pubspecYamlVersion: pubspecYamlVersion.getOrCrash(),
       protoLastGenDate: protoLastGenDate.getOrCrash(),
+      dartSdkVersion: dartSdkVersion.getOrCrash(),
       compId: compId.getOrCrash(),
       compUuid: compUuid.getOrCrash(),
       compOs: compOs.getOrCrash(),

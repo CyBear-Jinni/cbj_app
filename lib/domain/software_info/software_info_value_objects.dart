@@ -79,6 +79,21 @@ class SoftwareInfoProtoLastGenDate
   final Either<SoftwareInfoFailures<String>, String> value;
 }
 
+class SoftwareInfoDartSdkVersion
+    extends SoftwareInfoValueObjectAbstract<String> {
+  factory SoftwareInfoDartSdkVersion(String input) {
+    if (input == null) {
+      input = '';
+    }
+    return SoftwareInfoDartSdkVersion._(right(input));
+  }
+
+  const SoftwareInfoDartSdkVersion._(this.value);
+
+  @override
+  final Either<SoftwareInfoFailures<String>, String> value;
+}
+
 class SoftwareInfoCompId extends SoftwareInfoValueObjectAbstract<String> {
   factory SoftwareInfoCompId(String input) {
     if (input == null) {

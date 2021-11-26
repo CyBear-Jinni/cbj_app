@@ -77,6 +77,18 @@ class SoftwareInfoWidget extends StatelessWidget {
                           ListTile(
                             title: Row(
                               children: [
+                                const Text('Dart SDK version: '),
+                                Text(
+                                  softwareInfoEntity?.dartSdkVersion
+                                          .getOrCrash() ??
+                                      'No Info',
+                                ),
+                              ],
+                            ),
+                          ),
+                          ListTile(
+                            title: Row(
+                              children: [
                                 const Text('Comp id: '),
                                 Text(
                                   softwareInfoEntity?.compId.getOrCrash() ??
