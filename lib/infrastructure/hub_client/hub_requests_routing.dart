@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
-import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/hub_client.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_blinds_device/generic_blinds_device_dtos.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_boiler_device/generic_boiler_device_dtos.dart';
@@ -12,6 +11,7 @@ import 'package:cybear_jinni/infrastructure/generic_devices/generic_ping_device/
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_rgbw_light_device/generic_rgbw_light_device_dtos.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_smart_tv_device/generic_smart_tv_device_dtos.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_switch_device/generic_switch_device_dtos.dart';
+import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/utils.dart';
@@ -78,7 +78,7 @@ class HubRequestRouting {
           case DeviceTypes.switch_:
             deviceEntity =
                 GenericSwitchDeviceDtos.fromJson(requestAsJson).toDomain();
-            logger.i('Adding Smart TV device type');
+            logger.i('Adding Switch device type');
             break;
           default:
             if (deviceStateGRPC == DeviceStateGRPC.pingNow) {

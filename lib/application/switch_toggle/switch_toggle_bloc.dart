@@ -15,7 +15,12 @@ part 'switch_toggle_state.dart';
 
 @injectable
 class SwitchToggleBloc extends Bloc<SwitchToggleEvent, SwitchToggleState> {
-  SwitchToggleBloc(this._deviceRepository) : super(SwitchToggleState.initial());
+  SwitchToggleBloc(this._deviceRepository)
+      : super(SwitchToggleState.initial()) {
+    on<CreateDevice>(_create);
+    on<ChangeState>(_changeAction);
+    on<ChangeColor>(_changeColor);
+  }
 
   final IDeviceRepository _deviceRepository;
 
@@ -23,53 +28,59 @@ class SwitchToggleBloc extends Bloc<SwitchToggleEvent, SwitchToggleState> {
   Timer? timeFromLastColorChange;
   HSVColor? lastColoredPicked;
 
-  @override
-  Stream<SwitchToggleState> mapEventToState(
-    SwitchToggleEvent event,
-  ) async* {
-    yield* event.map(
-      create: (e) async* {
-        final actionResult = await _deviceRepository.create(event.deviceEntity);
-      },
-      changeAction: (e) async* {
-        const SwitchToggleState.loadInProgress();
+  Future<void> _create(
+    CreateDevice event,
+    Emitter<SwitchToggleState> emit,
+  ) async {
+    final actionResult = await _deviceRepository.create(event.deviceEntity);
+  }
 
-        Either<DevicesFailure, Unit> actionResult;
+  Future<void> _changeAction(
+    ChangeState event,
+    Emitter<SwitchToggleState> emit,
+  ) async {
+    const SwitchToggleState.loadInProgress();
 
-        if (e.changeToState) {
-          actionResult = await _deviceRepository.turnOnDevices(
-            devicesId: [e.deviceEntity.uniqueId.getOrCrash()!],
-          );
-        } else {
-          actionResult = await _deviceRepository.turnOffDevices(
-            devicesId: [e.deviceEntity.uniqueId.getOrCrash()!],
-          );
-        }
+    Either<DevicesFailure, Unit> actionResult;
 
-        yield actionResult.fold(
-          (devicesFailure) => SwitchToggleState.loadFailure(devicesFailure),
-          (_) => const SwitchToggleState.loadSuccess(),
-        );
-      },
-      changeColor: (_ChangeColor e) async* {
-        lastColoredPicked = e.newColor;
-        timeFromLastColorChange ??=
-            Timer(Duration(milliseconds: sendNewColorEachMiliseconds), () {
-          timeFromLastColorChange = null;
-          changeColorOncePerTimer(e);
-        });
-      },
+    if (event.changeToState) {
+      actionResult = await _deviceRepository.turnOnDevices(
+        devicesId: [event.deviceEntity.uniqueId.getOrCrash()!],
+      );
+    } else {
+      actionResult = await _deviceRepository.turnOffDevices(
+        devicesId: [event.deviceEntity.uniqueId.getOrCrash()!],
+      );
+    }
+
+    emit(
+      actionResult.fold(
+        (devicesFailure) => SwitchToggleState.loadFailure(devicesFailure),
+        (_) => const SwitchToggleState.loadSuccess(),
+      ),
     );
+  }
+
+  Future<void> _changeColor(
+    ChangeColor event,
+    Emitter<SwitchToggleState> emit,
+  ) async {
+    lastColoredPicked = event.newColor;
+    timeFromLastColorChange ??=
+        Timer(Duration(milliseconds: sendNewColorEachMiliseconds), () {
+      timeFromLastColorChange = null;
+      changeColorOncePerTimer(event);
+    });
   }
 
   /// This function will make sure that the app sends color once each x seconds.
   /// Moving the hand on the color slider sends tons of requests with
   /// different colors which is not efficient and some device can't even handle
   /// so many requests.
-  Future<void> changeColorOncePerTimer(_ChangeColor e) async {
-    await _deviceRepository.changeColorDevices(
+  Future<void> changeColorOncePerTimer(ChangeColor e) async {
+    await _deviceRepository.changeHsvColorDevices(
       devicesId: [e.deviceEntity.uniqueId.getOrCrash()!],
-      colorToChange: lastColoredPicked!,
+      hsvColorToChange: lastColoredPicked!,
     );
   }
 }

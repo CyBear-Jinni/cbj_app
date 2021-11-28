@@ -10,7 +10,8 @@ class ManageWifiState with _$ManageWifiState {
 
   factory ManageWifiState.wifiIsDisabled() = WifiIsDisabled;
 
-  factory ManageWifiState.wifiIsEnabled() = WifiIsEnabled;
+  factory ManageWifiState.wifiIsEnabled(String? currentWiFiName) =
+      WifiIsEnabled;
 
   factory ManageWifiState.loaded() = Loaded;
 

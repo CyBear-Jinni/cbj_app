@@ -17,33 +17,46 @@ part 'boilers_actor_state.dart';
 @injectable
 class BoilersActorBloc extends Bloc<BoilersActorEvent, BoilersActorState> {
   BoilersActorBloc(this._deviceRepository)
-      : super(const BoilersActorState.initial());
+      : super(const BoilersActorState.initial()) {
+    on<Deleted>(_deleted);
+    on<Initialized>(_initialized);
+    on<TurnOnAllBoilers>(_turnOnAllBoilers);
+    on<TurnOffAllBoilers>(_turnOffAllBoilers);
+  }
 
   final IDeviceRepository _deviceRepository;
 
-  @override
-  Stream<BoilersActorState> mapEventToState(
-    BoilersActorEvent event,
-  ) async* {
-    yield* event.map(
-      deleted: (e) async* {},
-      initialized: (e) async* {},
-      turnOnAllBoilers: (_TurnOnAllBoilers value) async* {
-        FlushbarHelper.createLoading(
-          message: 'Turning On boiler',
-          linearProgressIndicator: const LinearProgressIndicator(),
-        ).show(value.context);
+  Future<void> _deleted(
+    Deleted event,
+    Emitter<BoilersActorState> emit,
+  ) async {}
 
-        _deviceRepository.turnOnDevices(devicesId: value.boilersIdToTurnUp);
-      },
-      turnOffAllBoilers: (_TurnOffAllBoilers value) async* {
-        FlushbarHelper.createLoading(
-          message: 'Turning Off boiler',
-          linearProgressIndicator: const LinearProgressIndicator(),
-        ).show(value.context);
+  Future<void> _initialized(
+    Initialized event,
+    Emitter<BoilersActorState> emit,
+  ) async {}
 
-        _deviceRepository.turnOffDevices(devicesId: value.boilersIdToTurnOff);
-      },
-    );
+  Future<void> _turnOnAllBoilers(
+    TurnOnAllBoilers event,
+    Emitter<BoilersActorState> emit,
+  ) async {
+    FlushbarHelper.createLoading(
+      message: 'Turning On boiler',
+      linearProgressIndicator: const LinearProgressIndicator(),
+    ).show(event.context);
+
+    _deviceRepository.turnOnDevices(devicesId: event.boilersIdToTurnUp);
+  }
+
+  Future<void> _turnOffAllBoilers(
+    TurnOffAllBoilers event,
+    Emitter<BoilersActorState> emit,
+  ) async {
+    FlushbarHelper.createLoading(
+      message: 'Turning Off boiler',
+      linearProgressIndicator: const LinearProgressIndicator(),
+    ).show(event.context);
+
+    _deviceRepository.turnOffDevices(devicesId: event.boilersIdToTurnOff);
   }
 }

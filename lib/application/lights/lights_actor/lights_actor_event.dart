@@ -7,13 +7,12 @@ class LightsActorEvent with _$LightsActorEvent {
   const factory LightsActorEvent.turnOffAllLights(
     List<String> lightsIdToTurnOff,
     BuildContext context,
-  ) = _TurnOffAllLights;
+  ) = TurnOffAllLights;
 
   const factory LightsActorEvent.turnOnAllLights(
     List<String> lightsIdToTurnOn,
     BuildContext context,
-  ) = _TurnOnAllLights;
+  ) = TurnOnAllLights;
 
-  const factory LightsActorEvent.deleted(GenericLightDE deviceEntity) =
-      _Deleted;
+  const factory LightsActorEvent.deleted(GenericLightDE deviceEntity) = Deleted;
 }

@@ -16,36 +16,53 @@ part 'device_watcher_state.dart';
 @injectable
 class DeviceWatcherBloc extends Bloc<DeviceWatcherEvent, DeviceWatcherState> {
   DeviceWatcherBloc(this._deviceRepository)
-      : super(DeviceWatcherState.initial());
+      : super(DeviceWatcherState.initial()) {
+    on<WatchAllStarted>(_watchAllStarted);
+    on<DevicesReceived>(_devicesReceived);
+  }
 
   final IDeviceRepository _deviceRepository;
 
   StreamSubscription<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>?
       _deviceStreamSubscription;
+  //
+  // @override
+  // Stream<DeviceWatcherState> mapEventToState(
+  //   DeviceWatcherEvent event,
+  // ) async* {
 
-  @override
-  Stream<DeviceWatcherState> mapEventToState(
-    DeviceWatcherEvent event,
-  ) async* {
-    yield* event.map(
-      watchAllStarted: (e) async* {
-        yield const DeviceWatcherState.loadInProgress();
-        _deviceStreamSubscription = _deviceRepository.watchAll().listen(
-              (eventWatch) =>
-                  add(DeviceWatcherEvent.devicesReceived(eventWatch)),
-            );
-      },
-      devicesReceived: (e) async* {
-        yield const DeviceWatcherState.loadInProgress();
+  //     devicesReceived: (e) async* {
 
-        yield e.failureOrDevices.fold((f) => DeviceWatcherState.loadFailure(f),
-            (d) {
-          return DeviceWatcherState.loadSuccess(
-            d.map((v) => v!).toMutableList(),
-          );
-        });
-      },
+  //     },
+  //   );
+  // }
+
+  void _devicesReceived(
+    DevicesReceived event,
+    Emitter<DeviceWatcherState> emit,
+  ) async {
+    emit(const DeviceWatcherState.loadInProgress());
+
+    emit(
+      event.failureOrDevices.fold((f) => DeviceWatcherState.loadFailure(f),
+          (d) {
+        return DeviceWatcherState.loadSuccess(
+          d.map((v) => v!).toMutableList(),
+        );
+      }),
     );
+  }
+
+  void _watchAllStarted(
+    WatchAllStarted event,
+    Emitter<DeviceWatcherState> emit,
+  ) async {
+    emit(const DeviceWatcherState.loadInProgress());
+
+    _deviceStreamSubscription =
+        _deviceRepository.watchAll().listen((eventWatch) {
+      add(DeviceWatcherEvent.devicesReceived(eventWatch));
+    });
   }
 
   @override

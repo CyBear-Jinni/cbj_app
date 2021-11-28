@@ -1,8 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/cbj_comp/cbj_comp_bloc.dart';
-import 'package:cybear_jinni/application/devices/device_actor/device_actor_bloc.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
-import 'package:cybear_jinni/injection.dart';
-import 'package:cybear_jinni/presentation/add_new_devices_process/scan_for_new_cbj_comps/widgets/cbj_comp_card_with_devices_controll.dart';
+import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_value_objects.dart';
+import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -42,39 +42,18 @@ class ScanForNewCBJCompsWidget extends StatelessWidget {
             );
           },
           loadSuccess: (state) {
-            bool existInCompList = false;
-            final CBJCompEntity compEntity = state.devices;
-            try {
-              cbjCompEntityList.forEach((element) {
-                if (element.compUuid!.getOrCrash() ==
-                    compEntity.compUuid!.getOrCrash()) {
-                  existInCompList = true;
-                }
-              });
+            final CBJCompEntity compEntity = CBJCompEntity.empty().copyWith(
+              lastKnownIp: CBJCompLastKnownIp(state.securityBearIp),
+            );
 
-              if (!existInCompList && compEntity.compUuid!.getOrCrash() != '') {
-                cbjCompEntityList.add(state.devices);
-              }
-            } catch (e) {}
-            if (cbjCompEntityList != null && cbjCompEntityList.isEmpty) {
-              return const Text('Device is not supported');
-            }
+            context.router.replace(
+              ConfigureNewCbjCompRoute(cbjCompEntity: compEntity),
+            );
 
-            return ListView.builder(
-              reverse: true,
-              padding: EdgeInsets.zero,
-              itemBuilder: (context, index) {
-                final compEntity = cbjCompEntityList[index];
-                // return CBJCompCard(cbjCompEntity: compEntity);
-                return BlocProvider(
-                  create: (context) => getIt<DeviceActorBloc>()
-                    ..add(const DeviceActorEvent.initialized()),
-                  child: CBJCompCardWithDevicesControll(
-                    cbjCompEntity: compEntity,
-                  ),
-                );
-              },
-              itemCount: cbjCompEntityList.length,
+            return const Expanded(
+              child: Center(
+                child: CircularProgressIndicator(),
+              ),
             );
           },
           loadSuccessTemp: (state) {

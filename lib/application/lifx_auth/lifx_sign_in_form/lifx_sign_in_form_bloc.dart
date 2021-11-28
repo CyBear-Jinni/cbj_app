@@ -18,7 +18,10 @@ part 'lifx_sign_in_form_state.dart';
 class LifxSignInFormBloc
     extends Bloc<LifxSignInFormEvent, LifxSignInFormState> {
   LifxSignInFormBloc(this._vendorRepository)
-      : super(LifxSignInFormState.initial());
+      : super(LifxSignInFormState.initial()) {
+    on<ApiKeyChanged>(_apiKeyChanged);
+    on<SignInWithApiKey>(_signInWithApiKey);
+  }
 
   final IVendorsRepository _vendorRepository;
 
@@ -26,86 +29,28 @@ class LifxSignInFormBloc
   // @override
   // SignInFormState get initialStat`e => SignInFormState.initial();
 
-  @override
-  Stream<LifxSignInFormState> mapEventToState(
-    LifxSignInFormEvent event,
-  ) async* {
-    yield* event.map(
-      apiKeyChanged: (ApiKeyChanged value) async* {
-        yield state.copyWith(
-          lifxApiKey: GenericLifxLoginApiKey(value.apiKeyStr),
-          authFailureOrSuccessOption: none(),
-        );
-      },
-      signInWithApiKey: (e) async* {
-        final GenericLifxLoginDE genericLifxDE = GenericLifxLoginDE(
-          senderUniqueId: CoreLoginSenderId.fromUniqueString('Me'),
-          lifxApiKey: GenericLifxLoginApiKey(state.lifxApiKey.getOrCrash()),
-        );
-        _vendorRepository.loginWithLifx(genericLifxDE);
-        //   yield* _performActionOnAuthFacadeWithEmailAndPassword(
-        //     _authFacade.registerWithEmailAndPassword,
-        //   );
-      },
-      // emailChanged: (e) async* {
-      //   yield state.copyWith(
-      //     emailAddress: EmailAddress(e.emailStr),
-      //     authFailureOrSuccessOption: none(),
-      //   );
-      // },
-      // passwordChanged: (e) async* {
-      //   yield state.copyWith(
-      //     password: Password(e.passwordStr),
-      //     authFailureOrSuccessOption: none(),
-      //   );
-      // },
-      // registerWithEmailAndPassword: (e) async* {
-      //   yield* _performActionOnAuthFacadeWithEmailAndPassword(
-      //     _authFacade.registerWithEmailAndPassword,
-      //   );
-      // },
-      // signInWithEmailAndPasswordPassed: (e) async* {
-      //   yield* _performActionOnAuthFacadeWithEmailAndPassword(
-      //     _authFacade.signInWithEmailAndPassword,
-      //   );
-      // },
-      // signInWithGooglePressed: (e) async* {
-      //   yield state.copyWith(
-      //     isSubmitting: true,
-      //     authFailureOrSuccessOption: none(),
-      //   );
-      //   yield state.copyWith(
-      //     isSubmitting: false,
-      //     authFailureOrSuccessOption: Some(right(unit)),
-      //   );
-      // },
+  Future<void> _apiKeyChanged(
+    ApiKeyChanged event,
+    Emitter<LifxSignInFormState> emit,
+  ) async {
+    emit(
+      state.copyWith(
+        lifxApiKey: GenericLifxLoginApiKey(event.apiKeyStr),
+        authFailureOrSuccessOption: none(),
+      ),
     );
   }
-  //
-  // Stream<LifxSignInFormState> _performActionOnAuthFacadeWithEmailAndPassword(
-  //   Future<Either<AuthFailure, Unit>> Function({
-  //     required EmailAddress emailAddress,
-  //     required Password password,
-  //   })
-  //       forwardedCall,
-  // ) async* {
-  //   Either<AuthFailure, Unit>? failureOrSuccess;
-  //
-  //   final isEmailValid = state.emailAddress.isValid();
-  //   final isPasswordValid = state.password.isValid();
-  //   if (isEmailValid && isPasswordValid) {
-  //     yield state.copyWith(
-  //       isSubmitting: true,
-  //       authFailureOrSuccessOption: none(),
-  //     );
-  //
-  //     failureOrSuccess = await forwardedCall(
-  //         emailAddress: state.emailAddress, password: state.password);
-  //   }
-  //   yield state.copyWith(
-  //     isSubmitting: false,
-  //     showErrorMessages: true,
-  //     authFailureOrSuccessOption: optionOf(failureOrSuccess),
-  //   );
-  // }
+
+  Future<void> _signInWithApiKey(
+    SignInWithApiKey event,
+    Emitter<LifxSignInFormState> emit,
+  ) async {
+    final GenericLifxLoginDE genericLifxDE = GenericLifxLoginDE(
+      senderUniqueId: CoreLoginSenderId.fromUniqueString('Me'),
+      lifxApiKey: GenericLifxLoginApiKey(state.lifxApiKey.getOrCrash()),
+    );
+    _vendorRepository.loginWithLifx(genericLifxDE);
+    //   emit(* _performActionOnAuthFacadeWithEmailAndPassword(
+    //     _authFacade.registerWithEmailAndPassword,
+  }
 }

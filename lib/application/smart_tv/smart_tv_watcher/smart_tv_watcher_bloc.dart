@@ -19,37 +19,41 @@ part 'smart_tv_watcher_state.dart';
 class SmartTvWatcherBloc
     extends Bloc<SmartTvWatcherEvent, SmartTvWatcherState> {
   SmartTvWatcherBloc(this._deviceRepository)
-      : super(SmartTvWatcherState.initial());
+      : super(SmartTvWatcherState.initial()) {
+    on<WatchAllSmartTvStarted>(_watchAllStarted);
+    on<Smart_tvReceived>(_smart_tvReceived);
+  }
+
+  Future<void> _watchAllStarted(
+    WatchAllSmartTvStarted event,
+    Emitter<SmartTvWatcherState> emit,
+  ) async {
+    emit(const SmartTvWatcherState.loadInProgress());
+    await _deviceStreamSubscription?.cancel();
+    _deviceStreamSubscription = _deviceRepository.watchSmartTv().listen(
+          (eventWatch) => add(SmartTvWatcherEvent.smart_tvReceived(eventWatch)),
+        );
+  }
+
+  Future<void> _smart_tvReceived(
+    Smart_tvReceived event,
+    Emitter<SmartTvWatcherState> emit,
+  ) async {
+    emit(const SmartTvWatcherState.loadInProgress());
+
+    emit(
+      event.failureOrDevices.fold(
+        (f) => SmartTvWatcherState.loadFailure(f),
+        (d) => SmartTvWatcherState.loadSuccess(
+          d.map((v) => v! as GenericLightDE).toMutableList(),
+        ),
+      ),
+    );
+  }
 
   final IDeviceRepository _deviceRepository;
   StreamSubscription<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>?
       _deviceStreamSubscription;
-
-  @override
-  Stream<SmartTvWatcherState> mapEventToState(
-    SmartTvWatcherEvent event,
-  ) async* {
-    yield* event.map(
-      watchAllStarted: (e) async* {
-        yield const SmartTvWatcherState.loadInProgress();
-        await _deviceStreamSubscription?.cancel();
-        _deviceStreamSubscription = _deviceRepository.watchSmartTv().listen(
-              (eventWatch) =>
-                  add(SmartTvWatcherEvent.smart_tvReceived(eventWatch)),
-            );
-      },
-      smart_tvReceived: (e) async* {
-        yield const SmartTvWatcherState.loadInProgress();
-
-        yield e.failureOrDevices.fold(
-          (f) => SmartTvWatcherState.loadFailure(f),
-          (d) => SmartTvWatcherState.loadSuccess(
-            d.map((v) => v! as GenericLightDE).toMutableList(),
-          ),
-        );
-      },
-    );
-  }
 
   @override
   Future<void> close() async {

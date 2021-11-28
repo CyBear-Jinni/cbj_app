@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:cybear_jinni/domain/auth/i_auth_facade.dart';
 import 'package:cybear_jinni/domain/local_db/i_local_db_repository.dart';
@@ -13,33 +11,37 @@ part 'auth_state.dart';
 
 @injectable
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  AuthBloc(this._authFacade) : super(const AuthState.initial());
+  AuthBloc(this._authFacade) : super(const AuthState.initial()) {
+    on<AuthCheckRequested>(_authCheckRequested);
+    on<SignedOut>(_signedOut);
+  }
 
   final IAuthFacade _authFacade;
 
-  @override
-  Stream<AuthState> mapEventToState(
-    AuthEvent event,
-  ) async* {
-    yield* event.map(
-      authCheckRequested: (e) async* {
-        // For now will check only if hub connection info is saved
-        yield (await getIt<ILocalDbRepository>().getHubEntityNetworkName())
-            .fold(
-          (l) => const AuthState.unauthenticated(),
-          (r) => const AuthState.authenticated(),
-        );
-        //
-        // final userOption = await _authFacade.getSignedInUser();
-        // yield userOption.fold(
-        //   () => const AuthState.unauthenticated(),
-        //   (_) => const AuthState.authenticated(),
-        // );
-      },
-      signedOut: (e) async* {
-        await _authFacade.signOut();
-        yield const AuthState.unauthenticated();
-      },
+  void _authCheckRequested(
+    AuthCheckRequested event,
+    Emitter<AuthState> emit,
+  ) async {
+    // For now will check only if hub connection info is saved
+    emit(
+      (await getIt<ILocalDbRepository>().getHubEntityNetworkName()).fold(
+        (l) => const AuthState.unauthenticated(),
+        (r) => const AuthState.authenticated(),
+      ),
     );
+    //
+    // final userOption = await _authFacade.getSignedInUser();
+    // yield userOption.fold(
+    //   () => const AuthState.unauthenticated(),
+    //   (_) => const AuthState.authenticated(),
+    // );
+  }
+
+  void _signedOut(
+    SignedOut event,
+    Emitter<AuthState> emit,
+  ) async {
+    await _authFacade.signOut();
+    emit(const AuthState.unauthenticated());
   }
 }

@@ -175,6 +175,17 @@ class OpenAccessPointWidget extends StatelessWidget {
                   return const Text('AccessPointIsOpen');
                 },
               ),
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 50),
+                child: const Text(
+                  "Currently we can't verify that you have opened Access pont.\n"
+                  'Press next only after you have preformed the actions above!.',
+                  style: TextStyle(fontSize: 17),
+                ),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
               TextButton(
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(

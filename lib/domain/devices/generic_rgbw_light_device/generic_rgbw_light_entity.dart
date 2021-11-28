@@ -50,7 +50,8 @@ class GenericRgbwLightDE extends DeviceEntityAbstract {
   GenericRgbwLightSwitchState? lightSwitchState;
 
   /// Color temperature in int
-  GenericRgbwLightColorTemperature? lightColorTemperature;
+  /// 1700 - 6500 K
+  GenericRgbwLightColorTemperature lightColorTemperature;
 
   /// Color alpha in double
   GenericRgbwLightColorAlpha lightColorAlpha;
@@ -67,8 +68,11 @@ class GenericRgbwLightDE extends DeviceEntityAbstract {
   /// Brightness 0-100%
   GenericRgbwLightBrightness lightBrightness;
 
-  int sendNewColorEachMiliseconds = 200;
-  bool doesWaitingToSendColorRequest = false;
+  int sendNewTemperatureColorEachMiliseconds = 200;
+  bool doesWaitingToSendTemperatureColorRequest = false;
+
+  int sendNewHsvColorEachMiliseconds = 200;
+  bool doesWaitingToSendHsvColorRequest = false;
 
   int sendNewBrightnessEachMiliseconds = 200;
   bool doesWaitingToSendBrightnessRequest = false;
@@ -138,7 +142,7 @@ class GenericRgbwLightDE extends DeviceEntityAbstract {
       compUuid: compUuid.getOrCrash(),
       lightSwitchState: lightSwitchState!.getOrCrash(),
       deviceVendor: deviceVendor.getOrCrash(),
-      lightColorTemperature: lightBrightness.getOrCrash(),
+      lightColorTemperature: lightColorTemperature.getOrCrash(),
       lightBrightness: lightBrightness.getOrCrash(),
       lightColorAlpha: lightColorAlpha.getOrCrash(),
       lightColorHue: lightColorHue.getOrCrash(),

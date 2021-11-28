@@ -10,6 +10,7 @@ import 'package:cybear_jinni/domain/create_home/i_create_home_repository.dart';
 import 'package:cybear_jinni/domain/home_user/home_user_entity.dart';
 import 'package:cybear_jinni/domain/home_user/home_user_value_objects.dart';
 import 'package:cybear_jinni/domain/manage_network/manage_network_entity.dart';
+import 'package:cybear_jinni/domain/manage_network/manage_network_value_objects.dart';
 import 'package:cybear_jinni/domain/user/all_homes_of_user/all_homes_of_user_entity.dart';
 import 'package:cybear_jinni/domain/user/all_homes_of_user/all_homes_of_user_value_objects.dart';
 import 'package:cybear_jinni/domain/user/i_user_repository.dart';
@@ -190,7 +191,14 @@ class CreateHomeRepository implements ICreateHomeRepository {
 
   @override
   Future<Either<CreateHomeFailure, ManageNetworkEntity>> getFirstWifi() async {
-    try {} on PlatformException catch (e) {
+    try {
+      return right(
+        ManageNetworkEntity(
+          name: ManageWiFiName('CyBear Jinni'),
+          pass: ManageWiFiPass('CyBear Jinni'),
+        ),
+      );
+    } on PlatformException catch (e) {
       if (e.message!.contains('PERMISSION_DENIED')) {
         return left(const CreateHomeFailure.insufficientPermission());
       } else {

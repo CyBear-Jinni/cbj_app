@@ -17,14 +17,14 @@ import 'package:cybear_jinni/domain/devices/generic_switch_device/generic_switch
 import 'package:cybear_jinni/domain/devices/generic_switch_device/generic_switch_value_objects.dart';
 import 'package:cybear_jinni/domain/user/i_user_repository.dart';
 import 'package:cybear_jinni/domain/user/user_entity.dart';
-import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/hub_client.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/devices/device_helper.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/abstract_device/device_entity_dto_abstract.dart';
+import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:dartz/dartz.dart';
-import 'package:device_info/device_info.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/src/painting/colors.dart';
 import 'package:injectable/injectable.dart';
@@ -184,12 +184,12 @@ class DeviceRepository implements IDeviceRepository {
       final DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
       if (Platform.isAndroid) {
         final AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
-        print(androidInfo.model);
-        deviceModelString = androidInfo.model;
+        logger.i(androidInfo.model);
+        deviceModelString = androidInfo.model!;
       } else if (Platform.isIOS) {
         final IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
-        print(iosInfo.utsname.machine);
-        deviceModelString = iosInfo.model;
+        logger.i(iosInfo.utsname.machine);
+        deviceModelString = iosInfo.model!;
       }
 
       final UserEntity currentUserEntity =
@@ -355,9 +355,75 @@ class DeviceRepository implements IDeviceRepository {
   }
 
   @override
-  Future<Either<DevicesFailure, Unit>> changeColorDevices({
+  Future<Either<DevicesFailure, Unit>> changeColorTemperatureDevices({
     required List<String>? devicesId,
-    required HSVColor colorToChange,
+    required int colorTemperatureToChange,
+  }) async {
+    final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
+        await getDeviceEntityListFromId(devicesId!);
+
+    try {
+      for (final DeviceEntityAbstract? deviceEntity
+          in deviceEntityListToUpdate) {
+        if (deviceEntity == null) {
+          continue;
+        }
+        if (deviceEntity is GenericRgbwLightDE) {
+          deviceEntity.lightColorTemperature = GenericRgbwLightColorTemperature(
+            colorTemperatureToChange.toString(),
+          );
+        } else {
+          logger.w(
+            'Off action not supported for'
+            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+          );
+          continue;
+        }
+
+        try {
+          if (!deviceEntity.doesWaitingToSendTemperatureColorRequest) {
+            deviceEntity.doesWaitingToSendTemperatureColorRequest = true;
+
+            final Future<Either<DevicesFailure, Unit>> updateEntityResponse =
+                updateWithDeviceEntity(deviceEntity: deviceEntity);
+
+            await Future.delayed(
+              Duration(
+                milliseconds:
+                    deviceEntity.sendNewTemperatureColorEachMiliseconds,
+              ),
+            );
+            deviceEntity.doesWaitingToSendTemperatureColorRequest = false;
+
+            return updateEntityResponse;
+          }
+        } catch (e) {
+          await Future.delayed(
+            Duration(
+              milliseconds: deviceEntity.sendNewTemperatureColorEachMiliseconds,
+            ),
+          );
+          deviceEntity.doesWaitingToSendTemperatureColorRequest = false;
+          return left(const DevicesFailure.unexpected());
+        }
+      }
+    } on PlatformException catch (e) {
+      if (e.message!.contains('PERMISSION_DENIED')) {
+        return left(const DevicesFailure.insufficientPermission());
+      } else if (e.message!.contains('NOT_FOUND')) {
+        return left(const DevicesFailure.unableToUpdate());
+      } else {
+        // log.error(e.toString());
+        return left(const DevicesFailure.unexpected());
+      }
+    }
+    return right(unit);
+  }
+
+  @override
+  Future<Either<DevicesFailure, Unit>> changeHsvColorDevices({
+    required List<String>? devicesId,
+    required HSVColor hsvColorToChange,
   }) async {
     final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
         await getDeviceEntityListFromId(devicesId!);
@@ -371,14 +437,14 @@ class DeviceRepository implements IDeviceRepository {
         if (deviceEntity is GenericRgbwLightDE) {
           deviceEntity
             ..lightColorAlpha =
-                GenericRgbwLightColorAlpha(colorToChange.alpha.toString())
+                GenericRgbwLightColorAlpha(hsvColorToChange.alpha.toString())
             ..lightColorHue =
-                GenericRgbwLightColorHue(colorToChange.hue.toString())
+                GenericRgbwLightColorHue(hsvColorToChange.hue.toString())
             ..lightColorSaturation = GenericRgbwLightColorSaturation(
-              colorToChange.saturation.toString(),
+              hsvColorToChange.saturation.toString(),
             )
             ..lightColorValue =
-                GenericRgbwLightColorValue(colorToChange.value.toString());
+                GenericRgbwLightColorValue(hsvColorToChange.value.toString());
         } else {
           logger.w(
             'Off action not supported for'
@@ -388,26 +454,28 @@ class DeviceRepository implements IDeviceRepository {
         }
 
         try {
-          if (!deviceEntity.doesWaitingToSendColorRequest) {
-            deviceEntity.doesWaitingToSendColorRequest = true;
+          if (!deviceEntity.doesWaitingToSendHsvColorRequest) {
+            deviceEntity.doesWaitingToSendHsvColorRequest = true;
 
             final Future<Either<DevicesFailure, Unit>> updateEntityResponse =
                 updateWithDeviceEntity(deviceEntity: deviceEntity);
 
             await Future.delayed(
-              Duration(milliseconds: deviceEntity.sendNewColorEachMiliseconds),
+              Duration(
+                milliseconds: deviceEntity.sendNewHsvColorEachMiliseconds,
+              ),
             );
-            deviceEntity.doesWaitingToSendColorRequest = false;
+            deviceEntity.doesWaitingToSendHsvColorRequest = false;
 
             return updateEntityResponse;
           }
         } catch (e) {
           await Future.delayed(
             Duration(
-              milliseconds: deviceEntity.sendNewBrightnessEachMiliseconds,
+              milliseconds: deviceEntity.sendNewHsvColorEachMiliseconds,
             ),
           );
-          deviceEntity.doesWaitingToSendColorRequest = false;
+          deviceEntity.doesWaitingToSendHsvColorRequest = false;
           return left(const DevicesFailure.unexpected());
         }
       }

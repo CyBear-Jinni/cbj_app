@@ -1,6 +1,6 @@
 import 'package:cybear_jinni/domain/hub/hub_failures.dart';
 import 'package:cybear_jinni/domain/hub/hub_value_objects.dart';
-import 'package:cybear_jinni/infrastructure/hub_connection/hub_dtos.dart';
+import 'package:cybear_jinni/infrastructure/hub_client/hub_dtos.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

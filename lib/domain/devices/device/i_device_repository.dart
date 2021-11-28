@@ -59,9 +59,14 @@ abstract class IDeviceRepository {
     required List<String>? devicesId,
   });
 
-  Future<Either<DevicesFailure, Unit>> changeColorDevices({
+  Future<Either<DevicesFailure, Unit>> changeColorTemperatureDevices({
     required List<String>? devicesId,
-    required HSVColor colorToChange,
+    required int colorTemperatureToChange,
+  });
+
+  Future<Either<DevicesFailure, Unit>> changeHsvColorDevices({
+    required List<String>? devicesId,
+    required HSVColor hsvColorToChange,
   });
 
   Future<Either<DevicesFailure, Unit>> changeBrightnessDevices({

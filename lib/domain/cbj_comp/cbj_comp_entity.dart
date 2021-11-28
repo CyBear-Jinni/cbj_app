@@ -12,6 +12,7 @@ abstract class CBJCompEntity implements _$CBJCompEntity {
   const factory CBJCompEntity({
     required CBJCompUniqueId id,
     required CBJCompRoomId roomId,
+    required CBJCompLastKnownIp lastKnownIp,
     CBJCompDevices? cBJCompDevices,
     CBJCompDefaultName? name,
     CBJCompMacAddr? macAddr,
@@ -21,7 +22,6 @@ abstract class CBJCompEntity implements _$CBJCompEntity {
 
     /// The comp uuid that it came with out of the factory
     CBJCompUuid? compUuid,
-    CBJCompLastKnownIp? lastKnownIp,
   }) = _CBJCompEntity;
 
   const CBJCompEntity._();
@@ -29,6 +29,7 @@ abstract class CBJCompEntity implements _$CBJCompEntity {
   factory CBJCompEntity.empty() => CBJCompEntity(
         id: CBJCompUniqueId(),
         roomId: CBJCompRoomId(),
+        lastKnownIp: CBJCompLastKnownIp(''),
         cBJCompDevices: CBJCompDevices(<GenericLightDE>[].toImmutableList()),
         name: CBJCompDefaultName(''),
         macAddr: CBJCompMacAddr(''),
@@ -36,7 +37,6 @@ abstract class CBJCompEntity implements _$CBJCompEntity {
         compModel: CBJCompModel(''),
         compType: CBJCompType(''),
         compUuid: CBJCompUuid(''),
-        lastKnownIp: CBJCompLastKnownIp(''),
       );
 
   Option<CBJCompFailure<dynamic>> get failureOption {

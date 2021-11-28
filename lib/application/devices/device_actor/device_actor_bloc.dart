@@ -14,22 +14,20 @@ part 'device_actor_state.dart';
 @injectable
 class DeviceActorBloc extends Bloc<DeviceActorEvent, DeviceActorState> {
   DeviceActorBloc(this._deviceRepository)
-      : super(const DeviceActorState.initial());
+      : super(const DeviceActorState.initial()) {
+    on<Deleted>(_deleted);
+    on<Initialized>(_initialized);
+  }
 
   final IDeviceRepository _deviceRepository;
 
-  @override
-  Stream<DeviceActorState> mapEventToState(
-    DeviceActorEvent event,
-  ) async* {
-    yield* event.map(
-      deleted: (e) async* {},
-      initialized: (e) async* {},
-      // yield const DeviceActorState.actionInProgress();
-      // final possibleFailure = await _deviceRepository.delete(event.deviceEntity);
-      // yield possibleFailure.fold(
-      //   (f) => DeviceActorState.deleteFailure(f),
-      //   (_) => const DeviceActorState.deleteSuccess(),
-    );
-  }
+  Future<void> _deleted(
+    Deleted event,
+    Emitter<DeviceActorState> emit,
+  ) async {}
+
+  Future<void> _initialized(
+    Initialized event,
+    Emitter<DeviceActorState> emit,
+  ) async {}
 }
