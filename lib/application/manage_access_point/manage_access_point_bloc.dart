@@ -28,15 +28,11 @@ class ManageAccessPointBloc
   ManageWiFiName? wifiName;
   ManageWiFiPass? wifiPassword;
 
-
-
-
   Future<void> _initialized(
-      Initialized event,
-      Emitter<ManageAccessPointState> emit,
-      ) async {
-
-    emit( ManageAccessPointState.loading());
+    Initialized event,
+    Emitter<ManageAccessPointState> emit,
+  ) async {
+    emit(ManageAccessPointState.loading());
 
     if (Platform.isAndroid) {
       final ManageNetworkEntity manageNetworkEntity = ManageNetworkEntity(
@@ -44,44 +40,44 @@ class ManageAccessPointBloc
         pass: ManageWiFiPass('CyBear Jinni'),
       );
 
-      final Either<HomeUserFailures, Unit> opendAccessPoint =
-      await _manageAccessPointRepository
-          .openAccessPoint(manageNetworkEntity);
+      final Either<HomeUserFailures, Unit> openedAccessPoint =
+          await _manageAccessPointRepository
+              .openAccessPoint(manageNetworkEntity);
 
-      emit( opendAccessPoint.fold(
-            (f) => ManageAccessPointState.iOSDevice(),
-            (r) => ManageAccessPointState.loaded(),
-      ),);
+      emit(
+        openedAccessPoint.fold(
+          (f) => ManageAccessPointState.iOSDevice(),
+          (r) => ManageAccessPointState.loaded(),
+        ),
+      );
     } else {
-      emit( ManageAccessPointState.iOSDevice());
+      emit(ManageAccessPointState.iOSDevice());
     }
-
   }
 
   Future<void> _doesAccessPointOpen(
-      DoesAccessPointOpen event,
-      Emitter<ManageAccessPointState> emit,
-      ) async {
-
-    emit( ManageAccessPointState.loading());
+    DoesAccessPointOpen event,
+    Emitter<ManageAccessPointState> emit,
+  ) async {
+    emit(ManageAccessPointState.loading());
 
     if (Platform.isAndroid) {
       final Either<HomeUserFailures, Unit> openedAccessPoint =
-      await _manageAccessPointRepository.doesAccessPointOpen();
+          await _manageAccessPointRepository.doesAccessPointOpen();
 
-      emit( openedAccessPoint.fold(
-            (HomeUserFailures f) {
-          if (f == const HomeUserFailures.accessPointIsNotOpen()) {
-            return ManageAccessPointState.accessPointIsNotOpen();
-          }
-          return ManageAccessPointState.cantDetermineAccessPointOpenOrNot();
-        },
-            (r) => ManageAccessPointState.accessPointIsOpen(),
-      ),);
+      emit(
+        openedAccessPoint.fold(
+          (HomeUserFailures f) {
+            if (f == const HomeUserFailures.accessPointIsNotOpen()) {
+              return ManageAccessPointState.accessPointIsNotOpen();
+            }
+            return ManageAccessPointState.cantDetermineAccessPointOpenOrNot();
+          },
+          (r) => ManageAccessPointState.accessPointIsOpen(),
+        ),
+      );
     } else {
-      emit( ManageAccessPointState.cantDetermineAccessPointOpenOrNot());
+      emit(ManageAccessPointState.cantDetermineAccessPointOpenOrNot());
     }
-
   }
-
 }

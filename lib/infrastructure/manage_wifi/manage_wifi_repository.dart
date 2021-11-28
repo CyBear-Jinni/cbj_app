@@ -2,6 +2,7 @@ import 'package:cybear_jinni/domain/home_user/home_user_failures.dart';
 import 'package:cybear_jinni/domain/manage_network/i_manage_network_repository.dart';
 import 'package:cybear_jinni/domain/manage_network/manage_network_entity.dart';
 import 'package:cybear_jinni/domain/manage_network/manage_network_value_objects.dart';
+import 'package:cybear_jinni/infrastructure/core/shared_methods.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
@@ -12,11 +13,11 @@ class ManageWiFiRepository implements IManageNetworkRepository {
   final NetworkSecurity networkSecurity = NetworkSecurity.WPA;
 
   @override
-  Future<Either<HomeUserFailures, Unit>> doesWiFiEnabled() async {
+  Future<Either<HomeUserFailures, String?>> doesWiFiEnabled() async {
     try {
       final bool wifiEnabled = await WiFiForIoTPlugin.isEnabled();
       if (wifiEnabled) {
-        return right(unit);
+        return right(await getCurrentWifiName());
       }
       return left(const HomeUserFailures.wifiDisabled());
     } catch (e) {
@@ -95,10 +96,10 @@ class ManageWiFiRepository implements IManageNetworkRepository {
   Future<Either<HomeUserFailures, Unit>> doesAccessPointOpen() async {
     try {
       WiFiForIoTPlugin.setWiFiAPEnabled(true);
-      final bool isAPEnabled = await WiFiForIoTPlugin.isWiFiAPEnabled();
-      if (isAPEnabled) {
-        return right(unit);
-      }
+      // final bool isAPEnabled = await WiFiForIoTPlugin.isWiFiAPEnabled();
+      // if (isAPEnabled || true) {
+      return right(unit);
+      // }
       return left(const HomeUserFailures.accessPointIsNotOpen());
     } catch (e) {
       return left(const HomeUserFailures.unexpected());

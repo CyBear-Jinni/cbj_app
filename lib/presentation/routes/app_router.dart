@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/presentation/add_new_devices_process/choose_device_vendor_to_add/choose_device_vendor_to_add_page.dart';
+import 'package:cybear_jinni/presentation/add_new_devices_process/computer_connection_check/computer_connection_check_page.dart';
 import 'package:cybear_jinni/presentation/add_new_devices_process/configure_new_cbj_comp/configure_new_cbj_comp_page.dart';
 import 'package:cybear_jinni/presentation/add_new_devices_process/connect_to_home_wifi/connect_to_home_wifi_page.dart';
 import 'package:cybear_jinni/presentation/add_new_devices_process/open_access_point/open_access_pointi_page.dart';
@@ -57,6 +58,7 @@ import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_pag
     AutoRoute(page: OpenAccessPointPage),
     AutoRoute(page: ScanForNewCBJCompsPage),
     AutoRoute(page: ConfigureNewCbjCompPage),
+    AutoRoute(page: ComputerConnectionCheckPage),
     AutoRoute(page: RoomsLightsPage),
     AutoRoute(page: LightsInTheRoomPage),
     AutoRoute(page: RoomsRgbwLightsPage),
@@ -82,6 +84,7 @@ class $AppRouter {
   late OpenAccessPointPage openAccessPointPage;
   late ScanForNewCBJCompsPage scanForNewCBJCompsPage;
   late ConfigureNewCbjCompPage configureNewCbjCompPage;
+  late ComputerConnectionCheckPage computerConnectionCheckPage;
   late WhereToLoginPageMinimalPage whereToLoginPageMinimal;
   late WhereToLoginPageOffline whereToLoginPageOffline;
   late JoinHomeByIdPage joinHomeByIdPage;

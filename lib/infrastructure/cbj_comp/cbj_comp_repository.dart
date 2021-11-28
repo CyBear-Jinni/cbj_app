@@ -3,13 +3,8 @@ import 'dart:async';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_failures.dart';
 import 'package:cybear_jinni/domain/cbj_comp/i_cbj_comp_repository.dart';
-import 'package:cybear_jinni/domain/create_home/i_create_home_repository.dart';
-import 'package:cybear_jinni/domain/manage_network/i_manage_network_repository.dart';
-import 'package:cybear_jinni/domain/manage_network/manage_network_entity.dart';
 import 'package:cybear_jinni/infrastructure/cbj_app_server/cbj_app_server_d.dart';
-import 'package:cybear_jinni/infrastructure/core/gen/security_bear/client/protoc_as_dart/security_bear_connections.pbgrpc.dart';
-import 'package:cybear_jinni/infrastructure/security_bear_client/security_bear_server_client.dart';
-import 'package:cybear_jinni/injection.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/cbj_app_server/protoc_as_dart/cbj_app_connections.pbgrpc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
@@ -102,14 +97,14 @@ class CBJCompRepository implements ICBJCompRepository {
       final CreateTheCBJAppServer createTheCBJAppServer =
           CreateTheCBJAppServer();
 
-      // final StreamController<CompInfoSB> compInfoSBSteam =
-      //     StreamController<CompInfoSB>();
-      //
-      // createTheCBJAppServer.createServer(compInfoSBSteam);
-      //
-      // yield* compInfoSBSteam.stream.map((CompInfoSB compInfoSB) {
-      //   return right(compInfoSB.compIP);
-      // });
+      final StreamController<CompInfoSB> compInfoSBSteam =
+          StreamController<CompInfoSB>();
+
+      createTheCBJAppServer.createServer(compInfoSBSteam);
+
+      yield* compInfoSBSteam.stream.map((CompInfoSB compInfoSB) {
+        return right(compInfoSB.compIP);
+      });
     } catch (e) {
       yield left(const CBJCompFailure.unexpected());
     }
@@ -227,44 +222,4 @@ class CBJCompRepository implements ICBJCompRepository {
   //   return deviceEntityList.toImmutableList();
   // }
 
-  @override
-  Future<Either<CBJCompFailure, Unit>> setSecurityBearWiFiInformation(
-    CBJCompEntity compEntity,
-  ) async {
-    try {
-      final ManageNetworkEntity firstWifiEntityOrFailure =
-          (await getIt<ICreateHomeRepository>().getFirstWifi())
-              .getOrElse(() => throw 'Error');
-
-      final ManageNetworkEntity secondWifiEntityOrFailure =
-          IManageNetworkRepository.manageWiFiEntity!;
-      if (secondWifiEntityOrFailure == null) {
-        print('No second Wifi Entity, it is going to crash');
-      }
-      int securityBearPort;
-
-      if (currentEnv == Env.dev) {
-        securityBearPort = 60052;
-      } else {
-        securityBearPort = 50052;
-      }
-
-      final SBCommendStatus commendStatus =
-          await SecurityBearServerClient.setWiFisInformation(
-        deviceIp: compEntity.lastKnownIp!.getOrCrash(),
-        devicePort: securityBearPort,
-        firstWiFiName: firstWifiEntityOrFailure.name!.getOrCrash(),
-        firstWiFiPassword: firstWifiEntityOrFailure.pass!.getOrCrash(),
-        secondWiFiName: secondWifiEntityOrFailure.name!.getOrCrash(),
-        secondWiFiPassword: secondWifiEntityOrFailure.pass!.getOrCrash(),
-      );
-
-      if (commendStatus.success) {
-        return right(unit);
-      }
-      return left(const CBJCompFailure.unexpected());
-    } catch (e) {
-      return left(const CBJCompFailure.unexpected());
-    }
-  }
 }

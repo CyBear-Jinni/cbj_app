@@ -46,7 +46,21 @@ class CBJCompBloc extends Bloc<CBJCompEvent, CBJCompState> {
     _CBJCompStreamSubscription = _cBJCompRepository
         .getConnectedComputersIP()
         .listen((failureOrCBJCompList) {
-      add(CBJCompEvent.compDevicesReceived(failureOrCBJCompList));
+      final dynamic failureOrCompListDynamic = failureOrCBJCompList.fold(
+        (f) => f,
+        (ip) => ip,
+      );
+
+      if (failureOrCompListDynamic == CBJCompFailure) {
+        emit(
+          CBJCompState.loadFailure(
+            failureOrCompListDynamic as CBJCompFailure,
+          ),
+        );
+      } else {
+        //TODO: Call close app server function if Security Bear ip got found
+        add(CBJCompEvent.compDevicesReceived(failureOrCBJCompList));
+      }
     });
   }
 
@@ -69,15 +83,7 @@ class CBJCompBloc extends Bloc<CBJCompEvent, CBJCompState> {
       );
     } else {
       final String ipAsString = failureOrCompListDynamic as String;
-
-      final Either<CBJCompFailure, CBJCompEntity> cBJCompEntityListOFailure =
-          await _cBJCompRepository.getInformationFromDeviceByIp(ipAsString);
-      emit(
-        cBJCompEntityListOFailure.fold(
-          (f) => CBJCompState.loadFailure(f),
-          (r) => CBJCompState.loadSuccess(r),
-        ),
-      );
+      emit(CBJCompState.loadSuccess(ipAsString));
     }
   }
 

@@ -36,14 +36,14 @@ class ManageWifiBloc extends Bloc<ManageWifiEvent, ManageWifiState> {
   ) async {
     emit(ManageWifiState.loading());
 
-    final Either<HomeUserFailures, Unit> doesWiFiEnabled =
+    final Either<HomeUserFailures, String?> doesWiFiEnabled =
         await _manageWiFiRepository.doesWiFiEnabled();
 
     emit(
-      doesWiFiEnabled.fold(
-        (f) => ManageWifiState.wifiIsDisabled(),
-        (r) => ManageWifiState.wifiIsEnabled(),
-      ),
+      doesWiFiEnabled.fold((f) => ManageWifiState.wifiIsDisabled(), (r) {
+        wifiName = r != null ? ManageWiFiName(r) : null;
+        return ManageWifiState.wifiIsEnabled(r);
+      }),
     );
   }
 

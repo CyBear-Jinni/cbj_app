@@ -1,6 +1,10 @@
 import 'dart:io';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
+import 'package:cybear_jinni/domain/create_home/i_create_home_repository.dart';
+import 'package:cybear_jinni/domain/manage_network/i_manage_network_repository.dart';
+import 'package:cybear_jinni/domain/manage_network/manage_network_entity.dart';
 import 'package:cybear_jinni/domain/security_bear/i_security_bear_connection_repository.dart';
 import 'package:cybear_jinni/domain/security_bear/security_bear_entity.dart';
 import 'package:cybear_jinni/domain/security_bear/security_bear_failures.dart';
@@ -237,7 +241,7 @@ class SecurityBearConnectionRepository
         if (_permissionGranted == PermissionStatus.denied) {
           _permissionGranted = await location.requestPermission();
           if (_permissionGranted != PermissionStatus.granted) {
-            print('Permission to use location is denied');
+            logger.e('Permission to use location is denied');
             permissionCounter++;
             if (permissionCounter > 5) {
               permission_handler.openAppSettings();
@@ -250,7 +254,7 @@ class SecurityBearConnectionRepository
         if (!_serviceEnabled) {
           _serviceEnabled = await location.requestService();
           if (!_serviceEnabled) {
-            print('Location is disabled');
+            logger.e('Location is disabled');
             continue;
           }
         }
@@ -258,5 +262,79 @@ class SecurityBearConnectionRepository
       }
     }
     return right(unit);
+  }
+
+  @override
+  Future<Either<SecurityBearFailures, Unit>> setSecurityBearWiFiInformation(
+    CBJCompEntity compEntity,
+  ) async {
+    try {
+      final ManageNetworkEntity firstWifiEntityOrFailure =
+          (await getIt<ICreateHomeRepository>().getFirstWifi())
+              .getOrElse(() => throw 'Error');
+
+      final ManageNetworkEntity secondWifiEntityOrFailure =
+          IManageNetworkRepository.manageWiFiEntity!;
+      if (secondWifiEntityOrFailure == null) {
+        logger.e('No second Wifi Entity, it is going to crash');
+        return left(const SecurityBearFailures.unexpected());
+      }
+
+      final SBCommendStatus commendStatus =
+          await SecurityBearServerClient.setWiFisInformation(
+        deviceIp: compEntity.lastKnownIp.getOrCrash(),
+        devicePort: securityBearPort,
+        firstWiFiName: firstWifiEntityOrFailure.name!.getOrCrash(),
+        firstWiFiPassword: firstWifiEntityOrFailure.pass!.getOrCrash(),
+        secondWiFiName: secondWifiEntityOrFailure.name!.getOrCrash(),
+        secondWiFiPassword: secondWifiEntityOrFailure.pass!.getOrCrash(),
+      );
+
+      if (commendStatus.success) {
+        return right(unit);
+      }
+      return left(const SecurityBearFailures.unexpected());
+    } catch (e) {
+      return left(const SecurityBearFailures.unexpected());
+    }
+  }
+
+  @override
+  Future<Either<SecurityBearFailures, Unit>>
+      searchForSecurityBearInCurrentNetwork() async {
+    try {
+      final Either<SecurityBearFailures, Unit> locationRequest =
+          await askLocationPermissionAndLocationOn();
+
+      if (locationRequest.isLeft()) {
+        return locationRequest;
+      }
+
+      logger.i('Searching for Security Bear in current network');
+      final String? wifiIP = await NetworkInfo().getWifiIP();
+
+      final String subnet = wifiIP!.substring(0, wifiIP.lastIndexOf('.'));
+
+      logger.i('subnet IP $subnet');
+
+      final Stream<NetworkAddress> stream =
+          NetworkAnalyzer.discover2(subnet, securityBearPort);
+
+      await for (final NetworkAddress address in stream) {
+        if (address.exists) {
+          logger.i('Found device: ${address.ip}');
+
+          final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
+          final String? wifiName = await NetworkInfo().getWifiName();
+
+          if (wifiBSSID != null && wifiName != null) {
+            return right(unit);
+          }
+        }
+      }
+    } catch (e) {
+      logger.w('Exception searching for Security Bear\n$e');
+    }
+    return left(const SecurityBearFailures.cantFindSecurityBearInNetwork());
   }
 }

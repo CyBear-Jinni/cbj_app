@@ -57,10 +57,10 @@ class ConnectToHomeWifiPage extends StatelessWidget {
               ),
               alignment: Alignment.center,
               child: Text(
-                'Connect To Home WiFi',
+                'Connect Hub To Home WiFi',
                 style: TextStyle(
                   fontSize: 25,
-                  color: (Theme.of(context).textTheme.bodyText1!.color)!,
+                  color: Theme.of(context).textTheme.bodyText1!.color,
                 ),
               ),
             ),

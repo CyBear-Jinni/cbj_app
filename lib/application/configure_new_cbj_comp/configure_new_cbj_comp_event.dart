@@ -30,4 +30,10 @@ class ConfigureNewCbjCompEvent with _$ConfigureNewCbjCompEvent {
   const factory ConfigureNewCbjCompEvent.checkOperationsCompletedSuccessfully(
     CBJCompEntity cBJCompEntity,
   ) = CheckOperationsCompletedSuccessfully;
+
+  const factory ConfigureNewCbjCompEvent.checkConnectedToWiFiNetwork() =
+      CheckConnectedToWiFiNetwork;
+
+  const factory ConfigureNewCbjCompEvent.searchIfHubOnTheSameWifiNetwork() =
+      SearchIfHubOnTheSameWifiNetwork;
 }

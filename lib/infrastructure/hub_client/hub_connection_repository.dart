@@ -358,7 +358,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
 
   @override
   Future<void> saveHubIP(String hubIP) async {
-    print('saveHubIP');
+    logger.w('saveHubIP');
   }
 
   Future<Either<HubFailures, Unit>> askLocationPermissionAndLocationOn() async {
@@ -378,7 +378,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
         if (_permissionGranted == PermissionStatus.denied) {
           _permissionGranted = await location.requestPermission();
           if (_permissionGranted != PermissionStatus.granted) {
-            print('Permission to use location is denied');
+            logger.e('Permission to use location is denied');
             permissionCounter++;
             if (permissionCounter > 5) {
               permission_handler.openAppSettings();
