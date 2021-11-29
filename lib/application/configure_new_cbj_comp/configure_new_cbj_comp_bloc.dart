@@ -236,15 +236,18 @@ class ConfigureNewCbjCompBloc
     CheckConnectedToWiFiNetwork event,
     Emitter<ConfigureNewCbjCompState> emit,
   ) async {
-    final List<WifiNetwork> wifiList = await WiFiForIoTPlugin.loadWifiList();
-    logger.i('Wifi list $wifiList');
+    // TODO: Not suer if it will open the WiFi when hotspot is open,
+    // delete if not
+    await WiFiForIoTPlugin.loadWifiList();
 
     bool isConnectedToWifi = false;
+    logger.i('Waiting for user to get connected to WiFi');
 
     while (true) {
       isConnectedToWifi = await WiFiForIoTPlugin.isConnected();
-      logger.i('Is Connected To Wifi?: $wifiList');
       if (isConnectedToWifi) {
+        // TODO: Check if connected to the same WiFI that user set up in the
+        //  first screen, if not show the user massage about it
         break;
       }
       await Future.delayed(const Duration(seconds: 10));

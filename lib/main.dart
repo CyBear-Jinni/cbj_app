@@ -34,6 +34,9 @@ class ReceivedNotification {
 
 Future<Unit> main() async {
   configureDependencies(Env.prod);
+
+  getIt<ILocalDbRepository>();
+
   // needed if you intend to initialize in the `main` function
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
@@ -42,8 +45,6 @@ Future<Unit> main() async {
   await configureLocalTimeZone();
 
   await initialisationNotifications();
-
-  getIt<ILocalDbRepository>();
 
   runApp(
     /// Use https://lingohub.com/developers/supported-locales/language-designators-with-regions
