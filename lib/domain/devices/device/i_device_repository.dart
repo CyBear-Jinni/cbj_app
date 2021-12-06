@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
+import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/widgets.dart';
 import 'package:kt_dart/kt.dart';
@@ -13,6 +14,8 @@ abstract class IDeviceRepository {
   // CUD
 
   // C Read UD
+
+  void addOrUpdateRoom(RoomEntity roomEntity);
 
   void addOrUpdateDevice(DeviceEntityAbstract deviceEntity);
 
@@ -90,6 +93,6 @@ abstract class IDeviceRepository {
     DeviceEntityAbstract deviceEntity,
   );
 
-  BehaviorSubject<KtList<DeviceEntityAbstract?>> devicesStreamController =
-      BehaviorSubject<KtList<DeviceEntityAbstract?>>();
+  BehaviorSubject<KtList<dynamic>> appRequestsForTheHubStreamController =
+      BehaviorSubject<KtList<dynamic>>();
 }

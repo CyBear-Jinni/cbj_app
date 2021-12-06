@@ -15,6 +15,7 @@ import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rg
 import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rgbw_light_value_objects.dart';
 import 'package:cybear_jinni/domain/devices/generic_switch_device/generic_switch_entity.dart';
 import 'package:cybear_jinni/domain/devices/generic_switch_device/generic_switch_value_objects.dart';
+import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/domain/user/i_user_repository.dart';
 import 'package:cybear_jinni/domain/user/user_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
@@ -41,10 +42,20 @@ class DeviceRepository implements IDeviceRepository {
   HashMap<String, DeviceEntityAbstract> allDevices =
       HashMap<String, DeviceEntityAbstract>();
 
+  static HashMap<String, RoomEntity> allRooms = HashMap<String, RoomEntity>();
+
+  @override
+  void addOrUpdateRoom(RoomEntity roomEntity) {
+    allRooms[roomEntity.uniqueId.getOrCrash()] = roomEntity;
+    appRequestsForTheHubStreamController.sink
+        .add(allRooms.values.toImmutableList());
+  }
+
   @override
   void addOrUpdateDevice(DeviceEntityAbstract deviceEntity) {
     allDevices[deviceEntity.uniqueId.getOrCrash()!] = deviceEntity;
-    devicesStreamController.sink.add(allDevices.values.toImmutableList());
+    appRequestsForTheHubStreamController.sink
+        .add(allDevices.values.toImmutableList());
   }
 
   @override
@@ -66,10 +77,10 @@ class DeviceRepository implements IDeviceRepository {
       return right(allDevices.values.toImmutableList());
     } catch (e) {
       if (e is PlatformException && e.message!.contains('PERMISSION_DENIED')) {
-        print('Insufficient permission while getting all devices');
+        logger.w('Insufficient permission while getting all devices');
         return left(const DevicesFailure.insufficientPermission());
       } else {
-        print('Unexpected error while getting all devices');
+        logger.e('Unexpected error while getting all devices');
         // log.error(e.toString());
         return left(const DevicesFailure.unexpected());
       }
@@ -80,7 +91,15 @@ class DeviceRepository implements IDeviceRepository {
   @override
   Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
       watchAll() async* {
-    yield* devicesStreamController.stream.map((event) => right(event));
+    yield* appRequestsForTheHubStreamController.stream.map((event) {
+      if (event is KtList<DeviceEntityAbstract?>) {
+        return right(event);
+      }
+      logger.e('Watch all got wrong type ${event.runtimeType}');
+      return left(
+        const DevicesFailure.empty(failedValue: 'Not sure what did it got'),
+      );
+    });
   }
 
   @override
@@ -812,6 +831,6 @@ class DeviceRepository implements IDeviceRepository {
 
   /// Stream controller of the app request for the hub
   @override
-  BehaviorSubject<KtList<DeviceEntityAbstract?>> devicesStreamController =
-      BehaviorSubject<KtList<DeviceEntityAbstract?>>();
+  BehaviorSubject<KtList<dynamic>> appRequestsForTheHubStreamController =
+      BehaviorSubject<KtList<dynamic>>();
 }
