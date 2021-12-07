@@ -5,6 +5,7 @@ import 'package:cybear_jinni/application/smart_tv/smart_tv_actor/smart_tv_actor_
 import 'package:cybear_jinni/application/switches/switches_actor/switches_actor_bloc.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
+import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
@@ -49,23 +50,45 @@ class SmartDevicesByRooms extends StatelessWidget {
             if (state.devices.size != 0) {
               final Map<String?, List<DeviceEntityAbstract>>
                   tempDevicesByRooms = <String, List<DeviceEntityAbstract>>{};
+              //
+              // /// Organized list named tempDevicesByRooms of device by room id
+              // for (int i = 0; i < state.devices.size; i++) {
+              //   if (state.devices[i] == null) {
+              //     continue;
+              //   }
+              //   final DeviceEntityAbstract tempDevice = state.devices[i]!;
+              // }
 
-              for (int i = 0; i < state.devices.size; i++) {
-                if (state.devices[i] == null) {
-                  continue;
-                }
-                final DeviceEntityAbstract tempDevice = state.devices[i]!;
-                if (tempDevicesByRooms[tempDevice.roomId.getOrCrash()] ==
-                    null) {
-                  tempDevicesByRooms[tempDevice.roomId.getOrCrash()] = [
-                    tempDevice
-                  ];
-                } else {
-                  tempDevicesByRooms[tempDevice.roomId.getOrCrash()]!
-                      .add(tempDevice);
+              final List<DeviceEntityAbstract?> devicesListTemp =
+                  state.devices.iter.toList();
+
+              /// Loops on the rooms
+              for (final RoomEntity? room in state.rooms.iter) {
+                if (room != null) {
+                  final String roomId = room.uniqueId.getOrCrash();
+                  tempDevicesByRooms[roomId] = [];
+
+                  /// Loops on the devices in the room
+                  for (final String deviceId
+                      in room.roomDevicesId.getOrCrash()) {
+                    /// Check if app already received the device, it could also
+                    /// be on the way
+                    for (final DeviceEntityAbstract? device
+                        in devicesListTemp) {
+                      if (device != null &&
+                          device.uniqueId.getOrCrash() == deviceId) {
+                        tempDevicesByRooms[roomId]!.add(device);
+
+                        devicesListTemp.remove(device);
+                        break;
+                      }
+                    }
+                  }
                 }
               }
 
+              /// RoomId than TypeName than list of devices of this type in
+              /// this room
               final Map<String, Map<String, List<DeviceEntityAbstract>>>
                   tempDevicesByRoomsByType =
                   <String, Map<String, List<DeviceEntityAbstract>>>{};
@@ -132,6 +155,8 @@ class SmartDevicesByRooms extends StatelessWidget {
                         ],
                       ),
                     ),
+
+                    /// Builds the rooms
                     ListView.builder(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
@@ -177,12 +202,14 @@ class SmartDevicesByRooms extends StatelessWidget {
                                   margin: const EdgeInsets.only(top: 12),
                                   alignment: Alignment.topCenter,
                                   child: Text(
-                                    tempDevicesByRoomsByType[roomId]!
-                                        .values
-                                        .first
-                                        .first
-                                        .roomName
-                                        .getOrCrash()!,
+                                    state.rooms.iter
+                                        .firstWhere(
+                                          (element) =>
+                                              element!.uniqueId.getOrCrash() ==
+                                              roomId,
+                                        )!
+                                        .defaultName
+                                        .getOrCrash(),
                                     style: TextStyle(
                                       fontSize: 20,
                                       color: Theme.of(context)
@@ -202,6 +229,8 @@ class SmartDevicesByRooms extends StatelessWidget {
                                     '$numberOfDevicesInTheRoom devices',
                                     style: const TextStyle(fontSize: 12),
                                   ),
+
+                                /// Build the devices in the room by type
                                 GridView.builder(
                                   padding: EdgeInsets.zero,
                                   shrinkWrap: true,

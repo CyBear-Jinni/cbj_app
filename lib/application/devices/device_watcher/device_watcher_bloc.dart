@@ -4,6 +4,8 @@ import 'package:bloc/bloc.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
+import 'package:cybear_jinni/domain/room/room_entity.dart';
+import 'package:cybear_jinni/domain/room/room_failures.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -18,10 +20,17 @@ class DeviceWatcherBloc extends Bloc<DeviceWatcherEvent, DeviceWatcherState> {
   DeviceWatcherBloc(this._deviceRepository)
       : super(DeviceWatcherState.initial()) {
     on<WatchAllStarted>(_watchAllStarted);
+    on<RoomsReceived>(_roomsReceived);
     on<DevicesReceived>(_devicesReceived);
   }
 
   final IDeviceRepository _deviceRepository;
+
+  KtList<DeviceEntityAbstract?> listOfDevices = [null].toImmutableList();
+  KtList<RoomEntity?> listOfRooms = [null].toImmutableList();
+
+  StreamSubscription<Either<RoomFailure, KtList<RoomEntity?>>>?
+      _roomStreamSubscription;
 
   StreamSubscription<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>?
       _deviceStreamSubscription;
@@ -37,7 +46,28 @@ class DeviceWatcherBloc extends Bloc<DeviceWatcherEvent, DeviceWatcherState> {
   //   );
   // }
 
-  void _devicesReceived(
+  Future<void> _roomsReceived(
+    RoomsReceived event,
+    Emitter<DeviceWatcherState> emit,
+  ) async {
+    emit(const DeviceWatcherState.loadInProgress());
+
+    emit(
+      event.failureOrRooms.fold(
+          (f) =>
+              const DeviceWatcherState.loadFailure(DevicesFailure.unexpected()),
+          (d) {
+        listOfRooms = d;
+
+        return DeviceWatcherState.loadSuccess(
+          listOfRooms,
+          listOfDevices,
+        );
+      }),
+    );
+  }
+
+  Future<void> _devicesReceived(
     DevicesReceived event,
     Emitter<DeviceWatcherState> emit,
   ) async {
@@ -46,27 +76,36 @@ class DeviceWatcherBloc extends Bloc<DeviceWatcherEvent, DeviceWatcherState> {
     emit(
       event.failureOrDevices.fold((f) => DeviceWatcherState.loadFailure(f),
           (d) {
+        listOfDevices = d;
+
         return DeviceWatcherState.loadSuccess(
-          d.map((v) => v!).toMutableList(),
+          listOfRooms,
+          listOfDevices,
         );
       }),
     );
   }
 
-  void _watchAllStarted(
+  Future<void> _watchAllStarted(
     WatchAllStarted event,
     Emitter<DeviceWatcherState> emit,
   ) async {
     emit(const DeviceWatcherState.loadInProgress());
 
+    _roomStreamSubscription =
+        _deviceRepository.watchAllRooms().listen((eventWatch) {
+      add(DeviceWatcherEvent.roomsReceived(eventWatch));
+    });
+
     _deviceStreamSubscription =
-        _deviceRepository.watchAll().listen((eventWatch) {
+        _deviceRepository.watchAllDevices().listen((eventWatch) {
       add(DeviceWatcherEvent.devicesReceived(eventWatch));
     });
   }
 
   @override
   Future<void> close() async {
+    await _roomStreamSubscription?.cancel();
     await _deviceStreamSubscription?.cancel();
     return super.close();
   }
