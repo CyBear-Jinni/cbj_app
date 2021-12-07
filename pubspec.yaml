@@ -112,6 +112,8 @@ dependencies:
   location: ^4.3.0
   # Small, easy to use and extensible logger which prints beautiful logs.
   logger: ^1.1.0
+  # Creating multi-select widgets in a variety of ways
+  multi_select_flutter: ^4.0.0
   # Service discovery over multicast DNS (mDNS), Bonjour, and Avahi.
   multicast_dns: ^0.3.1
   # Discover network info and configure themselves accordingly
