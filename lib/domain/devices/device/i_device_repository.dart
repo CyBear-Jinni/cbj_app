@@ -3,15 +3,12 @@ import 'dart:async';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
-import 'package:cybear_jinni/domain/room/room_failures.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/widgets.dart';
 import 'package:kt_dart/kt.dart';
 import 'package:rxdart/rxdart.dart';
 
 abstract class IDeviceRepository {
-  void addOrUpdateRoom(RoomEntity roomEntity);
-
   void addOrUpdateDevice(DeviceEntityAbstract deviceEntity);
 
   void addOrUpdateDeviceAndStateToWaiting(DeviceEntityAbstract deviceEntity);
@@ -21,8 +18,6 @@ abstract class IDeviceRepository {
   Future<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>> getAllDevices();
 
   Stream<Either<dynamic, KtList<dynamic>>> watchAll();
-
-  Stream<Either<RoomFailure, KtList<RoomEntity?>>> watchAllRooms();
 
   Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
       watchAllDevices();

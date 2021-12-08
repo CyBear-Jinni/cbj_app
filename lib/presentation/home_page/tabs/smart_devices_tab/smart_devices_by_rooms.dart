@@ -281,9 +281,18 @@ class SmartDevicesByRooms extends StatelessWidget {
                                             getIt<SwitchesActorBloc>(),
                                         child: SwitchesInTheRoomBlock
                                             .withAbstractDevice(
-                                          tempDevicesByRoomsByType[roomId]![
-                                              deviceType]!,
-                                          roomColorGradiant,
+                                          roomEntityTemp:
+                                              state.rooms.asList().firstWhere(
+                                                    (element) =>
+                                                        element!.uniqueId
+                                                            .getOrCrash() ==
+                                                        roomId,
+                                                  )!,
+                                          tempDeviceInRoom:
+                                              tempDevicesByRoomsByType[roomId]![
+                                                  deviceType]!,
+                                          tempRoomColorGradiant:
+                                              roomColorGradiant,
                                         ),
                                       );
                                     } else if (deviceType ==

@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
+import 'package:cybear_jinni/domain/room/i_room_repository.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_blinds_device/generic_blinds_device_dtos.dart';
@@ -61,8 +62,7 @@ class HubRequestRouting {
     );
 
     final RoomEntity roomEntity = roomEntityDtos.toDomain();
-    logger.i('Navigate requests room Entity:\n$roomEntity');
-    getIt<IDeviceRepository>().addOrUpdateRoom(roomEntity);
+    getIt<IRoomRepository>().addOrUpdateRoom(roomEntity);
   }
 
   static Future<void> navigateDeviceRequest(

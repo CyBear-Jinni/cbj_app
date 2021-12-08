@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:collection';
 import 'dart:convert';
 
 import 'package:cybear_jinni/domain/room/i_room_repository.dart';
@@ -6,7 +7,9 @@ import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/domain/room/room_failures.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
+import 'package:cybear_jinni/utils.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/src/painting/colors.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
@@ -14,9 +17,13 @@ import 'package:rxdart/rxdart.dart';
 
 @LazySingleton(as: IRoomRepository)
 class RoomRepository implements IRoomRepository {
+  static HashMap<String, RoomEntity> allRooms = HashMap<String, RoomEntity>();
+
   @override
   void addOrUpdateRoom(RoomEntity roomEntity) {
-    // TODO: implement addOrUpdateRoom
+    allRooms[roomEntity.uniqueId.getOrCrash()] = roomEntity;
+    roomsResponseFromTheHubStreamController.sink
+        .add(allRooms.values.toImmutableList());
   }
 
   @override
@@ -75,8 +82,19 @@ class RoomRepository implements IRoomRepository {
 
   @override
   Future<Either<RoomFailure, KtList<RoomEntity?>>> getAllRooms() async {
-    // TODO: implement getAllRooms
-    throw UnimplementedError();
+    try {
+      return right(allRooms.values.toImmutableList());
+    } catch (e) {
+      if (e is PlatformException && e.message!.contains('PERMISSION_DENIED')) {
+        logger.w('Insufficient permission while getting all rooms');
+        return left(const RoomFailure.insufficientPermission());
+      } else {
+        logger.e('Unexpected error while getting all rooms');
+        // log.error(e.toString());
+        return left(const RoomFailure.unexpected());
+      }
+    }
+    return left(const RoomFailure.unexpected());
   }
 
   @override
@@ -149,8 +167,8 @@ class RoomRepository implements IRoomRepository {
 
   @override
   Stream<Either<RoomFailure, KtList<RoomEntity?>>> watchAllRooms() async* {
-    // TODO: implement watchAllRooms
-    throw UnimplementedError();
+    yield* roomsResponseFromTheHubStreamController.stream
+        .map((event) => right(event));
   }
 
   @override

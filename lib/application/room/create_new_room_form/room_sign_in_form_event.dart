@@ -9,6 +9,10 @@ class RoomSignInFormEvent with _$RoomSignInFormEvent {
     List<String> roomTypes,
   ) = RoomTypesChanged;
 
+  const factory RoomSignInFormEvent.roomIdChanged(
+    String roomId,
+  ) = RoomIdChanged;
+
   const factory RoomSignInFormEvent.roomDevicesIdChanged(
     List<String> roomDevicesId,
   ) = RoomDevicesIdChanged;
@@ -21,5 +25,9 @@ class RoomSignInFormEvent with _$RoomSignInFormEvent {
     List<String> roomPermissions,
   ) = RoomPermissionsChanged;
 
-  const factory RoomSignInFormEvent.signIn() = SignInWithApiKey;
+  const factory RoomSignInFormEvent.changeRoomDevices() = ChangeRoomDevices;
+
+  const factory RoomSignInFormEvent.createRoom() = CreateRoom;
+
+  const factory RoomSignInFormEvent.initialized() = Initialized;
 }

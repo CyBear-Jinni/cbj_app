@@ -11,7 +11,8 @@ class SwitchesWatcherState with _$SwitchesWatcherState {
   ) = _loadSuccess;
 
   const factory SwitchesWatcherState.loadFailure(
-      DevicesFailure devicesFailure) = _loadFailure;
+    DevicesFailure devicesFailure,
+  ) = _loadFailure;
 
   const factory SwitchesWatcherState.switchesError() = SwitchesError;
 }

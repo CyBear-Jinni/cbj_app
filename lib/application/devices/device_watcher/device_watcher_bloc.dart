@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
+import 'package:cybear_jinni/domain/room/i_room_repository.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/domain/room/room_failures.dart';
 import 'package:dartz/dartz.dart';
@@ -17,7 +18,7 @@ part 'device_watcher_state.dart';
 
 @injectable
 class DeviceWatcherBloc extends Bloc<DeviceWatcherEvent, DeviceWatcherState> {
-  DeviceWatcherBloc(this._deviceRepository)
+  DeviceWatcherBloc(this._roomRepository, this._deviceRepository)
       : super(DeviceWatcherState.initial()) {
     on<WatchAllStarted>(_watchAllStarted);
     on<RoomsReceived>(_roomsReceived);
@@ -25,6 +26,7 @@ class DeviceWatcherBloc extends Bloc<DeviceWatcherEvent, DeviceWatcherState> {
   }
 
   final IDeviceRepository _deviceRepository;
+  final IRoomRepository _roomRepository;
 
   KtList<DeviceEntityAbstract?> listOfDevices = [null].toImmutableList();
   KtList<RoomEntity?> listOfRooms = [null].toImmutableList();
@@ -93,7 +95,7 @@ class DeviceWatcherBloc extends Bloc<DeviceWatcherEvent, DeviceWatcherState> {
     emit(const DeviceWatcherState.loadInProgress());
 
     _roomStreamSubscription =
-        _deviceRepository.watchAllRooms().listen((eventWatch) {
+        _roomRepository.watchAllRooms().listen((eventWatch) {
       add(DeviceWatcherEvent.roomsReceived(eventWatch));
     });
 

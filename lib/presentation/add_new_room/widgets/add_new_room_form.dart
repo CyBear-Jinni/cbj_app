@@ -76,7 +76,7 @@ class AddNewRoomForm extends StatelessWidget {
                           child: TextButton(
                             onPressed: () {
                               context.read<RoomSignInFormBloc>().add(
-                                    const RoomSignInFormEvent.signIn(),
+                                    const RoomSignInFormEvent.createRoom(),
                                   );
                               Fluttertoast.showToast(
                                 msg: 'Adding room',

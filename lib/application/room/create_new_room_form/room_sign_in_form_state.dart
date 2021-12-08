@@ -3,6 +3,8 @@ part of 'room_sign_in_form_bloc.dart';
 @freezed
 class RoomSignInFormState with _$RoomSignInFormState {
   const factory RoomSignInFormState({
+    required List<RoomEntity> allRooms,
+    required List<DeviceEntityAbstract> allDevices,
     required RoomUniqueId roomUniqueId,
     required RoomDefaultName defaultName,
     required RoomTypes roomTypes,
@@ -15,6 +17,8 @@ class RoomSignInFormState with _$RoomSignInFormState {
   }) = _RoomSignInFormState;
 
   factory RoomSignInFormState.initial() => RoomSignInFormState(
+        allRooms: [],
+        allDevices: [],
         roomUniqueId: RoomUniqueId(),
         defaultName: RoomDefaultName(''),
         roomTypes: RoomTypes(const []),
