@@ -1,3 +1,5 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -65,11 +67,13 @@ class ChangeRoomForDevicesPage extends StatelessWidget {
                         style: TextStyle(fontSize: 27),
                       ),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          context.router.push(const AddNewRoomRoute());
+                        },
                         child: const Text(
-                          'New Room',
+                          'Add New Room',
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 16,
                             color: Colors.white,
                             backgroundColor: Colors.blue,
                           ),

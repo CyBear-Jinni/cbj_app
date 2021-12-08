@@ -5,6 +5,7 @@ import 'package:cybear_jinni/presentation/add_new_devices_process/configure_new_
 import 'package:cybear_jinni/presentation/add_new_devices_process/connect_to_home_wifi/connect_to_home_wifi_page.dart';
 import 'package:cybear_jinni/presentation/add_new_devices_process/open_access_point/open_access_pointi_page.dart';
 import 'package:cybear_jinni/presentation/add_new_devices_process/scan_for_new_cbj_comps/scan_for_new_cbj_comps_page.dart';
+import 'package:cybear_jinni/presentation/add_new_room/add_new_room_page.dart';
 import 'package:cybear_jinni/presentation/add_user_to_home/add_user_to_home_page.dart';
 import 'package:cybear_jinni/presentation/add_vendors_pages/add_lifx_vendor/add_lifx_vendor_page.dart';
 import 'package:cybear_jinni/presentation/add_vendors_pages/add_tuya_vendor/add_tuya_vendor_page.dart';
@@ -47,6 +48,7 @@ import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_pag
     AutoRoute(page: JoinHomeByIdPage),
     AutoRoute(page: HomePage),
     AutoRoute(page: ChangeRoomForDevicesPage),
+    AutoRoute(page: AddNewRoomPage),
     AutoRoute(page: PlusButtonPage),
     AutoRoute(page: RemotePipesPage),
     AutoRoute(page: SoftwareInfoPage),
@@ -92,6 +94,7 @@ class $AppRouter {
   late JoinHomeByIdPage joinHomeByIdPage;
   late HomePage homePage;
   late ChangeRoomForDevicesPage changeRoomForDevicesPage;
+  late AddNewRoomPage addNewRoomPage;
   late PlusButtonPage plusButtonPage;
   late RemotePipesPage remotePipesPage;
   late SoftwareInfoPage softwareInfoPage;

@@ -10,14 +10,6 @@ import 'package:kt_dart/kt.dart';
 import 'package:rxdart/rxdart.dart';
 
 abstract class IDeviceRepository {
-  // watch devices
-  // watch only a
-  // CUD
-
-  // C Read UD
-
-  // void addOrUpdateFromApp(dynamic entity);
-
   void addOrUpdateRoom(RoomEntity roomEntity);
 
   void addOrUpdateDevice(DeviceEntityAbstract deviceEntity);
