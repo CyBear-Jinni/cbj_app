@@ -73,6 +73,7 @@ class RoomsBoilersWidget extends StatelessWidget {
               return Container(
                 margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 15),
                 child: ListView.builder(
+                  reverse: true,
                   padding: EdgeInsets.zero,
                   itemBuilder: (context, index) {
                     gradientColorCounter++;

@@ -72,6 +72,7 @@ class RoomsBlindsWidget extends StatelessWidget {
               return Container(
                 margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 15),
                 child: ListView.builder(
+                  reverse: true,
                   padding: EdgeInsets.zero,
                   itemBuilder: (context, index) {
                     List<Color>? gradiantColor;
@@ -83,7 +84,7 @@ class RoomsBlindsWidget extends StatelessWidget {
                       gradiantColor = gradientColorsList[gradientColorCounter];
                     }
                     final KtList<GenericBlindsDE> devicesInRoom =
-                        devicesByRooms[index];
+                    devicesByRooms[index];
 
                     return RoomBlinds(
                       devicesInRoom,

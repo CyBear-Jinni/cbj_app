@@ -45,7 +45,7 @@ class TopNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: backgroundColor != null
-          ? backgroundColor!.withOpacity(0.75)
+          ? backgroundColor!.withOpacity(0.72)
           : Colors.black.withOpacity(0.3),
       child: Container(
         margin: const EdgeInsets.fromLTRB(9, 3, 9, 0),

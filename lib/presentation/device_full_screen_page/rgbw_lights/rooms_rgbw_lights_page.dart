@@ -100,6 +100,7 @@ class RoomsRgbwLightsPage extends StatelessWidget {
                   leftIconFunction: backButtonFunction,
                   rightSecondIcon: FontAwesomeIcons.search,
                   rightSecondFunction: () {},
+                  backgroundColor: roomColorGradiant!.last,
                 ),
                 Expanded(
                   child: RoomsRgbwLightsWidget(
