@@ -97,9 +97,9 @@ class RoomsBlindsPage extends StatelessWidget {
             child: Column(
               children: [
                 TopNavigationBar(
-                  'Blinds',
-                  Icons.more_vert,
-                  cogFunction,
+                  pageName: 'Blinds',
+                  rightIcon: Icons.more_vert,
+                  rightIconFunction: cogFunction,
                   leftIcon: FontAwesomeIcons.arrowLeft,
                   leftIconFunction: backButtonFunction,
                   rightSecondIcon: FontAwesomeIcons.search,

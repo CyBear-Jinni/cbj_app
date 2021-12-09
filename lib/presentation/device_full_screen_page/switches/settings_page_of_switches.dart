@@ -88,9 +88,9 @@ class SettingsPageOfSwitches extends StatelessWidget {
         child: Column(
           children: <Widget>[
             TopNavigationBar(
-              'Switches Settings',
-              null,
-              () {},
+              pageName: 'Switches Settings',
+              rightIcon: null,
+              rightIconFunction: () {},
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
             ),

@@ -57,9 +57,9 @@ class ScenesPage extends StatelessWidget {
         child: Column(
           children: [
             TopNavigationBar(
-              'Scenes in folder',
-              Icons.more_vert,
-              userCogFunction,
+              pageName: 'Scenes in folder',
+              rightIcon: Icons.more_vert,
+              rightIconFunction: userCogFunction,
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: leftIconFunction,
               rightSecondIcon: FontAwesomeIcons.search,

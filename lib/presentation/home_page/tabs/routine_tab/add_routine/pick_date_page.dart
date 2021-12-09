@@ -37,9 +37,9 @@ class PickDatePage extends StatelessWidget {
         child: Column(
           children: <Widget>[
             TopNavigationBar(
-              'Pick a date',
-              null,
-              () {},
+              pageName: 'Pick a date',
+              rightIcon: null,
+              rightIconFunction: () {},
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
             ),

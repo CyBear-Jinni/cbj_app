@@ -26,11 +26,11 @@ class ChangeRoomForDevicesPage extends StatelessWidget {
       body: Column(
         children: [
           TopNavigationBar(
-            'Change Room For Devices',
-            null,
-            backButtonFunction,
+            pageName: 'Change Room For Devices',
+            rightIcon: null,
+            rightIconFunction: null,
             leftIcon: FontAwesomeIcons.arrowLeft,
-            leftIconFunction: () {},
+            leftIconFunction: backButtonFunction,
           ),
           BlocProvider(
             create: (context) => getIt<RoomSignInFormBloc>(),

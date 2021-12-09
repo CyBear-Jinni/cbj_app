@@ -97,9 +97,9 @@ class RoomsBoilersPage extends StatelessWidget {
             child: Column(
               children: [
                 TopNavigationBar(
-                  'Boilers',
-                  Icons.more_vert,
-                  cogFunction,
+                  pageName: 'Boilers',
+                  rightIcon: Icons.more_vert,
+                  rightIconFunction: cogFunction,
                   leftIcon: FontAwesomeIcons.arrowLeft,
                   leftIconFunction: backButtonFunction,
                   rightSecondIcon: FontAwesomeIcons.search,

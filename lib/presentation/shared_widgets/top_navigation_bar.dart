@@ -6,14 +6,15 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 /// Top part of the pages, will show page name and settings logo,
 /// and sometimes will have back button.
 class TopNavigationBar extends StatelessWidget {
-  const TopNavigationBar(
-    this.pageName,
-    this.rightIcon,
-    this.rightIconFunction, {
+  const TopNavigationBar({
+    required this.pageName,
+    required this.rightIcon,
+    required this.rightIconFunction,
     this.leftIcon,
     this.leftIconFunction,
     this.rightSecondIcon,
     this.rightSecondFunction,
+    this.backgroundColor,
   });
 
   /// Page name to show in the left side of the navigation bar
@@ -38,10 +39,14 @@ class TopNavigationBar extends StatelessWidget {
   /// What to execute if back button was pressed
   final Function? leftIconFunction;
 
+  final Color? backgroundColor;
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.black.withOpacity(0.3),
+      color: backgroundColor != null
+          ? backgroundColor!.withOpacity(0.75)
+          : Colors.black.withOpacity(0.3),
       child: Container(
         margin: const EdgeInsets.fromLTRB(9, 3, 9, 0),
         child: Row(

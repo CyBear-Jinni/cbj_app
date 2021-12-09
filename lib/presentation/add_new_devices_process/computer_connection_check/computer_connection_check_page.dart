@@ -32,9 +32,9 @@ class ComputerConnectionCheckPage extends StatelessWidget {
         child: Column(
           children: [
             TopNavigationBar(
-              'Final setting up step',
-              null,
-              null,
+              pageName: 'Final setting up step',
+              rightIcon: null,
+              rightIconFunction: null,
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: leftIconFunction,
             ),

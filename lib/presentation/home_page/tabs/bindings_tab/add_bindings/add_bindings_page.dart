@@ -36,9 +36,9 @@ class AddBindingsPage extends StatelessWidget {
         child: Column(
           children: <Widget>[
             TopNavigationBar(
-              'Add Binding',
-              null,
-              () {},
+              pageName: 'Add Binding',
+              rightIcon: null,
+              rightIconFunction: () {},
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
             ),

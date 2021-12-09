@@ -100,9 +100,9 @@ class SmartDevicesWidgets extends StatelessWidget {
         child: Column(
           children: <Widget>[
             TopNavigationBar(
-              'Devices',
-              Icons.more_vert,
-              userCogFunction,
+              pageName: 'Devices',
+              rightIcon: Icons.more_vert,
+              rightIconFunction: userCogFunction,
               leftIcon: FontAwesomeIcons.userCog,
               leftIconFunction: leftIconFunction,
               rightSecondIcon: FontAwesomeIcons.search,

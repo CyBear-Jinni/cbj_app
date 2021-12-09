@@ -88,9 +88,9 @@ class SettingsPageOfLights extends StatelessWidget {
         child: Column(
           children: <Widget>[
             TopNavigationBar(
-              'Lights Settings',
-              null,
-              () {},
+              pageName: 'Lights Settings',
+              rightIcon: null,
+              rightIconFunction: () {},
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
             ),

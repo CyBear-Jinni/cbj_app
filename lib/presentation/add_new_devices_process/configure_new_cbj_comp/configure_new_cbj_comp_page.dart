@@ -32,9 +32,9 @@ class ConfigureNewCbjCompPage extends StatelessWidget {
         child: Column(
           children: [
             TopNavigationBar(
-              'Add CBJ Computer',
-              null,
-              null,
+              pageName: 'Add CBJ Computer',
+              rightIcon: null,
+              rightIconFunction: null,
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: leftIconFunction,
             ),

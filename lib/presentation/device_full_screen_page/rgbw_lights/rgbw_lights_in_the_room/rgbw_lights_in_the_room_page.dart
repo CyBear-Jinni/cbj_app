@@ -33,9 +33,9 @@ class RgbwLightsInTheRoomPage extends StatelessWidget {
         child: Column(
           children: <Widget>[
             TopNavigationBar(
-              thisSmartRoom!.getRoomName(),
-              Icons.more_vert,
-              () {},
+              pageName: thisSmartRoom!.getRoomName(),
+              rightIcon: Icons.more_vert,
+              rightIconFunction: () {},
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
               rightSecondIcon: FontAwesomeIcons.search,

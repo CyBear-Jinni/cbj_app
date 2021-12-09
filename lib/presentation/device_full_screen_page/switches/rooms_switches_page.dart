@@ -97,13 +97,14 @@ class RoomsSwitchesPage extends StatelessWidget {
             child: Column(
               children: [
                 TopNavigationBar(
-                  'Switches',
-                  Icons.more_vert,
-                  cogFunction,
+                  pageName: 'Switches',
+                  rightIcon: Icons.more_vert,
+                  rightIconFunction: cogFunction,
                   leftIcon: FontAwesomeIcons.arrowLeft,
                   leftIconFunction: backButtonFunction,
                   rightSecondIcon: FontAwesomeIcons.search,
                   rightSecondFunction: () {},
+                  backgroundColor: roomColorGradiant!.last,
                 ),
                 Expanded(
                   child: RoomsSwitchesWidget(
