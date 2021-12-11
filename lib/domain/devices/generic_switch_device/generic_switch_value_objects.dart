@@ -7,7 +7,7 @@ class GenericSwitchSwitchState extends ValueObjectCore<String> {
   factory GenericSwitchSwitchState(String? input) {
     assert(input != null);
     return GenericSwitchSwitchState._(
-      validateGenericSwitchStateNotEmty(input!),
+      validateGenericSwitchSwitchStateNotEmty(input!),
     );
   }
 

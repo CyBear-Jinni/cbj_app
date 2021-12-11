@@ -40,11 +40,11 @@ class LightToggleBloc extends Bloc<LightToggleEvent, LightToggleState> {
 
     if (event.changeToState) {
       actionResult = await _deviceRepository.turnOnDevices(
-        devicesId: [event.deviceEntity.uniqueId.getOrCrash()!],
+        devicesId: [event.deviceEntity.uniqueId.getOrCrash()],
       );
     } else {
       actionResult = await _deviceRepository.turnOffDevices(
-        devicesId: [event.deviceEntity.uniqueId.getOrCrash()!],
+        devicesId: [event.deviceEntity.uniqueId.getOrCrash()],
       );
     }
   }
@@ -55,7 +55,7 @@ class LightToggleBloc extends Bloc<LightToggleEvent, LightToggleState> {
   ) async {
     emit(state.copyWith(colorTemperature: event.newColorTemperature));
     _deviceRepository.changeColorTemperatureDevices(
-      devicesId: [event.deviceEntity.uniqueId.getOrCrash()!],
+      devicesId: [event.deviceEntity.uniqueId.getOrCrash()],
       colorTemperatureToChange: event.newColorTemperature,
     );
   }
@@ -66,7 +66,7 @@ class LightToggleBloc extends Bloc<LightToggleEvent, LightToggleState> {
   ) async {
     emit(state.copyWith(hsvColor: event.newHsvColor));
     _deviceRepository.changeHsvColorDevices(
-      devicesId: [event.deviceEntity.uniqueId.getOrCrash()!],
+      devicesId: [event.deviceEntity.uniqueId.getOrCrash()],
       hsvColorToChange: event.newHsvColor,
     );
   }
@@ -78,7 +78,7 @@ class LightToggleBloc extends Bloc<LightToggleEvent, LightToggleState> {
     emit(state.copyWith(brightness: event.brightness));
 
     _deviceRepository.changeBrightnessDevices(
-      devicesId: [event.deviceEntity.uniqueId.getOrCrash()!],
+      devicesId: [event.deviceEntity.uniqueId.getOrCrash()],
       brightnessToChange: event.brightness.round(),
     );
   }

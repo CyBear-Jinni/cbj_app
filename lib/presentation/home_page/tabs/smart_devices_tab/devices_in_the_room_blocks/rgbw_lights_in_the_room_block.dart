@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/lights/lights_actor/lights_actor_bloc.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
+import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -9,21 +10,31 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class RgbwLightsInTheRoomBlock extends StatelessWidget {
-  const RgbwLightsInTheRoomBlock(this.lightsInRoom, this.roomColorGradiant);
+  const RgbwLightsInTheRoomBlock({
+    required this.roomEntity,
+    required this.lightsInRoom,
+    required this.roomColorGradiant,
+  });
 
-  factory RgbwLightsInTheRoomBlock.withAbstractDevice(
-    List<DeviceEntityAbstract> tempDeviceInRoom,
-    List<Color> tempRoomColorGradiant,
-  ) {
+  factory RgbwLightsInTheRoomBlock.withAbstractDevice({
+    required RoomEntity roomEntity,
+    required List<DeviceEntityAbstract> tempDeviceInRoom,
+    required List<Color> tempRoomColorGradiant,
+  }) {
     List<GenericRgbwLightDE> tempLightsInRoom = [];
 
     tempDeviceInRoom.forEach((element) {
       tempLightsInRoom.add(element as GenericRgbwLightDE);
     });
 
-    return RgbwLightsInTheRoomBlock(tempLightsInRoom, tempRoomColorGradiant);
+    return RgbwLightsInTheRoomBlock(
+      roomEntity: roomEntity,
+      lightsInRoom: tempLightsInRoom,
+      roomColorGradiant: tempRoomColorGradiant,
+    );
   }
 
+  final RoomEntity roomEntity;
   final List<GenericRgbwLightDE> lightsInRoom;
   final List<Color> roomColorGradiant;
 
@@ -33,7 +44,7 @@ class RgbwLightsInTheRoomBlock extends StatelessWidget {
       onTap: () {
         context.router.push(
           RoomsRgbwLightsRoute(
-            showDevicesOnlyFromRoomId: lightsInRoom[0].roomId.getOrCrash(),
+            roomEntity: roomEntity,
             roomColorGradiant: roomColorGradiant,
           ),
         );
@@ -97,7 +108,7 @@ class RgbwLightsInTheRoomBlock extends StatelessWidget {
               )
             else
               Text(
-                '${lightsInRoom[0].roomName.getOrCrash()} RGBW Lights',
+                '${roomEntity.defaultName.getOrCrash()} RGBW Lights',
                 style: TextStyle(
                   color: Theme.of(context).textTheme.bodyText1!.color,
                 ),
@@ -181,7 +192,7 @@ class RgbwLightsInTheRoomBlock extends StatelessWidget {
   List<String> extractDevicesId() {
     final List<String> devicesIdList = [];
     lightsInRoom.forEach((element) {
-      devicesIdList.add(element.uniqueId.getOrCrash()!);
+      devicesIdList.add(element.uniqueId.getOrCrash());
     });
     return devicesIdList;
   }

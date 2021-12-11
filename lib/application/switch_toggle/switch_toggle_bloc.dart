@@ -45,11 +45,11 @@ class SwitchToggleBloc extends Bloc<SwitchToggleEvent, SwitchToggleState> {
 
     if (event.changeToState) {
       actionResult = await _deviceRepository.turnOnDevices(
-        devicesId: [event.deviceEntity.uniqueId.getOrCrash()!],
+        devicesId: [event.deviceEntity.uniqueId.getOrCrash()],
       );
     } else {
       actionResult = await _deviceRepository.turnOffDevices(
-        devicesId: [event.deviceEntity.uniqueId.getOrCrash()!],
+        devicesId: [event.deviceEntity.uniqueId.getOrCrash()],
       );
     }
 
@@ -79,7 +79,7 @@ class SwitchToggleBloc extends Bloc<SwitchToggleEvent, SwitchToggleState> {
   /// so many requests.
   Future<void> changeColorOncePerTimer(ChangeColor e) async {
     await _deviceRepository.changeHsvColorDevices(
-      devicesId: [e.deviceEntity.uniqueId.getOrCrash()!],
+      devicesId: [e.deviceEntity.uniqueId.getOrCrash()],
       hsvColorToChange: lastColoredPicked!,
     );
   }

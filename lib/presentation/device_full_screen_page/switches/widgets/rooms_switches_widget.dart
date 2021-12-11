@@ -100,7 +100,7 @@ class RoomsSwitchesWidget extends StatelessWidget {
                     return RoomSwitches(
                       devicesInRoom,
                       gradiantColor,
-                      devicesInRoom[0].roomName.getOrCrash()!,
+                      roomEntity.defaultName.getOrCrash(),
                       maxSwitchesToShow: 50,
                     );
                   },

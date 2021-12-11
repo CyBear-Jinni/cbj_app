@@ -5,6 +5,7 @@ import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_v
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/abstract_device/device_entity_dto_abstract.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_light_device/generic_light_device_dtos.dart';
+import 'package:cybear_jinni/utils.dart';
 import 'package:dartz/dartz.dart';
 
 /// Abstract smart GenericLight that exist inside a computer, the
@@ -13,10 +14,9 @@ class GenericLightDE extends DeviceEntityAbstract {
   /// All public field of GenericLight entity
   GenericLightDE({
     required CoreUniqueId uniqueId,
-    required CoreUniqueId roomId,
+    required VendorUniqueId vendorUniqueId,
     required DeviceVendor deviceVendor,
     required DeviceDefaultName defaultName,
-    required DeviceRoomName roomName,
     required DeviceState deviceStateGRPC,
     required DeviceStateMassage stateMassage,
     required DeviceSenderDeviceOs senderDeviceOs,
@@ -27,28 +27,23 @@ class GenericLightDE extends DeviceEntityAbstract {
     required this.lightSwitchState,
   }) : super(
           uniqueId: uniqueId,
+          vendorUniqueId: vendorUniqueId,
           defaultName: defaultName,
-          roomId: roomId,
           deviceTypes: DeviceType(DeviceTypes.light.toString()),
           deviceVendor: deviceVendor,
           deviceStateGRPC: deviceStateGRPC,
           compUuid: compUuid,
-          roomName: roomName,
           senderDeviceModel: senderDeviceModel,
           senderDeviceOs: senderDeviceOs,
           senderId: senderId,
           stateMassage: stateMassage,
         );
 
-  /// State of the light on/off
-  GenericLightSwitchState? lightSwitchState;
-
   /// Empty instance of GenericLightEntity
   factory GenericLightDE.empty() => GenericLightDE(
         uniqueId: CoreUniqueId(),
+        vendorUniqueId: VendorUniqueId(),
         defaultName: DeviceDefaultName(''),
-        roomId: CoreUniqueId(),
-        roomName: DeviceRoomName(''),
         deviceStateGRPC: DeviceState(''),
         senderDeviceOs: DeviceSenderDeviceOs(''),
         senderDeviceModel: DeviceSenderDeviceModel(''),
@@ -60,14 +55,14 @@ class GenericLightDE extends DeviceEntityAbstract {
         lightSwitchState: GenericLightSwitchState(DeviceActions.off.toString()),
       );
 
-  Option<CoreFailure<dynamic>> get failureOption =>
-      defaultName.value.fold((f) => some(f), (_) => none());
+  /// State of the light on/off
+  GenericLightSwitchState? lightSwitchState;
 
   //
   // /// Will return failure if any of the fields failed or return unit if fields
   // /// have legit values
-  // Option<CoreFailure<dynamic>> get failureOption {
-  //   return defaultName!.value.fold((f) => some(f), (_) => none());
+  Option<CoreFailure<dynamic>> get failureOption =>
+      defaultName.value.fold((f) => some(f), (_) => none());
   //
   // return body.failureOrUnit
   //     .andThen(todos.failureOrUnit)
@@ -85,13 +80,17 @@ class GenericLightDE extends DeviceEntityAbstract {
   // }
 
   @override
+  String getDeviceId() {
+    return uniqueId.getOrCrash();
+  }
+
+  @override
   DeviceEntityDtoAbstract toInfrastructure() {
     return GenericLightDeviceDtos(
       deviceDtoClass: (GenericLightDeviceDtos).toString(),
       id: uniqueId.getOrCrash(),
+      vendorUniqueId: vendorUniqueId.getOrCrash(),
       defaultName: defaultName.getOrCrash(),
-      roomId: roomId.getOrCrash(),
-      roomName: roomName.getOrCrash(),
       deviceStateGRPC: deviceStateGRPC.getOrCrash(),
       stateMassage: stateMassage.getOrCrash(),
       senderDeviceOs: senderDeviceOs.getOrCrash(),
@@ -102,6 +101,39 @@ class GenericLightDE extends DeviceEntityAbstract {
       lightSwitchState: lightSwitchState!.getOrCrash(),
       deviceVendor: deviceVendor.getOrCrash(),
       // serverTimeStamp: FieldValue.serverTimestamp(),
+    );
+  }
+
+  /// Please override the following methods
+  @override
+  Future<Either<CoreFailure, Unit>> executeDeviceAction({
+    required DeviceEntityAbstract newEntity,
+  }) async {
+    logger.w('Please override this method in the non generic implementation');
+    return left(
+      const CoreFailure.actionExcecuter(
+        failedValue: 'Action does not exist',
+      ),
+    );
+  }
+
+  /// Please override the following methods
+  Future<Either<CoreFailure, Unit>> turnOnLight() async {
+    logger.w('Please override this method in the non generic implementation');
+    return left(
+      const CoreFailure.actionExcecuter(
+        failedValue: 'Action does not exist',
+      ),
+    );
+  }
+
+  /// Please override the following methods
+  Future<Either<CoreFailure, Unit>> turnOffLight() async {
+    logger.w('Please override this method in the non generic implementation');
+    return left(
+      const CoreFailure.actionExcecuter(
+        failedValue: 'Action does not exist',
+      ),
     );
   }
 }

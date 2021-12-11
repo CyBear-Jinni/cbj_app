@@ -57,7 +57,7 @@ class DeviceRepository implements IDeviceRepository {
 
   @override
   void addOrUpdateDevice(DeviceEntityAbstract deviceEntity) {
-    allDevices[deviceEntity.uniqueId.getOrCrash()!] = deviceEntity;
+    allDevices[deviceEntity.uniqueId.getOrCrash()] = deviceEntity;
     devicesResponseFromTheHubStreamController.sink
         .add(allDevices.values.toImmutableList());
   }
@@ -224,7 +224,9 @@ class DeviceRepository implements IDeviceRepository {
           .copyWithDeviceSenderDeviceModel(deviceModelString)
           .copyWithSenderId(currentUserId);
 
-      DeviceEntityDtoAbstract.fromDomain(deviceEntityTemp);
+      DeviceEntityDtoAbstract.fromDomain(
+        deviceEntityDtoAbstract: deviceEntityTemp,
+      );
 
       return right(unit);
     } on PlatformException catch (e) {

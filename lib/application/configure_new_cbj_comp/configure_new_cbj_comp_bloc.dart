@@ -302,10 +302,7 @@ class ConfigureNewCbjCompBloc
                 '$deviceNameFieldKey/${deviceE.uniqueId.getOrCrash()}']!
             .text;
         deviceEntityList.add(
-          deviceE
-            ..defaultName = DeviceDefaultName(deviceName)
-            ..roomName = DeviceRoomName(roomName)
-            ..roomId = CoreUniqueId.fromUniqueString(roomUuid),
+          deviceE..defaultName = DeviceDefaultName(deviceName),
         );
       } catch (e) {
         print("Can't add unsupported device");

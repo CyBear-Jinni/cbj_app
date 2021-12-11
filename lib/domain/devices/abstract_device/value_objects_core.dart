@@ -38,12 +38,12 @@ abstract class ValueObjectCore<T> {
   int get hashCode => value.hashCode;
 }
 
-class CoreUniqueId extends ValueObjectCore<String?> {
+class CoreUniqueId extends ValueObjectCore<String> {
   factory CoreUniqueId() {
     return CoreUniqueId._(right(const Uuid().v1()));
   }
 
-  factory CoreUniqueId.fromUniqueString(String? uniqueId) {
+  factory CoreUniqueId.fromUniqueString(String uniqueId) {
     assert(uniqueId != null);
     return CoreUniqueId._(right(uniqueId));
   }
@@ -51,17 +51,21 @@ class CoreUniqueId extends ValueObjectCore<String?> {
   const CoreUniqueId._(this.value);
 
   @override
-  final Either<CoreFailure<String?>, String?> value;
+  final Either<CoreFailure<String>, String> value;
 }
 
-class DeviceRoomName extends ValueObjectCore<String?> {
-  factory DeviceRoomName(String? input) {
-    return DeviceRoomName._(
-      validateRoomNameNotEmpty(input!),
-    );
+/// Object that will store the unique id of the device that each vendor send
+class VendorUniqueId extends ValueObjectCore<String> {
+  factory VendorUniqueId() {
+    return VendorUniqueId._(right(const Uuid().v1()));
   }
 
-  const DeviceRoomName._(this.value);
+  factory VendorUniqueId.fromUniqueString(String uniqueId) {
+    assert(uniqueId != null);
+    return VendorUniqueId._(right(uniqueId));
+  }
+
+  const VendorUniqueId._(this.value);
 
   @override
   final Either<CoreFailure<String>, String> value;

@@ -108,7 +108,7 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
               )
             else
               Text(
-                '${switchesInRoom[0].roomName.getOrCrash()} Switches',
+                '${roomEntity.defaultName.getOrCrash()} Switches',
                 style: TextStyle(
                   color: Theme.of(context).textTheme.bodyText1!.color,
                 ),
@@ -192,7 +192,7 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
   List<String> extractDevicesId() {
     final List<String> devicesIdList = [];
     switchesInRoom.forEach((element) {
-      devicesIdList.add(element.uniqueId.getOrCrash()!);
+      devicesIdList.add(element.uniqueId.getOrCrash());
     });
     return devicesIdList;
   }

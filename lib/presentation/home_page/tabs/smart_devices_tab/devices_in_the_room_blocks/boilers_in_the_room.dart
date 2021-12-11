@@ -1,18 +1,24 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/generic_boiler_device/generic_boiler_entity.dart';
+import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BoilersInTheRoom extends StatelessWidget {
-  const BoilersInTheRoom({this.boilersInRoom, this.roomColorGradiant});
+  const BoilersInTheRoom({
+    required this.roomEntity,
+    this.boilersInRoom,
+    this.roomColorGradiant,
+  });
 
-  factory BoilersInTheRoom.withAbstractDevice(
-    List<DeviceEntityAbstract> tempDeviceInRoom,
-    List<Color> temproomColorGradiant,
-  ) {
+  factory BoilersInTheRoom.withAbstractDevice({
+    required RoomEntity roomEntity,
+    required List<DeviceEntityAbstract> tempDeviceInRoom,
+    required List<Color> tempRoomColorGradiant,
+  }) {
     List<GenericBoilerDE> tempLightsInRoom = [];
 
     tempDeviceInRoom.forEach((element) {
@@ -20,11 +26,13 @@ class BoilersInTheRoom extends StatelessWidget {
     });
 
     return BoilersInTheRoom(
+      roomEntity: roomEntity,
       boilersInRoom: tempLightsInRoom,
-      roomColorGradiant: temproomColorGradiant,
+      roomColorGradiant: tempRoomColorGradiant,
     );
   }
 
+  final RoomEntity roomEntity;
   final List<GenericBoilerDE>? boilersInRoom;
   final List<Color>? roomColorGradiant;
 
@@ -34,7 +42,7 @@ class BoilersInTheRoom extends StatelessWidget {
       onTap: () {
         context.router.push(
           RoomsBoilersRoute(
-            showDevicesOnlyFromRoomId: boilersInRoom![0].roomId.getOrCrash(),
+            roomEntity: roomEntity,
             roomColorGradiant: roomColorGradiant,
           ),
         );
@@ -101,7 +109,7 @@ class BoilersInTheRoom extends StatelessWidget {
               )
             else
               Text(
-                '${boilersInRoom![0].roomName.getOrCrash()} Boilers',
+                '${roomEntity.defaultName.getOrCrash()} Boilers',
                 style: TextStyle(
                   color: Theme.of(context).textTheme.bodyText1!.color,
                 ),
@@ -118,7 +126,7 @@ class BoilersInTheRoom extends StatelessWidget {
   List<String> extractDevicesId() {
     final List<String> devicesIdList = [];
     boilersInRoom!.forEach((element) {
-      devicesIdList.add(element.uniqueId.getOrCrash()!);
+      devicesIdList.add(element.uniqueId.getOrCrash());
     });
     return devicesIdList;
   }
