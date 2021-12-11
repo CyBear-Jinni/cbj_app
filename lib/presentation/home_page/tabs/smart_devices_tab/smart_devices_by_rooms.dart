@@ -170,6 +170,11 @@ class SmartDevicesByRooms extends StatelessWidget {
                         final String roomId =
                             tempDevicesByRoomsByType.keys.elementAt(index);
 
+                        final RoomEntity roomEntity =
+                            state.rooms.iter.firstWhere(
+                          (element) => element!.uniqueId.getOrCrash() == roomId,
+                        )!;
+
                         int numberOfDevicesInTheRoom = 0;
 
                         tempDevicesByRoomsByType[roomId]!.forEach((key, value) {
@@ -257,9 +262,12 @@ class SmartDevicesByRooms extends StatelessWidget {
                                             getIt<LightsActorBloc>(),
                                         child: LightsInTheRoomBlock
                                             .withAbstractDevice(
-                                          tempDevicesByRoomsByType[roomId]![
-                                              deviceType]!,
-                                          roomColorGradiant,
+                                          roomEntity: roomEntity,
+                                          tempDeviceInRoom:
+                                              tempDevicesByRoomsByType[roomId]![
+                                                  deviceType]!,
+                                          tempRoomColorGradiant:
+                                              roomColorGradiant,
                                         ),
                                       );
                                     } else if (deviceType ==
@@ -269,9 +277,12 @@ class SmartDevicesByRooms extends StatelessWidget {
                                             getIt<LightsActorBloc>(),
                                         child: RgbwLightsInTheRoomBlock
                                             .withAbstractDevice(
-                                          tempDevicesByRoomsByType[roomId]![
-                                              deviceType]!,
-                                          roomColorGradiant,
+                                          roomEntity: roomEntity,
+                                          tempDeviceInRoom:
+                                              tempDevicesByRoomsByType[roomId]![
+                                                  deviceType]!,
+                                          tempRoomColorGradiant:
+                                              roomColorGradiant,
                                         ),
                                       );
                                     } else if (deviceType ==
@@ -302,9 +313,12 @@ class SmartDevicesByRooms extends StatelessWidget {
                                             getIt<BlindsActorBloc>(),
                                         child:
                                             BlindsInTheRoom.withAbstractDevice(
-                                          tempDevicesByRoomsByType[roomId]![
-                                              deviceType]!,
-                                          roomColorGradiant,
+                                          roomEntity: roomEntity,
+                                          tempDeviceInRoom:
+                                              tempDevicesByRoomsByType[roomId]![
+                                                  deviceType]!,
+                                          temprRoomColorGradiant:
+                                              roomColorGradiant,
                                         ),
                                       );
                                     } else if (deviceType ==
@@ -315,9 +329,12 @@ class SmartDevicesByRooms extends StatelessWidget {
                                             getIt<BlindsActorBloc>(),
                                         child:
                                             BoilersInTheRoom.withAbstractDevice(
-                                          tempDevicesByRoomsByType[roomId]![
-                                              deviceType]!,
-                                          roomColorGradiant,
+                                          roomEntity: roomEntity,
+                                          tempDeviceInRoom:
+                                              tempDevicesByRoomsByType[roomId]![
+                                                  deviceType]!,
+                                          tempRoomColorGradiant:
+                                              roomColorGradiant,
                                         ),
                                       );
                                     } else if (deviceType ==
@@ -327,9 +344,12 @@ class SmartDevicesByRooms extends StatelessWidget {
                                             getIt<SmartTvActorBloc>(),
                                         child:
                                             SmartTvInTheRoom.withAbstractDevice(
-                                          tempDevicesByRoomsByType[roomId]![
-                                              deviceType]!,
-                                          roomColorGradiant,
+                                          roomEntity: roomEntity,
+                                          tempDeviceInRoom:
+                                              tempDevicesByRoomsByType[roomId]![
+                                                  deviceType]!,
+                                          tempRoomColorGradiant:
+                                              roomColorGradiant,
                                         ),
                                       );
                                     }

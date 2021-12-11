@@ -18,19 +18,21 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 /// and scaffold for it
 class RoomsSwitchesPage extends StatelessWidget {
   RoomsSwitchesPage({
-    this.roomEntity,
+    required this.roomEntity,
     this.roomColorGradiant,
   });
 
   /// If it have value will only show switches in this room
-  final RoomEntity? roomEntity;
+  final RoomEntity roomEntity;
   final List<Color>? roomColorGradiant;
 
   void cogFunction(BuildContext context) {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (BuildContext context) => SettingsPageOfSwitches(),
+        builder: (BuildContext context) => SettingsPageOfSwitches(
+          roomEntity: roomEntity,
+        ),
       ),
     );
   }
@@ -108,7 +110,7 @@ class RoomsSwitchesPage extends StatelessWidget {
                 ),
                 Expanded(
                   child: RoomsSwitchesWidget(
-                    roomEntity!,
+                    roomEntity,
                     roomColorGradiant!,
                   ),
                 ),
