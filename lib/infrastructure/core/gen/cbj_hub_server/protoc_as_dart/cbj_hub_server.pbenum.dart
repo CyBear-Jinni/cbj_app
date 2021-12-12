@@ -138,6 +138,31 @@ class DeviceTypes extends $pb.ProtobufEnum {
   static const DeviceTypes rgbwLights = DeviceTypes._(15, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'rgbwLights');
   static const DeviceTypes rgbcctLights = DeviceTypes._(16, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'rgbcctLights');
   static const DeviceTypes smartTV = DeviceTypes._(17, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'smartTV');
+  static const DeviceTypes smartSpeakers = DeviceTypes._(18, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'smartSpeakers');
+  static const DeviceTypes coffeeMachine = DeviceTypes._(19, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'coffeeMachine');
+  static const DeviceTypes kettle = DeviceTypes._(20, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'kettle');
+  static const DeviceTypes teapot = DeviceTypes._(21, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'teapot');
+  static const DeviceTypes washingMachine = DeviceTypes._(22, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'washingMachine');
+  static const DeviceTypes dishwasher = DeviceTypes._(23, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'dishwasher');
+  static const DeviceTypes toaster = DeviceTypes._(24, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'toaster');
+  static const DeviceTypes vacuumCleaner = DeviceTypes._(25, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'vacuumCleaner');
+  static const DeviceTypes refrigerator = DeviceTypes._(26, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'refrigerator');
+  static const DeviceTypes bed = DeviceTypes._(27, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'bed');
+  static const DeviceTypes oven = DeviceTypes._(28, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'oven');
+  static const DeviceTypes AirConditioner = DeviceTypes._(29, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'AirConditioner');
+  static const DeviceTypes smartWatch = DeviceTypes._(30, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'smartWatch');
+  static const DeviceTypes smartWaterBottle = DeviceTypes._(31, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'smartWaterBottle');
+  static const DeviceTypes microphone = DeviceTypes._(32, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'microphone');
+  static const DeviceTypes securityCamera = DeviceTypes._(33, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'securityCamera');
+  static const DeviceTypes babyMonitor = DeviceTypes._(34, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'babyMonitor');
+  static const DeviceTypes motionSensor = DeviceTypes._(35, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'motionSensor');
+  static const DeviceTypes temperatureSensor = DeviceTypes._(36, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'temperatureSensor');
+  static const DeviceTypes humiditySensor = DeviceTypes._(37, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'humiditySensor');
+  static const DeviceTypes lightSensor = DeviceTypes._(38, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'lightSensor');
+  static const DeviceTypes soundSensor = DeviceTypes._(39, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'soundSensor');
+  static const DeviceTypes smokeSensor = DeviceTypes._(40, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'smokeSensor');
+  static const DeviceTypes smokeDetector = DeviceTypes._(41, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'smokeDetector');
+  static const DeviceTypes oxygenSensor = DeviceTypes._(42, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'oxygenSensor');
 
   static const $core.List<DeviceTypes> values = <DeviceTypes> [
     typeNotSupported,
@@ -157,6 +182,31 @@ class DeviceTypes extends $pb.ProtobufEnum {
     rgbwLights,
     rgbcctLights,
     smartTV,
+    smartSpeakers,
+    coffeeMachine,
+    kettle,
+    teapot,
+    washingMachine,
+    dishwasher,
+    toaster,
+    vacuumCleaner,
+    refrigerator,
+    bed,
+    oven,
+    AirConditioner,
+    smartWatch,
+    smartWaterBottle,
+    microphone,
+    securityCamera,
+    babyMonitor,
+    motionSensor,
+    temperatureSensor,
+    humiditySensor,
+    lightSensor,
+    soundSensor,
+    smokeSensor,
+    smokeDetector,
+    oxygenSensor,
   ];
 
   static final $core.Map<$core.int, DeviceTypes> _byValue = $pb.ProtobufEnum.initByValue(values);
