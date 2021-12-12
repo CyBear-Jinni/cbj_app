@@ -22,20 +22,25 @@ class VendorsRepository implements IVendorsRepository {
     // Add icons to supported vendors and services
     for (final VendorsAndServices vendorsAndServices
         in VendorsAndServices.values) {
-      if (vendorsAndServices.name ==
+      final String vendorName = vendorsAndServices.name;
+      if (vendorName ==
               VendorsAndServices.vendorsAndServicesNotSupported.name ||
-          vendorsAndServices.name == VendorsAndServices.google.name ||
-          vendorsAndServices.name == VendorsAndServices.miHome.name) {
+          vendorName == VendorsAndServices.google.name ||
+          vendorName == VendorsAndServices.miHome.name ||
+          vendorName == VendorsAndServices.philipsHue.name ||
+          vendorName == VendorsAndServices.sonoff.name ||
+          vendorName == VendorsAndServices.ikea.name ||
+          vendorName == VendorsAndServices.wink.name ||
+          vendorName == VendorsAndServices.shelly.name) {
         continue;
       }
-      Vendor v = vendorPlusImageFromVandorName(vendorsAndServices.name);
-      if (vendorsAndServices.name ==
-          VendorsAndServices.switcherSmartHome.name) {
+      Vendor v = vendorPlusImageFromVandorName(vendorName);
+      if (vendorName == VendorsAndServices.switcherSmartHome.name) {
         v = v.copyWith(name: VendorName('Switcher'));
       }
       vendorsWithIcons.add(v);
 
-      print(vendorsAndServices.name);
+      print(vendorName);
     }
     return right(vendorsWithIcons.toImmutableList());
   }
@@ -61,7 +66,7 @@ class VendorsRepository implements IVendorsRepository {
     return Vendor(
       name: VendorName(vendorName),
       image:
-      'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.seilevel.com%2Frequirements%2Fwp-content%2Fplugins%2Fstormhill_author_page%2Fimg%2Fimage-not-found.png&f=1&nofb=1',
+          'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.seilevel.com%2Frequirements%2Fwp-content%2Fplugins%2Fstormhill_author_page%2Fimg%2Fimage-not-found.png&f=1&nofb=1',
     );
   }
 
@@ -177,6 +182,36 @@ class VendorsMocDataWithImages {
         name: VendorName('Google'),
         image:
             'https://play-lh.googleusercontent.com/DKoidc0T3T1KvYC2stChcX9zwmjKj1pgmg3hXzGBDQXM8RG_7JjgiuS0CLOh8DUa7as=s180',
+      ),
+      Vendor(
+        name: VendorName('Philips Hue'),
+        image:
+            'https://play-lh.googleusercontent.com/FUlW6h3cACamheiCHH1cE67irohAZq_dJ92irK92cryKwHUtY6ZTSv5d041qPZ9UOt3n=s180',
+      ),
+      Vendor(
+        name: VendorName('Ikea'),
+        image:
+            'https://play-lh.googleusercontent.com/IFwqvqScIUpmiyp4dD4NwJuQ3D2Xa6xRkGLHtLcVNaBKrZ6048MsrRTZ7uaL76xKp4E=s180',
+      ),
+      Vendor(
+        name: VendorName('Wink'),
+        image:
+            'https://play-lh.googleusercontent.com/cFGBLtsmWJGXcc6Nc_saGVz4d8bzxgA_VsCF1EoLYA_tlAcKOoPZD-RBABC8qho4j54=s180',
+      ),
+      Vendor(
+        name: VendorName('Shelly'),
+        image:
+            'https://play-lh.googleusercontent.com/cwAyt0LIs4cyXSs2jr79xjAxsuq4KoBTZNq__gpeQvupH-8PElGn6kiddx8-WfG8wEPl=s180',
+      ),
+      Vendor(
+        name: VendorName('Jinvoo Smart'),
+        image:
+            'https://play-lh.googleusercontent.com/ocFF7mcDTJzr1PXr6k4q1Q2-5xNFUVODqluwnD60DiTsHgTalrVTqi7kk0H8JnW7GLEv=s180',
+      ),
+      Vendor(
+        name: VendorName('Smart Life'),
+        image:
+            'https://play-lh.googleusercontent.com/Qrq9zB_-bWuAD0ETPeBRTsRHOSjmW_uzmexY5rF7wo2JeNc-oLuvsQSYdg0Uxsq6mkA=s180',
       ),
     ].toImmutableList();
   }
