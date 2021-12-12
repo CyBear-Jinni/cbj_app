@@ -87,6 +87,13 @@ class VendorsAndServices extends $pb.ProtobufEnum {
   static const VendorsAndServices miHome = VendorsAndServices._(6, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'miHome');
   static const VendorsAndServices lifx = VendorsAndServices._(7, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'lifx');
   static const VendorsAndServices tuyaSmart = VendorsAndServices._(8, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'tuyaSmart');
+  static const VendorsAndServices smartLife = VendorsAndServices._(9, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'smartLife');
+  static const VendorsAndServices jinvooSmart = VendorsAndServices._(10, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'jinvooSmart');
+  static const VendorsAndServices shelly = VendorsAndServices._(11, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'shelly');
+  static const VendorsAndServices wink = VendorsAndServices._(12, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'wink');
+  static const VendorsAndServices ikea = VendorsAndServices._(13, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'ikea');
+  static const VendorsAndServices sonoff = VendorsAndServices._(14, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'sonoff');
+  static const VendorsAndServices philipsHue = VendorsAndServices._(15, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'philipsHue');
 
   static const $core.List<VendorsAndServices> values = <VendorsAndServices> [
     vendorsAndServicesNotSupported,
@@ -98,6 +105,13 @@ class VendorsAndServices extends $pb.ProtobufEnum {
     miHome,
     lifx,
     tuyaSmart,
+    smartLife,
+    jinvooSmart,
+    shelly,
+    wink,
+    ikea,
+    sonoff,
+    philipsHue,
   ];
 
   static final $core.Map<$core.int, VendorsAndServices> _byValue = $pb.ProtobufEnum.initByValue(values);
@@ -124,6 +138,31 @@ class DeviceTypes extends $pb.ProtobufEnum {
   static const DeviceTypes rgbwLights = DeviceTypes._(15, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'rgbwLights');
   static const DeviceTypes rgbcctLights = DeviceTypes._(16, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'rgbcctLights');
   static const DeviceTypes smartTV = DeviceTypes._(17, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'smartTV');
+  static const DeviceTypes smartSpeakers = DeviceTypes._(18, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'smartSpeakers');
+  static const DeviceTypes coffeeMachine = DeviceTypes._(19, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'coffeeMachine');
+  static const DeviceTypes kettle = DeviceTypes._(20, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'kettle');
+  static const DeviceTypes teapot = DeviceTypes._(21, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'teapot');
+  static const DeviceTypes washingMachine = DeviceTypes._(22, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'washingMachine');
+  static const DeviceTypes dishwasher = DeviceTypes._(23, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'dishwasher');
+  static const DeviceTypes toaster = DeviceTypes._(24, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'toaster');
+  static const DeviceTypes vacuumCleaner = DeviceTypes._(25, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'vacuumCleaner');
+  static const DeviceTypes refrigerator = DeviceTypes._(26, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'refrigerator');
+  static const DeviceTypes bed = DeviceTypes._(27, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'bed');
+  static const DeviceTypes oven = DeviceTypes._(28, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'oven');
+  static const DeviceTypes AirConditioner = DeviceTypes._(29, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'AirConditioner');
+  static const DeviceTypes smartWatch = DeviceTypes._(30, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'smartWatch');
+  static const DeviceTypes smartWaterBottle = DeviceTypes._(31, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'smartWaterBottle');
+  static const DeviceTypes microphone = DeviceTypes._(32, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'microphone');
+  static const DeviceTypes securityCamera = DeviceTypes._(33, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'securityCamera');
+  static const DeviceTypes babyMonitor = DeviceTypes._(34, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'babyMonitor');
+  static const DeviceTypes motionSensor = DeviceTypes._(35, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'motionSensor');
+  static const DeviceTypes temperatureSensor = DeviceTypes._(36, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'temperatureSensor');
+  static const DeviceTypes humiditySensor = DeviceTypes._(37, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'humiditySensor');
+  static const DeviceTypes lightSensor = DeviceTypes._(38, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'lightSensor');
+  static const DeviceTypes soundSensor = DeviceTypes._(39, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'soundSensor');
+  static const DeviceTypes smokeSensor = DeviceTypes._(40, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'smokeSensor');
+  static const DeviceTypes smokeDetector = DeviceTypes._(41, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'smokeDetector');
+  static const DeviceTypes oxygenSensor = DeviceTypes._(42, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'oxygenSensor');
 
   static const $core.List<DeviceTypes> values = <DeviceTypes> [
     typeNotSupported,
@@ -143,6 +182,31 @@ class DeviceTypes extends $pb.ProtobufEnum {
     rgbwLights,
     rgbcctLights,
     smartTV,
+    smartSpeakers,
+    coffeeMachine,
+    kettle,
+    teapot,
+    washingMachine,
+    dishwasher,
+    toaster,
+    vacuumCleaner,
+    refrigerator,
+    bed,
+    oven,
+    AirConditioner,
+    smartWatch,
+    smartWaterBottle,
+    microphone,
+    securityCamera,
+    babyMonitor,
+    motionSensor,
+    temperatureSensor,
+    humiditySensor,
+    lightSensor,
+    soundSensor,
+    smokeSensor,
+    smokeDetector,
+    oxygenSensor,
   ];
 
   static final $core.Map<$core.int, DeviceTypes> _byValue = $pb.ProtobufEnum.initByValue(values);
@@ -213,5 +277,70 @@ class WhenToExecute extends $pb.ProtobufEnum {
   static WhenToExecute? valueOf($core.int value) => _byValue[value];
 
   const WhenToExecute._($core.int v, $core.String n) : super(v, n);
+}
+
+class AreaPurposesTypes extends $pb.ProtobufEnum {
+  static const AreaPurposesTypes bedroom = AreaPurposesTypes._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'bedroom');
+  static const AreaPurposesTypes studyRoom = AreaPurposesTypes._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'studyRoom');
+  static const AreaPurposesTypes workRoom = AreaPurposesTypes._(2, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'workRoom');
+  static const AreaPurposesTypes tvRoom = AreaPurposesTypes._(3, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'tvRoom');
+  static const AreaPurposesTypes videoGames = AreaPurposesTypes._(4, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'videoGames');
+  static const AreaPurposesTypes livingRoom = AreaPurposesTypes._(5, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'livingRoom');
+  static const AreaPurposesTypes diningRoom = AreaPurposesTypes._(6, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'diningRoom');
+  static const AreaPurposesTypes kitchen = AreaPurposesTypes._(7, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'kitchen');
+  static const AreaPurposesTypes outside = AreaPurposesTypes._(8, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'outside');
+  static const AreaPurposesTypes outsidePrimary = AreaPurposesTypes._(9, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'outsidePrimary');
+  static const AreaPurposesTypes outsideNotPrimary = AreaPurposesTypes._(10, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'outsideNotPrimary');
+  static const AreaPurposesTypes toiletRoom = AreaPurposesTypes._(11, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'toiletRoom');
+  static const AreaPurposesTypes shower = AreaPurposesTypes._(12, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'shower');
+  static const AreaPurposesTypes trainingRoom = AreaPurposesTypes._(13, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'trainingRoom');
+  static const AreaPurposesTypes meditation = AreaPurposesTypes._(14, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'meditation');
+  static const AreaPurposesTypes romantic = AreaPurposesTypes._(15, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'romantic');
+  static const AreaPurposesTypes stairsInside = AreaPurposesTypes._(16, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'stairsInside');
+  static const AreaPurposesTypes stairsOutside = AreaPurposesTypes._(17, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'stairsOutside');
+  static const AreaPurposesTypes childrensRoom = AreaPurposesTypes._(18, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'childrensRoom');
+  static const AreaPurposesTypes cinemaRoom = AreaPurposesTypes._(19, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'cinemaRoom');
+  static const AreaPurposesTypes boardGames = AreaPurposesTypes._(20, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'boardGames');
+  static const AreaPurposesTypes bathtub = AreaPurposesTypes._(21, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'bathtub');
+  static const AreaPurposesTypes laundryRoom = AreaPurposesTypes._(22, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'laundryRoom');
+  static const AreaPurposesTypes protectedSpace = AreaPurposesTypes._(23, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'protectedSpace');
+  static const AreaPurposesTypes safeRoom = AreaPurposesTypes._(24, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'safeRoom');
+  static const AreaPurposesTypes attic = AreaPurposesTypes._(25, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'attic');
+  static const AreaPurposesTypes holidayCabin = AreaPurposesTypes._(26, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'holidayCabin');
+
+  static const $core.List<AreaPurposesTypes> values = <AreaPurposesTypes> [
+    bedroom,
+    studyRoom,
+    workRoom,
+    tvRoom,
+    videoGames,
+    livingRoom,
+    diningRoom,
+    kitchen,
+    outside,
+    outsidePrimary,
+    outsideNotPrimary,
+    toiletRoom,
+    shower,
+    trainingRoom,
+    meditation,
+    romantic,
+    stairsInside,
+    stairsOutside,
+    childrensRoom,
+    cinemaRoom,
+    boardGames,
+    bathtub,
+    laundryRoom,
+    protectedSpace,
+    safeRoom,
+    attic,
+    holidayCabin,
+  ];
+
+  static final $core.Map<$core.int, AreaPurposesTypes> _byValue = $pb.ProtobufEnum.initByValue(values);
+  static AreaPurposesTypes? valueOf($core.int value) => _byValue[value];
+
+  const AreaPurposesTypes._($core.int v, $core.String n) : super(v, n);
 }
 

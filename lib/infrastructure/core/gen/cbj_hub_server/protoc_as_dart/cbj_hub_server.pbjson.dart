@@ -62,11 +62,18 @@ const VendorsAndServices$json = const {
     const {'1': 'miHome', '2': 6},
     const {'1': 'lifx', '2': 7},
     const {'1': 'tuyaSmart', '2': 8},
+    const {'1': 'smartLife', '2': 9},
+    const {'1': 'jinvooSmart', '2': 10},
+    const {'1': 'shelly', '2': 11},
+    const {'1': 'wink', '2': 12},
+    const {'1': 'ikea', '2': 13},
+    const {'1': 'sonoff', '2': 14},
+    const {'1': 'philipsHue', '2': 15},
   ],
 };
 
 /// Descriptor for `VendorsAndServices`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List vendorsAndServicesDescriptor = $convert.base64Decode('ChJWZW5kb3JzQW5kU2VydmljZXMSIgoedmVuZG9yc0FuZFNlcnZpY2VzTm90U3VwcG9ydGVkEAASCwoHZXNwSG9tZRABEhUKEXN3aXRjaGVyU21hcnRIb21lEAISCwoHdGFzbW90YRADEgwKCHllZWxpZ2h0EAQSCgoGZ29vZ2xlEAUSCgoGbWlIb21lEAYSCAoEbGlmeBAHEg0KCXR1eWFTbWFydBAI');
+final $typed_data.Uint8List vendorsAndServicesDescriptor = $convert.base64Decode('ChJWZW5kb3JzQW5kU2VydmljZXMSIgoedmVuZG9yc0FuZFNlcnZpY2VzTm90U3VwcG9ydGVkEAASCwoHZXNwSG9tZRABEhUKEXN3aXRjaGVyU21hcnRIb21lEAISCwoHdGFzbW90YRADEgwKCHllZWxpZ2h0EAQSCgoGZ29vZ2xlEAUSCgoGbWlIb21lEAYSCAoEbGlmeBAHEg0KCXR1eWFTbWFydBAIEg0KCXNtYXJ0TGlmZRAJEg8KC2ppbnZvb1NtYXJ0EAoSCgoGc2hlbGx5EAsSCAoEd2luaxAMEggKBGlrZWEQDRIKCgZzb25vZmYQDhIOCgpwaGlsaXBzSHVlEA8=');
 @$core.Deprecated('Use deviceTypesDescriptor instead')
 const DeviceTypes$json = const {
   '1': 'DeviceTypes',
@@ -88,11 +95,36 @@ const DeviceTypes$json = const {
     const {'1': 'rgbwLights', '2': 15},
     const {'1': 'rgbcctLights', '2': 16},
     const {'1': 'smartTV', '2': 17},
+    const {'1': 'smartSpeakers', '2': 18},
+    const {'1': 'coffeeMachine', '2': 19},
+    const {'1': 'kettle', '2': 20},
+    const {'1': 'teapot', '2': 21},
+    const {'1': 'washingMachine', '2': 22},
+    const {'1': 'dishwasher', '2': 23},
+    const {'1': 'toaster', '2': 24},
+    const {'1': 'vacuumCleaner', '2': 25},
+    const {'1': 'refrigerator', '2': 26},
+    const {'1': 'bed', '2': 27},
+    const {'1': 'oven', '2': 28},
+    const {'1': 'AirConditioner', '2': 29},
+    const {'1': 'smartWatch', '2': 30},
+    const {'1': 'smartWaterBottle', '2': 31},
+    const {'1': 'microphone', '2': 32},
+    const {'1': 'securityCamera', '2': 33},
+    const {'1': 'babyMonitor', '2': 34},
+    const {'1': 'motionSensor', '2': 35},
+    const {'1': 'temperatureSensor', '2': 36},
+    const {'1': 'humiditySensor', '2': 37},
+    const {'1': 'lightSensor', '2': 38},
+    const {'1': 'soundSensor', '2': 39},
+    const {'1': 'smokeSensor', '2': 40},
+    const {'1': 'smokeDetector', '2': 41},
+    const {'1': 'oxygenSensor', '2': 42},
   ],
 };
 
 /// Descriptor for `DeviceTypes`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List deviceTypesDescriptor = $convert.base64Decode('CgtEZXZpY2VUeXBlcxIUChB0eXBlTm90U3VwcG9ydGVkEAASCQoFbGlnaHQQARIKCgZibGluZHMQAhIKCgZib2lsZXIQAxIKCgZidXR0b24QBBITCg9idXR0b25XaXRoTGlnaHQQBRIHCgNodWIQBxIMCghwaG9uZUFwcBAIEg8KC2NvbXB1dGVyQXBwEAkSDgoKYnJvd3NlckFwcBAKEgoKBnN3aXRjaBALEhEKDWRpbW1hYmxlTGlnaHQQDBIMCghjY3RMaWdodBANEg0KCXJnYkxpZ2h0cxAOEg4KCnJnYndMaWdodHMQDxIQCgxyZ2JjY3RMaWdodHMQEBILCgdzbWFydFRWEBE=');
+final $typed_data.Uint8List deviceTypesDescriptor = $convert.base64Decode('CgtEZXZpY2VUeXBlcxIUChB0eXBlTm90U3VwcG9ydGVkEAASCQoFbGlnaHQQARIKCgZibGluZHMQAhIKCgZib2lsZXIQAxIKCgZidXR0b24QBBITCg9idXR0b25XaXRoTGlnaHQQBRIHCgNodWIQBxIMCghwaG9uZUFwcBAIEg8KC2NvbXB1dGVyQXBwEAkSDgoKYnJvd3NlckFwcBAKEgoKBnN3aXRjaBALEhEKDWRpbW1hYmxlTGlnaHQQDBIMCghjY3RMaWdodBANEg0KCXJnYkxpZ2h0cxAOEg4KCnJnYndMaWdodHMQDxIQCgxyZ2JjY3RMaWdodHMQEBILCgdzbWFydFRWEBESEQoNc21hcnRTcGVha2VycxASEhEKDWNvZmZlZU1hY2hpbmUQExIKCgZrZXR0bGUQFBIKCgZ0ZWFwb3QQFRISCg53YXNoaW5nTWFjaGluZRAWEg4KCmRpc2h3YXNoZXIQFxILCgd0b2FzdGVyEBgSEQoNdmFjdXVtQ2xlYW5lchAZEhAKDHJlZnJpZ2VyYXRvchAaEgcKA2JlZBAbEggKBG92ZW4QHBISCg5BaXJDb25kaXRpb25lchAdEg4KCnNtYXJ0V2F0Y2gQHhIUChBzbWFydFdhdGVyQm90dGxlEB8SDgoKbWljcm9waG9uZRAgEhIKDnNlY3VyaXR5Q2FtZXJhECESDwoLYmFieU1vbml0b3IQIhIQCgxtb3Rpb25TZW5zb3IQIxIVChF0ZW1wZXJhdHVyZVNlbnNvchAkEhIKDmh1bWlkaXR5U2Vuc29yECUSDwoLbGlnaHRTZW5zb3IQJhIPCgtzb3VuZFNlbnNvchAnEg8KC3Ntb2tlU2Vuc29yECgSEQoNc21va2VEZXRlY3RvchApEhAKDG94eWdlblNlbnNvchAq');
 @$core.Deprecated('Use deviceActionsDescriptor instead')
 const DeviceActions$json = const {
   '1': 'DeviceActions',
@@ -132,6 +164,42 @@ const WhenToExecute$json = const {
 
 /// Descriptor for `WhenToExecute`. Decode as a `google.protobuf.EnumDescriptorProto`.
 final $typed_data.Uint8List whenToExecuteDescriptor = $convert.base64Decode('Cg1XaGVuVG9FeGVjdXRlEg0KCXVuZGVmaW5lZBAAEhQKEG9uT2RkTnVtYmVyUHJlc3MQARITCg9ldmVuTnVtYmVyUHJlc3MQAhIXChNiZXR3ZWVuU2VsZWN0ZWRUaW1lEAMSHAoYZG9Ob3RCZXR3ZWVuU2VsZWN0ZWRUaW1lEAQSDgoKYWxsVGhlVGltZRAFEgkKBW5ldmVyEAYSCwoHb25jZU5vdxAHEhYKEm9uY2VJblNlbGVjdGVkVGltZRAIEioKJm9ubHlJZkRldmljZUxpc3RJc0FyZUluQWN0aW9uTGlzdFN0YXRlEAkSCgoGYXRIb21lEAoSDQoJb3V0T2ZIb21lEAs=');
+@$core.Deprecated('Use areaPurposesTypesDescriptor instead')
+const AreaPurposesTypes$json = const {
+  '1': 'AreaPurposesTypes',
+  '2': const [
+    const {'1': 'bedroom', '2': 0},
+    const {'1': 'studyRoom', '2': 1},
+    const {'1': 'workRoom', '2': 2},
+    const {'1': 'tvRoom', '2': 3},
+    const {'1': 'videoGames', '2': 4},
+    const {'1': 'livingRoom', '2': 5},
+    const {'1': 'diningRoom', '2': 6},
+    const {'1': 'kitchen', '2': 7},
+    const {'1': 'outside', '2': 8},
+    const {'1': 'outsidePrimary', '2': 9},
+    const {'1': 'outsideNotPrimary', '2': 10},
+    const {'1': 'toiletRoom', '2': 11},
+    const {'1': 'shower', '2': 12},
+    const {'1': 'trainingRoom', '2': 13},
+    const {'1': 'meditation', '2': 14},
+    const {'1': 'romantic', '2': 15},
+    const {'1': 'stairsInside', '2': 16},
+    const {'1': 'stairsOutside', '2': 17},
+    const {'1': 'childrensRoom', '2': 18},
+    const {'1': 'cinemaRoom', '2': 19},
+    const {'1': 'boardGames', '2': 20},
+    const {'1': 'bathtub', '2': 21},
+    const {'1': 'laundryRoom', '2': 22},
+    const {'1': 'protectedSpace', '2': 23},
+    const {'1': 'safeRoom', '2': 24},
+    const {'1': 'attic', '2': 25},
+    const {'1': 'holidayCabin', '2': 26},
+  ],
+};
+
+/// Descriptor for `AreaPurposesTypes`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List areaPurposesTypesDescriptor = $convert.base64Decode('ChFBcmVhUHVycG9zZXNUeXBlcxILCgdiZWRyb29tEAASDQoJc3R1ZHlSb29tEAESDAoId29ya1Jvb20QAhIKCgZ0dlJvb20QAxIOCgp2aWRlb0dhbWVzEAQSDgoKbGl2aW5nUm9vbRAFEg4KCmRpbmluZ1Jvb20QBhILCgdraXRjaGVuEAcSCwoHb3V0c2lkZRAIEhIKDm91dHNpZGVQcmltYXJ5EAkSFQoRb3V0c2lkZU5vdFByaW1hcnkQChIOCgp0b2lsZXRSb29tEAsSCgoGc2hvd2VyEAwSEAoMdHJhaW5pbmdSb29tEA0SDgoKbWVkaXRhdGlvbhAOEgwKCHJvbWFudGljEA8SEAoMc3RhaXJzSW5zaWRlEBASEQoNc3RhaXJzT3V0c2lkZRAREhEKDWNoaWxkcmVuc1Jvb20QEhIOCgpjaW5lbWFSb29tEBMSDgoKYm9hcmRHYW1lcxAUEgsKB2JhdGh0dWIQFRIPCgtsYXVuZHJ5Um9vbRAWEhIKDnByb3RlY3RlZFNwYWNlEBcSDAoIc2FmZVJvb20QGBIJCgVhdHRpYxAZEhAKDGhvbGlkYXlDYWJpbhAa');
 @$core.Deprecated('Use clientStatusRequestsDescriptor instead')
 const ClientStatusRequests$json = const {
   '1': 'ClientStatusRequests',
