@@ -6,8 +6,9 @@ import 'package:cybear_jinni/domain/hub/hub_failures.dart';
 import 'package:cybear_jinni/domain/hub/hub_value_objects.dart';
 import 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
 import 'package:cybear_jinni/domain/local_db/i_local_db_repository.dart';
-import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/hub_client.dart';
-import 'package:cybear_jinni/infrastructure/hub_connection/hub_dtos.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
+import 'package:cybear_jinni/infrastructure/hub_client/hub_dtos.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:dartz/dartz.dart';
@@ -24,9 +25,9 @@ import 'package:ping_discover_network_forked/ping_discover_network_forked.dart';
 class HubConnectionRepository extends IHubConnectionRepository {
   HubConnectionRepository() {
     if (currentEnv == Env.prod) {
-      hubPort = 60055;
-    } else {
       hubPort = 50055;
+    } else {
+      hubPort = 60055;
     }
   }
 
@@ -62,7 +63,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
           networkName: hubNetworkName!,
         ).toDomain();
       } catch (e) {
-        logger.e('Crashed while setting Hub info from local db: $e');
+        logger.e('Crashed while setting Hub info from local db\n$e');
       }
     }
 
@@ -70,7 +71,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
     try {
       connectivityResult = await Connectivity().checkConnectivity();
     } catch (e) {
-      logger.w('Cant check connectivity this is probably PC, error: $e');
+      logger.w('Cant check connectivity this is probably PC, error\n$e');
     }
 
     // Last Number of bssid can change fix?, need to check if more numbers
@@ -128,6 +129,130 @@ class HubConnectionRepository extends IHubConnectionRepository {
       // Here for easy find and local testing
       // HubClient.createStreamWithHub('127.0.0.1', 50056);
     }
+  }
+
+  @override
+  Future<Either<HubFailures, CompHubInfo>> getHubCompInfo(
+    CompHubInfo appInfoForHub,
+  ) async {
+    if (hubEntity == null) {
+      try {
+        String? hubNetworkBssid;
+        (await getIt<ILocalDbRepository>().getHubEntityNetworkBssid()).fold(
+          (l) => throw 'Error getting Hub network Bssid',
+          (r) => hubNetworkBssid = r,
+        );
+
+        String? hubNetworkName;
+        (await getIt<ILocalDbRepository>().getHubEntityNetworkName()).fold(
+          (l) => throw 'Error getting Hub network name',
+          (r) => hubNetworkName = r,
+        );
+
+        String? hubNetworkIp;
+        (await getIt<ILocalDbRepository>().getHubEntityLastKnownIp()).fold(
+          (l) => throw 'Error getting Hub network IP',
+          (r) => hubNetworkIp = r,
+        );
+        hubEntity = HubDtos(
+          hubNetworkBssid: hubNetworkBssid!,
+          lastKnownIp: hubNetworkIp!,
+          networkName: hubNetworkName!,
+        ).toDomain();
+      } catch (e) {
+        logger.e('Crashed while setting Hub info from local db\n$e');
+      }
+    }
+
+    ConnectivityResult? connectivityResult;
+    try {
+      connectivityResult = await Connectivity().checkConnectivity();
+    } catch (e) {
+      logger.w('Cant check connectivity this is probably PC, error\n$e');
+    }
+
+    // Last Number of bssid can change fix?, need to check if more numbers
+    // can do that
+    final String? savedWifiBssid = hubEntity?.hubNetworkBssid.getOrCrash();
+    final String? savedWifiBssidWithoutLastNumber =
+        savedWifiBssid?.substring(0, savedWifiBssid.lastIndexOf(':'));
+
+    final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
+    final String? wifiBSSIDWithoutLastNumber =
+        wifiBSSID?.substring(0, wifiBSSID.lastIndexOf(':'));
+
+    // Check if you are connected to the home local network for direct
+    // communication with the Hub.
+    // This block can be false also if user does not improve some permissions
+    // or #256 if the app run on the computer and connected with ethernet cable
+    // (not effecting connection with WiFi)
+    if (connectivityResult != null &&
+        connectivityResult == ConnectivityResult.wifi &&
+        savedWifiBssidWithoutLastNumber != null &&
+        wifiBSSIDWithoutLastNumber != null &&
+        savedWifiBssidWithoutLastNumber == wifiBSSIDWithoutLastNumber) {
+      logger.i('Connect using direct connection to Hub');
+
+      if (hubEntity?.lastKnownIp.getOrCrash() != null) {
+        Socket? testHubConnection;
+        try {
+          testHubConnection = await Socket.connect(
+            hubEntity!.lastKnownIp.getOrCrash(),
+            hubPort,
+            timeout: const Duration(milliseconds: 500),
+          );
+          testHubConnection.destroy();
+        } catch (e) {
+          testHubConnection?.destroy();
+
+          await searchForHub();
+        }
+      } else {
+        await searchForHub();
+      }
+
+      try {
+        final CompHubInfo? compHubInfo = await HubClient.getHubCompInfo(
+          hubEntity!.lastKnownIp.getOrCrash(),
+          hubPort,
+          appInfoForHub,
+        );
+
+        if (compHubInfo == null) {
+          return left(const HubFailures.unexpected());
+        }
+        return right(compHubInfo);
+      } catch (e) {
+        logger.e('Error getting hubInfo\n$e');
+        return left(const HubFailures.unexpected());
+      }
+
+      // return;
+    } else {
+      logger.i('Connect using Remote Pipes');
+      return (await getIt<ILocalDbRepository>().getRemotePipesDnsName()).fold(
+          (l) {
+        logger.e('Cant find local Remote Pipes Dns name');
+        return left(const HubFailures.unexpected());
+      }, (r) async {
+        try {
+          final CompHubInfo? compHubInfo =
+              await HubClient.getHubCompInfo(r, 50056, appInfoForHub);
+
+          if (compHubInfo == null) {
+            return left(const HubFailures.unexpected());
+          }
+          return right(compHubInfo);
+        } catch (e) {
+          logger.e('Error getting hubInfo\n$e');
+          return left(const HubFailures.unexpected());
+        }
+      });
+      // Here for easy find and local testing
+      // HubClient.createStreamWithHub('127.0.0.1', 50056);
+    }
+
+    return left(const HubFailures.unexpected());
   }
 
   @override
@@ -226,14 +351,14 @@ class HubConnectionRepository extends IHubConnectionRepository {
         }
       }
     } catch (e) {
-      logger.w('Exception searchForHub $e');
+      logger.w('Exception searchForHub\n$e');
     }
     return left(const HubFailures.cantFindHubInNetwork());
   }
 
   @override
   Future<void> saveHubIP(String hubIP) async {
-    print('saveHubIP');
+    logger.w('saveHubIP');
   }
 
   Future<Either<HubFailures, Unit>> askLocationPermissionAndLocationOn() async {
@@ -253,7 +378,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
         if (_permissionGranted == PermissionStatus.denied) {
           _permissionGranted = await location.requestPermission();
           if (_permissionGranted != PermissionStatus.granted) {
-            print('Permission to use location is denied');
+            logger.e('Permission to use location is denied');
             permissionCounter++;
             if (permissionCounter > 5) {
               permission_handler.openAppSettings();

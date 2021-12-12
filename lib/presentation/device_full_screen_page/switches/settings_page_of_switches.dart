@@ -1,11 +1,12 @@
 import 'package:cybear_jinni/domain/devices/generic_switch_device/generic_switch_entity.dart';
+import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SettingsPageOfSwitches extends StatelessWidget {
-  SettingsPageOfSwitches() {
+  SettingsPageOfSwitches({required this.roomEntity}) {
     // for (final SmartRoomObject smartRoomObject in rooms) {
     //   for (final SmartDeviceObject smartSwitchObject
     //       in smartRoomObject.getSwitches()) {
@@ -14,6 +15,7 @@ class SettingsPageOfSwitches extends StatelessWidget {
     // }
   }
 
+  final RoomEntity roomEntity;
   final List<GenericSwitchDE> allSmartDeviceSwitchDevices = <GenericSwitchDE>[];
 
   @override
@@ -88,9 +90,9 @@ class SettingsPageOfSwitches extends StatelessWidget {
         child: Column(
           children: <Widget>[
             TopNavigationBar(
-              'Switches Settings',
-              null,
-              () {},
+              pageName: 'Switches Settings',
+              rightIcon: null,
+              rightIconFunction: () {},
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
             ),
@@ -108,7 +110,7 @@ class SettingsPageOfSwitches extends StatelessWidget {
                       color: Colors.red,
                     ),
                     child: tile(
-                      allSmartDeviceSwitchDevices[index].roomName.getOrCrash()!,
+                      roomEntity.defaultName.getOrCrash(),
                       allSmartDeviceSwitchDevices[index]
                           .defaultName
                           .getOrCrash()!,

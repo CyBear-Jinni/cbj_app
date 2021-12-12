@@ -1,16 +1,17 @@
+import 'package:cybear_jinni/domain/devices/abstract_device/core_failures.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/value_objects_core.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/abstract_device/device_entity_dto_abstract.dart';
+import 'package:dartz/dartz.dart';
 import 'package:uuid/uuid.dart';
 
 abstract class DeviceEntityAbstract {
   DeviceEntityAbstract({
     required this.uniqueId,
+    required this.vendorUniqueId,
     required this.deviceVendor,
     required this.deviceTypes,
     required this.defaultName,
-    required this.roomId,
-    required this.roomName,
     required this.stateMassage,
     required this.senderDeviceOs,
     required this.senderDeviceModel,
@@ -19,16 +20,14 @@ abstract class DeviceEntityAbstract {
     required this.deviceStateGRPC,
   });
 
+  /// The unique id that CyBear Jinni Hub gave the device
   CoreUniqueId uniqueId;
+
+  /// The unique id that each company gave their device
+  VendorUniqueId vendorUniqueId;
 
   /// The default name of the GenericLight
   DeviceDefaultName defaultName;
-
-  /// Room id that the smart GenericLight located in.
-  CoreUniqueId roomId;
-
-  /// Room name that the smart GenericLight located in.
-  DeviceRoomName roomName;
 
   /// Did the massage arrived or was it just sent.
   /// Will be 'set' (need change) or 'ack' for acknowledge
@@ -54,6 +53,8 @@ abstract class DeviceEntityAbstract {
 
   /// Unique id of the computer that the GenericLight located in
   DeviceCompUuid compUuid;
+
+  String getDeviceId();
 
   /// Copy with device state to waiting or ack
   DeviceEntityAbstract copyWithDeviceState(DeviceStateGRPC deviceStateGRPC) {
@@ -91,28 +92,48 @@ abstract class DeviceEntityAbstract {
     return DeviceEntityDtoAbstract();
   }
 
-// /// The default name of the device
-// DeviceDefaultName? defaultName;
+  /// Please override the following methods
+  Future<Either<CoreFailure, Unit>> executeDeviceAction({
+    required DeviceEntityAbstract newEntity,
+  });
 }
 
-class DeviceEntityEmpty extends DeviceEntityAbstract {
-  DeviceEntityEmpty()
+class DeviceEntityNotAbstract extends DeviceEntityAbstract {
+  DeviceEntityNotAbstract()
       : super(
           uniqueId: CoreUniqueId(),
+          vendorUniqueId: VendorUniqueId(),
           deviceVendor: DeviceVendor(
             VendorsAndServices.vendorsAndServicesNotSupported.toString(),
           ),
           deviceStateGRPC: DeviceState(DeviceTypes.typeNotSupported.toString()),
-          compUuid: DeviceCompUuid(Uuid().v1().toString()),
+          compUuid: DeviceCompUuid(const Uuid().v1().toString()),
           defaultName: DeviceDefaultName('No Name'),
           deviceTypes: DeviceType(DeviceTypes.light.toString()),
-          roomId: CoreUniqueId(),
-          roomName: DeviceRoomName('No name'),
           senderDeviceModel: DeviceSenderDeviceModel('a'),
           senderDeviceOs: DeviceSenderDeviceOs('b'),
           senderId: DeviceSenderId(),
           stateMassage: DeviceStateMassage('go'),
         );
+
+  @override
+  DeviceEntityDtoAbstract toInfrastructure() {
+    return DeviceEntityDtoAbstract();
+  }
+
+  @override
+  String getDeviceId() {
+    // TODO: implement getDeviceId
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Either<CoreFailure, Unit>> executeDeviceAction({
+    required DeviceEntityAbstract newEntity,
+  }) {
+    // TODO: implement executeDeviceAction
+    throw UnimplementedError();
+  }
 }
 
 //

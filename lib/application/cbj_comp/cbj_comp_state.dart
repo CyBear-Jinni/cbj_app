@@ -6,7 +6,7 @@ class CBJCompState with _$CBJCompState {
 
   const factory CBJCompState.loadInProgress() = _LoadInProgress;
 
-  const factory CBJCompState.loadSuccess(CBJCompEntity devices) = _LoadSuccess;
+  const factory CBJCompState.loadSuccess(String securityBearIp) = _LoadSuccess;
 
   const factory CBJCompState.loadSuccessTemp() = _LoadSuccessTemp;
 

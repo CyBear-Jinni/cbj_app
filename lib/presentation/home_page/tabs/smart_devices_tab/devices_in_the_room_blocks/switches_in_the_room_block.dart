@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/switches/switches_actor/switches_actor_bloc.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/generic_switch_device/generic_switch_entity.dart';
+import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -9,21 +10,31 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SwitchesInTheRoomBlock extends StatelessWidget {
-  const SwitchesInTheRoomBlock(this.switchesInRoom, this.roomColorGradiant);
+  const SwitchesInTheRoomBlock({
+    required this.roomEntity,
+    required this.switchesInRoom,
+    required this.roomColorGradiant,
+  });
 
-  factory SwitchesInTheRoomBlock.withAbstractDevice(
-    List<DeviceEntityAbstract> tempDeviceInRoom,
-    List<Color> tempRoomColorGradiant,
-  ) {
-    List<GenericSwitchDE> tempSwitchesInRoom = [];
+  factory SwitchesInTheRoomBlock.withAbstractDevice({
+    required RoomEntity roomEntityTemp,
+    required List<DeviceEntityAbstract> tempDeviceInRoom,
+    required List<Color> tempRoomColorGradiant,
+  }) {
+    final List<GenericSwitchDE> tempSwitchesInRoom = [];
 
     tempDeviceInRoom.forEach((element) {
       tempSwitchesInRoom.add(element as GenericSwitchDE);
     });
 
-    return SwitchesInTheRoomBlock(tempSwitchesInRoom, tempRoomColorGradiant);
+    return SwitchesInTheRoomBlock(
+      roomEntity: roomEntityTemp,
+      switchesInRoom: tempSwitchesInRoom,
+      roomColorGradiant: tempRoomColorGradiant,
+    );
   }
 
+  final RoomEntity roomEntity;
   final List<GenericSwitchDE> switchesInRoom;
   final List<Color> roomColorGradiant;
 
@@ -33,7 +44,7 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
       onTap: () {
         context.router.push(
           RoomsSwitchesRoute(
-            showDevicesOnlyFromRoomId: switchesInRoom[0].roomId.getOrCrash(),
+            roomEntity: roomEntity,
             roomColorGradiant: roomColorGradiant,
           ),
         );
@@ -97,7 +108,7 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
               )
             else
               Text(
-                '${switchesInRoom[0].roomName.getOrCrash()} Switches',
+                '${roomEntity.defaultName.getOrCrash()} Switches',
                 style: TextStyle(
                   color: Theme.of(context).textTheme.bodyText1!.color,
                 ),
@@ -181,7 +192,7 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
   List<String> extractDevicesId() {
     final List<String> devicesIdList = [];
     switchesInRoom.forEach((element) {
-      devicesIdList.add(element.uniqueId.getOrCrash()!);
+      devicesIdList.add(element.uniqueId.getOrCrash());
     });
     return devicesIdList;
   }

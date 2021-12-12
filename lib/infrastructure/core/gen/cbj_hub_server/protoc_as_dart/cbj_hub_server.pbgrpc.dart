@@ -26,6 +26,11 @@ class CbjHubClient extends $grpc.Client {
           ($0.RequestsAndStatusFromHub value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $0.ClientStatusRequests.fromBuffer(value));
+  static final _$getCompHubInfo =
+      $grpc.ClientMethod<$0.CompHubInfo, $0.CompHubInfo>(
+          '/CbjHub.CbjHub/getCompHubInfo',
+          ($0.CompHubInfo value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) => $0.CompHubInfo.fromBuffer(value));
 
   CbjHubClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -44,6 +49,11 @@ class CbjHubClient extends $grpc.Client {
       {$grpc.CallOptions? options}) {
     return $createStreamingCall(_$hubTransferDevices, request,
         options: options);
+  }
+
+  $grpc.ResponseFuture<$0.CompHubInfo> getCompHubInfo($0.CompHubInfo request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getCompHubInfo, request, options: options);
   }
 }
 
@@ -69,6 +79,18 @@ abstract class CbjHubServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) =>
             $0.RequestsAndStatusFromHub.fromBuffer(value),
         ($0.ClientStatusRequests value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.CompHubInfo, $0.CompHubInfo>(
+        'getCompHubInfo',
+        getCompHubInfo_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.CompHubInfo.fromBuffer(value),
+        ($0.CompHubInfo value) => value.writeToBuffer()));
+  }
+
+  $async.Future<$0.CompHubInfo> getCompHubInfo_Pre(
+      $grpc.ServiceCall call, $async.Future<$0.CompHubInfo> request) async {
+    return getCompHubInfo(call, await request);
   }
 
   $async.Stream<$0.RequestsAndStatusFromHub> clientTransferDevices(
@@ -76,4 +98,6 @@ abstract class CbjHubServiceBase extends $grpc.Service {
   $async.Stream<$0.ClientStatusRequests> hubTransferDevices(
       $grpc.ServiceCall call,
       $async.Stream<$0.RequestsAndStatusFromHub> request);
+  $async.Future<$0.CompHubInfo> getCompHubInfo(
+      $grpc.ServiceCall call, $0.CompHubInfo request);
 }

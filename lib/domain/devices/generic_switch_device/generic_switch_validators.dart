@@ -1,7 +1,7 @@
 import 'package:cybear_jinni/domain/devices/abstract_device/core_failures.dart';
 import 'package:dartz/dartz.dart';
 
-Either<CoreFailure<String>, String> validateGenericSwitchStateNotEmty(
+Either<CoreFailure<String>, String> validateGenericSwitchSwitchStateNotEmty(
   String input,
 ) {
   if (input != null) {

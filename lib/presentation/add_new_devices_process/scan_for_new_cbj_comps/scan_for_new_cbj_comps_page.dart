@@ -30,9 +30,9 @@ class ScanForNewCBJCompsPage extends StatelessWidget {
           child: Column(
             children: [
               TopNavigationBar(
-                'Add CBJ Devices',
-                null,
-                null,
+                pageName: 'Add CBJ Devices',
+                rightIcon: null,
+                rightIconFunction: null,
                 leftIcon: FontAwesomeIcons.arrowLeft,
                 leftIconFunction: leftIconFunction,
               ),

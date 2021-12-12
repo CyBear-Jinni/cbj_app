@@ -4,15 +4,14 @@ part of 'cbj_comp_bloc.dart';
 class CBJCompEvent with _$CBJCompEvent {
   const factory CBJCompEvent.initialized() = Initialized;
 
-  const factory CBJCompEvent.watchAllStarted() = _WatchAllStarted;
+  const factory CBJCompEvent.watchAllStarted() = WatchAllStarted;
 
   const factory CBJCompEvent.changeAction(CBJCompEntity cBJCompEntity) =
-      _ChangeState;
+      ChangeState;
 
   const factory CBJCompEvent.compDevicesReceived(
     Either<CBJCompFailure, String> failureOrCBJCompList,
-  ) = _CompDevicesReceived;
+  ) = CompDevicesReceived;
 
-  const factory CBJCompEvent.create(CBJCompEntity cBJCompEntity) =
-      _CreateDevice;
+  const factory CBJCompEvent.create(CBJCompEntity cBJCompEntity) = CreateDevice;
 }

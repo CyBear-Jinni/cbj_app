@@ -3,6 +3,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/auth/auth_bloc.dart';
 import 'package:cybear_jinni/application/devices/device_actor/device_actor_bloc.dart';
 import 'package:cybear_jinni/application/switches/switches_watcher/switches_watcher_bloc.dart';
+import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/switches/settings_page_of_switches.dart';
@@ -16,17 +17,22 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 /// Switches page that will call the lamps widget file and add background
 /// and scaffold for it
 class RoomsSwitchesPage extends StatelessWidget {
-  RoomsSwitchesPage({this.showDevicesOnlyFromRoomId, this.roomColorGradiant});
+  RoomsSwitchesPage({
+    required this.roomEntity,
+    this.roomColorGradiant,
+  });
 
   /// If it have value will only show switches in this room
-  final String? showDevicesOnlyFromRoomId;
+  final RoomEntity roomEntity;
   final List<Color>? roomColorGradiant;
 
   void cogFunction(BuildContext context) {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (BuildContext context) => SettingsPageOfSwitches(),
+        builder: (BuildContext context) => SettingsPageOfSwitches(
+          roomEntity: roomEntity,
+        ),
       ),
     );
   }
@@ -93,17 +99,18 @@ class RoomsSwitchesPage extends StatelessWidget {
             child: Column(
               children: [
                 TopNavigationBar(
-                  'Switches',
-                  Icons.more_vert,
-                  cogFunction,
+                  pageName: 'Switches',
+                  rightIcon: Icons.more_vert,
+                  rightIconFunction: cogFunction,
                   leftIcon: FontAwesomeIcons.arrowLeft,
                   leftIconFunction: backButtonFunction,
                   rightSecondIcon: FontAwesomeIcons.search,
                   rightSecondFunction: () {},
+                  backgroundColor: roomColorGradiant!.last,
                 ),
                 Expanded(
                   child: RoomsSwitchesWidget(
-                    showDevicesOnlyFromRoomId!,
+                    roomEntity,
                     roomColorGradiant!,
                   ),
                 ),

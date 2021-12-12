@@ -2,16 +2,16 @@ part of 'blinds_watcher_bloc.dart';
 
 @freezed
 class BlindsWatcherState with _$BlindsWatcherState {
-  factory BlindsWatcherState.initial() = _Initial;
+  factory BlindsWatcherState.initial() = Initial;
 
-  const factory BlindsWatcherState.loadInProgress() = _LoadInProgress;
+  const factory BlindsWatcherState.loadInProgress() = LoadInProgress;
 
   const factory BlindsWatcherState.loadSuccess(
     KtList<GenericBlindsDE?> devices,
-  ) = _LoadSuccess;
+  ) = LoadSuccess;
 
   const factory BlindsWatcherState.loadFailure(DevicesFailure devicesFailure) =
-      _loadFailure;
+      LoadFailure;
 
   const factory BlindsWatcherState.blindError() = BlindError;
 }

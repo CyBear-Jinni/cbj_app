@@ -7,5 +7,5 @@ class CreateHomeEvent with _$CreateHomeEvent {
   const factory CreateHomeEvent.createHome(
     String homeName,
     String devicesEmail,
-  ) = _CreateHome;
+  ) = CreateHome;
 }

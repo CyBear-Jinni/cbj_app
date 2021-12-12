@@ -14,10 +14,9 @@ abstract class GenericPingDeviceDtos
   factory GenericPingDeviceDtos({
     // @JsonKey(ignore: true)
     String? deviceDtoClass,
-    String? id,
+    required String id,
+    required String vendorUniqueId,
     required String? defaultName,
-    required String? roomId,
-    required String? roomName,
     required String? deviceStateGRPC,
     String? stateMassage,
     required String? senderDeviceOs,
@@ -38,9 +37,8 @@ abstract class GenericPingDeviceDtos
     return GenericPingDeviceDtos(
       deviceDtoClass: (GenericPingDeviceDtos).toString(),
       id: genericPingDE.uniqueId.getOrCrash(),
+      vendorUniqueId: genericPingDE.vendorUniqueId.getOrCrash(),
       defaultName: genericPingDE.defaultName.getOrCrash(),
-      roomId: genericPingDE.roomId.getOrCrash(),
-      roomName: genericPingDE.roomName.getOrCrash(),
       deviceStateGRPC: genericPingDE.deviceStateGRPC.getOrCrash(),
       stateMassage: genericPingDE.stateMassage.getOrCrash(),
       senderDeviceOs: genericPingDE.senderDeviceOs.getOrCrash(),
@@ -64,9 +62,8 @@ abstract class GenericPingDeviceDtos
   DeviceEntityAbstract toDomain() {
     return GenericPingDE(
       uniqueId: CoreUniqueId.fromUniqueString(id),
+      vendorUniqueId: VendorUniqueId(),
       defaultName: DeviceDefaultName(defaultName),
-      roomId: CoreUniqueId.fromUniqueString(roomId),
-      roomName: DeviceRoomName(roomName),
       deviceStateGRPC: DeviceState(deviceStateGRPC),
       stateMassage: DeviceStateMassage(stateMassage),
       senderDeviceOs: DeviceSenderDeviceOs(senderDeviceOs),
@@ -78,15 +75,3 @@ abstract class GenericPingDeviceDtos
     );
   }
 }
-
-// class ServerTimestampConverter implements JsonConverter<FieldValue, Object> {
-//   const ServerTimestampConverter();
-//
-//   @override
-//   FieldValue fromJson(Object json) {
-//     return FieldValue.serverTimestamp();
-//   }
-//
-//   @override
-//   Object toJson(FieldValue fieldValue) => fieldValue;
-// }

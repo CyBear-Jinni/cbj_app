@@ -37,9 +37,9 @@ class AddRoutinePage extends StatelessWidget {
         child: Column(
           children: <Widget>[
             TopNavigationBar(
-              'Add Routine',
-              null,
-              () {},
+              pageName: 'Add Routine',
+              rightIcon: null,
+              rightIconFunction: () {},
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
             ),

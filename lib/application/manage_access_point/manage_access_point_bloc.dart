@@ -18,59 +18,66 @@ part 'manage_access_point_state.dart';
 class ManageAccessPointBloc
     extends Bloc<ManageAccessPointEvent, ManageAccessPointState> {
   ManageAccessPointBloc(this._manageAccessPointRepository)
-      : super(ManageAccessPointState.initial());
+      : super(ManageAccessPointState.initial()) {
+    on<Initialized>(_initialized);
+    on<DoesAccessPointOpen>(_doesAccessPointOpen);
+  }
 
   final IManageNetworkRepository _manageAccessPointRepository;
 
   ManageWiFiName? wifiName;
   ManageWiFiPass? wifiPassword;
 
-  @override
-  Stream<ManageAccessPointState> mapEventToState(
-    ManageAccessPointEvent event,
-  ) async* {
-    yield* event.map(
-      initialized: (e) async* {
-        yield ManageAccessPointState.loading();
+  Future<void> _initialized(
+    Initialized event,
+    Emitter<ManageAccessPointState> emit,
+  ) async {
+    emit(ManageAccessPointState.loading());
 
-        if (Platform.isAndroid) {
-          final ManageNetworkEntity manageNetworkEntity = ManageNetworkEntity(
-            name: ManageWiFiName('CyBear Jinni'),
-            pass: ManageWiFiPass('CyBear Jinni'),
-          );
+    if (Platform.isAndroid) {
+      final ManageNetworkEntity manageNetworkEntity = ManageNetworkEntity(
+        name: ManageWiFiName('CyBear Jinni'),
+        pass: ManageWiFiPass('CyBear Jinni'),
+      );
 
-          final Either<HomeUserFailures, Unit> opendAccessPoint =
-              await _manageAccessPointRepository
-                  .openAccessPoint(manageNetworkEntity);
+      final Either<HomeUserFailures, Unit> openedAccessPoint =
+          await _manageAccessPointRepository
+              .openAccessPoint(manageNetworkEntity);
 
-          yield opendAccessPoint.fold(
-            (f) => ManageAccessPointState.iOSDevice(),
-            (r) => ManageAccessPointState.loaded(),
-          );
-        } else {
-          yield ManageAccessPointState.iOSDevice();
-        }
-      },
-      doesAccessPointOpen: (e) async* {
-        yield ManageAccessPointState.loading();
+      emit(
+        openedAccessPoint.fold(
+          (f) => ManageAccessPointState.iOSDevice(),
+          (r) => ManageAccessPointState.loaded(),
+        ),
+      );
+    } else {
+      emit(ManageAccessPointState.iOSDevice());
+    }
+  }
 
-        if (Platform.isAndroid) {
-          final Either<HomeUserFailures, Unit> openedAccessPoint =
-              await _manageAccessPointRepository.doesAccessPointOpen();
+  Future<void> _doesAccessPointOpen(
+    DoesAccessPointOpen event,
+    Emitter<ManageAccessPointState> emit,
+  ) async {
+    emit(ManageAccessPointState.loading());
 
-          yield openedAccessPoint.fold(
-            (HomeUserFailures f) {
-              if (f == const HomeUserFailures.accessPointIsNotOpen()) {
-                return ManageAccessPointState.accessPointIsNotOpen();
-              }
-              return ManageAccessPointState.cantDetermineAccessPointOpenOrNot();
-            },
-            (r) => ManageAccessPointState.accessPointIsOpen(),
-          );
-        } else {
-          yield ManageAccessPointState.cantDetermineAccessPointOpenOrNot();
-        }
-      },
-    );
+    if (Platform.isAndroid) {
+      final Either<HomeUserFailures, Unit> openedAccessPoint =
+          await _manageAccessPointRepository.doesAccessPointOpen();
+
+      emit(
+        openedAccessPoint.fold(
+          (HomeUserFailures f) {
+            if (f == const HomeUserFailures.accessPointIsNotOpen()) {
+              return ManageAccessPointState.accessPointIsNotOpen();
+            }
+            return ManageAccessPointState.cantDetermineAccessPointOpenOrNot();
+          },
+          (r) => ManageAccessPointState.accessPointIsOpen(),
+        ),
+      );
+    } else {
+      emit(ManageAccessPointState.cantDetermineAccessPointOpenOrNot());
+    }
   }
 }

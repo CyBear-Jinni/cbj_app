@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/blinds/blinds_actor/blinds_actor_bloc.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/generic_blinds_device/generic_blinds_entity.dart';
+import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -9,12 +10,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BlindsInTheRoom extends StatelessWidget {
-  const BlindsInTheRoom({this.blindsInRoom, this.roomColorGradiant});
+  const BlindsInTheRoom({
+    required this.roomEntity,
+    this.blindsInRoom,
+    this.roomColorGradiant,
+  });
 
-  factory BlindsInTheRoom.withAbstractDevice(
-    List<DeviceEntityAbstract> tempDeviceInRoom,
-    List<Color> temproomColorGradiant,
-  ) {
+  factory BlindsInTheRoom.withAbstractDevice({
+    required RoomEntity roomEntity,
+    required List<DeviceEntityAbstract> tempDeviceInRoom,
+    required List<Color> temprRoomColorGradiant,
+  }) {
     List<GenericBlindsDE> tempLightsInRoom = [];
 
     tempDeviceInRoom.forEach((element) {
@@ -22,11 +28,13 @@ class BlindsInTheRoom extends StatelessWidget {
     });
 
     return BlindsInTheRoom(
+      roomEntity: roomEntity,
       blindsInRoom: tempLightsInRoom,
-      roomColorGradiant: temproomColorGradiant,
+      roomColorGradiant: temprRoomColorGradiant,
     );
   }
 
+  final RoomEntity roomEntity;
   final List<GenericBlindsDE?>? blindsInRoom;
   final List<Color>? roomColorGradiant;
 
@@ -36,7 +44,7 @@ class BlindsInTheRoom extends StatelessWidget {
       onTap: () {
         context.router.push(
           RoomsBlindsRoute(
-            showDevicesOnlyFromRoomId: blindsInRoom![0]!.roomId.getOrCrash(),
+            roomEntity: roomEntity,
             roomColorGradiant: roomColorGradiant,
           ),
         );
@@ -100,7 +108,7 @@ class BlindsInTheRoom extends StatelessWidget {
               )
             else
               Text(
-                '${blindsInRoom![0]!.roomName.getOrCrash()} Blinds',
+                '${roomEntity.defaultName.getOrCrash()} Blinds',
                 style: TextStyle(
                   color: Theme.of(context).textTheme.bodyText1!.color,
                 ),
@@ -184,7 +192,7 @@ class BlindsInTheRoom extends StatelessWidget {
   List<String> extractDevicesId() {
     final List<String> devicesIdList = [];
     blindsInRoom!.forEach((element) {
-      devicesIdList.add(element!.uniqueId.getOrCrash()!);
+      devicesIdList.add(element!.uniqueId.getOrCrash());
     });
     return devicesIdList;
   }

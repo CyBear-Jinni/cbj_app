@@ -7,13 +7,13 @@ class SwitchesActorEvent with _$SwitchesActorEvent {
   const factory SwitchesActorEvent.turnOffAllSwitches(
     List<String> switchesIdToTurnOff,
     BuildContext context,
-  ) = _TurnOffAllSwitches;
+  ) = TurnOffAllSwitches;
 
   const factory SwitchesActorEvent.turnOnAllSwitches(
     List<String> switchesIdToTurnOn,
     BuildContext context,
-  ) = _TurnOnAllSwitches;
+  ) = TurnOnAllSwitches;
 
   const factory SwitchesActorEvent.deleted(GenericSwitchDE deviceEntity) =
-      _Deleted;
+      Deleted;
 }

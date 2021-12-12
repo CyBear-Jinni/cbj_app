@@ -16,34 +16,39 @@ part 'create_home_state.dart';
 @injectable
 class CreateHomeBloc extends Bloc<CreateHomeEvent, CreateHomeState> {
   CreateHomeBloc(this._createHomeRepository)
-      : super(CreateHomeState.initialized());
+      : super(CreateHomeState.initialized()) {
+    on<Initialized>(_initialized);
+    on<CreateHome>(_createHome);
+  }
 
   final ICreateHomeRepository _createHomeRepository;
 
-  @override
-  Stream<CreateHomeState> mapEventToState(
-    CreateHomeEvent event,
-  ) async* {
-    yield* event.map(
-      initialized: (e) async* {},
-      createHome: (e) async* {
-        yield const CreateHomeState.loading();
-        final CreateHomeEntity createHomeEntity = CreateHomeEntity(
-          id: HomeUniqueId(),
-          name: HomeName(e.homeName),
-          homeDevicesUserId: HomeDevicesUserId(),
-          homeDevicesUserEmail: HomeDevicesUserEmail(e.devicesEmail),
-          homeDevicesUserPassword: HomeDevicesUserPassword(),
-        );
+  Future<void> _initialized(
+    Initialized event,
+    Emitter<CreateHomeState> emit,
+  ) async {}
 
-        final initialization =
-            await _createHomeRepository.createNewHome(createHomeEntity);
+  Future<void> _createHome(
+    CreateHome event,
+    Emitter<CreateHomeState> emit,
+  ) async {
+    emit(const CreateHomeState.loading());
+    final CreateHomeEntity createHomeEntity = CreateHomeEntity(
+      id: HomeUniqueId(),
+      name: HomeName(event.homeName),
+      homeDevicesUserId: HomeDevicesUserId(),
+      homeDevicesUserEmail: HomeDevicesUserEmail(event.devicesEmail),
+      homeDevicesUserPassword: HomeDevicesUserPassword(),
+    );
 
-        yield initialization.fold(
-          (_) => const CreateHomeState.error(),
-          (_) => const CreateHomeState.loaded(),
-        );
-      },
+    final initialization =
+        await _createHomeRepository.createNewHome(createHomeEntity);
+
+    emit(
+      initialization.fold(
+        (_) => const CreateHomeState.error(),
+        (_) => const CreateHomeState.loaded(),
+      ),
     );
   }
 }

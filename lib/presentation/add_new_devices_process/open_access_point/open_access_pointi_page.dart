@@ -39,9 +39,9 @@ class OpenAccessPointPage extends StatelessWidget {
         child: Column(
           children: [
             TopNavigationBar(
-              'Add Devices',
-              null,
-              () {},
+              pageName: 'Add Devices',
+              rightIcon: null,
+              rightIconFunction: () {},
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
             ),

@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:cybear_jinni/domain/auth/auth_failure.dart';
 import 'package:cybear_jinni/domain/folders_of_scenes/folders_of_scenes.dart';
@@ -17,24 +15,23 @@ part 'folders_of_scenes_state.dart';
 class FoldersOfScenesBloc
     extends Bloc<FoldersOfScenesEvent, FoldersOfScenesState> {
   FoldersOfScenesBloc(this._inFoldersRepository)
-      : super(FoldersOfScenesState.initialized());
+      : super(FoldersOfScenesState.initialized()) {
+    on<Initialized>(_initialized);
+  }
 
   final IFoldersOfScenesRepository _inFoldersRepository;
 
-  @override
-  Stream<FoldersOfScenesState> mapEventToState(
-    FoldersOfScenesEvent event,
-  ) async* {
-    yield* event.map(
-      initialized: (e) async* {
-        final scenesRoomsList =
-            await _inFoldersRepository.getAllRoomsWithScenes();
-        yield scenesRoomsList.fold(
-          (f) => const FoldersOfScenesState.error(),
-          (foldersOfScenesList) =>
-              FoldersOfScenesState.loaded(foldersOfScenesList),
-        );
-      },
+  Future<void> _initialized(
+    Initialized event,
+    Emitter<FoldersOfScenesState> emit,
+  ) async {
+    final scenesRoomsList = await _inFoldersRepository.getAllRoomsWithScenes();
+    emit(
+      scenesRoomsList.fold(
+        (f) => const FoldersOfScenesState.error(),
+        (foldersOfScenesList) =>
+            FoldersOfScenesState.loaded(foldersOfScenesList),
+      ),
     );
   }
 }

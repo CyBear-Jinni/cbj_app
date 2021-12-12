@@ -18,24 +18,24 @@ part 'folder_of_scenes_state.dart';
 class FolderOfScenesBloc
     extends Bloc<FolderOfScenesEvent, FolderOfScenesState> {
   FolderOfScenesBloc(this.iFolderOfScenesRepository)
-      : super(FolderOfScenesState.initialized());
+      : super(FolderOfScenesState.initialized()) {
+    on<Initialized>(_initialized);
+  }
 
   final IFolderOfScenesRepository iFolderOfScenesRepository;
 
-  @override
-  Stream<FolderOfScenesState> mapEventToState(
-    FolderOfScenesEvent event,
-  ) async* {
-    yield* event.map(
-      initialized: (e) async* {
-        final scenesList = await iFolderOfScenesRepository.getAllScenesInFolder(
-          uniqueId: (event.folderOfScenes!.id)!,
-        );
-        yield scenesList.fold(
-          (_) => const FolderOfScenesState.error(),
-          (scenesList) => FolderOfScenesState.loaded(scenesList: scenesList),
-        );
-      },
+  Future<void> _initialized(
+    Initialized event,
+    Emitter<FolderOfScenesState> emit,
+  ) async {
+    final scenesList = await iFolderOfScenesRepository.getAllScenesInFolder(
+      uniqueId: (event.folderOfScenes!.id)!,
+    );
+    emit(
+      scenesList.fold(
+        (_) => const FolderOfScenesState.error(),
+        (scenesList) => FolderOfScenesState.loaded(scenesList: scenesList),
+      ),
     );
   }
 }

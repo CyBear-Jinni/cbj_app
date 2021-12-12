@@ -35,9 +35,9 @@ class SettingsPageSmartDevices extends StatelessWidget {
         child: Column(
           children: <Widget>[
             TopNavigationBar(
-              'Smart Devices Settings',
-              null,
-              () {},
+              pageName: 'Smart Devices Settings',
+              rightIcon: null,
+              rightIconFunction: () {},
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
             ),

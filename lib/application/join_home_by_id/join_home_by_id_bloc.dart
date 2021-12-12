@@ -16,44 +16,48 @@ part 'join_home_by_id_state.dart';
 @injectable
 class JoinHomeByIdBloc extends Bloc<JoinHomeByIdEvent, JoinHomeByIdState> {
   JoinHomeByIdBloc(this._iUserRepository)
-      : super(JoinHomeByIdState.initialized());
+      : super(JoinHomeByIdState.initialized()) {
+    on<Initialized>(_initialized);
+    on<AddHomeById>(_addHomeById);
+  }
 
   final IUserRepository _iUserRepository;
 
-  @override
-  Stream<JoinHomeByIdState> mapEventToState(
-    JoinHomeByIdEvent event,
-  ) async* {
-    yield* event.map(
-      initialized: (e) async* {
-        // yield initialization.fold(
-        //   () => const InitializeHomeState.error(),
-        //   (_) => const InitializeHomeState.loaded(),
-        // );
-      },
-      addHomeById: (e) async* {
-        yield const JoinHomeByIdState.loading();
+  Future<void> _initialized(
+    Initialized event,
+    Emitter<JoinHomeByIdState> emit,
+  ) async {
+    // emit( initialization.fold(
+    //   () => const InitializeHomeState.error(),
+    //   (_) => const InitializeHomeState.loaded(),
+    // );
+  }
 
-        final getCurrentUser = (await _iUserRepository.getCurrentUser())
-            .fold((l) => null, (r) => r);
-        if (getCurrentUser == null) {
-          yield const JoinHomeByIdState.error();
-        } else {
-          final AllHomesOfUserEntity allHomesOfUserEntity =
-              AllHomesOfUserEntity(
-            id: AllHomesOfUserUniqueId.fromUniqueString(e.id),
-            name: AllHomesOfUserName('home'),
-          );
-          final initialization = await _iUserRepository.addHome(
-            getCurrentUser,
-            allHomesOfUserEntity,
-          );
-          yield initialization.fold(
-            (l) => const JoinHomeByIdState.error(),
-            (r) => const JoinHomeByIdState.loaded(),
-          );
-        }
-      },
-    );
+  Future<void> _addHomeById(
+    AddHomeById event,
+    Emitter<JoinHomeByIdState> emit,
+  ) async {
+    emit(const JoinHomeByIdState.loading());
+
+    final getCurrentUser =
+        (await _iUserRepository.getCurrentUser()).fold((l) => null, (r) => r);
+    if (getCurrentUser == null) {
+      emit(const JoinHomeByIdState.error());
+    } else {
+      final AllHomesOfUserEntity allHomesOfUserEntity = AllHomesOfUserEntity(
+        id: AllHomesOfUserUniqueId.fromUniqueString(event.id),
+        name: AllHomesOfUserName('home'),
+      );
+      final initialization = await _iUserRepository.addHome(
+        getCurrentUser,
+        allHomesOfUserEntity,
+      );
+      emit(
+        initialization.fold(
+          (l) => const JoinHomeByIdState.error(),
+          (r) => const JoinHomeByIdState.loaded(),
+        ),
+      );
+    }
   }
 }

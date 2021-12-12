@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cybear_jinni/infrastructure/hub_connection/hub_requests_routing.dart';
+import 'package:cybear_jinni/infrastructure/hub_client/hub_requests_routing.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:grpc/grpc.dart';
 
@@ -28,9 +28,28 @@ class HubClient {
 
       HubRequestsToApp.hubRequestsStreamController.sink.addStream(response);
     } catch (e) {
-      logger.e('Caught error: $e');
+      logger.e('Caught error while stream with hub\n$e');
       await channel?.shutdown();
     }
+  }
+
+  ///  Get Hub computer and software info
+  static Future<CompHubInfo?> getHubCompInfo(
+    String addressToHub,
+    int hubPort,
+    CompHubInfo compHubInfo,
+  ) async {
+    // channel = await _createCbjHubClient(addressToHub, hubPort);
+    // stub = CbjHubClient(channel!);
+    CompHubInfo response;
+
+    try {
+      return await stub!.getCompHubInfo(compHubInfo);
+    } catch (e) {
+      logger.e('Caught error while trying to get Hub comp info\n$e');
+      await channel?.shutdown();
+    }
+    return null;
   }
 
   static Future<ClientChannel> _createCbjHubClient(

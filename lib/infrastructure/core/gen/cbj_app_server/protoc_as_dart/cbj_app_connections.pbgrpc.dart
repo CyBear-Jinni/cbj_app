@@ -20,6 +20,11 @@ class CyBearJinniAppClient extends $grpc.Client {
           ($0.CompInfoSB value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $0.CBJCommendStatus.fromBuffer(value));
+  static final _$getCompAppInfo =
+      $grpc.ClientMethod<$0.CompAppInfo, $0.CompAppInfo>(
+          '/CBJAppConnections.CyBearJinniApp/getCompAppInfo',
+          ($0.CompAppInfo value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) => $0.CompAppInfo.fromBuffer(value));
 
   CyBearJinniAppClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -31,6 +36,11 @@ class CyBearJinniAppClient extends $grpc.Client {
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$cBJAppGetSmartDeviceInformation, request,
         options: options);
+  }
+
+  $grpc.ResponseFuture<$0.CompAppInfo> getCompAppInfo($0.CompAppInfo request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getCompAppInfo, request, options: options);
   }
 }
 
@@ -45,6 +55,13 @@ abstract class CyBearJinniAppServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.CompInfoSB.fromBuffer(value),
         ($0.CBJCommendStatus value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.CompAppInfo, $0.CompAppInfo>(
+        'getCompAppInfo',
+        getCompAppInfo_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.CompAppInfo.fromBuffer(value),
+        ($0.CompAppInfo value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.CBJCommendStatus> cBJAppGetSmartDeviceInformation_Pre(
@@ -52,6 +69,13 @@ abstract class CyBearJinniAppServiceBase extends $grpc.Service {
     return cBJAppGetSmartDeviceInformation(call, await request);
   }
 
+  $async.Future<$0.CompAppInfo> getCompAppInfo_Pre(
+      $grpc.ServiceCall call, $async.Future<$0.CompAppInfo> request) async {
+    return getCompAppInfo(call, await request);
+  }
+
   $async.Future<$0.CBJCommendStatus> cBJAppGetSmartDeviceInformation(
       $grpc.ServiceCall call, $0.CompInfoSB request);
+  $async.Future<$0.CompAppInfo> getCompAppInfo(
+      $grpc.ServiceCall call, $0.CompAppInfo request);
 }

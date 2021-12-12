@@ -1,12 +1,17 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/presentation/add_new_devices_process/choose_device_vendor_to_add/choose_device_vendor_to_add_page.dart';
+import 'package:cybear_jinni/presentation/add_new_devices_process/computer_connection_check/computer_connection_check_page.dart';
 import 'package:cybear_jinni/presentation/add_new_devices_process/configure_new_cbj_comp/configure_new_cbj_comp_page.dart';
 import 'package:cybear_jinni/presentation/add_new_devices_process/connect_to_home_wifi/connect_to_home_wifi_page.dart';
 import 'package:cybear_jinni/presentation/add_new_devices_process/open_access_point/open_access_pointi_page.dart';
 import 'package:cybear_jinni/presentation/add_new_devices_process/scan_for_new_cbj_comps/scan_for_new_cbj_comps_page.dart';
+import 'package:cybear_jinni/presentation/add_new_room/add_new_room_page.dart';
 import 'package:cybear_jinni/presentation/add_user_to_home/add_user_to_home_page.dart';
+import 'package:cybear_jinni/presentation/add_vendors_pages/add_jinvoo_smart_vendor/add_jinvoo_smart_vendor_page.dart';
 import 'package:cybear_jinni/presentation/add_vendors_pages/add_lifx_vendor/add_lifx_vendor_page.dart';
+import 'package:cybear_jinni/presentation/add_vendors_pages/add_smart_life_vendor/add_smart_life_vendor_page.dart';
 import 'package:cybear_jinni/presentation/add_vendors_pages/add_tuya_vendor/add_tuya_vendor_page.dart';
+import 'package:cybear_jinni/presentation/change_room_for_devices/change_room_for_devices_page.dart';
 import 'package:cybear_jinni/presentation/connect_to_hub/connect_to_hub_more_page.dart';
 import 'package:cybear_jinni/presentation/connect_to_hub/connect_to_hub_page.dart';
 import 'package:cybear_jinni/presentation/create_home/create_home_page.dart';
@@ -26,6 +31,7 @@ import 'package:cybear_jinni/presentation/plus_button/plus_button.dart';
 import 'package:cybear_jinni/presentation/remote_pipes/remote_pipes_page.dart';
 import 'package:cybear_jinni/presentation/scenes/scenes_page.dart';
 import 'package:cybear_jinni/presentation/sign_in_page/sign_in_page.dart';
+import 'package:cybear_jinni/presentation/software_info/software_info_page.dart';
 import 'package:cybear_jinni/presentation/splash/splash_page.dart';
 import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_page_minimal/where_to_login_page_minimal_page.dart';
 import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_page_offline.dart';
@@ -43,18 +49,24 @@ import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_pag
     AutoRoute(page: WhereToLoginPageOffline),
     AutoRoute(page: JoinHomeByIdPage),
     AutoRoute(page: HomePage),
+    AutoRoute(page: ChangeRoomForDevicesPage),
+    AutoRoute(page: AddNewRoomPage),
     AutoRoute(page: PlusButtonPage),
     AutoRoute(page: RemotePipesPage),
+    AutoRoute(page: SoftwareInfoPage),
     AutoRoute(page: ManageUsersPage),
     AutoRoute(page: AddUserToHomePage),
     AutoRoute(page: ScenesPage),
     AutoRoute(page: ChooseDeviceVendorToAddPage),
     AutoRoute(page: AddLifxVendorPage),
     AutoRoute(page: AddTuyaVendorPage),
+    AutoRoute(page: AddSmartLifeVendorPage),
+    AutoRoute(page: AddJinvooSmartVendorPage),
     AutoRoute(page: ConnectToHomeWifiPage),
     AutoRoute(page: OpenAccessPointPage),
     AutoRoute(page: ScanForNewCBJCompsPage),
     AutoRoute(page: ConfigureNewCbjCompPage),
+    AutoRoute(page: ComputerConnectionCheckPage),
     AutoRoute(page: RoomsLightsPage),
     AutoRoute(page: LightsInTheRoomPage),
     AutoRoute(page: RoomsRgbwLightsPage),
@@ -76,16 +88,22 @@ class $AppRouter {
   late ChooseDeviceVendorToAddPage chooseDeviceVendorToAddPage;
   late AddLifxVendorPage addLifxVendorPage;
   late AddTuyaVendorPage addTuyaVendorPage;
+  late AddSmartLifeVendorPage addSmartLifeVendorPage;
+  late AddJinvooSmartVendorPage addJinvooSmartVendorPage;
   late ConnectToHomeWifiPage connectToHomeWifiPage;
   late OpenAccessPointPage openAccessPointPage;
   late ScanForNewCBJCompsPage scanForNewCBJCompsPage;
   late ConfigureNewCbjCompPage configureNewCbjCompPage;
+  late ComputerConnectionCheckPage computerConnectionCheckPage;
   late WhereToLoginPageMinimalPage whereToLoginPageMinimal;
   late WhereToLoginPageOffline whereToLoginPageOffline;
   late JoinHomeByIdPage joinHomeByIdPage;
   late HomePage homePage;
+  late ChangeRoomForDevicesPage changeRoomForDevicesPage;
+  late AddNewRoomPage addNewRoomPage;
   late PlusButtonPage plusButtonPage;
   late RemotePipesPage remotePipesPage;
+  late SoftwareInfoPage softwareInfoPage;
   late ManageUsersPage manageUsersPage;
   late AddUserToHomePage addUserToHomePage;
   late RoomsLightsPage roomsLightsPage;
