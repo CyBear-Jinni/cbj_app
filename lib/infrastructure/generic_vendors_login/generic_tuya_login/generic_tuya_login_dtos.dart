@@ -48,6 +48,7 @@ abstract class GenericTuyaLoginDtos
   LoginEntityAbstract toDomain() {
     return GenericTuyaLoginDE(
       senderUniqueId: CoreLoginSenderId.fromUniqueString(senderUniqueId),
+      loginVendor: CoreLoginVendor(loginVendor),
       tuyaUserName: GenericTuyaLoginUserName(userName),
       tuyaUserPassword: GenericTuyaLoginUserPassword(userPassword),
       tuyaCountryCode: GenericTuyaLoginCountryCode(countryCode),

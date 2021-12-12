@@ -2,6 +2,9 @@ part of 'tuya_sign_in_form_bloc.dart';
 
 @freezed
 class TuyaSignInFormEvent with _$TuyaSignInFormEvent {
+  const factory TuyaSignInFormEvent.vendorChanged(String loginVendor) =
+      VendorChanged;
+
   const factory TuyaSignInFormEvent.userNameChanged(String userNameStr) =
       UserNameChanged;
 
@@ -13,10 +16,10 @@ class TuyaSignInFormEvent with _$TuyaSignInFormEvent {
       CountryCodeChanged;
 
   const factory TuyaSignInFormEvent.bizTypeChanged(String bizTypeStr) =
-      BizTypeChanged;
+  BizTypeChanged;
 
   const factory TuyaSignInFormEvent.regionChanged(String? regionStr) =
-      RegionChanged;
+  RegionChanged;
 
   const factory TuyaSignInFormEvent.signIn() = SignInWithApiKey;
 }

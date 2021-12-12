@@ -13,6 +13,7 @@ class GenericTuyaLoginDE extends LoginEntityAbstract {
   /// All public field of GenericTuya entity
   GenericTuyaLoginDE({
     required CoreLoginSenderId senderUniqueId,
+    required CoreLoginVendor loginVendor,
     required this.tuyaUserName,
     required this.tuyaUserPassword,
     required this.tuyaCountryCode,
@@ -20,8 +21,21 @@ class GenericTuyaLoginDE extends LoginEntityAbstract {
     required this.tuyaRegion,
   }) : super(
           senderUniqueId: senderUniqueId,
-          loginVendor: CoreLoginVendor(VendorsAndServices.tuyaSmart.name),
+          loginVendor: loginVendor,
         );
+
+  /// Empty instance of GenericTuyaEntity
+  factory GenericTuyaLoginDE.empty() => GenericTuyaLoginDE(
+        senderUniqueId: CoreLoginSenderId.fromUniqueString(''),
+        loginVendor: CoreLoginVendor(
+          VendorsAndServices.vendorsAndServicesNotSupported.name,
+        ),
+        tuyaUserName: GenericTuyaLoginUserName(''),
+        tuyaUserPassword: GenericTuyaLoginUserPassword(''),
+        tuyaCountryCode: GenericTuyaLoginCountryCode(''),
+        tuyaBizType: GenericTuyaLoginBizType(''),
+        tuyaRegion: GenericTuyaLoginRegion(''),
+      );
 
   /// User name
   GenericTuyaLoginUserName tuyaUserName;
@@ -37,16 +51,6 @@ class GenericTuyaLoginDE extends LoginEntityAbstract {
 
   /// Region of the user, can be cn, eu, us
   GenericTuyaLoginRegion tuyaRegion;
-
-  /// Empty instance of GenericTuyaEntity
-  factory GenericTuyaLoginDE.empty() => GenericTuyaLoginDE(
-        senderUniqueId: CoreLoginSenderId.fromUniqueString(''),
-        tuyaUserName: GenericTuyaLoginUserName(''),
-        tuyaUserPassword: GenericTuyaLoginUserPassword(''),
-        tuyaCountryCode: GenericTuyaLoginCountryCode(''),
-        tuyaBizType: GenericTuyaLoginBizType(''),
-        tuyaRegion: GenericTuyaLoginRegion(''),
-      );
 
   Option<CoreLoginFailure<dynamic>> get failureOption =>
       senderUniqueId.value.fold((f) => some(f), (_) => none());
