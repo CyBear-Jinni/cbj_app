@@ -22,6 +22,12 @@ class VendorWidget extends StatelessWidget {
         } else if (vendor.name.getOrCrash().toLowerCase() ==
             VendorsAndServices.tuyaSmart.name.toLowerCase()) {
           context.router.push(const AddTuyaVendorRoute());
+        } else if (vendor.name.getOrCrash().toLowerCase() ==
+            VendorsAndServices.smartLife.name.toLowerCase()) {
+          context.router.push(const AddSmartLifeVendorRoute());
+        } else if (vendor.name.getOrCrash().toLowerCase() ==
+            VendorsAndServices.jinvooSmart.name.toLowerCase()) {
+          context.router.push(const AddJinvooSmartVendorRoute());
         } else {
           Fluttertoast.showToast(
             msg: '${vendor.name.getOrCrash()} devices will be add automatically'

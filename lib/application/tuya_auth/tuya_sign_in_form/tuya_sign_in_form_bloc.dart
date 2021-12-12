@@ -6,12 +6,16 @@ import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.d
 import 'package:cybear_jinni/domain/vendors/login_abstract/value_login_objects_core.dart';
 import 'package:cybear_jinni/domain/vendors/tuya_login/generic_tuya_login_entity.dart';
 import 'package:cybear_jinni/domain/vendors/tuya_login/generic_tuya_login_value_objects.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cybear_jinni/utils.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 part 'tuya_sign_in_form_bloc.freezed.dart';
+
 part 'tuya_sign_in_form_event.dart';
+
 part 'tuya_sign_in_form_state.dart';
 
 @injectable
@@ -20,6 +24,7 @@ class TuyaSignInFormBloc
   TuyaSignInFormBloc(this._vendorRepository)
       : super(TuyaSignInFormState.initial()) {
     on<SignInWithApiKey>(_signIn);
+    on<VendorChanged>(_vendorChanged);
     on<UserNameChanged>(_userNameChanged);
     on<UserPasswordChanged>(_userPasswordChanged);
     on<CountryCodeChanged>(_countryCodeChanged);
@@ -37,8 +42,16 @@ class TuyaSignInFormBloc
     SignInWithApiKey event,
     Emitter<TuyaSignInFormState> emit,
   ) async {
+    if (state.tuyaVendor.getOrCrash() ==
+        VendorsAndServices.vendorsAndServicesNotSupported.name) {
+      logger.e("Tuya vendor type didn't got updated, this should not happen");
+      return;
+    }
     final GenericTuyaLoginDE genericTuyaDE = GenericTuyaLoginDE(
       senderUniqueId: CoreLoginSenderId.fromUniqueString('Me'),
+      loginVendor: CoreLoginVendor(
+        state.tuyaVendor.getOrCrash(),
+      ),
       tuyaUserName: GenericTuyaLoginUserName(
         state.tuyaUserName.getOrCrash(),
       ),
@@ -57,6 +70,18 @@ class TuyaSignInFormBloc
     );
 
     _vendorRepository.loginWithTuya(genericTuyaDE);
+  }
+
+  Future<void> _vendorChanged(
+    VendorChanged event,
+    Emitter<TuyaSignInFormState> emit,
+  ) async {
+    emit(
+      state.copyWith(
+        tuyaVendor: CoreLoginVendor(event.loginVendor),
+        authFailureOrSuccessOption: none(),
+      ),
+    );
   }
 
   Future<void> _userNameChanged(

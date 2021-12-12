@@ -7,7 +7,9 @@ import 'package:cybear_jinni/presentation/add_new_devices_process/open_access_po
 import 'package:cybear_jinni/presentation/add_new_devices_process/scan_for_new_cbj_comps/scan_for_new_cbj_comps_page.dart';
 import 'package:cybear_jinni/presentation/add_new_room/add_new_room_page.dart';
 import 'package:cybear_jinni/presentation/add_user_to_home/add_user_to_home_page.dart';
+import 'package:cybear_jinni/presentation/add_vendors_pages/add_jinvoo_smart_vendor/add_jinvoo_smart_vendor_page.dart';
 import 'package:cybear_jinni/presentation/add_vendors_pages/add_lifx_vendor/add_lifx_vendor_page.dart';
+import 'package:cybear_jinni/presentation/add_vendors_pages/add_smart_life_vendor/add_smart_life_vendor_page.dart';
 import 'package:cybear_jinni/presentation/add_vendors_pages/add_tuya_vendor/add_tuya_vendor_page.dart';
 import 'package:cybear_jinni/presentation/change_room_for_devices/change_room_for_devices_page.dart';
 import 'package:cybear_jinni/presentation/connect_to_hub/connect_to_hub_more_page.dart';
@@ -58,6 +60,8 @@ import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_pag
     AutoRoute(page: ChooseDeviceVendorToAddPage),
     AutoRoute(page: AddLifxVendorPage),
     AutoRoute(page: AddTuyaVendorPage),
+    AutoRoute(page: AddSmartLifeVendorPage),
+    AutoRoute(page: AddJinvooSmartVendorPage),
     AutoRoute(page: ConnectToHomeWifiPage),
     AutoRoute(page: OpenAccessPointPage),
     AutoRoute(page: ScanForNewCBJCompsPage),
@@ -84,6 +88,8 @@ class $AppRouter {
   late ChooseDeviceVendorToAddPage chooseDeviceVendorToAddPage;
   late AddLifxVendorPage addLifxVendorPage;
   late AddTuyaVendorPage addTuyaVendorPage;
+  late AddSmartLifeVendorPage addSmartLifeVendorPage;
+  late AddJinvooSmartVendorPage addJinvooSmartVendorPage;
   late ConnectToHomeWifiPage connectToHomeWifiPage;
   late OpenAccessPointPage openAccessPointPage;
   late ScanForNewCBJCompsPage scanForNewCBJCompsPage;

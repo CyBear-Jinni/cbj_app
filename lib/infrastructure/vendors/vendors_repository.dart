@@ -41,9 +41,19 @@ class VendorsRepository implements IVendorsRepository {
   }
 
   Vendor vendorPlusImageFromVandorName(String vendorName) {
+    final String vendorNameNoCapsOrSpaceOrUnderscore =
+        vendorName.toLowerCase().replaceAll(' ', '').replaceAll('_', '');
+
     for (final Vendor vendor
         in VendorsMocDataWithImages().getAllVendors().asList()) {
-      if (vendor.name.getOrCrash().toLowerCase() == vendorName.toLowerCase()) {
+      final String vendorNameNoLowerCaseOrSpaceOrUnderscore = vendor.name
+          .getOrCrash()
+          .toLowerCase()
+          .replaceAll(' ', '')
+          .replaceAll('_', '');
+
+      if (vendorNameNoLowerCaseOrSpaceOrUnderscore ==
+          vendorNameNoCapsOrSpaceOrUnderscore) {
         return vendor;
       }
     }
@@ -51,7 +61,7 @@ class VendorsRepository implements IVendorsRepository {
     return Vendor(
       name: VendorName(vendorName),
       image:
-          'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.seilevel.com%2Frequirements%2Fwp-content%2Fplugins%2Fstormhill_author_page%2Fimg%2Fimage-not-found.png&f=1&nofb=1',
+      'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.seilevel.com%2Frequirements%2Fwp-content%2Fplugins%2Fstormhill_author_page%2Fimg%2Fimage-not-found.png&f=1&nofb=1',
     );
   }
 
@@ -124,9 +134,19 @@ class VendorsMocDataWithImages {
             'https://www.opc-router.de/wp-content/uploads/2018/07/mqtt_icon_128px.png',
       ),
       Vendor(
-        name: VendorName('TuyaSmart'),
+        name: VendorName('Tuya Smart'),
         image:
             'https://play-lh.googleusercontent.com/KGM9NYnyox9TXwoaY3PKl1PfQ2rTPp1rnpNNtmlbgozJZykhZhGKsL3z9myoj4ccayLS=s180',
+      ),
+      Vendor(
+        name: VendorName('Smart Life'),
+        image:
+            'https://play-lh.googleusercontent.com/Qrq9zB_-bWuAD0ETPeBRTsRHOSjmW_uzmexY5rF7wo2JeNc-oLuvsQSYdg0Uxsq6mkA=s180',
+      ),
+      Vendor(
+        name: VendorName('Jinvoo Smart'),
+        image:
+            'https://play-lh.googleusercontent.com/ocFF7mcDTJzr1PXr6k4q1Q2-5xNFUVODqluwnD60DiTsHgTalrVTqi7kk0H8JnW7GLEv=s160',
       ),
       Vendor(
         name: VendorName('Eufy'),

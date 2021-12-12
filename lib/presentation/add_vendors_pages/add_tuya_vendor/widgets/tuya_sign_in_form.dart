@@ -2,6 +2,7 @@ import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/tuya_auth/tuya_sign_in_form/tuya_sign_in_form_bloc.dart';
 import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:dartz/dartz.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -188,6 +189,12 @@ class TuyaSignInForm extends StatelessWidget {
                         Expanded(
                           child: TextButton(
                             onPressed: () {
+                              context.read<TuyaSignInFormBloc>().add(
+                                    TuyaSignInFormEvent.vendorChanged(
+                                      VendorsAndServices.tuyaSmart.name
+                                          .toString(),
+                                    ),
+                                  );
                               context.read<TuyaSignInFormBloc>().add(
                                     const TuyaSignInFormEvent.signIn(),
                                   );
