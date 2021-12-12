@@ -5,6 +5,7 @@ import 'package:cybear_jinni/domain/devices/generic_blinds_device/generic_blinds
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/abstract_device/device_entity_dto_abstract.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_blinds_device/generic_blinds_device_dtos.dart';
+import 'package:cybear_jinni/utils.dart';
 import 'package:dartz/dartz.dart';
 
 /// Abstract smart GenericBlinds that exist inside a computer, the
@@ -13,10 +14,9 @@ class GenericBlindsDE extends DeviceEntityAbstract {
   /// All public field of GenericBlinds entity
   GenericBlindsDE({
     required CoreUniqueId uniqueId,
-    required CoreUniqueId roomId,
+    required VendorUniqueId vendorUniqueId,
     required DeviceVendor deviceVendor,
     required DeviceDefaultName defaultName,
-    required DeviceRoomName roomName,
     required DeviceState deviceStateGRPC,
     required DeviceStateMassage stateMassage,
     required DeviceSenderDeviceOs senderDeviceOs,
@@ -27,28 +27,23 @@ class GenericBlindsDE extends DeviceEntityAbstract {
     required this.blindsSwitchState,
   }) : super(
           uniqueId: uniqueId,
+          vendorUniqueId: vendorUniqueId,
           defaultName: defaultName,
-          roomId: roomId,
           deviceTypes: DeviceType(DeviceTypes.blinds.toString()),
           deviceVendor: deviceVendor,
           deviceStateGRPC: deviceStateGRPC,
           compUuid: compUuid,
-          roomName: roomName,
           senderDeviceModel: senderDeviceModel,
           senderDeviceOs: senderDeviceOs,
           senderId: senderId,
           stateMassage: stateMassage,
         );
 
-  /// State of the blinds on/off
-  GenericBlindsSwitchState? blindsSwitchState;
-
   /// Empty instance of GenericBlindsEntity
   factory GenericBlindsDE.empty() => GenericBlindsDE(
         uniqueId: CoreUniqueId(),
+        vendorUniqueId: VendorUniqueId(),
         defaultName: DeviceDefaultName(''),
-        roomId: CoreUniqueId(),
-        roomName: DeviceRoomName(''),
         deviceStateGRPC: DeviceState(''),
         senderDeviceOs: DeviceSenderDeviceOs(''),
         senderDeviceModel: DeviceSenderDeviceModel(''),
@@ -60,6 +55,9 @@ class GenericBlindsDE extends DeviceEntityAbstract {
         blindsSwitchState:
             GenericBlindsSwitchState(DeviceActions.off.toString()),
       );
+
+  /// State of the blinds on/off
+  GenericBlindsSwitchState? blindsSwitchState;
 
   //
   // /// Will return failure if any of the fields failed or return unit if fields
@@ -84,7 +82,7 @@ class GenericBlindsDE extends DeviceEntityAbstract {
 
   @override
   String getDeviceId() {
-    return uniqueId.getOrCrash()!;
+    return uniqueId.getOrCrash();
   }
 
   @override
@@ -92,9 +90,8 @@ class GenericBlindsDE extends DeviceEntityAbstract {
     return GenericBlindsDeviceDtos(
       deviceDtoClass: (GenericBlindsDeviceDtos).toString(),
       id: uniqueId.getOrCrash(),
+      vendorUniqueId: vendorUniqueId.getOrCrash(),
       defaultName: defaultName.getOrCrash(),
-      roomId: roomId.getOrCrash(),
-      roomName: roomName.getOrCrash(),
       deviceStateGRPC: deviceStateGRPC.getOrCrash(),
       stateMassage: stateMassage.getOrCrash(),
       senderDeviceOs: senderDeviceOs.getOrCrash(),
@@ -109,10 +106,10 @@ class GenericBlindsDE extends DeviceEntityAbstract {
   }
 
   /// Please override the following methods
-  Future<Either<CoreFailure, Unit>> executeDeviceAction(
-    DeviceEntityAbstract newEntity,
-  ) async {
-    print('Please override this method in the non generic implementation');
+  Future<Either<CoreFailure, Unit>> executeDeviceAction({
+    required DeviceEntityAbstract newEntity,
+  }) async {
+    logger.w('Please override this method in the non generic implementation');
     return left(
       const CoreFailure.actionExcecuter(
         failedValue: 'Action does not exist',
@@ -121,18 +118,32 @@ class GenericBlindsDE extends DeviceEntityAbstract {
   }
 
   /// Please override the following methods
-  Future<Either<CoreFailure, Unit>> turnOnBlinds() async {
-    print('Please override this method in the non generic implementation');
+  Future<Either<CoreFailure, Unit>> moveUpBlinds() async {
+    logger.w('Please override this method in the non generic implementation');
     return left(
-      const CoreFailure.actionExcecuter(failedValue: 'Action does not exist'),
+      const CoreFailure.actionExcecuter(
+        failedValue: 'Action does not exist',
+      ),
     );
   }
 
   /// Please override the following methods
-  Future<Either<CoreFailure, Unit>> turnOffBlinds() async {
-    print('Please override this method in the non generic implementation');
+  Future<Either<CoreFailure, Unit>> stopBlinds() async {
+    logger.w('Please override this method in the non generic implementation');
     return left(
-      const CoreFailure.actionExcecuter(failedValue: 'Action does not exist'),
+      const CoreFailure.actionExcecuter(
+        failedValue: 'Action does not exist',
+      ),
+    );
+  }
+
+  /// Please override the following methods
+  Future<Either<CoreFailure, Unit>> moveDownBlinds() async {
+    logger.w('Please override this method in the non generic implementation');
+    return left(
+      const CoreFailure.actionExcecuter(
+        failedValue: 'Action does not exist',
+      ),
     );
   }
 }

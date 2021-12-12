@@ -24,6 +24,7 @@ class SendingType extends $pb.ProtobufEnum {
   static const SendingType remotePipesInformation = SendingType._(11, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'remotePipesInformation');
   static const SendingType getHubDeviceInfo = SendingType._(12, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'getHubDeviceInfo');
   static const SendingType responseHubDeviceInfo = SendingType._(13, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'responseHubDeviceInfo');
+  static const SendingType roomType = SendingType._(14, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'roomType');
 
   static const $core.List<SendingType> values = <SendingType> [
     undefinedType,
@@ -40,6 +41,7 @@ class SendingType extends $pb.ProtobufEnum {
     remotePipesInformation,
     getHubDeviceInfo,
     responseHubDeviceInfo,
+    roomType,
   ];
 
   static final $core.Map<$core.int, SendingType> _byValue = $pb.ProtobufEnum.initByValue(values);

@@ -1,5 +1,6 @@
 import 'package:cybear_jinni/application/blinds/blinds_watcher/blinds_watcher_bloc.dart';
 import 'package:cybear_jinni/domain/devices/generic_blinds_device/generic_blinds_entity.dart';
+import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/blinds/widgets/critical_failure_blinds_display_widget.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/blinds/widgets/room_blinds.dart';
@@ -9,14 +10,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kt_dart/kt.dart';
 
 class RoomsBlindsWidget extends StatelessWidget {
-  const RoomsBlindsWidget(
-    this.showDevicesOnlyFromRoomId,
-    this.roomColorGradiant,
-  );
+  const RoomsBlindsWidget({
+    required this.roomEntity,
+    required this.roomColorGradiant,
+  });
 
-  /// If not null show blinds only from this room
-  final String showDevicesOnlyFromRoomId;
-
+  final RoomEntity roomEntity;
   final List<Color> roomColorGradiant;
 
   @override
@@ -35,27 +34,27 @@ class RoomsBlindsWidget extends StatelessWidget {
 
               for (int i = 0; i < state.devices.size; i++) {
                 final GenericBlindsDE tempDevice = state.devices[i]!;
-                if (showDevicesOnlyFromRoomId != null) {
-                  if (showDevicesOnlyFromRoomId ==
-                      tempDevice.roomId.getOrCrash()) {
-                    if (tempDevicesByRooms[tempDevice.roomId.getOrCrash()] ==
+                if (roomEntity.uniqueId.getOrCrash() != null) {
+                  if (roomEntity.uniqueId.getOrCrash() ==
+                      roomEntity.uniqueId.getOrCrash()) {
+                    if (tempDevicesByRooms[roomEntity.uniqueId.getOrCrash()] ==
                         null) {
-                      tempDevicesByRooms[tempDevice.roomId.getOrCrash()] = [
+                      tempDevicesByRooms[roomEntity.uniqueId.getOrCrash()] = [
                         tempDevice
                       ];
                     } else {
-                      tempDevicesByRooms[tempDevice.roomId.getOrCrash()]!
+                      tempDevicesByRooms[roomEntity.uniqueId.getOrCrash()]!
                           .add(tempDevice);
                     }
                   }
                 } else {
-                  if (tempDevicesByRooms[tempDevice.roomId.getOrCrash()] ==
+                  if (tempDevicesByRooms[roomEntity.uniqueId.getOrCrash()] ==
                       null) {
-                    tempDevicesByRooms[tempDevice.roomId.getOrCrash()] = [
+                    tempDevicesByRooms[roomEntity.uniqueId.getOrCrash()] = [
                       tempDevice
                     ];
                   } else {
-                    tempDevicesByRooms[tempDevice.roomId.getOrCrash()]!
+                    tempDevicesByRooms[roomEntity.uniqueId.getOrCrash()]!
                         .add(tempDevice);
                   }
                 }
@@ -72,6 +71,7 @@ class RoomsBlindsWidget extends StatelessWidget {
               return Container(
                 margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 15),
                 child: ListView.builder(
+                  reverse: true,
                   padding: EdgeInsets.zero,
                   itemBuilder: (context, index) {
                     List<Color>? gradiantColor;
@@ -88,7 +88,7 @@ class RoomsBlindsWidget extends StatelessWidget {
                     return RoomBlinds(
                       devicesInRoom,
                       gradiantColor,
-                      devicesInRoom[0].roomName.getOrCrash()!,
+                      roomEntity.defaultName.getOrCrash(),
                       maxLightsToShow: 50,
                     );
                   },

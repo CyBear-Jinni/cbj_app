@@ -49,9 +49,9 @@ class ScenesInFoldersTab extends StatelessWidget {
     return Column(
       children: <Widget>[
         TopNavigationBar(
-          'Scenes',
-          Icons.more_vert,
-          userCogFunction,
+          pageName: 'Scenes',
+          rightIcon: Icons.more_vert,
+          rightIconFunction: userCogFunction,
           leftIcon: FontAwesomeIcons.userCog,
           leftIconFunction: leftIconFunction,
           rightSecondIcon: FontAwesomeIcons.search,

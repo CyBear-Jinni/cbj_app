@@ -18,7 +18,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   final IAuthFacade _authFacade;
 
-  void _authCheckRequested(
+  Future<void> _authCheckRequested(
     AuthCheckRequested event,
     Emitter<AuthState> emit,
   ) async {
@@ -37,7 +37,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     // );
   }
 
-  void _signedOut(
+  Future<void> _signedOut(
     SignedOut event,
     Emitter<AuthState> emit,
   ) async {

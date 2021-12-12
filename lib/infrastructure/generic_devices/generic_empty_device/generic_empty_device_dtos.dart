@@ -14,10 +14,9 @@ abstract class GenericEmptyDeviceDtos
   factory GenericEmptyDeviceDtos({
     // @JsonKey(ignore: true)
     String? deviceDtoClass,
-    String? id,
+    required String id,
+    required String vendorUniqueId,
     required String? defaultName,
-    required String? roomId,
-    required String? roomName,
     required String? deviceStateGRPC,
     String? stateMassage,
     required String? senderDeviceOs,
@@ -38,9 +37,8 @@ abstract class GenericEmptyDeviceDtos
     return GenericEmptyDeviceDtos(
       deviceDtoClass: (GenericEmptyDeviceDtos).toString(),
       id: genericEmptyDE.uniqueId.getOrCrash(),
+      vendorUniqueId: genericEmptyDE.vendorUniqueId.getOrCrash(),
       defaultName: genericEmptyDE.defaultName.getOrCrash(),
-      roomId: genericEmptyDE.roomId.getOrCrash(),
-      roomName: genericEmptyDE.roomName.getOrCrash(),
       deviceStateGRPC: genericEmptyDE.deviceStateGRPC.getOrCrash(),
       stateMassage: genericEmptyDE.stateMassage.getOrCrash(),
       senderDeviceOs: genericEmptyDE.senderDeviceOs.getOrCrash(),
@@ -64,9 +62,8 @@ abstract class GenericEmptyDeviceDtos
   DeviceEntityAbstract toDomain() {
     return GenericEmptyDE(
       uniqueId: CoreUniqueId.fromUniqueString(id),
+      vendorUniqueId: VendorUniqueId.fromUniqueString(vendorUniqueId),
       defaultName: DeviceDefaultName(defaultName),
-      roomId: CoreUniqueId.fromUniqueString(roomId),
-      roomName: DeviceRoomName(roomName),
       deviceStateGRPC: DeviceState(deviceStateGRPC),
       stateMassage: DeviceStateMassage(stateMassage),
       senderDeviceOs: DeviceSenderDeviceOs(senderDeviceOs),
@@ -78,15 +75,3 @@ abstract class GenericEmptyDeviceDtos
     );
   }
 }
-
-// class ServerTimestampConverter implements JsonConverter<FieldValue, Object> {
-//   const ServerTimestampConverter();
-//
-//   @override
-//   FieldValue fromJson(Object json) {
-//     return FieldValue.serverTimestamp();
-//   }
-//
-//   @override
-//   Object toJson(FieldValue fieldValue) => fieldValue;
-// }

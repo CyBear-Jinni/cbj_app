@@ -37,9 +37,9 @@ class RoutinesPage extends StatelessWidget {
         Column(
           children: <Widget>[
             TopNavigationBar(
-              'Routines',
-              Icons.more_vert,
-              userCogFunction,
+              pageName: 'Routines',
+              rightIcon: Icons.more_vert,
+              rightIconFunction: userCogFunction,
               leftIcon: FontAwesomeIcons.userCog,
               leftIconFunction: leftIconFunction,
               rightSecondIcon: FontAwesomeIcons.search,

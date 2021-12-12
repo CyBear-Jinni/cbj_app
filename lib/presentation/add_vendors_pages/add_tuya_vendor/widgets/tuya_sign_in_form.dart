@@ -11,8 +11,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-String? region = 'cn';
-
 class TuyaSignInForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -155,7 +153,7 @@ class TuyaSignInForm extends StatelessWidget {
                     const SizedBox(
                       height: 8,
                     ),
-                    Text("Select Region:        "),
+                    const Text('Select Region:        '),
                     DropdownButton<String>(
                       value: context
                           .read<TuyaSignInFormBloc>()
@@ -163,8 +161,7 @@ class TuyaSignInForm extends StatelessWidget {
                           .tuyaLoginRegion
                           .getOrCrash(),
                       icon: const Icon(Icons.arrow_drop_down),
-                      iconSize: 24,
-                      hint: Text('Tuya Region'),
+                      hint: const Text('Tuna Region'),
                       elevation: 16,
                       underline: Container(
                         height: 2,

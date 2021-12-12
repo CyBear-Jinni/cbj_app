@@ -37,9 +37,9 @@ class BindingsPage extends StatelessWidget {
         Column(
           children: <Widget>[
             TopNavigationBar(
-              'Bindings',
-              Icons.more_vert,
-              userCogFunction,
+              pageName: 'Bindings',
+              rightIcon: Icons.more_vert,
+              rightIconFunction: userCogFunction,
               leftIcon: FontAwesomeIcons.userCog,
               leftIconFunction: leftIconFunction,
               rightSecondIcon: FontAwesomeIcons.search,

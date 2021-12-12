@@ -1,15 +1,12 @@
 import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
 import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
-import 'package:cybear_jinni/utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:provider/src/provider.dart';
 
 class LightColorMods extends StatefulWidget {
-  LightColorMods({required this.state, required this.deviceEntity}) {
-    logger.i('Light color mods again');
-  }
+  LightColorMods({required this.state, required this.deviceEntity});
 
   final LightToggleState state;
   final GenericRgbwLightDE deviceEntity;
@@ -21,10 +18,6 @@ class LightColorMods extends StatefulWidget {
 }
 
 class _LightColorMods extends State<LightColorMods> {
-  _LightColorMods() {
-    logger.i('asdasd');
-  }
-
   late Widget colorModeWidget;
   int colorModFocus = 0;
 

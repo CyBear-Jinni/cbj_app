@@ -21,7 +21,7 @@ class FoldersOfScenesBloc
 
   final IFoldersOfScenesRepository _inFoldersRepository;
 
-  void _initialized(
+  Future<void> _initialized(
     Initialized event,
     Emitter<FoldersOfScenesState> emit,
   ) async {

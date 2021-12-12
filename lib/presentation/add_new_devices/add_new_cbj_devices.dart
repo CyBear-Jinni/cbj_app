@@ -74,9 +74,9 @@ class _AddNewCBJDevices extends State<AddNewCBJDevices> {
         child: Column(
           children: <Widget>[
             TopNavigationBar(
-              'Add New CyBear Jinni Devices',
-              null,
-              () {},
+              pageName: 'Add New CyBear Jinni Devices',
+              rightIcon: null,
+              rightIconFunction: () {},
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
             ),

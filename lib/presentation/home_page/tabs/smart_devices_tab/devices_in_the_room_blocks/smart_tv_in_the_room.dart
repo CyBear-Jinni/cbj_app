@@ -1,16 +1,22 @@
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/generic_smart_tv/generic_smart_tv_entity.dart';
+import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SmartTvInTheRoom extends StatelessWidget {
-  const SmartTvInTheRoom({this.smartTvsInRoom, this.roomColorGradiant});
+  const SmartTvInTheRoom({
+    required this.roomEntity,
+    this.smartTvsInRoom,
+    this.roomColorGradiant,
+  });
 
-  factory SmartTvInTheRoom.withAbstractDevice(
-    List<DeviceEntityAbstract> tempDeviceInRoom,
-    List<Color> tempRoomColorGradiant,
-  ) {
+  factory SmartTvInTheRoom.withAbstractDevice({
+    required RoomEntity roomEntity,
+    required List<DeviceEntityAbstract> tempDeviceInRoom,
+    required List<Color> tempRoomColorGradiant,
+  }) {
     List<GenericSmartTvDE> tempLightsInRoom = [];
 
     tempDeviceInRoom.forEach((element) {
@@ -18,11 +24,13 @@ class SmartTvInTheRoom extends StatelessWidget {
     });
 
     return SmartTvInTheRoom(
+      roomEntity: roomEntity,
       smartTvsInRoom: tempLightsInRoom,
       roomColorGradiant: tempRoomColorGradiant,
     );
   }
 
+  final RoomEntity roomEntity;
   final List<GenericSmartTvDE>? smartTvsInRoom;
   final List<Color>? roomColorGradiant;
 
@@ -94,7 +102,7 @@ class SmartTvInTheRoom extends StatelessWidget {
               )
             else
               Text(
-                '${smartTvsInRoom![0].roomName.getOrCrash()} SmartTvs',
+                '${roomEntity.defaultName.getOrCrash()} SmartTvs',
                 style: TextStyle(
                   color: Theme.of(context).textTheme.bodyText1!.color,
                 ),
@@ -108,7 +116,7 @@ class SmartTvInTheRoom extends StatelessWidget {
   List<String> extractDevicesId() {
     final List<String> devicesIdList = [];
     smartTvsInRoom!.forEach((element) {
-      devicesIdList.add(element.uniqueId.getOrCrash()!);
+      devicesIdList.add(element.uniqueId.getOrCrash());
     });
     return devicesIdList;
   }

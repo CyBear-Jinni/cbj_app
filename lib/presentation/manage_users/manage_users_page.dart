@@ -66,9 +66,9 @@ class ManageUsersPage extends StatelessWidget {
             child: Column(
               children: [
                 TopNavigationBar(
-                  'Users',
-                  Icons.more_vert,
-                  userCogFunction,
+                  pageName: 'Users',
+                  rightIcon: Icons.more_vert,
+                  rightIconFunction: userCogFunction,
                   leftIcon: FontAwesomeIcons.arrowLeft,
                   leftIconFunction: leftIconFunction,
                 ),

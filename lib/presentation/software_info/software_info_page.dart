@@ -69,9 +69,9 @@ class SoftwareInfoPage extends StatelessWidget {
             child: Column(
               children: [
                 TopNavigationBar(
-                  'Software Info',
-                  null,
-                  userCogFunction,
+                  pageName: 'Software Info',
+                  rightIcon: null,
+                  rightIconFunction: userCogFunction,
                   leftIcon: FontAwesomeIcons.arrowLeft,
                   leftIconFunction: leftIconFunction,
                 ),
