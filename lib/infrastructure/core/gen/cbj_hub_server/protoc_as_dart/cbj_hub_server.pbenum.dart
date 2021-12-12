@@ -87,6 +87,13 @@ class VendorsAndServices extends $pb.ProtobufEnum {
   static const VendorsAndServices miHome = VendorsAndServices._(6, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'miHome');
   static const VendorsAndServices lifx = VendorsAndServices._(7, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'lifx');
   static const VendorsAndServices tuyaSmart = VendorsAndServices._(8, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'tuyaSmart');
+  static const VendorsAndServices smartLife = VendorsAndServices._(9, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'smartLife');
+  static const VendorsAndServices jinvooSmart = VendorsAndServices._(10, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'jinvooSmart');
+  static const VendorsAndServices shelly = VendorsAndServices._(11, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'shelly');
+  static const VendorsAndServices wink = VendorsAndServices._(12, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'wink');
+  static const VendorsAndServices ikea = VendorsAndServices._(13, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'ikea');
+  static const VendorsAndServices sonoff = VendorsAndServices._(14, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'sonoff');
+  static const VendorsAndServices philipsHue = VendorsAndServices._(15, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'philipsHue');
 
   static const $core.List<VendorsAndServices> values = <VendorsAndServices> [
     vendorsAndServicesNotSupported,
@@ -98,6 +105,13 @@ class VendorsAndServices extends $pb.ProtobufEnum {
     miHome,
     lifx,
     tuyaSmart,
+    smartLife,
+    jinvooSmart,
+    shelly,
+    wink,
+    ikea,
+    sonoff,
+    philipsHue,
   ];
 
   static final $core.Map<$core.int, VendorsAndServices> _byValue = $pb.ProtobufEnum.initByValue(values);
@@ -213,5 +227,70 @@ class WhenToExecute extends $pb.ProtobufEnum {
   static WhenToExecute? valueOf($core.int value) => _byValue[value];
 
   const WhenToExecute._($core.int v, $core.String n) : super(v, n);
+}
+
+class AreaPurposesTypes extends $pb.ProtobufEnum {
+  static const AreaPurposesTypes bedroom = AreaPurposesTypes._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'bedroom');
+  static const AreaPurposesTypes studyRoom = AreaPurposesTypes._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'studyRoom');
+  static const AreaPurposesTypes workRoom = AreaPurposesTypes._(2, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'workRoom');
+  static const AreaPurposesTypes tvRoom = AreaPurposesTypes._(3, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'tvRoom');
+  static const AreaPurposesTypes videoGames = AreaPurposesTypes._(4, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'videoGames');
+  static const AreaPurposesTypes livingRoom = AreaPurposesTypes._(5, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'livingRoom');
+  static const AreaPurposesTypes diningRoom = AreaPurposesTypes._(6, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'diningRoom');
+  static const AreaPurposesTypes kitchen = AreaPurposesTypes._(7, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'kitchen');
+  static const AreaPurposesTypes outside = AreaPurposesTypes._(8, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'outside');
+  static const AreaPurposesTypes outsidePrimary = AreaPurposesTypes._(9, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'outsidePrimary');
+  static const AreaPurposesTypes outsideNotPrimary = AreaPurposesTypes._(10, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'outsideNotPrimary');
+  static const AreaPurposesTypes toiletRoom = AreaPurposesTypes._(11, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'toiletRoom');
+  static const AreaPurposesTypes shower = AreaPurposesTypes._(12, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'shower');
+  static const AreaPurposesTypes trainingRoom = AreaPurposesTypes._(13, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'trainingRoom');
+  static const AreaPurposesTypes meditation = AreaPurposesTypes._(14, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'meditation');
+  static const AreaPurposesTypes romantic = AreaPurposesTypes._(15, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'romantic');
+  static const AreaPurposesTypes stairsInside = AreaPurposesTypes._(16, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'stairsInside');
+  static const AreaPurposesTypes stairsOutside = AreaPurposesTypes._(17, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'stairsOutside');
+  static const AreaPurposesTypes childrensRoom = AreaPurposesTypes._(18, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'childrensRoom');
+  static const AreaPurposesTypes cinemaRoom = AreaPurposesTypes._(19, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'cinemaRoom');
+  static const AreaPurposesTypes boardGames = AreaPurposesTypes._(20, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'boardGames');
+  static const AreaPurposesTypes bathtub = AreaPurposesTypes._(21, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'bathtub');
+  static const AreaPurposesTypes laundryRoom = AreaPurposesTypes._(22, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'laundryRoom');
+  static const AreaPurposesTypes protectedSpace = AreaPurposesTypes._(23, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'protectedSpace');
+  static const AreaPurposesTypes safeRoom = AreaPurposesTypes._(24, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'safeRoom');
+  static const AreaPurposesTypes attic = AreaPurposesTypes._(25, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'attic');
+  static const AreaPurposesTypes holidayCabin = AreaPurposesTypes._(26, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'holidayCabin');
+
+  static const $core.List<AreaPurposesTypes> values = <AreaPurposesTypes> [
+    bedroom,
+    studyRoom,
+    workRoom,
+    tvRoom,
+    videoGames,
+    livingRoom,
+    diningRoom,
+    kitchen,
+    outside,
+    outsidePrimary,
+    outsideNotPrimary,
+    toiletRoom,
+    shower,
+    trainingRoom,
+    meditation,
+    romantic,
+    stairsInside,
+    stairsOutside,
+    childrensRoom,
+    cinemaRoom,
+    boardGames,
+    bathtub,
+    laundryRoom,
+    protectedSpace,
+    safeRoom,
+    attic,
+    holidayCabin,
+  ];
+
+  static final $core.Map<$core.int, AreaPurposesTypes> _byValue = $pb.ProtobufEnum.initByValue(values);
+  static AreaPurposesTypes? valueOf($core.int value) => _byValue[value];
+
+  const AreaPurposesTypes._($core.int v, $core.String n) : super(v, n);
 }
 
