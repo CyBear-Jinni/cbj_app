@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/room/create_new_room_form/room_sign_in_form_bloc.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
+import 'package:cybear_jinni/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -84,16 +85,17 @@ class ChangeRoomForDevicesWidget extends StatelessWidget {
                   ],
                 ),
                 MultiSelectDialogField(
-                  items: state.allDevices
-                      .map(
-                        (e) => MultiSelectItem(
-                          e.uniqueId.getOrCrash(),
-                          e.defaultName.getOrCrash()!,
-                        ),
-                      )
-                      .toList(),
+                  items: List<MultiSelectItem<String?>>.of(
+                    state.allDevices.map(
+                      (e) => MultiSelectItem(
+                        e.uniqueId.getOrCrash(),
+                        e.defaultName.getOrCrash()!,
+                      ),
+                    ),
+                  ),
                   listType: MultiSelectListType.CHIP,
-                  onConfirm: (values) {
+                  onConfirm: (List<String?> values) {
+                    logger.i('Testttttttttt');
                     context.read<RoomSignInFormBloc>().add(
                           RoomSignInFormEvent.roomDevicesIdChanged(
                             List<String>.from(values),
