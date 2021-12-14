@@ -84,16 +84,16 @@ class ChangeRoomForDevicesWidget extends StatelessWidget {
                   ],
                 ),
                 MultiSelectDialogField(
-                  items: state.allDevices
-                      .map(
-                        (e) => MultiSelectItem(
-                          e.uniqueId.getOrCrash(),
-                          e.defaultName.getOrCrash()!,
-                        ),
-                      )
-                      .toList(),
+                  items: List<MultiSelectItem<String?>>.of(
+                    state.allDevices.map(
+                      (e) => MultiSelectItem(
+                        e.uniqueId.getOrCrash(),
+                        e.defaultName.getOrCrash()!,
+                      ),
+                    ),
+                  ),
                   listType: MultiSelectListType.CHIP,
-                  onConfirm: (values) {
+                  onConfirm: (List<String?> values) {
                     context.read<RoomSignInFormBloc>().add(
                           RoomSignInFormEvent.roomDevicesIdChanged(
                             List<String>.from(values),
