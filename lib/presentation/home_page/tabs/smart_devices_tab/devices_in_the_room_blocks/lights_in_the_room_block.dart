@@ -59,12 +59,20 @@ class LightsInTheRoomBlock extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Expanded(child: Text('')),
-                const Expanded(
-                  child: CircleAvatar(
-                    child: FaIcon(
-                      FontAwesomeIcons.solidLightbulb,
-                      color: Colors.amberAccent,
-                    ),
+                Expanded(
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 10),
+                      Transform.scale(
+                        scale: 1.2,
+                        child: const CircleAvatar(
+                          child: FaIcon(
+                            FontAwesomeIcons.solidLightbulb,
+                            color: Colors.amberAccent,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 if (lightsInRoom.length > 1)
@@ -99,6 +107,7 @@ class LightsInTheRoomBlock extends StatelessWidget {
                   const Expanded(child: Text('')),
               ],
             ),
+            const SizedBox(height: 5),
             if (lightsInRoom.length == 1)
               Text(
                 lightsInRoom[0].defaultName.getOrCrash()!,

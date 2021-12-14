@@ -53,12 +53,20 @@ class SmartTvInTheRoom extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Expanded(child: Text('')),
-                const Expanded(
-                  child: CircleAvatar(
-                    child: FaIcon(
-                      FontAwesomeIcons.tv,
-                      color: Colors.green,
-                    ),
+                Expanded(
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 10),
+                      Transform.scale(
+                        scale: 1.2,
+                        child: const CircleAvatar(
+                          child: FaIcon(
+                            FontAwesomeIcons.tv,
+                            color: Colors.green,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 if (smartTvsInRoom!.length > 1)
@@ -93,6 +101,7 @@ class SmartTvInTheRoom extends StatelessWidget {
                   const Expanded(child: Text('')),
               ],
             ),
+            const SizedBox(height: 10),
             if (smartTvsInRoom!.length == 1)
               Text(
                 smartTvsInRoom![0].defaultName.getOrCrash()!,

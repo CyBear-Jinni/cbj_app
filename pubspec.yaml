@@ -106,6 +106,8 @@ dependencies:
   location: ^4.3.0
   # Small, easy to use and extensible logger which prints beautiful logs.
   logger: ^1.1.0
+  # The Material Design Icons designed by the community for Flutter
+  material_design_icons_flutter: ^5.0.6595
   # Creating multi-select widgets in a variety of ways
   multi_select_flutter: ^4.0.0
   # Service discovery over multicast DNS (mDNS), Bonjour, and Avahi.

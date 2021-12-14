@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_switch/flutter_switch.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 /// Show switch toggles in a container with the background color from smart room
 /// object
@@ -65,12 +65,12 @@ class SwitchWidget extends StatelessWidget {
             ),
             activeColor: toggleColor,
             inactiveColor: toggleColor,
-            activeIcon: const FaIcon(
-              FontAwesomeIcons.flickr,
+            activeIcon: const Icon(
+              MdiIcons.lightSwitch,
               color: Colors.white,
             ),
-            inactiveIcon: const FaIcon(
-              FontAwesomeIcons.flickr,
+            inactiveIcon: const Icon(
+              MdiIcons.lightSwitch,
               color: Colors.white70,
             ),
             onToggle: (bool value) => _onChange(context, value)

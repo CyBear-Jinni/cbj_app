@@ -57,12 +57,20 @@ class BoilersInTheRoom extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Expanded(child: Text('')),
-                const Expanded(
-                  child: CircleAvatar(
-                    child: FaIcon(
-                      FontAwesomeIcons.thermometerThreeQuarters,
-                      color: Colors.redAccent,
-                    ),
+                Expanded(
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 10),
+                      Transform.scale(
+                        scale: 1.2,
+                        child: const CircleAvatar(
+                          child: FaIcon(
+                            FontAwesomeIcons.thermometerThreeQuarters,
+                            color: Colors.redAccent,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 if (boilersInRoom!.length > 1)
@@ -98,7 +106,7 @@ class BoilersInTheRoom extends StatelessWidget {
               ],
             ),
             const SizedBox(
-              height: 0,
+              height: 10,
             ),
             if (boilersInRoom!.length == 1)
               Text(
@@ -115,7 +123,7 @@ class BoilersInTheRoom extends StatelessWidget {
                 ),
               ),
             const SizedBox(
-              height: 10,
+              height: 5,
             ),
           ],
         ),
