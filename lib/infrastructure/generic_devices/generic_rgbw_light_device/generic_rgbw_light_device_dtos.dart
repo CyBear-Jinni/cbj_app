@@ -39,8 +39,8 @@ abstract class GenericRgbwLightDeviceDtos
   GenericRgbwLightDeviceDtos._();
 
   factory GenericRgbwLightDeviceDtos.fromDomain(
-      GenericRgbwLightDE genericRgbwLightDE,
-      ) {
+    GenericRgbwLightDE genericRgbwLightDE,
+  ) {
     return GenericRgbwLightDeviceDtos(
       deviceDtoClass: (GenericRgbwLightDeviceDtos).toString(),
       id: genericRgbwLightDE.uniqueId.getOrCrash(),
@@ -56,12 +56,12 @@ abstract class GenericRgbwLightDeviceDtos
       compUuid: genericRgbwLightDE.compUuid.getOrCrash(),
       deviceVendor: genericRgbwLightDE.deviceVendor.getOrCrash(),
       lightColorTemperature:
-      genericRgbwLightDE.lightColorTemperature.getOrCrash(),
+          genericRgbwLightDE.lightColorTemperature.getOrCrash(),
       lightBrightness: genericRgbwLightDE.lightBrightness.getOrCrash(),
       lightColorAlpha: genericRgbwLightDE.lightColorAlpha.getOrCrash(),
       lightColorHue: genericRgbwLightDE.lightColorHue.getOrCrash(),
       lightColorSaturation:
-      genericRgbwLightDE.lightColorSaturation.getOrCrash(),
+          genericRgbwLightDE.lightColorSaturation.getOrCrash(),
       lightColorValue: genericRgbwLightDE.lightColorValue.getOrCrash(),
       // serverTimeStamp: FieldValue.serverTimestamp(),
     );
@@ -88,12 +88,12 @@ abstract class GenericRgbwLightDeviceDtos
       compUuid: DeviceCompUuid(compUuid),
       lightSwitchState: GenericRgbwLightSwitchState(lightSwitchState),
       lightColorTemperature:
-      GenericRgbwLightColorTemperature(lightColorTemperature),
+          GenericRgbwLightColorTemperature(lightColorTemperature),
       lightBrightness: GenericRgbwLightBrightness(lightBrightness),
       lightColorAlpha: GenericRgbwLightColorAlpha(lightColorAlpha),
       lightColorHue: GenericRgbwLightColorHue(lightColorHue),
       lightColorSaturation:
-      GenericRgbwLightColorSaturation(lightColorSaturation),
+          GenericRgbwLightColorSaturation(lightColorSaturation),
       lightColorValue: GenericRgbwLightColorValue(lightColorValue),
     );
   }
