@@ -62,7 +62,7 @@ abstract class GenericSwitchDeviceDtos
   DeviceEntityAbstract toDomain() {
     return GenericSwitchDE(
       uniqueId: CoreUniqueId.fromUniqueString(id),
-      vendorUniqueId: VendorUniqueId(),
+      vendorUniqueId: VendorUniqueId.fromUniqueString(vendorUniqueId),
       defaultName: DeviceDefaultName(defaultName),
       deviceStateGRPC: DeviceState(deviceStateGRPC),
       stateMassage: DeviceStateMassage(stateMassage),
