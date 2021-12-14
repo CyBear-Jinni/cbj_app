@@ -7,7 +7,7 @@ import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class SwitchesInTheRoomBlock extends StatelessWidget {
   const SwitchesInTheRoomBlock({
@@ -59,12 +59,20 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Expanded(child: Text('')),
-                const Expanded(
-                  child: CircleAvatar(
-                    child: FaIcon(
-                      FontAwesomeIcons.flickr,
-                      color: Colors.white70,
-                    ),
+                Expanded(
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 10),
+                      Transform.scale(
+                        scale: 1.2,
+                        child: const CircleAvatar(
+                          child: Icon(
+                            MdiIcons.lightSwitch,
+                            color: Colors.white70,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 if (switchesInRoom.length > 1)
@@ -99,6 +107,7 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
                   const Expanded(child: Text('')),
               ],
             ),
+            const SizedBox(height: 5),
             if (switchesInRoom.length == 1)
               Text(
                 switchesInRoom[0].defaultName.getOrCrash()!,

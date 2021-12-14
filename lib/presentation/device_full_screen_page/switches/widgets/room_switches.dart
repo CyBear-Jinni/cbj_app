@@ -64,9 +64,6 @@ class RoomSwitches extends StatelessWidget {
                         color: Theme.of(context).textTheme.bodyText1!.color,
                       ),
                     ),
-                    const SizedBox(
-                      height: 3,
-                    ),
                     Container(
                       margin: const EdgeInsets.symmetric(vertical: 5),
                       width: sizeBoxWidth + 15,

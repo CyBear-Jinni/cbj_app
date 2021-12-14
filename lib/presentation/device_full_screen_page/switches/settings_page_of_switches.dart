@@ -4,6 +4,7 @@ import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class SettingsPageOfSwitches extends StatelessWidget {
   SettingsPageOfSwitches({required this.roomEntity}) {
@@ -25,7 +26,7 @@ class SettingsPageOfSwitches extends StatelessWidget {
         children: <Widget>[
           ListTile(
             leading: const CircleAvatar(
-              child: FaIcon(FontAwesomeIcons.flickr),
+              child: Icon(MdiIcons.lightSwitch),
             ),
             title: Text(
               'Name:_',

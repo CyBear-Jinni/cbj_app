@@ -8,7 +8,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class SmartBlindPage extends StatefulWidget {
   const SmartBlindPage(this.genericBlindBlind);
@@ -109,11 +109,11 @@ class _SmartBlindPage extends State<SmartBlindPage> {
             activeColor: const Color(0xFFFFDF5D),
             inactiveColor: Theme.of(context).primaryColorDark,
             activeIcon: const Icon(
-              FontAwesomeIcons.blind,
+              MdiIcons.blinds,
               color: Color(0xFFF8E3A1),
             ),
             inactiveIcon: Icon(
-              FontAwesomeIcons.blind,
+              MdiIcons.blinds,
               color: Theme.of(context).textTheme.bodyText1!.color,
             ),
             onToggle: (bool value) => _onChange(value),
