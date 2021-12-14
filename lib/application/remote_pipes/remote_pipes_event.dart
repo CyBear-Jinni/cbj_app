@@ -11,5 +11,6 @@ class RemotePipesEvent with _$RemotePipesEvent {
   const factory RemotePipesEvent.permissionChanged(String permission) =
       PermissionChanged;
 
-  const factory RemotePipesEvent.addRemotePipeUrl() = AddRemotePipeUrl;
+  const factory RemotePipesEvent.addRemotePipeUrl(BuildContext context) =
+      AddRemotePipeUrl;
 }

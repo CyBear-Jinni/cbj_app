@@ -65,9 +65,8 @@ class RemotePipesWidget extends StatelessWidget {
                     fontSize: 16.0,
                   );
                   context.read<RemotePipesBloc>().add(
-                        const RemotePipesEvent.addRemotePipeUrl(),
+                        RemotePipesEvent.addRemotePipeUrl(context),
                       );
-                  Navigator.pop(context);
                 },
                 child: const Text('Connect'),
               ),

@@ -59,12 +59,20 @@ class BlindsInTheRoom extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Expanded(child: Text('')),
-                const Expanded(
-                  child: CircleAvatar(
-                    child: FaIcon(
-                      FontAwesomeIcons.alignJustify,
-                      color: Colors.grey,
-                    ),
+                Expanded(
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 10),
+                      Transform.scale(
+                        scale: 1.2,
+                        child: const CircleAvatar(
+                          child: FaIcon(
+                            FontAwesomeIcons.alignJustify,
+                            color: Colors.grey,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 if (blindsInRoom!.length > 1)
@@ -99,6 +107,7 @@ class BlindsInTheRoom extends StatelessWidget {
                   const Expanded(child: Text('')),
               ],
             ),
+            const SizedBox(height: 5),
             if (blindsInRoom!.length == 1)
               Text(
                 blindsInRoom![0]!.defaultName.getOrCrash()!,

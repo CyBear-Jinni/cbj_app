@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 /// The widget to show all the switches in selected room
 class SwitchesInTheRoomWidget extends StatelessWidget {
@@ -33,7 +34,7 @@ class SwitchesInTheRoomWidget extends StatelessWidget {
           children: <Widget>[
             ListTile(
               leading: const CircleAvatar(
-                child: FaIcon(FontAwesomeIcons.flickr),
+                child: Icon(MdiIcons.lightSwitch),
 //                backgroundImage: AssetImage('assets/cbj_logo.png'),
 //              backgroundImage: AssetImage(products[index]['image']),
               ),

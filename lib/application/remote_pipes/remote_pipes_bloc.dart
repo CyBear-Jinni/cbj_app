@@ -2,7 +2,9 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:cybear_jinni/domain/remote_pipes/i_remote_pipes_repository.dart';
+import 'package:cybear_jinni/domain/remote_pipes/remote_pipes_entity.dart';
 import 'package:cybear_jinni/domain/remote_pipes/remote_pipes_value_objects.dart';
+import 'package:flutter/widgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -51,5 +53,16 @@ class RemotePipesBloc extends Bloc<RemotePipesEvent, RemotePipesState> {
   Future<void> _addRemotePipeUrl(
     AddRemotePipeUrl event,
     Emitter<RemotePipesState> emit,
-  ) async {}
+  ) async {
+    final RemotePipesEntity remotePipesEntity =
+        RemotePipesEntity.empty().copyWith(
+      domainName: RemotePipesDomain(
+        state.remotePipesDomainName.getOrCrash(),
+      ),
+    );
+
+    final remotePipesSetDomainResponse = await _remotePipesRepository
+        .setRemotePipesDomainName(remotePipesEntity);
+    Navigator.pop(event.context);
+  }
 }
