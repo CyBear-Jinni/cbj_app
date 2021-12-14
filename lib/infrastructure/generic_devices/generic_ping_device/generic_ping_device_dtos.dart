@@ -62,7 +62,7 @@ abstract class GenericPingDeviceDtos
   DeviceEntityAbstract toDomain() {
     return GenericPingDE(
       uniqueId: CoreUniqueId.fromUniqueString(id),
-      vendorUniqueId: VendorUniqueId(),
+      vendorUniqueId: VendorUniqueId.fromUniqueString(vendorUniqueId),
       defaultName: DeviceDefaultName(defaultName),
       deviceStateGRPC: DeviceState(deviceStateGRPC),
       stateMassage: DeviceStateMassage(stateMassage),
