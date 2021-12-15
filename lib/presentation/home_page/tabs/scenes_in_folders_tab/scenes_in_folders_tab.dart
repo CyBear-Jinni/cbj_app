@@ -50,12 +50,12 @@ class ScenesInFoldersTab extends StatelessWidget {
       children: <Widget>[
         TopNavigationBar(
           pageName: 'Scenes',
-          rightIcon: Icons.more_vert,
+          rightIcon: null,
           rightIconFunction: userCogFunction,
-          // leftIcon: FontAwesomeIcons.userCog,
-          // leftIconFunction: leftIconFunction,
-          rightSecondIcon: FontAwesomeIcons.search,
-          rightSecondFunction: rightSecondFunction,
+          leftIcon: FontAwesomeIcons.sitemap,
+          leftIconFunction: (BuildContext context) {},
+          // rightSecondIcon: FontAwesomeIcons.search,
+          // rightSecondFunction: rightSecondFunction,
         ),
         Expanded(
           child: BlocProvider(

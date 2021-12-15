@@ -27,7 +27,8 @@ class ChooseDeviceVendorToAddPage extends StatelessWidget {
           children: [
             TopNavigationBar(
               pageName: 'Add Service',
-              rightIcon: FontAwesomeIcons.search,
+              rightIcon: null,
+              // FontAwesomeIcons.search,
               rightIconFunction: backButtonFunction,
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
