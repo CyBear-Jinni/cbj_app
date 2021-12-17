@@ -20,7 +20,10 @@ class LightCard extends StatelessWidget {
           DeviceState(DeviceStateGRPC.waitingInFirebase.toString())
       ..lightSwitchState = GenericLightSwitchState(value.toString());
     context.read<LightToggleBloc>().add(
-          LightToggleEvent.changeAction(tempDeviceEntity, true),
+          LightToggleEvent.changeAction(
+            deviceEntity: tempDeviceEntity,
+            changeToState: true,
+          ),
         );
   }
 
