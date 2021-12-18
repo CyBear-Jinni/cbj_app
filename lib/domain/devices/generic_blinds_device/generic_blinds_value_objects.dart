@@ -7,7 +7,7 @@ class GenericBlindsSwitchState extends ValueObjectCore<String> {
   factory GenericBlindsSwitchState(String? input) {
     assert(input != null);
     return GenericBlindsSwitchState._(
-      validateGenericBlindsStateNotEmty(input!),
+      validateGenericBlindsStateNotEmpty(input!),
     );
   }
 
