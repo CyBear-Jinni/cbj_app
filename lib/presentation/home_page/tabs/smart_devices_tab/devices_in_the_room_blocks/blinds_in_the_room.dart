@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cybear_jinni/application/blinds/blinds_actor/blinds_actor_bloc.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/generic_blinds_device/generic_blinds_entity.dart';
@@ -40,6 +41,13 @@ class BlindsInTheRoom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String deviceText;
+    if (blindsInRoom!.length == 1) {
+      deviceText = blindsInRoom![0]!.defaultName.getOrCrash()!;
+    } else {
+      deviceText = '${roomEntity.defaultName.getOrCrash()} Blinds';
+    }
+
     return GestureDetector(
       onTap: () {
         context.router.push(
@@ -108,20 +116,13 @@ class BlindsInTheRoom extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 5),
-            if (blindsInRoom!.length == 1)
-              Text(
-                blindsInRoom![0]!.defaultName.getOrCrash()!,
-                style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyText1!.color,
-                ),
-              )
-            else
-              Text(
-                '${roomEntity.defaultName.getOrCrash()} Blinds',
-                style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyText1!.color,
-                ),
+            AutoSizeText(
+              deviceText,
+              maxLines: 1,
+              style: TextStyle(
+                color: Theme.of(context).textTheme.bodyText1!.color,
               ),
+            ),
             const SizedBox(
               height: 10,
             ),

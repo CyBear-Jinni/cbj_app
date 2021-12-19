@@ -10,8 +10,8 @@ final List<List<Color>> gradientColorsList = [
   GradientColors.sunset,
   GradientColors.sky,
   GradientColors.fire,
-  GradientColors.mango,
   GradientColors.new1,
+  GradientColors.mango,
 ];
 
 class GradientColors {

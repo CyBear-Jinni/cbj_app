@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cybear_jinni/application/switches/switches_actor/switches_actor_bloc.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/generic_switch_device/generic_switch_entity.dart';
@@ -40,6 +41,13 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String deviceText;
+    if (switchesInRoom.length == 1) {
+      deviceText = switchesInRoom[0].defaultName.getOrCrash()!;
+    } else {
+      deviceText = '${roomEntity.defaultName.getOrCrash()} Switches';
+    }
+
     return GestureDetector(
       onTap: () {
         context.router.push(
@@ -108,20 +116,13 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 5),
-            if (switchesInRoom.length == 1)
-              Text(
-                switchesInRoom[0].defaultName.getOrCrash()!,
-                style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyText1!.color,
-                ),
-              )
-            else
-              Text(
-                '${roomEntity.defaultName.getOrCrash()} Switches',
-                style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyText1!.color,
-                ),
+            AutoSizeText(
+              deviceText,
+              maxLines: 1,
+              style: TextStyle(
+                color: Theme.of(context).textTheme.bodyText1!.color,
               ),
+            ),
             const SizedBox(
               height: 10,
             ),

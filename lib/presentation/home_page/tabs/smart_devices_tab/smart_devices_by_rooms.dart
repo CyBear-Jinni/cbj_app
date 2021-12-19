@@ -59,6 +59,10 @@ class SmartDevicesByRooms extends StatelessWidget {
             }
           }
         }
+
+        if (tempDevicesByRooms[roomId]!.isEmpty) {
+          tempDevicesByRooms.remove(roomId);
+        }
         break;
       }
     }
@@ -224,14 +228,6 @@ class SmartDevicesByRooms extends StatelessWidget {
             if (state.devices.size != 0) {
               final Map<String?, List<DeviceEntityAbstract>>
                   tempDevicesByRooms = <String, List<DeviceEntityAbstract>>{};
-              //
-              // /// Organized list named tempDevicesByRooms of device by room id
-              // for (int i = 0; i < state.devices.size; i++) {
-              //   if (state.devices[i] == null) {
-              //     continue;
-              //   }
-              //   final DeviceEntityAbstract tempDevice = state.devices[i]!;
-              // }
 
               final List<DeviceEntityAbstract?> devicesList =
                   state.devices.iter.toList();
@@ -251,12 +247,15 @@ class SmartDevicesByRooms extends StatelessWidget {
                   devicesList: devicesList,
                 ),
               );
-              tempDevicesByRooms.addAll(
-                listOfDevicesInAllDevicesAndSummaryRooms(
-                  rooms: roomsList,
-                  devicesList: devicesList,
-                ),
-              );
+
+              if (roomsList.length > 2) {
+                tempDevicesByRooms.addAll(
+                  listOfDevicesInAllDevicesAndSummaryRooms(
+                    rooms: roomsList,
+                    devicesList: devicesList,
+                  ),
+                );
+              }
 
               final Map<String, Map<String, List<DeviceEntityAbstract>>>
                   tempDevicesByRoomsByType =
@@ -321,13 +320,7 @@ class SmartDevicesByRooms extends StatelessWidget {
                         gradientColorCounter++;
 
                         if (gradientColorCounter >= gradientColorsList.length) {
-                          gradientColorCounter = 3;
-                        }
-
-                        Color spacingColor = Colors.transparent;
-
-                        if (index >= roomsList.length - 3) {
-                          spacingColor = Colors.black;
+                          gradientColorCounter = 2;
                         }
 
                         List<Color> roomColorGradiant =
@@ -340,14 +333,27 @@ class SmartDevicesByRooms extends StatelessWidget {
                         //   roomColorGradiant = gradientColorsList[2];
                         // }
 
-                        /// Color for All Devices page
-                        if (index == roomsList.length - 3) {
-                          roomColorGradiant = gradientColorsList[1];
-                        }
+                        double bottomMargin = 10;
+                        double leftMargin = 0;
+                        double rightMargin = 0;
+                        double borderRadius = 5;
 
-                        /// Color for Summary page
-                        else if (index == roomsList.length - 2) {
-                          roomColorGradiant = gradientColorsList[0];
+                        if (index >= roomsList.length - 3) {
+                          leftMargin = 10;
+                          rightMargin = 10;
+                          bottomMargin = 15;
+                          borderRadius = 40;
+
+                          /// Color for All Devices page
+                          if (index == roomsList.length - 3) {
+                            roomColorGradiant = gradientColorsList[1];
+                          }
+
+                          /// Color for Summary page
+                          else if (index == roomsList.length - 2) {
+                            roomColorGradiant = gradientColorsList[0];
+                            bottomMargin = 0;
+                          }
                         }
 
                         final String roomId =
@@ -366,195 +372,208 @@ class SmartDevicesByRooms extends StatelessWidget {
                         });
 
                         return Container(
-                          color: spacingColor,
-                          child: Container(
-                            margin: const EdgeInsets.only(top: 5),
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: roomColorGradiant,
-                                begin: Alignment.bottomLeft,
-                                end: Alignment.topLeft,
-                              ),
-                              border: const Border.symmetric(
-                                horizontal: BorderSide(width: 0.3),
-                              ),
+                          margin: EdgeInsets.only(
+                            bottom: bottomMargin,
+                            left: leftMargin,
+                            right: rightMargin,
+                          ),
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: roomColorGradiant,
+                              begin: Alignment.bottomLeft,
+                              end: Alignment.topLeft,
                             ),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: Colors.black.withOpacity(0.1),
+                            // border: const Border.symmetric(
+                            //   horizontal: BorderSide(width: 0.3),
+                            // ),
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(borderRadius),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset: const Offset(
+                                  0,
+                                  3,
+                                ), // changes position of shadow
                               ),
-                              child: Column(
-                                children: [
-                                  Container(
-                                    margin: const EdgeInsets.only(top: 12),
-                                    alignment: Alignment.topCenter,
-                                    child: Text(
-                                      roomsList
-                                          .firstWhere(
+                            ],
+                          ),
+                          child: Container(
+                            padding: const EdgeInsets.all(3),
+                            margin: const EdgeInsets.all(3),
+                            decoration: BoxDecoration(
+                              color: Colors.black.withOpacity(0.2),
+                              borderRadius: BorderRadius.circular(borderRadius),
+                            ),
+                            child: Column(
+                              children: [
+                                Container(
+                                  margin: const EdgeInsets.only(top: 12),
+                                  alignment: Alignment.topCenter,
+                                  child: Text(
+                                    roomsList
+                                        .firstWhere(
+                                          (element) =>
+                                              element!.uniqueId.getOrCrash() ==
+                                              roomId,
+                                        )!
+                                        .defaultName
+                                        .getOrCrash(),
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      color: Theme.of(context)
+                                          .textTheme
+                                          .bodyText1!
+                                          .color,
+                                    ),
+                                  ),
+                                ),
+                                if (numberOfDevicesInTheRoom == 1)
+                                  Text(
+                                    '$numberOfDevicesInTheRoom device',
+                                    style: const TextStyle(fontSize: 12),
+                                  )
+                                else
+                                  Text(
+                                    '$numberOfDevicesInTheRoom devices',
+                                    style: const TextStyle(fontSize: 12),
+                                  ),
+
+                                /// Build the devices in the room by type
+                                GridView.builder(
+                                  padding: EdgeInsets.zero,
+                                  shrinkWrap: true,
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  gridDelegate:
+                                      const SliverGridDelegateWithMaxCrossAxisExtent(
+                                    maxCrossAxisExtent: 200,
+                                    childAspectRatio: 1.0,
+                                    crossAxisSpacing: 10,
+                                    mainAxisSpacing: 15,
+                                  ),
+                                  itemCount: tempDevicesByRoomsByType[roomId]!
+                                      .keys
+                                      .length,
+                                  itemBuilder: (BuildContext ctx, secondIndex) {
+                                    final String deviceType =
+                                        tempDevicesByRoomsByType[roomId]!
+                                            .keys
+                                            .elementAt(secondIndex);
+                                    if (deviceType ==
+                                        DeviceTypes.light.toString()) {
+                                      return BlocProvider(
+                                        create: (context) =>
+                                            getIt<LightsActorBloc>(),
+                                        child: LightsInTheRoomBlock
+                                            .withAbstractDevice(
+                                          roomEntity: roomEntity,
+                                          tempDeviceInRoom:
+                                              tempDevicesByRoomsByType[roomId]![
+                                                  deviceType]!,
+                                          tempRoomColorGradiant:
+                                              roomColorGradiant,
+                                        ),
+                                      );
+                                    } else if (deviceType ==
+                                        DeviceTypes.rgbwLights.toString()) {
+                                      return BlocProvider(
+                                        create: (context) =>
+                                            getIt<LightsActorBloc>(),
+                                        child: RgbwLightsInTheRoomBlock
+                                            .withAbstractDevice(
+                                          roomEntity: roomEntity,
+                                          tempDeviceInRoom:
+                                              tempDevicesByRoomsByType[roomId]![
+                                                  deviceType]!,
+                                          tempRoomColorGradiant:
+                                              roomColorGradiant,
+                                        ),
+                                      );
+                                    } else if (deviceType ==
+                                        DeviceTypes.switch_.toString()) {
+                                      return BlocProvider(
+                                        create: (context) =>
+                                            getIt<SwitchesActorBloc>(),
+                                        child: SwitchesInTheRoomBlock
+                                            .withAbstractDevice(
+                                          roomEntityTemp: roomsList.firstWhere(
                                             (element) =>
                                                 element!.uniqueId
                                                     .getOrCrash() ==
                                                 roomId,
-                                          )!
-                                          .defaultName
-                                          .getOrCrash(),
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        color: Theme.of(context)
-                                            .textTheme
-                                            .bodyText1!
-                                            .color,
-                                      ),
-                                    ),
-                                  ),
-                                  if (numberOfDevicesInTheRoom == 1)
-                                    Text(
-                                      '$numberOfDevicesInTheRoom device',
-                                      style: const TextStyle(fontSize: 12),
-                                    )
-                                  else
-                                    Text(
-                                      '$numberOfDevicesInTheRoom devices',
-                                      style: const TextStyle(fontSize: 12),
-                                    ),
-
-                                  /// Build the devices in the room by type
-                                  GridView.builder(
-                                    padding: EdgeInsets.zero,
-                                    shrinkWrap: true,
-                                    physics:
-                                        const NeverScrollableScrollPhysics(),
-                                    gridDelegate:
-                                        const SliverGridDelegateWithMaxCrossAxisExtent(
-                                      maxCrossAxisExtent: 200,
-                                      childAspectRatio: 1.4,
-                                      crossAxisSpacing: 8,
-                                      mainAxisSpacing: 20,
-                                    ),
-                                    itemCount: tempDevicesByRoomsByType[roomId]!
-                                        .keys
-                                        .length,
-                                    itemBuilder:
-                                        (BuildContext ctx, secondIndex) {
-                                      final String deviceType =
-                                          tempDevicesByRoomsByType[roomId]!
-                                              .keys
-                                              .elementAt(secondIndex);
-                                      if (deviceType ==
-                                          DeviceTypes.light.toString()) {
-                                        return BlocProvider(
-                                          create: (context) =>
-                                              getIt<LightsActorBloc>(),
-                                          child: LightsInTheRoomBlock
-                                              .withAbstractDevice(
-                                            roomEntity: roomEntity,
-                                            tempDeviceInRoom:
-                                                tempDevicesByRoomsByType[
-                                                    roomId]![deviceType]!,
-                                            tempRoomColorGradiant:
-                                                roomColorGradiant,
-                                          ),
-                                        );
-                                      } else if (deviceType ==
-                                          DeviceTypes.rgbwLights.toString()) {
-                                        return BlocProvider(
-                                          create: (context) =>
-                                              getIt<LightsActorBloc>(),
-                                          child: RgbwLightsInTheRoomBlock
-                                              .withAbstractDevice(
-                                            roomEntity: roomEntity,
-                                            tempDeviceInRoom:
-                                                tempDevicesByRoomsByType[
-                                                    roomId]![deviceType]!,
-                                            tempRoomColorGradiant:
-                                                roomColorGradiant,
-                                          ),
-                                        );
-                                      } else if (deviceType ==
-                                          DeviceTypes.switch_.toString()) {
-                                        return BlocProvider(
-                                          create: (context) =>
-                                              getIt<SwitchesActorBloc>(),
-                                          child: SwitchesInTheRoomBlock
-                                              .withAbstractDevice(
-                                            roomEntityTemp:
-                                                roomsList.firstWhere(
-                                              (element) =>
-                                                  element!.uniqueId
-                                                      .getOrCrash() ==
-                                                  roomId,
-                                            )!,
-                                            tempDeviceInRoom:
-                                                tempDevicesByRoomsByType[
-                                                    roomId]![deviceType]!,
-                                            tempRoomColorGradiant:
-                                                roomColorGradiant,
-                                          ),
-                                        );
-                                      } else if (deviceType ==
-                                          DeviceTypes.blinds.toString()) {
-                                        return BlocProvider(
-                                          create: (context) =>
-                                              getIt<BlindsActorBloc>(),
-                                          child: BlindsInTheRoom
-                                              .withAbstractDevice(
-                                            roomEntity: roomEntity,
-                                            tempDeviceInRoom:
-                                                tempDevicesByRoomsByType[
-                                                    roomId]![deviceType]!,
-                                            temprRoomColorGradiant:
-                                                roomColorGradiant,
-                                          ),
-                                        );
-                                      } else if (deviceType ==
-                                          DeviceTypes.boiler.toString()) {
-                                        //TODO: Boiler should not user Blinds block
-                                        return BlocProvider(
-                                          create: (context) =>
-                                              getIt<BlindsActorBloc>(),
-                                          child: BoilersInTheRoom
-                                              .withAbstractDevice(
-                                            roomEntity: roomEntity,
-                                            tempDeviceInRoom:
-                                                tempDevicesByRoomsByType[
-                                                    roomId]![deviceType]!,
-                                            tempRoomColorGradiant:
-                                                roomColorGradiant,
-                                          ),
-                                        );
-                                      } else if (deviceType ==
-                                          DeviceTypes.smartTV.toString()) {
-                                        return BlocProvider(
-                                          create: (context) =>
-                                              getIt<SmartTvActorBloc>(),
-                                          child: SmartTvInTheRoom
-                                              .withAbstractDevice(
-                                            roomEntity: roomEntity,
-                                            tempDeviceInRoom:
-                                                tempDevicesByRoomsByType[
-                                                    roomId]![deviceType]!,
-                                            tempRoomColorGradiant:
-                                                roomColorGradiant,
-                                          ),
-                                        );
-                                      }
-                                      return Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: const [
-                                          CircleAvatar(
-                                            child: FaIcon(
-                                              FontAwesomeIcons.lowVision,
-                                              color: Colors.red,
-                                            ),
-                                          ),
-                                          Text('Not Supported'),
-                                        ],
+                                          )!,
+                                          tempDeviceInRoom:
+                                              tempDevicesByRoomsByType[roomId]![
+                                                  deviceType]!,
+                                          tempRoomColorGradiant:
+                                              roomColorGradiant,
+                                        ),
                                       );
-                                    },
-                                  ),
-                                ],
-                              ),
+                                    } else if (deviceType ==
+                                        DeviceTypes.blinds.toString()) {
+                                      return BlocProvider(
+                                        create: (context) =>
+                                            getIt<BlindsActorBloc>(),
+                                        child:
+                                            BlindsInTheRoom.withAbstractDevice(
+                                          roomEntity: roomEntity,
+                                          tempDeviceInRoom:
+                                              tempDevicesByRoomsByType[roomId]![
+                                                  deviceType]!,
+                                          temprRoomColorGradiant:
+                                              roomColorGradiant,
+                                        ),
+                                      );
+                                    } else if (deviceType ==
+                                        DeviceTypes.boiler.toString()) {
+                                      //TODO: Boiler should not user Blinds block
+                                      return BlocProvider(
+                                        create: (context) =>
+                                            getIt<BlindsActorBloc>(),
+                                        child:
+                                            BoilersInTheRoom.withAbstractDevice(
+                                          roomEntity: roomEntity,
+                                          tempDeviceInRoom:
+                                              tempDevicesByRoomsByType[roomId]![
+                                                  deviceType]!,
+                                          tempRoomColorGradiant:
+                                              roomColorGradiant,
+                                        ),
+                                      );
+                                    } else if (deviceType ==
+                                        DeviceTypes.smartTV.toString()) {
+                                      return BlocProvider(
+                                        create: (context) =>
+                                            getIt<SmartTvActorBloc>(),
+                                        child:
+                                            SmartTvInTheRoom.withAbstractDevice(
+                                          roomEntity: roomEntity,
+                                          tempDeviceInRoom:
+                                              tempDevicesByRoomsByType[roomId]![
+                                                  deviceType]!,
+                                          tempRoomColorGradiant:
+                                              roomColorGradiant,
+                                        ),
+                                      );
+                                    }
+                                    return Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: const [
+                                        CircleAvatar(
+                                          child: FaIcon(
+                                            FontAwesomeIcons.lowVision,
+                                            color: Colors.red,
+                                          ),
+                                        ),
+                                        Text('Not Supported'),
+                                      ],
+                                    );
+                                  },
+                                ),
+                              ],
                             ),
                           ),
                         );
