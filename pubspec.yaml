@@ -39,6 +39,8 @@ dependencies:
   another_flushbar: ^1.10.28
   # Declarative routing solution, where everything needed for navigation is automatically generated for you.
   auto_route: ^3.2.0
+  # Automatically resizes text to fit perfectly within its bounds.
+  auto_size_text: ^3.0.0
   # Helps implement the BLoC pattern.
   bloc: ^8.0.1
   # Copy text from and to clipboard

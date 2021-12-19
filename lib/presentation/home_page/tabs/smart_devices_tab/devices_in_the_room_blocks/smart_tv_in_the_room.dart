@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/generic_smart_tv/generic_smart_tv_entity.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
@@ -36,6 +37,13 @@ class SmartTvInTheRoom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String deviceText;
+    if (smartTvsInRoom!.length == 1) {
+      deviceText = smartTvsInRoom![0].defaultName.getOrCrash()!;
+    } else {
+      deviceText = '${roomEntity.defaultName.getOrCrash()} SmartTvs';
+    }
+
     return GestureDetector(
       onTap: () {
         // context.router.push(RoomsSmartTvsRoute(
@@ -102,20 +110,13 @@ class SmartTvInTheRoom extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 10),
-            if (smartTvsInRoom!.length == 1)
-              Text(
-                smartTvsInRoom![0].defaultName.getOrCrash()!,
-                style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyText1!.color,
-                ),
-              )
-            else
-              Text(
-                '${roomEntity.defaultName.getOrCrash()} SmartTvs',
-                style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyText1!.color,
-                ),
+            AutoSizeText(
+              deviceText,
+              maxLines: 1,
+              style: TextStyle(
+                color: Theme.of(context).textTheme.bodyText1!.color,
               ),
+            )
           ],
         ),
       ),

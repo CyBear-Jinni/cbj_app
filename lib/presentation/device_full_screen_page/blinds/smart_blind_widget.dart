@@ -4,7 +4,6 @@ import 'package:cybear_jinni/domain/devices/generic_blinds_device/generic_blinds
 import 'package:cybear_jinni/domain/devices/generic_blinds_device/generic_blinds_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
