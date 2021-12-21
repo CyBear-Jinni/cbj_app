@@ -58,7 +58,9 @@ class SmartDevicesWidgets extends StatelessWidget {
       providers: [
         BlocProvider<DeviceWatcherBloc>(
           create: (context) => getIt<DeviceWatcherBloc>()
-            ..add(const DeviceWatcherEvent.watchAllStarted()),
+            ..add(
+              const DeviceWatcherEvent.watchAllStarted(),
+            ),
         ),
         BlocProvider<DeviceActorBloc>(
           create: (context) => getIt<DeviceActorBloc>(),

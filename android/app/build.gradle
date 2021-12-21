@@ -85,6 +85,6 @@ flutter {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-//    implementation 'com.android.support:multidex:1.0.3'
-    implementation 'com.google.firebase:firebase-analytics:17.5.0' // For firestore
+//    implementation 'com.android.support:multidex:2.0.1'
+    implementation 'com.google.firebase:firebase-analytics:18.0.3' // For firestore
 }
