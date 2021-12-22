@@ -40,6 +40,7 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
+    final Size screenSize = MediaQuery.of(context).size;
 
     final adState = Provider.of<AdState>(context);
     adState.initialization.then((status) {
@@ -50,7 +51,7 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
           banners.add(
             BannerAd(
               adUnitId: adState.bannerAdUnitId,
-              size: AdSize.banner,
+              size: AdSize(width: screenSize.width.toInt(), height: 60),
               request: const AdRequest(),
               listener: adState.adListener,
             )..load(),
@@ -290,9 +291,11 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
     if (objectList.length >= 3) {
       objectList = List<Object>.from(objectList.reversed);
 
-      for (int enterAd = 3; enterAd < objectList.length; enterAd += 3) {
-        if (enterAd ~/ 3 <= banners.length - 1) {
-          objectList.insert(enterAd, banners[enterAd ~/ 3]);
+      int adTempCounter = 0;
+      for (int enterAd = 3; enterAd < objectList.length; enterAd += 2) {
+        if (adTempCounter < banners.length) {
+          objectList.insert(enterAd + adTempCounter, banners[adTempCounter]);
+          adTempCounter++;
         }
       }
 
@@ -310,30 +313,31 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
       itemBuilder: (context, index) {
         final Object adOrRoom = objectList[index];
 
-        double bottomMargin = 10;
+        double bottomMargin = 15;
         double leftMargin = 0;
         double rightMargin = 0;
         double borderRadius = 5;
 
-        gradientColorCounter++;
-        if (gradientColorCounter >= gradientColorsList.length) {
-          gradientColorCounter = 2;
-        }
-
-        roomColorGradiant = gradientColorsList[gradientColorCounter];
-
         if (adOrRoom is BannerAd) {
           return Container(
-            height: 100,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: roomColorGradiant,
-                begin: Alignment.bottomLeft,
-                end: Alignment.topLeft,
-              ),
-            ),
-            margin: EdgeInsets.only(bottom: bottomMargin),
+            height: 60,
             width: double.infinity,
+            margin: EdgeInsets.only(bottom: bottomMargin),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(borderRadius),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 2,
+                  blurRadius: 5,
+                  offset: const Offset(
+                    0,
+                    3,
+                  ), // changes position of shadow
+                ),
+              ],
+            ),
             child: AdWidget(
               ad: adOrRoom,
             ),
@@ -341,6 +345,13 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
         }
         if (adOrRoom
             is MapEntry<String, Map<String, List<DeviceEntityAbstract>>>) {
+          gradientColorCounter++;
+          if (gradientColorCounter >= gradientColorsList.length) {
+            gradientColorCounter = 2;
+          }
+
+          roomColorGradiant = gradientColorsList[gradientColorCounter];
+
           /// Color for Discovered room
           // TODO: After adding 4 more colors to
           // gradientColorsList uncomment this section

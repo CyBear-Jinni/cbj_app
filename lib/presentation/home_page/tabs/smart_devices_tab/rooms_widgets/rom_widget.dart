@@ -61,7 +61,7 @@ class RoomWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(borderRadius),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
+            color: Colors.black.withOpacity(0.6),
             spreadRadius: 2,
             blurRadius: 5,
             offset: const Offset(
@@ -82,17 +82,36 @@ class RoomWidget extends StatelessWidget {
             Container(
               margin: const EdgeInsets.only(top: 12),
               alignment: Alignment.topCenter,
-              child: Text(
-                roomsList
-                    .firstWhere(
-                      (element) => element!.uniqueId.getOrCrash() == roomId,
-                    )!
-                    .defaultName
-                    .getOrCrash(),
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Theme.of(context).textTheme.bodyText1!.color,
-                ),
+              child: Stack(
+                children: <Widget>[
+                  Text(
+                    roomsList
+                        .firstWhere(
+                          (element) => element!.uniqueId.getOrCrash() == roomId,
+                        )!
+                        .defaultName
+                        .getOrCrash(),
+                    style: TextStyle(
+                      fontSize: 20,
+                      foreground: Paint()
+                        ..style = PaintingStyle.stroke
+                        ..strokeWidth = 2
+                        ..color = Colors.black.withOpacity(0.2),
+                    ),
+                  ),
+                  Text(
+                    roomsList
+                        .firstWhere(
+                          (element) => element!.uniqueId.getOrCrash() == roomId,
+                        )!
+                        .defaultName
+                        .getOrCrash(),
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Theme.of(context).textTheme.bodyText1!.color,
+                    ),
+                  ),
+                ],
               ),
             ),
             if (numberOfDevicesInTheRoom == 1)
