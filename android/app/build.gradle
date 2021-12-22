@@ -46,7 +46,7 @@ android {
     defaultConfig {
         applicationId "com.cybear_jinni.smart_home"
         minSdkVersion 19
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         multiDexEnabled true    //  Enable multidex for apps with over 64K methods
