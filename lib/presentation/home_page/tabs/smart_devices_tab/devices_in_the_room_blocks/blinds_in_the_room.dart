@@ -115,12 +115,26 @@ class BlindsInTheRoom extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 5),
-            AutoSizeText(
-              deviceText,
-              maxLines: 1,
-              style: TextStyle(
-                color: Theme.of(context).textTheme.bodyText1!.color,
-              ),
+            Stack(
+              children: <Widget>[
+                AutoSizeText(
+                  deviceText,
+                  maxLines: 1,
+                  style: TextStyle(
+                    foreground: Paint()
+                      ..style = PaintingStyle.stroke
+                      ..strokeWidth = 0.8
+                      ..color = Colors.black38,
+                  ),
+                ),
+                AutoSizeText(
+                  deviceText,
+                  maxLines: 1,
+                  style: TextStyle(
+                    color: Theme.of(context).textTheme.bodyText1!.color,
+                  ),
+                ),
+              ],
             ),
             const SizedBox(
               height: 10,
