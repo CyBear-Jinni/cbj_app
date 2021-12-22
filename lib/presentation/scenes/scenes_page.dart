@@ -58,12 +58,12 @@ class ScenesPage extends StatelessWidget {
           children: [
             TopNavigationBar(
               pageName: 'Scenes in folder',
-              rightIcon: Icons.more_vert,
+              rightIcon: null,
               rightIconFunction: userCogFunction,
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: leftIconFunction,
-              rightSecondIcon: FontAwesomeIcons.search,
-              rightSecondFunction: () {},
+              // rightSecondIcon: FontAwesomeIcons.search,
+              // rightSecondFunction: () {},
             ),
             Expanded(
               child: BlocProvider(

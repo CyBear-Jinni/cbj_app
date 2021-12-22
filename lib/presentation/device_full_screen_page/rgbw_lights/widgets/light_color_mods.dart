@@ -1,12 +1,14 @@
 import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
 import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:provider/src/provider.dart';
 
 class LightColorMods extends StatefulWidget {
-  LightColorMods({required this.state, required this.deviceEntity});
+  LightColorMods({
+    required this.state,
+    required this.deviceEntity,
+  });
 
   final LightToggleState state;
   final GenericRgbwLightDE deviceEntity;
@@ -23,6 +25,17 @@ class _LightColorMods extends State<LightColorMods> {
 
   late LightToggleState _state;
   late GenericRgbwLightDE _deviceEntity;
+
+  @override
+  void initState() {
+    super.initState();
+
+    context.read<LightToggleBloc>().add(
+          LightToggleEvent.initialized(
+            rgbwLightDe: widget.deviceEntity,
+          ),
+        );
+  }
 
   Widget getWhiteModeWidget() {
     return Container(
@@ -47,8 +60,8 @@ class _LightColorMods extends State<LightColorMods> {
         onChanged: (double newRating) {
           context.read<LightToggleBloc>().add(
                 LightToggleEvent.changeColorTemperature(
-                  _deviceEntity,
-                  newRating.toInt(),
+                  deviceEntity: _deviceEntity,
+                  newColorTemperature: newRating.toInt(),
                 ),
               );
         },
@@ -65,8 +78,8 @@ class _LightColorMods extends State<LightColorMods> {
         (HSVColor color) {
           context.read<LightToggleBloc>().add(
                 LightToggleEvent.changeHsvColor(
-                  _deviceEntity,
-                  color,
+                  deviceEntity: _deviceEntity,
+                  newHsvColor: color,
                 ),
               );
         },

@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/generic_boiler_device/generic_boiler_entity.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
@@ -38,6 +39,13 @@ class BoilersInTheRoom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String deviceText;
+    if (boilersInRoom!.length == 1) {
+      deviceText = boilersInRoom![0].defaultName.getOrCrash()!;
+    } else {
+      deviceText = '${roomEntity.defaultName.getOrCrash()} Boilers';
+    }
+
     return GestureDetector(
       onTap: () {
         context.router.push(
@@ -108,20 +116,27 @@ class BoilersInTheRoom extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            if (boilersInRoom!.length == 1)
-              Text(
-                boilersInRoom![0].defaultName.getOrCrash()!,
-                style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyText1!.color,
+            Stack(
+              children: <Widget>[
+                AutoSizeText(
+                  deviceText,
+                  maxLines: 1,
+                  style: TextStyle(
+                    foreground: Paint()
+                      ..style = PaintingStyle.stroke
+                      ..strokeWidth = 0.8
+                      ..color = Colors.black38,
+                  ),
                 ),
-              )
-            else
-              Text(
-                '${roomEntity.defaultName.getOrCrash()} Boilers',
-                style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyText1!.color,
+                AutoSizeText(
+                  deviceText,
+                  maxLines: 1,
+                  style: TextStyle(
+                    color: Theme.of(context).textTheme.bodyText1!.color,
+                  ),
                 ),
-              ),
+              ],
+            ),
             const SizedBox(
               height: 5,
             ),

@@ -58,7 +58,9 @@ class SmartDevicesWidgets extends StatelessWidget {
       providers: [
         BlocProvider<DeviceWatcherBloc>(
           create: (context) => getIt<DeviceWatcherBloc>()
-            ..add(const DeviceWatcherEvent.watchAllStarted()),
+            ..add(
+              const DeviceWatcherEvent.watchAllStarted(),
+            ),
         ),
         BlocProvider<DeviceActorBloc>(
           create: (context) => getIt<DeviceActorBloc>(),
@@ -103,10 +105,10 @@ class SmartDevicesWidgets extends StatelessWidget {
               pageName: 'Devices',
               rightIcon: Icons.more_vert,
               rightIconFunction: userCogFunction,
-              // leftIcon: FontAwesomeIcons.userCog,
-              // leftIconFunction: leftIconFunction,
-              rightSecondIcon: FontAwesomeIcons.search,
-              rightSecondFunction: rightSecondFunction,
+              leftIcon: FontAwesomeIcons.solidLightbulb,
+              leftIconFunction: (BuildContext context) {},
+              // rightSecondIcon: FontAwesomeIcons.search,
+              // rightSecondFunction: rightSecondFunction,
             ),
             Expanded(
               child: SmartDevicesByRooms(),

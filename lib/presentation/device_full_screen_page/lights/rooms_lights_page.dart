@@ -97,12 +97,10 @@ class RoomsLightsPage extends StatelessWidget {
               children: [
                 TopNavigationBar(
                   pageName: 'Lights',
-                  rightIcon: Icons.more_vert,
+                  rightIcon: null,
                   rightIconFunction: cogFunction,
                   leftIcon: FontAwesomeIcons.arrowLeft,
                   leftIconFunction: backButtonFunction,
-                  rightSecondIcon: FontAwesomeIcons.search,
-                  rightSecondFunction: () {},
                 ),
                 Expanded(
                   child: RoomsLightsWidget(
