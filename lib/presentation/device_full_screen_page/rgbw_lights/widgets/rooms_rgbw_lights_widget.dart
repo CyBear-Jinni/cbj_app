@@ -35,30 +35,37 @@ class RoomsRgbwLightsWidget extends StatelessWidget {
               final Map<String, List<DeviceEntityAbstract>> tempDevicesByRooms =
                   <String, List<DeviceEntityAbstract>>{};
 
-              for (int i = 0; i < state.devices.size; i++) {
-                final DeviceEntityAbstract tempDevice = state.devices[i]!;
-                if (roomEntity.uniqueId.getOrCrash() != null) {
-                  if (roomEntity.uniqueId.getOrCrash() ==
-                      roomEntity.uniqueId.getOrCrash()) {
-                    if (tempDevicesByRooms[roomEntity.uniqueId.getOrCrash()] ==
-                        null) {
-                      tempDevicesByRooms[roomEntity.uniqueId.getOrCrash()] = [
-                        tempDevice
-                      ];
+              /// Go on all the devices and find only the devices that exist
+              /// in this room
+              if (roomEntity != null) {
+                final String roomId = roomEntity.uniqueId.getOrCrash();
+                for (final DeviceEntityAbstract? deviceEntityAbstract
+                    in state.devices.iter) {
+                  if (deviceEntityAbstract == null) {
+                    continue;
+                  }
+                  final int indexOfDeviceInRoom = roomEntity.roomDevicesId
+                      .getOrCrash()
+                      .indexWhere((element) {
+                    return element ==
+                        deviceEntityAbstract.uniqueId.getOrCrash();
+                  });
+                  if (indexOfDeviceInRoom != -1) {
+                    if (tempDevicesByRooms[roomId] == null) {
+                      tempDevicesByRooms[roomId] = [deviceEntityAbstract];
                     } else {
-                      tempDevicesByRooms[roomEntity.uniqueId.getOrCrash()]!
-                          .add(tempDevice);
+                      tempDevicesByRooms[roomId]!.add(deviceEntityAbstract);
                     }
                   }
-                } else {
-                  if (tempDevicesByRooms[roomEntity.uniqueId.getOrCrash()] ==
-                      null) {
-                    tempDevicesByRooms[roomEntity.uniqueId.getOrCrash()] = [
-                      tempDevice
-                    ];
+                }
+              } else {
+                const String tempRoomId = 'All Rooms';
+                for (final DeviceEntityAbstract? deviceEntityAbstract
+                    in state.devices.iter) {
+                  if (tempDevicesByRooms[tempRoomId] == null) {
+                    tempDevicesByRooms[tempRoomId] = [deviceEntityAbstract!];
                   } else {
-                    tempDevicesByRooms[roomEntity.uniqueId.getOrCrash()]!
-                        .add(tempDevice);
+                    tempDevicesByRooms[tempRoomId]!.add(deviceEntityAbstract!);
                   }
                 }
               }

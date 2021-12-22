@@ -1,4 +1,5 @@
 import 'package:cybear_jinni/application/blinds/blinds_actor/blinds_actor_bloc.dart';
+import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/generic_blinds_device/generic_blinds_entity.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/blinds/widgets/blind_widget.dart';
@@ -18,7 +19,7 @@ class RoomBlinds extends StatelessWidget {
     this.maxLightsToShow = 4,
   });
 
-  final KtList<GenericBlindsDE> _deviceEntityList;
+  final KtList<DeviceEntityAbstract> _deviceEntityList;
 
   final int maxLightsToShow;
 
@@ -39,7 +40,11 @@ class RoomBlinds extends StatelessWidget {
       final int _numberOfBlindsToShow = _deviceEntityList.size;
 
       for (int i = 0; i < _numberOfBlindsToShow; i++) {
-        final GenericBlindsDE deviceEntityTemp = _deviceEntityList[i];
+        GenericBlindsDE deviceEntityTemp;
+        if (_deviceEntityList[i] is! GenericBlindsDE) {
+          continue;
+        }
+        deviceEntityTemp = _deviceEntityList[i] as GenericBlindsDE;
 
         columnOfLights.add(
           Column(

@@ -4,7 +4,6 @@ import 'package:cybear_jinni/domain/devices/generic_switch_device/generic_switch
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/switches/widgets/error_switches_device_card_widget.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/switches/widgets/switches_widget.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';

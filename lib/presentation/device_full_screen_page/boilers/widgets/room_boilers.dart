@@ -1,4 +1,5 @@
 import 'package:cybear_jinni/application/boilers/boilers_actor/boilers_actor_bloc.dart';
+import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/generic_boiler_device/generic_boiler_entity.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/boilers/widgets/boilers_widget.dart';
@@ -19,7 +20,7 @@ class RoomBoilers extends StatelessWidget {
     this.maxBoilersToShow = 4,
   });
 
-  final KtList<GenericBoilerDE?>? _deviceEntityList;
+  final KtList<DeviceEntityAbstract?>? _deviceEntityList;
 
   final int? maxBoilersToShow;
 
@@ -46,8 +47,15 @@ class RoomBoilers extends StatelessWidget {
       for (int i = 0; i < _numberOfBoilersToShow!; i += _maxBoilersInRow!) {
         for (int v = 0; v < _maxBoilersInRow!; v++) {
           if (_deviceEntityList!.size > i + v) {
-            final GenericBoilerDE? deviceEntityTemp = _deviceEntityList![i + v];
-            if (deviceEntityTemp!.failureOption.isSome()) {
+            final GenericBoilerDE? deviceEntityTemp;
+
+            if (_deviceEntityList![i + v] is! GenericBoilerDE) {
+              continue;
+            }
+
+            deviceEntityTemp = _deviceEntityList![i + v]! as GenericBoilerDE;
+
+            if (deviceEntityTemp.failureOption.isSome()) {
               widgetsForRow!
                   .add(ErrorBoilersDeviceCard(device: deviceEntityTemp));
             } else {
