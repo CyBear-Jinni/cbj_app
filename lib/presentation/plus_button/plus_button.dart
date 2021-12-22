@@ -1,132 +1,202 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/presentation/add_new_devices_process/choose_device_vendor_to_add/choose_device_vendor_to_add_page.dart';
+import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class PlusButtonPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    const double borderRadius = 5;
-
     return Scaffold(
       appBar: AppBar(
-        title: const Text('What To Add'),
+        title: const Text('Add and Manage'),
+        backgroundColor: Colors.purple.withOpacity(0.7),
       ),
       backgroundColor: Colors.black.withOpacity(0.7),
-      body: Column(
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.green,
-              borderRadius:
-                  const BorderRadius.all(Radius.circular(borderRadius)),
-              border: Border.all(
-                color: Colors.black.withOpacity(0.7),
-                width: 0.4,
-              ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 30,
             ),
-            margin: const EdgeInsets.symmetric(vertical: 3, horizontal: 5),
-            child: TextButton(
-              style: ButtonStyle(
-                padding: MaterialStateProperty.all<EdgeInsets>(
-                  EdgeInsets.zero,
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              alignment: Alignment.topLeft,
+              child: const Text(
+                'Add:',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
                 ),
               ),
-              onPressed: () {
-                Fluttertoast.showToast(
-                  msg: 'Currently there is no way to add Scenes',
-                  toastLength: Toast.LENGTH_SHORT,
-                  gravity: ToastGravity.SNACKBAR,
-                  backgroundColor: Colors.lightBlue,
-                  textColor: Theme.of(context).textTheme.bodyText1!.color,
-                  fontSize: 16.0,
-                );
-                // context.router.push(
-                //   ScenesRoute(
-                //     folderOfScenes: folderOfScenes.fold((l) => null!, (r) => r),
-                //   ),
-                // );
-              },
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Container(
+              color: Colors.white,
               child: Column(
                 children: [
                   const SizedBox(
-                    height: 130,
+                    height: 1,
                   ),
                   Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: Colors.black.withOpacity(0.7),
-                      borderRadius: const BorderRadius.only(
-                        bottomRight: Radius.circular(borderRadius),
-                        bottomLeft: Radius.circular(borderRadius),
-                      ),
-                    ),
-                    child: Text(
-                      'New Scene',
-                      style: TextStyle(
+                    color: Colors.purple.withOpacity(0.7),
+                    child: ListTile(
+                      leading: FaIcon(
+                        FontAwesomeIcons.sitemap,
                         color: Theme.of(context).textTheme.bodyText1!.color,
-                        fontSize: 30,
+                        size: 25,
                       ),
-                      textAlign: TextAlign.center,
+                      title: Text(
+                        'Add Scene',
+                        style: TextStyle(
+                          color: Theme.of(context).textTheme.bodyText1!.color,
+                        ),
+                      ),
+                      onTap: () {
+                        Fluttertoast.showToast(
+                          msg: 'Currently adding Scenes is not supported',
+                          toastLength: Toast.LENGTH_SHORT,
+                          gravity: ToastGravity.SNACKBAR,
+                          backgroundColor: Colors.lightBlue,
+                          textColor:
+                              Theme.of(context).textTheme.bodyText1!.color,
+                          fontSize: 16.0,
+                        );
+                      },
                     ),
+                  ),
+                  const SizedBox(
+                    height: 1,
+                  ),
+                  Container(
+                    color: Colors.redAccent.withOpacity(0.9),
+                    child: ListTile(
+                      leading: FaIcon(
+                        FontAwesomeIcons.solidLightbulb,
+                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        size: 25,
+                      ),
+                      title: Text(
+                        'Add Device',
+                        style: TextStyle(
+                          color: Theme.of(context).textTheme.bodyText1!.color,
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                ChooseDeviceVendorToAddPage(),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 1,
+                  ),
+                  Container(
+                    color: Colors.blue,
+                    child: ListTile(
+                      leading: FaIcon(
+                        FontAwesomeIcons.globe,
+                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        size: 25,
+                      ),
+                      title: Text(
+                        'Add Remote Control Support',
+                        style: TextStyle(
+                          color: Theme.of(context).textTheme.bodyText1!.color,
+                        ),
+                      ),
+                      onTap: () {
+                        context.router.push(const RemotePipesRoute());
+                      },
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 1,
                   ),
                 ],
               ),
             ),
-          ),
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.red,
-              borderRadius:
-                  const BorderRadius.all(Radius.circular(borderRadius)),
-              border: Border.all(
-                color: Colors.black.withOpacity(0.7),
-                width: 0.4,
-              ),
+            const SizedBox(
+              height: 40,
             ),
-            margin: const EdgeInsets.symmetric(vertical: 3, horizontal: 5),
-            child: TextButton(
-              style: ButtonStyle(
-                padding: MaterialStateProperty.all<EdgeInsets>(
-                  EdgeInsets.zero,
+            Container(
+              alignment: Alignment.topLeft,
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: const Text(
+                'Manage:',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
                 ),
               ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (BuildContext context) =>
-                        ChooseDeviceVendorToAddPage(),
-                  ),
-                );
-              },
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Container(
+              color: Colors.white,
               child: Column(
                 children: [
                   const SizedBox(
-                    height: 130,
+                    height: 1,
                   ),
                   Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: Colors.black.withOpacity(0.7),
-                      borderRadius: const BorderRadius.only(
-                        bottomRight: Radius.circular(borderRadius),
-                        bottomLeft: Radius.circular(borderRadius),
-                      ),
-                    ),
-                    child: Text(
-                      'New Device',
-                      style: TextStyle(
+                    color: Colors.orangeAccent,
+                    child: ListTile(
+                      leading: FaIcon(
+                        FontAwesomeIcons.info,
                         color: Theme.of(context).textTheme.bodyText1!.color,
-                        fontSize: 30,
+                        size: 25,
                       ),
-                      textAlign: TextAlign.center,
+                      title: Text(
+                        'Software Info',
+                        style: TextStyle(
+                          color: Theme.of(context).textTheme.bodyText1!.color,
+                        ),
+                      ),
+                      onTap: () {
+                        context.router.push(const SoftwareInfoRoute());
+                      },
                     ),
+                  ),
+                  const SizedBox(
+                    height: 1,
+                  ),
+                  Container(
+                    color: Colors.greenAccent,
+                    child: ListTile(
+                      leading: FaIcon(
+                        FontAwesomeIcons.signOutAlt,
+                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        size: 25,
+                      ),
+                      title: Text(
+                        'Log Out',
+                        style: TextStyle(
+                          color: Theme.of(context).textTheme.bodyText1!.color,
+                        ),
+                      ),
+                      onTap: () {
+                        context.router.replace(const ConnectToHubRoute());
+                      },
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 1,
                   ),
                 ],
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
+import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -16,8 +17,8 @@ part 'light_toggle_state.dart';
 @injectable
 class LightToggleBloc extends Bloc<LightToggleEvent, LightToggleState> {
   LightToggleBloc(this._deviceRepository) : super(LightToggleState.initial()) {
-    on<CreateDevice>(_create);
-    on<ChangeState>(_changeAction);
+    on<Initialized>(_initialized);
+    on<ChangeState>(_changeState);
     on<ChangeColorTemperature>(_changeColorTemperature);
     on<ChangeHsvColor>(_changeHsvColor);
     on<ChangeBrightness>(_changeBrightness);
@@ -25,14 +26,35 @@ class LightToggleBloc extends Bloc<LightToggleEvent, LightToggleState> {
 
   final IDeviceRepository _deviceRepository;
 
-  Future<void> _create(
-    CreateDevice event,
+  Future<void> _initialized(
+    Initialized event,
     Emitter<LightToggleState> emit,
   ) async {
-    final actionResult = await _deviceRepository.create(event.deviceEntity);
+    final GenericRgbwLightDE rgbwLightDe = event.rgbwLightDe;
+
+    int lightColorTemperature =
+        int.parse(rgbwLightDe.lightColorTemperature.getOrCrash());
+
+    if (lightColorTemperature > 10000) {
+      lightColorTemperature = 10000;
+    }
+
+    double lightBrightness =
+        double.parse(rgbwLightDe.lightBrightness.getOrCrash());
+
+    if (lightBrightness > 100) {
+      lightBrightness = 100;
+    }
+
+    emit(
+      state.copyWith(
+        colorTemperature: lightColorTemperature,
+        brightness: lightBrightness,
+      ),
+    );
   }
 
-  Future<void> _changeAction(
+  Future<void> _changeState(
     ChangeState event,
     Emitter<LightToggleState> emit,
   ) async {

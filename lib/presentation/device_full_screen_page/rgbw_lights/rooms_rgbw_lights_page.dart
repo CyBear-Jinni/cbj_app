@@ -96,12 +96,10 @@ class RoomsRgbwLightsPage extends StatelessWidget {
               children: [
                 TopNavigationBar(
                   pageName: 'RGBw Lights',
-                  rightIcon: Icons.more_vert,
+                  rightIcon: null,
                   rightIconFunction: cogFunction,
                   leftIcon: FontAwesomeIcons.arrowLeft,
                   leftIconFunction: backButtonFunction,
-                  rightSecondIcon: FontAwesomeIcons.search,
-                  rightSecondFunction: () {},
                   backgroundColor: roomColorGradiant!.last,
                 ),
                 Expanded(

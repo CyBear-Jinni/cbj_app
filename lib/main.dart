@@ -1,3 +1,4 @@
+import 'package:cybear_jinni/ad_state.dart';
 import 'package:cybear_jinni/domain/local_db/i_local_db_repository.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/core/app_widget.dart';
@@ -6,6 +7,8 @@ import 'package:dartz/dartz.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 
 /// Streams are created so that app can respond to notification-related events
@@ -39,6 +42,9 @@ Future<Unit> main() async {
 
   // needed if you intend to initialize in the `main` function
   WidgetsFlutterBinding.ensureInitialized();
+  final initFuture = MobileAds.instance.initialize();
+  final adState = AdState(initFuture);
+
   await EasyLocalization.ensureInitialized();
 //  debugPaintSizeEnabled = true;
 
@@ -77,7 +83,10 @@ Future<Unit> main() async {
       ],
       path: 'assets/translations', // <-- change patch to your
       fallbackLocale: const Locale('en', 'US'),
-      child: AppWidget(),
+      child: Provider.value(
+        value: adState,
+        builder: (context, child) => AppWidget(),
+      ),
     ),
   );
   return unit;

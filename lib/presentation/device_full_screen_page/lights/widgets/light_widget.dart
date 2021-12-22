@@ -16,7 +16,10 @@ class LightWidget extends StatelessWidget {
 
   void _onChange(BuildContext context, bool value) {
     context.read<LightToggleBloc>().add(
-          LightToggleEvent.changeAction(_deviceEntity!, value),
+          LightToggleEvent.changeAction(
+            deviceEntity: _deviceEntity!,
+            changeToState: value,
+          ),
         );
   }
 

@@ -65,7 +65,7 @@ class RemotePipesPage extends StatelessWidget {
               children: [
                 TopNavigationBar(
                   pageName: 'Remote Pipes',
-                  rightIcon: Icons.more_vert,
+                  rightIcon: null,
                   rightIconFunction: userCogFunction,
                   leftIcon: FontAwesomeIcons.arrowLeft,
                   leftIconFunction: leftIconFunction,
