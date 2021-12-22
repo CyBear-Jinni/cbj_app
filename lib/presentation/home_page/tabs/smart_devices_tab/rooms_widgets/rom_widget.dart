@@ -92,11 +92,11 @@ class RoomWidget extends StatelessWidget {
                         .defaultName
                         .getOrCrash(),
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 23,
                       foreground: Paint()
                         ..style = PaintingStyle.stroke
-                        ..strokeWidth = 2
-                        ..color = Colors.black.withOpacity(0.2),
+                        ..strokeWidth = 1.2
+                        ..color = Colors.black,
                     ),
                   ),
                   Text(
@@ -107,7 +107,7 @@ class RoomWidget extends StatelessWidget {
                         .defaultName
                         .getOrCrash(),
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 23,
                       color: Theme.of(context).textTheme.bodyText1!.color,
                     ),
                   ),
