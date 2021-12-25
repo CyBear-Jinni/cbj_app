@@ -14,11 +14,12 @@ import 'package:kt_dart/collection.dart';
 /// Show boiler toggles in a container with the background color from smart room
 /// object
 class RoomBoilers extends StatelessWidget {
-  const RoomBoilers(this._deviceEntityList,
-      this._gradientColor,
-      this._roomEntity, {
-        this.maxBoilersToShow = 4,
-      });
+  const RoomBoilers(
+    this._deviceEntityList,
+    this._gradientColor,
+    this._roomEntity, {
+    this.maxBoilersToShow = 4,
+  });
 
   final KtList<DeviceEntityAbstract?>? _deviceEntityList;
 
@@ -40,9 +41,9 @@ class RoomBoilers extends StatelessWidget {
       List<Widget>? widgetsForRow = <Widget>[];
 
       final int? _numberOfBoilersToShow =
-      _deviceEntityList!.size > maxBoilersToShow!
-          ? maxBoilersToShow
-          : _deviceEntityList!.size;
+          _deviceEntityList!.size > maxBoilersToShow!
+              ? maxBoilersToShow
+              : _deviceEntityList!.size;
 
       for (int i = 0; i < _numberOfBoilersToShow!; i += _maxBoilersInRow!) {
         for (int v = 0; v < _maxBoilersInRow!; v++) {

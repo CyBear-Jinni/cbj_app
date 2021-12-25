@@ -13,11 +13,12 @@ import 'package:kt_dart/collection.dart';
 /// Show light toggles in a container with the background color from smart room
 /// object
 class RoomBlinds extends StatelessWidget {
-  const RoomBlinds(this._deviceEntityList,
-      this._gradientColor,
-      this._roomEntity, {
-        this.maxLightsToShow = 4,
-      });
+  const RoomBlinds(
+    this._deviceEntityList,
+    this._gradientColor,
+    this._roomEntity, {
+    this.maxLightsToShow = 4,
+  });
 
   final KtList<DeviceEntityAbstract> _deviceEntityList;
 
