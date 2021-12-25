@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppWidget extends StatelessWidget {
-  final _rootRouter = AppRouter();
+  static final _rootRouter = AppRouter();
 
   MaterialColor createMaterialColor(Color color) {
     final List<double> strengths = <double>[.05];
