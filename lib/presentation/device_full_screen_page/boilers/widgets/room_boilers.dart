@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cybear_jinni/application/boilers/boilers_actor/boilers_actor_bloc.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/generic_boiler_device/generic_boiler_entity.dart';
@@ -13,12 +14,11 @@ import 'package:kt_dart/collection.dart';
 /// Show boiler toggles in a container with the background color from smart room
 /// object
 class RoomBoilers extends StatelessWidget {
-  const RoomBoilers(
-    this._deviceEntityList,
-    this._gradientColor,
-    this._roomEntity, {
-    this.maxBoilersToShow = 4,
-  });
+  const RoomBoilers(this._deviceEntityList,
+      this._gradientColor,
+      this._roomEntity, {
+        this.maxBoilersToShow = 4,
+      });
 
   final KtList<DeviceEntityAbstract?>? _deviceEntityList;
 
@@ -40,9 +40,9 @@ class RoomBoilers extends StatelessWidget {
       List<Widget>? widgetsForRow = <Widget>[];
 
       final int? _numberOfBoilersToShow =
-          _deviceEntityList!.size > maxBoilersToShow!
-              ? maxBoilersToShow
-              : _deviceEntityList!.size;
+      _deviceEntityList!.size > maxBoilersToShow!
+          ? maxBoilersToShow
+          : _deviceEntityList!.size;
 
       for (int i = 0; i < _numberOfBoilersToShow!; i += _maxBoilersInRow!) {
         for (int v = 0; v < _maxBoilersInRow!; v++) {
@@ -62,8 +62,9 @@ class RoomBoilers extends StatelessWidget {
               widgetsForRow!.add(
                 Column(
                   children: [
-                    Text(
+                    AutoSizeText(
                       deviceEntityTemp.defaultName.getOrCrash()!,
+                      maxLines: 1,
                       style: TextStyle(
                         fontSize: 19.0,
                         color: Theme.of(context).textTheme.bodyText1!.color,

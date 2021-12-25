@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cybear_jinni/application/blinds/blinds_actor/blinds_actor_bloc.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/generic_blinds_device/generic_blinds_entity.dart';
@@ -12,12 +13,11 @@ import 'package:kt_dart/collection.dart';
 /// Show light toggles in a container with the background color from smart room
 /// object
 class RoomBlinds extends StatelessWidget {
-  const RoomBlinds(
-    this._deviceEntityList,
-    this._gradientColor,
-    this._roomEntity, {
-    this.maxLightsToShow = 4,
-  });
+  const RoomBlinds(this._deviceEntityList,
+      this._gradientColor,
+      this._roomEntity, {
+        this.maxLightsToShow = 4,
+      });
 
   final KtList<DeviceEntityAbstract> _deviceEntityList;
 
@@ -49,8 +49,9 @@ class RoomBlinds extends StatelessWidget {
         columnOfLights.add(
           Column(
             children: [
-              Text(
+              AutoSizeText(
                 deviceEntityTemp.defaultName.getOrCrash()!,
+                maxLines: 1,
                 style: TextStyle(
                   fontSize: 19.0,
                   color: Theme.of(context).textTheme.bodyText2!.color,

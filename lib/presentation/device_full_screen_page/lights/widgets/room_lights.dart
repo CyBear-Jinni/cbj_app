@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
@@ -13,12 +14,11 @@ import 'package:kt_dart/collection.dart';
 /// Show light toggles in a container with the background color from smart room
 /// object
 class RoomLights extends StatelessWidget {
-  const RoomLights(
-    this._deviceEntityList,
-    this._gradientColor,
-    this._roomEntity, {
-    this.maxLightsToShow = 4,
-  });
+  const RoomLights(this._deviceEntityList,
+      this._gradientColor,
+      this._roomEntity, {
+        this.maxLightsToShow = 4,
+      });
 
   final KtList<DeviceEntityAbstract> _deviceEntityList;
 
@@ -48,7 +48,7 @@ class RoomLights extends StatelessWidget {
           if (_deviceEntityList.size > i + v &&
               _deviceEntityList[i + v] is GenericLightDE) {
             final GenericLightDE deviceEntityTemp =
-                _deviceEntityList[i + v] as GenericLightDE;
+            _deviceEntityList[i + v] as GenericLightDE;
             if (deviceEntityTemp.failureOption.isSome()) {
               widgetsForRow
                   .add(ErrorLightsDeviceCard(device: deviceEntityTemp));
@@ -56,8 +56,9 @@ class RoomLights extends StatelessWidget {
               widgetsForRow.add(
                 Column(
                   children: [
-                    Text(
+                    AutoSizeText(
                       deviceEntityTemp.defaultName.getOrCrash()!,
+                      maxLines: 1,
                       style: TextStyle(
                         fontSize: 19.0,
                         color: Theme.of(context).textTheme.bodyText1!.color,

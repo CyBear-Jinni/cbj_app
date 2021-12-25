@@ -292,7 +292,7 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
       objectList = List<Object>.from(objectList.reversed);
 
       int adTempCounter = 0;
-      for (int enterAd = 3; enterAd < objectList.length; enterAd += 2) {
+      for (int enterAd = 3; enterAd < objectList.length - 1; enterAd += 2) {
         if (adTempCounter < banners.length) {
           objectList.insert(enterAd + adTempCounter, banners[adTempCounter]);
           adTempCounter++;
