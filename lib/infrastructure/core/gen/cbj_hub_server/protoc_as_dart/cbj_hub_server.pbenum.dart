@@ -163,6 +163,7 @@ class DeviceTypes extends $pb.ProtobufEnum {
   static const DeviceTypes smokeSensor = DeviceTypes._(40, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'smokeSensor');
   static const DeviceTypes smokeDetector = DeviceTypes._(41, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'smokeDetector');
   static const DeviceTypes oxygenSensor = DeviceTypes._(42, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'oxygenSensor');
+  static const DeviceTypes smartPlug = DeviceTypes._(43, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'smartPlug');
 
   static const $core.List<DeviceTypes> values = <DeviceTypes> [
     typeNotSupported,
@@ -207,6 +208,7 @@ class DeviceTypes extends $pb.ProtobufEnum {
     smokeSensor,
     smokeDetector,
     oxygenSensor,
+    smartPlug,
   ];
 
   static final $core.Map<$core.int, DeviceTypes> _byValue = $pb.ProtobufEnum.initByValue(values);
