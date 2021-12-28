@@ -11,6 +11,7 @@ import 'package:cybear_jinni/infrastructure/generic_devices/generic_empty_device
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_light_device/generic_light_device_dtos.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_ping_device/generic_ping_device_dtos.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_rgbw_light_device/generic_rgbw_light_device_dtos.dart';
+import 'package:cybear_jinni/infrastructure/generic_devices/generic_smart_plug_device/generic_smart_plug_device_dtos.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_smart_tv_device/generic_smart_tv_device_dtos.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_switch_device/generic_switch_device_dtos.dart';
 import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
@@ -121,6 +122,11 @@ class HubRequestRouting {
         deviceEntity =
             GenericSwitchDeviceDtos.fromJson(requestAsJson).toDomain();
         logger.i('Adding Switch device type');
+        break;
+      case DeviceTypes.smartPlug:
+        deviceEntity =
+            GenericSmartPlugDeviceDtos.fromJson(requestAsJson).toDomain();
+        logger.i('Adding Smart Plug device type');
         break;
       default:
         if (deviceStateGRPC == DeviceStateGRPC.pingNow) {

@@ -33,6 +33,9 @@ abstract class IDeviceRepository {
   Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>> watchSwitches();
 
   Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
+      watchSmartPlugs();
+
+  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
       watchUncompleted();
 
   Future<Either<DevicesFailure, Unit>> create(
