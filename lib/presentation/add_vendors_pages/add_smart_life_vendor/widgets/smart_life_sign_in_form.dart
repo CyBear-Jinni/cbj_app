@@ -170,9 +170,9 @@ class SmartLifeSignInForm extends StatelessWidget {
                           .read<TuyaSignInFormBloc>()
                           .add(TuyaSignInFormEvent.regionChanged(value)),
                       items: <String>[
-                        'cn',
-                        'eu',
                         'us',
+                        'eu',
+                        'cn',
                       ].map<DropdownMenuItem<String>>((String value) {
                         return DropdownMenuItem<String>(
                           value: value,

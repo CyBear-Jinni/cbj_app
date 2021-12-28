@@ -1,5 +1,6 @@
 import 'package:cybear_jinni/application/blinds/blinds_actor/blinds_actor_bloc.dart';
 import 'package:cybear_jinni/application/lights/lights_actor/lights_actor_bloc.dart';
+import 'package:cybear_jinni/application/smart_plugs/smart_plugs_actor/smart_plugs_actor_bloc.dart';
 import 'package:cybear_jinni/application/smart_tv/smart_tv_actor/smart_tv_actor_bloc.dart';
 import 'package:cybear_jinni/application/switches/switches_actor/switches_actor_bloc.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
@@ -10,6 +11,7 @@ import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devic
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/boilers_in_the_room.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/lights_in_the_room_block.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/rgbw_lights_in_the_room_block.dart';
+import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/smart_plug_in_the_room_block.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/smart_tv_in_the_room.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/switches_in_the_room_block.dart';
 import 'package:flutter/material.dart';
@@ -199,6 +201,18 @@ class RoomWidget extends StatelessWidget {
                     create: (context) => getIt<SmartTvActorBloc>(),
                     child: SmartTvInTheRoom.withAbstractDevice(
                       roomEntity: roomEntity,
+                      tempDeviceInRoom:
+                          tempDevicesByRoomsByType[roomId]![deviceType]!,
+                      tempRoomColorGradiant: roomColorGradiant,
+                    ),
+                  );
+                } else if (deviceType == DeviceTypes.smartPlug.toString()) {
+                  return BlocProvider(
+                    create: (context) => getIt<SmartPlugsActorBloc>(),
+                    child: SmartPlugsInTheRoomBlock.withAbstractDevice(
+                      roomEntityTemp: roomsList.firstWhere(
+                        (element) => element!.uniqueId.getOrCrash() == roomId,
+                      )!,
                       tempDeviceInRoom:
                           tempDevicesByRoomsByType[roomId]![deviceType]!,
                       tempRoomColorGradiant: roomColorGradiant,

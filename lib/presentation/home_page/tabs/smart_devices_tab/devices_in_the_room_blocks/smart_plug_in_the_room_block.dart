@@ -1,56 +1,56 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cybear_jinni/application/switches/switches_actor/switches_actor_bloc.dart';
+import 'package:cybear_jinni/application/smart_plugs/smart_plugs_actor/smart_plugs_actor_bloc.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
-import 'package:cybear_jinni/domain/devices/generic_switch_device/generic_switch_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_smart_plug_device/generic_smart_plug_entity.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-class SwitchesInTheRoomBlock extends StatelessWidget {
-  const SwitchesInTheRoomBlock({
+class SmartPlugsInTheRoomBlock extends StatelessWidget {
+  const SmartPlugsInTheRoomBlock({
     required this.roomEntity,
-    required this.switchesInRoom,
+    required this.smartPlugsInRoom,
     required this.roomColorGradiant,
   });
 
-  factory SwitchesInTheRoomBlock.withAbstractDevice({
+  factory SmartPlugsInTheRoomBlock.withAbstractDevice({
     required RoomEntity roomEntityTemp,
     required List<DeviceEntityAbstract> tempDeviceInRoom,
     required List<Color> tempRoomColorGradiant,
   }) {
-    final List<GenericSwitchDE> tempSwitchesInRoom = [];
+    final List<GenericSmartPlugDE> tempSmartPlugsInRoom = [];
 
     tempDeviceInRoom.forEach((element) {
-      tempSwitchesInRoom.add(element as GenericSwitchDE);
+      tempSmartPlugsInRoom.add(element as GenericSmartPlugDE);
     });
 
-    return SwitchesInTheRoomBlock(
+    return SmartPlugsInTheRoomBlock(
       roomEntity: roomEntityTemp,
-      switchesInRoom: tempSwitchesInRoom,
+      smartPlugsInRoom: tempSmartPlugsInRoom,
       roomColorGradiant: tempRoomColorGradiant,
     );
   }
 
   final RoomEntity roomEntity;
-  final List<GenericSwitchDE> switchesInRoom;
+  final List<GenericSmartPlugDE> smartPlugsInRoom;
   final List<Color> roomColorGradiant;
 
   @override
   Widget build(BuildContext context) {
     String deviceText;
-    if (switchesInRoom.length == 1) {
-      deviceText = switchesInRoom[0].defaultName.getOrCrash()!;
+    if (smartPlugsInRoom.length == 1) {
+      deviceText = smartPlugsInRoom[0].defaultName.getOrCrash()!;
     } else {
-      deviceText = '${roomEntity.defaultName.getOrCrash()} Switches';
+      deviceText = '${roomEntity.defaultName.getOrCrash()} SmartPlugs';
     }
 
     return GestureDetector(
       onTap: () {
         context.router.push(
-          RoomsSwitchesRoute(
+          RoomsSmartPlugsRoute(
             roomEntity: roomEntity,
             roomColorGradiant: roomColorGradiant,
           ),
@@ -74,7 +74,7 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
                         scale: 1.2,
                         child: const CircleAvatar(
                           child: Icon(
-                            MdiIcons.lightSwitch,
+                            MdiIcons.powerSocketAu,
                             color: Colors.white70,
                           ),
                         ),
@@ -82,7 +82,7 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
                     ],
                   ),
                 ),
-                if (switchesInRoom.length > 1)
+                if (smartPlugsInRoom.length > 1)
                   Expanded(
                     child: Container(
                       height: 55,
@@ -100,7 +100,7 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Text(
-                          switchesInRoom.length.toString(),
+                          smartPlugsInRoom.length.toString(),
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 13,
@@ -139,7 +139,7 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            BlocConsumer<SwitchesActorBloc, SwitchesActorState>(
+            BlocConsumer<SmartPlugsActorBloc, SmartPlugsActorState>(
               listener: (context, state) {},
               builder: (context, state) {
                 return Row(
@@ -155,8 +155,8 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {
-                        context.read<SwitchesActorBloc>().add(
-                              SwitchesActorEvent.turnOffAllSwitches(
+                        context.read<SmartPlugsActorBloc>().add(
+                              SmartPlugsActorEvent.turnOffAllSmartPlugs(
                                 extractDevicesId(),
                                 context,
                               ),
@@ -187,8 +187,8 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {
-                        context.read<SwitchesActorBloc>().add(
-                              SwitchesActorEvent.turnOnAllSwitches(
+                        context.read<SmartPlugsActorBloc>().add(
+                              SmartPlugsActorEvent.turnOnAllSmartPlugs(
                                 extractDevicesId(),
                                 context,
                               ),
@@ -214,7 +214,7 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
 
   List<String> extractDevicesId() {
     final List<String> devicesIdList = [];
-    switchesInRoom.forEach((element) {
+    smartPlugsInRoom.forEach((element) {
       devicesIdList.add(element.uniqueId.getOrCrash());
     });
     return devicesIdList;
