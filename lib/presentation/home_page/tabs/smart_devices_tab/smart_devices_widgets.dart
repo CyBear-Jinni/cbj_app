@@ -9,6 +9,7 @@ import 'package:cybear_jinni/presentation/change_room_for_devices/change_room_fo
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/smart_devices_by_rooms.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -102,7 +103,7 @@ class SmartDevicesWidgets extends StatelessWidget {
         child: Column(
           children: <Widget>[
             TopNavigationBar(
-              pageName: 'Devices',
+              pageName: 'Devices'.tr(),
               rightIcon: Icons.more_vert,
               rightIconFunction: userCogFunction,
               leftIcon: FontAwesomeIcons.solidLightbulb,

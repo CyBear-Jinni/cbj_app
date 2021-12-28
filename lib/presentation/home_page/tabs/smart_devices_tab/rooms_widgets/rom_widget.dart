@@ -12,6 +12,7 @@ import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devic
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/rgbw_lights_in_the_room_block.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/smart_tv_in_the_room.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/switches_in_the_room_block.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -115,15 +116,15 @@ class RoomWidget extends StatelessWidget {
               ),
             ),
             if (numberOfDevicesInTheRoom == 1)
-              Text(
-                '$numberOfDevicesInTheRoom device',
-                style: const TextStyle(fontSize: 12),
-              )
+              const Text(
+                '_device',
+                style: TextStyle(fontSize: 12),
+              ).tr(args: [numberOfDevicesInTheRoom.toString()])
             else
-              Text(
-                '$numberOfDevicesInTheRoom devices',
-                style: const TextStyle(fontSize: 12),
-              ),
+              const Text(
+                '_devices',
+                style: TextStyle(fontSize: 12),
+              ).tr(args: [numberOfDevicesInTheRoom.toString()]),
 
             /// Build the devices in the room by type
             GridView.builder(

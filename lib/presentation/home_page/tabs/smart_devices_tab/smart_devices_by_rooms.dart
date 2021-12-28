@@ -2,6 +2,7 @@ import 'package:cybear_jinni/application/devices/device_watcher/device_watcher_b
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/lights/widgets/critical_light_failure_display_widget.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/rooms_widgets/rooms_list_view_widget.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -66,7 +67,7 @@ class SmartDevicesByRooms extends StatelessWidget {
                                 ..strokeWidth = 3
                                 ..color = Colors.black.withOpacity(0.2),
                             ),
-                          ),
+                          ).tr(),
                           Text(
                             'Rooms',
                             style: TextStyle(
@@ -74,7 +75,7 @@ class SmartDevicesByRooms extends StatelessWidget {
                               color:
                                   Theme.of(context).textTheme.bodyText1!.color,
                             ),
-                          ),
+                          ).tr(),
                         ],
                       ),
                     ),

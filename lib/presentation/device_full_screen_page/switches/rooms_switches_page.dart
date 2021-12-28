@@ -10,6 +10,7 @@ import 'package:cybear_jinni/presentation/device_full_screen_page/switches/setti
 import 'package:cybear_jinni/presentation/device_full_screen_page/switches/widgets/rooms_switches_widget.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -99,7 +100,7 @@ class RoomsSwitchesPage extends StatelessWidget {
             child: Column(
               children: [
                 TopNavigationBar(
-                  pageName: 'Switches',
+                  pageName: 'Switches'.tr(),
                   rightIcon: null,
                   rightIconFunction: cogFunction,
                   leftIcon: FontAwesomeIcons.arrowLeft,

@@ -2,7 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/generic_smart_tv/generic_smart_tv_entity.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -41,7 +41,7 @@ class SmartTvInTheRoom extends StatelessWidget {
     if (smartTvsInRoom!.length == 1) {
       deviceText = smartTvsInRoom![0].defaultName.getOrCrash()!;
     } else {
-      deviceText = '${roomEntity.defaultName.getOrCrash()} SmartTvs';
+      deviceText = '_SmartTvs'.tr(args: [roomEntity.defaultName.getOrCrash()]);
     }
 
     return GestureDetector(
