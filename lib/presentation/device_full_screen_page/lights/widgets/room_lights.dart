@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
@@ -56,8 +57,9 @@ class RoomLights extends StatelessWidget {
               widgetsForRow.add(
                 Column(
                   children: [
-                    Text(
+                    AutoSizeText(
                       deviceEntityTemp.defaultName.getOrCrash()!,
+                      maxLines: 1,
                       style: TextStyle(
                         fontSize: 19.0,
                         color: Theme.of(context).textTheme.bodyText1!.color,

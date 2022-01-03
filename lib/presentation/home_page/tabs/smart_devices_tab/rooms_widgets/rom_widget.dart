@@ -1,5 +1,6 @@
 import 'package:cybear_jinni/application/blinds/blinds_actor/blinds_actor_bloc.dart';
 import 'package:cybear_jinni/application/lights/lights_actor/lights_actor_bloc.dart';
+import 'package:cybear_jinni/application/smart_plugs/smart_plugs_actor/smart_plugs_actor_bloc.dart';
 import 'package:cybear_jinni/application/smart_tv/smart_tv_actor/smart_tv_actor_bloc.dart';
 import 'package:cybear_jinni/application/switches/switches_actor/switches_actor_bloc.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
@@ -10,8 +11,10 @@ import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devic
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/boilers_in_the_room.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/lights_in_the_room_block.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/rgbw_lights_in_the_room_block.dart';
+import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/smart_plug_in_the_room_block.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/smart_tv_in_the_room.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/switches_in_the_room_block.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -115,15 +118,15 @@ class RoomWidget extends StatelessWidget {
               ),
             ),
             if (numberOfDevicesInTheRoom == 1)
-              Text(
-                '$numberOfDevicesInTheRoom device',
-                style: const TextStyle(fontSize: 12),
-              )
+              const Text(
+                '_device',
+                style: TextStyle(fontSize: 12),
+              ).tr(args: [numberOfDevicesInTheRoom.toString()])
             else
-              Text(
-                '$numberOfDevicesInTheRoom devices',
-                style: const TextStyle(fontSize: 12),
-              ),
+              const Text(
+                '_devices',
+                style: TextStyle(fontSize: 12),
+              ).tr(args: [numberOfDevicesInTheRoom.toString()]),
 
             /// Build the devices in the room by type
             GridView.builder(
@@ -132,7 +135,7 @@ class RoomWidget extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                 maxCrossAxisExtent: 200,
-                childAspectRatio: 1.0,
+                childAspectRatio: 1.2,
                 crossAxisSpacing: 10,
                 mainAxisSpacing: 15,
               ),
@@ -199,6 +202,18 @@ class RoomWidget extends StatelessWidget {
                     create: (context) => getIt<SmartTvActorBloc>(),
                     child: SmartTvInTheRoom.withAbstractDevice(
                       roomEntity: roomEntity,
+                      tempDeviceInRoom:
+                          tempDevicesByRoomsByType[roomId]![deviceType]!,
+                      tempRoomColorGradiant: roomColorGradiant,
+                    ),
+                  );
+                } else if (deviceType == DeviceTypes.smartPlug.toString()) {
+                  return BlocProvider(
+                    create: (context) => getIt<SmartPlugsActorBloc>(),
+                    child: SmartPlugsInTheRoomBlock.withAbstractDevice(
+                      roomEntityTemp: roomsList.firstWhere(
+                        (element) => element!.uniqueId.getOrCrash() == roomId,
+                      )!,
                       tempDeviceInRoom:
                           tempDevicesByRoomsByType[roomId]![deviceType]!,
                       tempRoomColorGradiant: roomColorGradiant,

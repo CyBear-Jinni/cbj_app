@@ -11,7 +11,7 @@ import 'package:cybear_jinni/domain/room/value_objects_room.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/rooms_widgets/rom_widget.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
@@ -204,7 +204,7 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
         <String, List<DeviceEntityAbstract>>{};
 
     final RoomEntity allDevicesRoom = RoomEntity.empty().copyWith(
-      defaultName: RoomDefaultName('All Devices'),
+      defaultName: RoomDefaultName('All_Devices'.tr()),
     );
     final String allDevicesRoomId = allDevicesRoom.uniqueId.getOrCrash();
     tempDevicesByRooms[allDevicesRoomId] = [];
@@ -218,7 +218,7 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
     rooms.add(allDevicesRoom);
 
     final RoomEntity summaryDevicesRoom = RoomEntity.empty().copyWith(
-      defaultName: RoomDefaultName('Summary'),
+      defaultName: RoomDefaultName('Summary'.tr()),
     );
 
     final String summaryRoomId = summaryDevicesRoom.uniqueId.getOrCrash();
@@ -292,7 +292,7 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
       objectList = List<Object>.from(objectList.reversed);
 
       int adTempCounter = 0;
-      for (int enterAd = 3; enterAd < objectList.length; enterAd += 2) {
+      for (int enterAd = 3; enterAd < objectList.length - 1; enterAd += 2) {
         if (adTempCounter < banners.length) {
           objectList.insert(enterAd + adTempCounter, banners[adTempCounter]);
           adTempCounter++;

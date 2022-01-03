@@ -5,6 +5,7 @@ import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstra
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -45,7 +46,7 @@ class LightsInTheRoomBlock extends StatelessWidget {
     if (lightsInRoom.length == 1) {
       deviceText = lightsInRoom[0].defaultName.getOrCrash()!;
     } else {
-      deviceText = '${roomEntity.defaultName.getOrCrash()} Lights';
+      deviceText = '_Lights'.tr(args: [roomEntity.defaultName.getOrCrash()]);
     }
 
     return GestureDetector(
