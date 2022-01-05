@@ -1,5 +1,6 @@
 import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
 import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:provider/src/provider.dart';
@@ -119,7 +120,7 @@ class _LightColorMods extends State<LightColorMods> {
                     color: (colorModFocus == 0) ? Colors.red : Colors.grey,
                     fontSize: 18,
                   ),
-                ),
+                ).tr(),
                 onPressed: () {
                   _showWhiteMode();
                 },
@@ -131,7 +132,7 @@ class _LightColorMods extends State<LightColorMods> {
                     color: (colorModFocus == 1) ? Colors.red : Colors.grey,
                     fontSize: 18,
                   ),
-                ),
+                ).tr(),
                 onPressed: () {
                   _showColorMode();
                 },

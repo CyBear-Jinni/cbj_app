@@ -87,5 +87,7 @@
   "_devices": "{} devices",
   "_SmartPlugs": "{} SmartPlugs",
   "On": "On",
-  "Off": "Off"
+  "Off": "Off",
+  "Color": "Color",
+  "White": "White"
 }
