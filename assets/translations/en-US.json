@@ -84,5 +84,8 @@
   "_Blinds": "{} Blinds",
   "Rooms": "Rooms",
   "_device": "{} device",
-  "_devices": "{} devices"
+  "_devices": "{} devices",
+  "_SmartPlugs": "{} SmartPlugs",
+  "On": "On",
+  "Off": "Off"
 }

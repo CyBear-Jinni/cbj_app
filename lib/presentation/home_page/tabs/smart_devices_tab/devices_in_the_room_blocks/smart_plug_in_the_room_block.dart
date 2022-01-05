@@ -5,6 +5,7 @@ import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstra
 import 'package:cybear_jinni/domain/devices/generic_smart_plug_device/generic_smart_plug_entity.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -44,7 +45,8 @@ class SmartPlugsInTheRoomBlock extends StatelessWidget {
     if (smartPlugsInRoom.length == 1) {
       deviceText = smartPlugsInRoom[0].defaultName.getOrCrash()!;
     } else {
-      deviceText = '${roomEntity.defaultName.getOrCrash()} SmartPlugs';
+      deviceText =
+          '_SmartPlugs'.tr(args: [roomEntity.defaultName.getOrCrash()]);
     }
 
     return GestureDetector(
@@ -168,7 +170,7 @@ class SmartPlugsInTheRoomBlock extends StatelessWidget {
                           fontSize: 14,
                           color: Theme.of(context).textTheme.bodyText1!.color,
                         ),
-                      ),
+                      ).tr(),
                     ),
                     Text(
                       '·',
@@ -200,7 +202,7 @@ class SmartPlugsInTheRoomBlock extends StatelessWidget {
                           fontSize: 14,
                           color: Theme.of(context).textTheme.bodyText1!.color,
                         ),
-                      ),
+                      ).tr(),
                     ),
                   ],
                 );

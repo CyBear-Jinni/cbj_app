@@ -38,7 +38,7 @@ class HistoryTab extends StatelessWidget {
         Container(
           height: 20,
         ),
-        const Text('Empty_history').tr()
+        const Text('Empty_history').tr(),
       ],
     );
   }

@@ -170,7 +170,7 @@ class LightsInTheRoomBlock extends StatelessWidget {
                           fontSize: 14,
                           color: Theme.of(context).textTheme.bodyText1!.color,
                         ),
-                      ),
+                      ).tr(),
                     ),
                     Text(
                       '·',
@@ -202,7 +202,7 @@ class LightsInTheRoomBlock extends StatelessWidget {
                           fontSize: 14,
                           color: Theme.of(context).textTheme.bodyText1!.color,
                         ),
-                      ),
+                      ).tr(),
                     ),
                   ],
                 );
