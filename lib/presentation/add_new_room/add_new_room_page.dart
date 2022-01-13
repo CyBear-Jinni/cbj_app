@@ -11,7 +11,7 @@ class AddNewRoomPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.purple,
-        title: const Text('Add New Room'),
+        title: const Text('Add New Area'),
       ),
       body: BlocProvider(
         create: (context) => getIt<RoomSignInFormBloc>(),

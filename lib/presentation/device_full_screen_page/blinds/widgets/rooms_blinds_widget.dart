@@ -56,7 +56,7 @@ class RoomsBlindsWidget extends StatelessWidget {
                   }
                 }
               } else {
-                const String tempRoomId = 'All Rooms';
+                const String tempRoomId = 'All Areas';
                 for (final DeviceEntityAbstract? deviceEntityAbstract
                     in state.devices.iter) {
                   if (tempDevicesByRooms[tempRoomId] == null) {

@@ -86,10 +86,10 @@ class RoomRepository implements IRoomRepository {
       return right(allRooms.values.toImmutableList());
     } catch (e) {
       if (e is PlatformException && e.message!.contains('PERMISSION_DENIED')) {
-        logger.w('Insufficient permission while getting all rooms');
+        logger.w('Insufficient permission while getting all area');
         return left(const RoomFailure.insufficientPermission());
       } else {
-        logger.e('Unexpected error while getting all rooms');
+        logger.e('Unexpected error while getting all areas');
         // log.error(e.toString());
         return left(const RoomFailure.unexpected());
       }

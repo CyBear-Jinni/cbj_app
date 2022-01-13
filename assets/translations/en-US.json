@@ -89,5 +89,7 @@
   "On": "On",
   "Off": "Off",
   "Color": "Color",
-  "White": "White"
+  "White": "White",
+  "Area": "Area",
+  "Areas": "Areas"
 }

@@ -59,7 +59,7 @@ class SmartDevicesByRooms extends StatelessWidget {
                       child: Stack(
                         children: <Widget>[
                           Text(
-                            'Rooms',
+                            'Areas',
                             style: TextStyle(
                               fontSize: 35,
                               foreground: Paint()
@@ -69,7 +69,7 @@ class SmartDevicesByRooms extends StatelessWidget {
                             ),
                           ).tr(),
                           Text(
-                            'Rooms',
+                            'Areas',
                             style: TextStyle(
                               fontSize: 35,
                               color:

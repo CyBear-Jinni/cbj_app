@@ -1,6 +1,6 @@
 name: cybear_jinni
 description: CyBear Jinni app to interact with your CyBear Jinni Smart Devices
-version: 1.1.9+49
+version: 1.2.0+50
 homepage: https://cybearjinni.com
 
 publish_to: 'none'
@@ -32,7 +32,7 @@ flutter:
 
 dependencies:
   # A action bottom sheet that adapts to the platform
-  adaptive_action_sheet: ^2.0.0
+  adaptive_action_sheet: ^2.0.1
   # Collection of some cool and awesome text animations.
   animated_text_kit: ^4.2.1
   # More customization when notifying your user.
@@ -95,7 +95,7 @@ dependencies:
   # A composable, multi-platform, Future-based API for HTTP requests.
   http: ^0.13.4
   # Convenient code generator for get_it
-  injectable: ^1.5.0
+  injectable: ^1.5.3
   # Allow you to have a screen at launcher for example
   introduction_screen: ^2.1.0
   # Defines the annotations used by json_serializable to create code for JSON serialization and deserialization.
@@ -133,15 +133,15 @@ dependencies:
   # Implementation of the popular reactiveX api for asynchronous programming
   rxdart: ^0.27.3
   # Reading and writing simple key-value pairs
-  shared_preferences: ^2.0.11
+  shared_preferences: ^2.0.12
   # Highly customizable circular slider/progress bar & spinner.
   sleek_circular_slider: ^2.0.1
   # Plugin for launching a URL
-  url_launcher: ^6.0.17
+  url_launcher: ^6.0.18
   # Simple, fast generation of RFC4122 UUIDs.
   uuid: ^3.0.5
   # Get available wifi ssid list, user can connect to wifi with ssid and password, and create hotspot
-  wifi_iot: ^0.3.12
+  wifi_iot: ^0.3.13
 
 
 dev_dependencies:
@@ -155,13 +155,13 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   # Code generator for unions/pattern-matching/copy.
-  freezed: ^1.1.0
+  freezed: ^1.1.1
   # Automatically generates TypeAdapters to store any class.
-  hive_generator: ^1.1.1
+  hive_generator: ^1.1.2
 #  # Extension for Hive. Automatically generates TypeAdapters to store any class.
 #  hive_generator: ^1.1.0
   # Convenient code generator for get_it.
-  injectable_generator: ^1.5.2
+  injectable_generator: ^1.5.3
   # Collection of lint rules for Dart and Flutter projects.
   lint: ^1.8.1
   # Mock framework with APIs for Fakes, Mocks, behavior verification, and stubbing.

@@ -39,8 +39,6 @@ class VendorsRepository implements IVendorsRepository {
         v = v.copyWith(name: VendorName('Switcher'));
       }
       vendorsWithIcons.add(v);
-
-      print(vendorName);
     }
     return right(vendorsWithIcons.toImmutableList());
   }

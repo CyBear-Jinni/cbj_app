@@ -26,7 +26,7 @@ class ChangeRoomForDevicesPage extends StatelessWidget {
       body: Column(
         children: [
           TopNavigationBar(
-            pageName: 'Change Room For Devices',
+            pageName: 'Change Area For Devices',
             rightIcon: null,
             rightIconFunction: null,
             leftIcon: FontAwesomeIcons.arrowLeft,

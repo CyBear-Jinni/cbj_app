@@ -28,7 +28,7 @@ class AddNewRoomForm extends StatelessWidget {
                     TextFormField(
                       decoration: const InputDecoration(
                         prefixIcon: FaIcon(FontAwesomeIcons.signInAlt),
-                        labelText: 'Room Name',
+                        labelText: 'Area Name',
                       ),
                       autocorrect: false,
                       onChanged: (value) => context
@@ -77,7 +77,7 @@ class AddNewRoomForm extends StatelessWidget {
                                     const RoomSignInFormEvent.createRoom(),
                                   );
                               Fluttertoast.showToast(
-                                msg: 'Adding room',
+                                msg: 'Adding area',
                                 toastLength: Toast.LENGTH_LONG,
                                 gravity: ToastGravity.BOTTOM,
                                 backgroundColor: Colors.purple,
