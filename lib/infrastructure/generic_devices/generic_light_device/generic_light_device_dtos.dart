@@ -13,12 +13,10 @@ abstract class GenericLightDeviceDtos
     implements _$GenericLightDeviceDtos, DeviceEntityDtoAbstract {
   factory GenericLightDeviceDtos({
     // @JsonKey(ignore: true)
-    String? deviceDtoClass,
     required String id,
     required String vendorUniqueId,
     required String? defaultName,
     required String? deviceStateGRPC,
-    String? stateMassage,
     required String? senderDeviceOs,
     required String? senderDeviceModel,
     required String? senderId,
@@ -26,9 +24,10 @@ abstract class GenericLightDeviceDtos
     required String? deviceTypes,
     required String? compUuid,
     required String? deviceVendor
-
     // required ServerTimestampConverter() FieldValue serverTimeStamp,
     ,
+    String? stateMassage,
+    String? deviceDtoClass,
   }) = _GenericLightDeviceDtos;
 
   GenericLightDeviceDtos._();

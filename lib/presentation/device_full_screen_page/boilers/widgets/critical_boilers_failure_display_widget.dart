@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 class CriticalBoilersFailureDisplay extends StatelessWidget {
   const CriticalBoilersFailureDisplay({
-    Key? key,
     required this.failure,
+    Key? key,
   }) : super(key: key);
 
   final DevicesFailure? failure;

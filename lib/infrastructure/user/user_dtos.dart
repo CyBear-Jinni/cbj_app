@@ -8,9 +8,9 @@ part 'user_dtos.g.dart';
 @freezed
 abstract class UserDtos implements _$UserDtos {
   const factory UserDtos({
-    @JsonKey(ignore: true) String? id,
     required String email,
     required String name,
+    @JsonKey(ignore: true) String? id,
     String? firstName,
     String? lastName,
   }) = _UserDtos;

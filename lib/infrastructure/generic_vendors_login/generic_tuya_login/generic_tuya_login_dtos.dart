@@ -25,9 +25,6 @@ abstract class GenericTuyaLoginDtos
 
   GenericTuyaLoginDtos._();
 
-  @override
-  final String loginDtoClassInstance = (GenericTuyaLoginDtos).toString();
-
   factory GenericTuyaLoginDtos.fromDomain(GenericTuyaLoginDE genericTuyaDE) {
     return GenericTuyaLoginDtos(
       senderUniqueId: genericTuyaDE.senderUniqueId.getOrCrash(),
@@ -44,6 +41,9 @@ abstract class GenericTuyaLoginDtos
 
   factory GenericTuyaLoginDtos.fromJson(Map<String, dynamic> json) =>
       _$GenericTuyaLoginDtosFromJson(json);
+
+  @override
+  final String loginDtoClassInstance = (GenericTuyaLoginDtos).toString();
 
   LoginEntityAbstract toDomain() {
     return GenericTuyaLoginDE(

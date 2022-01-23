@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 class ErrorBoilersDeviceCard extends StatelessWidget {
   const ErrorBoilersDeviceCard({
-    Key? key,
     required this.device,
+    Key? key,
   }) : super(key: key);
 
   final GenericBoilerDE? device;

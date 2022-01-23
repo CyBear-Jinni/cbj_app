@@ -5,7 +5,6 @@ import 'package:cybear_jinni/domain/folders_of_scenes/i_folders_of_scenes_reposi
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:meta/meta.dart';
 
 part 'folders_of_scenes_bloc.freezed.dart';
 part 'folders_of_scenes_event.dart';

@@ -8,8 +8,8 @@ part 'all_homes_of_user_dtos.g.dart';
 @freezed
 abstract class AllHomesOfUserDtos implements _$AllHomesOfUserDtos {
   const factory AllHomesOfUserDtos({
-    @JsonKey(ignore: true) String? id,
     required String name,
+    @JsonKey(ignore: true) String? id,
   }) = _AllHomesOfUserDtos;
 
   const AllHomesOfUserDtos._();

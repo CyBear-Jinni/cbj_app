@@ -25,7 +25,7 @@ class CBJCompBloc extends Bloc<CBJCompEvent, CBJCompState> {
   final ICBJCompRepository _cBJCompRepository;
 
   StreamSubscription<Either<CBJCompFailure, String>>?
-      _CBJCompStreamSubscription;
+      _cbjCompStreamSubscription;
 
   Future<void> _initialized(
     Initialized event,
@@ -42,8 +42,8 @@ class CBJCompBloc extends Bloc<CBJCompEvent, CBJCompState> {
     Emitter<CBJCompState> emit,
   ) async {
     emit(const CBJCompState.loadInProgress());
-    await _CBJCompStreamSubscription?.cancel();
-    _CBJCompStreamSubscription = _cBJCompRepository
+    await _cbjCompStreamSubscription?.cancel();
+    _cbjCompStreamSubscription = _cBJCompRepository
         .getConnectedComputersIP()
         .listen((failureOrCBJCompList) {
       final dynamic failureOrCompListDynamic = failureOrCBJCompList.fold(
@@ -104,7 +104,7 @@ class CBJCompBloc extends Bloc<CBJCompEvent, CBJCompState> {
 
   @override
   Future<void> close() async {
-    await _CBJCompStreamSubscription?.cancel();
+    await _cbjCompStreamSubscription?.cancel();
     await _cBJCompRepository.shutdownServer();
     return super.close();
   }
