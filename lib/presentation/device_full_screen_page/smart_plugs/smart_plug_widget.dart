@@ -52,19 +52,18 @@ class _SmartSmartPlugPage extends State<SmartSmartPlugPage> {
   //  Send request to smartPlug to retrieve his state on or off
   Future<bool> getSmartPlugAction() async {
     return _smartPlugState = EnumHelper.stringToDeviceAction(
-          await _smartPlug!.smartPlugState!.getOrCrash(),
+          _smartPlug!.smartPlugState!.getOrCrash(),
         ) ==
         DeviceActions.on;
   }
 
   Future<void> _onChange(bool value) async {
     print('OnChange $value');
-    _smartPlug
-      ?..smartPlugState = GenericSmartPlugState(
-        EnumHelper.deviceActionToString(
-          value ? DeviceActions.on : DeviceActions.off,
-        ),
-      );
+    _smartPlug?.smartPlugState = GenericSmartPlugState(
+      EnumHelper.deviceActionToString(
+        value ? DeviceActions.on : DeviceActions.off,
+      ),
+    );
     if (mounted) {
       setState(() {
         _smartPlugState = value;

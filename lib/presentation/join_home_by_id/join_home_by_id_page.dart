@@ -1,7 +1,6 @@
 import 'package:cybear_jinni/application/join_home_by_id/join_home_by_id_bloc.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/join_home_by_id/widgets/join_home_by_id_widget.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

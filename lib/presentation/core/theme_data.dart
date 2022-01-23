@@ -1,6 +1,3 @@
-import 'dart:ui';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 // TODO: Add at least 4 more colors
@@ -51,9 +48,9 @@ class BacgroundGradient {
       stops: const <double>[0, 0.2, 0.5, 0.6, 1],
       colors: <Color>[
         Colors.deepPurple,
-        Theme.of(context).accentColor,
+        Theme.of(context).colorScheme.secondary,
         Colors.deepPurple.withOpacity(0.9),
-        Theme.of(context).accentColor.withOpacity(0.9),
+        Theme.of(context).colorScheme.secondary.withOpacity(0.9),
         Colors.deepPurple
       ],
     );

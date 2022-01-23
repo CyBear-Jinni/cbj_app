@@ -4,7 +4,6 @@ import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rg
 import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rgbw_light_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
@@ -53,19 +52,18 @@ class _SmartRgbwLightPage extends State<SmartRgbwLightPage> {
   //  Send request to rgbwLight to retrieve his state on or off
   Future<bool> getRgbwLightAction() async {
     return _switchState = EnumHelper.stringToDeviceAction(
-          await _rgbwLight!.lightSwitchState!.getOrCrash(),
+          _rgbwLight!.lightSwitchState!.getOrCrash(),
         ) ==
         DeviceActions.on;
   }
 
   Future<void> _onChange(bool value) async {
     print('OnChange $value');
-    _rgbwLight
-      ?..lightSwitchState = GenericRgbwLightSwitchState(
-        EnumHelper.deviceActionToString(
-          value ? DeviceActions.on : DeviceActions.off,
-        ),
-      );
+    _rgbwLight?.lightSwitchState = GenericRgbwLightSwitchState(
+      EnumHelper.deviceActionToString(
+        value ? DeviceActions.on : DeviceActions.off,
+      ),
+    );
     if (mounted) {
       setState(() {
         _switchState = value;

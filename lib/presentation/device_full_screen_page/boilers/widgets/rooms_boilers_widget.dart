@@ -2,13 +2,11 @@ import 'package:cybear_jinni/application/boilers/boilers_watcher/boilers_watcher
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
+import 'package:cybear_jinni/presentation/device_full_screen_page/boilers/widgets/critical_boilers_failure_display_widget.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/boilers/widgets/room_boilers.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kt_dart/kt.dart';
-
-import 'critical_boilers_failure_display_widget.dart';
 
 class RoomsBoilersWidget extends StatelessWidget {
   const RoomsBoilersWidget({

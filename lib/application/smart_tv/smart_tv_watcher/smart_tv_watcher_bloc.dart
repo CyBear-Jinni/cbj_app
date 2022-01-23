@@ -6,7 +6,6 @@ import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 import 'package:dartz/dartz.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
@@ -21,7 +20,7 @@ class SmartTvWatcherBloc
   SmartTvWatcherBloc(this._deviceRepository)
       : super(SmartTvWatcherState.initial()) {
     on<WatchAllSmartTvStarted>(_watchAllStarted);
-    on<Smart_tvReceived>(_smart_tvReceived);
+    on<Smart_tvReceived>(_smartTvReceived);
   }
 
   Future<void> _watchAllStarted(
@@ -31,11 +30,11 @@ class SmartTvWatcherBloc
     emit(const SmartTvWatcherState.loadInProgress());
     await _deviceStreamSubscription?.cancel();
     _deviceStreamSubscription = _deviceRepository.watchSmartTv().listen(
-          (eventWatch) => add(SmartTvWatcherEvent.smart_tvReceived(eventWatch)),
+          (eventWatch) => add(SmartTvWatcherEvent.smartTvReceived(eventWatch)),
         );
   }
 
-  Future<void> _smart_tvReceived(
+  Future<void> _smartTvReceived(
     Smart_tvReceived event,
     Emitter<SmartTvWatcherState> emit,
   ) async {

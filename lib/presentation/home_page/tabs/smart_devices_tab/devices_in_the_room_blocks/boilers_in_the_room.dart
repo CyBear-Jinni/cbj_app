@@ -20,7 +20,7 @@ class BoilersInTheRoom extends StatelessWidget {
     required List<DeviceEntityAbstract> tempDeviceInRoom,
     required List<Color> tempRoomColorGradiant,
   }) {
-    List<GenericBoilerDE> tempLightsInRoom = [];
+    final List<GenericBoilerDE> tempLightsInRoom = [];
 
     tempDeviceInRoom.forEach((element) {
       tempLightsInRoom.add(element as GenericBoilerDE);

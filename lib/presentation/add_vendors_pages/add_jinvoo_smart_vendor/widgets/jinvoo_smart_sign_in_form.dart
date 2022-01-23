@@ -191,7 +191,7 @@ class JinvooSmartSignInForm extends StatelessWidget {
                               context.read<TuyaSignInFormBloc>().add(
                                     TuyaSignInFormEvent.vendorChanged(
                                       VendorsAndServices.jinvooSmart.name
-                                          .toString(),
+                                          ,
                                     ),
                                   );
                               context.read<TuyaSignInFormBloc>().add(

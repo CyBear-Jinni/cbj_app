@@ -4,7 +4,6 @@ import 'package:cybear_jinni/domain/devices/generic_switch_device/generic_switch
 import 'package:cybear_jinni/domain/devices/generic_switch_device/generic_switch_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
@@ -53,19 +52,18 @@ class _SmartSwitchPage extends State<SmartSwitchPage> {
   //  Send request to switch to retrieve his state on or off
   Future<bool> getSwitchAction() async {
     return _switchState = EnumHelper.stringToDeviceAction(
-          await _switch!.switchState!.getOrCrash(),
+          _switch!.switchState!.getOrCrash(),
         ) ==
         DeviceActions.on;
   }
 
   Future<void> _onChange(bool value) async {
     print('OnChange $value');
-    _switch
-      ?..switchState = GenericSwitchSwitchState(
-        EnumHelper.deviceActionToString(
-          value ? DeviceActions.on : DeviceActions.off,
-        ),
-      );
+    _switch?.switchState = GenericSwitchSwitchState(
+      EnumHelper.deviceActionToString(
+        value ? DeviceActions.on : DeviceActions.off,
+      ),
+    );
     if (mounted) {
       setState(() {
         _switchState = value;

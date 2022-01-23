@@ -42,7 +42,6 @@ abstract class SoftwareInfoDtos implements _$SoftwareInfoDtos {
   factory SoftwareInfoDtos.fromJson(Map<String, dynamic> json) =>
       _$SoftwareInfoDtosFromJson(json);
 
-  @override
   final String deviceDtoClassInstance = (SoftwareInfoDtos).toString();
 
   SoftwareInfoEntity toDomain() {

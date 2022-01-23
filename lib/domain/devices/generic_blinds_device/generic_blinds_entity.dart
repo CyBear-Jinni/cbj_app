@@ -106,6 +106,7 @@ class GenericBlindsDE extends DeviceEntityAbstract {
   }
 
   /// Please override the following methods
+  @override
   Future<Either<CoreFailure, Unit>> executeDeviceAction({
     required DeviceEntityAbstract newEntity,
   }) async {

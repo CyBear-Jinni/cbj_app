@@ -37,6 +37,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
 
   static HubEntity? hubEntity;
 
+  @override
   Future<void> connectWithHub() async {
     if (hubEntity == null) {
       try {

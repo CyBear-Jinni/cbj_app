@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:cybear_jinni/infrastructure/core/gen/cbj_app_server/protoc_as_dart/cbj_app_connections.pb.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_app_server/protoc_as_dart/cbj_app_connections.pbgrpc.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:grpc/grpc.dart';
@@ -13,7 +12,7 @@ class CBJAppServerD extends CyBearJinniAppServiceBase {
 
   @override
   Future<CBJCommendStatus> cBJAppGetSmartDeviceInformation(
-      ServiceCall call, CompInfoSB request) {
+      ServiceCall call, CompInfoSB request,) {
     cbjCommendStatus.add(request);
 
     return Future<CBJCommendStatus>.value(CBJCommendStatus()..success = true);

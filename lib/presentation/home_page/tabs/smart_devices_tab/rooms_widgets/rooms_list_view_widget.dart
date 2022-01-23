@@ -20,7 +20,7 @@ import 'package:provider/provider.dart';
 
 class RoomsListViewWidget extends StatefulWidget {
   /// Builds the rooms
-  RoomsListViewWidget({
+  const RoomsListViewWidget({
     required this.tempDevicesByRooms,
     required this.devicesList,
     required this.roomsList,

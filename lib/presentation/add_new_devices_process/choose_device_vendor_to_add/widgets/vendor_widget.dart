@@ -3,12 +3,11 @@ import 'package:cybear_jinni/domain/vendors/vendor.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 class VendorWidget extends StatelessWidget {
-  VendorWidget(this.vendor);
+  const VendorWidget(this.vendor);
 
   final Vendor vendor;
 

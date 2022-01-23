@@ -14,7 +14,6 @@ class CriticalBoilersFailureDisplay extends StatelessWidget {
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           const Text(
             '😱',

@@ -4,7 +4,6 @@ import 'package:cybear_jinni/infrastructure/hive_local_db/hive_objects/hub_entit
 import 'package:cybear_jinni/infrastructure/hive_local_db/hive_objects/remote_pipes_hive_model.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:dartz/dartz.dart';
-import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:injectable/injectable.dart';
 

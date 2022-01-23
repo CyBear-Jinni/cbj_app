@@ -20,7 +20,7 @@ class SmartTvInTheRoom extends StatelessWidget {
     required List<DeviceEntityAbstract> tempDeviceInRoom,
     required List<Color> tempRoomColorGradiant,
   }) {
-    List<GenericSmartTvDE> tempLightsInRoom = [];
+    final List<GenericSmartTvDE> tempLightsInRoom = [];
 
     tempDeviceInRoom.forEach((element) {
       tempLightsInRoom.add(element as GenericSmartTvDE);

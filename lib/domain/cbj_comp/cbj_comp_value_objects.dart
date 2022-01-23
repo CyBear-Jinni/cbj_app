@@ -50,7 +50,7 @@ class CBJCompUniqueId extends CBJCompValueObjectAbstract<String> {
     return CBJCompUniqueId._(right(const Uuid().v1()));
   }
 
-  CBJCompUniqueId._(this.value);
+  const CBJCompUniqueId._(this.value);
 
   factory CBJCompUniqueId.fromUniqueString(String uniqueId) {
     assert(uniqueId != null);
@@ -67,7 +67,6 @@ class CBJCompRoomId extends CBJCompValueObjectAbstract<String> {
   }
 
   factory CBJCompRoomId.fromUniqueString(String uniqueId) {
-    assert(uniqueId != null);
     return CBJCompRoomId._(right(uniqueId));
   }
 

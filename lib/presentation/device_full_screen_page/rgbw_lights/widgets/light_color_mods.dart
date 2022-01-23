@@ -6,7 +6,7 @@ import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:provider/src/provider.dart';
 
 class LightColorMods extends StatefulWidget {
-  LightColorMods({
+  const LightColorMods({
     required this.state,
     required this.deviceEntity,
   });

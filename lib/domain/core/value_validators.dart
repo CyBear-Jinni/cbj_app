@@ -32,7 +32,7 @@ Either<AuthValueFailure<String>, String> validateEmailWithoutSpace(
 
 /// Checking if the password is less then 6 characters.
 Either<AuthValueFailure<String>, String> validatePasswordLength(String input) {
-  int maxLength = 6;
+  const int maxLength = 6;
   if (input.length >= maxLength) {
     return right(input);
   } else {

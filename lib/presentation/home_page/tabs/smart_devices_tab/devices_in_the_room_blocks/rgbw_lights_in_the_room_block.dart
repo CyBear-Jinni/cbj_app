@@ -22,7 +22,7 @@ class RgbwLightsInTheRoomBlock extends StatelessWidget {
     required List<DeviceEntityAbstract> tempDeviceInRoom,
     required List<Color> tempRoomColorGradiant,
   }) {
-    List<GenericRgbwLightDE> tempLightsInRoom = [];
+    final List<GenericRgbwLightDE> tempLightsInRoom = [];
 
     tempDeviceInRoom.forEach((element) {
       tempLightsInRoom.add(element as GenericRgbwLightDE);

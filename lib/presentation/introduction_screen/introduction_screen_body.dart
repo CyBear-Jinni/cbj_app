@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/presentation/introduction_screen/introductions_view_model_body/introduction_screen_body_about_page.dart';
 import 'package:cybear_jinni/presentation/introduction_screen/introductions_view_model_body/introduction_screen_body_welcome_page.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 

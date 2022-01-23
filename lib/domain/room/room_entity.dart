@@ -26,10 +26,10 @@ abstract class RoomEntity implements _$RoomEntity {
   factory RoomEntity.empty() => RoomEntity(
         uniqueId: RoomUniqueId(),
         defaultName: RoomDefaultName(''),
-        roomDevicesId: RoomDevicesId([]), // Do not add const
-        roomMostUsedBy: RoomMostUsedBy([]), // Do not add const
-        roomPermissions: RoomPermissions([]), // Do not add const
-        roomTypes: RoomTypes([]), // Do not add const
+        roomDevicesId: RoomDevicesId(const []), // Do not add const
+        roomMostUsedBy: RoomMostUsedBy(const []), // Do not add const
+        roomPermissions: RoomPermissions(const []), // Do not add const
+        roomTypes: RoomTypes(const []), // Do not add const
       );
 
   /// Will add new device id to the devices in the room list

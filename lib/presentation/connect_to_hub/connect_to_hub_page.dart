@@ -4,6 +4,7 @@ import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/connect_to_hub/widgets/cbj_hub_in_network.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -17,7 +18,7 @@ class ConnectToHubPage extends StatelessWidget {
       appBar: AppBar(
         toolbarHeight: 0,
         backgroundColor: HexColor('#303030'),
-        brightness: Brightness.dark,
+        systemOverlayStyle: SystemUiOverlayStyle.light,
       ),
       backgroundColor: HexColor('#303030'),
       body: Column(

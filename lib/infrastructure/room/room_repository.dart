@@ -144,9 +144,10 @@ class RoomRepository implements IRoomRepository {
   }
 
   @override
-  Future<Either<RoomFailure, Unit>> updateDatabase(
-      {required Map<String, dynamic> documentPath,
-      required Map<String, dynamic> fieldsToUpdate}) async {
+  Future<Either<RoomFailure, Unit>> updateDatabase({
+    required Map<String, dynamic> documentPath,
+    required Map<String, dynamic> fieldsToUpdate,
+  }) async {
     // TODO: implement updateDatabase
     throw UnimplementedError();
   }

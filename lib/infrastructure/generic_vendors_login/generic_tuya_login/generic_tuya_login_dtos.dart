@@ -45,6 +45,7 @@ abstract class GenericTuyaLoginDtos
   @override
   final String loginDtoClassInstance = (GenericTuyaLoginDtos).toString();
 
+  @override
   LoginEntityAbstract toDomain() {
     return GenericTuyaLoginDE(
       senderUniqueId: CoreLoginSenderId.fromUniqueString(senderUniqueId),

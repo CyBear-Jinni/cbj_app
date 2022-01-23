@@ -232,8 +232,10 @@ class SecurityBearConnectionRepository
     int permissionCounter = 0;
 
     if (kIsWeb) {
-      return left(const SecurityBearFailures
-          .automaticSecurityBearSearchNotSupportedOnWeb());
+      return left(
+        const SecurityBearFailures
+            .automaticSecurityBearSearchNotSupportedOnWeb(),
+      );
     }
     if (!Platform.isLinux && !Platform.isWindows) {
       while (true) {

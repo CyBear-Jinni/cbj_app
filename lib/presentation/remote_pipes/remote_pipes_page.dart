@@ -6,8 +6,8 @@ import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/remote_pipes/widgets/manage_remote_pipes_widget.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -58,23 +58,21 @@ class RemotePipesPage extends StatelessWidget {
           appBar: AppBar(
             toolbarHeight: 0,
             backgroundColor: Colors.black,
-            brightness: Brightness.dark,
+            systemOverlayStyle: SystemUiOverlayStyle.dark,
           ),
-          body: Container(
-            child: Column(
-              children: [
-                TopNavigationBar(
-                  pageName: 'Remote Pipes',
-                  rightIcon: null,
-                  rightIconFunction: userCogFunction,
-                  leftIcon: FontAwesomeIcons.arrowLeft,
-                  leftIconFunction: leftIconFunction,
-                ),
-                Expanded(
-                  child: RemotePipesWidget(),
-                ),
-              ],
-            ),
+          body: Column(
+            children: [
+              TopNavigationBar(
+                pageName: 'Remote Pipes',
+                rightIcon: null,
+                rightIconFunction: userCogFunction,
+                leftIcon: FontAwesomeIcons.arrowLeft,
+                leftIconFunction: leftIconFunction,
+              ),
+              Expanded(
+                child: RemotePipesWidget(),
+              ),
+            ],
           ),
         ),
       ),

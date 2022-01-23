@@ -38,7 +38,6 @@ abstract class HubValueObjectAbstract<T> {
 
 class HubNetworkIp extends HubValueObjectAbstract<String> {
   factory HubNetworkIp(String input) {
-    assert(input != null);
     return HubNetworkIp._(
       validateStringNotEmpty(input),
     );
@@ -66,7 +65,6 @@ class HubMdnsName extends HubValueObjectAbstract<String> {
 
 class HubNetworkBssid extends HubValueObjectAbstract<String> {
   factory HubNetworkBssid(String input) {
-    assert(input != null);
     return HubNetworkBssid._(
       validateStringNotEmpty(input),
     );
@@ -80,7 +78,6 @@ class HubNetworkBssid extends HubValueObjectAbstract<String> {
 
 class HubNetworkName extends HubValueObjectAbstract<String> {
   factory HubNetworkName(String input) {
-    assert(input != null);
     return HubNetworkName._(
       validateStringNotEmpty(input),
     );

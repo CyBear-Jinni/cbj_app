@@ -52,19 +52,18 @@ class _SmartBoilerPage extends State<SmartBoilerPage> {
   //  Send request to boiler to retrieve his state on or off
   Future<bool> getBoilerAction() async {
     return _switchState = EnumHelper.stringToDeviceAction(
-          await _boiler!.boilerSwitchState!.getOrCrash(),
+          _boiler!.boilerSwitchState!.getOrCrash(),
         ) ==
         DeviceActions.on;
   }
 
   Future<void> _onChange(bool value) async {
     print('OnChange $value');
-    _boiler
-      ?..boilerSwitchState = GenericBoilerSwitchState(
-        EnumHelper.deviceActionToString(
-          value ? DeviceActions.on : DeviceActions.off,
-        ),
-      );
+    _boiler?.boilerSwitchState = GenericBoilerSwitchState(
+      EnumHelper.deviceActionToString(
+        value ? DeviceActions.on : DeviceActions.off,
+      ),
+    );
     if (mounted) {
       setState(() {
         _switchState = value;

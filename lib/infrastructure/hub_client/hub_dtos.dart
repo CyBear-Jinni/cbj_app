@@ -29,7 +29,6 @@ abstract class HubDtos implements _$HubDtos {
   factory HubDtos.fromJson(Map<String, dynamic> json) =>
       _$HubDtosFromJson(json);
 
-  @override
   final String deviceDtoClassInstance = (HubDtos).toString();
 
   HubEntity toDomain() {

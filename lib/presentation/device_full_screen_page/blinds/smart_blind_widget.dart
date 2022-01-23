@@ -52,19 +52,18 @@ class _SmartBlindPage extends State<SmartBlindPage> {
   //  Send request to blind to retrieve his state on or off
   Future<bool> getBlindAction() async {
     return _switchState = EnumHelper.stringToDeviceAction(
-          await _blind!.blindsSwitchState!.getOrCrash(),
+          _blind!.blindsSwitchState!.getOrCrash(),
         ) ==
         DeviceActions.on;
   }
 
   Future<void> _onChange(bool value) async {
     print('OnChange $value');
-    _blind
-      ?..blindsSwitchState = GenericBlindsSwitchState(
-        EnumHelper.deviceActionToString(
-          value ? DeviceActions.on : DeviceActions.off,
-        ),
-      );
+    _blind?.blindsSwitchState = GenericBlindsSwitchState(
+      EnumHelper.deviceActionToString(
+        value ? DeviceActions.on : DeviceActions.off,
+      ),
+    );
     if (mounted) {
       setState(() {
         _switchState = value;

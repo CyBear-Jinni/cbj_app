@@ -71,7 +71,6 @@ class HomeUserEmail extends HomeUserValueObjectAbstract<String?> {
 
 class HomeUserName extends HomeUserValueObjectAbstract<String?> {
   factory HomeUserName(String input) {
-    assert(input != null);
     return HomeUserName._(
       validateHomeUserNameNotEmpty(input),
     );
@@ -87,7 +86,6 @@ class HomeUserName extends HomeUserValueObjectAbstract<String?> {
 
 class HomeUserPermission extends HomeUserValueObjectAbstract<String?> {
   factory HomeUserPermission(String input) {
-    assert(input != null);
     return HomeUserPermission._(
       validateHomeUserNameNotEmpty(input),
     );
