@@ -4,9 +4,5 @@ import 'package:dartz/dartz.dart';
 Either<CoreLoginFailure<String>, String> validateGenericLifxLoginApiKeyNotEmty(
   String input,
 ) {
-  if (input != null) {
-    return right(input);
-  } else {
-    return left(CoreLoginFailure.empty(failedValue: input));
-  }
+  return right(input);
 }

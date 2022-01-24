@@ -17,15 +17,7 @@ Either<CBJCompFailure<String>, String> validateCBJCompNotEmpty(String input) {
 
 Either<CBJCompFailure<KtList<GenericLightDE>>, KtList<GenericLightDE>>
     validateCBJCompDevicesNotNull(KtList<GenericLightDE> input) {
-  if (input != null) {
-    return right(input);
-  } else {
-    return left(
-      CBJCompFailure.empty(
-        failedValue: input,
-      ),
-    );
-  }
+  return right(input);
 }
 
 Either<CBJCompFailure<String>, String> validateCBJCompMaxNameLength(

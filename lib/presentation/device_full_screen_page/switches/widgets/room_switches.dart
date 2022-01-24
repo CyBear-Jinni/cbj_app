@@ -135,8 +135,7 @@ class RoomSwitches extends StatelessWidget {
                 backgroundColor: MaterialStateProperty.all(Colors.transparent),
               ),
               onPressed: () {
-                if (maxSwitchesToShow != null &&
-                    _deviceEntityList.size > maxSwitchesToShow) {
+                if (_deviceEntityList.size > maxSwitchesToShow) {
                   // ExtendedNavigator.of(context).pushSwitchesInTheRoomPage(
                   //     thisSmartRoom: _deviceEntityList);
                 }
@@ -152,8 +151,7 @@ class RoomSwitches extends StatelessWidget {
                       decoration: TextDecoration.underline,
                     ),
                   ),
-                  if (maxSwitchesToShow != null &&
-                      _deviceEntityList.size > maxSwitchesToShow)
+                  if (_deviceEntityList.size > maxSwitchesToShow)
                     FaIcon(
                       FontAwesomeIcons.arrowRight,
                       color: Theme.of(context).textTheme.bodyText1!.color,

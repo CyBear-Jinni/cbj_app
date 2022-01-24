@@ -36,7 +36,6 @@ class RoomsLightsWidget extends StatelessWidget {
 
               /// Go on all the devices and find only the devices that exist
               /// in this room
-              if (roomEntity != null) {
                 final String roomId = roomEntity.uniqueId.getOrCrash();
                 for (final DeviceEntityAbstract? deviceEntityAbstract
                     in state.devices.iter) {
@@ -57,17 +56,6 @@ class RoomsLightsWidget extends StatelessWidget {
                     }
                   }
                 }
-              } else {
-                const String tempRoomId = 'All Areas';
-                for (final DeviceEntityAbstract? deviceEntityAbstract
-                    in state.devices.iter) {
-                  if (tempDevicesByRooms[tempRoomId] == null) {
-                    tempDevicesByRooms[tempRoomId] = [deviceEntityAbstract!];
-                  } else {
-                    tempDevicesByRooms[tempRoomId]!.add(deviceEntityAbstract!);
-                  }
-                }
-              }
 
               final List<KtList<DeviceEntityAbstract>> devicesByRooms = [];
 

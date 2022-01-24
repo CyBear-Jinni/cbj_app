@@ -38,7 +38,6 @@ abstract class RemotePipesValueObjectAbstract<T> {
 
 class RemotePipesDomain extends RemotePipesValueObjectAbstract<String> {
   factory RemotePipesDomain(String input) {
-    assert(input != null);
     return RemotePipesDomain._(
       validateRemotePipesEmpty(input),
     );

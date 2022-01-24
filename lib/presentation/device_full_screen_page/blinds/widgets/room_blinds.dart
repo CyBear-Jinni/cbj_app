@@ -117,8 +117,7 @@ class RoomBlinds extends StatelessWidget {
                 ),
               ),
               onPressed: () {
-                if (maxLightsToShow != null &&
-                    _deviceEntityList.size > maxLightsToShow) {
+                if (_deviceEntityList.size > maxLightsToShow) {
                   // ExtendedNavigator.of(context).pushLightsInTheRoomPage(
                   //     thisSmartRoom: _deviceEntityList);
                 }
@@ -134,8 +133,7 @@ class RoomBlinds extends StatelessWidget {
                       decoration: TextDecoration.underline,
                     ),
                   ),
-                  if (maxLightsToShow != null &&
-                      _deviceEntityList.size > maxLightsToShow)
+                  if (_deviceEntityList.size > maxLightsToShow)
                     FaIcon(
                       FontAwesomeIcons.arrowRight,
                       color: Theme.of(context).textTheme.bodyText1!.color,

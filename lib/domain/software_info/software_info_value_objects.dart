@@ -37,7 +37,6 @@ abstract class SoftwareInfoValueObjectAbstract<T> {
 
 class SoftwareInfoDeviceName extends SoftwareInfoValueObjectAbstract<String> {
   factory SoftwareInfoDeviceName(String input) {
-    input ??= '';
     return SoftwareInfoDeviceName._(right(input));
   }
 
@@ -50,7 +49,6 @@ class SoftwareInfoDeviceName extends SoftwareInfoValueObjectAbstract<String> {
 class SoftwareInfoPubspecYamlVersion
     extends SoftwareInfoValueObjectAbstract<String> {
   factory SoftwareInfoPubspecYamlVersion(String input) {
-    input ??= '';
     return SoftwareInfoPubspecYamlVersion._(right(input));
   }
 
@@ -63,7 +61,6 @@ class SoftwareInfoPubspecYamlVersion
 class SoftwareInfoProtoLastGenDate
     extends SoftwareInfoValueObjectAbstract<String> {
   factory SoftwareInfoProtoLastGenDate(String input) {
-    input ??= '';
     return SoftwareInfoProtoLastGenDate._(right(input));
   }
 
@@ -76,7 +73,6 @@ class SoftwareInfoProtoLastGenDate
 class SoftwareInfoDartSdkVersion
     extends SoftwareInfoValueObjectAbstract<String> {
   factory SoftwareInfoDartSdkVersion(String input) {
-    input ??= '';
     return SoftwareInfoDartSdkVersion._(right(input));
   }
 
@@ -88,7 +84,6 @@ class SoftwareInfoDartSdkVersion
 
 class SoftwareInfoCompId extends SoftwareInfoValueObjectAbstract<String> {
   factory SoftwareInfoCompId(String input) {
-    input ??= '';
     return SoftwareInfoCompId._(right(input));
   }
 
@@ -100,7 +95,6 @@ class SoftwareInfoCompId extends SoftwareInfoValueObjectAbstract<String> {
 
 class SoftwareInfoCompUuid extends SoftwareInfoValueObjectAbstract<String> {
   factory SoftwareInfoCompUuid(String input) {
-    input ??= '';
     return SoftwareInfoCompUuid._(right(input));
   }
 
@@ -112,7 +106,6 @@ class SoftwareInfoCompUuid extends SoftwareInfoValueObjectAbstract<String> {
 
 class SoftwareInfoCompOs extends SoftwareInfoValueObjectAbstract<String> {
   factory SoftwareInfoCompOs(String input) {
-    input ??= '';
     return SoftwareInfoCompOs._(right(input));
   }
 
@@ -124,7 +117,6 @@ class SoftwareInfoCompOs extends SoftwareInfoValueObjectAbstract<String> {
 
 class SoftwareInfoCompModel extends SoftwareInfoValueObjectAbstract<String> {
   factory SoftwareInfoCompModel(String input) {
-    input ??= '';
     return SoftwareInfoCompModel._(right(input));
   }
 
@@ -136,7 +128,6 @@ class SoftwareInfoCompModel extends SoftwareInfoValueObjectAbstract<String> {
 
 class SoftwareInfoCompType extends SoftwareInfoValueObjectAbstract<String> {
   factory SoftwareInfoCompType(String input) {
-    input ??= '';
     return SoftwareInfoCompType._(right(input));
   }
 
@@ -148,7 +139,6 @@ class SoftwareInfoCompType extends SoftwareInfoValueObjectAbstract<String> {
 
 class SoftwareInfoCompIp extends SoftwareInfoValueObjectAbstract<String> {
   factory SoftwareInfoCompIp(String input) {
-    input ??= '';
     return SoftwareInfoCompIp._(right(input));
   }
 

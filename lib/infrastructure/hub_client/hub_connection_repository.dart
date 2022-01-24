@@ -292,12 +292,12 @@ class HubConnectionRepository extends IHubConnectionRepository {
     // await for (final IPAddressResourceRecord record
     //     in client.lookup<IPAddressResourceRecord>(
     //         ResourceRecordQuery.addressIPv6(fullMdnsName))) {
-    //   print('Found address (${record.address}).');
+    //   logger.v('Found address (${record.address}).');
     // }
 
     client.stop();
 
-    print('Done.');
+    logger.v('Done.');
 
     return deviceIp;
   }
@@ -392,7 +392,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
         if (!_serviceEnabled) {
           _serviceEnabled = await location.requestService();
           if (!_serviceEnabled) {
-            print('Location is disabled');
+            logger.w('Location is disabled');
             continue;
           }
         }

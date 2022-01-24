@@ -2,11 +2,13 @@ import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.d
 import 'package:dartz/dartz.dart';
 
 Either<CoreLoginFailure<String>, String> validateGenericTuyaLoginStringNotEmty(
-  String input,
+  String? input,
 ) {
   if (input != null) {
     return right(input);
   } else {
-    return left(CoreLoginFailure.empty(failedValue: input));
+    return left(
+      const CoreLoginFailure.empty(failedValue: 'Failed value is null'),
+    );
   }
 }

@@ -82,7 +82,6 @@ class HomeDevicesUserId extends CreateHomeValueObjectAbstract<String> {
 
 class HomeDevicesUserEmail extends CreateHomeValueObjectAbstract<String> {
   factory HomeDevicesUserEmail(String input) {
-    assert(input != null);
     return HomeDevicesUserEmail._(
       validateCreateHomeNotEmpty(input),
     );

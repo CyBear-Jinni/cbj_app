@@ -4,6 +4,7 @@ import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_e
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums.dart';
+import 'package:cybear_jinni/utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
@@ -45,7 +46,7 @@ class _SmartLightPage extends State<SmartLightPage> {
         });
       }
     } catch (exception) {
-      print('Error when updating state after resume: $exception');
+      logger.e('Error when updating state after resume\n$exception');
     }
   }
 
@@ -58,7 +59,7 @@ class _SmartLightPage extends State<SmartLightPage> {
   }
 
   Future<void> _onChange(bool value) async {
-    print('OnChange $value');
+    logger.v('OnChange $value');
     _light?.lightSwitchState = GenericLightSwitchState(
       EnumHelper.deviceActionToString(
         value ? DeviceActions.on : DeviceActions.off,
