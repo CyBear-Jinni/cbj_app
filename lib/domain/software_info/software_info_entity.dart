@@ -114,7 +114,6 @@ class SoftwareInfoEntity {
     return deviceName.value.fold((f) => some(f), (_) => none());
   }
 
-  @override
   SoftwareInfoDtos toInfrastructure() {
     return SoftwareInfoDtos(
       deviceName: deviceName.getOrCrash(),

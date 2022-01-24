@@ -328,7 +328,7 @@ class DeviceRepository implements IDeviceRepository {
           deviceEntity.smartPlugState =
               GenericSmartPlugState(DeviceActions.on.toString());
         } else {
-          print(
+          logger.w(
             'On action not supported for'
             ' ${deviceEntity.deviceTypes.getOrCrash()} type',
           );
@@ -380,7 +380,7 @@ class DeviceRepository implements IDeviceRepository {
           deviceEntity.smartPlugState =
               GenericSmartPlugState(DeviceActions.off.toString());
         } else {
-          print(
+          logger.w(
             'Off action not supported for'
             ' ${deviceEntity.deviceTypes.getOrCrash()} type',
           );
@@ -621,7 +621,7 @@ class DeviceRepository implements IDeviceRepository {
           deviceEntity.blindsSwitchState =
               GenericBlindsSwitchState(DeviceActions.moveUp.toString());
         } else {
-          print(
+          logger.w(
             'Off action not supported for'
             ' ${deviceEntity.deviceTypes.getOrCrash()} type',
           );
@@ -661,7 +661,7 @@ class DeviceRepository implements IDeviceRepository {
           deviceEntity.blindsSwitchState =
               GenericBlindsSwitchState(DeviceActions.stop.toString());
         } else {
-          print(
+          logger.w(
             'Off action not supported for'
             ' ${deviceEntity.deviceTypes.getOrCrash()} type',
           );
@@ -701,7 +701,7 @@ class DeviceRepository implements IDeviceRepository {
           deviceEntity.blindsSwitchState =
               GenericBlindsSwitchState(DeviceActions.moveDown.toString());
         } else {
-          print(
+          logger.w(
             'Off action not supported for'
             ' ${deviceEntity.deviceTypes.getOrCrash()} type',
           );
@@ -754,7 +754,7 @@ class DeviceRepository implements IDeviceRepository {
         AppRequestsToHub.appRequestsToHubStreamController.sink
             .add(clientStatusRequests);
       } catch (e) {
-        print('This is the error $e');
+        logger.e('This is the error\n$e');
 
         // final DocumentReference homeDoc =
         //     await _firestore.currentHomeDocument();
@@ -769,7 +769,7 @@ class DeviceRepository implements IDeviceRepository {
 
       return right(unit);
     } catch (e) {
-      print('Probably ip of device was not inserted into the device object');
+      logger.w('Probably ip of device was not inserted into the device object');
       return left(const DevicesFailure.unexpected());
     }
   }
@@ -809,18 +809,18 @@ class DeviceRepository implements IDeviceRepository {
       ResourceRecordQuery.addressIPv4(fullMdnsName),
     )) {
       deviceIp = record.address.address;
-      print('Found address (${record.address}).');
+      logger.v('Found address (${record.address}).');
     }
 
     // await for (final IPAddressResourceRecord record
     //     in client.lookup<IPAddressResourceRecord>(
     //         ResourceRecordQuery.addressIPv6(fullMdnsName))) {
-    //   print('Found address (${record.address}).');
+    //   logger.v('Found address (${record.address}).');
     // }
 
     client.stop();
 
-    print('Done.');
+    logger.v('Done.');
 
     return deviceIp;
   }

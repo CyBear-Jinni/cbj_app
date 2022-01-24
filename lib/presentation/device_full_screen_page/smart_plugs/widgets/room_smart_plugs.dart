@@ -135,8 +135,7 @@ class RoomSmartPlugs extends StatelessWidget {
                 backgroundColor: MaterialStateProperty.all(Colors.transparent),
               ),
               onPressed: () {
-                if (maxSmartPlugsToShow != null &&
-                    _deviceEntityList.size > maxSmartPlugsToShow) {
+                if (_deviceEntityList.size > maxSmartPlugsToShow) {
                   // ExtendedNavigator.of(context).pushSmartPlugsInTheRoomPage(
                   //     thisSmartRoom: _deviceEntityList);
                 }
@@ -152,8 +151,7 @@ class RoomSmartPlugs extends StatelessWidget {
                       decoration: TextDecoration.underline,
                     ),
                   ),
-                  if (maxSmartPlugsToShow != null &&
-                      _deviceEntityList.size > maxSmartPlugsToShow)
+                  if (_deviceEntityList.size > maxSmartPlugsToShow)
                     FaIcon(
                       FontAwesomeIcons.arrowRight,
                       color: Theme.of(context).textTheme.bodyText1!.color,

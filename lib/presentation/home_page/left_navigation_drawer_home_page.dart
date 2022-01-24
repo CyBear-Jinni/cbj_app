@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
+import 'package:cybear_jinni/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -8,7 +9,7 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
     try {
       context.router.replace(const ConnectToHubRoute());
     } catch (e) {
-      print(e); // TODO: show dialog with error
+      logger.e(e); // TODO: show dialog with error
     }
   }
 

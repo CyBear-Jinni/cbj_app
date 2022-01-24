@@ -12,7 +12,9 @@ class CBJAppServerD extends CyBearJinniAppServiceBase {
 
   @override
   Future<CBJCommendStatus> cBJAppGetSmartDeviceInformation(
-      ServiceCall call, CompInfoSB request,) {
+    ServiceCall call,
+    CompInfoSB request,
+  ) {
     cbjCommendStatus.add(request);
 
     return Future<CBJCommendStatus>.value(CBJCommendStatus()..success = true);
@@ -28,7 +30,7 @@ class CBJAppServerD extends CyBearJinniAppServiceBase {
 //     final String smartDeviceIp = smartDevice.smartDeviceIP;
 //
 //     AddNewCBJDevices.newDevicesStringList.add(smartDeviceIp);
-//     print('Smart device IP is $smartDeviceIp');
+//     logger.v('Smart device IP is $smartDeviceIp');
 //
 //
 //     if (!AddNewCBJDevices.newDevicesList

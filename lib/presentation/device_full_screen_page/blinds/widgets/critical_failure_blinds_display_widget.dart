@@ -30,7 +30,6 @@ class CriticalFailureBlindsDisplay extends StatelessWidget {
           ),
           TextButton(
             onPressed: () {
-              print('Sending email!');
             },
             child: Row(
               mainAxisSize: MainAxisSize.min,

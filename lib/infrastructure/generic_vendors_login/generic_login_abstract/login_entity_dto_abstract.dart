@@ -1,6 +1,7 @@
 import 'package:cybear_jinni/domain/vendors/login_abstract/login_entity_abstract.dart';
 import 'package:cybear_jinni/infrastructure/generic_vendors_login/generic_lifx_login/generic_lifx_login_dtos.dart';
 import 'package:cybear_jinni/infrastructure/generic_vendors_login/generic_tuya_login/generic_tuya_login_dtos.dart';
+import 'package:cybear_jinni/utils.dart';
 
 class LoginEntityDtoAbstract {
   LoginEntityDtoAbstract();
@@ -8,7 +9,7 @@ class LoginEntityDtoAbstract {
   factory LoginEntityDtoAbstract.fromDomain(
     LoginEntityAbstract loginEntityDtoAbstract,
   ) {
-    print('LoginEntityDtoAbstract.fromDomain');
+    logger.v('LoginEntityDtoAbstract.fromDomain');
     return LoginEntityDtoAbstract();
   }
 
@@ -29,12 +30,12 @@ class LoginEntityDtoAbstract {
   final String loginDtoClassInstance = (LoginEntityDtoAbstract).toString();
 
   Map<String, dynamic> toJson() {
-    print('LoginEntityDtoAbstract to Json');
+    logger.v('LoginEntityDtoAbstract to Json');
     return {};
   }
 
   LoginEntityAbstract toDomain() {
-    print('ToDomain');
+    logger.v('ToDomain');
     return LoginEntityEmpty();
   }
 }

@@ -73,9 +73,6 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
         tempDevicesByRoomsByType =
         <String, Map<String, List<DeviceEntityAbstract>>>{};
 
-    final Map<String, List<GenericLightDE>> tempDevicesByType =
-        <String, List<GenericLightDE>>{};
-
     tempDevicesByRooms.forEach((k, v) {
       tempDevicesByRoomsByType[k!] = {};
       v.forEach((element) {

@@ -4,6 +4,7 @@ import 'package:cybear_jinni/domain/devices/generic_blinds_device/generic_blinds
 import 'package:cybear_jinni/domain/devices/generic_blinds_device/generic_blinds_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums.dart';
+import 'package:cybear_jinni/utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
@@ -45,7 +46,7 @@ class _SmartBlindPage extends State<SmartBlindPage> {
         });
       }
     } catch (exception) {
-      print('Error when updating state after resume: $exception');
+      logger.e('Error when updating state after resume: $exception');
     }
   }
 
@@ -58,7 +59,7 @@ class _SmartBlindPage extends State<SmartBlindPage> {
   }
 
   Future<void> _onChange(bool value) async {
-    print('OnChange $value');
+    logger.v('OnChange $value');
     _blind?.blindsSwitchState = GenericBlindsSwitchState(
       EnumHelper.deviceActionToString(
         value ? DeviceActions.on : DeviceActions.off,

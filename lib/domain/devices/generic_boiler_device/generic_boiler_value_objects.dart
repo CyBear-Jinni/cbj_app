@@ -7,7 +7,7 @@ class GenericBoilerSwitchState extends ValueObjectCore<String> {
   factory GenericBoilerSwitchState(String? input) {
     assert(input != null);
     return GenericBoilerSwitchState._(
-      validateGenericBoilerStateNotEmty(input!),
+      validateGenericBoilerStateNotEmty(input),
     );
   }
 

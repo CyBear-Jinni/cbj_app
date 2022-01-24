@@ -46,19 +46,15 @@ class FolderOfScenesWidget extends StatelessWidget {
               reverse: true,
               itemBuilder: (context, index) {
                 final scene = scenesList.scenesList[index];
-                if (scene == null) {
-                  return const Text('Error');
-                } else {
-                  return BlocProvider(
-                    create: (context) => getIt<SceneBloc>()
-                      ..add(
-                        SceneEvent.initialized(
-                          scene: getTheScen(scene),
-                        ),
+                return BlocProvider(
+                  create: (context) => getIt<SceneBloc>()
+                    ..add(
+                      SceneEvent.initialized(
+                        scene: getTheScen(scene),
                       ),
-                    child: SceneWidget(scene.fold((l) => null!, (r) => r)),
-                  );
-                }
+                    ),
+                  child: SceneWidget(scene.fold((l) => null!, (r) => r)),
+                );
               },
               itemCount: scenesList.scenesList.size,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

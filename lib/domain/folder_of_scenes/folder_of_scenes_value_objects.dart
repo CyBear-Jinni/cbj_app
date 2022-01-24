@@ -7,7 +7,6 @@ import 'package:dartz/dartz.dart';
 
 class FolderOfScenesColorValueObjects extends ValueObject<Color> {
   factory FolderOfScenesColorValueObjects(Color input) {
-    assert(input != null);
     return FolderOfScenesColorValueObjects._(
       right(makeColorOpaque(input)),
     );

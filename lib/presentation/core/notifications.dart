@@ -1,6 +1,6 @@
 import 'package:cybear_jinni/main.dart';
+import 'package:cybear_jinni/utils.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
-import 'package:flutter/widgets.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_native_timezone/flutter_native_timezone.dart';
 import 'package:timezone/data/latest.dart' as tz;
@@ -55,7 +55,7 @@ Future<void> initialisationNotifications() async {
 
 Future selectNotification(String? payload) async {
   if (payload != null) {
-    debugPrint('notification payload: $payload');
+    logger.d('notification payload: $payload');
   }
   // await Navigator.push(
   //   context,
@@ -70,7 +70,7 @@ Future selectNotificationIos(
   String? payload,
 ) async {
   if (payload != null) {
-    debugPrint('notification payload: $payload');
+    logger.d('notification payload: $payload');
   }
   // await Navigator.push(
   //   context,

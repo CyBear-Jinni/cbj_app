@@ -36,35 +36,21 @@ class RoomsRgbwLightsWidget extends StatelessWidget {
 
               /// Go on all the devices and find only the devices that exist
               /// in this room
-              if (roomEntity != null) {
-                final String roomId = roomEntity.uniqueId.getOrCrash();
-                for (final DeviceEntityAbstract? deviceEntityAbstract
-                    in state.devices.iter) {
-                  if (deviceEntityAbstract == null) {
-                    continue;
-                  }
-                  final int indexOfDeviceInRoom = roomEntity.roomDevicesId
-                      .getOrCrash()
-                      .indexWhere((element) {
-                    return element ==
-                        deviceEntityAbstract.uniqueId.getOrCrash();
-                  });
-                  if (indexOfDeviceInRoom != -1) {
-                    if (tempDevicesByRooms[roomId] == null) {
-                      tempDevicesByRooms[roomId] = [deviceEntityAbstract];
-                    } else {
-                      tempDevicesByRooms[roomId]!.add(deviceEntityAbstract);
-                    }
-                  }
+              final String roomId = roomEntity.uniqueId.getOrCrash();
+              for (final DeviceEntityAbstract? deviceEntityAbstract
+                  in state.devices.iter) {
+                if (deviceEntityAbstract == null) {
+                  continue;
                 }
-              } else {
-                const String tempRoomId = 'All Areas';
-                for (final DeviceEntityAbstract? deviceEntityAbstract
-                    in state.devices.iter) {
-                  if (tempDevicesByRooms[tempRoomId] == null) {
-                    tempDevicesByRooms[tempRoomId] = [deviceEntityAbstract!];
+                final int indexOfDeviceInRoom =
+                    roomEntity.roomDevicesId.getOrCrash().indexWhere((element) {
+                  return element == deviceEntityAbstract.uniqueId.getOrCrash();
+                });
+                if (indexOfDeviceInRoom != -1) {
+                  if (tempDevicesByRooms[roomId] == null) {
+                    tempDevicesByRooms[roomId] = [deviceEntityAbstract];
                   } else {
-                    tempDevicesByRooms[tempRoomId]!.add(deviceEntityAbstract!);
+                    tempDevicesByRooms[roomId]!.add(deviceEntityAbstract);
                   }
                 }
               }

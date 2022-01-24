@@ -306,7 +306,7 @@ class ConfigureNewCbjCompBloc
           deviceE..defaultName = DeviceDefaultName(deviceName),
         );
       } catch (e) {
-        print("Can't add unsupported device");
+        logger.w("Can't add unsupported device");
       }
     });
     final CBJCompEntity compUpdatedData = cbjCompEntity.copyWith(

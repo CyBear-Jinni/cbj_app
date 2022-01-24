@@ -51,7 +51,6 @@ class HubNetworkIp extends HubValueObjectAbstract<String> {
 
 class HubMdnsName extends HubValueObjectAbstract<String> {
   factory HubMdnsName(String input) {
-    assert(input != null);
     return HubMdnsName._(
       validateStringNotEmpty(input),
     );

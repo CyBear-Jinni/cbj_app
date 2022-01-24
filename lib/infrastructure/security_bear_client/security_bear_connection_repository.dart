@@ -277,10 +277,6 @@ class SecurityBearConnectionRepository
 
       final ManageNetworkEntity secondWifiEntityOrFailure =
           IManageNetworkRepository.manageWiFiEntity!;
-      if (secondWifiEntityOrFailure == null) {
-        logger.e('No second Wifi Entity, it is going to crash');
-        return left(const SecurityBearFailures.unexpected());
-      }
 
       final SBCommendStatus commendStatus =
           await SecurityBearServerClient.setWiFisInformation(
