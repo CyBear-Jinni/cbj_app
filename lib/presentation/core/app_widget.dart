@@ -58,6 +58,8 @@ class AppWidget extends StatelessWidget {
         //      darkTheme: ThemeData(brightness: Brightness.dark),
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
+          primaryColor:
+              createMaterialColor(const Color.fromRGBO(162, 129, 162, 1.0)),
           primaryColorDark: const Color(0xFF271052),
           inputDecorationTheme: InputDecorationTheme(
             border: OutlineInputBorder(
@@ -73,7 +75,9 @@ class AppWidget extends StatelessWidget {
             primarySwatch: createMaterialColor(
               const Color.fromRGBO(162, 129, 162, 1.0),
             ),
-          ).copyWith(secondary: Colors.indigo),
+          ).copyWith(
+            secondary: Colors.indigo,
+          ),
         ),
       ),
     );
