@@ -319,8 +319,11 @@ class HubConnectionRepository extends IHubConnectionRepository {
 
       logger.i('subnet IP $subnet');
 
-      final Stream<OpenPort> devicesWithPort =
-          HostScanner.discoverPort(subnet, hubPort);
+      final Stream<OpenPort> devicesWithPort = HostScanner.discoverPort(
+        subnet,
+        hubPort,
+        resultsInIpAscendingOrder: false,
+      );
 
       await for (final OpenPort address in devicesWithPort) {
         if (!address.isOpen) {

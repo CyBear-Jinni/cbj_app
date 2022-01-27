@@ -1,6 +1,7 @@
-import 'package:auto_route/auto_routemport '
-
-package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class PlusButtonPage extends StatelessWidget {
   @override

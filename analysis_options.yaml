@@ -15,7 +15,6 @@ analyzer:
     - "**/*.pbjson.dart"
     - "**/*.gr.dart"
     - "**/*.config.dart"
-    - - "**/*.config.dart"
     - "lib/infrastructure/core/gen/**"
 
 

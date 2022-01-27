@@ -195,8 +195,11 @@ class SecurityBearConnectionRepository
 
       logger.i('subnet IP $subnet');
 
-      final Stream<OpenPort> devicesWithPort =
-          HostScanner.discoverPort(subnet, securityBearPort);
+      final Stream<OpenPort> devicesWithPort = HostScanner.discoverPort(
+        subnet,
+        securityBearPort,
+        resultsInIpAscendingOrder: false,
+      );
 
       await for (final OpenPort address in devicesWithPort) {
         logger.i('Found device: ${address.ip}');
@@ -313,8 +316,11 @@ class SecurityBearConnectionRepository
 
       logger.i('subnet IP $subnet');
 
-      final Stream<OpenPort> devicesWithPort =
-          HostScanner.discoverPort(subnet, securityBearPort);
+      final Stream<OpenPort> devicesWithPort = HostScanner.discoverPort(
+        subnet,
+        securityBearPort,
+        resultsInIpAscendingOrder: false,
+      );
 
       await for (final OpenPort address in devicesWithPort) {
         logger.i('Found device: ${address.ip}');
