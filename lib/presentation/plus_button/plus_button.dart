@@ -1,9 +1,6 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/presentation/add_new_devices_process/choose_device_vendor_to_add/choose_device_vendor_to_add_page.dart';
-import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
-import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:auto_route/auto_routemport '
+
+package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class PlusButtonPage extends StatelessWidget {
   @override
@@ -56,15 +53,7 @@ class PlusButtonPage extends StatelessWidget {
                         ),
                       ),
                       onTap: () {
-                        Fluttertoast.showToast(
-                          msg: 'Currently adding Scenes is not supported',
-                          toastLength: Toast.LENGTH_SHORT,
-                          gravity: ToastGravity.SNACKBAR,
-                          backgroundColor: Colors.lightBlue,
-                          textColor:
-                              Theme.of(context).textTheme.bodyText1!.color,
-                          fontSize: 16.0,
-                        );
+                        context.router.push(const ChooseSceneTypeToAddRoute());
                       },
                     ),
                   ),
@@ -86,13 +75,8 @@ class PlusButtonPage extends StatelessWidget {
                         ),
                       ),
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                ChooseDeviceVendorToAddPage(),
-                          ),
-                        );
+                        context.router
+                            .push(const ChooseDeviceVendorToAddRoute());
                       },
                     ),
                   ),
