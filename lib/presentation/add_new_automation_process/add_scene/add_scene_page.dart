@@ -1,3 +1,4 @@
+import 'package:cybear_jinni/presentation/add_new_automation_process/add_scene/widgets/scene_action_widget.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -41,27 +42,13 @@ class AddScenePage extends StatelessWidget {
                       prefixIcon: FaIcon(FontAwesomeIcons.fileSignature),
                       labelText: 'Scene Name',
                     ),
-                    autocorrect: false,
                     onChanged: (value) {},
-                    //   =>context
-                    //       .read<TuyaSignInFormBloc>()
-                    //       .add(TuyaSignInFormEvent.userNameChanged(value)),
-                    //   validator: (_) => context
-                    //       .read<TuyaSignInFormBloc>()
-                    //       .state
-                    //       .tuyaUserName
-                    //       .value
-                    //       .fold(
-                    //         (CoreLoginFailure f) => 'Validation error',
-                    //     //   f.maybeMap(
-                    //     // invalidEmail: (result) => result.failedValue,
-                    //     // containsSpace: (result) => result.failedValue,
-                    //     // orElse: () => null,
-                    //     // ),
-                    //         (r) => null,
-                    //   ),
                   ),
-                  const Text('Actions'),
+                  SceneActionWidget(
+                    deviceId: '4242',
+                    deviceName: 'Test Device',
+                    actionName: 'on',
+                  ),
                   Container(
                     decoration: BoxDecoration(
                       color: Colors.lightBlueAccent.withOpacity(0.5),
