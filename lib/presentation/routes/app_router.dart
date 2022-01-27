@@ -6,6 +6,7 @@ import 'package:cybear_jinni/presentation/add_new_devices_process/connect_to_hom
 import 'package:cybear_jinni/presentation/add_new_devices_process/open_access_point/open_access_pointi_page.dart';
 import 'package:cybear_jinni/presentation/add_new_devices_process/scan_for_new_cbj_comps/scan_for_new_cbj_comps_page.dart';
 import 'package:cybear_jinni/presentation/add_new_room/add_new_room_page.dart';
+import 'package:cybear_jinni/presentation/add_new_scene_process/chllse_scene_type_to_add/choose_scene_type_to_add.dart';
 import 'package:cybear_jinni/presentation/add_user_to_home/add_user_to_home_page.dart';
 import 'package:cybear_jinni/presentation/add_vendors_pages/add_jinvoo_smart_vendor/add_jinvoo_smart_vendor_page.dart';
 import 'package:cybear_jinni/presentation/add_vendors_pages/add_lifx_vendor/add_lifx_vendor_page.dart';
@@ -59,6 +60,7 @@ import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_pag
     AutoRoute(page: ManageUsersPage),
     AutoRoute(page: AddUserToHomePage),
     AutoRoute(page: ScenesPage),
+    AutoRoute(page: ChooseSceneTypeToAddPage),
     AutoRoute(page: ChooseDeviceVendorToAddPage),
     AutoRoute(page: AddLifxVendorPage),
     AutoRoute(page: AddTuyaVendorPage),
@@ -89,6 +91,7 @@ class $AppRouter {
   late SignInPage signInPage;
   late CreateHomePage createHomePage;
   late ScenesPage scenesPage;
+  late ChooseSceneTypeToAddPage chooseSceneTypeToAddPage;
   late ChooseDeviceVendorToAddPage chooseDeviceVendorToAddPage;
   late AddLifxVendorPage addLifxVendorPage;
   late AddTuyaVendorPage addTuyaVendorPage;
