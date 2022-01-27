@@ -1,4 +1,6 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cybear_jinni/presentation/add_new_automation_process/add_scene/add_scene_page.dart';
+import 'package:cybear_jinni/presentation/add_new_automation_process/choose_automation_type_to_add/choose_automation_type_to_add_page.dart';
 import 'package:cybear_jinni/presentation/add_new_devices_process/choose_device_vendor_to_add/choose_device_vendor_to_add_page.dart';
 import 'package:cybear_jinni/presentation/add_new_devices_process/computer_connection_check/computer_connection_check_page.dart';
 import 'package:cybear_jinni/presentation/add_new_devices_process/configure_new_cbj_comp/configure_new_cbj_comp_page.dart';
@@ -6,7 +8,6 @@ import 'package:cybear_jinni/presentation/add_new_devices_process/connect_to_hom
 import 'package:cybear_jinni/presentation/add_new_devices_process/open_access_point/open_access_pointi_page.dart';
 import 'package:cybear_jinni/presentation/add_new_devices_process/scan_for_new_cbj_comps/scan_for_new_cbj_comps_page.dart';
 import 'package:cybear_jinni/presentation/add_new_room/add_new_room_page.dart';
-import 'package:cybear_jinni/presentation/add_new_scene_process/chllse_scene_type_to_add/choose_scene_type_to_add.dart';
 import 'package:cybear_jinni/presentation/add_user_to_home/add_user_to_home_page.dart';
 import 'package:cybear_jinni/presentation/add_vendors_pages/add_jinvoo_smart_vendor/add_jinvoo_smart_vendor_page.dart';
 import 'package:cybear_jinni/presentation/add_vendors_pages/add_lifx_vendor/add_lifx_vendor_page.dart';
@@ -60,7 +61,8 @@ import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_pag
     AutoRoute(page: ManageUsersPage),
     AutoRoute(page: AddUserToHomePage),
     AutoRoute(page: ScenesPage),
-    AutoRoute(page: ChooseSceneTypeToAddPage),
+    AutoRoute(page: AddScenePage),
+    AutoRoute(page: ChooseAutomationTypeToAddPage),
     AutoRoute(page: ChooseDeviceVendorToAddPage),
     AutoRoute(page: AddLifxVendorPage),
     AutoRoute(page: AddTuyaVendorPage),
@@ -91,7 +93,8 @@ class $AppRouter {
   late SignInPage signInPage;
   late CreateHomePage createHomePage;
   late ScenesPage scenesPage;
-  late ChooseSceneTypeToAddPage chooseSceneTypeToAddPage;
+  late AddScenePage addScenePage;
+  late ChooseAutomationTypeToAddPage chooseAutomationTypeToAddPage;
   late ChooseDeviceVendorToAddPage chooseDeviceVendorToAddPage;
   late AddLifxVendorPage addLifxVendorPage;
   late AddTuyaVendorPage addTuyaVendorPage;

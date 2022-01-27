@@ -19,7 +19,7 @@ class BottomNavigationBarHomePage extends StatelessWidget {
       items: [
         BottomNavigationBarItem(
           icon: const FaIcon(FontAwesomeIcons.sitemap),
-          label: 'Scenes'.tr(),
+          label: 'Automations'.tr(),
         ),
         BottomNavigationBarItem(
           icon: const FaIcon(FontAwesomeIcons.solidLightbulb),

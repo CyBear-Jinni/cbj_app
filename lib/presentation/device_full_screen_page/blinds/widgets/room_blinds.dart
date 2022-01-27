@@ -52,8 +52,8 @@ class RoomBlinds extends StatelessWidget {
               AutoSizeText(
                 deviceEntityTemp.defaultName.getOrCrash()!,
                 maxLines: 1,
+                maxFontSize: 19,
                 style: TextStyle(
-                  fontSize: 19.0,
                   color: Theme.of(context).textTheme.bodyText2!.color,
                 ),
               ),

@@ -22,7 +22,7 @@ class ScenesPage extends StatelessWidget {
       actions: <BottomSheetAction>[
         BottomSheetAction(
           title: const Text(
-            '➕ Add Scene',
+            '➕ Add Automation',
             style: TextStyle(color: Colors.green, fontSize: 23),
           ),
           onPressed: () {},

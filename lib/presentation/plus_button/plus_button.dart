@@ -48,13 +48,14 @@ class PlusButtonPage extends StatelessWidget {
                         size: 25,
                       ),
                       title: Text(
-                        'Add Scene',
+                        'Add Automation',
                         style: TextStyle(
                           color: Theme.of(context).textTheme.bodyText1!.color,
                         ),
                       ),
                       onTap: () {
-                        context.router.push(const ChooseSceneTypeToAddRoute());
+                        context.router
+                            .push(const ChooseAutomationTypeToAddRoute());
                       },
                     ),
                   ),
