@@ -304,7 +304,7 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
       objectList = List<Object>.from(objectList.reversed);
     }
 
-    int gradientColorCounter = 2;
+    int gradientColorCounter = 1;
 
     List<Color> roomColorGradiant = gradientColorsList[gradientColorCounter];
 
@@ -369,6 +369,11 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
             borderRadius = 40;
 
             roomColorGradiant = gradientColorsList[0];
+            if (gradientColorCounter < 1) {
+              gradientColorCounter--;
+            } else {
+              gradientColorCounter = gradientColorsList.length;
+            }
             bottomMargin = 0;
           }
 

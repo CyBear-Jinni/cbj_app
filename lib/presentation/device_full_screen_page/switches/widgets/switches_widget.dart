@@ -48,9 +48,9 @@ class SwitchWidget extends StatelessWidget {
           margin: const EdgeInsets.symmetric(vertical: 5),
           width: sizeBoxWidth + 15,
           child: FlutterSwitch(
-            width: screenSize.width * 0.2,
-            height: screenSize.height * 0.05,
-            toggleSize: screenSize.height * 0.05,
+            width: screenSize.width * 0.25,
+            height: screenSize.height * 0.0655,
+            toggleSize: screenSize.height * 0.0655,
             value: toggleValue,
             borderRadius: 25.0,
             padding: 0.0,

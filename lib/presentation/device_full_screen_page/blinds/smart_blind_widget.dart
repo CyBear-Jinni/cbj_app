@@ -91,9 +91,9 @@ class _SmartBlindPage extends State<SmartBlindPage> {
           const Center(child: CircularProgressIndicator())
         else
           FlutterSwitch(
-            width: screenSize.width * 0.2,
-            height: screenSize.height * 0.05,
-            toggleSize: screenSize.height * 0.05,
+            width: screenSize.width * 0.25,
+            height: screenSize.height * 0.065,
+            toggleSize: screenSize.height * 0.065,
             value: _switchState,
             borderRadius: 25.0,
             padding: 0.0,

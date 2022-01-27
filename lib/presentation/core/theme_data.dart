@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 ///List of all the GradientColors to iterate on
 final List<List<Color>> gradientColorsList = [
   GradientColors.sky,
-  GradientColors.sunset,
-  GradientColors.sea,
   GradientColors.fire,
   GradientColors.new1,
+  GradientColors.sunset,
+  GradientColors.sea,
   GradientColors.mango,
 ];
 
