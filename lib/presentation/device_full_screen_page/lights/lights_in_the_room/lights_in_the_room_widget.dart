@@ -3,7 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-/// The widget to show all the lights in selected room
+/// The widgets to show all the lights in selected room
 class LightsInTheRoomWidget extends StatelessWidget {
   const LightsInTheRoomWidget(
     this.products,

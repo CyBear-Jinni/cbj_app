@@ -16,7 +16,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-/// Blinds page that will call the blind widget file and add background
+/// Blinds page that will call the blind widgets file and add background
 /// and scaffold for it
 class RoomsBlindsPage extends StatelessWidget {
   const RoomsBlindsPage({

@@ -16,7 +16,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-/// Boilers page that will call the lamps widget file and add background
+/// Boilers page that will call the lamps widgets file and add background
 /// and scaffold for it
 class RoomsBoilersPage extends StatelessWidget {
   const RoomsBoilersPage({

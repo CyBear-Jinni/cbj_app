@@ -15,7 +15,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-/// SmartPlugs page that will call the lamps widget file and add background
+/// SmartPlugs page that will call the lamps widgets file and add background
 /// and scaffold for it
 class RoomsSmartPlugsPage extends StatelessWidget {
   const RoomsSmartPlugsPage({

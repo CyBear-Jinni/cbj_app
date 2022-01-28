@@ -3,7 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-/// The widget to show all the boilers in selected room
+/// The widgets to show all the boilers in selected room
 class BoilersInTheRoomWidget extends StatelessWidget {
   const BoilersInTheRoomWidget(
     this.products,

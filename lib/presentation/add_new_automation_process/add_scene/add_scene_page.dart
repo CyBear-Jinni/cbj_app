@@ -1,4 +1,6 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/presentation/add_new_automation_process/add_scene/widgets/scene_action_widget.dart';
+import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -56,7 +58,9 @@ class AddScenePage extends StatelessWidget {
                       border: Border.all(),
                     ),
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        context.router.push(const AddActionRoute());
+                      },
                       child: const Text('+ Add action'),
                     ),
                   ),

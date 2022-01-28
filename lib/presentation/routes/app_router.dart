@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cybear_jinni/presentation/add_new_automation_process/add_action/add_action_page.dart';
 import 'package:cybear_jinni/presentation/add_new_automation_process/add_scene/add_scene_page.dart';
 import 'package:cybear_jinni/presentation/add_new_automation_process/choose_automation_type_to_add/choose_automation_type_to_add_page.dart';
 import 'package:cybear_jinni/presentation/add_new_devices_process/choose_device_vendor_to_add/choose_device_vendor_to_add_page.dart';
@@ -62,6 +63,7 @@ import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_pag
     AutoRoute(page: AddUserToHomePage),
     AutoRoute(page: ScenesPage),
     AutoRoute(page: AddScenePage),
+    AutoRoute(page: AddActionPage),
     AutoRoute(page: ChooseAutomationTypeToAddPage),
     AutoRoute(page: ChooseDeviceVendorToAddPage),
     AutoRoute(page: AddLifxVendorPage),
@@ -94,6 +96,7 @@ class $AppRouter {
   late CreateHomePage createHomePage;
   late ScenesPage scenesPage;
   late AddScenePage addScenePage;
+  late AddActionPage addActionPage;
   late ChooseAutomationTypeToAddPage chooseAutomationTypeToAddPage;
   late ChooseDeviceVendorToAddPage chooseDeviceVendorToAddPage;
   late AddLifxVendorPage addLifxVendorPage;
