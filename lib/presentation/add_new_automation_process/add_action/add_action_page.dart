@@ -18,26 +18,24 @@ class AddActionPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 0,
-        backgroundColor: Colors.black,
-        systemOverlayStyle: SystemUiOverlayStyle.dark,
+        backgroundColor: HexColor('#303030'),
+        systemOverlayStyle: SystemUiOverlayStyle.light,
       ),
-      body: Container(
-        color: HexColor('#FBF5F9'),
-        child: Column(
-          children: [
-            TopNavigationBar(
-              pageName: 'Add Action',
-              rightIcon: null,
-              rightIconFunction: backButtonFunction,
-              leftIcon: FontAwesomeIcons.arrowLeft,
-              leftIconFunction: backButtonFunction,
-            ),
-            BlocProvider(
-              create: (context) => getIt<AddNewActionBloc>(),
-              child: ActionChooseInformation(),
-            ),
-          ],
-        ),
+      backgroundColor: HexColor('#303030'),
+      body: Column(
+        children: [
+          TopNavigationBar(
+            pageName: 'Add Action',
+            rightIcon: null,
+            rightIconFunction: backButtonFunction,
+            leftIcon: FontAwesomeIcons.arrowLeft,
+            leftIconFunction: backButtonFunction,
+          ),
+          BlocProvider(
+            create: (context) => getIt<AddNewActionBloc>(),
+            child: ActionChooseInformation(),
+          ),
+        ],
       ),
     );
   }

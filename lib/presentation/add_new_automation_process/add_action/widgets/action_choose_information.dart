@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:multi_select_flutter/multi_select_flutter.dart';
 
 class ActionChooseInformation extends StatelessWidget {
   @override
@@ -26,22 +25,67 @@ class ActionChooseInformation extends StatelessWidget {
                 Row(
                   children: const [
                     Text(
-                      'Choose Device',
+                      'Choose Action',
                       style: TextStyle(fontSize: 27),
                     ),
                   ],
                 ),
-                MultiSelectDialogField(
-                  items: List<MultiSelectItem<String?>>.of(
-                    state.allDevices.map(
-                      (e) => MultiSelectItem(
-                        e.uniqueId.getOrCrash(),
-                        e.defaultName.getOrCrash()!,
-                      ),
-                    ),
+                DropdownButton<String>(
+                  dropdownColor: Colors.black,
+                  style: const TextStyle(color: Colors.white),
+                  icon: const Icon(Icons.arrow_drop_down),
+                  hint: Text(
+                    state.allDevicesWithNewAction.isNotEmpty
+                        ? state.allDevicesWithNewAction[0].defaultName
+                            .getOrCrash()!
+                        : 'Choose Device',
+                    style: const TextStyle(color: Colors.white),
                   ),
-                  listType: MultiSelectListType.CHIP,
-                  onConfirm: (List<String?> values) {},
+                  elevation: 16,
+                  underline: Container(
+                    height: 2,
+                  ),
+                  onChanged: (value) {
+                    context
+                        .read<AddNewActionBloc>()
+                        .add(AddNewActionEvent.changeActionDevices(value!));
+                  },
+                  items: state.allDevices.map<DropdownMenuItem<String>>((e) {
+                    return DropdownMenuItem<String>(
+                      value: e.uniqueId.getOrCrash(),
+                      child: Text(e.defaultName.getOrCrash()!),
+                    );
+                  }).toList(),
+                ),
+                const SizedBox(
+                  height: 40,
+                ),
+                DropdownButton<String>(
+                  dropdownColor: Colors.black,
+                  style: const TextStyle(color: Colors.white),
+                  icon: const Icon(Icons.arrow_drop_down),
+                  hint: Text(
+                    state.allDevicesWithNewAction.isNotEmpty
+                        ? state.allDevicesWithNewAction[0].defaultName
+                            .getOrCrash()!
+                        : 'Action',
+                    style: const TextStyle(color: Colors.white),
+                  ),
+                  elevation: 16,
+                  underline: Container(
+                    height: 2,
+                  ),
+                  onChanged: (value) {
+                    context
+                        .read<AddNewActionBloc>()
+                        .add(AddNewActionEvent.changeActionDevices(value!));
+                  },
+                  items: state.allDevices.map<DropdownMenuItem<String>>((e) {
+                    return DropdownMenuItem<String>(
+                      value: e.uniqueId.getOrCrash(),
+                      child: Text(e.defaultName.getOrCrash()!),
+                    );
+                  }).toList(),
                 ),
                 const SizedBox(
                   height: 70,

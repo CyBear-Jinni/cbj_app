@@ -1,9 +1,11 @@
+import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/presentation/add_new_automation_process/add_scene/widgets/scene_action_widget.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
 
@@ -59,7 +61,69 @@ class AddScenePage extends StatelessWidget {
                     ),
                     child: TextButton(
                       onPressed: () {
-                        context.router.push(const AddActionRoute());
+                        showAdaptiveActionSheet(
+                          context: context,
+                          actions: <BottomSheetAction>[
+                            BottomSheetAction(
+                              title: const Text(
+                                'Add device action',
+                                style: TextStyle(
+                                  color: Colors.blueGrey,
+                                  fontSize: 23,
+                                ),
+                              ),
+                              onPressed: () {
+                                context.router.push(const AddActionRoute());
+                              },
+                            ),
+                            BottomSheetAction(
+                              title: Text(
+                                'Add service action',
+                                style: TextStyle(
+                                  color: Colors.green.shade600,
+                                  fontSize: 23,
+                                ),
+                              ),
+                              onPressed: () {
+                                Fluttertoast.showToast(
+                                  msg:
+                                      'Adding service action will be added in the future',
+                                  toastLength: Toast.LENGTH_LONG,
+                                  gravity: ToastGravity.CENTER,
+                                  backgroundColor: Colors.blueGrey,
+                                  textColor: Theme.of(context)
+                                      .textTheme
+                                      .bodyText1!
+                                      .color,
+                                  fontSize: 16.0,
+                                );
+                              },
+                            ),
+                            BottomSheetAction(
+                              title: const Text(
+                                'Add time based action',
+                                style: TextStyle(
+                                  color: Colors.blue,
+                                  fontSize: 23,
+                                ),
+                              ),
+                              onPressed: () {
+                                Fluttertoast.showToast(
+                                  msg:
+                                      'Adding time based action will be added in the future',
+                                  toastLength: Toast.LENGTH_LONG,
+                                  gravity: ToastGravity.CENTER,
+                                  backgroundColor: Colors.blueGrey,
+                                  textColor: Theme.of(context)
+                                      .textTheme
+                                      .bodyText1!
+                                      .color,
+                                  fontSize: 16.0,
+                                );
+                              },
+                            ),
+                          ],
+                        );
                       },
                       child: const Text('+ Add action'),
                     ),

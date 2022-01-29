@@ -20,7 +20,8 @@ class ChangeRoomForDevicesPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 0,
-        backgroundColor: HexColor('#303030'), systemOverlayStyle: SystemUiOverlayStyle.light,
+        backgroundColor: HexColor('#303030'),
+        systemOverlayStyle: SystemUiOverlayStyle.light,
       ),
       backgroundColor: HexColor('#303030'),
       body: Column(

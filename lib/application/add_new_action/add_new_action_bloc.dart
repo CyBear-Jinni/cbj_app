@@ -5,7 +5,6 @@ import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstra
 import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
 import 'package:cybear_jinni/domain/room/i_room_repository.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
-import 'package:cybear_jinni/domain/room/value_objects_room.dart';
 import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -21,12 +20,7 @@ class AddNewActionBloc extends Bloc<AddNewActionEvent, AddNewActionState> {
       : super(AddNewActionState.initial()) {
     on<CreateRoom>(_createRoom);
     on<ChangeRoomDevices>(_changeRoomDevices);
-    on<DefaultNameChanged>(_defaultNameChanged);
-    on<RoomTypesChanged>(_roomTypesChanged);
-    on<RoomIdChanged>(_roomIdChanged);
-    on<RoomDevicesIdChanged>(_roomDevicesIdChanged);
-    on<RoomMostUsedByChanged>(_roomMostUsedByChanged);
-    on<RoomPermissionsChanged>(_roomPermissionsChanged);
+    on<ActionsNameChange>(_actionsNameChange);
     on<Initialized>(_initialized);
 
     add(const AddNewActionEvent.initialized());
@@ -54,7 +48,6 @@ class AddNewActionBloc extends Bloc<AddNewActionEvent, AddNewActionState> {
 
     emit(
       state.copyWith(
-        allRooms: _allRooms as List<RoomEntity>,
         allDevices: _allDevices as List<DeviceEntityAbstract>,
       ),
     );
@@ -64,109 +57,39 @@ class AddNewActionBloc extends Bloc<AddNewActionEvent, AddNewActionState> {
     ChangeRoomDevices event,
     Emitter<AddNewActionState> emit,
   ) async {
-    final RoomEntity roomEntity = RoomEntity(
-      uniqueId: RoomUniqueId.fromUniqueString(state.roomUniqueId.getOrCrash()),
-      defaultName: RoomDefaultName(state.defaultName.getOrCrash()),
-      roomTypes: RoomTypes(state.roomTypes.getOrCrash()),
-      roomDevicesId: RoomDevicesId(state.roomDevicesId.getOrCrash()),
-      roomMostUsedBy: RoomMostUsedBy(state.roomMostUsedBy.getOrCrash()),
-      roomPermissions: RoomPermissions(state.roomPermissions.getOrCrash()),
-    );
+    for (final DeviceEntityAbstract? device in _allDevices) {
+      if (device != null && event.deviceId == device.uniqueId.getOrCrash()) {
+        final List<MapEntry<String, String>> allActionsForSelectedType = [];
 
-    _roomRepository.create(roomEntity);
+        emit(
+          state.copyWith(
+            allDevicesWithNewAction: [device],
+            authFailureOrSuccessOption: none(),
+          ),
+        );
+      }
+    }
   }
 
   Future<void> _createRoom(
     CreateRoom event,
     Emitter<AddNewActionState> emit,
   ) async {
-    final RoomEntity roomEntity = RoomEntity(
-      uniqueId: RoomUniqueId.fromUniqueString(state.roomUniqueId.getOrCrash()),
-      defaultName: RoomDefaultName(state.defaultName.getOrCrash()),
-      roomTypes: RoomTypes(state.roomTypes.getOrCrash()),
-      roomDevicesId: RoomDevicesId(state.roomDevicesId.getOrCrash()),
-      roomMostUsedBy: RoomMostUsedBy(state.roomMostUsedBy.getOrCrash()),
-      roomPermissions: RoomPermissions(state.roomPermissions.getOrCrash()),
-    );
-
-    _roomRepository.create(roomEntity);
+    // final RoomEntity roomEntity = RoomEntity(
+    //   uniqueId: RoomUniqueId.fromUniqueString(state.roomUniqueId.getOrCrash()),
+    //   defaultName: RoomDefaultName(state.actionsName),
+    // );
+    //
+    // _roomRepository.create(roomEntity);
   }
 
-  Future<void> _defaultNameChanged(
-    DefaultNameChanged event,
+  Future<void> _actionsNameChange(
+    ActionsNameChange event,
     Emitter<AddNewActionState> emit,
   ) async {
     emit(
       state.copyWith(
-        defaultName: RoomDefaultName(event.defaultName),
-        authFailureOrSuccessOption: none(),
-      ),
-    );
-  }
-
-  Future<void> _roomTypesChanged(
-    RoomTypesChanged event,
-    Emitter<AddNewActionState> emit,
-  ) async {
-    emit(
-      state.copyWith(
-        roomTypes: RoomTypes(event.roomTypes),
-        authFailureOrSuccessOption: none(),
-      ),
-    );
-  }
-
-  Future<void> _roomIdChanged(
-    RoomIdChanged event,
-    Emitter<AddNewActionState> emit,
-  ) async {
-    for (final RoomEntity? roomEntity in _allRooms) {
-      if (roomEntity != null &&
-          roomEntity.uniqueId.getOrCrash() == event.roomId) {
-        emit(
-          state.copyWith(
-            roomUniqueId: roomEntity.uniqueId,
-            defaultName: roomEntity.defaultName,
-            authFailureOrSuccessOption: none(),
-          ),
-        );
-        return;
-      }
-    }
-  }
-
-  Future<void> _roomDevicesIdChanged(
-    RoomDevicesIdChanged event,
-    Emitter<AddNewActionState> emit,
-  ) async {
-    emit(
-      state.copyWith(
-        roomDevicesId: RoomDevicesId(event.roomDevicesId),
-        authFailureOrSuccessOption: none(),
-      ),
-    );
-    // Navigator.pop(context);
-  }
-
-  Future<void> _roomMostUsedByChanged(
-    RoomMostUsedByChanged event,
-    Emitter<AddNewActionState> emit,
-  ) async {
-    emit(
-      state.copyWith(
-        roomMostUsedBy: RoomMostUsedBy(event.roomMostUsedBy),
-        authFailureOrSuccessOption: none(),
-      ),
-    );
-  }
-
-  Future<void> _roomPermissionsChanged(
-    RoomPermissionsChanged event,
-    Emitter<AddNewActionState> emit,
-  ) async {
-    emit(
-      state.copyWith(
-        roomPermissions: RoomPermissions(event.roomPermissions),
+        actionsName: event.actionsName,
         authFailureOrSuccessOption: none(),
       ),
     );
