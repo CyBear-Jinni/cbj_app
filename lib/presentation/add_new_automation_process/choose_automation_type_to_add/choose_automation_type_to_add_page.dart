@@ -42,18 +42,19 @@ class ChooseAutomationTypeToAddPage extends StatelessWidget {
                   ),
                   const Text(
                     'Do several things at once or start actions'
-                    ' automatically by trigger',
+                        ' automatically by adding a trigger.',
                     style: TextStyle(
                       color: Colors.black,
                     ),
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 13,
                   ),
                   const Text(
                     'Please choose your automation trigger',
                     style: TextStyle(
                       color: Colors.black,
+                      fontSize: 18,
                     ),
                   ),
                   const SizedBox(
@@ -83,7 +84,7 @@ class ChooseAutomationTypeToAddPage extends StatelessWidget {
                               ),
                               AutoSizeText(
                                 'Triggered by user click',
-                                maxFontSize: 15,
+                                maxFontSize: 18,
                                 style: TextStyle(
                                   color: Colors.black,
                                 ),
@@ -94,14 +95,14 @@ class ChooseAutomationTypeToAddPage extends StatelessWidget {
                             'Combining a number of actions in a big button.',
                             style: TextStyle(
                               color: Colors.black,
-                              fontSize: 10,
+                              fontSize: 13,
                             ),
                           ),
                           const Text(
                             'Example:\n"Arriving Home" button that will turn on some lights and turn up all the blinds when you click on it.',
                             style: TextStyle(
                               color: Colors.black,
-                              fontSize: 13,
+                              fontSize: 15,
                             ),
                           ),
                         ],
@@ -137,7 +138,7 @@ class ChooseAutomationTypeToAddPage extends StatelessWidget {
                               ),
                               AutoSizeText(
                                 'Triggered by time',
-                                maxFontSize: 15,
+                                maxFontSize: 18,
                                 style: TextStyle(
                                   color: Colors.black,
                                 ),
@@ -148,14 +149,14 @@ class ChooseAutomationTypeToAddPage extends StatelessWidget {
                             'Like alarm clock but for triggering actions.',
                             style: TextStyle(
                               color: Colors.black,
-                              fontSize: 10,
+                              fontSize: 13,
                             ),
                           ),
                           const Text(
                             'Example:\nTurn on the thermostat for an hour and open all blinds each day at 7:00am.',
                             style: TextStyle(
                               color: Colors.black,
-                              fontSize: 13,
+                              fontSize: 15,
                             ),
                           )
                         ],
@@ -191,7 +192,7 @@ class ChooseAutomationTypeToAddPage extends StatelessWidget {
                               ),
                               AutoSizeText(
                                 'Triggered by external action',
-                                maxFontSize: 15,
+                                maxFontSize: 18,
                                 style: TextStyle(
                                   color: Colors.black,
                                 ),
@@ -202,14 +203,14 @@ class ChooseAutomationTypeToAddPage extends StatelessWidget {
                             'Trigger actions whenever an external action occurs.',
                             style: TextStyle(
                               color: Colors.black,
-                              fontSize: 10,
+                              fontSize: 13,
                             ),
                           ),
                           const Text(
                             'Example:\nIf the home door got opened from 3:00am - 6:00am trigger anti-thief alarm system.',
                             style: TextStyle(
                               color: Colors.black,
-                              fontSize: 13,
+                              fontSize: 15,
                             ),
                           )
                         ],
