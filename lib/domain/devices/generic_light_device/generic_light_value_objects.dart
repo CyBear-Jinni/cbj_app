@@ -15,4 +15,8 @@ class GenericLightSwitchState extends ValueObjectCore<String> {
 
   @override
   final Either<CoreFailure<String>, String> value;
+
+  static List<String> lightValidActions() {
+    return lightAllValidActions();
+  }
 }

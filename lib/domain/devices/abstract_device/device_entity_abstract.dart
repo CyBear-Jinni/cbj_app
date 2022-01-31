@@ -96,6 +96,9 @@ abstract class DeviceEntityAbstract {
   Future<Either<CoreFailure, Unit>> executeDeviceAction({
     required DeviceEntityAbstract newEntity,
   });
+
+  /// Return a list of all valid actions for this device
+  List<String> getAllValidActions();
 }
 
 class DeviceEntityNotAbstract extends DeviceEntityAbstract {
@@ -123,8 +126,13 @@ class DeviceEntityNotAbstract extends DeviceEntityAbstract {
 
   @override
   String getDeviceId() {
-    // TODO: implement getDeviceId
     throw UnimplementedError();
+  }
+
+  /// Return a list of all valid actions for this device
+  @override
+  List<String> getAllValidActions() {
+    return [];
   }
 
   @override

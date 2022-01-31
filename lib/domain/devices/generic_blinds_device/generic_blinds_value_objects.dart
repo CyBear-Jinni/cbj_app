@@ -15,4 +15,8 @@ class GenericBlindsSwitchState extends ValueObjectCore<String> {
 
   @override
   final Either<CoreFailure<String>, String> value;
+
+  static List<String> blindsValidActions() {
+    return blindsAllValidActions();
+  }
 }

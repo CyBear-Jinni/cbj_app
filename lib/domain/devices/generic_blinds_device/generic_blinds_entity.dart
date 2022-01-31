@@ -85,6 +85,12 @@ class GenericBlindsDE extends DeviceEntityAbstract {
     return uniqueId.getOrCrash();
   }
 
+  /// Return a list of all valid actions for this device
+  @override
+  List<String> getAllValidActions() {
+    return GenericBlindsSwitchState.blindsValidActions();
+  }
+
   @override
   DeviceEntityDtoAbstract toInfrastructure() {
     return GenericBlindsDeviceDtos(

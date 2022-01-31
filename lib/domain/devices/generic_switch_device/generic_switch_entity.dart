@@ -84,6 +84,12 @@ class GenericSwitchDE extends DeviceEntityAbstract {
     return uniqueId.getOrCrash();
   }
 
+  /// Return a list of all valid actions for this device
+  @override
+  List<String> getAllValidActions() {
+    return GenericSwitchSwitchState.smartSwitchValidActions();
+  }
+
   @override
   DeviceEntityDtoAbstract toInfrastructure() {
     return GenericSwitchDeviceDtos(

@@ -86,6 +86,12 @@ class GenericEmptyDE extends DeviceEntityAbstract {
     return uniqueId.getOrCrash();
   }
 
+  /// Return a list of all valid actions for this device
+  @override
+  List<String> getAllValidActions() {
+    return GenericEmptySwitchState.emptyDeviceValidActions();
+  }
+
   @override
   DeviceEntityDtoAbstract toInfrastructure() {
     return GenericEmptyDeviceDtos(

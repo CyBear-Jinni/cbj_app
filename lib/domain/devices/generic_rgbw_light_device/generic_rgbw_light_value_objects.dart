@@ -21,6 +21,11 @@ class GenericRgbwLightSwitchState extends ValueObjectCore<String> {
 
   @override
   final Either<CoreFailure<String>, String> value;
+
+  /// All valid actions of rgb light state
+  static List<String> rgbwLightValidActions() {
+    return rgbwLightAllValidActions();
+  }
 }
 
 class GenericRgbwLightColorTemperature extends ValueObjectCore<String> {

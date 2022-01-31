@@ -85,6 +85,12 @@ class GenericSmartPlugDE extends DeviceEntityAbstract {
     return uniqueId.getOrCrash();
   }
 
+  /// Return a list of all valid actions for this device
+  @override
+  List<String> getAllValidActions() {
+    return GenericSmartPlugState.lightValidActions();
+  }
+
   @override
   DeviceEntityDtoAbstract toInfrastructure() {
     return GenericSmartPlugDeviceDtos(

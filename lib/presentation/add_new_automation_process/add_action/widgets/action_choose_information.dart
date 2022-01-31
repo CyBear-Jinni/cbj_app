@@ -65,10 +65,9 @@ class ActionChooseInformation extends StatelessWidget {
                   style: const TextStyle(color: Colors.white),
                   icon: const Icon(Icons.arrow_drop_down),
                   hint: Text(
-                    state.allDevicesWithNewAction.isNotEmpty
-                        ? state.allDevicesWithNewAction[0].defaultName
-                            .getOrCrash()!
-                        : 'Action',
+                    state.actionsName != ''
+                        ? state.actionsName
+                        : 'Choose Action',
                     style: const TextStyle(color: Colors.white),
                   ),
                   elevation: 16,
@@ -78,14 +77,23 @@ class ActionChooseInformation extends StatelessWidget {
                   onChanged: (value) {
                     context
                         .read<AddNewActionBloc>()
-                        .add(AddNewActionEvent.changeActionDevices(value!));
+                        .add(AddNewActionEvent.actionsNameChange(value!));
                   },
-                  items: state.allDevices.map<DropdownMenuItem<String>>((e) {
-                    return DropdownMenuItem<String>(
-                      value: e.uniqueId.getOrCrash(),
-                      child: Text(e.defaultName.getOrCrash()!),
-                    );
-                  }).toList(),
+                  items: state.allDevicesWithNewAction.isNotEmpty
+                      ? state.allDevicesWithNewAction[0]
+                          .getAllValidActions()
+                          .map<DropdownMenuItem<String>>((e) {
+                          return DropdownMenuItem<String>(
+                            value: e,
+                            child: Text(e),
+                          );
+                        }).toList()
+                      : <DropdownMenuItem<String>>[
+                          const DropdownMenuItem<String>(
+                            value: 'Choose device first',
+                            child: Text('Choose device first'),
+                          )
+                        ],
                 ),
                 const SizedBox(
                   height: 70,

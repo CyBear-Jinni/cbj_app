@@ -6,9 +6,7 @@ class AddNewActionEvent with _$AddNewActionEvent {
       ActionsNameChange;
 
   const factory AddNewActionEvent.changeActionDevices(String deviceId) =
-      ChangeRoomDevices;
-
-  const factory AddNewActionEvent.createRoom() = CreateRoom;
+      ChangeActionDevices;
 
   const factory AddNewActionEvent.initialized() = Initialized;
 }

@@ -12,3 +12,11 @@ Either<CoreFailure<String>, String> validateGenericLightStateNotEmty(
   }
   return right(input);
 }
+
+/// Return all the valid actions for blinds
+List<String> lightAllValidActions() {
+  return [
+    DeviceActions.off.toString(),
+    DeviceActions.on.toString(),
+  ];
+}

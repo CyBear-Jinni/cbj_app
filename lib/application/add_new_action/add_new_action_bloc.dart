@@ -18,8 +18,7 @@ part 'add_new_action_state.dart';
 class AddNewActionBloc extends Bloc<AddNewActionEvent, AddNewActionState> {
   AddNewActionBloc(this._roomRepository, this._deviceRepository)
       : super(AddNewActionState.initial()) {
-    on<CreateRoom>(_createRoom);
-    on<ChangeRoomDevices>(_changeRoomDevices);
+    on<ChangeActionDevices>(_changeActionDevices);
     on<ActionsNameChange>(_actionsNameChange);
     on<Initialized>(_initialized);
 
@@ -53,34 +52,21 @@ class AddNewActionBloc extends Bloc<AddNewActionEvent, AddNewActionState> {
     );
   }
 
-  Future<void> _changeRoomDevices(
-    ChangeRoomDevices event,
+  Future<void> _changeActionDevices(
+    ChangeActionDevices event,
     Emitter<AddNewActionState> emit,
   ) async {
     for (final DeviceEntityAbstract? device in _allDevices) {
       if (device != null && event.deviceId == device.uniqueId.getOrCrash()) {
-        final List<MapEntry<String, String>> allActionsForSelectedType = [];
-
         emit(
           state.copyWith(
             allDevicesWithNewAction: [device],
+            actionsName: '',
             authFailureOrSuccessOption: none(),
           ),
         );
       }
     }
-  }
-
-  Future<void> _createRoom(
-    CreateRoom event,
-    Emitter<AddNewActionState> emit,
-  ) async {
-    // final RoomEntity roomEntity = RoomEntity(
-    //   uniqueId: RoomUniqueId.fromUniqueString(state.roomUniqueId.getOrCrash()),
-    //   defaultName: RoomDefaultName(state.actionsName),
-    // );
-    //
-    // _roomRepository.create(roomEntity);
   }
 
   Future<void> _actionsNameChange(

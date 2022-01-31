@@ -84,6 +84,12 @@ class GenericLightDE extends DeviceEntityAbstract {
     return uniqueId.getOrCrash();
   }
 
+  /// Return a list of all valid actions for this device
+  @override
+  List<String> getAllValidActions() {
+    return GenericLightSwitchState.lightValidActions();
+  }
+
   @override
   DeviceEntityDtoAbstract toInfrastructure() {
     return GenericLightDeviceDtos(
