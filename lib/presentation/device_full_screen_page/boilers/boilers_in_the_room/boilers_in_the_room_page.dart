@@ -3,6 +3,7 @@ import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/boilers/widgets/room_boilers_toggles_block.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// Page to show all the boilers in selected room
@@ -23,7 +24,7 @@ class BoilersInTheRoomPage extends StatelessWidget {
       appBar: AppBar(
         toolbarHeight: 0,
         backgroundColor: Colors.black,
-        brightness: Brightness.dark,
+        systemOverlayStyle: SystemUiOverlayStyle.dark,
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,

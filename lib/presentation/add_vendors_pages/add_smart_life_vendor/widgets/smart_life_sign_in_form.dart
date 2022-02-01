@@ -190,8 +190,7 @@ class SmartLifeSignInForm extends StatelessWidget {
                             onPressed: () {
                               context.read<TuyaSignInFormBloc>().add(
                                     TuyaSignInFormEvent.vendorChanged(
-                                      VendorsAndServices.smartLife.name
-                                          .toString(),
+                                      VendorsAndServices.smartLife.name,
                                     ),
                                   );
                               context.read<TuyaSignInFormBloc>().add(

@@ -49,7 +49,7 @@ class ScenesInFoldersTab extends StatelessWidget {
     return Column(
       children: <Widget>[
         TopNavigationBar(
-          pageName: 'Scenes'.tr(),
+          pageName: 'Automations'.tr(),
           rightIcon: null,
           rightIconFunction: userCogFunction,
           leftIcon: FontAwesomeIcons.sitemap,

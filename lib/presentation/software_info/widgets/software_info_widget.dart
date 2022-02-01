@@ -1,6 +1,5 @@
 import 'package:cybear_jinni/application/software_info/software_info_bloc.dart';
 import 'package:cybear_jinni/domain/software_info/software_info_entity.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

@@ -4,7 +4,7 @@ part of 'smart_tv_watcher_bloc.dart';
 class SmartTvWatcherEvent with _$SmartTvWatcherEvent {
   const factory SmartTvWatcherEvent.watchAllStarted() = WatchAllSmartTvStarted;
 
-  const factory SmartTvWatcherEvent.smart_tvReceived(
+  const factory SmartTvWatcherEvent.smartTvReceived(
     Either<DevicesFailure, KtList<DeviceEntityAbstract?>> failureOrDevices,
   ) = Smart_tvReceived;
 }

@@ -23,8 +23,8 @@ class GenericEmptyDE extends DeviceEntityAbstract {
     required DeviceSenderDeviceModel senderDeviceModel,
     required DeviceSenderId senderId,
     required DeviceCompUuid compUuid,
-    DevicePowerConsumption? powerConsumption,
     required this.emptySwitchState,
+    DevicePowerConsumption? powerConsumption,
   }) : super(
           uniqueId: uniqueId,
           vendorUniqueId: vendorUniqueId,
@@ -84,6 +84,12 @@ class GenericEmptyDE extends DeviceEntityAbstract {
   @override
   String getDeviceId() {
     return uniqueId.getOrCrash();
+  }
+
+  /// Return a list of all valid actions for this device
+  @override
+  List<String> getAllValidActions() {
+    return GenericEmptySwitchState.emptyDeviceValidActions();
   }
 
   @override

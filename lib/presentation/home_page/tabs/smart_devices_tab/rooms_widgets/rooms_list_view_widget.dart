@@ -4,6 +4,7 @@ import 'package:cybear_jinni/domain/devices/generic_blinds_device/generic_blinds
 import 'package:cybear_jinni/domain/devices/generic_boiler_device/generic_boiler_entity.dart';
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_smart_plug_device/generic_smart_plug_entity.dart';
 import 'package:cybear_jinni/domain/devices/generic_smart_tv/generic_smart_tv_entity.dart';
 import 'package:cybear_jinni/domain/devices/generic_switch_device/generic_switch_entity.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
@@ -11,6 +12,7 @@ import 'package:cybear_jinni/domain/room/value_objects_room.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/rooms_widgets/rom_widget.dart';
+import 'package:cybear_jinni/utils.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -18,7 +20,7 @@ import 'package:provider/provider.dart';
 
 class RoomsListViewWidget extends StatefulWidget {
   /// Builds the rooms
-  RoomsListViewWidget({
+  const RoomsListViewWidget({
     required this.tempDevicesByRooms,
     required this.devicesList,
     required this.roomsList,
@@ -71,9 +73,6 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
         tempDevicesByRoomsByType =
         <String, Map<String, List<DeviceEntityAbstract>>>{};
 
-    final Map<String, List<GenericLightDE>> tempDevicesByType =
-        <String, List<GenericLightDE>>{};
-
     tempDevicesByRooms.forEach((k, v) {
       tempDevicesByRoomsByType[k!] = {};
       v.forEach((element) {
@@ -92,26 +91,29 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
   }
 
   bool isDeviceShouldBeSownInSummaryRoom(DeviceEntityAbstract deviceEntity) {
+    final String onAction = DeviceActions.on.toString();
+
     if (deviceEntity is GenericBlindsDE) {
       /// TODO: Need to check position open and not moving up
       return deviceEntity.blindsSwitchState?.getOrCrash() ==
           DeviceActions.moveUp.toString();
     } else if (deviceEntity is GenericBoilerDE) {
-      return deviceEntity.boilerSwitchState?.getOrCrash() ==
-          DeviceActions.on.toString();
+      return deviceEntity.boilerSwitchState?.getOrCrash() == onAction;
     } else if (deviceEntity is GenericLightDE) {
-      return deviceEntity.lightSwitchState?.getOrCrash() ==
-          DeviceActions.on.toString();
+      return deviceEntity.lightSwitchState?.getOrCrash() == onAction;
     } else if (deviceEntity is GenericRgbwLightDE) {
-      return deviceEntity.lightSwitchState?.getOrCrash() ==
-          DeviceActions.on.toString();
+      return deviceEntity.lightSwitchState?.getOrCrash() == onAction;
     } else if (deviceEntity is GenericSmartTvDE) {
-      return deviceEntity.smartTvSwitchState?.getOrCrash() ==
-          DeviceActions.on.toString();
+      return deviceEntity.smartTvSwitchState?.getOrCrash() == onAction;
     } else if (deviceEntity is GenericSwitchDE) {
-      return deviceEntity.switchState?.getOrCrash() ==
-          DeviceActions.on.toString();
+      return deviceEntity.switchState?.getOrCrash() == onAction;
+    } else if (deviceEntity is GenericSmartPlugDE) {
+      return deviceEntity.smartPlugState?.getOrCrash() == onAction;
     }
+    logger.w(
+      'State check is missing for device type ${deviceEntity.deviceTypes} '
+      'to appear in summary',
+    );
     return false;
   }
 
@@ -195,28 +197,28 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
     return tempDevicesByRooms;
   }
 
-  Map<String?, List<DeviceEntityAbstract>>
-      listOfDevicesInAllDevicesAndSummaryRooms({
+  Map<String?, List<DeviceEntityAbstract>> listOfDevicesInSummaryArea({
     required List<RoomEntity?> rooms,
     required List<DeviceEntityAbstract?> devicesList,
   }) {
     final Map<String?, List<DeviceEntityAbstract>> tempDevicesByRooms =
         <String, List<DeviceEntityAbstract>>{};
+    // /// All Devices area
+    // final RoomEntity allDevicesRoom = RoomEntity.empty().copyWith(
+    //   defaultName: RoomDefaultName('All_Devices'.tr()),
+    // );
+    // final String allDevicesRoomId = allDevicesRoom.uniqueId.getOrCrash();
+    // tempDevicesByRooms[allDevicesRoomId] = [];
+    //
+    // for (final DeviceEntityAbstract? device in devicesList) {
+    //   if (device != null) {
+    //     allDevicesRoom.addDeviceId(device.uniqueId.getOrCrash());
+    //     tempDevicesByRooms[allDevicesRoomId]!.add(device);
+    //   }
+    // }
+    // rooms.add(allDevicesRoom);
 
-    final RoomEntity allDevicesRoom = RoomEntity.empty().copyWith(
-      defaultName: RoomDefaultName('All_Devices'.tr()),
-    );
-    final String allDevicesRoomId = allDevicesRoom.uniqueId.getOrCrash();
-    tempDevicesByRooms[allDevicesRoomId] = [];
-
-    for (final DeviceEntityAbstract? device in devicesList) {
-      if (device != null) {
-        allDevicesRoom.addDeviceId(device.uniqueId.getOrCrash());
-        tempDevicesByRooms[allDevicesRoomId]!.add(device);
-      }
-    }
-    rooms.add(allDevicesRoom);
-
+    /// Summary area
     final RoomEntity summaryDevicesRoom = RoomEntity.empty().copyWith(
       defaultName: RoomDefaultName('Summary'.tr()),
     );
@@ -262,7 +264,7 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
 
     if (roomsList.length > 2) {
       tempDevicesByRooms.addAll(
-        listOfDevicesInAllDevicesAndSummaryRooms(
+        listOfDevicesInSummaryArea(
           rooms: roomsList,
           devicesList: devicesList,
         ),
@@ -302,7 +304,7 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
       objectList = List<Object>.from(objectList.reversed);
     }
 
-    int gradientColorCounter = 2;
+    int gradientColorCounter = 1;
 
     List<Color> roomColorGradiant = gradientColorsList[gradientColorCounter];
 
@@ -347,7 +349,7 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
             is MapEntry<String, Map<String, List<DeviceEntityAbstract>>>) {
           gradientColorCounter++;
           if (gradientColorCounter >= gradientColorsList.length) {
-            gradientColorCounter = 2;
+            gradientColorCounter = 1;
           }
 
           roomColorGradiant = gradientColorsList[gradientColorCounter];
@@ -359,22 +361,20 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
           //   roomColorGradiant = gradientColorsList[2];
           // }
 
-          if (index > objectList.length - 3) {
+          /// Color for Summary page
+          if (index == objectList.length - 1) {
             leftMargin = 10;
             rightMargin = 10;
             bottomMargin = 15;
             borderRadius = 40;
 
-            /// Color for All Devices page
-            if (index == objectList.length - 2) {
-              roomColorGradiant = gradientColorsList[1];
+            roomColorGradiant = gradientColorsList[0];
+            if (gradientColorCounter < 1) {
+              gradientColorCounter--;
+            } else {
+              gradientColorCounter = gradientColorsList.length;
             }
-
-            /// Color for Summary page
-            else if (index == objectList.length - 1) {
-              roomColorGradiant = gradientColorsList[0];
-              bottomMargin = 0;
-            }
+            bottomMargin = 0;
           }
 
           final String roomId = adOrRoom.key;

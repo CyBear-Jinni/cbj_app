@@ -60,8 +60,8 @@ class RoomSmartPlugs extends StatelessWidget {
                     AutoSizeText(
                       deviceEntityTemp.defaultName.getOrCrash()!,
                       maxLines: 1,
+                      maxFontSize: 19,
                       style: TextStyle(
-                        fontSize: 19.0,
                         color: Theme.of(context).textTheme.bodyText1!.color,
                       ),
                     ),
@@ -135,8 +135,7 @@ class RoomSmartPlugs extends StatelessWidget {
                 backgroundColor: MaterialStateProperty.all(Colors.transparent),
               ),
               onPressed: () {
-                if (maxSmartPlugsToShow != null &&
-                    _deviceEntityList.size > maxSmartPlugsToShow) {
+                if (_deviceEntityList.size > maxSmartPlugsToShow) {
                   // ExtendedNavigator.of(context).pushSmartPlugsInTheRoomPage(
                   //     thisSmartRoom: _deviceEntityList);
                 }
@@ -152,8 +151,7 @@ class RoomSmartPlugs extends StatelessWidget {
                       decoration: TextDecoration.underline,
                     ),
                   ),
-                  if (maxSmartPlugsToShow != null &&
-                      _deviceEntityList.size > maxSmartPlugsToShow)
+                  if (_deviceEntityList.size > maxSmartPlugsToShow)
                     FaIcon(
                       FontAwesomeIcons.arrowRight,
                       color: Theme.of(context).textTheme.bodyText1!.color,

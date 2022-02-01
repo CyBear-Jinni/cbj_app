@@ -7,7 +7,8 @@ class SmartPlugsActorState with _$SmartPlugsActorState {
   const factory SmartPlugsActorState.actionInProgress() = _ActionInProgress;
 
   const factory SmartPlugsActorState.deleteFailure(
-      DevicesFailure devicesFailure) = _DeleteFailure;
+    DevicesFailure devicesFailure,
+  ) = _DeleteFailure;
 
   const factory SmartPlugsActorState.deleteSuccess() = _DeleteSuccess;
 }

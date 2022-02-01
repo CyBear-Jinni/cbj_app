@@ -7,7 +7,8 @@ class SwitchesActorState with _$SwitchesActorState {
   const factory SwitchesActorState.actionInProgress() = _ActionInProgress;
 
   const factory SwitchesActorState.deleteFailure(
-      DevicesFailure devicesFailure) = _DeleteFailure;
+    DevicesFailure devicesFailure,
+  ) = _DeleteFailure;
 
   const factory SwitchesActorState.deleteSuccess() = _DeleteSuccess;
 }

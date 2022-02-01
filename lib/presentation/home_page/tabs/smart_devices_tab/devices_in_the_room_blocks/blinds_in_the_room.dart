@@ -22,7 +22,7 @@ class BlindsInTheRoom extends StatelessWidget {
     required List<DeviceEntityAbstract> tempDeviceInRoom,
     required List<Color> temprRoomColorGradiant,
   }) {
-    List<GenericBlindsDE> tempLightsInRoom = [];
+    final List<GenericBlindsDE> tempLightsInRoom = [];
 
     tempDeviceInRoom.forEach((element) {
       tempLightsInRoom.add(element as GenericBlindsDE);

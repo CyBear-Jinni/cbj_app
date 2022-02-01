@@ -123,6 +123,12 @@ class GenericRgbwLightDE extends DeviceEntityAbstract {
     return uniqueId.getOrCrash();
   }
 
+  /// Return a list of all valid actions for this device
+  @override
+  List<String> getAllValidActions() {
+    return GenericRgbwLightSwitchState.rgbwLightValidActions();
+  }
+
   @override
   DeviceEntityDtoAbstract toInfrastructure() {
     return GenericRgbwLightDeviceDtos(

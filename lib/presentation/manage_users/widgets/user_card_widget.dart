@@ -4,8 +4,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class UserCard extends StatelessWidget {
   const UserCard({
-    Key? key,
     required this.homeUser,
+    Key? key,
   }) : super(key: key);
 
   final HomeUserEntity? homeUser;

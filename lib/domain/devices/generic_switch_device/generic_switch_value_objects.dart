@@ -7,7 +7,7 @@ class GenericSwitchSwitchState extends ValueObjectCore<String> {
   factory GenericSwitchSwitchState(String? input) {
     assert(input != null);
     return GenericSwitchSwitchState._(
-      validateGenericSwitchSwitchStateNotEmty(input!),
+      validateGenericSwitchSwitchStateNotEmpty(input!),
     );
   }
 
@@ -15,4 +15,9 @@ class GenericSwitchSwitchState extends ValueObjectCore<String> {
 
   @override
   final Either<CoreFailure<String>, String> value;
+
+  /// All valid actions of smart switch state
+  static List<String> smartSwitchValidActions() {
+    return smartSwitchAllValidActions();
+  }
 }

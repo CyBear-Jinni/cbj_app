@@ -4,8 +4,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SoftwareInfoCard extends StatelessWidget {
   const SoftwareInfoCard({
-    Key? key,
     required this.homeUser,
+    Key? key,
   }) : super(key: key);
 
   final HomeUserEntity? homeUser;

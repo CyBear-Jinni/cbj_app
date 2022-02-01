@@ -20,7 +20,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class RoomWidget extends StatelessWidget {
-  RoomWidget({
+  const RoomWidget({
     required this.roomColorGradiant,
     required int index,
     required this.roomsList,

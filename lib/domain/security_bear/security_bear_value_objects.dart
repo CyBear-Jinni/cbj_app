@@ -38,7 +38,6 @@ abstract class SecurityBearValueObjectAbstract<T> {
 
 class SecurityBearNetworkIp extends SecurityBearValueObjectAbstract<String> {
   factory SecurityBearNetworkIp(String input) {
-    assert(input != null);
     return SecurityBearNetworkIp._(
       validateStringNotEmpty(input),
     );
@@ -52,7 +51,6 @@ class SecurityBearNetworkIp extends SecurityBearValueObjectAbstract<String> {
 
 class SecurityBearMdnsName extends SecurityBearValueObjectAbstract<String> {
   factory SecurityBearMdnsName(String input) {
-    assert(input != null);
     return SecurityBearMdnsName._(
       validateStringNotEmpty(input),
     );
@@ -66,7 +64,6 @@ class SecurityBearMdnsName extends SecurityBearValueObjectAbstract<String> {
 
 class SecurityBearNetworkBssid extends SecurityBearValueObjectAbstract<String> {
   factory SecurityBearNetworkBssid(String input) {
-    assert(input != null);
     return SecurityBearNetworkBssid._(
       validateStringNotEmpty(input),
     );
@@ -80,7 +77,6 @@ class SecurityBearNetworkBssid extends SecurityBearValueObjectAbstract<String> {
 
 class SecurityBearNetworkName extends SecurityBearValueObjectAbstract<String> {
   factory SecurityBearNetworkName(String input) {
-    assert(input != null);
     return SecurityBearNetworkName._(
       validateStringNotEmpty(input),
     );

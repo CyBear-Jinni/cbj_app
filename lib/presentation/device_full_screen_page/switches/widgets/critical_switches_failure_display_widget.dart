@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 class CriticalSwitchFailureDisplay extends StatelessWidget {
   const CriticalSwitchFailureDisplay({
-    Key? key,
     required this.failure,
+    Key? key,
   }) : super(key: key);
 
   final DevicesFailure? failure;
@@ -29,9 +29,7 @@ class CriticalSwitchFailureDisplay extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           TextButton(
-            onPressed: () {
-              print('Sending email!');
-            },
+            onPressed: () {},
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: const <Widget>[

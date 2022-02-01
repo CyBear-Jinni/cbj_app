@@ -4,7 +4,6 @@ import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rg
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/rgbw_lights/widgets/error_rgbw_lights_device_card_widget.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/rgbw_lights/widgets/rgbw_light_widget.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -128,8 +127,7 @@ class RoomRgbwLights extends StatelessWidget {
                 backgroundColor: MaterialStateProperty.all(Colors.transparent),
               ),
               onPressed: () {
-                if (maxLightsToShow != null &&
-                    _deviceEntityList.size > maxLightsToShow) {
+                if (_deviceEntityList.size > maxLightsToShow) {
                   // ExtendedNavigator.of(context).pushLightsInTheRoomPage(
                   //     thisSmartRoom: _deviceEntityList);
                 }
@@ -145,8 +143,7 @@ class RoomRgbwLights extends StatelessWidget {
                       decoration: TextDecoration.underline,
                     ),
                   ),
-                  if (maxLightsToShow != null &&
-                      _deviceEntityList.size > maxLightsToShow)
+                  if (_deviceEntityList.size > maxLightsToShow)
                     FaIcon(
                       FontAwesomeIcons.arrowRight,
                       color: Theme.of(context).textTheme.bodyText1!.color,

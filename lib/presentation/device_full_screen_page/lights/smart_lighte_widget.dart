@@ -4,7 +4,7 @@ import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_e
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:cybear_jinni/utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
@@ -46,26 +46,25 @@ class _SmartLightPage extends State<SmartLightPage> {
         });
       }
     } catch (exception) {
-      print('Error when updating state after resume: $exception');
+      logger.e('Error when updating state after resume\n$exception');
     }
   }
 
   //  Send request to light to retrieve his state on or off
   Future<bool> getLightAction() async {
     return _switchState = EnumHelper.stringToDeviceAction(
-          await _light!.lightSwitchState!.getOrCrash(),
+          _light!.lightSwitchState!.getOrCrash(),
         ) ==
         DeviceActions.on;
   }
 
   Future<void> _onChange(bool value) async {
-    print('OnChange $value');
-    _light
-      ?..lightSwitchState = GenericLightSwitchState(
-        EnumHelper.deviceActionToString(
-          value ? DeviceActions.on : DeviceActions.off,
-        ),
-      );
+    logger.v('OnChange $value');
+    _light?.lightSwitchState = GenericLightSwitchState(
+      EnumHelper.deviceActionToString(
+        value ? DeviceActions.on : DeviceActions.off,
+      ),
+    );
     if (mounted) {
       setState(() {
         _switchState = value;
@@ -92,9 +91,9 @@ class _SmartLightPage extends State<SmartLightPage> {
           const Center(child: CircularProgressIndicator())
         else
           FlutterSwitch(
-            width: screenSize.width * 0.2,
-            height: screenSize.height * 0.05,
-            toggleSize: screenSize.height * 0.05,
+            width: screenSize.width * 0.25,
+            height: screenSize.height * 0.065,
+            toggleSize: screenSize.height * 0.065,
             value: _switchState,
             borderRadius: 25.0,
             padding: 0.0,

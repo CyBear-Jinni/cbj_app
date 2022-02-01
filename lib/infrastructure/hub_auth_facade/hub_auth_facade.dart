@@ -56,7 +56,7 @@ class HubAuthFacade implements IAuthFacade {
       //     await _firebaseAuth.createUserWithEmailAndPassword(
       //         email: emailAddressStr, password: passwordStr);
       //
-      final String userIdString = '12344';
+      const String userIdString = '12344';
 
       final String userName =
           emailAddressStr.substring(0, emailAddressStr.indexOf('@'));

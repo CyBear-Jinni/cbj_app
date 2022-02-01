@@ -15,8 +15,6 @@ abstract class RemotePipesDtos implements _$RemotePipesDtos {
 
   RemotePipesDtos._();
 
-  @override
-  final String deviceDtoClassInstance = (RemotePipesDtos).toString();
 
   factory RemotePipesDtos.fromDomain(RemotePipesEntity remotePipesDE) {
     return RemotePipesDtos(
@@ -27,6 +25,9 @@ abstract class RemotePipesDtos implements _$RemotePipesDtos {
 
   factory RemotePipesDtos.fromJson(Map<String, dynamic> json) =>
       _$RemotePipesDtosFromJson(json);
+
+
+  final String deviceDtoClassInstance = (RemotePipesDtos).toString();
 
   RemotePipesEntity toDomain() {
     return RemotePipesEntity(

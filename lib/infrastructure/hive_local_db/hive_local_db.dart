@@ -1,3 +1,4 @@
+import 'package:cybear_jinni/utils.dart';
 import 'package:hive/hive.dart';
 
 class HiveLocalDbHelper {
@@ -31,12 +32,12 @@ class HiveLocalDbHelper {
   static Future<void> setHomeId(String homeId) async {
     final box = await Hive.openBox(boxNameBox);
     await box.put(homeIdBox, homeId);
-    print(box.get(homeIdBox).toString());
+    logger.v(box.get(homeIdBox).toString());
   }
 
   static Future<String> getHomeId() async {
     final box = await Hive.openBox(boxNameBox);
-    print(box.get(homeIdBox).toString());
+    logger.v(box.get(homeIdBox).toString());
 
     return box.get(homeIdBox).toString();
   }

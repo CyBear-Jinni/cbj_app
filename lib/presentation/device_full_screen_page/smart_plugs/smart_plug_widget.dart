@@ -4,6 +4,7 @@ import 'package:cybear_jinni/domain/devices/generic_smart_plug_device/generic_sm
 import 'package:cybear_jinni/domain/devices/generic_smart_plug_device/generic_smart_plug_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums.dart';
+import 'package:cybear_jinni/utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
@@ -45,26 +46,25 @@ class _SmartSmartPlugPage extends State<SmartSmartPlugPage> {
         });
       }
     } catch (exception) {
-      print('Error when updating state after resume: $exception');
+      logger.e('Error when updating state after resume: $exception');
     }
   }
 
   //  Send request to smartPlug to retrieve his state on or off
   Future<bool> getSmartPlugAction() async {
     return _smartPlugState = EnumHelper.stringToDeviceAction(
-          await _smartPlug!.smartPlugState!.getOrCrash(),
+          _smartPlug!.smartPlugState!.getOrCrash(),
         ) ==
         DeviceActions.on;
   }
 
   Future<void> _onChange(bool value) async {
-    print('OnChange $value');
-    _smartPlug
-      ?..smartPlugState = GenericSmartPlugState(
-        EnumHelper.deviceActionToString(
-          value ? DeviceActions.on : DeviceActions.off,
-        ),
-      );
+    logger.v('OnChange $value');
+    _smartPlug?.smartPlugState = GenericSmartPlugState(
+      EnumHelper.deviceActionToString(
+        value ? DeviceActions.on : DeviceActions.off,
+      ),
+    );
     if (mounted) {
       setState(() {
         _smartPlugState = value;
@@ -91,9 +91,9 @@ class _SmartSmartPlugPage extends State<SmartSmartPlugPage> {
           const Center(child: CircularProgressIndicator())
         else
           FlutterSwitch(
-            width: screenSize.width * 0.2,
-            height: screenSize.height * 0.05,
-            toggleSize: screenSize.height * 0.05,
+            width: screenSize.width * 0.25,
+            height: screenSize.height * 0.065,
+            toggleSize: screenSize.height * 0.065,
             value: _smartPlugState,
             borderRadius: 25.0,
             padding: 0.0,

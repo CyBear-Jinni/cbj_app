@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 class CriticalRgbwLightFailureDisplay extends StatelessWidget {
   const CriticalRgbwLightFailureDisplay({
-    Key? key,
     required this.failure,
+    Key? key,
   }) : super(key: key);
 
   final DevicesFailure? failure;
@@ -30,7 +30,6 @@ class CriticalRgbwLightFailureDisplay extends StatelessWidget {
           ),
           TextButton(
             onPressed: () {
-              print('Sending email!');
             },
             child: Row(
               mainAxisSize: MainAxisSize.min,

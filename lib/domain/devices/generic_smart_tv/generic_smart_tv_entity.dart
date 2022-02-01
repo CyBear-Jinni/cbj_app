@@ -23,8 +23,8 @@ class GenericSmartTvDE extends DeviceEntityAbstract {
     required DeviceSenderDeviceModel senderDeviceModel,
     required DeviceSenderId senderId,
     required DeviceCompUuid compUuid,
-    DevicePowerConsumption? powerConsumption,
     required this.smartTvSwitchState,
+    DevicePowerConsumption? powerConsumption,
   }) : super(
           uniqueId: uniqueId,
           vendorUniqueId: vendorUniqueId,
@@ -83,6 +83,12 @@ class GenericSmartTvDE extends DeviceEntityAbstract {
   @override
   String getDeviceId() {
     return uniqueId.getOrCrash();
+  }
+
+  /// Return a list of all valid actions for this device
+  @override
+  List<String> getAllValidActions() {
+    return GenericSmartTvSwitchState.smartTvValidActions();
   }
 
   @override

@@ -7,12 +7,11 @@ import 'package:cybear_jinni/presentation/home_page/tabs/scenes_in_folders_tab/s
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/smart_devices_widgets.dart';
 import 'package:cybear_jinni/presentation/plus_button/plus_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// Home page to show all the tabs
 class HomePage extends StatefulWidget {
-  HomePage() {}
-
   @override
   State<StatefulWidget> createState() => _HomePageState();
 }
@@ -64,7 +63,7 @@ class _HomePageState extends State<HomePage> {
             appBar: AppBar(
               toolbarHeight: 0,
               backgroundColor: Colors.white,
-              brightness: Brightness.light,
+              systemOverlayStyle: SystemUiOverlayStyle.dark,
             ),
             backgroundColor: Colors.transparent,
             body: PageView(

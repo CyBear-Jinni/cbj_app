@@ -21,9 +21,6 @@ abstract class GenericLifxLoginDtos
 
   GenericLifxLoginDtos._();
 
-  @override
-  final String loginDtoClassInstance = (GenericLifxLoginDtos).toString();
-
   factory GenericLifxLoginDtos.fromDomain(GenericLifxLoginDE genericLifxDE) {
     return GenericLifxLoginDtos(
       senderUniqueId: genericLifxDE.senderUniqueId.getOrCrash(),
@@ -37,6 +34,10 @@ abstract class GenericLifxLoginDtos
   factory GenericLifxLoginDtos.fromJson(Map<String, dynamic> json) =>
       _$GenericLifxLoginDtosFromJson(json);
 
+  @override
+  final String loginDtoClassInstance = (GenericLifxLoginDtos).toString();
+
+  @override
   LoginEntityAbstract toDomain() {
     return GenericLifxLoginDE(
       senderUniqueId: CoreLoginSenderId.fromUniqueString(senderUniqueId),

@@ -1,14 +1,15 @@
 import 'package:cybear_jinni/domain/room/smart_room_object.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/smart_plugs/smart_plug_widget.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// Show smartPlug toggles in a container with the background color from smart room
 /// object
 class RoomSmartPlugsTogglesBlock extends StatelessWidget {
-  const RoomSmartPlugsTogglesBlock(this._smartRoomObject,
-      {this.maxSmartPlugsToShow});
+  const RoomSmartPlugsTogglesBlock(
+    this._smartRoomObject, {
+    this.maxSmartPlugsToShow,
+  });
 
   final SmartRoomObject? _smartRoomObject;
 

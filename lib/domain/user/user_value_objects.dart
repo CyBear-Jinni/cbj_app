@@ -55,7 +55,6 @@ class UserUniqueId extends UserValueObjectAbstract<String?> {
 
 class UserEmail extends UserValueObjectAbstract<String> {
   factory UserEmail(String input) {
-    assert(input != null);
     return UserEmail._(
       validateUserEmailNotEmpty(input),
     );
@@ -71,7 +70,6 @@ class UserEmail extends UserValueObjectAbstract<String> {
 
 class UserName extends UserValueObjectAbstract<String> {
   factory UserName(String input) {
-    assert(input != null);
     return UserName._(
       validateUserNameNotEmpty(input),
     );
@@ -87,7 +85,6 @@ class UserName extends UserValueObjectAbstract<String> {
 
 class UserPass extends UserValueObjectAbstract<String> {
   factory UserPass(String input) {
-    assert(input != null);
     return UserPass._(
       validateUserNameNotEmpty(input),
     );
@@ -103,7 +100,6 @@ class UserPass extends UserValueObjectAbstract<String> {
 
 class UserFirstName extends UserValueObjectAbstract<String> {
   factory UserFirstName(String input) {
-    assert(input != null);
     return UserFirstName._(
       validateUserNameNotEmpty(input),
     );
@@ -119,7 +115,6 @@ class UserFirstName extends UserValueObjectAbstract<String> {
 
 class UserLastName extends UserValueObjectAbstract<String> {
   factory UserLastName(String input) {
-    assert(input != null);
     return UserLastName._(
       validateUserNameNotEmpty(input),
     );

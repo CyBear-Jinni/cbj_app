@@ -18,9 +18,9 @@ import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:location/location.dart';
 import 'package:network_info_plus/network_info_plus.dart';
+import 'package:network_tools/network_tools.dart';
 import 'package:permission_handler/permission_handler.dart'
     as permission_handler;
-import 'package:ping_discover_network_forked/ping_discover_network_forked.dart';
 
 @LazySingleton(as: ISecurityBearConnectionRepository)
 class SecurityBearConnectionRepository
@@ -195,25 +195,26 @@ class SecurityBearConnectionRepository
 
       logger.i('subnet IP $subnet');
 
-      final Stream<NetworkAddress> stream =
-          NetworkAnalyzer.discover2(subnet, securityBearPort);
+      final Stream<OpenPort> devicesWithPort = HostScanner.discoverPort(
+        subnet,
+        securityBearPort,
+        resultsInIpAscendingOrder: false,
+      );
 
-      await for (final NetworkAddress address in stream) {
-        if (address.exists) {
-          logger.i('Found device: ${address.ip}');
+      await for (final OpenPort address in devicesWithPort) {
+        logger.i('Found device: ${address.ip}');
 
-          final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
-          final String? wifiName = await NetworkInfo().getWifiName();
+        final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
+        final String? wifiName = await NetworkInfo().getWifiName();
 
-          if (wifiBSSID != null && wifiName != null) {
-            securityBearEntity = SecurityBearEntity(
-              securityBearNetworkBssid: SecurityBearNetworkBssid(wifiBSSID),
-              networkName: SecurityBearNetworkName(wifiName),
-              lastKnownIp: SecurityBearNetworkIp(address.ip),
-            );
+        if (wifiBSSID != null && wifiName != null) {
+          securityBearEntity = SecurityBearEntity(
+            securityBearNetworkBssid: SecurityBearNetworkBssid(wifiBSSID),
+            networkName: SecurityBearNetworkName(wifiName),
+            lastKnownIp: SecurityBearNetworkIp(address.ip),
+          );
 
-            return right(unit);
-          }
+          return right(unit);
         }
       }
     } catch (e) {
@@ -232,8 +233,10 @@ class SecurityBearConnectionRepository
     int permissionCounter = 0;
 
     if (kIsWeb) {
-      return left(const SecurityBearFailures
-          .automaticSecurityBearSearchNotSupportedOnWeb());
+      return left(
+        const SecurityBearFailures
+            .automaticSecurityBearSearchNotSupportedOnWeb(),
+      );
     }
     if (!Platform.isLinux && !Platform.isWindows) {
       while (true) {
@@ -275,10 +278,6 @@ class SecurityBearConnectionRepository
 
       final ManageNetworkEntity secondWifiEntityOrFailure =
           IManageNetworkRepository.manageWiFiEntity!;
-      if (secondWifiEntityOrFailure == null) {
-        logger.e('No second Wifi Entity, it is going to crash');
-        return left(const SecurityBearFailures.unexpected());
-      }
 
       final SBCommendStatus commendStatus =
           await SecurityBearServerClient.setWiFisInformation(
@@ -317,19 +316,20 @@ class SecurityBearConnectionRepository
 
       logger.i('subnet IP $subnet');
 
-      final Stream<NetworkAddress> stream =
-          NetworkAnalyzer.discover2(subnet, securityBearPort);
+      final Stream<OpenPort> devicesWithPort = HostScanner.discoverPort(
+        subnet,
+        securityBearPort,
+        resultsInIpAscendingOrder: false,
+      );
 
-      await for (final NetworkAddress address in stream) {
-        if (address.exists) {
-          logger.i('Found device: ${address.ip}');
+      await for (final OpenPort address in devicesWithPort) {
+        logger.i('Found device: ${address.ip}');
 
-          final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
-          final String? wifiName = await NetworkInfo().getWifiName();
+        final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
+        final String? wifiName = await NetworkInfo().getWifiName();
 
-          if (wifiBSSID != null && wifiName != null) {
-            return right(unit);
-          }
+        if (wifiBSSID != null && wifiName != null) {
+          return right(unit);
         }
       }
     } catch (e) {

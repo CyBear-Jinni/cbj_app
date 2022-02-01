@@ -22,7 +22,7 @@ class RgbwLightsInTheRoomBlock extends StatelessWidget {
     required List<DeviceEntityAbstract> tempDeviceInRoom,
     required List<Color> tempRoomColorGradiant,
   }) {
-    List<GenericRgbwLightDE> tempLightsInRoom = [];
+    final List<GenericRgbwLightDE> tempLightsInRoom = [];
 
     tempDeviceInRoom.forEach((element) {
       tempLightsInRoom.add(element as GenericRgbwLightDE);
@@ -170,7 +170,7 @@ class RgbwLightsInTheRoomBlock extends StatelessWidget {
                           fontSize: 14,
                           color: Theme.of(context).textTheme.bodyText1!.color,
                         ),
-                      ),
+                      ).tr(),
                     ),
                     Text(
                       '·',
@@ -202,7 +202,7 @@ class RgbwLightsInTheRoomBlock extends StatelessWidget {
                           fontSize: 14,
                           color: Theme.of(context).textTheme.bodyText1!.color,
                         ),
-                      ),
+                      ).tr(),
                     ),
                   ],
                 );

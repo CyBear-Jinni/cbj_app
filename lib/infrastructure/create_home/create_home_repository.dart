@@ -34,8 +34,7 @@ class CreateHomeRepository implements ICreateHomeRepository {
     CreateHomeEntity? createHomeEntity,
   ) async {
     try {
-      if (createHomeEntity!.homeDevicesUserEmail!.getOrCrash() == null ||
-          createHomeEntity.homeDevicesUserEmail!.getOrCrash().isEmpty) {
+      if (createHomeEntity!.homeDevicesUserEmail!.getOrCrash().isEmpty) {
         return left(const CreateHomeFailure.devicesUserEmailIsInvalid());
       }
 

@@ -18,9 +18,6 @@ abstract class HubDtos implements _$HubDtos {
 
   HubDtos._();
 
-  @override
-  final String deviceDtoClassInstance = (HubDtos).toString();
-
   factory HubDtos.fromDomain(HubEntity hubDE) {
     return HubDtos(
       hubNetworkBssid: hubDE.hubNetworkBssid.getOrCrash(),
@@ -31,6 +28,8 @@ abstract class HubDtos implements _$HubDtos {
 
   factory HubDtos.fromJson(Map<String, dynamic> json) =>
       _$HubDtosFromJson(json);
+
+  final String deviceDtoClassInstance = (HubDtos).toString();
 
   HubEntity toDomain() {
     return HubEntity(

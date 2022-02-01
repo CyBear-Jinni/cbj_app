@@ -18,9 +18,6 @@ abstract class SecurityBearDtos implements _$SecurityBearDtos {
 
   SecurityBearDtos._();
 
-  @override
-  final String deviceDtoClassInstance = (SecurityBearDtos).toString();
-
   factory SecurityBearDtos.fromDomain(SecurityBearEntity securityBearDE) {
     return SecurityBearDtos(
       securityBearNetworkBssid:
@@ -32,6 +29,8 @@ abstract class SecurityBearDtos implements _$SecurityBearDtos {
 
   factory SecurityBearDtos.fromJson(Map<String, dynamic> json) =>
       _$SecurityBearDtosFromJson(json);
+
+  final String deviceDtoClassInstance = (SecurityBearDtos).toString();
 
   SecurityBearEntity toDomain() {
     return SecurityBearEntity(

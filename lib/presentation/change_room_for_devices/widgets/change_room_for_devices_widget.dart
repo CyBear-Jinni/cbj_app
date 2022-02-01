@@ -27,7 +27,7 @@ class ChangeRoomForDevicesWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const Text(
-                      'Choose Room',
+                      'Choose Area',
                       style: TextStyle(fontSize: 27),
                     ),
                     TextButton(
@@ -35,7 +35,7 @@ class ChangeRoomForDevicesWidget extends StatelessWidget {
                         context.router.push(const AddNewRoomRoute());
                       },
                       child: const Text(
-                        'Add New Room',
+                        'Add New Area',
                         style: TextStyle(
                           fontSize: 16,
                           color: Colors.white,
@@ -52,7 +52,7 @@ class ChangeRoomForDevicesWidget extends StatelessWidget {
                   hint: Text(
                     state.defaultName.isValid()
                         ? state.defaultName.getOrCrash()
-                        : 'Choose Room',
+                        : 'Choose Area',
                     style: const TextStyle(color: Colors.white),
                   ),
                   elevation: 16,
@@ -114,7 +114,7 @@ class ChangeRoomForDevicesWidget extends StatelessWidget {
                             );
 
                         Fluttertoast.showToast(
-                          msg: 'Changing devices for room',
+                          msg: 'Changing devices for area',
                           toastLength: Toast.LENGTH_LONG,
                           gravity: ToastGravity.BOTTOM,
                           backgroundColor: Colors.purple,

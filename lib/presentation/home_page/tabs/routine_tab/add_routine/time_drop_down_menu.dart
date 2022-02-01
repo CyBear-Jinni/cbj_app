@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class TimeDropDownMenu extends StatefulWidget {
@@ -50,7 +49,7 @@ class _TimeDropDownMenuState extends State<TimeDropDownMenu> {
             child: Text(
               value!,
               style: TextStyle(
-                color: (Theme.of(context).textTheme.bodyText1!.color)!,
+                color: Theme.of(context).textTheme.bodyText1!.color,
               ),
             ),
           );

@@ -12,10 +12,11 @@ import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-/// Boilers page that will call the lamps widget file and add background
+/// Boilers page that will call the lamps widgets file and add background
 /// and scaffold for it
 class RoomsBoilersPage extends StatelessWidget {
   const RoomsBoilersPage({
@@ -90,7 +91,7 @@ class RoomsBoilersPage extends StatelessWidget {
           appBar: AppBar(
             toolbarHeight: 0,
             backgroundColor: Colors.black,
-            brightness: Brightness.dark,
+            systemOverlayStyle: SystemUiOverlayStyle.dark,
           ),
           body: Container(
             width: MediaQuery.of(context).size.width,

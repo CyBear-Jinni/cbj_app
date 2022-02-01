@@ -23,8 +23,8 @@ class GenericLightDE extends DeviceEntityAbstract {
     required DeviceSenderDeviceModel senderDeviceModel,
     required DeviceSenderId senderId,
     required DeviceCompUuid compUuid,
-    DevicePowerConsumption? powerConsumption,
     required this.lightSwitchState,
+    DevicePowerConsumption? powerConsumption,
   }) : super(
           uniqueId: uniqueId,
           vendorUniqueId: vendorUniqueId,
@@ -82,6 +82,12 @@ class GenericLightDE extends DeviceEntityAbstract {
   @override
   String getDeviceId() {
     return uniqueId.getOrCrash();
+  }
+
+  /// Return a list of all valid actions for this device
+  @override
+  List<String> getAllValidActions() {
+    return GenericLightSwitchState.lightValidActions();
   }
 
   @override

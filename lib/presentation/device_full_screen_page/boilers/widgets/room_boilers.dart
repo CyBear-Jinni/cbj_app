@@ -5,7 +5,6 @@ import 'package:cybear_jinni/domain/devices/generic_boiler_device/generic_boiler
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/boilers/widgets/boilers_widget.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/boilers/widgets/error_boilers_device_card_widget.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -25,7 +24,7 @@ class RoomBoilers extends StatelessWidget {
 
   final int? maxBoilersToShow;
 
-  final int? _maxBoilersInRow = 2;
+  final int _maxBoilersInRow = 2;
 
   final String? _roomEntity;
 
@@ -33,8 +32,8 @@ class RoomBoilers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Size? screenSize = MediaQuery.of(context).size;
-    final double? sizeBoxWidth = screenSize!.width * 0.25;
+    final Size screenSize = MediaQuery.of(context).size;
+    final double sizeBoxWidth = screenSize.width * 0.25;
 
     Widget? createSwitchTableWidget() {
       final List<Widget> columnOfBoilers = <Widget>[];
@@ -45,8 +44,8 @@ class RoomBoilers extends StatelessWidget {
               ? maxBoilersToShow
               : _deviceEntityList!.size;
 
-      for (int i = 0; i < _numberOfBoilersToShow!; i += _maxBoilersInRow!) {
-        for (int v = 0; v < _maxBoilersInRow!; v++) {
+      for (int i = 0; i < _numberOfBoilersToShow!; i += _maxBoilersInRow) {
+        for (int v = 0; v < _maxBoilersInRow; v++) {
           if (_deviceEntityList!.size > i + v) {
             final GenericBoilerDE? deviceEntityTemp;
 
@@ -66,8 +65,8 @@ class RoomBoilers extends StatelessWidget {
                     AutoSizeText(
                       deviceEntityTemp.defaultName.getOrCrash()!,
                       maxLines: 1,
+                      maxFontSize: 19,
                       style: TextStyle(
-                        fontSize: 19.0,
                         color: Theme.of(context).textTheme.bodyText1!.color,
                       ),
                     ),
@@ -76,7 +75,7 @@ class RoomBoilers extends StatelessWidget {
                     ),
                     Container(
                       margin: const EdgeInsets.symmetric(vertical: 5),
-                      width: sizeBoxWidth! + 15,
+                      width: sizeBoxWidth + 15,
                       child: BlocProvider(
                         create: (context) => getIt<BoilersActorBloc>(),
                         child: BoilersWidget(deviceEntityTemp),

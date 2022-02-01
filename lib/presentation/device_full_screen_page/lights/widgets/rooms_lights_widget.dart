@@ -5,7 +5,6 @@ import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/lights/widgets/critical_light_failure_display_widget.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/lights/widgets/room_lights.dart';
 import 'package:cybear_jinni/utils.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kt_dart/kt.dart';
@@ -37,7 +36,6 @@ class RoomsLightsWidget extends StatelessWidget {
 
               /// Go on all the devices and find only the devices that exist
               /// in this room
-              if (roomEntity != null) {
                 final String roomId = roomEntity.uniqueId.getOrCrash();
                 for (final DeviceEntityAbstract? deviceEntityAbstract
                     in state.devices.iter) {
@@ -58,17 +56,6 @@ class RoomsLightsWidget extends StatelessWidget {
                     }
                   }
                 }
-              } else {
-                const String tempRoomId = 'All Rooms';
-                for (final DeviceEntityAbstract? deviceEntityAbstract
-                    in state.devices.iter) {
-                  if (tempDevicesByRooms[tempRoomId] == null) {
-                    tempDevicesByRooms[tempRoomId] = [deviceEntityAbstract!];
-                  } else {
-                    tempDevicesByRooms[tempRoomId]!.add(deviceEntityAbstract!);
-                  }
-                }
-              }
 
               final List<KtList<DeviceEntityAbstract>> devicesByRooms = [];
 

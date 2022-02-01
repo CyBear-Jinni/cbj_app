@@ -9,13 +9,16 @@ import 'package:cybear_jinni/domain/devices/generic_smart_plug_device/generic_sm
 import 'package:cybear_jinni/domain/devices/generic_switch_device/generic_switch_entity.dart';
 
 class SmartRoomObject {
-  SmartRoomObject(this._roomName, this.grediantColor,
-      {this.lightsInTheRoom,
-      this.rgbwLightsInTheRoom,
-      this.switchesInTheRoom,
-      this.blindsInTheRoom,
-      this.boilersInTheRoom,
-      this.smartPlugsInTheRoom});
+  SmartRoomObject(
+    this._roomName,
+    this.grediantColor, {
+    this.lightsInTheRoom,
+    this.rgbwLightsInTheRoom,
+    this.switchesInTheRoom,
+    this.blindsInTheRoom,
+    this.boilersInTheRoom,
+    this.smartPlugsInTheRoom,
+  });
 
   final String _roomName;
   final List<GenericLightDE>? lightsInTheRoom;

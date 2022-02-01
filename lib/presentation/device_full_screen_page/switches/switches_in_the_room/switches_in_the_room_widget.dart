@@ -1,9 +1,10 @@
+import 'package:cybear_jinni/utils.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-/// The widget to show all the switches in selected room
+/// The widgets to show all the switches in selected room
 class SwitchesInTheRoomWidget extends StatelessWidget {
   const SwitchesInTheRoomWidget(
     this.products,
@@ -24,9 +25,9 @@ class SwitchesInTheRoomWidget extends StatelessWidget {
           if (direction == DismissDirection.endToStart) {
             deleteProduct(0);
           } else if (direction == DismissDirection.startToEnd) {
-            print('Swiped start to end');
+            logger.v('Swiped start to end');
           } else {
-            print('Other swiping');
+            logger.v('Other swiping');
           }
         },
         background: Container(color: Colors.red),

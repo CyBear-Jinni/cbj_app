@@ -11,7 +11,7 @@ class RoomsManagerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text('RoomsManagerWidget');
+    return const Text('RoomsManagerWidget');
     //   Expanded(
     //   child: ListView.builder(
     //     padding: const EdgeInsets.fromLTRB(5, 10, 5, 0),

@@ -7,7 +7,7 @@ class GenericEmptySwitchState extends ValueObjectCore<String> {
   factory GenericEmptySwitchState(String? input) {
     assert(input != null);
     return GenericEmptySwitchState._(
-      validateGenericEmptyStateNotEmty(input!),
+      validateGenericEmptyStateNotEmpty(input!),
     );
   }
 
@@ -15,4 +15,9 @@ class GenericEmptySwitchState extends ValueObjectCore<String> {
 
   @override
   final Either<CoreFailure<String>, String> value;
+
+  /// All valid actions of empty device state
+  static List<String> emptyDeviceValidActions() {
+    return emptyDeviceAllValidActions();
+  }
 }

@@ -22,7 +22,7 @@ class SmartDevicesWidgets extends StatelessWidget {
       actions: <BottomSheetAction>[
         BottomSheetAction(
           title: const Text(
-            '⚙️ Change Room For Devices',
+            '⚙️ Change Area For Devices',
             style: TextStyle(color: Colors.blueGrey, fontSize: 23),
           ),
           onPressed: () {

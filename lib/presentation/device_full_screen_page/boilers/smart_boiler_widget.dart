@@ -4,6 +4,7 @@ import 'package:cybear_jinni/domain/devices/generic_boiler_device/generic_boiler
 import 'package:cybear_jinni/domain/devices/generic_boiler_device/generic_boiler_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums.dart';
+import 'package:cybear_jinni/utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
@@ -45,26 +46,25 @@ class _SmartBoilerPage extends State<SmartBoilerPage> {
         });
       }
     } catch (exception) {
-      print('Error when updating state after resume: $exception');
+      logger.e('Error when updating state after resume\n$exception');
     }
   }
 
   //  Send request to boiler to retrieve his state on or off
   Future<bool> getBoilerAction() async {
     return _switchState = EnumHelper.stringToDeviceAction(
-          await _boiler!.boilerSwitchState!.getOrCrash(),
+          _boiler!.boilerSwitchState!.getOrCrash(),
         ) ==
         DeviceActions.on;
   }
 
   Future<void> _onChange(bool value) async {
-    print('OnChange $value');
-    _boiler
-      ?..boilerSwitchState = GenericBoilerSwitchState(
-        EnumHelper.deviceActionToString(
-          value ? DeviceActions.on : DeviceActions.off,
-        ),
-      );
+    logger.v('OnChange $value');
+    _boiler?.boilerSwitchState = GenericBoilerSwitchState(
+      EnumHelper.deviceActionToString(
+        value ? DeviceActions.on : DeviceActions.off,
+      ),
+    );
     if (mounted) {
       setState(() {
         _switchState = value;
@@ -91,9 +91,9 @@ class _SmartBoilerPage extends State<SmartBoilerPage> {
           const Center(child: CircularProgressIndicator())
         else
           FlutterSwitch(
-            width: screenSize.width * 0.2,
-            height: screenSize.height * 0.05,
-            toggleSize: screenSize.height * 0.05,
+            width: screenSize.width * 0.25,
+            height: screenSize.height * 0.065,
+            toggleSize: screenSize.height * 0.065,
             value: _switchState,
             borderRadius: 25.0,
             padding: 0.0,

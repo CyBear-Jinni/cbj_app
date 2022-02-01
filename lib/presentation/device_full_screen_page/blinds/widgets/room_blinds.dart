@@ -4,7 +4,6 @@ import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstra
 import 'package:cybear_jinni/domain/devices/generic_blinds_device/generic_blinds_entity.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/blinds/widgets/blind_widget.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -53,8 +52,8 @@ class RoomBlinds extends StatelessWidget {
               AutoSizeText(
                 deviceEntityTemp.defaultName.getOrCrash()!,
                 maxLines: 1,
+                maxFontSize: 19,
                 style: TextStyle(
-                  fontSize: 19.0,
                   color: Theme.of(context).textTheme.bodyText2!.color,
                 ),
               ),
@@ -118,8 +117,7 @@ class RoomBlinds extends StatelessWidget {
                 ),
               ),
               onPressed: () {
-                if (maxLightsToShow != null &&
-                    _deviceEntityList.size > maxLightsToShow) {
+                if (_deviceEntityList.size > maxLightsToShow) {
                   // ExtendedNavigator.of(context).pushLightsInTheRoomPage(
                   //     thisSmartRoom: _deviceEntityList);
                 }
@@ -135,8 +133,7 @@ class RoomBlinds extends StatelessWidget {
                       decoration: TextDecoration.underline,
                     ),
                   ),
-                  if (maxLightsToShow != null &&
-                      _deviceEntityList.size > maxLightsToShow)
+                  if (_deviceEntityList.size > maxLightsToShow)
                     FaIcon(
                       FontAwesomeIcons.arrowRight,
                       color: Theme.of(context).textTheme.bodyText1!.color,

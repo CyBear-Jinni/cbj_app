@@ -7,7 +7,7 @@ class GenericSmartPlugState extends ValueObjectCore<String> {
   factory GenericSmartPlugState(String? input) {
     assert(input != null);
     return GenericSmartPlugState._(
-      validateGenericSmartPlugStateNotEmty(input!),
+      validateGenericSmartPlugStateNotEmpty(input!),
     );
   }
 
@@ -15,4 +15,9 @@ class GenericSmartPlugState extends ValueObjectCore<String> {
 
   @override
   final Either<CoreFailure<String>, String> value;
+
+  /// All valid actions of light state
+  static List<String> lightValidActions() {
+    return lightAllValidActions();
+  }
 }
