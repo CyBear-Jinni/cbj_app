@@ -1,4 +1,6 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/add_new_action/add_new_action_bloc.dart';
+import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -111,6 +113,9 @@ class ActionChooseInformation extends StatelessWidget {
                           textColor:
                               Theme.of(context).textTheme.bodyText1!.color,
                           fontSize: 16.0,
+                        );
+                        context.router.pop<List<DeviceEntityAbstract>>(
+                          state.allDevicesWithNewAction,
                         );
                       },
                       child: const Text(

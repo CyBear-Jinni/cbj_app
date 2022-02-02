@@ -142,4 +142,13 @@ class GenericLightDE extends DeviceEntityAbstract {
       ),
     );
   }
+
+  @override
+  bool replaceActionIfExist(String action) {
+    if (GenericLightSwitchState.lightValidActions().contains(action)) {
+      lightSwitchState = GenericLightSwitchState(action);
+      return true;
+    }
+    return false;
+  }
 }

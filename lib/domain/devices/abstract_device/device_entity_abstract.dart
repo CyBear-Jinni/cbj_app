@@ -88,6 +88,7 @@ abstract class DeviceEntityAbstract {
     return this;
   }
 
+  /// Convert the device to the a dtos object in the infrastructure layer
   DeviceEntityDtoAbstract toInfrastructure() {
     return DeviceEntityDtoAbstract();
   }
@@ -99,6 +100,9 @@ abstract class DeviceEntityAbstract {
 
   /// Return a list of all valid actions for this device
   List<String> getAllValidActions();
+
+  /// Will replace action field with new action if it exists inside the object
+  bool replaceActionIfExist(String action);
 }
 
 class DeviceEntityNotAbstract extends DeviceEntityAbstract {
@@ -141,6 +145,11 @@ class DeviceEntityNotAbstract extends DeviceEntityAbstract {
   }) {
     // TODO: implement executeDeviceAction
     throw UnimplementedError();
+  }
+
+  @override
+  bool replaceActionIfExist(String action) {
+    return false;
   }
 }
 

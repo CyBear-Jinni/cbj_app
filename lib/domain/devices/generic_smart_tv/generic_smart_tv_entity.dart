@@ -143,4 +143,13 @@ class GenericSmartTvDE extends DeviceEntityAbstract {
       ),
     );
   }
+
+  @override
+  bool replaceActionIfExist(String action) {
+    if (GenericSmartTvSwitchState.smartTvValidActions().contains(action)) {
+      smartTvSwitchState = GenericSmartTvSwitchState(action);
+      return true;
+    }
+    return false;
+  }
 }

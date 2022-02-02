@@ -73,11 +73,15 @@ class AddNewActionBloc extends Bloc<AddNewActionEvent, AddNewActionState> {
     ActionsNameChange event,
     Emitter<AddNewActionState> emit,
   ) async {
-    emit(
-      state.copyWith(
-        actionsName: event.actionsName,
-        authFailureOrSuccessOption: none(),
-      ),
-    );
+    if (state.allDevicesWithNewAction.isNotEmpty) {
+      state.allDevicesWithNewAction[0].replaceActionIfExist(event.actionsName);
+      emit(
+        state.copyWith(
+          actionsName: event.actionsName,
+          allDevicesWithNewAction: state.allDevicesWithNewAction,
+          authFailureOrSuccessOption: none(),
+        ),
+      );
+    }
   }
 }

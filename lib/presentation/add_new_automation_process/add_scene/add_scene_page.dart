@@ -1,8 +1,10 @@
 import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/presentation/add_new_automation_process/add_scene/widgets/scene_action_widget.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
+import 'package:cybear_jinni/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -72,8 +74,13 @@ class AddScenePage extends StatelessWidget {
                                   fontSize: 23,
                                 ),
                               ),
-                              onPressed: () {
-                                context.router.push(const AddActionRoute());
+                              onPressed: () async {
+                                final List<DeviceEntityAbstract>? actionList =
+                                    await context.router
+                                        .push<List<DeviceEntityAbstract>>(
+                                  const AddActionRoute(),
+                                );
+                                logger.i(actionList);
                               },
                             ),
                             BottomSheetAction(
