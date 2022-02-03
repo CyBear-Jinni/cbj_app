@@ -141,7 +141,7 @@ dependencies:
   # Simple, fast generation of RFC4122 UUIDs.
   uuid: ^3.0.5
   # Get available wifi ssid list, user can connect to wifi with ssid and password, and create hotspot
-  wifi_iot: ^0.3.14
+  wifi_iot: ^0.3.15
 
 
 dev_dependencies:

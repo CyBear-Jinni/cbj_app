@@ -106,7 +106,7 @@ class ActionChooseInformation extends StatelessWidget {
                     TextButton(
                       onPressed: () {
                         Fluttertoast.showToast(
-                          msg: 'Changing devices for area',
+                          msg: 'Add action',
                           toastLength: Toast.LENGTH_LONG,
                           gravity: ToastGravity.BOTTOM,
                           backgroundColor: Colors.purple,

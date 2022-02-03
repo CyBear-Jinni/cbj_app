@@ -1,3 +1,4 @@
+import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -6,19 +7,15 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class SceneActionWidget extends StatelessWidget {
   /// Get all and store all info about the action
   SceneActionWidget({
-    required this.deviceName,
-    required this.actionName,
-    required this.deviceId,
+    required this.deviceEntityAbstract,
+    required this.actionToChange,
   });
 
   /// Cbj unique id of a device
-  final String deviceId;
+  final DeviceEntityAbstract deviceEntityAbstract;
 
-  /// The name of the device as got set by the user
-  final String deviceName;
-
-  /// The action to preform on the device
-  final String actionName;
+  /// The action for the device
+  final String actionToChange;
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +24,8 @@ class SceneActionWidget extends StatelessWidget {
         FontAwesomeIcons.lightbulb,
         color: Colors.yellow,
       ),
-      title: Text(deviceName),
-      subtitle: Text(actionName),
+      title: Text(deviceEntityAbstract.defaultName.getOrCrash()!),
+      trailing: Text(actionToChange),
     );
   }
 }

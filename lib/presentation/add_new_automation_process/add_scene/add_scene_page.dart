@@ -1,13 +1,10 @@
-import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
-import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
-import 'package:cybear_jinni/presentation/add_new_automation_process/add_scene/widgets/scene_action_widget.dart';
-import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
+import 'package:cybear_jinni/application/add_new_scene/add_new_scene_bloc.dart';
+import 'package:cybear_jinni/injection.dart';
+import 'package:cybear_jinni/presentation/add_new_automation_process/add_scene/widgets/add_scene_widget.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
-import 'package:cybear_jinni/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
 
@@ -36,107 +33,9 @@ class AddScenePage extends StatelessWidget {
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
             ),
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 10),
-              child: Column(
-                children: [
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  TextFormField(
-                    decoration: const InputDecoration(
-                      prefixIcon: FaIcon(FontAwesomeIcons.fileSignature),
-                      labelText: 'Scene Name',
-                    ),
-                    onChanged: (value) {},
-                  ),
-                  SceneActionWidget(
-                    deviceId: '4242',
-                    deviceName: 'Test Device',
-                    actionName: 'on',
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.lightBlueAccent.withOpacity(0.5),
-                      // Red border with the width is equal to 5
-                      border: Border.all(),
-                    ),
-                    child: TextButton(
-                      onPressed: () {
-                        showAdaptiveActionSheet(
-                          context: context,
-                          actions: <BottomSheetAction>[
-                            BottomSheetAction(
-                              title: const Text(
-                                'Add device action',
-                                style: TextStyle(
-                                  color: Colors.blueGrey,
-                                  fontSize: 23,
-                                ),
-                              ),
-                              onPressed: () async {
-                                final List<DeviceEntityAbstract>? actionList =
-                                    await context.router
-                                        .push<List<DeviceEntityAbstract>>(
-                                  const AddActionRoute(),
-                                );
-                                logger.i(actionList);
-                              },
-                            ),
-                            BottomSheetAction(
-                              title: Text(
-                                'Add service action',
-                                style: TextStyle(
-                                  color: Colors.green.shade600,
-                                  fontSize: 23,
-                                ),
-                              ),
-                              onPressed: () {
-                                Fluttertoast.showToast(
-                                  msg:
-                                      'Adding service action will be added in the future',
-                                  toastLength: Toast.LENGTH_LONG,
-                                  gravity: ToastGravity.CENTER,
-                                  backgroundColor: Colors.blueGrey,
-                                  textColor: Theme.of(context)
-                                      .textTheme
-                                      .bodyText1!
-                                      .color,
-                                  fontSize: 16.0,
-                                );
-                              },
-                            ),
-                            BottomSheetAction(
-                              title: const Text(
-                                'Add time based action',
-                                style: TextStyle(
-                                  color: Colors.blue,
-                                  fontSize: 23,
-                                ),
-                              ),
-                              onPressed: () {
-                                Fluttertoast.showToast(
-                                  msg:
-                                      'Adding time based action will be added in the future',
-                                  toastLength: Toast.LENGTH_LONG,
-                                  gravity: ToastGravity.CENTER,
-                                  backgroundColor: Colors.blueGrey,
-                                  textColor: Theme.of(context)
-                                      .textTheme
-                                      .bodyText1!
-                                      .color,
-                                  fontSize: 16.0,
-                                );
-                              },
-                            ),
-                          ],
-                        );
-                      },
-                      child: const Text('+ Add action'),
-                    ),
-                  ),
-                ],
-              ),
+            BlocProvider(
+              create: (context) => getIt<AddNewSceneBloc>(),
+              child: AddSceneWidget(),
             ),
           ],
         ),

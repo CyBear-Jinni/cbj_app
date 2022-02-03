@@ -45,7 +45,7 @@ Future<Unit> main() async {
   final adState = AdState(initFuture);
 
   await EasyLocalization.ensureInitialized();
-//  debugPaintSizeEnabled = true;
+  //  debugPaintSizeEnabled = true;
 
   await configureLocalTimeZone();
 
