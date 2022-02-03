@@ -60,7 +60,7 @@ class AddNewActionBloc extends Bloc<AddNewActionEvent, AddNewActionState> {
       if (device != null && event.deviceId == device.uniqueId.getOrCrash()) {
         emit(
           state.copyWith(
-            allDevicesWithNewAction: [device],
+            allDevicesWithNewAction: [MapEntry(device, null)],
             actionsName: '',
             authFailureOrSuccessOption: none(),
           ),
@@ -74,7 +74,8 @@ class AddNewActionBloc extends Bloc<AddNewActionEvent, AddNewActionState> {
     Emitter<AddNewActionState> emit,
   ) async {
     if (state.allDevicesWithNewAction.isNotEmpty) {
-      state.allDevicesWithNewAction[0].replaceActionIfExist(event.actionsName);
+      state.allDevicesWithNewAction[0] =
+          MapEntry(state.allDevicesWithNewAction[0].key, event.actionsName);
       emit(
         state.copyWith(
           actionsName: event.actionsName,

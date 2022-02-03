@@ -38,7 +38,7 @@ class ActionChooseInformation extends StatelessWidget {
                   icon: const Icon(Icons.arrow_drop_down),
                   hint: Text(
                     state.allDevicesWithNewAction.isNotEmpty
-                        ? state.allDevicesWithNewAction[0].defaultName
+                        ? state.allDevicesWithNewAction[0].key.defaultName
                             .getOrCrash()!
                         : 'Choose Device',
                     style: const TextStyle(color: Colors.white),
@@ -82,7 +82,7 @@ class ActionChooseInformation extends StatelessWidget {
                         .add(AddNewActionEvent.actionsNameChange(value!));
                   },
                   items: state.allDevicesWithNewAction.isNotEmpty
-                      ? state.allDevicesWithNewAction[0]
+                      ? state.allDevicesWithNewAction[0].key
                           .getAllValidActions()
                           .map<DropdownMenuItem<String>>((e) {
                           return DropdownMenuItem<String>(
@@ -114,7 +114,8 @@ class ActionChooseInformation extends StatelessWidget {
                               Theme.of(context).textTheme.bodyText1!.color,
                           fontSize: 16.0,
                         );
-                        context.router.pop<List<DeviceEntityAbstract>>(
+                        context.router
+                            .pop<List<MapEntry<DeviceEntityAbstract, String?>>>(
                           state.allDevicesWithNewAction,
                         );
                       },

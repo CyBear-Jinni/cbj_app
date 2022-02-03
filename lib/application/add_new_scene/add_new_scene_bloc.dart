@@ -12,9 +12,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 part 'add_new_scene_bloc.freezed.dart';
-
 part 'add_new_scene_event.dart';
-
 part 'add_new_scene_state.dart';
 
 @injectable
@@ -22,7 +20,7 @@ class AddNewSceneBloc extends Bloc<AddNewSceneEvent, AddNewSceneState> {
   AddNewSceneBloc(this._roomRepository, this._deviceRepository)
       : super(AddNewSceneState.initial()) {
     on<ChangeActionDevices>(_changeActionDevices);
-    on<ActionsNameChange>(_actionsNameChange);
+    on<SceneNameChange>(_sceneNameChange);
     on<AddDevicesWithNewActions>(_addDevicesWithNewActions);
     on<Deleted>(_deleted);
     on<Initialized>(_initialized);
@@ -33,11 +31,18 @@ class AddNewSceneBloc extends Bloc<AddNewSceneEvent, AddNewSceneState> {
   final IRoomRepository _roomRepository;
   final IDeviceRepository _deviceRepository;
 
-  /// List of devices with entities, will be treated as actions
-  List<DeviceEntityAbstract> allDevicesWithNewAction = [];
-
   List<RoomEntity?> _allRooms = [];
   List<DeviceEntityAbstract?> _allDevices = [];
+
+  String actionsName = '';
+  List<DeviceEntityAbstract> allDevices = [];
+
+  /// List of devices with entities, will be treated as actions
+  List<MapEntry<DeviceEntityAbstract, String?>> allDevicesWithNewAction = [];
+  List<MapEntry<String, String>> allEntityActions = [];
+  bool showErrorMessages = false;
+  bool isSubmitting = false;
+  Option<Either<CoreLoginFailure, Unit>> authFailureOrSuccessOption = none();
 
   Future<void> _initialized(
     Initialized event,
@@ -54,8 +59,14 @@ class AddNewSceneBloc extends Bloc<AddNewSceneEvent, AddNewSceneState> {
     _allDevices.removeWhere((element) => element == null);
 
     emit(
-      state.copyWith(
+      LoadPageState(
         allDevices: _allDevices as List<DeviceEntityAbstract>,
+        showErrorMessages: showErrorMessages,
+        isSubmitting: isSubmitting,
+        authFailureOrSuccessOption: authFailureOrSuccessOption,
+        allEntityActions: allEntityActions,
+        actionsName: actionsName,
+        allDevicesWithNewAction: allDevicesWithNewAction,
       ),
     );
   }
@@ -64,42 +75,41 @@ class AddNewSceneBloc extends Bloc<AddNewSceneEvent, AddNewSceneState> {
     ChangeActionDevices event,
     Emitter<AddNewSceneState> emit,
   ) async {
-    for (final DeviceEntityAbstract? device in _allDevices) {
-      if (device != null && event.deviceId == device.uniqueId.getOrCrash()) {
-        emit(
-          state.copyWith(
-            allDevicesWithNewAction: [device],
-            actionsName: '',
-            authFailureOrSuccessOption: none(),
-          ),
-        );
-      }
-    }
+    // for (final DeviceEntityAbstract? device in _allDevices) {
+    //   if (device != null && event.deviceId == device.uniqueId.getOrCrash()) {
+    //     emit(
+    //       state.copyWith(
+    //         allDevicesWithNewAction: [device],
+    //         actionsName: '',
+    //         authFailureOrSuccessOption: none(),
+    //       ),
+    //     );
+    //   }
+    // }
   }
 
-  Future<void> _actionsNameChange(
-    ActionsNameChange event,
+  Future<void> _sceneNameChange(
+    SceneNameChange event,
     Emitter<AddNewSceneState> emit,
   ) async {
-    if (state.allDevicesWithNewAction.isNotEmpty) {
-      state.allDevicesWithNewAction[0].replaceActionIfExist(event.actionsName);
-      emit(
-        state.copyWith(
-          actionsName: event.actionsName,
-          allDevicesWithNewAction: state.allDevicesWithNewAction,
-          authFailureOrSuccessOption: none(),
-        ),
-      );
-    }
+    actionsName = event.sceneName;
   }
 
   Future<void> _addDevicesWithNewActions(
     AddDevicesWithNewActions event,
     Emitter<AddNewSceneState> emit,
   ) async {
-    allDevicesWithNewAction.addAll(event.smartDevicesToAdd);
+    allDevicesWithNewAction.addAll(event.smartDevicesWithActionToAdd);
+
+    emit(const LoadInProgress());
     emit(
-      state.copyWith(
+      LoadPageState(
+        allDevices: _allDevices as List<DeviceEntityAbstract>,
+        showErrorMessages: showErrorMessages,
+        isSubmitting: isSubmitting,
+        authFailureOrSuccessOption: authFailureOrSuccessOption,
+        allEntityActions: allEntityActions,
+        actionsName: actionsName,
         allDevicesWithNewAction: allDevicesWithNewAction,
       ),
     );

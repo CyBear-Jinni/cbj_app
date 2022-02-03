@@ -2,7 +2,9 @@ part of 'folder_of_scenes_bloc.dart';
 
 @freezed
 class FolderOfScenesState with _$FolderOfScenesState {
-  const factory FolderOfScenesState() = _FolderOfScenesState;
+  const factory FolderOfScenesState({
+    String? testValue,
+  }) = _FolderOfScenesState;
 
   factory FolderOfScenesState.initialized() => const FolderOfScenesState();
 

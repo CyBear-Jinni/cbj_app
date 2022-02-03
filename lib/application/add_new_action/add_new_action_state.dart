@@ -5,7 +5,8 @@ class AddNewActionState with _$AddNewActionState {
   const factory AddNewActionState({
     required String actionsName,
     required List<DeviceEntityAbstract> allDevices,
-    required List<DeviceEntityAbstract> allDevicesWithNewAction,
+    required List<MapEntry<DeviceEntityAbstract, String?>>
+        allDevicesWithNewAction,
     required List<MapEntry<String, String>> allEntityActions,
     required bool showErrorMessages,
     required bool isSubmitting,

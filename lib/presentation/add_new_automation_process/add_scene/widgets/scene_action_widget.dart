@@ -19,13 +19,19 @@ class SceneActionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: const FaIcon(
-        FontAwesomeIcons.lightbulb,
-        color: Colors.yellow,
+    return Container(
+      color: Colors.blue.withOpacity(0.3),
+      child: ListTile(
+        leading: const FaIcon(
+          FontAwesomeIcons.lightbulb,
+          color: Colors.yellow,
+        ),
+        title: Text(deviceEntityAbstract.defaultName.getOrCrash()!),
+        trailing: Text(
+          actionToChange,
+          style: const TextStyle(color: Colors.black),
+        ),
       ),
-      title: Text(deviceEntityAbstract.defaultName.getOrCrash()!),
-      trailing: Text(actionToChange),
     );
   }
 }
