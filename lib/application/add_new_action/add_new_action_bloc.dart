@@ -20,10 +20,13 @@ class AddNewActionBloc extends Bloc<AddNewActionEvent, AddNewActionState> {
       : super(AddNewActionState.initial()) {
     on<ChangeActionDevices>(_changeActionDevices);
     on<ActionsNameChange>(_actionsNameChange);
+    on<ChangePropertyForDevices>(_changePropertyForDevices);
     on<Initialized>(_initialized);
 
     add(const AddNewActionEvent.initialized());
   }
+
+  // listOfPropertiesToChange
 
   final IRoomRepository _roomRepository;
   final IDeviceRepository _deviceRepository;
@@ -57,10 +60,13 @@ class AddNewActionBloc extends Bloc<AddNewActionEvent, AddNewActionState> {
     Emitter<AddNewActionState> emit,
   ) async {
     for (final DeviceEntityAbstract? device in _allDevices) {
-      if (device != null && event.deviceId == device.uniqueId.getOrCrash()) {
+      if (device != null &&
+          event.actionForProperty == device.uniqueId.getOrCrash()) {
         emit(
           state.copyWith(
-            allDevicesWithNewAction: [MapEntry(device, null)],
+            allDevicesWithNewAction: [
+              MapEntry(device, const MapEntry(null, null))
+            ],
             actionsName: '',
             authFailureOrSuccessOption: none(),
           ),
@@ -74,11 +80,38 @@ class AddNewActionBloc extends Bloc<AddNewActionEvent, AddNewActionState> {
     Emitter<AddNewActionState> emit,
   ) async {
     if (state.allDevicesWithNewAction.isNotEmpty) {
+      final MapEntry<String?, String> propertyWithAction = MapEntry(
+        state.allDevicesWithNewAction[0].value.key,
+        event.actionsName,
+      );
       state.allDevicesWithNewAction[0] =
-          MapEntry(state.allDevicesWithNewAction[0].key, event.actionsName);
+          MapEntry(state.allDevicesWithNewAction[0].key, propertyWithAction);
+
       emit(
         state.copyWith(
           actionsName: event.actionsName,
+          allDevicesWithNewAction: state.allDevicesWithNewAction,
+          authFailureOrSuccessOption: none(),
+        ),
+      );
+    }
+  }
+
+  Future<void> _changePropertyForDevices(
+    ChangePropertyForDevices event,
+    Emitter<AddNewActionState> emit,
+  ) async {
+    if (state.allDevicesWithNewAction.isNotEmpty) {
+      final MapEntry<String?, String?> propertyWithAction = MapEntry(
+        event.propertyOfDevice,
+        null,
+      );
+      state.allDevicesWithNewAction[0] =
+          MapEntry(state.allDevicesWithNewAction[0].key, propertyWithAction);
+
+      emit(
+        state.copyWith(
+          propertyName: event.propertyOfDevice,
           allDevicesWithNewAction: state.allDevicesWithNewAction,
           authFailureOrSuccessOption: none(),
         ),

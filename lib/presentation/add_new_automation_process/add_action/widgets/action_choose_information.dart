@@ -67,6 +67,44 @@ class ActionChooseInformation extends StatelessWidget {
                   style: const TextStyle(color: Colors.white),
                   icon: const Icon(Icons.arrow_drop_down),
                   hint: Text(
+                    state.propertyName != ''
+                        ? state.propertyName
+                        : 'Property to change',
+                    style: const TextStyle(color: Colors.white),
+                  ),
+                  elevation: 16,
+                  underline: Container(
+                    height: 2,
+                  ),
+                  onChanged: (value) {
+                    context.read<AddNewActionBloc>().add(
+                          AddNewActionEvent.changePropertyForDevices(value!),
+                        );
+                  },
+                  items: state.allDevicesWithNewAction.isNotEmpty
+                      ? state.allDevicesWithNewAction[0].key
+                          .getListOfPropertiesToChange()
+                          .map<DropdownMenuItem<String>>((e) {
+                          return DropdownMenuItem<String>(
+                            value: e,
+                            child: Text(e),
+                          );
+                        }).toList()
+                      : <DropdownMenuItem<String>>[
+                          const DropdownMenuItem<String>(
+                            value: 'Choose device first',
+                            child: Text('Choose device first'),
+                          )
+                        ],
+                ),
+                const SizedBox(
+                  height: 40,
+                ),
+                DropdownButton<String>(
+                  dropdownColor: Colors.black,
+                  style: const TextStyle(color: Colors.white),
+                  icon: const Icon(Icons.arrow_drop_down),
+                  hint: Text(
                     state.actionsName != ''
                         ? state.actionsName
                         : 'Choose Action',
@@ -81,7 +119,10 @@ class ActionChooseInformation extends StatelessWidget {
                         .read<AddNewActionBloc>()
                         .add(AddNewActionEvent.actionsNameChange(value!));
                   },
-                  items: state.allDevicesWithNewAction.isNotEmpty
+                  items: (state.allDevicesWithNewAction.isNotEmpty &&
+                          state.allDevicesWithNewAction[0].value.key != null &&
+                          state
+                              .allDevicesWithNewAction[0].value.key!.isNotEmpty)
                       ? state.allDevicesWithNewAction[0].key
                           .getAllValidActions()
                           .map<DropdownMenuItem<String>>((e) {
@@ -92,8 +133,8 @@ class ActionChooseInformation extends StatelessWidget {
                         }).toList()
                       : <DropdownMenuItem<String>>[
                           const DropdownMenuItem<String>(
-                            value: 'Choose device first',
-                            child: Text('Choose device first'),
+                            value: 'Choose property first',
+                            child: Text('Choose property first'),
                           )
                         ],
                 ),
@@ -114,8 +155,11 @@ class ActionChooseInformation extends StatelessWidget {
                               Theme.of(context).textTheme.bodyText1!.color,
                           fontSize: 16.0,
                         );
-                        context.router
-                            .pop<List<MapEntry<DeviceEntityAbstract, String?>>>(
+
+                        context.router.pop<
+                            List<
+                                MapEntry<DeviceEntityAbstract,
+                                    MapEntry<String?, String?>>>>(
                           state.allDevicesWithNewAction,
                         );
                       },

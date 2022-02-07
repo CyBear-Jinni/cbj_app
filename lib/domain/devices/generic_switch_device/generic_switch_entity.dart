@@ -151,4 +151,11 @@ class GenericSwitchDE extends DeviceEntityAbstract {
     }
     return false;
   }
+
+  @override
+  List<String> getListOfPropertiesToChange() {
+    return [
+      'switchState',
+    ];
+  }
 }

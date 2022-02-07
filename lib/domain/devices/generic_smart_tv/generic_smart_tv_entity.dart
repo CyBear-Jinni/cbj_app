@@ -152,4 +152,11 @@ class GenericSmartTvDE extends DeviceEntityAbstract {
     }
     return false;
   }
+
+  @override
+  List<String> getListOfPropertiesToChange() {
+    return [
+      'smartTvSwitchState',
+    ];
+  }
 }

@@ -152,4 +152,11 @@ class GenericSmartPlugDE extends DeviceEntityAbstract {
     }
     return false;
   }
+
+  @override
+  List<String> getListOfPropertiesToChange() {
+    return [
+      'smartPlugState',
+    ];
+  }
 }

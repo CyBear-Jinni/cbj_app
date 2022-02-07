@@ -44,15 +44,17 @@ class AddSceneWidget extends StatelessWidget {
                     child: ListView.builder(
                       itemCount: loadPageState.allDevicesWithNewAction.length,
                       itemBuilder: (BuildContext context, int index) {
-                        final MapEntry<DeviceEntityAbstract, String?>
-                            currentDevice =
+                        final MapEntry<DeviceEntityAbstract,
+                                MapEntry<String?, String?>> currentDevice =
                             loadPageState.allDevicesWithNewAction[index];
 
                         return Container(
                           margin: const EdgeInsets.symmetric(vertical: 1),
                           child: SceneActionWidget(
                             deviceEntityAbstract: currentDevice.key,
-                            actionToChange: currentDevice.value ??
+                            propertyToChange:
+                                currentDevice.value.key ?? 'Missing property',
+                            actionToChange: currentDevice.value.value ??
                                 DeviceActions.actionNotSupported.toString(),
                           ),
                         );
@@ -82,11 +84,11 @@ class AddSceneWidget extends StatelessWidget {
                               onPressed: () async {
                                 final List<
                                         MapEntry<DeviceEntityAbstract,
-                                            String?>>? actionList =
-                                    await context.router.push<
+                                            MapEntry<String?, String?>>>?
+                                    actionList = await context.router.push<
                                         List<
                                             MapEntry<DeviceEntityAbstract,
-                                                String?>>>(
+                                                MapEntry<String?, String?>>>>(
                                   const AddActionRoute(),
                                 );
                                 if (actionList != null) {
@@ -151,12 +153,28 @@ class AddSceneWidget extends StatelessWidget {
                       child: const Text('+ Add action'),
                     ),
                   ),
+                  const SizedBox(height: 10),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.lightBlueAccent.withOpacity(0.5),
+                      // Red border with the width is equal to 5
+                      border: Border.all(),
+                    ),
+                    child: TextButton(
+                      onPressed: () {
+                        context.read<AddNewSceneBloc>().add(
+                              const AddNewSceneEvent.sendSceneToHub(),
+                            );
+                      },
+                      child: const Text('Add Scene'),
+                    ),
+                  ),
                 ],
               ),
             );
           },
           loadInProgress: (loadInProgress) {
-            return Text('Text');
+            return const Text('loadInProgress');
           },
         );
       },

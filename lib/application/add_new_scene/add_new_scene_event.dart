@@ -11,8 +11,11 @@ class AddNewSceneEvent with _$AddNewSceneEvent {
       ChangeActionDevices;
 
   const factory AddNewSceneEvent.addDevicesWithNewActions(
-    List<MapEntry<DeviceEntityAbstract, String?>> smartDevicesWithActionToAdd,
+    List<MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>>
+        smartDevicesWithActionToAdd,
   ) = AddDevicesWithNewActions;
 
   const factory AddNewSceneEvent.deleted(GenericLightDE deviceEntity) = Deleted;
+
+  const factory AddNewSceneEvent.sendSceneToHub() = SendSceneToHub;
 }

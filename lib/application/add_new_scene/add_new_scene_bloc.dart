@@ -4,8 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
-import 'package:cybear_jinni/domain/room/i_room_repository.dart';
-import 'package:cybear_jinni/domain/room/room_entity.dart';
+import 'package:cybear_jinni/domain/scene/i_scene_repository.dart';
 import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -17,28 +16,29 @@ part 'add_new_scene_state.dart';
 
 @injectable
 class AddNewSceneBloc extends Bloc<AddNewSceneEvent, AddNewSceneState> {
-  AddNewSceneBloc(this._roomRepository, this._deviceRepository)
+  AddNewSceneBloc(this._deviceRepository, this._sceneRepository)
       : super(AddNewSceneState.initial()) {
     on<ChangeActionDevices>(_changeActionDevices);
     on<SceneNameChange>(_sceneNameChange);
     on<AddDevicesWithNewActions>(_addDevicesWithNewActions);
     on<Deleted>(_deleted);
     on<Initialized>(_initialized);
+    on<SendSceneToHub>(_sendSceneToHub);
 
     add(const AddNewSceneEvent.initialized());
   }
 
-  final IRoomRepository _roomRepository;
   final IDeviceRepository _deviceRepository;
+  final ISceneRepository _sceneRepository;
 
-  List<RoomEntity?> _allRooms = [];
   List<DeviceEntityAbstract?> _allDevices = [];
 
   String actionsName = '';
   List<DeviceEntityAbstract> allDevices = [];
 
   /// List of devices with entities, will be treated as actions
-  List<MapEntry<DeviceEntityAbstract, String?>> allDevicesWithNewAction = [];
+  List<MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>>
+      allDevicesWithNewAction = [];
   List<MapEntry<String, String>> allEntityActions = [];
   bool showErrorMessages = false;
   bool isSubmitting = false;
@@ -48,14 +48,9 @@ class AddNewSceneBloc extends Bloc<AddNewSceneEvent, AddNewSceneState> {
     Initialized event,
     Emitter<AddNewSceneState> emit,
   ) async {
-    (await _roomRepository.getAllRooms()).fold((l) => null, (r) {
-      _allRooms = List<RoomEntity>.from(r.iter);
-    });
-
     (await _deviceRepository.getAllDevices()).fold((l) => null, (r) {
       _allDevices = List<DeviceEntityAbstract>.from(r.iter);
     });
-    _allRooms.removeWhere((element) => element == null);
     _allDevices.removeWhere((element) => element == null);
 
     emit(
@@ -86,6 +81,13 @@ class AddNewSceneBloc extends Bloc<AddNewSceneEvent, AddNewSceneState> {
     //     );
     //   }
     // }
+  }
+
+  Future<void> _sendSceneToHub(
+    SendSceneToHub event,
+    Emitter<AddNewSceneState> emit,
+  ) async {
+    _sceneRepository.addNewScene(allDevicesWithNewAction);
   }
 
   Future<void> _sceneNameChange(

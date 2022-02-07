@@ -41,7 +41,6 @@ class HubClient {
   ) async {
     // channel = await _createCbjHubClient(addressToHub, hubPort);
     // stub = CbjHubClient(channel!);
-    CompHubInfo response;
 
     try {
       return await stub!.getCompHubInfo(compHubInfo);
@@ -76,7 +75,7 @@ class HubRequestsToApp {
       hubRequestsStreamController.stream;
 }
 
-///App requests for the hub to execute
+/// App requests for the hub to execute
 class AppRequestsToHub {
   /// Stream controller of the app request for the hub
   static final appRequestsToHubStreamController =

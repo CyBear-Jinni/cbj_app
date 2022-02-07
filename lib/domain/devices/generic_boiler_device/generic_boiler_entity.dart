@@ -154,4 +154,11 @@ class GenericBoilerDE extends DeviceEntityAbstract {
     }
     return false;
   }
+
+  @override
+  List<String> getListOfPropertiesToChange() {
+    return [
+      'boilerSwitchState',
+    ];
+  }
 }

@@ -64,7 +64,7 @@ import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_pag
     AutoRoute(page: AddUserToHomePage),
     AutoRoute(page: ScenesPage),
     AutoRoute(page: AddScenePage),
-    AutoRoute<List<MapEntry<DeviceEntityAbstract, String?>>>(
+    AutoRoute<List<MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>>>(
       page: AddActionPage,
     ),
     AutoRoute(page: ChooseAutomationTypeToAddPage),

@@ -1,7 +1,10 @@
 import 'package:cybear_jinni/domain/core/value_objects.dart';
+import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/scene/i_scene_repository.dart';
 import 'package:cybear_jinni/domain/scene/scene.dart';
 import 'package:cybear_jinni/domain/scene/scene_failures.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -41,5 +44,34 @@ class SceneRepository implements ISceneRepository {
     } catch (e) {
       return left(const SceneFailure.unexpected());
     }
+  }
+
+  @override
+  Future<Either<SceneFailure, Scene>> addNewScene(
+    List<MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>>
+        smartDevicesWithActionToAdd,
+  ) async {
+    final String nodeRedInstructions = convertToJson();
+
+    final ClientStatusRequests clientStatusRequests = ClientStatusRequests(
+      allRemoteCommands: nodeRedInstructions,
+      sendingType: SendingType.sceneType,
+    );
+    AppRequestsToHub.appRequestsToHubStreamController.sink
+        .add(clientStatusRequests);
+
+    return right(
+      Scene(
+        name: 'Test',
+        scenesActionsToExecute: ['Test'].toImmutableList(),
+        uniqueId: UniqueId(),
+        backgroundColor: const Color(0x0000007b),
+      ),
+    );
+  }
+
+  /// Convert input to Node-RED instructions json
+  String convertToJson() {
+    return 'asd';
   }
 }

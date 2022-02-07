@@ -103,6 +103,10 @@ abstract class DeviceEntityAbstract {
 
   /// Will replace action field with new action if it exists inside the object
   bool replaceActionIfExist(String action);
+
+  /// List of all the properties that their value can be change when creating a
+  /// scene for that device
+  List<String> getListOfPropertiesToChange();
 }
 
 class DeviceEntityNotAbstract extends DeviceEntityAbstract {
@@ -150,6 +154,11 @@ class DeviceEntityNotAbstract extends DeviceEntityAbstract {
   @override
   bool replaceActionIfExist(String action) {
     return false;
+  }
+
+  @override
+  List<String> getListOfPropertiesToChange() {
+    return [];
   }
 }
 

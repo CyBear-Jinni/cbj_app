@@ -233,4 +233,11 @@ class GenericRgbwLightDE extends DeviceEntityAbstract {
     }
     return false;
   }
+
+  @override
+  List<String> getListOfPropertiesToChange() {
+    return [
+      'lightSwitchState',
+    ];
+  }
 }

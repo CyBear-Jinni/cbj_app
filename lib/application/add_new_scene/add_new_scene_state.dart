@@ -7,7 +7,7 @@ class AddNewSceneState with _$AddNewSceneState {
   const factory AddNewSceneState.loadPageState({
     required String actionsName,
     required List<DeviceEntityAbstract> allDevices,
-    required List<MapEntry<DeviceEntityAbstract, String?>>
+    required List<MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>>
         allDevicesWithNewAction,
     required List<MapEntry<String, String>> allEntityActions,
     required bool showErrorMessages,
