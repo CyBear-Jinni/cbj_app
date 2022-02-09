@@ -33,7 +33,7 @@ class AddNewSceneBloc extends Bloc<AddNewSceneEvent, AddNewSceneState> {
 
   List<DeviceEntityAbstract?> _allDevices = [];
 
-  String actionsName = '';
+  String sceneName = '';
   List<DeviceEntityAbstract> allDevices = [];
 
   /// List of devices with entities, will be treated as actions
@@ -60,7 +60,7 @@ class AddNewSceneBloc extends Bloc<AddNewSceneEvent, AddNewSceneState> {
         isSubmitting: isSubmitting,
         authFailureOrSuccessOption: authFailureOrSuccessOption,
         allEntityActions: allEntityActions,
-        actionsName: actionsName,
+        actionsName: sceneName,
         allDevicesWithNewAction: allDevicesWithNewAction,
       ),
     );
@@ -87,14 +87,14 @@ class AddNewSceneBloc extends Bloc<AddNewSceneEvent, AddNewSceneState> {
     SendSceneToHub event,
     Emitter<AddNewSceneState> emit,
   ) async {
-    _sceneRepository.addNewScene(allDevicesWithNewAction);
+    _sceneRepository.addNewScene(sceneName, allDevicesWithNewAction);
   }
 
   Future<void> _sceneNameChange(
     SceneNameChange event,
     Emitter<AddNewSceneState> emit,
   ) async {
-    actionsName = event.sceneName;
+    sceneName = event.sceneName;
   }
 
   Future<void> _addDevicesWithNewActions(
@@ -111,7 +111,7 @@ class AddNewSceneBloc extends Bloc<AddNewSceneEvent, AddNewSceneState> {
         isSubmitting: isSubmitting,
         authFailureOrSuccessOption: authFailureOrSuccessOption,
         allEntityActions: allEntityActions,
-        actionsName: actionsName,
+        actionsName: sceneName,
         allDevicesWithNewAction: allDevicesWithNewAction,
       ),
     );

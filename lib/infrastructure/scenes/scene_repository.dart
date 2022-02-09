@@ -5,6 +5,7 @@ import 'package:cybear_jinni/domain/scene/scene.dart';
 import 'package:cybear_jinni/domain/scene/scene_failures.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
+import 'package:cybear_jinni/infrastructure/node_red/node_red_converter.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -48,11 +49,23 @@ class SceneRepository implements ISceneRepository {
 
   @override
   Future<Either<SceneFailure, Scene>> addNewScene(
+    String sceneName,
     List<MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>>
         smartDevicesWithActionToAdd,
   ) async {
-    final String nodeRedInstructions = convertToJson();
+    String nodeRedInstructions = NodeRedConverter.convertToSceneNodes(
+      nodeName: sceneName,
+      devicesPropertyAction: smartDevicesWithActionToAdd,
+    );
 
+    if (nodeRedInstructions == '[]') {
+      return left(const SceneFailure.unexpected());
+    }
+
+    nodeRedInstructions =
+        '{"automationType": "scene", "automationAction": "addNew", '
+        '"automationName": "$sceneName"}\n'
+        '$nodeRedInstructions';
     final ClientStatusRequests clientStatusRequests = ClientStatusRequests(
       allRemoteCommands: nodeRedInstructions,
       sendingType: SendingType.sceneType,
@@ -68,10 +81,5 @@ class SceneRepository implements ISceneRepository {
         backgroundColor: const Color(0x0000007b),
       ),
     );
-  }
-
-  /// Convert input to Node-RED instructions json
-  String convertToJson() {
-    return 'asd';
   }
 }

@@ -8,6 +8,7 @@ abstract class ISceneRepository {
 
   /// Sending the new scene to the hub to get added
   Future<Either<SceneFailure, Scene>> addNewScene(
+    String sceneName,
     List<MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>>
         smartDevicesWithActionToAdd,
   );
