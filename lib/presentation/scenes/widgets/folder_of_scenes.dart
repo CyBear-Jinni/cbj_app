@@ -2,8 +2,8 @@ import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:cybear_jinni/application/folder_of_scenes/folder_of_scenes_bloc.dart';
 import 'package:cybear_jinni/application/scene/scene_bloc.dart';
 import 'package:cybear_jinni/domain/folder_of_scenes/folder_of_scene.dart';
-import 'package:cybear_jinni/domain/scene/scene.dart';
-import 'package:cybear_jinni/domain/scene/scene_failures.dart';
+import 'package:cybear_jinni/domain/scene/scene_cbj.dart';
+import 'package:cybear_jinni/domain/scene/scene_cbj_failures.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/scenes/widgets/scene_widget.dart';
 import 'package:dartz/dartz.dart';
@@ -16,7 +16,7 @@ class FolderOfScenesWidget extends StatelessWidget {
 
   final FolderOfScenes? folderOfScenes;
 
-  Scene getTheScen(Either<SceneFailure, Scene> scenesList) {
+  SceneCbj getTheScen(Either<SceneCbjFailure, SceneCbj> scenesList) {
     return scenesList.fold((l) => null!, (r) => r);
   }
 

@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:cybear_jinni/domain/scene/i_scene_repository.dart';
-import 'package:cybear_jinni/domain/scene/scene.dart';
+import 'package:cybear_jinni/domain/scene/i_scene_cbj_repository.dart';
+import 'package:cybear_jinni/domain/scene/scene_cbj.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -16,7 +16,7 @@ class SceneBloc extends Bloc<SceneEvent, SceneState> {
     on<Initialized>(_initialized);
   }
 
-  final ISceneRepository _iSceneRepository;
+  final ISceneCbjRepository _iSceneRepository;
 
   Future<void> _initialized(
     Initialized event,

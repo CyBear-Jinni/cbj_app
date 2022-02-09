@@ -1,8 +1,8 @@
 import 'package:cybear_jinni/domain/core/value_objects.dart';
 import 'package:cybear_jinni/domain/folder_of_scenes/i_folder_of_scenes_repository.dart';
 import 'package:cybear_jinni/domain/folders_of_scenes/folders_of_scenes_failures.dart';
-import 'package:cybear_jinni/domain/scene/scene.dart';
-import 'package:cybear_jinni/domain/scene/scene_failures.dart';
+import 'package:cybear_jinni/domain/scene/scene_cbj.dart';
+import 'package:cybear_jinni/domain/scene/scene_cbj_failures.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -12,87 +12,79 @@ import 'package:kt_dart/collection.dart';
 @LazySingleton(as: IFolderOfScenesRepository)
 class FolderOfScenesRepository implements IFolderOfScenesRepository {
   @override
-  Future<Either<FoldersOfScenesFailures, KtList<Either<SceneFailure, Scene>>>>
-      getAllScenesInFolder({
+  Future<
+      Either<FoldersOfScenesFailures,
+          KtList<Either<SceneCbjFailure, SceneCbj>>>> getAllScenesInFolder({
     UniqueId? uniqueId,
   }) async {
-    // Either<FoldersOfScenesFailures, KtList<Either<SceneFailure, Scene>>
+    // Either<FoldersOfScenesFailures, KtList<Either<SceneFailure, SceneCbj>>
 
     return right(scenesListMoc());
   }
 
-  KtList<Either<SceneFailure, Scene>> scenesListMoc() {
-    return <Either<SceneFailure, Scene>>[
+  KtList<Either<SceneCbjFailure, SceneCbj>> scenesListMoc() {
+    return <Either<SceneCbjFailure, SceneCbj>>[
       right(
-        Scene(
+        SceneCbj(
           uniqueId: UniqueId(),
           name: 'Entrance lights OFF\n-----------\n  ⛩️  🛑',
-          scenesActionsToExecute: ['On All', 'Off All'].toImmutableList(),
-          backgroundColor: HexColor('#E9D7FF'),
+          backgroundColor: HexColor('#E9D7FF').value,
         ),
       ),
       right(
-        Scene(
+        SceneCbj(
           uniqueId: UniqueId(),
           name: 'Entrance lights ON\n-----------\n   ⛩️  💡',
-          scenesActionsToExecute: ['On All', 'Off All'].toImmutableList(),
-          backgroundColor: Colors.lightBlueAccent,
+          backgroundColor: Colors.lightBlueAccent.value,
         ),
       ),
       right(
-        Scene(
+        SceneCbj(
           uniqueId: UniqueId(),
           name: 'Go to sleep\n-----------\n 😴',
-          scenesActionsToExecute: ['On All', 'Off All'].toImmutableList(),
-          backgroundColor: Colors.greenAccent,
+          backgroundColor: Colors.greenAccent.value,
         ),
       ),
       right(
-        Scene(
+        SceneCbj(
           uniqueId: UniqueId(),
           name: 'Welcome home',
-          scenesActionsToExecute: ['On All', 'Off All'].toImmutableList(),
-          backgroundColor: HexColor('#DAEEFF'),
+          backgroundColor: HexColor('#DAEEFF').value,
         ),
       ),
       right(
-        Scene(
+        SceneCbj(
           uniqueId: UniqueId(),
           name: 'Going out',
-          scenesActionsToExecute: ['On All', 'Off All'].toImmutableList(),
-          backgroundColor: HexColor('#FFD6CF'),
+          backgroundColor: HexColor('#FFD6CF').value,
         ),
       ),
       right(
-        Scene(
+        SceneCbj(
           uniqueId: UniqueId(),
           name: 'Going for a walk',
-          scenesActionsToExecute: ['On All', 'Off All'].toImmutableList(),
-          backgroundColor: HexColor('#FEDE7A'),
+          backgroundColor: HexColor('#FEDE7A').value,
         ),
       ),
       right(
-        Scene(
+        SceneCbj(
           uniqueId: UniqueId(),
           name: 'Workout',
-          scenesActionsToExecute: ['On All', 'Off All'].toImmutableList(),
-          backgroundColor: Colors.blue,
+          backgroundColor: Colors.blue.value,
         ),
       ),
       right(
-        Scene(
+        SceneCbj(
           uniqueId: UniqueId(),
           name: 'Date night',
-          scenesActionsToExecute: ['On All', 'Off All'].toImmutableList(),
-          backgroundColor: Colors.pinkAccent,
+          backgroundColor: Colors.pinkAccent.value,
         ),
       ),
       right(
-        Scene(
+        SceneCbj(
           uniqueId: UniqueId(),
           name: 'Party',
-          scenesActionsToExecute: ['On All', 'Off All'].toImmutableList(),
-          backgroundColor: Colors.blueGrey,
+          backgroundColor: Colors.blueGrey.value,
         ),
       ),
     ].toImmutableList();

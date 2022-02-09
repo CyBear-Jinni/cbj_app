@@ -6,8 +6,10 @@ class NodeRedMqttBrokerNode extends NodeRedNodeAbstract {
     this.port = '1883',
     this.qos,
     this.datatype,
+    String? name,
   }) : super(
           type: 'mqtt-broker',
+          name: name,
         );
 
   /// Mqtt broker node ide

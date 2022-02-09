@@ -61,7 +61,7 @@ class CreateHomeRepository implements ICreateHomeRepository {
       );
       createHomeEntityWithId = createHomeEntityWithId.copyWith(
         homeDevicesUserId: HomeDevicesUserId.fromUniqueString(
-          deviceUserId.id.getOrCrash()!,
+          deviceUserId.id.getOrCrash(),
         ),
       );
 

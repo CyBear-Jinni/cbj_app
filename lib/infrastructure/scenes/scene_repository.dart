@@ -1,8 +1,10 @@
+import 'dart:convert';
+
 import 'package:cybear_jinni/domain/core/value_objects.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
-import 'package:cybear_jinni/domain/scene/i_scene_repository.dart';
-import 'package:cybear_jinni/domain/scene/scene.dart';
-import 'package:cybear_jinni/domain/scene/scene_failures.dart';
+import 'package:cybear_jinni/domain/scene/i_scene_cbj_repository.dart';
+import 'package:cybear_jinni/domain/scene/scene_cbj.dart';
+import 'package:cybear_jinni/domain/scene/scene_cbj_failures.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
 import 'package:cybear_jinni/infrastructure/node_red/node_red_converter.dart';
@@ -12,12 +14,12 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
 
-@LazySingleton(as: ISceneRepository)
-class SceneRepository implements ISceneRepository {
+@LazySingleton(as: ISceneCbjRepository)
+class SceneCbjRepository implements ISceneCbjRepository {
   @override
-  Future<Either<SceneFailure, Scene>> getScene() async {
+  Future<Either<SceneCbjFailure, SceneCbj>> getScene() async {
     //
-    // final Scene scene = Scene(
+    // final SceneCbj scene = SceneCbj(
     //   uniqueId: UniqueId(),
     //   name: 'Turn on all lights out side',
     //   scenesActionsToExecute: [
@@ -34,51 +36,41 @@ class SceneRepository implements ISceneRepository {
 
     try {
       return right(
-        Scene(
+        SceneCbj(
           uniqueId: UniqueId(),
           name: 'Go to sleep ----------- 😴',
-          scenesActionsToExecute: scenesActionsList,
-          backgroundColor: Colors.blue,
-          icon: FontAwesomeIcons.school,
+          backgroundColor: Colors.blue.value,
+          iconCodePoint: FontAwesomeIcons.school.codePoint,
         ),
       );
     } catch (e) {
-      return left(const SceneFailure.unexpected());
+      return left(const SceneCbjFailure.unexpected());
     }
   }
 
   @override
-  Future<Either<SceneFailure, Scene>> addNewScene(
+  Future<Either<SceneCbjFailure, SceneCbj>> addNewScene(
     String sceneName,
     List<MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>>
         smartDevicesWithActionToAdd,
   ) async {
-    String nodeRedInstructions = NodeRedConverter.convertToSceneNodes(
+    final SceneCbj newCbjScene = NodeRedConverter.convertToSceneNodes(
       nodeName: sceneName,
       devicesPropertyAction: smartDevicesWithActionToAdd,
     );
 
-    if (nodeRedInstructions == '[]') {
-      return left(const SceneFailure.unexpected());
-    }
-
-    nodeRedInstructions =
-        '{"automationType": "scene", "automationAction": "addNew", '
-        '"automationName": "$sceneName"}\n'
-        '$nodeRedInstructions';
     final ClientStatusRequests clientStatusRequests = ClientStatusRequests(
-      allRemoteCommands: nodeRedInstructions,
+      allRemoteCommands: jsonEncode(newCbjScene.toInfrastructure().toJson()),
       sendingType: SendingType.sceneType,
     );
     AppRequestsToHub.appRequestsToHubStreamController.sink
         .add(clientStatusRequests);
 
     return right(
-      Scene(
+      SceneCbj(
         name: 'Test',
-        scenesActionsToExecute: ['Test'].toImmutableList(),
         uniqueId: UniqueId(),
-        backgroundColor: const Color(0x0000007b),
+        backgroundColor: const Color(0x0000007b).value,
       ),
     );
   }

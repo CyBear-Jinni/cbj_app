@@ -1,8 +1,11 @@
+import 'package:cybear_jinni/domain/core/value_objects.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/scene/scene_cbj.dart';
 import 'package:cybear_jinni/infrastructure/node_red/node_red_nodes/node_red_function_node.dart';
 import 'package:cybear_jinni/infrastructure/node_red/node_red_nodes/node_red_mqtt_broker_node.dart';
 import 'package:cybear_jinni/infrastructure/node_red/node_red_nodes/node_red_mqtt_in_node.dart';
 import 'package:cybear_jinni/infrastructure/node_red/node_red_nodes/node_red_mqtt_out_node.dart';
+import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
 
 class NodeRedConverter {
@@ -11,12 +14,13 @@ class NodeRedConverter {
   static const String devicesTopicTypeName = 'Devices';
   static const String scenesTopicTypeName = 'Scenes';
 
-  static String convertToSceneNodes({
+  static SceneCbj convertToSceneNodes({
     required String nodeName,
     required List<MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>>
         devicesPropertyAction,
   }) {
-    final NodeRedMqttBrokerNode brokerNode = NodeRedMqttBrokerNode();
+    final NodeRedMqttBrokerNode brokerNode =
+        NodeRedMqttBrokerNode(name: 'CyBear  Jinni Broker');
 
     final List<String> allNodeRedIdToConnectSceneTo = [];
     String nodes = '';
@@ -50,7 +54,15 @@ class NodeRedConverter {
       wires: allNodeRedIdToConnectSceneTo,
     );
 
-    return '[${startingSceneNode.value}, $nodes, ${brokerNode.toString()}]';
+    nodes = '[${startingSceneNode.value}, $nodes, ${brokerNode.toString()}]';
+
+    return SceneCbj(
+      name: nodeName,
+      uniqueId: UniqueId(),
+      backgroundColor: Colors.orange.value,
+      automationString: nodes,
+      firstNodeId: startingSceneNode.key,
+    );
   }
 
   /// Returns the string id of the function to connect to and the whole function
