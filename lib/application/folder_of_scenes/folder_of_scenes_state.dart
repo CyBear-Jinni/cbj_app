@@ -11,7 +11,7 @@ class FolderOfScenesState with _$FolderOfScenesState {
   const factory FolderOfScenesState.loading() = Loading;
 
   const factory FolderOfScenesState.loaded({
-    required KtList<Either<SceneCbjFailure, SceneCbj>> scenesList,
+    required KtList<SceneCbj> scenesList,
   }) = Loaded;
 
   const factory FolderOfScenesState.error() = Error;

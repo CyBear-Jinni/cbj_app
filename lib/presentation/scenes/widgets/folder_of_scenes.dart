@@ -45,15 +45,15 @@ class FolderOfScenesWidget extends StatelessWidget {
             return GridView.builder(
               reverse: true,
               itemBuilder: (context, index) {
-                final scene = scenesList.scenesList[index];
+                final SceneCbj scene = scenesList.scenesList[index];
                 return BlocProvider(
                   create: (context) => getIt<SceneBloc>()
                     ..add(
                       SceneEvent.initialized(
-                        scene: getTheScen(scene),
+                        scene: getTheScen(right(scene)),
                       ),
                     ),
-                  child: SceneWidget(scene.fold((l) => null!, (r) => r)),
+                  child: SceneWidget(scene),
                 );
               },
               itemCount: scenesList.scenesList.size,

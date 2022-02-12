@@ -4,6 +4,7 @@ import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstra
 import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
 import 'package:cybear_jinni/domain/room/i_room_repository.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
+import 'package:cybear_jinni/domain/scene/i_scene_cbj_repository.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_blinds_device/generic_blinds_device_dtos.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_boiler_device/generic_boiler_device_dtos.dart';
@@ -17,6 +18,7 @@ import 'package:cybear_jinni/infrastructure/generic_devices/generic_switch_devic
 import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums.dart';
 import 'package:cybear_jinni/infrastructure/room/room_entity_dtos.dart';
+import 'package:cybear_jinni/infrastructure/scenes/scene_cbj_dtos.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:grpc/grpc.dart';
@@ -28,6 +30,9 @@ class HubRequestRouting {
       if (requestsAndStatusFromHub.sendingType == SendingType.deviceType) {
         navigateDeviceRequest(requestsAndStatusFromHub.allRemoteCommands);
       } else if (requestsAndStatusFromHub.sendingType == SendingType.roomType) {
+        navigateRoomRequest(requestsAndStatusFromHub.allRemoteCommands);
+      } else if (requestsAndStatusFromHub.sendingType ==
+          SendingType.sceneType) {
         navigateRoomRequest(requestsAndStatusFromHub.allRemoteCommands);
       } else {
         logger.i(
@@ -56,6 +61,8 @@ class HubRequestRouting {
       roomTypes: List<String>.from(requestAsJson['roomTypes'] as List<dynamic>),
       roomDevicesId:
           List<String>.from(requestAsJson['roomDevicesId'] as List<dynamic>),
+      roomScenesId:
+          List<String>.from(requestAsJson['roomScenesId'] as List<dynamic>),
       roomMostUsedBy:
           List<String>.from(requestAsJson['roomMostUsedBy'] as List<dynamic>),
       roomPermissions:
@@ -143,5 +150,16 @@ class HubRequestRouting {
     }
 
     getIt<IDeviceRepository>().addOrUpdateDevice(deviceEntity);
+  }
+
+  static Future<void> navigateSceneRequest(
+    String allRemoteCommands,
+  ) async {
+    final Map<String, dynamic> requestAsJson =
+        jsonDecode(allRemoteCommands) as Map<String, dynamic>;
+    final SceneCbjDtos sceneCbjDtos = SceneCbjDtos.fromJson(requestAsJson);
+
+    getIt<ISceneCbjRepository>()
+        .addOrUpdateNewSceneInApp(sceneCbjDtos.toDomain());
   }
 }

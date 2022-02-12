@@ -8,7 +8,7 @@ class SceneState with _$SceneState {
 
   const factory SceneState.loading() = _Loading;
 
-  const factory SceneState.loaded(SceneCbj scene) = _Loaded;
+  const factory SceneState.loaded(KtList<SceneCbj> scene) = _Loaded;
 
   const factory SceneState.error() = Error;
 }

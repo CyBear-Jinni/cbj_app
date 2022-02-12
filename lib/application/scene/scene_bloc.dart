@@ -5,6 +5,7 @@ import 'package:cybear_jinni/domain/scene/i_scene_cbj_repository.dart';
 import 'package:cybear_jinni/domain/scene/scene_cbj.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:kt_dart/collection.dart';
 
 part 'scene_bloc.freezed.dart';
 part 'scene_event.dart';
@@ -22,12 +23,14 @@ class SceneBloc extends Bloc<SceneEvent, SceneState> {
     Initialized event,
     Emitter<SceneState> emit,
   ) async {
-    final sceneList = await _iSceneRepository.getScene();
-    emit(
-      sceneList.fold(
-        (f) => const SceneState.error(),
-        (sceneState) => SceneState.loaded(sceneState),
-      ),
-    );
+    emit(const SceneState.loading());
+    _iSceneRepository.watchAllScenes().listen((event) {
+      emit(
+        event.fold(
+          (f) => const SceneState.error(),
+          (sceneState) => SceneState.loaded(sceneState),
+        ),
+      );
+    });
   }
 }

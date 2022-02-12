@@ -162,6 +162,15 @@ class AddSceneWidget extends StatelessWidget {
                     ),
                     child: TextButton(
                       onPressed: () {
+                        Fluttertoast.showToast(
+                          msg: 'Adding Scene',
+                          toastLength: Toast.LENGTH_SHORT,
+                          gravity: ToastGravity.CENTER,
+                          backgroundColor: Colors.blueGrey,
+                          textColor:
+                              Theme.of(context).textTheme.bodyText1!.color,
+                          fontSize: 16.0,
+                        );
                         context.read<AddNewSceneBloc>().add(
                               const AddNewSceneEvent.sendSceneToHub(),
                             );

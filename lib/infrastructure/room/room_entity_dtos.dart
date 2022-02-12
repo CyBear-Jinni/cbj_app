@@ -12,6 +12,7 @@ abstract class RoomEntityDtos implements _$RoomEntityDtos {
     required String defaultName,
     required List<String> roomTypes,
     required List<String> roomDevicesId,
+    required List<String> roomScenesId,
 
     /// Who is using this room
     required List<String> roomMostUsedBy,
@@ -30,6 +31,7 @@ abstract class RoomEntityDtos implements _$RoomEntityDtos {
       defaultName: roomEntityDE.defaultName.getOrCrash(),
       roomTypes: roomEntityDE.roomTypes.getOrCrash(),
       roomDevicesId: roomEntityDE.roomDevicesId.getOrCrash(),
+      roomScenesId: roomEntityDE.roomScenesId.getOrCrash(),
       roomMostUsedBy: roomEntityDE.roomMostUsedBy.getOrCrash(),
       roomPermissions: roomEntityDE.roomPermissions.getOrCrash(),
     );
@@ -44,6 +46,7 @@ abstract class RoomEntityDtos implements _$RoomEntityDtos {
       defaultName: RoomDefaultName(defaultName),
       roomTypes: RoomTypes(roomTypes),
       roomDevicesId: RoomDevicesId(roomDevicesId),
+      roomScenesId: RoomScenesId(roomScenesId),
       roomMostUsedBy: RoomMostUsedBy(roomMostUsedBy),
       roomPermissions: RoomPermissions(roomPermissions),
     );
