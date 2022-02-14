@@ -8,11 +8,17 @@ class FolderOfScenesState with _$FolderOfScenesState {
 
   factory FolderOfScenesState.initialized() => const FolderOfScenesState();
 
+  // factory FolderOfScenesState.initialized({
+  //   required RoomEntity roomEntity,
+  // }) = FolderOfScenesState;
+
   const factory FolderOfScenesState.loading() = Loading;
 
   const factory FolderOfScenesState.loaded({
-    required KtList<SceneCbj> scenesList,
+    required List<SceneCbj> scenesList,
   }) = Loaded;
+
+  const factory FolderOfScenesState.loadedEmptyScens() = LoadedEmptyScens;
 
   const factory FolderOfScenesState.error() = Error;
 }

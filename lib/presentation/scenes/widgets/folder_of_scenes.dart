@@ -1,7 +1,6 @@
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:cybear_jinni/application/folder_of_scenes/folder_of_scenes_bloc.dart';
-import 'package:cybear_jinni/application/scene/scene_bloc.dart';
-import 'package:cybear_jinni/domain/folder_of_scenes/folder_of_scene.dart';
+import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/domain/scene/scene_cbj.dart';
 import 'package:cybear_jinni/domain/scene/scene_cbj_failures.dart';
 import 'package:cybear_jinni/injection.dart';
@@ -14,7 +13,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class FolderOfScenesWidget extends StatelessWidget {
   const FolderOfScenesWidget({required this.folderOfScenes});
 
-  final FolderOfScenes? folderOfScenes;
+  final RoomEntity folderOfScenes;
 
   SceneCbj getTheScen(Either<SceneCbjFailure, SceneCbj> scenesList) {
     return scenesList.fold((l) => null!, (r) => r);
@@ -35,6 +34,7 @@ class FolderOfScenesWidget extends StatelessWidget {
             FlushbarHelper.createError(message: 'Error');
           },
           loaded: (_) => const Text('Loaded'),
+          loadedEmptyScens: (LoadedEmptyScens value) {},
         );
       },
       builder: (context, state) {
@@ -47,18 +47,29 @@ class FolderOfScenesWidget extends StatelessWidget {
               itemBuilder: (context, index) {
                 final SceneCbj scene = scenesList.scenesList[index];
                 return BlocProvider(
-                  create: (context) => getIt<SceneBloc>()
+                  create: (context) => getIt<FolderOfScenesBloc>()
                     ..add(
-                      SceneEvent.initialized(
-                        scene: getTheScen(right(scene)),
+                      FolderOfScenesEvent.initialized(
+                        folderOfScenes: folderOfScenes,
                       ),
                     ),
                   child: SceneWidget(scene),
                 );
               },
-              itemCount: scenesList.scenesList.size,
+              itemCount: scenesList.scenesList.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
+              ),
+            );
+          },
+          loadedEmptyScens: (LoadedEmptyScens value) {
+            return const Center(
+              child: Text(
+                'You can add scene in the plus button',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.black,
+                ),
               ),
             );
           },

@@ -33,7 +33,7 @@ class HubRequestRouting {
         navigateRoomRequest(requestsAndStatusFromHub.allRemoteCommands);
       } else if (requestsAndStatusFromHub.sendingType ==
           SendingType.sceneType) {
-        navigateRoomRequest(requestsAndStatusFromHub.allRemoteCommands);
+        navigateSceneRequest(requestsAndStatusFromHub.allRemoteCommands);
       } else {
         logger.i(
           'Got from Hub unsupported massage type: '

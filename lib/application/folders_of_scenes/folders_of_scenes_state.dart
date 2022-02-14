@@ -12,8 +12,11 @@ class FoldersOfScenesState with _$FoldersOfScenesState {
 
   const factory FoldersOfScenesState.loading() = Loading;
 
-  const factory FoldersOfScenesState.loaded(FoldersOfScenes foldersOfScenes) =
-      Loaded;
+  const factory FoldersOfScenesState.loaded(
+    List<RoomEntity> foldersOfScenes,
+  ) = Loaded;
+
+  const factory FoldersOfScenesState.loadedEmpty() = LoadedEmpty;
 
   const factory FoldersOfScenesState.error() = Error;
 }

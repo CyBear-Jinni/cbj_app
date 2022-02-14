@@ -84,15 +84,32 @@ class SceneCbjRepository implements ISceneCbjRepository {
   }
 
   @override
-  Future<Either<SceneCbjFailure, KtList<SceneCbj>>> getAllScenes() async {
+  Future<Either<SceneCbjFailure, KtList<SceneCbj>>> getAllScenesAsList() async {
     try {
       return right(allScenes.values.toImmutableList());
     } catch (e) {
       if (e is PlatformException && e.message!.contains('PERMISSION_DENIED')) {
-        logger.w('Insufficient permission while getting all devices');
+        logger.w('Insufficient permission while getting all scenes list');
         return left(const SceneCbjFailure.unexpected());
       } else {
-        logger.e('Unexpected error while getting all devices');
+        logger.e('Unexpected error while getting all scenes list');
+        // log.error(e.toString());
+        return left(const SceneCbjFailure.unexpected());
+      }
+    }
+  }
+
+  @override
+  Future<Either<SceneCbjFailure, HashMap<String, SceneCbj>>>
+      getAllScenesAsMap() async {
+    try {
+      return right(allScenes);
+    } catch (e) {
+      if (e is PlatformException && e.message!.contains('PERMISSION_DENIED')) {
+        logger.w('Insufficient permission while getting all scenes map');
+        return left(const SceneCbjFailure.unexpected());
+      } else {
+        logger.e('Unexpected error while getting all scenes map');
         // log.error(e.toString());
         return left(const SceneCbjFailure.unexpected());
       }

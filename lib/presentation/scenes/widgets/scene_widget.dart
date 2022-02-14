@@ -1,5 +1,5 @@
 import 'package:another_flushbar/flushbar_helper.dart';
-import 'package:cybear_jinni/application/scene/scene_bloc.dart';
+import 'package:cybear_jinni/application/folder_of_scenes/folder_of_scenes_bloc.dart';
 import 'package:cybear_jinni/domain/scene/scene_cbj.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -12,14 +12,15 @@ class SceneWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<SceneBloc, SceneState>(
-      listener: (context, SceneState state) {
+    return BlocConsumer<FolderOfScenesBloc, FolderOfScenesState>(
+      listener: (context, FolderOfScenesState state) {
         state.map(
           (value) => (v) {},
           loading: (loadingNow) {},
           error: (errorNow) {
             FlushbarHelper.createError(message: 'Error');
           },
+          loadedEmptyScens: (LoadedEmptyScens value) {},
           loaded: (_) => const Text('loaded'),
         );
       },
@@ -65,6 +66,17 @@ class SceneWidget extends StatelessWidget {
                     ),
                     textAlign: TextAlign.center,
                   ),
+                ),
+              ),
+            );
+          },
+          loadedEmptyScens: (LoadedEmptyScens value) {
+            return const Center(
+              child: Text(
+                'You can add scene in the plus button',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.black,
                 ),
               ),
             );

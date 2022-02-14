@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/scene/scene_cbj.dart';
 import 'package:cybear_jinni/domain/scene/scene_cbj_failures.dart';
@@ -6,7 +8,10 @@ import 'package:kt_dart/collection.dart';
 import 'package:rxdart/rxdart.dart';
 
 abstract class ISceneCbjRepository {
-  Future<Either<SceneCbjFailure, KtList<SceneCbj>>> getAllScenes();
+  Future<Either<SceneCbjFailure, KtList<SceneCbj>>> getAllScenesAsList();
+
+  Future<Either<SceneCbjFailure, HashMap<String, SceneCbj>>>
+      getAllScenesAsMap();
 
   Stream<Either<SceneCbjFailure, KtList<SceneCbj>>> watchAllScenes();
 

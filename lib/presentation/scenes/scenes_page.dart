@@ -1,6 +1,6 @@
 import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
 import 'package:cybear_jinni/application/folder_of_scenes/folder_of_scenes_bloc.dart';
-import 'package:cybear_jinni/domain/folder_of_scenes/folder_of_scene.dart';
+import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/scenes/widgets/folder_of_scenes.dart';
@@ -13,7 +13,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class ScenesPage extends StatelessWidget {
   const ScenesPage(this.folderOfScenes);
 
-  final FolderOfScenes folderOfScenes;
+  final RoomEntity folderOfScenes;
 
   /// Execute when user press the icon in top right side
   void userCogFunction(BuildContext context) {
@@ -69,7 +69,9 @@ class ScenesPage extends StatelessWidget {
               child: BlocProvider(
                 create: (context) => getIt<FolderOfScenesBloc>()
                   ..add(
-                    FolderOfScenesEvent.initialized(folderOfScenes),
+                    FolderOfScenesEvent.initialized(
+                      folderOfScenes: folderOfScenes,
+                    ),
                   ),
                 child: FolderOfScenesWidget(
                   folderOfScenes: folderOfScenes,
