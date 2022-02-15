@@ -4,11 +4,13 @@ class NodeRedMqttInNode extends NodeRedVisualNodeAbstract {
   NodeRedMqttInNode({
     required this.brokerId,
     required this.topic,
+    String? id,
     String? name,
     List<List<String>>? wires,
     this.qos,
     this.datatype,
   }) : super(
+          id: id,
           type: 'mqtt in',
           name: name,
           wires: wires,

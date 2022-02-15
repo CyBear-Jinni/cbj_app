@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cybear_jinni/infrastructure/objects/enums.dart';
+import 'package:cybear_jinni/infrastructure/objects/enums_cbj.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -52,7 +52,7 @@ class _SmartLightPage extends State<SmartLightPage> {
 
   //  Send request to light to retrieve his state on or off
   Future<bool> getLightAction() async {
-    return _switchState = EnumHelper.stringToDeviceAction(
+    return _switchState = EnumHelperCbj.stringToDeviceAction(
           _light!.lightSwitchState!.getOrCrash(),
         ) ==
         DeviceActions.on;
@@ -61,7 +61,7 @@ class _SmartLightPage extends State<SmartLightPage> {
   Future<void> _onChange(bool value) async {
     logger.v('OnChange $value');
     _light?.lightSwitchState = GenericLightSwitchState(
-      EnumHelper.deviceActionToString(
+      EnumHelperCbj.deviceActionToString(
         value ? DeviceActions.on : DeviceActions.off,
       ),
     );

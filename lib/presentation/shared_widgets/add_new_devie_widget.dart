@@ -1,5 +1,5 @@
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cybear_jinni/infrastructure/objects/enums.dart';
+import 'package:cybear_jinni/infrastructure/objects/enums_cbj.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:network_info_plus/network_info_plus.dart';
@@ -92,7 +92,7 @@ class _DropDownMenu extends State<DropDownMenu> {
   String dropdownValue = DeviceTypes.light.toString().tr();
 
   String _deviceTypeToString(DeviceTypes deviceType) {
-    return EnumHelper.dTToString(deviceType);
+    return EnumHelperCbj.dTToString(deviceType);
   }
 
   @override

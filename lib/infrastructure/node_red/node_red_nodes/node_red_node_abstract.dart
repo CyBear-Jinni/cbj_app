@@ -13,6 +13,8 @@ class NodeRedNodeAbstract {
   }
 
   String type;
+
+  /// The id of the node, will create one for you if not given
   String? id;
   String? name;
 

@@ -4,7 +4,7 @@ import 'dart:collection';
 import 'package:bloc/bloc.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/domain/scene/i_scene_cbj_repository.dart';
-import 'package:cybear_jinni/domain/scene/scene_cbj.dart';
+import 'package:cybear_jinni/domain/scene/scene_cbj_entity.dart';
 import 'package:cybear_jinni/domain/scene/scene_cbj_failures.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -25,7 +25,7 @@ class FolderOfScenesBloc
   final ISceneCbjRepository _iSceneRepository;
   late RoomEntity folderOfScenes;
 
-  List<SceneCbj> allScenesInTheRoom = [];
+  List<SceneCbjEntity> allScenesInTheRoom = [];
 
   Future<void> _initialized(
     Initialized event,
@@ -34,9 +34,10 @@ class FolderOfScenesBloc
     folderOfScenes = event.folderOfScenes;
     emit(const FolderOfScenesState.loading());
 
-    final Either<SceneCbjFailure, HashMap<String, SceneCbj>> eitherAllScenes =
-        await _iSceneRepository.getAllScenesAsMap();
-    eitherAllScenes.fold((l) => null, (HashMap<String, SceneCbj> scenesList) {
+    final Either<SceneCbjFailure, HashMap<String, SceneCbjEntity>>
+        eitherAllScenes = await _iSceneRepository.getAllScenesAsMap();
+    eitherAllScenes.fold((l) => null,
+        (HashMap<String, SceneCbjEntity> scenesList) {
       for (final String sceneId in folderOfScenes.roomScenesId.getOrCrash()) {
         if (scenesList.containsKey(sceneId)) {
           allScenesInTheRoom.add(scenesList[sceneId]!);

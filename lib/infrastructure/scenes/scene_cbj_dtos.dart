@@ -1,5 +1,6 @@
 import 'package:cybear_jinni/domain/core/value_objects.dart';
-import 'package:cybear_jinni/domain/scene/scene_cbj.dart';
+import 'package:cybear_jinni/domain/scene/scene_cbj_entity.dart';
+import 'package:cybear_jinni/domain/scene/value_objects_scene_cbj.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'scene_cbj_dtos.freezed.dart';
@@ -11,25 +12,40 @@ abstract class SceneCbjDtos implements _$SceneCbjDtos {
     // @JsonKey(ignore: true)
     required String uniqueId,
     required String name,
-    required int backgroundColor,
+    required String backgroundColor,
     String? automationString,
     String? firstNodeId,
-    int? iconCodePoint,
+    String? iconCodePoint,
     String? image,
+    String? lastDateOfExecute,
+    required String? deviceStateGRPC,
+    required String? senderDeviceOs,
+    required String? senderDeviceModel,
+    required String? senderId,
+    required String? compUuid,
+    required String? stateMassage,
+
     // required ServerTimestampConverter() FieldValue serverTimeStamp,
   }) = _SceneCbjDtos;
 
   SceneCbjDtos._();
 
-  factory SceneCbjDtos.fromDomain(SceneCbj sceneCbj) {
+  factory SceneCbjDtos.fromDomain(SceneCbjEntity sceneCbj) {
     return SceneCbjDtos(
       uniqueId: sceneCbj.uniqueId.getOrCrash(),
-      name: sceneCbj.name,
-      backgroundColor: sceneCbj.backgroundColor,
-      automationString: sceneCbj.automationString,
-      firstNodeId: sceneCbj.firstNodeId,
-      iconCodePoint: sceneCbj.iconCodePoint,
-      image: sceneCbj.image,
+      name: sceneCbj.name.getOrCrash(),
+      backgroundColor: sceneCbj.backgroundColor.getOrCrash(),
+      automationString: sceneCbj.automationString.getOrCrash(),
+      firstNodeId: sceneCbj.firstNodeId.getOrCrash(),
+      iconCodePoint: sceneCbj.iconCodePoint.getOrCrash(),
+      image: sceneCbj.image.getOrCrash(),
+      lastDateOfExecute: sceneCbj.lastDateOfExecute.getOrCrash(),
+      deviceStateGRPC: sceneCbj.deviceStateGRPC.getOrCrash(),
+      senderDeviceModel: sceneCbj.senderDeviceModel.getOrCrash(),
+      senderDeviceOs: sceneCbj.senderDeviceOs.getOrCrash(),
+      senderId: sceneCbj.senderId.getOrCrash(),
+      compUuid: sceneCbj.compUuid.getOrCrash(),
+      stateMassage: sceneCbj.stateMassage.getOrCrash(),
       // serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }
@@ -40,15 +56,22 @@ abstract class SceneCbjDtos implements _$SceneCbjDtos {
   @override
   final String deviceDtoClassInstance = (SceneCbjDtos).toString();
 
-  SceneCbj toDomain() {
-    return SceneCbj(
+  SceneCbjEntity toDomain() {
+    return SceneCbjEntity(
       uniqueId: UniqueId.fromUniqueString(uniqueId),
-      name: name,
-      backgroundColor: backgroundColor,
-      automationString: automationString,
-      firstNodeId: firstNodeId,
-      iconCodePoint: iconCodePoint,
-      image: image,
+      name: SceneCbjName(name),
+      backgroundColor: SceneCbjBackgroundColor(backgroundColor),
+      automationString: SceneCbjAutomationString(automationString),
+      firstNodeId: SceneCbjFirstNodeId(firstNodeId),
+      iconCodePoint: SceneCbjIconCodePoint(iconCodePoint),
+      image: SceneCbjBackgroundImage(image),
+      lastDateOfExecute: SceneCbjLastDateOfExecute(lastDateOfExecute),
+      deviceStateGRPC: SceneCbjDeviceStateGRPC(deviceStateGRPC),
+      senderDeviceModel: SceneCbjSenderDeviceModel(senderDeviceModel),
+      senderDeviceOs: SceneCbjSenderDeviceOs(senderDeviceOs),
+      senderId: SceneCbjSenderId(senderId),
+      compUuid: SceneCbjCompUuid(compUuid),
+      stateMassage: SceneCbjStateMassage(stateMassage),
     );
   }
 }

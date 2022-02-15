@@ -15,7 +15,7 @@ class FolderOfScenesState with _$FolderOfScenesState {
   const factory FolderOfScenesState.loading() = Loading;
 
   const factory FolderOfScenesState.loaded({
-    required List<SceneCbj> scenesList,
+    required List<SceneCbjEntity> scenesList,
   }) = Loaded;
 
   const factory FolderOfScenesState.loadedEmptyScens() = LoadedEmptyScens;

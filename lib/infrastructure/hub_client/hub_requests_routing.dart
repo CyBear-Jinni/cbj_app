@@ -16,7 +16,7 @@ import 'package:cybear_jinni/infrastructure/generic_devices/generic_smart_plug_d
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_smart_tv_device/generic_smart_tv_device_dtos.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_switch_device/generic_switch_device_dtos.dart';
 import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
-import 'package:cybear_jinni/infrastructure/objects/enums.dart';
+import 'package:cybear_jinni/infrastructure/objects/enums_cbj.dart';
 import 'package:cybear_jinni/infrastructure/room/room_entity_dtos.dart';
 import 'package:cybear_jinni/infrastructure/scenes/scene_cbj_dtos.dart';
 import 'package:cybear_jinni/injection.dart';
@@ -88,10 +88,11 @@ class HubRequestRouting {
 
     ///TODO: add request type login support
 
-    final DeviceTypes? deviceType = EnumHelper.stringToDt(deviceTypeAsString);
+    final DeviceTypes? deviceType =
+        EnumHelperCbj.stringToDt(deviceTypeAsString);
 
     final DeviceStateGRPC? deviceStateGRPC =
-        EnumHelper.stringToDeviceState(deviceStateAsString);
+        EnumHelperCbj.stringToDeviceState(deviceStateAsString);
 
     if (deviceType == null || deviceStateGRPC == null) {
       return;

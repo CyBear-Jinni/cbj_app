@@ -1,5 +1,5 @@
 import 'package:cybear_jinni/domain/devices/abstract_device/core_failures.dart';
-import 'package:cybear_jinni/infrastructure/objects/enums.dart';
+import 'package:cybear_jinni/infrastructure/objects/enums_cbj.dart';
 import 'package:dartz/dartz.dart';
 
 Either<CoreFailure<String>, String> validateDeviceNotEmpty(String input) {
@@ -69,28 +69,28 @@ Either<CoreFailure<String>, String> validateDeviceMaxNameLength(
 }
 
 Either<CoreFailure<String>, String> validateDeviceStateExist(String input) {
-  if (EnumHelper.stringToDeviceState(input) != null) {
+  if (EnumHelperCbj.stringToDeviceState(input) != null) {
     return right(input);
   }
   return left(const CoreFailure.deviceActionDoesNotExist());
 }
 
 Either<CoreFailure<String>, String> validateDeviceActionExist(String input) {
-  if (EnumHelper.stringToDeviceAction(input) != null) {
+  if (EnumHelperCbj.stringToDeviceAction(input) != null) {
     return right(input);
   }
   return left(const CoreFailure.deviceActionDoesNotExist());
 }
 
 Either<CoreFailure<String>, String> validateDeviceTypeExist(String input) {
-  if (EnumHelper.stringToDt(input) != null) {
+  if (EnumHelperCbj.stringToDt(input) != null) {
     return right(input);
   }
   return left(const CoreFailure.deviceTypeDoesNotExist());
 }
 
 Either<CoreFailure<String>, String> validateDeviceVendorExist(String input) {
-  if (EnumHelper.stringToDeviceVendor(input) != null) {
+  if (EnumHelperCbj.stringToDeviceVendor(input) != null) {
     return right(input);
   }
   return left(const CoreFailure.deviceTypeDoesNotExist());

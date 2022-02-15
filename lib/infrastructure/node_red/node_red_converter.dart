@@ -1,6 +1,8 @@
 import 'package:cybear_jinni/domain/core/value_objects.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
-import 'package:cybear_jinni/domain/scene/scene_cbj.dart';
+import 'package:cybear_jinni/domain/scene/scene_cbj_entity.dart';
+import 'package:cybear_jinni/domain/scene/value_objects_scene_cbj.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/node_red/node_red_nodes/node_red_function_node.dart';
 import 'package:cybear_jinni/infrastructure/node_red/node_red_nodes/node_red_mqtt_broker_node.dart';
 import 'package:cybear_jinni/infrastructure/node_red/node_red_nodes/node_red_mqtt_in_node.dart';
@@ -14,7 +16,7 @@ class NodeRedConverter {
   static const String devicesTopicTypeName = 'Devices';
   static const String scenesTopicTypeName = 'Scenes';
 
-  static SceneCbj convertToSceneNodes({
+  static SceneCbjEntity convertToSceneNodes({
     required String nodeName,
     required List<MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>>
         devicesPropertyAction,
@@ -56,12 +58,24 @@ class NodeRedConverter {
 
     nodes = '[${startingSceneNode.value}, $nodes, ${brokerNode.toString()}]';
 
-    return SceneCbj(
-      name: nodeName,
+    return SceneCbjEntity(
       uniqueId: UniqueId(),
-      backgroundColor: Colors.orange.value,
-      automationString: nodes,
-      firstNodeId: startingSceneNode.key,
+      name: SceneCbjName(nodeName),
+      backgroundColor: SceneCbjBackgroundColor(Colors.orange.value.toString()),
+      automationString: SceneCbjAutomationString(nodes),
+      firstNodeId: SceneCbjFirstNodeId(startingSceneNode.key),
+      iconCodePoint: SceneCbjIconCodePoint(null),
+      image: SceneCbjBackgroundImage(null),
+      lastDateOfExecute: SceneCbjLastDateOfExecute(null),
+      // TODO: add new type for adding new scenes and not use noDevicesToTransfer
+      deviceStateGRPC: SceneCbjDeviceStateGRPC(
+        DeviceStateGRPC.noDevicesToTransfer.toString(),
+      ),
+      senderDeviceModel: SceneCbjSenderDeviceModel(null),
+      senderDeviceOs: SceneCbjSenderDeviceOs(null),
+      senderId: SceneCbjSenderId(null),
+      compUuid: SceneCbjCompUuid(null),
+      stateMassage: SceneCbjStateMassage(null),
     );
   }
 
@@ -110,6 +124,7 @@ class NodeRedConverter {
       brokerId: broker.id!,
       topic: topic,
       wires: [wires],
+      id: mqttInNodeId,
     );
     return MapEntry(nodeRedMqttInNode.id!, nodeRedMqttInNode.toString());
   }

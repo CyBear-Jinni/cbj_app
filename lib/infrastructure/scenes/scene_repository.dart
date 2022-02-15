@@ -4,8 +4,9 @@ import 'dart:convert';
 import 'package:cybear_jinni/domain/core/value_objects.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/scene/i_scene_cbj_repository.dart';
-import 'package:cybear_jinni/domain/scene/scene_cbj.dart';
+import 'package:cybear_jinni/domain/scene/scene_cbj_entity.dart';
 import 'package:cybear_jinni/domain/scene/scene_cbj_failures.dart';
+import 'package:cybear_jinni/domain/scene/value_objects_scene_cbj.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
 import 'package:cybear_jinni/infrastructure/node_red/node_red_converter.dart';
@@ -20,10 +21,10 @@ import 'package:rxdart/src/subjects/behavior_subject.dart';
 
 @LazySingleton(as: ISceneCbjRepository)
 class SceneCbjRepository implements ISceneCbjRepository {
-  HashMap<String, SceneCbj> allScenes = HashMap<String, SceneCbj>();
+  HashMap<String, SceneCbjEntity> allScenes = HashMap<String, SceneCbjEntity>();
 
   @override
-  Future<Either<SceneCbjFailure, SceneCbj>> getScene() async {
+  Future<Either<SceneCbjFailure, SceneCbjEntity>> getScene() async {
     //
     // final SceneCbj scene = SceneCbj(
     //   uniqueId: UniqueId(),
@@ -42,11 +43,24 @@ class SceneCbjRepository implements ISceneCbjRepository {
 
     try {
       return right(
-        SceneCbj(
+        SceneCbjEntity(
           uniqueId: UniqueId(),
-          name: 'Go to sleep ----------- 😴',
-          backgroundColor: Colors.blue.value,
-          iconCodePoint: FontAwesomeIcons.school.codePoint,
+          name: SceneCbjName('Go to sleep ----------- 😴'),
+          backgroundColor:
+              SceneCbjBackgroundColor(Colors.blue.value.toString()),
+          iconCodePoint: SceneCbjIconCodePoint(
+            FontAwesomeIcons.school.codePoint.toString(),
+          ),
+          image: SceneCbjBackgroundImage(null),
+          automationString: SceneCbjAutomationString(null),
+          firstNodeId: SceneCbjFirstNodeId(null),
+          lastDateOfExecute: SceneCbjLastDateOfExecute(null),
+          deviceStateGRPC: SceneCbjDeviceStateGRPC(null),
+          senderDeviceModel: SceneCbjSenderDeviceModel(null),
+          senderDeviceOs: SceneCbjSenderDeviceOs(null),
+          senderId: SceneCbjSenderId(null),
+          compUuid: SceneCbjCompUuid(null),
+          stateMassage: SceneCbjStateMassage(null),
         ),
       );
     } catch (e) {
@@ -55,36 +69,38 @@ class SceneCbjRepository implements ISceneCbjRepository {
   }
 
   @override
-  Future<Either<SceneCbjFailure, SceneCbj>> addOrUpdateNewSceneInHub(
-    String sceneName,
-    List<MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>>
-        smartDevicesWithActionToAdd,
+  Future<Either<SceneCbjFailure, SceneCbjEntity>> addOrUpdateNewSceneInHub(
+    SceneCbjEntity sceneCbjEntity,
   ) async {
-    final SceneCbj newCbjScene = NodeRedConverter.convertToSceneNodes(
-      nodeName: sceneName,
-      devicesPropertyAction: smartDevicesWithActionToAdd,
-    );
-
-    allScenes[newCbjScene.uniqueId.getOrCrash()] = newCbjScene;
+    allScenes[sceneCbjEntity.uniqueId.getOrCrash()] = sceneCbjEntity;
 
     final ClientStatusRequests clientStatusRequests = ClientStatusRequests(
-      allRemoteCommands: jsonEncode(newCbjScene.toInfrastructure().toJson()),
+      allRemoteCommands: jsonEncode(sceneCbjEntity.toInfrastructure().toJson()),
       sendingType: SendingType.sceneType,
     );
     AppRequestsToHub.appRequestsToHubStreamController.sink
         .add(clientStatusRequests);
 
-    return right(
-      SceneCbj(
-        name: 'Test',
-        uniqueId: UniqueId(),
-        backgroundColor: const Color(0x0000007b).value,
-      ),
-    );
+    return right(sceneCbjEntity);
   }
 
   @override
-  Future<Either<SceneCbjFailure, KtList<SceneCbj>>> getAllScenesAsList() async {
+  Future<Either<SceneCbjFailure, SceneCbjEntity>>
+      addOrUpdateNewSceneInHubFromDevicesPropertyActionList(
+    String sceneName,
+    List<MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>>
+        smartDevicesWithActionToAdd,
+  ) async {
+    final SceneCbjEntity newCbjScene = NodeRedConverter.convertToSceneNodes(
+      nodeName: sceneName,
+      devicesPropertyAction: smartDevicesWithActionToAdd,
+    );
+    return addOrUpdateNewSceneInHub(newCbjScene);
+  }
+
+  @override
+  Future<Either<SceneCbjFailure, KtList<SceneCbjEntity>>>
+      getAllScenesAsList() async {
     try {
       return right(allScenes.values.toImmutableList());
     } catch (e) {
@@ -100,7 +116,7 @@ class SceneCbjRepository implements ISceneCbjRepository {
   }
 
   @override
-  Future<Either<SceneCbjFailure, HashMap<String, SceneCbj>>>
+  Future<Either<SceneCbjFailure, HashMap<String, SceneCbjEntity>>>
       getAllScenesAsMap() async {
     try {
       return right(allScenes);
@@ -117,7 +133,23 @@ class SceneCbjRepository implements ISceneCbjRepository {
   }
 
   @override
-  void addOrUpdateNewSceneInApp(SceneCbj sceneCbj) {
+  Future<Either<SceneCbjFailure, Unit>> activateScenes(
+    KtList<SceneCbjEntity> scenesList,
+  ) async {
+    for (final SceneCbjEntity sceneCbjEntity in scenesList.asList()) {
+      addOrUpdateNewSceneInHub(
+        sceneCbjEntity.copyWith(
+          deviceStateGRPC: SceneCbjDeviceStateGRPC(
+            DeviceStateGRPC.waitingInFirebase.toString(),
+          ),
+        ),
+      );
+    }
+    return right(unit);
+  }
+
+  @override
+  void addOrUpdateNewSceneInApp(SceneCbjEntity sceneCbj) {
     allScenes[sceneCbj.uniqueId.getOrCrash()] = sceneCbj;
 
     scenesResponseFromTheHubStreamController.sink
@@ -128,12 +160,14 @@ class SceneCbjRepository implements ISceneCbjRepository {
   Future<void> initiateHubConnection() async {}
 
   @override
-  Stream<Either<SceneCbjFailure, KtList<SceneCbj>>> watchAllScenes() async* {
+  Stream<Either<SceneCbjFailure, KtList<SceneCbjEntity>>>
+      watchAllScenes() async* {
     yield* scenesResponseFromTheHubStreamController.stream
         .map((event) => right(event));
   }
 
   @override
-  BehaviorSubject<KtList<SceneCbj>> scenesResponseFromTheHubStreamController =
-      BehaviorSubject<KtList<SceneCbj>>();
+  BehaviorSubject<KtList<SceneCbjEntity>>
+      scenesResponseFromTheHubStreamController =
+      BehaviorSubject<KtList<SceneCbjEntity>>();
 }

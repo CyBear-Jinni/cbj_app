@@ -4,7 +4,7 @@ import 'package:cybear_jinni/domain/room/i_room_repository.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/domain/room/room_failures.dart';
 import 'package:cybear_jinni/domain/scene/i_scene_cbj_repository.dart';
-import 'package:cybear_jinni/domain/scene/scene_cbj.dart';
+import 'package:cybear_jinni/domain/scene/scene_cbj_entity.dart';
 import 'package:cybear_jinni/domain/scene/scene_cbj_failures.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -27,7 +27,7 @@ class FoldersOfScenesBloc
 
   final IRoomRepository _roomRepository;
 
-  List<SceneCbj> allScenes = <SceneCbj>[];
+  List<SceneCbjEntity> allScenes = <SceneCbjEntity>[];
   List<RoomEntity> allRoomsWithScenes = <RoomEntity>[];
 
   Future<void> _initialized(
@@ -36,7 +36,7 @@ class FoldersOfScenesBloc
   ) async {
     emit(const FoldersOfScenesState.loading());
 
-    final Either<SceneCbjFailure, KtList<SceneCbj>> eitherAllScenes =
+    final Either<SceneCbjFailure, KtList<SceneCbjEntity>> eitherAllScenes =
         await _iSceneRepository.getAllScenesAsList();
     eitherAllScenes.fold((l) => null, (r) {
       allScenes.addAll(r.asList());

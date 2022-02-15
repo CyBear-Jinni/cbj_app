@@ -87,8 +87,10 @@ class AddNewSceneBloc extends Bloc<AddNewSceneEvent, AddNewSceneState> {
     SendSceneToHub event,
     Emitter<AddNewSceneState> emit,
   ) async {
-    _sceneRepository.addOrUpdateNewSceneInHub(
-        sceneName, allDevicesWithNewAction);
+    _sceneRepository.addOrUpdateNewSceneInHubFromDevicesPropertyActionList(
+      sceneName,
+      allDevicesWithNewAction,
+    );
   }
 
   Future<void> _sceneNameChange(
