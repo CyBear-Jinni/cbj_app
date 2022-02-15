@@ -23,8 +23,8 @@ class GenericSwitchDE extends DeviceEntityAbstract {
     required DeviceSenderDeviceModel senderDeviceModel,
     required DeviceSenderId senderId,
     required DeviceCompUuid compUuid,
-    DevicePowerConsumption? powerConsumption,
     required this.switchState,
+    DevicePowerConsumption? powerConsumption,
   }) : super(
           uniqueId: uniqueId,
           vendorUniqueId: vendorUniqueId,
@@ -84,6 +84,12 @@ class GenericSwitchDE extends DeviceEntityAbstract {
     return uniqueId.getOrCrash();
   }
 
+  /// Return a list of all valid actions for this device
+  @override
+  List<String> getAllValidActions() {
+    return GenericSwitchSwitchState.smartSwitchValidActions();
+  }
+
   @override
   DeviceEntityDtoAbstract toInfrastructure() {
     return GenericSwitchDeviceDtos(
@@ -135,5 +141,21 @@ class GenericSwitchDE extends DeviceEntityAbstract {
         failedValue: 'Action does not exist',
       ),
     );
+  }
+
+  @override
+  bool replaceActionIfExist(String action) {
+    if (GenericSwitchSwitchState.smartSwitchValidActions().contains(action)) {
+      switchState = GenericSwitchSwitchState(action);
+      return true;
+    }
+    return false;
+  }
+
+  @override
+  List<String> getListOfPropertiesToChange() {
+    return [
+      'switchState',
+    ];
   }
 }

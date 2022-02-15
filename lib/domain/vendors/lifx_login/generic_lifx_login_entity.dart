@@ -19,14 +19,14 @@ class GenericLifxLoginDE extends LoginEntityAbstract {
           loginVendor: CoreLoginVendor(VendorsAndServices.lifx.name),
         );
 
-  /// Lifx api key
-  GenericLifxLoginApiKey lifxApiKey;
-
   /// Empty instance of GenericLifxEntity
   factory GenericLifxLoginDE.empty() => GenericLifxLoginDE(
         senderUniqueId: CoreLoginSenderId.fromUniqueString(''),
         lifxApiKey: GenericLifxLoginApiKey(''),
       );
+
+  /// Lifx api key
+  GenericLifxLoginApiKey lifxApiKey;
 
   Option<CoreLoginFailure<dynamic>> get failureOption =>
       senderUniqueId.value.fold((f) => some(f), (_) => none());

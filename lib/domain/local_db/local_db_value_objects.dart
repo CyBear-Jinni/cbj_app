@@ -55,7 +55,6 @@ class LocalDbUniqueId extends LocalDbValueObjectAbstract<String?> {
 
 class LocalDbEmail extends LocalDbValueObjectAbstract<String> {
   factory LocalDbEmail(String input) {
-    assert(input != null);
     return LocalDbEmail._(
       validateLocalDbEmailNotEmpty(input),
     );
@@ -71,7 +70,6 @@ class LocalDbEmail extends LocalDbValueObjectAbstract<String> {
 
 class LocalDbName extends LocalDbValueObjectAbstract<String> {
   factory LocalDbName(String input) {
-    assert(input != null);
     return LocalDbName._(
       validateLocalDbNameNotEmpty(input),
     );
@@ -87,7 +85,6 @@ class LocalDbName extends LocalDbValueObjectAbstract<String> {
 
 class LocalDbPass extends LocalDbValueObjectAbstract<String> {
   factory LocalDbPass(String input) {
-    assert(input != null);
     return LocalDbPass._(
       validateLocalDbNameNotEmpty(input),
     );
@@ -103,7 +100,6 @@ class LocalDbPass extends LocalDbValueObjectAbstract<String> {
 
 class LocalDbFirstName extends LocalDbValueObjectAbstract<String> {
   factory LocalDbFirstName(String input) {
-    assert(input != null);
     return LocalDbFirstName._(
       validateLocalDbNameNotEmpty(input),
     );
@@ -119,7 +115,6 @@ class LocalDbFirstName extends LocalDbValueObjectAbstract<String> {
 
 class LocalDbLastName extends LocalDbValueObjectAbstract<String> {
   factory LocalDbLastName(String input) {
-    assert(input != null);
     return LocalDbLastName._(
       validateLocalDbNameNotEmpty(input),
     );

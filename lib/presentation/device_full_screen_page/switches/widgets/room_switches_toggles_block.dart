@@ -1,14 +1,15 @@
 import 'package:cybear_jinni/domain/room/smart_room_object.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/switches/smart_switch_widget.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// Show switch toggles in a container with the background color from smart room
 /// object
 class RoomSwitchesTogglesBlock extends StatelessWidget {
-  const RoomSwitchesTogglesBlock(this._smartRoomObject,
-      {this.maxSwitchesToShow});
+  const RoomSwitchesTogglesBlock(
+    this._smartRoomObject, {
+    this.maxSwitchesToShow,
+  });
 
   final SmartRoomObject? _smartRoomObject;
 

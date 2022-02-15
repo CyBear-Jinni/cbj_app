@@ -13,22 +13,21 @@ abstract class GenericSmartTvDeviceDtos
     implements _$GenericSmartTvDeviceDtos, DeviceEntityDtoAbstract {
   factory GenericSmartTvDeviceDtos({
     // @JsonKey(ignore: true)
-    String? deviceDtoClass,
     required String id,
     required String vendorUniqueId,
     required String? defaultName,
     required String? deviceStateGRPC,
-    String? stateMassage,
     required String? senderDeviceOs,
     required String? senderDeviceModel,
     required String? senderId,
     required String? smartTvSwitchState,
     required String? deviceTypes,
     required String? compUuid,
-    required String? deviceVendor
+    required String? deviceVendor,
+    String? deviceDtoClass,
+    String? stateMassage,
 
     // required ServerTimestampConverter() FieldValue serverTimeStamp,
-    ,
   }) = _GenericSmartTvDeviceDtos;
 
   GenericSmartTvDeviceDtos._();

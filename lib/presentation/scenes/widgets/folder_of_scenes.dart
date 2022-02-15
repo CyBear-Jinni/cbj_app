@@ -1,9 +1,9 @@
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:cybear_jinni/application/folder_of_scenes/folder_of_scenes_bloc.dart';
 import 'package:cybear_jinni/application/scene/scene_bloc.dart';
-import 'package:cybear_jinni/domain/folder_of_scenes/folder_of_scene.dart';
-import 'package:cybear_jinni/domain/scene/scene.dart';
-import 'package:cybear_jinni/domain/scene/scene_failures.dart';
+import 'package:cybear_jinni/domain/room/room_entity.dart';
+import 'package:cybear_jinni/domain/scene/scene_cbj_entity.dart';
+import 'package:cybear_jinni/domain/scene/scene_cbj_failures.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/scenes/widgets/scene_widget.dart';
 import 'package:dartz/dartz.dart';
@@ -14,9 +14,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class FolderOfScenesWidget extends StatelessWidget {
   const FolderOfScenesWidget({required this.folderOfScenes});
 
-  final FolderOfScenes? folderOfScenes;
+  final RoomEntity folderOfScenes;
 
-  Scene getTheScen(Either<SceneFailure, Scene> scenesList) {
+  SceneCbjEntity getTheScen(
+    Either<SceneCbjFailure, SceneCbjEntity> scenesList,
+  ) {
     return scenesList.fold((l) => null!, (r) => r);
   }
 
@@ -35,6 +37,7 @@ class FolderOfScenesWidget extends StatelessWidget {
             FlushbarHelper.createError(message: 'Error');
           },
           loaded: (_) => const Text('Loaded'),
+          loadedEmptyScens: (LoadedEmptyScens value) {},
         );
       },
       builder: (context, state) {
@@ -45,24 +48,31 @@ class FolderOfScenesWidget extends StatelessWidget {
             return GridView.builder(
               reverse: true,
               itemBuilder: (context, index) {
-                final scene = scenesList.scenesList[index];
-                if (scene == null) {
-                  return const Text('Error');
-                } else {
-                  return BlocProvider(
-                    create: (context) => getIt<SceneBloc>()
-                      ..add(
-                        SceneEvent.initialized(
-                          scene: getTheScen(scene),
-                        ),
+                final SceneCbjEntity sceneCbj = scenesList.scenesList[index];
+                return BlocProvider(
+                  create: (context) => getIt<SceneBloc>()
+                    ..add(
+                      SceneEvent.initialized(
+                        sceneCbj: sceneCbj,
                       ),
-                    child: SceneWidget(scene.fold((l) => null!, (r) => r)),
-                  );
-                }
+                    ),
+                  child: SceneWidget(sceneCbj),
+                );
               },
-              itemCount: scenesList.scenesList.size,
+              itemCount: scenesList.scenesList.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
+              ),
+            );
+          },
+          loadedEmptyScens: (LoadedEmptyScens value) {
+            return const Center(
+              child: Text(
+                'You can add sceneCbj in the plus button',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.black,
+                ),
               ),
             );
           },

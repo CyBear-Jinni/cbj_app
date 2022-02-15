@@ -4,7 +4,7 @@ import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstra
 import 'package:cybear_jinni/domain/devices/generic_boiler_device/generic_boiler_entity.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -20,7 +20,7 @@ class BoilersInTheRoom extends StatelessWidget {
     required List<DeviceEntityAbstract> tempDeviceInRoom,
     required List<Color> tempRoomColorGradiant,
   }) {
-    List<GenericBoilerDE> tempLightsInRoom = [];
+    final List<GenericBoilerDE> tempLightsInRoom = [];
 
     tempDeviceInRoom.forEach((element) {
       tempLightsInRoom.add(element as GenericBoilerDE);
@@ -43,7 +43,7 @@ class BoilersInTheRoom extends StatelessWidget {
     if (boilersInRoom!.length == 1) {
       deviceText = boilersInRoom![0].defaultName.getOrCrash()!;
     } else {
-      deviceText = '${roomEntity.defaultName.getOrCrash()} Boilers';
+      deviceText = '_Blinds'.tr(args: [roomEntity.defaultName.getOrCrash()]);
     }
 
     return GestureDetector(

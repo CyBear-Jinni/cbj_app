@@ -1,8 +1,10 @@
 import 'package:cybear_jinni/domain/devices/generic_switch_device/generic_switch_entity.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
+import 'package:cybear_jinni/utils.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
@@ -63,7 +65,7 @@ class SettingsPageOfSwitches extends StatelessWidget {
       appBar: AppBar(
         toolbarHeight: 0,
         backgroundColor: Colors.black,
-        brightness: Brightness.dark,
+        systemOverlayStyle: SystemUiOverlayStyle.dark,
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
@@ -82,8 +84,8 @@ class SettingsPageOfSwitches extends StatelessWidget {
             stops: const <double>[0, 0, 0, 1],
             colors: <Color>[
               Theme.of(context).primaryColor,
-              Theme.of(context).accentColor,
-              Theme.of(context).accentColor,
+              Theme.of(context).colorScheme.secondary,
+              Theme.of(context).colorScheme.secondary,
               Theme.of(context).primaryColor
             ],
           ),
@@ -104,7 +106,7 @@ class SettingsPageOfSwitches extends StatelessWidget {
                     key: Key(index.toString()),
                     onDismissed: (DismissDirection direction) {
                       if (direction == DismissDirection.endToStart) {
-                        print('Delete the card');
+                        logger.w('Delete the card');
                       }
                     },
                     background: Container(

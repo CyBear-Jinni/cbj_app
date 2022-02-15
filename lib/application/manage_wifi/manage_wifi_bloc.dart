@@ -8,7 +8,6 @@ import 'package:cybear_jinni/domain/manage_network/manage_network_value_objects.
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:meta/meta.dart';
 
 part 'manage_wifi_bloc.freezed.dart';
 part 'manage_wifi_event.dart';

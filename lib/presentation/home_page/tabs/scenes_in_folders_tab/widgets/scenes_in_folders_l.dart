@@ -1,10 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/folders_of_scenes/folders_of_scenes_bloc.dart';
-import 'package:cybear_jinni/domain/folder_of_scenes/folder_of_scene.dart';
-import 'package:cybear_jinni/domain/folder_of_scenes/folder_of_scenes_failures.dart';
+import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
-import 'package:dartz/dartz.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -25,14 +22,24 @@ class ScenesInFoldersL extends StatelessWidget {
               reverse: true,
               padding: EdgeInsets.zero,
               itemBuilder: (context, index) {
-                final sceneFolder =
-                    state.foldersOfScenes.foldersOfScenesList[index];
+                final RoomEntity sceneFolder = state.foldersOfScenes[index];
                 return scenesFoldersWidget(
                   context,
                   sceneFolder,
                 );
               },
-              itemCount: state.foldersOfScenes.foldersOfScenesList.size,
+              itemCount: state.foldersOfScenes.length,
+            );
+          },
+          loadedEmpty: (LoadedEmpty value) {
+            return const Center(
+              child: Text(
+                'You can add scene in the plus button',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.black,
+                ),
+              ),
             );
           },
           error: (_) {
@@ -45,15 +52,17 @@ class ScenesInFoldersL extends StatelessWidget {
 
   Widget scenesFoldersWidget(
     BuildContext context,
-    Either<FolderOfScenesFailures<dynamic>, FolderOfScenes> folderOfScenes,
+    RoomEntity folderOfScenes,
   ) {
     const double borderRadius = 5;
     return Container(
       decoration: BoxDecoration(
         color: Colors.black,
-        image: DecorationImage(
+        image: const DecorationImage(
           image: NetworkImage(
-            folderOfScenes.fold((l) => null!, (r) => r.backgroundImageUrl!),
+            // TODO: add backgroundImageUrl to room
+            // folderOfScenes.backgroundImageUrl!,
+            'https://live.staticflickr.com/5220/5486044345_f67abff3e9_h.jpg',
           ),
           fit: BoxFit.cover,
         ),
@@ -73,7 +82,7 @@ class ScenesInFoldersL extends StatelessWidget {
         onPressed: () {
           context.router.push(
             ScenesRoute(
-              folderOfScenes: folderOfScenes.fold((l) => null!, (r) => r),
+              folderOfScenes: folderOfScenes,
             ),
           );
         },
@@ -92,7 +101,7 @@ class ScenesInFoldersL extends StatelessWidget {
                 ),
               ),
               child: Text(
-                folderOfScenes.fold((l) => 'NoName', (r) => r.name!),
+                folderOfScenes.defaultName.getOrCrash(),
                 style: TextStyle(
                   color: Theme.of(context).textTheme.bodyText1!.color,
                   fontSize: 30,

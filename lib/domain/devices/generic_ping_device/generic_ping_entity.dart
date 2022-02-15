@@ -23,8 +23,8 @@ class GenericPingDE extends DeviceEntityAbstract {
     required DeviceSenderDeviceModel senderDeviceModel,
     required DeviceSenderId senderId,
     required DeviceCompUuid compUuid,
-    DevicePowerConsumption? powerConsumption,
     required this.pingSwitchState,
+    DevicePowerConsumption? powerConsumption,
   }) : super(
           uniqueId: uniqueId,
           vendorUniqueId: vendorUniqueId,
@@ -86,6 +86,12 @@ class GenericPingDE extends DeviceEntityAbstract {
     return uniqueId.getOrCrash();
   }
 
+  /// Return a list of all valid actions for this device
+  @override
+  List<String> getAllValidActions() {
+    return GenericPingSwitchState.pingValidActions();
+  }
+
   @override
   DeviceEntityDtoAbstract toInfrastructure() {
     return GenericPingDeviceDtos(
@@ -137,5 +143,21 @@ class GenericPingDE extends DeviceEntityAbstract {
         failedValue: 'Action does not exist',
       ),
     );
+  }
+
+  @override
+  bool replaceActionIfExist(String action) {
+    if (GenericPingSwitchState.pingValidActions().contains(action)) {
+      pingSwitchState = GenericPingSwitchState(action);
+      return true;
+    }
+    return false;
+  }
+
+  @override
+  List<String> getListOfPropertiesToChange() {
+    return [
+      'pingSwitchState',
+    ];
   }
 }

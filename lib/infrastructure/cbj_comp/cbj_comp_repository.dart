@@ -180,46 +180,46 @@ class CBJCompRepository implements ICBJCompRepository {
   //       id: element.uniqueId.getOrCrash(),
   //       serverTimeStamp: DateTime.now().toString(),
   //     );
-  //     smartDevicesList.add(smartDeviceInfo);
-  //   });
-  //
-  //   final CompHubInfo compInfo = CompHubInfo(
-  //     compSpecs: compSpecs,
-  //   );
-  //   return compInfo;
-  // }
+//     smartDevicesList.add(smartDeviceInfo);
+//   });
+//
+//   final CompHubInfo compInfo = CompHubInfo(
+//     compSpecs: compSpecs,
+//   );
+//   return compInfo;
+// }
 
-  // KtList<GenericLightDE> compDevicesToDevicesList(
-  //   CompHubInfo compInfo,
-  //   String compIp,
-  // ) {
-  //   final List<GenericLightDE> deviceEntityList = [];
-  //
-  //   for (final SmartDeviceInfo smartDeviceInfo in compInfo.smartDevicesInComp) {
-  //     final GenericLightDE deviceEntity = GenericLightDE(
-  //       uniqueId: CoreUniqueId.fromUniqueString(smartDeviceInfo.id),
-  //       defaultName: DeviceDefaultName(smartDeviceInfo.defaultName),
-  //       roomId: CoreUniqueId.fromUniqueString(smartDeviceInfo.roomId),
-  //       roomName: DeviceRoomName('Missing room name'),
-  //       deviceStateGRPC: DeviceState(
-  //         smartDeviceInfo.deviceTypesActions.deviceStateGRPC.toString(),
-  //       ),
-  //       stateMassage: DeviceStateMassage(smartDeviceInfo.stateMassage),
-  //       senderDeviceOs: DeviceSenderDeviceOs(smartDeviceInfo.senderDeviceOs),
-  //       senderDeviceModel:
-  //           DeviceSenderDeviceModel(smartDeviceInfo.senderDeviceModel),
-  //       senderId: DeviceSenderId.fromUniqueString(smartDeviceInfo.senderId),
-  //       deviceVendor: DeviceVendor(
-  //         VendorsAndServices.vendorsAndServicesNotSupported.toString(),
-  //       ),
-  //       lightSwitchState: GenericLightSwitchState(
-  //         smartDeviceInfo.deviceTypesActions.deviceAction.toString(),
-  //       ),
-  //       compUuid: DeviceCompUuid(smartDeviceInfo.compSpecs.compUuid),
-  //     );
-  //     deviceEntityList.add(deviceEntity);
-  //   }
-  //   return deviceEntityList.toImmutableList();
-  // }
+// KtList<GenericLightDE> compDevicesToDevicesList(
+//   CompHubInfo compInfo,
+//   String compIp,
+// ) {
+//   final List<GenericLightDE> deviceEntityList = [];
+//
+//   for (final SmartDeviceInfo smartDeviceInfo in compInfo.smartDevicesInComp) {
+//     final GenericLightDE deviceEntity = GenericLightDE(
+//       uniqueId: CoreUniqueId.fromUniqueString(smartDeviceInfo.id),
+//       defaultName: DeviceDefaultName(smartDeviceInfo.defaultName),
+//       roomId: CoreUniqueId.fromUniqueString(smartDeviceInfo.roomId),
+//       roomName: DeviceRoomName('Missing area name'),
+//       deviceStateGRPC: DeviceState(
+//         smartDeviceInfo.deviceTypesActions.deviceStateGRPC.toString(),
+//       ),
+//       stateMassage: DeviceStateMassage(smartDeviceInfo.stateMassage),
+//       senderDeviceOs: DeviceSenderDeviceOs(smartDeviceInfo.senderDeviceOs),
+//       senderDeviceModel:
+//           DeviceSenderDeviceModel(smartDeviceInfo.senderDeviceModel),
+//       senderId: DeviceSenderId.fromUniqueString(smartDeviceInfo.senderId),
+//       deviceVendor: DeviceVendor(
+//         VendorsAndServices.vendorsAndServicesNotSupported.toString(),
+//       ),
+//       lightSwitchState: GenericLightSwitchState(
+//         smartDeviceInfo.deviceTypesActions.deviceAction.toString(),
+//       ),
+//       compUuid: DeviceCompUuid(smartDeviceInfo.compSpecs.compUuid),
+//     );
+//     deviceEntityList.add(deviceEntity);
+//   }
+//   return deviceEntityList.toImmutableList();
+// }
 
 }

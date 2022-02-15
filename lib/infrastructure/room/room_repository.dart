@@ -9,8 +9,8 @@ import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_da
 import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/src/painting/colors.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
 import 'package:rxdart/rxdart.dart';
@@ -81,15 +81,15 @@ class RoomRepository implements IRoomRepository {
   }
 
   @override
-  Future<Either<RoomFailure, KtList<RoomEntity?>>> getAllRooms() async {
+  Future<Either<RoomFailure, KtList<RoomEntity>>> getAllRooms() async {
     try {
       return right(allRooms.values.toImmutableList());
     } catch (e) {
       if (e is PlatformException && e.message!.contains('PERMISSION_DENIED')) {
-        logger.w('Insufficient permission while getting all rooms');
+        logger.w('Insufficient permission while getting all area');
         return left(const RoomFailure.insufficientPermission());
       } else {
-        logger.e('Unexpected error while getting all rooms');
+        logger.e('Unexpected error while getting all areas');
         // log.error(e.toString());
         return left(const RoomFailure.unexpected());
       }
@@ -144,9 +144,10 @@ class RoomRepository implements IRoomRepository {
   }
 
   @override
-  Future<Either<RoomFailure, Unit>> updateDatabase(
-      {required Map<String, dynamic> documentPath,
-      required Map<String, dynamic> fieldsToUpdate}) async {
+  Future<Either<RoomFailure, Unit>> updateDatabase({
+    required Map<String, dynamic> documentPath,
+    required Map<String, dynamic> fieldsToUpdate,
+  }) async {
     // TODO: implement updateDatabase
     throw UnimplementedError();
   }
@@ -166,43 +167,43 @@ class RoomRepository implements IRoomRepository {
   }
 
   @override
-  Stream<Either<RoomFailure, KtList<RoomEntity?>>> watchAllRooms() async* {
+  Stream<Either<RoomFailure, KtList<RoomEntity>>> watchAllRooms() async* {
     yield* roomsResponseFromTheHubStreamController.stream
         .map((event) => right(event));
   }
 
   @override
-  Stream<Either<RoomFailure, KtList<RoomEntity?>>> watchBlinds() async* {
+  Stream<Either<RoomFailure, KtList<RoomEntity>>> watchBlinds() async* {
     // TODO: implement watchBlinds
     throw UnimplementedError();
   }
 
   @override
-  Stream<Either<RoomFailure, KtList<RoomEntity?>>> watchBoilers() async* {
+  Stream<Either<RoomFailure, KtList<RoomEntity>>> watchBoilers() async* {
     // TODO: implement watchBoilers
     throw UnimplementedError();
   }
 
   @override
-  Stream<Either<RoomFailure, KtList<RoomEntity?>>> watchLights() async* {
+  Stream<Either<RoomFailure, KtList<RoomEntity>>> watchLights() async* {
     // TODO: implement watchLights
     throw UnimplementedError();
   }
 
   @override
-  Stream<Either<RoomFailure, KtList<RoomEntity?>>> watchSmartTv() async* {
+  Stream<Either<RoomFailure, KtList<RoomEntity>>> watchSmartTv() async* {
     // TODO: implement watchSmartTv
     throw UnimplementedError();
   }
 
   @override
-  Stream<Either<RoomFailure, KtList<RoomEntity?>>> watchSwitches() async* {
+  Stream<Either<RoomFailure, KtList<RoomEntity>>> watchSwitches() async* {
     // TODO: implement watchSwitches
     throw UnimplementedError();
   }
 
   @override
-  Stream<Either<RoomFailure, KtList<RoomEntity?>>> watchUncompleted() async* {
+  Stream<Either<RoomFailure, KtList<RoomEntity>>> watchUncompleted() async* {
     // TODO: implement watchUncompleted
     throw UnimplementedError();
   }

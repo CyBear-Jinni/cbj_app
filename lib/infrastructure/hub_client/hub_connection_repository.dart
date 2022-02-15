@@ -17,9 +17,9 @@ import 'package:injectable/injectable.dart';
 import 'package:location/location.dart';
 import 'package:multicast_dns/multicast_dns.dart';
 import 'package:network_info_plus/network_info_plus.dart';
+import 'package:network_tools/network_tools.dart';
 import 'package:permission_handler/permission_handler.dart'
     as permission_handler;
-import 'package:ping_discover_network_forked/ping_discover_network_forked.dart';
 
 @LazySingleton(as: IHubConnectionRepository)
 class HubConnectionRepository extends IHubConnectionRepository {
@@ -37,6 +37,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
 
   static HubEntity? hubEntity;
 
+  @override
   Future<void> connectWithHub() async {
     if (hubEntity == null) {
       try {
@@ -291,12 +292,12 @@ class HubConnectionRepository extends IHubConnectionRepository {
     // await for (final IPAddressResourceRecord record
     //     in client.lookup<IPAddressResourceRecord>(
     //         ResourceRecordQuery.addressIPv6(fullMdnsName))) {
-    //   print('Found address (${record.address}).');
+    //   logger.v('Found address (${record.address}).');
     // }
 
     client.stop();
 
-    print('Done.');
+    logger.v('Done.');
 
     return deviceIp;
   }
@@ -318,36 +319,40 @@ class HubConnectionRepository extends IHubConnectionRepository {
 
       logger.i('subnet IP $subnet');
 
-      final Stream<NetworkAddress> stream =
-          NetworkAnalyzer.discover2(subnet, hubPort);
+      final Stream<OpenPort> devicesWithPort = HostScanner.discoverPort(
+        subnet,
+        hubPort,
+        resultsInIpAscendingOrder: false,
+      );
 
-      await for (final NetworkAddress address in stream) {
-        if (address.exists) {
-          logger.i('Found device: ${address.ip}');
+      await for (final OpenPort address in devicesWithPort) {
+        if (!address.isOpen) {
+          continue;
+        }
+        logger.i('Found device: ${address.ip}');
 
-          final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
-          final String? wifiName = await NetworkInfo().getWifiName();
+        final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
+        final String? wifiName = await NetworkInfo().getWifiName();
 
-          if (wifiBSSID != null && wifiName != null) {
-            hubEntity = HubEntity(
-              hubNetworkBssid: HubNetworkBssid(wifiBSSID),
-              networkName: HubNetworkName(wifiName),
-              lastKnownIp: HubNetworkIp(address.ip),
-            );
+        if (wifiBSSID != null && wifiName != null) {
+          hubEntity = HubEntity(
+            hubNetworkBssid: HubNetworkBssid(wifiBSSID),
+            networkName: HubNetworkName(wifiName),
+            lastKnownIp: HubNetworkIp(address.ip),
+          );
 
-            final HubDtos hubDtos = hubEntity!.toInfrastructure();
+          final HubDtos hubDtos = hubEntity!.toInfrastructure();
 
-            (await getIt<ILocalDbRepository>().saveHubEntity(
-              hubNetworkBssid: hubDtos.hubNetworkBssid,
-              networkName: hubDtos.networkName,
-              lastKnownIp: hubDtos.lastKnownIp,
-            ))
-                .fold(
-              (l) => logger.e('Cant find local Remote Pipes Dns name'),
-              (r) => logger.i('Found CyBear Jinni Hub'),
-            );
-            return right(unit);
-          }
+          (await getIt<ILocalDbRepository>().saveHubEntity(
+            hubNetworkBssid: hubDtos.hubNetworkBssid,
+            networkName: hubDtos.networkName,
+            lastKnownIp: hubDtos.lastKnownIp,
+          ))
+              .fold(
+            (l) => logger.e('Cant find local Remote Pipes Dns name'),
+            (r) => logger.i('Found CyBear Jinni Hub'),
+          );
+          return right(unit);
         }
       }
     } catch (e) {
@@ -391,7 +396,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
         if (!_serviceEnabled) {
           _serviceEnabled = await location.requestService();
           if (!_serviceEnabled) {
-            print('Location is disabled');
+            logger.w('Location is disabled');
             continue;
           }
         }

@@ -23,8 +23,8 @@ class GenericSmartTvDE extends DeviceEntityAbstract {
     required DeviceSenderDeviceModel senderDeviceModel,
     required DeviceSenderId senderId,
     required DeviceCompUuid compUuid,
-    DevicePowerConsumption? powerConsumption,
     required this.smartTvSwitchState,
+    DevicePowerConsumption? powerConsumption,
   }) : super(
           uniqueId: uniqueId,
           vendorUniqueId: vendorUniqueId,
@@ -85,6 +85,12 @@ class GenericSmartTvDE extends DeviceEntityAbstract {
     return uniqueId.getOrCrash();
   }
 
+  /// Return a list of all valid actions for this device
+  @override
+  List<String> getAllValidActions() {
+    return GenericSmartTvSwitchState.smartTvValidActions();
+  }
+
   @override
   DeviceEntityDtoAbstract toInfrastructure() {
     return GenericSmartTvDeviceDtos(
@@ -136,5 +142,21 @@ class GenericSmartTvDE extends DeviceEntityAbstract {
         failedValue: 'Action does not exist',
       ),
     );
+  }
+
+  @override
+  bool replaceActionIfExist(String action) {
+    if (GenericSmartTvSwitchState.smartTvValidActions().contains(action)) {
+      smartTvSwitchState = GenericSmartTvSwitchState(action);
+      return true;
+    }
+    return false;
+  }
+
+  @override
+  List<String> getListOfPropertiesToChange() {
+    return [
+      'smartTvSwitchState',
+    ];
   }
 }

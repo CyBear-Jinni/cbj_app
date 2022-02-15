@@ -43,7 +43,6 @@ class AddUserToHomeUniqueId extends AddUserToHomeValueObjectAbstract<String> {
   }
 
   factory AddUserToHomeUniqueId.fromUniqueString(String uniqueId) {
-    assert(uniqueId != null);
     return AddUserToHomeUniqueId._(right(uniqueId));
   }
 
@@ -55,7 +54,6 @@ class AddUserToHomeUniqueId extends AddUserToHomeValueObjectAbstract<String> {
 
 class AddUserToHomeEmail extends AddUserToHomeValueObjectAbstract<String> {
   factory AddUserToHomeEmail(String input) {
-    assert(input != null);
     return AddUserToHomeEmail._(
       validateAddUserToHomeEmailNotEmpty(input),
     );
@@ -71,7 +69,6 @@ class AddUserToHomeEmail extends AddUserToHomeValueObjectAbstract<String> {
 
 class AddUserToHomeName extends AddUserToHomeValueObjectAbstract<String> {
   factory AddUserToHomeName(String input) {
-    assert(input != null);
     return AddUserToHomeName._(
       validateAddUserToHomeEmailNotEmpty(input),
     );
@@ -85,7 +82,6 @@ class AddUserToHomeName extends AddUserToHomeValueObjectAbstract<String> {
 
 class AddUserToHomePermission extends AddUserToHomeValueObjectAbstract<String> {
   factory AddUserToHomePermission(String input) {
-    assert(input != null);
     return AddUserToHomePermission._(
       validateAddUserToHomePermissionExist(input),
     );

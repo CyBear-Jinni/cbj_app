@@ -7,7 +7,7 @@ class GenericPingSwitchState extends ValueObjectCore<String> {
   factory GenericPingSwitchState(String? input) {
     assert(input != null);
     return GenericPingSwitchState._(
-      validateGenericPingStateNotEmty(input!),
+      validateGenericPingStateNotEmpty(input!),
     );
   }
 
@@ -15,4 +15,9 @@ class GenericPingSwitchState extends ValueObjectCore<String> {
 
   @override
   final Either<CoreFailure<String>, String> value;
+
+  /// All valid actions of ping state
+  static List<String> pingValidActions() {
+    return pingAllValidActions();
+  }
 }

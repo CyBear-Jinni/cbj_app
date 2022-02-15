@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 class ErrorRgbwLightsDeviceCard extends StatelessWidget {
   const ErrorRgbwLightsDeviceCard({
-    Key? key,
     required this.device,
+    Key? key,
   }) : super(key: key);
 
   final GenericRgbwLightDE? device;

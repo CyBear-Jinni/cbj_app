@@ -22,7 +22,6 @@ abstract class RemotePipesEntity implements _$RemotePipesEntity {
     return domainName!.value.fold((f) => some(f), (_) => none());
   }
 
-  @override
   RemotePipesDtos toInfrastructure() {
     return RemotePipesDtos(
       domainName: domainName!.getOrCrash(),

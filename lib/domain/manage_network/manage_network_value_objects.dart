@@ -38,7 +38,6 @@ abstract class ManageNetworkValueObjectAbstract<T> {
 
 class ManageWiFiName extends ManageNetworkValueObjectAbstract<String> {
   factory ManageWiFiName(String input) {
-    assert(input != null);
     return ManageWiFiName._(
       validateMangageNetworkNameEmpty(input),
     );
@@ -52,7 +51,6 @@ class ManageWiFiName extends ManageNetworkValueObjectAbstract<String> {
 
 class ManageWiFiPass extends ManageNetworkValueObjectAbstract<String> {
   factory ManageWiFiPass(String input) {
-    assert(input != null);
     return ManageWiFiPass._(
       validateMangageNetworkNameEmpty(input),
     );

@@ -23,8 +23,8 @@ class GenericEmptyDE extends DeviceEntityAbstract {
     required DeviceSenderDeviceModel senderDeviceModel,
     required DeviceSenderId senderId,
     required DeviceCompUuid compUuid,
-    DevicePowerConsumption? powerConsumption,
     required this.emptySwitchState,
+    DevicePowerConsumption? powerConsumption,
   }) : super(
           uniqueId: uniqueId,
           vendorUniqueId: vendorUniqueId,
@@ -86,6 +86,12 @@ class GenericEmptyDE extends DeviceEntityAbstract {
     return uniqueId.getOrCrash();
   }
 
+  /// Return a list of all valid actions for this device
+  @override
+  List<String> getAllValidActions() {
+    return GenericEmptySwitchState.emptyDeviceValidActions();
+  }
+
   @override
   DeviceEntityDtoAbstract toInfrastructure() {
     return GenericEmptyDeviceDtos(
@@ -138,5 +144,21 @@ class GenericEmptyDE extends DeviceEntityAbstract {
         failedValue: 'Action does not exist',
       ),
     );
+  }
+
+  @override
+  bool replaceActionIfExist(String action) {
+    if (GenericEmptySwitchState.emptyDeviceValidActions().contains(action)) {
+      emptySwitchState = GenericEmptySwitchState(action);
+      return true;
+    }
+    return false;
+  }
+
+  @override
+  List<String> getListOfPropertiesToChange() {
+    return [
+      'emptySwitchState',
+    ];
   }
 }

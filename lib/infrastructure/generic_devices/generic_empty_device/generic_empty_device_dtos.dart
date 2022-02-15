@@ -13,22 +13,21 @@ abstract class GenericEmptyDeviceDtos
     implements _$GenericEmptyDeviceDtos, DeviceEntityDtoAbstract {
   factory GenericEmptyDeviceDtos({
     // @JsonKey(ignore: true)
-    String? deviceDtoClass,
     required String id,
     required String vendorUniqueId,
     required String? defaultName,
     required String? deviceStateGRPC,
-    String? stateMassage,
     required String? senderDeviceOs,
     required String? senderDeviceModel,
     required String? senderId,
     required String? emptySwitchState,
     required String? deviceTypes,
     required String? compUuid,
-    required String? deviceVendor
+    required String? deviceVendor,
+    String? deviceDtoClass,
+    String? stateMassage,
 
     // required ServerTimestampConverter() FieldValue serverTimeStamp,
-    ,
   }) = _GenericEmptyDeviceDtos;
 
   GenericEmptyDeviceDtos._();

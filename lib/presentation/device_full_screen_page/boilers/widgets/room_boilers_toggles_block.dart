@@ -1,6 +1,5 @@
 import 'package:cybear_jinni/domain/room/smart_room_object.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/boilers/smart_boiler_widget.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 

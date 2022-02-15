@@ -1,10 +1,11 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:cybear_jinni/domain/scene/i_scene_repository.dart';
-import 'package:cybear_jinni/domain/scene/scene.dart';
+import 'package:cybear_jinni/domain/scene/i_scene_cbj_repository.dart';
+import 'package:cybear_jinni/domain/scene/scene_cbj_entity.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:kt_dart/kt.dart';
 
 part 'scene_bloc.freezed.dart';
 part 'scene_event.dart';
@@ -14,20 +15,25 @@ part 'scene_state.dart';
 class SceneBloc extends Bloc<SceneEvent, SceneState> {
   SceneBloc(this._iSceneRepository) : super(SceneState.initialized()) {
     on<Initialized>(_initialized);
+    on<ActivateScene>(_activateScene);
   }
 
-  final ISceneRepository _iSceneRepository;
+  final ISceneCbjRepository _iSceneRepository;
+  late SceneCbjEntity sceneCbj;
 
   Future<void> _initialized(
     Initialized event,
     Emitter<SceneState> emit,
   ) async {
-    final sceneList = await _iSceneRepository.getScene();
-    emit(
-      sceneList.fold(
-        (f) => const SceneState.error(),
-        (sceneState) => SceneState.loaded(sceneState),
-      ),
-    );
+    emit(const SceneState.loading());
+    sceneCbj = event.sceneCbj;
+    emit(SceneState.loaded(sceneCbj));
+  }
+
+  Future<void> _activateScene(
+    ActivateScene event,
+    Emitter<SceneState> emit,
+  ) async {
+    _iSceneRepository.activateScenes([sceneCbj].toImmutableList());
   }
 }

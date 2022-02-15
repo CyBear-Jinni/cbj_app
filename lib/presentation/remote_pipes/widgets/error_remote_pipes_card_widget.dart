@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 class ErrorRemotePipesCard extends StatelessWidget {
   const ErrorRemotePipesCard({
-    Key? key,
     required this.homeUser,
+    Key? key,
   }) : super(key: key);
 
   final HomeUserEntity? homeUser;

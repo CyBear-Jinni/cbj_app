@@ -50,10 +50,9 @@ class CBJCompUniqueId extends CBJCompValueObjectAbstract<String> {
     return CBJCompUniqueId._(right(const Uuid().v1()));
   }
 
-  CBJCompUniqueId._(this.value);
+  const CBJCompUniqueId._(this.value);
 
   factory CBJCompUniqueId.fromUniqueString(String uniqueId) {
-    assert(uniqueId != null);
     return CBJCompUniqueId._(right(uniqueId));
   }
 
@@ -67,7 +66,6 @@ class CBJCompRoomId extends CBJCompValueObjectAbstract<String> {
   }
 
   factory CBJCompRoomId.fromUniqueString(String uniqueId) {
-    assert(uniqueId != null);
     return CBJCompRoomId._(right(uniqueId));
   }
 
@@ -79,7 +77,6 @@ class CBJCompRoomId extends CBJCompValueObjectAbstract<String> {
 
 class CBJCompMacAddr extends CBJCompValueObjectAbstract<String> {
   factory CBJCompMacAddr(String input) {
-    assert(input != null);
     return CBJCompMacAddr._(
       validateCBJCompNotEmpty(input)
           .flatMap((a) => validateCBJCompMaxNameLength(input, maxLength)),
@@ -96,7 +93,6 @@ class CBJCompMacAddr extends CBJCompValueObjectAbstract<String> {
 
 class CBJCompDefaultName extends CBJCompValueObjectAbstract<String> {
   factory CBJCompDefaultName(String input) {
-    assert(input != null);
     return CBJCompDefaultName._(
       validateCBJCompNotEmpty(input)
           .flatMap((a) => validateCBJCompMaxNameLength(input, maxLength)),
@@ -126,7 +122,6 @@ class CBJCompDevices
 
 class CBJCompOs extends CBJCompValueObjectAbstract<String> {
   factory CBJCompOs(String input) {
-    assert(input != null);
     return CBJCompOs._(
       validateCBJCompNotEmpty(input),
     );
@@ -140,7 +135,6 @@ class CBJCompOs extends CBJCompValueObjectAbstract<String> {
 
 class CBJCompModel extends CBJCompValueObjectAbstract<String> {
   factory CBJCompModel(String input) {
-    assert(input != null);
     return CBJCompModel._(
       validateCBJCompNotEmpty(input),
     );
@@ -154,7 +148,6 @@ class CBJCompModel extends CBJCompValueObjectAbstract<String> {
 
 class CBJCompType extends CBJCompValueObjectAbstract<String> {
   factory CBJCompType(String input) {
-    assert(input != null);
     return CBJCompType._(
       validateCBJCompNotEmpty(input)
           .flatMap((a) => validateCBJCompTypeExist(input)),
@@ -169,7 +162,6 @@ class CBJCompType extends CBJCompValueObjectAbstract<String> {
 
 class CBJCompUuid extends CBJCompValueObjectAbstract<String> {
   factory CBJCompUuid(String input) {
-    assert(input != null);
     return CBJCompUuid._(
       validateCBJCompNotEmpty(input),
     );
@@ -183,7 +175,6 @@ class CBJCompUuid extends CBJCompValueObjectAbstract<String> {
 
 class CBJCompLastKnownIp extends CBJCompValueObjectAbstract<String> {
   factory CBJCompLastKnownIp(String input) {
-    assert(input != null);
     return CBJCompLastKnownIp._(
       validateCBJCompNotEmpty(input)
           .flatMap((a) => validateCBJCompTypeExist(input)),

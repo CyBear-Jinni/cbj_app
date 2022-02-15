@@ -13,20 +13,19 @@ abstract class GenericSwitchDeviceDtos
     implements _$GenericSwitchDeviceDtos, DeviceEntityDtoAbstract {
   factory GenericSwitchDeviceDtos({
     // @JsonKey(ignore: true)
-    String? deviceDtoClass,
     required String id,
     required String vendorUniqueId,
     required String? defaultName,
     required String? deviceStateGRPC,
-    String? stateMassage,
     required String? senderDeviceOs,
     required String? senderDeviceModel,
     required String? senderId,
     required String? switchState,
     required String? deviceTypes,
     required String? compUuid,
-    required String? deviceVendor
-
+    required String? deviceVendor,
+    String? deviceDtoClass,
+    String? stateMassage
     // required ServerTimestampConverter() FieldValue serverTimeStamp,
     ,
   }) = _GenericSwitchDeviceDtos;

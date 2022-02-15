@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 class ErrorSwitchesDeviceCard extends StatelessWidget {
   const ErrorSwitchesDeviceCard({
-    Key? key,
     required this.device,
+    Key? key,
   }) : super(key: key);
 
   final GenericSwitchDE? device;

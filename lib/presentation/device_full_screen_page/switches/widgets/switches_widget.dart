@@ -1,7 +1,6 @@
 import 'package:cybear_jinni/application/switch_toggle/switch_toggle_bloc.dart';
 import 'package:cybear_jinni/domain/devices/generic_switch_device/generic_switch_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_switch/flutter_switch.dart';
@@ -49,9 +48,9 @@ class SwitchWidget extends StatelessWidget {
           margin: const EdgeInsets.symmetric(vertical: 5),
           width: sizeBoxWidth + 15,
           child: FlutterSwitch(
-            width: screenSize.width * 0.2,
-            height: screenSize.height * 0.05,
-            toggleSize: screenSize.height * 0.05,
+            width: screenSize.width * 0.25,
+            height: screenSize.height * 0.0655,
+            toggleSize: screenSize.height * 0.0655,
             value: toggleValue,
             borderRadius: 25.0,
             padding: 0.0,

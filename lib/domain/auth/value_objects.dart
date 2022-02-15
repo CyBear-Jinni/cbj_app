@@ -5,7 +5,6 @@ import 'package:dartz/dartz.dart';
 
 class EmailAddress extends ValueObject<String> {
   factory EmailAddress(String input) {
-    assert(input != null);
     return EmailAddress._(
       validateEmailAddress(input)
           .flatMap((result) => validateEmailWithoutSpace(result)),
@@ -20,7 +19,6 @@ class EmailAddress extends ValueObject<String> {
 
 class Password extends ValueObject<String> {
   factory Password(String input) {
-    assert(input != null);
     return Password._(
       validatePasswordLength(input)
           .flatMap((result) => validatePasswordWithoutSpace(result)),

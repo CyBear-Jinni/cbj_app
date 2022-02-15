@@ -3,8 +3,8 @@ import 'package:cybear_jinni/application/folders_of_scenes/folders_of_scenes_blo
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/scenes_in_folders_tab/widgets/scenes_in_folders_l.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -49,7 +49,7 @@ class ScenesInFoldersTab extends StatelessWidget {
     return Column(
       children: <Widget>[
         TopNavigationBar(
-          pageName: 'Scenes',
+          pageName: 'Automations'.tr(),
           rightIcon: null,
           rightIconFunction: userCogFunction,
           leftIcon: FontAwesomeIcons.sitemap,

@@ -40,13 +40,12 @@ Future<Unit> main() async {
 
   getIt<ILocalDbRepository>();
 
-  // needed if you intend to initialize in the `main` function
   WidgetsFlutterBinding.ensureInitialized();
   final initFuture = MobileAds.instance.initialize();
   final adState = AdState(initFuture);
 
   await EasyLocalization.ensureInitialized();
-//  debugPaintSizeEnabled = true;
+  //  debugPaintSizeEnabled = true;
 
   await configureLocalTimeZone();
 

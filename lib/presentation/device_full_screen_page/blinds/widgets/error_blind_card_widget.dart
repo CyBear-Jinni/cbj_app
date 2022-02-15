@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 class ErrorBlindDeviceCard extends StatelessWidget {
   const ErrorBlindDeviceCard({
-    Key? key,
     required this.device,
+    Key? key,
   }) : super(key: key);
 
   final GenericLightDE? device;

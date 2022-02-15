@@ -1,7 +1,6 @@
 import 'package:cybear_jinni/domain/core/errors.dart';
 import 'package:cybear_jinni/domain/core/failures.dart';
 import 'package:dartz/dartz.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:uuid/uuid.dart';
 
@@ -37,18 +36,17 @@ abstract class ValueObject<T> {
   int get hashCode => value.hashCode;
 }
 
-class UniqueId extends ValueObject<String?> {
+class UniqueId extends ValueObject<String> {
   factory UniqueId() {
     return UniqueId._(right(const Uuid().v1()));
   }
 
-  factory UniqueId.fromUniqueString(String? uniqueId) {
-    assert(uniqueId != null);
+  factory UniqueId.fromUniqueString(String uniqueId) {
     return UniqueId._(right(uniqueId));
   }
 
   const UniqueId._(this.value);
 
   @override
-  final Either<AuthValueFailure<String?>, String?> value;
+  final Either<AuthValueFailure<String>, String> value;
 }

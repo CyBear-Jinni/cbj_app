@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/domain/room/smart_room_object.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/rgbw_lights/smart_rgbw_lighte_widget.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 

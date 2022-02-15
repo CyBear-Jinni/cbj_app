@@ -2,7 +2,6 @@ import 'package:cybear_jinni/application/room/create_new_room_form/room_sign_in_
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/add_new_room/widgets/add_new_room_form.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AddNewRoomPage extends StatelessWidget {
@@ -11,7 +10,7 @@ class AddNewRoomPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.purple,
-        title: const Text('Add New Room'),
+        title: const Text('Add New Area'),
       ),
       body: BlocProvider(
         create: (context) => getIt<RoomSignInFormBloc>(),

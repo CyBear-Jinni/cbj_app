@@ -70,6 +70,7 @@ class RoomSignInFormBloc
       defaultName: RoomDefaultName(state.defaultName.getOrCrash()),
       roomTypes: RoomTypes(state.roomTypes.getOrCrash()),
       roomDevicesId: RoomDevicesId(state.roomDevicesId.getOrCrash()),
+      roomScenesId: RoomScenesId(state.roomScenesId.getOrCrash()),
       roomMostUsedBy: RoomMostUsedBy(state.roomMostUsedBy.getOrCrash()),
       roomPermissions: RoomPermissions(state.roomPermissions.getOrCrash()),
     );
@@ -86,6 +87,7 @@ class RoomSignInFormBloc
       defaultName: RoomDefaultName(state.defaultName.getOrCrash()),
       roomTypes: RoomTypes(state.roomTypes.getOrCrash()),
       roomDevicesId: RoomDevicesId(state.roomDevicesId.getOrCrash()),
+      roomScenesId: RoomScenesId(state.roomScenesId.getOrCrash()),
       roomMostUsedBy: RoomMostUsedBy(state.roomMostUsedBy.getOrCrash()),
       roomPermissions: RoomPermissions(state.roomPermissions.getOrCrash()),
     );

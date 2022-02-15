@@ -10,14 +10,16 @@ import 'package:cybear_jinni/presentation/device_full_screen_page/lights/setting
 import 'package:cybear_jinni/presentation/device_full_screen_page/lights/widgets/rooms_lights_widget.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-/// Lights page that will call the lamps widget file and add background
+/// Lights page that will call the lamps widgets file and add background
 /// and scaffold for it
 class RoomsLightsPage extends StatelessWidget {
-  RoomsLightsPage({required this.roomEntity, this.roomColorGradiant});
+  const RoomsLightsPage({required this.roomEntity, this.roomColorGradiant});
 
   /// If it have value will only show lights in this room
   final RoomEntity roomEntity;
@@ -87,7 +89,7 @@ class RoomsLightsPage extends StatelessWidget {
           appBar: AppBar(
             toolbarHeight: 0,
             backgroundColor: Colors.black,
-            brightness: Brightness.dark,
+            systemOverlayStyle: SystemUiOverlayStyle.dark,
           ),
           body: Container(
             decoration: BoxDecoration(
@@ -96,7 +98,7 @@ class RoomsLightsPage extends StatelessWidget {
             child: Column(
               children: [
                 TopNavigationBar(
-                  pageName: 'Lights',
+                  pageName: 'Lights'.tr(),
                   rightIcon: null,
                   rightIconFunction: cogFunction,
                   leftIcon: FontAwesomeIcons.arrowLeft,

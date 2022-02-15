@@ -1,4 +1,8 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/presentation/add_new_automation_process/add_action/add_action_page.dart';
+import 'package:cybear_jinni/presentation/add_new_automation_process/add_scene/add_scene_page.dart';
+import 'package:cybear_jinni/presentation/add_new_automation_process/choose_automation_type_to_add/choose_automation_type_to_add_page.dart';
 import 'package:cybear_jinni/presentation/add_new_devices_process/choose_device_vendor_to_add/choose_device_vendor_to_add_page.dart';
 import 'package:cybear_jinni/presentation/add_new_devices_process/computer_connection_check/computer_connection_check_page.dart';
 import 'package:cybear_jinni/presentation/add_new_devices_process/configure_new_cbj_comp/configure_new_cbj_comp_page.dart';
@@ -21,6 +25,8 @@ import 'package:cybear_jinni/presentation/device_full_screen_page/lights/lights_
 import 'package:cybear_jinni/presentation/device_full_screen_page/lights/rooms_lights_page.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/rgbw_lights/rgbw_lights_in_the_room/rgbw_lights_in_the_room_page.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/rgbw_lights/rooms_rgbw_lights_page.dart';
+import 'package:cybear_jinni/presentation/device_full_screen_page/smart_plugs/rooms_smart_plugs_page.dart';
+import 'package:cybear_jinni/presentation/device_full_screen_page/smart_plugs/smart_plugs_in_the_room/smart_plugs_in_the_room_page.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/switches/rooms_switches_page.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/switches/switches_in_the_room/switches_in_the_room_page.dart';
 import 'package:cybear_jinni/presentation/home_page/home_page.dart';
@@ -57,6 +63,11 @@ import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_pag
     AutoRoute(page: ManageUsersPage),
     AutoRoute(page: AddUserToHomePage),
     AutoRoute(page: ScenesPage),
+    AutoRoute(page: AddScenePage),
+    AutoRoute<List<MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>>>(
+      page: AddActionPage,
+    ),
+    AutoRoute(page: ChooseAutomationTypeToAddPage),
     AutoRoute(page: ChooseDeviceVendorToAddPage),
     AutoRoute(page: AddLifxVendorPage),
     AutoRoute(page: AddTuyaVendorPage),
@@ -73,6 +84,8 @@ import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_pag
     AutoRoute(page: RgbwLightsInTheRoomPage),
     AutoRoute(page: RoomsSwitchesPage),
     AutoRoute(page: SwitchesInTheRoomPage),
+    AutoRoute(page: RoomsSmartPlugsPage),
+    AutoRoute(page: SmartPlugsInTheRoomPage),
     AutoRoute(page: RoomsBlindsPage),
     AutoRoute(page: RoomsBoilersPage),
   ],
@@ -85,6 +98,9 @@ class $AppRouter {
   late SignInPage signInPage;
   late CreateHomePage createHomePage;
   late ScenesPage scenesPage;
+  late AddScenePage addScenePage;
+  late AddActionPage addActionPage;
+  late ChooseAutomationTypeToAddPage chooseAutomationTypeToAddPage;
   late ChooseDeviceVendorToAddPage chooseDeviceVendorToAddPage;
   late AddLifxVendorPage addLifxVendorPage;
   late AddTuyaVendorPage addTuyaVendorPage;
@@ -112,6 +128,8 @@ class $AppRouter {
   late RgbwLightsInTheRoomPage rgbwLightsInTheRoomPage;
   late RoomsSwitchesPage roomsSwitchesPage;
   late SwitchesInTheRoomPage switchesInTheRoomPage;
+  late RoomsSmartPlugsPage roomsSmartPlugsPage;
+  late SmartPlugsInTheRoomPage smartPlugsInTheRoomPage;
   late RoomsBlindsPage roomsBlindsPage;
   late RoomsBoilersPage roomsBoilersPage;
 }

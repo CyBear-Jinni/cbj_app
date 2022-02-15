@@ -39,8 +39,6 @@ class VendorsRepository implements IVendorsRepository {
         v = v.copyWith(name: VendorName('Switcher'));
       }
       vendorsWithIcons.add(v);
-
-      print(vendorName);
     }
     return right(vendorsWithIcons.toImmutableList());
   }
@@ -151,7 +149,7 @@ class VendorsMocDataWithImages {
       Vendor(
         name: VendorName('Jinvoo Smart'),
         image:
-            'https://play-lh.googleusercontent.com/ocFF7mcDTJzr1PXr6k4q1Q2-5xNFUVODqluwnD60DiTsHgTalrVTqi7kk0H8JnW7GLEv=s160',
+            'https://play-lh.googleusercontent.com/ocFF7mcDTJzr1PXr6k4q1Q2-5xNFUVODqluwnD60DiTsHgTalrVTqi7kk0H8JnW7GLEv=s180',
       ),
       Vendor(
         name: VendorName('Eufy'),

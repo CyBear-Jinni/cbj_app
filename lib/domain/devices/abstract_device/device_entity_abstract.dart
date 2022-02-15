@@ -88,6 +88,7 @@ abstract class DeviceEntityAbstract {
     return this;
   }
 
+  /// Convert the device to the a dtos object in the infrastructure layer
   DeviceEntityDtoAbstract toInfrastructure() {
     return DeviceEntityDtoAbstract();
   }
@@ -96,6 +97,16 @@ abstract class DeviceEntityAbstract {
   Future<Either<CoreFailure, Unit>> executeDeviceAction({
     required DeviceEntityAbstract newEntity,
   });
+
+  /// Return a list of all valid actions for this device
+  List<String> getAllValidActions();
+
+  /// Will replace action field with new action if it exists inside the object
+  bool replaceActionIfExist(String action);
+
+  /// List of all the properties that their value can be change when creating a
+  /// scene for that device
+  List<String> getListOfPropertiesToChange();
 }
 
 class DeviceEntityNotAbstract extends DeviceEntityAbstract {
@@ -107,7 +118,7 @@ class DeviceEntityNotAbstract extends DeviceEntityAbstract {
             VendorsAndServices.vendorsAndServicesNotSupported.toString(),
           ),
           deviceStateGRPC: DeviceState(DeviceTypes.typeNotSupported.toString()),
-          compUuid: DeviceCompUuid(const Uuid().v1().toString()),
+          compUuid: DeviceCompUuid(const Uuid().v1()),
           defaultName: DeviceDefaultName('No Name'),
           deviceTypes: DeviceType(DeviceTypes.light.toString()),
           senderDeviceModel: DeviceSenderDeviceModel('a'),
@@ -123,8 +134,13 @@ class DeviceEntityNotAbstract extends DeviceEntityAbstract {
 
   @override
   String getDeviceId() {
-    // TODO: implement getDeviceId
     throw UnimplementedError();
+  }
+
+  /// Return a list of all valid actions for this device
+  @override
+  List<String> getAllValidActions() {
+    return [];
   }
 
   @override
@@ -133,6 +149,16 @@ class DeviceEntityNotAbstract extends DeviceEntityAbstract {
   }) {
     // TODO: implement executeDeviceAction
     throw UnimplementedError();
+  }
+
+  @override
+  bool replaceActionIfExist(String action) {
+    return false;
+  }
+
+  @override
+  List<String> getListOfPropertiesToChange() {
+    return [];
   }
 }
 

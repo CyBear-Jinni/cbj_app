@@ -43,7 +43,6 @@ class RoomUniqueId extends ValueObjectRooms<String> {
   }
 
   factory RoomUniqueId.fromUniqueString(String uniqueId) {
-    assert(uniqueId != null);
     return RoomUniqueId._(right(uniqueId));
   }
 
@@ -59,7 +58,6 @@ class RoomUniqueId extends ValueObjectRooms<String> {
 
 class RoomDefaultName extends ValueObjectRooms<String> {
   factory RoomDefaultName(String input) {
-    assert(input != null);
     return RoomDefaultName._(
       validateRoomNotEmpty(input)
           .flatMap((a) => validateRoomMaxNameLength(input, maxLength)),
@@ -91,7 +89,6 @@ class RoomTypes extends ValueObjectRooms<List<String>> {
 
 class RoomDevicesId extends ValueObjectRooms<List<String>> {
   factory RoomDevicesId(List<String> input) {
-    assert(input != null);
     return RoomDevicesId._(validateRoomTypsValid(input));
   }
 
@@ -101,9 +98,19 @@ class RoomDevicesId extends ValueObjectRooms<List<String>> {
   final Either<RoomFailure<List<String>>, List<String>> value;
 }
 
+class RoomScenesId extends ValueObjectRooms<List<String>> {
+  factory RoomScenesId(List<String> input) {
+    return RoomScenesId._(validateRoomTypsValid(input));
+  }
+
+  const RoomScenesId._(this.value);
+
+  @override
+  final Either<RoomFailure<List<String>>, List<String>> value;
+}
+
 class RoomMostUsedBy extends ValueObjectRooms<List<String>> {
   factory RoomMostUsedBy(List<String> input) {
-    assert(input != null);
     return RoomMostUsedBy._(validateUserIdsValid(input));
   }
 
@@ -115,7 +122,6 @@ class RoomMostUsedBy extends ValueObjectRooms<List<String>> {
 
 class RoomPermissions extends ValueObjectRooms<List<String>> {
   factory RoomPermissions(List<String> input) {
-    assert(input != null);
     return RoomPermissions._(validateUserIdsValid(input));
   }
 

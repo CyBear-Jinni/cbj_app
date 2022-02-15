@@ -23,8 +23,8 @@ class GenericBoilerDE extends DeviceEntityAbstract {
     required DeviceSenderDeviceModel senderDeviceModel,
     required DeviceSenderId senderId,
     required DeviceCompUuid compUuid,
-    DevicePowerConsumption? powerConsumption,
     required this.boilerSwitchState,
+    DevicePowerConsumption? powerConsumption,
   }) : super(
           uniqueId: uniqueId,
           vendorUniqueId: vendorUniqueId,
@@ -86,6 +86,12 @@ class GenericBoilerDE extends DeviceEntityAbstract {
     return uniqueId.getOrCrash();
   }
 
+  /// Return a list of all valid actions for this device
+  @override
+  List<String> getAllValidActions() {
+    return GenericBoilerSwitchState.boilerValidActions();
+  }
+
   @override
   DeviceEntityDtoAbstract toInfrastructure() {
     return GenericBoilerDeviceDtos(
@@ -138,5 +144,21 @@ class GenericBoilerDE extends DeviceEntityAbstract {
         failedValue: 'Action does not exist',
       ),
     );
+  }
+
+  @override
+  bool replaceActionIfExist(String action) {
+    if (GenericBoilerSwitchState.boilerValidActions().contains(action)) {
+      boilerSwitchState = GenericBoilerSwitchState(action);
+      return true;
+    }
+    return false;
+  }
+
+  @override
+  List<String> getListOfPropertiesToChange() {
+    return [
+      'boilerSwitchState',
+    ];
   }
 }

@@ -38,7 +38,6 @@ abstract class VendorValueObjectAbstract<T> {
 
 class VendorName extends VendorValueObjectAbstract<String> {
   factory VendorName(String input) {
-    assert(input != null);
     return VendorName._(
       validVendorNameNotEmpty(input),
     );

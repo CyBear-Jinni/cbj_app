@@ -21,6 +21,11 @@ class GenericRgbwLightSwitchState extends ValueObjectCore<String> {
 
   @override
   final Either<CoreFailure<String>, String> value;
+
+  /// All valid actions of rgb light state
+  static List<String> rgbwLightValidActions() {
+    return rgbwLightAllValidActions();
+  }
 }
 
 class GenericRgbwLightColorTemperature extends ValueObjectCore<String> {
@@ -62,7 +67,7 @@ class GenericRgbwLightColorHue extends ValueObjectCore<String> {
   factory GenericRgbwLightColorHue(String? input) {
     assert(input != null);
     return GenericRgbwLightColorHue._(
-      validateGenericRgbwLightStringNotEmpty(input!)
+      validateGenericRgbwLightStringNotEmpty(input)
           .flatMap((a) => validateGenericRgbwLightStringIsDouble(a)),
     );
   }
@@ -81,7 +86,7 @@ class GenericRgbwLightColorSaturation extends ValueObjectCore<String> {
   factory GenericRgbwLightColorSaturation(String? input) {
     assert(input != null);
     return GenericRgbwLightColorSaturation._(
-      validateGenericRgbwLightStringNotEmpty(input!)
+      validateGenericRgbwLightStringNotEmpty(input)
           .flatMap((a) => validateGenericRgbwLightStringIsDouble(a)),
     );
   }
@@ -100,7 +105,7 @@ class GenericRgbwLightColorValue extends ValueObjectCore<String> {
   factory GenericRgbwLightColorValue(String? input) {
     assert(input != null);
     return GenericRgbwLightColorValue._(
-      validateGenericRgbwLightStringNotEmpty(input!)
+      validateGenericRgbwLightStringNotEmpty(input)
           .flatMap((a) => validateGenericRgbwLightStringIsDouble(a)),
     );
   }

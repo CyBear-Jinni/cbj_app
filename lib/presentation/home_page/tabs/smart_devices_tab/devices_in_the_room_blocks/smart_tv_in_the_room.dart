@@ -1,8 +1,10 @@
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/generic_smart_tv/generic_smart_tv_entity.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:cybear_jinni/utils.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -18,7 +20,7 @@ class SmartTvInTheRoom extends StatelessWidget {
     required List<DeviceEntityAbstract> tempDeviceInRoom,
     required List<Color> tempRoomColorGradiant,
   }) {
-    List<GenericSmartTvDE> tempLightsInRoom = [];
+    final List<GenericSmartTvDE> tempLightsInRoom = [];
 
     tempDeviceInRoom.forEach((element) {
       tempLightsInRoom.add(element as GenericSmartTvDE);
@@ -41,7 +43,7 @@ class SmartTvInTheRoom extends StatelessWidget {
     if (smartTvsInRoom!.length == 1) {
       deviceText = smartTvsInRoom![0].defaultName.getOrCrash()!;
     } else {
-      deviceText = '${roomEntity.defaultName.getOrCrash()} SmartTvs';
+      deviceText = '_SmartTvs'.tr(args: [roomEntity.defaultName.getOrCrash()]);
     }
 
     return GestureDetector(
@@ -49,7 +51,15 @@ class SmartTvInTheRoom extends StatelessWidget {
         // context.router.push(RoomsSmartTvsRoute(
         //     showDevicesOnlyFromRoomId: smart_tvsInRoom![0].roomId.getOrCrash(),
         //     roomColorGradiant: roomColorGradiant));
-        print('TV page is not supported');
+        logger.w('TV page is not supported');
+        FlushbarHelper.createInformation(
+          message: 'TV page is currently missing',
+          // failure.map(
+          //   cancelledByUser: (_) => 'Cancelled',
+          //   serverError: (_) => 'Server error',
+          //   invalidApiKey: (_) => 'Email already in use',
+          // ),
+        ).show(context);
       },
       child: Container(
         color: Colors.amber.withOpacity(0.03),

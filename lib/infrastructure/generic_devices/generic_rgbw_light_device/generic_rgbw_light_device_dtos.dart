@@ -13,12 +13,10 @@ abstract class GenericRgbwLightDeviceDtos
     implements _$GenericRgbwLightDeviceDtos, DeviceEntityDtoAbstract {
   factory GenericRgbwLightDeviceDtos({
     // @JsonKey(ignore: true)
-    String? deviceDtoClass,
     required String id,
     required String vendorUniqueId,
     required String? defaultName,
     required String? deviceStateGRPC,
-    String? stateMassage,
     required String? senderDeviceOs,
     required String? senderDeviceModel,
     required String? senderId,
@@ -32,6 +30,8 @@ abstract class GenericRgbwLightDeviceDtos
     required String? lightColorHue,
     required String? lightColorSaturation,
     required String? lightColorValue,
+    String? deviceDtoClass,
+    String? stateMassage,
 
     // required ServerTimestampConverter() FieldValue serverTimeStamp,
   }) = _GenericRgbwLightDeviceDtos;

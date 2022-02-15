@@ -14,23 +14,23 @@ abstract class IRoomRepository {
 
   Future<void> initiateHubConnection();
 
-  Future<Either<RoomFailure, KtList<RoomEntity?>>> getAllRooms();
+  Future<Either<RoomFailure, KtList<RoomEntity>>> getAllRooms();
 
   Stream<Either<dynamic, KtList<dynamic>>> watchAll();
 
-  Stream<Either<RoomFailure, KtList<RoomEntity?>>> watchAllRooms();
+  Stream<Either<RoomFailure, KtList<RoomEntity>>> watchAllRooms();
 
-  Stream<Either<RoomFailure, KtList<RoomEntity?>>> watchLights();
+  Stream<Either<RoomFailure, KtList<RoomEntity>>> watchLights();
 
-  Stream<Either<RoomFailure, KtList<RoomEntity?>>> watchBlinds();
+  Stream<Either<RoomFailure, KtList<RoomEntity>>> watchBlinds();
 
-  Stream<Either<RoomFailure, KtList<RoomEntity?>>> watchBoilers();
+  Stream<Either<RoomFailure, KtList<RoomEntity>>> watchBoilers();
 
-  Stream<Either<RoomFailure, KtList<RoomEntity?>>> watchSmartTv();
+  Stream<Either<RoomFailure, KtList<RoomEntity>>> watchSmartTv();
 
-  Stream<Either<RoomFailure, KtList<RoomEntity?>>> watchSwitches();
+  Stream<Either<RoomFailure, KtList<RoomEntity>>> watchSwitches();
 
-  Stream<Either<RoomFailure, KtList<RoomEntity?>>> watchUncompleted();
+  Stream<Either<RoomFailure, KtList<RoomEntity>>> watchUncompleted();
 
   Future<Either<RoomFailure, Unit>> create(
     RoomEntity roomEntity,

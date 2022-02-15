@@ -123,6 +123,12 @@ class GenericRgbwLightDE extends DeviceEntityAbstract {
     return uniqueId.getOrCrash();
   }
 
+  /// Return a list of all valid actions for this device
+  @override
+  List<String> getAllValidActions() {
+    return GenericRgbwLightSwitchState.rgbwLightValidActions();
+  }
+
   @override
   DeviceEntityDtoAbstract toInfrastructure() {
     return GenericRgbwLightDeviceDtos(
@@ -217,5 +223,21 @@ class GenericRgbwLightDE extends DeviceEntityAbstract {
         failedValue: 'Action does not exist',
       ),
     );
+  }
+
+  @override
+  bool replaceActionIfExist(String action) {
+    if (GenericRgbwLightSwitchState.rgbwLightValidActions().contains(action)) {
+      lightSwitchState = GenericRgbwLightSwitchState(action);
+      return true;
+    }
+    return false;
+  }
+
+  @override
+  List<String> getListOfPropertiesToChange() {
+    return [
+      'lightSwitchState',
+    ];
   }
 }

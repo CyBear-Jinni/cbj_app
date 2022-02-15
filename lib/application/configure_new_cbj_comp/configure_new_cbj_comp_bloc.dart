@@ -43,7 +43,8 @@ class ConfigureNewCbjCompBloc
     on<SendFirebaseInformation>(_sendFirebaseInformation);
     on<SendHotSpotInformation>(_sendHotSpotInformation);
     on<CheckOperationsCompletedSuccessfully>(
-        _checkOperationsCompletedSuccessfully);
+      _checkOperationsCompletedSuccessfully,
+    );
     on<CheckConnectedToWiFiNetwork>(_checkConnectedToWiFiNetwork);
     on<SearchIfHubOnTheSameWifiNetwork>(_searchIfHubOnTheSameWifiNetwork);
   }
@@ -145,7 +146,7 @@ class ConfigureNewCbjCompBloc
   ) async {
     final CBJCompEntity compUpdatedData = event.cBJCompEntity;
 
-    bool error = false;
+    const bool error = false;
 
     // final Either<CBJCompFailure, Unit> updateAllDevices =
     //     await _cBJCompRepository
@@ -305,7 +306,7 @@ class ConfigureNewCbjCompBloc
           deviceE..defaultName = DeviceDefaultName(deviceName),
         );
       } catch (e) {
-        print("Can't add unsupported device");
+        logger.w("Can't add unsupported device");
       }
     });
     final CBJCompEntity compUpdatedData = cbjCompEntity.copyWith(

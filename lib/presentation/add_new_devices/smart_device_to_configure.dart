@@ -1,10 +1,9 @@
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/smart_device_type_and_toggle_bar.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SmartDeviceToConfigure extends StatelessWidget {
-  SmartDeviceToConfigure(this.smartDeviceObject);
+  const SmartDeviceToConfigure(this.smartDeviceObject);
 
   final GenericLightDE smartDeviceObject;
 

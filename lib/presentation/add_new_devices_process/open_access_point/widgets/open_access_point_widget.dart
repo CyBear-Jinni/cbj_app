@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:clipboard/clipboard.dart';
 import 'package:cybear_jinni/application/manage_access_point/manage_access_point_bloc.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';

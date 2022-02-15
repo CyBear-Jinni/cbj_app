@@ -1,6 +1,5 @@
 import 'package:clipboard/clipboard.dart';
 import 'package:cybear_jinni/application/add_user_to_home/add_user_to_home_bloc.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -59,7 +58,7 @@ class AddUserToHomeWidget extends StatelessWidget {
                       ),
                       labelText: 'Email',
                       labelStyle: TextStyle(
-                        color: (Theme.of(context).textTheme.bodyText1!.color)!,
+                        color: Theme.of(context).textTheme.bodyText1!.color,
                       ),
                     ),
                     autocorrect: false,

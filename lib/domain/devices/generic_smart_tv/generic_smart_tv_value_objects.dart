@@ -7,7 +7,7 @@ class GenericSmartTvSwitchState extends ValueObjectCore<String> {
   factory GenericSmartTvSwitchState(String? input) {
     assert(input != null);
     return GenericSmartTvSwitchState._(
-      validateGenericSmartTvStateNotEmty(input!),
+      validateGenericSmartTvStateNotEmpty(input!),
     );
   }
 
@@ -15,4 +15,9 @@ class GenericSmartTvSwitchState extends ValueObjectCore<String> {
 
   @override
   final Either<CoreFailure<String>, String> value;
+
+  /// All valid actions of smart tv state
+  static List<String> smartTvValidActions() {
+    return smartTvAllValidActions();
+  }
 }

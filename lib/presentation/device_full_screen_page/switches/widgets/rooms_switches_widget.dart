@@ -5,7 +5,6 @@ import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/switches/widgets/critical_switches_failure_display_widget.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/switches/widgets/room_switches.dart';
 import 'package:cybear_jinni/utils.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kt_dart/kt.dart';
@@ -39,39 +38,24 @@ class RoomsSwitchesWidget extends StatelessWidget {
 
               /// Go on all the devices and find only the devices that exist
               /// in this room
-              if (roomEntity != null) {
-                final String roomId = roomEntity.uniqueId.getOrCrash();
-                for (final DeviceEntityAbstract? deviceEntityAbstract
-                    in state.devices.iter) {
-                  if (deviceEntityAbstract == null) {
-                    continue;
-                  }
-                  final int indexOfDeviceInRoom = roomEntity.roomDevicesId
-                      .getOrCrash()
-                      .indexWhere((element) {
-                    return element ==
-                        deviceEntityAbstract.uniqueId.getOrCrash();
-                  });
-                  if (indexOfDeviceInRoom != -1) {
-                    if (tempDevicesByRooms[roomId] == null) {
-                      tempDevicesByRooms[roomId] = [deviceEntityAbstract];
-                    } else {
-                      tempDevicesByRooms[roomId]!.add(deviceEntityAbstract);
-                    }
-                  }
+              final String roomId = roomEntity.uniqueId.getOrCrash();
+              for (final DeviceEntityAbstract? deviceEntityAbstract
+                  in state.devices.iter) {
+                if (deviceEntityAbstract == null) {
+                  continue;
                 }
-              } else {
-                const String tempRoomId = 'All Rooms';
-                for (final DeviceEntityAbstract? deviceEntityAbstract
-                    in state.devices.iter) {
-                  if (tempDevicesByRooms[tempRoomId] == null) {
-                    tempDevicesByRooms[tempRoomId] = [deviceEntityAbstract!];
+                final int indexOfDeviceInRoom =
+                    roomEntity.roomDevicesId.getOrCrash().indexWhere((element) {
+                  return element == deviceEntityAbstract.uniqueId.getOrCrash();
+                });
+                if (indexOfDeviceInRoom != -1) {
+                  if (tempDevicesByRooms[roomId] == null) {
+                    tempDevicesByRooms[roomId] = [deviceEntityAbstract];
                   } else {
-                    tempDevicesByRooms[tempRoomId]!.add(deviceEntityAbstract!);
+                    tempDevicesByRooms[roomId]!.add(deviceEntityAbstract);
                   }
                 }
               }
-
               final List<KtList<DeviceEntityAbstract>> devicesByRooms = [];
 
               tempDevicesByRooms.forEach((k, v) {

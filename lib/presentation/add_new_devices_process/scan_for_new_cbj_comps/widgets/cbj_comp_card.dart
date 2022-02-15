@@ -32,7 +32,7 @@ class CBJCompCard extends StatelessWidget {
                 ),
               ),
             ),
-            child: cbjCompEntity.cBJCompDevices!.getOrCrash().size < 1 != null
+            child: cbjCompEntity.cBJCompDevices!.getOrCrash().size < 1
                 ? const Text('')
                 : ListView.builder(
                     padding: EdgeInsets.zero,
