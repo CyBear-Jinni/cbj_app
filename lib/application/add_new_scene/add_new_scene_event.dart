@@ -4,5 +4,18 @@ part of 'add_new_scene_bloc.dart';
 class AddNewSceneEvent with _$AddNewSceneEvent {
   const factory AddNewSceneEvent.initialized() = Initialized;
 
+  const factory AddNewSceneEvent.sceneNameChange(String sceneName) =
+      SceneNameChange;
+
+  const factory AddNewSceneEvent.changeActionDevices(String deviceId) =
+      ChangeActionDevices;
+
+  const factory AddNewSceneEvent.addDevicesWithNewActions(
+    List<MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>>
+        smartDevicesWithActionToAdd,
+  ) = AddDevicesWithNewActions;
+
   const factory AddNewSceneEvent.deleted(GenericLightDE deviceEntity) = Deleted;
+
+  const factory AddNewSceneEvent.sendSceneToHub() = SendSceneToHub;
 }

@@ -81,7 +81,7 @@ class RoomRepository implements IRoomRepository {
   }
 
   @override
-  Future<Either<RoomFailure, KtList<RoomEntity?>>> getAllRooms() async {
+  Future<Either<RoomFailure, KtList<RoomEntity>>> getAllRooms() async {
     try {
       return right(allRooms.values.toImmutableList());
     } catch (e) {
@@ -167,43 +167,43 @@ class RoomRepository implements IRoomRepository {
   }
 
   @override
-  Stream<Either<RoomFailure, KtList<RoomEntity?>>> watchAllRooms() async* {
+  Stream<Either<RoomFailure, KtList<RoomEntity>>> watchAllRooms() async* {
     yield* roomsResponseFromTheHubStreamController.stream
         .map((event) => right(event));
   }
 
   @override
-  Stream<Either<RoomFailure, KtList<RoomEntity?>>> watchBlinds() async* {
+  Stream<Either<RoomFailure, KtList<RoomEntity>>> watchBlinds() async* {
     // TODO: implement watchBlinds
     throw UnimplementedError();
   }
 
   @override
-  Stream<Either<RoomFailure, KtList<RoomEntity?>>> watchBoilers() async* {
+  Stream<Either<RoomFailure, KtList<RoomEntity>>> watchBoilers() async* {
     // TODO: implement watchBoilers
     throw UnimplementedError();
   }
 
   @override
-  Stream<Either<RoomFailure, KtList<RoomEntity?>>> watchLights() async* {
+  Stream<Either<RoomFailure, KtList<RoomEntity>>> watchLights() async* {
     // TODO: implement watchLights
     throw UnimplementedError();
   }
 
   @override
-  Stream<Either<RoomFailure, KtList<RoomEntity?>>> watchSmartTv() async* {
+  Stream<Either<RoomFailure, KtList<RoomEntity>>> watchSmartTv() async* {
     // TODO: implement watchSmartTv
     throw UnimplementedError();
   }
 
   @override
-  Stream<Either<RoomFailure, KtList<RoomEntity?>>> watchSwitches() async* {
+  Stream<Either<RoomFailure, KtList<RoomEntity>>> watchSwitches() async* {
     // TODO: implement watchSwitches
     throw UnimplementedError();
   }
 
   @override
-  Stream<Either<RoomFailure, KtList<RoomEntity?>>> watchUncompleted() async* {
+  Stream<Either<RoomFailure, KtList<RoomEntity>>> watchUncompleted() async* {
     // TODO: implement watchUncompleted
     throw UnimplementedError();
   }

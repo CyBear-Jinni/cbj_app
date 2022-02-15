@@ -153,4 +153,20 @@ class GenericBlindsDE extends DeviceEntityAbstract {
       ),
     );
   }
+
+  @override
+  bool replaceActionIfExist(String action) {
+    if (GenericBlindsSwitchState.blindsValidActions().contains(action)) {
+      blindsSwitchState = GenericBlindsSwitchState(action);
+      return true;
+    }
+    return false;
+  }
+
+  @override
+  List<String> getListOfPropertiesToChange() {
+    return [
+      'blindsSwitchState',
+    ];
+  }
 }

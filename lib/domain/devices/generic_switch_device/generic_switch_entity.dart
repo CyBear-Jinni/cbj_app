@@ -142,4 +142,20 @@ class GenericSwitchDE extends DeviceEntityAbstract {
       ),
     );
   }
+
+  @override
+  bool replaceActionIfExist(String action) {
+    if (GenericSwitchSwitchState.smartSwitchValidActions().contains(action)) {
+      switchState = GenericSwitchSwitchState(action);
+      return true;
+    }
+    return false;
+  }
+
+  @override
+  List<String> getListOfPropertiesToChange() {
+    return [
+      'switchState',
+    ];
+  }
 }

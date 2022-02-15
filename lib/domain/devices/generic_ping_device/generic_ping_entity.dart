@@ -144,4 +144,20 @@ class GenericPingDE extends DeviceEntityAbstract {
       ),
     );
   }
+
+  @override
+  bool replaceActionIfExist(String action) {
+    if (GenericPingSwitchState.pingValidActions().contains(action)) {
+      pingSwitchState = GenericPingSwitchState(action);
+      return true;
+    }
+    return false;
+  }
+
+  @override
+  List<String> getListOfPropertiesToChange() {
+    return [
+      'pingSwitchState',
+    ];
+  }
 }

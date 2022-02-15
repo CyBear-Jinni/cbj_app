@@ -145,4 +145,20 @@ class GenericEmptyDE extends DeviceEntityAbstract {
       ),
     );
   }
+
+  @override
+  bool replaceActionIfExist(String action) {
+    if (GenericEmptySwitchState.emptyDeviceValidActions().contains(action)) {
+      emptySwitchState = GenericEmptySwitchState(action);
+      return true;
+    }
+    return false;
+  }
+
+  @override
+  List<String> getListOfPropertiesToChange() {
+    return [
+      'emptySwitchState',
+    ];
+  }
 }

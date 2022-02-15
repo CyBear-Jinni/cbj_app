@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:cybear_jinni/domain/devices/generic_smart_plug_device/generic_smart_plug_entity.dart';
 import 'package:cybear_jinni/domain/devices/generic_smart_plug_device/generic_smart_plug_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cybear_jinni/infrastructure/objects/enums.dart';
+import 'package:cybear_jinni/infrastructure/objects/enums_cbj.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -52,7 +52,7 @@ class _SmartSmartPlugPage extends State<SmartSmartPlugPage> {
 
   //  Send request to smartPlug to retrieve his state on or off
   Future<bool> getSmartPlugAction() async {
-    return _smartPlugState = EnumHelper.stringToDeviceAction(
+    return _smartPlugState = EnumHelperCbj.stringToDeviceAction(
           _smartPlug!.smartPlugState!.getOrCrash(),
         ) ==
         DeviceActions.on;
@@ -61,7 +61,7 @@ class _SmartSmartPlugPage extends State<SmartSmartPlugPage> {
   Future<void> _onChange(bool value) async {
     logger.v('OnChange $value');
     _smartPlug?.smartPlugState = GenericSmartPlugState(
-      EnumHelper.deviceActionToString(
+      EnumHelperCbj.deviceActionToString(
         value ? DeviceActions.on : DeviceActions.off,
       ),
     );

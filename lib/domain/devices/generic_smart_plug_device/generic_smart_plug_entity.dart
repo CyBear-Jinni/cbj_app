@@ -143,4 +143,20 @@ class GenericSmartPlugDE extends DeviceEntityAbstract {
       ),
     );
   }
+
+  @override
+  bool replaceActionIfExist(String action) {
+    if (GenericSmartPlugState.lightValidActions().contains(action)) {
+      smartPlugState = GenericSmartPlugState(action);
+      return true;
+    }
+    return false;
+  }
+
+  @override
+  List<String> getListOfPropertiesToChange() {
+    return [
+      'smartPlugState',
+    ];
+  }
 }

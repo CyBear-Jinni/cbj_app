@@ -5,8 +5,13 @@ class AddNewActionEvent with _$AddNewActionEvent {
   const factory AddNewActionEvent.actionsNameChange(String actionsName) =
       ActionsNameChange;
 
-  const factory AddNewActionEvent.changeActionDevices(String deviceId) =
-      ChangeActionDevices;
+  const factory AddNewActionEvent.changePropertyForDevices(
+    String propertyOfDevice,
+  ) = ChangePropertyForDevices;
+
+  const factory AddNewActionEvent.changeActionDevices(
+    String actionForProperty,
+  ) = ChangeActionDevices;
 
   const factory AddNewActionEvent.initialized() = Initialized;
 }

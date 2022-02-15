@@ -1,3 +1,5 @@
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -6,29 +8,38 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class SceneActionWidget extends StatelessWidget {
   /// Get all and store all info about the action
   SceneActionWidget({
-    required this.deviceName,
-    required this.actionName,
-    required this.deviceId,
+    required this.deviceEntityAbstract,
+    required this.propertyToChange,
+    required this.actionToChange,
   });
 
   /// Cbj unique id of a device
-  final String deviceId;
+  final DeviceEntityAbstract deviceEntityAbstract;
 
-  /// The name of the device as got set by the user
-  final String deviceName;
+  /// The action for the device
+  final String propertyToChange;
 
-  /// The action to preform on the device
-  final String actionName;
+  /// The action for the device
+  final String actionToChange;
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: const FaIcon(
-        FontAwesomeIcons.lightbulb,
-        color: Colors.yellow,
+    return Container(
+      color: Colors.blue.withOpacity(0.3),
+      child: ListTile(
+        leading: const FaIcon(
+          FontAwesomeIcons.lightbulb,
+          color: Colors.yellow,
+        ),
+        title: AutoSizeText(
+          '${deviceEntityAbstract.defaultName.getOrCrash()!} - $propertyToChange',
+          maxLines: 2,
+        ),
+        trailing: AutoSizeText(
+          actionToChange,
+          style: const TextStyle(color: Colors.black),
+        ),
       ),
-      title: Text(deviceName),
-      subtitle: Text(actionName),
     );
   }
 }

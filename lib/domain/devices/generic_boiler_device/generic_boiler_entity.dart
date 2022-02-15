@@ -145,4 +145,20 @@ class GenericBoilerDE extends DeviceEntityAbstract {
       ),
     );
   }
+
+  @override
+  bool replaceActionIfExist(String action) {
+    if (GenericBoilerSwitchState.boilerValidActions().contains(action)) {
+      boilerSwitchState = GenericBoilerSwitchState(action);
+      return true;
+    }
+    return false;
+  }
+
+  @override
+  List<String> getListOfPropertiesToChange() {
+    return [
+      'boilerSwitchState',
+    ];
+  }
 }
