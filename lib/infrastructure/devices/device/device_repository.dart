@@ -91,7 +91,6 @@ class DeviceRepository implements IDeviceRepository {
         return left(const DevicesFailure.unexpected());
       }
     }
-    return left(const DevicesFailure.unexpected());
   }
 
   @override
@@ -751,7 +750,7 @@ class DeviceRepository implements IDeviceRepository {
           allRemoteCommands: deviceDtoAsString,
           sendingType: SendingType.deviceType,
         );
-        AppRequestsToHub.appRequestsToHubStreamController.sink
+        AppRequestsToHub.appRequestsToHubStreamController
             .add(clientStatusRequests);
       } catch (e) {
         logger.e('This is the error\n$e');

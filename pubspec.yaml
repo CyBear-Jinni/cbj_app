@@ -36,7 +36,9 @@ dependencies:
   # Collection of some cool and awesome text animations.
   animated_text_kit: ^4.2.1
   # More customization when notifying your user.
-  another_flushbar: ^1.10.28
+  another_flushbar: ^1.10.29
+  # Utility classes to work with asynchronous computations.
+  async: ^2.8.2
   # Declarative routing solution, where everything needed for navigation is automatically generated for you.
   auto_route: ^3.2.4
   # Automatically resizes text to fit perfectly within its bounds.
@@ -46,7 +48,7 @@ dependencies:
   # Copy text from and to clipboard
   clipboard: ^0.1.3
   # Allow discover network connectivity
-  connectivity_plus: ^2.3.0
+  connectivity_plus: ^2.3.2
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.4
@@ -107,7 +109,7 @@ dependencies:
   # Liquid progress indicator for Flutter.
   liquid_progress_indicator: ^0.4.0
   # Handles getting a location on
-  location: ^4.3.0
+  location: ^4.4.0
   # Small, easy to use and extensible logger which prints beautiful logs.
   logger: ^1.1.0
   # The Material Design Icons designed by the community for Flutter
@@ -115,7 +117,7 @@ dependencies:
   # Creating multi-select widgets in a variety of ways
   multi_select_flutter: ^4.1.2
   # Service discovery over multicast DNS (mDNS), Bonjour, and Avahi.
-  multicast_dns: ^0.3.2
+  multicast_dns: ^0.3.2+1
   # Discover network info and configure themselves accordingly
   network_info_plus: ^2.1.3
   # Helps you discover open ports, devices on subnet and more.
@@ -123,7 +125,7 @@ dependencies:
   # Querying information about the application package, such as CFBundleVersion
   package_info_plus: ^1.4.2
   # Finding commonly used locations on the filesystem
-  path_provider: ^2.0.9
+  path_provider: ^2.0.10
   # Popup that ask for the requested permission
   permission_handler: ^9.2.0
   # Provides runtime support for a Dart implementation of protobufs.
@@ -133,15 +135,15 @@ dependencies:
   # Implementation of the popular reactiveX api for asynchronous programming
   rxdart: ^0.27.3
   # Reading and writing simple key-value pairs
-  shared_preferences: ^2.0.13
+  shared_preferences: ^2.0.15
   # Highly customizable circular slider/progress bar & spinner.
   sleek_circular_slider: ^2.0.1
   # Plugin for launching a URL
-  url_launcher: ^6.1.0
+  url_launcher: ^6.1.2
   # Simple, fast generation of RFC4122 UUIDs.
   uuid: ^3.0.6
   # Get available wifi ssid list, user can connect to wifi with ssid and password, and create hotspot
-  wifi_iot: ^0.3.15+2
+  wifi_iot: ^0.3.16
 
 
 dev_dependencies:

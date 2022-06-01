@@ -32,7 +32,7 @@ class _SmartRgbwLightPage extends State<SmartRgbwLightPage> {
     _rgbwLight = widget.genericRgbwLightRgbwLight;
     getAndUpdateState();
 
-    WidgetsBinding.instance!
+    WidgetsBinding.instance
         .addObserver(LifecycleEventHandler(resumeCallBack: getAndUpdateState));
   }
 
