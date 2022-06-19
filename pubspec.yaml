@@ -163,4 +163,6 @@ dev_dependencies:
   # Collection of lint rules for Dart and Flutter projects.
   lint: ^1.8.2
   # Mock framework with APIs for Fakes, Mocks, behavior verification, and stubbing.
-  mockito: ^5.0.12
+  mockito: ^5.2.0
+  # A full featured library for writing and running Dart tests across platforms.
+  test: ^1.21.2
