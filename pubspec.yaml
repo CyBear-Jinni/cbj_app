@@ -38,7 +38,7 @@ dependencies:
   # More customization when notifying your user.
   another_flushbar: ^1.10.29
   # Utility classes to work with asynchronous computations.
-  async: ^2.8.2
+  async: ^2.9.0
   # Declarative routing solution, where everything needed for navigation is automatically generated for you.
   auto_route: ^4.0.1
   # Automatically resizes text to fit perfectly within its bounds.
@@ -154,8 +154,6 @@ dev_dependencies:
 
   # Package which simplifies the task of updating your Flutter app's launcher icon.
   flutter_launcher_icons: ^0.9.3
-  flutter_test:
-    sdk: flutter
   # Code generator for unions/pattern-matching/copy.
   freezed: ^2.0.3+1
   # Extension for Hive. Automatically generates TypeAdapters to store any class.
