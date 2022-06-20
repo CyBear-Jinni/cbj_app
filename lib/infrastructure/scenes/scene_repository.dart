@@ -36,10 +36,10 @@ class SceneCbjRepository implements ISceneCbjRepository {
     // );
     //
     //
-    final KtList<String> scenesActionsList = [
-      'Gut Calling',
-      'Out Side North',
-    ].toImmutableList();
+    // final KtList<String> scenesActionsList = [
+    //   'Gut Calling',
+    //   'Out Side North',
+    // ].toImmutableList();
 
     try {
       return right(
@@ -78,8 +78,7 @@ class SceneCbjRepository implements ISceneCbjRepository {
       allRemoteCommands: jsonEncode(sceneCbjEntity.toInfrastructure().toJson()),
       sendingType: SendingType.sceneType,
     );
-    AppRequestsToHub.appRequestsToHubStreamController.sink
-        .add(clientStatusRequests);
+    AppRequestsToHub.appRequestsToHubStreamController.add(clientStatusRequests);
 
     return right(sceneCbjEntity);
   }

@@ -68,8 +68,7 @@ class RoomRepository implements IRoomRepository {
       allRemoteCommands: roomAsJsonString,
     );
 
-    AppRequestsToHub.appRequestsToHubStreamController.sink
-        .add(clientStatusRequests);
+    AppRequestsToHub.appRequestsToHubStreamController.add(clientStatusRequests);
 
     return right(unit);
   }
@@ -94,7 +93,6 @@ class RoomRepository implements IRoomRepository {
         return left(const RoomFailure.unexpected());
       }
     }
-    return left(const RoomFailure.unexpected());
   }
 
   @override

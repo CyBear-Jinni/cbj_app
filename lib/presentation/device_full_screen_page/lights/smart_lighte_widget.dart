@@ -32,7 +32,7 @@ class _SmartLightPage extends State<SmartLightPage> {
     _light = widget.genericLightLight;
     getAndUpdateState();
 
-    WidgetsBinding.instance!
+    WidgetsBinding.instance
         .addObserver(LifecycleEventHandler(resumeCallBack: getAndUpdateState));
   }
 

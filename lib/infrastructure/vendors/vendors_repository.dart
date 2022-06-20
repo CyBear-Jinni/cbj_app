@@ -94,7 +94,7 @@ class VendorsRepository implements IVendorsRepository {
         sendingType: SendingType.vendorLoginType,
       );
 
-      AppRequestsToHub.appRequestsToHubStreamController.sink
+      AppRequestsToHub.appRequestsToHubStreamController
           .add(clientStatusRequests);
       return right(unit);
     } catch (e) {

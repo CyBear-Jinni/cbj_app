@@ -4,6 +4,7 @@ import 'package:cybear_jinni/domain/scene/scene_cbj_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class SceneWidget extends StatelessWidget {
   const SceneWidget(this.currentScene);
@@ -46,6 +47,15 @@ class SceneWidget extends StatelessWidget {
                 ),
                 onPressed: () {
                   HapticFeedback.lightImpact();
+
+                  Fluttertoast.showToast(
+                    msg: 'Activating Scene',
+                    toastLength: Toast.LENGTH_SHORT,
+                    gravity: ToastGravity.BOTTOM,
+                    backgroundColor: Colors.purple,
+                    textColor: Theme.of(context).textTheme.bodyText1!.color,
+                    fontSize: 16.0,
+                  );
 
                   context
                       .read<SceneBloc>()

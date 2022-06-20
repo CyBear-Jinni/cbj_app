@@ -32,7 +32,7 @@ class _SmartSwitchPage extends State<SmartSwitchPage> {
     _switch = widget.genericSwitchSwitch;
     getAndUpdateState();
 
-    WidgetsBinding.instance!
+    WidgetsBinding.instance
         .addObserver(LifecycleEventHandler(resumeCallBack: getAndUpdateState));
   }
 

@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:async/async.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/hub_client/hub_requests_routing.dart';
 import 'package:cybear_jinni/utils.dart';
@@ -14,6 +15,8 @@ class HubClient {
     String addressToHub,
     int hubPort,
   ) async {
+    await channel?.terminate();
+
     channel = await _createCbjHubClient(addressToHub, hubPort);
     stub = CbjHubClient(channel!);
     ResponseStream<RequestsAndStatusFromHub> response;
@@ -21,12 +24,16 @@ class HubClient {
     try {
       HubRequestRouting.navigateRequest();
 
-      response =
-          stub!.clientTransferDevices(AppRequestsToHub.appRequestsToHubStream);
-      AppRequestsToHub.appRequestsToHubStreamController.sink
+      response = stub!.clientTransferDevices(
+        AppRequestsToHub.appRequestsToHubStreamBroadcast.stream,
+      );
+
+      await Future.delayed(const Duration(milliseconds: 50));
+
+      AppRequestsToHub.appRequestsToHubStreamController
           .add(ClientStatusRequests(sendingType: SendingType.firstConnection));
 
-      HubRequestsToApp.hubRequestsStreamController.sink.addStream(response);
+      HubRequestsToApp.hubRequestsStreamBroadcast.add(response);
     } catch (e) {
       logger.e('Caught error while stream with hub\n$e');
       await channel?.shutdown();
@@ -66,22 +73,61 @@ class HubClient {
 
 /// Requests and updates from hub to the app
 class HubRequestsToApp {
-  /// Stream controller of the requests from the hub
+  /// Stream of the requests from the hub
+  /// Broadcast can be lisent multiple times
+  static StreamGroup<RequestsAndStatusFromHub> hubRequestsStreamBroadcast =
+      StreamGroup.broadcast();
+
+  static bool boolListenWorking = false;
+
+  /// Controller can be inserted multiple time
   static final hubRequestsStreamController =
       StreamController<RequestsAndStatusFromHub>();
 
-  /// Stream of the requests from the hub
-  static Stream<RequestsAndStatusFromHub> get hubRequestsStream =>
-      hubRequestsStreamController.stream;
+  static lisenToApp() async {
+    if (boolListenWorking) {
+      return;
+    }
+
+    hubRequestsStreamBroadcast.add(hubRequestsStreamController.stream);
+    boolListenWorking = true;
+
+    hubRequestsStreamBroadcast.stream.listen((event) {
+      print('Listen To Hub requests to App\n$event');
+    });
+    hubRequestsStreamBroadcast.stream.listen((event) {
+      print('Listen To Hub requests to App2\n$event');
+    });
+  }
 }
 
 /// App requests for the hub to execute
 class AppRequestsToHub {
   /// Stream controller of the app request for the hub
+
+  static StreamGroup<ClientStatusRequests> appRequestsToHubStreamBroadcast =
+      StreamGroup.broadcast();
+
+  static bool boolListenWorking = false;
+
   static final appRequestsToHubStreamController =
       StreamController<ClientStatusRequests>();
 
-  /// Stream of the requests from the app to the hub
-  static Stream<ClientStatusRequests> get appRequestsToHubStream =>
-      appRequestsToHubStreamController.stream;
+  static lisenToApp() async {
+    if (boolListenWorking) {
+      return;
+    }
+
+    appRequestsToHubStreamBroadcast
+        .add(appRequestsToHubStreamController.stream);
+    boolListenWorking = true;
+
+    appRequestsToHubStreamBroadcast.stream.listen((event) {
+      print('Listen To App requests to Hub\n$event');
+    });
+
+    appRequestsToHubStreamBroadcast.stream.listen((event) {
+      print('Listen To App requests to Hub2\n$event');
+    });
+  }
 }
