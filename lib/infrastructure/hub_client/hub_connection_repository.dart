@@ -105,11 +105,17 @@ class HubConnectionRepository extends IHubConnectionRepository {
             hubPort,
             timeout: const Duration(milliseconds: 500),
           );
+          await testHubConnection.close();
           testHubConnection.destroy();
+          testHubConnection = null;
         } catch (e) {
+          await testHubConnection?.close();
           testHubConnection?.destroy();
 
           await searchForHub();
+          logger.i("Connection to hub didn't work, will try again");
+          connectWithHub();
+          return;
         }
       } else {
         await searchForHub();
@@ -323,10 +329,18 @@ class HubConnectionRepository extends IHubConnectionRepository {
         subnet,
         hubPort,
         resultsInIpAscendingOrder: false,
+        timeout: const Duration(milliseconds: 600),
       );
+
+      int sameAddressCounter = 0;
 
       await for (final OpenPort address in devicesWithPort) {
         if (!address.isOpen) {
+          sameAddressCounter++;
+          if (sameAddressCounter > 10) {
+            await Future.delayed(const Duration(milliseconds: 600));
+            return left(const HubFailures.hubFoundButNotRunning());
+          }
           continue;
         }
         logger.i('Found device: ${address.ip}');
