@@ -20,6 +20,8 @@ class HubFailures<T> {
 
   const factory HubFailures.cantFindHubInNetwork() = _CantFindHubInNetwork;
 
+  const factory HubFailures.hubFoundButNotRunning() = _HubFoundButNotRunning;
+
   const factory HubFailures.automaticHubSearchNotSupportedOnWeb() =
       _AutomaticHubSearchNotSupportedOnWeb;
 }

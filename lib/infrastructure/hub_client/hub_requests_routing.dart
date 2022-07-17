@@ -27,8 +27,6 @@ import 'package:cybear_jinni/utils.dart';
 import 'package:grpc/grpc.dart';
 
 class HubRequestRouting {
-  static int connectionToHubDelaySeconds = 0;
-
   static StreamSubscription<RequestsAndStatusFromHub>?
       requestsFromHubSubscription;
 
@@ -46,7 +44,7 @@ class HubRequestRouting {
       return;
     }
 
-    await Future.delayed(Duration(seconds: connectionToHubDelaySeconds));
+    await Future.delayed(const Duration(milliseconds: 100));
 
     if (areWeRunning) {
       return;
@@ -60,7 +58,6 @@ class HubRequestRouting {
     requestsFromHubSubscription = HubRequestsToApp
         .hubRequestsStreamBroadcast.stream
         .listen((RequestsAndStatusFromHub requestsAndStatusFromHub) {
-      connectionToHubDelaySeconds = 3;
       if (requestsAndStatusFromHub.sendingType == SendingType.deviceType) {
         navigateDeviceRequest(requestsAndStatusFromHub.allRemoteCommands);
       } else if (requestsAndStatusFromHub.sendingType == SendingType.roomType) {
@@ -76,10 +73,13 @@ class HubRequestRouting {
       }
     });
     requestsFromHubSubscription?.onError((error) async {
-      connectionToHubDelaySeconds += 5;
       if (error is GrpcError && error.code == 1) {
-        logger.v('Hub have disconnected');
-      } else {
+        logger.v('Hub have been disconnected');
+      }
+      // else if (error is GrpcError && error.code == 2) {
+      //   logger.v('Hub have been terminated');
+      // }
+      else {
         logger.e('Hub stream error: $error');
         if (error.toString().contains('errorCode: 10')) {
           areWeRunning = false;

@@ -92,11 +92,14 @@ class HubRequestsToApp {
     hubRequestsStreamBroadcast.add(hubRequestsStreamController.stream);
     boolListenWorking = true;
 
+    ///TODO: delete if it was only for test
     hubRequestsStreamBroadcast.stream.listen((event) {
-      print('Listen To Hub requests to App\n$event');
+      logger.v('Listen To Hub requests to App\n$event');
     });
+
+    ///TODO: delete if it was only for test
     hubRequestsStreamBroadcast.stream.listen((event) {
-      print('Listen To Hub requests to App2\n$event');
+      logger.v('Listen To Hub requests to App2\n$event');
     });
   }
 }
@@ -122,12 +125,14 @@ class AppRequestsToHub {
         .add(appRequestsToHubStreamController.stream);
     boolListenWorking = true;
 
+    ///TODO: delete if it was only for test
     appRequestsToHubStreamBroadcast.stream.listen((event) {
-      print('Listen To App requests to Hub\n$event');
+      logger.v('Listen To App requests to Hub\n$event');
     });
 
+    ///TODO: delete if it was only for test
     appRequestsToHubStreamBroadcast.stream.listen((event) {
-      print('Listen To App requests to Hub2\n$event');
+      logger.v('Listen To App requests to Hub2\n$event');
     });
   }
 }

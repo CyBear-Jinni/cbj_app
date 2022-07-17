@@ -17,7 +17,6 @@ flutter_icons:
   adaptive_icon_foreground: "assets/cbj_icon_adaptive.png"
 
 flutter:
-  # Ensures that the Material Icons font is included with your application.
   uses-material-design: true
   assets:
     - assets/
@@ -40,7 +39,7 @@ dependencies:
   # Utility classes to work with asynchronous computations.
   async: ^2.9.0
   # Declarative routing solution, where everything needed for navigation is automatically generated for you.
-  auto_route: ^4.0.1
+  auto_route: ^4.2.1
   # Automatically resizes text to fit perfectly within its bounds.
   auto_size_text: ^3.0.0
   # Helps implement the BLoC pattern.
@@ -48,7 +47,7 @@ dependencies:
   # Copy text from and to clipboard
   clipboard: ^0.1.3
   # Allow discover network connectivity
-  connectivity_plus: ^2.3.4
+  connectivity_plus: ^2.3.5
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.5
@@ -56,7 +55,7 @@ dependencies:
   # Functional programming thingipes, let you use multiple return types
   dartz: ^0.10.1
   # Get current device information
-  device_info_plus: ^3.2.4
+  device_info_plus: ^4.0.0
   # Internationalization (Easy translations)
   easy_localization: ^3.0.1
   # An "expansion" on the Flutter SDK's standard ExpansionTile
@@ -69,7 +68,7 @@ dependencies:
   # HSV(HSB)/HSL/RGB/Material color picker
   flutter_colorpicker: ^1.0.3
   # A cross platform plugin for displaying local notifications.
-  flutter_local_notifications: ^9.6.1
+  flutter_local_notifications: ^9.7.0
   # Getting the local timezone of the os.
   flutter_native_timezone: ^2.0.0
   # An easy to implement custom switch
@@ -79,7 +78,7 @@ dependencies:
   # Font Awesome Icon pack available as Flutter Icons.
   font_awesome_flutter: ^10.1.0
   # Annotations for freezed
-  freezed_annotation: ^2.0.3
+  freezed_annotation: ^2.1.0
   # Service locator
   get_it: ^7.2.0
   # Google Mobile Ads
@@ -91,7 +90,7 @@ dependencies:
   # Add hex color codes to your flutter projects
   hexcolor: ^2.0.7
   # Lightweight and blazing fast key-value database
-  hive: ^2.2.2
+  hive: ^2.2.3
   # Extension for Hive. Makes it easier to use Hive in Flutter apps.
   hive_flutter: ^1.1.0
   # A composable, multi-platform, Future-based API for HTTP requests.
@@ -101,9 +100,9 @@ dependencies:
   # Allow you to have a screen at launcher for example
   introduction_screen: ^3.0.2
   # Defines the annotations used by json_serializable to create code for JSON serialization and deserialization.
-  json_annotation: ^4.5.0
+  json_annotation: ^4.6.0
   # Dart Build System builders for handling JSON.
-  json_serializable: ^6.2.0
+  json_serializable: ^6.3.1
   # Port of Kotlin's Kotlin Standard library for Dart/Flutter projects
   kt_dart: ^0.10.0
   # Liquid progress indicator for Flutter.
@@ -113,7 +112,7 @@ dependencies:
   # Small, easy to use and extensible logger which prints beautiful logs.
   logger: ^1.1.0
   # The Material Design Icons designed by the community for Flutter
-  material_design_icons_flutter: ^5.0.6595
+  material_design_icons_flutter: ^5.0.6996
   # Creating multi-select widgets in a variety of ways
   multi_select_flutter: ^4.1.2
   # Service discovery over multicast DNS (mDNS), Bonjour, and Avahi.
@@ -133,13 +132,13 @@ dependencies:
   # A wrapper around InheritedWidget to make them easier to use and more reusable.
   provider: ^6.0.3
   # Implementation of the popular reactiveX api for asynchronous programming
-  rxdart: ^0.27.4
+  rxdart: ^0.27.5
   # Reading and writing simple key-value pairs
   shared_preferences: ^2.0.15
   # Highly customizable circular slider/progress bar & spinner.
   sleek_circular_slider: ^2.0.1
   # Plugin for launching a URL
-  url_launcher: ^6.1.3
+  url_launcher: ^6.1.5
   # Simple, fast generation of RFC4122 UUIDs.
   uuid: ^3.0.6
   # Get available wifi ssid list, user can connect to wifi with ssid and password, and create hotspot
@@ -148,21 +147,21 @@ dependencies:
 
 dev_dependencies:
   # Generator for auto_route library.
-  auto_route_generator: ^4.0.0
+  auto_route_generator: ^4.2.0
   # A build system for Dart code generation and modular compilation.
   build_runner:
 
   # Package which simplifies the task of updating your Flutter app's launcher icon.
   flutter_launcher_icons: ^0.9.3
   # Code generator for unions/pattern-matching/copy.
-  freezed: ^2.0.3+1
+  freezed: ^2.1.0+1
   # Extension for Hive. Automatically generates TypeAdapters to store any class.
   hive_generator: ^1.1.3
   # Convenient code generator for get_it.
-  injectable_generator: ^1.5.3
+  injectable_generator: ^1.5.4
   # Collection of lint rules for Dart and Flutter projects.
   lint: ^1.8.2
   # Mock framework with APIs for Fakes, Mocks, behavior verification, and stubbing.
   mockito: ^5.2.0
   # A full featured library for writing and running Dart tests across platforms.
-  test: ^1.21.2
+  test: ^1.21.4
