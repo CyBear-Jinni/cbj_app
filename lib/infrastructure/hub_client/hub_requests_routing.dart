@@ -1,7 +1,10 @@
+import 'dart:async';
 import 'dart:convert';
 
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
+import 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
 import 'package:cybear_jinni/domain/room/i_room_repository.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/domain/scene/i_scene_cbj_repository.dart';
@@ -24,8 +27,36 @@ import 'package:cybear_jinni/utils.dart';
 import 'package:grpc/grpc.dart';
 
 class HubRequestRouting {
+  static StreamSubscription<RequestsAndStatusFromHub>?
+      requestsFromHubSubscription;
+
+  static Stream<ConnectivityResult>? connectivityChangedStream;
+
+  static bool areWeRunning = false;
+
+  // static int numberOfCrashes = 0;
+  static int numberOfConnactivityChange = 0;
+
   static Future<void> navigateRequest() async {
-    HubRequestsToApp.hubRequestsStream
+    AppRequestsToHub.lisenToApp();
+    HubRequestsToApp.lisenToApp();
+    if (areWeRunning) {
+      return;
+    }
+
+    await Future.delayed(const Duration(milliseconds: 100));
+
+    if (areWeRunning) {
+      return;
+    }
+    areWeRunning = true;
+
+    // await requestsFromHubSubscription?.cancel();
+    // requestsFromHubSubscription = null;
+    connectivityChangedStream = null;
+
+    requestsFromHubSubscription = HubRequestsToApp
+        .hubRequestsStreamBroadcast.stream
         .listen((RequestsAndStatusFromHub requestsAndStatusFromHub) {
       if (requestsAndStatusFromHub.sendingType == SendingType.deviceType) {
         navigateDeviceRequest(requestsAndStatusFromHub.allRemoteCommands);
@@ -40,13 +71,37 @@ class HubRequestRouting {
           '${requestsAndStatusFromHub.sendingType}',
         );
       }
-    }).onError((error) {
+    });
+    requestsFromHubSubscription?.onError((error) async {
       if (error is GrpcError && error.code == 1) {
-        logger.v('Hub have disconnected');
-      } else {
+        logger.v('Hub have been disconnected');
+      }
+      // else if (error is GrpcError && error.code == 2) {
+      //   logger.v('Hub have been terminated');
+      // }
+      else {
         logger.e('Hub stream error: $error');
+        if (error.toString().contains('errorCode: 10')) {
+          areWeRunning = false;
+
+          navigateRequest();
+        }
       }
     });
+
+    connectivityChangedStream = Connectivity().onConnectivityChanged;
+    connectivityChangedStream?.listen((ConnectivityResult event) async {
+      numberOfConnactivityChange++;
+      logger.e(
+        'Connectivity changed ${event.name} And $event',
+      );
+      if (event == ConnectivityResult.none || numberOfConnactivityChange <= 1) {
+        return;
+      }
+      areWeRunning = false;
+      navigateRequest();
+    });
+    await getIt<IHubConnectionRepository>().connectWithHub();
   }
 
   static Future<void> navigateRoomRequest(

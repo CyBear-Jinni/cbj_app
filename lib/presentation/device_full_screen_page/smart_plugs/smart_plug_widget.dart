@@ -32,7 +32,7 @@ class _SmartSmartPlugPage extends State<SmartSmartPlugPage> {
     _smartPlug = widget.genericSmartPlugSmartPlug;
     getAndUpdateState();
 
-    WidgetsBinding.instance!
+    WidgetsBinding.instance
         .addObserver(LifecycleEventHandler(resumeCallBack: getAndUpdateState));
   }
 

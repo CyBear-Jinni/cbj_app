@@ -27,7 +27,7 @@ class RemotePipesRepository implements IRemotePipesRepository {
         sendingType: SendingType.remotePipesInformation,
       );
 
-      AppRequestsToHub.appRequestsToHubStreamController.sink
+      AppRequestsToHub.appRequestsToHubStreamController
           .add(clientStatusRequests);
 
       getIt<ILocalDbRepository>()
