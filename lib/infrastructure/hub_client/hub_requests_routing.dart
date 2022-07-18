@@ -38,8 +38,6 @@ class HubRequestRouting {
   static int numberOfConnactivityChange = 0;
 
   static Future<void> navigateRequest() async {
-    AppRequestsToHub.lisenToApp();
-    HubRequestsToApp.lisenToApp();
     if (areWeRunning) {
       return;
     }
@@ -101,6 +99,7 @@ class HubRequestRouting {
       areWeRunning = false;
       navigateRequest();
     });
+
     await getIt<IHubConnectionRepository>().connectWithHub();
   }
 

@@ -24,6 +24,7 @@ import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_da
 import 'package:cybear_jinni/infrastructure/devices/device_helper.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/abstract_device/device_entity_dto_abstract.dart';
 import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
+import 'package:cybear_jinni/infrastructure/hub_client/hub_requests_routing.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:dartz/dartz.dart';
@@ -74,7 +75,12 @@ class DeviceRepository implements IDeviceRepository {
   }
 
   @override
-  Future<void> initiateHubConnection() async {}
+  Future<void> initiateHubConnection() async {
+    AppRequestsToHub.lisenToApp();
+    HubRequestsToApp.lisenToApp();
+
+    HubRequestRouting.navigateRequest();
+  }
 
   @override
   Future<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
