@@ -90,11 +90,14 @@ class HubConnectionRepository extends IHubConnectionRepository {
     // This block can be false also if user does not improve some permissions
     // or #256 if the app run on the computer and connected with ethernet cable
     // (not effecting connection with WiFi)
-    if (connectivityResult != null &&
-        connectivityResult == ConnectivityResult.wifi &&
-        savedWifiBssidWithoutLastNumber != null &&
-        wifiBSSIDWithoutLastNumber != null &&
-        savedWifiBssidWithoutLastNumber == wifiBSSIDWithoutLastNumber) {
+    if ((connectivityResult != null &&
+            connectivityResult == ConnectivityResult.wifi &&
+            savedWifiBssidWithoutLastNumber != null &&
+            wifiBSSIDWithoutLastNumber != null &&
+            savedWifiBssidWithoutLastNumber == wifiBSSIDWithoutLastNumber) ||
+        (connectivityResult != null &&
+            connectivityResult == ConnectivityResult.ethernet &&
+            'no:Network:Bssid' == savedWifiBssidWithoutLastNumber)) {
       logger.i('Connect using direct connection to Hub');
 
       if (hubEntity?.lastKnownIp.getOrCrash() != null) {
@@ -258,8 +261,6 @@ class HubConnectionRepository extends IHubConnectionRepository {
       // Here for easy find and local testing
       // HubClient.createStreamWithHub('127.0.0.1', 50056);
     }
-
-    return left(const HubFailures.unexpected());
   }
 
   @override
@@ -271,7 +272,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
   /// Search device IP by computer Avahi (mdns) name
   Future<String> getDeviceIpByDeviceAvahiName(String mDnsName) async {
     String deviceIp = '';
-    final String fullMdnsName = '$mDnsName.local';
+    // final String fullMdnsName = '$mDnsName.local';
 
     final MDnsClient client = MDnsClient(
       rawDatagramSocketFactory: (
@@ -309,7 +310,9 @@ class HubConnectionRepository extends IHubConnectionRepository {
   }
 
   @override
-  Future<Either<HubFailures, Unit>> searchForHub() async {
+  Future<Either<HubFailures, Unit>> searchForHub({
+    String? deviceIpOnTheNetwork,
+  }) async {
     try {
       final Either<HubFailures, Unit> locationRequest =
           await askLocationPermissionAndLocationOn();
@@ -319,9 +322,30 @@ class HubConnectionRepository extends IHubConnectionRepository {
       }
 
       logger.i('searchForHub');
-      final String? wifiIP = await NetworkInfo().getWifiIP();
 
-      final String subnet = wifiIP!.substring(0, wifiIP.lastIndexOf('.'));
+      String? currentDeviceIP;
+      String? wifiBSSID;
+      String? wifiName;
+      if (await Connectivity().checkConnectivity() == ConnectivityResult.wifi) {
+        currentDeviceIP = await NetworkInfo().getWifiIP();
+        wifiBSSID = await NetworkInfo().getWifiBSSID();
+        wifiName = await NetworkInfo().getWifiName();
+      } else {
+        if (deviceIpOnTheNetwork == null) {
+          // Issue https://github.com/CyBear-Jinni/cbj_app/issues/256
+          return left(
+            const HubFailures
+                .findingHubWhenConnectedToEthernetCableIsNotSupported(),
+          );
+        }
+
+        currentDeviceIP = deviceIpOnTheNetwork;
+        wifiBSSID = 'no:Network:Bssid:Found';
+        wifiName = 'noNetworkNameFound';
+      }
+
+      final String subnet =
+          currentDeviceIP!.substring(0, currentDeviceIP.lastIndexOf('.'));
 
       logger.i('subnet IP $subnet');
 
@@ -337,16 +361,13 @@ class HubConnectionRepository extends IHubConnectionRepository {
       await for (final OpenPort address in devicesWithPort) {
         if (!address.isOpen) {
           sameAddressCounter++;
-          if (sameAddressCounter > 10) {
+          if (sameAddressCounter > 20) {
             await Future.delayed(const Duration(milliseconds: 600));
-            return left(const HubFailures.hubFoundButNotRunning());
+            return left(const HubFailures.cantFindHubInNetwork());
           }
           continue;
         }
         logger.i('Found device: ${address.ip}');
-
-        final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
-        final String? wifiName = await NetworkInfo().getWifiName();
 
         if (wifiBSSID != null && wifiName != null) {
           hubEntity = HubEntity(

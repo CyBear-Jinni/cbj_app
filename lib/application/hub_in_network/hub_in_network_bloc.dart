@@ -22,7 +22,8 @@ class HubInNetworkBloc extends Bloc<HubInNetworkEvent, HubInNetworkState> {
   HubInNetworkBloc(this._hubConnectionRepository)
       : super(HubInNetworkState.initial()) {
     on<InitialEvent>(_initialEvent);
-    on<WatchAllStarted>(_searchHubInNetwork);
+    on<SearchHubInNetwork>(_searchHubInNetwork);
+    on<SearchHubUsingAnyIpOnTheNetwork>(_searchHubUsingAnyIpOnTheNetwork);
   }
 
   final IHubConnectionRepository _hubConnectionRepository;
@@ -40,12 +41,27 @@ class HubInNetworkBloc extends Bloc<HubInNetworkEvent, HubInNetworkState> {
   }
 
   Future<void> _searchHubInNetwork(
-    WatchAllStarted event,
+    SearchHubInNetwork event,
     Emitter<HubInNetworkState> emit,
   ) async {
     emit(const HubInNetworkState.loadInProgress());
     emit(
       (await _hubConnectionRepository.searchForHub())
+          .fold((l) => HubInNetworkState.loadFailure(l), (r) {
+        context?.router.replace(const HomeRoute());
+        return const HubInNetworkState.loadSuccess();
+      }),
+    );
+  }
+
+  Future<void> _searchHubUsingAnyIpOnTheNetwork(
+    SearchHubUsingAnyIpOnTheNetwork event,
+    Emitter<HubInNetworkState> emit,
+  ) async {
+    emit(const HubInNetworkState.loadInProgress());
+    emit(
+      (await _hubConnectionRepository.searchForHub(
+              deviceIpOnTheNetwork: event.ipOnTheNetwork))
           .fold((l) => HubInNetworkState.loadFailure(l), (r) {
         context?.router.replace(const HomeRoute());
         return const HubInNetworkState.loadSuccess();

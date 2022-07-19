@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:cybear_jinni/ad_state.dart';
 import 'package:cybear_jinni/domain/local_db/i_local_db_repository.dart';
 import 'package:cybear_jinni/injection.dart';
@@ -5,6 +7,7 @@ import 'package:cybear_jinni/presentation/core/app_widget.dart';
 import 'package:cybear_jinni/presentation/core/notifications.dart';
 import 'package:dartz/dartz.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -41,8 +44,13 @@ Future<Unit> main() async {
   getIt<ILocalDbRepository>();
 
   WidgetsFlutterBinding.ensureInitialized();
-  final initFuture = MobileAds.instance.initialize();
-  final adState = AdState(initFuture);
+
+  AdState? adState;
+  // Adds package only support Android and IOS
+  if (!kIsWeb && (Platform.isAndroid || Platform.isIOS)) {
+    final initFuture = MobileAds.instance.initialize();
+    adState = AdState(initFuture);
+  }
 
   await EasyLocalization.ensureInitialized();
   //  debugPaintSizeEnabled = true;

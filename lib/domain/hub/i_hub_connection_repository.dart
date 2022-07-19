@@ -11,7 +11,9 @@ abstract class IHubConnectionRepository {
 
   Future<void> closeConnection();
 
-  Future<Either<HubFailures, Unit>> searchForHub();
+  Future<Either<HubFailures, Unit>> searchForHub({
+    String? deviceIpOnTheNetwork,
+  });
 
   Future<void> saveHubIP(String hubIP);
 }
