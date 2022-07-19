@@ -73,7 +73,7 @@ class BoilersInTheRoom extends StatelessWidget {
                         scale: 1.2,
                         child: const CircleAvatar(
                           child: FaIcon(
-                            FontAwesomeIcons.thermometerThreeQuarters,
+                            FontAwesomeIcons.temperatureThreeQuarters,
                             color: Colors.redAccent,
                           ),
                         ),

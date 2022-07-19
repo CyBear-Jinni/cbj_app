@@ -73,7 +73,7 @@ class SmartLifeSignInForm extends StatelessWidget {
                     ),
                     TextFormField(
                       decoration: const InputDecoration(
-                        prefixIcon: FaIcon(FontAwesomeIcons.signInAlt),
+                        prefixIcon: FaIcon(FontAwesomeIcons.rightToBracket),
                         labelText: 'Smart Life User Name',
                       ),
                       autocorrect: false,

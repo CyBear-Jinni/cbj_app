@@ -22,7 +22,7 @@ class RemotePipesPage extends StatelessWidget {
             '➕ Add remote pipes',
             style: TextStyle(color: Colors.green, fontSize: 23),
           ),
-          onPressed: () {
+          onPressed: (_) {
             // context.router.push(const AddUserToHomeRoute());
           },
         ),

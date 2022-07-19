@@ -107,7 +107,7 @@ class BlindWidget extends StatelessWidget {
                   },
                   child: Tab(
                     icon: FaIcon(
-                      FontAwesomeIcons.solidHandPaper,
+                      FontAwesomeIcons.solidHand,
                       color: Theme.of(context).textTheme.bodyText1!.color,
                     ),
                     child: Text(

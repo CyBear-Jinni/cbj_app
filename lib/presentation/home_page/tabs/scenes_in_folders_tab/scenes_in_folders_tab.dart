@@ -23,7 +23,7 @@ class ScenesInFoldersTab extends StatelessWidget {
               fontSize: 23,
             ),
           ),
-          onPressed: () {
+          onPressed: (_) {
             Fluttertoast.showToast(
               msg: 'Settings page will be added in the future',
               toastLength: Toast.LENGTH_LONG,
@@ -54,7 +54,7 @@ class ScenesInFoldersTab extends StatelessWidget {
           rightIconFunction: userCogFunction,
           leftIcon: FontAwesomeIcons.sitemap,
           leftIconFunction: (BuildContext context) {},
-          // rightSecondIcon: FontAwesomeIcons.search,
+          // rightSecondIcon: FontAwesomeIcons.magnifyingGlass,
           // rightSecondFunction: rightSecondFunction,
         ),
         Expanded(

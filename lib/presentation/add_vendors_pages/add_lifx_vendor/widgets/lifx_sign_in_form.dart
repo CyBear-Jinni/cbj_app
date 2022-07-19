@@ -146,7 +146,7 @@ class LifxSignInForm extends StatelessWidget {
                   backgroundColor: MaterialStateProperty.all(Colors.pink),
                 ),
                 onPressed: () {
-                  launch('https://cloud.lifx.com/');
+                  launchUrl(Uri.parse('https://cloud.lifx.com/'));
                 },
                 child: Text(
                   'Get Lifx API key from Lifx website',

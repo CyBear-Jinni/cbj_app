@@ -15,7 +15,7 @@ class HistoryTab extends StatelessWidget {
           alignment: Alignment.centerRight,
           child: IconButton(
             icon: FaIcon(
-              FontAwesomeIcons.cog,
+              FontAwesomeIcons.gear,
               color: Theme.of(context).textTheme.bodyText1!.color,
             ),
             onPressed: () => Navigator.push(

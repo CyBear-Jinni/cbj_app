@@ -28,7 +28,7 @@ class ChooseAutomationTypeToAddPage extends StatelessWidget {
             TopNavigationBar(
               pageName: 'Add Automations',
               rightIcon: null,
-              // FontAwesomeIcons.search,
+              // FontAwesomeIcons.magnifyingGlass,
               rightIconFunction: backButtonFunction,
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,

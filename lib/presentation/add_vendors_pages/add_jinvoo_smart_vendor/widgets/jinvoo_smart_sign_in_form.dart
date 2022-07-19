@@ -73,7 +73,7 @@ class JinvooSmartSignInForm extends StatelessWidget {
                     ),
                     TextFormField(
                       decoration: const InputDecoration(
-                        prefixIcon: FaIcon(FontAwesomeIcons.signInAlt),
+                        prefixIcon: FaIcon(FontAwesomeIcons.rightToBracket),
                         labelText: 'Jinvoo Smart User Name',
                       ),
                       autocorrect: false,
@@ -190,8 +190,7 @@ class JinvooSmartSignInForm extends StatelessWidget {
                             onPressed: () {
                               context.read<TuyaSignInFormBloc>().add(
                                     TuyaSignInFormEvent.vendorChanged(
-                                      VendorsAndServices.jinvooSmart.name
-                                          ,
+                                      VendorsAndServices.jinvooSmart.name,
                                     ),
                                   );
                               context.read<TuyaSignInFormBloc>().add(

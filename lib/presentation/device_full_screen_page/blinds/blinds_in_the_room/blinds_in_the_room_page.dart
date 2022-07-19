@@ -39,7 +39,7 @@ class BlindsInTheRoomPage extends StatelessWidget {
               rightIconFunction: () {},
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
-              rightSecondIcon: FontAwesomeIcons.search,
+              rightSecondIcon: FontAwesomeIcons.magnifyingGlass,
               rightSecondFunction: () {},
             ),
             Expanded(

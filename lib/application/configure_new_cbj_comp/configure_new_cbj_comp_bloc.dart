@@ -237,9 +237,12 @@ class ConfigureNewCbjCompBloc
     CheckConnectedToWiFiNetwork event,
     Emitter<ConfigureNewCbjCompState> emit,
   ) async {
-    // TODO: Not suer if it will open the WiFi when hotspot is open,
-    // delete if not
+    // TODO: Not suer if it will open the WiFi when hotspot is open, delete if not
+
     await WiFiForIoTPlugin.loadWifiList();
+    // TODO: The above line is depracted, not sure what is the coresponding
+    // TODO: function in the new package that got transferred to
+    // await WiFiScan.instance
 
     bool isConnectedToWifi = false;
     logger.i('Waiting for user to get connected to WiFi');

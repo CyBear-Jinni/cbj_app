@@ -28,11 +28,11 @@ abstract class RoomEntity implements _$RoomEntity {
   factory RoomEntity.empty() => RoomEntity(
         uniqueId: RoomUniqueId(),
         defaultName: RoomDefaultName(''),
+        // Do not add const
         roomDevicesId: RoomDevicesId([]),
         // Do not add const
         roomScenesId: RoomScenesId([]),
         // Do not add const
-
         roomMostUsedBy: RoomMostUsedBy([]),
         // Do not add const
         roomPermissions: RoomPermissions([]),

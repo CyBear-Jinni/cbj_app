@@ -160,7 +160,7 @@ class PlusButtonPage extends StatelessWidget {
                     color: Colors.greenAccent,
                     child: ListTile(
                       leading: FaIcon(
-                        FontAwesomeIcons.signOutAlt,
+                        FontAwesomeIcons.rightFromBracket,
                         color: Theme.of(context).textTheme.bodyText1!.color,
                         size: 25,
                       ),

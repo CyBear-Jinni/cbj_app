@@ -90,9 +90,7 @@ class HubRequestRouting {
     connectivityChangedStream = Connectivity().onConnectivityChanged;
     connectivityChangedStream?.listen((ConnectivityResult event) async {
       numberOfConnactivityChange++;
-      logger.e(
-        'Connectivity changed ${event.name} And $event',
-      );
+      logger.i('Connectivity changed ${event.name} And $event');
       if (event == ConnectivityResult.none || numberOfConnactivityChange <= 1) {
         return;
       }
