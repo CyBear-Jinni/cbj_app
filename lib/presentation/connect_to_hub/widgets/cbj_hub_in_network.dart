@@ -9,7 +9,6 @@ class CbjHubInNetwork extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<HubInNetworkBloc, HubInNetworkState>(
       builder: (context, state) {
-        String? anyIpOnTheNetwork;
         return state.map(
           initial: (_) => const Text('Go'),
           loadInProgress: (_) => const SizedBox(
@@ -49,55 +48,12 @@ class CbjHubInNetwork extends StatelessWidget {
             } else if (failure.hubFailure ==
                 const HubFailures
                     .findingHubWhenConnectedToEthernetCableIsNotSupported()) {
-              return Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    "Automatic search currently supported only on WiFi.\n"
-                    "Please enter manually any IP on the network or connect the device to WiFi and try again.",
-                    style: TextStyle(fontSize: 18),
-                  ),
-                  const SizedBox(height: 40),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 50),
-                    child: TextFormField(
-                      style: const TextStyle(color: Colors.white),
-                      decoration: const InputDecoration(
-                        prefixIcon: FaIcon(FontAwesomeIcons.ethernet),
-                        labelText: 'Any IP on the network',
-                        labelStyle: TextStyle(color: Colors.white),
-                      ),
-                      autocorrect: false,
-                      onChanged: (value) {
-                        anyIpOnTheNetwork = value;
-                      },
+              context.read<HubInNetworkBloc>().add(
+                    const HubInNetworkEvent.isHubIpCheckBoxChangedState(
+                      '',
+                      false,
                     ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      if (anyIpOnTheNetwork == null) {
-                        showDialog(
-                          context: context,
-                          builder: (_) => const AlertDialog(
-                            title: Text(
-                              'Please insert valid IP before clicking the Search Button',
-                            ),
-                          ),
-                        );
-                        return;
-                      }
-                      context.read<HubInNetworkBloc>().add(
-                            HubInNetworkEvent.searchHubUsingAnyIpOnTheNetwork(
-                              anyIpOnTheNetwork!,
-                            ),
-                          );
-                    },
-                    child: const Text(
-                      'Search',
-                    ),
-                  ),
-                ],
-              );
+                  );
             }
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -121,6 +77,96 @@ class CbjHubInNetwork extends StatelessWidget {
             );
           },
           lightError: (_) => const Text('Got Error'),
+          tryIpManually: (TryIpManually tryIpManuallyValue) {
+            String anyIpOnTheNetwork = tryIpManuallyValue.ipOnTheNetwork;
+
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  "Automatic search currently supported only on WiFi.\n"
+                  "Please enter manually any IP on the network or connect the device to WiFi and try again.",
+                  style: TextStyle(fontSize: 18),
+                ),
+                const SizedBox(height: 40),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 50),
+                  child: TextFormField(
+                    style: const TextStyle(color: Colors.white),
+                    decoration: const InputDecoration(
+                      prefixIcon: FaIcon(FontAwesomeIcons.ethernet),
+                      labelText: 'Any IP on the network',
+                      labelStyle: TextStyle(color: Colors.white),
+                    ),
+                    autocorrect: false,
+                    initialValue: anyIpOnTheNetwork,
+                    onChanged: (value) {
+                      anyIpOnTheNetwork = value;
+                    },
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      'Is Hub IP',
+                      style: TextStyle(
+                        fontSize: 17,
+                      ),
+                    ),
+                    Checkbox(
+                      value: tryIpManuallyValue.isHubIp,
+                      onChanged: (bool? value) {
+                        context.read<HubInNetworkBloc>().add(
+                              HubInNetworkEvent.isHubIpCheckBoxChangedState(
+                                anyIpOnTheNetwork,
+                                value!,
+                              ),
+                            );
+                      },
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20),
+                TextButton(
+                  onPressed: () {
+                    if (anyIpOnTheNetwork == '') {
+                      showDialog(
+                        context: context,
+                        builder: (_) => const AlertDialog(
+                          title: Text(
+                            'Please insert valid IP before clicking the Search Button',
+                          ),
+                        ),
+                      );
+                      return;
+                    }
+                    context.read<HubInNetworkBloc>().add(
+                          HubInNetworkEvent.searchHubUsingAnyIpOnTheNetwork(
+                            anyIpOnTheNetwork,
+                            tryIpManuallyValue.isHubIp,
+                          ),
+                        );
+                  },
+                  child: const Text(
+                    'Search',
+                  ),
+                ),
+                const SizedBox(height: 40),
+                TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.white.withOpacity(0.8),
+                  ),
+                  onPressed: () {
+                    context.read<HubInNetworkBloc>().add(
+                          const HubInNetworkEvent.searchHubInNetwork(),
+                        );
+                  },
+                  child: const Text('Retry'),
+                ),
+              ],
+            );
+          },
         );
       },
     );

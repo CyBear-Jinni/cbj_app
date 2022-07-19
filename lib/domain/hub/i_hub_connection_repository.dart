@@ -13,6 +13,7 @@ abstract class IHubConnectionRepository {
 
   Future<Either<HubFailures, Unit>> searchForHub({
     String? deviceIpOnTheNetwork,
+    bool? isThatTheIpOfTheHub,
   });
 
   Future<void> saveHubIP(String hubIP);

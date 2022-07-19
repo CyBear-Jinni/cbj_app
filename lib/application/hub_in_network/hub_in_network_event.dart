@@ -9,5 +9,11 @@ class HubInNetworkEvent with _$HubInNetworkEvent {
 
   const factory HubInNetworkEvent.searchHubUsingAnyIpOnTheNetwork(
     String ipOnTheNetwork,
+    bool isHubIp,
   ) = SearchHubUsingAnyIpOnTheNetwork;
+
+  const factory HubInNetworkEvent.isHubIpCheckBoxChangedState(
+    String ipOnTheNetwork,
+    bool isHubIp,
+  ) = IsHubIpCheckBoxChangedState;
 }
