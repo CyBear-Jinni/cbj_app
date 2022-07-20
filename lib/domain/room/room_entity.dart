@@ -15,6 +15,7 @@ abstract class RoomEntity implements _$RoomEntity {
     required RoomTypes roomTypes,
     required RoomDevicesId roomDevicesId,
     required RoomScenesId roomScenesId,
+    required RoomRoutinesId roomRoutinesId,
 
     /// Who is using this room
     required RoomMostUsedBy roomMostUsedBy,
@@ -33,6 +34,8 @@ abstract class RoomEntity implements _$RoomEntity {
         // Do not add const
         roomScenesId: RoomScenesId([]),
         // Do not add const
+        roomRoutinesId: RoomRoutinesId([]),
+        // Do not add const
         roomMostUsedBy: RoomMostUsedBy([]),
         // Do not add const
         roomPermissions: RoomPermissions([]),
@@ -50,6 +53,26 @@ abstract class RoomEntity implements _$RoomEntity {
     }
   }
 
+  /// Will add new scene id to the scenes in the room list
+  void addSceneId(String newSceneId) {
+    /// Will not work if list got created with const
+    try {
+      roomScenesId.getOrCrash().add(newSceneId);
+    } catch (e) {
+      logger.e('Will not work if list got created with const');
+    }
+  }
+
+  /// Will add new routine id to the scenes in the room list
+  void addRoutineId(String newSceneId) {
+    /// Will not work if list got created with const
+    try {
+      roomRoutinesId.getOrCrash().add(newSceneId);
+    } catch (e) {
+      logger.e('Will not work if list got created with const');
+    }
+  }
+
   Option<RoomFailure<dynamic>> get failureOption {
     return defaultName.value.fold((f) => some(f), (_) => none());
   }
@@ -61,6 +84,7 @@ abstract class RoomEntity implements _$RoomEntity {
       roomTypes: roomTypes.getOrCrash(),
       roomDevicesId: roomDevicesId.getOrCrash(),
       roomScenesId: roomScenesId.getOrCrash(),
+      roomRoutinesId: roomRoutinesId.getOrCrash(),
       roomMostUsedBy: roomMostUsedBy.getOrCrash(),
       roomPermissions: roomPermissions.getOrCrash(),
     );

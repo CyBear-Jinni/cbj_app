@@ -124,9 +124,7 @@ class ChooseAutomationTypeToAddPage extends StatelessWidget {
                           padding: const EdgeInsets.all(10),
                           child: TextButton(
                             onPressed: () {
-                              // context
-                              //     .read<CreateHomeBloc>()
-                              //     .add(CreateHomeEvent.createHome(homeName!, devicesEmail!));
+                              context.router.push(const AddRoutineRoute());
                             },
                             child: Column(
                               children: [
@@ -178,9 +176,8 @@ class ChooseAutomationTypeToAddPage extends StatelessWidget {
                           padding: const EdgeInsets.all(10),
                           child: TextButton(
                             onPressed: () {
-                              // context
-                              //     .read<CreateHomeBloc>()
-                              //     .add(CreateHomeEvent.createHome(homeName!, devicesEmail!));
+                              context.router
+                                  .push(const AddRoutineDeleteRoute());
                             },
                             child: Column(
                               children: [

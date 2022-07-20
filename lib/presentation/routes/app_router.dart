@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/presentation/add_new_automation_process/add_action/add_action_page.dart';
+import 'package:cybear_jinni/presentation/add_new_automation_process/add_routine/add_routine_page.dart';
 import 'package:cybear_jinni/presentation/add_new_automation_process/add_scene/add_scene_page.dart';
 import 'package:cybear_jinni/presentation/add_new_automation_process/choose_automation_type_to_add/choose_automation_type_to_add_page.dart';
 import 'package:cybear_jinni/presentation/add_new_devices_process/choose_device_vendor_to_add/choose_device_vendor_to_add_page.dart';
@@ -30,6 +31,7 @@ import 'package:cybear_jinni/presentation/device_full_screen_page/smart_plugs/sm
 import 'package:cybear_jinni/presentation/device_full_screen_page/switches/rooms_switches_page.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/switches/switches_in_the_room/switches_in_the_room_page.dart';
 import 'package:cybear_jinni/presentation/home_page/home_page.dart';
+import 'package:cybear_jinni/presentation/home_page/tabs/routine_tab/add_routine/add_routine_delete_page.dart';
 import 'package:cybear_jinni/presentation/introduction_screen/introduction_screen_page.dart';
 import 'package:cybear_jinni/presentation/join_home_by_id/join_home_by_id_page.dart';
 import 'package:cybear_jinni/presentation/manage_users/manage_users_page.dart';
@@ -46,6 +48,7 @@ import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_pag
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
     AutoRoute(page: SplashPage, initial: true),
+    AutoRoute(page: AddRoutineDeletePage),
     AutoRoute(page: IntroductionScreenPage),
     AutoRoute(page: ConnectToHubPage),
     AutoRoute(page: ConnectToHubMorePage),
@@ -64,6 +67,7 @@ import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_pag
     AutoRoute(page: AddUserToHomePage),
     AutoRoute(page: ScenesPage),
     AutoRoute(page: AddScenePage),
+    AutoRoute(page: AddRoutinePage),
     AutoRoute<List<MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>>>(
       page: AddActionPage,
     ),
@@ -91,6 +95,7 @@ import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_pag
   ],
 )
 class $AppRouter {
+  late AddRoutineDeletePage addRoutineDeletePage;
   late SplashPage splashPage;
   late IntroductionScreenPage introductionScreenPage;
   late ConnectToHubPage connectToHubPage;
@@ -99,6 +104,7 @@ class $AppRouter {
   late CreateHomePage createHomePage;
   late ScenesPage scenesPage;
   late AddScenePage addScenePage;
+  late AddRoutinePage addRoutinePage;
   late AddActionPage addActionPage;
   late ChooseAutomationTypeToAddPage chooseAutomationTypeToAddPage;
   late ChooseDeviceVendorToAddPage chooseDeviceVendorToAddPage;
