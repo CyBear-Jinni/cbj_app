@@ -124,7 +124,7 @@ class ChooseAutomationTypeToAddPage extends StatelessWidget {
                           padding: const EdgeInsets.all(10),
                           child: TextButton(
                             onPressed: () {
-                              context.router.push(const AddRoutineRoute());
+                              // context.router.push(const AddRoutineRoute());
                             },
                             child: Column(
                               children: [
@@ -176,8 +176,10 @@ class ChooseAutomationTypeToAddPage extends StatelessWidget {
                           padding: const EdgeInsets.all(10),
                           child: TextButton(
                             onPressed: () {
-                              context.router
-                                  .push(const AddRoutineDeleteRoute());
+                              // context.router
+                              //     .push(const AddRoutineDeleteRoute());
+                              // context.router
+                              //     .push(const AddBindingRoute());
                             },
                             child: Column(
                               children: [

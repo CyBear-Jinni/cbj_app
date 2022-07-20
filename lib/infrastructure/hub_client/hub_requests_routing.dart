@@ -117,6 +117,8 @@ class HubRequestRouting {
           List<String>.from(requestAsJson['roomScenesId'] as List<dynamic>),
       roomRoutinesId:
           List<String>.from(requestAsJson['roomRoutinesId'] as List<dynamic>),
+      roomBindingsId:
+          List<String>.from(requestAsJson['roomBindingsId'] as List<dynamic>),
       roomMostUsedBy:
           List<String>.from(requestAsJson['roomMostUsedBy'] as List<dynamic>),
       roomPermissions:

@@ -14,6 +14,7 @@ abstract class RoomEntityDtos implements _$RoomEntityDtos {
     required List<String> roomDevicesId,
     required List<String> roomScenesId,
     required List<String> roomRoutinesId,
+    required List<String> roomBindingsId,
 
     /// Who is using this room
     required List<String> roomMostUsedBy,
@@ -34,6 +35,7 @@ abstract class RoomEntityDtos implements _$RoomEntityDtos {
       roomDevicesId: roomEntityDE.roomDevicesId.getOrCrash(),
       roomScenesId: roomEntityDE.roomScenesId.getOrCrash(),
       roomRoutinesId: roomEntityDE.roomRoutinesId.getOrCrash(),
+      roomBindingsId: roomEntityDE.roomBindingsId.getOrCrash(),
       roomMostUsedBy: roomEntityDE.roomMostUsedBy.getOrCrash(),
       roomPermissions: roomEntityDE.roomPermissions.getOrCrash(),
     );
@@ -50,6 +52,7 @@ abstract class RoomEntityDtos implements _$RoomEntityDtos {
       roomDevicesId: RoomDevicesId(roomDevicesId),
       roomScenesId: RoomScenesId(roomScenesId),
       roomRoutinesId: RoomRoutinesId(roomRoutinesId),
+      roomBindingsId: RoomBindingsId(roomBindingsId),
       roomMostUsedBy: RoomMostUsedBy(roomMostUsedBy),
       roomPermissions: RoomPermissions(roomPermissions),
     );

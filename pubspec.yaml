@@ -52,7 +52,6 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.5
   # Functional programming thingies, let you use multiple return types
-  # Functional programming thingipes, let you use multiple return types
   dartz: ^0.10.1
   # Get current device information
   device_info_plus: ^4.0.0

@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/presentation/add_new_automation_process/add_action/add_action_page.dart';
+import 'package:cybear_jinni/presentation/add_new_automation_process/add_bindings/add_binding_page.dart';
 import 'package:cybear_jinni/presentation/add_new_automation_process/add_routine/add_routine_page.dart';
 import 'package:cybear_jinni/presentation/add_new_automation_process/add_scene/add_scene_page.dart';
 import 'package:cybear_jinni/presentation/add_new_automation_process/choose_automation_type_to_add/choose_automation_type_to_add_page.dart';
@@ -48,7 +49,6 @@ import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_pag
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
     AutoRoute(page: SplashPage, initial: true),
-    AutoRoute(page: AddRoutineDeletePage),
     AutoRoute(page: IntroductionScreenPage),
     AutoRoute(page: ConnectToHubPage),
     AutoRoute(page: ConnectToHubMorePage),
@@ -68,6 +68,8 @@ import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_pag
     AutoRoute(page: ScenesPage),
     AutoRoute(page: AddScenePage),
     AutoRoute(page: AddRoutinePage),
+    AutoRoute(page: AddRoutineDeletePage),
+    AutoRoute(page: AddBindingPage),
     AutoRoute<List<MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>>>(
       page: AddActionPage,
     ),
@@ -95,7 +97,6 @@ import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_pag
   ],
 )
 class $AppRouter {
-  late AddRoutineDeletePage addRoutineDeletePage;
   late SplashPage splashPage;
   late IntroductionScreenPage introductionScreenPage;
   late ConnectToHubPage connectToHubPage;
@@ -105,6 +106,8 @@ class $AppRouter {
   late ScenesPage scenesPage;
   late AddScenePage addScenePage;
   late AddRoutinePage addRoutinePage;
+  late AddRoutineDeletePage addRoutineDeletePage;
+  late AddBindingPage addBindingPage;
   late AddActionPage addActionPage;
   late ChooseAutomationTypeToAddPage chooseAutomationTypeToAddPage;
   late ChooseDeviceVendorToAddPage chooseDeviceVendorToAddPage;

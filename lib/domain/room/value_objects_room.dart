@@ -120,6 +120,17 @@ class RoomRoutinesId extends ValueObjectRooms<List<String>> {
   final Either<RoomFailure<List<String>>, List<String>> value;
 }
 
+class RoomBindingsId extends ValueObjectRooms<List<String>> {
+  factory RoomBindingsId(List<String> input) {
+    return RoomBindingsId._(validateRoomTypsValid(input));
+  }
+
+  const RoomBindingsId._(this.value);
+
+  @override
+  final Either<RoomFailure<List<String>>, List<String>> value;
+}
+
 class RoomMostUsedBy extends ValueObjectRooms<List<String>> {
   factory RoomMostUsedBy(List<String> input) {
     return RoomMostUsedBy._(validateUserIdsValid(input));
