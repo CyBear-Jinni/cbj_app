@@ -1,7 +1,12 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cybear_jinni/domain/hub/hub_entity.dart';
+import 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:iconify_flutter/icons/simple_icons.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class PlusButtonPage extends StatelessWidget {
   @override
@@ -63,7 +68,7 @@ class PlusButtonPage extends StatelessWidget {
                     height: 1,
                   ),
                   Container(
-                    color: Colors.redAccent.withOpacity(0.9),
+                    color: Colors.brown.withOpacity(0.9),
                     child: ListTile(
                       leading: FaIcon(
                         FontAwesomeIcons.solidLightbulb,
@@ -131,6 +136,47 @@ class PlusButtonPage extends StatelessWidget {
               color: Colors.white,
               child: Column(
                 children: [
+                  const SizedBox(
+                    height: 1,
+                  ),
+                  Container(
+                    color: Colors.redAccent.withOpacity(0.9),
+                    child: ListTile(
+                      leading: Iconify(
+                        SimpleIcons.node_red,
+                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        size: 23,
+                      ),
+                      title: Text(
+                        'Open Node-RED of Hub',
+                        style: TextStyle(
+                          color: Theme.of(context).textTheme.bodyText1!.color,
+                        ),
+                      ),
+                      onTap: () {
+                        final HubEntity? hubEntity =
+                            IHubConnectionRepository.hubEntity;
+                        if (hubEntity != null &&
+                            hubEntity.lastKnownIp.isValid()) {
+                          final String lastKnownIp =
+                              hubEntity.lastKnownIp.getOrCrash();
+                          launchUrl(
+                            Uri.parse('http://$lastKnownIp:1880'),
+                            mode: LaunchMode.externalApplication,
+                          );
+                        } else {
+                          showDialog(
+                            context: context,
+                            builder: (_) => const AlertDialog(
+                              title: Text(
+                                "Can't find Hub/Node-Red IP to connect to",
+                              ),
+                            ),
+                          );
+                        }
+                      },
+                    ),
+                  ),
                   const SizedBox(
                     height: 1,
                   ),

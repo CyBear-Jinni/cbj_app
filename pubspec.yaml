@@ -95,6 +95,8 @@ dependencies:
   hive_flutter: ^1.1.0
   # A composable, multi-platform, Future-based API for HTTP requests.
   http: ^0.13.4
+  # Open source icon sets for flutter
+  iconify_flutter: ^0.0.4
   # Convenient code generator for get_it
   injectable: ^1.5.3
   # Allow you to have a screen at launcher for example

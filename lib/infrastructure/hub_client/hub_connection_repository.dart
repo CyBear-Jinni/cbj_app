@@ -35,11 +35,9 @@ class HubConnectionRepository extends IHubConnectionRepository {
   /// running environment
   late int hubPort;
 
-  static HubEntity? hubEntity;
-
   @override
   Future<void> connectWithHub() async {
-    if (hubEntity == null) {
+    if (IHubConnectionRepository.hubEntity == null) {
       try {
         String? hubNetworkBssid;
         (await getIt<ILocalDbRepository>().getHubEntityNetworkBssid()).fold(
@@ -58,7 +56,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
           (l) => throw 'Error getting Hub network IP',
           (r) => hubNetworkIp = r,
         );
-        hubEntity = HubDtos(
+        IHubConnectionRepository.hubEntity = HubDtos(
           hubNetworkBssid: hubNetworkBssid!,
           lastKnownIp: hubNetworkIp!,
           networkName: hubNetworkName!,
@@ -77,7 +75,8 @@ class HubConnectionRepository extends IHubConnectionRepository {
 
     // Last Number of bssid can change fix?, need to check if more numbers
     // can do that
-    final String? savedWifiBssid = hubEntity?.hubNetworkBssid.getOrCrash();
+    final String? savedWifiBssid =
+        IHubConnectionRepository.hubEntity?.hubNetworkBssid.getOrCrash();
     final String? savedWifiBssidWithoutLastNumber =
         savedWifiBssid?.substring(0, savedWifiBssid.lastIndexOf(':'));
     String? wifiBSSID;
@@ -105,11 +104,12 @@ class HubConnectionRepository extends IHubConnectionRepository {
         (kIsWeb && savedWifiBssidWithoutLastNumber == 'no:Network:Bssid')) {
       logger.i('Connect using direct connection to Hub');
 
-      if (hubEntity?.lastKnownIp.getOrCrash() != null) {
+      if (IHubConnectionRepository.hubEntity?.lastKnownIp.getOrCrash() !=
+          null) {
         Socket? testHubConnection;
         try {
           testHubConnection = await Socket.connect(
-            hubEntity!.lastKnownIp.getOrCrash(),
+            IHubConnectionRepository.hubEntity!.lastKnownIp.getOrCrash(),
             hubPort,
             timeout: const Duration(milliseconds: 500),
           );
@@ -130,7 +130,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
       }
 
       await HubClient.createStreamWithHub(
-        hubEntity!.lastKnownIp.getOrCrash(),
+        IHubConnectionRepository.hubEntity!.lastKnownIp.getOrCrash(),
         hubPort,
       );
 
@@ -150,7 +150,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
   Future<Either<HubFailures, CompHubInfo>> getHubCompInfo(
     CompHubInfo appInfoForHub,
   ) async {
-    if (hubEntity == null) {
+    if (IHubConnectionRepository.hubEntity == null) {
       try {
         String? hubNetworkBssid;
         (await getIt<ILocalDbRepository>().getHubEntityNetworkBssid()).fold(
@@ -169,7 +169,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
           (l) => throw 'Error getting Hub network IP',
           (r) => hubNetworkIp = r,
         );
-        hubEntity = HubDtos(
+        IHubConnectionRepository.hubEntity = HubDtos(
           hubNetworkBssid: hubNetworkBssid!,
           lastKnownIp: hubNetworkIp!,
           networkName: hubNetworkName!,
@@ -188,7 +188,8 @@ class HubConnectionRepository extends IHubConnectionRepository {
 
     // Last Number of bssid can change fix?, need to check if more numbers
     // can do that
-    final String? savedWifiBssid = hubEntity?.hubNetworkBssid.getOrCrash();
+    final String? savedWifiBssid =
+        IHubConnectionRepository.hubEntity?.hubNetworkBssid.getOrCrash();
     final String? savedWifiBssidWithoutLastNumber =
         savedWifiBssid?.substring(0, savedWifiBssid.lastIndexOf(':'));
 
@@ -208,11 +209,12 @@ class HubConnectionRepository extends IHubConnectionRepository {
         savedWifiBssidWithoutLastNumber == wifiBSSIDWithoutLastNumber) {
       logger.i('Connect using direct connection to Hub');
 
-      if (hubEntity?.lastKnownIp.getOrCrash() != null) {
+      if (IHubConnectionRepository.hubEntity?.lastKnownIp.getOrCrash() !=
+          null) {
         Socket? testHubConnection;
         try {
           testHubConnection = await Socket.connect(
-            hubEntity!.lastKnownIp.getOrCrash(),
+            IHubConnectionRepository.hubEntity!.lastKnownIp.getOrCrash(),
             hubPort,
             timeout: const Duration(milliseconds: 500),
           );
@@ -228,7 +230,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
 
       try {
         final CompHubInfo? compHubInfo = await HubClient.getHubCompInfo(
-          hubEntity!.lastKnownIp.getOrCrash(),
+          IHubConnectionRepository.hubEntity!.lastKnownIp.getOrCrash(),
           hubPort,
           appInfoForHub,
         );
@@ -442,13 +444,14 @@ class HubConnectionRepository extends IHubConnectionRepository {
     required String networkName,
     required String networkBSSID,
   }) async {
-    hubEntity = HubEntity(
+    IHubConnectionRepository.hubEntity = HubEntity(
       hubNetworkBssid: HubNetworkBssid(networkBSSID),
       networkName: HubNetworkName(networkName),
       lastKnownIp: HubNetworkIp(networkIp),
     );
 
-    final HubDtos hubDtos = hubEntity!.toInfrastructure();
+    final HubDtos hubDtos =
+        IHubConnectionRepository.hubEntity!.toInfrastructure();
 
     (await getIt<ILocalDbRepository>().saveHubEntity(
       hubNetworkBssid: hubDtos.hubNetworkBssid,
