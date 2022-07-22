@@ -3,6 +3,7 @@ import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstra
 import 'package:cybear_jinni/presentation/add_new_automation_process/add_action/add_action_page.dart';
 import 'package:cybear_jinni/presentation/add_new_automation_process/add_bindings/add_binding_page.dart';
 import 'package:cybear_jinni/presentation/add_new_automation_process/add_routine/add_routine_page.dart';
+import 'package:cybear_jinni/presentation/add_new_automation_process/add_routine/pick_repeat_time/pick_repeat_time_page.dart';
 import 'package:cybear_jinni/presentation/add_new_automation_process/add_scene/add_scene_page.dart';
 import 'package:cybear_jinni/presentation/add_new_automation_process/choose_automation_type_to_add/choose_automation_type_to_add_page.dart';
 import 'package:cybear_jinni/presentation/add_new_devices_process/choose_device_vendor_to_add/choose_device_vendor_to_add_page.dart';
@@ -68,6 +69,7 @@ import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_pag
     AutoRoute(page: ScenesPage),
     AutoRoute(page: AddScenePage),
     AutoRoute(page: AddRoutinePage),
+    AutoRoute(page: PickRepeatTimePage),
     AutoRoute(page: AddRoutineDeletePage),
     AutoRoute(page: AddBindingPage),
     AutoRoute<List<MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>>>(
@@ -106,6 +108,7 @@ class $AppRouter {
   late ScenesPage scenesPage;
   late AddScenePage addScenePage;
   late AddRoutinePage addRoutinePage;
+  late PickRepeatTimePage pickRepeatTimePage;
   late AddRoutineDeletePage addRoutineDeletePage;
   late AddBindingPage addBindingPage;
   late AddActionPage addActionPage;

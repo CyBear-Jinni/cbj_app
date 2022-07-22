@@ -38,7 +38,7 @@ class VendorWidget extends StatelessWidget {
           Fluttertoast.showToast(
             msg: '${vendor.name.getOrCrash()} devices can only be added '
                 'manually in the Hub',
-            toastLength: Toast.LENGTH_SHORT,
+            toastLength: Toast.LENGTH_LONG,
             gravity: ToastGravity.SNACKBAR,
             backgroundColor: Colors.orangeAccent,
             textColor: Theme.of(context).textTheme.bodyText1!.color,

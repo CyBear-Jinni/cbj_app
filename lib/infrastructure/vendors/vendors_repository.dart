@@ -109,7 +109,7 @@ class VendorsMocDataWithImages {
       Vendor(
         name: VendorName('Tasmota'),
         image:
-            'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.kyAWxT4tVBWL6O2sCJKqaAHaHa%26pid%3DApi&f=1',
+            'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fapps-cdn.athom.com%2Fapp%2Fcom.paveld.tasmota%2F17%2F416f22d3-812c-4d53-81d3-6637f54e5f74%2Fdrivers%2Ftasmota_mqtt%2Fassets%2Fimages%2Flarge.png&f=1&nofb=1',
       ),
       Vendor(
         name: VendorName('Xiaomi Mi'),

@@ -27,16 +27,39 @@ class CbjHubInNetwork extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  TextButton(
-                    style: TextButton.styleFrom(
-                      backgroundColor: Colors.white.withOpacity(0.8),
-                    ),
-                    onPressed: () {
-                      context.read<HubInNetworkBloc>().add(
-                            const HubInNetworkEvent.searchHubInNetwork(),
-                          );
-                    },
-                    child: const Text('Retry'),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      TextButton(
+                        style: TextButton.styleFrom(
+                          backgroundColor: Colors.white.withOpacity(0.8),
+                        ),
+                        onPressed: () {
+                          context.read<HubInNetworkBloc>().add(
+                                const HubInNetworkEvent.searchHubInNetwork(),
+                              );
+                        },
+                        child: const Text('Retry'),
+                      ),
+                      SizedBox(
+                        width: 40,
+                      ),
+                      TextButton(
+                        style: TextButton.styleFrom(
+                          backgroundColor: Colors.white.withOpacity(0.8),
+                        ),
+                        onPressed: () {
+                          context.read<HubInNetworkBloc>().add(
+                                const HubInNetworkEvent
+                                    .isHubIpCheckBoxChangedState(
+                                  '',
+                                  false,
+                                ),
+                              );
+                        },
+                        child: const Text('Retry Manually'),
+                      ),
+                    ],
                   ),
                 ],
               );

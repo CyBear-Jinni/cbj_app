@@ -53,8 +53,10 @@ dependencies:
   cupertino_icons: ^1.0.5
   # Functional programming thingies, let you use multiple return types
   dartz: ^0.10.1
+  # Widget to display a date time form field
+  date_time_picker: ^2.1.0
   # Get current device information
-  device_info_plus: ^4.0.0
+  device_info_plus: ^4.0.1
   # Internationalization (Easy translations)
   easy_localization: ^3.0.1
   # An "expansion" on the Flutter SDK's standard ExpansionTile
@@ -123,7 +125,7 @@ dependencies:
   # Helps you discover open ports, devices on subnet and more.
   network_tools: ^1.0.8
   # Querying information about the application package, such as CFBundleVersion
-  package_info_plus: ^1.4.2
+  package_info_plus: ^1.4.3
   # Finding commonly used locations on the filesystem
   path_provider: ^2.0.11
   # Popup that ask for the requested permission

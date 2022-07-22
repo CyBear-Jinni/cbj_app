@@ -38,6 +38,10 @@ class AddRoutineWidget extends StatelessWidget {
                           );
                     },
                   ),
+                  TextButton(
+                    onPressed: () {},
+                    child: const Text('Repeat each'),
+                  ),
                   SizedBox(
                     height: 300,
                     width: 500,

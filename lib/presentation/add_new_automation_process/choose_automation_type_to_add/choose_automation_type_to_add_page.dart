@@ -124,7 +124,15 @@ class ChooseAutomationTypeToAddPage extends StatelessWidget {
                           padding: const EdgeInsets.all(10),
                           child: TextButton(
                             onPressed: () {
-                              // context.router.push(const AddRoutineRoute());
+                              showDialog(
+                                context: context,
+                                builder: (_) => const AlertDialog(
+                                  title: Text(
+                                    'Not supported yet',
+                                  ),
+                                ),
+                              );
+                              // context.router.push(const PickRepeatTimeRoute());
                             },
                             child: Column(
                               children: [
@@ -176,6 +184,14 @@ class ChooseAutomationTypeToAddPage extends StatelessWidget {
                           padding: const EdgeInsets.all(10),
                           child: TextButton(
                             onPressed: () {
+                              showDialog(
+                                context: context,
+                                builder: (_) => const AlertDialog(
+                                  title: Text(
+                                    'Not supported yet',
+                                  ),
+                                ),
+                              );
                               // context.router
                               //     .push(const AddRoutineDeleteRoute());
                               // context.router
