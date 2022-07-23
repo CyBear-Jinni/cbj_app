@@ -4,6 +4,12 @@ part of 'add_new_routine_bloc.dart';
 class AddNewRoutineEvent with _$AddNewRoutineEvent {
   const factory AddNewRoutineEvent.initialized() = Initialized;
 
+  const factory AddNewRoutineEvent.addRoutineDate({
+    required RoutineCbjRepeatDateDays? daysToRepeat,
+    required RoutineCbjRepeatDateHour? hourToRepeat,
+    required RoutineCbjRepeatDateMinute? minutesToRepeat,
+  }) = AddRoutineDate;
+
   const factory AddNewRoutineEvent.routineNameChange(String routineName) =
       RoutineNameChange;
 

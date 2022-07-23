@@ -38,10 +38,6 @@ class AddRoutineWidget extends StatelessWidget {
                           );
                     },
                   ),
-                  TextButton(
-                    onPressed: () {},
-                    child: const Text('Repeat each'),
-                  ),
                   SizedBox(
                     height: 300,
                     width: 500,
@@ -187,7 +183,10 @@ class AddRoutineWidget extends StatelessWidget {
             );
           },
           loadInProgress: (loadInProgress) {
-            return const Text('loadInProgress');
+            return const Text('load In Progress');
+          },
+          addNewRoutineFailure: (AddNewRoutineFailure value) {
+            return const Text('Failure while adding new routine');
           },
         );
       },

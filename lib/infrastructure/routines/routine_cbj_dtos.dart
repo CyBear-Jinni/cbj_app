@@ -19,6 +19,10 @@ abstract class RoutineCbjDtos implements _$RoutineCbjDtos {
     required String? senderId,
     required String? compUuid,
     required String? stateMassage,
+    required String? repeateType,
+    required List<String>? repeateDateDays,
+    required String? repeateDateHour,
+    required String? repeateDateMinute,
     String? automationString,
     String? firstNodeId,
     String? iconCodePoint,
@@ -45,6 +49,11 @@ abstract class RoutineCbjDtos implements _$RoutineCbjDtos {
       senderId: routineCbj.senderId.getOrCrash(),
       compUuid: routineCbj.compUuid.getOrCrash(),
       stateMassage: routineCbj.stateMassage.getOrCrash(),
+      repeateType: routineCbj.repeateType.getOrCrash(),
+      repeateDateDays: routineCbj.repeateDateDays.getOrCrash(),
+      repeateDateHour: routineCbj.repeateDateHour.getOrCrash(),
+      repeateDateMinute: routineCbj.repeateDateMinute.getOrCrash(),
+
       // serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }
@@ -70,6 +79,10 @@ abstract class RoutineCbjDtos implements _$RoutineCbjDtos {
       senderId: RoutineCbjSenderId(senderId),
       compUuid: RoutineCbjCompUuid(compUuid),
       stateMassage: RoutineCbjStateMassage(stateMassage),
+      repeateType: RoutineCbjRepeatType(repeateType),
+      repeateDateDays: RoutineCbjRepeatDateDays(repeateDateDays),
+      repeateDateHour: RoutineCbjRepeatDateHour(repeateDateHour),
+      repeateDateMinute: RoutineCbjRepeatDateMinute(repeateDateMinute),
     );
   }
 }

@@ -29,7 +29,6 @@ class _HomePageState extends State<HomePage> {
     ScenesInFoldersTab(),
     SmartDevicesWidgets(),
     // BindingsPage(),
-    // RoutinesPage(),
   ];
   final _pageController = PageController(initialPage: 1);
 

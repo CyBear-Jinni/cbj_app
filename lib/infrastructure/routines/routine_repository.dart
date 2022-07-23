@@ -62,6 +62,10 @@ class RoutineCbjRepository implements IRoutineCbjRepository {
           senderId: RoutineCbjSenderId(null),
           compUuid: RoutineCbjCompUuid(null),
           stateMassage: RoutineCbjStateMassage(null),
+          repeateType: RoutineCbjRepeatType(null),
+          repeateDateDays: RoutineCbjRepeatDateDays(null),
+          repeateDateHour: RoutineCbjRepeatDateHour(null),
+          repeateDateMinute: RoutineCbjRepeatDateMinute(null),
         ),
       );
     } catch (e) {
@@ -92,11 +96,17 @@ class RoutineCbjRepository implements IRoutineCbjRepository {
     String routineName,
     List<MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>>
         smartDevicesWithActionToAdd,
+    RoutineCbjRepeatDateDays daysToRepeat,
+    RoutineCbjRepeatDateHour hourToRepeat,
+    RoutineCbjRepeatDateMinute minutesToRepeat,
   ) async {
     final RoutineCbjEntity newCbjRoutine =
         NodeRedConverter.convertToRoutineNodes(
       nodeName: routineName,
       devicesPropertyAction: smartDevicesWithActionToAdd,
+      daysToRepeat: daysToRepeat,
+      hourToRepeat: hourToRepeat,
+      minutesToRepeat: minutesToRepeat,
     );
     return addOrUpdateNewRoutineInHub(newCbjRoutine);
   }

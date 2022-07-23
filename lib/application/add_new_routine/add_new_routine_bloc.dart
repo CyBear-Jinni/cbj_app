@@ -5,6 +5,7 @@ import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstra
 import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/domain/routine/i_routine_cbj_repository.dart';
+import 'package:cybear_jinni/domain/routine/value_objects_routine_cbj.dart';
 import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -18,6 +19,7 @@ part 'add_new_routine_state.dart';
 class AddNewRoutineBloc extends Bloc<AddNewRoutineEvent, AddNewRoutineState> {
   AddNewRoutineBloc(this._deviceRepository, this._routineRepository)
       : super(AddNewRoutineState.initial()) {
+    on<AddRoutineDate>(_addRoutineDate);
     on<ChangeActionDevices>(_changeActionDevices);
     on<RoutineNameChange>(_routineNameChange);
     on<AddDevicesWithNewActions>(_addDevicesWithNewActions);
@@ -35,6 +37,10 @@ class AddNewRoutineBloc extends Bloc<AddNewRoutineEvent, AddNewRoutineState> {
 
   String routineName = '';
   List<DeviceEntityAbstract> allDevices = [];
+
+  RoutineCbjRepeatDateDays? daysToRepeat;
+  RoutineCbjRepeatDateHour? hourToRepeat;
+  RoutineCbjRepeatDateMinute? minutesToRepeat;
 
   /// List of devices with entities, will be treated as actions
   List<MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>>
@@ -66,6 +72,15 @@ class AddNewRoutineBloc extends Bloc<AddNewRoutineEvent, AddNewRoutineState> {
     );
   }
 
+  Future<void> _addRoutineDate(
+    AddRoutineDate event,
+    Emitter<AddNewRoutineState> emit,
+  ) async {
+    daysToRepeat = event.daysToRepeat;
+    hourToRepeat = event.hourToRepeat;
+    minutesToRepeat = event.minutesToRepeat;
+  }
+
   Future<void> _changeActionDevices(
     ChangeActionDevices event,
     Emitter<AddNewRoutineState> emit,
@@ -87,9 +102,19 @@ class AddNewRoutineBloc extends Bloc<AddNewRoutineEvent, AddNewRoutineState> {
     SendRoutineToHub event,
     Emitter<AddNewRoutineState> emit,
   ) async {
+    if (daysToRepeat == null ||
+        hourToRepeat == null ||
+        minutesToRepeat == null) {
+      emit(const AddNewRoutineFailure());
+
+      return;
+    }
     _routineRepository.addOrUpdateNewRoutineInHubFromDevicesPropertyActionList(
       routineName,
       allDevicesWithNewAction,
+      daysToRepeat!,
+      hourToRepeat!,
+      minutesToRepeat!,
     );
   }
 

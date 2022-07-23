@@ -53,8 +53,10 @@ dependencies:
   cupertino_icons: ^1.0.5
   # Functional programming thingies, let you use multiple return types
   dartz: ^0.10.1
-  # Widget to display a date time form field
-  date_time_picker: ^2.1.0
+  # A day night time picker.
+  day_night_time_picker: ^1.1.2
+  # Helps us to select days in a week.
+  day_picker: ^2.1.1
   # Get current device information
   device_info_plus: ^4.0.1
   # Internationalization (Easy translations)

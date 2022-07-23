@@ -16,4 +16,7 @@ class AddNewRoutineState with _$AddNewRoutineState {
   }) = LoadPageState;
 
   const factory AddNewRoutineState.loadInProgress() = LoadInProgress;
+
+  const factory AddNewRoutineState.addNewRoutineFailure() =
+      AddNewRoutineFailure;
 }

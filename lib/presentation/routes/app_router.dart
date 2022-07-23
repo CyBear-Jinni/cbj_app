@@ -33,7 +33,6 @@ import 'package:cybear_jinni/presentation/device_full_screen_page/smart_plugs/sm
 import 'package:cybear_jinni/presentation/device_full_screen_page/switches/rooms_switches_page.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/switches/switches_in_the_room/switches_in_the_room_page.dart';
 import 'package:cybear_jinni/presentation/home_page/home_page.dart';
-import 'package:cybear_jinni/presentation/home_page/tabs/routine_tab/add_routine/add_routine_delete_page.dart';
 import 'package:cybear_jinni/presentation/introduction_screen/introduction_screen_page.dart';
 import 'package:cybear_jinni/presentation/join_home_by_id/join_home_by_id_page.dart';
 import 'package:cybear_jinni/presentation/manage_users/manage_users_page.dart';
@@ -70,7 +69,6 @@ import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_pag
     AutoRoute(page: AddScenePage),
     AutoRoute(page: AddRoutinePage),
     AutoRoute(page: PickRepeatTimePage),
-    AutoRoute(page: AddRoutineDeletePage),
     AutoRoute(page: AddBindingPage),
     AutoRoute<List<MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>>>(
       page: AddActionPage,
@@ -109,7 +107,6 @@ class $AppRouter {
   late AddScenePage addScenePage;
   late AddRoutinePage addRoutinePage;
   late PickRepeatTimePage pickRepeatTimePage;
-  late AddRoutineDeletePage addRoutineDeletePage;
   late AddBindingPage addBindingPage;
   late AddActionPage addActionPage;
   late ChooseAutomationTypeToAddPage chooseAutomationTypeToAddPage;
