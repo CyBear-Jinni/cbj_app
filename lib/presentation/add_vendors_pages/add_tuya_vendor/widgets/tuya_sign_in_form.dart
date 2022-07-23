@@ -73,7 +73,7 @@ class TuyaSignInForm extends StatelessWidget {
                     ),
                     TextFormField(
                       decoration: const InputDecoration(
-                        prefixIcon: FaIcon(FontAwesomeIcons.signInAlt),
+                        prefixIcon: FaIcon(FontAwesomeIcons.rightToBracket),
                         labelText: 'Tuya User Name',
                       ),
                       autocorrect: false,

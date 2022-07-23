@@ -32,7 +32,7 @@ class _SmartBlindPage extends State<SmartBlindPage> {
     _blind = widget.genericBlindBlind;
     getAndUpdateState();
 
-    WidgetsBinding.instance!
+    WidgetsBinding.instance
         .addObserver(LifecycleEventHandler(resumeCallBack: getAndUpdateState));
   }
 

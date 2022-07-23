@@ -26,14 +26,14 @@ class ScenesPage extends StatelessWidget {
             '➕ Add Automation',
             style: TextStyle(color: Colors.green, fontSize: 23),
           ),
-          onPressed: () {},
+          onPressed: (_) {},
         ),
         BottomSheetAction(
           title: const Text(
             '⚙️ Scenes Settings',
             style: TextStyle(color: Colors.blueGrey, fontSize: 23),
           ),
-          onPressed: () {},
+          onPressed: (_) {},
         ),
       ],
     );
@@ -63,7 +63,7 @@ class ScenesPage extends StatelessWidget {
               rightIconFunction: userCogFunction,
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: leftIconFunction,
-              // rightSecondIcon: FontAwesomeIcons.search,
+              // rightSecondIcon: FontAwesomeIcons.magnifyingGlass,
               // rightSecondFunction: () {},
             ),
             Expanded(

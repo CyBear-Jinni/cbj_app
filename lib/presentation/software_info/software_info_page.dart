@@ -22,7 +22,7 @@ class SoftwareInfoPage extends StatelessWidget {
             '➕ Add software nfo',
             style: TextStyle(color: Colors.green, fontSize: 23),
           ),
-          onPressed: () {
+          onPressed: (_) {
             // context.router.push(const AddUserToHomeRoute());
           },
         ),

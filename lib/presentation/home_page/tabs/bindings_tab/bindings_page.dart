@@ -17,7 +17,7 @@ class BindingsPage extends StatelessWidget {
             '⚙️ Bindings Settings',
             style: TextStyle(color: Colors.blueGrey, fontSize: 23),
           ),
-          onPressed: () {},
+          onPressed: (_) {},
         ),
       ],
     );
@@ -39,9 +39,9 @@ class BindingsPage extends StatelessWidget {
               pageName: 'Bindings',
               rightIcon: Icons.more_vert,
               rightIconFunction: userCogFunction,
-              leftIcon: FontAwesomeIcons.userCog,
+              leftIcon: FontAwesomeIcons.userGear,
               leftIconFunction: leftIconFunction,
-              rightSecondIcon: FontAwesomeIcons.search,
+              rightSecondIcon: FontAwesomeIcons.magnifyingGlass,
               rightSecondFunction: rightSecondFunction,
             ),
             const SizedBox(

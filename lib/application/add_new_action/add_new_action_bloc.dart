@@ -80,17 +80,22 @@ class AddNewActionBloc extends Bloc<AddNewActionEvent, AddNewActionState> {
     Emitter<AddNewActionState> emit,
   ) async {
     if (state.allDevicesWithNewAction.isNotEmpty) {
+      final List<MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>>
+          tempAllDevicesWithNewActionList =
+          List.from(state.allDevicesWithNewAction);
+
       final MapEntry<String?, String> propertyWithAction = MapEntry(
-        state.allDevicesWithNewAction[0].value.key,
+        tempAllDevicesWithNewActionList[0].value.key,
         event.actionsName,
       );
-      state.allDevicesWithNewAction[0] =
-          MapEntry(state.allDevicesWithNewAction[0].key, propertyWithAction);
+
+      tempAllDevicesWithNewActionList[0] =
+          MapEntry(tempAllDevicesWithNewActionList[0].key, propertyWithAction);
 
       emit(
         state.copyWith(
           actionsName: event.actionsName,
-          allDevicesWithNewAction: state.allDevicesWithNewAction,
+          allDevicesWithNewAction: tempAllDevicesWithNewActionList,
           authFailureOrSuccessOption: none(),
         ),
       );
@@ -102,17 +107,22 @@ class AddNewActionBloc extends Bloc<AddNewActionEvent, AddNewActionState> {
     Emitter<AddNewActionState> emit,
   ) async {
     if (state.allDevicesWithNewAction.isNotEmpty) {
+      final List<MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>>
+          tempAllDevicesWithNewActionList =
+          List.from(state.allDevicesWithNewAction);
+
       final MapEntry<String?, String?> propertyWithAction = MapEntry(
         event.propertyOfDevice,
         null,
       );
-      state.allDevicesWithNewAction[0] =
-          MapEntry(state.allDevicesWithNewAction[0].key, propertyWithAction);
+
+      tempAllDevicesWithNewActionList[0] =
+          MapEntry(tempAllDevicesWithNewActionList[0].key, propertyWithAction);
 
       emit(
         state.copyWith(
           propertyName: event.propertyOfDevice,
-          allDevicesWithNewAction: state.allDevicesWithNewAction,
+          allDevicesWithNewAction: tempAllDevicesWithNewActionList,
           authFailureOrSuccessOption: none(),
         ),
       );

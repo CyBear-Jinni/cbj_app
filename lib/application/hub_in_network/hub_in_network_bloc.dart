@@ -22,7 +22,9 @@ class HubInNetworkBloc extends Bloc<HubInNetworkEvent, HubInNetworkState> {
   HubInNetworkBloc(this._hubConnectionRepository)
       : super(HubInNetworkState.initial()) {
     on<InitialEvent>(_initialEvent);
-    on<WatchAllStarted>(_searchHubInNetwork);
+    on<SearchHubInNetwork>(_searchHubInNetwork);
+    on<SearchHubUsingAnyIpOnTheNetwork>(_searchHubUsingAnyIpOnTheNetwork);
+    on<IsHubIpCheckBoxChangedState>(_isHubIpCheckBoxChangedState);
   }
 
   final IHubConnectionRepository _hubConnectionRepository;
@@ -40,7 +42,7 @@ class HubInNetworkBloc extends Bloc<HubInNetworkEvent, HubInNetworkState> {
   }
 
   Future<void> _searchHubInNetwork(
-    WatchAllStarted event,
+    SearchHubInNetwork event,
     Emitter<HubInNetworkState> emit,
   ) async {
     emit(const HubInNetworkState.loadInProgress());
@@ -51,6 +53,30 @@ class HubInNetworkBloc extends Bloc<HubInNetworkEvent, HubInNetworkState> {
         return const HubInNetworkState.loadSuccess();
       }),
     );
+  }
+
+  Future<void> _searchHubUsingAnyIpOnTheNetwork(
+    SearchHubUsingAnyIpOnTheNetwork event,
+    Emitter<HubInNetworkState> emit,
+  ) async {
+    emit(const HubInNetworkState.loadInProgress());
+    emit(
+      (await _hubConnectionRepository.searchForHub(
+        deviceIpOnTheNetwork: event.ipOnTheNetwork,
+        isThatTheIpOfTheHub: event.isHubIp,
+      ))
+          .fold((l) => HubInNetworkState.loadFailure(l), (r) {
+        context?.router.replace(const HomeRoute());
+        return const HubInNetworkState.loadSuccess();
+      }),
+    );
+  }
+
+  Future<void> _isHubIpCheckBoxChangedState(
+    IsHubIpCheckBoxChangedState event,
+    Emitter<HubInNetworkState> emit,
+  ) async {
+    emit(HubInNetworkState.tryIpManually(event.ipOnTheNetwork, event.isHubIp));
   }
 
   @override

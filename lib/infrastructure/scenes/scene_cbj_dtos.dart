@@ -13,18 +13,17 @@ abstract class SceneCbjDtos implements _$SceneCbjDtos {
     required String uniqueId,
     required String name,
     required String backgroundColor,
-    String? automationString,
-    String? firstNodeId,
-    String? iconCodePoint,
-    String? image,
-    String? lastDateOfExecute,
     required String? deviceStateGRPC,
     required String? senderDeviceOs,
     required String? senderDeviceModel,
     required String? senderId,
     required String? compUuid,
     required String? stateMassage,
-
+    String? automationString,
+    String? firstNodeId,
+    String? iconCodePoint,
+    String? image,
+    String? lastDateOfExecute,
     // required ServerTimestampConverter() FieldValue serverTimeStamp,
   }) = _SceneCbjDtos;
 
@@ -53,7 +52,6 @@ abstract class SceneCbjDtos implements _$SceneCbjDtos {
   factory SceneCbjDtos.fromJson(Map<String, dynamic> json) =>
       _$SceneCbjDtosFromJson(json);
 
-  @override
   final String deviceDtoClassInstance = (SceneCbjDtos).toString();
 
   SceneCbjEntity toDomain() {

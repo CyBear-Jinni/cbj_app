@@ -38,8 +38,6 @@ class HubRequestRouting {
   static int numberOfConnactivityChange = 0;
 
   static Future<void> navigateRequest() async {
-    AppRequestsToHub.lisenToApp();
-    HubRequestsToApp.lisenToApp();
     if (areWeRunning) {
       return;
     }
@@ -92,15 +90,14 @@ class HubRequestRouting {
     connectivityChangedStream = Connectivity().onConnectivityChanged;
     connectivityChangedStream?.listen((ConnectivityResult event) async {
       numberOfConnactivityChange++;
-      logger.e(
-        'Connectivity changed ${event.name} And $event',
-      );
+      logger.i('Connectivity changed ${event.name} And $event');
       if (event == ConnectivityResult.none || numberOfConnactivityChange <= 1) {
         return;
       }
       areWeRunning = false;
       navigateRequest();
     });
+
     await getIt<IHubConnectionRepository>().connectWithHub();
   }
 
@@ -118,6 +115,10 @@ class HubRequestRouting {
           List<String>.from(requestAsJson['roomDevicesId'] as List<dynamic>),
       roomScenesId:
           List<String>.from(requestAsJson['roomScenesId'] as List<dynamic>),
+      roomRoutinesId:
+          List<String>.from(requestAsJson['roomRoutinesId'] as List<dynamic>),
+      roomBindingsId:
+          List<String>.from(requestAsJson['roomBindingsId'] as List<dynamic>),
       roomMostUsedBy:
           List<String>.from(requestAsJson['roomMostUsedBy'] as List<dynamic>),
       roomPermissions:

@@ -79,7 +79,8 @@ class SceneCbjName extends ValueObjectScenesCbj<String> {
 class SceneCbjBackgroundColor extends ValueObjectScenesCbj<String> {
   factory SceneCbjBackgroundColor(String input) {
     return SceneCbjBackgroundColor._(
-        validateSceneCbjBackgroundColorNotEmpty(input));
+      validateSceneCbjBackgroundColorNotEmpty(input),
+    );
   }
 
   const SceneCbjBackgroundColor._(this.value);
@@ -91,7 +92,8 @@ class SceneCbjBackgroundColor extends ValueObjectScenesCbj<String> {
 class SceneCbjAutomationString extends ValueObjectScenesCbj<String?> {
   factory SceneCbjAutomationString(String? input) {
     return SceneCbjAutomationString._(
-        validateSceneCbjAutomationStringLugit(input));
+      validateSceneCbjAutomationStringLugit(input),
+    );
   }
 
   const SceneCbjAutomationString._(this.value);
@@ -169,7 +171,8 @@ class SceneCbjSenderDeviceOs extends ValueObjectScenesCbj<String?> {
 class SceneCbjSenderDeviceModel extends ValueObjectScenesCbj<String?> {
   factory SceneCbjSenderDeviceModel(String? input) {
     return SceneCbjSenderDeviceModel._(
-        validateSceneCbjSenderDeviceModel(input));
+      validateSceneCbjSenderDeviceModel(input),
+    );
   }
 
   const SceneCbjSenderDeviceModel._(this.value);

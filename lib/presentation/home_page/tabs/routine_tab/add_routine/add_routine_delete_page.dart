@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// The page to add new routines
-class AddRoutinePage extends StatelessWidget {
+class AddRoutineDeletePage extends StatelessWidget {
   void backButtonFunction(BuildContext context) {
     Navigator.pop(context);
   }

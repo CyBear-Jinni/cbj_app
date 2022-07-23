@@ -1,6 +1,6 @@
 name: cybear_jinni
 description: CyBear Jinni app to interact with your CyBear Jinni Smart Devices
-version: 1.3.1+51
+version: 1.3.3+53
 homepage: https://cybearjinni.com
 
 publish_to: 'none'
@@ -31,7 +31,7 @@ flutter:
 
 dependencies:
   # A action bottom sheet that adapts to the platform
-  adaptive_action_sheet: ^2.0.1
+  adaptive_action_sheet: ^2.0.2
   # Collection of some cool and awesome text animations.
   animated_text_kit: ^4.2.2
   # More customization when notifying your user.
@@ -47,15 +47,16 @@ dependencies:
   # Copy text from and to clipboard
   clipboard: ^0.1.3
   # Allow discover network connectivity
-  connectivity_plus: ^2.3.5
+  connectivity_plus: ^2.3.6
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.5
   # Functional programming thingies, let you use multiple return types
-  # Functional programming thingipes, let you use multiple return types
   dartz: ^0.10.1
+  # Widget to display a date time form field
+  date_time_picker: ^2.1.0
   # Get current device information
-  device_info_plus: ^4.0.0
+  device_info_plus: ^4.0.1
   # Internationalization (Easy translations)
   easy_localization: ^3.0.1
   # An "expansion" on the Flutter SDK's standard ExpansionTile
@@ -95,6 +96,8 @@ dependencies:
   hive_flutter: ^1.1.0
   # A composable, multi-platform, Future-based API for HTTP requests.
   http: ^0.13.4
+  # Open source icon sets for flutter
+  iconify_flutter: ^0.0.4
   # Convenient code generator for get_it
   injectable: ^1.5.3
   # Allow you to have a screen at launcher for example
@@ -122,7 +125,7 @@ dependencies:
   # Helps you discover open ports, devices on subnet and more.
   network_tools: ^1.0.8
   # Querying information about the application package, such as CFBundleVersion
-  package_info_plus: ^1.4.2
+  package_info_plus: ^1.4.3
   # Finding commonly used locations on the filesystem
   path_provider: ^2.0.11
   # Popup that ask for the requested permission
@@ -143,6 +146,8 @@ dependencies:
   uuid: ^3.0.6
   # Get available wifi ssid list, user can connect to wifi with ssid and password, and create hotspot
   wifi_iot: ^0.3.16
+  # Scan for nearby visible WiFi access points.
+  wifi_scan: ^0.3.0
 
 
 dev_dependencies:

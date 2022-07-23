@@ -106,7 +106,7 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
                       child: Row(
                         children: <Widget>[
                           FaIcon(
-                            FontAwesomeIcons.userFriends,
+                            FontAwesomeIcons.userGroup,
                             color: Theme.of(context).textTheme.bodyText1!.color,
                           ),
                           const SizedBox(

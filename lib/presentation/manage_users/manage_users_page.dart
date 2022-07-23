@@ -22,7 +22,7 @@ class ManageUsersPage extends StatelessWidget {
             '➕ Add User',
             style: TextStyle(color: Colors.green, fontSize: 23),
           ),
-          onPressed: () {
+          onPressed: (_) {
             context.router.push(const AddUserToHomeRoute());
           },
         ),
