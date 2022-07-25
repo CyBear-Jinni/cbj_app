@@ -14,8 +14,10 @@ class SplashPage extends StatelessWidget {
       listener: (context, state) {
         state.map(
           initial: (_) {},
-          authenticated: (_) => context.router.replace(const HomeRoute()),
-          unauthenticated: (_) {
+          authenticated: (_) async {
+            return context.router.replace(const HomeRoute());
+          },
+          unauthenticated: (_) async {
             if (kIsWeb || Platform.isLinux) {
               return context.router.replace(const ConnectToHubRoute());
             }
@@ -32,7 +34,13 @@ class _PageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(),
+      body: Center(
+        child: Expanded(
+          child: Image.asset(
+            'assets/cbj_logo.png',
+          ),
+        ),
+      ),
     );
   }
 }
