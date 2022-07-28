@@ -467,6 +467,11 @@ class HubConnectionRepository extends IHubConnectionRepository {
 
     int permissionCounter = 0;
 
+    // Get location permission is not supported on Linux
+    if (Platform.isLinux) {
+      return right(unit);
+    }
+
     while (true) {
       _permissionGranted = await location.hasPermission();
       if (_permissionGranted == PermissionStatus.denied) {
