@@ -419,30 +419,24 @@ class HubConnectionRepository extends IHubConnectionRepository {
       final String subnet =
           currentDeviceIP!.substring(0, currentDeviceIP.lastIndexOf('.'));
 
-      logger.i('subnet IP $subnet');
+      logger.i('Subnet IP $subnet');
 
-      final Stream<OpenPort> devicesWithPort = HostScanner.discoverPort(
+      final Stream<ActiveHost> devicesWithPort = HostScanner.discoverPort(
         subnet,
         hubPort,
-        resultsInIpAscendingOrder: false,
+
+        /// TODO: return this settings when can use with the await for loop
+        // resultsInIpAscendingOrder: false,
         timeout: const Duration(milliseconds: 600),
       );
 
-      int sameAddressCounter = 0;
+      logger.i('Test Next line not arriving');
 
-      await for (final OpenPort address in devicesWithPort) {
-        if (!address.isOpen) {
-          sameAddressCounter++;
-          if (sameAddressCounter > 20) {
-            await Future.delayed(const Duration(milliseconds: 600));
-            return left(const HubFailures.cantFindHubInNetwork());
-          }
-          continue;
-        }
-        logger.i('Found device: ${address.ip}');
+      await for (final ActiveHost activeHost in devicesWithPort) {
+        logger.i('Found device: ${activeHost.ip}');
         if (networkBSSID != null && networkName != null) {
           return insertHubInfo(
-            networkIp: address.ip,
+            networkIp: activeHost.ip,
             networkBSSID: networkBSSID,
             networkName: networkName,
           );
