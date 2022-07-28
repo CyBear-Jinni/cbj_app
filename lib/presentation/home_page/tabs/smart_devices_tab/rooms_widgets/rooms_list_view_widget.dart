@@ -354,6 +354,15 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
         if (adOrRoom
             is MapEntry<String, Map<String, List<DeviceEntityAbstract>>>) {
           gradientColorCounter++;
+          // Don't make the last room pain blue as this will look the same with
+          // Summary room blue
+          if (objectList.length >= 3 &&
+              adOrRoom == objectList[objectList.length - 2] &&
+              gradientColorCounter ==
+                  gradientColorsList.indexOf(GradientColors.sea)) {
+            gradientColorCounter++;
+          }
+
           if (gradientColorCounter >= gradientColorsList.length) {
             gradientColorCounter = 1;
           }
