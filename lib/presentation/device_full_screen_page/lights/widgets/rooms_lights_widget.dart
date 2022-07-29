@@ -36,26 +36,24 @@ class RoomsLightsWidget extends StatelessWidget {
 
               /// Go on all the devices and find only the devices that exist
               /// in this room
-                final String roomId = roomEntity.uniqueId.getOrCrash();
-                for (final DeviceEntityAbstract? deviceEntityAbstract
-                    in state.devices.iter) {
-                  if (deviceEntityAbstract == null) {
-                    continue;
-                  }
-                  final int indexOfDeviceInRoom = roomEntity.roomDevicesId
-                      .getOrCrash()
-                      .indexWhere((element) {
-                    return element ==
-                        deviceEntityAbstract.uniqueId.getOrCrash();
-                  });
-                  if (indexOfDeviceInRoom != -1) {
-                    if (tempDevicesByRooms[roomId] == null) {
-                      tempDevicesByRooms[roomId] = [deviceEntityAbstract];
-                    } else {
-                      tempDevicesByRooms[roomId]!.add(deviceEntityAbstract);
-                    }
+              final String roomId = roomEntity.uniqueId.getOrCrash();
+              for (final DeviceEntityAbstract? deviceEntityAbstract
+                  in state.devices.iter) {
+                if (deviceEntityAbstract == null) {
+                  continue;
+                }
+                final int indexOfDeviceInRoom =
+                    roomEntity.roomDevicesId.getOrCrash().indexWhere((element) {
+                  return element == deviceEntityAbstract.uniqueId.getOrCrash();
+                });
+                if (indexOfDeviceInRoom != -1) {
+                  if (tempDevicesByRooms[roomId] == null) {
+                    tempDevicesByRooms[roomId] = [deviceEntityAbstract];
+                  } else {
+                    tempDevicesByRooms[roomId]!.add(deviceEntityAbstract);
                   }
                 }
+              }
 
               final List<KtList<DeviceEntityAbstract>> devicesByRooms = [];
 

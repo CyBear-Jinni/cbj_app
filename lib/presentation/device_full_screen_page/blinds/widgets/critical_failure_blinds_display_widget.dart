@@ -29,8 +29,7 @@ class CriticalFailureBlindsDisplay extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           TextButton(
-            onPressed: () {
-            },
+            onPressed: () {},
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: const <Widget>[
