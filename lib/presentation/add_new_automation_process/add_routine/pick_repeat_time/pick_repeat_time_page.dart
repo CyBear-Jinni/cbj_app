@@ -101,6 +101,7 @@ class PickRepeatTimePage extends StatelessWidget {
                             );
                           },
                           cancelText: '',
+                          okText: 'Confirm Time',
                         ),
                         const SizedBox(
                           height: 40,
