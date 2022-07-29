@@ -445,6 +445,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
     } catch (e) {
       logger.w('Exception searchForHub\n$e');
     }
+    await Future.delayed(const Duration(seconds: 5));
     return left(const HubFailures.cantFindHubInNetwork());
   }
 
