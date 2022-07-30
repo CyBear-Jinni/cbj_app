@@ -396,7 +396,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
         networkBSSID = await NetworkInfo().getWifiBSSID();
         networkName = await NetworkInfo().getWifiName();
       } else {
-        if (deviceIpOnTheNetwork == null) {
+        if (deviceIpOnTheNetwork  == null) {
           // Issue https://github.com/CyBear-Jinni/cbj_app/issues/256
           return left(
             const HubFailures
@@ -463,7 +463,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
     int permissionCounter = 0;
 
     // Get location permission is not supported on Linux
-    if (Platform.isLinux) {
+    if (Platform.isLinux || Platform.isWindows) {
       return right(unit);
     }
 

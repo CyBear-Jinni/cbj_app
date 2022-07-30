@@ -18,7 +18,7 @@ class SplashPage extends StatelessWidget {
             return context.router.replace(const HomeRoute());
           },
           unauthenticated: (_) async {
-            if (kIsWeb || Platform.isLinux) {
+            if (kIsWeb || Platform.isLinux || Platform.isWindows) {
               return context.router.replace(const ConnectToHubRoute());
             }
             return context.router.replace(const IntroductionScreenRoute());
