@@ -396,7 +396,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
         networkBSSID = await NetworkInfo().getWifiBSSID();
         networkName = await NetworkInfo().getWifiName();
       } else {
-        if (deviceIpOnTheNetwork  == null) {
+        if (deviceIpOnTheNetwork == null) {
           // Issue https://github.com/CyBear-Jinni/cbj_app/issues/256
           return left(
             const HubFailures
@@ -421,7 +421,8 @@ class HubConnectionRepository extends IHubConnectionRepository {
 
       logger.i('Subnet IP $subnet');
 
-      final Stream<ActiveHost> devicesWithPort = HostScanner.discoverPort(
+      final Stream<ActiveHost> devicesWithPort =
+          HostScanner.scanDevicesForSinglePort(
         subnet,
         hubPort,
 
@@ -433,10 +434,10 @@ class HubConnectionRepository extends IHubConnectionRepository {
       logger.i('Test Next line not arriving');
 
       await for (final ActiveHost activeHost in devicesWithPort) {
-        logger.i('Found device: ${activeHost.ip}');
+        logger.i('Found device: ${activeHost.address}');
         if (networkBSSID != null && networkName != null) {
           return insertHubInfo(
-            networkIp: activeHost.ip,
+            networkIp: activeHost.address,
             networkBSSID: networkBSSID,
             networkName: networkName,
           );

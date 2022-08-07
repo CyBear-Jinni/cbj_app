@@ -195,14 +195,15 @@ class SecurityBearConnectionRepository
 
       logger.i('subnet IP $subnet');
 
-      final Stream<ActiveHost> devicesWithPort = HostScanner.discoverPort(
+      final Stream<ActiveHost> devicesWithPort =
+          HostScanner.scanDevicesForSinglePort(
         subnet,
         securityBearPort,
-        resultsInIpAscendingOrder: false,
+        resultsInAddressAscendingOrder: false,
       );
 
       await for (final ActiveHost activeHost in devicesWithPort) {
-        logger.i('Found device: ${activeHost.ip}');
+        logger.i('Found device: ${activeHost.address}');
 
         final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
         final String? wifiName = await NetworkInfo().getWifiName();
@@ -211,7 +212,7 @@ class SecurityBearConnectionRepository
           securityBearEntity = SecurityBearEntity(
             securityBearNetworkBssid: SecurityBearNetworkBssid(wifiBSSID),
             networkName: SecurityBearNetworkName(wifiName),
-            lastKnownIp: SecurityBearNetworkIp(activeHost.ip),
+            lastKnownIp: SecurityBearNetworkIp(activeHost.address),
           );
 
           return right(unit);
@@ -316,14 +317,15 @@ class SecurityBearConnectionRepository
 
       logger.i('subnet IP $subnet');
 
-      final Stream<ActiveHost> devicesWithPort = HostScanner.discoverPort(
+      final Stream<ActiveHost> devicesWithPort =
+          HostScanner.scanDevicesForSinglePort(
         subnet,
         securityBearPort,
-        resultsInIpAscendingOrder: false,
+        resultsInAddressAscendingOrder: false,
       );
 
       await for (final ActiveHost address in devicesWithPort) {
-        logger.i('Found device: ${address.ip}');
+        logger.i('Found device: ${address.address}');
 
         final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
         final String? wifiName = await NetworkInfo().getWifiName();
