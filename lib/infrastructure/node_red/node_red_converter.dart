@@ -88,10 +88,10 @@ class NodeRedConverter {
   static RoutineCbjEntity convertToRoutineNodes({
     required String nodeName,
     required List<MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>>
-    devicesPropertyAction,
+        devicesPropertyAction,
   }) {
     final NodeRedMqttBrokerNode brokerNode =
-    NodeRedMqttBrokerNode(name: 'CyBear  Jinni Broker');
+        NodeRedMqttBrokerNode(name: 'CyBear  Jinni Broker');
 
     final List<String> allNodeRedIdToConnectRoutineTo = [];
     String nodes = '';
@@ -120,7 +120,7 @@ class NodeRedConverter {
     }
 
     final MapEntry<String, String> startingRoutineNode =
-    createStartingRoutineNode(
+        createStartingRoutineNode(
       nodeName: nodeName,
       broker: brokerNode,
       wires: allNodeRedIdToConnectRoutineTo,
@@ -132,7 +132,7 @@ class NodeRedConverter {
       uniqueId: UniqueId(),
       name: RoutineCbjName(nodeName),
       backgroundColor:
-      RoutineCbjBackgroundColor(Colors.orange.value.toString()),
+          RoutineCbjBackgroundColor(Colors.orange.value.toString()),
       automationString: RoutineCbjAutomationString(nodes),
       firstNodeId: RoutineCbjFirstNodeId(startingRoutineNode.key),
       iconCodePoint: RoutineCbjIconCodePoint(null),
@@ -232,7 +232,7 @@ class NodeRedConverter {
     );
 
     final NodeRedFunctionNode functionForNode =
-    NodeRedFunctionNode.passOnlyNewAction(
+        NodeRedFunctionNode.passOnlyNewAction(
       action: action,
       name: action,
       wires: [
