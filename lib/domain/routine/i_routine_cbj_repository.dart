@@ -3,6 +3,7 @@ import 'dart:collection';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/routine/routine_cbj_entity.dart';
 import 'package:cybear_jinni/domain/routine/routine_cbj_failures.dart';
+import 'package:cybear_jinni/domain/routine/value_objects_routine_cbj.dart';
 import 'package:dartz/dartz.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:rxdart/rxdart.dart';
@@ -36,6 +37,9 @@ abstract class IRoutineCbjRepository {
     String routineName,
     List<MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>>
         smartDevicesWithActionToAdd,
+    RoutineCbjRepeatDateDays daysToRepeat,
+    RoutineCbjRepeatDateHour hourToRepeat,
+    RoutineCbjRepeatDateMinute minutesToRepeat,
   );
 
   /// Sending the new routine from the hub to the app routine list

@@ -14,7 +14,7 @@ class NodeRedVisualNodeAbstract extends NodeRedNodeAbstract {
           name: name,
         );
 
-  /// Does not exists in all nodes, maybe we will move it to another abstract class
+  // Does not exists in all nodes, maybe we will move it to another abstract class
   List<List<String>>? wires = [];
 
   List<List<String>> fixWiresForNodeRed() {

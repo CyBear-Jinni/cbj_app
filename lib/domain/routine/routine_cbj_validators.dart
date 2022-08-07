@@ -121,3 +121,53 @@ Either<RoutineCbjFailure<String>, String> validateRoutineStateExist(
   }
   return left(const RoutineCbjFailure.routineStateDoesNotExist());
 }
+
+Either<RoutineCbjFailure<String>, String> validateRoutineCbjTypeExist(
+  String input,
+) {
+  // TODO: Should check if exist in WhenToExecute
+  return right(input);
+}
+
+Either<RoutineCbjFailure<List<String>>, List<String>>
+    validateRoutineCbjDateDaysValid(
+  List<String> input,
+) {
+  final List<String> inputMutable = List.from(input);
+  for (int index = 0; index < input.length; index++) {
+    final String day = input[index].toLowerCase();
+
+    if (day == 'sunday' || day == 'sun' || day == 'su') {
+      inputMutable[index] = 'sunday';
+    } else if (day == 'monday' || day == 'mon' || day == 'mo') {
+      inputMutable[index] = 'monday';
+    } else if (day == 'tuesday' || day == 'tue' || day == 'tu') {
+      inputMutable[index] = 'tuesday';
+    } else if (day == 'wednesday' || day == 'wed' || day == 'we') {
+      inputMutable[index] = 'wednesday';
+    } else if (day == 'thursday' || day == 'thu' || day == 'th') {
+      inputMutable[index] = 'thursday';
+    } else if (day == 'friday' || day == 'fri' || day == 'fr') {
+      inputMutable[index] = 'friday';
+    } else if (day == 'saturday' || day == 'sat' || day == 'sa') {
+      inputMutable[index] = 'saturday';
+    } else {
+      return left(const RoutineCbjFailure.unexpected());
+    }
+  }
+  return right(inputMutable);
+}
+
+Either<RoutineCbjFailure<String>, String> validateRoutineCbjRepeatDateHourValid(
+  String input,
+) {
+  // TODO: Check if this is valid hour
+  return right(input);
+}
+
+Either<RoutineCbjFailure<String>, String> validateRoutineRepeatDateMinuteValid(
+  String input,
+) {
+  // TODO: Check if this is valid minute
+  return right(input);
+}

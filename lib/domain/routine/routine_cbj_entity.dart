@@ -32,6 +32,18 @@ class RoutineCbjEntity with _$RoutineCbjEntity {
     required RoutineCbjSenderId senderId,
     required RoutineCbjCompUuid compUuid,
     required RoutineCbjDeviceStateGRPC deviceStateGRPC,
+
+    /// Repeat type, at a specific time/ interval/ iterval between times
+    required RoutineCbjRepeatType repeateType,
+
+    /// In what days to repeat in
+    required RoutineCbjRepeatDateDays repeateDateDays,
+
+    /// In what hour to repeat in
+    required RoutineCbjRepeatDateHour repeateDateHour,
+
+    /// In what minute to repeat in
+    required RoutineCbjRepeatDateMinute repeateDateMinute,
   }) = _RoutineCbjEntity;
 
   const RoutineCbjEntity._();
@@ -44,7 +56,6 @@ class RoutineCbjEntity with _$RoutineCbjEntity {
       automationString: automationString.getOrCrash(),
       firstNodeId: firstNodeId.getOrCrash(),
       iconCodePoint: iconCodePoint.getOrCrash(),
-
       image: image.getOrCrash(),
       lastDateOfExecute: lastDateOfExecute.getOrCrash(),
       deviceStateGRPC: deviceStateGRPC.getOrCrash(),
@@ -53,6 +64,10 @@ class RoutineCbjEntity with _$RoutineCbjEntity {
       senderId: senderId.getOrCrash(),
       compUuid: compUuid.getOrCrash(),
       stateMassage: stateMassage.getOrCrash(),
+      repeateType: repeateType.getOrCrash(),
+      repeateDateDays: repeateDateDays.getOrCrash(),
+      repeateDateHour: repeateDateHour.getOrCrash(),
+      repeateDateMinute: repeateDateMinute.getOrCrash(),
       // serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }

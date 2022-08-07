@@ -31,7 +31,13 @@ class VendorsRepository implements IVendorsRepository {
           vendorName == VendorsAndServices.sonoff.name ||
           vendorName == VendorsAndServices.ikea.name ||
           vendorName == VendorsAndServices.wink.name ||
-          vendorName == VendorsAndServices.shelly.name) {
+          vendorName == VendorsAndServices.espHome.name ||
+          vendorName == VendorsAndServices.lg.name ||
+          vendorName == VendorsAndServices.spotify.name ||
+          vendorName == VendorsAndServices.homeAssistant.name ||
+          vendorName == VendorsAndServices.hp.name ||
+          vendorName == VendorsAndServices.yeelink.name ||
+          vendorName == VendorsAndServices.xiaomi.name) {
         continue;
       }
       Vendor v = vendorPlusImageFromVandorName(vendorName);

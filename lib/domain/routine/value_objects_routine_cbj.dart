@@ -217,3 +217,55 @@ class RoutineCbjDeviceStateGRPC extends ValueObjectRoutinesCbj<String?> {
   @override
   final Either<RoutineCbjFailure<String?>, String?> value;
 }
+
+class RoutineCbjRepeatType extends ValueObjectRoutinesCbj<String?> {
+  factory RoutineCbjRepeatType(String? input) {
+    return RoutineCbjRepeatType._(
+      validateRoutineCbjTypeExist(input!),
+    );
+  }
+
+  const RoutineCbjRepeatType._(this.value);
+
+  @override
+  final Either<RoutineCbjFailure<String?>, String?> value;
+}
+
+class RoutineCbjRepeatDateDays extends ValueObjectRoutinesCbj<List<String>?> {
+  factory RoutineCbjRepeatDateDays(List<String>? input) {
+    return RoutineCbjRepeatDateDays._(
+      validateRoutineCbjDateDaysValid(input!),
+    );
+  }
+
+  const RoutineCbjRepeatDateDays._(this.value);
+
+  @override
+  final Either<RoutineCbjFailure<List<String>?>, List<String>?> value;
+}
+
+class RoutineCbjRepeatDateHour extends ValueObjectRoutinesCbj<String?> {
+  factory RoutineCbjRepeatDateHour(String? input) {
+    return RoutineCbjRepeatDateHour._(
+      validateRoutineCbjRepeatDateHourValid(input!),
+    );
+  }
+
+  const RoutineCbjRepeatDateHour._(this.value);
+
+  @override
+  final Either<RoutineCbjFailure<String?>, String?> value;
+}
+
+class RoutineCbjRepeatDateMinute extends ValueObjectRoutinesCbj<String?> {
+  factory RoutineCbjRepeatDateMinute(String? input) {
+    return RoutineCbjRepeatDateMinute._(
+      validateRoutineRepeatDateMinuteValid(input!),
+    );
+  }
+
+  const RoutineCbjRepeatDateMinute._(this.value);
+
+  @override
+  final Either<RoutineCbjFailure<String?>, String?> value;
+}

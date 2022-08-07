@@ -12,11 +12,20 @@ part 'auth_state.dart';
 @injectable
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc(this._authFacade) : super(const AuthState.initial()) {
+    on<Initialized>(_initialized);
     on<AuthCheckRequested>(_authCheckRequested);
     on<SignedOut>(_signedOut);
   }
 
   final IAuthFacade _authFacade;
+
+  Future<void> _initialized(
+    Initialized event,
+    Emitter<AuthState> emit,
+  ) async {
+    emit(const AuthState.initial());
+    add(const AuthEvent.authCheckRequested());
+  }
 
   Future<void> _authCheckRequested(
     AuthCheckRequested event,

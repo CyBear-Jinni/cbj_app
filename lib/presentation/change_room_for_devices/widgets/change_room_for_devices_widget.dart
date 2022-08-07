@@ -109,10 +109,6 @@ class ChangeRoomForDevicesWidget extends StatelessWidget {
                   children: [
                     TextButton(
                       onPressed: () {
-                        context.read<RoomSignInFormBloc>().add(
-                              const RoomSignInFormEvent.changeRoomDevices(),
-                            );
-
                         Fluttertoast.showToast(
                           msg: 'Changing devices for area',
                           toastLength: Toast.LENGTH_LONG,
@@ -122,6 +118,9 @@ class ChangeRoomForDevicesWidget extends StatelessWidget {
                               Theme.of(context).textTheme.bodyText1!.color,
                           fontSize: 16.0,
                         );
+                        context.read<RoomSignInFormBloc>().add(
+                              const RoomSignInFormEvent.changeRoomDevices(),
+                            );
                       },
                       child: const Text(
                         'Done',

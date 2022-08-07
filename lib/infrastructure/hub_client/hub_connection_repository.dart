@@ -20,6 +20,7 @@ import 'package:network_info_plus/network_info_plus.dart';
 import 'package:network_tools/network_tools.dart';
 import 'package:permission_handler/permission_handler.dart'
     as permission_handler;
+import 'package:wifi_iot/wifi_iot.dart';
 
 @LazySingleton(as: IHubConnectionRepository)
 class HubConnectionRepository extends IHubConnectionRepository {
@@ -34,6 +35,8 @@ class HubConnectionRepository extends IHubConnectionRepository {
   /// Port to connect to the cbj hub, will change according to the current
   /// running environment
   late int hubPort;
+
+  static int tryAgainConnectToTheHubOnceMore = 0;
 
   @override
   Future<void> connectWithHub() async {
@@ -128,7 +131,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
       } else {
         await searchForHub();
       }
-
+      tryAgainConnectToTheHubOnceMore = 0;
       await HubClient.createStreamWithHub(
         IHubConnectionRepository.hubEntity!.lastKnownIp.getOrCrash(),
         hubPort,
@@ -138,8 +141,61 @@ class HubConnectionRepository extends IHubConnectionRepository {
     } else {
       logger.i('Connect using Remote Pipes');
       (await getIt<ILocalDbRepository>().getRemotePipesDnsName()).fold(
-        (l) => logger.e('Cant find local Remote Pipes Dns name'),
-        (r) => HubClient.createStreamWithHub(r, 50056),
+        (l) async {
+          logger.e(
+            'Cant find local Remote Pipes Dns name, will ask the user to open WiFi and gps to try local connection',
+          );
+
+          final bool wifiEnabled = await WiFiForIoTPlugin.isEnabled();
+          final Location location = Location();
+
+          if (wifiEnabled && await location.serviceEnabled()) {
+            final bool wifiEnabled = await WiFiForIoTPlugin.isConnected();
+            if (wifiEnabled) {
+              if (tryAgainConnectToTheHubOnceMore <= 10) {
+                // Even if WiFi got enabled it still takes time for the
+                // device to complete the automatic connection to previous
+                // WiFi network, so we give it a little time before stop trying
+                tryAgainConnectToTheHubOnceMore += 1;
+                await Future.delayed(const Duration(seconds: 5));
+                connectWithHub();
+              } else {
+                logger.w(
+                  "User cannot connect to home as he is A. Not in his home B. Didn't set Remote Pipes",
+                );
+              }
+            } else {
+              logger.v('User not connected to any WiFi, Will try again.');
+              tryAgainConnectToTheHubOnceMore = 0;
+              await Future.delayed(const Duration(milliseconds: 500));
+              connectWithHub();
+              return;
+            }
+          } else {
+            final bool wifiEnabled = await WiFiForIoTPlugin.isEnabled();
+            if (!wifiEnabled) {
+              WiFiForIoTPlugin.setEnabled(true, shouldOpenSettings: true);
+              tryAgainConnectToTheHubOnceMore = 0;
+              await Future.delayed(const Duration(milliseconds: 500));
+              connectWithHub();
+              return;
+            }
+
+            (await askLocationPermissionAndLocationOn()).fold((l) {
+              logger.e(
+                'User does not allow opening location and does not have remote pipes info',
+              );
+            }, (r) {
+              // Try to connect again because there is a chance user without
+              // remote pipes info but is in his home
+              connectWithHub();
+            });
+          }
+        },
+        (r) {
+          HubClient.createStreamWithHub(r, 50056);
+          tryAgainConnectToTheHubOnceMore = 0;
+        },
       );
       // Here for easy find and local testing
       // HubClient.createStreamWithHub('127.0.0.1', 50056);
@@ -363,30 +419,25 @@ class HubConnectionRepository extends IHubConnectionRepository {
       final String subnet =
           currentDeviceIP!.substring(0, currentDeviceIP.lastIndexOf('.'));
 
-      logger.i('subnet IP $subnet');
+      logger.i('Subnet IP $subnet');
 
-      final Stream<OpenPort> devicesWithPort = HostScanner.discoverPort(
+      final Stream<ActiveHost> devicesWithPort =
+          HostScanner.scanDevicesForSinglePort(
         subnet,
         hubPort,
-        resultsInIpAscendingOrder: false,
+
+        /// TODO: return this settings when can use with the await for loop
+        // resultsInIpAscendingOrder: false,
         timeout: const Duration(milliseconds: 600),
       );
 
-      int sameAddressCounter = 0;
+      logger.i('Test Next line not arriving');
 
-      await for (final OpenPort address in devicesWithPort) {
-        if (!address.isOpen) {
-          sameAddressCounter++;
-          if (sameAddressCounter > 20) {
-            await Future.delayed(const Duration(milliseconds: 600));
-            return left(const HubFailures.cantFindHubInNetwork());
-          }
-          continue;
-        }
-        logger.i('Found device: ${address.ip}');
+      await for (final ActiveHost activeHost in devicesWithPort) {
+        logger.i('Found device: ${activeHost.address}');
         if (networkBSSID != null && networkName != null) {
           return insertHubInfo(
-            networkIp: address.ip,
+            networkIp: activeHost.address,
             networkBSSID: networkBSSID,
             networkName: networkName,
           );
@@ -395,6 +446,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
     } catch (e) {
       logger.w('Exception searchForHub\n$e');
     }
+    await Future.delayed(const Duration(seconds: 5));
     return left(const HubFailures.cantFindHubInNetwork());
   }
 
@@ -410,6 +462,11 @@ class HubConnectionRepository extends IHubConnectionRepository {
     PermissionStatus _permissionGranted;
 
     int permissionCounter = 0;
+
+    // Get location permission is not supported on Linux
+    if (Platform.isLinux || Platform.isWindows) {
+      return right(unit);
+    }
 
     while (true) {
       _permissionGranted = await location.hasPermission();
