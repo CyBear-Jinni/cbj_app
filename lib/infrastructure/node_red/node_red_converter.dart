@@ -8,6 +8,7 @@ import 'package:cybear_jinni/domain/scene/scene_cbj_entity.dart';
 import 'package:cybear_jinni/domain/scene/value_objects_scene_cbj.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/node_red/node_red_nodes/node_red_function_node.dart';
+import 'package:cybear_jinni/infrastructure/node_red/node_red_nodes/node_red_inject_node.dart';
 import 'package:cybear_jinni/infrastructure/node_red/node_red_nodes/node_red_mqtt_broker_node.dart';
 import 'package:cybear_jinni/infrastructure/node_red/node_red_nodes/node_red_mqtt_in_node.dart';
 import 'package:cybear_jinni/infrastructure/node_red/node_red_nodes/node_red_mqtt_out_node.dart';
@@ -124,9 +125,12 @@ class NodeRedConverter {
 
     final MapEntry<String, String> startingRoutineNode =
         createStartingRoutineNode(
-      nodeName: nodeName,
+          nodeName: nodeName,
       broker: brokerNode,
       wires: allNodeRedIdToConnectRoutineTo,
+      daysToRepeat: daysToRepeat,
+      hourToRepeat: hourToRepeat,
+      minutesToRepeat: minutesToRepeat,
     );
 
     nodes = '[${startingRoutineNode.value}, $nodes, ${brokerNode.toString()}]';
@@ -278,17 +282,21 @@ class NodeRedConverter {
     required String nodeName,
     required NodeRedMqttBrokerNode broker,
     required List<String> wires,
+    required RoutineCbjRepeatDateDays daysToRepeat,
+    required RoutineCbjRepeatDateHour hourToRepeat,
+    required RoutineCbjRepeatDateMinute minutesToRepeat,
   }) {
-    final String mqttInNodeId = const Uuid().v1();
-    final String topic = '$hubBaseTopic/$routinesTopicTypeName/$mqttInNodeId';
-    final NodeRedMqttInNode nodeRedMqttInNode = NodeRedMqttInNode(
+    final String injectNodeId = const Uuid().v1();
+    final NodeRedInjectAtASpecificTimeNode nodeRedInjectNode =
+        NodeRedInjectAtASpecificTimeNode(
       name: nodeName,
-      brokerId: broker.id!,
-      topic: topic,
       wires: [wires],
-      id: mqttInNodeId,
+      id: injectNodeId,
+      daysToRepeat: daysToRepeat,
+      hourToRepeat: hourToRepeat,
+      minutesToRepeat: minutesToRepeat,
     );
-    return MapEntry(nodeRedMqttInNode.id!, nodeRedMqttInNode.toString());
+    return MapEntry(nodeRedInjectNode.id!, nodeRedInjectNode.toString());
   }
 
   static MapEntry<String, String> createStartingBindingNode({
