@@ -431,8 +431,6 @@ class HubConnectionRepository extends IHubConnectionRepository {
         timeout: const Duration(milliseconds: 600),
       );
 
-      logger.i('Test Next line not arriving');
-
       await for (final ActiveHost activeHost in devicesWithPort) {
         logger.i('Found device: ${activeHost.address}');
         if (networkBSSID != null && networkName != null) {
