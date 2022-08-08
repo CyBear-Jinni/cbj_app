@@ -59,7 +59,7 @@ class NodeRedInjectAtASpecificTimeNode extends NodeRedVisualNodeAbstract {
 
     for (final String dayToRepeat in daysToRepeat.getOrCrash()!) {
       if (daysToRepeatTemp != '') {
-        daysToRepeatTemp = ',';
+        daysToRepeatTemp += ',';
       }
 
       if (dayToRepeat == 'sunday') {
