@@ -27,7 +27,7 @@ class AddNewRoomForm extends StatelessWidget {
                     ),
                     TextFormField(
                       decoration: const InputDecoration(
-                        prefixIcon: FaIcon(FontAwesomeIcons.signInAlt),
+                        prefixIcon: FaIcon(FontAwesomeIcons.rightToBracket),
                         labelText: 'Area Name',
                       ),
                       autocorrect: false,

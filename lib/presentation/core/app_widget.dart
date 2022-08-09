@@ -37,7 +37,7 @@ class AppWidget extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) =>
-              getIt<AuthBloc>()..add(const AuthEvent.authCheckRequested()),
+              getIt<AuthBloc>()..add(const AuthEvent.initialized()),
         ),
       ],
       child: MaterialApp.router(

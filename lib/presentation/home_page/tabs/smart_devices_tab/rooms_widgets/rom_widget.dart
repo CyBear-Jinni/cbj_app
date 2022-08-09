@@ -225,7 +225,7 @@ class RoomWidget extends StatelessWidget {
                   children: const [
                     CircleAvatar(
                       child: FaIcon(
-                        FontAwesomeIcons.lowVision,
+                        FontAwesomeIcons.eyeLowVision,
                         color: Colors.red,
                       ),
                     ),

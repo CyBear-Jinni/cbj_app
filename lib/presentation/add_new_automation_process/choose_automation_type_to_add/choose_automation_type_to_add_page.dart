@@ -28,7 +28,7 @@ class ChooseAutomationTypeToAddPage extends StatelessWidget {
             TopNavigationBar(
               pageName: 'Add Automations',
               rightIcon: null,
-              // FontAwesomeIcons.search,
+              // FontAwesomeIcons.magnifyingGlass,
               rightIconFunction: backButtonFunction,
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
@@ -124,9 +124,15 @@ class ChooseAutomationTypeToAddPage extends StatelessWidget {
                           padding: const EdgeInsets.all(10),
                           child: TextButton(
                             onPressed: () {
-                              // context
-                              //     .read<CreateHomeBloc>()
-                              //     .add(CreateHomeEvent.createHome(homeName!, devicesEmail!));
+                              // showDialog(
+                              //   context: context,
+                              //   builder: (_) => const AlertDialog(
+                              //     title: Text(
+                              //       'Not supported yet',
+                              //     ),
+                              //   ),
+                              // );
+                              context.router.push(const PickRepeatTimeRoute());
                             },
                             child: Column(
                               children: [
@@ -178,9 +184,18 @@ class ChooseAutomationTypeToAddPage extends StatelessWidget {
                           padding: const EdgeInsets.all(10),
                           child: TextButton(
                             onPressed: () {
-                              // context
-                              //     .read<CreateHomeBloc>()
-                              //     .add(CreateHomeEvent.createHome(homeName!, devicesEmail!));
+                              showDialog(
+                                context: context,
+                                builder: (_) => const AlertDialog(
+                                  title: Text(
+                                    'Not supported yet',
+                                  ),
+                                ),
+                              );
+                              // context.router
+                              //     .push(const AddRoutineDeleteRoute());
+                              // context.router
+                              //     .push(const AddBindingRoute());
                             },
                             child: Column(
                               children: [

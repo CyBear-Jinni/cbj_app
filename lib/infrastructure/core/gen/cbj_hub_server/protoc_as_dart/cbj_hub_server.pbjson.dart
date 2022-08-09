@@ -3,7 +3,7 @@
 //  source: cbj_hub_server.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields,deprecated_member_use_from_same_package
+// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,deprecated_member_use_from_same_package,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
@@ -44,11 +44,15 @@ const DeviceStateGRPC$json = const {
     const {'1': 'waitingInComp', '2': 5},
     const {'1': 'noDevicesToTransfer', '2': 6},
     const {'1': 'pingNow', '2': 7},
+    const {'1': 'addingNewScene', '2': 8},
+    const {'1': 'addingNewRoutine', '2': 9},
+    const {'1': 'addingNewBinding', '2': 10},
+    const {'1': 'updateHubDevicePropertiesFromRealDevice', '2': 11},
   ],
 };
 
 /// Descriptor for `DeviceStateGRPC`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List deviceStateGRPCDescriptor = $convert.base64Decode('Cg9EZXZpY2VTdGF0ZUdSUEMSFQoRc3RhdGVOb3RTdXBwb3J0ZWQQABIYChRjYW5jZWxTdGF0ZUluUHJvY2VzcxABEgcKA2FjaxACEhIKDm5ld1N0YXRlRmFpbGVkEAMSFQoRd2FpdGluZ0luRmlyZWJhc2UQBBIRCg13YWl0aW5nSW5Db21wEAUSFwoTbm9EZXZpY2VzVG9UcmFuc2ZlchAGEgsKB3BpbmdOb3cQBw==');
+final $typed_data.Uint8List deviceStateGRPCDescriptor = $convert.base64Decode('Cg9EZXZpY2VTdGF0ZUdSUEMSFQoRc3RhdGVOb3RTdXBwb3J0ZWQQABIYChRjYW5jZWxTdGF0ZUluUHJvY2VzcxABEgcKA2FjaxACEhIKDm5ld1N0YXRlRmFpbGVkEAMSFQoRd2FpdGluZ0luRmlyZWJhc2UQBBIRCg13YWl0aW5nSW5Db21wEAUSFwoTbm9EZXZpY2VzVG9UcmFuc2ZlchAGEgsKB3BpbmdOb3cQBxISCg5hZGRpbmdOZXdTY2VuZRAIEhQKEGFkZGluZ05ld1JvdXRpbmUQCRIUChBhZGRpbmdOZXdCaW5kaW5nEAoSKwondXBkYXRlSHViRGV2aWNlUHJvcGVydGllc0Zyb21SZWFsRGV2aWNlEAs=');
 @$core.Deprecated('Use vendorsAndServicesDescriptor instead')
 const VendorsAndServices$json = const {
   '1': 'VendorsAndServices',
@@ -69,11 +73,17 @@ const VendorsAndServices$json = const {
     const {'1': 'ikea', '2': 13},
     const {'1': 'sonoff', '2': 14},
     const {'1': 'philipsHue', '2': 15},
+    const {'1': 'lg', '2': 16},
+    const {'1': 'spotify', '2': 17},
+    const {'1': 'homeAssistant', '2': 18},
+    const {'1': 'hp', '2': 19},
+    const {'1': 'yeelink', '2': 20},
+    const {'1': 'xiaomi', '2': 21},
   ],
 };
 
 /// Descriptor for `VendorsAndServices`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List vendorsAndServicesDescriptor = $convert.base64Decode('ChJWZW5kb3JzQW5kU2VydmljZXMSIgoedmVuZG9yc0FuZFNlcnZpY2VzTm90U3VwcG9ydGVkEAASCwoHZXNwSG9tZRABEhUKEXN3aXRjaGVyU21hcnRIb21lEAISCwoHdGFzbW90YRADEgwKCHllZWxpZ2h0EAQSCgoGZ29vZ2xlEAUSCgoGbWlIb21lEAYSCAoEbGlmeBAHEg0KCXR1eWFTbWFydBAIEg0KCXNtYXJ0TGlmZRAJEg8KC2ppbnZvb1NtYXJ0EAoSCgoGc2hlbGx5EAsSCAoEd2luaxAMEggKBGlrZWEQDRIKCgZzb25vZmYQDhIOCgpwaGlsaXBzSHVlEA8=');
+final $typed_data.Uint8List vendorsAndServicesDescriptor = $convert.base64Decode('ChJWZW5kb3JzQW5kU2VydmljZXMSIgoedmVuZG9yc0FuZFNlcnZpY2VzTm90U3VwcG9ydGVkEAASCwoHZXNwSG9tZRABEhUKEXN3aXRjaGVyU21hcnRIb21lEAISCwoHdGFzbW90YRADEgwKCHllZWxpZ2h0EAQSCgoGZ29vZ2xlEAUSCgoGbWlIb21lEAYSCAoEbGlmeBAHEg0KCXR1eWFTbWFydBAIEg0KCXNtYXJ0TGlmZRAJEg8KC2ppbnZvb1NtYXJ0EAoSCgoGc2hlbGx5EAsSCAoEd2luaxAMEggKBGlrZWEQDRIKCgZzb25vZmYQDhIOCgpwaGlsaXBzSHVlEA8SBgoCbGcQEBILCgdzcG90aWZ5EBESEQoNaG9tZUFzc2lzdGFudBASEgYKAmhwEBMSCwoHeWVlbGluaxAUEgoKBnhpYW9taRAV');
 @$core.Deprecated('Use deviceTypesDescriptor instead')
 const DeviceTypes$json = const {
   '1': 'DeviceTypes',
@@ -121,11 +131,14 @@ const DeviceTypes$json = const {
     const {'1': 'smokeDetector', '2': 41},
     const {'1': 'oxygenSensor', '2': 42},
     const {'1': 'smartPlug', '2': 43},
+    const {'1': 'printer', '2': 44},
+    const {'1': 'scanner', '2': 45},
+    const {'1': 'printerWithScanner', '2': 46},
   ],
 };
 
 /// Descriptor for `DeviceTypes`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List deviceTypesDescriptor = $convert.base64Decode('CgtEZXZpY2VUeXBlcxIUChB0eXBlTm90U3VwcG9ydGVkEAASCQoFbGlnaHQQARIKCgZibGluZHMQAhIKCgZib2lsZXIQAxIKCgZidXR0b24QBBITCg9idXR0b25XaXRoTGlnaHQQBRIHCgNodWIQBxIMCghwaG9uZUFwcBAIEg8KC2NvbXB1dGVyQXBwEAkSDgoKYnJvd3NlckFwcBAKEgoKBnN3aXRjaBALEhEKDWRpbW1hYmxlTGlnaHQQDBIMCghjY3RMaWdodBANEg0KCXJnYkxpZ2h0cxAOEg4KCnJnYndMaWdodHMQDxIQCgxyZ2JjY3RMaWdodHMQEBILCgdzbWFydFRWEBESEQoNc21hcnRTcGVha2VycxASEhEKDWNvZmZlZU1hY2hpbmUQExIKCgZrZXR0bGUQFBIKCgZ0ZWFwb3QQFRISCg53YXNoaW5nTWFjaGluZRAWEg4KCmRpc2h3YXNoZXIQFxILCgd0b2FzdGVyEBgSEQoNdmFjdXVtQ2xlYW5lchAZEhAKDHJlZnJpZ2VyYXRvchAaEgcKA2JlZBAbEggKBG92ZW4QHBISCg5BaXJDb25kaXRpb25lchAdEg4KCnNtYXJ0V2F0Y2gQHhIUChBzbWFydFdhdGVyQm90dGxlEB8SDgoKbWljcm9waG9uZRAgEhIKDnNlY3VyaXR5Q2FtZXJhECESDwoLYmFieU1vbml0b3IQIhIQCgxtb3Rpb25TZW5zb3IQIxIVChF0ZW1wZXJhdHVyZVNlbnNvchAkEhIKDmh1bWlkaXR5U2Vuc29yECUSDwoLbGlnaHRTZW5zb3IQJhIPCgtzb3VuZFNlbnNvchAnEg8KC3Ntb2tlU2Vuc29yECgSEQoNc21va2VEZXRlY3RvchApEhAKDG94eWdlblNlbnNvchAqEg0KCXNtYXJ0UGx1ZxAr');
+final $typed_data.Uint8List deviceTypesDescriptor = $convert.base64Decode('CgtEZXZpY2VUeXBlcxIUChB0eXBlTm90U3VwcG9ydGVkEAASCQoFbGlnaHQQARIKCgZibGluZHMQAhIKCgZib2lsZXIQAxIKCgZidXR0b24QBBITCg9idXR0b25XaXRoTGlnaHQQBRIHCgNodWIQBxIMCghwaG9uZUFwcBAIEg8KC2NvbXB1dGVyQXBwEAkSDgoKYnJvd3NlckFwcBAKEgoKBnN3aXRjaBALEhEKDWRpbW1hYmxlTGlnaHQQDBIMCghjY3RMaWdodBANEg0KCXJnYkxpZ2h0cxAOEg4KCnJnYndMaWdodHMQDxIQCgxyZ2JjY3RMaWdodHMQEBILCgdzbWFydFRWEBESEQoNc21hcnRTcGVha2VycxASEhEKDWNvZmZlZU1hY2hpbmUQExIKCgZrZXR0bGUQFBIKCgZ0ZWFwb3QQFRISCg53YXNoaW5nTWFjaGluZRAWEg4KCmRpc2h3YXNoZXIQFxILCgd0b2FzdGVyEBgSEQoNdmFjdXVtQ2xlYW5lchAZEhAKDHJlZnJpZ2VyYXRvchAaEgcKA2JlZBAbEggKBG92ZW4QHBISCg5BaXJDb25kaXRpb25lchAdEg4KCnNtYXJ0V2F0Y2gQHhIUChBzbWFydFdhdGVyQm90dGxlEB8SDgoKbWljcm9waG9uZRAgEhIKDnNlY3VyaXR5Q2FtZXJhECESDwoLYmFieU1vbml0b3IQIhIQCgxtb3Rpb25TZW5zb3IQIxIVChF0ZW1wZXJhdHVyZVNlbnNvchAkEhIKDmh1bWlkaXR5U2Vuc29yECUSDwoLbGlnaHRTZW5zb3IQJhIPCgtzb3VuZFNlbnNvchAnEg8KC3Ntb2tlU2Vuc29yECgSEQoNc21va2VEZXRlY3RvchApEhAKDG94eWdlblNlbnNvchAqEg0KCXNtYXJ0UGx1ZxArEgsKB3ByaW50ZXIQLBILCgdzY2FubmVyEC0SFgoScHJpbnRlcldpdGhTY2FubmVyEC4=');
 @$core.Deprecated('Use deviceActionsDescriptor instead')
 const DeviceActions$json = const {
   '1': 'DeviceActions',
@@ -139,11 +152,12 @@ const DeviceActions$json = const {
     const {'1': 'pressed', '2': 6},
     const {'1': 'longPress', '2': 7},
     const {'1': 'doubleTap', '2': 8},
+    const {'1': 'position', '2': 9},
   ],
 };
 
 /// Descriptor for `DeviceActions`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List deviceActionsDescriptor = $convert.base64Decode('Cg1EZXZpY2VBY3Rpb25zEhYKEmFjdGlvbk5vdFN1cHBvcnRlZBAAEgYKAm9uEAESBwoDb2ZmEAISCgoGbW92ZVVwEAMSCAoEc3RvcBAEEgwKCG1vdmVEb3duEAUSCwoHcHJlc3NlZBAGEg0KCWxvbmdQcmVzcxAHEg0KCWRvdWJsZVRhcBAI');
+final $typed_data.Uint8List deviceActionsDescriptor = $convert.base64Decode('Cg1EZXZpY2VBY3Rpb25zEhYKEmFjdGlvbk5vdFN1cHBvcnRlZBAAEgYKAm9uEAESBwoDb2ZmEAISCgoGbW92ZVVwEAMSCAoEc3RvcBAEEgwKCG1vdmVEb3duEAUSCwoHcHJlc3NlZBAGEg0KCWxvbmdQcmVzcxAHEg0KCWRvdWJsZVRhcBAIEgwKCHBvc2l0aW9uEAk=');
 @$core.Deprecated('Use whenToExecuteDescriptor instead')
 const WhenToExecute$json = const {
   '1': 'WhenToExecute',
@@ -160,11 +174,12 @@ const WhenToExecute$json = const {
     const {'1': 'onlyIfDeviceListIsAreInActionListState', '2': 9},
     const {'1': 'atHome', '2': 10},
     const {'1': 'outOfHome', '2': 11},
+    const {'1': 'atASpecificTime', '2': 12},
   ],
 };
 
 /// Descriptor for `WhenToExecute`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List whenToExecuteDescriptor = $convert.base64Decode('Cg1XaGVuVG9FeGVjdXRlEg0KCXVuZGVmaW5lZBAAEhQKEG9uT2RkTnVtYmVyUHJlc3MQARITCg9ldmVuTnVtYmVyUHJlc3MQAhIXChNiZXR3ZWVuU2VsZWN0ZWRUaW1lEAMSHAoYZG9Ob3RCZXR3ZWVuU2VsZWN0ZWRUaW1lEAQSDgoKYWxsVGhlVGltZRAFEgkKBW5ldmVyEAYSCwoHb25jZU5vdxAHEhYKEm9uY2VJblNlbGVjdGVkVGltZRAIEioKJm9ubHlJZkRldmljZUxpc3RJc0FyZUluQWN0aW9uTGlzdFN0YXRlEAkSCgoGYXRIb21lEAoSDQoJb3V0T2ZIb21lEAs=');
+final $typed_data.Uint8List whenToExecuteDescriptor = $convert.base64Decode('Cg1XaGVuVG9FeGVjdXRlEg0KCXVuZGVmaW5lZBAAEhQKEG9uT2RkTnVtYmVyUHJlc3MQARITCg9ldmVuTnVtYmVyUHJlc3MQAhIXChNiZXR3ZWVuU2VsZWN0ZWRUaW1lEAMSHAoYZG9Ob3RCZXR3ZWVuU2VsZWN0ZWRUaW1lEAQSDgoKYWxsVGhlVGltZRAFEgkKBW5ldmVyEAYSCwoHb25jZU5vdxAHEhYKEm9uY2VJblNlbGVjdGVkVGltZRAIEioKJm9ubHlJZkRldmljZUxpc3RJc0FyZUluQWN0aW9uTGlzdFN0YXRlEAkSCgoGYXRIb21lEAoSDQoJb3V0T2ZIb21lEAsSEwoPYXRBU3BlY2lmaWNUaW1lEAw=');
 @$core.Deprecated('Use areaPurposesTypesDescriptor instead')
 const AreaPurposesTypes$json = const {
   '1': 'AreaPurposesTypes',

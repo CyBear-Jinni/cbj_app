@@ -7,9 +7,7 @@ class NodeRedNodeAbstract {
     this.id,
     this.name,
   }) {
-    if (id == null) {
-      id = const Uuid().v1();
-    }
+    id ??= const Uuid().v1();
   }
 
   String type;

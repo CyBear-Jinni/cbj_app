@@ -25,7 +25,7 @@ class SmartDevicesWidgets extends StatelessWidget {
             '⚙️ Change Area For Devices',
             style: TextStyle(color: Colors.blueGrey, fontSize: 23),
           ),
-          onPressed: () {
+          onPressed: (_) {
             //
             // Fluttertoast.showToast(
             //   msg: 'Settings page will be added in the future',
@@ -108,7 +108,7 @@ class SmartDevicesWidgets extends StatelessWidget {
               rightIconFunction: userCogFunction,
               leftIcon: FontAwesomeIcons.solidLightbulb,
               leftIconFunction: (BuildContext context) {},
-              // rightSecondIcon: FontAwesomeIcons.search,
+              // rightSecondIcon: FontAwesomeIcons.magnifyingGlass,
               // rightSecondFunction: rightSecondFunction,
             ),
             Expanded(

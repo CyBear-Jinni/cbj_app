@@ -88,7 +88,7 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                     color: Colors.greenAccent.withOpacity(0.8),
                     child: ListTile(
                       leading: FaIcon(
-                        FontAwesomeIcons.signOutAlt,
+                        FontAwesomeIcons.rightToBracket,
                         color: Theme.of(context).textTheme.bodyText1!.color,
                         size: 25,
                       ),

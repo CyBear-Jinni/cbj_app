@@ -32,7 +32,7 @@ class _SmartBoilerPage extends State<SmartBoilerPage> {
     _boiler = widget.genericBoilerBoiler;
     getAndUpdateState();
 
-    WidgetsBinding.instance!
+    WidgetsBinding.instance
         .addObserver(LifecycleEventHandler(resumeCallBack: getAndUpdateState));
   }
 

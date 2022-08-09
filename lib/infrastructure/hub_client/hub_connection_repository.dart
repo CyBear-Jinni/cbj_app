@@ -12,7 +12,7 @@ import 'package:cybear_jinni/infrastructure/hub_client/hub_dtos.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:injectable/injectable.dart';
 import 'package:location/location.dart';
 import 'package:multicast_dns/multicast_dns.dart';
@@ -20,6 +20,7 @@ import 'package:network_info_plus/network_info_plus.dart';
 import 'package:network_tools/network_tools.dart';
 import 'package:permission_handler/permission_handler.dart'
     as permission_handler;
+import 'package:wifi_iot/wifi_iot.dart';
 
 @LazySingleton(as: IHubConnectionRepository)
 class HubConnectionRepository extends IHubConnectionRepository {
@@ -35,11 +36,11 @@ class HubConnectionRepository extends IHubConnectionRepository {
   /// running environment
   late int hubPort;
 
-  static HubEntity? hubEntity;
+  static int tryAgainConnectToTheHubOnceMore = 0;
 
   @override
   Future<void> connectWithHub() async {
-    if (hubEntity == null) {
+    if (IHubConnectionRepository.hubEntity == null) {
       try {
         String? hubNetworkBssid;
         (await getIt<ILocalDbRepository>().getHubEntityNetworkBssid()).fold(
@@ -58,7 +59,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
           (l) => throw 'Error getting Hub network IP',
           (r) => hubNetworkIp = r,
         );
-        hubEntity = HubDtos(
+        IHubConnectionRepository.hubEntity = HubDtos(
           hubNetworkBssid: hubNetworkBssid!,
           lastKnownIp: hubNetworkIp!,
           networkName: hubNetworkName!,
@@ -77,31 +78,41 @@ class HubConnectionRepository extends IHubConnectionRepository {
 
     // Last Number of bssid can change fix?, need to check if more numbers
     // can do that
-    final String? savedWifiBssid = hubEntity?.hubNetworkBssid.getOrCrash();
+    final String? savedWifiBssid =
+        IHubConnectionRepository.hubEntity?.hubNetworkBssid.getOrCrash();
     final String? savedWifiBssidWithoutLastNumber =
         savedWifiBssid?.substring(0, savedWifiBssid.lastIndexOf(':'));
-
-    final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
-    final String? wifiBSSIDWithoutLastNumber =
-        wifiBSSID?.substring(0, wifiBSSID.lastIndexOf(':'));
-
+    String? wifiBSSID;
+    String? wifiBSSIDWithoutLastNumber;
+    try {
+      wifiBSSID = await NetworkInfo().getWifiBSSID();
+      wifiBSSIDWithoutLastNumber =
+          wifiBSSID?.substring(0, wifiBSSID.lastIndexOf(':'));
+    } catch (e) {
+      logger.w("Can't get WiFi BSSID");
+    }
     // Check if you are connected to the home local network for direct
     // communication with the Hub.
     // This block can be false also if user does not improve some permissions
     // or #256 if the app run on the computer and connected with ethernet cable
     // (not effecting connection with WiFi)
-    if (connectivityResult != null &&
-        connectivityResult == ConnectivityResult.wifi &&
-        savedWifiBssidWithoutLastNumber != null &&
-        wifiBSSIDWithoutLastNumber != null &&
-        savedWifiBssidWithoutLastNumber == wifiBSSIDWithoutLastNumber) {
+    if ((connectivityResult != null &&
+            connectivityResult == ConnectivityResult.wifi &&
+            savedWifiBssidWithoutLastNumber != null &&
+            wifiBSSIDWithoutLastNumber != null &&
+            savedWifiBssidWithoutLastNumber == wifiBSSIDWithoutLastNumber) ||
+        (connectivityResult != null &&
+            connectivityResult == ConnectivityResult.ethernet &&
+            savedWifiBssidWithoutLastNumber == 'no:Network:Bssid') ||
+        (kIsWeb && savedWifiBssidWithoutLastNumber == 'no:Network:Bssid')) {
       logger.i('Connect using direct connection to Hub');
 
-      if (hubEntity?.lastKnownIp.getOrCrash() != null) {
+      if (IHubConnectionRepository.hubEntity?.lastKnownIp.getOrCrash() !=
+          null) {
         Socket? testHubConnection;
         try {
           testHubConnection = await Socket.connect(
-            hubEntity!.lastKnownIp.getOrCrash(),
+            IHubConnectionRepository.hubEntity!.lastKnownIp.getOrCrash(),
             hubPort,
             timeout: const Duration(milliseconds: 500),
           );
@@ -113,16 +124,16 @@ class HubConnectionRepository extends IHubConnectionRepository {
           testHubConnection?.destroy();
 
           await searchForHub();
-          logger.i("Connection to hub didn't work, will try again");
+          logger.i("Connection to hub didn't work, will try again Error:\n$e");
           connectWithHub();
           return;
         }
       } else {
         await searchForHub();
       }
-
+      tryAgainConnectToTheHubOnceMore = 0;
       await HubClient.createStreamWithHub(
-        hubEntity!.lastKnownIp.getOrCrash(),
+        IHubConnectionRepository.hubEntity!.lastKnownIp.getOrCrash(),
         hubPort,
       );
 
@@ -130,8 +141,61 @@ class HubConnectionRepository extends IHubConnectionRepository {
     } else {
       logger.i('Connect using Remote Pipes');
       (await getIt<ILocalDbRepository>().getRemotePipesDnsName()).fold(
-        (l) => logger.e('Cant find local Remote Pipes Dns name'),
-        (r) => HubClient.createStreamWithHub(r, 50056),
+        (l) async {
+          logger.e(
+            'Cant find local Remote Pipes Dns name, will ask the user to open WiFi and gps to try local connection',
+          );
+
+          final bool wifiEnabled = await WiFiForIoTPlugin.isEnabled();
+          final Location location = Location();
+
+          if (wifiEnabled && await location.serviceEnabled()) {
+            final bool wifiEnabled = await WiFiForIoTPlugin.isConnected();
+            if (wifiEnabled) {
+              if (tryAgainConnectToTheHubOnceMore <= 10) {
+                // Even if WiFi got enabled it still takes time for the
+                // device to complete the automatic connection to previous
+                // WiFi network, so we give it a little time before stop trying
+                tryAgainConnectToTheHubOnceMore += 1;
+                await Future.delayed(const Duration(seconds: 5));
+                connectWithHub();
+              } else {
+                logger.w(
+                  "User cannot connect to home as he is A. Not in his home B. Didn't set Remote Pipes",
+                );
+              }
+            } else {
+              logger.v('User not connected to any WiFi, Will try again.');
+              tryAgainConnectToTheHubOnceMore = 0;
+              await Future.delayed(const Duration(milliseconds: 500));
+              connectWithHub();
+              return;
+            }
+          } else {
+            final bool wifiEnabled = await WiFiForIoTPlugin.isEnabled();
+            if (!wifiEnabled) {
+              WiFiForIoTPlugin.setEnabled(true, shouldOpenSettings: true);
+              tryAgainConnectToTheHubOnceMore = 0;
+              await Future.delayed(const Duration(milliseconds: 500));
+              connectWithHub();
+              return;
+            }
+
+            (await askLocationPermissionAndLocationOn()).fold((l) {
+              logger.e(
+                'User does not allow opening location and does not have remote pipes info',
+              );
+            }, (r) {
+              // Try to connect again because there is a chance user without
+              // remote pipes info but is in his home
+              connectWithHub();
+            });
+          }
+        },
+        (r) {
+          HubClient.createStreamWithHub(r, 50056);
+          tryAgainConnectToTheHubOnceMore = 0;
+        },
       );
       // Here for easy find and local testing
       // HubClient.createStreamWithHub('127.0.0.1', 50056);
@@ -142,7 +206,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
   Future<Either<HubFailures, CompHubInfo>> getHubCompInfo(
     CompHubInfo appInfoForHub,
   ) async {
-    if (hubEntity == null) {
+    if (IHubConnectionRepository.hubEntity == null) {
       try {
         String? hubNetworkBssid;
         (await getIt<ILocalDbRepository>().getHubEntityNetworkBssid()).fold(
@@ -161,7 +225,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
           (l) => throw 'Error getting Hub network IP',
           (r) => hubNetworkIp = r,
         );
-        hubEntity = HubDtos(
+        IHubConnectionRepository.hubEntity = HubDtos(
           hubNetworkBssid: hubNetworkBssid!,
           lastKnownIp: hubNetworkIp!,
           networkName: hubNetworkName!,
@@ -180,7 +244,8 @@ class HubConnectionRepository extends IHubConnectionRepository {
 
     // Last Number of bssid can change fix?, need to check if more numbers
     // can do that
-    final String? savedWifiBssid = hubEntity?.hubNetworkBssid.getOrCrash();
+    final String? savedWifiBssid =
+        IHubConnectionRepository.hubEntity?.hubNetworkBssid.getOrCrash();
     final String? savedWifiBssidWithoutLastNumber =
         savedWifiBssid?.substring(0, savedWifiBssid.lastIndexOf(':'));
 
@@ -200,11 +265,12 @@ class HubConnectionRepository extends IHubConnectionRepository {
         savedWifiBssidWithoutLastNumber == wifiBSSIDWithoutLastNumber) {
       logger.i('Connect using direct connection to Hub');
 
-      if (hubEntity?.lastKnownIp.getOrCrash() != null) {
+      if (IHubConnectionRepository.hubEntity?.lastKnownIp.getOrCrash() !=
+          null) {
         Socket? testHubConnection;
         try {
           testHubConnection = await Socket.connect(
-            hubEntity!.lastKnownIp.getOrCrash(),
+            IHubConnectionRepository.hubEntity!.lastKnownIp.getOrCrash(),
             hubPort,
             timeout: const Duration(milliseconds: 500),
           );
@@ -220,7 +286,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
 
       try {
         final CompHubInfo? compHubInfo = await HubClient.getHubCompInfo(
-          hubEntity!.lastKnownIp.getOrCrash(),
+          IHubConnectionRepository.hubEntity!.lastKnownIp.getOrCrash(),
           hubPort,
           appInfoForHub,
         );
@@ -258,8 +324,6 @@ class HubConnectionRepository extends IHubConnectionRepository {
       // Here for easy find and local testing
       // HubClient.createStreamWithHub('127.0.0.1', 50056);
     }
-
-    return left(const HubFailures.unexpected());
   }
 
   @override
@@ -271,7 +335,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
   /// Search device IP by computer Avahi (mdns) name
   Future<String> getDeviceIpByDeviceAvahiName(String mDnsName) async {
     String deviceIp = '';
-    final String fullMdnsName = '$mDnsName.local';
+    // final String fullMdnsName = '$mDnsName.local';
 
     final MDnsClient client = MDnsClient(
       rawDatagramSocketFactory: (
@@ -309,7 +373,10 @@ class HubConnectionRepository extends IHubConnectionRepository {
   }
 
   @override
-  Future<Either<HubFailures, Unit>> searchForHub() async {
+  Future<Either<HubFailures, Unit>> searchForHub({
+    String? deviceIpOnTheNetwork,
+    bool? isThatTheIpOfTheHub,
+  }) async {
     try {
       final Either<HubFailures, Unit> locationRequest =
           await askLocationPermissionAndLocationOn();
@@ -319,59 +386,65 @@ class HubConnectionRepository extends IHubConnectionRepository {
       }
 
       logger.i('searchForHub');
-      final String? wifiIP = await NetworkInfo().getWifiIP();
 
-      final String subnet = wifiIP!.substring(0, wifiIP.lastIndexOf('.'));
+      String? currentDeviceIP;
+      String? networkBSSID;
+      String? networkName;
+      if (await Connectivity().checkConnectivity() == ConnectivityResult.wifi &&
+          !kIsWeb) {
+        currentDeviceIP = await NetworkInfo().getWifiIP();
+        networkBSSID = await NetworkInfo().getWifiBSSID();
+        networkName = await NetworkInfo().getWifiName();
+      } else {
+        if (deviceIpOnTheNetwork == null) {
+          // Issue https://github.com/CyBear-Jinni/cbj_app/issues/256
+          return left(
+            const HubFailures
+                .findingHubWhenConnectedToEthernetCableIsNotSupported(),
+          );
+        }
 
-      logger.i('subnet IP $subnet');
+        currentDeviceIP = deviceIpOnTheNetwork;
+        networkBSSID = 'no:Network:Bssid:Found';
+        networkName = 'noNetworkNameFound';
+        if (isThatTheIpOfTheHub != null && isThatTheIpOfTheHub) {
+          return insertHubInfo(
+            networkIp: currentDeviceIP,
+            networkBSSID: networkBSSID,
+            networkName: networkName,
+          );
+        }
+      }
 
-      final Stream<OpenPort> devicesWithPort = HostScanner.discoverPort(
+      final String subnet =
+          currentDeviceIP!.substring(0, currentDeviceIP.lastIndexOf('.'));
+
+      logger.i('Subnet IP $subnet');
+
+      final Stream<ActiveHost> devicesWithPort =
+          HostScanner.scanDevicesForSinglePort(
         subnet,
         hubPort,
-        resultsInIpAscendingOrder: false,
+
+        /// TODO: return this settings when can use with the await for loop
+        // resultsInIpAscendingOrder: false,
         timeout: const Duration(milliseconds: 600),
       );
 
-      int sameAddressCounter = 0;
-
-      await for (final OpenPort address in devicesWithPort) {
-        if (!address.isOpen) {
-          sameAddressCounter++;
-          if (sameAddressCounter > 10) {
-            await Future.delayed(const Duration(milliseconds: 600));
-            return left(const HubFailures.hubFoundButNotRunning());
-          }
-          continue;
-        }
-        logger.i('Found device: ${address.ip}');
-
-        final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
-        final String? wifiName = await NetworkInfo().getWifiName();
-
-        if (wifiBSSID != null && wifiName != null) {
-          hubEntity = HubEntity(
-            hubNetworkBssid: HubNetworkBssid(wifiBSSID),
-            networkName: HubNetworkName(wifiName),
-            lastKnownIp: HubNetworkIp(address.ip),
+      await for (final ActiveHost activeHost in devicesWithPort) {
+        logger.i('Found device: ${activeHost.address}');
+        if (networkBSSID != null && networkName != null) {
+          return insertHubInfo(
+            networkIp: activeHost.address,
+            networkBSSID: networkBSSID,
+            networkName: networkName,
           );
-
-          final HubDtos hubDtos = hubEntity!.toInfrastructure();
-
-          (await getIt<ILocalDbRepository>().saveHubEntity(
-            hubNetworkBssid: hubDtos.hubNetworkBssid,
-            networkName: hubDtos.networkName,
-            lastKnownIp: hubDtos.lastKnownIp,
-          ))
-              .fold(
-            (l) => logger.e('Cant find local Remote Pipes Dns name'),
-            (r) => logger.i('Found CyBear Jinni Hub'),
-          );
-          return right(unit);
         }
       }
     } catch (e) {
       logger.w('Exception searchForHub\n$e');
     }
+    await Future.delayed(const Duration(seconds: 5));
     return left(const HubFailures.cantFindHubInNetwork());
   }
 
@@ -388,35 +461,62 @@ class HubConnectionRepository extends IHubConnectionRepository {
 
     int permissionCounter = 0;
 
-    if (kIsWeb) {
-      return left(const HubFailures.automaticHubSearchNotSupportedOnWeb());
+    // Get location permission is not supported on Linux
+    if (Platform.isLinux || Platform.isWindows) {
+      return right(unit);
     }
-    if (!Platform.isLinux && !Platform.isWindows) {
-      while (true) {
-        _permissionGranted = await location.hasPermission();
-        if (_permissionGranted == PermissionStatus.denied) {
-          _permissionGranted = await location.requestPermission();
-          if (_permissionGranted != PermissionStatus.granted) {
-            logger.e('Permission to use location is denied');
-            permissionCounter++;
-            if (permissionCounter > 5) {
-              permission_handler.openAppSettings();
-            }
-            continue;
-          }
-        }
 
-        _serviceEnabled = await location.serviceEnabled();
-        if (!_serviceEnabled) {
-          _serviceEnabled = await location.requestService();
-          if (!_serviceEnabled) {
-            logger.w('Location is disabled');
-            continue;
+    while (true) {
+      _permissionGranted = await location.hasPermission();
+      if (_permissionGranted == PermissionStatus.denied) {
+        _permissionGranted = await location.requestPermission();
+        if (_permissionGranted != PermissionStatus.granted) {
+          logger.e('Permission to use location is denied');
+          permissionCounter++;
+          if (permissionCounter > 5) {
+            permission_handler.openAppSettings();
           }
+          continue;
         }
-        break;
       }
+
+      _serviceEnabled = await location.serviceEnabled();
+      if (!_serviceEnabled) {
+        _serviceEnabled = await location.requestService();
+        if (!_serviceEnabled) {
+          logger.w('Location is disabled');
+          continue;
+        }
+      }
+      break;
     }
+    return right(unit);
+  }
+
+  /// Will save hub info both on ram and to the local database
+  Future<Either<HubFailures, Unit>> insertHubInfo({
+    required String networkIp,
+    required String networkName,
+    required String networkBSSID,
+  }) async {
+    IHubConnectionRepository.hubEntity = HubEntity(
+      hubNetworkBssid: HubNetworkBssid(networkBSSID),
+      networkName: HubNetworkName(networkName),
+      lastKnownIp: HubNetworkIp(networkIp),
+    );
+
+    final HubDtos hubDtos =
+        IHubConnectionRepository.hubEntity!.toInfrastructure();
+
+    (await getIt<ILocalDbRepository>().saveHubEntity(
+      hubNetworkBssid: hubDtos.hubNetworkBssid,
+      networkName: hubDtos.networkName,
+      lastKnownIp: hubDtos.lastKnownIp,
+    ))
+        .fold(
+      (l) => logger.e('Cant find local Remote Pipes Dns name'),
+      (r) => logger.i('Found CyBear Jinni Hub'),
+    );
     return right(unit);
   }
 }

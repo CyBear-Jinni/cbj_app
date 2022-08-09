@@ -33,12 +33,11 @@ class VendorWidget extends StatelessWidget {
             VendorsAndServices.jinvooSmart.name.toLowerCase()) {
           context.router.push(const AddJinvooSmartVendorRoute());
         } else if (vendorName ==
-                VendorsAndServices.tasmota.name.toLowerCase() ||
-            vendorName == VendorsAndServices.espHome.name.toLowerCase()) {
+            VendorsAndServices.espHome.name.toLowerCase()) {
           Fluttertoast.showToast(
             msg: '${vendor.name.getOrCrash()} devices can only be added '
                 'manually in the Hub',
-            toastLength: Toast.LENGTH_SHORT,
+            toastLength: Toast.LENGTH_LONG,
             gravity: ToastGravity.SNACKBAR,
             backgroundColor: Colors.orangeAccent,
             textColor: Theme.of(context).textTheme.bodyText1!.color,

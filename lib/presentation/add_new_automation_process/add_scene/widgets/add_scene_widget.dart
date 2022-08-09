@@ -81,7 +81,7 @@ class AddSceneWidget extends StatelessWidget {
                                   fontSize: 23,
                                 ),
                               ),
-                              onPressed: () async {
+                              onPressed: (_) async {
                                 final List<
                                         MapEntry<DeviceEntityAbstract,
                                             MapEntry<String?, String?>>>?
@@ -109,7 +109,7 @@ class AddSceneWidget extends StatelessWidget {
                                   fontSize: 23,
                                 ),
                               ),
-                              onPressed: () {
+                              onPressed: (_) {
                                 Fluttertoast.showToast(
                                   msg:
                                       'Adding service action will be added in the future',
@@ -132,7 +132,7 @@ class AddSceneWidget extends StatelessWidget {
                                   fontSize: 23,
                                 ),
                               ),
-                              onPressed: () {
+                              onPressed: (_) {
                                 Fluttertoast.showToast(
                                   msg:
                                       'Adding time based action will be added in the future',

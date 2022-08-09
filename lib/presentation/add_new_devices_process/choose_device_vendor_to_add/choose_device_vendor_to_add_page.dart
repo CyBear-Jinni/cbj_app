@@ -19,7 +19,7 @@ class ChooseDeviceVendorToAddPage extends StatelessWidget {
       appBar: AppBar(
         toolbarHeight: 0,
         backgroundColor: Colors.black,
-        systemOverlayStyle: SystemUiOverlayStyle.dark,
+        systemOverlayStyle: SystemUiOverlayStyle.light,
       ),
       body: Container(
         color: HexColor('#FBF5F9'),
@@ -28,7 +28,7 @@ class ChooseDeviceVendorToAddPage extends StatelessWidget {
             TopNavigationBar(
               pageName: 'Add Service',
               rightIcon: null,
-              // FontAwesomeIcons.search,
+              // FontAwesomeIcons.magnifyingGlass,
               rightIconFunction: backButtonFunction,
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,

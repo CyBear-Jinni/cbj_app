@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:cybear_jinni/ad_state.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/generic_blinds_device/generic_blinds_entity.dart';
@@ -14,6 +16,7 @@ import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/rooms_widgets/rom_widget.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
@@ -44,23 +47,26 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
     super.didChangeDependencies();
     final Size screenSize = MediaQuery.of(context).size;
 
-    final adState = Provider.of<AdState>(context);
-    adState.initialization.then((status) {
-      setState(() {
-        for (int adForRooms = 0;
-            adForRooms < widget.roomsList.length;
-            adForRooms += 3) {
-          banners.add(
-            BannerAd(
-              adUnitId: adState.bannerAdUnitId,
-              size: AdSize(width: screenSize.width.toInt(), height: 60),
-              request: const AdRequest(),
-              listener: adState.adListener,
-            )..load(),
-          );
-        }
+    // Adds package only support Android and IOS
+    if (!kIsWeb && (Platform.isAndroid || Platform.isIOS)) {
+      final adState = Provider.of<AdState>(context);
+      adState.initialization.then((status) {
+        setState(() {
+          for (int adForRooms = 0;
+              adForRooms < widget.roomsList.length;
+              adForRooms += 3) {
+            banners.add(
+              BannerAd(
+                adUnitId: adState.bannerAdUnitId,
+                size: AdSize(width: screenSize.width.toInt(), height: 60),
+                request: const AdRequest(),
+                listener: adState.adListener,
+              )..load(),
+            );
+          }
+        });
       });
-    });
+    }
   }
 
   /// RoomId than TypeName than list of devices of this type in
@@ -348,6 +354,15 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
         if (adOrRoom
             is MapEntry<String, Map<String, List<DeviceEntityAbstract>>>) {
           gradientColorCounter++;
+          // Don't make the last room pain blue as this will look the same with
+          // Summary room blue
+          if (objectList.length >= 3 &&
+              adOrRoom == objectList[objectList.length - 2] &&
+              gradientColorCounter ==
+                  gradientColorsList.indexOf(GradientColors.sea)) {
+            gradientColorCounter++;
+          }
+
           if (gradientColorCounter >= gradientColorsList.length) {
             gradientColorCounter = 1;
           }

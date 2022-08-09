@@ -73,7 +73,7 @@ class JinvooSmartSignInForm extends StatelessWidget {
                     ),
                     TextFormField(
                       decoration: const InputDecoration(
-                        prefixIcon: FaIcon(FontAwesomeIcons.signInAlt),
+                        prefixIcon: FaIcon(FontAwesomeIcons.rightToBracket),
                         labelText: 'Jinvoo Smart User Name',
                       ),
                       autocorrect: false,

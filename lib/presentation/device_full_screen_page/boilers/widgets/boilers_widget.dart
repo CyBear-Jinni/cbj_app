@@ -77,11 +77,11 @@ class BoilersWidget extends StatelessWidget {
             activeColor: toggleColor,
             inactiveColor: toggleColor,
             activeIcon: const Icon(
-              FontAwesomeIcons.thermometerThreeQuarters,
+              FontAwesomeIcons.temperatureThreeQuarters,
               color: Color(0xFFF8E3A1),
             ),
             inactiveIcon: Icon(
-              FontAwesomeIcons.thermometerThreeQuarters,
+              FontAwesomeIcons.temperatureThreeQuarters,
               color: Theme.of(context).textTheme.bodyText1!.color,
             ),
             onToggle: (bool value) => _onChange(context, value)

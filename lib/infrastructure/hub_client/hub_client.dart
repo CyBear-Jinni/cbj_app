@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:async/async.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cybear_jinni/infrastructure/hub_client/hub_requests_routing.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:grpc/grpc.dart';
 
@@ -22,13 +21,13 @@ class HubClient {
     ResponseStream<RequestsAndStatusFromHub> response;
 
     try {
-      HubRequestRouting.navigateRequest();
-
       response = stub!.clientTransferDevices(
         AppRequestsToHub.appRequestsToHubStreamBroadcast.stream,
       );
 
-      await Future.delayed(const Duration(milliseconds: 50));
+      // Connection should establish after that and than we can send first
+      // connection request
+      await Future.delayed(const Duration(milliseconds: 400));
 
       AppRequestsToHub.appRequestsToHubStreamController
           .add(ClientStatusRequests(sendingType: SendingType.firstConnection));
@@ -88,19 +87,8 @@ class HubRequestsToApp {
     if (boolListenWorking) {
       return;
     }
-
-    hubRequestsStreamBroadcast.add(hubRequestsStreamController.stream);
     boolListenWorking = true;
-
-    ///TODO: delete if it was only for test
-    hubRequestsStreamBroadcast.stream.listen((event) {
-      logger.v('Listen To Hub requests to App\n$event');
-    });
-
-    ///TODO: delete if it was only for test
-    hubRequestsStreamBroadcast.stream.listen((event) {
-      logger.v('Listen To Hub requests to App2\n$event');
-    });
+    hubRequestsStreamBroadcast.add(hubRequestsStreamController.stream);
   }
 }
 
@@ -120,19 +108,8 @@ class AppRequestsToHub {
     if (boolListenWorking) {
       return;
     }
-
+    boolListenWorking = true;
     appRequestsToHubStreamBroadcast
         .add(appRequestsToHubStreamController.stream);
-    boolListenWorking = true;
-
-    ///TODO: delete if it was only for test
-    appRequestsToHubStreamBroadcast.stream.listen((event) {
-      logger.v('Listen To App requests to Hub\n$event');
-    });
-
-    ///TODO: delete if it was only for test
-    appRequestsToHubStreamBroadcast.stream.listen((event) {
-      logger.v('Listen To App requests to Hub2\n$event');
-    });
   }
 }
