@@ -29,7 +29,7 @@ class NodeRedConverter {
         devicesPropertyAction,
   }) {
     final NodeRedMqttBrokerNode brokerNode =
-        NodeRedMqttBrokerNode(name: 'CyBear Jinni Broker');
+        NodeRedMqttBrokerNode(name: 'CyBear  Jinni Broker');
 
     final List<String> allNodeRedIdToConnectSceneTo = [];
     String nodes = '';
@@ -95,7 +95,7 @@ class NodeRedConverter {
     required RoutineCbjRepeatDateMinute minutesToRepeat,
   }) {
     final NodeRedMqttBrokerNode brokerNode =
-        NodeRedMqttBrokerNode(name: 'CyBear Jinni Broker');
+        NodeRedMqttBrokerNode(name: 'CyBear  Jinni Broker');
 
     final List<String> allNodeRedIdToConnectRoutineTo = [];
     String nodes = '';

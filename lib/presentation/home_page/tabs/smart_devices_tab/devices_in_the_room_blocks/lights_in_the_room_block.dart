@@ -58,7 +58,10 @@ class LightsInTheRoomBlock extends StatelessWidget {
         );
       },
       child: Container(
-        color: Colors.amber.withOpacity(0.03),
+        decoration: BoxDecoration(
+          color: Colors.amber.withOpacity(0.03),
+          borderRadius: const BorderRadius.all(Radius.circular(20)),
+        ),
         margin: const EdgeInsets.symmetric(horizontal: 5),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
