@@ -53,9 +53,12 @@ class SmartDevicesByRooms extends StatelessWidget {
                         ),
                       ),
                     Container(
-                      color: Colors.black.withOpacity(0.2),
                       padding: const EdgeInsets.symmetric(horizontal: 50),
                       margin: const EdgeInsets.symmetric(vertical: 20),
+                      decoration: BoxDecoration(
+                        color: Colors.black.withOpacity(0.2),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
                       child: Stack(
                         children: <Widget>[
                           Text(

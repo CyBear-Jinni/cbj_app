@@ -34,7 +34,7 @@ class ScenesInFoldersL extends StatelessWidget {
           loadedEmpty: (LoadedEmpty value) {
             return const Center(
               child: Text(
-                'You can add scene in the plus button',
+                'You can add automations in the plus button',
                 style: TextStyle(
                   fontSize: 18,
                   color: Colors.black,
