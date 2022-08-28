@@ -25,8 +25,6 @@ abstract class ISceneCbjRepository {
     KtList<SceneCbjEntity> scenesList,
   );
 
-  Future<Either<SceneCbjFailure, SceneCbjEntity>> getScene();
-
   /// Sending the new scene to the hub to get added
   Future<Either<SceneCbjFailure, SceneCbjEntity>>
       addOrUpdateNewSceneInHubFromDevicesPropertyActionList(

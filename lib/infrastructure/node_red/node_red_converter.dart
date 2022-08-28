@@ -74,9 +74,8 @@ class NodeRedConverter {
       iconCodePoint: SceneCbjIconCodePoint(null),
       image: SceneCbjBackgroundImage(null),
       lastDateOfExecute: SceneCbjLastDateOfExecute(null),
-      // TODO: add new type for adding new scenes and not use noDevicesToTransfer
       deviceStateGRPC: SceneCbjDeviceStateGRPC(
-        DeviceStateGRPC.noDevicesToTransfer.toString(),
+        DeviceStateGRPC.addingNewScene.toString(),
       ),
       senderDeviceModel: SceneCbjSenderDeviceModel(null),
       senderDeviceOs: SceneCbjSenderDeviceOs(null),
@@ -145,9 +144,8 @@ class NodeRedConverter {
       iconCodePoint: RoutineCbjIconCodePoint(null),
       image: RoutineCbjBackgroundImage(null),
       lastDateOfExecute: RoutineCbjLastDateOfExecute(null),
-      // TODO: add new type for adding new Routines and not use noDevicesToTransfer
       deviceStateGRPC: RoutineCbjDeviceStateGRPC(
-        DeviceStateGRPC.noDevicesToTransfer.toString(),
+        DeviceStateGRPC.addingNewRoutine.toString(),
       ),
       senderDeviceModel: RoutineCbjSenderDeviceModel(null),
       senderDeviceOs: RoutineCbjSenderDeviceOs(null),
@@ -216,9 +214,8 @@ class NodeRedConverter {
       iconCodePoint: BindingCbjIconCodePoint(null),
       image: BindingCbjBackgroundImage(null),
       lastDateOfExecute: BindingCbjLastDateOfExecute(null),
-      // TODO: add new type for adding new Bindings and not use noDevicesToTransfer
       deviceStateGRPC: BindingCbjDeviceStateGRPC(
-        DeviceStateGRPC.noDevicesToTransfer.toString(),
+        DeviceStateGRPC.addingNewBinding.toString(),
       ),
       senderDeviceModel: BindingCbjSenderDeviceModel(null),
       senderDeviceOs: BindingCbjSenderDeviceOs(null),
