@@ -18,7 +18,9 @@
   "Air_Conditioners": "מיזוג אוויר",
   "Blinds": "תריסים",
   "Medical_Device": "מכשיר רפואי",
+  "Medical_Devices": "מכשירים רפואיים",
   "Smart_Phone": "טלפון חכם",
+  "Smart_Phones": "טלפונים חכמים",
   "Smart_Speakers": "רמקולים חכמים",
   "Smart_Devices_page": "עמוד מכשירים חכמים",
   "History": "היסטוריה",
@@ -35,6 +37,7 @@
   "Password_must_be_bigger_than__characters": "ססמה חייבת להכיל לפחות {} אותיות",
   "Password": "ססמה",
   "Log_In": "התחבר",
+  "Forgot_password": "שכחת ססמה",
   "Forgot_password?": "?שכחת ססמה",
   "title": "כותרת",
   "number": "מספר",
@@ -90,5 +93,13 @@
   "Area": "איזור",
   "Areas": "איזורים",
   "Automations": "אוטומציות",
-  "Scenes_In_Folder": "תרחישים בתיקייה"
+  "Scenes_In_Folder": "תרחישים בתיקייה",
+  "Select": "בחר",
+  "Exist": "קיים",
+  "OK": "אשר",
+  "Nothing": "אין",
+  "No_need_here": "לא צריך פה",
+  "Do_not_need": "לא צריך",
+  "Finish": "סיים",
+  "Select_Purposes_Of_The_Area": "בחר את מטרות האיזור"
 }
