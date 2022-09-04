@@ -66,19 +66,23 @@ class AddNewRoomForm extends StatelessWidget {
                           confirmText: const Text('OK').tr(),
                           title: const Text('Select').tr(),
                           items: AreaPurposesTypes.values
-                              .map((AreaPurposesTypes a) {
-                            final String tempRoomName =
-                                a.name.substring(1, a.name.length);
-                            String roomName =
-                                a.name.substring(0, 1).toUpperCase();
-                            for (final String a in tempRoomName.characters) {
+                              .map((AreaPurposesTypes areaPurposeType) {
+                            final String tempAreaName = areaPurposeType.name
+                                .substring(1, areaPurposeType.name.length);
+                            String areaNameEdited = areaPurposeType.name
+                                .substring(0, 1)
+                                .toUpperCase();
+                            for (final String a in tempAreaName.characters) {
                               if (a[0] == a[0].toUpperCase()) {
-                                roomName += ' ';
+                                areaNameEdited += ' ';
                               }
-                              roomName += a;
+                              areaNameEdited += a;
                             }
 
-                            return MultiSelectItem(a.value, roomName);
+                            return MultiSelectItem(
+                              areaPurposeType.value,
+                              areaNameEdited,
+                            );
                           }).toList(),
                           listType: MultiSelectListType.CHIP,
                           onConfirm: (List<int> values) {
