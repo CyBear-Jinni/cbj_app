@@ -54,6 +54,7 @@ class BindingCbjRepository implements IBindingCbjRepository {
           ),
           image: BindingCbjBackgroundImage(null),
           automationString: BindingCbjAutomationString(null),
+          nodeRedFlowId: BindingCbjNodeRedFlowId(null),
           firstNodeId: BindingCbjFirstNodeId(null),
           lastDateOfExecute: BindingCbjLastDateOfExecute(null),
           deviceStateGRPC: BindingCbjDeviceStateGRPC(null),

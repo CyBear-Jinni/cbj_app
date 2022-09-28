@@ -102,6 +102,17 @@ class BindingCbjAutomationString extends ValueObjectBindingsCbj<String?> {
   final Either<BindingCbjFailure<String?>, String?> value;
 }
 
+class BindingCbjNodeRedFlowId extends ValueObjectBindingsCbj<String?> {
+  factory BindingCbjNodeRedFlowId(String? input) {
+    return BindingCbjNodeRedFlowId._(validateBindingCbjNodeRedFlowId(input));
+  }
+
+  const BindingCbjNodeRedFlowId._(this.value);
+
+  @override
+  final Either<BindingCbjFailure<String?>, String?> value;
+}
+
 class BindingCbjFirstNodeId extends ValueObjectBindingsCbj<String?> {
   factory BindingCbjFirstNodeId(String? input) {
     return BindingCbjFirstNodeId._(validateBindingCbjFirstNodeId(input));

@@ -58,6 +58,7 @@ class NodeRedConverter {
       name: SceneCbjName(nodeName),
       backgroundColor: SceneCbjBackgroundColor(Colors.orange.value.toString()),
       automationString: SceneCbjAutomationString(nodes),
+      nodeRedFlowId: SceneCbjNodeRedFlowId(null),
       firstNodeId: SceneCbjFirstNodeId(startingSceneNode.key),
       iconCodePoint: SceneCbjIconCodePoint(null),
       image: SceneCbjBackgroundImage(null),
@@ -112,6 +113,7 @@ class NodeRedConverter {
       backgroundColor:
           RoutineCbjBackgroundColor(Colors.orange.value.toString()),
       automationString: RoutineCbjAutomationString(nodes),
+      nodeRedFlowId: RoutineCbjNodeRedFlowId(null),
       firstNodeId: RoutineCbjFirstNodeId(startingRoutineNode.key),
       iconCodePoint: RoutineCbjIconCodePoint(null),
       image: RoutineCbjBackgroundImage(null),
@@ -167,6 +169,7 @@ class NodeRedConverter {
       backgroundColor:
           BindingCbjBackgroundColor(Colors.orange.value.toString()),
       automationString: BindingCbjAutomationString(nodes),
+      nodeRedFlowId: BindingCbjNodeRedFlowId(null),
       firstNodeId: BindingCbjFirstNodeId(startingBindingNode.key),
       iconCodePoint: BindingCbjIconCodePoint(null),
       image: BindingCbjBackgroundImage(null),

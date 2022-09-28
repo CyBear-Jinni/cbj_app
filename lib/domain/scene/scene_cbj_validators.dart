@@ -42,6 +42,12 @@ Either<SceneCbjFailure<String>, String?> validateSceneCbjAutomationStringLugit(
   return right(input);
 }
 
+Either<SceneCbjFailure<String>, String?> validateSceneCbjNodeRedFlowId(
+  String? input,
+) {
+  return right(input);
+}
+
 Either<SceneCbjFailure<String>, String?> validateSceneCbjFirstNodeId(
   String? input,
 ) {
