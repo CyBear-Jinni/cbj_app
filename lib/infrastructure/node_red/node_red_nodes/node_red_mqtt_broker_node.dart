@@ -12,7 +12,7 @@ class NodeRedMqttBrokerNode extends NodeRedNodeAbstract {
           name: name,
         );
 
-  /// Mqtt broker node ide
+  /// Mqtt broker node id
   String brokerAddress;
   String port;
   String? clientid = '';

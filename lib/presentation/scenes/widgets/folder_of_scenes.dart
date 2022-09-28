@@ -23,6 +23,13 @@ class FolderOfScenesWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
+
+    int gridCrossAxisCount = 2;
+    if (screenSize.width > 700) {
+      gridCrossAxisCount = 4;
+    }
+
     return BlocConsumer<FolderOfScenesBloc, FolderOfScenesState>(
       listener: (context, FolderOfScenesState state) {
         state.map(
@@ -59,15 +66,15 @@ class FolderOfScenesWidget extends StatelessWidget {
                 );
               },
               itemCount: scenesList.scenesList.length,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: gridCrossAxisCount,
               ),
             );
           },
           loadedEmptyScens: (LoadedEmptyScens value) {
             return const Center(
               child: Text(
-                'You can add sceneCbj in the plus button',
+                'You can add automations in the plus button',
                 style: TextStyle(
                   fontSize: 18,
                   color: Colors.black,

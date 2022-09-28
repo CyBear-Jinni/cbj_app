@@ -45,6 +45,12 @@ Either<RoutineCbjFailure<String>, String?>
   return right(input);
 }
 
+Either<RoutineCbjFailure<String>, String?> validateRoutineCbjNodeRedFlowId(
+  String? input,
+) {
+  return right(input);
+}
+
 Either<RoutineCbjFailure<String>, String?> validateRoutineCbjFirstNodeId(
   String? input,
 ) {

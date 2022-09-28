@@ -102,6 +102,17 @@ class SceneCbjAutomationString extends ValueObjectScenesCbj<String?> {
   final Either<SceneCbjFailure<String?>, String?> value;
 }
 
+class SceneCbjNodeRedFlowId extends ValueObjectScenesCbj<String?> {
+  factory SceneCbjNodeRedFlowId(String? input) {
+    return SceneCbjNodeRedFlowId._(validateSceneCbjNodeRedFlowId(input));
+  }
+
+  const SceneCbjNodeRedFlowId._(this.value);
+
+  @override
+  final Either<SceneCbjFailure<String?>, String?> value;
+}
+
 class SceneCbjFirstNodeId extends ValueObjectScenesCbj<String?> {
   factory SceneCbjFirstNodeId(String? input) {
     return SceneCbjFirstNodeId._(validateSceneCbjFirstNodeId(input));

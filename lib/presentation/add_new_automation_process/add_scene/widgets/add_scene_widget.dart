@@ -62,7 +62,7 @@ class AddSceneWidget extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 30),
-                  Container(
+                  DecoratedBox(
                     decoration: BoxDecoration(
                       color: Colors.lightBlueAccent.withOpacity(0.5),
                       // Red border with the width is equal to 5
@@ -154,7 +154,7 @@ class AddSceneWidget extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  Container(
+                  DecoratedBox(
                     decoration: BoxDecoration(
                       color: Colors.lightBlueAccent.withOpacity(0.5),
                       // Red border with the width is equal to 5

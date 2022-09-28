@@ -2,7 +2,7 @@ import 'package:cybear_jinni/infrastructure/node_red/node_red_nodes/node_red_vis
 
 class NodeRedMqttInNode extends NodeRedVisualNodeAbstract {
   NodeRedMqttInNode({
-    required this.brokerId,
+    required this.brokerNodeId,
     required this.topic,
     String? id,
     String? name,
@@ -16,8 +16,8 @@ class NodeRedMqttInNode extends NodeRedVisualNodeAbstract {
           wires: wires,
         );
 
-  /// Mqtt broker node ide
-  String brokerId;
+  /// Mqtt broker node id
+  String brokerNodeId;
   String topic;
   String? qos = '2';
   String? datatype = 'auto';
@@ -32,7 +32,7 @@ class NodeRedMqttInNode extends NodeRedVisualNodeAbstract {
     "topic": "$topic",
     "qos": "$qos",
     "datatype": "$datatype",
-    "broker": "$brokerId",
+    "broker": "$brokerNodeId",
     "wires":  ${fixWiresForNodeRed()}
   }''';
   }

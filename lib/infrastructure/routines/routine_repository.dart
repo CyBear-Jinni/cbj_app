@@ -54,6 +54,7 @@ class RoutineCbjRepository implements IRoutineCbjRepository {
           ),
           image: RoutineCbjBackgroundImage(null),
           automationString: RoutineCbjAutomationString(null),
+          nodeRedFlowId: RoutineCbjNodeRedFlowId(null),
           firstNodeId: RoutineCbjFirstNodeId(null),
           lastDateOfExecute: RoutineCbjLastDateOfExecute(null),
           deviceStateGRPC: RoutineCbjDeviceStateGRPC(null),
