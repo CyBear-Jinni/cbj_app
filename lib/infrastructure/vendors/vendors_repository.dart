@@ -114,8 +114,7 @@ class VendorsMocDataWithImages {
     return [
       Vendor(
         name: VendorName('Tasmota'),
-        image:
-            'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fapps-cdn.athom.com%2Fapp%2Fcom.paveld.tasmota%2F17%2F416f22d3-812c-4d53-81d3-6637f54e5f74%2Fdrivers%2Ftasmota_mqtt%2Fassets%2Fimages%2Flarge.png&f=1&nofb=1',
+        image: 'https://i.ibb.co/XZLGCRd/Tasmota-logo.png',
       ),
       Vendor(
         name: VendorName('Xiaomi Mi'),
@@ -139,8 +138,7 @@ class VendorsMocDataWithImages {
       ),
       Vendor(
         name: VendorName('MQTT'),
-        image:
-            'https://www.opc-router.de/wp-content/uploads/2018/07/mqtt_icon_128px.png',
+        image: 'https://i.ibb.co/hfRhB0Q/mqtt-logo.png',
       ),
       Vendor(
         name: VendorName('Tuya Smart'),
@@ -174,8 +172,7 @@ class VendorsMocDataWithImages {
       ),
       Vendor(
         name: VendorName('ESPHome'),
-        image:
-            'https://pbs.twimg.com/profile_images/1099243589014573056/JuViMFXW_400x400.png',
+        image: 'https://i.ibb.co/W2YG23s/ESPHome-logo.png',
       ),
       Vendor(
         name: VendorName('Ring'),

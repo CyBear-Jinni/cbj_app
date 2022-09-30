@@ -37,14 +37,14 @@ class PlusButtonPage extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            Container(
+            ColoredBox(
               color: Colors.white,
               child: Column(
                 children: [
                   const SizedBox(
                     height: 1,
                   ),
-                  Container(
+                  ColoredBox(
                     color: Colors.purple.withOpacity(0.7),
                     child: ListTile(
                       leading: FaIcon(
@@ -67,7 +67,7 @@ class PlusButtonPage extends StatelessWidget {
                   const SizedBox(
                     height: 1,
                   ),
-                  Container(
+                  ColoredBox(
                     color: Colors.brown.withOpacity(0.9),
                     child: ListTile(
                       leading: FaIcon(
@@ -90,7 +90,7 @@ class PlusButtonPage extends StatelessWidget {
                   const SizedBox(
                     height: 1,
                   ),
-                  Container(
+                  ColoredBox(
                     color: Colors.blue,
                     child: ListTile(
                       leading: FaIcon(
@@ -132,14 +132,14 @@ class PlusButtonPage extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            Container(
+            ColoredBox(
               color: Colors.white,
               child: Column(
                 children: [
                   const SizedBox(
                     height: 1,
                   ),
-                  Container(
+                  ColoredBox(
                     color: Colors.redAccent.withOpacity(0.9),
                     child: ListTile(
                       leading: Iconify(
@@ -180,7 +180,7 @@ class PlusButtonPage extends StatelessWidget {
                   const SizedBox(
                     height: 1,
                   ),
-                  Container(
+                  ColoredBox(
                     color: Colors.orangeAccent,
                     child: ListTile(
                       leading: FaIcon(
@@ -202,7 +202,7 @@ class PlusButtonPage extends StatelessWidget {
                   const SizedBox(
                     height: 1,
                   ),
-                  Container(
+                  ColoredBox(
                     color: Colors.greenAccent,
                     child: ListTile(
                       leading: FaIcon(

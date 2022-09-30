@@ -31,52 +31,40 @@ class NodeRedConverter {
     final NodeRedMqttBrokerNode brokerNode =
         NodeRedMqttBrokerNode(name: 'CyBear  Jinni Broker');
 
-    final List<String> allNodeRedIdToConnectSceneTo = [];
-    String nodes = '';
+    final MapEntry<String, List<String>>
+        allNodesAsWellAsAllNodeRedIdToConnectTo =
+        getAllNodesAsWellAsAllNodeRedIdToConnectTo(
+      devicesPropertyAction: devicesPropertyAction,
+      brokerNodeId: brokerNode.id!,
+    );
 
-    for (final MapEntry<DeviceEntityAbstract,
-        MapEntry<String?, String?>> deviceEntry in devicesPropertyAction) {
-      final DeviceEntityAbstract device = deviceEntry.key;
-      final String? property = deviceEntry.value.key;
-      final String? action = deviceEntry.value.value;
-
-      if (property == null || action == null) {
-        continue;
-      }
-      final MapEntry<String, String> nodeRedStringNode = convertToNodeString(
-        brokerNode: brokerNode,
-        device: device,
-        property: property,
-        action: action,
-      );
-
-      if (nodes.isNotEmpty) {
-        nodes += ', ';
-      }
-      nodes += nodeRedStringNode.value;
-      allNodeRedIdToConnectSceneTo.add(nodeRedStringNode.key);
-    }
+    String nodes = allNodesAsWellAsAllNodeRedIdToConnectTo.key;
+    final List<String> allNodeRedIdToConnectTo =
+        allNodesAsWellAsAllNodeRedIdToConnectTo.value;
 
     final MapEntry<String, String> startingSceneNode = createStartingSceneNode(
       nodeName: nodeName,
-      broker: brokerNode,
-      wires: allNodeRedIdToConnectSceneTo,
+      brokerNodeId: brokerNode.id!,
+      wires: allNodeRedIdToConnectTo,
     );
 
-    nodes = '[${startingSceneNode.value}, $nodes, ${brokerNode.toString()}]';
-
+    if (nodes.isEmpty) {
+      nodes = '[${startingSceneNode.value}, ${brokerNode.toString()}]';
+    } else {
+      nodes = '[${startingSceneNode.value}, $nodes, ${brokerNode.toString()}]';
+    }
     return SceneCbjEntity(
       uniqueId: UniqueId(),
       name: SceneCbjName(nodeName),
       backgroundColor: SceneCbjBackgroundColor(Colors.orange.value.toString()),
       automationString: SceneCbjAutomationString(nodes),
+      nodeRedFlowId: SceneCbjNodeRedFlowId(null),
       firstNodeId: SceneCbjFirstNodeId(startingSceneNode.key),
       iconCodePoint: SceneCbjIconCodePoint(null),
       image: SceneCbjBackgroundImage(null),
       lastDateOfExecute: SceneCbjLastDateOfExecute(null),
-      // TODO: add new type for adding new scenes and not use noDevicesToTransfer
       deviceStateGRPC: SceneCbjDeviceStateGRPC(
-        DeviceStateGRPC.noDevicesToTransfer.toString(),
+        DeviceStateGRPC.addingNewScene.toString(),
       ),
       senderDeviceModel: SceneCbjSenderDeviceModel(null),
       senderDeviceOs: SceneCbjSenderDeviceOs(null),
@@ -97,37 +85,21 @@ class NodeRedConverter {
     final NodeRedMqttBrokerNode brokerNode =
         NodeRedMqttBrokerNode(name: 'CyBear  Jinni Broker');
 
-    final List<String> allNodeRedIdToConnectRoutineTo = [];
-    String nodes = '';
+    final MapEntry<String, List<String>>
+        allNodesAsWellAsAllNodeRedIdToConnectTo =
+        getAllNodesAsWellAsAllNodeRedIdToConnectTo(
+      devicesPropertyAction: devicesPropertyAction,
+      brokerNodeId: brokerNode.id!,
+    );
 
-    for (final MapEntry<DeviceEntityAbstract,
-        MapEntry<String?, String?>> deviceEntry in devicesPropertyAction) {
-      final DeviceEntityAbstract device = deviceEntry.key;
-      final String? property = deviceEntry.value.key;
-      final String? action = deviceEntry.value.value;
-
-      if (property == null || action == null) {
-        continue;
-      }
-      final MapEntry<String, String> nodeRedStringNode = convertToNodeString(
-        brokerNode: brokerNode,
-        device: device,
-        property: property,
-        action: action,
-      );
-
-      if (nodes.isNotEmpty) {
-        nodes += ', ';
-      }
-      nodes += nodeRedStringNode.value;
-      allNodeRedIdToConnectRoutineTo.add(nodeRedStringNode.key);
-    }
+    String nodes = allNodesAsWellAsAllNodeRedIdToConnectTo.key;
+    final List<String> allNodeRedIdToConnectTo =
+        allNodesAsWellAsAllNodeRedIdToConnectTo.value;
 
     final MapEntry<String, String> startingRoutineNode =
         createStartingRoutineNode(
       nodeName: nodeName,
-      broker: brokerNode,
-      wires: allNodeRedIdToConnectRoutineTo,
+      wires: allNodeRedIdToConnectTo,
       daysToRepeat: daysToRepeat,
       hourToRepeat: hourToRepeat,
       minutesToRepeat: minutesToRepeat,
@@ -141,13 +113,13 @@ class NodeRedConverter {
       backgroundColor:
           RoutineCbjBackgroundColor(Colors.orange.value.toString()),
       automationString: RoutineCbjAutomationString(nodes),
+      nodeRedFlowId: RoutineCbjNodeRedFlowId(null),
       firstNodeId: RoutineCbjFirstNodeId(startingRoutineNode.key),
       iconCodePoint: RoutineCbjIconCodePoint(null),
       image: RoutineCbjBackgroundImage(null),
       lastDateOfExecute: RoutineCbjLastDateOfExecute(null),
-      // TODO: add new type for adding new Routines and not use noDevicesToTransfer
       deviceStateGRPC: RoutineCbjDeviceStateGRPC(
-        DeviceStateGRPC.noDevicesToTransfer.toString(),
+        DeviceStateGRPC.addingNewRoutine.toString(),
       ),
       senderDeviceModel: RoutineCbjSenderDeviceModel(null),
       senderDeviceOs: RoutineCbjSenderDeviceOs(null),
@@ -171,37 +143,22 @@ class NodeRedConverter {
     final NodeRedMqttBrokerNode brokerNode =
         NodeRedMqttBrokerNode(name: 'CyBear  Jinni Broker');
 
-    final List<String> allNodeRedIdToConnectBindingTo = [];
-    String nodes = '';
+    final MapEntry<String, List<String>>
+        allNodesAsWellAsAllNodeRedIdToConnectTo =
+        getAllNodesAsWellAsAllNodeRedIdToConnectTo(
+      devicesPropertyAction: devicesPropertyAction,
+      brokerNodeId: brokerNode.id!,
+    );
 
-    for (final MapEntry<DeviceEntityAbstract,
-        MapEntry<String?, String?>> deviceEntry in devicesPropertyAction) {
-      final DeviceEntityAbstract device = deviceEntry.key;
-      final String? property = deviceEntry.value.key;
-      final String? action = deviceEntry.value.value;
-
-      if (property == null || action == null) {
-        continue;
-      }
-      final MapEntry<String, String> nodeRedStringNode = convertToNodeString(
-        brokerNode: brokerNode,
-        device: device,
-        property: property,
-        action: action,
-      );
-
-      if (nodes.isNotEmpty) {
-        nodes += ', ';
-      }
-      nodes += nodeRedStringNode.value;
-      allNodeRedIdToConnectBindingTo.add(nodeRedStringNode.key);
-    }
+    String nodes = allNodesAsWellAsAllNodeRedIdToConnectTo.key;
+    final List<String> allNodeRedIdToConnectTo =
+        allNodesAsWellAsAllNodeRedIdToConnectTo.value;
 
     final MapEntry<String, String> startingBindingNode =
         createStartingBindingNode(
       nodeName: nodeName,
-      broker: brokerNode,
-      wires: allNodeRedIdToConnectBindingTo,
+      brokerNodeId: brokerNode.id!,
+      wires: allNodeRedIdToConnectTo,
     );
 
     nodes = '[${startingBindingNode.value}, $nodes, ${brokerNode.toString()}]';
@@ -212,13 +169,13 @@ class NodeRedConverter {
       backgroundColor:
           BindingCbjBackgroundColor(Colors.orange.value.toString()),
       automationString: BindingCbjAutomationString(nodes),
+      nodeRedFlowId: BindingCbjNodeRedFlowId(null),
       firstNodeId: BindingCbjFirstNodeId(startingBindingNode.key),
       iconCodePoint: BindingCbjIconCodePoint(null),
       image: BindingCbjBackgroundImage(null),
       lastDateOfExecute: BindingCbjLastDateOfExecute(null),
-      // TODO: add new type for adding new Bindings and not use noDevicesToTransfer
       deviceStateGRPC: BindingCbjDeviceStateGRPC(
-        DeviceStateGRPC.noDevicesToTransfer.toString(),
+        DeviceStateGRPC.addingNewBinding.toString(),
       ),
       senderDeviceModel: BindingCbjSenderDeviceModel(null),
       senderDeviceOs: BindingCbjSenderDeviceOs(null),
@@ -234,12 +191,12 @@ class NodeRedConverter {
     required DeviceEntityAbstract device,
     required String property,
     required String action,
-    required NodeRedMqttBrokerNode brokerNode,
+    required String brokerNodeId,
   }) {
     final String topic =
         '$hubBaseTopic/$devicesTopicTypeName/${device.uniqueId.getOrCrash()}/$property';
     final NodeRedMqttOutNode mqttNode = NodeRedMqttOutNode(
-      brokerId: brokerNode.id!,
+      brokerNodeId: brokerNodeId,
       topic: topic,
       name: '${device.defaultName.getOrCrash()} - $property',
     );
@@ -263,14 +220,14 @@ class NodeRedConverter {
 
   static MapEntry<String, String> createStartingSceneNode({
     required String nodeName,
-    required NodeRedMqttBrokerNode broker,
+    required String brokerNodeId,
     required List<String> wires,
   }) {
     final String mqttInNodeId = const Uuid().v1();
     final String topic = '$hubBaseTopic/$scenesTopicTypeName/$mqttInNodeId';
     final NodeRedMqttInNode nodeRedMqttInNode = NodeRedMqttInNode(
       name: nodeName,
-      brokerId: broker.id!,
+      brokerNodeId: brokerNodeId,
       topic: topic,
       wires: [wires],
       id: mqttInNodeId,
@@ -280,7 +237,6 @@ class NodeRedConverter {
 
   static MapEntry<String, String> createStartingRoutineNode({
     required String nodeName,
-    required NodeRedMqttBrokerNode broker,
     required List<String> wires,
     required RoutineCbjRepeatDateDays daysToRepeat,
     required RoutineCbjRepeatDateHour hourToRepeat,
@@ -301,18 +257,52 @@ class NodeRedConverter {
 
   static MapEntry<String, String> createStartingBindingNode({
     required String nodeName,
-    required NodeRedMqttBrokerNode broker,
+    required String brokerNodeId,
     required List<String> wires,
   }) {
     final String mqttInNodeId = const Uuid().v1();
     final String topic = '$hubBaseTopic/$bindingsTopicTypeName/$mqttInNodeId';
     final NodeRedMqttInNode nodeRedMqttInNode = NodeRedMqttInNode(
       name: nodeName,
-      brokerId: broker.id!,
+      brokerNodeId: brokerNodeId,
       topic: topic,
       wires: [wires],
       id: mqttInNodeId,
     );
     return MapEntry(nodeRedMqttInNode.id!, nodeRedMqttInNode.toString());
+  }
+
+  static MapEntry<String, List<String>>
+      getAllNodesAsWellAsAllNodeRedIdToConnectTo({
+    required List<MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>>
+        devicesPropertyAction,
+    required String brokerNodeId,
+  }) {
+    final List<String> allNodeRedIdToConnectTo = [];
+    String nodes = '';
+
+    for (final MapEntry<DeviceEntityAbstract,
+        MapEntry<String?, String?>> deviceEntry in devicesPropertyAction) {
+      final DeviceEntityAbstract device = deviceEntry.key;
+      final String? property = deviceEntry.value.key;
+      final String? action = deviceEntry.value.value;
+
+      if (property == null || action == null) {
+        continue;
+      }
+      final MapEntry<String, String> nodeRedStringNode = convertToNodeString(
+        brokerNodeId: brokerNodeId,
+        device: device,
+        property: property,
+        action: action,
+      );
+
+      if (nodes.isNotEmpty) {
+        nodes += ', ';
+      }
+      nodes += nodeRedStringNode.value;
+      allNodeRedIdToConnectTo.add(nodeRedStringNode.key);
+    }
+    return MapEntry(nodes, allNodeRedIdToConnectTo);
   }
 }

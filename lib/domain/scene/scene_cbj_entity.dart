@@ -15,6 +15,9 @@ class SceneCbjEntity with _$SceneCbjEntity {
     required SceneCbjName name,
     required SceneCbjBackgroundColor backgroundColor,
 
+    /// Node-Red flow id of the scene
+    required SceneCbjNodeRedFlowId nodeRedFlowId,
+
     /// All the automation as string.
     required SceneCbjAutomationString automationString,
 
@@ -42,9 +45,9 @@ class SceneCbjEntity with _$SceneCbjEntity {
       name: name.getOrCrash(),
       backgroundColor: backgroundColor.getOrCrash(),
       automationString: automationString.getOrCrash(),
+      nodeRedFlowId: nodeRedFlowId.getOrCrash(),
       firstNodeId: firstNodeId.getOrCrash(),
       iconCodePoint: iconCodePoint.getOrCrash(),
-
       image: image.getOrCrash(),
       lastDateOfExecute: lastDateOfExecute.getOrCrash(),
       deviceStateGRPC: deviceStateGRPC.getOrCrash(),

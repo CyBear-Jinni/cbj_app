@@ -53,6 +53,7 @@ class SceneCbjRepository implements ISceneCbjRepository {
           ),
           image: SceneCbjBackgroundImage(null),
           automationString: SceneCbjAutomationString(null),
+          nodeRedFlowId: SceneCbjNodeRedFlowId(null),
           firstNodeId: SceneCbjFirstNodeId(null),
           lastDateOfExecute: SceneCbjLastDateOfExecute(null),
           deviceStateGRPC: SceneCbjDeviceStateGRPC(null),

@@ -102,6 +102,17 @@ class RoutineCbjAutomationString extends ValueObjectRoutinesCbj<String?> {
   final Either<RoutineCbjFailure<String?>, String?> value;
 }
 
+class RoutineCbjNodeRedFlowId extends ValueObjectRoutinesCbj<String?> {
+  factory RoutineCbjNodeRedFlowId(String? input) {
+    return RoutineCbjNodeRedFlowId._(validateRoutineCbjNodeRedFlowId(input));
+  }
+
+  const RoutineCbjNodeRedFlowId._(this.value);
+
+  @override
+  final Either<RoutineCbjFailure<String?>, String?> value;
+}
+
 class RoutineCbjFirstNodeId extends ValueObjectRoutinesCbj<String?> {
   factory RoutineCbjFirstNodeId(String? input) {
     return RoutineCbjFirstNodeId._(validateRoutineCbjFirstNodeId(input));

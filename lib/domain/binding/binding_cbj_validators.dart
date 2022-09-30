@@ -45,6 +45,12 @@ Either<BindingCbjFailure<String>, String?>
   return right(input);
 }
 
+Either<BindingCbjFailure<String>, String?> validateBindingCbjNodeRedFlowId(
+  String? input,
+) {
+  return right(input);
+}
+
 Either<BindingCbjFailure<String>, String?> validateBindingCbjFirstNodeId(
   String? input,
 ) {
