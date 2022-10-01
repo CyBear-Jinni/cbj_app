@@ -108,7 +108,5 @@
   "Turning_On_boiler": "Turning On boiler",
   "Turning_Off_boiler": "Turning Off boiler",
   "Waiting_for_user_to_get_connected_to_WiFi": "Waiting for user to get connected to WiFi",
-  "allInSameRoom": "allInSameRoom",
-  "Can't_add_unsupported_device": "Can't add unsupported device",
-  "home": "home",
+  "Can't_add_unsupported_device": "Can't add unsupported device"
 }

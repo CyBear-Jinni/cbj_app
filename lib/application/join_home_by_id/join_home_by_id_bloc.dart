@@ -6,7 +6,6 @@ import 'package:cybear_jinni/domain/user/all_homes_of_user/all_homes_of_user_ent
 import 'package:cybear_jinni/domain/user/all_homes_of_user/all_homes_of_user_value_objects.dart';
 import 'package:cybear_jinni/domain/user/i_user_repository.dart';
 import 'package:dartz/dartz.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
