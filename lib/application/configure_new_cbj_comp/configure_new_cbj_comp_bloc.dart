@@ -16,6 +16,7 @@ import 'package:cybear_jinni/domain/security_bear/security_bear_failures.dart';
 import 'package:cybear_jinni/presentation/add_new_devices_process/configure_new_cbj_comp/widgets/configure_new_cbj_comp_widget.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:dartz/dartz.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/widgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -245,7 +246,7 @@ class ConfigureNewCbjCompBloc
     // await WiFiScan.instance
 
     bool isConnectedToWifi = false;
-    logger.i('Waiting for user to get connected to WiFi');
+    logger.i('Waiting_for_user_to_get_connected_to_WiFi'.tr());
 
     while (true) {
       isConnectedToWifi = await WiFiForIoTPlugin.isConnected();
@@ -294,7 +295,7 @@ class ConfigureNewCbjCompBloc
     final List<GenericLightDE> deviceEntityList = [];
 
     final String roomUuid = const Uuid().v1();
-    final String roomName = _textEditingController['allInSameRoom']!.text;
+    final String roomName = _textEditingController['allInSameRoom'.tr()]!.text;
 
     final ManageNetworkEntity manageWiFiEntity =
         IManageNetworkRepository.manageWiFiEntity!;
@@ -309,7 +310,7 @@ class ConfigureNewCbjCompBloc
           deviceE..defaultName = DeviceDefaultName(deviceName),
         );
       } catch (e) {
-        logger.w("Can't add unsupported device");
+        logger.w("Can't_add_unsupported_device".tr());
       }
     });
     final CBJCompEntity compUpdatedData = cbjCompEntity.copyWith(
