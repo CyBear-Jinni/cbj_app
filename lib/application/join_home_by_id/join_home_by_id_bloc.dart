@@ -47,7 +47,7 @@ class JoinHomeByIdBloc extends Bloc<JoinHomeByIdEvent, JoinHomeByIdState> {
     } else {
       final AllHomesOfUserEntity allHomesOfUserEntity = AllHomesOfUserEntity(
         id: AllHomesOfUserUniqueId.fromUniqueString(event.id),
-        name: AllHomesOfUserName('home'.tr()),
+        name: AllHomesOfUserName('home'),
       );
       final initialization = await _iUserRepository.addHome(
         getCurrentUser,

@@ -295,7 +295,7 @@ class ConfigureNewCbjCompBloc
     final List<GenericLightDE> deviceEntityList = [];
 
     final String roomUuid = const Uuid().v1();
-    final String roomName = _textEditingController['allInSameRoom'.tr()]!.text;
+    final String roomName = _textEditingController['allInSameRoom']!.text;
 
     final ManageNetworkEntity manageWiFiEntity =
         IManageNetworkRepository.manageWiFiEntity!;
