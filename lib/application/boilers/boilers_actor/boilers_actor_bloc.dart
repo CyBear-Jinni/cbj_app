@@ -5,6 +5,7 @@ import 'package:bloc/bloc.dart';
 import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
 import 'package:cybear_jinni/domain/devices/generic_boiler_device/generic_boiler_entity.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -40,7 +41,7 @@ class BoilersActorBloc extends Bloc<BoilersActorEvent, BoilersActorState> {
     Emitter<BoilersActorState> emit,
   ) async {
     FlushbarHelper.createLoading(
-      message: 'Turning On boiler',
+      message: 'Turning_On_boiler'.tr(),
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
@@ -52,7 +53,7 @@ class BoilersActorBloc extends Bloc<BoilersActorEvent, BoilersActorState> {
     Emitter<BoilersActorState> emit,
   ) async {
     FlushbarHelper.createLoading(
-      message: 'Turning Off boiler',
+      message: 'Turning_Off_boiler'.tr(),
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
