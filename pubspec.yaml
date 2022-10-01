@@ -39,7 +39,7 @@ dependencies:
   # Utility classes to work with asynchronous computations.
   async: ^2.9.0
   # Declarative routing solution, where everything needed for navigation is automatically generated for you.
-  auto_route: ^4.2.1
+  auto_route: ^5.0.1
   # Automatically resizes text to fit perfectly within its bounds.
   auto_size_text: ^3.0.0
   # Helps implement the BLoC pattern.
@@ -71,7 +71,7 @@ dependencies:
   # HSV(HSB)/HSL/RGB/Material color picker
   flutter_colorpicker: ^1.0.3
   # A cross platform plugin for displaying local notifications.
-  flutter_local_notifications: ^9.7.0
+  flutter_local_notifications: ^11.0.1
   # Getting the local timezone of the os.
   flutter_native_timezone: ^2.0.0
   # An easy to implement custom switch
@@ -109,7 +109,7 @@ dependencies:
   # Dart Build System builders for handling JSON.
   json_serializable: ^6.3.1
   # Port of Kotlin's Kotlin Standard library for Dart/Flutter projects
-  kt_dart: ^0.10.0
+  kt_dart: ^1.0.0
   # Liquid progress indicator for Flutter.
   liquid_progress_indicator: ^0.4.0
   # Handles getting a location on
@@ -149,12 +149,12 @@ dependencies:
   # Get available wifi ssid list, user can connect to wifi with ssid and password, and create hotspot
   wifi_iot: ^0.3.16
   # Scan for nearby visible WiFi access points.
-  wifi_scan: ^0.3.0
+  wifi_scan: ^0.4.0+1
 
 
 dev_dependencies:
   # Generator for auto_route library.
-  auto_route_generator: ^4.2.1
+  auto_route_generator: ^5.0.2
   # A build system for Dart code generation and modular compilation.
   build_runner:
 
