@@ -28,8 +28,8 @@ Future<void> initialisationNotifications() async {
   // to the Android head project
   const AndroidInitializationSettings initializationSettingsAndroid =
       AndroidInitializationSettings('ic_launcher_foreground');
-  const IOSInitializationSettings initializationSettingsIOS =
-      IOSInitializationSettings(
+  const DarwinInitializationSettings initializationSettingsIOS =
+      DarwinInitializationSettings(
     onDidReceiveLocalNotification: selectNotificationIos,
   );
 
@@ -39,8 +39,8 @@ Future<void> initialisationNotifications() async {
     // defaultIcon: AssetsLinuxIcon('icons/app_icon.png'),
   );
 
-  const MacOSInitializationSettings initializationSettingsMacOS =
-      MacOSInitializationSettings();
+  const DarwinInitializationSettings initializationSettingsMacOS =
+      DarwinInitializationSettings();
   const InitializationSettings initializationSettings = InitializationSettings(
     android: initializationSettingsAndroid,
     iOS: initializationSettingsIOS,
@@ -49,7 +49,6 @@ Future<void> initialisationNotifications() async {
   );
   await flutterLocalNotificationsPlugin!.initialize(
     initializationSettings,
-    onSelectNotification: selectNotification,
   );
 }
 
@@ -112,10 +111,10 @@ Future<void> showNotificationCustomSound() async {
     'your other channel name',
     sound: RawResourceAndroidNotificationSound('alert_sfx_created_by_omer_luz'),
   );
-  const IOSNotificationDetails iOSPlatformChannelSpecifics =
-      IOSNotificationDetails(sound: 'alert_sfx_created_by_omer_luz.wav');
-  const MacOSNotificationDetails macOSPlatformChannelSpecifics =
-      MacOSNotificationDetails(sound: 'alert_sfx_created_by_omer_luz.wav');
+  const DarwinNotificationDetails iOSPlatformChannelSpecifics =
+      DarwinNotificationDetails(sound: 'alert_sfx_created_by_omer_luz.wav');
+  const DarwinNotificationDetails macOSPlatformChannelSpecifics =
+      DarwinNotificationDetails(sound: 'alert_sfx_created_by_omer_luz.wav');
   const NotificationDetails platformChannelSpecifics = NotificationDetails(
     android: androidPlatformChannelSpecifics,
     iOS: iOSPlatformChannelSpecifics,
