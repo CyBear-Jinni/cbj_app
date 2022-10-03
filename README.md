@@ -48,3 +48,9 @@ To learn the coding guidelines check [this Wiki](https://github.com/CyBear-Jinni
 If you have any questions feel free to ask in our Discord server
 
 [<img src="https://cdn.icon-icons.com/icons2/2108/PNG/512/discord_icon_130958.png" height="80">](https://discord.gg/mUXfwUY)
+
+[<img src="https://cdn.icon-icons.com/icons2/1753/PNG/512/iconfinder-social-media-applications-3instagram-4102579_113804.png" height="80">](https://www.instagram.com/cybearjinni/?igshid=rfllj6qbv6l8)
+
+[<img src="https://cdn.icon-icons.com/icons2/936/PNG/512/github-logo_icon-icons.com_73546.png" height="80">](https://github.com/CyBear-Jinni)
+
+[<img src="https://cdn.icon-icons.com/icons2/836/PNG/512/Twitter_icon-icons.com_66803.png" height="80">](https://twitter.com/CyBearJinni)
