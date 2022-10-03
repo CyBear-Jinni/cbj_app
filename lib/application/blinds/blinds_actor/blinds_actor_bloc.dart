@@ -5,6 +5,7 @@ import 'package:bloc/bloc.dart';
 import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -41,7 +42,7 @@ class BlindsActorBloc extends Bloc<BlindsActorEvent, BlindsActorState> {
     Emitter<BlindsActorState> emit,
   ) async {
     FlushbarHelper.createLoading(
-      message: 'Pulling Up all blinds',
+      message: 'Pulling_Up_all_blinds'.tr(),
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
@@ -53,7 +54,7 @@ class BlindsActorBloc extends Bloc<BlindsActorEvent, BlindsActorState> {
     Emitter<BlindsActorState> emit,
   ) async {
     FlushbarHelper.createLoading(
-      message: 'Stopping all blinds',
+      message: 'Stopping_all_blinds'.tr(),
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
@@ -65,7 +66,7 @@ class BlindsActorBloc extends Bloc<BlindsActorEvent, BlindsActorState> {
     Emitter<BlindsActorState> emit,
   ) async {
     FlushbarHelper.createLoading(
-      message: 'Pulling down all blinds',
+      message: 'Pulling_down_all_blinds'.tr(),
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
