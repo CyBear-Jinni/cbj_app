@@ -43,8 +43,16 @@ To learn the coding guidelines check [this Wiki](https://github.com/CyBear-Jinni
 
 # Social Media Links
 
-[<img src = "https://cdn.icon-icons.com/icons2/1099/PNG/512/1485482199-linkedin_78667.png" height = "80" >](https://www.linkedin.com/company/cybear-jinni)
+<!-- [<img src = "https://cdn.icon-icons.com/icons2/1099/PNG/512/1485482199-linkedin_78667.png" height = "80" >](https://www.linkedin.com/company/cybear-jinni)
 
 If you have any questions feel free to ask in our Discord server
 
-[<img src="https://cdn.icon-icons.com/icons2/2108/PNG/512/discord_icon_130958.png" height="80">](https://discord.gg/mUXfwUY)
+[<img src="https://cdn.icon-icons.com/icons2/2108/PNG/512/discord_icon_130958.png" height="80">](https://discord.gg/mUXfwUY) -->
+
+<div style="display: flex;">
+    <a  href="https://twitter.com/CyBearJinni"><img src="https://cdn.cdnlogo.com/logos/t/96/twitter-icon.svg" height="60"></a>
+    <a style="margin-left: 1rem;" href="https://www.instagram.com/cybearjinni/?igshid=rfllj6qbv6l8"><img src="https://cdn.cdnlogo.com/logos/i/4/instagram.svg" height="60"></a>
+    <a style="margin-left: 1rem;" href="https://www.linkedin.com/company/cybear-jinni"><img src="https://cdn.cdnlogo.com/logos/l/66/linkedin-icon.svg" height="60"></a>
+    <a style="margin-left: 1rem;" href="https://cdnlogo.com/logo/discord_34172.html"><img src="https://cdn.cdnlogo.com/logos/d/43/discord.svg" height="65"></a>
+    <a style="margin-left: 1rem;" href="https://github.com/CyBear-Jinni/cbj_app"><img src="https://cdn.cdnlogo.com/logos/g/69/github-icon.svg" height="60"></a>
+</div>
