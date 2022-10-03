@@ -8,6 +8,7 @@ import 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
 import 'package:cybear_jinni/domain/local_db/i_local_db_repository.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
+import 'package:cybear_jinni/infrastructure/hub_client/hub_client_demo.dart';
 import 'package:cybear_jinni/infrastructure/hub_client/hub_dtos.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/utils.dart';
@@ -38,8 +39,22 @@ class HubConnectionRepository extends IHubConnectionRepository {
 
   static int tryAgainConnectToTheHubOnceMore = 0;
 
+  static bool cancelConnectionWithHub = false;
+
+  static bool appInDemoMod = false;
+
   @override
-  Future<void> connectWithHub() async {
+  Future<void> connectWithHub({bool demoMod = false}) async {
+    if (cancelConnectionWithHub && !demoMod) {
+      return;
+    }
+    appInDemoMod = demoMod;
+
+    if (appInDemoMod) {
+      cancelConnectionWithHub = true;
+      return streamFromDemoMode();
+    }
+
     if (IHubConnectionRepository.hubEntity == null) {
       try {
         String? hubNetworkBssid;
@@ -327,9 +342,8 @@ class HubConnectionRepository extends IHubConnectionRepository {
   }
 
   @override
-  Future<void> closeConnection() {
-    // TODO: implement closeConnection
-    throw UnimplementedError();
+  Future<void> closeConnection() async {
+    cancelConnectionWithHub = true;
   }
 
   /// Search device IP by computer Avahi (mdns) name
@@ -518,5 +532,9 @@ class HubConnectionRepository extends IHubConnectionRepository {
       (r) => logger.i('Found CyBear Jinni Hub'),
     );
     return right(unit);
+  }
+
+  Future<void> streamFromDemoMode() async {
+    await HubClientDemo.createStreamWithHub();
   }
 }

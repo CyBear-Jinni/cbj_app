@@ -34,7 +34,7 @@ class ConnectToHubPage extends StatelessWidget {
                   Container(
                     alignment: Alignment.center,
                     child: const Text(
-                      'Connect to Hub',
+                      ' Connect to Hub',
                       textAlign: TextAlign.center,
                       style: TextStyle(fontSize: 35),
                     ),
@@ -43,7 +43,7 @@ class ConnectToHubPage extends StatelessWidget {
                     height: 40,
                   ),
                   Expanded(
-                    child: Container(
+                    child: ColoredBox(
                       color: HexColor('#3A3A3A'),
                       child: Column(
                         children: [
