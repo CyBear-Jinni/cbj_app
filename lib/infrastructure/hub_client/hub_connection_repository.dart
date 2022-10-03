@@ -474,6 +474,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
     PermissionStatus _permissionGranted;
 
     int permissionCounter = 0;
+    int disabledCounter = 0;
 
     // Get location permission is not supported on Linux
     if (Platform.isLinux || Platform.isWindows) {
@@ -486,9 +487,13 @@ class HubConnectionRepository extends IHubConnectionRepository {
         _permissionGranted = await location.requestPermission();
         if (_permissionGranted != PermissionStatus.granted) {
           logger.e('Permission to use location is denied');
+          await Future.delayed(const Duration(seconds: 10));
+
           permissionCounter++;
           if (permissionCounter > 5) {
             permission_handler.openAppSettings();
+          } else if (permissionCounter > 7) {
+            return const Left(HubFailures.unexpected());
           }
           continue;
         }
@@ -498,7 +503,12 @@ class HubConnectionRepository extends IHubConnectionRepository {
       if (!_serviceEnabled) {
         _serviceEnabled = await location.requestService();
         if (!_serviceEnabled) {
+          disabledCounter++;
+          if (disabledCounter > 2) {
+            return const Left(HubFailures.unexpected());
+          }
           logger.w('Location is disabled');
+          await Future.delayed(const Duration(seconds: 5));
           continue;
         }
       }
