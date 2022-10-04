@@ -6,7 +6,7 @@ import 'package:dartz/dartz.dart';
 abstract class IHubConnectionRepository {
   static HubEntity? hubEntity;
 
-  Future<void> connectWithHub();
+  Future<void> connectWithHub({bool demoMod = false});
 
   Future<Either<HubFailures, CompHubInfo>> getHubCompInfo(
     CompHubInfo appInfoForHub,
