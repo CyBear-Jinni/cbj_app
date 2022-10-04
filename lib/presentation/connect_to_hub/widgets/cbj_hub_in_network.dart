@@ -41,7 +41,7 @@ class CbjHubInNetwork extends StatelessWidget {
                         },
                         child: const Text('Retry'),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 40,
                       ),
                       TextButton(
