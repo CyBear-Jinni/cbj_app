@@ -99,5 +99,7 @@
   "Finish": "Selesai",
   "Select_Purposes_Of_The_Area": "Pilih Tujuan Area",
   "Waiting_for_user_to_get_connected_to_WiFi": "Menunggu pengguna terhubung ke WiFi",
-  "Can't_add_unsupported_device": "Tidak dapat menambahkan perangkat yang tidak didukung"
+  "Can't_add_unsupported_device": "Tidak dapat menambahkan perangkat yang tidak didukung",
+  "Delete": "Hapus",
+  "Don't touch me" : "Jangan sentuh saya"
 }
