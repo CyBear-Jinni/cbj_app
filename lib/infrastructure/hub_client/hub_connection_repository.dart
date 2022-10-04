@@ -8,6 +8,7 @@ import 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
 import 'package:cybear_jinni/domain/local_db/i_local_db_repository.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
+import 'package:cybear_jinni/infrastructure/hub_client/hub_client_demo.dart';
 import 'package:cybear_jinni/infrastructure/hub_client/hub_dtos.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/utils.dart';
@@ -38,8 +39,22 @@ class HubConnectionRepository extends IHubConnectionRepository {
 
   static int tryAgainConnectToTheHubOnceMore = 0;
 
+  static bool cancelConnectionWithHub = false;
+
+  static bool appInDemoMod = false;
+
   @override
-  Future<void> connectWithHub() async {
+  Future<void> connectWithHub({bool demoMod = false}) async {
+    if (cancelConnectionWithHub && !demoMod) {
+      return;
+    }
+    appInDemoMod = demoMod;
+
+    if (appInDemoMod) {
+      cancelConnectionWithHub = true;
+      return streamFromDemoMode();
+    }
+
     if (IHubConnectionRepository.hubEntity == null) {
       try {
         String? hubNetworkBssid;
@@ -327,9 +342,8 @@ class HubConnectionRepository extends IHubConnectionRepository {
   }
 
   @override
-  Future<void> closeConnection() {
-    // TODO: implement closeConnection
-    throw UnimplementedError();
+  Future<void> closeConnection() async {
+    cancelConnectionWithHub = true;
   }
 
   /// Search device IP by computer Avahi (mdns) name
@@ -460,6 +474,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
     PermissionStatus _permissionGranted;
 
     int permissionCounter = 0;
+    int disabledCounter = 0;
 
     // Get location permission is not supported on Linux
     if (Platform.isLinux || Platform.isWindows) {
@@ -472,9 +487,13 @@ class HubConnectionRepository extends IHubConnectionRepository {
         _permissionGranted = await location.requestPermission();
         if (_permissionGranted != PermissionStatus.granted) {
           logger.e('Permission to use location is denied');
+          await Future.delayed(const Duration(seconds: 10));
+
           permissionCounter++;
           if (permissionCounter > 5) {
             permission_handler.openAppSettings();
+          } else if (permissionCounter > 7) {
+            return const Left(HubFailures.unexpected());
           }
           continue;
         }
@@ -484,7 +503,12 @@ class HubConnectionRepository extends IHubConnectionRepository {
       if (!_serviceEnabled) {
         _serviceEnabled = await location.requestService();
         if (!_serviceEnabled) {
+          disabledCounter++;
+          if (disabledCounter > 2) {
+            return const Left(HubFailures.unexpected());
+          }
           logger.w('Location is disabled');
+          await Future.delayed(const Duration(seconds: 5));
           continue;
         }
       }
@@ -518,5 +542,9 @@ class HubConnectionRepository extends IHubConnectionRepository {
       (r) => logger.i('Found CyBear Jinni Hub'),
     );
     return right(unit);
+  }
+
+  Future<void> streamFromDemoMode() async {
+    await HubClientDemo.createStreamWithHub();
   }
 }

@@ -19,8 +19,8 @@ import 'package:cybear_jinni/presentation/add_vendors_pages/add_lifx_vendor/add_
 import 'package:cybear_jinni/presentation/add_vendors_pages/add_smart_life_vendor/add_smart_life_vendor_page.dart';
 import 'package:cybear_jinni/presentation/add_vendors_pages/add_tuya_vendor/add_tuya_vendor_page.dart';
 import 'package:cybear_jinni/presentation/change_room_for_devices/change_room_for_devices_page.dart';
-import 'package:cybear_jinni/presentation/connect_to_hub/connect_to_hub_more_page.dart';
 import 'package:cybear_jinni/presentation/connect_to_hub/connect_to_hub_page.dart';
+import 'package:cybear_jinni/presentation/connect_to_hub_more/connect_to_hub_more_page.dart';
 import 'package:cybear_jinni/presentation/create_home/create_home_page.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/blinds/rooms_blinds_page.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/boilers/rooms_boilers_page.dart';
