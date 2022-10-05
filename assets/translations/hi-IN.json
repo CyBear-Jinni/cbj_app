@@ -102,5 +102,12 @@
   "No_need_here": "यहाँ कोई ज़रूरत नहीं है",
   "Do_not_need": "जरूरत नहीं है",
   "Finish": "पूर्ण करना",
-  "Select_Purposes_Of_The_Area": "क्षेत्र के प्रयोजनों का चयन करें"
+  "Select_Purposes_Of_The_Area": "क्षेत्र के प्रयोजनों का चयन करें",
+  "Pulling_Up_all_blinds": "सभी ब्लाइंड को ऊपर खींचना",
+  "Stopping_all_blinds": "सभी ब्लाइंड को रोकना",
+  "Pulling_down_all_blinds": "सभी ब्लाइंड को नीचे खींच रहा है",
+  "Turning_On_boiler": "बॉयलर चालू किया जा रहा है",
+  "Turning_Off_boiler": "बॉयलर बंद किया जा रहा है",
+  "Waiting_for_user_to_get_connected_to_WiFi": "उपयोगकर्ता के वाईफाई से कनेक्ट होने की प्रतीक्षा कर रहा है",
+  "Can't_add_unsupported_device": "असमर्थित डिवाइस नहीं जोड़ सकते"
 }
