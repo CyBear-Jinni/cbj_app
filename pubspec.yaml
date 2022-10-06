@@ -6,7 +6,7 @@ homepage: https://cybearjinni.com
 publish_to: 'none'
 
 environment:
-  sdk: ^2.18.0
+  sdk: ">=2.18.0 <3.0.0"
 
 flutter_icons:
   ios: true
@@ -58,7 +58,7 @@ dependencies:
   # Helps us to select days in a week.
   day_picker: ^2.1.1
   # Get current device information
-  device_info_plus: ^4.0.2
+  device_info_plus: ^5.0.1
   # Internationalization (Easy translations)
   easy_localization: ^3.0.1
   # An "expansion" on the Flutter SDK's standard ExpansionTile
