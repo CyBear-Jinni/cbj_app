@@ -91,7 +91,7 @@ dependencies:
   # A high performance, open source, general RPC framework that puts mobile and HTTP/2 first.
   grpc: ^3.0.2
   # Add hex color codes to your flutter projects
-  hexcolor: ^3.0.1
+  hexcolor: ^2.0.7
   # Lightweight and blazing fast key-value database
   hive: ^2.2.3
   # Extension for Hive. Makes it easier to use Hive in Flutter apps.
