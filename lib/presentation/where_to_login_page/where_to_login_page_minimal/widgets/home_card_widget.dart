@@ -10,8 +10,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class HomeCardWidget extends StatelessWidget {
   const HomeCardWidget({
     required this.home,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final AllHomesOfUserEntity? home;
 

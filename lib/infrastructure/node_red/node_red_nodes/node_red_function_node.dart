@@ -5,12 +5,10 @@ import 'package:cybear_jinni/infrastructure/node_red/node_red_nodes/node_red_vis
 class NodeRedFunctionNode extends NodeRedVisualNodeAbstract {
   NodeRedFunctionNode({
     required this.funcString,
-    List<List<String>>? wires,
-    String? name,
+    super.wires,
+    super.name,
   }) : super(
           type: 'function',
-          wires: wires,
-          name: name,
         );
 
   /// Take action and pass it down as property for the next node

@@ -36,7 +36,7 @@ class RoomRgbwLights extends StatelessWidget {
       final List<Widget> columnOfLights = <Widget>[];
       List<Widget> widgetsForRow = <Widget>[];
 
-      final int _numberOfLightsToShow = _deviceEntityList.size > maxLightsToShow
+      final int numberOfLightsToShow = _deviceEntityList.size > maxLightsToShow
           ? maxLightsToShow
           : _deviceEntityList.size;
 
@@ -46,7 +46,7 @@ class RoomRgbwLights extends StatelessWidget {
         maxLightsInRow = 1;
       }
 
-      for (int i = 0; i < _numberOfLightsToShow; i += maxLightsInRow) {
+      for (int i = 0; i < numberOfLightsToShow; i += maxLightsInRow) {
         for (int v = 0; v < maxLightsInRow; v++) {
           if (_deviceEntityList.size > i + v &&
               _deviceEntityList[i + v] is GenericRgbwLightDE) {
@@ -57,7 +57,7 @@ class RoomRgbwLights extends StatelessWidget {
                   .add(ErrorRgbwLightsDeviceCard(device: deviceEntityTemp));
             } else {
               EdgeInsets widgetMargin;
-              if (i == _numberOfLightsToShow - 1) {
+              if (i == numberOfLightsToShow - 1) {
                 widgetMargin = const EdgeInsets.only(top: 5);
               } else {
                 widgetMargin = const EdgeInsets.symmetric(vertical: 5);

@@ -24,9 +24,9 @@ class SmartPlugsInTheRoomBlock extends StatelessWidget {
   }) {
     final List<GenericSmartPlugDE> tempSmartPlugsInRoom = [];
 
-    tempDeviceInRoom.forEach((element) {
+    for (final element in tempDeviceInRoom) {
       tempSmartPlugsInRoom.add(element as GenericSmartPlugDE);
-    });
+    }
 
     return SmartPlugsInTheRoomBlock(
       roomEntity: roomEntityTemp,
@@ -219,9 +219,9 @@ class SmartPlugsInTheRoomBlock extends StatelessWidget {
 
   List<String> extractDevicesId() {
     final List<String> devicesIdList = [];
-    smartPlugsInRoom.forEach((element) {
+    for (final element in smartPlugsInRoom) {
       devicesIdList.add(element.uniqueId.getOrCrash());
-    });
+    }
     return devicesIdList;
   }
 }

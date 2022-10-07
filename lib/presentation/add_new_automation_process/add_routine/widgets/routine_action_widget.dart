@@ -7,7 +7,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 /// Contains device name and action name and sores more data like device id
 class RoutineActionWidget extends StatelessWidget {
   /// Get all and store all info about the action
-  RoutineActionWidget({
+  const RoutineActionWidget({
     required this.deviceEntityAbstract,
     required this.propertyToChange,
     required this.actionToChange,

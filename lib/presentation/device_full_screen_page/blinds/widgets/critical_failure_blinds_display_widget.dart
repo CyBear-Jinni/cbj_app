@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 class CriticalFailureBlindsDisplay extends StatelessWidget {
   const CriticalFailureBlindsDisplay({
     required this.failure,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final DevicesFailure? failure;
 

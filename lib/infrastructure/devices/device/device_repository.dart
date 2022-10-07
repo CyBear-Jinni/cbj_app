@@ -784,9 +784,9 @@ class DeviceRepository implements IDeviceRepository {
   ) async {
     final List<DeviceEntityAbstract> deviceEntityList = [];
 
-    deviceIdList.forEach((deviceId) {
+    for (final deviceId in deviceIdList) {
       deviceEntityList.add(allDevices[deviceId]!);
-    });
+    }
     return deviceEntityList;
   }
 

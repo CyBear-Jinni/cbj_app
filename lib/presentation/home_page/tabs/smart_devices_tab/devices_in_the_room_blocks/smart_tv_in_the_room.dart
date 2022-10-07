@@ -22,9 +22,9 @@ class SmartTvInTheRoom extends StatelessWidget {
   }) {
     final List<GenericSmartTvDE> tempLightsInRoom = [];
 
-    tempDeviceInRoom.forEach((element) {
+    for (final element in tempDeviceInRoom) {
       tempLightsInRoom.add(element as GenericSmartTvDE);
-    });
+    }
 
     return SmartTvInTheRoom(
       roomEntity: roomEntity,
@@ -152,9 +152,9 @@ class SmartTvInTheRoom extends StatelessWidget {
 
   List<String> extractDevicesId() {
     final List<String> devicesIdList = [];
-    smartTvsInRoom!.forEach((element) {
+    for (final element in smartTvsInRoom!) {
       devicesIdList.add(element.uniqueId.getOrCrash());
-    });
+    }
     return devicesIdList;
   }
 }

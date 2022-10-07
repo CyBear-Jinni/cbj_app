@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 class CriticalSwitchFailureDisplay extends StatelessWidget {
   const CriticalSwitchFailureDisplay({
     required this.failure,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final DevicesFailure? failure;
 
