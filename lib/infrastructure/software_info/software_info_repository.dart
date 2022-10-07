@@ -27,7 +27,7 @@ class SoftwareInfoRepository implements ISoftwareInfoRepository {
       getAppSoftwareInfo() async {
     try {
       final PackageInfo packageInfo = await PackageInfo.fromPlatform();
-      final NetworkInfo _networkInfo = NetworkInfo();
+      final NetworkInfo networkInfo = NetworkInfo();
 
       final CbjAppIno cbjAppIno = CbjAppIno(
         deviceName: 'cbj App',
@@ -39,7 +39,7 @@ class SoftwareInfoRepository implements ISoftwareInfoRepository {
 
       final CompAppSpecs compAppSpecs = CompAppSpecs(
         compOs: Platform.operatingSystem,
-        compIp: await _networkInfo.getWifiIP(),
+        compIp: await networkInfo.getWifiIP(),
       );
 
       final CompAppInfo compAppInfo = CompAppInfo(
@@ -109,7 +109,7 @@ class SoftwareInfoRepository implements ISoftwareInfoRepository {
   Future<Either<SoftwareInfoFailures, CompHubInfo>> getAppInfoForHub() async {
     try {
       final PackageInfo packageInfo = await PackageInfo.fromPlatform();
-      final NetworkInfo _networkInfo = NetworkInfo();
+      final NetworkInfo networkInfo = NetworkInfo();
 
       final CbjHubIno cbjHubIno = CbjHubIno(
         deviceName: 'cbj App',
@@ -120,7 +120,7 @@ class SoftwareInfoRepository implements ISoftwareInfoRepository {
 
       final CompHubSpecs compHubSpecs = CompHubSpecs(
         compOs: Platform.operatingSystem,
-        compIp: await _networkInfo.getWifiIP(),
+        compIp: await networkInfo.getWifiIP(),
       );
 
       final CompHubInfo compAppInfo = CompHubInfo(
@@ -138,7 +138,7 @@ class SoftwareInfoRepository implements ISoftwareInfoRepository {
       getAppInfoForSecurityBear() async {
     try {
       final PackageInfo packageInfo = await PackageInfo.fromPlatform();
-      final NetworkInfo _networkInfo = NetworkInfo();
+      final NetworkInfo networkInfo = NetworkInfo();
 
       final CbjSecurityBearIno cbjSecurityBearIno = CbjSecurityBearIno(
         deviceName: 'cbj App',
@@ -149,7 +149,7 @@ class SoftwareInfoRepository implements ISoftwareInfoRepository {
 
       final CompSecurityBearSpecs compSecurityBearSpecs = CompSecurityBearSpecs(
         compOs: Platform.operatingSystem,
-        compIp: await _networkInfo.getWifiIP(),
+        compIp: await networkInfo.getWifiIP(),
       );
 
       final CompSecurityBearInfo compAppInfo = CompSecurityBearInfo(

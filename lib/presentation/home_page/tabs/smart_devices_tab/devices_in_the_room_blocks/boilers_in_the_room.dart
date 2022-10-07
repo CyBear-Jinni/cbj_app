@@ -22,9 +22,9 @@ class BoilersInTheRoom extends StatelessWidget {
   }) {
     final List<GenericBoilerDE> tempLightsInRoom = [];
 
-    tempDeviceInRoom.forEach((element) {
+    for (final element in tempDeviceInRoom) {
       tempLightsInRoom.add(element as GenericBoilerDE);
-    });
+    }
 
     return BoilersInTheRoom(
       roomEntity: roomEntity,
@@ -151,9 +151,9 @@ class BoilersInTheRoom extends StatelessWidget {
 
   List<String> extractDevicesId() {
     final List<String> devicesIdList = [];
-    boilersInRoom!.forEach((element) {
+    for (final element in boilersInRoom!) {
       devicesIdList.add(element.uniqueId.getOrCrash());
-    });
+    }
     return devicesIdList;
   }
 }

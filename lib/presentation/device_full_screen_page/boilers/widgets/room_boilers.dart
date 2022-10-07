@@ -39,12 +39,12 @@ class RoomBoilers extends StatelessWidget {
       final List<Widget> columnOfBoilers = <Widget>[];
       List<Widget>? widgetsForRow = <Widget>[];
 
-      final int? _numberOfBoilersToShow =
+      final int? numberOfBoilersToShow =
           _deviceEntityList!.size > maxBoilersToShow!
               ? maxBoilersToShow
               : _deviceEntityList!.size;
 
-      for (int i = 0; i < _numberOfBoilersToShow!; i += _maxBoilersInRow) {
+      for (int i = 0; i < numberOfBoilersToShow!; i += _maxBoilersInRow) {
         for (int v = 0; v < _maxBoilersInRow; v++) {
           if (_deviceEntityList!.size > i + v) {
             final GenericBoilerDE? deviceEntityTemp;

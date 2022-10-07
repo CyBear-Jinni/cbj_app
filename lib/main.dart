@@ -39,7 +39,7 @@ class ReceivedNotification {
 }
 
 Future<Unit> main() async {
-  configureDependencies(Env.prod);
+  configureDependencies(Env.dev);
 
   getIt<ILocalDbRepository>();
 

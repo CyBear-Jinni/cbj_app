@@ -22,7 +22,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class RoomWidget extends StatelessWidget {
   const RoomWidget({
     required this.roomColorGradiant,
-    required int index,
     required this.roomsList,
     required this.tempDevicesByRoomsByType,
     required this.bottomMargin,

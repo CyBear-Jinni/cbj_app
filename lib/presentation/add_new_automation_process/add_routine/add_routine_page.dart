@@ -11,7 +11,7 @@ import 'package:hexcolor/hexcolor.dart';
 
 /// Page for adding new routine
 class AddRoutinePage extends StatelessWidget {
-  AddRoutinePage({
+  const AddRoutinePage({
     required this.daysToRepeat,
     required this.hourToRepeat,
     required this.minutesToRepeat,
