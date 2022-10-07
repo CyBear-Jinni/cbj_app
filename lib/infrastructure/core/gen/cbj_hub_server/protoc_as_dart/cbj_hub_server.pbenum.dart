@@ -25,6 +25,7 @@ class SendingType extends $pb.ProtobufEnum {
   static const SendingType getHubDeviceInfo = SendingType._(12, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'getHubDeviceInfo');
   static const SendingType responseHubDeviceInfo = SendingType._(13, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'responseHubDeviceInfo');
   static const SendingType roomType = SendingType._(14, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'roomType');
+  static const SendingType location = SendingType._(15, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'location');
 
   static const $core.List<SendingType> values = <SendingType> [
     undefinedType,
@@ -42,6 +43,7 @@ class SendingType extends $pb.ProtobufEnum {
     getHubDeviceInfo,
     responseHubDeviceInfo,
     roomType,
+    location,
   ];
 
   static final $core.Map<$core.int, SendingType> _byValue = $pb.ProtobufEnum.initByValue(values);
@@ -100,7 +102,7 @@ class VendorsAndServices extends $pb.ProtobufEnum {
   static const VendorsAndServices shelly = VendorsAndServices._(11, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'shelly');
   static const VendorsAndServices wink = VendorsAndServices._(12, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'wink');
   static const VendorsAndServices ikea = VendorsAndServices._(13, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'ikea');
-  static const VendorsAndServices sonoff = VendorsAndServices._(14, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'sonoff');
+  static const VendorsAndServices sonoffDiy = VendorsAndServices._(14, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'sonoffDiy');
   static const VendorsAndServices philipsHue = VendorsAndServices._(15, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'philipsHue');
   static const VendorsAndServices lg = VendorsAndServices._(16, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'lg');
   static const VendorsAndServices spotify = VendorsAndServices._(17, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'spotify');
@@ -108,6 +110,7 @@ class VendorsAndServices extends $pb.ProtobufEnum {
   static const VendorsAndServices hp = VendorsAndServices._(19, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'hp');
   static const VendorsAndServices yeelink = VendorsAndServices._(20, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'yeelink');
   static const VendorsAndServices xiaomi = VendorsAndServices._(21, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'xiaomi');
+  static const VendorsAndServices sonoffEweLink = VendorsAndServices._(22, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'sonoffEweLink');
 
   static const $core.List<VendorsAndServices> values = <VendorsAndServices> [
     vendorsAndServicesNotSupported,
@@ -124,7 +127,7 @@ class VendorsAndServices extends $pb.ProtobufEnum {
     shelly,
     wink,
     ikea,
-    sonoff,
+    sonoffDiy,
     philipsHue,
     lg,
     spotify,
@@ -132,6 +135,7 @@ class VendorsAndServices extends $pb.ProtobufEnum {
     hp,
     yeelink,
     xiaomi,
+    sonoffEweLink,
   ];
 
   static final $core.Map<$core.int, VendorsAndServices> _byValue = $pb.ProtobufEnum.initByValue(values);

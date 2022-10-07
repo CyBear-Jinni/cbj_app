@@ -1,1 +1,1 @@
-const securityBearClientProtocGenDate = '28/07/22';
+const securityBearClientProtocGenDate = '07/10/22';
