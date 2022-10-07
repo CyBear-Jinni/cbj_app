@@ -1,8 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/domain/room/smart_room_object.dart';
-import 'package:cybear_jinni/presentation/home_page/smart_device_widget.dart';
+import 'package:cybear_jinni/presentation/device_full_screen_page/blinds/smart_blind_widget.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -40,8 +39,8 @@ class RoomBlindsTogglesBlock extends StatelessWidget {
               Container(
                 margin: const EdgeInsets.symmetric(vertical: 5),
                 width: sizeBoxWidth + 15,
-                child: SmartDevicePage(
-                  _smartRoomObject.getLights()![i + v],
+                child: SmartBlindPage(
+                  _smartRoomObject.getBlinds()![i + v],
                 ),
               ),
             );

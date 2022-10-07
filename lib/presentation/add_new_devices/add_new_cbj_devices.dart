@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// This page will show all the CyBear Jinni devices that have connected to the
@@ -52,7 +52,7 @@ class _AddNewCBJDevices extends State<AddNewCBJDevices> {
       appBar: AppBar(
         toolbarHeight: 0,
         backgroundColor: Colors.black,
-        brightness: Brightness.dark,
+        systemOverlayStyle: SystemUiOverlayStyle.dark,
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,
@@ -65,8 +65,8 @@ class _AddNewCBJDevices extends State<AddNewCBJDevices> {
             stops: const <double>[0, 0, 0, 1],
             colors: <Color>[
               Theme.of(context).primaryColor,
-              Theme.of(context).accentColor,
-              Theme.of(context).accentColor,
+              Theme.of(context).colorScheme.secondary,
+              Theme.of(context).colorScheme.secondary,
               Theme.of(context).primaryColor
             ],
           ),
@@ -74,9 +74,9 @@ class _AddNewCBJDevices extends State<AddNewCBJDevices> {
         child: Column(
           children: <Widget>[
             TopNavigationBar(
-              'Add New CyBear Jinni Devices',
-              null,
-              () {},
+              pageName: 'Add New CyBear Jinni Devices',
+              rightIcon: null,
+              rightIconFunction: () {},
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
             ),

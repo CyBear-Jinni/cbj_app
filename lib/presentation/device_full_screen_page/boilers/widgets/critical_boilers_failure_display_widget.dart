@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 class CriticalBoilersFailureDisplay extends StatelessWidget {
   const CriticalBoilersFailureDisplay({
-    Key? key,
     required this.failure,
-  }) : super(key: key);
+    super.key,
+  });
 
   final DevicesFailure? failure;
 
@@ -14,7 +14,6 @@ class CriticalBoilersFailureDisplay extends StatelessWidget {
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           const Text(
             '😱',
@@ -30,9 +29,7 @@ class CriticalBoilersFailureDisplay extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           TextButton(
-            onPressed: () {
-              print('Sending email!');
-            },
+            onPressed: () {},
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: const <Widget>[

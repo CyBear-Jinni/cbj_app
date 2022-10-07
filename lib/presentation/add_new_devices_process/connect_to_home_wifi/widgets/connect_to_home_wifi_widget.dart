@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/manage_wifi/manage_wifi_bloc.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -32,7 +31,7 @@ class ConnectToHomeWiFiWidget extends StatelessWidget {
                 error: (e) {
                   return const Text('Failure');
                 },
-                wifiIsEnabled: (WifiIsEnabled value) {
+                wifiIsEnabled: (WifiIsEnabled wifiIsEnabled) {
                   return Column(
                     children: <Widget>[
                       Container(
@@ -72,6 +71,7 @@ class ConnectToHomeWiFiWidget extends StatelessWidget {
                                 .read<ManageWifiBloc>()
                                 .add(ManageWifiEvent.wifiSsidChanged(value));
                           },
+                          initialValue: wifiIsEnabled.currentWiFiName,
                         ),
                       ),
                       const SizedBox(
@@ -133,17 +133,17 @@ class ConnectToHomeWiFiWidget extends StatelessWidget {
                   return const Text('WiFi is disabled');
                 },
               ),
-              TextButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
-                    Colors.greenAccent,
-                  ),
-                ),
-                onPressed: () {
-                  context.router.replace(const OpenAccessPointRoute());
-                },
-                child: const Text('Next'),
-              ),
+              // TextButton(
+              //   style: ButtonStyle(
+              //     backgroundColor: MaterialStateProperty.all(
+              //       Colors.greenAccent,
+              //     ),
+              //   ),
+              //   onPressed: () {
+              //     context.router.replace(const OpenAccessPointRoute());
+              //   },
+              //   child: const Text('Next'),
+              // ),
             ],
           ),
         );

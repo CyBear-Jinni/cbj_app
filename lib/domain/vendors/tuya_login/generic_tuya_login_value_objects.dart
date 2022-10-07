@@ -8,7 +8,7 @@ class GenericTuyaLoginUserName extends ValueObjectCoreLogin<String> {
   factory GenericTuyaLoginUserName(String? input) {
     assert(input != null);
     return GenericTuyaLoginUserName._(
-      validateGenericTuyaLoginStringNotEmty(input!),
+      validateGenericTuyaLoginStringNotEmty(input),
     );
   }
 
@@ -23,7 +23,7 @@ class GenericTuyaLoginUserPassword extends ValueObjectCoreLogin<String> {
   factory GenericTuyaLoginUserPassword(String? input) {
     assert(input != null);
     return GenericTuyaLoginUserPassword._(
-      validateGenericTuyaLoginStringNotEmty(input!),
+      validateGenericTuyaLoginStringNotEmty(input),
     );
   }
 
@@ -40,7 +40,7 @@ class GenericTuyaLoginCountryCode extends ValueObjectCoreLogin<String> {
   factory GenericTuyaLoginCountryCode(String? input) {
     assert(input != null);
     return GenericTuyaLoginCountryCode._(
-      validateGenericTuyaLoginStringNotEmty(input!),
+      validateGenericTuyaLoginStringNotEmty(input),
     );
   }
 
@@ -55,7 +55,7 @@ class GenericTuyaLoginBizType extends ValueObjectCoreLogin<String> {
   factory GenericTuyaLoginBizType(String? input) {
     assert(input != null);
     return GenericTuyaLoginBizType._(
-      validateGenericTuyaLoginStringNotEmty(input!),
+      validateGenericTuyaLoginStringNotEmty(input),
     );
   }
 
@@ -70,7 +70,7 @@ class GenericTuyaLoginRegion extends ValueObjectCoreLogin<String> {
   factory GenericTuyaLoginRegion(String? input) {
     assert(input != null);
     return GenericTuyaLoginRegion._(
-      validateGenericTuyaLoginStringNotEmty(input!),
+      validateGenericTuyaLoginStringNotEmty(input),
     );
   }
 

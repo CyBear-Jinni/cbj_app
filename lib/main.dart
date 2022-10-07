@@ -1,12 +1,17 @@
+import 'dart:io';
+
+import 'package:cybear_jinni/ad_state.dart';
+import 'package:cybear_jinni/domain/local_db/i_local_db_repository.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/core/app_widget.dart';
 import 'package:cybear_jinni/presentation/core/notifications.dart';
 import 'package:dartz/dartz.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:hive/hive.dart';
-import 'package:hive_flutter/hive_flutter.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 
 /// Streams are created so that app can respond to notification-related events
@@ -33,22 +38,26 @@ class ReceivedNotification {
   final String? payload;
 }
 
-Future<void> initializeHive() async {
-  await Hive.initFlutter();
-}
-
 Future<Unit> main() async {
-  // needed if you intend to initialize in the `main` function
+  configureDependencies(Env.dev);
+
+  getIt<ILocalDbRepository>();
+
   WidgetsFlutterBinding.ensureInitialized();
+
+  AdState? adState;
+  // Adds package only support Android and IOS
+  if (!kIsWeb && (Platform.isAndroid || Platform.isIOS)) {
+    final initFuture = MobileAds.instance.initialize();
+    adState = AdState(initFuture);
+  }
+
   await EasyLocalization.ensureInitialized();
-//  debugPaintSizeEnabled = true;
-  configureDependencies(Env.prod);
+  //  debugPaintSizeEnabled = true;
 
   await configureLocalTimeZone();
 
   await initialisationNotifications();
-
-  await initializeHive();
 
   runApp(
     /// Use https://lingohub.com/developers/supported-locales/language-designators-with-regions
@@ -81,7 +90,10 @@ Future<Unit> main() async {
       ],
       path: 'assets/translations', // <-- change patch to your
       fallbackLocale: const Locale('en', 'US'),
-      child: AppWidget(),
+      child: Provider.value(
+        value: adState,
+        builder: (context, child) => AppWidget(),
+      ),
     ),
   );
   return unit;

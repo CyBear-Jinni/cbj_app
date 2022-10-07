@@ -1,5 +1,6 @@
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SettingsPageSmartDevices extends StatelessWidget {
@@ -13,7 +14,7 @@ class SettingsPageSmartDevices extends StatelessWidget {
       appBar: AppBar(
         toolbarHeight: 0,
         backgroundColor: Colors.black,
-        brightness: Brightness.dark,
+        systemOverlayStyle: SystemUiOverlayStyle.dark,
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,
@@ -26,8 +27,8 @@ class SettingsPageSmartDevices extends StatelessWidget {
             stops: const <double>[0, 0, 0, 1],
             colors: <Color>[
               Theme.of(context).primaryColor,
-              Theme.of(context).accentColor,
-              Theme.of(context).accentColor,
+              Theme.of(context).colorScheme.secondary,
+              Theme.of(context).colorScheme.secondary,
               Theme.of(context).primaryColor
             ],
           ),
@@ -35,9 +36,9 @@ class SettingsPageSmartDevices extends StatelessWidget {
         child: Column(
           children: <Widget>[
             TopNavigationBar(
-              'Smart Devices Settings',
-              null,
-              () {},
+              pageName: 'Smart Devices Settings',
+              rightIcon: null,
+              rightIconFunction: () {},
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
             ),

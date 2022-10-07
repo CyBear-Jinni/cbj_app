@@ -1,48 +1,67 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cybear_jinni/application/blinds/blinds_actor/blinds_actor_bloc.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/generic_blinds_device/generic_blinds_entity.dart';
+import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BlindsInTheRoom extends StatelessWidget {
-  const BlindsInTheRoom({this.blindsInRoom, this.roomColorGradiant});
+  const BlindsInTheRoom({
+    required this.roomEntity,
+    this.blindsInRoom,
+    this.roomColorGradiant,
+  });
 
-  factory BlindsInTheRoom.withAbstractDevice(
-    List<DeviceEntityAbstract> tempDeviceInRoom,
-    List<Color> temproomColorGradiant,
-  ) {
-    List<GenericBlindsDE> tempLightsInRoom = [];
+  factory BlindsInTheRoom.withAbstractDevice({
+    required RoomEntity roomEntity,
+    required List<DeviceEntityAbstract> tempDeviceInRoom,
+    required List<Color> temprRoomColorGradiant,
+  }) {
+    final List<GenericBlindsDE> tempLightsInRoom = [];
 
-    tempDeviceInRoom.forEach((element) {
+    for (final element in tempDeviceInRoom) {
       tempLightsInRoom.add(element as GenericBlindsDE);
-    });
+    }
 
     return BlindsInTheRoom(
+      roomEntity: roomEntity,
       blindsInRoom: tempLightsInRoom,
-      roomColorGradiant: temproomColorGradiant,
+      roomColorGradiant: temprRoomColorGradiant,
     );
   }
 
+  final RoomEntity roomEntity;
   final List<GenericBlindsDE?>? blindsInRoom;
   final List<Color>? roomColorGradiant;
 
   @override
   Widget build(BuildContext context) {
+    String deviceText;
+    if (blindsInRoom!.length == 1) {
+      deviceText = blindsInRoom![0]!.defaultName.getOrCrash()!;
+    } else {
+      deviceText = '_Blinds'.tr(args: [roomEntity.defaultName.getOrCrash()]);
+    }
+
     return GestureDetector(
       onTap: () {
         context.router.push(
           RoomsBlindsRoute(
-            showDevicesOnlyFromRoomId: blindsInRoom![0]!.roomId.getOrCrash(),
+            roomEntity: roomEntity,
             roomColorGradiant: roomColorGradiant,
           ),
         );
       },
       child: Container(
-        color: Colors.amber.withOpacity(0.03),
+        decoration: BoxDecoration(
+          color: Colors.amber.withOpacity(0.03),
+          borderRadius: const BorderRadius.all(Radius.circular(20)),
+        ),
         margin: const EdgeInsets.symmetric(horizontal: 5),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -51,12 +70,20 @@ class BlindsInTheRoom extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Expanded(child: Text('')),
-                const Expanded(
-                  child: CircleAvatar(
-                    child: FaIcon(
-                      FontAwesomeIcons.alignJustify,
-                      color: Colors.grey,
-                    ),
+                Expanded(
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 10),
+                      Transform.scale(
+                        scale: 1.2,
+                        child: const CircleAvatar(
+                          child: FaIcon(
+                            FontAwesomeIcons.alignJustify,
+                            color: Colors.grey,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 if (blindsInRoom!.length > 1)
@@ -91,23 +118,28 @@ class BlindsInTheRoom extends StatelessWidget {
                   const Expanded(child: Text('')),
               ],
             ),
-            const SizedBox(
-              height: 0,
+            const SizedBox(height: 5),
+            Stack(
+              children: <Widget>[
+                AutoSizeText(
+                  deviceText,
+                  maxLines: 1,
+                  style: TextStyle(
+                    foreground: Paint()
+                      ..style = PaintingStyle.stroke
+                      ..strokeWidth = 0.8
+                      ..color = Colors.black38,
+                  ),
+                ),
+                AutoSizeText(
+                  deviceText,
+                  maxLines: 1,
+                  style: TextStyle(
+                    color: Theme.of(context).textTheme.bodyText1!.color,
+                  ),
+                ),
+              ],
             ),
-            if (blindsInRoom!.length == 1)
-              Text(
-                blindsInRoom![0]!.defaultName.getOrCrash()!,
-                style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyText1!.color,
-                ),
-              )
-            else
-              Text(
-                '${blindsInRoom![0]!.roomName.getOrCrash()} Blinds',
-                style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyText1!.color,
-                ),
-              ),
             const SizedBox(
               height: 10,
             ),
@@ -186,9 +218,9 @@ class BlindsInTheRoom extends StatelessWidget {
 
   List<String> extractDevicesId() {
     final List<String> devicesIdList = [];
-    blindsInRoom!.forEach((element) {
-      devicesIdList.add(element!.uniqueId.getOrCrash()!);
-    });
+    for (final element in blindsInRoom!) {
+      devicesIdList.add(element!.uniqueId.getOrCrash());
+    }
     return devicesIdList;
   }
 }

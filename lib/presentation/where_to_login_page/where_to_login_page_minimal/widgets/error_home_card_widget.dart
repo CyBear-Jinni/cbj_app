@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 class ErrorHomeCard extends StatelessWidget {
   const ErrorHomeCard({
-    Key? key,
     required this.home,
-  }) : super(key: key);
+    super.key,
+  });
 
   final AllHomesOfUserEntity? home;
 

@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:cybear_jinni/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -9,7 +9,7 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
     try {
       context.router.replace(const ConnectToHubRoute());
     } catch (e) {
-      print(e); // TODO: show dialog with error
+      logger.e(e); // TODO: show dialog with error
     }
   }
 
@@ -88,7 +88,7 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                     color: Colors.greenAccent.withOpacity(0.8),
                     child: ListTile(
                       leading: FaIcon(
-                        FontAwesomeIcons.signOutAlt,
+                        FontAwesomeIcons.rightToBracket,
                         color: Theme.of(context).textTheme.bodyText1!.color,
                         size: 25,
                       ),
@@ -109,21 +109,21 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                     color: Theme.of(context).textTheme.bodyText1!.color,
                   ),
                   Container(
-                    color: Colors.blue,
+                    color: Colors.orangeAccent,
                     child: ListTile(
                       leading: FaIcon(
-                        FontAwesomeIcons.userPlus,
+                        FontAwesomeIcons.info,
                         color: Theme.of(context).textTheme.bodyText1!.color,
                         size: 25,
                       ),
                       title: Text(
-                        'Manage Users',
+                        'Software Info',
                         style: TextStyle(
                           color: Theme.of(context).textTheme.bodyText1!.color,
                         ),
                       ),
                       onTap: () {
-                        context.router.push(const ManageUsersRoute());
+                        context.router.push(const SoftwareInfoRoute());
                       },
                     ),
                   ),
@@ -132,6 +132,54 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                     height: 0.5,
                     color: Theme.of(context).textTheme.bodyText1!.color,
                   ),
+                  Container(
+                    color: Colors.blue,
+                    child: ListTile(
+                      leading: FaIcon(
+                        FontAwesomeIcons.globe,
+                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        size: 25,
+                      ),
+                      title: Text(
+                        'Add Remote Control Support',
+                        style: TextStyle(
+                          color: Theme.of(context).textTheme.bodyText1!.color,
+                        ),
+                      ),
+                      onTap: () {
+                        context.router.push(const RemotePipesRoute());
+                      },
+                    ),
+                  ),
+                  Divider(
+                    thickness: 0.5,
+                    height: 0.5,
+                    color: Theme.of(context).textTheme.bodyText1!.color,
+                  ),
+                  // Container(
+                  //   color: Colors.redAccent,
+                  //   child: ListTile(
+                  //     leading: FaIcon(
+                  //       FontAwesomeIcons.userPlus,
+                  //       color: Theme.of(context).textTheme.bodyText1!.color,
+                  //       size: 25,
+                  //     ),
+                  //     title: Text(
+                  //       'Manage Users',
+                  //       style: TextStyle(
+                  //         color: Theme.of(context).textTheme.bodyText1!.color,
+                  //       ),
+                  //     ),
+                  //     onTap: () {
+                  //       context.router.push(const ManageUsersRoute());
+                  //     },
+                  //   ),
+                  // ),
+                  // Divider(
+                  //   thickness: 0.5,
+                  //   height: 0.5,
+                  //   color: Theme.of(context).textTheme.bodyText1!.color,
+                  // ),
                 ],
               ),
             ),

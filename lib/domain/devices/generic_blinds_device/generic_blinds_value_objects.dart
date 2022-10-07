@@ -7,7 +7,7 @@ class GenericBlindsSwitchState extends ValueObjectCore<String> {
   factory GenericBlindsSwitchState(String? input) {
     assert(input != null);
     return GenericBlindsSwitchState._(
-      validateGenericBlindsStateNotEmty(input!),
+      validateGenericBlindsStateNotEmpty(input!),
     );
   }
 
@@ -15,4 +15,8 @@ class GenericBlindsSwitchState extends ValueObjectCore<String> {
 
   @override
   final Either<CoreFailure<String>, String> value;
+
+  static List<String> blindsValidActions() {
+    return blindsAllValidActions();
+  }
 }

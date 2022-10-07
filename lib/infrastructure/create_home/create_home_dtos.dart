@@ -8,11 +8,11 @@ part 'create_home_dtos.g.dart';
 @freezed
 abstract class CreateHomeDtos implements _$CreateHomeDtos {
   const factory CreateHomeDtos({
-    @JsonKey(ignore: true) String? id,
-    @JsonKey(ignore: true) String? name,
     required String homeDevicesUserId,
     required String homeDevicesUserEmail,
     required String homeDevicesUserPassword,
+    @JsonKey(ignore: true) String? id,
+    @JsonKey(ignore: true) String? name,
     // required @ServerTimestampConverter() FieldValue serverTimeStamp,
   }) = _CreateHomeDtos;
 

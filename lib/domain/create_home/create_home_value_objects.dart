@@ -43,7 +43,6 @@ class HomeUniqueId extends CreateHomeValueObjectAbstract<String> {
   }
 
   factory HomeUniqueId.fromUniqueString(String uniqueId) {
-    assert(uniqueId != null);
     return HomeUniqueId._(right(uniqueId));
   }
 
@@ -55,7 +54,6 @@ class HomeUniqueId extends CreateHomeValueObjectAbstract<String> {
 
 class HomeName extends CreateHomeValueObjectAbstract<String> {
   factory HomeName(String input) {
-    assert(input != null);
     return HomeName._(
       validateCreateHomeNotEmpty(input),
     );
@@ -75,7 +73,6 @@ class HomeDevicesUserId extends CreateHomeValueObjectAbstract<String> {
   const HomeDevicesUserId._(this.value);
 
   factory HomeDevicesUserId.fromUniqueString(String uniqueId) {
-    assert(uniqueId != null);
     return HomeDevicesUserId._(right(uniqueId));
   }
 
@@ -85,7 +82,6 @@ class HomeDevicesUserId extends CreateHomeValueObjectAbstract<String> {
 
 class HomeDevicesUserEmail extends CreateHomeValueObjectAbstract<String> {
   factory HomeDevicesUserEmail(String input) {
-    assert(input != null);
     return HomeDevicesUserEmail._(
       validateCreateHomeNotEmpty(input),
     );
@@ -99,11 +95,10 @@ class HomeDevicesUserEmail extends CreateHomeValueObjectAbstract<String> {
 
 class HomeDevicesUserPassword extends CreateHomeValueObjectAbstract<String> {
   factory HomeDevicesUserPassword() {
-    return HomeDevicesUserPassword._(right(Uuid().v1()));
+    return HomeDevicesUserPassword._(right(const Uuid().v1()));
   }
 
   factory HomeDevicesUserPassword.fromUniqueString(String uniqueId) {
-    assert(uniqueId != null);
     return HomeDevicesUserPassword._(right(uniqueId));
   }
 

@@ -14,11 +14,16 @@ class HubFailures<T> {
 
   const factory HubFailures.insufficientPermission() = _InsufficientPermission;
 
-  const factory HubFailures.wifiIsClosed() = _wifiIsClosed;
+  const factory HubFailures.wifiIsClosed() = _WifiIsClosed;
+
+  const factory HubFailures.findingHubWhenConnectedToEthernetCableIsNotSupported() =
+      _FindingHubWhenConnectedToEthernetCableIsNotSupported;
 
   const factory HubFailures.unableToUpdate() = _UnableToUpdate;
 
   const factory HubFailures.cantFindHubInNetwork() = _CantFindHubInNetwork;
+
+  const factory HubFailures.hubFoundButNotRunning() = _HubFoundButNotRunning;
 
   const factory HubFailures.automaticHubSearchNotSupportedOnWeb() =
       _AutomaticHubSearchNotSupportedOnWeb;

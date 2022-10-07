@@ -5,7 +5,6 @@ import 'package:bloc/bloc.dart';
 import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -17,33 +16,46 @@ part 'lights_actor_state.dart';
 @injectable
 class LightsActorBloc extends Bloc<LightsActorEvent, LightsActorState> {
   LightsActorBloc(this._deviceRepository)
-      : super(const LightsActorState.initial());
+      : super(const LightsActorState.initial()) {
+    on<Initialized>(_initialized);
+    on<Deleted>(_deleted);
+    on<TurnOffAllLights>(_turnOffAllLights);
+    on<TurnOnAllLights>(_turnOnAllLights);
+  }
 
   final IDeviceRepository _deviceRepository;
 
-  @override
-  Stream<LightsActorState> mapEventToState(
-    LightsActorEvent event,
-  ) async* {
-    yield* event.map(
-      deleted: (e) async* {},
-      initialized: (e) async* {},
-      turnOffAllLights: (_TurnOffAllLights value) async* {
-        FlushbarHelper.createLoading(
-          message: 'Turning Off all lights',
-          linearProgressIndicator: const LinearProgressIndicator(),
-        ).show(value.context);
+  Future<void> _initialized(
+    Initialized event,
+    Emitter<LightsActorState> emit,
+  ) async {}
 
-        _deviceRepository.turnOffDevices(devicesId: value.lightsIdToTurnOff);
-      },
-      turnOnAllLights: (_TurnOnAllLights value) async* {
-        FlushbarHelper.createLoading(
-          message: 'Turning On all lights',
-          linearProgressIndicator: const LinearProgressIndicator(),
-        ).show(value.context);
+  Future<void> _deleted(
+    Deleted event,
+    Emitter<LightsActorState> emit,
+  ) async {}
 
-        _deviceRepository.turnOnDevices(devicesId: value.lightsIdToTurnOn);
-      },
-    );
+  Future<void> _turnOffAllLights(
+    TurnOffAllLights event,
+    Emitter<LightsActorState> emit,
+  ) async {
+    FlushbarHelper.createLoading(
+      message: 'Turning Off all lights',
+      linearProgressIndicator: const LinearProgressIndicator(),
+    ).show(event.context);
+
+    _deviceRepository.turnOffDevices(devicesId: event.lightsIdToTurnOff);
+  }
+
+  Future<void> _turnOnAllLights(
+    TurnOnAllLights event,
+    Emitter<LightsActorState> emit,
+  ) async {
+    FlushbarHelper.createLoading(
+      message: 'Turning On all lights',
+      linearProgressIndicator: const LinearProgressIndicator(),
+    ).show(event.context);
+
+    _deviceRepository.turnOnDevices(devicesId: event.lightsIdToTurnOn);
   }
 }

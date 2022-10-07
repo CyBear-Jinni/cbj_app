@@ -1,11 +1,14 @@
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
+import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
+import 'package:cybear_jinni/utils.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SettingsPageOfLights extends StatelessWidget {
-  SettingsPageOfLights() {
+  SettingsPageOfLights({required this.roomEntity}) {
     // for (final SmartRoomObject smartRoomObject in rooms) {
     //   for (final SmartDeviceObject smartLightObject
     //       in smartRoomObject.getLights()) {
@@ -14,6 +17,7 @@ class SettingsPageOfLights extends StatelessWidget {
     // }
   }
 
+  final RoomEntity roomEntity;
   final List<GenericLightDE> allSmartDeviceLightDevices = <GenericLightDE>[];
 
   @override
@@ -60,7 +64,7 @@ class SettingsPageOfLights extends StatelessWidget {
       appBar: AppBar(
         toolbarHeight: 0,
         backgroundColor: Colors.black,
-        brightness: Brightness.dark,
+        systemOverlayStyle: SystemUiOverlayStyle.dark,
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
@@ -79,8 +83,8 @@ class SettingsPageOfLights extends StatelessWidget {
             stops: const <double>[0, 0, 0, 1],
             colors: <Color>[
               Theme.of(context).primaryColor,
-              Theme.of(context).accentColor,
-              Theme.of(context).accentColor,
+              Theme.of(context).colorScheme.secondary,
+              Theme.of(context).colorScheme.secondary,
               Theme.of(context).primaryColor
             ],
           ),
@@ -88,9 +92,9 @@ class SettingsPageOfLights extends StatelessWidget {
         child: Column(
           children: <Widget>[
             TopNavigationBar(
-              'Lights Settings',
-              null,
-              () {},
+              pageName: 'Lights Settings',
+              rightIcon: null,
+              rightIconFunction: () {},
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
             ),
@@ -101,14 +105,14 @@ class SettingsPageOfLights extends StatelessWidget {
                     key: Key(index.toString()),
                     onDismissed: (DismissDirection direction) {
                       if (direction == DismissDirection.endToStart) {
-                        print('Delete the card');
+                        logger.w('Delete the card');
                       }
                     },
                     background: Container(
                       color: Colors.red,
                     ),
                     child: tile(
-                      allSmartDeviceLightDevices[index].roomName.getOrCrash()!,
+                      roomEntity.defaultName.getOrCrash(),
                       allSmartDeviceLightDevices[index]
                           .defaultName
                           .getOrCrash()!,

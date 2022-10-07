@@ -1,45 +1,68 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cybear_jinni/application/lights/lights_actor/lights_actor_bloc.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
+import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class RgbwLightsInTheRoomBlock extends StatelessWidget {
-  const RgbwLightsInTheRoomBlock(this.lightsInRoom, this.roomColorGradiant);
+  const RgbwLightsInTheRoomBlock({
+    required this.roomEntity,
+    required this.lightsInRoom,
+    required this.roomColorGradiant,
+  });
 
-  factory RgbwLightsInTheRoomBlock.withAbstractDevice(
-    List<DeviceEntityAbstract> tempDeviceInRoom,
-    List<Color> tempRoomColorGradiant,
-  ) {
-    List<GenericRgbwLightDE> tempLightsInRoom = [];
+  factory RgbwLightsInTheRoomBlock.withAbstractDevice({
+    required RoomEntity roomEntity,
+    required List<DeviceEntityAbstract> tempDeviceInRoom,
+    required List<Color> tempRoomColorGradiant,
+  }) {
+    final List<GenericRgbwLightDE> tempLightsInRoom = [];
 
-    tempDeviceInRoom.forEach((element) {
+    for (final element in tempDeviceInRoom) {
       tempLightsInRoom.add(element as GenericRgbwLightDE);
-    });
+    }
 
-    return RgbwLightsInTheRoomBlock(tempLightsInRoom, tempRoomColorGradiant);
+    return RgbwLightsInTheRoomBlock(
+      roomEntity: roomEntity,
+      lightsInRoom: tempLightsInRoom,
+      roomColorGradiant: tempRoomColorGradiant,
+    );
   }
 
+  final RoomEntity roomEntity;
   final List<GenericRgbwLightDE> lightsInRoom;
   final List<Color> roomColorGradiant;
 
   @override
   Widget build(BuildContext context) {
+    String deviceText;
+    if (lightsInRoom.length == 1) {
+      deviceText = lightsInRoom[0].defaultName.getOrCrash()!;
+    } else {
+      deviceText =
+          '_RGBW_Lights'.tr(args: [roomEntity.defaultName.getOrCrash()]);
+    }
+
     return GestureDetector(
       onTap: () {
         context.router.push(
           RoomsRgbwLightsRoute(
-            showDevicesOnlyFromRoomId: lightsInRoom[0].roomId.getOrCrash(),
+            roomEntity: roomEntity,
             roomColorGradiant: roomColorGradiant,
           ),
         );
       },
       child: Container(
-        color: Colors.amber.withOpacity(0.03),
+        decoration: BoxDecoration(
+          color: Colors.amber.withOpacity(0.03),
+          borderRadius: const BorderRadius.all(Radius.circular(20)),
+        ),
         margin: const EdgeInsets.symmetric(horizontal: 5),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -48,12 +71,20 @@ class RgbwLightsInTheRoomBlock extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Expanded(child: Text('')),
-                const Expanded(
-                  child: CircleAvatar(
-                    child: FaIcon(
-                      FontAwesomeIcons.lightbulb,
-                      color: Colors.amberAccent,
-                    ),
+                Expanded(
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 10),
+                      Transform.scale(
+                        scale: 1.2,
+                        child: const CircleAvatar(
+                          child: FaIcon(
+                            FontAwesomeIcons.lightbulb,
+                            color: Colors.amberAccent,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 if (lightsInRoom.length > 1)
@@ -88,23 +119,28 @@ class RgbwLightsInTheRoomBlock extends StatelessWidget {
                   const Expanded(child: Text('')),
               ],
             ),
-            const SizedBox(
-              height: 10,
+            const SizedBox(height: 5),
+            Stack(
+              children: <Widget>[
+                AutoSizeText(
+                  deviceText,
+                  maxLines: 1,
+                  style: TextStyle(
+                    foreground: Paint()
+                      ..style = PaintingStyle.stroke
+                      ..strokeWidth = 0.8
+                      ..color = Colors.black38,
+                  ),
+                ),
+                AutoSizeText(
+                  deviceText,
+                  maxLines: 1,
+                  style: TextStyle(
+                    color: Theme.of(context).textTheme.bodyText1!.color,
+                  ),
+                ),
+              ],
             ),
-            if (lightsInRoom.length == 1)
-              Text(
-                lightsInRoom[0].defaultName.getOrCrash()!,
-                style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyText1!.color,
-                ),
-              )
-            else
-              Text(
-                '${lightsInRoom[0].roomName.getOrCrash()} Lights',
-                style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyText1!.color,
-                ),
-              ),
             const SizedBox(
               height: 10,
             ),
@@ -137,7 +173,7 @@ class RgbwLightsInTheRoomBlock extends StatelessWidget {
                           fontSize: 14,
                           color: Theme.of(context).textTheme.bodyText1!.color,
                         ),
-                      ),
+                      ).tr(),
                     ),
                     Text(
                       '·',
@@ -169,7 +205,7 @@ class RgbwLightsInTheRoomBlock extends StatelessWidget {
                           fontSize: 14,
                           color: Theme.of(context).textTheme.bodyText1!.color,
                         ),
-                      ),
+                      ).tr(),
                     ),
                   ],
                 );
@@ -183,9 +219,9 @@ class RgbwLightsInTheRoomBlock extends StatelessWidget {
 
   List<String> extractDevicesId() {
     final List<String> devicesIdList = [];
-    lightsInRoom.forEach((element) {
-      devicesIdList.add(element.uniqueId.getOrCrash()!);
-    });
+    for (final element in lightsInRoom) {
+      devicesIdList.add(element.uniqueId.getOrCrash());
+    }
     return devicesIdList;
   }
 }

@@ -6,8 +6,8 @@ import 'package:cybear_jinni/domain/vendors/tuya_login/generic_tuya_login_entity
 import 'package:cybear_jinni/domain/vendors/vendor.dart';
 import 'package:cybear_jinni/domain/vendors/vendor_failures.dart';
 import 'package:cybear_jinni/domain/vendors/vendor_value_objects.dart';
-import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/hub_client.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
 import 'package:cybear_jinni/infrastructure/vendors/vendor_helper.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
@@ -22,28 +22,47 @@ class VendorsRepository implements IVendorsRepository {
     // Add icons to supported vendors and services
     for (final VendorsAndServices vendorsAndServices
         in VendorsAndServices.values) {
-      if (vendorsAndServices.name ==
+      final String vendorName = vendorsAndServices.name;
+      if (vendorName ==
               VendorsAndServices.vendorsAndServicesNotSupported.name ||
-          vendorsAndServices.name == VendorsAndServices.google.name ||
-          vendorsAndServices.name == VendorsAndServices.miHome.name) {
+          vendorName == VendorsAndServices.google.name ||
+          vendorName == VendorsAndServices.miHome.name ||
+          vendorName == VendorsAndServices.philipsHue.name ||
+          vendorName == VendorsAndServices.sonoff.name ||
+          vendorName == VendorsAndServices.ikea.name ||
+          vendorName == VendorsAndServices.wink.name ||
+          vendorName == VendorsAndServices.espHome.name ||
+          vendorName == VendorsAndServices.lg.name ||
+          vendorName == VendorsAndServices.spotify.name ||
+          vendorName == VendorsAndServices.homeAssistant.name ||
+          vendorName == VendorsAndServices.hp.name ||
+          vendorName == VendorsAndServices.yeelink.name ||
+          vendorName == VendorsAndServices.xiaomi.name) {
         continue;
       }
-      Vendor v = vendorPlusImageFromVandorName(vendorsAndServices.name);
-      if (vendorsAndServices.name ==
-          VendorsAndServices.switcherSmartHome.name) {
+      Vendor v = vendorPlusImageFromVandorName(vendorName);
+      if (vendorName == VendorsAndServices.switcherSmartHome.name) {
         v = v.copyWith(name: VendorName('Switcher'));
       }
       vendorsWithIcons.add(v);
-
-      print(vendorsAndServices.name);
     }
     return right(vendorsWithIcons.toImmutableList());
   }
 
   Vendor vendorPlusImageFromVandorName(String vendorName) {
+    final String vendorNameNoCapsOrSpaceOrUnderscore =
+        vendorName.toLowerCase().replaceAll(' ', '').replaceAll('_', '');
+
     for (final Vendor vendor
         in VendorsMocDataWithImages().getAllVendors().asList()) {
-      if (vendor.name.getOrCrash().toLowerCase() == vendorName.toLowerCase()) {
+      final String vendorNameNoLowerCaseOrSpaceOrUnderscore = vendor.name
+          .getOrCrash()
+          .toLowerCase()
+          .replaceAll(' ', '')
+          .replaceAll('_', '');
+
+      if (vendorNameNoLowerCaseOrSpaceOrUnderscore ==
+          vendorNameNoCapsOrSpaceOrUnderscore) {
         return vendor;
       }
     }
@@ -81,7 +100,7 @@ class VendorsRepository implements IVendorsRepository {
         sendingType: SendingType.vendorLoginType,
       );
 
-      AppRequestsToHub.appRequestsToHubStreamController.sink
+      AppRequestsToHub.appRequestsToHubStreamController
           .add(clientStatusRequests);
       return right(unit);
     } catch (e) {
@@ -95,8 +114,7 @@ class VendorsMocDataWithImages {
     return [
       Vendor(
         name: VendorName('Tasmota'),
-        image:
-            'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.kyAWxT4tVBWL6O2sCJKqaAHaHa%26pid%3DApi&f=1',
+        image: 'https://i.ibb.co/XZLGCRd/Tasmota-logo.png',
       ),
       Vendor(
         name: VendorName('Xiaomi Mi'),
@@ -120,13 +138,22 @@ class VendorsMocDataWithImages {
       ),
       Vendor(
         name: VendorName('MQTT'),
-        image:
-            'https://www.opc-router.de/wp-content/uploads/2018/07/mqtt_icon_128px.png',
+        image: 'https://i.ibb.co/hfRhB0Q/mqtt-logo.png',
       ),
       Vendor(
-        name: VendorName('TuyaSmart'),
+        name: VendorName('Tuya Smart'),
         image:
             'https://play-lh.googleusercontent.com/KGM9NYnyox9TXwoaY3PKl1PfQ2rTPp1rnpNNtmlbgozJZykhZhGKsL3z9myoj4ccayLS=s180',
+      ),
+      Vendor(
+        name: VendorName('Smart Life'),
+        image:
+            'https://play-lh.googleusercontent.com/Qrq9zB_-bWuAD0ETPeBRTsRHOSjmW_uzmexY5rF7wo2JeNc-oLuvsQSYdg0Uxsq6mkA=s180',
+      ),
+      Vendor(
+        name: VendorName('Jinvoo Smart'),
+        image:
+            'https://play-lh.googleusercontent.com/ocFF7mcDTJzr1PXr6k4q1Q2-5xNFUVODqluwnD60DiTsHgTalrVTqi7kk0H8JnW7GLEv=s180',
       ),
       Vendor(
         name: VendorName('Eufy'),
@@ -145,8 +172,7 @@ class VendorsMocDataWithImages {
       ),
       Vendor(
         name: VendorName('ESPHome'),
-        image:
-            'https://pbs.twimg.com/profile_images/1099243589014573056/JuViMFXW_400x400.png',
+        image: 'https://i.ibb.co/W2YG23s/ESPHome-logo.png',
       ),
       Vendor(
         name: VendorName('Ring'),
@@ -157,6 +183,36 @@ class VendorsMocDataWithImages {
         name: VendorName('Google'),
         image:
             'https://play-lh.googleusercontent.com/DKoidc0T3T1KvYC2stChcX9zwmjKj1pgmg3hXzGBDQXM8RG_7JjgiuS0CLOh8DUa7as=s180',
+      ),
+      Vendor(
+        name: VendorName('Philips Hue'),
+        image:
+            'https://play-lh.googleusercontent.com/FUlW6h3cACamheiCHH1cE67irohAZq_dJ92irK92cryKwHUtY6ZTSv5d041qPZ9UOt3n=s180',
+      ),
+      Vendor(
+        name: VendorName('Ikea'),
+        image:
+            'https://play-lh.googleusercontent.com/IFwqvqScIUpmiyp4dD4NwJuQ3D2Xa6xRkGLHtLcVNaBKrZ6048MsrRTZ7uaL76xKp4E=s180',
+      ),
+      Vendor(
+        name: VendorName('Wink'),
+        image:
+            'https://play-lh.googleusercontent.com/cFGBLtsmWJGXcc6Nc_saGVz4d8bzxgA_VsCF1EoLYA_tlAcKOoPZD-RBABC8qho4j54=s180',
+      ),
+      Vendor(
+        name: VendorName('Shelly'),
+        image:
+            'https://play-lh.googleusercontent.com/cwAyt0LIs4cyXSs2jr79xjAxsuq4KoBTZNq__gpeQvupH-8PElGn6kiddx8-WfG8wEPl=s180',
+      ),
+      Vendor(
+        name: VendorName('Jinvoo Smart'),
+        image:
+            'https://play-lh.googleusercontent.com/ocFF7mcDTJzr1PXr6k4q1Q2-5xNFUVODqluwnD60DiTsHgTalrVTqi7kk0H8JnW7GLEv=s180',
+      ),
+      Vendor(
+        name: VendorName('Smart Life'),
+        image:
+            'https://play-lh.googleusercontent.com/Qrq9zB_-bWuAD0ETPeBRTsRHOSjmW_uzmexY5rF7wo2JeNc-oLuvsQSYdg0Uxsq6mkA=s180',
       ),
     ].toImmutableList();
   }

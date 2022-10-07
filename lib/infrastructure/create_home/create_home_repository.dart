@@ -10,14 +10,15 @@ import 'package:cybear_jinni/domain/create_home/i_create_home_repository.dart';
 import 'package:cybear_jinni/domain/home_user/home_user_entity.dart';
 import 'package:cybear_jinni/domain/home_user/home_user_value_objects.dart';
 import 'package:cybear_jinni/domain/manage_network/manage_network_entity.dart';
+import 'package:cybear_jinni/domain/manage_network/manage_network_value_objects.dart';
 import 'package:cybear_jinni/domain/user/all_homes_of_user/all_homes_of_user_entity.dart';
 import 'package:cybear_jinni/domain/user/all_homes_of_user/all_homes_of_user_value_objects.dart';
 import 'package:cybear_jinni/domain/user/i_user_repository.dart';
 import 'package:cybear_jinni/domain/user/user_entity.dart';
 import 'package:cybear_jinni/domain/user/user_errors.dart';
 import 'package:cybear_jinni/domain/user/user_failures.dart';
-import 'package:cybear_jinni/infrastructure/core/hive_local_db/hive_local_db.dart';
 import 'package:cybear_jinni/infrastructure/create_home/create_home_dtos.dart';
+import 'package:cybear_jinni/infrastructure/hive_local_db/hive_local_db.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/services.dart';
@@ -33,8 +34,7 @@ class CreateHomeRepository implements ICreateHomeRepository {
     CreateHomeEntity? createHomeEntity,
   ) async {
     try {
-      if (createHomeEntity!.homeDevicesUserEmail!.getOrCrash() == null ||
-          createHomeEntity.homeDevicesUserEmail!.getOrCrash().isEmpty) {
+      if (createHomeEntity!.homeDevicesUserEmail!.getOrCrash().isEmpty) {
         return left(const CreateHomeFailure.devicesUserEmailIsInvalid());
       }
 
@@ -61,7 +61,7 @@ class CreateHomeRepository implements ICreateHomeRepository {
       );
       createHomeEntityWithId = createHomeEntityWithId.copyWith(
         homeDevicesUserId: HomeDevicesUserId.fromUniqueString(
-          deviceUserId.id.getOrCrash()!,
+          deviceUserId.id.getOrCrash(),
         ),
       );
 
@@ -190,7 +190,14 @@ class CreateHomeRepository implements ICreateHomeRepository {
 
   @override
   Future<Either<CreateHomeFailure, ManageNetworkEntity>> getFirstWifi() async {
-    try {} on PlatformException catch (e) {
+    try {
+      return right(
+        ManageNetworkEntity(
+          name: ManageWiFiName('CyBear Jinni'),
+          pass: ManageWiFiPass('CyBear Jinni'),
+        ),
+      );
+    } on PlatformException catch (e) {
       if (e.message!.contains('PERMISSION_DENIED')) {
         return left(const CreateHomeFailure.insufficientPermission());
       } else {

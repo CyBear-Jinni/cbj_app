@@ -1,5 +1,4 @@
 import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
-import 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/home_page/bottom_navigation_bar_home_page.dart';
 import 'package:cybear_jinni/presentation/home_page/left_navigation_drawer_home_page.dart';
@@ -7,12 +6,11 @@ import 'package:cybear_jinni/presentation/home_page/tabs/scenes_in_folders_tab/s
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/smart_devices_widgets.dart';
 import 'package:cybear_jinni/presentation/plus_button/plus_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// Home page to show all the tabs
 class HomePage extends StatefulWidget {
-  HomePage() {}
-
   @override
   State<StatefulWidget> createState() => _HomePageState();
 }
@@ -21,20 +19,18 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     getIt<IDeviceRepository>().initiateHubConnection();
-    getIt<IHubConnectionRepository>().connectWithHub();
 
     super.initState();
   }
 
   /// Tab num, value will be the default tab to show
-  int _currentTabNum = 0;
+  int _currentTabNum = 1;
   final _pages = [
     ScenesInFoldersTab(),
     SmartDevicesWidgets(),
     // BindingsPage(),
-    // RoutinesPage(),
   ];
-  final _pageController = PageController();
+  final _pageController = PageController(initialPage: 1);
 
   @override
   void dispose() {
@@ -64,7 +60,7 @@ class _HomePageState extends State<HomePage> {
             appBar: AppBar(
               toolbarHeight: 0,
               backgroundColor: Colors.white,
-              brightness: Brightness.light,
+              systemOverlayStyle: SystemUiOverlayStyle.dark,
             ),
             backgroundColor: Colors.transparent,
             body: PageView(

@@ -7,6 +7,7 @@ class DeviceWatcherState with _$DeviceWatcherState {
   const factory DeviceWatcherState.loadInProgress() = _LoadInProgress;
 
   const factory DeviceWatcherState.loadSuccess(
+    KtList<RoomEntity?> rooms,
     KtList<DeviceEntityAbstract?> devices,
   ) = _LoadSuccess;
 

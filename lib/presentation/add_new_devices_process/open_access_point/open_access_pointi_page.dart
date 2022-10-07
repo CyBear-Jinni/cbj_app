@@ -2,8 +2,8 @@ import 'package:cybear_jinni/application/manage_access_point/manage_access_point
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/add_new_devices_process/open_access_point/widgets/open_access_point_widget.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -18,7 +18,7 @@ class OpenAccessPointPage extends StatelessWidget {
       appBar: AppBar(
         toolbarHeight: 0,
         backgroundColor: Colors.black,
-        brightness: Brightness.dark,
+        systemOverlayStyle: SystemUiOverlayStyle.dark,
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -39,9 +39,9 @@ class OpenAccessPointPage extends StatelessWidget {
         child: Column(
           children: [
             TopNavigationBar(
-              'Add Devices',
-              null,
-              () {},
+              pageName: 'Add Devices',
+              rightIcon: null,
+              rightIconFunction: () {},
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
             ),

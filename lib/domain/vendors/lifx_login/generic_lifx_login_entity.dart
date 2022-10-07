@@ -12,21 +12,20 @@ import 'package:dartz/dartz.dart';
 class GenericLifxLoginDE extends LoginEntityAbstract {
   /// All public field of GenericLifx entity
   GenericLifxLoginDE({
-    required CoreLoginSenderId senderUniqueId,
+    required super.senderUniqueId,
     required this.lifxApiKey,
   }) : super(
-          senderUniqueId: senderUniqueId,
           loginVendor: CoreLoginVendor(VendorsAndServices.lifx.name),
         );
-
-  /// Lifx api key
-  GenericLifxLoginApiKey lifxApiKey;
 
   /// Empty instance of GenericLifxEntity
   factory GenericLifxLoginDE.empty() => GenericLifxLoginDE(
         senderUniqueId: CoreLoginSenderId.fromUniqueString(''),
         lifxApiKey: GenericLifxLoginApiKey(''),
       );
+
+  /// Lifx api key
+  GenericLifxLoginApiKey lifxApiKey;
 
   Option<CoreLoginFailure<dynamic>> get failureOption =>
       senderUniqueId.value.fold((f) => some(f), (_) => none());

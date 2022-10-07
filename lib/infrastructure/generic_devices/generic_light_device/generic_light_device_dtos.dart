@@ -13,13 +13,10 @@ abstract class GenericLightDeviceDtos
     implements _$GenericLightDeviceDtos, DeviceEntityDtoAbstract {
   factory GenericLightDeviceDtos({
     // @JsonKey(ignore: true)
-    String? deviceDtoClass,
-    String? id,
+    required String id,
+    required String vendorUniqueId,
     required String? defaultName,
-    required String? roomId,
-    required String? roomName,
     required String? deviceStateGRPC,
-    String? stateMassage,
     required String? senderDeviceOs,
     required String? senderDeviceModel,
     required String? senderId,
@@ -27,23 +24,20 @@ abstract class GenericLightDeviceDtos
     required String? deviceTypes,
     required String? compUuid,
     required String? deviceVendor
-
     // required ServerTimestampConverter() FieldValue serverTimeStamp,
     ,
+    String? stateMassage,
+    String? deviceDtoClass,
   }) = _GenericLightDeviceDtos;
 
   GenericLightDeviceDtos._();
-
-  @override
-  final String deviceDtoClassInstance = (GenericLightDeviceDtos).toString();
 
   factory GenericLightDeviceDtos.fromDomain(GenericLightDE genericLightDE) {
     return GenericLightDeviceDtos(
       deviceDtoClass: (GenericLightDeviceDtos).toString(),
       id: genericLightDE.uniqueId.getOrCrash(),
+      vendorUniqueId: genericLightDE.vendorUniqueId.getOrCrash(),
       defaultName: genericLightDE.defaultName.getOrCrash(),
-      roomId: genericLightDE.roomId.getOrCrash(),
-      roomName: genericLightDE.roomName.getOrCrash(),
       deviceStateGRPC: genericLightDE.deviceStateGRPC.getOrCrash(),
       stateMassage: genericLightDE.stateMassage.getOrCrash(),
       senderDeviceOs: genericLightDE.senderDeviceOs.getOrCrash(),
@@ -53,7 +47,6 @@ abstract class GenericLightDeviceDtos
       deviceTypes: genericLightDE.deviceTypes.getOrCrash(),
       compUuid: genericLightDE.compUuid.getOrCrash(),
       deviceVendor: genericLightDE.deviceVendor.getOrCrash(),
-
       // serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }
@@ -61,12 +54,15 @@ abstract class GenericLightDeviceDtos
   factory GenericLightDeviceDtos.fromJson(Map<String, dynamic> json) =>
       _$GenericLightDeviceDtosFromJson(json);
 
+  @override
+  final String deviceDtoClassInstance = (GenericLightDeviceDtos).toString();
+
+  @override
   DeviceEntityAbstract toDomain() {
     return GenericLightDE(
       uniqueId: CoreUniqueId.fromUniqueString(id),
+      vendorUniqueId: VendorUniqueId.fromUniqueString(vendorUniqueId),
       defaultName: DeviceDefaultName(defaultName),
-      roomId: CoreUniqueId.fromUniqueString(roomId),
-      roomName: DeviceRoomName(roomName),
       deviceStateGRPC: DeviceState(deviceStateGRPC),
       stateMassage: DeviceStateMassage(stateMassage),
       senderDeviceOs: DeviceSenderDeviceOs(senderDeviceOs),
@@ -78,15 +74,3 @@ abstract class GenericLightDeviceDtos
     );
   }
 }
-
-// class ServerTimestampConverter implements JsonConverter<FieldValue, Object> {
-//   const ServerTimestampConverter();
-//
-//   @override
-//   FieldValue fromJson(Object json) {
-//     return FieldValue.serverTimestamp();
-//   }
-//
-//   @override
-//   Object toJson(FieldValue fieldValue) => fieldValue;
-// }

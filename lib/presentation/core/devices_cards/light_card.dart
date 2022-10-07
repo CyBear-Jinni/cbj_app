@@ -3,7 +3,6 @@ import 'package:cybear_jinni/domain/devices/abstract_device/value_objects_core.d
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_switch/flutter_switch.dart';
@@ -20,7 +19,10 @@ class LightCard extends StatelessWidget {
           DeviceState(DeviceStateGRPC.waitingInFirebase.toString())
       ..lightSwitchState = GenericLightSwitchState(value.toString());
     context.read<LightToggleBloc>().add(
-          LightToggleEvent.changeAction(tempDeviceEntity, true),
+          LightToggleEvent.changeAction(
+            deviceEntity: tempDeviceEntity,
+            changeToState: true,
+          ),
         );
   }
 
@@ -53,9 +55,9 @@ class LightCard extends StatelessWidget {
           margin: const EdgeInsets.symmetric(vertical: 5),
           width: sizeBoxWidth + 15,
           child: FlutterSwitch(
-            width: screenSize.width * 0.2,
-            height: screenSize.height * 0.05,
-            toggleSize: screenSize.height * 0.05,
+            width: screenSize.width * 0.25,
+            height: screenSize.height * 0.065,
+            toggleSize: screenSize.height * 0.065,
             value: toggleValue,
             borderRadius: 25.0,
             padding: 0.0,

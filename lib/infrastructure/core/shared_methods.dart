@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:cybear_jinni/utils.dart';
 import 'package:flutter/services.dart';
 import 'package:network_info_plus/network_info_plus.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -9,13 +10,13 @@ Future<String?> getCurrentWifiName() async {
   String? wifiName = '';
 
   try {
-    final NetworkInfo _networkInfo = NetworkInfo();
+    final NetworkInfo networkInfo = NetworkInfo();
 
     if (Platform.isIOS) {
       LocationAuthorizationStatus status =
-          await _networkInfo.getLocationServiceAuthorization();
+          await networkInfo.getLocationServiceAuthorization();
       if (status == LocationAuthorizationStatus.notDetermined) {
-        status = await _networkInfo.requestLocationServiceAuthorization();
+        status = await networkInfo.requestLocationServiceAuthorization();
       }
       if (status == LocationAuthorizationStatus.authorizedAlways ||
           status == LocationAuthorizationStatus.authorizedWhenInUse) {
@@ -32,14 +33,13 @@ Future<String?> getCurrentWifiName() async {
       }
       wifiName = await NetworkInfo().getWifiName();
     } else {
-      print('Does not support this platform');
+      logger.w('Does not support this platform');
     }
   } on PlatformException catch (e) {
-    print(e.toString());
-    print('Failed to get Wifi Name');
+    logger.e('Failed to get Wifi Name\n${e.toString()}');
 //      wifiName = "Failed to get Wifi Name";
   } catch (exception) {
-    print(exception.toString());
+    logger.e(exception.toString());
   }
   return wifiName;
 }

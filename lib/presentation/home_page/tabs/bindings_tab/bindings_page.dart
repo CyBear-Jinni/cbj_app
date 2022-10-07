@@ -1,7 +1,6 @@
 import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/bindings_tab/add_bindings/add_bindings_page.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -18,7 +17,7 @@ class BindingsPage extends StatelessWidget {
             '⚙️ Bindings Settings',
             style: TextStyle(color: Colors.blueGrey, fontSize: 23),
           ),
-          onPressed: () {},
+          onPressed: (_) {},
         ),
       ],
     );
@@ -37,12 +36,12 @@ class BindingsPage extends StatelessWidget {
         Column(
           children: <Widget>[
             TopNavigationBar(
-              'Bindings',
-              Icons.more_vert,
-              userCogFunction,
-              leftIcon: FontAwesomeIcons.userCog,
+              pageName: 'Bindings',
+              rightIcon: Icons.more_vert,
+              rightIconFunction: userCogFunction,
+              leftIcon: FontAwesomeIcons.userGear,
               leftIconFunction: leftIconFunction,
-              rightSecondIcon: FontAwesomeIcons.search,
+              rightSecondIcon: FontAwesomeIcons.magnifyingGlass,
               rightSecondFunction: rightSecondFunction,
             ),
             const SizedBox(

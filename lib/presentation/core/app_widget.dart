@@ -7,17 +7,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppWidget extends StatelessWidget {
-  final _rootRouter = AppRouter();
+  static final _rootRouter = AppRouter();
 
   MaterialColor createMaterialColor(Color color) {
     final List<double> strengths = <double>[.05];
     final Map<int, Color> swatch = <int, Color>{};
-    final int r = color.red, g = color.green, b = color.blue;
+    final int r = color.red;
+    final int g = color.green;
+    final int b = color.blue;
 
     for (int i = 1; i < 10; i++) {
       strengths.add(0.1 * i);
     }
-    strengths.forEach((strength) {
+    for (final strength in strengths) {
       final double ds = 0.5 - strength;
       swatch[(strength * 1000).round()] = Color.fromRGBO(
         r + ((ds < 0 ? r : (255 - r)) * ds).round(),
@@ -25,7 +27,7 @@ class AppWidget extends StatelessWidget {
         b + ((ds < 0 ? b : (255 - b)) * ds).round(),
         1,
       );
-    });
+    }
     return MaterialColor(color.value, swatch);
   }
 
@@ -35,7 +37,7 @@ class AppWidget extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) =>
-              getIt<AuthBloc>()..add(const AuthEvent.authCheckRequested()),
+              getIt<AuthBloc>()..add(const AuthEvent.initialized()),
         ),
       ],
       child: MaterialApp.router(
@@ -56,10 +58,9 @@ class AppWidget extends StatelessWidget {
         //      darkTheme: ThemeData(brightness: Brightness.dark),
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          primarySwatch:
+          primaryColor:
               createMaterialColor(const Color.fromRGBO(162, 129, 162, 1.0)),
           primaryColorDark: const Color(0xFF271052),
-          accentColor: Colors.indigo,
           inputDecorationTheme: InputDecorationTheme(
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
@@ -70,6 +71,13 @@ class AppWidget extends StatelessWidget {
             bodyText2: TextStyle(color: Colors.white70),
           ),
           fontFamily: 'gidole_regular',
+          colorScheme: ColorScheme.fromSwatch(
+            primarySwatch: createMaterialColor(
+              const Color.fromRGBO(162, 129, 162, 1.0),
+            ),
+          ).copyWith(
+            secondary: Colors.indigo,
+          ),
         ),
       ),
     );

@@ -11,7 +11,7 @@ abstract class IManageNetworkRepository {
   // C Read UD
   static ManageNetworkEntity? manageWiFiEntity;
 
-  Future<Either<HomeUserFailures, Unit>> doesWiFiEnabled();
+  Future<Either<HomeUserFailures, String?>> doesWiFiEnabled();
 
   Stream<Either<HomeUserFailures, KtList<ManageNetworkEntity>>>
       scanWiFiNetworks();

@@ -5,7 +5,7 @@ import 'package:bloc/bloc.dart';
 import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -17,41 +17,59 @@ part 'blinds_actor_state.dart';
 @injectable
 class BlindsActorBloc extends Bloc<BlindsActorEvent, BlindsActorState> {
   BlindsActorBloc(this._deviceRepository)
-      : super(const BlindsActorState.initial());
+      : super(const BlindsActorState.initial()) {
+    on<Deleted>(_deleted);
+    on<Initialized>(_initialized);
+    on<MoveUpAllBlinds>(_moveUpAllBlinds);
+    on<StopAllBlinds>(_stopAllBlinds);
+    on<MoveDownAllBlinds>(_moveDownAllBlinds);
+  }
 
   final IDeviceRepository _deviceRepository;
 
-  @override
-  Stream<BlindsActorState> mapEventToState(
-    BlindsActorEvent event,
-  ) async* {
-    yield* event.map(
-      deleted: (e) async* {},
-      initialized: (e) async* {},
-      moveUpAllBlinds: (_MoveUpAllBlinds value) async* {
-        FlushbarHelper.createLoading(
-          message: 'Pulling Up all blinds',
-          linearProgressIndicator: const LinearProgressIndicator(),
-        ).show(value.context);
+  Future<void> _deleted(
+    Deleted event,
+    Emitter<BlindsActorState> emit,
+  ) async {}
 
-        _deviceRepository.moveUpBlinds(devicesId: value.blindsIdToTurnUp);
-      },
-      stopAllBlinds: (_StopAllBlinds value) async* {
-        FlushbarHelper.createLoading(
-          message: 'Stopping all blinds',
-          linearProgressIndicator: const LinearProgressIndicator(),
-        ).show(value.context);
+  Future<void> _initialized(
+    Initialized event,
+    Emitter<BlindsActorState> emit,
+  ) async {}
 
-        _deviceRepository.stopBlinds(devicesId: value.blindsIdToStop);
-      },
-      moveDownAllBlinds: (_MoveDownAllBlinds value) async* {
-        FlushbarHelper.createLoading(
-          message: 'Pulling down all blinds',
-          linearProgressIndicator: const LinearProgressIndicator(),
-        ).show(value.context);
+  Future<void> _moveUpAllBlinds(
+    MoveUpAllBlinds event,
+    Emitter<BlindsActorState> emit,
+  ) async {
+    FlushbarHelper.createLoading(
+      message: 'Pulling_Up_all_blinds'.tr(),
+      linearProgressIndicator: const LinearProgressIndicator(),
+    ).show(event.context);
 
-        _deviceRepository.moveDownBlinds(devicesId: value.blindsIdToTurnDown);
-      },
-    );
+    _deviceRepository.moveUpBlinds(devicesId: event.blindsIdToTurnUp);
+  }
+
+  Future<void> _stopAllBlinds(
+    StopAllBlinds event,
+    Emitter<BlindsActorState> emit,
+  ) async {
+    FlushbarHelper.createLoading(
+      message: 'Stopping_all_blinds'.tr(),
+      linearProgressIndicator: const LinearProgressIndicator(),
+    ).show(event.context);
+
+    _deviceRepository.stopBlinds(devicesId: event.blindsIdToStop);
+  }
+
+  Future<void> _moveDownAllBlinds(
+    MoveDownAllBlinds event,
+    Emitter<BlindsActorState> emit,
+  ) async {
+    FlushbarHelper.createLoading(
+      message: 'Pulling_down_all_blinds'.tr(),
+      linearProgressIndicator: const LinearProgressIndicator(),
+    ).show(event.context);
+
+    _deviceRepository.moveDownBlinds(devicesId: event.blindsIdToTurnDown);
   }
 }

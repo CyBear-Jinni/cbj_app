@@ -1,22 +1,20 @@
 import 'package:cybear_jinni/application/blinds/blinds_watcher/blinds_watcher_bloc.dart';
-import 'package:cybear_jinni/domain/devices/generic_blinds_device/generic_blinds_entity.dart';
+import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/blinds/widgets/critical_failure_blinds_display_widget.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/blinds/widgets/room_blinds.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kt_dart/kt.dart';
 
 class RoomsBlindsWidget extends StatelessWidget {
-  const RoomsBlindsWidget(
-    this.showDevicesOnlyFromRoomId,
-    this.roomColorGradiant,
-  );
+  const RoomsBlindsWidget({
+    required this.roomEntity,
+    required this.roomColorGradiant,
+  });
 
-  /// If not null show blinds only from this room
-  final String showDevicesOnlyFromRoomId;
-
+  final RoomEntity roomEntity;
   final List<Color> roomColorGradiant;
 
   @override
@@ -30,38 +28,31 @@ class RoomsBlindsWidget extends StatelessWidget {
           ),
           loadSuccess: (state) {
             if (state.devices.size != 0) {
-              final Map<String?, List<GenericBlindsDE>> tempDevicesByRooms =
-                  <String, List<GenericBlindsDE>>{};
+              final Map<String, List<DeviceEntityAbstract>> tempDevicesByRooms =
+                  <String, List<DeviceEntityAbstract>>{};
 
-              for (int i = 0; i < state.devices.size; i++) {
-                final GenericBlindsDE tempDevice = state.devices[i]!;
-                if (showDevicesOnlyFromRoomId != null) {
-                  if (showDevicesOnlyFromRoomId ==
-                      tempDevice.roomId.getOrCrash()) {
-                    if (tempDevicesByRooms[tempDevice.roomId.getOrCrash()] ==
-                        null) {
-                      tempDevicesByRooms[tempDevice.roomId.getOrCrash()] = [
-                        tempDevice
-                      ];
-                    } else {
-                      tempDevicesByRooms[tempDevice.roomId.getOrCrash()]!
-                          .add(tempDevice);
-                    }
-                  }
-                } else {
-                  if (tempDevicesByRooms[tempDevice.roomId.getOrCrash()] ==
-                      null) {
-                    tempDevicesByRooms[tempDevice.roomId.getOrCrash()] = [
-                      tempDevice
-                    ];
+              /// Go on all the devices and find only the devices that exist
+              /// in this room
+              final String roomId = roomEntity.uniqueId.getOrCrash();
+              for (final DeviceEntityAbstract? deviceEntityAbstract
+                  in state.devices.iter) {
+                if (deviceEntityAbstract == null) {
+                  continue;
+                }
+                final int indexOfDeviceInRoom =
+                    roomEntity.roomDevicesId.getOrCrash().indexWhere((element) {
+                  return element == deviceEntityAbstract.uniqueId.getOrCrash();
+                });
+                if (indexOfDeviceInRoom != -1) {
+                  if (tempDevicesByRooms[roomId] == null) {
+                    tempDevicesByRooms[roomId] = [deviceEntityAbstract];
                   } else {
-                    tempDevicesByRooms[tempDevice.roomId.getOrCrash()]!
-                        .add(tempDevice);
+                    tempDevicesByRooms[roomId]!.add(deviceEntityAbstract);
                   }
                 }
               }
 
-              final List<KtList<GenericBlindsDE>> devicesByRooms = [];
+              final List<KtList<DeviceEntityAbstract>> devicesByRooms = [];
 
               tempDevicesByRooms.forEach((k, v) {
                 devicesByRooms.add(v.toImmutableList());
@@ -72,6 +63,7 @@ class RoomsBlindsWidget extends StatelessWidget {
               return Container(
                 margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 15),
                 child: ListView.builder(
+                  reverse: true,
                   padding: EdgeInsets.zero,
                   itemBuilder: (context, index) {
                     List<Color>? gradiantColor;
@@ -82,13 +74,13 @@ class RoomsBlindsWidget extends StatelessWidget {
                       gradientColorCounter = 0;
                       gradiantColor = gradientColorsList[gradientColorCounter];
                     }
-                    final KtList<GenericBlindsDE> devicesInRoom =
+                    final KtList<DeviceEntityAbstract> devicesInRoom =
                         devicesByRooms[index];
 
                     return RoomBlinds(
                       devicesInRoom,
                       gradiantColor,
-                      devicesInRoom[0].roomName.getOrCrash()!,
+                      roomEntity.defaultName.getOrCrash(),
                       maxLightsToShow: 50,
                     );
                   },

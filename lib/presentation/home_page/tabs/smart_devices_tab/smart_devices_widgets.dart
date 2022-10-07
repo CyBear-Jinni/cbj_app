@@ -5,10 +5,11 @@ import 'package:cybear_jinni/application/auth/auth_bloc.dart';
 import 'package:cybear_jinni/application/devices/device_actor/device_actor_bloc.dart';
 import 'package:cybear_jinni/application/devices/device_watcher/device_watcher_bloc.dart';
 import 'package:cybear_jinni/injection.dart';
-import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/settings_page_of_smart_devices.dart';
+import 'package:cybear_jinni/presentation/change_room_for_devices/change_room_for_devices_page.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/smart_devices_by_rooms.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -21,14 +22,23 @@ class SmartDevicesWidgets extends StatelessWidget {
       actions: <BottomSheetAction>[
         BottomSheetAction(
           title: const Text(
-            '⚙️ Devices Settings',
+            '⚙️ Change Area For Devices',
             style: TextStyle(color: Colors.blueGrey, fontSize: 23),
           ),
-          onPressed: () {
+          onPressed: (_) {
+            //
+            // Fluttertoast.showToast(
+            //   msg: 'Settings page will be added in the future',
+            //   toastLength: Toast.LENGTH_LONG,
+            //   gravity: ToastGravity.CENTER,
+            //   backgroundColor: Colors.blueGrey,
+            //   textColor: Theme.of(context).textTheme.bodyText1!.color,
+            //   fontSize: 16.0,
+            // );
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (BuildContext context) => SettingsPageSmartDevices(),
+                builder: (BuildContext context) => ChangeRoomForDevicesPage(),
               ),
             );
           },
@@ -49,7 +59,9 @@ class SmartDevicesWidgets extends StatelessWidget {
       providers: [
         BlocProvider<DeviceWatcherBloc>(
           create: (context) => getIt<DeviceWatcherBloc>()
-            ..add(const DeviceWatcherEvent.watchAllStarted()),
+            ..add(
+              const DeviceWatcherEvent.watchAllStarted(),
+            ),
         ),
         BlocProvider<DeviceActorBloc>(
           create: (context) => getIt<DeviceActorBloc>(),
@@ -91,13 +103,13 @@ class SmartDevicesWidgets extends StatelessWidget {
         child: Column(
           children: <Widget>[
             TopNavigationBar(
-              'Devices',
-              Icons.more_vert,
-              userCogFunction,
-              leftIcon: FontAwesomeIcons.userCog,
-              leftIconFunction: leftIconFunction,
-              rightSecondIcon: FontAwesomeIcons.search,
-              rightSecondFunction: rightSecondFunction,
+              pageName: 'Devices'.tr(),
+              rightIcon: Icons.more_vert,
+              rightIconFunction: userCogFunction,
+              leftIcon: FontAwesomeIcons.solidLightbulb,
+              leftIconFunction: (BuildContext context) {},
+              // rightSecondIcon: FontAwesomeIcons.magnifyingGlass,
+              // rightSecondFunction: rightSecondFunction,
             ),
             Expanded(
               child: SmartDevicesByRooms(),

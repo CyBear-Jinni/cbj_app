@@ -4,7 +4,6 @@ import 'package:cybear_jinni/application/user_homes_list/user_homes_list_bloc.da
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_page_minimal/widgets/user_homes_list_widget.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -107,7 +106,7 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
                       child: Row(
                         children: <Widget>[
                           FaIcon(
-                            FontAwesomeIcons.userFriends,
+                            FontAwesomeIcons.userGroup,
                             color: Theme.of(context).textTheme.bodyText1!.color,
                           ),
                           const SizedBox(

@@ -3,12 +3,11 @@ import 'package:cybear_jinni/domain/vendors/vendor.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 class VendorWidget extends StatelessWidget {
-  VendorWidget(this.vendor);
+  const VendorWidget(this.vendor);
 
   final Vendor vendor;
 
@@ -16,12 +15,34 @@ class VendorWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        if (vendor.name.getOrCrash().toLowerCase() ==
-            VendorsAndServices.lifx.name.toLowerCase()) {
+        final String vendorName = vendor.name
+            .getOrCrash()
+            .toLowerCase()
+            .replaceAll(' ', '')
+            .replaceAll('_', '');
+
+        if (vendorName == VendorsAndServices.lifx.name.toLowerCase()) {
           context.router.push(const AddLifxVendorRoute());
-        } else if (vendor.name.getOrCrash().toLowerCase() ==
+        } else if (vendorName ==
             VendorsAndServices.tuyaSmart.name.toLowerCase()) {
           context.router.push(const AddTuyaVendorRoute());
+        } else if (vendorName ==
+            VendorsAndServices.smartLife.name.toLowerCase()) {
+          context.router.push(const AddSmartLifeVendorRoute());
+        } else if (vendorName ==
+            VendorsAndServices.jinvooSmart.name.toLowerCase()) {
+          context.router.push(const AddJinvooSmartVendorRoute());
+        } else if (vendorName ==
+            VendorsAndServices.espHome.name.toLowerCase()) {
+          Fluttertoast.showToast(
+            msg: '${vendor.name.getOrCrash()} devices can only be added '
+                'manually in the Hub',
+            toastLength: Toast.LENGTH_LONG,
+            gravity: ToastGravity.SNACKBAR,
+            backgroundColor: Colors.orangeAccent,
+            textColor: Theme.of(context).textTheme.bodyText1!.color,
+            fontSize: 16.0,
+          );
         } else {
           Fluttertoast.showToast(
             msg: '${vendor.name.getOrCrash()} devices will be add automatically'
@@ -54,7 +75,7 @@ class VendorWidget extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              width: 50,
+              width: 10,
             ),
             Text(
               vendor.name.getOrCrash(),
@@ -67,58 +88,5 @@ class VendorWidget extends StatelessWidget {
         ),
       ),
     );
-    // return Container(
-    //   decoration: BoxDecoration(
-    //     color: Colors.black,
-    //     image: DecorationImage(
-    //       image: NetworkImage(
-    //         folderOfScenes.fold((l) => null!, (r) => r.backgroundImageUrl!),
-    //       ),
-    //       fit: BoxFit.cover,
-    //     ),
-    //     borderRadius: const BorderRadius.all(Radius.circular(borderRadius)),
-    //     border: Border.all(
-    //       color: Colors.black.withOpacity(0.7),
-    //       width: 0.4,
-    //     ),
-    //   ),
-    //   margin: const EdgeInsets.symmetric(vertical: 3, horizontal: 5),
-    //   child: TextButton(
-    //     style: ButtonStyle(
-    //       padding: MaterialStateProperty.all<EdgeInsets>(
-    //         EdgeInsets.zero,
-    //       ),
-    //     ),
-    //     onPressed: () {
-    //       context.router.push(ScenesRoute(
-    //         folderOfScenes: folderOfScenes.fold((l) => null!, (r) => r),
-    //       ));
-    //     },
-    //     child: Column(
-    //       children: [
-    //         const SizedBox(
-    //           height: 130,
-    //         ),
-    //         Container(
-    //           width: double.infinity,
-    //           decoration: BoxDecoration(
-    //             color: Colors.black.withOpacity(0.7),
-    //             borderRadius: const BorderRadius.only(
-    //               bottomRight: Radius.circular(borderRadius),
-    //               bottomLeft: Radius.circular(borderRadius),
-    //             ),
-    //           ),
-    //           child: Text(
-    //             folderOfScenes.fold((l) => 'NoName', (r) => r.name!),
-    //             style: TextStyle(
-    //                 color: Theme.of(context).textTheme.bodyText1!.color,
-    //                 fontSize: 30),
-    //             textAlign: TextAlign.center,
-    //           ),
-    //         ),
-    //       ],
-    //     ),
-    //   ),
-    // );
   }
 }

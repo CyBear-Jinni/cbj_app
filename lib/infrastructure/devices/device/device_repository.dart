@@ -13,15 +13,22 @@ import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_e
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_value_objects.dart';
 import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
 import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rgbw_light_value_objects.dart';
+import 'package:cybear_jinni/domain/devices/generic_smart_plug_device/generic_smart_plug_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_smart_plug_device/generic_smart_plug_value_objects.dart';
+import 'package:cybear_jinni/domain/devices/generic_switch_device/generic_switch_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_switch_device/generic_switch_value_objects.dart';
+import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/domain/user/i_user_repository.dart';
 import 'package:cybear_jinni/domain/user/user_entity.dart';
-import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/hub_client.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/devices/device_helper.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/abstract_device/device_entity_dto_abstract.dart';
+import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
+import 'package:cybear_jinni/infrastructure/hub_client/hub_requests_routing.dart';
 import 'package:cybear_jinni/injection.dart';
+import 'package:cybear_jinni/utils.dart';
 import 'package:dartz/dartz.dart';
-import 'package:device_info/device_info.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/src/painting/colors.dart';
 import 'package:injectable/injectable.dart';
@@ -38,10 +45,24 @@ class DeviceRepository implements IDeviceRepository {
   HashMap<String, DeviceEntityAbstract> allDevices =
       HashMap<String, DeviceEntityAbstract>();
 
+  // @override
+  // void addOrUpdateFromApp(dynamic entity) {
+  //   if (entity is RoomEntity) {
+  //     _addOrUpdateRoom(entity);
+  //   } else if (entity is DeviceEntityAbstract) {
+  //     _addOrUpdateDevice(entity);
+  //   } else {
+  //     logger.w('Entity type to update ${entity.runtimeType} is not supported');
+  //   }
+  //   allResponseFromTheHubStreamController.sink
+  //       .add(entity);
+  // }
+
   @override
   void addOrUpdateDevice(DeviceEntityAbstract deviceEntity) {
-    allDevices[deviceEntity.uniqueId.getOrCrash()!] = deviceEntity;
-    devicesStreamController.sink.add(allDevices.values.toImmutableList());
+    allDevices[deviceEntity.uniqueId.getOrCrash()] = deviceEntity;
+    devicesResponseFromTheHubStreamController.sink
+        .add(allDevices.values.toImmutableList());
   }
 
   @override
@@ -54,7 +75,12 @@ class DeviceRepository implements IDeviceRepository {
   }
 
   @override
-  Future<void> initiateHubConnection() async {}
+  Future<void> initiateHubConnection() async {
+    AppRequestsToHub.lisenToApp();
+    HubRequestsToApp.lisenToApp();
+
+    HubRequestRouting.navigateRequest();
+  }
 
   @override
   Future<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
@@ -63,21 +89,26 @@ class DeviceRepository implements IDeviceRepository {
       return right(allDevices.values.toImmutableList());
     } catch (e) {
       if (e is PlatformException && e.message!.contains('PERMISSION_DENIED')) {
-        print('Insufficient permission while getting all devices');
+        logger.w('Insufficient permission while getting all devices');
         return left(const DevicesFailure.insufficientPermission());
       } else {
-        print('Unexpected error while getting all devices');
+        logger.e('Unexpected error while getting all devices');
         // log.error(e.toString());
         return left(const DevicesFailure.unexpected());
       }
     }
-    return left(const DevicesFailure.unexpected());
+  }
+
+  @override
+  Stream<Either<dynamic, KtList>> watchAll() async* {
+    yield* allResponseFromTheHubStreamController.map((event) => right(event));
   }
 
   @override
   Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
-      watchAll() async* {
-    yield* devicesStreamController.stream.map((event) => right(event));
+      watchAllDevices() async* {
+    yield* devicesResponseFromTheHubStreamController.stream
+        .map((event) => right(event));
   }
 
   @override
@@ -85,7 +116,7 @@ class DeviceRepository implements IDeviceRepository {
       watchLights() async* {
     // Using watchAll devices from server function and filtering out only the
     // Light device type
-    yield* watchAll().map(
+    yield* watchAllDevices().map(
       (event) => event.fold((l) => left(l), (r) {
         return right(
           r.toList().asList().where((element) {
@@ -101,10 +132,44 @@ class DeviceRepository implements IDeviceRepository {
 
   @override
   Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
+      watchSwitches() async* {
+    // Using watchAll devices from server function and filtering out only the
+    // Switches device type
+    yield* watchAllDevices().map(
+      (event) => event.fold((l) => left(l), (r) {
+        return right(
+          r.toList().asList().where((element) {
+            return element!.deviceTypes.getOrCrash() ==
+                DeviceTypes.switch_.toString();
+          }).toImmutableList(),
+        );
+      }),
+    );
+  }
+
+  @override
+  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
+      watchSmartPlugs() async* {
+    // Using watchAll devices from server function and filtering out only the
+    // Smart Plugs device type
+    yield* watchAllDevices().map(
+      (event) => event.fold((l) => left(l), (r) {
+        return right(
+          r.toList().asList().where((element) {
+            return element!.deviceTypes.getOrCrash() ==
+                DeviceTypes.smartPlug.toString();
+          }).toImmutableList(),
+        );
+      }),
+    );
+  }
+
+  @override
+  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
       watchBlinds() async* {
     // Using watchAll devices from server function and filtering out only the
     // Blinds device type
-    yield* watchAll().map(
+    yield* watchAllDevices().map(
       (event) => event.fold((l) => left(l), (r) {
         return right(
           r.toList().asList().where((element) {
@@ -121,7 +186,7 @@ class DeviceRepository implements IDeviceRepository {
       watchBoilers() async* {
     // Using watchAll devices from server function and filtering out only the
     // Boilers device type
-    yield* watchAll().map(
+    yield* watchAllDevices().map(
       (event) => event.fold((l) => left(l), (r) {
         return right(
           r.toList().asList().where((element) {
@@ -136,7 +201,7 @@ class DeviceRepository implements IDeviceRepository {
   @override
   Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
       watchSmartTv() async* {
-    yield* watchAll().map(
+    yield* watchAllDevices().map(
       (event) => event.fold((l) => left(l), (r) {
         return right(
           r.toList().asList().where((element) {
@@ -164,12 +229,12 @@ class DeviceRepository implements IDeviceRepository {
       final DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
       if (Platform.isAndroid) {
         final AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
-        print(androidInfo.model);
-        deviceModelString = androidInfo.model;
+        logger.i(androidInfo.model);
+        deviceModelString = androidInfo.model!;
       } else if (Platform.isIOS) {
         final IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
-        print(iosInfo.utsname.machine);
-        deviceModelString = iosInfo.model;
+        logger.i(iosInfo.utsname.machine);
+        deviceModelString = iosInfo.model!;
       }
 
       final UserEntity currentUserEntity =
@@ -183,7 +248,9 @@ class DeviceRepository implements IDeviceRepository {
           .copyWithDeviceSenderDeviceModel(deviceModelString)
           .copyWithSenderId(currentUserId);
 
-      DeviceEntityDtoAbstract.fromDomain(deviceEntityTemp);
+      DeviceEntityDtoAbstract.fromDomain(
+        deviceEntityDtoAbstract: deviceEntityTemp,
+      );
 
       return right(unit);
     } on PlatformException catch (e) {
@@ -256,11 +323,17 @@ class DeviceRepository implements IDeviceRepository {
         } else if (deviceEntity is GenericRgbwLightDE) {
           deviceEntity.lightSwitchState =
               GenericRgbwLightSwitchState(DeviceActions.on.toString());
+        } else if (deviceEntity is GenericSwitchDE) {
+          deviceEntity.switchState =
+              GenericSwitchSwitchState(DeviceActions.on.toString());
         } else if (deviceEntity is GenericBoilerDE) {
           deviceEntity.boilerSwitchState =
               GenericBoilerSwitchState(DeviceActions.on.toString());
+        } else if (deviceEntity is GenericSmartPlugDE) {
+          deviceEntity.smartPlugState =
+              GenericSmartPlugState(DeviceActions.on.toString());
         } else {
-          print(
+          logger.w(
             'On action not supported for'
             ' ${deviceEntity.deviceTypes.getOrCrash()} type',
           );
@@ -302,11 +375,17 @@ class DeviceRepository implements IDeviceRepository {
         } else if (deviceEntity is GenericRgbwLightDE) {
           deviceEntity.lightSwitchState =
               GenericRgbwLightSwitchState(DeviceActions.off.toString());
+        } else if (deviceEntity is GenericSwitchDE) {
+          deviceEntity.switchState =
+              GenericSwitchSwitchState(DeviceActions.off.toString());
         } else if (deviceEntity is GenericBoilerDE) {
           deviceEntity.boilerSwitchState =
               GenericBoilerSwitchState(DeviceActions.off.toString());
+        } else if (deviceEntity is GenericSmartPlugDE) {
+          deviceEntity.smartPlugState =
+              GenericSmartPlugState(DeviceActions.off.toString());
         } else {
-          print(
+          logger.w(
             'Off action not supported for'
             ' ${deviceEntity.deviceTypes.getOrCrash()} type',
           );
@@ -329,9 +408,75 @@ class DeviceRepository implements IDeviceRepository {
   }
 
   @override
-  Future<Either<DevicesFailure, Unit>> changeColorDevices({
+  Future<Either<DevicesFailure, Unit>> changeColorTemperatureDevices({
     required List<String>? devicesId,
-    required HSVColor colorToChange,
+    required int colorTemperatureToChange,
+  }) async {
+    final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
+        await getDeviceEntityListFromId(devicesId!);
+
+    try {
+      for (final DeviceEntityAbstract? deviceEntity
+          in deviceEntityListToUpdate) {
+        if (deviceEntity == null) {
+          continue;
+        }
+        if (deviceEntity is GenericRgbwLightDE) {
+          deviceEntity.lightColorTemperature = GenericRgbwLightColorTemperature(
+            colorTemperatureToChange.toString(),
+          );
+        } else {
+          logger.w(
+            'Off action not supported for'
+            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+          );
+          continue;
+        }
+
+        try {
+          if (!deviceEntity.doesWaitingToSendTemperatureColorRequest) {
+            deviceEntity.doesWaitingToSendTemperatureColorRequest = true;
+
+            final Future<Either<DevicesFailure, Unit>> updateEntityResponse =
+                updateWithDeviceEntity(deviceEntity: deviceEntity);
+
+            await Future.delayed(
+              Duration(
+                milliseconds:
+                    deviceEntity.sendNewTemperatureColorEachMiliseconds,
+              ),
+            );
+            deviceEntity.doesWaitingToSendTemperatureColorRequest = false;
+
+            return updateEntityResponse;
+          }
+        } catch (e) {
+          await Future.delayed(
+            Duration(
+              milliseconds: deviceEntity.sendNewTemperatureColorEachMiliseconds,
+            ),
+          );
+          deviceEntity.doesWaitingToSendTemperatureColorRequest = false;
+          return left(const DevicesFailure.unexpected());
+        }
+      }
+    } on PlatformException catch (e) {
+      if (e.message!.contains('PERMISSION_DENIED')) {
+        return left(const DevicesFailure.insufficientPermission());
+      } else if (e.message!.contains('NOT_FOUND')) {
+        return left(const DevicesFailure.unableToUpdate());
+      } else {
+        // log.error(e.toString());
+        return left(const DevicesFailure.unexpected());
+      }
+    }
+    return right(unit);
+  }
+
+  @override
+  Future<Either<DevicesFailure, Unit>> changeHsvColorDevices({
+    required List<String>? devicesId,
+    required HSVColor hsvColorToChange,
   }) async {
     final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
         await getDeviceEntityListFromId(devicesId!);
@@ -345,23 +490,110 @@ class DeviceRepository implements IDeviceRepository {
         if (deviceEntity is GenericRgbwLightDE) {
           deviceEntity
             ..lightColorAlpha =
-                GenericRgbwLightColorAlpha(colorToChange.alpha.toString())
+                GenericRgbwLightColorAlpha(hsvColorToChange.alpha.toString())
             ..lightColorHue =
-                GenericRgbwLightColorHue(colorToChange.hue.toString())
+                GenericRgbwLightColorHue(hsvColorToChange.hue.toString())
             ..lightColorSaturation = GenericRgbwLightColorSaturation(
-              colorToChange.saturation.toString(),
+              hsvColorToChange.saturation.toString(),
             )
             ..lightColorValue =
-                GenericRgbwLightColorValue(colorToChange.value.toString());
+                GenericRgbwLightColorValue(hsvColorToChange.value.toString());
         } else {
-          print(
+          logger.w(
             'Off action not supported for'
             ' ${deviceEntity.deviceTypes.getOrCrash()} type',
           );
           continue;
         }
 
-        updateWithDeviceEntity(deviceEntity: deviceEntity);
+        try {
+          if (!deviceEntity.doesWaitingToSendHsvColorRequest) {
+            deviceEntity.doesWaitingToSendHsvColorRequest = true;
+
+            final Future<Either<DevicesFailure, Unit>> updateEntityResponse =
+                updateWithDeviceEntity(deviceEntity: deviceEntity);
+
+            await Future.delayed(
+              Duration(
+                milliseconds: deviceEntity.sendNewHsvColorEachMiliseconds,
+              ),
+            );
+            deviceEntity.doesWaitingToSendHsvColorRequest = false;
+
+            return updateEntityResponse;
+          }
+        } catch (e) {
+          await Future.delayed(
+            Duration(
+              milliseconds: deviceEntity.sendNewHsvColorEachMiliseconds,
+            ),
+          );
+          deviceEntity.doesWaitingToSendHsvColorRequest = false;
+          return left(const DevicesFailure.unexpected());
+        }
+      }
+    } on PlatformException catch (e) {
+      if (e.message!.contains('PERMISSION_DENIED')) {
+        return left(const DevicesFailure.insufficientPermission());
+      } else if (e.message!.contains('NOT_FOUND')) {
+        return left(const DevicesFailure.unableToUpdate());
+      } else {
+        // log.error(e.toString());
+        return left(const DevicesFailure.unexpected());
+      }
+    }
+    return right(unit);
+  }
+
+  @override
+  Future<Either<DevicesFailure, Unit>> changeBrightnessDevices({
+    required List<String>? devicesId,
+    required int brightnessToChange,
+  }) async {
+    final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
+        await getDeviceEntityListFromId(devicesId!);
+
+    try {
+      for (final DeviceEntityAbstract? deviceEntity
+          in deviceEntityListToUpdate) {
+        if (deviceEntity == null) {
+          continue;
+        }
+        if (deviceEntity is GenericRgbwLightDE) {
+          deviceEntity.lightBrightness =
+              GenericRgbwLightBrightness(brightnessToChange.toString());
+        } else {
+          logger.w(
+            'Brightness action not supported for'
+            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+          );
+          continue;
+        }
+
+        try {
+          if (!deviceEntity.doesWaitingToSendBrightnessRequest) {
+            deviceEntity.doesWaitingToSendBrightnessRequest = true;
+
+            final Future<Either<DevicesFailure, Unit>> updateEntityResponse =
+                updateWithDeviceEntity(deviceEntity: deviceEntity);
+
+            await Future.delayed(
+              Duration(
+                milliseconds: deviceEntity.sendNewBrightnessEachMiliseconds,
+              ),
+            );
+            deviceEntity.doesWaitingToSendBrightnessRequest = false;
+            return updateEntityResponse;
+          }
+        } catch (e) {
+          await Future.delayed(
+            Duration(
+              milliseconds: deviceEntity.sendNewBrightnessEachMiliseconds,
+            ),
+          );
+          deviceEntity.doesWaitingToSendBrightnessRequest = false;
+          return left(const DevicesFailure.unexpected());
+        }
       }
     } on PlatformException catch (e) {
       if (e.message!.contains('PERMISSION_DENIED')) {
@@ -394,7 +626,7 @@ class DeviceRepository implements IDeviceRepository {
           deviceEntity.blindsSwitchState =
               GenericBlindsSwitchState(DeviceActions.moveUp.toString());
         } else {
-          print(
+          logger.w(
             'Off action not supported for'
             ' ${deviceEntity.deviceTypes.getOrCrash()} type',
           );
@@ -434,7 +666,7 @@ class DeviceRepository implements IDeviceRepository {
           deviceEntity.blindsSwitchState =
               GenericBlindsSwitchState(DeviceActions.stop.toString());
         } else {
-          print(
+          logger.w(
             'Off action not supported for'
             ' ${deviceEntity.deviceTypes.getOrCrash()} type',
           );
@@ -474,7 +706,7 @@ class DeviceRepository implements IDeviceRepository {
           deviceEntity.blindsSwitchState =
               GenericBlindsSwitchState(DeviceActions.moveDown.toString());
         } else {
-          print(
+          logger.w(
             'Off action not supported for'
             ' ${deviceEntity.deviceTypes.getOrCrash()} type',
           );
@@ -524,10 +756,10 @@ class DeviceRepository implements IDeviceRepository {
           allRemoteCommands: deviceDtoAsString,
           sendingType: SendingType.deviceType,
         );
-        AppRequestsToHub.appRequestsToHubStreamController.sink
+        AppRequestsToHub.appRequestsToHubStreamController
             .add(clientStatusRequests);
       } catch (e) {
-        print('This is the error $e');
+        logger.e('This is the error\n$e');
 
         // final DocumentReference homeDoc =
         //     await _firestore.currentHomeDocument();
@@ -542,7 +774,7 @@ class DeviceRepository implements IDeviceRepository {
 
       return right(unit);
     } catch (e) {
-      print('Probably ip of device was not inserted into the device object');
+      logger.w('Probably ip of device was not inserted into the device object');
       return left(const DevicesFailure.unexpected());
     }
   }
@@ -552,9 +784,9 @@ class DeviceRepository implements IDeviceRepository {
   ) async {
     final List<DeviceEntityAbstract> deviceEntityList = [];
 
-    deviceIdList.forEach((deviceId) {
+    for (final deviceId in deviceIdList) {
       deviceEntityList.add(allDevices[deviceId]!);
-    });
+    }
     return deviceEntityList;
   }
 
@@ -582,18 +814,18 @@ class DeviceRepository implements IDeviceRepository {
       ResourceRecordQuery.addressIPv4(fullMdnsName),
     )) {
       deviceIp = record.address.address;
-      print('Found address (${record.address}).');
+      logger.v('Found address (${record.address}).');
     }
 
     // await for (final IPAddressResourceRecord record
     //     in client.lookup<IPAddressResourceRecord>(
     //         ResourceRecordQuery.addressIPv6(fullMdnsName))) {
-    //   print('Found address (${record.address}).');
+    //   logger.v('Found address (${record.address}).');
     // }
 
     client.stop();
 
-    print('Done.');
+    logger.v('Done.');
 
     return deviceIp;
   }
@@ -633,6 +865,15 @@ class DeviceRepository implements IDeviceRepository {
 
   /// Stream controller of the app request for the hub
   @override
-  BehaviorSubject<KtList<DeviceEntityAbstract?>> devicesStreamController =
-      BehaviorSubject<KtList<DeviceEntityAbstract?>>();
+  BehaviorSubject<KtList> allResponseFromTheHubStreamController =
+      BehaviorSubject<KtList>();
+
+  @override
+  BehaviorSubject<KtList<DeviceEntityAbstract>>
+      devicesResponseFromTheHubStreamController =
+      BehaviorSubject<KtList<DeviceEntityAbstract>>();
+
+  @override
+  BehaviorSubject<KtList<RoomEntity>> roomsResponseFromTheHubStreamController =
+      BehaviorSubject<KtList<RoomEntity>>();
 }

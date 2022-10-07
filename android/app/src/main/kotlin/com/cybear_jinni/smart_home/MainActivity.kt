@@ -7,11 +7,9 @@ import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
-import io.flutter.plugins.GeneratedPluginRegistrant
 import java.util.*
 
 
-import android.os.Bundle
 import java.util.TimeZone
 
 
@@ -28,7 +26,7 @@ class MainActivity : FlutterActivity() {
     }
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
-        GeneratedPluginRegistrant.registerWith(flutterEngine)
+        super.configureFlutterEngine(flutterEngine)
         MethodChannel(flutterEngine.dartExecutor, "cybear_jinni/smart_home").setMethodCallHandler { call: MethodCall, result: MethodChannel.Result ->
             if ("drawableToUri" == call.method) {
                 val resourceId = this@MainActivity.resources.getIdentifier(call.arguments as String, "drawable", this@MainActivity.packageName)

@@ -7,7 +7,7 @@ import 'package:cybear_jinni/domain/core/value_objects.dart';
 import 'package:cybear_jinni/domain/user/i_user_repository.dart';
 import 'package:cybear_jinni/domain/user/user_entity.dart';
 import 'package:cybear_jinni/domain/user/user_value_objects.dart';
-import 'package:cybear_jinni/infrastructure/core/hive_local_db/hive_local_db.dart';
+import 'package:cybear_jinni/infrastructure/hive_local_db/hive_local_db.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
@@ -56,7 +56,7 @@ class HubAuthFacade implements IAuthFacade {
       //     await _firebaseAuth.createUserWithEmailAndPassword(
       //         email: emailAddressStr, password: passwordStr);
       //
-      final String userIdString = '12344';
+      const String userIdString = '12344';
 
       final String userName =
           emailAddressStr.substring(0, emailAddressStr.indexOf('@'));

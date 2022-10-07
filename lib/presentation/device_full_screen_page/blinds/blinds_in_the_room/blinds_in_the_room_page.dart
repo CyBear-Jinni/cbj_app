@@ -3,6 +3,7 @@ import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/lights/widgets/room_lights_toggles_block.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// Page to show all the lights in selected room
@@ -23,7 +24,7 @@ class BlindsInTheRoomPage extends StatelessWidget {
       appBar: AppBar(
         toolbarHeight: 0,
         backgroundColor: Colors.black,
-        brightness: Brightness.dark,
+        systemOverlayStyle: SystemUiOverlayStyle.dark,
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,
@@ -33,12 +34,12 @@ class BlindsInTheRoomPage extends StatelessWidget {
         child: Column(
           children: <Widget>[
             TopNavigationBar(
-              thisSmartRoom!.getRoomName(),
-              Icons.more_vert,
-              () {},
+              pageName: thisSmartRoom!.getRoomName(),
+              rightIcon: Icons.more_vert,
+              rightIconFunction: () {},
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
-              rightSecondIcon: FontAwesomeIcons.search,
+              rightSecondIcon: FontAwesomeIcons.magnifyingGlass,
               rightSecondFunction: () {},
             ),
             Expanded(

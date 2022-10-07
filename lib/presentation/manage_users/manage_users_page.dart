@@ -6,8 +6,8 @@ import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/manage_users/widgets/manage_users_widget.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -22,7 +22,7 @@ class ManageUsersPage extends StatelessWidget {
             '➕ Add User',
             style: TextStyle(color: Colors.green, fontSize: 23),
           ),
-          onPressed: () {
+          onPressed: (_) {
             context.router.push(const AddUserToHomeRoute());
           },
         ),
@@ -59,16 +59,16 @@ class ManageUsersPage extends StatelessWidget {
           appBar: AppBar(
             toolbarHeight: 0,
             backgroundColor: Colors.black,
-            brightness: Brightness.dark,
+            systemOverlayStyle: SystemUiOverlayStyle.dark,
           ),
           body: Container(
             color: Colors.black87,
             child: Column(
               children: [
                 TopNavigationBar(
-                  'Users',
-                  Icons.more_vert,
-                  userCogFunction,
+                  pageName: 'Users',
+                  rightIcon: Icons.more_vert,
+                  rightIconFunction: userCogFunction,
                   leftIcon: FontAwesomeIcons.arrowLeft,
                   leftIconFunction: leftIconFunction,
                 ),

@@ -2,14 +2,15 @@ part of 'light_toggle_bloc.dart';
 
 @freezed
 class LightToggleState with _$LightToggleState {
-  factory LightToggleState.initial() = _Initial;
+  const factory LightToggleState({
+    required int colorTemperature,
+    required HSVColor hsvColor,
+    required double brightness,
+  }) = _LightToggleState;
 
-  const factory LightToggleState.loadInProgress() = _LoadInProgress;
-
-  const factory LightToggleState.loadSuccess() = _LoadSuccess;
-
-  const factory LightToggleState.loadFailure(DevicesFailure devicesFailure) =
-      _loadFailure;
-
-  const factory LightToggleState.error() = Error;
+  factory LightToggleState.initial() => LightToggleState(
+        colorTemperature: 4500,
+        hsvColor: HSVColor.fromColor(Colors.white),
+        brightness: 100,
+      );
 }

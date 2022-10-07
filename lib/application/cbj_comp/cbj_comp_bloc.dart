@@ -14,68 +14,97 @@ part 'cbj_comp_state.dart';
 
 @injectable
 class CBJCompBloc extends Bloc<CBJCompEvent, CBJCompState> {
-  CBJCompBloc(this._cBJCompRepository) : super(CBJCompState.initial());
+  CBJCompBloc(this._cBJCompRepository) : super(CBJCompState.initial()) {
+    on<Initialized>(_initialized);
+    on<WatchAllStarted>(_watchAllStarted);
+    on<ChangeState>(_changeAction);
+    on<CompDevicesReceived>(_compDevicesReceived);
+    on<CreateDevice>(_create);
+  }
 
   final ICBJCompRepository _cBJCompRepository;
 
   StreamSubscription<Either<CBJCompFailure, String>>?
-      _CBJCompStreamSubscription;
+      _cbjCompStreamSubscription;
 
-  @override
-  Stream<CBJCompState> mapEventToState(
-    CBJCompEvent event,
-  ) async* {
-    yield* event.map(
-      initialized: (e) async* {},
-      create: (e) async* {},
-      watchAllStarted: (e) async* {
-        yield const CBJCompState.loadInProgress();
-        await _CBJCompStreamSubscription?.cancel();
-        _CBJCompStreamSubscription = _cBJCompRepository
-            .getConnectedComputersIP()
-            .listen((failureOrCBJCompList) {
-          add(CBJCompEvent.compDevicesReceived(failureOrCBJCompList));
-        });
-      },
-      compDevicesReceived: (e) async* {
-        yield const CBJCompState.loadInProgress();
+  Future<void> _initialized(
+    Initialized event,
+    Emitter<CBJCompState> emit,
+  ) async {}
 
-        final dynamic failureOrCompListDynamic = e.failureOrCBJCompList.fold(
-          (f) => f,
-          (ip) => ip,
-        );
+  Future<void> _create(
+    CreateDevice event,
+    Emitter<CBJCompState> emit,
+  ) async {}
 
-        if (failureOrCompListDynamic == CBJCompFailure) {
-          yield CBJCompState.loadFailure(
+  Future<void> _watchAllStarted(
+    WatchAllStarted event,
+    Emitter<CBJCompState> emit,
+  ) async {
+    emit(const CBJCompState.loadInProgress());
+    await _cbjCompStreamSubscription?.cancel();
+    _cbjCompStreamSubscription = _cBJCompRepository
+        .getConnectedComputersIP()
+        .listen((failureOrCBJCompList) {
+      final dynamic failureOrCompListDynamic = failureOrCBJCompList.fold(
+        (f) => f,
+        (ip) => ip,
+      );
+
+      if (failureOrCompListDynamic == CBJCompFailure) {
+        emit(
+          CBJCompState.loadFailure(
             failureOrCompListDynamic as CBJCompFailure,
-          );
-        } else {
-          final String ipAsString = failureOrCompListDynamic as String;
-
-          final Either<CBJCompFailure, CBJCompEntity>
-              cBJCompEntityListOFailure =
-              await _cBJCompRepository.getInformationFromDeviceByIp(ipAsString);
-          yield cBJCompEntityListOFailure.fold(
-            (f) => CBJCompState.loadFailure(f),
-            (r) => CBJCompState.loadSuccess(r),
-          );
-        }
-      },
-      changeAction: (e) async* {
-        final actionResult =
-            await _cBJCompRepository.updateCompInfo(e.cBJCompEntity);
-
-        yield actionResult.fold(
-          (f) => CBJCompState.loadFailure(f),
-          (r) => const CBJCompState.loadSuccessTemp(),
+          ),
         );
-      },
+      } else {
+        //TODO: Call close app server function if Security Bear ip got found
+        add(CBJCompEvent.compDevicesReceived(failureOrCBJCompList));
+      }
+    });
+  }
+
+  Future<void> _compDevicesReceived(
+    CompDevicesReceived event,
+    Emitter<CBJCompState> emit,
+  ) async {
+    emit(const CBJCompState.loadInProgress());
+
+    final dynamic failureOrCompListDynamic = event.failureOrCBJCompList.fold(
+      (f) => f,
+      (ip) => ip,
+    );
+
+    if (failureOrCompListDynamic == CBJCompFailure) {
+      emit(
+        CBJCompState.loadFailure(
+          failureOrCompListDynamic as CBJCompFailure,
+        ),
+      );
+    } else {
+      final String ipAsString = failureOrCompListDynamic as String;
+      emit(CBJCompState.loadSuccess(ipAsString));
+    }
+  }
+
+  Future<void> _changeAction(
+    ChangeState event,
+    Emitter<CBJCompState> emit,
+  ) async {
+    final actionResult =
+        await _cBJCompRepository.updateCompInfo(event.cBJCompEntity);
+
+    emit(
+      actionResult.fold(
+        (f) => CBJCompState.loadFailure(f),
+        (r) => const CBJCompState.loadSuccessTemp(),
+      ),
     );
   }
 
   @override
   Future<void> close() async {
-    await _CBJCompStreamSubscription?.cancel();
+    await _cbjCompStreamSubscription?.cancel();
     await _cBJCompRepository.shutdownServer();
     return super.close();
   }

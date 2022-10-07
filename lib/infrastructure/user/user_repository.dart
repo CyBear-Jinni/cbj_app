@@ -5,7 +5,7 @@ import 'package:cybear_jinni/domain/user/all_homes_of_user/all_homes_of_user_ent
 import 'package:cybear_jinni/domain/user/all_homes_of_user/all_homes_of_user_failures.dart';
 import 'package:cybear_jinni/domain/user/i_user_repository.dart';
 import 'package:cybear_jinni/domain/user/user_entity.dart';
-import 'package:cybear_jinni/infrastructure/core/hive_local_db/hive_local_db.dart';
+import 'package:cybear_jinni/infrastructure/hive_local_db/hive_local_db.dart';
 import 'package:cybear_jinni/infrastructure/user/all_homes_of_user_entity/all_homes_of_user_dtos.dart';
 import 'package:cybear_jinni/infrastructure/user/user_dtos.dart';
 import 'package:cybear_jinni/injection.dart';
@@ -43,7 +43,7 @@ class UserRepository implements IUserRepository {
       final String userId = (await getIt<IAuthFacade>().getSignedInUser())
           .getOrElse(() => throw NotAuthenticatedError())
           .id
-          .getOrCrash()!;
+          .getOrCrash();
 
       // final DocumentSnapshot userDocumentS = await userCollec.doc(userId).get();
 
@@ -148,7 +148,7 @@ class UserRepository implements IUserRepository {
       final String userId = (await getIt<IAuthFacade>().getSignedInUser())
           .getOrElse(() => throw NotAuthenticatedError())
           .id
-          .getOrCrash()!;
+          .getOrCrash();
       final String homeId = allHomesOfUserEntity.id!.getOrCrash()!;
 
       // final userInHomeRef =

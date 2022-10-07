@@ -2,15 +2,14 @@ import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/tuya_auth/tuya_sign_in_form/tuya_sign_in_form_bloc.dart';
 import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:dartz/dartz.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-String? region = 'cn';
 
 class TuyaSignInForm extends StatelessWidget {
   @override
@@ -74,7 +73,7 @@ class TuyaSignInForm extends StatelessWidget {
                     ),
                     TextFormField(
                       decoration: const InputDecoration(
-                        prefixIcon: FaIcon(FontAwesomeIcons.signInAlt),
+                        prefixIcon: FaIcon(FontAwesomeIcons.rightToBracket),
                         labelText: 'Tuya User Name',
                       ),
                       autocorrect: false,
@@ -154,7 +153,7 @@ class TuyaSignInForm extends StatelessWidget {
                     const SizedBox(
                       height: 8,
                     ),
-                    Text("Select Region:        "),
+                    const Text('Select Region:        '),
                     DropdownButton<String>(
                       value: context
                           .read<TuyaSignInFormBloc>()
@@ -162,8 +161,7 @@ class TuyaSignInForm extends StatelessWidget {
                           .tuyaLoginRegion
                           .getOrCrash(),
                       icon: const Icon(Icons.arrow_drop_down),
-                      iconSize: 24,
-                      hint: Text('Tuya Region'),
+                      hint: const Text('Tuna Region'),
                       elevation: 16,
                       underline: Container(
                         height: 2,
@@ -172,9 +170,9 @@ class TuyaSignInForm extends StatelessWidget {
                           .read<TuyaSignInFormBloc>()
                           .add(TuyaSignInFormEvent.regionChanged(value)),
                       items: <String>[
-                        'cn',
-                        'eu',
                         'us',
+                        'eu',
+                        'cn',
                       ].map<DropdownMenuItem<String>>((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
@@ -191,8 +189,27 @@ class TuyaSignInForm extends StatelessWidget {
                           child: TextButton(
                             onPressed: () {
                               context.read<TuyaSignInFormBloc>().add(
+                                    TuyaSignInFormEvent.vendorChanged(
+                                      VendorsAndServices.tuyaSmart.name,
+                                    ),
+                                  );
+                              context.read<TuyaSignInFormBloc>().add(
                                     const TuyaSignInFormEvent.signIn(),
                                   );
+
+                              Fluttertoast.showToast(
+                                msg: 'Sign in to Tuya, please restart the app '
+                                    'to see the new devices',
+                                toastLength: Toast.LENGTH_LONG,
+                                gravity: ToastGravity.BOTTOM,
+                                backgroundColor: Colors.deepOrange,
+                                textColor: Theme.of(context)
+                                    .textTheme
+                                    .bodyText1!
+                                    .color,
+                                fontSize: 16.0,
+                              );
+                              Navigator.pop(context);
                             },
                             child: const Text('SIGN IN').tr(),
                           ),

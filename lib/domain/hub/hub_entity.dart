@@ -1,5 +1,6 @@
 import 'package:cybear_jinni/domain/hub/hub_failures.dart';
 import 'package:cybear_jinni/domain/hub/hub_value_objects.dart';
+import 'package:cybear_jinni/infrastructure/hub_client/hub_dtos.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -10,7 +11,7 @@ abstract class HubEntity implements _$HubEntity {
   const factory HubEntity({
     required HubNetworkBssid hubNetworkBssid,
     required HubNetworkName networkName,
-    required HubNetworkIp? lastKnownIp,
+    required HubNetworkIp lastKnownIp,
     HubMdnsName? mdnsName,
   }) = _HubEntity;
 
@@ -22,7 +23,16 @@ abstract class HubEntity implements _$HubEntity {
         lastKnownIp: HubNetworkIp(''),
       );
 
+  HubDtos toInfrastructure() {
+    return HubDtos(
+      hubNetworkBssid: hubNetworkBssid.getOrCrash(),
+      networkName: networkName.getOrCrash(),
+      lastKnownIp: lastKnownIp.getOrCrash(),
+      // serverTimeStamp: FieldValue.serverTimestamp(),
+    );
+  }
+
   Option<HubFailures<dynamic>> get failureOption {
-    return lastKnownIp!.value.fold((f) => some(f), (_) => none());
+    return lastKnownIp.value.fold((f) => some(f), (_) => none());
   }
 }

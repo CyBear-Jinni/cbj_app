@@ -1,5 +1,6 @@
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// The page to add new routines
@@ -14,7 +15,7 @@ class AddBindingsPage extends StatelessWidget {
       appBar: AppBar(
         toolbarHeight: 0,
         backgroundColor: Colors.black,
-        brightness: Brightness.dark,
+        systemOverlayStyle: SystemUiOverlayStyle.dark,
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,
@@ -27,8 +28,8 @@ class AddBindingsPage extends StatelessWidget {
             stops: const <double>[0, 0, 0, 1],
             colors: <Color>[
               Theme.of(context).primaryColor,
-              Theme.of(context).accentColor,
-              Theme.of(context).accentColor,
+              Theme.of(context).colorScheme.secondary,
+              Theme.of(context).colorScheme.secondary,
               Theme.of(context).primaryColor
             ],
           ),
@@ -36,9 +37,9 @@ class AddBindingsPage extends StatelessWidget {
         child: Column(
           children: <Widget>[
             TopNavigationBar(
-              'Add Binding',
-              null,
-              () {},
+              pageName: 'Add Binding',
+              rightIcon: null,
+              rightIconFunction: () {},
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
             ),

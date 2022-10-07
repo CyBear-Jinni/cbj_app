@@ -7,7 +7,7 @@ class GenericBoilerSwitchState extends ValueObjectCore<String> {
   factory GenericBoilerSwitchState(String? input) {
     assert(input != null);
     return GenericBoilerSwitchState._(
-      validateGenericBoilerStateNotEmty(input!),
+      validateGenericBoilerStateNotEmpty(input),
     );
   }
 
@@ -15,4 +15,8 @@ class GenericBoilerSwitchState extends ValueObjectCore<String> {
 
   @override
   final Either<CoreFailure<String>, String> value;
+
+  static List<String> boilerValidActions() {
+    return boilerAllValidActions();
+  }
 }

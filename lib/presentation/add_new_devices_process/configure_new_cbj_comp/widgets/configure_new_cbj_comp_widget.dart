@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/configure_new_cbj_comp/configure_new_cbj_comp_bloc.dart';
 import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
@@ -6,8 +7,8 @@ import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_da
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/core/devices_cards/blinds_card.dart';
 import 'package:cybear_jinni/presentation/core/devices_cards/light_card.dart';
+import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
@@ -24,7 +25,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
 
   Widget devicesList(
     CBJCompEntity cbjCompEntityForDeviceList,
-    Map<String, TextEditingController> _textEditingController,
+    Map<String, TextEditingController> textEditingController,
     BuildContext context,
   ) {
     final List<GenericLightDE> devicesList =
@@ -39,7 +40,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
             TextEditingController(
           text: device.defaultName.value.getOrElse(() => ''),
         );
-        _textEditingController[
+        textEditingController[
                 '$deviceNameFieldKey/${device.uniqueId.value.getOrElse(() => 'deviceId')}'] =
             textEditingControllerTemp;
         widgetList.add(
@@ -168,135 +169,26 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final CBJCompEntity cbjCompEntityInBuild = cbjCompEntity;
-    final Map<String, TextEditingController> _textEditingController = {};
-    _textEditingController['allInSameRoom'] = TextEditingController();
+    final Map<String, TextEditingController> textEditingController = {};
+    textEditingController['allInSameRoom'] = TextEditingController();
 
     return BlocBuilder<ConfigureNewCbjCompBloc, ConfigureNewCbjCompState>(
       builder: (context, state) {
         return state.map(
           initial: (_) {
-            return Column(
-              children: [
-                Text(
-                  'Configure devices',
-                  style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1!.color,
+            context.read<ConfigureNewCbjCompBloc>().add(
+                  ConfigureNewCbjCompEvent.sendHotSpotInformation(
+                    cbjCompEntityInBuild,
                   ),
-                ),
-                Expanded(
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            Checkbox(
-                              checkColor:
-                                  Theme.of(context).textTheme.bodyText1!.color,
-                              activeColor: Colors.red,
-                              value: true,
-                              onChanged: (bool? value) {},
-                            ),
-                            Text(
-                              'All devices in the same room',
-                              style: TextStyle(
-                                color: Theme.of(context)
-                                    .textTheme
-                                    .bodyText1!
-                                    .color,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Text(
-                          'Room Name',
-                          style: TextStyle(
-                            color: Theme.of(context).textTheme.bodyText1!.color,
-                            fontSize: 30,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 300,
-                          child: TextFormField(
-                            controller: _textEditingController['allInSameRoom'],
-                            style: TextStyle(
-                              color:
-                                  Theme.of(context).textTheme.bodyText1!.color,
-                            ),
-                            decoration: InputDecoration(
-                              filled: true,
-                              fillColor: Colors.greenAccent.withOpacity(0.3),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Theme.of(context)
-                                      .textTheme
-                                      .bodyText1!
-                                      .color!,
-                                  width: 2.0,
-                                ),
-                                borderRadius: BorderRadius.circular(15.0),
-                              ),
-                              prefixIcon: Icon(
-                                FontAwesomeIcons.placeOfWorship,
-                                color: Theme.of(context)
-                                    .textTheme
-                                    .bodyText1!
-                                    .color,
-                              ),
-                              labelText: cbjCompEntityInBuild.cBJCompDevices!
-                                  .getOrCrash()[0]
-                                  .roomName
-                                  .getOrCrash(),
-                              labelStyle: TextStyle(
-                                color: Theme.of(context)
-                                    .textTheme
-                                    .bodyText1!
-                                    .color,
-                              ),
-                            ),
-                            autocorrect: false,
-                            onChanged: (value) {},
-                          ),
-                        ),
-                        if (cbjCompEntityInBuild.cBJCompDevices!
-                                .getOrCrash()
-                                .size <
-                            1)
-                          const Text('')
-                        else
-                          devicesList(
-                            cbjCompEntityInBuild,
-                            _textEditingController,
-                            context,
-                          ),
-                      ],
-                    ),
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    TextButton(
-                      style: TextButton.styleFrom(
-                        backgroundColor: Colors.greenAccent,
-                      ),
-                      onPressed: () async {
-                        context.read<ConfigureNewCbjCompBloc>().add(
-                              ConfigureNewCbjCompEvent.setupNewDevice(
-                                cbjCompEntityInBuild,
-                                _textEditingController,
-                              ),
-                            );
-                      },
-                      child: Text(
-                        'Done',
-                        style: TextStyle(
-                          color: Theme.of(context).textTheme.bodyText1!.color,
-                        ),
-                      ),
-                    ),
-                  ],
-                )
-              ],
+                );
+
+            state = const ConfigureNewCbjCompState.actionInProgress(0);
+
+            return Text(
+              'Configure devices',
+              style: TextStyle(
+                color: Theme.of(context).textTheme.bodyText1!.color,
+              ),
             );
           },
           actionInProgress: (actionInProgress) {
@@ -314,7 +206,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                   ),
                   alignment: Alignment.center,
                   child: Text(
-                    'Setting up comptter',
+                    'Connecting computer to WiFi',
                     style: TextStyle(
                       fontSize: 25,
                       color: Theme.of(context).textTheme.bodyText1!.color,
@@ -375,6 +267,11 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
             );
           },
           completeSuccess: (CompleteSuccess value) {
+            context.router.replace(
+              ComputerConnectionCheckRoute(
+                cbjCompEntity: cbjCompEntity,
+              ),
+            );
             return Text(
               'Computer have been configured.',
               style: TextStyle(
