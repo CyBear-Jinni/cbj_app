@@ -54,3 +54,14 @@ To learn the coding guidelines check [this Wiki](https://github.com/CyBear-Jinni
 <a href="https://github.com/CyBear-Jinni">
 <img align="left" alt="Github" width="45px" src="https://seeklogo.com/images/G/github-colored-logo-FDDF6EB1F0-seeklogo.com.png" /></a>
 
+<br>
+<br>
+<br>
+
+
+# Contributors
+
+
+<a href = "https://github.com/CyBear-Jinni/cbj_app/graphs/contributors">
+  <img src = "https://contrib.rocks/image?repo=CyBear-Jinni/cbj_app"/>
+</a>
