@@ -36,9 +36,8 @@ It is writen with [Flutter](https://flutter.dev) and let you control the CyBear 
 
 #Tutorial
 
-Watch the tutorial below to understand how the app works!
+Watch this <a href="https://www.youtube.com/watch?v=o5owbiQahnY">Tutorial</a> below to understand how the app works!
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/o5owbiQahnY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Instructions for developers and testers
 To run the app and start developing or testing check [this Wiki](https://github.com/CyBear-Jinni/cbj_app/wiki/Instructions-for-developers-and-testing).
