@@ -28,7 +28,7 @@ class VendorsRepository implements IVendorsRepository {
           vendorName == VendorsAndServices.google.name ||
           vendorName == VendorsAndServices.miHome.name ||
           vendorName == VendorsAndServices.philipsHue.name ||
-          vendorName == VendorsAndServices.sonoff.name ||
+          vendorName == VendorsAndServices.sonoffDiy.name ||
           vendorName == VendorsAndServices.ikea.name ||
           vendorName == VendorsAndServices.wink.name ||
           vendorName == VendorsAndServices.espHome.name ||
