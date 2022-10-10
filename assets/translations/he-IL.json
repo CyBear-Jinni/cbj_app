@@ -101,5 +101,12 @@
   "No_need_here": "לא צריך פה",
   "Do_not_need": "לא צריך",
   "Finish": "סיים",
-  "Select_Purposes_Of_The_Area": "בחר את מטרות האיזור"
+  "Select_Purposes_Of_The_Area": "בחר את מטרות האיזור",
+  "Pulling_Up_all_blinds": "פתיחת כל התריסים",
+  "Stopping_all_blinds": "הפסקת התריסים",
+  "Pulling_down_all_blinds": "סגירת כל התריסים",
+  "Turning_On_boiler": "הדלקת בוילר",
+  "Turning_Off_boiler": "כיבוי בוילר",
+  "Waiting_for_user_to_get_connected_to_WiFi": "ממתין להתחברות המשתמש לWIFI",
+  "Can't_add_unsupported_device": "לא ניתן להוסיף מכשיר לא נתמך"
 }
