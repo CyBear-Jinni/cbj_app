@@ -99,6 +99,11 @@
   "Finish": "Selesai",
   "Select_Purposes_Of_The_Area": "Pilih Tujuan Area",
   "Waiting_for_user_to_get_connected_to_WiFi": "Menunggu pengguna terhubung ke WiFi",
+  "Pulling_Up_all_blinds": "Menaikkan semua tirai",
+  "Stopping_all_blinds": "Menghentikan semua tirai",
+  "Pulling_down_all_blinds": "Menurunkan semua tirai",
+  "Turning_On_boiler": "Menyalakan ketel uap",
+  "Turning_Off_boiler": "Mematikan ketel uap",
   "Can't_add_unsupported_device": "Tidak dapat menambahkan perangkat yang tidak didukung",
   "Delete": "Hapus",
   "Don't touch me" : "Jangan sentuh saya"
