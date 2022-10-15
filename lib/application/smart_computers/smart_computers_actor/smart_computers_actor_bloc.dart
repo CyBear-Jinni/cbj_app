@@ -23,6 +23,7 @@ class SmartComputersActorBloc
     on<TurnOffAllSmartComputers>(_turnOffAllSmartComputers);
     on<TurnOnAllSmartComputers>(_turnOnAllSmartComputers);
     on<SuspendAllSmartComputers>(_suspendAllSmartComputers);
+    on<ShutdownAllSmartComputers>(_shutdownAllSmartComputers);
   }
 
   final IDeviceRepository _deviceRepository;
@@ -72,6 +73,18 @@ class SmartComputersActorBloc
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-    _deviceRepository.suspendDevices(devicesId: event.smartComputersIdToTurnOn);
+    _deviceRepository.suspendDevices(devicesId: event.smartComputersId);
+  }
+
+  Future<void> _shutdownAllSmartComputers(
+    ShutdownAllSmartComputers event,
+    Emitter<SmartComputersActorState> emit,
+  ) async {
+    FlushbarHelper.createLoading(
+      message: 'Suspending all Smart Computers',
+      linearProgressIndicator: const LinearProgressIndicator(),
+    ).show(event.context);
+
+    _deviceRepository.shutdownDevices(devicesId: event.smartComputersId);
   }
 }

@@ -123,7 +123,11 @@ dependencies:
   # Service discovery over multicast DNS (mDNS), Bonjour, and Avahi.
   multicast_dns: ^0.3.2+2
   # Discover network info and configure themselves accordingly
-  network_info_plus: ^2.3.2
+  network_info_plus:
+    git:
+      ref: main
+      url: https://github.com/fluttercommunity/plus_plugins.git
+      path: packages/network_info_plus/network_info_plus
   # Helps you discover open ports, devices on subnet and more.
   network_tools: ^3.0.0+2
   # Querying information about the application package, such as CFBundleVersion

@@ -94,6 +94,10 @@ abstract class IDeviceRepository {
     required List<String>? devicesId,
   });
 
+  Future<Either<DevicesFailure, Unit>> shutdownDevices({
+    required List<String>? devicesId,
+  });
+
   Future<Either<DevicesFailure, Unit>> delete(
     DeviceEntityAbstract deviceEntity,
   );

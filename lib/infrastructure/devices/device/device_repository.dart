@@ -763,10 +763,51 @@ class DeviceRepository implements IDeviceRepository {
         if (deviceEntity is GenericSmartComputerDE) {
           deviceEntity.smartComputerSuspendState =
               GenericSmartComputerSuspendState(
-                  DeviceActions.suspend.toString(),);
+            DeviceActions.suspend.toString(),
+          );
         } else {
           logger.w(
             'Suspend action not supported for'
+            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+          );
+          continue;
+        }
+
+        updateWithDeviceEntity(deviceEntity: deviceEntity);
+      }
+    } on PlatformException catch (e) {
+      if (e.message!.contains('PERMISSION_DENIED')) {
+        return left(const DevicesFailure.insufficientPermission());
+      } else if (e.message!.contains('NOT_FOUND')) {
+        return left(const DevicesFailure.unableToUpdate());
+      } else {
+        // log.error(e.toString());
+        return left(const DevicesFailure.unexpected());
+      }
+    }
+    return right(unit);
+  }
+
+  @override
+  Future<Either<DevicesFailure, Unit>> shutdownDevices(
+      {required List<String>? devicesId}) async {
+    final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
+        await getDeviceEntityListFromId(devicesId!);
+
+    try {
+      for (final DeviceEntityAbstract? deviceEntity
+          in deviceEntityListToUpdate) {
+        if (deviceEntity == null) {
+          continue;
+        }
+        if (deviceEntity is GenericSmartComputerDE) {
+          deviceEntity.smartComputerShutDownState =
+              GenericSmartComputerShutdownState(
+            DeviceActions.shutdown.toString(),
+          );
+        } else {
+          logger.w(
+            'Shutdown action not supported for'
             ' ${deviceEntity.deviceTypes.getOrCrash()} type',
           );
           continue;
