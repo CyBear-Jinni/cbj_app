@@ -39,11 +39,11 @@ class RoomLights extends StatelessWidget {
       final List<Widget> columnOfLights = <Widget>[];
       List<Widget> widgetsForRow = <Widget>[];
 
-      final int _numberOfLightsToShow = _deviceEntityList.size > maxLightsToShow
+      final int numberOfLightsToShow = _deviceEntityList.size > maxLightsToShow
           ? maxLightsToShow
           : _deviceEntityList.size;
 
-      for (int i = 0; i < _numberOfLightsToShow; i += _maxLightsInRow) {
+      for (int i = 0; i < numberOfLightsToShow; i += _maxLightsInRow) {
         for (int v = 0; v < _maxLightsInRow; v++) {
           if (_deviceEntityList.size > i + v &&
               _deviceEntityList[i + v] is GenericLightDE) {

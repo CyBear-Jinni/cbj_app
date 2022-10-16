@@ -12,7 +12,7 @@ import 'package:injectable/injectable.dart';
 class CBJCompRepository implements ICBJCompRepository {
   @override
   Future<Either<CBJCompFailure, Unit>> shutdownServer() async {
-    await CreateTheCBJAppServer.shoutDownServer();
+    await CreateTheCBJAppServer.shutdownServer();
     return right(unit);
   }
 

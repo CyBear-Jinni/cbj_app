@@ -36,6 +36,9 @@ abstract class IDeviceRepository {
       watchSmartPlugs();
 
   Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
+      watchSmartComputers();
+
+  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
       watchUncompleted();
 
   Future<Either<DevicesFailure, Unit>> create(
@@ -84,6 +87,10 @@ abstract class IDeviceRepository {
   });
 
   Future<Either<DevicesFailure, Unit>> moveDownBlinds({
+    required List<String>? devicesId,
+  });
+
+  Future<Either<DevicesFailure, Unit>> suspendDevices({
     required List<String>? devicesId,
   });
 

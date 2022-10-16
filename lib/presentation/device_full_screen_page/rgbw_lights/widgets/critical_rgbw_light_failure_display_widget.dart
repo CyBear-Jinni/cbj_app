@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 class CriticalRgbwLightFailureDisplay extends StatelessWidget {
   const CriticalRgbwLightFailureDisplay({
     required this.failure,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final DevicesFailure? failure;
 

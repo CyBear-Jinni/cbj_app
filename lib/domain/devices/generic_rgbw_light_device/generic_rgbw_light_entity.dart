@@ -13,16 +13,16 @@ import 'package:dartz/dartz.dart';
 class GenericRgbwLightDE extends DeviceEntityAbstract {
   /// All public field of GenericLight entity
   GenericRgbwLightDE({
-    required CoreUniqueId uniqueId,
-    required VendorUniqueId vendorUniqueId,
-    required DeviceVendor deviceVendor,
-    required DeviceDefaultName defaultName,
-    required DeviceState deviceStateGRPC,
-    required DeviceStateMassage stateMassage,
-    required DeviceSenderDeviceOs senderDeviceOs,
-    required DeviceSenderDeviceModel senderDeviceModel,
-    required DeviceSenderId senderId,
-    required DeviceCompUuid compUuid,
+    required super.uniqueId,
+    required super.vendorUniqueId,
+    required super.deviceVendor,
+    required super.defaultName,
+    required super.deviceStateGRPC,
+    required super.stateMassage,
+    required super.senderDeviceOs,
+    required super.senderDeviceModel,
+    required super.senderId,
+    required super.compUuid,
     required this.lightSwitchState,
     required this.lightColorTemperature,
     required this.lightColorAlpha,
@@ -32,17 +32,7 @@ class GenericRgbwLightDE extends DeviceEntityAbstract {
     required this.lightBrightness,
     DevicePowerConsumption? powerConsumption,
   }) : super(
-          uniqueId: uniqueId,
-          vendorUniqueId: vendorUniqueId,
-          defaultName: defaultName,
           deviceTypes: DeviceType(DeviceTypes.rgbwLights.toString()),
-          deviceVendor: deviceVendor,
-          deviceStateGRPC: deviceStateGRPC,
-          compUuid: compUuid,
-          senderDeviceModel: senderDeviceModel,
-          senderDeviceOs: senderDeviceOs,
-          senderId: senderId,
-          stateMassage: stateMassage,
         );
 
   /// Empty instance of GenericLightEntity

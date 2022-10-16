@@ -75,12 +75,15 @@ class SoftwareInfoWidget extends StatelessWidget {
                           ),
                           ListTile(
                             title: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 const Text('Dart SDK version: '),
-                                Text(
-                                  softwareInfoEntity?.dartSdkVersion
-                                          .getOrCrash() ??
-                                      'No Info',
+                                Flexible(
+                                  child: Text(
+                                    softwareInfoEntity?.dartSdkVersion
+                                            .getOrCrash() ??
+                                        'No Info'
+                                  ),
                                 ),
                               ],
                             ),

@@ -6,7 +6,7 @@ import 'package:cybear_jinni/application/smart_plugs/smart_plugs_watcher/smart_p
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
-import 'package:cybear_jinni/presentation/device_full_screen_page/smart_plugs/settings_page_of_switches.dart';
+import 'package:cybear_jinni/presentation/device_full_screen_page/smart_plugs/settings_page_of_smart_plug.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/smart_plugs/widgets/rooms_smart_plugs_widget.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';

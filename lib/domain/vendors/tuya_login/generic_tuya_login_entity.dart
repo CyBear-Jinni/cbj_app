@@ -12,17 +12,14 @@ import 'package:dartz/dartz.dart';
 class GenericTuyaLoginDE extends LoginEntityAbstract {
   /// All public field of GenericTuya entity
   GenericTuyaLoginDE({
-    required CoreLoginSenderId senderUniqueId,
-    required CoreLoginVendor loginVendor,
+    required super.senderUniqueId,
+    required super.loginVendor,
     required this.tuyaUserName,
     required this.tuyaUserPassword,
     required this.tuyaCountryCode,
     required this.tuyaBizType,
     required this.tuyaRegion,
-  }) : super(
-          senderUniqueId: senderUniqueId,
-          loginVendor: loginVendor,
-        );
+  });
 
   /// Empty instance of GenericTuyaEntity
   factory GenericTuyaLoginDE.empty() => GenericTuyaLoginDE(
