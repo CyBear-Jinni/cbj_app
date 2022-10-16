@@ -68,6 +68,7 @@ class RoomSignInFormBloc
     final RoomEntity roomEntity = RoomEntity(
       uniqueId: RoomUniqueId.fromUniqueString(state.roomUniqueId.getOrCrash()),
       defaultName: RoomDefaultName(state.defaultName.getOrCrash()),
+      background: RoomBackground(state.background.getOrCrash()),
       roomTypes: RoomTypes(state.roomTypes.getOrCrash()),
       roomDevicesId: RoomDevicesId(state.roomDevicesId.getOrCrash()),
       roomScenesId: RoomScenesId(state.roomScenesId.getOrCrash()),
@@ -87,6 +88,7 @@ class RoomSignInFormBloc
     final RoomEntity roomEntity = RoomEntity(
       uniqueId: RoomUniqueId.fromUniqueString(state.roomUniqueId.getOrCrash()),
       defaultName: RoomDefaultName(state.defaultName.getOrCrash()),
+      background: RoomBackground(state.background.getOrCrash()),
       roomTypes: RoomTypes(state.roomTypes.getOrCrash()),
       roomDevicesId: RoomDevicesId(state.roomDevicesId.getOrCrash()),
       roomScenesId: RoomScenesId(state.roomScenesId.getOrCrash()),
