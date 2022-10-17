@@ -763,7 +763,8 @@ class DeviceRepository implements IDeviceRepository {
         if (deviceEntity is GenericSmartComputerDE) {
           deviceEntity.smartComputerSuspendState =
               GenericSmartComputerSuspendState(
-                  DeviceActions.suspend.toString(),);
+            DeviceActions.suspend.toString(),
+          );
         } else {
           logger.w(
             'Suspend action not supported for'
