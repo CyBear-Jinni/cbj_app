@@ -61,7 +61,6 @@ class ScenesInFoldersL extends StatelessWidget {
         image: DecorationImage(
           image: NetworkImage(
             folderOfScenes.background.getOrCrash(),
-            // 'https://live.staticflickr.com/5220/5486044345_f67abff3e9_h.jpg',
           ),
           fit: BoxFit.cover,
         ),
