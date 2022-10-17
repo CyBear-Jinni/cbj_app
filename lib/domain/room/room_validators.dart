@@ -13,6 +13,20 @@ Either<RoomFailure<String>, String> validateRoomNotEmpty(String input) {
   }
 }
 
+Either<RoomFailure<String>, String> validateRoomBackgroundNotEmpty(
+  String input,
+) {
+  if (input.isNotEmpty) {
+    return right(input);
+  } else {
+    return left(
+      RoomFailure.empty(
+        failedValue: input,
+      ),
+    );
+  }
+}
+
 Either<RoomFailure<String>, String> validateRoomMaxNameLength(
   String input,
   int maxLength,

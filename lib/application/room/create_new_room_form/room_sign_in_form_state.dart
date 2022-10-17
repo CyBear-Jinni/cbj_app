@@ -7,6 +7,7 @@ class RoomSignInFormState with _$RoomSignInFormState {
     required List<DeviceEntityAbstract> allDevices,
     required RoomUniqueId roomUniqueId,
     required RoomDefaultName defaultName,
+    required RoomBackground background,
     required RoomTypes roomTypes,
     required RoomDevicesId roomDevicesId,
     required RoomScenesId roomScenesId,
@@ -24,6 +25,9 @@ class RoomSignInFormState with _$RoomSignInFormState {
         allDevices: [],
         roomUniqueId: RoomUniqueId(),
         defaultName: RoomDefaultName(''),
+        background: RoomBackground(
+          'https://live.staticflickr.com/5220/5486044345_f67abff3e9_h.jpg',
+        ),
         roomTypes: RoomTypes(const []),
         roomDevicesId: RoomDevicesId(const []),
         roomScenesId: RoomScenesId(const []),

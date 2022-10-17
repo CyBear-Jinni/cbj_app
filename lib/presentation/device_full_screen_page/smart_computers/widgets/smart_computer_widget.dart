@@ -12,10 +12,20 @@ class SmartComputerWidget extends StatelessWidget {
 
   final GenericSmartComputerDE? _deviceEntity;
 
-  void _onChange(BuildContext context) {
+  void suspendComputer(BuildContext context) {
     final String deviceId = _deviceEntity!.getDeviceId();
     context.read<SmartComputersActorBloc>().add(
           SmartComputersActorEvent.suspendAllSmartComputers(
+            [deviceId],
+            context,
+          ),
+        );
+  }
+
+  void shutdownComputer(BuildContext context) {
+    final String deviceId = _deviceEntity!.getDeviceId();
+    context.read<SmartComputersActorBloc>().add(
+          SmartComputersActorEvent.shutdownAllSmartComputers(
             [deviceId],
             context,
           ),
@@ -50,7 +60,7 @@ class SmartComputerWidget extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {
-                    _onChange(context);
+                    suspendComputer(context);
                   },
                   child: Tab(
                     icon: FaIcon(
@@ -59,6 +69,36 @@ class SmartComputerWidget extends StatelessWidget {
                     ),
                     child: Text(
                       'Sleep',
+                      style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        fontSize: 16,
+                      ),
+                    ).tr(),
+                  ),
+                ),
+                TextButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                      Colors.grey,
+                    ),
+                    side: MaterialStateProperty.all(
+                      BorderSide.lerp(
+                        const BorderSide(color: Colors.white60),
+                        const BorderSide(color: Colors.white60),
+                        22,
+                      ),
+                    ),
+                  ),
+                  onPressed: () {
+                    shutdownComputer(context);
+                  },
+                  child: Tab(
+                    icon: FaIcon(
+                      FontAwesomeIcons.powerOff,
+                      color: Theme.of(context).textTheme.bodyText1!.color,
+                    ),
+                    child: Text(
+                      'Shutdown',
                       style: TextStyle(
                         color: Theme.of(context).textTheme.bodyText1!.color,
                         fontSize: 16,
