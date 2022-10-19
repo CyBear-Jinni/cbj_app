@@ -144,17 +144,17 @@ class HubClientDemo {
       uniqueId:
           CoreUniqueId.fromUniqueString("96386cd0-419b-11ed-8246-e17a279f4d89"),
       vendorUniqueId: VendorUniqueId.fromUniqueString("63b298"),
-      deviceVendor: DeviceVendor(null),
+      deviceVendor: DeviceVendor("switcherSmartHome"),
       defaultName: DeviceDefaultName("Guy Blinds"),
-      deviceStateGRPC: DeviceState(null),
-      stateMassage: DeviceStateMassage(null),
+      deviceStateGRPC: DeviceState("ack"),
+      stateMassage: DeviceStateMassage("Hello World"),
       senderDeviceOs: DeviceSenderDeviceOs("switcher"),
       senderDeviceModel:
           DeviceSenderDeviceModel("SwitcherDevicesTypes.switcherRunner"),
       senderId: DeviceSenderId.fromUniqueString(
           "94edb282-434a-11ed-bd96-f573a00b65aa"),
       compUuid: DeviceCompUuid("34asdfrsd23gggg"),
-      blindsSwitchState: GenericBlindsSwitchState("GenericBlindsDeviceDtos"),
+      blindsSwitchState: GenericBlindsSwitchState("stop"),
     );
 
     final RequestsAndStatusFromHub requestsAndStatusFromHubBlinds =
@@ -194,37 +194,80 @@ class HubClientDemo {
 
     /// Guy Button 2
 
-    const String allRemoteCommandsButton2 =
-        '{"id":"a31523m6-463s-32ge-7426-g33c642r7m25","vendorUniqueId":"67600068c44f33f5b515","defaultName":"Guy Bedroom Button","deviceStateGRPC":"ack","senderDeviceOs":"tuya_smart","senderDeviceModel":"Cloud","senderId":"90d20fc3-434a-11ed-bd96-f573a00b65aa","switchState":"false","deviceTypes":"switch","compUuid":"34asdfrsd23gggg","deviceVendor":"tuyaSmart","deviceDtoClass":"GenericSwitchDeviceDtos","stateMassage":"Hello World"}';
+    final GenericBlindsDE allRemoteCommandsButton2 = GenericBlindsDE(
+      uniqueId:
+          CoreUniqueId.fromUniqueString("a31523m6-463s-32ge-7426-g33c642r7m25"),
+      vendorUniqueId: VendorUniqueId.fromUniqueString("67600068c44f33f5b515"),
+      deviceVendor: DeviceVendor("tuyaSmart"),
+      defaultName: DeviceDefaultName("Guy Bedroom Button"),
+      deviceStateGRPC: DeviceState("ack"),
+      stateMassage: DeviceStateMassage("Hello World"),
+      senderDeviceOs: DeviceSenderDeviceOs("switcher"),
+      senderDeviceModel: DeviceSenderDeviceModel("Cloud"),
+      senderId: DeviceSenderId.fromUniqueString(
+          "90d20fc3-434a-11ed-bd96-f573a00b65aa"),
+      compUuid: DeviceCompUuid("34asdfrsd23gggg"),
+      blindsSwitchState: GenericBlindsSwitchState("false"),
+    );
 
     final RequestsAndStatusFromHub requestsAndStatusFromHubButton2 =
         RequestsAndStatusFromHub(
       sendingType: sendingTypeDevice,
-      allRemoteCommands: allRemoteCommandsButton2,
+      allRemoteCommands:
+          DeviceHelper.convertDomainToJsonString(allRemoteCommandsButton2),
     );
     devicesList.add(requestsAndStatusFromHubButton2);
 
     /// Boiler
 
-    const String allRemoteCommandsBoiler =
-        '{"id":"65d84b10-434d-11ed-817a-7d350fb52f91","vendorUniqueId":"65fd2f","defaultName":"Boiler","deviceStateGRPC":"ack","senderDeviceOs":"switcher","senderDeviceModel":"SwitcherDevicesTypes.switcherV2Esp","senderId":"65d84b11-434d-11ed-817a-7d350fb52f91","boilerSwitchState":"off","deviceTypes":"boiler","compUuid":"34asdfrsd23gggg","deviceVendor":"switcherSmartHome","deviceDtoClass":"GenericBoilerDeviceDtos","stateMassage":"Hello World"}';
+    final GenericBlindsDE allRemoteCommandsBoiler = GenericBlindsDE(
+      uniqueId:
+          CoreUniqueId.fromUniqueString("65d84b10-434d-11ed-817a-7d350fb52f91"),
+      vendorUniqueId: VendorUniqueId.fromUniqueString("65fd2f"),
+      deviceVendor: DeviceVendor("switcherSmartHome"),
+      defaultName: DeviceDefaultName("Boiler"),
+      deviceStateGRPC: DeviceState("ack"),
+      stateMassage: DeviceStateMassage("Hello World"),
+      senderDeviceOs: DeviceSenderDeviceOs("switcher"),
+      senderDeviceModel:
+          DeviceSenderDeviceModel("SwitcherDevicesTypes.switcherV2Esp"),
+      senderId: DeviceSenderId.fromUniqueString(
+          "65d84b11-434d-11ed-817a-7d350fb52f91"),
+      compUuid: DeviceCompUuid("34asdfrsd23gggg"),
+      blindsSwitchState: GenericBlindsSwitchState("off"),
+    );
 
     final RequestsAndStatusFromHub requestsAndStatusFromHubBoiler =
         RequestsAndStatusFromHub(
       sendingType: sendingTypeDevice,
-      allRemoteCommands: allRemoteCommandsBoiler,
+      allRemoteCommands:
+          DeviceHelper.convertDomainToJsonString(allRemoteCommandsBoiler),
     );
     devicesList.add(requestsAndStatusFromHubBoiler);
 
     /// RGBLight
 
-    const String allRemoteCommandsRgbLight =
-        '{"id":"7189ed76-4351-11ed-b249-63fd7e165c16","vendorUniqueId":"bf4bccdaf68347e31dhiut","defaultName":"Dining Room Ceiling","deviceStateGRPC":"ack","senderDeviceOs":"tuya_smart","senderDeviceModel":"1SE","senderId":"7189ed77-4351-11ed-b249-63fd7e165c16","deviceTypes":"rgbwLights","compUuid":"34asdfrsd23gggg","deviceVendor":"tuyaSmart","lightSwitchState":"on","lightColorTemperature":"8129","lightBrightness":"1000","lightColorAlpha":"1.0","lightColorHue":"0.0","lightColorSaturation":"1.0","lightColorValue":"1.0","deviceDtoClass":"GenericRgbwLightDeviceDtos","stateMassage":"Hello World"}';
+    final GenericBlindsDE allRemoteCommandsRgbLight = GenericBlindsDE(
+      uniqueId:
+          CoreUniqueId.fromUniqueString("7189ed76-4351-11ed-b249-63fd7e165c16"),
+      vendorUniqueId: VendorUniqueId.fromUniqueString("bf4bccdaf68347e31dhiut"),
+      deviceVendor: DeviceVendor("tuyaSmart"),
+      defaultName: DeviceDefaultName("Dining Room Ceiling"),
+      deviceStateGRPC: DeviceState("ack"),
+      stateMassage: DeviceStateMassage("Hello World"),
+      senderDeviceOs: DeviceSenderDeviceOs("tuya_smart"),
+      senderDeviceModel: DeviceSenderDeviceModel("1SE"),
+      senderId: DeviceSenderId.fromUniqueString(
+          "7189ed77-4351-11ed-b249-63fd7e165c16"),
+      compUuid: DeviceCompUuid("34asdfrsd23gggg"),
+      blindsSwitchState: GenericBlindsSwitchState("on"),
+    );
 
     final RequestsAndStatusFromHub requestsAndStatusFromHubRgbLight =
         RequestsAndStatusFromHub(
       sendingType: sendingTypeDevice,
-      allRemoteCommands: allRemoteCommandsRgbLight,
+      allRemoteCommands:
+          DeviceHelper.convertDomainToJsonString(allRemoteCommandsRgbLight),
     );
     devicesList.add(requestsAndStatusFromHubRgbLight);
 
@@ -244,7 +287,7 @@ class HubClientDemo {
       name: SceneCbjName("Study Scene"),
       backgroundColor: SceneCbjBackgroundColor("0xFFFF9800"),
       nodeRedFlowId: SceneCbjNodeRedFlowId("waitingInComp"),
-      automationString: SceneCbjAutomationString(""),
+      automationString: SceneCbjAutomationString("[]"),
       firstNodeId: SceneCbjFirstNodeId("6b63068c3c970eeb"),
       iconCodePoint: SceneCbjIconCodePoint(null),
       image: SceneCbjBackgroundImage(null),
@@ -254,7 +297,7 @@ class HubClientDemo {
       senderDeviceModel: SceneCbjSenderDeviceModel(null),
       senderId: SceneCbjSenderId(null),
       compUuid: SceneCbjCompUuid(null),
-      deviceStateGRPC: SceneCbjDeviceStateGRPC(null),
+      deviceStateGRPC: SceneCbjDeviceStateGRPC("waitingInComp"),
     );
 
     final RequestsAndStatusFromHub requestsAndStatusFromHubSceneOpen =
