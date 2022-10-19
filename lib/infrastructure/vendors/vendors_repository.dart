@@ -29,13 +29,13 @@ class VendorsRepository implements IVendorsRepository {
           vendorName == VendorsAndServices.miHome.name ||
           vendorName == VendorsAndServices.philipsHue.name ||
           vendorName == VendorsAndServices.sonoffDiy.name ||
+          vendorName == VendorsAndServices.sonoffEweLink.name ||
           vendorName == VendorsAndServices.ikea.name ||
           vendorName == VendorsAndServices.wink.name ||
           vendorName == VendorsAndServices.espHome.name ||
           vendorName == VendorsAndServices.lg.name ||
           vendorName == VendorsAndServices.spotify.name ||
           vendorName == VendorsAndServices.homeAssistant.name ||
-          vendorName == VendorsAndServices.hp.name ||
           vendorName == VendorsAndServices.yeelink.name ||
           vendorName == VendorsAndServices.xiaomi.name) {
         continue;
@@ -213,6 +213,16 @@ class VendorsMocDataWithImages {
         name: VendorName('Smart Life'),
         image:
             'https://play-lh.googleusercontent.com/Qrq9zB_-bWuAD0ETPeBRTsRHOSjmW_uzmexY5rF7wo2JeNc-oLuvsQSYdg0Uxsq6mkA=s180',
+      ),
+      Vendor(
+        name: VendorName('HP'),
+        image:
+            'https://play-lh.googleusercontent.com/UF16mldRKpQUUWhRZlDnT1FjkAjWSu9NXVBEDoTgScI_eo_6yEL0oKtc2-OvPXcG3PmN=s180',
+      ),
+      Vendor(
+        name: VendorName('CBJ Devices'),
+        image:
+            'https://github.com/CyBear-Jinni/CBJ_Site/blob/master/assets/images/cbj_app_icon_no_bg.png?raw=true',
       ),
     ].toImmutableList();
   }
