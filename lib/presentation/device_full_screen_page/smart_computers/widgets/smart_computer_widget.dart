@@ -76,6 +76,9 @@ class SmartComputerWidget extends StatelessWidget {
                     ).tr(),
                   ),
                 ),
+                const SizedBox(
+                  width: 10,
+                ),
                 TextButton(
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(
