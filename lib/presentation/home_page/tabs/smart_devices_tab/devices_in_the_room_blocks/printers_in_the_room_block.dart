@@ -1,56 +1,55 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
-import 'package:cybear_jinni/domain/devices/generic_smart_computer_device/generic_smart_computer_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_printer_device/generic_printer_entity.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class SmartComputersInTheRoomBlock extends StatelessWidget {
-  const SmartComputersInTheRoomBlock({
+class PrintersInTheRoomBlock extends StatelessWidget {
+  const PrintersInTheRoomBlock({
     required this.roomEntity,
-    required this.smartComputersInRoom,
+    required this.printersInRoom,
     required this.roomColorGradiant,
   });
 
-  factory SmartComputersInTheRoomBlock.withAbstractDevice({
+  factory PrintersInTheRoomBlock.withAbstractDevice({
     required RoomEntity roomEntityTemp,
     required List<DeviceEntityAbstract> tempDeviceInRoom,
     required List<Color> tempRoomColorGradiant,
   }) {
-    final List<GenericSmartComputerDE> tempSmartComputersInRoom = [];
+    final List<GenericPrinterDE> tempPrintersInRoom = [];
 
     for (final element in tempDeviceInRoom) {
-      tempSmartComputersInRoom.add(element as GenericSmartComputerDE);
+      tempPrintersInRoom.add(element as GenericPrinterDE);
     }
 
-    return SmartComputersInTheRoomBlock(
+    return PrintersInTheRoomBlock(
       roomEntity: roomEntityTemp,
-      smartComputersInRoom: tempSmartComputersInRoom,
+      printersInRoom: tempPrintersInRoom,
       roomColorGradiant: tempRoomColorGradiant,
     );
   }
 
   final RoomEntity roomEntity;
-  final List<GenericSmartComputerDE> smartComputersInRoom;
+  final List<GenericPrinterDE> printersInRoom;
   final List<Color> roomColorGradiant;
 
   @override
   Widget build(BuildContext context) {
     String deviceText;
-    if (smartComputersInRoom.length == 1) {
-      deviceText = smartComputersInRoom[0].defaultName.getOrCrash()!;
+    if (printersInRoom.length == 1) {
+      deviceText = printersInRoom[0].defaultName.getOrCrash()!;
     } else {
-      deviceText =
-          '_SmartComputers'.tr(args: [roomEntity.defaultName.getOrCrash()]);
+      deviceText = '_Printers'.tr(args: [roomEntity.defaultName.getOrCrash()]);
     }
 
     return GestureDetector(
       onTap: () {
         context.router.push(
-          RoomsSmartComputersRoute(
+          RoomsPrintersRoute(
             roomEntity: roomEntity,
             roomColorGradiant: roomColorGradiant,
           ),
@@ -77,7 +76,7 @@ class SmartComputersInTheRoomBlock extends StatelessWidget {
                         scale: 1.2,
                         child: const CircleAvatar(
                           child: FaIcon(
-                            FontAwesomeIcons.computer,
+                            FontAwesomeIcons.print,
                             color: Colors.white70,
                           ),
                         ),
@@ -85,7 +84,7 @@ class SmartComputersInTheRoomBlock extends StatelessWidget {
                     ],
                   ),
                 ),
-                if (smartComputersInRoom.length > 1)
+                if (printersInRoom.length > 1)
                   Expanded(
                     child: Container(
                       height: 55,
@@ -103,7 +102,7 @@ class SmartComputersInTheRoomBlock extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Text(
-                          smartComputersInRoom.length.toString(),
+                          printersInRoom.length.toString(),
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 13,
@@ -150,7 +149,7 @@ class SmartComputersInTheRoomBlock extends StatelessWidget {
 
   List<String> extractDevicesId() {
     final List<String> devicesIdList = [];
-    for (final element in smartComputersInRoom) {
+    for (final element in printersInRoom) {
       devicesIdList.add(element.uniqueId.getOrCrash());
     }
     return devicesIdList;

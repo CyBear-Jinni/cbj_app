@@ -38,6 +38,8 @@ abstract class IDeviceRepository {
   Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
       watchSmartComputers();
 
+  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>> watchPrinters();
+
   Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
       watchUncompleted();
 

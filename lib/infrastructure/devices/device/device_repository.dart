@@ -233,6 +233,21 @@ class DeviceRepository implements IDeviceRepository {
   }
 
   @override
+  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
+      watchPrinters() async* {
+    yield* watchAllDevices().map(
+      (event) => event.fold((l) => left(l), (r) {
+        return right(
+          r.toList().asList().where((element) {
+            return element!.deviceTypes.getOrCrash() ==
+                DeviceTypes.printer.toString();
+          }).toImmutableList(),
+        );
+      }),
+    );
+  }
+
+  @override
   Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract>>>
       watchUncompleted() {
     // TODO: implement watchUncompleted
