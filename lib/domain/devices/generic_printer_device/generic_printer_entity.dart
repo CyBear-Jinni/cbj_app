@@ -24,6 +24,7 @@ class GenericPrinterDE extends DeviceEntityAbstract {
     required super.senderId,
     required super.compUuid,
     required this.printerSwitchState,
+    required this.lastKnownIp,
     DevicePowerConsumption? powerConsumption,
   }) : super(
           deviceTypes: DeviceType(DeviceTypes.printer.toString()),
@@ -44,10 +45,13 @@ class GenericPrinterDE extends DeviceEntityAbstract {
         powerConsumption: DevicePowerConsumption(''),
         printerSwitchState:
             GenericPrinterSwitchState(DeviceActions.off.toString()),
+        lastKnownIp: DeviceLastKnownIp(''),
       );
 
   /// State of the printer on/off
   GenericPrinterSwitchState? printerSwitchState;
+
+  DeviceLastKnownIp? lastKnownIp;
 
   //
   // /// Will return failure if any of the fields failed or return unit if fields
@@ -97,6 +101,7 @@ class GenericPrinterDE extends DeviceEntityAbstract {
       deviceTypes: deviceTypes.getOrCrash(),
       compUuid: compUuid.getOrCrash(),
       printerSwitchState: printerSwitchState!.getOrCrash(),
+      lastKnownIp: lastKnownIp!.getOrCrash(),
       deviceVendor: deviceVendor.getOrCrash(),
       // serverTimeStamp: FieldValue.serverTimestamp(),
     );

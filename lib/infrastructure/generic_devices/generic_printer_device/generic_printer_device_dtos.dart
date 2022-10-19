@@ -21,6 +21,7 @@ abstract class GenericPrinterDeviceDtos
     required String? senderDeviceModel,
     required String? senderId,
     required String? printerSwitchState,
+    required String? lastKnownIp,
     required String? deviceTypes,
     required String? compUuid,
     required String? deviceVendor,
@@ -46,6 +47,7 @@ abstract class GenericPrinterDeviceDtos
       senderDeviceModel: genericPrinterDE.senderDeviceModel.getOrCrash(),
       senderId: genericPrinterDE.senderId.getOrCrash(),
       printerSwitchState: genericPrinterDE.printerSwitchState!.getOrCrash(),
+      lastKnownIp: genericPrinterDE.lastKnownIp!.getOrCrash(),
       deviceTypes: genericPrinterDE.deviceTypes.getOrCrash(),
       compUuid: genericPrinterDE.compUuid.getOrCrash(),
       deviceVendor: genericPrinterDE.deviceVendor.getOrCrash(),
@@ -73,6 +75,7 @@ abstract class GenericPrinterDeviceDtos
       deviceVendor: DeviceVendor(deviceVendor),
       compUuid: DeviceCompUuid(compUuid),
       printerSwitchState: GenericPrinterSwitchState(printerSwitchState),
+      lastKnownIp: DeviceLastKnownIp(lastKnownIp),
     );
   }
 }

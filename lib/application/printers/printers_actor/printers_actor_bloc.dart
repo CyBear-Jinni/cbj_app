@@ -4,10 +4,13 @@ import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:bloc/bloc.dart';
 import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
+import 'package:cybear_jinni/domain/devices/generic_printer_device/generic_printer_entity.dart';
 import 'package:cybear_jinni/domain/devices/generic_switch_device/generic_switch_entity.dart';
+import 'package:cybear_jinni/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 part 'printers_actor_bloc.freezed.dart';
 part 'printers_actor_event.dart';
@@ -21,7 +24,7 @@ class PrintersActorBloc extends Bloc<PrintersActorEvent, PrintersActorState> {
     on<Deleted>(_deleted);
     on<TurnOffAllPrinters>(_turnOffAllPrinters);
     on<TurnOnAllPrinters>(_turnOnAllPrinters);
-    on<SuspendAllPrinters>(_suspendAllPrinters);
+    on<OpenPrintersWebPage>(_openPrintersWebPage);
     on<ShutdownAllPrinters>(_shutdownAllPrinters);
   }
 
@@ -63,16 +66,29 @@ class PrintersActorBloc extends Bloc<PrintersActorEvent, PrintersActorState> {
     _deviceRepository.turnOnDevices(devicesId: event.printersIdToTurnOn);
   }
 
-  Future<void> _suspendAllPrinters(
-    SuspendAllPrinters event,
+  Future<void> _openPrintersWebPage(
+    OpenPrintersWebPage event,
     Emitter<PrintersActorState> emit,
   ) async {
     FlushbarHelper.createLoading(
-      message: 'Suspending all Smart Computers',
+      message: 'Opening printers Web Page',
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-    _deviceRepository.suspendDevices(devicesId: event.printersId);
+    String? printerIp = event.printer.lastKnownIp?.getOrCrash();
+    if (printerIp != null) {
+      launchUrl(
+        Uri.parse('http://$printerIp'),
+        mode: LaunchMode.externalApplication,
+      );
+    } else {
+      logger.e('Printer does not have lastKnownIp');
+
+      FlushbarHelper.createLoading(
+        message: 'Printer last ip does not exist',
+        linearProgressIndicator: const LinearProgressIndicator(),
+      ).show(event.context);
+    }
   }
 
   Future<void> _shutdownAllPrinters(

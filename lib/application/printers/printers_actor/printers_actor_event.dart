@@ -14,10 +14,10 @@ class PrintersActorEvent with _$PrintersActorEvent {
     BuildContext context,
   ) = TurnOnAllPrinters;
 
-  const factory PrintersActorEvent.suspendAllPrinters(
-    List<String> printersId,
+  const factory PrintersActorEvent.openPrintersWebPage(
+    GenericPrinterDE printer,
     BuildContext context,
-  ) = SuspendAllPrinters;
+  ) = OpenPrintersWebPage;
 
   const factory PrintersActorEvent.shutdownAllPrinters(
     List<String> printersId,

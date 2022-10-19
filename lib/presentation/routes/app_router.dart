@@ -26,6 +26,7 @@ import 'package:cybear_jinni/presentation/device_full_screen_page/blinds/rooms_b
 import 'package:cybear_jinni/presentation/device_full_screen_page/boilers/rooms_boilers_page.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/lights/lights_in_the_room/lights_in_the_room_page.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/lights/rooms_lights_page.dart';
+import 'package:cybear_jinni/presentation/device_full_screen_page/printers/rooms_printers_page.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/rgbw_lights/rgbw_lights_in_the_room/rgbw_lights_in_the_room_page.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/rgbw_lights/rooms_rgbw_lights_page.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/smart_computers/rooms_smart_computers_page.dart';
@@ -91,6 +92,7 @@ import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_pag
     AutoRoute(page: RgbwLightsInTheRoomPage),
     AutoRoute(page: RoomsSwitchesPage),
     AutoRoute(page: RoomsSmartComputersPage),
+    AutoRoute(page: RoomsPrintersPage),
     AutoRoute(page: SwitchesInTheRoomPage),
     AutoRoute(page: RoomsSmartPlugsPage),
     AutoRoute(page: SmartPlugsInTheRoomPage),
@@ -139,6 +141,7 @@ class $AppRouter {
   late RgbwLightsInTheRoomPage rgbwLightsInTheRoomPage;
   late RoomsSwitchesPage roomsSwitchesPage;
   late RoomsSmartComputersPage roomsSmartComputersPage;
+  late RoomsPrintersPage roomsPrintersPage;
   late SwitchesInTheRoomPage switchesInTheRoomPage;
   late RoomsSmartPlugsPage roomsSmartPlugsPage;
   late SmartPlugsInTheRoomPage smartPlugsInTheRoomPage;
