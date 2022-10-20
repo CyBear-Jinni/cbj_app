@@ -310,7 +310,7 @@ class HubClientDemo {
       backgroundColor: SceneCbjBackgroundColor("0xFFFF9800"),
       nodeRedFlowId: SceneCbjNodeRedFlowId("6b63068c3c970eeb"),
       automationString: SceneCbjAutomationString("[]"),
-      firstNodeId: SceneCbjFirstNodeId("6b63068c3c970eeb"),
+      firstNodeId: SceneCbjFirstNodeId("3f1a9440-41a1-11ed-8b6a-5f136f4fe196"),
       iconCodePoint: SceneCbjIconCodePoint(null),
       image: SceneCbjBackgroundImage(null),
       lastDateOfExecute: SceneCbjLastDateOfExecute(null),
