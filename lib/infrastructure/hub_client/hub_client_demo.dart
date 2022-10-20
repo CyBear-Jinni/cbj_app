@@ -67,6 +67,9 @@ class HubClientDemo {
       roomBindingsId: RoomBindingsId(const []),
       roomMostUsedBy: RoomMostUsedBy(const []),
       roomPermissions: RoomPermissions(const []),
+      background: RoomBackground(
+        "https://images.unsplash.com/photo-1598546720078-8659863bc47d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80",
+      ),
     );
 
     final RequestsAndStatusFromHub requestsAndStatusFromHubRoomDiscovered =
@@ -96,6 +99,9 @@ class HubClientDemo {
       roomBindingsId: RoomBindingsId(const []),
       roomMostUsedBy: RoomMostUsedBy(const []),
       roomPermissions: RoomPermissions(const []),
+      background: RoomBackground(
+        "https://images.unsplash.com/photo-1598546720078-8659863bc47d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80",
+      ),
     );
 
     final RequestsAndStatusFromHub requestsAndStatusFromHubRoomGuy =
@@ -110,22 +116,25 @@ class HubClientDemo {
     /// Out Side Room
 
     final RoomEntity allRemoteCommandsRoomOutSide = RoomEntity(
-        uniqueId: RoomUniqueId.fromUniqueString(
-            "38b45780-419c-11ed-bce9-8dc09da0062f"),
-        defaultName: RoomDefaultName("Outside"),
-        roomTypes: RoomTypes(const ["0", "1", "2", "5"]),
-        roomDevicesId: RoomDevicesId(const [
-          "a31523m6-463s-32ge-7426-g33c642r7m25",
-          "c90137f2-419b-11ed-8246-e17a279f4d89",
-          "96386cd0-419b-11ed-8246-e17a279f4d89",
-        ]),
-        roomScenesId:
-            RoomScenesId(const ["7189ed76-4351-11ed-b249-63fd7e165c16"]),
-        roomRoutinesId: RoomRoutinesId(const []),
-        roomBindingsId: RoomBindingsId(const []),
-        roomMostUsedBy: RoomMostUsedBy(const []),
-        roomPermissions: RoomPermissions(const []),
-        background: RoomBackground());
+      uniqueId:
+          RoomUniqueId.fromUniqueString("38b45780-419c-11ed-bce9-8dc09da0062f"),
+      defaultName: RoomDefaultName("Outside"),
+      roomTypes: RoomTypes(const ["0", "1", "2", "5"]),
+      roomDevicesId: RoomDevicesId(const [
+        "a31523m6-463s-32ge-7426-g33c642r7m25",
+        "c90137f2-419b-11ed-8246-e17a279f4d89",
+        "96386cd0-419b-11ed-8246-e17a279f4d89",
+      ]),
+      roomScenesId:
+          RoomScenesId(const ["7189ed76-4351-11ed-b249-63fd7e165c16"]),
+      roomRoutinesId: RoomRoutinesId(const []),
+      roomBindingsId: RoomBindingsId(const []),
+      roomMostUsedBy: RoomMostUsedBy(const []),
+      roomPermissions: RoomPermissions(const []),
+      background: RoomBackground(
+        "https://images.unsplash.com/photo-1598546720078-8659863bc47d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80",
+      ),
+    );
 
     final RequestsAndStatusFromHub requestsAndStatusFromHubRoomOutSide =
         RequestsAndStatusFromHub(
