@@ -102,11 +102,11 @@
   "Do_not_need": "தேவையில்லை",
   "Finish": "முடிக்கவும்",
   "Select_Purposes_Of_The_Area": "பகுதியின் நோக்கங்களைத் தேர்ந்தெடுக்கவும்"
-  "Pulling_Up_all_blinds": "திரைசீலைகளை உருவுவது";
+  "Pulling_Up_all_blinds": "திரைசீலைகளை உருவுவது",
   "Stopping_all_blinds": "திரைசீலைகளை நிருத்துவது",
-  "Pulling_down_all_blinds": "திரைசீலைகளை இழுப்பது";
-  "Turning_On_boiler": "கொதிக்கலனை ஆரம்பிப்பது";
-  "Turning_Off_boiler": "கொதிக்கலனை அணைப்பது";
-  "Waiting_for_user_to_get_connected_to_WiFi": "பயனாளி வைஃபை இணைய காத்திருக்கிறது";
+  "Pulling_down_all_blinds": "திரைசீலைகளை இழுப்பது",
+  "Turning_On_boiler": "கொதிக்கலனை ஆரம்பிப்பது",
+  "Turning_Off_boiler": "கொதிக்கலனை அணைப்பது",
+  "Waiting_for_user_to_get_connected_to_WiFi": "பயனாளி வைஃபை இணைய காத்திருக்கிறது",
   "Can't_add_unsupported_device": "ஆதரிக்கப்படாத சாதனத்தைச் சேர்க்க முடியாது"
 }
