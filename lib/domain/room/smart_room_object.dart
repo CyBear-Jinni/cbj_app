@@ -8,6 +8,7 @@ import 'package:cybear_jinni/domain/devices/generic_printer_device/generic_print
 import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
 import 'package:cybear_jinni/domain/devices/generic_smart_computer_device/generic_smart_computer_entity.dart';
 import 'package:cybear_jinni/domain/devices/generic_smart_plug_device/generic_smart_plug_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_smart_tv/generic_smart_tv_entity.dart';
 import 'package:cybear_jinni/domain/devices/generic_switch_device/generic_switch_entity.dart';
 
 class SmartRoomObject {
@@ -21,6 +22,7 @@ class SmartRoomObject {
     this.boilersInTheRoom,
     this.smartPlugsInTheRoom,
     this.smartComputersInTheRoom,
+    this.smartTvsInTheRoom,
     this.printersInTheRoom,
   });
 
@@ -30,6 +32,7 @@ class SmartRoomObject {
   final List<GenericSwitchDE>? switchesInTheRoom;
   final List<GenericSmartPlugDE>? smartPlugsInTheRoom;
   final List<GenericSmartComputerDE>? smartComputersInTheRoom;
+  final List<GenericSmartTvDE>? smartTvsInTheRoom;
   final List<Color> grediantColor;
   final List<GenericBlindsDE>? blindsInTheRoom;
   final List<GenericBoilerDE>? boilersInTheRoom;
@@ -57,6 +60,10 @@ class SmartRoomObject {
 
   List<GenericSmartComputerDE>? getSmartComputers() {
     return smartComputersInTheRoom;
+  }
+
+  List<GenericSmartTvDE>? getSmartTvs() {
+    return smartTvsInTheRoom;
   }
 
   List<GenericBlindsDE>? getBlinds() {

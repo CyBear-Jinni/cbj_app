@@ -4,16 +4,23 @@ part of 'smart_tv_actor_bloc.dart';
 class SmartTvActorEvent with _$SmartTvActorEvent {
   const factory SmartTvActorEvent.initialized() = Initialized;
 
-  const factory SmartTvActorEvent.turnOnTv(
-    List<String>? smartTvIdToTurnOn,
+  const factory SmartTvActorEvent.openUrl(
+    List<String>? smartTvId,
     BuildContext context,
-  ) = MoveUpAllSmartTv;
+  ) = OpenUrl;
 
-  const factory SmartTvActorEvent.turnOff(
-    List<String>? smartTvIdToTurnOff,
+  const factory SmartTvActorEvent.pausePlayState(
+    List<String>? smartTvId,
     BuildContext context,
-  ) = StopAllSmartTv;
+  ) = PausePlayState;
 
-  const factory SmartTvActorEvent.deleted(GenericLightDE deviceEntity) =
-      Deleted;
+  const factory SmartTvActorEvent.skipVideoTo(
+    List<String>? smartTvId,
+    BuildContext context,
+  ) = SkipVideoTo;
+
+  const factory SmartTvActorEvent.changeVolume(
+    List<String>? smartTvId,
+    BuildContext context,
+  ) = ChangeVolume;
 }

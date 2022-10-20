@@ -100,6 +100,22 @@ abstract class IDeviceRepository {
     required List<String>? devicesId,
   });
 
+  Future<Either<DevicesFailure, Unit>> openUrlOnDevices({
+    required List<String>? devicesId,
+  });
+
+  Future<Either<DevicesFailure, Unit>> pausePlayStateDevices({
+    required List<String>? devicesId,
+  });
+
+  Future<Either<DevicesFailure, Unit>> skipVideoDevices({
+    required List<String>? devicesId,
+  });
+
+  Future<Either<DevicesFailure, Unit>> changeVolumeDevices({
+    required List<String>? devicesId,
+  });
+
   Future<Either<DevicesFailure, Unit>> delete(
     DeviceEntityAbstract deviceEntity,
   );

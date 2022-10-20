@@ -81,10 +81,12 @@ abstract class GenericSmartTvDeviceDtos
       deviceVendor: DeviceVendor(deviceVendor),
       compUuid: DeviceCompUuid(compUuid),
       smartTvSwitchState: GenericSmartTvSwitchState(smartTvSwitchState),
-      openUrl: GenericSmartTvOpenUrl(openUrl),
-      pausePlayState: GenericSmartTvPausePlayState(pausePlayState),
-      skip: GenericSmartTvSkipBackOrForward(skip),
-      volume: GenericSmartTvVolume(volume),
+      openUrl: openUrl == null ? null : GenericSmartTvOpenUrl(openUrl),
+      pausePlayState: pausePlayState == null
+          ? null
+          : GenericSmartTvPausePlayState(pausePlayState),
+      skip: skip == null ? null : GenericSmartTvSkipBackOrForward(skip),
+      volume: volume == null ? null : GenericSmartTvVolume(volume),
     );
   }
 }

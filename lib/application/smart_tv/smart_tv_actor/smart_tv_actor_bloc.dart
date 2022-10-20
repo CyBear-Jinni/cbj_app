@@ -4,7 +4,6 @@ import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:bloc/bloc.dart';
 import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
-import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -18,9 +17,10 @@ class SmartTvActorBloc extends Bloc<SmartTvActorEvent, SmartTvActorState> {
   SmartTvActorBloc(this._deviceRepository)
       : super(const SmartTvActorState.initial()) {
     on<Initialized>(_initialized);
-    on<Deleted>(_deleted);
-    on<MoveUpAllSmartTv>(_turnOnTv);
-    on<StopAllSmartTv>(_turnOff);
+    on<OpenUrl>(_openUrl);
+    on<PausePlayState>(_pausePlayState);
+    on<SkipVideoTo>(_skipVideoTo);
+    on<ChangeVolume>(_changeVolume);
   }
 
   final IDeviceRepository _deviceRepository;
@@ -30,32 +30,50 @@ class SmartTvActorBloc extends Bloc<SmartTvActorEvent, SmartTvActorState> {
     Emitter<SmartTvActorState> emit,
   ) async {}
 
-  Future<void> _deleted(
-    Deleted event,
-    Emitter<SmartTvActorState> emit,
-  ) async {}
-
-  Future<void> _turnOnTv(
-    MoveUpAllSmartTv event,
+  Future<void> _openUrl(
+    OpenUrl event,
     Emitter<SmartTvActorState> emit,
   ) async {
     FlushbarHelper.createLoading(
-      message: 'Pulling Up all smart_tv',
+      message: 'Open url on smart tv',
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
-
-    _deviceRepository.turnOnDevices(devicesId: event.smartTvIdToTurnOn);
+    _deviceRepository.openUrlOnDevices(devicesId: event.smartTvId);
   }
 
-  Future<void> _turnOff(
-    StopAllSmartTv event,
+  Future<void> _pausePlayState(
+    PausePlayState event,
     Emitter<SmartTvActorState> emit,
   ) async {
     FlushbarHelper.createLoading(
-      message: 'Pulling Up all smart_tv',
+      message: 'Pause/Play smart tv',
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-    _deviceRepository.turnOffDevices(devicesId: event.smartTvIdToTurnOff);
+    _deviceRepository.pausePlayStateDevices(devicesId: event.smartTvId);
+  }
+
+  Future<void> _skipVideoTo(
+    SkipVideoTo event,
+    Emitter<SmartTvActorState> emit,
+  ) async {
+    FlushbarHelper.createLoading(
+      message: 'Skip smart tv',
+      linearProgressIndicator: const LinearProgressIndicator(),
+    ).show(event.context);
+
+    _deviceRepository.skipVideoDevices(devicesId: event.smartTvId);
+  }
+
+  Future<void> _changeVolume(
+    ChangeVolume event,
+    Emitter<SmartTvActorState> emit,
+  ) async {
+    FlushbarHelper.createLoading(
+      message: 'Change volume smart tv',
+      linearProgressIndicator: const LinearProgressIndicator(),
+    ).show(event.context);
+
+    _deviceRepository.changeVolumeDevices(devicesId: event.smartTvId);
   }
 }
