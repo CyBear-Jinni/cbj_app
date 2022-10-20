@@ -6,6 +6,12 @@ import 'package:cybear_jinni/domain/core/value_objects.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/value_objects_core.dart';
 import 'package:cybear_jinni/domain/devices/generic_blinds_device/generic_blinds_entity.dart';
 import 'package:cybear_jinni/domain/devices/generic_blinds_device/generic_blinds_value_objects.dart';
+import 'package:cybear_jinni/domain/devices/generic_boiler_device/generic_boiler_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_boiler_device/generic_boiler_value_objects.dart';
+import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rgbw_light_value_objects.dart';
+import 'package:cybear_jinni/domain/devices/generic_switch_device/generic_switch_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_switch_device/generic_switch_value_objects.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/domain/room/value_objects_room.dart';
 import 'package:cybear_jinni/domain/scene/scene_cbj_entity.dart';
@@ -61,9 +67,6 @@ class HubClientDemo {
       roomBindingsId: RoomBindingsId(const []),
       roomMostUsedBy: RoomMostUsedBy(const []),
       roomPermissions: RoomPermissions(const []),
-      background: RoomBackground(
-        "https://images.unsplash.com/photo-1598546720078-8659863bc47d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80",
-      ),
     );
 
     final RequestsAndStatusFromHub requestsAndStatusFromHubRoomDiscovered =
@@ -93,9 +96,6 @@ class HubClientDemo {
       roomBindingsId: RoomBindingsId(const []),
       roomMostUsedBy: RoomMostUsedBy(const []),
       roomPermissions: RoomPermissions(const []),
-      background: RoomBackground(
-        "https://images.unsplash.com/photo-1598546720078-8659863bc47d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80",
-      ),
     );
 
     final RequestsAndStatusFromHub requestsAndStatusFromHubRoomGuy =
@@ -110,25 +110,22 @@ class HubClientDemo {
     /// Out Side Room
 
     final RoomEntity allRemoteCommandsRoomOutSide = RoomEntity(
-      uniqueId:
-          RoomUniqueId.fromUniqueString("38b45780-419c-11ed-bce9-8dc09da0062f"),
-      defaultName: RoomDefaultName("Outside"),
-      roomTypes: RoomTypes(const ["0", "1", "2", "5"]),
-      roomDevicesId: RoomDevicesId(const [
-        "a31523m6-463s-32ge-7426-g33c642r7m25",
-        "c90137f2-419b-11ed-8246-e17a279f4d89",
-        "96386cd0-419b-11ed-8246-e17a279f4d89",
-      ]),
-      roomScenesId:
-          RoomScenesId(const ["7189ed76-4351-11ed-b249-63fd7e165c16"]),
-      roomRoutinesId: RoomRoutinesId(const []),
-      roomBindingsId: RoomBindingsId(const []),
-      roomMostUsedBy: RoomMostUsedBy(const []),
-      roomPermissions: RoomPermissions(const []),
-      background: RoomBackground(
-        "https://images.unsplash.com/photo-1598546720078-8659863bc47d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80",
-      ),
-    );
+        uniqueId: RoomUniqueId.fromUniqueString(
+            "38b45780-419c-11ed-bce9-8dc09da0062f"),
+        defaultName: RoomDefaultName("Outside"),
+        roomTypes: RoomTypes(const ["0", "1", "2", "5"]),
+        roomDevicesId: RoomDevicesId(const [
+          "a31523m6-463s-32ge-7426-g33c642r7m25",
+          "c90137f2-419b-11ed-8246-e17a279f4d89",
+          "96386cd0-419b-11ed-8246-e17a279f4d89",
+        ]),
+        roomScenesId:
+            RoomScenesId(const ["7189ed76-4351-11ed-b249-63fd7e165c16"]),
+        roomRoutinesId: RoomRoutinesId(const []),
+        roomBindingsId: RoomBindingsId(const []),
+        roomMostUsedBy: RoomMostUsedBy(const []),
+        roomPermissions: RoomPermissions(const []),
+        background: RoomBackground());
 
     final RequestsAndStatusFromHub requestsAndStatusFromHubRoomOutSide =
         RequestsAndStatusFromHub(
@@ -177,7 +174,7 @@ class HubClientDemo {
 
     /// Guy Ceiling Button
 
-    final GenericBlindsDE allRemoteCommandsButton = GenericBlindsDE(
+    final GenericSwitchDE allRemoteCommandsButton = GenericSwitchDE(
       uniqueId:
           CoreUniqueId.fromUniqueString("c90137f2-419b-11ed-8246-e17a279f4d89"),
       vendorUniqueId: VendorUniqueId.fromUniqueString("67600068c44f33f5b515"),
@@ -190,7 +187,7 @@ class HubClientDemo {
       senderId: DeviceSenderId.fromUniqueString(
           "90d20fc3-434a-11ed-bd96-f573a00b65aa"),
       compUuid: DeviceCompUuid("34asdfrsd23gggg"),
-      blindsSwitchState: GenericBlindsSwitchState(DeviceActions.on.toString()),
+      switchState: GenericSwitchSwitchState(DeviceActions.on.toString()),
     );
 
     final RequestsAndStatusFromHub requestsAndStatusFromHubButton =
@@ -203,7 +200,7 @@ class HubClientDemo {
 
     /// Guy Button 2
 
-    final GenericBlindsDE allRemoteCommandsButton2 = GenericBlindsDE(
+    final GenericSwitchDE allRemoteCommandsButton2 = GenericSwitchDE(
       uniqueId:
           CoreUniqueId.fromUniqueString("a31523m6-463s-32ge-7426-g33c642r7m25"),
       vendorUniqueId: VendorUniqueId.fromUniqueString("67600068c44f33f5b515"),
@@ -216,7 +213,7 @@ class HubClientDemo {
       senderId: DeviceSenderId.fromUniqueString(
           "90d20fc3-434a-11ed-bd96-f573a00b65aa"),
       compUuid: DeviceCompUuid("34asdfrsd23gggg"),
-      blindsSwitchState: GenericBlindsSwitchState(DeviceActions.off.toString()),
+      switchState: GenericSwitchSwitchState(DeviceActions.on.toString()),
     );
 
     final RequestsAndStatusFromHub requestsAndStatusFromHubButton2 =
@@ -229,7 +226,7 @@ class HubClientDemo {
 
     /// Boiler
 
-    final GenericBlindsDE allRemoteCommandsBoiler = GenericBlindsDE(
+    final GenericBoilerDE allRemoteCommandsBoiler = GenericBoilerDE(
       uniqueId:
           CoreUniqueId.fromUniqueString("65d84b10-434d-11ed-817a-7d350fb52f91"),
       vendorUniqueId: VendorUniqueId.fromUniqueString("65fd2f"),
@@ -243,7 +240,7 @@ class HubClientDemo {
       senderId: DeviceSenderId.fromUniqueString(
           "65d84b11-434d-11ed-817a-7d350fb52f91"),
       compUuid: DeviceCompUuid("34asdfrsd23gggg"),
-      blindsSwitchState: GenericBlindsSwitchState(DeviceActions.off.toString()),
+      boilerSwitchState: GenericBoilerSwitchState(DeviceActions.off.toString()),
     );
 
     final RequestsAndStatusFromHub requestsAndStatusFromHubBoiler =
@@ -256,7 +253,7 @@ class HubClientDemo {
 
     /// RGBLight
 
-    final GenericBlindsDE allRemoteCommandsRgbLight = GenericBlindsDE(
+    final GenericRgbwLightDE allRemoteCommandsRgbLight = GenericRgbwLightDE(
       uniqueId:
           CoreUniqueId.fromUniqueString("7189ed76-4351-11ed-b249-63fd7e165c16"),
       vendorUniqueId: VendorUniqueId.fromUniqueString("bf4bccdaf68347e31dhiut"),
@@ -269,7 +266,14 @@ class HubClientDemo {
       senderId: DeviceSenderId.fromUniqueString(
           "7189ed77-4351-11ed-b249-63fd7e165c16"),
       compUuid: DeviceCompUuid("34asdfrsd23gggg"),
-      blindsSwitchState: GenericBlindsSwitchState(DeviceActions.on.toString()),
+      lightSwitchState:
+          GenericRgbwLightSwitchState(DeviceActions.off.toString()),
+      lightBrightness: GenericRgbwLightBrightness("1000"),
+      lightColorAlpha: GenericRgbwLightColorAlpha("1.0"),
+      lightColorHue: GenericRgbwLightColorHue("0.0"),
+      lightColorSaturation: GenericRgbwLightColorSaturation("1.0"),
+      lightColorTemperature: GenericRgbwLightColorTemperature("8129"),
+      lightColorValue: GenericRgbwLightColorValue("1.0"),
     );
 
     final RequestsAndStatusFromHub requestsAndStatusFromHubRgbLight =
@@ -295,7 +299,7 @@ class HubClientDemo {
           UniqueId.fromUniqueString("01bd6880-419b-11ed-af10-f75196d26a5e"),
       name: SceneCbjName("Study Scene"),
       backgroundColor: SceneCbjBackgroundColor("0xFFFF9800"),
-      nodeRedFlowId: SceneCbjNodeRedFlowId("waitingInComp"),
+      nodeRedFlowId: SceneCbjNodeRedFlowId("6b63068c3c970eeb"),
       automationString: SceneCbjAutomationString("[]"),
       firstNodeId: SceneCbjFirstNodeId("6b63068c3c970eeb"),
       iconCodePoint: SceneCbjIconCodePoint(null),
@@ -327,7 +331,5 @@ class HubClientDemo {
     String addressToHub,
     int hubPort,
     CompHubInfo compHubInfo,
-  ) async {
-    return null;
-  }
+  ) async {}
 }
