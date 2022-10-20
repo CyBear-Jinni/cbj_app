@@ -61,6 +61,9 @@ class HubClientDemo {
       roomBindingsId: RoomBindingsId(const []),
       roomMostUsedBy: RoomMostUsedBy(const []),
       roomPermissions: RoomPermissions(const []),
+      background: RoomBackground(
+        "https://images.unsplash.com/photo-1598546720078-8659863bc47d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80",
+      ),
     );
 
     final RequestsAndStatusFromHub requestsAndStatusFromHubRoomDiscovered =
@@ -90,6 +93,9 @@ class HubClientDemo {
       roomBindingsId: RoomBindingsId(const []),
       roomMostUsedBy: RoomMostUsedBy(const []),
       roomPermissions: RoomPermissions(const []),
+      background: RoomBackground(
+        "https://images.unsplash.com/photo-1598546720078-8659863bc47d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80",
+      ),
     );
 
     final RequestsAndStatusFromHub requestsAndStatusFromHubRoomGuy =
@@ -119,6 +125,9 @@ class HubClientDemo {
       roomBindingsId: RoomBindingsId(const []),
       roomMostUsedBy: RoomMostUsedBy(const []),
       roomPermissions: RoomPermissions(const []),
+      background: RoomBackground(
+        "https://images.unsplash.com/photo-1598546720078-8659863bc47d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80",
+      ),
     );
 
     final RequestsAndStatusFromHub requestsAndStatusFromHubRoomOutSide =
@@ -181,7 +190,7 @@ class HubClientDemo {
       senderId: DeviceSenderId.fromUniqueString(
           "90d20fc3-434a-11ed-bd96-f573a00b65aa"),
       compUuid: DeviceCompUuid("34asdfrsd23gggg"),
-      blindsSwitchState: GenericBlindsSwitchState("false"),
+      blindsSwitchState: GenericBlindsSwitchState(DeviceActions.on.toString()),
     );
 
     final RequestsAndStatusFromHub requestsAndStatusFromHubButton =
@@ -207,7 +216,7 @@ class HubClientDemo {
       senderId: DeviceSenderId.fromUniqueString(
           "90d20fc3-434a-11ed-bd96-f573a00b65aa"),
       compUuid: DeviceCompUuid("34asdfrsd23gggg"),
-      blindsSwitchState: GenericBlindsSwitchState("false"),
+      blindsSwitchState: GenericBlindsSwitchState(DeviceActions.off.toString()),
     );
 
     final RequestsAndStatusFromHub requestsAndStatusFromHubButton2 =
@@ -234,7 +243,7 @@ class HubClientDemo {
       senderId: DeviceSenderId.fromUniqueString(
           "65d84b11-434d-11ed-817a-7d350fb52f91"),
       compUuid: DeviceCompUuid("34asdfrsd23gggg"),
-      blindsSwitchState: GenericBlindsSwitchState("off"),
+      blindsSwitchState: GenericBlindsSwitchState(DeviceActions.off.toString()),
     );
 
     final RequestsAndStatusFromHub requestsAndStatusFromHubBoiler =
@@ -260,7 +269,7 @@ class HubClientDemo {
       senderId: DeviceSenderId.fromUniqueString(
           "7189ed77-4351-11ed-b249-63fd7e165c16"),
       compUuid: DeviceCompUuid("34asdfrsd23gggg"),
-      blindsSwitchState: GenericBlindsSwitchState("on"),
+      blindsSwitchState: GenericBlindsSwitchState(DeviceActions.on.toString()),
     );
 
     final RequestsAndStatusFromHub requestsAndStatusFromHubRgbLight =
