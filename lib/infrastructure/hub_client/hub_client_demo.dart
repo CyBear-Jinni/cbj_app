@@ -155,7 +155,7 @@ class HubClientDemo {
 
     /// Guy Blinds
 
-    final GenericBlindsDE allRemoteCommandsBlinds = GenericBlindsDE(
+    final GenericRgbwLightDE allRemoteCommandsBlinds = GenericRgbwLightDE(
       uniqueId:
           CoreUniqueId.fromUniqueString("96386cd0-419b-11ed-8246-e17a279f4d89"),
       vendorUniqueId: VendorUniqueId.fromUniqueString("63b298"),
@@ -169,7 +169,14 @@ class HubClientDemo {
       senderId: DeviceSenderId.fromUniqueString(
           "94edb282-434a-11ed-bd96-f573a00b65aa"),
       compUuid: DeviceCompUuid("34asdfrsd23gggg"),
-      blindsSwitchState: GenericBlindsSwitchState("stop"),
+      lightSwitchState:
+          GenericRgbwLightSwitchState(DeviceActions.off.toString()),
+      lightBrightness: GenericRgbwLightBrightness("1000"),
+      lightColorAlpha: GenericRgbwLightColorAlpha("1.0"),
+      lightColorHue: GenericRgbwLightColorHue("0.0"),
+      lightColorSaturation: GenericRgbwLightColorSaturation("1.0"),
+      lightColorTemperature: GenericRgbwLightColorTemperature("8129"),
+      lightColorValue: GenericRgbwLightColorValue("1.0"),
     );
 
     final RequestsAndStatusFromHub requestsAndStatusFromHubBlinds =
