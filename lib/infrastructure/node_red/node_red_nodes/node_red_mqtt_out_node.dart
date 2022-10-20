@@ -6,10 +6,9 @@ class NodeRedMqttOutNode extends NodeRedVisualNodeAbstract {
     required this.topic,
     this.qos,
     this.datatype,
-    String? name,
+    super.name,
   }) : super(
           type: 'mqtt out',
-          name: name,
         );
 
   /// Mqtt broker node id

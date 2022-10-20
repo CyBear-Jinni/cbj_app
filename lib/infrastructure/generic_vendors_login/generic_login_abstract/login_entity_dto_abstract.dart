@@ -6,9 +6,7 @@ import 'package:cybear_jinni/utils.dart';
 class LoginEntityDtoAbstract {
   LoginEntityDtoAbstract();
 
-  factory LoginEntityDtoAbstract.fromDomain(
-    LoginEntityAbstract loginEntityDtoAbstract,
-  ) {
+  factory LoginEntityDtoAbstract.fromDomain() {
     logger.v('LoginEntityDtoAbstract.fromDomain');
     return LoginEntityDtoAbstract();
   }

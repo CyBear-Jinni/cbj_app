@@ -24,9 +24,9 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
   }) {
     final List<GenericSwitchDE> tempSwitchesInRoom = [];
 
-    tempDeviceInRoom.forEach((element) {
+    for (final element in tempDeviceInRoom) {
       tempSwitchesInRoom.add(element as GenericSwitchDE);
-    });
+    }
 
     return SwitchesInTheRoomBlock(
       roomEntity: roomEntityTemp,
@@ -218,9 +218,9 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
 
   List<String> extractDevicesId() {
     final List<String> devicesIdList = [];
-    switchesInRoom.forEach((element) {
+    for (final element in switchesInRoom) {
       devicesIdList.add(element.uniqueId.getOrCrash());
-    });
+    }
     return devicesIdList;
   }
 }

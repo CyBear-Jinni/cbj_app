@@ -10,6 +10,7 @@ abstract class RoomEntityDtos implements _$RoomEntityDtos {
   factory RoomEntityDtos({
     required String uniqueId,
     required String defaultName,
+    required String background,
     required List<String> roomTypes,
     required List<String> roomDevicesId,
     required List<String> roomScenesId,
@@ -31,6 +32,7 @@ abstract class RoomEntityDtos implements _$RoomEntityDtos {
     return RoomEntityDtos(
       uniqueId: roomEntityDE.uniqueId.getOrCrash(),
       defaultName: roomEntityDE.defaultName.getOrCrash(),
+      background: roomEntityDE.background.getOrCrash(),
       roomTypes: roomEntityDE.roomTypes.getOrCrash(),
       roomDevicesId: roomEntityDE.roomDevicesId.getOrCrash(),
       roomScenesId: roomEntityDE.roomScenesId.getOrCrash(),
@@ -48,6 +50,7 @@ abstract class RoomEntityDtos implements _$RoomEntityDtos {
     return RoomEntity(
       uniqueId: RoomUniqueId.fromUniqueString(uniqueId),
       defaultName: RoomDefaultName(defaultName),
+      background: RoomBackground(background),
       roomTypes: RoomTypes(roomTypes),
       roomDevicesId: RoomDevicesId(roomDevicesId),
       roomScenesId: RoomScenesId(roomScenesId),

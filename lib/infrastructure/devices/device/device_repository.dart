@@ -13,6 +13,8 @@ import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_e
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_value_objects.dart';
 import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
 import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rgbw_light_value_objects.dart';
+import 'package:cybear_jinni/domain/devices/generic_smart_computer_device/generic_smart_computer_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_smart_computer_device/generic_smart_computer_value_objects.dart';
 import 'package:cybear_jinni/domain/devices/generic_smart_plug_device/generic_smart_plug_entity.dart';
 import 'package:cybear_jinni/domain/devices/generic_smart_plug_device/generic_smart_plug_value_objects.dart';
 import 'package:cybear_jinni/domain/devices/generic_switch_device/generic_switch_entity.dart';
@@ -166,6 +168,23 @@ class DeviceRepository implements IDeviceRepository {
 
   @override
   Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
+      watchSmartComputers() async* {
+    // Using watchAll devices from server function and filtering out only the
+    // Smart Computers device type
+    yield* watchAllDevices().map(
+      (event) => event.fold((l) => left(l), (r) {
+        return right(
+          r.toList().asList().where((element) {
+            return element!.deviceTypes.getOrCrash() ==
+                DeviceTypes.smartComputer.toString();
+          }).toImmutableList(),
+        );
+      }),
+    );
+  }
+
+  @override
+  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
       watchBlinds() async* {
     // Using watchAll devices from server function and filtering out only the
     // Blinds device type
@@ -207,6 +226,21 @@ class DeviceRepository implements IDeviceRepository {
           r.toList().asList().where((element) {
             return element!.deviceTypes.getOrCrash() ==
                 DeviceTypes.smartTV.toString();
+          }).toImmutableList(),
+        );
+      }),
+    );
+  }
+
+  @override
+  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
+      watchPrinters() async* {
+    yield* watchAllDevices().map(
+      (event) => event.fold((l) => left(l), (r) {
+        return right(
+          r.toList().asList().where((element) {
+            return element!.deviceTypes.getOrCrash() ==
+                DeviceTypes.printer.toString();
           }).toImmutableList(),
         );
       }),
@@ -729,6 +763,87 @@ class DeviceRepository implements IDeviceRepository {
   }
 
   @override
+  Future<Either<DevicesFailure, Unit>> suspendDevices({
+    required List<String>? devicesId,
+  }) async {
+    final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
+        await getDeviceEntityListFromId(devicesId!);
+
+    try {
+      for (final DeviceEntityAbstract? deviceEntity
+          in deviceEntityListToUpdate) {
+        if (deviceEntity == null) {
+          continue;
+        }
+        if (deviceEntity is GenericSmartComputerDE) {
+          deviceEntity.smartComputerSuspendState =
+              GenericSmartComputerSuspendState(
+            DeviceActions.suspend.toString(),
+          );
+        } else {
+          logger.w(
+            'Suspend action not supported for'
+            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+          );
+          continue;
+        }
+
+        updateWithDeviceEntity(deviceEntity: deviceEntity);
+      }
+    } on PlatformException catch (e) {
+      if (e.message!.contains('PERMISSION_DENIED')) {
+        return left(const DevicesFailure.insufficientPermission());
+      } else if (e.message!.contains('NOT_FOUND')) {
+        return left(const DevicesFailure.unableToUpdate());
+      } else {
+        // log.error(e.toString());
+        return left(const DevicesFailure.unexpected());
+      }
+    }
+    return right(unit);
+  }
+
+  @override
+  Future<Either<DevicesFailure, Unit>> shutdownDevices(
+      {required List<String>? devicesId}) async {
+    final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
+        await getDeviceEntityListFromId(devicesId!);
+
+    try {
+      for (final DeviceEntityAbstract? deviceEntity
+          in deviceEntityListToUpdate) {
+        if (deviceEntity == null) {
+          continue;
+        }
+        if (deviceEntity is GenericSmartComputerDE) {
+          deviceEntity.smartComputerShutDownState =
+              GenericSmartComputerShutdownState(
+            DeviceActions.shutdown.toString(),
+          );
+        } else {
+          logger.w(
+            'Shutdown action not supported for'
+            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+          );
+          continue;
+        }
+
+        updateWithDeviceEntity(deviceEntity: deviceEntity);
+      }
+    } on PlatformException catch (e) {
+      if (e.message!.contains('PERMISSION_DENIED')) {
+        return left(const DevicesFailure.insufficientPermission());
+      } else if (e.message!.contains('NOT_FOUND')) {
+        return left(const DevicesFailure.unableToUpdate());
+      } else {
+        // log.error(e.toString());
+        return left(const DevicesFailure.unexpected());
+      }
+    }
+    return right(unit);
+  }
+
+  @override
   Future<Either<DevicesFailure, Unit>> delete(
     DeviceEntityAbstract deviceEntity,
   ) async {
@@ -784,9 +899,9 @@ class DeviceRepository implements IDeviceRepository {
   ) async {
     final List<DeviceEntityAbstract> deviceEntityList = [];
 
-    deviceIdList.forEach((deviceId) {
+    for (final deviceId in deviceIdList) {
       deviceEntityList.add(allDevices[deviceId]!);
-    });
+    }
     return deviceEntityList;
   }
 

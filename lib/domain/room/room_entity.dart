@@ -12,6 +12,7 @@ abstract class RoomEntity implements _$RoomEntity {
   const factory RoomEntity({
     required RoomUniqueId uniqueId,
     required RoomDefaultName defaultName,
+    required RoomBackground background,
     required RoomTypes roomTypes,
     required RoomDevicesId roomDevicesId,
     required RoomScenesId roomScenesId,
@@ -30,6 +31,9 @@ abstract class RoomEntity implements _$RoomEntity {
   factory RoomEntity.empty() => RoomEntity(
         uniqueId: RoomUniqueId(),
         defaultName: RoomDefaultName(''),
+        background: RoomBackground(
+          'https://live.staticflickr.com/5220/5486044345_f67abff3e9_h.jpg',
+        ),
         // Do not add const
         roomDevicesId: RoomDevicesId([]),
         // Do not add const
@@ -94,6 +98,7 @@ abstract class RoomEntity implements _$RoomEntity {
     return RoomEntityDtos(
       uniqueId: uniqueId.getOrCrash(),
       defaultName: defaultName.getOrCrash(),
+      background: background.getOrCrash(),
       roomTypes: roomTypes.getOrCrash(),
       roomDevicesId: roomDevicesId.getOrCrash(),
       roomScenesId: roomScenesId.getOrCrash(),

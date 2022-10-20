@@ -203,7 +203,8 @@ class SecurityBearConnectionRepository
       );
 
       await for (final ActiveHost activeHost in devicesWithPort) {
-        logger.i('Found device: ${activeHost.address}');
+        logger
+            .i('Search and found Security Bear device: ${activeHost.address}');
 
         final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
         final String? wifiName = await NetworkInfo().getWifiName();
@@ -228,8 +229,8 @@ class SecurityBearConnectionRepository
       askLocationPermissionAndLocationOn() async {
     final Location location = Location();
 
-    bool _serviceEnabled;
-    PermissionStatus _permissionGranted;
+    bool serviceEnabled;
+    PermissionStatus permissionGranted;
 
     int permissionCounter = 0;
 
@@ -241,10 +242,10 @@ class SecurityBearConnectionRepository
     }
     if (!Platform.isLinux && !Platform.isWindows) {
       while (true) {
-        _permissionGranted = await location.hasPermission();
-        if (_permissionGranted == PermissionStatus.denied) {
-          _permissionGranted = await location.requestPermission();
-          if (_permissionGranted != PermissionStatus.granted) {
+        permissionGranted = await location.hasPermission();
+        if (permissionGranted == PermissionStatus.denied) {
+          permissionGranted = await location.requestPermission();
+          if (permissionGranted != PermissionStatus.granted) {
             logger.e('Permission to use location is denied');
             permissionCounter++;
             if (permissionCounter > 5) {
@@ -254,10 +255,10 @@ class SecurityBearConnectionRepository
           }
         }
 
-        _serviceEnabled = await location.serviceEnabled();
-        if (!_serviceEnabled) {
-          _serviceEnabled = await location.requestService();
-          if (!_serviceEnabled) {
+        serviceEnabled = await location.serviceEnabled();
+        if (!serviceEnabled) {
+          serviceEnabled = await location.requestService();
+          if (!serviceEnabled) {
             logger.e('Location is disabled');
             continue;
           }
@@ -325,7 +326,8 @@ class SecurityBearConnectionRepository
       );
 
       await for (final ActiveHost address in devicesWithPort) {
-        logger.i('Found device: ${address.address}');
+        logger.i(
+            'Found Security Bear device in current network, address: ${address.address}');
 
         final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
         final String? wifiName = await NetworkInfo().getWifiName();

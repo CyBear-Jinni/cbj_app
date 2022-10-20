@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class CbjHubInNetwork extends StatelessWidget {
+class CbjHubInNetworkWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<HubInNetworkBloc, HubInNetworkState>(
