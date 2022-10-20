@@ -266,6 +266,10 @@ class DeviceActions extends $pb.ProtobufEnum {
   static const DeviceActions shutdown = DeviceActions._(11, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'shutdown');
   static const DeviceActions itIsFalse = DeviceActions._(12, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'itIsFalse');
   static const DeviceActions itIsTrue = DeviceActions._(13, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'itIsTrue');
+  static const DeviceActions pausePlay = DeviceActions._(14, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'pausePlay');
+  static const DeviceActions changeVolume = DeviceActions._(15, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'changeVolume');
+  static const DeviceActions jump = DeviceActions._(16, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'jump');
+  static const DeviceActions skip = DeviceActions._(17, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'skip');
 
   static const $core.List<DeviceActions> values = <DeviceActions> [
     actionNotSupported,
@@ -282,6 +286,10 @@ class DeviceActions extends $pb.ProtobufEnum {
     shutdown,
     itIsFalse,
     itIsTrue,
+    pausePlay,
+    changeVolume,
+    jump,
+    skip,
   ];
 
   static final $core.Map<$core.int, DeviceActions> _byValue = $pb.ProtobufEnum.initByValue(values);
