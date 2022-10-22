@@ -38,7 +38,10 @@ class SmartTvActorBloc extends Bloc<SmartTvActorEvent, SmartTvActorState> {
       message: 'Open url on smart tv',
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
-    _deviceRepository.openUrlOnDevices(devicesId: event.smartTvId);
+    _deviceRepository.openUrlOnDevices(
+      devicesId: event.smartTvId,
+      url: event.url,
+    );
   }
 
   Future<void> _pausePlayState(

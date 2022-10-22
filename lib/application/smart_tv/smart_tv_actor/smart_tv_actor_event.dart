@@ -5,8 +5,9 @@ class SmartTvActorEvent with _$SmartTvActorEvent {
   const factory SmartTvActorEvent.initialized() = Initialized;
 
   const factory SmartTvActorEvent.openUrl(
-    List<String>? smartTvId,
     BuildContext context,
+    List<String>? smartTvId,
+    String url,
   ) = OpenUrl;
 
   const factory SmartTvActorEvent.pausePlayState(

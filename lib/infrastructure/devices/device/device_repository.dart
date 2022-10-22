@@ -857,6 +857,7 @@ class DeviceRepository implements IDeviceRepository {
   @override
   Future<Either<DevicesFailure, Unit>> openUrlOnDevices({
     required List<String>? devicesId,
+    required String url,
   }) async {
     final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
         await getDeviceEntityListFromId(devicesId!);
@@ -868,10 +869,7 @@ class DeviceRepository implements IDeviceRepository {
           continue;
         }
         if (deviceEntity is GenericSmartTvDE) {
-          deviceEntity.openUrl = GenericSmartTvOpenUrl(
-            // TODO: change to url from app ui
-            'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4',
-          );
+          deviceEntity.openUrl = GenericSmartTvOpenUrl(url);
         } else {
           logger.w(
             'Open url action not supported for'

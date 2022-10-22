@@ -102,6 +102,7 @@ abstract class IDeviceRepository {
 
   Future<Either<DevicesFailure, Unit>> openUrlOnDevices({
     required List<String>? devicesId,
+    required String url,
   });
 
   Future<Either<DevicesFailure, Unit>> pausePlayStateDevices({

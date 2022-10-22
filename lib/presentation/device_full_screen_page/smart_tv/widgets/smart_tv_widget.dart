@@ -1,5 +1,6 @@
 import 'package:cybear_jinni/application/smart_tv/smart_tv_actor/smart_tv_actor_bloc.dart';
 import 'package:cybear_jinni/domain/devices/generic_smart_tv/generic_smart_tv_entity.dart';
+import 'package:cybear_jinni/presentation/device_full_screen_page/smart_tv/widgets/open_url_widget.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,16 +12,6 @@ class SmartTvWidget extends StatelessWidget {
   const SmartTvWidget(this._deviceEntity);
 
   final GenericSmartTvDE? _deviceEntity;
-
-  void playAVideo(BuildContext context) {
-    final String deviceId = _deviceEntity!.getDeviceId();
-    context.read<SmartTvActorBloc>().add(
-          SmartTvActorEvent.openUrl(
-            [deviceId],
-            context,
-          ),
-        );
-  }
 
   void pausePlayState(BuildContext context) {
     final String deviceId = _deviceEntity!.getDeviceId();
@@ -60,7 +51,16 @@ class SmartTvWidget extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {
-                    playAVideo(context);
+                    // TextField(
+                    //   decoration: InputDecoration(
+                    //     border: OutlineInputBorder(),
+                    //     hintText: 'Enter a search term',
+                    //   ),
+                    // );
+                    OpenUrlPopUp(
+                      context,
+                      _deviceEntity,
+                    );
                   },
                   child: Tab(
                     icon: FaIcon(
