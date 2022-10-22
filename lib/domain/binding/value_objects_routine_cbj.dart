@@ -149,7 +149,8 @@ class BindingCbjBackgroundImage extends ValueObjectBindingsCbj<String?> {
 class BindingCbjLastDateOfExecute extends ValueObjectBindingsCbj<String?> {
   factory BindingCbjLastDateOfExecute(String? input) {
     return BindingCbjLastDateOfExecute._(
-        validateBindingCbjIconCodePoint(input));
+      validateBindingCbjIconCodePoint(input),
+    );
   }
 
   const BindingCbjLastDateOfExecute._(this.value);

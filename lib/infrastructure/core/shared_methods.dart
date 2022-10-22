@@ -10,13 +10,13 @@ Future<String?> getCurrentWifiName() async {
   String? wifiName = '';
 
   try {
-    final NetworkInfo _networkInfo = NetworkInfo();
+    final NetworkInfo networkInfo = NetworkInfo();
 
     if (Platform.isIOS) {
       LocationAuthorizationStatus status =
-          await _networkInfo.getLocationServiceAuthorization();
+          await networkInfo.getLocationServiceAuthorization();
       if (status == LocationAuthorizationStatus.notDetermined) {
-        status = await _networkInfo.requestLocationServiceAuthorization();
+        status = await networkInfo.requestLocationServiceAuthorization();
       }
       if (status == LocationAuthorizationStatus.authorizedAlways ||
           status == LocationAuthorizationStatus.authorizedWhenInUse) {

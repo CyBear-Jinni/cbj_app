@@ -31,19 +31,19 @@ abstract class RoomEntity implements _$RoomEntity {
         uniqueId: RoomUniqueId(),
         defaultName: RoomDefaultName(''),
         // Do not add const
-        roomDevicesId: RoomDevicesId([]),
+        roomDevicesId: RoomDevicesId(const []),
         // Do not add const
-        roomScenesId: RoomScenesId([]),
+        roomScenesId: RoomScenesId(const []),
         // Do not add const
-        roomRoutinesId: RoomRoutinesId([]),
+        roomRoutinesId: RoomRoutinesId(const []),
         // Do not add const
-        roomBindingsId: RoomBindingsId([]),
+        roomBindingsId: RoomBindingsId(const []),
         // Do not add const
-        roomMostUsedBy: RoomMostUsedBy([]),
+        roomMostUsedBy: RoomMostUsedBy(const []),
         // Do not add const
-        roomPermissions: RoomPermissions([]),
+        roomPermissions: RoomPermissions(const []),
         // Do not add const
-        roomTypes: RoomTypes([]), // Do not add const
+        roomTypes: RoomTypes(const []), // Do not add const
       );
 
   /// Will add new device id to the devices in the room list

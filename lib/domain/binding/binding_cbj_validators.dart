@@ -3,7 +3,8 @@ import 'package:cybear_jinni/infrastructure/objects/enums_cbj.dart';
 import 'package:dartz/dartz.dart';
 
 Either<BindingCbjFailure<String>, String> validateBindingNotEmpty(
-    String input) {
+  String input,
+) {
   if (input.isNotEmpty) {
     return right(input);
   } else {

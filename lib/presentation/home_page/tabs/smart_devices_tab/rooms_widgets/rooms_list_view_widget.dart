@@ -81,7 +81,7 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
 
     tempDevicesByRooms.forEach((k, v) {
       tempDevicesByRoomsByType[k!] = {};
-      v.forEach((element) {
+      for (final element in v) {
         if (tempDevicesByRoomsByType[k]![element.deviceTypes.getOrCrash()] ==
             null) {
           tempDevicesByRoomsByType[k]![element.deviceTypes.getOrCrash()] = [
@@ -91,7 +91,7 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
           tempDevicesByRoomsByType[k]![element.deviceTypes.getOrCrash()]!
               .add(element);
         }
-      });
+      }
     });
     return tempDevicesByRoomsByType;
   }
@@ -401,15 +401,14 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
           int numberOfDevicesInTheRoom = 0;
 
           adOrRoom.value.forEach((key, value) {
-            value.forEach((element) {
+            for (final element in value) {
               numberOfDevicesInTheRoom++;
-            });
+            }
           });
 
           return RoomWidget(
             roomColorGradiant: roomColorGradiant,
             roomsList: roomsList,
-            index: index,
             tempDevicesByRoomsByType: tempDevicesByRoomsByType,
             borderRadius: borderRadius,
             bottomMargin: bottomMargin,

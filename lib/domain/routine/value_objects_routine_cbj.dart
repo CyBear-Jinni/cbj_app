@@ -149,7 +149,8 @@ class RoutineCbjBackgroundImage extends ValueObjectRoutinesCbj<String?> {
 class RoutineCbjLastDateOfExecute extends ValueObjectRoutinesCbj<String?> {
   factory RoutineCbjLastDateOfExecute(String? input) {
     return RoutineCbjLastDateOfExecute._(
-        validateRoutineCbjIconCodePoint(input));
+      validateRoutineCbjIconCodePoint(input),
+    );
   }
 
   const RoutineCbjLastDateOfExecute._(this.value);

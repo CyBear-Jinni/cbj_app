@@ -12,10 +12,9 @@ import 'package:dartz/dartz.dart';
 class GenericLifxLoginDE extends LoginEntityAbstract {
   /// All public field of GenericLifx entity
   GenericLifxLoginDE({
-    required CoreLoginSenderId senderUniqueId,
+    required super.senderUniqueId,
     required this.lifxApiKey,
   }) : super(
-          senderUniqueId: senderUniqueId,
           loginVendor: CoreLoginVendor(VendorsAndServices.lifx.name),
         );
 

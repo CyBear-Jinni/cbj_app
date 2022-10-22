@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 class ErrorSoftwareInfoCard extends StatelessWidget {
   const ErrorSoftwareInfoCard({
     required this.homeUser,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final HomeUserEntity? homeUser;
 
