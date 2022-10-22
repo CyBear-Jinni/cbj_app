@@ -8,17 +8,13 @@
 [<div align="center"><img alt="CyBear Jinni image" height="400" src="https://user-images.githubusercontent.com/74055102/135610796-030761cc-6388-4cf6-b412-5e3e88412b78.png">](https://github.com/CyBear-Jinni/CBJ_Smart-Home)
 </div>
 
-
 # Welcome
-
 
 This repository is in charge of the CyBear Jinni App and is part of the [CyBear Jinni Smart Home](https://github.com/CyBear-Jinni/CBJ_Smart-Home.git) system.
 
 The CyBear Jinni App lets you control the [CyBear Jinni Hub](https://github.com/CyBear-Jinni/cbj_hub) that manage the smart devices from different vendors.
 
-
 It is writen with [Flutter](https://flutter.dev) and let you control the CyBear Jinni Hub directly in the local Wi-Fi and remotely through [cbj remote pipes](https://github.com/CyBear-Jinni/cbj_remote-pipes) which transfer requests to the Hub without collecting any data.
-
 
 <table align="middle">
   <tr>
@@ -33,18 +29,19 @@ It is writen with [Flutter](https://flutter.dev) and let you control the CyBear 
   </tr>
 </table>
 
-
 # Tutorial
 
 Watch this <a href="https://www.youtube.com/watch?v=o5owbiQahnY">Tutorial</a> below to understand how the app works!
 
-
 ## Instructions for developers and testers
 To run the app and start developing or testing check [this Wiki](https://github.com/CyBear-Jinni/cbj_app/wiki/Instructions-for-developers-and-testing).
 
-
 To learn the coding guidelines check [this Wiki](https://github.com/CyBear-Jinni/cbj_app/wiki/Coding-guidelines).
 
+# Thanks to all Contributors ⭐
+
+<a href="https://github.com/CyBear-Jinni/cbj_app/graphs/contributors" align="center">
+  <img src="https://contrib.rocks/image?repo=CyBear-Jinni/cbj_app" /> 
 
 # Social Media Links
 
@@ -58,4 +55,3 @@ To learn the coding guidelines check [this Wiki](https://github.com/CyBear-Jinni
 <img align="left" alt="Discord" width="45px" src="https://cdn.icon-icons.com/icons2/2108/PNG/512/discord_icon_130958.png" /></a>
 <a href="https://github.com/CyBear-Jinni">
 <img align="left" alt="Github" width="45px" src="https://seeklogo.com/images/G/github-colored-logo-FDDF6EB1F0-seeklogo.com.png" /></a>
-
