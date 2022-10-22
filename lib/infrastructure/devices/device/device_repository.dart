@@ -17,6 +17,8 @@ import 'package:cybear_jinni/domain/devices/generic_smart_computer_device/generi
 import 'package:cybear_jinni/domain/devices/generic_smart_computer_device/generic_smart_computer_value_objects.dart';
 import 'package:cybear_jinni/domain/devices/generic_smart_plug_device/generic_smart_plug_entity.dart';
 import 'package:cybear_jinni/domain/devices/generic_smart_plug_device/generic_smart_plug_value_objects.dart';
+import 'package:cybear_jinni/domain/devices/generic_smart_tv/generic_smart_tv_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_smart_tv/generic_smart_tv_value_objects.dart';
 import 'package:cybear_jinni/domain/devices/generic_switch_device/generic_switch_entity.dart';
 import 'package:cybear_jinni/domain/devices/generic_switch_device/generic_switch_value_objects.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
@@ -804,8 +806,9 @@ class DeviceRepository implements IDeviceRepository {
   }
 
   @override
-  Future<Either<DevicesFailure, Unit>> shutdownDevices(
-      {required List<String>? devicesId}) async {
+  Future<Either<DevicesFailure, Unit>> shutdownDevices({
+    required List<String>? devicesId,
+  }) async {
     final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
         await getDeviceEntityListFromId(devicesId!);
 
@@ -841,6 +844,101 @@ class DeviceRepository implements IDeviceRepository {
       }
     }
     return right(unit);
+  }
+
+  @override
+  Future<Either<DevicesFailure, Unit>> changeVolumeDevices({
+    required List<String>? devicesId,
+  }) async {
+    // TODO: implement changeVolumeDevices
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Either<DevicesFailure, Unit>> openUrlOnDevices({
+    required List<String>? devicesId,
+    required String url,
+  }) async {
+    final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
+        await getDeviceEntityListFromId(devicesId!);
+
+    try {
+      for (final DeviceEntityAbstract? deviceEntity
+          in deviceEntityListToUpdate) {
+        if (deviceEntity == null) {
+          continue;
+        }
+        if (deviceEntity is GenericSmartTvDE) {
+          deviceEntity.openUrl = GenericSmartTvOpenUrl(url);
+        } else {
+          logger.w(
+            'Open url action not supported for'
+            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+          );
+          continue;
+        }
+
+        updateWithDeviceEntity(deviceEntity: deviceEntity);
+      }
+    } on PlatformException catch (e) {
+      if (e.message!.contains('PERMISSION_DENIED')) {
+        return left(const DevicesFailure.insufficientPermission());
+      } else if (e.message!.contains('NOT_FOUND')) {
+        return left(const DevicesFailure.unableToUpdate());
+      } else {
+        // log.error(e.toString());
+        return left(const DevicesFailure.unexpected());
+      }
+    }
+    return right(unit);
+  }
+
+  @override
+  Future<Either<DevicesFailure, Unit>> pausePlayStateDevices({
+    required List<String>? devicesId,
+  }) async {
+    final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
+        await getDeviceEntityListFromId(devicesId!);
+
+    try {
+      for (final DeviceEntityAbstract? deviceEntity
+          in deviceEntityListToUpdate) {
+        if (deviceEntity == null) {
+          continue;
+        }
+        if (deviceEntity is GenericSmartTvDE) {
+          deviceEntity.pausePlayState = GenericSmartTvPausePlayState(
+            DeviceActions.pausePlay.toString(),
+          );
+        } else {
+          logger.w(
+            'Pause play action not supported for'
+            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+          );
+          continue;
+        }
+
+        updateWithDeviceEntity(deviceEntity: deviceEntity);
+      }
+    } on PlatformException catch (e) {
+      if (e.message!.contains('PERMISSION_DENIED')) {
+        return left(const DevicesFailure.insufficientPermission());
+      } else if (e.message!.contains('NOT_FOUND')) {
+        return left(const DevicesFailure.unableToUpdate());
+      } else {
+        // log.error(e.toString());
+        return left(const DevicesFailure.unexpected());
+      }
+    }
+    return right(unit);
+  }
+
+  @override
+  Future<Either<DevicesFailure, Unit>> skipVideoDevices({
+    required List<String>? devicesId,
+  }) async {
+    // TODO: implement skipVideoDevices
+    throw UnimplementedError();
   }
 
   @override
