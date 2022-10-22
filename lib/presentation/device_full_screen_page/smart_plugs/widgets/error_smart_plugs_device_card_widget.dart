@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 class ErrorSmartPlugsDeviceCard extends StatelessWidget {
   const ErrorSmartPlugsDeviceCard({
     required this.device,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final GenericSmartPlugDE? device;
 

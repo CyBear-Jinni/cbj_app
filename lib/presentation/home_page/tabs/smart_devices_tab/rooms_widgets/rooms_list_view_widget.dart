@@ -6,6 +6,7 @@ import 'package:cybear_jinni/domain/devices/generic_blinds_device/generic_blinds
 import 'package:cybear_jinni/domain/devices/generic_boiler_device/generic_boiler_entity.dart';
 import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
+import 'package:cybear_jinni/domain/devices/generic_smart_computer_device/generic_smart_computer_entity.dart';
 import 'package:cybear_jinni/domain/devices/generic_smart_plug_device/generic_smart_plug_entity.dart';
 import 'package:cybear_jinni/domain/devices/generic_smart_tv/generic_smart_tv_entity.dart';
 import 'package:cybear_jinni/domain/devices/generic_switch_device/generic_switch_entity.dart';
@@ -81,7 +82,7 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
 
     tempDevicesByRooms.forEach((k, v) {
       tempDevicesByRoomsByType[k!] = {};
-      v.forEach((element) {
+      for (final element in v) {
         if (tempDevicesByRoomsByType[k]![element.deviceTypes.getOrCrash()] ==
             null) {
           tempDevicesByRoomsByType[k]![element.deviceTypes.getOrCrash()] = [
@@ -91,7 +92,7 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
           tempDevicesByRoomsByType[k]![element.deviceTypes.getOrCrash()]!
               .add(element);
         }
-      });
+      }
     });
     return tempDevicesByRoomsByType;
   }
@@ -115,6 +116,8 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
       return deviceEntity.switchState?.getOrCrash() == onAction;
     } else if (deviceEntity is GenericSmartPlugDE) {
       return deviceEntity.smartPlugState?.getOrCrash() == onAction;
+    } else if (deviceEntity is GenericSmartComputerDE) {
+      return false;
     }
     logger.w(
       'State check is missing for device type ${deviceEntity.deviceTypes} '
@@ -401,15 +404,14 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
           int numberOfDevicesInTheRoom = 0;
 
           adOrRoom.value.forEach((key, value) {
-            value.forEach((element) {
+            for (final element in value) {
               numberOfDevicesInTheRoom++;
-            });
+            }
           });
 
           return RoomWidget(
             roomColorGradiant: roomColorGradiant,
             roomsList: roomsList,
-            index: index,
             tempDevicesByRoomsByType: tempDevicesByRoomsByType,
             borderRadius: borderRadius,
             bottomMargin: bottomMargin,

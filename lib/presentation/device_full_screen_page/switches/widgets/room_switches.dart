@@ -39,12 +39,12 @@ class RoomSwitches extends StatelessWidget {
       final List<Widget> columnOfSwitches = <Widget>[];
       List<Widget> widgetsForRow = <Widget>[];
 
-      final int _numberOfSwitchesToShow =
+      final int numberOfSwitchesToShow =
           _deviceEntityList.size > maxSwitchesToShow
               ? maxSwitchesToShow
               : _deviceEntityList.size;
 
-      for (int i = 0; i < _numberOfSwitchesToShow; i += _maxSwitchesInRow) {
+      for (int i = 0; i < numberOfSwitchesToShow; i += _maxSwitchesInRow) {
         for (int v = 0; v < _maxSwitchesInRow; v++) {
           if (_deviceEntityList.size > i + v &&
               _deviceEntityList[i + v] is GenericSwitchDE) {

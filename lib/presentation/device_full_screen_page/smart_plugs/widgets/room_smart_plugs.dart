@@ -39,12 +39,12 @@ class RoomSmartPlugs extends StatelessWidget {
       final List<Widget> columnOfSmartPlugs = <Widget>[];
       List<Widget> widgetsForRow = <Widget>[];
 
-      final int _numberOfSmartPlugsToShow =
+      final int numberOfSmartPlugsToShow =
           _deviceEntityList.size > maxSmartPlugsToShow
               ? maxSmartPlugsToShow
               : _deviceEntityList.size;
 
-      for (int i = 0; i < _numberOfSmartPlugsToShow; i += _maxSmartPlugsInRow) {
+      for (int i = 0; i < numberOfSmartPlugsToShow; i += _maxSmartPlugsInRow) {
         for (int v = 0; v < _maxSmartPlugsInRow; v++) {
           if (_deviceEntityList.size > i + v &&
               _deviceEntityList[i + v] is GenericSmartPlugDE) {

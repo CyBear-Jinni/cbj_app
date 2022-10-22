@@ -288,14 +288,14 @@ class ConfigureNewCbjCompBloc
   /// Organize all the data from the text fields to updated CBJCompEntity
   CBJCompEntity newCBJCompEntity(
     CBJCompEntity cbjCompEntity,
-    Map<String, TextEditingController> _textEditingController,
+    Map<String, TextEditingController> textEditingController,
   ) {
     final String deviceNameFieldKey =
         ConfigureNewCbjCompWidgets.deviceNameFieldKey;
     final List<GenericLightDE> deviceEntityList = [];
 
     final String roomUuid = const Uuid().v1();
-    final String roomName = _textEditingController['allInSameRoom']!.text;
+    final String roomName = textEditingController['allInSameRoom']!.text;
 
     final ManageNetworkEntity manageWiFiEntity =
         IManageNetworkRepository.manageWiFiEntity!;
@@ -303,7 +303,7 @@ class ConfigureNewCbjCompBloc
 
     cbjCompEntity.cBJCompDevices!.getOrCrash().asList().forEach((deviceE) {
       try {
-        final String deviceName = _textEditingController[
+        final String deviceName = textEditingController[
                 '$deviceNameFieldKey/${deviceE.uniqueId.getOrCrash()}']!
             .text;
         deviceEntityList.add(

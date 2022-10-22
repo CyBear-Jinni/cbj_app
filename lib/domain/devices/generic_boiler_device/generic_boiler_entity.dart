@@ -13,30 +13,20 @@ import 'package:dartz/dartz.dart';
 class GenericBoilerDE extends DeviceEntityAbstract {
   /// All public field of GenericBoiler entity
   GenericBoilerDE({
-    required CoreUniqueId uniqueId,
-    required VendorUniqueId vendorUniqueId,
-    required DeviceDefaultName defaultName,
-    required DeviceVendor deviceVendor,
-    required DeviceState deviceStateGRPC,
-    required DeviceStateMassage stateMassage,
-    required DeviceSenderDeviceOs senderDeviceOs,
-    required DeviceSenderDeviceModel senderDeviceModel,
-    required DeviceSenderId senderId,
-    required DeviceCompUuid compUuid,
+    required super.uniqueId,
+    required super.vendorUniqueId,
+    required super.defaultName,
+    required super.deviceVendor,
+    required super.deviceStateGRPC,
+    required super.stateMassage,
+    required super.senderDeviceOs,
+    required super.senderDeviceModel,
+    required super.senderId,
+    required super.compUuid,
     required this.boilerSwitchState,
     DevicePowerConsumption? powerConsumption,
   }) : super(
-          uniqueId: uniqueId,
-          vendorUniqueId: vendorUniqueId,
-          defaultName: defaultName,
           deviceTypes: DeviceType(DeviceTypes.boiler.toString()),
-          deviceVendor: deviceVendor,
-          deviceStateGRPC: deviceStateGRPC,
-          compUuid: compUuid,
-          senderDeviceModel: senderDeviceModel,
-          senderDeviceOs: senderDeviceOs,
-          senderId: senderId,
-          stateMassage: stateMassage,
         );
 
   /// Empty instance of GenericBoilerEntity
