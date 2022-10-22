@@ -24,6 +24,10 @@ class GenericSmartTvDE extends DeviceEntityAbstract {
     required super.senderId,
     required super.compUuid,
     required this.smartTvSwitchState,
+    this.openUrl,
+    this.pausePlayState,
+    this.skip,
+    this.volume,
     DevicePowerConsumption? powerConsumption,
   }) : super(
           deviceTypes: DeviceType(DeviceTypes.smartTV.toString()),
@@ -48,12 +52,17 @@ class GenericSmartTvDE extends DeviceEntityAbstract {
 
   /// State of the smartTv on/off
   GenericSmartTvSwitchState? smartTvSwitchState;
+  GenericSmartTvOpenUrl? openUrl;
+  GenericSmartTvPausePlayState? pausePlayState;
+  GenericSmartTvSkipBackOrForward? skip;
+  GenericSmartTvVolume? volume;
 
   //
   // /// Will return failure if any of the fields failed or return unit if fields
   // /// have legit values
   Option<CoreFailure<dynamic>> get failureOption =>
       defaultName.value.fold((f) => some(f), (_) => none());
+
   //
   // return body.failureOrUnit
   //     .andThen(todos.failureOrUnit)
@@ -97,6 +106,10 @@ class GenericSmartTvDE extends DeviceEntityAbstract {
       compUuid: compUuid.getOrCrash(),
       smartTvSwitchState: smartTvSwitchState!.getOrCrash(),
       deviceVendor: deviceVendor.getOrCrash(),
+      openUrl: openUrl?.getOrCrash(),
+      pausePlayState: pausePlayState?.getOrCrash(),
+      skip: skip?.getOrCrash(),
+      volume: volume?.getOrCrash(),
       // serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }
@@ -147,6 +160,9 @@ class GenericSmartTvDE extends DeviceEntityAbstract {
   List<String> getListOfPropertiesToChange() {
     return [
       'smartTvSwitchState',
+      'openUrl',
+      'skip',
+      'volume',
     ];
   }
 }

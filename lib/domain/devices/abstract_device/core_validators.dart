@@ -15,15 +15,15 @@ Either<CoreFailure<String>, String> validateDeviceNotEmpty(String input) {
 }
 
 Either<CoreFailure<String>, String> validateLastKnownIpNotEmpty(String input) {
-  if (input.isNotEmpty) {
-    return right(input);
-  } else {
-    return left(
-      CoreFailure.empty(
-        failedValue: input,
-      ),
-    );
-  }
+  // if (input.isNotEmpty) {
+  return right(input);
+  // } else {
+  //   return left(
+  //     CoreFailure.empty(
+  //       failedValue: input,
+  //     ),
+  //   );
+  // }
 }
 
 Either<CoreFailure<String>, String> validatePowerConsumptionNotEmpty(

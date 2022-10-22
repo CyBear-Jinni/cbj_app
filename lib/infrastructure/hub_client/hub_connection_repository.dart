@@ -406,9 +406,10 @@ class HubConnectionRepository extends IHubConnectionRepository {
       String? networkName;
       if (await Connectivity().checkConnectivity() == ConnectivityResult.wifi &&
           !kIsWeb) {
-        currentDeviceIP = await NetworkInfo().getWifiIP();
-        networkBSSID = await NetworkInfo().getWifiBSSID();
-        networkName = await NetworkInfo().getWifiName();
+        final NetworkInfo networkInfo = NetworkInfo();
+        networkName = await networkInfo.getWifiName();
+        currentDeviceIP = await networkInfo.getWifiIP();
+        networkBSSID = await networkInfo.getWifiBSSID();
       } else {
         if (deviceIpOnTheNetwork == null) {
           // Issue https://github.com/CyBear-Jinni/cbj_app/issues/256
@@ -446,7 +447,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
       );
 
       await for (final ActiveHost activeHost in devicesWithPort) {
-        logger.i('Found device: ${activeHost.address}');
+        logger.i('Found Cbj Hub device: ${activeHost.address}');
         if (networkBSSID != null && networkName != null) {
           return insertHubInfo(
             networkIp: activeHost.address,
