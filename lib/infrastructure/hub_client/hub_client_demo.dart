@@ -57,18 +57,18 @@ class HubClientDemo {
 
     final RoomEntity allRemoteCommandsRoomDiscovered = RoomEntity(
       uniqueId:
-          RoomUniqueId.fromUniqueString("00000000-0000-0000-0000-000000000000"),
-      defaultName: RoomDefaultName("Discovered"),
+          RoomUniqueId.fromUniqueString('00000000-0000-0000-0000-000000000000'),
+      defaultName: RoomDefaultName('Discovered'),
       roomTypes: RoomTypes(const []),
       roomDevicesId:
-          RoomDevicesId(const ["65d84b10-434d-11ed-817a-7d350fb52f91"]),
+          RoomDevicesId(const ['65d84b10-434d-11ed-817a-7d350fb52f91']),
       roomScenesId: RoomScenesId(const []),
       roomRoutinesId: RoomRoutinesId(const []),
       roomBindingsId: RoomBindingsId(const []),
       roomMostUsedBy: RoomMostUsedBy(const []),
       roomPermissions: RoomPermissions(const []),
       background: RoomBackground(
-        "https://images.unsplash.com/photo-1598546720078-8659863bc47d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80",
+        'https://images.unsplash.com/photo-1598546720078-8659863bc47d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80',
       ),
     );
 
@@ -85,22 +85,22 @@ class HubClientDemo {
 
     final RoomEntity allRemoteCommandsRoomGuy = RoomEntity(
       uniqueId:
-          RoomUniqueId.fromUniqueString("23deb7f0-4193-11ed-9d1c-5747056d7848"),
-      defaultName: RoomDefaultName("Guy Room"),
-      roomTypes: RoomTypes(const ["0", "1", "2", "4"]),
+          RoomUniqueId.fromUniqueString('23deb7f0-4193-11ed-9d1c-5747056d7848'),
+      defaultName: RoomDefaultName('Guy Room'),
+      roomTypes: RoomTypes(const ['0', '1', '2', '4']),
       roomDevicesId: RoomDevicesId(const [
-        "a31523m6-463s-32ge-7426-g33c642r7m25",
-        "c90137f2-419b-11ed-8246-e17a279f4d89",
-        "96386cd0-419b-11ed-8246-e17a279f4d89",
+        'a31523m6-463s-32ge-7426-g33c642r7m25',
+        'c90137f2-419b-11ed-8246-e17a279f4d89',
+        '96386cd0-419b-11ed-8246-e17a279f4d89',
       ]),
       roomScenesId:
-          RoomScenesId(const ["01bd6880-419b-11ed-af10-f75196d26a5e"]),
+          RoomScenesId(const ['01bd6880-419b-11ed-af10-f75196d26a5e']),
       roomRoutinesId: RoomRoutinesId(const []),
       roomBindingsId: RoomBindingsId(const []),
       roomMostUsedBy: RoomMostUsedBy(const []),
       roomPermissions: RoomPermissions(const []),
       background: RoomBackground(
-        "https://images.unsplash.com/photo-1598546720078-8659863bc47d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80",
+        'https://images.unsplash.com/photo-1598546720078-8659863bc47d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80',
       ),
     );
 
@@ -117,22 +117,18 @@ class HubClientDemo {
 
     final RoomEntity allRemoteCommandsRoomOutSide = RoomEntity(
       uniqueId:
-          RoomUniqueId.fromUniqueString("38b45780-419c-11ed-bce9-8dc09da0062f"),
-      defaultName: RoomDefaultName("Outside"),
-      roomTypes: RoomTypes(const ["0", "1", "2", "5"]),
-      roomDevicesId: RoomDevicesId(const [
-        "a31523m6-463s-32ge-7426-g33c642r7m25",
-        "c90137f2-419b-11ed-8246-e17a279f4d89",
-        "96386cd0-419b-11ed-8246-e17a279f4d89",
-      ]),
-      roomScenesId:
-          RoomScenesId(const ["7189ed76-4351-11ed-b249-63fd7e165c16"]),
+          RoomUniqueId.fromUniqueString('38b45780-419c-11ed-bce9-8dc09da0062f'),
+      defaultName: RoomDefaultName('Outside'),
+      roomTypes: RoomTypes(const ['0', '1', '2', '5']),
+      roomDevicesId:
+          RoomDevicesId(const ['7189ed76-4351-11ed-b249-63fd7e165c16']),
+      roomScenesId: RoomScenesId(const []),
       roomRoutinesId: RoomRoutinesId(const []),
       roomBindingsId: RoomBindingsId(const []),
       roomMostUsedBy: RoomMostUsedBy(const []),
       roomPermissions: RoomPermissions(const []),
       background: RoomBackground(
-        "https://images.unsplash.com/photo-1598546720078-8659863bc47d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80",
+        'https://images.unsplash.com/photo-1598546720078-8659863bc47d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80',
       ),
     );
 
@@ -155,28 +151,23 @@ class HubClientDemo {
 
     /// Guy Blinds
 
-    final GenericRgbwLightDE allRemoteCommandsBlinds = GenericRgbwLightDE(
+    final GenericBlindsDE allRemoteCommandsBlinds = GenericBlindsDE(
       uniqueId:
-          CoreUniqueId.fromUniqueString("96386cd0-419b-11ed-8246-e17a279f4d89"),
-      vendorUniqueId: VendorUniqueId.fromUniqueString("63b298"),
-      deviceVendor: DeviceVendor("switcherSmartHome"),
-      defaultName: DeviceDefaultName("Guy Blinds"),
+          CoreUniqueId.fromUniqueString('96386cd0-419b-11ed-8246-e17a279f4d89'),
+      vendorUniqueId: VendorUniqueId.fromUniqueString('63b298'),
+      deviceVendor: DeviceVendor('switcherSmartHome'),
+      defaultName: DeviceDefaultName('Guy Blinds'),
       deviceStateGRPC: DeviceState(DeviceStateGRPC.ack.toString()),
-      stateMassage: DeviceStateMassage("Hello World"),
-      senderDeviceOs: DeviceSenderDeviceOs("switcher"),
+      stateMassage: DeviceStateMassage('Hello World'),
+      senderDeviceOs: DeviceSenderDeviceOs('switcher'),
       senderDeviceModel:
-          DeviceSenderDeviceModel("SwitcherDevicesTypes.switcherRunner"),
+          DeviceSenderDeviceModel('SwitcherDevicesTypes.switcherRunner'),
       senderId: DeviceSenderId.fromUniqueString(
-          "94edb282-434a-11ed-bd96-f573a00b65aa"),
-      compUuid: DeviceCompUuid("34asdfrsd23gggg"),
-      lightSwitchState:
-          GenericRgbwLightSwitchState(DeviceActions.off.toString()),
-      lightBrightness: GenericRgbwLightBrightness("1000"),
-      lightColorAlpha: GenericRgbwLightColorAlpha("1.0"),
-      lightColorHue: GenericRgbwLightColorHue("0.0"),
-      lightColorSaturation: GenericRgbwLightColorSaturation("1.0"),
-      lightColorTemperature: GenericRgbwLightColorTemperature("8129"),
-      lightColorValue: GenericRgbwLightColorValue("1.0"),
+        '94edb282-434a-11ed-bd96-f573a00b65aa',
+      ),
+      compUuid: DeviceCompUuid('34asdfrsd23gggg'),
+      blindsSwitchState:
+          GenericBlindsSwitchState(DeviceActions.stop.toString()),
     );
 
     final RequestsAndStatusFromHub requestsAndStatusFromHubBlinds =
@@ -192,17 +183,18 @@ class HubClientDemo {
 
     final GenericSwitchDE allRemoteCommandsButton = GenericSwitchDE(
       uniqueId:
-          CoreUniqueId.fromUniqueString("c90137f2-419b-11ed-8246-e17a279f4d89"),
-      vendorUniqueId: VendorUniqueId.fromUniqueString("67600068c44f33f5b515"),
-      deviceVendor: DeviceVendor("tuyaSmart"),
-      defaultName: DeviceDefaultName("Guy Ceiling Button"),
+          CoreUniqueId.fromUniqueString('c90137f2-419b-11ed-8246-e17a279f4d89'),
+      vendorUniqueId: VendorUniqueId.fromUniqueString('67600068c44f33f5b515'),
+      deviceVendor: DeviceVendor('tuyaSmart'),
+      defaultName: DeviceDefaultName('Guy Ceiling Button'),
       deviceStateGRPC: DeviceState(DeviceStateGRPC.ack.toString()),
-      stateMassage: DeviceStateMassage("Hello World"),
-      senderDeviceOs: DeviceSenderDeviceOs("switcher"),
-      senderDeviceModel: DeviceSenderDeviceModel("Cloud"),
+      stateMassage: DeviceStateMassage('Hello World'),
+      senderDeviceOs: DeviceSenderDeviceOs('switcher'),
+      senderDeviceModel: DeviceSenderDeviceModel('Cloud'),
       senderId: DeviceSenderId.fromUniqueString(
-          "90d20fc3-434a-11ed-bd96-f573a00b65aa"),
-      compUuid: DeviceCompUuid("34asdfrsd23gggg"),
+        '90d20fc3-434a-11ed-bd96-f573a00b65aa',
+      ),
+      compUuid: DeviceCompUuid('34asdfrsd23gggg'),
       switchState: GenericSwitchSwitchState(DeviceActions.on.toString()),
     );
 
@@ -218,17 +210,18 @@ class HubClientDemo {
 
     final GenericSwitchDE allRemoteCommandsButton2 = GenericSwitchDE(
       uniqueId:
-          CoreUniqueId.fromUniqueString("a31523m6-463s-32ge-7426-g33c642r7m25"),
-      vendorUniqueId: VendorUniqueId.fromUniqueString("67600068c44f33f5b515"),
-      deviceVendor: DeviceVendor("tuyaSmart"),
-      defaultName: DeviceDefaultName("Guy Bedroom Button"),
+          CoreUniqueId.fromUniqueString('a31523m6-463s-32ge-7426-g33c642r7m25'),
+      vendorUniqueId: VendorUniqueId.fromUniqueString('67600068c44f33f5b515'),
+      deviceVendor: DeviceVendor('tuyaSmart'),
+      defaultName: DeviceDefaultName('Guy Bedroom Button'),
       deviceStateGRPC: DeviceState(DeviceStateGRPC.ack.toString()),
-      stateMassage: DeviceStateMassage("Hello World"),
-      senderDeviceOs: DeviceSenderDeviceOs("switcher"),
-      senderDeviceModel: DeviceSenderDeviceModel("Cloud"),
+      stateMassage: DeviceStateMassage('Hello World'),
+      senderDeviceOs: DeviceSenderDeviceOs('switcher'),
+      senderDeviceModel: DeviceSenderDeviceModel('Cloud'),
       senderId: DeviceSenderId.fromUniqueString(
-          "90d20fc3-434a-11ed-bd96-f573a00b65aa"),
-      compUuid: DeviceCompUuid("34asdfrsd23gggg"),
+        '90d20fc3-434a-11ed-bd96-f573a00b65aa',
+      ),
+      compUuid: DeviceCompUuid('34asdfrsd23gggg'),
       switchState: GenericSwitchSwitchState(DeviceActions.on.toString()),
     );
 
@@ -244,18 +237,19 @@ class HubClientDemo {
 
     final GenericBoilerDE allRemoteCommandsBoiler = GenericBoilerDE(
       uniqueId:
-          CoreUniqueId.fromUniqueString("65d84b10-434d-11ed-817a-7d350fb52f91"),
-      vendorUniqueId: VendorUniqueId.fromUniqueString("65fd2f"),
-      deviceVendor: DeviceVendor("switcherSmartHome"),
-      defaultName: DeviceDefaultName("Boiler"),
+          CoreUniqueId.fromUniqueString('65d84b10-434d-11ed-817a-7d350fb52f91'),
+      vendorUniqueId: VendorUniqueId.fromUniqueString('65fd2f'),
+      deviceVendor: DeviceVendor('switcherSmartHome'),
+      defaultName: DeviceDefaultName('Boiler'),
       deviceStateGRPC: DeviceState(DeviceStateGRPC.ack.toString()),
-      stateMassage: DeviceStateMassage("Hello World"),
-      senderDeviceOs: DeviceSenderDeviceOs("switcher"),
+      stateMassage: DeviceStateMassage('Hello World'),
+      senderDeviceOs: DeviceSenderDeviceOs('switcher'),
       senderDeviceModel:
-          DeviceSenderDeviceModel("SwitcherDevicesTypes.switcherV2Esp"),
+          DeviceSenderDeviceModel('SwitcherDevicesTypes.switcherV2Esp'),
       senderId: DeviceSenderId.fromUniqueString(
-          "65d84b11-434d-11ed-817a-7d350fb52f91"),
-      compUuid: DeviceCompUuid("34asdfrsd23gggg"),
+        '65d84b11-434d-11ed-817a-7d350fb52f91',
+      ),
+      compUuid: DeviceCompUuid('34asdfrsd23gggg'),
       boilerSwitchState: GenericBoilerSwitchState(DeviceActions.off.toString()),
     );
 
@@ -271,25 +265,26 @@ class HubClientDemo {
 
     final GenericRgbwLightDE allRemoteCommandsRgbLight = GenericRgbwLightDE(
       uniqueId:
-          CoreUniqueId.fromUniqueString("7189ed76-4351-11ed-b249-63fd7e165c16"),
-      vendorUniqueId: VendorUniqueId.fromUniqueString("bf4bccdaf68347e31dhiut"),
-      deviceVendor: DeviceVendor("tuyaSmart"),
-      defaultName: DeviceDefaultName("Dining Room Ceiling"),
+          CoreUniqueId.fromUniqueString('7189ed76-4351-11ed-b249-63fd7e165c16'),
+      vendorUniqueId: VendorUniqueId.fromUniqueString('bf4bccdaf68347e31dhiut'),
+      deviceVendor: DeviceVendor('tuyaSmart'),
+      defaultName: DeviceDefaultName('Dining Room Ceiling'),
       deviceStateGRPC: DeviceState(DeviceStateGRPC.ack.toString()),
-      stateMassage: DeviceStateMassage("Hello World"),
-      senderDeviceOs: DeviceSenderDeviceOs("tuya_smart"),
-      senderDeviceModel: DeviceSenderDeviceModel("1SE"),
+      stateMassage: DeviceStateMassage('Hello World'),
+      senderDeviceOs: DeviceSenderDeviceOs('tuya_smart'),
+      senderDeviceModel: DeviceSenderDeviceModel('1SE'),
       senderId: DeviceSenderId.fromUniqueString(
-          "7189ed77-4351-11ed-b249-63fd7e165c16"),
-      compUuid: DeviceCompUuid("34asdfrsd23gggg"),
+        '7189ed77-4351-11ed-b249-63fd7e165c16',
+      ),
+      compUuid: DeviceCompUuid('34asdfrsd23gggg'),
       lightSwitchState:
           GenericRgbwLightSwitchState(DeviceActions.off.toString()),
-      lightBrightness: GenericRgbwLightBrightness("1000"),
-      lightColorAlpha: GenericRgbwLightColorAlpha("1.0"),
-      lightColorHue: GenericRgbwLightColorHue("0.0"),
-      lightColorSaturation: GenericRgbwLightColorSaturation("1.0"),
-      lightColorTemperature: GenericRgbwLightColorTemperature("8129"),
-      lightColorValue: GenericRgbwLightColorValue("1.0"),
+      lightBrightness: GenericRgbwLightBrightness('1000'),
+      lightColorAlpha: GenericRgbwLightColorAlpha('1.0'),
+      lightColorHue: GenericRgbwLightColorHue('0.0'),
+      lightColorSaturation: GenericRgbwLightColorSaturation('1.0'),
+      lightColorTemperature: GenericRgbwLightColorTemperature('8129'),
+      lightColorValue: GenericRgbwLightColorValue('1.0'),
     );
 
     final RequestsAndStatusFromHub requestsAndStatusFromHubRgbLight =
@@ -312,12 +307,12 @@ class HubClientDemo {
 
     final SceneCbjEntity allRemoteCommandsSceneOpen = SceneCbjEntity(
       uniqueId:
-          UniqueId.fromUniqueString("01bd6880-419b-11ed-af10-f75196d26a5e"),
-      name: SceneCbjName("Study Scene"),
-      backgroundColor: SceneCbjBackgroundColor("0xFFFF9800"),
-      nodeRedFlowId: SceneCbjNodeRedFlowId("6b63068c3c970eeb"),
-      automationString: SceneCbjAutomationString("[]"),
-      firstNodeId: SceneCbjFirstNodeId("3f1a9440-41a1-11ed-8b6a-5f136f4fe196"),
+          UniqueId.fromUniqueString('01bd6880-419b-11ed-af10-f75196d26a5e'),
+      name: SceneCbjName('Study Scene'),
+      backgroundColor: SceneCbjBackgroundColor('0xFFFF9800'),
+      nodeRedFlowId: SceneCbjNodeRedFlowId('6b63068c3c970eeb'),
+      automationString: SceneCbjAutomationString('[]'),
+      firstNodeId: SceneCbjFirstNodeId('3f1a9440-41a1-11ed-8b6a-5f136f4fe196'),
       iconCodePoint: SceneCbjIconCodePoint(null),
       image: SceneCbjBackgroundImage(null),
       lastDateOfExecute: SceneCbjLastDateOfExecute(null),
@@ -326,7 +321,7 @@ class HubClientDemo {
       senderDeviceModel: SceneCbjSenderDeviceModel(null),
       senderId: SceneCbjSenderId(null),
       compUuid: SceneCbjCompUuid(null),
-      deviceStateGRPC: SceneCbjDeviceStateGRPC("waitingInComp"),
+      deviceStateGRPC: SceneCbjDeviceStateGRPC('waitingInComp'),
     );
 
     final RequestsAndStatusFromHub requestsAndStatusFromHubSceneOpen =
