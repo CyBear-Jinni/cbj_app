@@ -78,197 +78,203 @@ class RoomWidget extends StatelessWidget {
           ),
         ],
       ),
-      child: Container(
-        margin: const EdgeInsets.all(3),
-        decoration: BoxDecoration(
-          color: Colors.black.withOpacity(0.07),
-          borderRadius: BorderRadius.circular(borderRadius),
-        ),
-        child: Column(
-          children: [
-            Container(
-              margin: const EdgeInsets.only(top: 12),
-              alignment: Alignment.topCenter,
-              child: Stack(
-                children: <Widget>[
-                  Text(
-                    roomsList
-                        .firstWhere(
-                          (element) => element!.uniqueId.getOrCrash() == roomId,
-                        )!
-                        .defaultName
-                        .getOrCrash(),
-                    style: TextStyle(
-                      fontSize: 23,
-                      foreground: Paint()
-                        ..style = PaintingStyle.stroke
-                        ..strokeWidth = 1.2
-                        ..color = Colors.black,
+      child: AnimatedSize(
+        duration: const Duration(milliseconds: 300),
+        child: Container(
+          margin: const EdgeInsets.all(3),
+          decoration: BoxDecoration(
+            color: Colors.black.withOpacity(0.07),
+            borderRadius: BorderRadius.circular(borderRadius),
+          ),
+          child: Column(
+            children: [
+              Container(
+                margin: const EdgeInsets.only(top: 12),
+                alignment: Alignment.topCenter,
+                child: Stack(
+                  children: <Widget>[
+                    Text(
+                      roomsList
+                          .firstWhere(
+                            (element) =>
+                                element!.uniqueId.getOrCrash() == roomId,
+                          )!
+                          .defaultName
+                          .getOrCrash(),
+                      style: TextStyle(
+                        fontSize: 23,
+                        foreground: Paint()
+                          ..style = PaintingStyle.stroke
+                          ..strokeWidth = 1.2
+                          ..color = Colors.black,
+                      ),
                     ),
-                  ),
-                  Text(
-                    roomsList
-                        .firstWhere(
-                          (element) => element!.uniqueId.getOrCrash() == roomId,
-                        )!
-                        .defaultName
-                        .getOrCrash(),
-                    style: TextStyle(
-                      fontSize: 23,
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                    Text(
+                      roomsList
+                          .firstWhere(
+                            (element) =>
+                                element!.uniqueId.getOrCrash() == roomId,
+                          )!
+                          .defaultName
+                          .getOrCrash(),
+                      style: TextStyle(
+                        fontSize: 23,
+                        color: Theme.of(context).textTheme.bodyText1!.color,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            if (numberOfDevicesInTheRoom == 1)
-              const Text(
-                '_device',
-                style: TextStyle(fontSize: 12),
-              ).tr(args: [numberOfDevicesInTheRoom.toString()])
-            else
-              const Text(
-                '_devices',
-                style: TextStyle(fontSize: 12),
-              ).tr(args: [numberOfDevicesInTheRoom.toString()]),
+              if (numberOfDevicesInTheRoom == 1)
+                const Text(
+                  '_device',
+                  style: TextStyle(fontSize: 12),
+                ).tr(args: [numberOfDevicesInTheRoom.toString()])
+              else
+                const Text(
+                  '_devices',
+                  style: TextStyle(fontSize: 12),
+                ).tr(args: [numberOfDevicesInTheRoom.toString()]),
 
-            /// Build the devices in the room by type
-            GridView.builder(
-              padding: EdgeInsets.zero,
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: 200,
-                childAspectRatio: 1.2,
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 15,
-              ),
-              itemCount: tempDevicesByRoomsByType[roomId]!.keys.length,
-              itemBuilder: (BuildContext ctx, secondIndex) {
-                final String deviceType = tempDevicesByRoomsByType[roomId]!
-                    .keys
-                    .elementAt(secondIndex);
+              /// Build the devices in the room by type
+              GridView.builder(
+                padding: EdgeInsets.zero,
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                  maxCrossAxisExtent: 200,
+                  childAspectRatio: 1.2,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 15,
+                ),
+                itemCount: tempDevicesByRoomsByType[roomId]!.keys.length,
+                itemBuilder: (BuildContext ctx, secondIndex) {
+                  final String deviceType = tempDevicesByRoomsByType[roomId]!
+                      .keys
+                      .elementAt(secondIndex);
 
-                final List<DeviceEntityAbstract> devicesInTheRoom =
-                    tempDevicesByRoomsByType[roomId]![deviceType]!;
+                  final List<DeviceEntityAbstract> devicesInTheRoom =
+                      tempDevicesByRoomsByType[roomId]![deviceType]!;
 
-                if (deviceType == DeviceTypes.light.toString()) {
-                  return BlocProvider(
-                    create: (context) => getIt<LightsActorBloc>(),
-                    child: LightsInTheRoomBlock.withAbstractDevice(
-                      roomEntity: roomEntity,
-                      tempDeviceInRoom: devicesInTheRoom,
-                      tempRoomColorGradiant: roomColorGradiant,
-                    ),
-                  );
-                } else if (deviceType == DeviceTypes.rgbwLights.toString()) {
-                  return BlocProvider(
-                    create: (context) => getIt<LightsActorBloc>(),
-                    child: RgbwLightsInTheRoomBlock.withAbstractDevice(
-                      roomEntity: roomEntity,
-                      tempDeviceInRoom: devicesInTheRoom,
-                      tempRoomColorGradiant: roomColorGradiant,
-                    ),
-                  );
-                } else if (deviceType == DeviceTypes.switch_.toString()) {
-                  return BlocProvider(
-                    create: (context) => getIt<SwitchesActorBloc>(),
-                    child: SwitchesInTheRoomBlock.withAbstractDevice(
-                      roomEntityTemp: roomsList.firstWhere(
-                        (element) => element!.uniqueId.getOrCrash() == roomId,
-                      )!,
-                      tempDeviceInRoom: devicesInTheRoom,
-                      tempRoomColorGradiant: roomColorGradiant,
-                    ),
-                  );
-                } else if (deviceType == DeviceTypes.blinds.toString()) {
-                  return BlocProvider(
-                    create: (context) => getIt<BlindsActorBloc>(),
-                    child: BlindsInTheRoom.withAbstractDevice(
-                      roomEntity: roomEntity,
-                      tempDeviceInRoom: devicesInTheRoom,
-                      temprRoomColorGradiant: roomColorGradiant,
-                    ),
-                  );
-                } else if (deviceType == DeviceTypes.boiler.toString()) {
-                  //TODO: Boiler should not user Blinds block
-                  return BlocProvider(
-                    create: (context) => getIt<BlindsActorBloc>(),
-                    child: BoilersInTheRoom.withAbstractDevice(
-                      roomEntity: roomEntity,
-                      tempDeviceInRoom: devicesInTheRoom,
-                      tempRoomColorGradiant: roomColorGradiant,
-                    ),
-                  );
-                } else if (deviceType == DeviceTypes.smartTV.toString()) {
-                  return BlocProvider(
-                    create: (context) => getIt<SmartTvActorBloc>(),
-                    child: SmartTvInTheRoom.withAbstractDevice(
-                      roomEntity: roomEntity,
-                      tempDeviceInRoom: devicesInTheRoom,
-                      tempRoomColorGradiant: roomColorGradiant,
-                    ),
-                  );
-                } else if (deviceType == DeviceTypes.smartPlug.toString()) {
-                  return BlocProvider(
-                    create: (context) => getIt<SmartPlugsActorBloc>(),
-                    child: SmartPlugsInTheRoomBlock.withAbstractDevice(
-                      roomEntityTemp: roomsList.firstWhere(
-                        (element) => element!.uniqueId.getOrCrash() == roomId,
-                      )!,
-                      tempDeviceInRoom: devicesInTheRoom,
-                      tempRoomColorGradiant: roomColorGradiant,
-                    ),
-                  );
-                } else if (deviceType == DeviceTypes.smartComputer.toString()) {
-                  return BlocProvider(
-                    create: (context) => getIt<SmartComputersActorBloc>(),
-                    child: SmartComputersInTheRoomBlock.withAbstractDevice(
-                      roomEntityTemp: roomsList.firstWhere(
-                        (element) => element!.uniqueId.getOrCrash() == roomId,
-                      )!,
-                      tempDeviceInRoom: devicesInTheRoom,
-                      tempRoomColorGradiant: roomColorGradiant,
-                    ),
-                  );
-                } else if (deviceType == DeviceTypes.printer.toString()) {
-                  return BlocProvider(
-                    create: (context) => getIt<PrintersActorBloc>(),
-                    child: PrintersInTheRoomBlock.withAbstractDevice(
-                      roomEntityTemp: roomsList.firstWhere(
-                        (element) => element!.uniqueId.getOrCrash() == roomId,
-                      )!,
-                      tempDeviceInRoom: devicesInTheRoom,
-                      tempRoomColorGradiant: roomColorGradiant,
-                    ),
-                  );
-                }
-                return TextButton(
-                  onPressed: () {
-                    FlushbarHelper.createInformation(
-                      message:
-                          'This device is not supported\nName: ${devicesInTheRoom[secondIndex].defaultName.getOrCrash()}',
-                    ).show(context);
-                  },
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      CircleAvatar(
-                        child: FaIcon(
-                          FontAwesomeIcons.eyeLowVision,
-                          color: Colors.red,
+                  if (deviceType == DeviceTypes.light.toString()) {
+                    return BlocProvider(
+                      create: (context) => getIt<LightsActorBloc>(),
+                      child: LightsInTheRoomBlock.withAbstractDevice(
+                        roomEntity: roomEntity,
+                        tempDeviceInRoom: devicesInTheRoom,
+                        tempRoomColorGradiant: roomColorGradiant,
+                      ),
+                    );
+                  } else if (deviceType == DeviceTypes.rgbwLights.toString()) {
+                    return BlocProvider(
+                      create: (context) => getIt<LightsActorBloc>(),
+                      child: RgbwLightsInTheRoomBlock.withAbstractDevice(
+                        roomEntity: roomEntity,
+                        tempDeviceInRoom: devicesInTheRoom,
+                        tempRoomColorGradiant: roomColorGradiant,
+                      ),
+                    );
+                  } else if (deviceType == DeviceTypes.switch_.toString()) {
+                    return BlocProvider(
+                      create: (context) => getIt<SwitchesActorBloc>(),
+                      child: SwitchesInTheRoomBlock.withAbstractDevice(
+                        roomEntityTemp: roomsList.firstWhere(
+                          (element) => element!.uniqueId.getOrCrash() == roomId,
+                        )!,
+                        tempDeviceInRoom: devicesInTheRoom,
+                        tempRoomColorGradiant: roomColorGradiant,
+                      ),
+                    );
+                  } else if (deviceType == DeviceTypes.blinds.toString()) {
+                    return BlocProvider(
+                      create: (context) => getIt<BlindsActorBloc>(),
+                      child: BlindsInTheRoom.withAbstractDevice(
+                        roomEntity: roomEntity,
+                        tempDeviceInRoom: devicesInTheRoom,
+                        temprRoomColorGradiant: roomColorGradiant,
+                      ),
+                    );
+                  } else if (deviceType == DeviceTypes.boiler.toString()) {
+                    //TODO: Boiler should not user Blinds block
+                    return BlocProvider(
+                      create: (context) => getIt<BlindsActorBloc>(),
+                      child: BoilersInTheRoom.withAbstractDevice(
+                        roomEntity: roomEntity,
+                        tempDeviceInRoom: devicesInTheRoom,
+                        tempRoomColorGradiant: roomColorGradiant,
+                      ),
+                    );
+                  } else if (deviceType == DeviceTypes.smartTV.toString()) {
+                    return BlocProvider(
+                      create: (context) => getIt<SmartTvActorBloc>(),
+                      child: SmartTvInTheRoom.withAbstractDevice(
+                        roomEntity: roomEntity,
+                        tempDeviceInRoom: devicesInTheRoom,
+                        tempRoomColorGradiant: roomColorGradiant,
+                      ),
+                    );
+                  } else if (deviceType == DeviceTypes.smartPlug.toString()) {
+                    return BlocProvider(
+                      create: (context) => getIt<SmartPlugsActorBloc>(),
+                      child: SmartPlugsInTheRoomBlock.withAbstractDevice(
+                        roomEntityTemp: roomsList.firstWhere(
+                          (element) => element!.uniqueId.getOrCrash() == roomId,
+                        )!,
+                        tempDeviceInRoom: devicesInTheRoom,
+                        tempRoomColorGradiant: roomColorGradiant,
+                      ),
+                    );
+                  } else if (deviceType ==
+                      DeviceTypes.smartComputer.toString()) {
+                    return BlocProvider(
+                      create: (context) => getIt<SmartComputersActorBloc>(),
+                      child: SmartComputersInTheRoomBlock.withAbstractDevice(
+                        roomEntityTemp: roomsList.firstWhere(
+                          (element) => element!.uniqueId.getOrCrash() == roomId,
+                        )!,
+                        tempDeviceInRoom: devicesInTheRoom,
+                        tempRoomColorGradiant: roomColorGradiant,
+                      ),
+                    );
+                  } else if (deviceType == DeviceTypes.printer.toString()) {
+                    return BlocProvider(
+                      create: (context) => getIt<PrintersActorBloc>(),
+                      child: PrintersInTheRoomBlock.withAbstractDevice(
+                        roomEntityTemp: roomsList.firstWhere(
+                          (element) => element!.uniqueId.getOrCrash() == roomId,
+                        )!,
+                        tempDeviceInRoom: devicesInTheRoom,
+                        tempRoomColorGradiant: roomColorGradiant,
+                      ),
+                    );
+                  }
+                  return TextButton(
+                    onPressed: () {
+                      FlushbarHelper.createInformation(
+                        message:
+                            'This device is not supported\nName: ${devicesInTheRoom[secondIndex].defaultName.getOrCrash()}',
+                      ).show(context);
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        CircleAvatar(
+                          child: FaIcon(
+                            FontAwesomeIcons.eyeLowVision,
+                            color: Colors.red,
+                          ),
                         ),
-                      ),
-                      Text(
-                        'Unsupported Type',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ],
-                  ),
-                );
-              },
-            ),
-          ],
+                        Text(
+                          'Unsupported Type',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
