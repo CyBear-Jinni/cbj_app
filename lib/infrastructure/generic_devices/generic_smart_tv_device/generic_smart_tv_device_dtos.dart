@@ -24,6 +24,10 @@ abstract class GenericSmartTvDeviceDtos
     required String? deviceTypes,
     required String? compUuid,
     required String? deviceVendor,
+    required String? openUrl,
+    required String? pausePlayState,
+    required String? skip,
+    required String? volume,
     String? deviceDtoClass,
     String? stateMassage,
 
@@ -49,6 +53,10 @@ abstract class GenericSmartTvDeviceDtos
       deviceTypes: genericSmartTvDE.deviceTypes.getOrCrash(),
       compUuid: genericSmartTvDE.compUuid.getOrCrash(),
       deviceVendor: genericSmartTvDE.deviceVendor.getOrCrash(),
+      openUrl: genericSmartTvDE.openUrl?.getOrCrash(),
+      pausePlayState: genericSmartTvDE.pausePlayState?.getOrCrash(),
+      skip: genericSmartTvDE.skip?.getOrCrash(),
+      volume: genericSmartTvDE.volume?.getOrCrash(),
       // serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }
@@ -73,6 +81,12 @@ abstract class GenericSmartTvDeviceDtos
       deviceVendor: DeviceVendor(deviceVendor),
       compUuid: DeviceCompUuid(compUuid),
       smartTvSwitchState: GenericSmartTvSwitchState(smartTvSwitchState),
+      openUrl: openUrl == null ? null : GenericSmartTvOpenUrl(openUrl),
+      pausePlayState: pausePlayState == null
+          ? null
+          : GenericSmartTvPausePlayState(pausePlayState),
+      skip: skip == null ? null : GenericSmartTvSkipBackOrForward(skip),
+      volume: volume == null ? null : GenericSmartTvVolume(volume),
     );
   }
 }

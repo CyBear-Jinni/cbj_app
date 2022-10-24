@@ -79,11 +79,9 @@ class SoftwareInfoWidget extends StatelessWidget {
                               children: [
                                 const Text('Dart SDK version: '),
                                 Flexible(
-                                  child: Text(
-                                    softwareInfoEntity?.dartSdkVersion
-                                            .getOrCrash() ??
-                                        'No Info'
-                                  ),
+                                  child: Text(softwareInfoEntity?.dartSdkVersion
+                                          .getOrCrash() ??
+                                      'No Info'),
                                 ),
                               ],
                             ),

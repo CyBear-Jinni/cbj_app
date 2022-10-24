@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/hub_in_network/hub_in_network_bloc.dart';
 import 'package:cybear_jinni/injection.dart';
-import 'package:cybear_jinni/presentation/connect_to_hub/widgets/cbj_hub_in_network.dart';
+import 'package:cybear_jinni/presentation/connect_to_hub/widgets/cbj_hub_in_network_widget.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -56,7 +56,9 @@ class ConnectToHubPage extends StatelessWidget {
                                   height: 15,
                                 ),
                                 Container(
-                                  margin: const EdgeInsets.symmetric(horizontal: 15),
+                                  margin: const EdgeInsets.symmetric(
+                                    horizontal: 15,
+                                  ),
                                   child: Row(
                                     children: [
                                       Container(
@@ -76,8 +78,9 @@ class ConnectToHubPage extends StatelessWidget {
                                       Flexible(
                                         child: Text(
                                           'Search a CyBear Jinni Hub in your network',
-                                          style:
-                                          TextStyle(color: HexColor('#D6D6D6')),
+                                          style: TextStyle(
+                                            color: HexColor('#D6D6D6'),
+                                          ),
                                         ),
                                       ),
                                     ],
@@ -87,11 +90,13 @@ class ConnectToHubPage extends StatelessWidget {
                                   child: Center(
                                     child: BlocProvider(
                                       create: (BuildContext context) =>
-                                      getIt<HubInNetworkBloc>()
-                                        ..add(
-                                          HubInNetworkEvent.initialEvent(context),
-                                        ),
-                                      child: CbjHubInNetwork(),
+                                          getIt<HubInNetworkBloc>()
+                                            ..add(
+                                              HubInNetworkEvent.initialEvent(
+                                                context,
+                                              ),
+                                            ),
+                                      child: CbjHubInNetworkWidget(),
                                     ),
                                   ),
                                 ),
@@ -144,8 +149,9 @@ class ConnectToHubPage extends StatelessWidget {
                           Flexible(
                             child: RichText(
                               text: TextSpan(
-                                style:
-                                TextStyle(color: Colors.white.withOpacity(0.9)),
+                                style: TextStyle(
+                                  color: Colors.white.withOpacity(0.9),
+                                ),
                                 /*defining default style is optional */
                                 children: <TextSpan>[
                                   const TextSpan(
@@ -155,7 +161,8 @@ class ConnectToHubPage extends StatelessWidget {
                                   TextSpan(
                                     text: 'Connect a CyBear Jinni Hub to WiFi '
                                         'network',
-                                    style: TextStyle(color: HexColor('#D6D6D6')),
+                                    style:
+                                        TextStyle(color: HexColor('#D6D6D6')),
                                   ),
                                 ],
                               ),

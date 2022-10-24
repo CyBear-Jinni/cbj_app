@@ -58,11 +58,9 @@ class ScenesInFoldersL extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Colors.black,
-        image: const DecorationImage(
+        image: DecorationImage(
           image: NetworkImage(
-            // TODO: add backgroundImageUrl to room
-            // folderOfScenes.backgroundImageUrl!,
-            'https://live.staticflickr.com/5220/5486044345_f67abff3e9_h.jpg',
+            folderOfScenes.background.getOrCrash(),
           ),
           fit: BoxFit.cover,
         ),

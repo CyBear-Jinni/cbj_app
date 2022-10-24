@@ -52,7 +52,7 @@ class CreateTheCBJAppServer {
     logger.i('App server listening on port ${server!.port}...');
   }
 
-  static Future<void> shoutDownServer() async {
+  static Future<void> shutdownServer() async {
     await server?.shutdown();
     return;
   }
