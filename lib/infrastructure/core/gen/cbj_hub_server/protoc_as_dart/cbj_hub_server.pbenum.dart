@@ -270,6 +270,14 @@ class DeviceActions extends $pb.ProtobufEnum {
   static const DeviceActions changeVolume = DeviceActions._(15, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'changeVolume');
   static const DeviceActions jump = DeviceActions._(16, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'jump');
   static const DeviceActions skip = DeviceActions._(17, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'skip');
+  static const DeviceActions pause = DeviceActions._(18, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'pause');
+  static const DeviceActions play = DeviceActions._(19, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'play');
+  static const DeviceActions volumeUp = DeviceActions._(20, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'volumeUp');
+  static const DeviceActions volumeDown = DeviceActions._(21, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'volumeDown');
+  static const DeviceActions skipForeword = DeviceActions._(22, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'skipForeword');
+  static const DeviceActions skipBackward = DeviceActions._(23, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'skipBackward');
+  static const DeviceActions skipNextVid = DeviceActions._(24, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'skipNextVid');
+  static const DeviceActions skipPreviousVid = DeviceActions._(25, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'skipPreviousVid');
 
   static const $core.List<DeviceActions> values = <DeviceActions> [
     actionNotSupported,
@@ -290,6 +298,14 @@ class DeviceActions extends $pb.ProtobufEnum {
     changeVolume,
     jump,
     skip,
+    pause,
+    play,
+    volumeUp,
+    volumeDown,
+    skipForeword,
+    skipBackward,
+    skipNextVid,
+    skipPreviousVid,
   ];
 
   static final $core.Map<$core.int, DeviceActions> _byValue = $pb.ProtobufEnum.initByValue(values);

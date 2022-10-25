@@ -165,11 +165,19 @@ const DeviceActions$json = const {
     const {'1': 'changeVolume', '2': 15},
     const {'1': 'jump', '2': 16},
     const {'1': 'skip', '2': 17},
+    const {'1': 'pause', '2': 18},
+    const {'1': 'play', '2': 19},
+    const {'1': 'volumeUp', '2': 20},
+    const {'1': 'volumeDown', '2': 21},
+    const {'1': 'skipForeword', '2': 22},
+    const {'1': 'skipBackward', '2': 23},
+    const {'1': 'skipNextVid', '2': 24},
+    const {'1': 'skipPreviousVid', '2': 25},
   ],
 };
 
 /// Descriptor for `DeviceActions`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List deviceActionsDescriptor = $convert.base64Decode('Cg1EZXZpY2VBY3Rpb25zEhYKEmFjdGlvbk5vdFN1cHBvcnRlZBAAEgYKAm9uEAESBwoDb2ZmEAISCgoGbW92ZVVwEAMSCAoEc3RvcBAEEgwKCG1vdmVEb3duEAUSCwoHcHJlc3NlZBAGEg0KCWxvbmdQcmVzcxAHEg0KCWRvdWJsZVRhcBAIEgwKCHBvc2l0aW9uEAkSCwoHc3VzcGVuZBAKEgwKCHNodXRkb3duEAsSDQoJaXRJc0ZhbHNlEAwSDAoIaXRJc1RydWUQDRINCglwYXVzZVBsYXkQDhIQCgxjaGFuZ2VWb2x1bWUQDxIICgRqdW1wEBASCAoEc2tpcBAR');
+final $typed_data.Uint8List deviceActionsDescriptor = $convert.base64Decode('Cg1EZXZpY2VBY3Rpb25zEhYKEmFjdGlvbk5vdFN1cHBvcnRlZBAAEgYKAm9uEAESBwoDb2ZmEAISCgoGbW92ZVVwEAMSCAoEc3RvcBAEEgwKCG1vdmVEb3duEAUSCwoHcHJlc3NlZBAGEg0KCWxvbmdQcmVzcxAHEg0KCWRvdWJsZVRhcBAIEgwKCHBvc2l0aW9uEAkSCwoHc3VzcGVuZBAKEgwKCHNodXRkb3duEAsSDQoJaXRJc0ZhbHNlEAwSDAoIaXRJc1RydWUQDRINCglwYXVzZVBsYXkQDhIQCgxjaGFuZ2VWb2x1bWUQDxIICgRqdW1wEBASCAoEc2tpcBAREgkKBXBhdXNlEBISCAoEcGxheRATEgwKCHZvbHVtZVVwEBQSDgoKdm9sdW1lRG93bhAVEhAKDHNraXBGb3Jld29yZBAWEhAKDHNraXBCYWNrd2FyZBAXEg8KC3NraXBOZXh0VmlkEBgSEwoPc2tpcFByZXZpb3VzVmlkEBk=');
 @$core.Deprecated('Use whenToExecuteDescriptor instead')
 const WhenToExecute$json = const {
   '1': 'WhenToExecute',
