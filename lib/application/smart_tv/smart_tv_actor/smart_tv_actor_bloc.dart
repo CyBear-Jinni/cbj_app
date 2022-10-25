@@ -18,9 +18,14 @@ class SmartTvActorBloc extends Bloc<SmartTvActorEvent, SmartTvActorState> {
       : super(const SmartTvActorState.initial()) {
     on<Initialized>(_initialized);
     on<OpenUrl>(_openUrl);
-    on<PausePlayState>(_pausePlayState);
+    on<StopEvent>(_stopState);
+    on<CloseEvent>(_closeEvent);
+    on<PauseEvent>(_pauseState);
+    on<PlayEvent>(_playState);
     on<SkipVideoTo>(_skipVideoTo);
     on<ChangeVolume>(_changeVolume);
+    on<QueuePrevEvent>(_queuePrevEvent);
+    on<QueueNextEvent>(_queueNextEvent);
   }
 
   final IDeviceRepository _deviceRepository;
@@ -44,16 +49,52 @@ class SmartTvActorBloc extends Bloc<SmartTvActorEvent, SmartTvActorState> {
     );
   }
 
-  Future<void> _pausePlayState(
-    PausePlayState event,
+  Future<void> _stopState(
+    StopEvent event,
     Emitter<SmartTvActorState> emit,
   ) async {
     FlushbarHelper.createLoading(
-      message: 'Pause/Play smart tv',
+      message: 'Stop smart tv',
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-    _deviceRepository.pausePlayStateDevices(devicesId: event.smartTvId);
+    _deviceRepository.stopStateDevices(devicesId: event.smartTvId);
+  }
+
+  Future<void> _closeEvent(
+    CloseEvent event,
+    Emitter<SmartTvActorState> emit,
+  ) async {
+    FlushbarHelper.createLoading(
+      message: 'Close current app on smart tv',
+      linearProgressIndicator: const LinearProgressIndicator(),
+    ).show(event.context);
+
+    _deviceRepository.closeStateDevices(devicesId: event.smartTvId);
+  }
+
+  Future<void> _pauseState(
+    PauseEvent event,
+    Emitter<SmartTvActorState> emit,
+  ) async {
+    FlushbarHelper.createLoading(
+      message: 'Pause smart tv',
+      linearProgressIndicator: const LinearProgressIndicator(),
+    ).show(event.context);
+
+    _deviceRepository.pauseStateDevices(devicesId: event.smartTvId);
+  }
+
+  Future<void> _playState(
+    PlayEvent event,
+    Emitter<SmartTvActorState> emit,
+  ) async {
+    FlushbarHelper.createLoading(
+      message: 'Play smart tv',
+      linearProgressIndicator: const LinearProgressIndicator(),
+    ).show(event.context);
+
+    _deviceRepository.playStateDevices(devicesId: event.smartTvId);
   }
 
   Future<void> _skipVideoTo(
@@ -78,5 +119,29 @@ class SmartTvActorBloc extends Bloc<SmartTvActorEvent, SmartTvActorState> {
     ).show(event.context);
 
     _deviceRepository.changeVolumeDevices(devicesId: event.smartTvId);
+  }
+
+  Future<void> _queuePrevEvent(
+    QueuePrevEvent event,
+    Emitter<SmartTvActorState> emit,
+  ) async {
+    FlushbarHelper.createLoading(
+      message: 'Change volume smart tv',
+      linearProgressIndicator: const LinearProgressIndicator(),
+    ).show(event.context);
+
+    _deviceRepository.queuePrevStateDevices(devicesId: event.smartTvId);
+  }
+
+  Future<void> _queueNextEvent(
+    QueueNextEvent event,
+    Emitter<SmartTvActorState> emit,
+  ) async {
+    FlushbarHelper.createLoading(
+      message: 'Change volume smart tv',
+      linearProgressIndicator: const LinearProgressIndicator(),
+    ).show(event.context);
+
+    _deviceRepository.queueNextStateDevices(devicesId: event.smartTvId);
   }
 }

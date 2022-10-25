@@ -80,15 +80,15 @@ abstract class IDeviceRepository {
     required int brightnessToChange,
   });
 
-  Future<Either<DevicesFailure, Unit>> moveUpBlinds({
+  Future<Either<DevicesFailure, Unit>> moveUpStateDevices({
     required List<String>? devicesId,
   });
 
-  Future<Either<DevicesFailure, Unit>> stopBlinds({
+  Future<Either<DevicesFailure, Unit>> stopStateDevices({
     required List<String>? devicesId,
   });
 
-  Future<Either<DevicesFailure, Unit>> moveDownBlinds({
+  Future<Either<DevicesFailure, Unit>> moveDownStateDevices({
     required List<String>? devicesId,
   });
 
@@ -105,7 +105,15 @@ abstract class IDeviceRepository {
     required String url,
   });
 
-  Future<Either<DevicesFailure, Unit>> pausePlayStateDevices({
+  Future<Either<DevicesFailure, Unit>> closeStateDevices({
+    required List<String>? devicesId,
+  });
+
+  Future<Either<DevicesFailure, Unit>> pauseStateDevices({
+    required List<String>? devicesId,
+  });
+
+  Future<Either<DevicesFailure, Unit>> playStateDevices({
     required List<String>? devicesId,
   });
 
@@ -114,6 +122,14 @@ abstract class IDeviceRepository {
   });
 
   Future<Either<DevicesFailure, Unit>> changeVolumeDevices({
+    required List<String>? devicesId,
+  });
+
+  Future<Either<DevicesFailure, Unit>> queuePrevStateDevices({
+    required List<String>? devicesId,
+  });
+
+  Future<Either<DevicesFailure, Unit>> queueNextStateDevices({
     required List<String>? devicesId,
   });
 
