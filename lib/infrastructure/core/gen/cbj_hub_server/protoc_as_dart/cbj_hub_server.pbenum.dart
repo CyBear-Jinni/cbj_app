@@ -278,6 +278,8 @@ class DeviceActions extends $pb.ProtobufEnum {
   static const DeviceActions skipBackward = DeviceActions._(23, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'skipBackward');
   static const DeviceActions skipNextVid = DeviceActions._(24, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'skipNextVid');
   static const DeviceActions skipPreviousVid = DeviceActions._(25, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'skipPreviousVid');
+  static const DeviceActions open = DeviceActions._(26, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'open');
+  static const DeviceActions close = DeviceActions._(27, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'close');
 
   static const $core.List<DeviceActions> values = <DeviceActions> [
     actionNotSupported,
@@ -306,6 +308,8 @@ class DeviceActions extends $pb.ProtobufEnum {
     skipBackward,
     skipNextVid,
     skipPreviousVid,
+    open,
+    close,
   ];
 
   static final $core.Map<$core.int, DeviceActions> _byValue = $pb.ProtobufEnum.initByValue(values);
