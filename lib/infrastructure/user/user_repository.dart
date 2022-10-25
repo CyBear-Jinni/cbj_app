@@ -1,11 +1,11 @@
 import 'package:cybear_jinni/domain/auth/i_auth_facade.dart';
 import 'package:cybear_jinni/domain/core/errors.dart';
 import 'package:cybear_jinni/domain/home_user/home_user_failures.dart';
+import 'package:cybear_jinni/domain/local_db/i_local_db_repository.dart';
 import 'package:cybear_jinni/domain/user/all_homes_of_user/all_homes_of_user_entity.dart';
 import 'package:cybear_jinni/domain/user/all_homes_of_user/all_homes_of_user_failures.dart';
 import 'package:cybear_jinni/domain/user/i_user_repository.dart';
 import 'package:cybear_jinni/domain/user/user_entity.dart';
-import 'package:cybear_jinni/infrastructure/hive_local_db/hive_local_db.dart';
 import 'package:cybear_jinni/infrastructure/user/all_homes_of_user_entity/all_homes_of_user_dtos.dart';
 import 'package:cybear_jinni/infrastructure/user/user_dtos.dart';
 import 'package:cybear_jinni/injection.dart';
@@ -95,7 +95,7 @@ class UserRepository implements IUserRepository {
       //     .doc(homeId)
       //     .set(homeUserDtos.toJson());
       //
-      await HiveLocalDbHelper.setHomeId(homeId);
+      await getIt<ILocalDbRepository>().setHomeId(homeId);
 
       return right(unit);
     } catch (e) {
@@ -159,7 +159,7 @@ class UserRepository implements IUserRepository {
       //   return left(const HomeUserFailures.homeDoesNotExist());
       // }
 
-      await HiveLocalDbHelper.setHomeId(homeId);
+      await getIt<ILocalDbRepository>().setHomeId(homeId);
 
       return right(unit);
     } catch (e) {
