@@ -60,14 +60,14 @@ class RoomSmartTvs extends StatelessWidget {
                     AutoSizeText(
                       deviceEntityTemp.defaultName.getOrCrash()!,
                       maxLines: 1,
-                      maxFontSize: 19,
+                      maxFontSize: 40,
                       style: TextStyle(
                         color: Theme.of(context).textTheme.bodyText1!.color,
                       ),
                     ),
                     Container(
                       margin: const EdgeInsets.symmetric(vertical: 5),
-                      width: sizeBoxWidth + 15,
+                      // width: sizeBoxWidth + 15,
                       child: BlocProvider(
                         create: (context) => getIt<SmartTvActorBloc>(),
                         child: SmartTvWidget(deviceEntityTemp),
@@ -85,7 +85,7 @@ class RoomSmartTvs extends StatelessWidget {
             );
           }
         }
-        final Widget rowOfSmartTvs = Row(
+        final Widget rowOfSmartTvs = Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: widgetsForRow,
         );
