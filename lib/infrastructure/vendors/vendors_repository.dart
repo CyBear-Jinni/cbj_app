@@ -25,7 +25,6 @@ class VendorsRepository implements IVendorsRepository {
       final String vendorName = vendorsAndServices.name;
       if (vendorName ==
               VendorsAndServices.vendorsAndServicesNotSupported.name ||
-          vendorName == VendorsAndServices.google.name ||
           vendorName == VendorsAndServices.miHome.name ||
           vendorName == VendorsAndServices.philipsHue.name ||
           vendorName == VendorsAndServices.sonoffDiy.name ||
@@ -223,6 +222,11 @@ class VendorsMocDataWithImages {
         name: VendorName('CBJ Devices'),
         image:
             'https://github.com/CyBear-Jinni/CBJ_Site/blob/master/assets/images/cbj_app_icon_no_bg.png?raw=true',
+      ),
+      Vendor(
+        name: VendorName('Google'),
+        image:
+            'https://play-lh.googleusercontent.com/aFWiT2lTa9CYBpyPjfgfNHd0r5puwKRGj2rHpdPTNrz2N9LXgN_MbLjePd1OTc0E8Rl1=s180',
       ),
     ].toImmutableList();
   }

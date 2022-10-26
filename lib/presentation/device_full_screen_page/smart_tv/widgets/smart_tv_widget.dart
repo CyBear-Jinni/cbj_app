@@ -13,10 +13,59 @@ class SmartTvWidget extends StatelessWidget {
 
   final GenericSmartTvDE? _deviceEntity;
 
-  void pausePlayState(BuildContext context) {
+  void stopState(BuildContext context) {
     final String deviceId = _deviceEntity!.getDeviceId();
     context.read<SmartTvActorBloc>().add(
-          SmartTvActorEvent.pausePlayState(
+          SmartTvActorEvent.stopEvent(
+            [deviceId],
+            context,
+          ),
+        );
+  }
+
+  // void pauseEvent(BuildContext context) {
+  //   final String deviceId = _deviceEntity!.getDeviceId();
+  //   context.read<SmartTvActorBloc>().add(
+  //         SmartTvActorEvent.pauseEvent(
+  //           [deviceId],
+  //           context,
+  //         ),
+  //       );
+  // }
+  void closeEvent(BuildContext context) {
+    final String deviceId = _deviceEntity!.getDeviceId();
+    context.read<SmartTvActorBloc>().add(
+          SmartTvActorEvent.closeEvent(
+            [deviceId],
+            context,
+          ),
+        );
+  }
+
+  void playEvent(BuildContext context) {
+    final String deviceId = _deviceEntity!.getDeviceId();
+    context.read<SmartTvActorBloc>().add(
+          SmartTvActorEvent.playEvent(
+            [deviceId],
+            context,
+          ),
+        );
+  }
+
+  void queueNextEvent(BuildContext context) {
+    final String deviceId = _deviceEntity!.getDeviceId();
+    context.read<SmartTvActorBloc>().add(
+          SmartTvActorEvent.queueNextEvent(
+            [deviceId],
+            context,
+          ),
+        );
+  }
+
+  void queuePrevEvent(BuildContext context) {
+    final String deviceId = _deviceEntity!.getDeviceId();
+    context.read<SmartTvActorBloc>().add(
+          SmartTvActorEvent.queuePrevEvent(
             [deviceId],
             context,
           ),
@@ -68,7 +117,7 @@ class SmartTvWidget extends StatelessWidget {
                       color: Theme.of(context).textTheme.bodyText1!.color,
                     ),
                     child: Text(
-                      'Play a Video',
+                      'Open Video',
                       style: TextStyle(
                         color: Theme.of(context).textTheme.bodyText1!.color,
                         fontSize: 16,
@@ -93,7 +142,40 @@ class SmartTvWidget extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {
-                    pausePlayState(context);
+                    stopState(context);
+                  },
+                  child: Tab(
+                    icon: FaIcon(
+                      FontAwesomeIcons.xmark,
+                      color: Theme.of(context).textTheme.bodyText1!.color,
+                    ),
+                    child: Text(
+                      'Close',
+                      style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        fontSize: 16,
+                      ),
+                    ).tr(),
+                  ),
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+                TextButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                      Colors.grey,
+                    ),
+                    side: MaterialStateProperty.all(
+                      BorderSide.lerp(
+                        const BorderSide(color: Colors.white60),
+                        const BorderSide(color: Colors.white60),
+                        22,
+                      ),
+                    ),
+                  ),
+                  onPressed: () {
+                    closeEvent(context);
                   },
                   child: Tab(
                     icon: FaIcon(
@@ -101,7 +183,40 @@ class SmartTvWidget extends StatelessWidget {
                       color: Theme.of(context).textTheme.bodyText1!.color,
                     ),
                     child: Text(
-                      'Play/Pause',
+                      'Pause',
+                      style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        fontSize: 16,
+                      ),
+                    ).tr(),
+                  ),
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+                TextButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                      Colors.grey,
+                    ),
+                    side: MaterialStateProperty.all(
+                      BorderSide.lerp(
+                        const BorderSide(color: Colors.white60),
+                        const BorderSide(color: Colors.white60),
+                        22,
+                      ),
+                    ),
+                  ),
+                  onPressed: () {
+                    playEvent(context);
+                  },
+                  child: Tab(
+                    icon: FaIcon(
+                      FontAwesomeIcons.play,
+                      color: Theme.of(context).textTheme.bodyText1!.color,
+                    ),
+                    child: Text(
+                      'Play',
                       style: TextStyle(
                         color: Theme.of(context).textTheme.bodyText1!.color,
                         fontSize: 16,
@@ -114,6 +229,80 @@ class SmartTvWidget extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
+            // Next and previous does not seep to currently work for me on Chromecast
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.center,
+            //   children: <Widget>[
+            //     TextButton(
+            //       style: ButtonStyle(
+            //         backgroundColor: MaterialStateProperty.all(
+            //           Colors.grey,
+            //         ),
+            //         side: MaterialStateProperty.all(
+            //           BorderSide.lerp(
+            //             const BorderSide(color: Colors.white60),
+            //             const BorderSide(color: Colors.white60),
+            //             22,
+            //           ),
+            //         ),
+            //       ),
+            //       onPressed: () {
+            //         queueNextEvent(
+            //           context,
+            //         );
+            //       },
+            //       child: Tab(
+            //         icon: FaIcon(
+            //           FontAwesomeIcons.backwardStep,
+            //           color: Theme.of(context).textTheme.bodyText1!.color,
+            //         ),
+            //         child: Text(
+            //           'Queue Prev',
+            //           style: TextStyle(
+            //             color: Theme.of(context).textTheme.bodyText1!.color,
+            //             fontSize: 16,
+            //           ),
+            //         ).tr(),
+            //       ),
+            //     ),
+            //     const SizedBox(width: 10),
+            //     TextButton(
+            //       style: ButtonStyle(
+            //         backgroundColor: MaterialStateProperty.all(
+            //           Colors.grey,
+            //         ),
+            //         side: MaterialStateProperty.all(
+            //           BorderSide.lerp(
+            //             const BorderSide(color: Colors.white60),
+            //             const BorderSide(color: Colors.white60),
+            //             22,
+            //           ),
+            //         ),
+            //       ),
+            //       onPressed: () {
+            //         queueNextEvent(
+            //           context,
+            //         );
+            //       },
+            //       child: Tab(
+            //         icon: FaIcon(
+            //           FontAwesomeIcons.forwardStep,
+            //           color: Theme.of(context).textTheme.bodyText1!.color,
+            //         ),
+            //         child: Text(
+            //           'Queue Next',
+            //           style: TextStyle(
+            //             color: Theme.of(context).textTheme.bodyText1!.color,
+            //             fontSize: 16,
+            //           ),
+            //         ).tr(),
+            //       ),
+            //     ),
+            //   ],
+            // ),
+            // const SizedBox(
+            //   height: 20,
+            // ),
           ],
         );
       },
