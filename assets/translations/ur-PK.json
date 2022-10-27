@@ -34,7 +34,7 @@
     "Email": "ای میل",
     "Password_is_required": "پاس ورڈ درکار ہے۔",
     "Password_cannot_contain_spaces": "پاس ورڈ میں وقفہ نہیں ہوسکتا",
-    "Password_must_be_bigger_than__characters": "پاس ورڈ سے بڑا ہونا چاہیے۔ {} حروف",
+    "Password_must_be_bigger_than__characters": "پاس ورڈ {} حروف سے بڑا ہونا چاہیے۔",
     "Password": "پاس ورڈ",
     "Log_In": "لاگ ان کریں",
     "Forgot_password": "پاسورڈ بھول گے",
