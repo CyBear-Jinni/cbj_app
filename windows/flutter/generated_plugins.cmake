@@ -3,12 +3,12 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
-        connectivity_plus
-        isar_flutter_libs
-        network_info_plus
-        permission_handler_windows
-        url_launcher_windows
-        )
+  connectivity_plus
+  isar_flutter_libs
+  network_info_plus
+  permission_handler_windows
+  url_launcher_windows
+)
 
 list(APPEND FLUTTER_FFI_PLUGIN_LIST
 )
