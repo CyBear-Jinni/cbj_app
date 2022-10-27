@@ -13,7 +13,7 @@
   "Move_to_blinds_full_settings_page": "Mover para a página de configurações das cortinas",
   "Blinds_Page": "Página das cortinas",
   "Down": "Para baixo",
-  "Stop": "Páre",
+  "Stop": "Pare",
   "Up": "Para cima",
   "Smart_Devices_Settings_Page": "Página de configurações de dispositivos inteligentes",
   "Air_Conditioners": "Ar condicionados",
@@ -35,6 +35,7 @@
   "Password_must_be_bigger_than__characters": "A senha deve ter mais de {} caracteres",
   "Password": "Senha",
   "Log_In": "Entrar",
+  "Forgot_password": "Esqueceu a senha",
   "Forgot_password?": "Esqueceu a senha?",
   "title": "título",
   "number": "número",
@@ -55,5 +56,6 @@
   "Update": "Atualizar",
   "IP": "IP",
   "This_is_firebase": "Este é o firebase",
-  "Device_with_ip:_": "Dispositivo com IP: {}"
+  "Device_with_ip:_": "Dispositivo com IP: {}",
+  "Send": "Enviar"
 }
