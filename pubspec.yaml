@@ -58,7 +58,7 @@ dependencies:
   # Helps us to select days in a week.
   day_picker: ^2.1.1
   # Get current device information
-  device_info_plus: ^7.0.0
+  device_info_plus: ^8.0.0
   # Internationalization (Easy translations)
   easy_localization: ^3.0.1
   # An "expansion" on the Flutter SDK's standard ExpansionTile
