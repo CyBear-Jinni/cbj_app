@@ -79,7 +79,7 @@
   "_Switches": "{} Przełączniki",
   "_SmartTvs": "{} Inteligentne TV",
   "_RGBW_Lights": "{} Światła RGBW",
-  "_Lights": "{} Światłą",
+  "_Lights": "{} Światła",
   "_Boilers": "{} Boilery",
   "_Blinds": "{} Żaluzje",
   "Rooms": "Pokoje",
@@ -90,8 +90,8 @@
   "Off": "Wyłącz",
   "Color": "Kolor",
   "White": "Biały",
-  "Area": "Powierzchnia",
-  "Areas": "Powierzchnie",
+  "Area": "Obszar",
+  "Areas": "Obszary",
   "Automations": "Automatyzacje",
   "Scenes_In_Folder": "Sceny w folderze",
   "Select": "Wybierz",
@@ -100,6 +100,6 @@
   "Nothing": "Nic",
   "No_need_here": "Nie wymagany",
   "Do_not_need": "Nie trzeba",
-  "Finish": "Zakończono",
+  "Finish": "Koniec",
   "Select_Purposes_Of_The_Area": "Wybierz cele obszaru"
 }
