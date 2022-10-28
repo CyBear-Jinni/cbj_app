@@ -35,7 +35,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
 
     for (final GenericLightDE device in devicesList) {
       if (device.deviceTypes.getOrCrash() !=
-          DeviceTypes.typeNotSupported.toString()) {
+          DeviceTypes.smartTypeNotSupported.toString()) {
         final TextEditingController textEditingControllerTemp =
             TextEditingController(
           text: device.defaultName.value.getOrElse(() => ''),

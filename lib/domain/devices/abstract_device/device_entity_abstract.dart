@@ -117,7 +117,8 @@ class DeviceEntityNotAbstract extends DeviceEntityAbstract {
           deviceVendor: DeviceVendor(
             VendorsAndServices.vendorsAndServicesNotSupported.toString(),
           ),
-          deviceStateGRPC: DeviceState(DeviceTypes.typeNotSupported.toString()),
+          deviceStateGRPC:
+              DeviceState(DeviceTypes.smartTypeNotSupported.toString()),
           compUuid: DeviceCompUuid(const Uuid().v1()),
           defaultName: DeviceDefaultName('No Name'),
           deviceTypes: DeviceType(DeviceTypes.light.toString()),
