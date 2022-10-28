@@ -147,7 +147,7 @@ class VendorsAndServices extends $pb.ProtobufEnum {
 }
 
 class DeviceTypes extends $pb.ProtobufEnum {
-  static const DeviceTypes typeNotSupported = DeviceTypes._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'typeNotSupported');
+  static const DeviceTypes smartTypeNotSupported = DeviceTypes._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'smartTypeNotSupported');
   static const DeviceTypes light = DeviceTypes._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'light');
   static const DeviceTypes blinds = DeviceTypes._(2, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'blinds');
   static const DeviceTypes boiler = DeviceTypes._(3, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'boiler');
@@ -194,9 +194,11 @@ class DeviceTypes extends $pb.ProtobufEnum {
   static const DeviceTypes scanner = DeviceTypes._(45, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'scanner');
   static const DeviceTypes printerWithScanner = DeviceTypes._(46, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'printerWithScanner');
   static const DeviceTypes smartComputer = DeviceTypes._(47, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'smartComputer');
+  static const DeviceTypes emptyDevice = DeviceTypes._(48, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'emptyDevice');
+  static const DeviceTypes pingDevice = DeviceTypes._(49, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'pingDevice');
 
   static const $core.List<DeviceTypes> values = <DeviceTypes> [
-    typeNotSupported,
+    smartTypeNotSupported,
     light,
     blinds,
     boiler,
@@ -243,6 +245,8 @@ class DeviceTypes extends $pb.ProtobufEnum {
     scanner,
     printerWithScanner,
     smartComputer,
+    emptyDevice,
+    pingDevice,
   ];
 
   static final $core.Map<$core.int, DeviceTypes> _byValue = $pb.ProtobufEnum.initByValue(values);
