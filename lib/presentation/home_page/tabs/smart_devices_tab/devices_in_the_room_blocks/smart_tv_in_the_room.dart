@@ -1,9 +1,9 @@
-import 'package:another_flushbar/flushbar_helper.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/devices/generic_smart_tv/generic_smart_tv_entity.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
-import 'package:cybear_jinni/utils.dart';
+import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -48,18 +48,12 @@ class SmartTvInTheRoom extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        // context.router.push(RoomsSmartTvsRoute(
-        //     showDevicesOnlyFromRoomId: smart_tvsInRoom![0].roomId.getOrCrash(),
-        //     roomColorGradiant: roomColorGradiant));
-        logger.w('TV page is not supported');
-        FlushbarHelper.createInformation(
-          message: 'TV page is currently missing',
-          // failure.map(
-          //   cancelledByUser: (_) => 'Cancelled',
-          //   serverError: (_) => 'Server error',
-          //   invalidApiKey: (_) => 'Email already in use',
-          // ),
-        ).show(context);
+        context.router.push(
+          RoomsSmartTvsRoute(
+            roomEntity: roomEntity,
+            roomColorGradiant: roomColorGradiant,
+          ),
+        );
       },
       child: Container(
         decoration: BoxDecoration(

@@ -64,7 +64,7 @@ class PrinterWidget extends StatelessWidget {
                   },
                   child: Tab(
                     icon: FaIcon(
-                      FontAwesomeIcons.moon,
+                      FontAwesomeIcons.link,
                       color: Theme.of(context).textTheme.bodyText1!.color,
                     ),
                     child: Text(

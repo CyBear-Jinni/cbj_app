@@ -46,7 +46,7 @@ class BlindsActorBloc extends Bloc<BlindsActorEvent, BlindsActorState> {
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-    _deviceRepository.moveUpBlinds(devicesId: event.blindsIdToTurnUp);
+    _deviceRepository.moveUpStateDevices(devicesId: event.blindsIdToTurnUp);
   }
 
   Future<void> _stopAllBlinds(
@@ -58,7 +58,7 @@ class BlindsActorBloc extends Bloc<BlindsActorEvent, BlindsActorState> {
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-    _deviceRepository.stopBlinds(devicesId: event.blindsIdToStop);
+    _deviceRepository.stopStateDevices(devicesId: event.blindsIdToStop);
   }
 
   Future<void> _moveDownAllBlinds(
@@ -70,6 +70,6 @@ class BlindsActorBloc extends Bloc<BlindsActorEvent, BlindsActorState> {
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-    _deviceRepository.moveDownBlinds(devicesId: event.blindsIdToTurnDown);
+    _deviceRepository.moveDownStateDevices(devicesId: event.blindsIdToTurnDown);
   }
 }

@@ -5,6 +5,10 @@ abstract class ILocalDbRepository {
   String remotePipesBoxName = 'remotePipesBox';
   String hubEntityBoxName = 'hubEntityBox';
 
+  Future<void> setHomeId(String homeId);
+
+  Future<String> getHomeId();
+
   Future<Either<LocalDbFailures, Unit>> saveRemotePipes({
     required String remotePipesDomainName,
   });

@@ -114,7 +114,7 @@ class SoftwareInfoRepository implements ISoftwareInfoRepository {
       final CbjHubIno cbjHubIno = CbjHubIno(
         deviceName: 'cbj App',
         pubspecYamlVersion: packageInfo.version,
-        protoLastGenDate: hubClientProtocGenDate,
+        protoLastGenDate: hubServerProtocGenDate,
         dartSdkVersion: Platform.version,
       );
 
@@ -143,7 +143,7 @@ class SoftwareInfoRepository implements ISoftwareInfoRepository {
       final CbjSecurityBearIno cbjSecurityBearIno = CbjSecurityBearIno(
         deviceName: 'cbj App',
         pubspecYamlVersion: packageInfo.version,
-        protoLastGenDate: securityBearClientProtocGenDate,
+        protoLastGenDate: securityBearServerProtocGenDate,
         dartSdkVersion: Platform.version,
       );
 

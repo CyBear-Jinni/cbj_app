@@ -26,7 +26,7 @@ class GenericPingDE extends DeviceEntityAbstract {
     required this.pingSwitchState,
     DevicePowerConsumption? powerConsumption,
   }) : super(
-          deviceTypes: DeviceType(DeviceTypes.typeNotSupported.toString()),
+          deviceTypes: DeviceType(DeviceTypes.pingDevice.toString()),
         );
 
   /// Ping instance of GenericPingEntity

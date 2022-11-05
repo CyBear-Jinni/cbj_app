@@ -67,7 +67,6 @@ class RoomPrinters extends StatelessWidget {
                     ),
                     Container(
                       margin: const EdgeInsets.symmetric(vertical: 5),
-                      width: sizeBoxWidth + 15,
                       child: BlocProvider(
                         create: (context) => getIt<PrintersActorBloc>(),
                         child: PrinterWidget(deviceEntityTemp),

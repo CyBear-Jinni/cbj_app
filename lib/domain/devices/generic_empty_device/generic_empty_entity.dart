@@ -26,7 +26,7 @@ class GenericEmptyDE extends DeviceEntityAbstract {
     required this.emptySwitchState,
     DevicePowerConsumption? powerConsumption,
   }) : super(
-          deviceTypes: DeviceType(DeviceTypes.typeNotSupported.toString()),
+          deviceTypes: DeviceType(DeviceTypes.emptyDevice.toString()),
         );
 
   /// Empty instance of GenericEmptyEntity
