@@ -58,7 +58,7 @@ class HubClientDemo {
     final RoomEntity allRemoteCommandsRoomDiscovered = RoomEntity(
       uniqueId:
           RoomUniqueId.fromUniqueString('00000000-0000-0000-0000-000000000000'),
-      defaultName: RoomDefaultName('Discovered 1234556789'),
+      defaultName: RoomDefaultName('Discovered'),
       roomTypes: RoomTypes(const []),
       roomDevicesId:
           RoomDevicesId(const ['65d84b10-434d-11ed-817a-7d350fb52f91']),
@@ -86,7 +86,7 @@ class HubClientDemo {
     final RoomEntity allRemoteCommandsRoomGuy = RoomEntity(
       uniqueId:
           RoomUniqueId.fromUniqueString('23deb7f0-4193-11ed-9d1c-5747056d7848'),
-      defaultName: RoomDefaultName('Guy Room 1234556789'),
+      defaultName: RoomDefaultName('Guy Room'),
       roomTypes: RoomTypes(const ['0', '1', '2', '4']),
       roomDevicesId: RoomDevicesId(const [
         'a31523m6-463s-32ge-7426-g33c642r7m25',
@@ -118,7 +118,7 @@ class HubClientDemo {
     final RoomEntity allRemoteCommandsRoomOutSide = RoomEntity(
       uniqueId:
           RoomUniqueId.fromUniqueString('38b45780-419c-11ed-bce9-8dc09da0062f'),
-      defaultName: RoomDefaultName('Outside 1234556789 1234556789'),
+      defaultName: RoomDefaultName('Outside'),
       roomTypes: RoomTypes(const ['0', '1', '2', '5']),
       roomDevicesId:
           RoomDevicesId(const ['7189ed76-4351-11ed-b249-63fd7e165c16']),
@@ -156,7 +156,7 @@ class HubClientDemo {
           CoreUniqueId.fromUniqueString('96386cd0-419b-11ed-8246-e17a279f4d89'),
       vendorUniqueId: VendorUniqueId.fromUniqueString('63b298'),
       deviceVendor: DeviceVendor('switcherSmartHome'),
-      defaultName: DeviceDefaultName('Guy Blinds 1234556789'),
+      defaultName: DeviceDefaultName('Guy Blinds'),
       deviceStateGRPC: DeviceState(DeviceStateGRPC.ack.toString()),
       stateMassage: DeviceStateMassage('Hello World'),
       senderDeviceOs: DeviceSenderDeviceOs('switcher'),
@@ -186,7 +186,7 @@ class HubClientDemo {
           CoreUniqueId.fromUniqueString('c90137f2-419b-11ed-8246-e17a279f4d89'),
       vendorUniqueId: VendorUniqueId.fromUniqueString('67600068c44f33f5b515'),
       deviceVendor: DeviceVendor('tuyaSmart'),
-      defaultName: DeviceDefaultName('Guy Ceiling Button 1234556789'),
+      defaultName: DeviceDefaultName('Guy Ceiling Button'),
       deviceStateGRPC: DeviceState(DeviceStateGRPC.ack.toString()),
       stateMassage: DeviceStateMassage('Hello World'),
       senderDeviceOs: DeviceSenderDeviceOs('switcher'),
@@ -213,7 +213,7 @@ class HubClientDemo {
           CoreUniqueId.fromUniqueString('a31523m6-463s-32ge-7426-g33c642r7m25'),
       vendorUniqueId: VendorUniqueId.fromUniqueString('67600068c44f33f5b515'),
       deviceVendor: DeviceVendor('tuyaSmart'),
-      defaultName: DeviceDefaultName('Guy Bedroom Button 123456789'),
+      defaultName: DeviceDefaultName('Guy Bedroom Button'),
       deviceStateGRPC: DeviceState(DeviceStateGRPC.ack.toString()),
       stateMassage: DeviceStateMassage('Hello World'),
       senderDeviceOs: DeviceSenderDeviceOs('switcher'),
@@ -233,81 +233,6 @@ class HubClientDemo {
     );
     devicesList.add(requestsAndStatusFromHubButton2);
 
-    final GenericSwitchDE allRemoteCommandsButton3 = GenericSwitchDE(
-      uniqueId:
-          CoreUniqueId.fromUniqueString('a31523m6-463s-32ge-7426-g33c642r7m22'),
-      vendorUniqueId: VendorUniqueId.fromUniqueString('67600068c44f33f5b515'),
-      deviceVendor: DeviceVendor('tuyaSmart'),
-      defaultName: DeviceDefaultName('Guy Bedroom Button 123456789'),
-      deviceStateGRPC: DeviceState(DeviceStateGRPC.ack.toString()),
-      stateMassage: DeviceStateMassage('Hello World'),
-      senderDeviceOs: DeviceSenderDeviceOs('switcher'),
-      senderDeviceModel: DeviceSenderDeviceModel('Cloud'),
-      senderId: DeviceSenderId.fromUniqueString(
-        '90d20fc3-434a-11ed-bd96-f573a00b65aa',
-      ),
-      compUuid: DeviceCompUuid('34asdfrsd23gggg'),
-      switchState: GenericSwitchSwitchState(DeviceActions.on.toString()),
-    );
-
-    final RequestsAndStatusFromHub requestsAndStatusFromHubButton3 =
-        RequestsAndStatusFromHub(
-      sendingType: sendingTypeDevice,
-      allRemoteCommands:
-          DeviceHelper.convertDomainToJsonString(allRemoteCommandsButton3),
-    );
-    devicesList.add(requestsAndStatusFromHubButton3);
-
-    final GenericSwitchDE allRemoteCommandsButton4 = GenericSwitchDE(
-      uniqueId:
-          CoreUniqueId.fromUniqueString('a31523m6-463s-32ge-7426-g33c642r7m2w'),
-      vendorUniqueId: VendorUniqueId.fromUniqueString('67600068c44f33f5b515'),
-      deviceVendor: DeviceVendor('tuyaSmart'),
-      defaultName: DeviceDefaultName('Guy Bedroom Button 123456789'),
-      deviceStateGRPC: DeviceState(DeviceStateGRPC.ack.toString()),
-      stateMassage: DeviceStateMassage('Hello World'),
-      senderDeviceOs: DeviceSenderDeviceOs('switcher'),
-      senderDeviceModel: DeviceSenderDeviceModel('Cloud'),
-      senderId: DeviceSenderId.fromUniqueString(
-        '90d20fc3-434a-11ed-bd96-f573a00b65aa',
-      ),
-      compUuid: DeviceCompUuid('34asdfrsd23gggg'),
-      switchState: GenericSwitchSwitchState(DeviceActions.on.toString()),
-    );
-
-    final RequestsAndStatusFromHub requestsAndStatusFromHubButton4 =
-        RequestsAndStatusFromHub(
-      sendingType: sendingTypeDevice,
-      allRemoteCommands:
-          DeviceHelper.convertDomainToJsonString(allRemoteCommandsButton4),
-    );
-    devicesList.add(requestsAndStatusFromHubButton4);
-
-    final GenericSwitchDE allRemoteCommandsButton5 = GenericSwitchDE(
-      uniqueId:
-          CoreUniqueId.fromUniqueString('a31523m6-463s-32ge-7426-g33c642r7m26'),
-      vendorUniqueId: VendorUniqueId.fromUniqueString('67600068c44f33f5b515'),
-      deviceVendor: DeviceVendor('tuyaSmart'),
-      defaultName: DeviceDefaultName('Guy Bedroom Button 123456789'),
-      deviceStateGRPC: DeviceState(DeviceStateGRPC.ack.toString()),
-      stateMassage: DeviceStateMassage('Hello World'),
-      senderDeviceOs: DeviceSenderDeviceOs('switcher'),
-      senderDeviceModel: DeviceSenderDeviceModel('Cloud'),
-      senderId: DeviceSenderId.fromUniqueString(
-        '90d20fc3-434a-11ed-bd96-f573a00b65aa',
-      ),
-      compUuid: DeviceCompUuid('34asdfrsd23gggg'),
-      switchState: GenericSwitchSwitchState(DeviceActions.on.toString()),
-    );
-
-    final RequestsAndStatusFromHub requestsAndStatusFromHubButton5 =
-        RequestsAndStatusFromHub(
-      sendingType: sendingTypeDevice,
-      allRemoteCommands:
-          DeviceHelper.convertDomainToJsonString(allRemoteCommandsButton5),
-    );
-    devicesList.add(requestsAndStatusFromHubButton5);
-
     /// Boiler
 
     final GenericBoilerDE allRemoteCommandsBoiler = GenericBoilerDE(
@@ -315,7 +240,7 @@ class HubClientDemo {
           CoreUniqueId.fromUniqueString('65d84b10-434d-11ed-817a-7d350fb52f91'),
       vendorUniqueId: VendorUniqueId.fromUniqueString('65fd2f'),
       deviceVendor: DeviceVendor('switcherSmartHome'),
-      defaultName: DeviceDefaultName('Boiler 1234556789 1234556789'),
+      defaultName: DeviceDefaultName('Boiler'),
       deviceStateGRPC: DeviceState(DeviceStateGRPC.ack.toString()),
       stateMassage: DeviceStateMassage('Hello World'),
       senderDeviceOs: DeviceSenderDeviceOs('switcher'),
@@ -336,188 +261,6 @@ class HubClientDemo {
     );
     devicesList.add(requestsAndStatusFromHubBoiler);
 
-    final GenericBoilerDE allRemoteCommandsBoiler2 = GenericBoilerDE(
-      uniqueId:
-          CoreUniqueId.fromUniqueString('65d84b10-434d-11ed-817a-7d350fb52f92'),
-      vendorUniqueId: VendorUniqueId.fromUniqueString('65fd2f'),
-      deviceVendor: DeviceVendor('switcherSmartHome'),
-      defaultName: DeviceDefaultName('Boiler  2  1234556789 1234556789'),
-      deviceStateGRPC: DeviceState(DeviceStateGRPC.ack.toString()),
-      stateMassage: DeviceStateMassage('Hello World'),
-      senderDeviceOs: DeviceSenderDeviceOs('switcher'),
-      senderDeviceModel:
-          DeviceSenderDeviceModel('SwitcherDevicesTypes.switcherV2Esp'),
-      senderId: DeviceSenderId.fromUniqueString(
-        '65d84b11-434d-11ed-817a-7d350fb52f91',
-      ),
-      compUuid: DeviceCompUuid('34asdfrsd23gggg'),
-      boilerSwitchState: GenericBoilerSwitchState(DeviceActions.off.toString()),
-    );
-
-    final RequestsAndStatusFromHub requestsAndStatusFromHubBoiler2 =
-        RequestsAndStatusFromHub(
-      sendingType: sendingTypeDevice,
-      allRemoteCommands:
-          DeviceHelper.convertDomainToJsonString(allRemoteCommandsBoiler2),
-    );
-    devicesList.add(requestsAndStatusFromHubBoiler2);
-
-    final GenericBoilerDE allRemoteCommandsBoiler3 = GenericBoilerDE(
-      uniqueId:
-          CoreUniqueId.fromUniqueString('65d84b10-434d-11ed-817a-7d350fb52f93'),
-      vendorUniqueId: VendorUniqueId.fromUniqueString('65fd2f'),
-      deviceVendor: DeviceVendor('switcherSmartHome'),
-      defaultName: DeviceDefaultName('Boiler 3 1234556789 1234556789'),
-      deviceStateGRPC: DeviceState(DeviceStateGRPC.ack.toString()),
-      stateMassage: DeviceStateMassage('Hello World'),
-      senderDeviceOs: DeviceSenderDeviceOs('switcher'),
-      senderDeviceModel:
-          DeviceSenderDeviceModel('SwitcherDevicesTypes.switcherV2Esp'),
-      senderId: DeviceSenderId.fromUniqueString(
-        '65d84b11-434d-11ed-817a-7d350fb52f91',
-      ),
-      compUuid: DeviceCompUuid('34asdfrsd23gggg'),
-      boilerSwitchState: GenericBoilerSwitchState(DeviceActions.off.toString()),
-    );
-
-    final RequestsAndStatusFromHub requestsAndStatusFromHubBoiler3 =
-        RequestsAndStatusFromHub(
-      sendingType: sendingTypeDevice,
-      allRemoteCommands:
-          DeviceHelper.convertDomainToJsonString(allRemoteCommandsBoiler3),
-    );
-    devicesList.add(requestsAndStatusFromHubBoiler3);
-
-    final GenericBoilerDE allRemoteCommandsBoiler4 = GenericBoilerDE(
-      uniqueId:
-          CoreUniqueId.fromUniqueString('65d84b10-434d-11ed-817a-7d350fb52f94'),
-      vendorUniqueId: VendorUniqueId.fromUniqueString('65fd2f'),
-      deviceVendor: DeviceVendor('switcherSmartHome'),
-      defaultName: DeviceDefaultName('Boiler 4 1234556789 1234556789'),
-      deviceStateGRPC: DeviceState(DeviceStateGRPC.ack.toString()),
-      stateMassage: DeviceStateMassage('Hello World'),
-      senderDeviceOs: DeviceSenderDeviceOs('switcher'),
-      senderDeviceModel:
-          DeviceSenderDeviceModel('SwitcherDevicesTypes.switcherV2Esp'),
-      senderId: DeviceSenderId.fromUniqueString(
-        '65d84b11-434d-11ed-817a-7d350fb52f91',
-      ),
-      compUuid: DeviceCompUuid('34asdfrsd23gggg'),
-      boilerSwitchState: GenericBoilerSwitchState(DeviceActions.off.toString()),
-    );
-
-    final RequestsAndStatusFromHub requestsAndStatusFromHubBoiler4 =
-        RequestsAndStatusFromHub(
-      sendingType: sendingTypeDevice,
-      allRemoteCommands:
-          DeviceHelper.convertDomainToJsonString(allRemoteCommandsBoiler4),
-    );
-    devicesList.add(requestsAndStatusFromHubBoiler4);
-
-    final GenericBoilerDE allRemoteCommandsBoiler5 = GenericBoilerDE(
-      uniqueId:
-          CoreUniqueId.fromUniqueString('65d84b10-434d-11ed-817a-7d350fb52f91'),
-      vendorUniqueId: VendorUniqueId.fromUniqueString('65fd2f'),
-      deviceVendor: DeviceVendor('switcherSmartHome'),
-      defaultName: DeviceDefaultName('Boiler 5 1234556789'),
-      deviceStateGRPC: DeviceState(DeviceStateGRPC.ack.toString()),
-      stateMassage: DeviceStateMassage('Hello World'),
-      senderDeviceOs: DeviceSenderDeviceOs('switcher'),
-      senderDeviceModel:
-          DeviceSenderDeviceModel('SwitcherDevicesTypes.switcherV2Esp'),
-      senderId: DeviceSenderId.fromUniqueString(
-        '65d84b11-434d-11ed-817a-7d350fb52f91',
-      ),
-      compUuid: DeviceCompUuid('34asdfrsd23gggg'),
-      boilerSwitchState: GenericBoilerSwitchState(DeviceActions.off.toString()),
-    );
-
-    final RequestsAndStatusFromHub requestsAndStatusFromHubBoiler5 =
-        RequestsAndStatusFromHub(
-      sendingType: sendingTypeDevice,
-      allRemoteCommands:
-          DeviceHelper.convertDomainToJsonString(allRemoteCommandsBoiler5),
-    );
-    devicesList.add(requestsAndStatusFromHubBoiler5);
-
-    final GenericBoilerDE allRemoteCommandsBoiler6 = GenericBoilerDE(
-      uniqueId:
-          CoreUniqueId.fromUniqueString('65d84b10-434d-11ed-817a-2d350fb52f92'),
-      vendorUniqueId: VendorUniqueId.fromUniqueString('65fd2f'),
-      deviceVendor: DeviceVendor('switcherSmartHome'),
-      defaultName: DeviceDefaultName('Boiler  2  1234556789 1234556789'),
-      deviceStateGRPC: DeviceState(DeviceStateGRPC.ack.toString()),
-      stateMassage: DeviceStateMassage('Hello World'),
-      senderDeviceOs: DeviceSenderDeviceOs('switcher'),
-      senderDeviceModel:
-          DeviceSenderDeviceModel('SwitcherDevicesTypes.switcherV2Esp'),
-      senderId: DeviceSenderId.fromUniqueString(
-        '65d84b11-434d-11ed-817a-7d350fb52f91',
-      ),
-      compUuid: DeviceCompUuid('34asdfrsd23gggg'),
-      boilerSwitchState: GenericBoilerSwitchState(DeviceActions.off.toString()),
-    );
-
-    final RequestsAndStatusFromHub requestsAndStatusFromHubBoiler6 =
-        RequestsAndStatusFromHub(
-      sendingType: sendingTypeDevice,
-      allRemoteCommands:
-          DeviceHelper.convertDomainToJsonString(allRemoteCommandsBoiler6),
-    );
-    devicesList.add(requestsAndStatusFromHubBoiler6);
-
-    final GenericBoilerDE allRemoteCommandsBoiler7 = GenericBoilerDE(
-      uniqueId:
-          CoreUniqueId.fromUniqueString('65d84b10-r34d-11ed-817a-7d350fb52f92'),
-      vendorUniqueId: VendorUniqueId.fromUniqueString('65fd2f'),
-      deviceVendor: DeviceVendor('switcherSmartHome'),
-      defaultName: DeviceDefaultName('Boiler  2  1234556789 1234556789'),
-      deviceStateGRPC: DeviceState(DeviceStateGRPC.ack.toString()),
-      stateMassage: DeviceStateMassage('Hello World'),
-      senderDeviceOs: DeviceSenderDeviceOs('switcher'),
-      senderDeviceModel:
-          DeviceSenderDeviceModel('SwitcherDevicesTypes.switcherV2Esp'),
-      senderId: DeviceSenderId.fromUniqueString(
-        '65d84b11-434d-11ed-817a-7d350fb52f91',
-      ),
-      compUuid: DeviceCompUuid('34asdfrsd23gggg'),
-      boilerSwitchState: GenericBoilerSwitchState(DeviceActions.off.toString()),
-    );
-
-    final RequestsAndStatusFromHub requestsAndStatusFromHubBoiler7 =
-        RequestsAndStatusFromHub(
-      sendingType: sendingTypeDevice,
-      allRemoteCommands:
-          DeviceHelper.convertDomainToJsonString(allRemoteCommandsBoiler7),
-    );
-    devicesList.add(requestsAndStatusFromHubBoiler7);
-
-    final GenericBoilerDE allRemoteCommandsBoiler8 = GenericBoilerDE(
-      uniqueId:
-          CoreUniqueId.fromUniqueString('e5d84b10-434d-11ed-817a-7d350fb52f92'),
-      vendorUniqueId: VendorUniqueId.fromUniqueString('65fd2f'),
-      deviceVendor: DeviceVendor('switcherSmartHome'),
-      defaultName: DeviceDefaultName('Boiler  2  1234556789 1234556789'),
-      deviceStateGRPC: DeviceState(DeviceStateGRPC.ack.toString()),
-      stateMassage: DeviceStateMassage('Hello World'),
-      senderDeviceOs: DeviceSenderDeviceOs('switcher'),
-      senderDeviceModel:
-          DeviceSenderDeviceModel('SwitcherDevicesTypes.switcherV2Esp'),
-      senderId: DeviceSenderId.fromUniqueString(
-        '65d84b11-434d-11ed-817a-7d350fb52f91',
-      ),
-      compUuid: DeviceCompUuid('34asdfrsd23gggg'),
-      boilerSwitchState: GenericBoilerSwitchState(DeviceActions.off.toString()),
-    );
-
-    final RequestsAndStatusFromHub requestsAndStatusFromHubBoiler8 =
-        RequestsAndStatusFromHub(
-      sendingType: sendingTypeDevice,
-      allRemoteCommands:
-          DeviceHelper.convertDomainToJsonString(allRemoteCommandsBoiler8),
-    );
-    devicesList.add(requestsAndStatusFromHubBoiler8);
-
     /// RGBLight
 
     final GenericRgbwLightDE allRemoteCommandsRgbLight = GenericRgbwLightDE(
@@ -525,7 +268,7 @@ class HubClientDemo {
           CoreUniqueId.fromUniqueString('7189ed76-4351-11ed-b249-63fd7e165c16'),
       vendorUniqueId: VendorUniqueId.fromUniqueString('bf4bccdaf68347e31dhiut'),
       deviceVendor: DeviceVendor('tuyaSmart'),
-      defaultName: DeviceDefaultName('Dining Room Ceiling 1234556789'),
+      defaultName: DeviceDefaultName('Dining Room Ceiling'),
       deviceStateGRPC: DeviceState(DeviceStateGRPC.ack.toString()),
       stateMassage: DeviceStateMassage('Hello World'),
       senderDeviceOs: DeviceSenderDeviceOs('tuya_smart'),
@@ -551,70 +294,6 @@ class HubClientDemo {
           DeviceHelper.convertDomainToJsonString(allRemoteCommandsRgbLight),
     );
     devicesList.add(requestsAndStatusFromHubRgbLight);
-
-    final GenericRgbwLightDE allRemoteCommandsRgbLight2 = GenericRgbwLightDE(
-      uniqueId:
-          CoreUniqueId.fromUniqueString('7189ed76-4351-11ed-b249-63fd7e165c16'),
-      vendorUniqueId: VendorUniqueId.fromUniqueString('bf4bccdaf68347e31dhiut'),
-      deviceVendor: DeviceVendor('tuyaSmart'),
-      defaultName: DeviceDefaultName('Dining Room Ceiling 2 1234556789'),
-      deviceStateGRPC: DeviceState(DeviceStateGRPC.ack.toString()),
-      stateMassage: DeviceStateMassage('Hello World'),
-      senderDeviceOs: DeviceSenderDeviceOs('tuya_smart'),
-      senderDeviceModel: DeviceSenderDeviceModel('1SE'),
-      senderId: DeviceSenderId.fromUniqueString(
-        '7189ed77-4351-11ed-b249-63fd7e165c16',
-      ),
-      compUuid: DeviceCompUuid('34asdfrsd23gggg'),
-      lightSwitchState:
-          GenericRgbwLightSwitchState(DeviceActions.off.toString()),
-      lightBrightness: GenericRgbwLightBrightness('1000'),
-      lightColorAlpha: GenericRgbwLightColorAlpha('1.0'),
-      lightColorHue: GenericRgbwLightColorHue('0.0'),
-      lightColorSaturation: GenericRgbwLightColorSaturation('1.0'),
-      lightColorTemperature: GenericRgbwLightColorTemperature('8129'),
-      lightColorValue: GenericRgbwLightColorValue('1.0'),
-    );
-
-    final RequestsAndStatusFromHub requestsAndStatusFromHubRgbLight2 =
-        RequestsAndStatusFromHub(
-      sendingType: sendingTypeDevice,
-      allRemoteCommands:
-          DeviceHelper.convertDomainToJsonString(allRemoteCommandsRgbLight2),
-    );
-    devicesList.add(requestsAndStatusFromHubRgbLight2);
-
-    final GenericRgbwLightDE allRemoteCommandsRgbLight3 = GenericRgbwLightDE(
-      uniqueId:
-          CoreUniqueId.fromUniqueString('7189ed76-4351-11ed-b249-63fd7e165c16'),
-      vendorUniqueId: VendorUniqueId.fromUniqueString('bf4bccdaf68347e31dhiut'),
-      deviceVendor: DeviceVendor('tuyaSmart'),
-      defaultName: DeviceDefaultName('Dining Room Ceiling 1234556789'),
-      deviceStateGRPC: DeviceState(DeviceStateGRPC.ack.toString()),
-      stateMassage: DeviceStateMassage('Hello World'),
-      senderDeviceOs: DeviceSenderDeviceOs('tuya_smart'),
-      senderDeviceModel: DeviceSenderDeviceModel('1SE'),
-      senderId: DeviceSenderId.fromUniqueString(
-        '7189ed77-4351-11ed-b249-63fd7e165c16',
-      ),
-      compUuid: DeviceCompUuid('34asdfrsd23gggg'),
-      lightSwitchState:
-          GenericRgbwLightSwitchState(DeviceActions.off.toString()),
-      lightBrightness: GenericRgbwLightBrightness('1000'),
-      lightColorAlpha: GenericRgbwLightColorAlpha('1.0'),
-      lightColorHue: GenericRgbwLightColorHue('0.0'),
-      lightColorSaturation: GenericRgbwLightColorSaturation('1.0'),
-      lightColorTemperature: GenericRgbwLightColorTemperature('8129'),
-      lightColorValue: GenericRgbwLightColorValue('1.0'),
-    );
-
-    final RequestsAndStatusFromHub requestsAndStatusFromHubRgbLight3 =
-        RequestsAndStatusFromHub(
-      sendingType: sendingTypeDevice,
-      allRemoteCommands:
-          DeviceHelper.convertDomainToJsonString(allRemoteCommandsRgbLight3),
-    );
-    devicesList.add(requestsAndStatusFromHubRgbLight3);
 
     return devicesList;
   }
