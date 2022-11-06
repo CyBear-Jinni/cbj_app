@@ -9,6 +9,7 @@ import 'package:cybear_jinni/domain/create_home/create_home_value_objects.dart';
 import 'package:cybear_jinni/domain/create_home/i_create_home_repository.dart';
 import 'package:cybear_jinni/domain/home_user/home_user_entity.dart';
 import 'package:cybear_jinni/domain/home_user/home_user_value_objects.dart';
+import 'package:cybear_jinni/domain/local_db/i_local_db_repository.dart';
 import 'package:cybear_jinni/domain/manage_network/manage_network_entity.dart';
 import 'package:cybear_jinni/domain/manage_network/manage_network_value_objects.dart';
 import 'package:cybear_jinni/domain/user/all_homes_of_user/all_homes_of_user_entity.dart';
@@ -18,7 +19,6 @@ import 'package:cybear_jinni/domain/user/user_entity.dart';
 import 'package:cybear_jinni/domain/user/user_errors.dart';
 import 'package:cybear_jinni/domain/user/user_failures.dart';
 import 'package:cybear_jinni/infrastructure/create_home/create_home_dtos.dart';
-import 'package:cybear_jinni/infrastructure/hive_local_db/hive_local_db.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/services.dart';
@@ -66,7 +66,8 @@ class CreateHomeRepository implements ICreateHomeRepository {
       );
 
       // create home with the current user
-      await HiveLocalDbHelper.setHomeId(createHomeEntityWithId.id.getOrCrash());
+      await getIt<ILocalDbRepository>()
+          .setHomeId(createHomeEntityWithId.id.getOrCrash());
 
       final creatingHomeWithUser = await addUserToHome(userEntity);
 

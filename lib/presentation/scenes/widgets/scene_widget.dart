@@ -33,7 +33,7 @@ class SceneWidget extends StatelessWidget {
               margin: const EdgeInsets.fromLTRB(5, 0, 5, 10),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  primary: Color(
+                  backgroundColor: Color(
                     int.parse(currentScene.backgroundColor.getOrCrash()),
                   ),
                   padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),

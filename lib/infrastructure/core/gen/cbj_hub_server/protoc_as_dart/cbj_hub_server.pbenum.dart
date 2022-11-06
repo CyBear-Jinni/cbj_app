@@ -25,6 +25,7 @@ class SendingType extends $pb.ProtobufEnum {
   static const SendingType getHubDeviceInfo = SendingType._(12, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'getHubDeviceInfo');
   static const SendingType responseHubDeviceInfo = SendingType._(13, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'responseHubDeviceInfo');
   static const SendingType roomType = SendingType._(14, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'roomType');
+  static const SendingType location = SendingType._(15, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'location');
 
   static const $core.List<SendingType> values = <SendingType> [
     undefinedType,
@@ -42,6 +43,7 @@ class SendingType extends $pb.ProtobufEnum {
     getHubDeviceInfo,
     responseHubDeviceInfo,
     roomType,
+    location,
   ];
 
   static final $core.Map<$core.int, SendingType> _byValue = $pb.ProtobufEnum.initByValue(values);
@@ -100,7 +102,7 @@ class VendorsAndServices extends $pb.ProtobufEnum {
   static const VendorsAndServices shelly = VendorsAndServices._(11, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'shelly');
   static const VendorsAndServices wink = VendorsAndServices._(12, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'wink');
   static const VendorsAndServices ikea = VendorsAndServices._(13, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'ikea');
-  static const VendorsAndServices sonoff = VendorsAndServices._(14, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'sonoff');
+  static const VendorsAndServices sonoffDiy = VendorsAndServices._(14, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'sonoffDiy');
   static const VendorsAndServices philipsHue = VendorsAndServices._(15, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'philipsHue');
   static const VendorsAndServices lg = VendorsAndServices._(16, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'lg');
   static const VendorsAndServices spotify = VendorsAndServices._(17, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'spotify');
@@ -108,6 +110,8 @@ class VendorsAndServices extends $pb.ProtobufEnum {
   static const VendorsAndServices hp = VendorsAndServices._(19, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'hp');
   static const VendorsAndServices yeelink = VendorsAndServices._(20, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'yeelink');
   static const VendorsAndServices xiaomi = VendorsAndServices._(21, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'xiaomi');
+  static const VendorsAndServices sonoffEweLink = VendorsAndServices._(22, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'sonoffEweLink');
+  static const VendorsAndServices cbjDevices = VendorsAndServices._(23, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'cbjDevices');
 
   static const $core.List<VendorsAndServices> values = <VendorsAndServices> [
     vendorsAndServicesNotSupported,
@@ -124,7 +128,7 @@ class VendorsAndServices extends $pb.ProtobufEnum {
     shelly,
     wink,
     ikea,
-    sonoff,
+    sonoffDiy,
     philipsHue,
     lg,
     spotify,
@@ -132,6 +136,8 @@ class VendorsAndServices extends $pb.ProtobufEnum {
     hp,
     yeelink,
     xiaomi,
+    sonoffEweLink,
+    cbjDevices,
   ];
 
   static final $core.Map<$core.int, VendorsAndServices> _byValue = $pb.ProtobufEnum.initByValue(values);
@@ -141,7 +147,7 @@ class VendorsAndServices extends $pb.ProtobufEnum {
 }
 
 class DeviceTypes extends $pb.ProtobufEnum {
-  static const DeviceTypes typeNotSupported = DeviceTypes._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'typeNotSupported');
+  static const DeviceTypes smartTypeNotSupported = DeviceTypes._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'smartTypeNotSupported');
   static const DeviceTypes light = DeviceTypes._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'light');
   static const DeviceTypes blinds = DeviceTypes._(2, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'blinds');
   static const DeviceTypes boiler = DeviceTypes._(3, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'boiler');
@@ -187,9 +193,12 @@ class DeviceTypes extends $pb.ProtobufEnum {
   static const DeviceTypes printer = DeviceTypes._(44, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'printer');
   static const DeviceTypes scanner = DeviceTypes._(45, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'scanner');
   static const DeviceTypes printerWithScanner = DeviceTypes._(46, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'printerWithScanner');
+  static const DeviceTypes smartComputer = DeviceTypes._(47, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'smartComputer');
+  static const DeviceTypes emptyDevice = DeviceTypes._(48, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'emptyDevice');
+  static const DeviceTypes pingDevice = DeviceTypes._(49, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'pingDevice');
 
   static const $core.List<DeviceTypes> values = <DeviceTypes> [
-    typeNotSupported,
+    smartTypeNotSupported,
     light,
     blinds,
     boiler,
@@ -235,6 +244,9 @@ class DeviceTypes extends $pb.ProtobufEnum {
     printer,
     scanner,
     printerWithScanner,
+    smartComputer,
+    emptyDevice,
+    pingDevice,
   ];
 
   static final $core.Map<$core.int, DeviceTypes> _byValue = $pb.ProtobufEnum.initByValue(values);
@@ -254,6 +266,24 @@ class DeviceActions extends $pb.ProtobufEnum {
   static const DeviceActions longPress = DeviceActions._(7, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'longPress');
   static const DeviceActions doubleTap = DeviceActions._(8, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'doubleTap');
   static const DeviceActions position = DeviceActions._(9, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'position');
+  static const DeviceActions suspend = DeviceActions._(10, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'suspend');
+  static const DeviceActions shutdown = DeviceActions._(11, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'shutdown');
+  static const DeviceActions itIsFalse = DeviceActions._(12, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'itIsFalse');
+  static const DeviceActions itIsTrue = DeviceActions._(13, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'itIsTrue');
+  static const DeviceActions pausePlay = DeviceActions._(14, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'pausePlay');
+  static const DeviceActions changeVolume = DeviceActions._(15, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'changeVolume');
+  static const DeviceActions jump = DeviceActions._(16, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'jump');
+  static const DeviceActions skip = DeviceActions._(17, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'skip');
+  static const DeviceActions pause = DeviceActions._(18, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'pause');
+  static const DeviceActions play = DeviceActions._(19, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'play');
+  static const DeviceActions volumeUp = DeviceActions._(20, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'volumeUp');
+  static const DeviceActions volumeDown = DeviceActions._(21, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'volumeDown');
+  static const DeviceActions skipForeword = DeviceActions._(22, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'skipForeword');
+  static const DeviceActions skipBackward = DeviceActions._(23, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'skipBackward');
+  static const DeviceActions skipNextVid = DeviceActions._(24, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'skipNextVid');
+  static const DeviceActions skipPreviousVid = DeviceActions._(25, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'skipPreviousVid');
+  static const DeviceActions open = DeviceActions._(26, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'open');
+  static const DeviceActions close = DeviceActions._(27, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'close');
 
   static const $core.List<DeviceActions> values = <DeviceActions> [
     actionNotSupported,
@@ -266,6 +296,24 @@ class DeviceActions extends $pb.ProtobufEnum {
     longPress,
     doubleTap,
     position,
+    suspend,
+    shutdown,
+    itIsFalse,
+    itIsTrue,
+    pausePlay,
+    changeVolume,
+    jump,
+    skip,
+    pause,
+    play,
+    volumeUp,
+    volumeDown,
+    skipForeword,
+    skipBackward,
+    skipNextVid,
+    skipPreviousVid,
+    open,
+    close,
   ];
 
   static final $core.Map<$core.int, DeviceActions> _byValue = $pb.ProtobufEnum.initByValue(values);

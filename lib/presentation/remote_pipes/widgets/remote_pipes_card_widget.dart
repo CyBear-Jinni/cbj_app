@@ -5,8 +5,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class RemotePipesCard extends StatelessWidget {
   const RemotePipesCard({
     required this.homeUser,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final HomeUserEntity? homeUser;
 

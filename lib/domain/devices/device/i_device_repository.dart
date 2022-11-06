@@ -36,6 +36,11 @@ abstract class IDeviceRepository {
       watchSmartPlugs();
 
   Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
+      watchSmartComputers();
+
+  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>> watchPrinters();
+
+  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
       watchUncompleted();
 
   Future<Either<DevicesFailure, Unit>> create(
@@ -75,15 +80,56 @@ abstract class IDeviceRepository {
     required int brightnessToChange,
   });
 
-  Future<Either<DevicesFailure, Unit>> moveUpBlinds({
+  Future<Either<DevicesFailure, Unit>> moveUpStateDevices({
     required List<String>? devicesId,
   });
 
-  Future<Either<DevicesFailure, Unit>> stopBlinds({
+  Future<Either<DevicesFailure, Unit>> stopStateDevices({
     required List<String>? devicesId,
   });
 
-  Future<Either<DevicesFailure, Unit>> moveDownBlinds({
+  Future<Either<DevicesFailure, Unit>> moveDownStateDevices({
+    required List<String>? devicesId,
+  });
+
+  Future<Either<DevicesFailure, Unit>> suspendDevices({
+    required List<String>? devicesId,
+  });
+
+  Future<Either<DevicesFailure, Unit>> shutdownDevices({
+    required List<String>? devicesId,
+  });
+
+  Future<Either<DevicesFailure, Unit>> openUrlOnDevices({
+    required List<String>? devicesId,
+    required String url,
+  });
+
+  Future<Either<DevicesFailure, Unit>> closeStateDevices({
+    required List<String>? devicesId,
+  });
+
+  Future<Either<DevicesFailure, Unit>> pauseStateDevices({
+    required List<String>? devicesId,
+  });
+
+  Future<Either<DevicesFailure, Unit>> playStateDevices({
+    required List<String>? devicesId,
+  });
+
+  Future<Either<DevicesFailure, Unit>> skipVideoDevices({
+    required List<String>? devicesId,
+  });
+
+  Future<Either<DevicesFailure, Unit>> changeVolumeDevices({
+    required List<String>? devicesId,
+  });
+
+  Future<Either<DevicesFailure, Unit>> queuePrevStateDevices({
+    required List<String>? devicesId,
+  });
+
+  Future<Either<DevicesFailure, Unit>> queueNextStateDevices({
     required List<String>? devicesId,
   });
 

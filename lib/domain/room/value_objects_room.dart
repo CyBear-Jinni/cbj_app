@@ -76,6 +76,20 @@ class RoomDefaultName extends ValueObjectRooms<String> {
   static const maxLength = 1000;
 }
 
+/// Can be an image or a color hex value
+class RoomBackground extends ValueObjectRooms<String> {
+  factory RoomBackground(String input) {
+    return RoomBackground._(
+      validateRoomBackgroundNotEmpty(input),
+    );
+  }
+
+  const RoomBackground._(this.value);
+
+  @override
+  final Either<RoomFailure<String>, String> value;
+}
+
 class RoomTypes extends ValueObjectRooms<List<String>> {
   factory RoomTypes(List<String> input) {
     return RoomTypes._(validateRoomTypesExist(input));

@@ -24,9 +24,9 @@ class LightsInTheRoomBlock extends StatelessWidget {
   }) {
     final List<GenericLightDE> tempLightsInRoom = [];
 
-    tempDeviceInRoom.forEach((element) {
+    for (final element in tempDeviceInRoom) {
       tempLightsInRoom.add(element as GenericLightDE);
-    });
+    }
 
     return LightsInTheRoomBlock(
       roomEntity: roomEntity,
@@ -218,9 +218,9 @@ class LightsInTheRoomBlock extends StatelessWidget {
 
   List<String> extractDevicesId() {
     final List<String> devicesIdList = [];
-    lightsInRoom.forEach((element) {
+    for (final element in lightsInRoom) {
       devicesIdList.add(element.uniqueId.getOrCrash());
-    });
+    }
     return devicesIdList;
   }
 }

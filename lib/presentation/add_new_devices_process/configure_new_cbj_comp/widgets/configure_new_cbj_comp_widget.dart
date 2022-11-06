@@ -25,7 +25,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
 
   Widget devicesList(
     CBJCompEntity cbjCompEntityForDeviceList,
-    Map<String, TextEditingController> _textEditingController,
+    Map<String, TextEditingController> textEditingController,
     BuildContext context,
   ) {
     final List<GenericLightDE> devicesList =
@@ -35,12 +35,12 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
 
     for (final GenericLightDE device in devicesList) {
       if (device.deviceTypes.getOrCrash() !=
-          DeviceTypes.typeNotSupported.toString()) {
+          DeviceTypes.smartTypeNotSupported.toString()) {
         final TextEditingController textEditingControllerTemp =
             TextEditingController(
           text: device.defaultName.value.getOrElse(() => ''),
         );
-        _textEditingController[
+        textEditingController[
                 '$deviceNameFieldKey/${device.uniqueId.value.getOrElse(() => 'deviceId')}'] =
             textEditingControllerTemp;
         widgetList.add(
@@ -169,8 +169,8 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final CBJCompEntity cbjCompEntityInBuild = cbjCompEntity;
-    final Map<String, TextEditingController> _textEditingController = {};
-    _textEditingController['allInSameRoom'] = TextEditingController();
+    final Map<String, TextEditingController> textEditingController = {};
+    textEditingController['allInSameRoom'] = TextEditingController();
 
     return BlocBuilder<ConfigureNewCbjCompBloc, ConfigureNewCbjCompState>(
       builder: (context, state) {

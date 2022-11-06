@@ -37,9 +37,9 @@ class RoomBlinds extends StatelessWidget {
     Widget createSwitchTableWidget() {
       final List<Widget> columnOfLights = <Widget>[];
 
-      final int _numberOfBlindsToShow = _deviceEntityList.size;
+      final int numberOfBlindsToShow = _deviceEntityList.size;
 
-      for (int i = 0; i < _numberOfBlindsToShow; i++) {
+      for (int i = 0; i < numberOfBlindsToShow; i++) {
         GenericBlindsDE deviceEntityTemp;
         if (_deviceEntityList[i] is! GenericBlindsDE) {
           continue;

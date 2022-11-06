@@ -13,30 +13,24 @@ import 'package:dartz/dartz.dart';
 class GenericSmartTvDE extends DeviceEntityAbstract {
   /// All public field of GenericSmartTv entity
   GenericSmartTvDE({
-    required CoreUniqueId uniqueId,
-    required VendorUniqueId vendorUniqueId,
-    required DeviceVendor deviceVendor,
-    required DeviceDefaultName defaultName,
-    required DeviceState deviceStateGRPC,
-    required DeviceStateMassage stateMassage,
-    required DeviceSenderDeviceOs senderDeviceOs,
-    required DeviceSenderDeviceModel senderDeviceModel,
-    required DeviceSenderId senderId,
-    required DeviceCompUuid compUuid,
+    required super.uniqueId,
+    required super.vendorUniqueId,
+    required super.deviceVendor,
+    required super.defaultName,
+    required super.deviceStateGRPC,
+    required super.stateMassage,
+    required super.senderDeviceOs,
+    required super.senderDeviceModel,
+    required super.senderId,
+    required super.compUuid,
     required this.smartTvSwitchState,
+    this.openUrl,
+    this.pausePlayState,
+    this.skip,
+    this.volume,
     DevicePowerConsumption? powerConsumption,
   }) : super(
-          uniqueId: uniqueId,
-          vendorUniqueId: vendorUniqueId,
-          defaultName: defaultName,
           deviceTypes: DeviceType(DeviceTypes.smartTV.toString()),
-          deviceVendor: deviceVendor,
-          deviceStateGRPC: deviceStateGRPC,
-          compUuid: compUuid,
-          senderDeviceModel: senderDeviceModel,
-          senderDeviceOs: senderDeviceOs,
-          senderId: senderId,
-          stateMassage: stateMassage,
         );
 
   /// Empty instance of GenericSmartTvEntity
@@ -58,12 +52,17 @@ class GenericSmartTvDE extends DeviceEntityAbstract {
 
   /// State of the smartTv on/off
   GenericSmartTvSwitchState? smartTvSwitchState;
+  GenericSmartTvOpenUrl? openUrl;
+  GenericSmartTvPausePlayState? pausePlayState;
+  GenericSmartTvSkipBackOrForward? skip;
+  GenericSmartTvVolume? volume;
 
   //
   // /// Will return failure if any of the fields failed or return unit if fields
   // /// have legit values
   Option<CoreFailure<dynamic>> get failureOption =>
       defaultName.value.fold((f) => some(f), (_) => none());
+
   //
   // return body.failureOrUnit
   //     .andThen(todos.failureOrUnit)
@@ -107,6 +106,10 @@ class GenericSmartTvDE extends DeviceEntityAbstract {
       compUuid: compUuid.getOrCrash(),
       smartTvSwitchState: smartTvSwitchState!.getOrCrash(),
       deviceVendor: deviceVendor.getOrCrash(),
+      openUrl: openUrl?.getOrCrash(),
+      pausePlayState: pausePlayState?.getOrCrash(),
+      skip: skip?.getOrCrash(),
+      volume: volume?.getOrCrash(),
       // serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }
@@ -157,6 +160,9 @@ class GenericSmartTvDE extends DeviceEntityAbstract {
   List<String> getListOfPropertiesToChange() {
     return [
       'smartTvSwitchState',
+      'openUrl',
+      'skip',
+      'volume',
     ];
   }
 }

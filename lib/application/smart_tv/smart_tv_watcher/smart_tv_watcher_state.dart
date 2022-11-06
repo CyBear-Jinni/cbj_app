@@ -7,11 +7,11 @@ class SmartTvWatcherState with _$SmartTvWatcherState {
   const factory SmartTvWatcherState.loadInProgress() = LoadInProgress;
 
   const factory SmartTvWatcherState.loadSuccess(
-    KtList<GenericLightDE?> devices,
+    KtList<GenericSmartTvDE?> devices,
   ) = LoadSuccess;
 
   const factory SmartTvWatcherState.loadFailure(DevicesFailure devicesFailure) =
       LoadFailure;
 
-  const factory SmartTvWatcherState.blindError() = BlindError;
+  const factory SmartTvWatcherState.smartTvsError() = SmartTvsError;
 }

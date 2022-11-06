@@ -406,9 +406,10 @@ class HubConnectionRepository extends IHubConnectionRepository {
       String? networkName;
       if (await Connectivity().checkConnectivity() == ConnectivityResult.wifi &&
           !kIsWeb) {
-        currentDeviceIP = await NetworkInfo().getWifiIP();
-        networkBSSID = await NetworkInfo().getWifiBSSID();
-        networkName = await NetworkInfo().getWifiName();
+        final NetworkInfo networkInfo = NetworkInfo();
+        networkName = await networkInfo.getWifiName();
+        currentDeviceIP = await networkInfo.getWifiIP();
+        networkBSSID = await networkInfo.getWifiBSSID();
       } else {
         if (deviceIpOnTheNetwork == null) {
           // Issue https://github.com/CyBear-Jinni/cbj_app/issues/256
@@ -446,7 +447,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
       );
 
       await for (final ActiveHost activeHost in devicesWithPort) {
-        logger.i('Found device: ${activeHost.address}');
+        logger.i('Found Cbj Hub device: ${activeHost.address}');
         if (networkBSSID != null && networkName != null) {
           return insertHubInfo(
             networkIp: activeHost.address,
@@ -470,8 +471,8 @@ class HubConnectionRepository extends IHubConnectionRepository {
   Future<Either<HubFailures, Unit>> askLocationPermissionAndLocationOn() async {
     final Location location = Location();
 
-    bool _serviceEnabled;
-    PermissionStatus _permissionGranted;
+    bool serviceEnabled;
+    PermissionStatus permissionGranted;
 
     int permissionCounter = 0;
     int disabledCounter = 0;
@@ -482,10 +483,10 @@ class HubConnectionRepository extends IHubConnectionRepository {
     }
 
     while (true) {
-      _permissionGranted = await location.hasPermission();
-      if (_permissionGranted == PermissionStatus.denied) {
-        _permissionGranted = await location.requestPermission();
-        if (_permissionGranted != PermissionStatus.granted) {
+      permissionGranted = await location.hasPermission();
+      if (permissionGranted == PermissionStatus.denied) {
+        permissionGranted = await location.requestPermission();
+        if (permissionGranted != PermissionStatus.granted) {
           logger.e('Permission to use location is denied');
           await Future.delayed(const Duration(seconds: 10));
 
@@ -499,10 +500,10 @@ class HubConnectionRepository extends IHubConnectionRepository {
         }
       }
 
-      _serviceEnabled = await location.serviceEnabled();
-      if (!_serviceEnabled) {
-        _serviceEnabled = await location.requestService();
-        if (!_serviceEnabled) {
+      serviceEnabled = await location.serviceEnabled();
+      if (!serviceEnabled) {
+        serviceEnabled = await location.requestService();
+        if (!serviceEnabled) {
           disabledCounter++;
           if (disabledCounter > 2) {
             return const Left(HubFailures.unexpected());

@@ -7,11 +7,14 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'room_entity.freezed.dart';
 
-@freezed
+@unfreezed
 abstract class RoomEntity implements _$RoomEntity {
-  const factory RoomEntity({
+  const RoomEntity._();
+
+  factory RoomEntity({
     required RoomUniqueId uniqueId,
     required RoomDefaultName defaultName,
+    required RoomBackground background,
     required RoomTypes roomTypes,
     required RoomDevicesId roomDevicesId,
     required RoomScenesId roomScenesId,
@@ -25,65 +28,72 @@ abstract class RoomEntity implements _$RoomEntity {
     required RoomPermissions roomPermissions,
   }) = _RoomEntity;
 
-  const RoomEntity._();
-
   factory RoomEntity.empty() => RoomEntity(
         uniqueId: RoomUniqueId(),
         defaultName: RoomDefaultName(''),
-        // Do not add const
-        roomDevicesId: RoomDevicesId([]),
-        // Do not add const
-        roomScenesId: RoomScenesId([]),
-        // Do not add const
-        roomRoutinesId: RoomRoutinesId([]),
-        // Do not add const
-        roomBindingsId: RoomBindingsId([]),
-        // Do not add const
-        roomMostUsedBy: RoomMostUsedBy([]),
-        // Do not add const
-        roomPermissions: RoomPermissions([]),
-        // Do not add const
-        roomTypes: RoomTypes([]), // Do not add const
+        background: RoomBackground(
+          'https://live.staticflickr.com/5220/5486044345_f67abff3e9_h.jpg',
+        ),
+        roomDevicesId: RoomDevicesId(const []),
+        roomScenesId: RoomScenesId(const []),
+        roomRoutinesId: RoomRoutinesId(const []),
+        roomBindingsId: RoomBindingsId(const []),
+        roomMostUsedBy: RoomMostUsedBy(const []),
+        roomPermissions: RoomPermissions(const []),
+        roomTypes: RoomTypes(const []),
       );
 
   /// Will add new device id to the devices in the room list
   void addDeviceId(String newDeviceId) {
-    /// Will not work if list got created with const
+    final List<String> tempList = [];
+    tempList.addAll(roomDevicesId.getOrCrash());
+    tempList.add(newDeviceId);
     try {
-      roomDevicesId.getOrCrash().add(newDeviceId);
+      roomDevicesId = RoomDevicesId(tempList);
     } catch (e) {
-      logger.e('Will not work if list got created with const');
+      logger.e('addDeviceId will not work if list got created with const');
     }
   }
 
   /// Will add new scene id to the scenes in the room list
   void addSceneId(String newSceneId) {
-    /// Will not work if list got created with const
+    final List<String> tempList = [];
+    tempList.addAll(roomScenesId.getOrCrash());
+    tempList.add(newSceneId);
     try {
-      roomScenesId.getOrCrash().add(newSceneId);
+      roomScenesId = RoomScenesId(tempList);
     } catch (e) {
-      logger.e('Will not work if list got created with const');
+      logger.e('addSceneId will not work if list got created with const');
     }
   }
 
   /// Will add new routine id to the scenes in the room list
-  void addRoutineId(String newSceneId) {
-    /// Will not work if list got created with const
+  void addRoutineId(String newRoutineId) {
+    final List<String> tempList = [];
+    tempList.addAll(roomRoutinesId.getOrCrash());
+    tempList.add(newRoutineId);
     try {
-      roomRoutinesId.getOrCrash().add(newSceneId);
+      roomRoutinesId = RoomRoutinesId(tempList);
     } catch (e) {
-      logger.e('Will not work if list got created with const');
+      logger.e('addRoutineId will not work if list got created with const');
     }
   }
 
   /// Will add new Binding id to the scenes in the room list
   void addBindingId(String newSceneId) {
-    /// Will not work if list got created with const
     try {
       roomBindingsId.getOrCrash().add(newSceneId);
     } catch (e) {
-      logger.e('Will not work if list got created with const');
+      logger.e('addBindingId will not work if list got created with const');
     }
+  }
+
+  /// Return new RoomDevicesId object without id if it exist in roomDevicesId
+  RoomDevicesId deleteIdIfExist(String id) {
+    final List<String> tempList = List.from(roomDevicesId.getOrCrash());
+    tempList.removeWhere((element) => element == id);
+
+    return RoomDevicesId(tempList);
   }
 
   Option<RoomFailure<dynamic>> get failureOption {
@@ -94,6 +104,7 @@ abstract class RoomEntity implements _$RoomEntity {
     return RoomEntityDtos(
       uniqueId: uniqueId.getOrCrash(),
       defaultName: defaultName.getOrCrash(),
+      background: background.getOrCrash(),
       roomTypes: roomTypes.getOrCrash(),
       roomDevicesId: roomDevicesId.getOrCrash(),
       roomScenesId: roomScenesId.getOrCrash(),
