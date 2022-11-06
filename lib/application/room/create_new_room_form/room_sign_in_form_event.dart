@@ -25,7 +25,8 @@ class RoomSignInFormEvent with _$RoomSignInFormEvent {
     List<String> roomPermissions,
   ) = RoomPermissionsChanged;
 
-  const factory RoomSignInFormEvent.changeRoomDevices() = ChangeRoomDevices;
+  const factory RoomSignInFormEvent.changeRoomDevices(BuildContext context) =
+      ChangeRoomDevices;
 
   const factory RoomSignInFormEvent.createRoom() = CreateRoom;
 
