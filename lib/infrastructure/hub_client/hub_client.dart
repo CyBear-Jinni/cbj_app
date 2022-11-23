@@ -25,10 +25,6 @@ class HubClient {
         AppRequestsToHub.appRequestsToHubStreamBroadcast.stream,
       );
 
-      // Connection should establish after that and than we can send first
-      // connection request
-      await Future.delayed(const Duration(milliseconds: 400));
-
       AppRequestsToHub.appRequestsToHubStreamController
           .add(ClientStatusRequests(sendingType: SendingType.firstConnection));
 
