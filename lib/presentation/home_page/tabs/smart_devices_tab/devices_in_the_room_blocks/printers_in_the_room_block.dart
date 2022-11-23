@@ -122,6 +122,7 @@ class PrintersInTheRoomBlock extends StatelessWidget {
                 AutoSizeText(
                   deviceText,
                   maxLines: 1,
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                     foreground: Paint()
                       ..style = PaintingStyle.stroke
@@ -131,6 +132,7 @@ class PrintersInTheRoomBlock extends StatelessWidget {
                 ),
                 AutoSizeText(
                   deviceText,
+                  textAlign: TextAlign.center,
                   maxLines: 1,
                   style: TextStyle(
                     color: Theme.of(context).textTheme.bodyText1!.color,

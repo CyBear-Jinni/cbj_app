@@ -71,7 +71,7 @@ dependencies:
   # HSV(HSB)/HSL/RGB/Material color picker
   flutter_colorpicker: ^1.0.3
   # A cross platform plugin for displaying local notifications.
-  flutter_local_notifications: ^12.0.3
+  flutter_local_notifications: ^12.0.4
   # Getting the local timezone of the os.
   flutter_native_timezone: ^2.0.0
   # An easy to implement custom switch
@@ -85,7 +85,7 @@ dependencies:
   # Service locator
   get_it: ^7.2.0
   # Google Mobile Ads
-  google_mobile_ads: ^2.2.0
+  google_mobile_ads: ^2.3.0
   # Secure authentication system for signing in with a Google account on Android and iOS
   #  google_sign_in: ^5.0.4
   # A high performance, open source, general RPC framework that puts mobile and HTTP/2 first.
@@ -101,9 +101,9 @@ dependencies:
   # Allow you to have a screen at launcher for example
   introduction_screen: ^3.0.2
   # Extremely fast, easy to use, and fully async NoSQL database for Flutter.
-  isar: ^3.0.2
+  isar: ^3.0.5
   # Isar Core binaries for the Isar Database. Needs to be included for Flutter apps.
-  isar_flutter_libs: ^3.0.2
+  isar_flutter_libs: ^3.0.5
   # Defines the annotations used by json_serializable to create code for JSON serialization and deserialization.
   json_annotation: ^4.7.0
   # Dart Build System builders for handling JSON.
@@ -117,7 +117,7 @@ dependencies:
   # Small, easy to use and extensible logger which prints beautiful logs.
   logger: ^1.1.0
   # The Material Design Icons designed by the community for Flutter
-  material_design_icons_flutter: ^5.0.6996
+  material_design_icons_flutter: ^6.0.7096
   # Creating multi-select widgets in a variety of ways
   multi_select_flutter: ^4.1.2
   # Service discovery over multicast DNS (mDNS), Bonjour, and Avahi.
@@ -127,7 +127,7 @@ dependencies:
   # Helps you discover open ports, devices on subnet and more.
   network_tools: ^3.0.0+3
   # Querying information about the application package, such as CFBundleVersion
-  package_info_plus: ^3.0.1
+  package_info_plus: ^3.0.2
   # Finding commonly used locations on the filesystem
   path_provider: ^2.0.11
   # Popup that ask for the requested permission
@@ -137,15 +137,15 @@ dependencies:
   # A wrapper around InheritedWidget to make them easier to use and more reusable.
   provider: ^6.0.4
   # Implementation of the popular reactiveX api for asynchronous programming
-  rxdart: ^0.27.5
+  rxdart: ^0.27.7
   # Reading and writing simple key-value pairs
   shared_preferences: ^2.0.15
   # Highly customizable circular slider/progress bar & spinner.
   sleek_circular_slider: ^2.0.1
   # Plugin for launching a URL
-  url_launcher: ^6.1.6
+  url_launcher: ^6.1.7
   # Simple, fast generation of RFC4122 UUIDs.
-  uuid: ^3.0.6
+  uuid: ^3.0.7
   # Get available wifi ssid list, user can connect to wifi with ssid and password, and create hotspot
   wifi_iot: ^0.3.18
   # Scan for nearby visible WiFi access points.
@@ -159,13 +159,13 @@ dev_dependencies:
   build_runner: ^2.3.2
 
   # Package which simplifies the task of updating your Flutter app's launcher icon.
-  flutter_launcher_icons: ^0.10.0
+  flutter_launcher_icons: ^0.11.0
   # Code generator for unions/pattern-matching/copy.
   freezed: ^2.2.1
   # Convenient code generator for get_it.
   injectable_generator: ^1.5.5
   # Code generator for the Isar Database. Finds classes annotated with @Collection.
-  isar_generator: ^3.0.2
+  isar_generator: ^3.0.5
   # Collection of lint rules for Dart and Flutter projects.
   lint: ^1.10.0
   #  # Mock framework with APIs for Fakes, Mocks, behavior verification, and stubbing.
