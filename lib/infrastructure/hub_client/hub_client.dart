@@ -17,6 +17,9 @@ class HubClient {
     await channel?.terminate();
 
     channel = await _createCbjHubClient(addressToHub, hubPort);
+    channel!.onConnectionStateChanged.listen((event) {
+      logger.i('gRPC connection state $event');
+    });
     stub = CbjHubClient(channel!);
     ResponseStream<RequestsAndStatusFromHub> response;
 
