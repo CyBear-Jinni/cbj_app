@@ -6,6 +6,7 @@ import 'package:cybear_jinni/domain/hub/hub_failures.dart';
 import 'package:cybear_jinni/domain/hub/hub_value_objects.dart';
 import 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
 import 'package:cybear_jinni/domain/local_db/i_local_db_repository.dart';
+import 'package:cybear_jinni/domain/local_db/local_db_failures.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
 import 'package:cybear_jinni/infrastructure/hub_client/hub_client_demo.dart';
@@ -82,12 +83,16 @@ class HubConnectionRepository extends IHubConnectionRepository {
     } catch (e) {
       logger.w("Can't get WiFi BSSID");
     }
+
+    final Either<LocalDbFailures, String> remotePipesInformation =
+        await getIt<ILocalDbRepository>().getRemotePipesDnsName();
+
     // Check if you are connected to the home local network for direct
     // communication with the Hub.
     // This block can be false also if user does not approve some permissions
     // or #256 if the app run on the computer and connected with ethernet cable
     // (not effecting connection with WiFi)
-    if ((await getIt<ILocalDbRepository>().getRemotePipesDnsName()).isLeft() ||
+    if (remotePipesInformation.isLeft() ||
         (connectivityResult != null &&
             connectivityResult == ConnectivityResult.wifi &&
             savedWifiBssidWithoutLastNumber != null &&
@@ -332,7 +337,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
       final String subnet =
           currentDeviceIP!.substring(0, currentDeviceIP.lastIndexOf('.'));
 
-      logger.i('Subnet IP $subnet');
+      logger.i('Hub Search subnet IP $subnet');
 
       final Stream<ActiveHost> devicesWithPort =
           HostScanner.scanDevicesForSinglePort(
@@ -543,35 +548,39 @@ class HubConnectionRepository extends IHubConnectionRepository {
   }
 
   Future<Either<HubFailures, Unit>> OpenAndroidWifiSettingIfPosiible() async {
-    logger.e(
-      'Will ask the user to open WiFi and gps to try local connection',
-    );
-
     final bool wifiEnabled = await WiFiForIoTPlugin.isEnabled();
     final Location location = Location();
 
     if (wifiEnabled && await location.serviceEnabled()) {
       final bool wifiEnabled = await WiFiForIoTPlugin.isConnected();
       if (wifiEnabled) {
-        if (tryAgainConnectToTheHubOnceMore <= 10) {
-          // Even if WiFi got enabled it still takes time for the
-          // device to complete the automatic connection to previous
-          // WiFi network, so we give it a little time before stop trying
-          tryAgainConnectToTheHubOnceMore += 1;
-          await Future.delayed(const Duration(seconds: 5));
-        } else {
-          logger.w(
-            "User cannot connect to home as he is A. Not in his home B. Didn't set Remote Pipes",
-          );
-        }
-      } else {
-        logger.v('User not connected to any WiFi, Will try again.');
-        tryAgainConnectToTheHubOnceMore = 0;
-        await Future.delayed(const Duration(milliseconds: 500));
-
         return right(unit);
       }
+      // while (true) {
+      //   if (wifiEnabled) {
+      //     if (tryAgainConnectToTheHubOnceMore <= 10) {
+      //       // Even if WiFi got enabled it still takes time for the
+      //       // device to complete the automatic connection to previous
+      //       // WiFi network, so we give it a little time before stop trying
+      //       tryAgainConnectToTheHubOnceMore += 1;
+      //       await Future.delayed(const Duration(seconds: 5));
+      //     } else {
+      //       logger.w(
+      //         "User cannot connect to home as he is A. Not in his home B. Didn't set Remote Pipes",
+      //       );
+      //     }
+      //   } else {
+      //     logger.v('User not connected to any WiFi, Will try again.');
+      //     tryAgainConnectToTheHubOnceMore = 0;
+      //     await Future.delayed(const Duration(milliseconds: 500));
+      //
+      //     return right(unit);
+      //   }
+      // }
     } else {
+      logger.w(
+        'Will ask the user to open WiFi and gps to try local connection',
+      );
       final bool wifiEnabled = await WiFiForIoTPlugin.isEnabled();
       if (!wifiEnabled) {
         WiFiForIoTPlugin.setEnabled(true, shouldOpenSettings: true);
