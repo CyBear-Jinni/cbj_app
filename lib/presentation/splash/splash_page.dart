@@ -35,10 +35,8 @@ class _PageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Expanded(
-          child: Image.asset(
-            'assets/cbj_logo.png',
-          ),
+        child: Image.asset(
+          'assets/cbj_logo.png',
         ),
       ),
     );
