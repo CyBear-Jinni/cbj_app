@@ -1,5 +1,5 @@
 buildscript {
-    ext.kotlin_version = '1.6.21'
+    ext.kotlin_version = '1.7.20'
     repositories {
         google()
         jcenter()
@@ -9,6 +9,8 @@ buildscript {
         classpath 'com.android.tools.build:gradle:7.1.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
+        // Todo: as we are no longer using firestore we need to check if this line is needed,
+        // it may be needed for the ads.
         classpath 'com.google.gms:google-services:4.3.3' // For firestore
     }
 }

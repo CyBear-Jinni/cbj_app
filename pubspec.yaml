@@ -39,7 +39,7 @@ dependencies:
   # Utility classes to work with asynchronous computations.
   async: ^2.10.0
   # Declarative routing solution, where everything needed for navigation is automatically generated for you.
-  auto_route: ^5.0.2
+  auto_route: ^5.0.4
   # Automatically resizes text to fit perfectly within its bounds.
   auto_size_text: ^3.0.0
   # Helps implement the BLoC pattern.
@@ -54,7 +54,7 @@ dependencies:
   # Functional programming thingies, let you use multiple return types
   dartz: ^0.10.1
   # A day night time picker.
-  day_night_time_picker: ^1.1.3
+  day_night_time_picker: ^1.1.4
   # Helps us to select days in a week.
   day_picker: ^2.1.1
   # Get current device information
@@ -71,15 +71,15 @@ dependencies:
   # HSV(HSB)/HSL/RGB/Material color picker
   flutter_colorpicker: ^1.0.3
   # A cross platform plugin for displaying local notifications.
-  flutter_local_notifications: ^12.0.4
-  # Getting the local timezone of the os.
-  flutter_native_timezone: ^2.0.0
+  flutter_local_notifications: ^13.0.0
   # An easy to implement custom switch
   flutter_switch: ^0.3.2
+  # Getting the local timezone of the os.
+  flutter_timezone: ^1.0.4
   # Toast Library for Flutter, Easily create toast messages in single line of code.
-  fluttertoast: ^8.1.1
+  fluttertoast: ^8.1.2
   # Font Awesome Icon pack available as Flutter Icons.
-  font_awesome_flutter: ^10.2.1
+  font_awesome_flutter: ^10.3.0
   # Annotations for freezed
   freezed_annotation: ^2.2.0
   # Service locator
@@ -97,9 +97,9 @@ dependencies:
   # Open source icon sets for flutter
   iconify_flutter: ^0.0.5
   # Convenient code generator for get_it
-  injectable: ^1.5.4
+  injectable: ^2.1.0
   # Allow you to have a screen at launcher for example
-  introduction_screen: ^3.0.2
+  introduction_screen: ^3.1.2
   # Extremely fast, easy to use, and fully async NoSQL database for Flutter.
   isar: ^3.0.5
   # Isar Core binaries for the Isar Database. Needs to be included for Flutter apps.
@@ -119,7 +119,7 @@ dependencies:
   # The Material Design Icons designed by the community for Flutter
   material_design_icons_flutter: ^6.0.7096
   # Creating multi-select widgets in a variety of ways
-  multi_select_flutter: ^4.1.2
+  multi_select_flutter: ^4.1.3
   # Service discovery over multicast DNS (mDNS), Bonjour, and Avahi.
   multicast_dns: ^0.3.2+2
   # Discover network info and configure themselves accordingly
@@ -135,7 +135,7 @@ dependencies:
   # Provides runtime support for a Dart implementation of protobufs.
   protobuf: ^2.1.0
   # A wrapper around InheritedWidget to make them easier to use and more reusable.
-  provider: ^6.0.4
+  provider: ^6.0.5
   # Implementation of the popular reactiveX api for asynchronous programming
   rxdart: ^0.27.7
   # Reading and writing simple key-value pairs
@@ -156,19 +156,19 @@ dev_dependencies:
   # Generator for auto_route library.
   auto_route_generator: ^5.0.3
   # A build system for Dart code generation and modular compilation.
-  build_runner: ^2.3.2
+  build_runner: ^2.3.3
 
   # Package which simplifies the task of updating your Flutter app's launcher icon.
   flutter_launcher_icons: ^0.11.0
   # Code generator for unions/pattern-matching/copy.
-  freezed: ^2.2.1
+  freezed: ^2.3.2
   # Convenient code generator for get_it.
-  injectable_generator: ^1.5.5
+  injectable_generator: ^2.1.3
   # Code generator for the Isar Database. Finds classes annotated with @Collection.
   isar_generator: ^3.0.5
   # Collection of lint rules for Dart and Flutter projects.
-  lint: ^1.10.0
+  lint: ^2.0.1
   #  # Mock framework with APIs for Fakes, Mocks, behavior verification, and stubbing.
   #  mockito: ^5.3.0
   # A full featured library for writing and running Dart tests across platforms.
-  test: ^1.22.0
+  test: ^1.22.1
