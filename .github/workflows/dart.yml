@@ -13,7 +13,6 @@ env:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -27,7 +26,7 @@ jobs:
       - uses: actions/setup-java@v3
         with:
           java-version: '12.x'
-    - name: Install dependencies
-      run: flutter pub get
-    - name: Run tests
-      run: flutter test
+      - name: Install dependencies
+        run: flutter pub get
+      - name: Run tests
+        run: flutter test
