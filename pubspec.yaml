@@ -54,7 +54,7 @@ dependencies:
   # Functional programming thingies, let you use multiple return types
   dartz: ^0.10.1
   # A day night time picker.
-  day_night_time_picker: ^1.1.4
+  day_night_time_picker: ^1.1.5
   # Helps us to select days in a week.
   day_picker: ^2.1.1
   # Get current device information
@@ -99,15 +99,15 @@ dependencies:
   # Convenient code generator for get_it
   injectable: ^2.1.0
   # Allow you to have a screen at launcher for example
-  introduction_screen: ^3.1.2
+  introduction_screen: ^3.1.4
   # Extremely fast, easy to use, and fully async NoSQL database for Flutter.
   isar: ^3.0.5
   # Isar Core binaries for the Isar Database. Needs to be included for Flutter apps.
   isar_flutter_libs: ^3.0.5
   # Defines the annotations used by json_serializable to create code for JSON serialization and deserialization.
-  json_annotation: ^4.7.0
+  json_annotation: ^4.8.0
   # Dart Build System builders for handling JSON.
-  json_serializable: ^6.5.4
+  json_serializable: ^6.6.0
   # Port of Kotlin's Kotlin Standard library for Dart/Flutter projects
   kt_dart: ^1.0.0
   # Liquid progress indicator for Flutter.
@@ -139,11 +139,11 @@ dependencies:
   # Implementation of the popular reactiveX api for asynchronous programming
   rxdart: ^0.27.7
   # Reading and writing simple key-value pairs
-  shared_preferences: ^2.0.15
+  shared_preferences: ^2.0.17
   # Highly customizable circular slider/progress bar & spinner.
   sleek_circular_slider: ^2.0.1
   # Plugin for launching a URL
-  url_launcher: ^6.1.7
+  url_launcher: ^6.1.8
   # Simple, fast generation of RFC4122 UUIDs.
   uuid: ^3.0.7
   # Get available wifi ssid list, user can connect to wifi with ssid and password, and create hotspot
@@ -171,4 +171,4 @@ dev_dependencies:
   #  # Mock framework with APIs for Fakes, Mocks, behavior verification, and stubbing.
   #  mockito: ^5.3.0
   # A full featured library for writing and running Dart tests across platforms.
-  test: ^1.22.1
+  test: ^1.22.2
