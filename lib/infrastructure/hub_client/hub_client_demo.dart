@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:cybear_jinni/application/remote_pipes/remote_pipes_bloc.dart';
 import 'package:cybear_jinni/domain/core/value_objects.dart';
 import 'package:cybear_jinni/domain/devices/abstract_device/value_objects_core.dart';
 import 'package:cybear_jinni/domain/devices/generic_blinds_device/generic_blinds_entity.dart';
@@ -34,17 +33,14 @@ class HubClientDemo {
   static Future<void> firstConnection() async {
     for (final RequestsAndStatusFromHub roomRequest in getAllRooms()) {
       HubRequestsToApp.hubRequestsStreamController.add(roomRequest);
-      await Future.delayed(const Duration(milliseconds: 400));
     }
 
     for (final RequestsAndStatusFromHub devicesRequest in getAllDevices()) {
       HubRequestsToApp.hubRequestsStreamController.add(devicesRequest);
-      await Future.delayed(const Duration(milliseconds: 400));
     }
 
     for (final RequestsAndStatusFromHub sceneRequest in getAllScenes()) {
       HubRequestsToApp.hubRequestsStreamController.add(sceneRequest);
-      await Future.delayed(const Duration(milliseconds: 400));
     }
   }
 
@@ -68,7 +64,7 @@ class HubClientDemo {
       roomMostUsedBy: RoomMostUsedBy(const []),
       roomPermissions: RoomPermissions(const []),
       background: RoomBackground(
-        'https://images.unsplash.com/photo-1598546720078-8659863bc47d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80',
+        'https://images.pexels.com/photos/459654/pexels-photo-459654.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
       ),
     );
 
@@ -100,7 +96,7 @@ class HubClientDemo {
       roomMostUsedBy: RoomMostUsedBy(const []),
       roomPermissions: RoomPermissions(const []),
       background: RoomBackground(
-        'https://images.unsplash.com/photo-1598546720078-8659863bc47d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80',
+        'https://images.pexels.com/photos/459654/pexels-photo-459654.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
       ),
     );
 
@@ -128,7 +124,7 @@ class HubClientDemo {
       roomMostUsedBy: RoomMostUsedBy(const []),
       roomPermissions: RoomPermissions(const []),
       background: RoomBackground(
-        'https://images.unsplash.com/photo-1598546720078-8659863bc47d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80',
+        'https://images.pexels.com/photos/459654/pexels-photo-459654.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
       ),
     );
 
@@ -342,5 +338,7 @@ class HubClientDemo {
     String addressToHub,
     int hubPort,
     CompHubInfo compHubInfo,
-  ) async {}
+  ) async {
+    return null;
+  }
 }

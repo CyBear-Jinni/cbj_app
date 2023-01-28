@@ -193,7 +193,7 @@ class SecurityBearConnectionRepository
 
       final String subnet = wifiIP!.substring(0, wifiIP.lastIndexOf('.'));
 
-      logger.i('subnet IP $subnet');
+      logger.i('Security Bear subnet IP $subnet');
 
       final Stream<ActiveHost> devicesWithPort =
           HostScanner.scanDevicesForSinglePort(
@@ -316,7 +316,7 @@ class SecurityBearConnectionRepository
 
       final String subnet = wifiIP!.substring(0, wifiIP.lastIndexOf('.'));
 
-      logger.i('subnet IP $subnet');
+      logger.i('Security Bear subnet IP search $subnet');
 
       final Stream<ActiveHost> devicesWithPort =
           HostScanner.scanDevicesForSinglePort(
@@ -327,7 +327,8 @@ class SecurityBearConnectionRepository
 
       await for (final ActiveHost address in devicesWithPort) {
         logger.i(
-            'Found Security Bear device in current network, address: ${address.address}');
+          'Found Security Bear device in current network, address: ${address.address}',
+        );
 
         final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
         final String? wifiName = await NetworkInfo().getWifiName();

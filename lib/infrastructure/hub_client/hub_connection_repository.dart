@@ -6,6 +6,7 @@ import 'package:cybear_jinni/domain/hub/hub_failures.dart';
 import 'package:cybear_jinni/domain/hub/hub_value_objects.dart';
 import 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
 import 'package:cybear_jinni/domain/local_db/i_local_db_repository.dart';
+import 'package:cybear_jinni/domain/local_db/local_db_failures.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
 import 'package:cybear_jinni/infrastructure/hub_client/hub_client_demo.dart';
@@ -55,33 +56,9 @@ class HubConnectionRepository extends IHubConnectionRepository {
       return streamFromDemoMode();
     }
 
+    /// Load network information from local db
     if (IHubConnectionRepository.hubEntity == null) {
-      try {
-        String? hubNetworkBssid;
-        (await getIt<ILocalDbRepository>().getHubEntityNetworkBssid()).fold(
-          (l) => throw 'Error getting Hub network Bssid',
-          (r) => hubNetworkBssid = r,
-        );
-
-        String? hubNetworkName;
-        (await getIt<ILocalDbRepository>().getHubEntityNetworkName()).fold(
-          (l) => throw 'Error getting Hub network name',
-          (r) => hubNetworkName = r,
-        );
-
-        String? hubNetworkIp;
-        (await getIt<ILocalDbRepository>().getHubEntityLastKnownIp()).fold(
-          (l) => throw 'Error getting Hub network IP',
-          (r) => hubNetworkIp = r,
-        );
-        IHubConnectionRepository.hubEntity = HubDtos(
-          hubNetworkBssid: hubNetworkBssid!,
-          lastKnownIp: hubNetworkIp!,
-          networkName: hubNetworkName!,
-        ).toDomain();
-      } catch (e) {
-        logger.e('Crashed while setting Hub info from local db\n$e');
-      }
+      await loadNetworkInformationFromDb();
     }
 
     ConnectivityResult? connectivityResult;
@@ -106,12 +83,17 @@ class HubConnectionRepository extends IHubConnectionRepository {
     } catch (e) {
       logger.w("Can't get WiFi BSSID");
     }
+
+    final Either<LocalDbFailures, String> remotePipesInformation =
+        await getIt<ILocalDbRepository>().getRemotePipesDnsName();
+
     // Check if you are connected to the home local network for direct
     // communication with the Hub.
-    // This block can be false also if user does not improve some permissions
+    // This block can be false also if user does not approve some permissions
     // or #256 if the app run on the computer and connected with ethernet cable
     // (not effecting connection with WiFi)
-    if ((connectivityResult != null &&
+    if (remotePipesInformation.isLeft() ||
+        (connectivityResult != null &&
             connectivityResult == ConnectivityResult.wifi &&
             savedWifiBssidWithoutLastNumber != null &&
             wifiBSSIDWithoutLastNumber != null &&
@@ -120,100 +102,21 @@ class HubConnectionRepository extends IHubConnectionRepository {
             connectivityResult == ConnectivityResult.ethernet &&
             savedWifiBssidWithoutLastNumber == 'no:Network:Bssid') ||
         (kIsWeb && savedWifiBssidWithoutLastNumber == 'no:Network:Bssid')) {
+      (await OpenAndroidWifiSettingIfPosiible()).fold(
+        (l) {
+          logger
+              .w('No way to establish connection with the Hub, WiFi or location'
+                  ' permission is closed for here');
+          return;
+        },
+        (r) async {},
+      );
       logger.i('Connect using direct connection to Hub');
 
-      if (IHubConnectionRepository.hubEntity?.lastKnownIp.getOrCrash() !=
-          null) {
-        Socket? testHubConnection;
-        try {
-          testHubConnection = await Socket.connect(
-            IHubConnectionRepository.hubEntity!.lastKnownIp.getOrCrash(),
-            hubPort,
-            timeout: const Duration(milliseconds: 500),
-          );
-          await testHubConnection.close();
-          testHubConnection.destroy();
-          testHubConnection = null;
-        } catch (e) {
-          await testHubConnection?.close();
-          testHubConnection?.destroy();
-
-          await searchForHub();
-          logger.i("Connection to hub didn't work, will try again Error:\n$e");
-          connectWithHub();
-          return;
-        }
-      } else {
-        await searchForHub();
-      }
-      tryAgainConnectToTheHubOnceMore = 0;
-      await HubClient.createStreamWithHub(
-        IHubConnectionRepository.hubEntity!.lastKnownIp.getOrCrash(),
-        hubPort,
-      );
-
+      await connectDirectlyToHub();
       return;
     } else {
-      logger.i('Connect using Remote Pipes');
-      (await getIt<ILocalDbRepository>().getRemotePipesDnsName()).fold(
-        (l) async {
-          logger.e(
-            'Cant find local Remote Pipes Dns name, will ask the user to open WiFi and gps to try local connection',
-          );
-
-          final bool wifiEnabled = await WiFiForIoTPlugin.isEnabled();
-          final Location location = Location();
-
-          if (wifiEnabled && await location.serviceEnabled()) {
-            final bool wifiEnabled = await WiFiForIoTPlugin.isConnected();
-            if (wifiEnabled) {
-              if (tryAgainConnectToTheHubOnceMore <= 10) {
-                // Even if WiFi got enabled it still takes time for the
-                // device to complete the automatic connection to previous
-                // WiFi network, so we give it a little time before stop trying
-                tryAgainConnectToTheHubOnceMore += 1;
-                await Future.delayed(const Duration(seconds: 5));
-                connectWithHub();
-              } else {
-                logger.w(
-                  "User cannot connect to home as he is A. Not in his home B. Didn't set Remote Pipes",
-                );
-              }
-            } else {
-              logger.v('User not connected to any WiFi, Will try again.');
-              tryAgainConnectToTheHubOnceMore = 0;
-              await Future.delayed(const Duration(milliseconds: 500));
-              connectWithHub();
-              return;
-            }
-          } else {
-            final bool wifiEnabled = await WiFiForIoTPlugin.isEnabled();
-            if (!wifiEnabled) {
-              WiFiForIoTPlugin.setEnabled(true, shouldOpenSettings: true);
-              tryAgainConnectToTheHubOnceMore = 0;
-              await Future.delayed(const Duration(milliseconds: 500));
-              connectWithHub();
-              return;
-            }
-
-            (await askLocationPermissionAndLocationOn()).fold((l) {
-              logger.e(
-                'User does not allow opening location and does not have remote pipes info',
-              );
-            }, (r) {
-              // Try to connect again because there is a chance user without
-              // remote pipes info but is in his home
-              connectWithHub();
-            });
-          }
-        },
-        (r) {
-          HubClient.createStreamWithHub(r, 50056);
-          tryAgainConnectToTheHubOnceMore = 0;
-        },
-      );
-      // Here for easy find and local testing
-      // HubClient.createStreamWithHub('127.0.0.1', 50056);
+      await connectionUsingRemotePipes();
     }
   }
 
@@ -434,7 +337,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
       final String subnet =
           currentDeviceIP!.substring(0, currentDeviceIP.lastIndexOf('.'));
 
-      logger.i('Subnet IP $subnet');
+      logger.i('Hub Search subnet IP $subnet');
 
       final Stream<ActiveHost> devicesWithPort =
           HostScanner.scanDevicesForSinglePort(
@@ -547,5 +450,155 @@ class HubConnectionRepository extends IHubConnectionRepository {
 
   Future<void> streamFromDemoMode() async {
     await HubClientDemo.createStreamWithHub();
+  }
+
+  /// Load saved Hub network information and load it to
+  /// IHubConnectionRepository.hubEntity
+  Future<void> loadNetworkInformationFromDb() async {
+    try {
+      String? hubNetworkBssid;
+      (await getIt<ILocalDbRepository>().getHubEntityNetworkBssid()).fold(
+        (l) => throw 'Error getting Hub network Bssid',
+        (r) => hubNetworkBssid = r,
+      );
+
+      String? hubNetworkName;
+      (await getIt<ILocalDbRepository>().getHubEntityNetworkName()).fold(
+        (l) => throw 'Error getting Hub network name',
+        (r) => hubNetworkName = r,
+      );
+
+      String? hubNetworkIp;
+      (await getIt<ILocalDbRepository>().getHubEntityLastKnownIp()).fold(
+        (l) => throw 'Error getting Hub network IP',
+        (r) => hubNetworkIp = r,
+      );
+      IHubConnectionRepository.hubEntity = HubDtos(
+        hubNetworkBssid: hubNetworkBssid!,
+        lastKnownIp: hubNetworkIp!,
+        networkName: hubNetworkName!,
+      ).toDomain();
+    } catch (e) {
+      logger.e('Crashed while setting Hub info from local db\n$e');
+    }
+  }
+
+  /// Connect directly to the Hub if possible
+  Future<void> connectDirectlyToHub() async {
+    Socket? testHubConnection;
+    try {
+      testHubConnection = await Socket.connect(
+        IHubConnectionRepository.hubEntity!.lastKnownIp.getOrCrash(),
+        hubPort,
+        timeout: const Duration(milliseconds: 500),
+      );
+      await testHubConnection.close();
+      testHubConnection.destroy();
+      testHubConnection = null;
+    } catch (e) {
+      await testHubConnection?.close();
+      testHubConnection?.destroy();
+
+      Either<HubFailures, Unit> foundAHub = await searchForHub();
+      // If can't find hub in local network
+      if (foundAHub.isLeft()) {
+        // Connect using Remote pipes if connection information exists
+        if ((await getIt<ILocalDbRepository>().getRemotePipesDnsName())
+            .isRight()) {
+          await connectionUsingRemotePipes();
+          return;
+        }
+        while (true) {
+          foundAHub = await searchForHub();
+          if (foundAHub.isRight()) {
+            break;
+          }
+        }
+      }
+    }
+
+    tryAgainConnectToTheHubOnceMore = 0;
+    await HubClient.createStreamWithHub(
+      IHubConnectionRepository.hubEntity!.lastKnownIp.getOrCrash(),
+      hubPort,
+    );
+  }
+
+  /// Connect to the Hub using the Remote Pipes
+  Future<void> connectionUsingRemotePipes() async {
+    (await getIt<ILocalDbRepository>().getRemotePipesDnsName()).fold(
+      (l) async {
+        (await OpenAndroidWifiSettingIfPosiible()).fold(
+          (l) {
+            logger.w(
+                'No way to establish connection with the Hub, WiFi or location'
+                ' permission is closed');
+          },
+          (r) async {
+            await connectWithHub();
+          },
+        );
+      },
+      (r) {
+        logger.i('Connect using Remote Pipes');
+        HubClient.createStreamWithHub(r, 50056);
+        tryAgainConnectToTheHubOnceMore = 0;
+      },
+    );
+  }
+
+  Future<Either<HubFailures, Unit>> OpenAndroidWifiSettingIfPosiible() async {
+    final bool wifiEnabled = await WiFiForIoTPlugin.isEnabled();
+    final Location location = Location();
+
+    if (wifiEnabled && await location.serviceEnabled()) {
+      final bool wifiEnabled = await WiFiForIoTPlugin.isConnected();
+      if (wifiEnabled) {
+        return right(unit);
+      }
+      // while (true) {
+      //   if (wifiEnabled) {
+      //     if (tryAgainConnectToTheHubOnceMore <= 10) {
+      //       // Even if WiFi got enabled it still takes time for the
+      //       // device to complete the automatic connection to previous
+      //       // WiFi network, so we give it a little time before stop trying
+      //       tryAgainConnectToTheHubOnceMore += 1;
+      //       await Future.delayed(const Duration(seconds: 5));
+      //     } else {
+      //       logger.w(
+      //         "User cannot connect to home as he is A. Not in his home B. Didn't set Remote Pipes",
+      //       );
+      //     }
+      //   } else {
+      //     logger.v('User not connected to any WiFi, Will try again.');
+      //     tryAgainConnectToTheHubOnceMore = 0;
+      //     await Future.delayed(const Duration(milliseconds: 500));
+      //
+      //     return right(unit);
+      //   }
+      // }
+    } else {
+      logger.w(
+        'Will ask the user to open WiFi and gps to try local connection',
+      );
+      final bool wifiEnabled = await WiFiForIoTPlugin.isEnabled();
+      if (!wifiEnabled) {
+        WiFiForIoTPlugin.setEnabled(true, shouldOpenSettings: true);
+        tryAgainConnectToTheHubOnceMore = 0;
+        await Future.delayed(const Duration(milliseconds: 500));
+        return right(unit);
+      }
+
+      (await askLocationPermissionAndLocationOn()).fold((l) {
+        logger.e(
+          'User does not allow opening location and does not have remote pipes info',
+        );
+      }, (r) async {
+        // Try to connect again because there is a chance user without
+        // remote pipes info but is in his home
+        return right(unit);
+      });
+    }
+    return const Left(HubFailures.unexpected());
   }
 }

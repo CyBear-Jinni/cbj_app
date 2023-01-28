@@ -9,8 +9,6 @@ part 'room_entity.freezed.dart';
 
 @unfreezed
 abstract class RoomEntity implements _$RoomEntity {
-  const RoomEntity._();
-
   factory RoomEntity({
     required RoomUniqueId uniqueId,
     required RoomDefaultName defaultName,
@@ -27,6 +25,7 @@ abstract class RoomEntity implements _$RoomEntity {
     /// Room permissions by users id
     required RoomPermissions roomPermissions,
   }) = _RoomEntity;
+  const RoomEntity._();
 
   factory RoomEntity.empty() => RoomEntity(
         uniqueId: RoomUniqueId(),

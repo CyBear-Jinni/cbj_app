@@ -31,12 +31,14 @@ class VendorsRepository implements IVendorsRepository {
           vendorName == VendorsAndServices.sonoffEweLink.name ||
           vendorName == VendorsAndServices.ikea.name ||
           vendorName == VendorsAndServices.wink.name ||
-          vendorName == VendorsAndServices.espHome.name ||
           vendorName == VendorsAndServices.lg.name ||
           vendorName == VendorsAndServices.spotify.name ||
           vendorName == VendorsAndServices.homeAssistant.name ||
           vendorName == VendorsAndServices.yeelink.name ||
-          vendorName == VendorsAndServices.xiaomi.name) {
+          vendorName == VendorsAndServices.xiaomi.name ||
+          vendorName == VendorsAndServices.wiz.name ||
+          vendorName == VendorsAndServices.switchBot.name ||
+          vendorName == VendorsAndServices.somfy.name) {
         continue;
       }
       Vendor v = vendorPlusImageFromVandorName(vendorName);

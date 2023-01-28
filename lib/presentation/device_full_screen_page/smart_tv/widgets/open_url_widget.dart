@@ -9,7 +9,7 @@ class OpenUrlPopUp {
   }
 
   BuildContext contextFromParent;
-  GenericSmartTvDE? _deviceEntity;
+  final GenericSmartTvDE? _deviceEntity;
 
   openUrlPopUp() {
     String url = '';

@@ -266,7 +266,7 @@ class DeviceRepository implements IDeviceRepository {
       if (Platform.isAndroid) {
         final AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
         logger.i(androidInfo.model);
-        deviceModelString = androidInfo.model!;
+        deviceModelString = androidInfo.model;
       } else if (Platform.isIOS) {
         final IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
         logger.i(iosInfo.utsname.machine);

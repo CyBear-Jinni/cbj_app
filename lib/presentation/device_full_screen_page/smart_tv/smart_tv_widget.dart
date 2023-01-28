@@ -17,7 +17,7 @@ class SmartTvPage extends StatefulWidget {
 }
 
 class _SmartSmartTvPage extends State<SmartTvPage> {
-  bool _switchState = false;
+  final bool _switchState = false;
   GenericSmartTvDE? _switch;
   bool _isLoading = true;
 

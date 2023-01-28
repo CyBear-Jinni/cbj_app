@@ -82,11 +82,14 @@ const VendorsAndServices$json = const {
     const {'1': 'xiaomi', '2': 21},
     const {'1': 'sonoffEweLink', '2': 22},
     const {'1': 'cbjDevices', '2': 23},
+    const {'1': 'wiz', '2': 24},
+    const {'1': 'switchBot', '2': 25},
+    const {'1': 'somfy', '2': 26},
   ],
 };
 
 /// Descriptor for `VendorsAndServices`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List vendorsAndServicesDescriptor = $convert.base64Decode('ChJWZW5kb3JzQW5kU2VydmljZXMSIgoedmVuZG9yc0FuZFNlcnZpY2VzTm90U3VwcG9ydGVkEAASCwoHZXNwSG9tZRABEhUKEXN3aXRjaGVyU21hcnRIb21lEAISCwoHdGFzbW90YRADEgwKCHllZWxpZ2h0EAQSCgoGZ29vZ2xlEAUSCgoGbWlIb21lEAYSCAoEbGlmeBAHEg0KCXR1eWFTbWFydBAIEg0KCXNtYXJ0TGlmZRAJEg8KC2ppbnZvb1NtYXJ0EAoSCgoGc2hlbGx5EAsSCAoEd2luaxAMEggKBGlrZWEQDRINCglzb25vZmZEaXkQDhIOCgpwaGlsaXBzSHVlEA8SBgoCbGcQEBILCgdzcG90aWZ5EBESEQoNaG9tZUFzc2lzdGFudBASEgYKAmhwEBMSCwoHeWVlbGluaxAUEgoKBnhpYW9taRAVEhEKDXNvbm9mZkV3ZUxpbmsQFhIOCgpjYmpEZXZpY2VzEBc=');
+final $typed_data.Uint8List vendorsAndServicesDescriptor = $convert.base64Decode('ChJWZW5kb3JzQW5kU2VydmljZXMSIgoedmVuZG9yc0FuZFNlcnZpY2VzTm90U3VwcG9ydGVkEAASCwoHZXNwSG9tZRABEhUKEXN3aXRjaGVyU21hcnRIb21lEAISCwoHdGFzbW90YRADEgwKCHllZWxpZ2h0EAQSCgoGZ29vZ2xlEAUSCgoGbWlIb21lEAYSCAoEbGlmeBAHEg0KCXR1eWFTbWFydBAIEg0KCXNtYXJ0TGlmZRAJEg8KC2ppbnZvb1NtYXJ0EAoSCgoGc2hlbGx5EAsSCAoEd2luaxAMEggKBGlrZWEQDRINCglzb25vZmZEaXkQDhIOCgpwaGlsaXBzSHVlEA8SBgoCbGcQEBILCgdzcG90aWZ5EBESEQoNaG9tZUFzc2lzdGFudBASEgYKAmhwEBMSCwoHeWVlbGluaxAUEgoKBnhpYW9taRAVEhEKDXNvbm9mZkV3ZUxpbmsQFhIOCgpjYmpEZXZpY2VzEBcSBwoDd2l6EBgSDQoJc3dpdGNoQm90EBkSCQoFc29tZnkQGg==');
 @$core.Deprecated('Use deviceTypesDescriptor instead')
 const DeviceTypes$json = const {
   '1': 'DeviceTypes',

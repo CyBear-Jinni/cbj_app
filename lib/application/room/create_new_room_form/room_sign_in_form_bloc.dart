@@ -79,9 +79,7 @@ class RoomSignInFormBloc
       roomPermissions: RoomPermissions(state.roomPermissions.getOrCrash()),
     );
 
-    await _roomRepository.create(roomEntity);
-
-    Navigator.pop(event.context);
+    _roomRepository.create(roomEntity);
   }
 
   Future<void> _createRoom(

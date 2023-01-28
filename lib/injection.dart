@@ -12,7 +12,7 @@ late String currentEnv;
 void configureDependencies(String env) {
   currentEnv = env;
   logger.i('Current CyBear Jinni App environment name: $currentEnv');
-  $initGetIt(getIt, environment: env);
+  getIt.init(environment: env);
 }
 
 abstract class Env {
