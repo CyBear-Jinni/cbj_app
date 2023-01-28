@@ -112,6 +112,9 @@ class VendorsAndServices extends $pb.ProtobufEnum {
   static const VendorsAndServices xiaomi = VendorsAndServices._(21, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'xiaomi');
   static const VendorsAndServices sonoffEweLink = VendorsAndServices._(22, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'sonoffEweLink');
   static const VendorsAndServices cbjDevices = VendorsAndServices._(23, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'cbjDevices');
+  static const VendorsAndServices wiz = VendorsAndServices._(24, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'wiz');
+  static const VendorsAndServices switchBot = VendorsAndServices._(25, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'switchBot');
+  static const VendorsAndServices somfy = VendorsAndServices._(26, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'somfy');
 
   static const $core.List<VendorsAndServices> values = <VendorsAndServices> [
     vendorsAndServicesNotSupported,
@@ -138,6 +141,9 @@ class VendorsAndServices extends $pb.ProtobufEnum {
     xiaomi,
     sonoffEweLink,
     cbjDevices,
+    wiz,
+    switchBot,
+    somfy,
   ];
 
   static final $core.Map<$core.int, VendorsAndServices> _byValue = $pb.ProtobufEnum.initByValue(values);

@@ -327,7 +327,8 @@ class SecurityBearConnectionRepository
 
       await for (final ActiveHost address in devicesWithPort) {
         logger.i(
-            'Found Security Bear device in current network, address: ${address.address}');
+          'Found Security Bear device in current network, address: ${address.address}',
+        );
 
         final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
         final String? wifiName = await NetworkInfo().getWifiName();
