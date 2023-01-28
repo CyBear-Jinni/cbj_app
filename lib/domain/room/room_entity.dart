@@ -9,7 +9,6 @@ part 'room_entity.freezed.dart';
 
 @unfreezed
 abstract class RoomEntity implements _$RoomEntity {
-
   factory RoomEntity({
     required RoomUniqueId uniqueId,
     required RoomDefaultName defaultName,

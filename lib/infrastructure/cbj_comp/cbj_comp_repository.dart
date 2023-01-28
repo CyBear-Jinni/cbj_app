@@ -221,5 +221,4 @@ class CBJCompRepository implements ICBJCompRepository {
 //   }
 //   return deviceEntityList.toImmutableList();
 // }
-
 }
