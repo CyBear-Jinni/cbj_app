@@ -338,5 +338,7 @@ class HubClientDemo {
     String addressToHub,
     int hubPort,
     CompHubInfo compHubInfo,
-  ) async {}
+  ) async {
+    return null;
+  }
 }

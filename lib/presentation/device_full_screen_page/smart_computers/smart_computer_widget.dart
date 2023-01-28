@@ -17,7 +17,7 @@ class SmartComputerPage extends StatefulWidget {
 }
 
 class _SmartSmartComputerPage extends State<SmartComputerPage> {
-  bool _switchState = false;
+  final bool _switchState = false;
   GenericSmartComputerDE? _switch;
   bool _isLoading = true;
 

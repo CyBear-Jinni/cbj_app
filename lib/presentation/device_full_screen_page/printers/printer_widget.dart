@@ -17,7 +17,7 @@ class PrinterPage extends StatefulWidget {
 }
 
 class _SmartPrinterPage extends State<PrinterPage> {
-  bool _switchState = false;
+  final bool _switchState = false;
   GenericPrinterDE? _switch;
   bool _isLoading = true;
 

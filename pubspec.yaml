@@ -129,7 +129,7 @@ dependencies:
   # Querying information about the application package, such as CFBundleVersion
   package_info_plus: ^3.0.2
   # Finding commonly used locations on the filesystem
-  path_provider: ^2.0.11
+  path_provider: ^2.0.12
   # Popup that ask for the requested permission
   permission_handler: ^10.2.0
   # Provides runtime support for a Dart implementation of protobufs.
