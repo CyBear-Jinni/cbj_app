@@ -23,8 +23,6 @@ class RoomBlinds extends StatelessWidget {
 
   final int maxLightsToShow;
 
-  final int _maxLightsInRow = 2;
-
   final String _roomEntity;
 
   final List<Color>? _gradientColor;
@@ -32,7 +30,6 @@ class RoomBlinds extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
-    final double sizeBoxWidth = screenSize.width * 0.25;
 
     Widget createSwitchTableWidget() {
       final List<Widget> columnOfLights = <Widget>[];
@@ -54,7 +51,7 @@ class RoomBlinds extends StatelessWidget {
                 maxLines: 1,
                 maxFontSize: 19,
                 style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyText2!.color,
+                  color: Theme.of(context).textTheme.bodyMedium!.color,
                 ),
               ),
               const SizedBox(
@@ -94,7 +91,7 @@ class RoomBlinds extends StatelessWidget {
         ),
         borderRadius: const BorderRadius.all(Radius.circular(24)),
         border: Border.all(
-          color: (Theme.of(context).textTheme.bodyText1!.color)!,
+          color: (Theme.of(context).textTheme.bodyLarge!.color)!,
           width: 0.6,
         ),
       ),
@@ -128,7 +125,7 @@ class RoomBlinds extends StatelessWidget {
                   Text(
                     _roomEntity,
                     style: TextStyle(
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                       fontSize: 25,
                       decoration: TextDecoration.underline,
                     ),
@@ -136,7 +133,7 @@ class RoomBlinds extends StatelessWidget {
                   if (_deviceEntityList.size > maxLightsToShow)
                     FaIcon(
                       FontAwesomeIcons.arrowRight,
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                       size: 20,
                     ),
                 ],

@@ -112,7 +112,7 @@ class AddNewRoomForm extends StatelessWidget {
                                     backgroundColor: Colors.purple,
                                     textColor: Theme.of(context)
                                         .textTheme
-                                        .bodyText1!
+                                        .bodyLarge!
                                         .color,
                                     fontSize: 16.0,
                                   );

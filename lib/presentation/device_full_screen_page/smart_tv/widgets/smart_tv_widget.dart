@@ -74,9 +74,6 @@ class SmartTvWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
-    final double sizeBoxWidth = screenSize.width * 0.15;
-
     return BlocConsumer<SmartTvActorBloc, SmartTvActorState>(
       listener: (context, state) {},
       builder: (context, state) {
@@ -114,12 +111,12 @@ class SmartTvWidget extends StatelessWidget {
                   child: Tab(
                     icon: FaIcon(
                       FontAwesomeIcons.video,
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                     ),
                     child: Text(
                       'Open Video',
                       style: TextStyle(
-                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
                         fontSize: 16,
                       ),
                     ).tr(),
@@ -147,12 +144,12 @@ class SmartTvWidget extends StatelessWidget {
                   child: Tab(
                     icon: FaIcon(
                       FontAwesomeIcons.xmark,
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                     ),
                     child: Text(
                       'Close',
                       style: TextStyle(
-                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
                         fontSize: 16,
                       ),
                     ).tr(),
@@ -180,12 +177,12 @@ class SmartTvWidget extends StatelessWidget {
                   child: Tab(
                     icon: FaIcon(
                       FontAwesomeIcons.pause,
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                     ),
                     child: Text(
                       'Pause',
                       style: TextStyle(
-                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
                         fontSize: 16,
                       ),
                     ).tr(),
@@ -213,12 +210,12 @@ class SmartTvWidget extends StatelessWidget {
                   child: Tab(
                     icon: FaIcon(
                       FontAwesomeIcons.play,
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                     ),
                     child: Text(
                       'Play',
                       style: TextStyle(
-                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
                         fontSize: 16,
                       ),
                     ).tr(),
@@ -254,12 +251,12 @@ class SmartTvWidget extends StatelessWidget {
             //       child: Tab(
             //         icon: FaIcon(
             //           FontAwesomeIcons.backwardStep,
-            //           color: Theme.of(context).textTheme.bodyText1!.color,
+            //           color: Theme.of(context).textTheme.bodyLarge!.color,
             //         ),
             //         child: Text(
             //           'Queue Prev',
             //           style: TextStyle(
-            //             color: Theme.of(context).textTheme.bodyText1!.color,
+            //             color: Theme.of(context).textTheme.bodyLarge!.color,
             //             fontSize: 16,
             //           ),
             //         ).tr(),
@@ -287,12 +284,12 @@ class SmartTvWidget extends StatelessWidget {
             //       child: Tab(
             //         icon: FaIcon(
             //           FontAwesomeIcons.forwardStep,
-            //           color: Theme.of(context).textTheme.bodyText1!.color,
+            //           color: Theme.of(context).textTheme.bodyLarge!.color,
             //         ),
             //         child: Text(
             //           'Queue Next',
             //           style: TextStyle(
-            //             color: Theme.of(context).textTheme.bodyText1!.color,
+            //             color: Theme.of(context).textTheme.bodyLarge!.color,
             //             fontSize: 16,
             //           ),
             //         ).tr(),

@@ -40,7 +40,7 @@ class VendorWidget extends StatelessWidget {
             toastLength: Toast.LENGTH_LONG,
             gravity: ToastGravity.SNACKBAR,
             backgroundColor: Colors.orangeAccent,
-            textColor: Theme.of(context).textTheme.bodyText1!.color,
+            textColor: Theme.of(context).textTheme.bodyLarge!.color,
             fontSize: 16.0,
           );
         } else if (vendorName ==
@@ -61,7 +61,7 @@ class VendorWidget extends StatelessWidget {
             toastLength: Toast.LENGTH_SHORT,
             gravity: ToastGravity.SNACKBAR,
             backgroundColor: Colors.lightBlue,
-            textColor: Theme.of(context).textTheme.bodyText1!.color,
+            textColor: Theme.of(context).textTheme.bodyLarge!.color,
             fontSize: 16.0,
           );
         }

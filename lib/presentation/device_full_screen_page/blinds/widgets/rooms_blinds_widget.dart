@@ -109,7 +109,7 @@ class RoomsBlindsWidget extends StatelessWidget {
                         'Blinds does not exist.',
                         style: TextStyle(
                           fontSize: 30,
-                          color: Theme.of(context).textTheme.bodyText1!.color,
+                          color: Theme.of(context).textTheme.bodyLarge!.color,
                         ),
                       ),
                     ),

@@ -106,7 +106,7 @@ class RoomRgbwLights extends StatelessWidget {
         ),
         borderRadius: const BorderRadius.all(Radius.circular(24)),
         border: Border.all(
-          color: (Theme.of(context).textTheme.bodyText1!.color)!,
+          color: (Theme.of(context).textTheme.bodyLarge!.color)!,
           width: 0.6,
         ),
       ),
@@ -138,7 +138,7 @@ class RoomRgbwLights extends StatelessWidget {
                   Text(
                     _roomEntity,
                     style: TextStyle(
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                       fontSize: 25,
                       decoration: TextDecoration.underline,
                     ),
@@ -146,7 +146,7 @@ class RoomRgbwLights extends StatelessWidget {
                   if (_deviceEntityList.size > maxLightsToShow)
                     FaIcon(
                       FontAwesomeIcons.arrowRight,
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                       size: 20,
                     ),
                 ],

@@ -10,7 +10,6 @@ import 'package:multi_select_flutter/multi_select_flutter.dart';
 class ChangeRoomForDevicesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
     return BlocConsumer<RoomSignInFormBloc, RoomSignInFormState>(
       listener: (context, state) {},
       builder: (context, state) {
@@ -115,7 +114,7 @@ class ChangeRoomForDevicesWidget extends StatelessWidget {
                           gravity: ToastGravity.BOTTOM,
                           backgroundColor: Colors.purple,
                           textColor:
-                              Theme.of(context).textTheme.bodyText1!.color,
+                              Theme.of(context).textTheme.bodyLarge!.color,
                           fontSize: 16.0,
                         );
                         context.read<RoomSignInFormBloc>().add(

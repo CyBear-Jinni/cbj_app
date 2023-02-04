@@ -105,7 +105,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                   child: TextFormField(
                     controller: textEditingControllerTemp,
                     style: TextStyle(
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                     ),
                     decoration: InputDecoration(
                       filled: true,
@@ -113,18 +113,18 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                           color:
-                              (Theme.of(context).textTheme.bodyText1!.color)!,
+                              (Theme.of(context).textTheme.bodyLarge!.color)!,
                           width: 2.0,
                         ),
                         borderRadius: BorderRadius.circular(15.0),
                       ),
                       prefixIcon: Icon(
                         FontAwesomeIcons.solidLightbulb,
-                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
                       ),
                       labelText: '${device.deviceTypes.getOrCrash()} Name',
                       labelStyle: TextStyle(
-                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
                       ),
                     ),
                     autocorrect: false,
@@ -150,7 +150,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                     child: Text(
                       'Type ${device.deviceTypes.getOrCrash()} is not supported yet',
                       style: TextStyle(
-                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
                       ),
                     ),
                   ),
@@ -187,7 +187,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
             return Text(
               'Configure devices',
               style: TextStyle(
-                color: Theme.of(context).textTheme.bodyText1!.color,
+                color: Theme.of(context).textTheme.bodyLarge!.color,
               ),
             );
           },
@@ -209,7 +209,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                     'Connecting computer to WiFi',
                     style: TextStyle(
                       fontSize: 25,
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                     ),
                   ),
                 ),
@@ -226,7 +226,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                             valueColor:
                                 const AlwaysStoppedAnimation(Colors.pink),
                             backgroundColor:
-                                Theme.of(context).textTheme.bodyText1!.color,
+                                Theme.of(context).textTheme.bodyLarge!.color,
                             borderColor: Colors.red.withOpacity(0.9),
                             borderWidth: 4.0,
                             center: const Text(
@@ -242,7 +242,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                         Text(
                           'Please wait as we are setting your new computer',
                           style: TextStyle(
-                            color: Theme.of(context).textTheme.bodyText1!.color,
+                            color: Theme.of(context).textTheme.bodyLarge!.color,
                           ),
                         ),
                       ],
@@ -262,7 +262,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
             return Text(
               'Error in the process.',
               style: TextStyle(
-                color: Theme.of(context).textTheme.bodyText1!.color,
+                color: Theme.of(context).textTheme.bodyLarge!.color,
               ),
             );
           },
@@ -275,7 +275,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
             return Text(
               'Computer have been configured.',
               style: TextStyle(
-                color: Theme.of(context).textTheme.bodyText1!.color,
+                color: Theme.of(context).textTheme.bodyLarge!.color,
               ),
             );
           },

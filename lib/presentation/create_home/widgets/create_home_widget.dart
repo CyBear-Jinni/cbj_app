@@ -28,17 +28,17 @@ class CreateHomeWidget extends StatelessWidget {
           width: 300,
           child: TextFormField(
             style:
-                TextStyle(color: Theme.of(context).textTheme.bodyText1!.color),
+                TextStyle(color: Theme.of(context).textTheme.bodyLarge!.color),
             decoration: InputDecoration(
               filled: true,
               fillColor: Colors.greenAccent.withOpacity(0.3),
               prefixIcon: Icon(
                 Icons.home_outlined,
-                color: Theme.of(context).textTheme.bodyText1!.color,
+                color: Theme.of(context).textTheme.bodyLarge!.color,
               ),
               labelText: 'Home Name',
               labelStyle: TextStyle(
-                color: Theme.of(context).textTheme.bodyText1!.color,
+                color: Theme.of(context).textTheme.bodyLarge!.color,
               ),
             ),
             autocorrect: false,
@@ -65,17 +65,17 @@ class CreateHomeWidget extends StatelessWidget {
           width: 300,
           child: TextFormField(
             style:
-                TextStyle(color: Theme.of(context).textTheme.bodyText1!.color),
+                TextStyle(color: Theme.of(context).textTheme.bodyLarge!.color),
             decoration: InputDecoration(
               filled: true,
               fillColor: Colors.greenAccent.withOpacity(0.3),
               prefixIcon: Icon(
                 Icons.alternate_email,
-                color: Theme.of(context).textTheme.bodyText1!.color,
+                color: Theme.of(context).textTheme.bodyLarge!.color,
               ),
               labelText: 'Email for smart devices',
               labelStyle: TextStyle(
-                color: Theme.of(context).textTheme.bodyText1!.color,
+                color: Theme.of(context).textTheme.bodyLarge!.color,
               ),
             ),
             autocorrect: false,
@@ -93,7 +93,7 @@ class CreateHomeWidget extends StatelessWidget {
             'Smart devices needs account to function.\nPlease enter new email.',
             style: TextStyle(
               fontSize: 15,
-              color: Theme.of(context).textTheme.bodyText1!.color,
+              color: Theme.of(context).textTheme.bodyLarge!.color,
             ),
           ),
         ),
@@ -112,7 +112,7 @@ class CreateHomeWidget extends StatelessWidget {
           child: Text(
             'Create Home',
             style: TextStyle(
-              color: Theme.of(context).textTheme.bodyText1!.color,
+              color: Theme.of(context).textTheme.bodyLarge!.color,
             ),
           ),
         ),

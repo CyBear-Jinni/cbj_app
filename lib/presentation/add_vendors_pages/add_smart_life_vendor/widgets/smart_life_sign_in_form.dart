@@ -209,7 +209,7 @@ class SmartLifeSignInForm extends StatelessWidget {
                                 backgroundColor: Colors.lightBlueAccent,
                                 textColor: Theme.of(context)
                                     .textTheme
-                                    .bodyText1!
+                                    .bodyLarge!
                                     .color,
                                 fontSize: 16.0,
                               );

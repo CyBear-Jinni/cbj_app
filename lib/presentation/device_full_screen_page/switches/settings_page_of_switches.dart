@@ -33,25 +33,25 @@ class SettingsPageOfSwitches extends StatelessWidget {
             title: Text(
               'Name:_',
               style: TextStyle(
-                color: Theme.of(context).textTheme.bodyText1!.color,
+                color: Theme.of(context).textTheme.bodyLarge!.color,
               ),
             ).tr(args: <String>[switchName]),
             subtitle: Text(
               'Room:_',
               style: TextStyle(
-                color: Theme.of(context).textTheme.bodyText1!.color,
+                color: Theme.of(context).textTheme.bodyLarge!.color,
               ),
             ).tr(args: <String>[roomName]),
             trailing: IconButton(
               icon: FaIcon(
                 FontAwesomeIcons.pen,
-                color: Theme.of(context).textTheme.bodyText1!.color,
+                color: Theme.of(context).textTheme.bodyLarge!.color,
               ),
               onPressed: () {},
             ),
           ),
           Divider(
-            color: Theme.of(context).textTheme.bodyText1!.color,
+            color: Theme.of(context).textTheme.bodyLarge!.color,
           ),
         ],
       );

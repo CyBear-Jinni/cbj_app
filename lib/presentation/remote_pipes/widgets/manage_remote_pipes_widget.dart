@@ -9,9 +9,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class RemotePipesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
-    final double sizeBoxWidth = screenSize.width * 0.25;
-
     return BlocBuilder<RemotePipesBloc, RemotePipesState>(
       builder: (context, state) {
         return Container(
@@ -60,7 +57,7 @@ class RemotePipesWidget extends StatelessWidget {
                     toastLength: Toast.LENGTH_LONG,
                     gravity: ToastGravity.BOTTOM,
                     backgroundColor: Colors.blueGrey,
-                    textColor: Theme.of(context).textTheme.bodyText1!.color,
+                    textColor: Theme.of(context).textTheme.bodyLarge!.color,
                     fontSize: 16.0,
                   );
                   context.read<RemotePipesBloc>().add(

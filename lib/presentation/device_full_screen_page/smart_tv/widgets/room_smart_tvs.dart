@@ -33,7 +33,6 @@ class RoomSmartTvs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
-    final double sizeBoxWidth = screenSize.width * 0.25;
 
     Widget createSwitchTableWidget() {
       final List<Widget> columnOfSmartTvs = <Widget>[];
@@ -62,7 +61,7 @@ class RoomSmartTvs extends StatelessWidget {
                       maxLines: 1,
                       maxFontSize: 40,
                       style: TextStyle(
-                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
                       ),
                     ),
                     Container(
@@ -114,7 +113,7 @@ class RoomSmartTvs extends StatelessWidget {
         ),
         borderRadius: const BorderRadius.all(Radius.circular(24)),
         border: Border.all(
-          color: (Theme.of(context).textTheme.bodyText1!.color)!,
+          color: (Theme.of(context).textTheme.bodyLarge!.color)!,
           width: 0.6,
         ),
       ),
@@ -146,7 +145,7 @@ class RoomSmartTvs extends StatelessWidget {
                   Text(
                     _roomEntity,
                     style: TextStyle(
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                       fontSize: 25,
                       decoration: TextDecoration.underline,
                     ),
@@ -154,7 +153,7 @@ class RoomSmartTvs extends StatelessWidget {
                   if (_deviceEntityList.size > maxSmartTvsToShow)
                     FaIcon(
                       FontAwesomeIcons.arrowRight,
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                       size: 20,
                     ),
                 ],
