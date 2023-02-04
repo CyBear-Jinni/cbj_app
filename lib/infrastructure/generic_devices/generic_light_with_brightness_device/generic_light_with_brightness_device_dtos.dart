@@ -82,7 +82,7 @@ abstract class GenericLightWithBrightnessDeviceDtos
       deviceVendor: DeviceVendor(deviceVendor),
       compUuid: DeviceCompUuid(compUuid),
       lightSwitchState: GenericLightWithBrightnessSwitchState(lightSwitchState),
-      lightBrightness: GenericLightBrightnessBrightness(lightBrightness),
+      lightBrightness: GenericLightWithBrightnessBrightness(lightBrightness),
     );
   }
 }

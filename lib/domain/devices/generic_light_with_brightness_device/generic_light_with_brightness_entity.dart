@@ -46,14 +46,14 @@ class GenericLightWithBrightnessDE extends DeviceEntityAbstract {
         powerConsumption: DevicePowerConsumption(''),
         lightSwitchState:
             GenericLightWithBrightnessSwitchState(DeviceActions.off.toString()),
-        lightBrightness: GenericLightBrightnessBrightness(''),
+        lightBrightness: GenericLightWithBrightnessBrightness(''),
       );
 
   /// State of the light on/off
   GenericLightWithBrightnessSwitchState? lightSwitchState;
 
   /// Brightness 0-100%
-  GenericLightBrightnessBrightness lightBrightness;
+  GenericLightWithBrightnessBrightness lightBrightness;
 
   //
   // /// Will return failure if any of the fields failed or return unit if fields

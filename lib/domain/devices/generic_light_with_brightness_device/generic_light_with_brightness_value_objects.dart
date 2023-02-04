@@ -21,15 +21,15 @@ class GenericLightWithBrightnessSwitchState extends ValueObjectCore<String> {
   }
 }
 
-class GenericLightBrightnessBrightness extends ValueObjectCore<String> {
-  factory GenericLightBrightnessBrightness(String? input) {
+class GenericLightWithBrightnessBrightness extends ValueObjectCore<String> {
+  factory GenericLightWithBrightnessBrightness(String? input) {
     assert(input != null);
-    return GenericLightBrightnessBrightness._(
+    return GenericLightWithBrightnessBrightness._(
       validateGenericLightBrightnessNotEmpty(input!),
     );
   }
 
-  const GenericLightBrightnessBrightness._(this.value);
+  const GenericLightWithBrightnessBrightness._(this.value);
 
   @override
   final Either<CoreFailure<String>, String> value;
