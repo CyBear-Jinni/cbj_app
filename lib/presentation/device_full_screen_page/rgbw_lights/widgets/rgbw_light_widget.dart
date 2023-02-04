@@ -57,11 +57,14 @@ class RgbwLightWidget extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      _deviceEntity.defaultName.getOrCrash()!,
-                      style: const TextStyle(
-                        fontSize: 20.0,
-                        color: Colors.black,
+                    Flexible(
+                      child: Text(
+                        _deviceEntity.defaultName.getOrCrash()!,
+                        style: const TextStyle(
+                          overflow: TextOverflow.clip,
+                          fontSize: 20.0,
+                          color: Colors.black,
+                        ),
                       ),
                     ),
                     Container(

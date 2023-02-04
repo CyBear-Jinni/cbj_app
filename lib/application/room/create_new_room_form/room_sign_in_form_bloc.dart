@@ -8,6 +8,7 @@ import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/domain/room/value_objects_room.dart';
 import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
