@@ -208,7 +208,7 @@ class JinvooSmartSignInForm extends StatelessWidget {
                                 backgroundColor: Colors.indigo,
                                 textColor: Theme.of(context)
                                     .textTheme
-                                    .bodyText1!
+                                    .bodyLarge!
                                     .color,
                                 fontSize: 16.0,
                               );

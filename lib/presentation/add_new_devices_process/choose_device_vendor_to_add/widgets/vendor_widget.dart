@@ -40,7 +40,18 @@ class VendorWidget extends StatelessWidget {
             toastLength: Toast.LENGTH_LONG,
             gravity: ToastGravity.SNACKBAR,
             backgroundColor: Colors.orangeAccent,
-            textColor: Theme.of(context).textTheme.bodyText1!.color,
+            textColor: Theme.of(context).textTheme.bodyLarge!.color,
+            fontSize: 16.0,
+          );
+        } else if (vendorName ==
+            VendorsAndServices.philipsHue.name.toLowerCase()) {
+          Fluttertoast.showToast(
+            msg:
+                'Please press the button on top of the Philips Hue Hub for and wait 20s',
+            toastLength: Toast.LENGTH_LONG,
+            gravity: ToastGravity.SNACKBAR,
+            backgroundColor: Colors.orangeAccent,
+            textColor: Theme.of(context).textTheme.bodyLarge!.color,
             fontSize: 16.0,
           );
         } else {
@@ -50,7 +61,7 @@ class VendorWidget extends StatelessWidget {
             toastLength: Toast.LENGTH_SHORT,
             gravity: ToastGravity.SNACKBAR,
             backgroundColor: Colors.lightBlue,
-            textColor: Theme.of(context).textTheme.bodyText1!.color,
+            textColor: Theme.of(context).textTheme.bodyLarge!.color,
             fontSize: 16.0,
           );
         }

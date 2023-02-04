@@ -82,7 +82,7 @@ class RoomSmartPlugsTogglesBlock extends StatelessWidget {
         ),
         borderRadius: const BorderRadius.all(Radius.circular(24)),
         border: Border.all(
-          color: (Theme.of(context).textTheme.bodyText1!.color)!,
+          color: (Theme.of(context).textTheme.bodyLarge!.color)!,
           width: 0.6,
         ),
       ),
@@ -117,7 +117,7 @@ class RoomSmartPlugsTogglesBlock extends StatelessWidget {
                   Text(
                     _smartRoomObject!.getRoomName(),
                     style: TextStyle(
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                       fontSize: 25,
                       decoration: TextDecoration.underline,
                     ),
@@ -127,7 +127,7 @@ class RoomSmartPlugsTogglesBlock extends StatelessWidget {
                           maxSmartPlugsToShow!)
                     FaIcon(
                       FontAwesomeIcons.arrowRight,
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                       size: 20,
                     ),
                 ],

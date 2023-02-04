@@ -97,7 +97,7 @@ class BlindsInTheRoom extends StatelessWidget {
                           border: Border.all(
                             color: Theme.of(context)
                                 .textTheme
-                                .bodyText1!
+                                .bodyLarge!
                                 .color!
                                 .withOpacity(0.5),
                           ),
@@ -108,7 +108,7 @@ class BlindsInTheRoom extends StatelessWidget {
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 13,
-                            color: Theme.of(context).textTheme.bodyText1!.color,
+                            color: Theme.of(context).textTheme.bodyLarge!.color,
                           ),
                         ),
                       ),
@@ -135,7 +135,7 @@ class BlindsInTheRoom extends StatelessWidget {
                   deviceText,
                   maxLines: 1,
                   style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1!.color,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
                   ),
                 ),
               ],
@@ -171,14 +171,14 @@ class BlindsInTheRoom extends StatelessWidget {
                       },
                       child: FaIcon(
                         FontAwesomeIcons.chevronDown,
-                        color: Theme.of(context).textTheme.bodyText2!.color,
+                        color: Theme.of(context).textTheme.bodyMedium!.color,
                       ),
                     ),
                     Text(
                       '·',
                       style: TextStyle(
                         fontSize: 14,
-                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
                       ),
                     ),
                     TextButton(
@@ -203,7 +203,7 @@ class BlindsInTheRoom extends StatelessWidget {
                       },
                       child: FaIcon(
                         FontAwesomeIcons.chevronUp,
-                        color: Theme.of(context).textTheme.bodyText2!.color,
+                        color: Theme.of(context).textTheme.bodyMedium!.color,
                       ),
                     ),
                   ],

@@ -76,7 +76,7 @@ class _SmartSmartComputerPage extends State<SmartComputerPage> {
           _switch!.defaultName.getOrCrash()!, //  Show switch name
           style: TextStyle(
             fontSize: 19.0,
-            color: Theme.of(context).textTheme.bodyText2!.color,
+            color: Theme.of(context).textTheme.bodyMedium!.color,
           ),
         ),
         const SizedBox(

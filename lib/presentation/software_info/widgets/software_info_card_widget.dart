@@ -16,10 +16,10 @@ class SoftwareInfoCard extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border(
           top: BorderSide(
-            color: (Theme.of(context).textTheme.bodyText1!.color)!,
+            color: (Theme.of(context).textTheme.bodyLarge!.color)!,
           ),
           bottom: BorderSide(
-            color: (Theme.of(context).textTheme.bodyText1!.color)!,
+            color: (Theme.of(context).textTheme.bodyLarge!.color)!,
           ),
         ),
       ),
@@ -28,7 +28,7 @@ class SoftwareInfoCard extends StatelessWidget {
         child: ListTile(
           leading: FaIcon(
             FontAwesomeIcons.userGraduate,
-            color: Theme.of(context).textTheme.bodyText1!.color,
+            color: Theme.of(context).textTheme.bodyLarge!.color,
           ),
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -36,7 +36,7 @@ class SoftwareInfoCard extends StatelessWidget {
               Text(
                 homeUser!.email!.getOrCrash()!,
                 style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyText1!.color,
+                  color: Theme.of(context).textTheme.bodyLarge!.color,
                 ),
               ),
             ],

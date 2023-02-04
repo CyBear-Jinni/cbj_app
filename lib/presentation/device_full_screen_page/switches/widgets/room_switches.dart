@@ -62,7 +62,7 @@ class RoomSwitches extends StatelessWidget {
                       maxLines: 1,
                       maxFontSize: 19,
                       style: TextStyle(
-                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
                       ),
                     ),
                     Container(
@@ -114,7 +114,7 @@ class RoomSwitches extends StatelessWidget {
         ),
         borderRadius: const BorderRadius.all(Radius.circular(24)),
         border: Border.all(
-          color: (Theme.of(context).textTheme.bodyText1!.color)!,
+          color: (Theme.of(context).textTheme.bodyLarge!.color)!,
           width: 0.6,
         ),
       ),
@@ -146,7 +146,7 @@ class RoomSwitches extends StatelessWidget {
                   Text(
                     _roomEntity,
                     style: TextStyle(
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                       fontSize: 25,
                       decoration: TextDecoration.underline,
                     ),
@@ -154,7 +154,7 @@ class RoomSwitches extends StatelessWidget {
                   if (_deviceEntityList.size > maxSwitchesToShow)
                     FaIcon(
                       FontAwesomeIcons.arrowRight,
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                       size: 20,
                     ),
                 ],

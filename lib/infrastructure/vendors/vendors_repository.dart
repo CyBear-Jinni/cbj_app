@@ -26,7 +26,6 @@ class VendorsRepository implements IVendorsRepository {
       if (vendorName ==
               VendorsAndServices.vendorsAndServicesNotSupported.name ||
           vendorName == VendorsAndServices.miHome.name ||
-          vendorName == VendorsAndServices.philipsHue.name ||
           vendorName == VendorsAndServices.sonoffDiy.name ||
           vendorName == VendorsAndServices.sonoffEweLink.name ||
           vendorName == VendorsAndServices.ikea.name ||

@@ -81,7 +81,7 @@ class RoomLightsTogglesBlock extends StatelessWidget {
         ),
         borderRadius: const BorderRadius.all(Radius.circular(24)),
         border: Border.all(
-          color: (Theme.of(context).textTheme.bodyText1!.color)!,
+          color: (Theme.of(context).textTheme.bodyLarge!.color)!,
           width: 0.6,
         ),
       ),
@@ -115,7 +115,7 @@ class RoomLightsTogglesBlock extends StatelessWidget {
                   Text(
                     _smartRoomObject!.getRoomName(),
                     style: TextStyle(
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                       fontSize: 25,
                       decoration: TextDecoration.underline,
                     ),
@@ -124,7 +124,7 @@ class RoomLightsTogglesBlock extends StatelessWidget {
                       _smartRoomObject!.getLights()!.length > maxLightsToShow!)
                     FaIcon(
                       FontAwesomeIcons.arrowRight,
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                       size: 20,
                     ),
                 ],

@@ -115,7 +115,7 @@ class ChangeRoomForDevicesWidget extends StatelessWidget {
                         toastLength: Toast.LENGTH_LONG,
                         gravity: ToastGravity.BOTTOM,
                         backgroundColor: Colors.purple,
-                        textColor: Theme.of(context).textTheme.bodyText1!.color,
+                        textColor: Theme.of(context).textTheme.bodyLarge!.color,
                         fontSize: 16.0,
                       );
                       context.read<RoomSignInFormBloc>().add(

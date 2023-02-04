@@ -120,7 +120,7 @@ class ConnectToHubPage extends StatelessWidget {
                     //   toastLength: Toast.LENGTH_SHORT,
                     //   gravity: ToastGravity.SNACKBAR,
                     //   backgroundColor: Colors.lightBlue,
-                    //   textColor: Theme.of(context).textTheme.bodyText1!.color,
+                    //   textColor: Theme.of(context).textTheme.bodyLarge!.color,
                     //   fontSize: 16.0,
                     // );
                   },

@@ -33,7 +33,7 @@ class CBJCompCardWithDevicesControll extends StatelessWidget {
               child: Text(
                 'Type: ${deviceEntity.deviceTypes.getOrCrash()}',
                 style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyText1!.color,
+                  color: Theme.of(context).textTheme.bodyLarge!.color,
                 ),
               ),
             ),
@@ -46,7 +46,7 @@ class CBJCompCardWithDevicesControll extends StatelessWidget {
             child: Text(
               'Type ${deviceEntity.deviceTypes.getOrCrash()} is not supported',
               style: TextStyle(
-                color: Theme.of(context).textTheme.bodyText1!.color,
+                color: Theme.of(context).textTheme.bodyLarge!.color,
               ),
             ),
           ),
@@ -73,7 +73,7 @@ class CBJCompCardWithDevicesControll extends StatelessWidget {
           padding: const EdgeInsets.all(3.0),
           decoration: BoxDecoration(
             border: Border.all(
-              color: (Theme.of(context).textTheme.bodyText1!.color)!,
+              color: (Theme.of(context).textTheme.bodyLarge!.color)!,
             ),
             color: Colors.purpleAccent.withOpacity(0.2),
           ),
@@ -83,10 +83,10 @@ class CBJCompCardWithDevicesControll extends StatelessWidget {
                 decoration: BoxDecoration(
                   border: Border(
                     top: BorderSide(
-                      color: (Theme.of(context).textTheme.bodyText1!.color)!,
+                      color: (Theme.of(context).textTheme.bodyLarge!.color)!,
                     ),
                     bottom: BorderSide(
-                      color: (Theme.of(context).textTheme.bodyText1!.color)!,
+                      color: (Theme.of(context).textTheme.bodyLarge!.color)!,
                     ),
                   ),
                 ),
@@ -99,25 +99,25 @@ class CBJCompCardWithDevicesControll extends StatelessWidget {
                 initial: (_) => Text(
                   'Initial',
                   style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1!.color,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
                   ),
                 ),
                 actionInProgress: (_) => Text(
                   'actionInProgress',
                   style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1!.color,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
                   ),
                 ),
                 deleteFailure: (_) => Text(
                   'deleteFailure',
                   style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1!.color,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
                   ),
                 ),
                 deleteSuccess: (_) => Text(
                   'deleteSuccess',
                   style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1!.color,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
                   ),
                 ),
               ),
@@ -135,7 +135,7 @@ class CBJCompCardWithDevicesControll extends StatelessWidget {
                 child: Text(
                   'Set up computer',
                   style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1!.color,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
                   ),
                 ),
               ),

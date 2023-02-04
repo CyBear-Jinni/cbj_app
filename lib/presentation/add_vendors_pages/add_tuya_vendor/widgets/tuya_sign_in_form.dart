@@ -208,7 +208,7 @@ class TuyaSignInForm extends StatelessWidget {
                                 backgroundColor: Colors.deepOrange,
                                 textColor: Theme.of(context)
                                     .textTheme
-                                    .bodyText1!
+                                    .bodyLarge!
                                     .color,
                                 fontSize: 16.0,
                               );

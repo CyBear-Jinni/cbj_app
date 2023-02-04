@@ -118,7 +118,7 @@ class LifxSignInForm extends StatelessWidget {
                                 backgroundColor: Colors.deepPurple,
                                 textColor: Theme.of(context)
                                     .textTheme
-                                    .bodyText1!
+                                    .bodyLarge!
                                     .color,
                                 fontSize: 16.0,
                               );
@@ -151,7 +151,7 @@ class LifxSignInForm extends StatelessWidget {
                 child: Text(
                   'Get Lifx API key from Lifx website',
                   style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1!.color,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
                   ),
                 ).tr(),
               ),

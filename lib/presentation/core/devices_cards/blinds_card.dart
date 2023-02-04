@@ -9,9 +9,6 @@ class BlindsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
-    final double sizeBoxWidth = screenSize.width * 0.25;
-
     final deviceState = _deviceEntity.deviceStateGRPC.getOrCrash();
     final deviceAction = _deviceEntity.lightSwitchState!.getOrCrash();
 
@@ -51,10 +48,10 @@ class BlindsCard extends StatelessWidget {
     //           activeToggleColor: const Color(0xFF2F363D),
     //           inactiveToggleColor: Theme.of(context).primaryColor,
     //           activeSwitchBorder: Border.all(
-    //             color: (Theme.of(context).textTheme.bodyText1!.color)!,
+    //             color: (Theme.of(context).textTheme.bodyLarge!.color)!,
     //           ),
     //           inactiveSwitchBorder: Border.all(
-    //             color: (Theme.of(context).textTheme.bodyText1!.color)!,
+    //             color: (Theme.of(context).textTheme.bodyLarge!.color)!,
     //           ),
     //           activeColor: toggleColor,
     //           inactiveColor: toggleColor,
@@ -64,7 +61,7 @@ class BlindsCard extends StatelessWidget {
     //           ),
     //           inactiveIcon: Icon(
     //             FontAwesomeIcons.lightbulb,
-    //             color: (Theme.of(context).textTheme.bodyText1!.color)!,
+    //             color: (Theme.of(context).textTheme.bodyLarge!.color)!,
     //           ),
     //           onToggle: (bool value) => _onChange(context, value)
     //           // _onChange(context, value),

@@ -67,7 +67,7 @@ class RoomBoilers extends StatelessWidget {
                       maxLines: 1,
                       maxFontSize: 19,
                       style: TextStyle(
-                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
                       ),
                     ),
                     const SizedBox(
@@ -122,7 +122,7 @@ class RoomBoilers extends StatelessWidget {
         ),
         borderRadius: const BorderRadius.all(Radius.circular(24)),
         border: Border.all(
-          color: (Theme.of(context).textTheme.bodyText1!.color)!,
+          color: (Theme.of(context).textTheme.bodyLarge!.color)!,
           width: 0.6,
         ),
       ),
@@ -157,7 +157,7 @@ class RoomBoilers extends StatelessWidget {
                   Text(
                     _roomEntity!,
                     style: TextStyle(
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                       fontSize: 25,
                       decoration: TextDecoration.underline,
                     ),
@@ -166,7 +166,7 @@ class RoomBoilers extends StatelessWidget {
                       _deviceEntityList!.size > maxBoilersToShow!)
                     FaIcon(
                       FontAwesomeIcons.arrowRight,
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                       size: 20,
                     ),
                 ],
