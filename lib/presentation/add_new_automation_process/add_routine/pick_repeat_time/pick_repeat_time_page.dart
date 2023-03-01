@@ -88,10 +88,10 @@ class PickRepeatTimePage extends StatelessWidget {
                         const SizedBox(
                           height: 2,
                         ),
-                        createInlinePicker(
-                          context: context,
+                        showPicker(
+                          isInlinePicker: true,
                           is24HrFormat: true,
-                          value: const TimeOfDay(hour: 4, minute: 44),
+                          value: Time(hour: 4, minute: 44),
                           onChange: (TimeOfDay dateTimePicked) {
                             hourToRepeat = RoutineCbjRepeatDateHour(
                               dateTimePicked.hour.toString(),
@@ -102,7 +102,7 @@ class PickRepeatTimePage extends StatelessWidget {
                           },
                           cancelText: '',
                           okText: 'Confirm Time',
-                        ),
+                        ) as Widget,
                         const SizedBox(
                           height: 40,
                         ),
