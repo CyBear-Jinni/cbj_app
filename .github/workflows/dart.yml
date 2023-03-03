@@ -9,7 +9,7 @@ on:
 
 env:
   flutter_channel: 'stable' # or: 'dev' or 'beta'
-  flutter_version: '3.3.6'
+  flutter_version: '3.7.6'
 
 jobs:
   build:
