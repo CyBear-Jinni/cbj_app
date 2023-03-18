@@ -14,6 +14,7 @@ import 'package:cybear_jinni/presentation/add_new_devices_process/open_access_po
 import 'package:cybear_jinni/presentation/add_new_devices_process/scan_for_new_cbj_comps/scan_for_new_cbj_comps_page.dart';
 import 'package:cybear_jinni/presentation/add_new_room/add_new_room_page.dart';
 import 'package:cybear_jinni/presentation/add_user_to_home/add_user_to_home_page.dart';
+import 'package:cybear_jinni/presentation/add_vendors_pages/add_esphome_vendor/add_esphome_vendor_page.dart';
 import 'package:cybear_jinni/presentation/add_vendors_pages/add_jinvoo_smart_vendor/add_jinvoo_smart_vendor_page.dart';
 import 'package:cybear_jinni/presentation/add_vendors_pages/add_lifx_vendor/add_lifx_vendor_page.dart';
 import 'package:cybear_jinni/presentation/add_vendors_pages/add_smart_life_vendor/add_smart_life_vendor_page.dart';
@@ -79,6 +80,7 @@ import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_pag
     AutoRoute(page: ChooseAutomationTypeToAddPage),
     AutoRoute(page: ChooseDeviceVendorToAddPage),
     AutoRoute(page: AddLifxVendorPage),
+    AutoRoute(page: AddEspHomeVendorPage),
     AutoRoute(page: AddTuyaVendorPage),
     AutoRoute(page: AddSmartLifeVendorPage),
     AutoRoute(page: AddJinvooSmartVendorPage),
@@ -118,6 +120,7 @@ class $AppRouter {
   late ChooseAutomationTypeToAddPage chooseAutomationTypeToAddPage;
   late ChooseDeviceVendorToAddPage chooseDeviceVendorToAddPage;
   late AddLifxVendorPage addLifxVendorPage;
+  late AddEspHomeVendorPage addEspHomeVendorPage;
   late AddTuyaVendorPage addTuyaVendorPage;
   late AddSmartLifeVendorPage addSmartLifeVendorPage;
   late AddJinvooSmartVendorPage addJinvooSmartVendorPage;

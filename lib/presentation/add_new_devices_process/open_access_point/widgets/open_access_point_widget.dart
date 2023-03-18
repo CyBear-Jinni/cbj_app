@@ -80,7 +80,7 @@ class OpenAccessPointWidget extends StatelessWidget {
                                   backgroundColor: Colors.lightBlue,
                                   textColor: Theme.of(context)
                                       .textTheme
-                                      .bodyText1!
+                                      .bodyLarge!
                                       .color,
                                   fontSize: 16.0,
                                 ),
@@ -128,7 +128,7 @@ class OpenAccessPointWidget extends StatelessWidget {
                                   backgroundColor: Colors.lightBlue,
                                   textColor: Theme.of(context)
                                       .textTheme
-                                      .bodyText1!
+                                      .bodyLarge!
                                       .color,
                                   fontSize: 16.0,
                                 ),

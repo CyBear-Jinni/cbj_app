@@ -119,7 +119,7 @@ class RoomWidget extends StatelessWidget {
                           .getOrCrash(),
                       style: TextStyle(
                         fontSize: 23,
-                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
                       ),
                     ),
                   ],

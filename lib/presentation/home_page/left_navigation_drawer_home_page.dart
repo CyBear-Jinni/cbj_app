@@ -38,14 +38,14 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                         Text(
                           'Settings',
                           style: TextStyle(
-                            color: Theme.of(context).textTheme.bodyText1!.color,
+                            color: Theme.of(context).textTheme.bodyLarge!.color,
                             fontSize: 18,
                           ),
                         )
                       ],
                     ),
                     Divider(
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                     ),
                     Row(
                       children: [
@@ -62,7 +62,7 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                         Text(
                           'CyBear Jinni',
                           style: TextStyle(
-                            color: Theme.of(context).textTheme.bodyText1!.color,
+                            color: Theme.of(context).textTheme.bodyLarge!.color,
                             fontSize: 20,
                           ),
                         ),
@@ -82,20 +82,20 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                   Divider(
                     thickness: 0.5,
                     height: 0.5,
-                    color: Theme.of(context).textTheme.bodyText1!.color,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
                   ),
                   Container(
                     color: Colors.greenAccent.withOpacity(0.8),
                     child: ListTile(
                       leading: FaIcon(
                         FontAwesomeIcons.rightToBracket,
-                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
                         size: 25,
                       ),
                       title: Text(
                         'Log Out',
                         style: TextStyle(
-                          color: Theme.of(context).textTheme.bodyText1!.color,
+                          color: Theme.of(context).textTheme.bodyLarge!.color,
                         ),
                       ),
                       onTap: () {
@@ -106,20 +106,20 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                   Divider(
                     thickness: 0.5,
                     height: 0.5,
-                    color: Theme.of(context).textTheme.bodyText1!.color,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
                   ),
                   Container(
                     color: Colors.orangeAccent,
                     child: ListTile(
                       leading: FaIcon(
                         FontAwesomeIcons.info,
-                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
                         size: 25,
                       ),
                       title: Text(
                         'Software Info',
                         style: TextStyle(
-                          color: Theme.of(context).textTheme.bodyText1!.color,
+                          color: Theme.of(context).textTheme.bodyLarge!.color,
                         ),
                       ),
                       onTap: () {
@@ -130,20 +130,20 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                   Divider(
                     thickness: 0.5,
                     height: 0.5,
-                    color: Theme.of(context).textTheme.bodyText1!.color,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
                   ),
                   Container(
                     color: Colors.blue,
                     child: ListTile(
                       leading: FaIcon(
                         FontAwesomeIcons.globe,
-                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
                         size: 25,
                       ),
                       title: Text(
                         'Add Remote Control Support',
                         style: TextStyle(
-                          color: Theme.of(context).textTheme.bodyText1!.color,
+                          color: Theme.of(context).textTheme.bodyLarge!.color,
                         ),
                       ),
                       onTap: () {
@@ -154,20 +154,20 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                   Divider(
                     thickness: 0.5,
                     height: 0.5,
-                    color: Theme.of(context).textTheme.bodyText1!.color,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
                   ),
                   // Container(
                   //   color: Colors.redAccent,
                   //   child: ListTile(
                   //     leading: FaIcon(
                   //       FontAwesomeIcons.userPlus,
-                  //       color: Theme.of(context).textTheme.bodyText1!.color,
+                  //       color: Theme.of(context).textTheme.bodyLarge!.color,
                   //       size: 25,
                   //     ),
                   //     title: Text(
                   //       'Manage Users',
                   //       style: TextStyle(
-                  //         color: Theme.of(context).textTheme.bodyText1!.color,
+                  //         color: Theme.of(context).textTheme.bodyLarge!.color,
                   //       ),
                   //     ),
                   //     onTap: () {
@@ -178,7 +178,7 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                   // Divider(
                   //   thickness: 0.5,
                   //   height: 0.5,
-                  //   color: Theme.of(context).textTheme.bodyText1!.color,
+                  //   color: Theme.of(context).textTheme.bodyLarge!.color,
                   // ),
                 ],
               ),

@@ -201,14 +201,14 @@ class JinvooSmartSignInForm extends StatelessWidget {
                                   );
 
                               Fluttertoast.showToast(
-                                msg: 'Sign in to Jinvoo Smart, please restart '
-                                    'the app to see the new devices',
+                                msg:
+                                    'Sign in to Jinvoo Smart, devices will appear in the shortly',
                                 toastLength: Toast.LENGTH_LONG,
                                 gravity: ToastGravity.BOTTOM,
                                 backgroundColor: Colors.indigo,
                                 textColor: Theme.of(context)
                                     .textTheme
-                                    .bodyText1!
+                                    .bodyLarge!
                                     .color,
                                 fontSize: 16.0,
                               );

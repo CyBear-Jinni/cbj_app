@@ -7,8 +7,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class ConnectToHomeWiFiWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
-
     return BlocBuilder<ManageWifiBloc, ManageWifiState>(
       builder: (context, state) {
         return SingleChildScrollView(
@@ -49,7 +47,7 @@ class ConnectToHomeWiFiWidget extends StatelessWidget {
                         width: 300,
                         child: TextFormField(
                           style: TextStyle(
-                            color: Theme.of(context).textTheme.bodyText1!.color,
+                            color: Theme.of(context).textTheme.bodyLarge!.color,
                           ),
                           decoration: InputDecoration(
                             filled: true,
@@ -57,12 +55,12 @@ class ConnectToHomeWiFiWidget extends StatelessWidget {
                             prefixIcon: Icon(
                               Icons.wifi,
                               color:
-                                  Theme.of(context).textTheme.bodyText1!.color,
+                                  Theme.of(context).textTheme.bodyLarge!.color,
                             ),
                             labelText: 'WiFi Name',
                             labelStyle: TextStyle(
                               color:
-                                  Theme.of(context).textTheme.bodyText1!.color,
+                                  Theme.of(context).textTheme.bodyLarge!.color,
                             ),
                           ),
                           autocorrect: false,
@@ -81,7 +79,7 @@ class ConnectToHomeWiFiWidget extends StatelessWidget {
                         width: 300,
                         child: TextFormField(
                           style: TextStyle(
-                            color: Theme.of(context).textTheme.bodyText1!.color,
+                            color: Theme.of(context).textTheme.bodyLarge!.color,
                           ),
                           decoration: InputDecoration(
                             filled: true,
@@ -89,12 +87,12 @@ class ConnectToHomeWiFiWidget extends StatelessWidget {
                             prefixIcon: Icon(
                               Icons.vpn_key,
                               color:
-                                  Theme.of(context).textTheme.bodyText1!.color,
+                                  Theme.of(context).textTheme.bodyLarge!.color,
                             ),
                             labelText: 'Password',
                             labelStyle: TextStyle(
                               color:
-                                  Theme.of(context).textTheme.bodyText1!.color,
+                                  Theme.of(context).textTheme.bodyLarge!.color,
                             ),
                           ),
                           autocorrect: false,
@@ -122,7 +120,7 @@ class ConnectToHomeWiFiWidget extends StatelessWidget {
                         child: Text(
                           'Connect to WiFi',
                           style: TextStyle(
-                            color: Theme.of(context).textTheme.bodyText1!.color,
+                            color: Theme.of(context).textTheme.bodyLarge!.color,
                           ),
                         ),
                       ),

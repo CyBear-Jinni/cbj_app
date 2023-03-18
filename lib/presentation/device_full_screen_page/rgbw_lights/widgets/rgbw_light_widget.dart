@@ -89,7 +89,7 @@ class RgbwLightWidget extends StatelessWidget {
                         ),
                         inactiveIcon: Icon(
                           FontAwesomeIcons.lightbulb,
-                          color: Theme.of(context).textTheme.bodyText1!.color,
+                          color: Theme.of(context).textTheme.bodyLarge!.color,
                         ),
                         onToggle: (bool value) => _onChange(context, value),
                       ),

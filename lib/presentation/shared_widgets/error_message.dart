@@ -6,7 +6,7 @@ class ErrorMessage extends StatelessWidget {
     // TODO: implement Error Message Widget
     return Container(
       decoration:
-          BoxDecoration(color: Theme.of(context).textTheme.bodyText1!.color),
+          BoxDecoration(color: Theme.of(context).textTheme.bodyLarge!.color),
     );
   }
 }

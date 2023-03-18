@@ -97,7 +97,7 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
                           border: Border.all(
                             color: Theme.of(context)
                                 .textTheme
-                                .bodyText1!
+                                .bodyLarge!
                                 .color!
                                 .withOpacity(0.5),
                           ),
@@ -108,7 +108,7 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 13,
-                            color: Theme.of(context).textTheme.bodyText1!.color,
+                            color: Theme.of(context).textTheme.bodyLarge!.color,
                           ),
                         ),
                       ),
@@ -135,7 +135,7 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
                   deviceText,
                   maxLines: 1,
                   style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1!.color,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
                   ),
                 ),
               ],
@@ -170,7 +170,7 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
                         'Off',
                         style: TextStyle(
                           fontSize: 14,
-                          color: Theme.of(context).textTheme.bodyText1!.color,
+                          color: Theme.of(context).textTheme.bodyLarge!.color,
                         ),
                       ).tr(),
                     ),
@@ -178,7 +178,7 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
                       '·',
                       style: TextStyle(
                         fontSize: 14,
-                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
                       ),
                     ),
                     TextButton(
@@ -202,7 +202,7 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
                         'On',
                         style: TextStyle(
                           fontSize: 14,
-                          color: Theme.of(context).textTheme.bodyText1!.color,
+                          color: Theme.of(context).textTheme.bodyLarge!.color,
                         ),
                       ).tr(),
                     ),

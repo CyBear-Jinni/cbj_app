@@ -35,7 +35,6 @@ class SmartComputerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
-    final double sizeBoxWidth = screenSize.width * 0.15;
 
     return BlocConsumer<SmartComputersActorBloc, SmartComputersActorState>(
       listener: (context, state) {},
@@ -65,12 +64,12 @@ class SmartComputerWidget extends StatelessWidget {
                   child: Tab(
                     icon: FaIcon(
                       FontAwesomeIcons.moon,
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                     ),
                     child: Text(
                       'Sleep',
                       style: TextStyle(
-                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
                         fontSize: 16,
                       ),
                     ).tr(),
@@ -98,12 +97,12 @@ class SmartComputerWidget extends StatelessWidget {
                   child: Tab(
                     icon: FaIcon(
                       FontAwesomeIcons.powerOff,
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                     ),
                     child: Text(
                       'Shutdown',
                       style: TextStyle(
-                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
                         fontSize: 16,
                       ),
                     ).tr(),

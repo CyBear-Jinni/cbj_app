@@ -35,7 +35,6 @@ class PrinterWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
-    final double sizeBoxWidth = screenSize.width * 0.15;
 
     return BlocConsumer<PrintersActorBloc, PrintersActorState>(
       listener: (context, state) {},
@@ -65,12 +64,12 @@ class PrinterWidget extends StatelessWidget {
                   child: Tab(
                     icon: FaIcon(
                       FontAwesomeIcons.link,
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                     ),
                     child: Text(
                       "Open Printer's Web Page",
                       style: TextStyle(
-                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
                         fontSize: 16,
                       ),
                     ).tr(),

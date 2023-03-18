@@ -8,8 +8,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class ScenesInFoldersL extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
-
     return BlocBuilder<FoldersOfScenesBloc, FoldersOfScenesState>(
       builder: (context, state) {
         return state.map(
@@ -101,7 +99,7 @@ class ScenesInFoldersL extends StatelessWidget {
               child: Text(
                 folderOfScenes.defaultName.getOrCrash(),
                 style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyText1!.color,
+                  color: Theme.of(context).textTheme.bodyLarge!.color,
                   fontSize: 30,
                 ),
                 textAlign: TextAlign.center,

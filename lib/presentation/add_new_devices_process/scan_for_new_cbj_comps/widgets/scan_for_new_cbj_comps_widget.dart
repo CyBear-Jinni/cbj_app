@@ -11,10 +11,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class ScanForNewCBJCompsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
-    final double sizeBoxWidth = screenSize.width * 0.25;
-    final List<CBJCompEntity> cbjCompEntityList = [];
-
     return BlocBuilder<CBJCompBloc, CBJCompState>(
       builder: (context, state) {
         return state.map(
@@ -28,7 +24,7 @@ class ScanForNewCBJCompsWidget extends StatelessWidget {
                 Text(
                   'Scanning For Devices',
                   style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1!.color,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
                     fontSize: 26,
                   ),
                 ),

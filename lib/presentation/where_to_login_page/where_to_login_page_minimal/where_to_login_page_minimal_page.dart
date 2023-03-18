@@ -40,7 +40,7 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
               'What would you like to do',
               style: TextStyle(
                 fontSize: 25,
-                color: Theme.of(context).textTheme.bodyText1!.color,
+                color: Theme.of(context).textTheme.bodyLarge!.color,
               ),
             ),
           ),
@@ -68,7 +68,7 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
                         children: <Widget>[
                           FaIcon(
                             FontAwesomeIcons.doorOpen,
-                            color: Theme.of(context).textTheme.bodyText1!.color,
+                            color: Theme.of(context).textTheme.bodyLarge!.color,
                           ),
                           const SizedBox(
                             width: 20,
@@ -78,7 +78,7 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 25,
                               color:
-                                  Theme.of(context).textTheme.bodyText1!.color,
+                                  Theme.of(context).textTheme.bodyLarge!.color,
                             ),
                           ),
                         ],
@@ -107,7 +107,7 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
                         children: <Widget>[
                           FaIcon(
                             FontAwesomeIcons.userGroup,
-                            color: Theme.of(context).textTheme.bodyText1!.color,
+                            color: Theme.of(context).textTheme.bodyLarge!.color,
                           ),
                           const SizedBox(
                             width: 20,
@@ -117,7 +117,7 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 25,
                               color:
-                                  Theme.of(context).textTheme.bodyText1!.color,
+                                  Theme.of(context).textTheme.bodyLarge!.color,
                             ),
                           ),
                         ],

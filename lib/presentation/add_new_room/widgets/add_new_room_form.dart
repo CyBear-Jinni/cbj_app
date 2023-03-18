@@ -118,7 +118,7 @@ class AddNewRoomForm extends StatelessWidget {
                               gravity: ToastGravity.BOTTOM,
                               backgroundColor: Colors.purple,
                               textColor:
-                                  Theme.of(context).textTheme.bodyText1!.color,
+                                  Theme.of(context).textTheme.bodyLarge!.color,
                               fontSize: 16.0,
                             );
                             Navigator.pop(context);

@@ -118,7 +118,7 @@ class AddSceneWidget extends StatelessWidget {
                                   backgroundColor: Colors.blueGrey,
                                   textColor: Theme.of(context)
                                       .textTheme
-                                      .bodyText1!
+                                      .bodyLarge!
                                       .color,
                                   fontSize: 16.0,
                                 );
@@ -141,7 +141,7 @@ class AddSceneWidget extends StatelessWidget {
                                   backgroundColor: Colors.blueGrey,
                                   textColor: Theme.of(context)
                                       .textTheme
-                                      .bodyText1!
+                                      .bodyLarge!
                                       .color,
                                   fontSize: 16.0,
                                 );
@@ -168,7 +168,7 @@ class AddSceneWidget extends StatelessWidget {
                           gravity: ToastGravity.CENTER,
                           backgroundColor: Colors.blueGrey,
                           textColor:
-                              Theme.of(context).textTheme.bodyText1!.color,
+                              Theme.of(context).textTheme.bodyLarge!.color,
                           fontSize: 16.0,
                         );
                         context.read<AddNewSceneBloc>().add(

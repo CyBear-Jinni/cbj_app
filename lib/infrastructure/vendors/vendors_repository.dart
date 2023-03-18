@@ -1,3 +1,4 @@
+import 'package:cybear_jinni/domain/vendors/esphome_login/generic_esphome_login_entity.dart';
 import 'package:cybear_jinni/domain/vendors/i_vendor_repository.dart';
 import 'package:cybear_jinni/domain/vendors/lifx_login/generic_lifx_login_entity.dart';
 import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.dart';
@@ -26,7 +27,6 @@ class VendorsRepository implements IVendorsRepository {
       if (vendorName ==
               VendorsAndServices.vendorsAndServicesNotSupported.name ||
           vendorName == VendorsAndServices.miHome.name ||
-          vendorName == VendorsAndServices.philipsHue.name ||
           vendorName == VendorsAndServices.sonoffDiy.name ||
           vendorName == VendorsAndServices.sonoffEweLink.name ||
           vendorName == VendorsAndServices.ikea.name ||
@@ -38,7 +38,10 @@ class VendorsRepository implements IVendorsRepository {
           vendorName == VendorsAndServices.xiaomi.name ||
           vendorName == VendorsAndServices.wiz.name ||
           vendorName == VendorsAndServices.switchBot.name ||
-          vendorName == VendorsAndServices.somfy.name) {
+          vendorName == VendorsAndServices.somfy.name ||
+          vendorName == VendorsAndServices.tuyaSmart.name ||
+          vendorName == VendorsAndServices.smartLife.name ||
+          vendorName == VendorsAndServices.jinvooSmart.name) {
         continue;
       }
       Vendor v = vendorPlusImageFromVandorName(vendorName);
@@ -107,6 +110,12 @@ class VendorsRepository implements IVendorsRepository {
     } catch (e) {
       return left(const CoreLoginFailure.unexpected());
     }
+  }
+
+  @override
+  Future<Either<CoreLoginFailure, Unit>> loginWithEspHome(
+      GenericEspHomeLoginDE genericEspHomeDE) {
+    return loginWithVendor(genericEspHomeDE);
   }
 }
 

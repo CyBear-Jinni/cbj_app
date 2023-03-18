@@ -39,9 +39,9 @@ class SmartDeviceTypeAndToggleBar extends StatelessWidget {
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 20,
-            color: Theme.of(context).textTheme.bodyText1!.color,
+            color: Theme.of(context).textTheme.bodyLarge!.color,
             backgroundColor: Colors.blueGrey
-//                color: (Theme.of(context).textTheme.bodyText1!.color)!,
+//                color: (Theme.of(context).textTheme.bodyLarge!.color)!,
             ,
           ),
         ).tr(args: <String>[EnumHelperCbj.dTToString(deviceType)]),

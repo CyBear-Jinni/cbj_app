@@ -81,7 +81,7 @@ class _SmartSmartPlugPage extends State<SmartSmartPlugPage> {
           _smartPlug!.defaultName.getOrCrash()!, //  Show smartPlug name
           style: TextStyle(
             fontSize: 19.0,
-            color: Theme.of(context).textTheme.bodyText2!.color,
+            color: Theme.of(context).textTheme.bodyMedium!.color,
           ),
         ),
         const SizedBox(
@@ -100,10 +100,10 @@ class _SmartSmartPlugPage extends State<SmartSmartPlugPage> {
             activeToggleColor: const Color(0xFF2F363D),
             inactiveToggleColor: Theme.of(context).primaryColor,
             activeSwitchBorder: Border.all(
-              color: (Theme.of(context).textTheme.bodyText1!.color)!,
+              color: (Theme.of(context).textTheme.bodyLarge!.color)!,
             ),
             inactiveSwitchBorder: Border.all(
-              color: (Theme.of(context).textTheme.bodyText1!.color)!,
+              color: (Theme.of(context).textTheme.bodyLarge!.color)!,
             ),
             activeColor: const Color(0xFFFFDF5D),
             inactiveColor: Theme.of(context).primaryColorDark,
@@ -113,7 +113,7 @@ class _SmartSmartPlugPage extends State<SmartSmartPlugPage> {
             ),
             inactiveIcon: Icon(
               MdiIcons.powerSocketAu,
-              color: Theme.of(context).textTheme.bodyText1!.color,
+              color: Theme.of(context).textTheme.bodyLarge!.color,
             ),
             onToggle: (bool value) => _onChange(value),
           ),

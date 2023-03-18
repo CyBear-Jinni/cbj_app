@@ -7,7 +7,6 @@ import 'package:fluttertoast/fluttertoast.dart';
 class AddUserToHomeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
     String userToAddEmail = '';
 
     return BlocConsumer<AddUserToHomeBloc, AddUserToHomeState>(
@@ -47,18 +46,18 @@ class AddUserToHomeWidget extends StatelessWidget {
                   width: 300,
                   child: TextFormField(
                     style: TextStyle(
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                     ),
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.greenAccent.withOpacity(0.3),
                       prefixIcon: Icon(
                         Icons.alternate_email,
-                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
                       ),
                       labelText: 'Email',
                       labelStyle: TextStyle(
-                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
                       ),
                     ),
                     autocorrect: false,
@@ -86,7 +85,7 @@ class AddUserToHomeWidget extends StatelessWidget {
               child: Text(
                 'Add User',
                 style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyText1!.color,
+                  color: Theme.of(context).textTheme.bodyLarge!.color,
                 ),
               ),
             ),
@@ -109,7 +108,7 @@ class AddUserToHomeWidget extends StatelessWidget {
                       Text(
                         'User have been add successfully',
                         style: TextStyle(
-                          color: Theme.of(context).textTheme.bodyText1!.color,
+                          color: Theme.of(context).textTheme.bodyLarge!.color,
                           fontSize: 20,
                         ),
                       ),
@@ -122,7 +121,7 @@ class AddUserToHomeWidget extends StatelessWidget {
                       Text(
                         'Copy home ID',
                         style: TextStyle(
-                          color: Theme.of(context).textTheme.bodyText1!.color,
+                          color: Theme.of(context).textTheme.bodyLarge!.color,
                           fontSize: 20,
                         ),
                       ),
@@ -143,7 +142,7 @@ class AddUserToHomeWidget extends StatelessWidget {
                               gravity: ToastGravity.SNACKBAR,
                               backgroundColor: Colors.lightBlue,
                               textColor:
-                                  Theme.of(context).textTheme.bodyText1!.color,
+                                  Theme.of(context).textTheme.bodyLarge!.color,
                               fontSize: 16.0,
                             ),
                           );
@@ -156,7 +155,7 @@ class AddUserToHomeWidget extends StatelessWidget {
                               style: TextStyle(
                                 color: Theme.of(context)
                                     .textTheme
-                                    .bodyText1!
+                                    .bodyLarge!
                                     .color,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 20,
@@ -169,7 +168,7 @@ class AddUserToHomeWidget extends StatelessWidget {
                         'Please give home id to the user, he needs it to'
                         ' join the home.',
                         style: TextStyle(
-                          color: Theme.of(context).textTheme.bodyText1!.color,
+                          color: Theme.of(context).textTheme.bodyLarge!.color,
                           fontSize: 15,
                         ),
                       ),
@@ -182,7 +181,7 @@ class AddUserToHomeWidget extends StatelessWidget {
                   'Adding user Failed.\n'
                   'Did the user already created account with that email?',
                   style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1!.color,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
                   ),
                 );
               },

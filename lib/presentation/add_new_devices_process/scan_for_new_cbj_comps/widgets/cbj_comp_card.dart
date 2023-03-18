@@ -25,10 +25,10 @@ class CBJCompCard extends StatelessWidget {
             decoration: BoxDecoration(
               border: Border(
                 top: BorderSide(
-                  color: (Theme.of(context).textTheme.bodyText1!.color)!,
+                  color: (Theme.of(context).textTheme.bodyLarge!.color)!,
                 ),
                 bottom: BorderSide(
-                  color: (Theme.of(context).textTheme.bodyText1!.color)!,
+                  color: (Theme.of(context).textTheme.bodyLarge!.color)!,
                 ),
               ),
             ),
@@ -49,7 +49,7 @@ class CBJCompCard extends StatelessWidget {
                               style: TextStyle(
                                 color: Theme.of(context)
                                     .textTheme
-                                    .bodyText1!
+                                    .bodyLarge!
                                     .color,
                               ),
                             ),
@@ -60,7 +60,7 @@ class CBJCompCard extends StatelessWidget {
                           'Type not supported '
                           '${compEntity.deviceTypes.getOrCrash()} yet',
                           style: TextStyle(
-                            color: Theme.of(context).textTheme.bodyText1!.color,
+                            color: Theme.of(context).textTheme.bodyLarge!.color,
                           ),
                         );
                       }
@@ -85,7 +85,7 @@ class CBJCompCard extends StatelessWidget {
             child: Text(
               'Set up computer',
               style: TextStyle(
-                color: Theme.of(context).textTheme.bodyText1!.color,
+                color: Theme.of(context).textTheme.bodyLarge!.color,
               ),
             ),
           ),

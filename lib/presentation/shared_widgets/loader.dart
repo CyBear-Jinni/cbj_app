@@ -6,7 +6,7 @@ class Loader extends StatelessWidget {
     // TODO: implement Loader Widget
     return Container(
       decoration:
-          BoxDecoration(color: Theme.of(context).textTheme.bodyText1!.color),
+          BoxDecoration(color: Theme.of(context).textTheme.bodyLarge!.color),
     );
   }
 }

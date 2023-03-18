@@ -44,21 +44,21 @@ class RgbwLightsInTheRoomWidget extends StatelessWidget {
                   border: InputBorder.none,
                   hintText: products[index]['title'.tr()].toString(),
                   hintStyle: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1!.color,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
                   ),
                 ),
                 style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyText1!.color,
+                  color: Theme.of(context).textTheme.bodyLarge!.color,
                 ),
               ),
               subtitle: Text(
                 products[index]['number'.tr()].toString(),
                 style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyText1!.color,
+                  color: Theme.of(context).textTheme.bodyLarge!.color,
                 ),
               ),
               trailing: IconButton(
-                color: Theme.of(context).textTheme.bodyText1!.color,
+                color: Theme.of(context).textTheme.bodyLarge!.color,
                 icon: const FaIcon(FontAwesomeIcons.pen),
                 onPressed: () {},
               ),

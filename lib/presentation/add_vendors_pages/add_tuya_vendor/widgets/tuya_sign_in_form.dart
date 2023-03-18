@@ -201,14 +201,14 @@ class TuyaSignInForm extends StatelessWidget {
                                   );
 
                               Fluttertoast.showToast(
-                                msg: 'Sign in to Tuya, please restart the app '
-                                    'to see the new devices',
+                                msg:
+                                    'Sign in to Tuya, devices will appear in the shortly',
                                 toastLength: Toast.LENGTH_LONG,
                                 gravity: ToastGravity.BOTTOM,
                                 backgroundColor: Colors.deepOrange,
                                 textColor: Theme.of(context)
                                     .textTheme
-                                    .bodyText1!
+                                    .bodyLarge!
                                     .color,
                                 fontSize: 16.0,
                               );

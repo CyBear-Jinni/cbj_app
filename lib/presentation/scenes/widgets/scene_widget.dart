@@ -40,7 +40,7 @@ class SceneWidget extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30),
                     side: BorderSide(
-                      color: (Theme.of(context).textTheme.bodyText1!.color)!,
+                      color: (Theme.of(context).textTheme.bodyLarge!.color)!,
                       width: 0.6,
                     ),
                   ),
@@ -53,7 +53,7 @@ class SceneWidget extends StatelessWidget {
                     toastLength: Toast.LENGTH_SHORT,
                     gravity: ToastGravity.BOTTOM,
                     backgroundColor: Colors.purple,
-                    textColor: Theme.of(context).textTheme.bodyText1!.color,
+                    textColor: Theme.of(context).textTheme.bodyLarge!.color,
                     fontSize: 16.0,
                   );
 
@@ -78,7 +78,7 @@ class SceneWidget extends StatelessWidget {
                     currentScene.name.getOrCrash(),
                     style: TextStyle(
                       fontSize: 23,
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                     ),
                     textAlign: TextAlign.center,
                   ),
