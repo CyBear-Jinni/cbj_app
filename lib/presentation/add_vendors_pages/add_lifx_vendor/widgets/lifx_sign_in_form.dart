@@ -111,8 +111,8 @@ class LifxSignInForm extends StatelessWidget {
                                   );
 
                               Fluttertoast.showToast(
-                                msg: 'Sign in to Lifix, please restart the app '
-                                    'to see the new devices',
+                                msg:
+                                    'Sign in to Lifx, devices will appear in the shortly',
                                 toastLength: Toast.LENGTH_LONG,
                                 gravity: ToastGravity.BOTTOM,
                                 backgroundColor: Colors.deepPurple,
