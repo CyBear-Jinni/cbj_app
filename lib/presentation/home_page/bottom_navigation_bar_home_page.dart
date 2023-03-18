@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class BottomNavigationBarHomePage extends StatelessWidget {
   const BottomNavigationBarHomePage(this.callback, this.pageIndex);
@@ -18,11 +18,13 @@ class BottomNavigationBarHomePage extends StatelessWidget {
       onTap: (value) => callback(value),
       items: [
         BottomNavigationBarItem(
-          icon: const FaIcon(FontAwesomeIcons.sitemap),
+          activeIcon: const Icon(MdiIcons.sitemap),
+          icon: const Icon(MdiIcons.sitemapOutline),
           label: 'Automations'.tr(),
         ),
         BottomNavigationBarItem(
-          icon: const FaIcon(FontAwesomeIcons.solidLightbulb),
+          activeIcon: const Icon(MdiIcons.lightbulbOn),
+          icon: const Icon(MdiIcons.lightbulbOutline),
           label: 'Devices'.tr(),
         ),
         // BottomNavigationBarItem(
