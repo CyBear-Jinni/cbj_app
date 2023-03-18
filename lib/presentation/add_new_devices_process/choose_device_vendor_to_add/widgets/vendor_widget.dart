@@ -34,15 +34,7 @@ class VendorWidget extends StatelessWidget {
           context.router.push(const AddJinvooSmartVendorRoute());
         } else if (vendorName ==
             VendorsAndServices.espHome.name.toLowerCase()) {
-          Fluttertoast.showToast(
-            msg: '${vendor.name.getOrCrash()} devices can only be added '
-                'manually in the Hub',
-            toastLength: Toast.LENGTH_LONG,
-            gravity: ToastGravity.SNACKBAR,
-            backgroundColor: Colors.orangeAccent,
-            textColor: Theme.of(context).textTheme.bodyLarge!.color,
-            fontSize: 16.0,
-          );
+          context.router.push(const AddEspHomeVendorRoute());
         } else if (vendorName ==
             VendorsAndServices.philipsHue.name.toLowerCase()) {
           Fluttertoast.showToast(
