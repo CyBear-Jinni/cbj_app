@@ -17,7 +17,7 @@ class GenericSmartPlugDE extends DeviceEntityAbstract {
     required super.vendorUniqueId,
     required super.deviceVendor,
     required super.defaultName,
-    required super.deviceStateGRPC,
+    required super.entityStateGRPC,
     required super.stateMassage,
     required super.senderDeviceOs,
     required super.senderDeviceModel,
@@ -26,7 +26,7 @@ class GenericSmartPlugDE extends DeviceEntityAbstract {
     required this.smartPlugState,
     DevicePowerConsumption? powerConsumption,
   }) : super(
-          deviceTypes: DeviceType(DeviceTypes.smartPlug.toString()),
+          entityTypes: DeviceType(DeviceTypes.smartPlug.toString()),
         );
 
   /// Empty instance of GenericSmartPlugEntity
@@ -34,7 +34,7 @@ class GenericSmartPlugDE extends DeviceEntityAbstract {
         uniqueId: CoreUniqueId(),
         vendorUniqueId: VendorUniqueId(),
         defaultName: DeviceDefaultName(''),
-        deviceStateGRPC: DeviceState(''),
+        entityStateGRPC: EntityState(''),
         senderDeviceOs: DeviceSenderDeviceOs(''),
         senderDeviceModel: DeviceSenderDeviceModel(''),
         stateMassage: DeviceStateMassage(''),
@@ -88,12 +88,12 @@ class GenericSmartPlugDE extends DeviceEntityAbstract {
       id: uniqueId.getOrCrash(),
       vendorUniqueId: vendorUniqueId.getOrCrash(),
       defaultName: defaultName.getOrCrash(),
-      deviceStateGRPC: deviceStateGRPC.getOrCrash(),
+      entityStateGRPC: entityStateGRPC.getOrCrash(),
       stateMassage: stateMassage.getOrCrash(),
       senderDeviceOs: senderDeviceOs.getOrCrash(),
       senderDeviceModel: senderDeviceModel.getOrCrash(),
       senderId: senderId.getOrCrash(),
-      deviceTypes: deviceTypes.getOrCrash(),
+      entityTypes: entityTypes.getOrCrash(),
       compUuid: compUuid.getOrCrash(),
       smartPlugState: smartPlugState!.getOrCrash(),
       deviceVendor: deviceVendor.getOrCrash(),

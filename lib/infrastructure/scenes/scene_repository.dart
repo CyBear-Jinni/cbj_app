@@ -56,7 +56,7 @@ class SceneCbjRepository implements ISceneCbjRepository {
           nodeRedFlowId: SceneCbjNodeRedFlowId(null),
           firstNodeId: SceneCbjFirstNodeId(null),
           lastDateOfExecute: SceneCbjLastDateOfExecute(null),
-          deviceStateGRPC: SceneCbjDeviceStateGRPC(null),
+          entityStateGRPC: SceneCbjDeviceStateGRPC(null),
           senderDeviceModel: SceneCbjSenderDeviceModel(null),
           senderDeviceOs: SceneCbjSenderDeviceOs(null),
           senderId: SceneCbjSenderId(null),
@@ -139,7 +139,7 @@ class SceneCbjRepository implements ISceneCbjRepository {
     for (final SceneCbjEntity sceneCbjEntity in scenesList.asList()) {
       addOrUpdateNewSceneInHub(
         sceneCbjEntity.copyWith(
-          deviceStateGRPC: SceneCbjDeviceStateGRPC(
+          entityStateGRPC: SceneCbjDeviceStateGRPC(
             DeviceStateGRPC.waitingInFirebase.toString(),
           ),
         ),

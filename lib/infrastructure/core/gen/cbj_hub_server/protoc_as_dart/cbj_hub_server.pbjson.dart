@@ -424,7 +424,7 @@ const DeviceTypesActions$json = const {
     const {'1': 'vendorsAndServices', '3': 46, '4': 1, '5': 14, '6': '.CbjHub.VendorsAndServices', '10': 'vendorsAndServices'},
     const {'1': 'deviceType', '3': 35, '4': 1, '5': 14, '6': '.CbjHub.DeviceTypes', '10': 'deviceType'},
     const {'1': 'deviceAction', '3': 36, '4': 1, '5': 14, '6': '.CbjHub.DeviceActions', '10': 'deviceAction'},
-    const {'1': 'deviceStateGRPC', '3': 37, '4': 1, '5': 14, '6': '.CbjHub.DeviceStateGRPC', '10': 'deviceStateGRPC'},
+    const {'1': 'entityStateGRPC', '3': 37, '4': 1, '5': 14, '6': '.CbjHub.DeviceStateGRPC', '10': 'entityStateGRPC'},
   ],
 };
 

@@ -16,14 +16,14 @@ class GenericSmartTypeNotSupportedDE extends DeviceEntityAbstract {
     required super.vendorUniqueId,
     required super.defaultName,
     required super.deviceVendor,
-    required super.deviceStateGRPC,
+    required super.entityStateGRPC,
     required super.stateMassage,
     required super.senderDeviceOs,
     required super.senderDeviceModel,
     required super.senderId,
     required super.compUuid,
   }) : super(
-          deviceTypes: DeviceType(DeviceTypes.smartTypeNotSupported.toString()),
+          entityTypes: DeviceType(DeviceTypes.smartTypeNotSupported.toString()),
         );
 
   /// Empty instance of GenericSmartTypeNotSupportedEntity
@@ -32,7 +32,7 @@ class GenericSmartTypeNotSupportedDE extends DeviceEntityAbstract {
         uniqueId: CoreUniqueId(),
         vendorUniqueId: VendorUniqueId(),
         defaultName: DeviceDefaultName(''),
-        deviceStateGRPC: DeviceState(''),
+        entityStateGRPC: EntityState(''),
         senderDeviceOs: DeviceSenderDeviceOs(''),
         senderDeviceModel: DeviceSenderDeviceModel(''),
         stateMassage: DeviceStateMassage(''),
@@ -84,12 +84,12 @@ class GenericSmartTypeNotSupportedDE extends DeviceEntityAbstract {
       vendorUniqueId: vendorUniqueId.getOrCrash(),
 
       defaultName: defaultName.getOrCrash(),
-      deviceStateGRPC: deviceStateGRPC.getOrCrash(),
+      entityStateGRPC: entityStateGRPC.getOrCrash(),
       stateMassage: stateMassage.getOrCrash(),
       senderDeviceOs: senderDeviceOs.getOrCrash(),
       senderDeviceModel: senderDeviceModel.getOrCrash(),
       senderId: senderId.getOrCrash(),
-      deviceTypes: deviceTypes.getOrCrash(),
+      entityTypes: entityTypes.getOrCrash(),
       compUuid: compUuid.getOrCrash(),
       deviceVendor: deviceVendor.getOrCrash(),
       // serverTimeStamp: FieldValue.serverTimestamp(),

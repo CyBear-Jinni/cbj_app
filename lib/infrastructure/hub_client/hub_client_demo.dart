@@ -153,7 +153,7 @@ class HubClientDemo {
       vendorUniqueId: VendorUniqueId.fromUniqueString('63b298'),
       deviceVendor: DeviceVendor('switcherSmartHome'),
       defaultName: DeviceDefaultName('Guy Blinds'),
-      deviceStateGRPC: DeviceState(DeviceStateGRPC.ack.toString()),
+      entityStateGRPC: EntityState(DeviceStateGRPC.ack.toString()),
       stateMassage: DeviceStateMassage('Hello World'),
       senderDeviceOs: DeviceSenderDeviceOs('switcher'),
       senderDeviceModel:
@@ -183,7 +183,7 @@ class HubClientDemo {
       vendorUniqueId: VendorUniqueId.fromUniqueString('67600068c44f33f5b515'),
       deviceVendor: DeviceVendor('tuyaSmart'),
       defaultName: DeviceDefaultName('Guy Ceiling Button'),
-      deviceStateGRPC: DeviceState(DeviceStateGRPC.ack.toString()),
+      entityStateGRPC: EntityState(DeviceStateGRPC.ack.toString()),
       stateMassage: DeviceStateMassage('Hello World'),
       senderDeviceOs: DeviceSenderDeviceOs('switcher'),
       senderDeviceModel: DeviceSenderDeviceModel('Cloud'),
@@ -210,7 +210,7 @@ class HubClientDemo {
       vendorUniqueId: VendorUniqueId.fromUniqueString('67600068c44f33f5b515'),
       deviceVendor: DeviceVendor('tuyaSmart'),
       defaultName: DeviceDefaultName('Guy Bedroom Button'),
-      deviceStateGRPC: DeviceState(DeviceStateGRPC.ack.toString()),
+      entityStateGRPC: EntityState(DeviceStateGRPC.ack.toString()),
       stateMassage: DeviceStateMassage('Hello World'),
       senderDeviceOs: DeviceSenderDeviceOs('switcher'),
       senderDeviceModel: DeviceSenderDeviceModel('Cloud'),
@@ -237,7 +237,7 @@ class HubClientDemo {
       vendorUniqueId: VendorUniqueId.fromUniqueString('65fd2f'),
       deviceVendor: DeviceVendor('switcherSmartHome'),
       defaultName: DeviceDefaultName('Boiler'),
-      deviceStateGRPC: DeviceState(DeviceStateGRPC.ack.toString()),
+      entityStateGRPC: EntityState(DeviceStateGRPC.ack.toString()),
       stateMassage: DeviceStateMassage('Hello World'),
       senderDeviceOs: DeviceSenderDeviceOs('switcher'),
       senderDeviceModel:
@@ -265,7 +265,7 @@ class HubClientDemo {
       vendorUniqueId: VendorUniqueId.fromUniqueString('bf4bccdaf68347e31dhiut'),
       deviceVendor: DeviceVendor('tuyaSmart'),
       defaultName: DeviceDefaultName('Dining Room Ceiling'),
-      deviceStateGRPC: DeviceState(DeviceStateGRPC.ack.toString()),
+      entityStateGRPC: EntityState(DeviceStateGRPC.ack.toString()),
       stateMassage: DeviceStateMassage('Hello World'),
       senderDeviceOs: DeviceSenderDeviceOs('tuya_smart'),
       senderDeviceModel: DeviceSenderDeviceModel('1SE'),
@@ -317,7 +317,7 @@ class HubClientDemo {
       senderDeviceModel: SceneCbjSenderDeviceModel(null),
       senderId: SceneCbjSenderId(null),
       compUuid: SceneCbjCompUuid(null),
-      deviceStateGRPC: SceneCbjDeviceStateGRPC('waitingInComp'),
+      entityStateGRPC: SceneCbjDeviceStateGRPC('waitingInComp'),
     );
 
     final RequestsAndStatusFromHub requestsAndStatusFromHubSceneOpen =

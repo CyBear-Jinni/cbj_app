@@ -17,7 +17,7 @@ class GenericEmptyDE extends DeviceEntityAbstract {
     required super.vendorUniqueId,
     required super.deviceVendor,
     required super.defaultName,
-    required super.deviceStateGRPC,
+    required super.entityStateGRPC,
     required super.stateMassage,
     required super.senderDeviceOs,
     required super.senderDeviceModel,
@@ -26,7 +26,7 @@ class GenericEmptyDE extends DeviceEntityAbstract {
     required this.emptySwitchState,
     DevicePowerConsumption? powerConsumption,
   }) : super(
-          deviceTypes: DeviceType(DeviceTypes.emptyDevice.toString()),
+          entityTypes: DeviceType(DeviceTypes.emptyDevice.toString()),
         );
 
   /// Empty instance of GenericEmptyEntity
@@ -34,7 +34,7 @@ class GenericEmptyDE extends DeviceEntityAbstract {
         uniqueId: CoreUniqueId(),
         vendorUniqueId: VendorUniqueId(),
         defaultName: DeviceDefaultName('Empty device'),
-        deviceStateGRPC: DeviceState(DeviceStateGRPC.ack.toString()),
+        entityStateGRPC: EntityState(DeviceStateGRPC.ack.toString()),
         senderDeviceOs: DeviceSenderDeviceOs('Hub'),
         senderDeviceModel: DeviceSenderDeviceModel('Hub'),
         stateMassage: DeviceStateMassage('Test'),
@@ -90,12 +90,12 @@ class GenericEmptyDE extends DeviceEntityAbstract {
 
       vendorUniqueId: vendorUniqueId.getOrCrash(),
       defaultName: defaultName.getOrCrash(),
-      deviceStateGRPC: deviceStateGRPC.getOrCrash(),
+      entityStateGRPC: entityStateGRPC.getOrCrash(),
       stateMassage: stateMassage.getOrCrash(),
       senderDeviceOs: senderDeviceOs.getOrCrash(),
       senderDeviceModel: senderDeviceModel.getOrCrash(),
       senderId: senderId.getOrCrash(),
-      deviceTypes: deviceTypes.getOrCrash(),
+      entityTypes: entityTypes.getOrCrash(),
       compUuid: compUuid.getOrCrash(),
       emptySwitchState: emptySwitchState!.getOrCrash(),
       deviceVendor: deviceVendor.getOrCrash(),

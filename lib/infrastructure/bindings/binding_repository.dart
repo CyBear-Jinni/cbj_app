@@ -57,7 +57,7 @@ class BindingCbjRepository implements IBindingCbjRepository {
           nodeRedFlowId: BindingCbjNodeRedFlowId(null),
           firstNodeId: BindingCbjFirstNodeId(null),
           lastDateOfExecute: BindingCbjLastDateOfExecute(null),
-          deviceStateGRPC: BindingCbjDeviceStateGRPC(null),
+          entityStateGRPC: BindingCbjDeviceStateGRPC(null),
           senderDeviceModel: BindingCbjSenderDeviceModel(null),
           senderDeviceOs: BindingCbjSenderDeviceOs(null),
           senderId: BindingCbjSenderId(null),
@@ -143,7 +143,7 @@ class BindingCbjRepository implements IBindingCbjRepository {
     for (final BindingCbjEntity bindingCbjEntity in bindingsList.asList()) {
       addOrUpdateNewBindingInHub(
         bindingCbjEntity.copyWith(
-          deviceStateGRPC: BindingCbjDeviceStateGRPC(
+          entityStateGRPC: BindingCbjDeviceStateGRPC(
             DeviceStateGRPC.waitingInFirebase.toString(),
           ),
         ),

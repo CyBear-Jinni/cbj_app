@@ -17,7 +17,7 @@ class GenericSwitchDE extends DeviceEntityAbstract {
     required super.vendorUniqueId,
     required super.deviceVendor,
     required super.defaultName,
-    required super.deviceStateGRPC,
+    required super.entityStateGRPC,
     required super.stateMassage,
     required super.senderDeviceOs,
     required super.senderDeviceModel,
@@ -26,7 +26,7 @@ class GenericSwitchDE extends DeviceEntityAbstract {
     required this.switchState,
     DevicePowerConsumption? powerConsumption,
   }) : super(
-          deviceTypes: DeviceType(DeviceTypes.switch_.toString()),
+          entityTypes: DeviceType(DeviceTypes.switch_.toString()),
         );
 
   /// Empty instance of GenericSwitchEntity
@@ -34,7 +34,7 @@ class GenericSwitchDE extends DeviceEntityAbstract {
         uniqueId: CoreUniqueId(),
         vendorUniqueId: VendorUniqueId(),
         defaultName: DeviceDefaultName(''),
-        deviceStateGRPC: DeviceState(''),
+        entityStateGRPC: EntityState(''),
         senderDeviceOs: DeviceSenderDeviceOs(''),
         senderDeviceModel: DeviceSenderDeviceModel(''),
         stateMassage: DeviceStateMassage(''),
@@ -87,12 +87,12 @@ class GenericSwitchDE extends DeviceEntityAbstract {
       id: uniqueId.getOrCrash(),
       vendorUniqueId: vendorUniqueId.getOrCrash(),
       defaultName: defaultName.getOrCrash(),
-      deviceStateGRPC: deviceStateGRPC.getOrCrash(),
+      entityStateGRPC: entityStateGRPC.getOrCrash(),
       stateMassage: stateMassage.getOrCrash(),
       senderDeviceOs: senderDeviceOs.getOrCrash(),
       senderDeviceModel: senderDeviceModel.getOrCrash(),
       senderId: senderId.getOrCrash(),
-      deviceTypes: deviceTypes.getOrCrash(),
+      entityTypes: entityTypes.getOrCrash(),
       compUuid: compUuid.getOrCrash(),
       switchState: switchState!.getOrCrash(),
       deviceVendor: deviceVendor.getOrCrash(),

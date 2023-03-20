@@ -84,13 +84,13 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
     tempDevicesByRooms.forEach((k, v) {
       tempDevicesByRoomsByType[k!] = {};
       for (final element in v) {
-        if (tempDevicesByRoomsByType[k]![element.deviceTypes.getOrCrash()] ==
+        if (tempDevicesByRoomsByType[k]![element.entityTypes.getOrCrash()] ==
             null) {
-          tempDevicesByRoomsByType[k]![element.deviceTypes.getOrCrash()] = [
+          tempDevicesByRoomsByType[k]![element.entityTypes.getOrCrash()] = [
             element
           ];
         } else {
-          tempDevicesByRoomsByType[k]![element.deviceTypes.getOrCrash()]!
+          tempDevicesByRoomsByType[k]![element.entityTypes.getOrCrash()]!
               .add(element);
         }
       }
@@ -124,7 +124,7 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
       return false;
     }
     logger.w(
-      'State check is missing for device type ${deviceEntity.deviceTypes} '
+      'State check is missing for device type ${deviceEntity.entityTypes} '
       'to appear in summary',
     );
     return false;

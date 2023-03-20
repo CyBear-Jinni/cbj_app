@@ -17,7 +17,7 @@ class GenericRgbwLightDE extends DeviceEntityAbstract {
     required super.vendorUniqueId,
     required super.deviceVendor,
     required super.defaultName,
-    required super.deviceStateGRPC,
+    required super.entityStateGRPC,
     required super.stateMassage,
     required super.senderDeviceOs,
     required super.senderDeviceModel,
@@ -32,7 +32,7 @@ class GenericRgbwLightDE extends DeviceEntityAbstract {
     required this.lightBrightness,
     DevicePowerConsumption? powerConsumption,
   }) : super(
-          deviceTypes: DeviceType(DeviceTypes.rgbwLights.toString()),
+          entityTypes: DeviceType(DeviceTypes.rgbwLights.toString()),
         );
 
   /// Empty instance of GenericLightEntity
@@ -40,7 +40,7 @@ class GenericRgbwLightDE extends DeviceEntityAbstract {
         uniqueId: CoreUniqueId(),
         vendorUniqueId: VendorUniqueId(),
         defaultName: DeviceDefaultName(''),
-        deviceStateGRPC: DeviceState(''),
+        entityStateGRPC: EntityState(''),
         senderDeviceOs: DeviceSenderDeviceOs(''),
         senderDeviceModel: DeviceSenderDeviceModel(''),
         stateMassage: DeviceStateMassage(''),
@@ -126,12 +126,12 @@ class GenericRgbwLightDE extends DeviceEntityAbstract {
       id: uniqueId.getOrCrash(),
       vendorUniqueId: vendorUniqueId.getOrCrash(),
       defaultName: defaultName.getOrCrash(),
-      deviceStateGRPC: deviceStateGRPC.getOrCrash(),
+      entityStateGRPC: entityStateGRPC.getOrCrash(),
       stateMassage: stateMassage.getOrCrash(),
       senderDeviceOs: senderDeviceOs.getOrCrash(),
       senderDeviceModel: senderDeviceModel.getOrCrash(),
       senderId: senderId.getOrCrash(),
-      deviceTypes: deviceTypes.getOrCrash(),
+      entityTypes: entityTypes.getOrCrash(),
       compUuid: compUuid.getOrCrash(),
       lightSwitchState: lightSwitchState!.getOrCrash(),
       deviceVendor: deviceVendor.getOrCrash(),

@@ -124,9 +124,9 @@ class DeviceRepository implements IDeviceRepository {
       (event) => event.fold((l) => left(l), (r) {
         return right(
           r.toList().asList().where((element) {
-            return element!.deviceTypes.getOrCrash() ==
+            return element!.entityTypes.getOrCrash() ==
                     DeviceTypes.light.toString() ||
-                element.deviceTypes.getOrCrash() ==
+                element.entityTypes.getOrCrash() ==
                     DeviceTypes.rgbwLights.toString();
           }).toImmutableList(),
         );
@@ -143,7 +143,7 @@ class DeviceRepository implements IDeviceRepository {
       (event) => event.fold((l) => left(l), (r) {
         return right(
           r.toList().asList().where((element) {
-            return element!.deviceTypes.getOrCrash() ==
+            return element!.entityTypes.getOrCrash() ==
                 DeviceTypes.switch_.toString();
           }).toImmutableList(),
         );
@@ -160,7 +160,7 @@ class DeviceRepository implements IDeviceRepository {
       (event) => event.fold((l) => left(l), (r) {
         return right(
           r.toList().asList().where((element) {
-            return element!.deviceTypes.getOrCrash() ==
+            return element!.entityTypes.getOrCrash() ==
                 DeviceTypes.smartPlug.toString();
           }).toImmutableList(),
         );
@@ -177,7 +177,7 @@ class DeviceRepository implements IDeviceRepository {
       (event) => event.fold((l) => left(l), (r) {
         return right(
           r.toList().asList().where((element) {
-            return element!.deviceTypes.getOrCrash() ==
+            return element!.entityTypes.getOrCrash() ==
                 DeviceTypes.smartComputer.toString();
           }).toImmutableList(),
         );
@@ -194,7 +194,7 @@ class DeviceRepository implements IDeviceRepository {
       (event) => event.fold((l) => left(l), (r) {
         return right(
           r.toList().asList().where((element) {
-            return element!.deviceTypes.getOrCrash() ==
+            return element!.entityTypes.getOrCrash() ==
                 DeviceTypes.blinds.toString();
           }).toImmutableList(),
         );
@@ -211,7 +211,7 @@ class DeviceRepository implements IDeviceRepository {
       (event) => event.fold((l) => left(l), (r) {
         return right(
           r.toList().asList().where((element) {
-            return element!.deviceTypes.getOrCrash() ==
+            return element!.entityTypes.getOrCrash() ==
                 DeviceTypes.boiler.toString();
           }).toImmutableList(),
         );
@@ -226,7 +226,7 @@ class DeviceRepository implements IDeviceRepository {
       (event) => event.fold((l) => left(l), (r) {
         return right(
           r.toList().asList().where((element) {
-            return element!.deviceTypes.getOrCrash() ==
+            return element!.entityTypes.getOrCrash() ==
                 DeviceTypes.smartTV.toString();
           }).toImmutableList(),
         );
@@ -241,7 +241,7 @@ class DeviceRepository implements IDeviceRepository {
       (event) => event.fold((l) => left(l), (r) {
         return right(
           r.toList().asList().where((element) {
-            return element!.deviceTypes.getOrCrash() ==
+            return element!.entityTypes.getOrCrash() ==
                 DeviceTypes.printer.toString();
           }).toImmutableList(),
         );
@@ -371,7 +371,7 @@ class DeviceRepository implements IDeviceRepository {
         } else {
           logger.w(
             'On action not supported for'
-            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+            ' ${deviceEntity.entityTypes.getOrCrash()} type',
           );
           continue;
         }
@@ -423,7 +423,7 @@ class DeviceRepository implements IDeviceRepository {
         } else {
           logger.w(
             'Off action not supported for'
-            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+            ' ${deviceEntity.entityTypes.getOrCrash()} type',
           );
           continue;
         }
@@ -464,7 +464,7 @@ class DeviceRepository implements IDeviceRepository {
         } else {
           logger.w(
             'Off action not supported for'
-            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+            ' ${deviceEntity.entityTypes.getOrCrash()} type',
           );
           continue;
         }
@@ -537,7 +537,7 @@ class DeviceRepository implements IDeviceRepository {
         } else {
           logger.w(
             'Off action not supported for'
-            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+            ' ${deviceEntity.entityTypes.getOrCrash()} type',
           );
           continue;
         }
@@ -601,7 +601,7 @@ class DeviceRepository implements IDeviceRepository {
         } else {
           logger.w(
             'Brightness action not supported for'
-            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+            ' ${deviceEntity.entityTypes.getOrCrash()} type',
           );
           continue;
         }
@@ -664,7 +664,7 @@ class DeviceRepository implements IDeviceRepository {
         } else {
           logger.w(
             'Off action not supported for'
-            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+            ' ${deviceEntity.entityTypes.getOrCrash()} type',
           );
           continue;
         }
@@ -708,7 +708,7 @@ class DeviceRepository implements IDeviceRepository {
         } else {
           logger.w(
             'Stop action not supported for'
-            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+            ' ${deviceEntity.entityTypes.getOrCrash()} type',
           );
           continue;
         }
@@ -748,7 +748,7 @@ class DeviceRepository implements IDeviceRepository {
         } else {
           logger.w(
             'Move down action not supported for'
-            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+            ' ${deviceEntity.entityTypes.getOrCrash()} type',
           );
           continue;
         }
@@ -789,7 +789,7 @@ class DeviceRepository implements IDeviceRepository {
         } else {
           logger.w(
             'Suspend action not supported for'
-            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+            ' ${deviceEntity.entityTypes.getOrCrash()} type',
           );
           continue;
         }
@@ -830,7 +830,7 @@ class DeviceRepository implements IDeviceRepository {
         } else {
           logger.w(
             'Shutdown action not supported for'
-            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+            ' ${deviceEntity.entityTypes.getOrCrash()} type',
           );
           continue;
         }
@@ -877,7 +877,7 @@ class DeviceRepository implements IDeviceRepository {
         } else {
           logger.w(
             'Open url action not supported for'
-            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+            ' ${deviceEntity.entityTypes.getOrCrash()} type',
           );
           continue;
         }
@@ -917,7 +917,7 @@ class DeviceRepository implements IDeviceRepository {
         } else {
           logger.w(
             'Close action not supported for'
-            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+            ' ${deviceEntity.entityTypes.getOrCrash()} type',
           );
           continue;
         }
@@ -957,7 +957,7 @@ class DeviceRepository implements IDeviceRepository {
         } else {
           logger.w(
             'Pause action not supported for'
-            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+            ' ${deviceEntity.entityTypes.getOrCrash()} type',
           );
           continue;
         }
@@ -997,7 +997,7 @@ class DeviceRepository implements IDeviceRepository {
         } else {
           logger.w(
             'Play action not supported for'
-            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+            ' ${deviceEntity.entityTypes.getOrCrash()} type',
           );
           continue;
         }
@@ -1037,7 +1037,7 @@ class DeviceRepository implements IDeviceRepository {
         } else {
           logger.w(
             'Skip prev vid action not supported for'
-            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+            ' ${deviceEntity.entityTypes.getOrCrash()} type',
           );
           continue;
         }
@@ -1077,7 +1077,7 @@ class DeviceRepository implements IDeviceRepository {
         } else {
           logger.w(
             'Skip next vid action not supported for'
-            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+            ' ${deviceEntity.entityTypes.getOrCrash()} type',
           );
           continue;
         }

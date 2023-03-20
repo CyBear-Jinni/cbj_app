@@ -32,7 +32,7 @@
 //       id: DeviceUniqueId.fromUniqueString(id),
 //       defaultName: DeviceDefaultName(defaultName),
 //       roomId: DeviceUniqueId.fromUniqueString(roomId),
-//       state: DeviceState(state),
+//       state: EntityState(state),
 //       stateMassage: DeviceStateMassage(stateMassage),
 //       senderDeviceOs: DeviceSenderDeviceOs(senderDeviceOs),
 //       senderDeviceModel: DeviceSenderDeviceModel(senderDeviceModel),

@@ -159,12 +159,12 @@ class CBJCompRepository implements ICBJCompRepository {
   //   final List<SmartDeviceInfo> smartDevicesList = [];
   //
   //   final DeviceActions deviceAction = DeviceActions.actionNotSupported;
-  //   final DeviceStateGRPC deviceStateGRPC = DeviceStateGRPC.waitingInComp;
+  //   final DeviceStateGRPC entityStateGRPC = DeviceStateGRPC.waitingInComp;
   //
   //   compEntity.cBJCompDevices!.getOrCrash().forEach((GenericLightDE element) {
   //     final DeviceTypesActions deviceTypesActions = DeviceTypesActions(
   //       deviceAction: deviceAction,
-  //       deviceStateGRPC: deviceStateGRPC,
+  //       entityStateGRPC: entityStateGRPC,
   //     );
   //
   //     final SmartDeviceInfo smartDeviceInfo = SmartDeviceInfo(
@@ -174,7 +174,7 @@ class CBJCompRepository implements ICBJCompRepository {
   //       senderId: element.senderId.getOrCrash(),
   //       senderDeviceModel: deviceModelString,
   //       senderDeviceOs: Platform.operatingSystem,
-  //       state: element.deviceStateGRPC.getOrCrash(),
+  //       state: element.entityStateGRPC.getOrCrash(),
   //       stateMassage: 'Setting up device',
   //       roomId: element.roomId.getOrCrash(),
   //       id: element.uniqueId.getOrCrash(),
@@ -201,8 +201,8 @@ class CBJCompRepository implements ICBJCompRepository {
 //       defaultName: DeviceDefaultName(smartDeviceInfo.defaultName),
 //       roomId: CoreUniqueId.fromUniqueString(smartDeviceInfo.roomId),
 //       roomName: DeviceRoomName('Missing area name'),
-//       deviceStateGRPC: DeviceState(
-//         smartDeviceInfo.deviceTypesActions.deviceStateGRPC.toString(),
+//       entityStateGRPC: EntityState(
+//         smartDeviceInfo.deviceTypesActions.entityStateGRPC.toString(),
 //       ),
 //       stateMassage: DeviceStateMassage(smartDeviceInfo.stateMassage),
 //       senderDeviceOs: DeviceSenderDeviceOs(smartDeviceInfo.senderDeviceOs),

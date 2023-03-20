@@ -39,7 +39,7 @@ class CBJCompCard extends StatelessWidget {
                     itemBuilder: (context, index) {
                       final GenericLightDE compEntity =
                           cbjCompEntity.cBJCompDevices!.getOrCrash()[index];
-                      if (compEntity.deviceTypes.getOrCrash() ==
+                      if (compEntity.entityTypes.getOrCrash() ==
                           DeviceTypes.light.toString()) {
                         return Center(
                           child: BlocProvider(
@@ -58,7 +58,7 @@ class CBJCompCard extends StatelessWidget {
                       } else {
                         return Text(
                           'Type not supported '
-                          '${compEntity.deviceTypes.getOrCrash()} yet',
+                          '${compEntity.entityTypes.getOrCrash()} yet',
                           style: TextStyle(
                             color: Theme.of(context).textTheme.bodyLarge!.color,
                           ),

@@ -17,7 +17,7 @@ class GenericBlindsDE extends DeviceEntityAbstract {
     required super.vendorUniqueId,
     required super.deviceVendor,
     required super.defaultName,
-    required super.deviceStateGRPC,
+    required super.entityStateGRPC,
     required super.stateMassage,
     required super.senderDeviceOs,
     required super.senderDeviceModel,
@@ -26,7 +26,7 @@ class GenericBlindsDE extends DeviceEntityAbstract {
     required this.blindsSwitchState,
     DevicePowerConsumption? powerConsumption,
   }) : super(
-          deviceTypes: DeviceType(DeviceTypes.blinds.toString()),
+          entityTypes: DeviceType(DeviceTypes.blinds.toString()),
         );
 
   /// Empty instance of GenericBlindsEntity
@@ -34,7 +34,7 @@ class GenericBlindsDE extends DeviceEntityAbstract {
         uniqueId: CoreUniqueId(),
         vendorUniqueId: VendorUniqueId(),
         defaultName: DeviceDefaultName(''),
-        deviceStateGRPC: DeviceState(''),
+        entityStateGRPC: EntityState(''),
         senderDeviceOs: DeviceSenderDeviceOs(''),
         senderDeviceModel: DeviceSenderDeviceModel(''),
         stateMassage: DeviceStateMassage(''),
@@ -88,12 +88,12 @@ class GenericBlindsDE extends DeviceEntityAbstract {
       id: uniqueId.getOrCrash(),
       vendorUniqueId: vendorUniqueId.getOrCrash(),
       defaultName: defaultName.getOrCrash(),
-      deviceStateGRPC: deviceStateGRPC.getOrCrash(),
+      entityStateGRPC: entityStateGRPC.getOrCrash(),
       stateMassage: stateMassage.getOrCrash(),
       senderDeviceOs: senderDeviceOs.getOrCrash(),
       senderDeviceModel: senderDeviceModel.getOrCrash(),
       senderId: senderId.getOrCrash(),
-      deviceTypes: deviceTypes.getOrCrash(),
+      entityTypes: entityTypes.getOrCrash(),
       compUuid: compUuid.getOrCrash(),
       blindsSwitchState: blindsSwitchState!.getOrCrash(),
       deviceVendor: deviceVendor.getOrCrash(),

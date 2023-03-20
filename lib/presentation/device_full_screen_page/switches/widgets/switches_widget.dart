@@ -24,7 +24,7 @@ class SwitchWidget extends StatelessWidget {
     final Size screenSize = MediaQuery.of(context).size;
     final double sizeBoxWidth = screenSize.width * 0.25;
 
-    final deviceState = _deviceEntity!.deviceStateGRPC.getOrCrash();
+    final deviceState = _deviceEntity!.entityStateGRPC.getOrCrash();
     final deviceAction = _deviceEntity!.switchState!.getOrCrash();
 
     bool toggleValue = false;

@@ -15,8 +15,8 @@ class LightCard extends StatelessWidget {
 
   void _onChange(BuildContext context, bool value) {
     final GenericLightDE tempDeviceEntity = _deviceEntity!
-      ..deviceStateGRPC =
-          DeviceState(DeviceStateGRPC.waitingInFirebase.toString())
+      ..entityStateGRPC =
+          EntityState(DeviceStateGRPC.waitingInFirebase.toString())
       ..lightSwitchState = GenericLightSwitchState(value.toString());
     context.read<LightToggleBloc>().add(
           LightToggleEvent.changeAction(
@@ -31,7 +31,7 @@ class LightCard extends StatelessWidget {
     final Size screenSize = MediaQuery.of(context).size;
     final double sizeBoxWidth = screenSize.width * 0.25;
 
-    final deviceState = _deviceEntity!.deviceStateGRPC.getOrCrash();
+    final deviceState = _deviceEntity!.entityStateGRPC.getOrCrash();
     final deviceAction = _deviceEntity!.lightSwitchState!.getOrCrash();
 
     bool toggleValue = false;

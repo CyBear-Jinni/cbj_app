@@ -16,12 +16,12 @@ abstract class GenericLightWithBrightnessDeviceDtos
     required String id,
     required String vendorUniqueId,
     required String? defaultName,
-    required String? deviceStateGRPC,
+    required String? entityStateGRPC,
     required String? senderDeviceOs,
     required String? senderDeviceModel,
     required String? senderId,
     required String? lightSwitchState,
-    required String? deviceTypes,
+    required String? entityTypes,
     required String? compUuid,
     required String? deviceVendor,
     required String? lightBrightness,
@@ -41,8 +41,8 @@ abstract class GenericLightWithBrightnessDeviceDtos
       id: genericLightWithBrightnessDE.uniqueId.getOrCrash(),
       vendorUniqueId: genericLightWithBrightnessDE.vendorUniqueId.getOrCrash(),
       defaultName: genericLightWithBrightnessDE.defaultName.getOrCrash(),
-      deviceStateGRPC:
-          genericLightWithBrightnessDE.deviceStateGRPC.getOrCrash(),
+      entityStateGRPC:
+          genericLightWithBrightnessDE.entityStateGRPC.getOrCrash(),
       stateMassage: genericLightWithBrightnessDE.stateMassage.getOrCrash(),
       senderDeviceOs: genericLightWithBrightnessDE.senderDeviceOs.getOrCrash(),
       senderDeviceModel:
@@ -50,7 +50,7 @@ abstract class GenericLightWithBrightnessDeviceDtos
       senderId: genericLightWithBrightnessDE.senderId.getOrCrash(),
       lightSwitchState:
           genericLightWithBrightnessDE.lightSwitchState!.getOrCrash(),
-      deviceTypes: genericLightWithBrightnessDE.deviceTypes.getOrCrash(),
+      entityTypes: genericLightWithBrightnessDE.entityTypes.getOrCrash(),
       compUuid: genericLightWithBrightnessDE.compUuid.getOrCrash(),
       deviceVendor: genericLightWithBrightnessDE.deviceVendor.getOrCrash(),
       lightBrightness:
@@ -74,7 +74,7 @@ abstract class GenericLightWithBrightnessDeviceDtos
       uniqueId: CoreUniqueId.fromUniqueString(id),
       vendorUniqueId: VendorUniqueId.fromUniqueString(vendorUniqueId),
       defaultName: DeviceDefaultName(defaultName),
-      deviceStateGRPC: DeviceState(deviceStateGRPC),
+      entityStateGRPC: EntityState(entityStateGRPC),
       stateMassage: DeviceStateMassage(stateMassage),
       senderDeviceOs: DeviceSenderDeviceOs(senderDeviceOs),
       senderDeviceModel: DeviceSenderDeviceModel(senderDeviceModel),

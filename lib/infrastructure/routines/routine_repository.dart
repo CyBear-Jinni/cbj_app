@@ -57,7 +57,7 @@ class RoutineCbjRepository implements IRoutineCbjRepository {
           nodeRedFlowId: RoutineCbjNodeRedFlowId(null),
           firstNodeId: RoutineCbjFirstNodeId(null),
           lastDateOfExecute: RoutineCbjLastDateOfExecute(null),
-          deviceStateGRPC: RoutineCbjDeviceStateGRPC(null),
+          entityStateGRPC: RoutineCbjDeviceStateGRPC(null),
           senderDeviceModel: RoutineCbjSenderDeviceModel(null),
           senderDeviceOs: RoutineCbjSenderDeviceOs(null),
           senderId: RoutineCbjSenderId(null),
@@ -153,7 +153,7 @@ class RoutineCbjRepository implements IRoutineCbjRepository {
     for (final RoutineCbjEntity routineCbjEntity in routinesList.asList()) {
       addOrUpdateNewRoutineInHub(
         routineCbjEntity.copyWith(
-          deviceStateGRPC: RoutineCbjDeviceStateGRPC(
+          entityStateGRPC: RoutineCbjDeviceStateGRPC(
             DeviceStateGRPC.waitingInFirebase.toString(),
           ),
         ),

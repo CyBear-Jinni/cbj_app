@@ -34,7 +34,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
     final List<Widget> widgetList = [];
 
     for (final GenericLightDE device in devicesList) {
-      if (device.deviceTypes.getOrCrash() !=
+      if (device.entityTypes.getOrCrash() !=
           DeviceTypes.smartTypeNotSupported.toString()) {
         final TextEditingController textEditingControllerTemp =
             TextEditingController(
@@ -50,13 +50,13 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
             margin: const EdgeInsets.symmetric(vertical: 30),
             child: Column(
               children: [
-                if (device.deviceTypes.getOrCrash() ==
+                if (device.entityTypes.getOrCrash() ==
                     DeviceTypes.light.toString())
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 40),
                     child: Row(
                       children: [
-                        Text('Type: ${device.deviceTypes.getOrCrash()}'),
+                        Text('Type: ${device.entityTypes.getOrCrash()}'),
                         Expanded(
                           child: Center(
                             child: BlocProvider(
@@ -68,13 +68,13 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                       ],
                     ),
                   )
-                else if (device.deviceTypes.getOrCrash() ==
+                else if (device.entityTypes.getOrCrash() ==
                     DeviceTypes.boiler.toString())
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 40),
                     child: Row(
                       children: [
-                        Text('Type: ${device.deviceTypes.getOrCrash()}'),
+                        Text('Type: ${device.entityTypes.getOrCrash()}'),
                         Expanded(
                           child: Center(
                             child: BlocProvider(
@@ -86,11 +86,11 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                       ],
                     ),
                   )
-                else if (device.deviceTypes.getOrCrash() ==
+                else if (device.entityTypes.getOrCrash() ==
                     DeviceTypes.blinds.toString())
                   Column(
                     children: [
-                      Text('Type: ${device.deviceTypes.getOrCrash()}'),
+                      Text('Type: ${device.entityTypes.getOrCrash()}'),
                       Center(
                         child: BlocProvider(
                           create: (context) => getIt<LightToggleBloc>(),
@@ -122,7 +122,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                         FontAwesomeIcons.solidLightbulb,
                         color: Theme.of(context).textTheme.bodyLarge!.color,
                       ),
-                      labelText: '${device.deviceTypes.getOrCrash()} Name',
+                      labelText: '${device.entityTypes.getOrCrash()} Name',
                       labelStyle: TextStyle(
                         color: Theme.of(context).textTheme.bodyLarge!.color,
                       ),
@@ -148,7 +148,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                 Expanded(
                   child: Center(
                     child: Text(
-                      'Type ${device.deviceTypes.getOrCrash()} is not supported yet',
+                      'Type ${device.entityTypes.getOrCrash()} is not supported yet',
                       style: TextStyle(
                         color: Theme.of(context).textTheme.bodyLarge!.color,
                       ),

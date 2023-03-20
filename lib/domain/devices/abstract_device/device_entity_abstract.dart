@@ -5,19 +5,21 @@ import 'package:cybear_jinni/infrastructure/generic_devices/abstract_device/devi
 import 'package:dartz/dartz.dart';
 import 'package:uuid/uuid.dart';
 
+/// We are using the term entity to describe individual integrations on a single device
+/// So for example switch with three buttons will have three entities
 abstract class DeviceEntityAbstract {
   DeviceEntityAbstract({
     required this.uniqueId,
     required this.vendorUniqueId,
     required this.deviceVendor,
-    required this.deviceTypes,
+    required this.entityTypes,
     required this.defaultName,
     required this.stateMassage,
     required this.senderDeviceOs,
     required this.senderDeviceModel,
     required this.senderId,
     required this.compUuid,
-    required this.deviceStateGRPC,
+    required this.entityStateGRPC,
   });
 
   /// The unique id that CyBear Jinni Hub gave the device
@@ -31,7 +33,7 @@ abstract class DeviceEntityAbstract {
 
   /// Did the massage arrived or was it just sent.
   /// Will be 'set' (need change) or 'ack' for acknowledge
-  DeviceState deviceStateGRPC;
+  EntityState entityStateGRPC;
 
   /// If state didn't change the error description will be found here.
   DeviceStateMassage stateMassage;
@@ -46,7 +48,7 @@ abstract class DeviceEntityAbstract {
   DeviceSenderId senderId;
 
   /// The smart GenericLight type
-  DeviceType deviceTypes;
+  DeviceType entityTypes;
 
   /// The smart GenericLight type
   DeviceVendor deviceVendor;
@@ -57,7 +59,7 @@ abstract class DeviceEntityAbstract {
   String getDeviceId();
 
   /// Copy with device state to waiting or ack
-  DeviceEntityAbstract copyWithDeviceState(DeviceStateGRPC deviceStateGRPC) {
+  DeviceEntityAbstract copyWithDeviceState(DeviceStateGRPC entityStateGRPC) {
     return this;
   }
 
@@ -117,11 +119,11 @@ class DeviceEntityNotAbstract extends DeviceEntityAbstract {
           deviceVendor: DeviceVendor(
             VendorsAndServices.vendorsAndServicesNotSupported.toString(),
           ),
-          deviceStateGRPC:
-              DeviceState(DeviceTypes.smartTypeNotSupported.toString()),
+          entityStateGRPC:
+              EntityState(DeviceTypes.smartTypeNotSupported.toString()),
           compUuid: DeviceCompUuid(const Uuid().v1()),
           defaultName: DeviceDefaultName('No Name'),
-          deviceTypes: DeviceType(DeviceTypes.light.toString()),
+          entityTypes: DeviceType(DeviceTypes.light.toString()),
           senderDeviceModel: DeviceSenderDeviceModel('a'),
           senderDeviceOs: DeviceSenderDeviceOs('b'),
           senderId: DeviceSenderId(),

@@ -17,7 +17,7 @@ class GenericBoilerDE extends DeviceEntityAbstract {
     required super.vendorUniqueId,
     required super.defaultName,
     required super.deviceVendor,
-    required super.deviceStateGRPC,
+    required super.entityStateGRPC,
     required super.stateMassage,
     required super.senderDeviceOs,
     required super.senderDeviceModel,
@@ -26,7 +26,7 @@ class GenericBoilerDE extends DeviceEntityAbstract {
     required this.boilerSwitchState,
     DevicePowerConsumption? powerConsumption,
   }) : super(
-          deviceTypes: DeviceType(DeviceTypes.boiler.toString()),
+          entityTypes: DeviceType(DeviceTypes.boiler.toString()),
         );
 
   /// Empty instance of GenericBoilerEntity
@@ -34,7 +34,7 @@ class GenericBoilerDE extends DeviceEntityAbstract {
         uniqueId: CoreUniqueId(),
         vendorUniqueId: VendorUniqueId(),
         defaultName: DeviceDefaultName(''),
-        deviceStateGRPC: DeviceState(''),
+        entityStateGRPC: EntityState(''),
         senderDeviceOs: DeviceSenderDeviceOs(''),
         senderDeviceModel: DeviceSenderDeviceModel(''),
         stateMassage: DeviceStateMassage(''),
@@ -90,12 +90,12 @@ class GenericBoilerDE extends DeviceEntityAbstract {
       vendorUniqueId: vendorUniqueId.getOrCrash(),
 
       defaultName: defaultName.getOrCrash(),
-      deviceStateGRPC: deviceStateGRPC.getOrCrash(),
+      entityStateGRPC: entityStateGRPC.getOrCrash(),
       stateMassage: stateMassage.getOrCrash(),
       senderDeviceOs: senderDeviceOs.getOrCrash(),
       senderDeviceModel: senderDeviceModel.getOrCrash(),
       senderId: senderId.getOrCrash(),
-      deviceTypes: deviceTypes.getOrCrash(),
+      entityTypes: entityTypes.getOrCrash(),
       compUuid: compUuid.getOrCrash(),
       boilerSwitchState: boilerSwitchState!.getOrCrash(),
       deviceVendor: deviceVendor.getOrCrash(),

@@ -137,10 +137,10 @@ class HubRequestRouting {
   ) async {
     final Map<String, dynamic> requestAsJson =
         jsonDecode(allRemoteCommands) as Map<String, dynamic>;
-    final String? deviceTypeAsString = requestAsJson['deviceTypes'] as String?;
+    final String? deviceTypeAsString = requestAsJson['entityTypes'] as String?;
 
     final String? deviceStateAsString =
-        requestAsJson['deviceStateGRPC'] as String?;
+        requestAsJson['entityStateGRPC'] as String?;
     if (deviceTypeAsString == null || deviceStateAsString == null) {
       return;
     }
@@ -150,10 +150,10 @@ class HubRequestRouting {
     final DeviceTypes? deviceType =
         EnumHelperCbj.stringToDt(deviceTypeAsString);
 
-    final DeviceStateGRPC? deviceStateGRPC =
+    final DeviceStateGRPC? entityStateGRPC =
         EnumHelperCbj.stringToDeviceState(deviceStateAsString);
 
-    if (deviceType == null || deviceStateGRPC == null) {
+    if (deviceType == null || entityStateGRPC == null) {
       return;
     }
 
@@ -206,7 +206,7 @@ class HubRequestRouting {
         logger.i('Adding Smart printer device type');
         break;
       default:
-        if (deviceStateGRPC == DeviceStateGRPC.pingNow) {
+        if (entityStateGRPC == DeviceStateGRPC.pingNow) {
           deviceEntity =
               GenericPingDeviceDtos.fromJson(requestAsJson).toDomain();
           logger.v('Got Ping request');
@@ -214,7 +214,7 @@ class HubRequestRouting {
         } else {
           deviceEntity =
               GenericEmptyDeviceDtos.fromJson(requestAsJson).toDomain();
-          logger.w('Device type is $deviceStateGRPC is not supported');
+          logger.w('Device type is $entityStateGRPC is not supported');
         }
         break;
     }

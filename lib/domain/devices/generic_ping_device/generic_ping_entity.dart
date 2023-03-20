@@ -17,7 +17,7 @@ class GenericPingDE extends DeviceEntityAbstract {
     required super.vendorUniqueId,
     required super.deviceVendor,
     required super.defaultName,
-    required super.deviceStateGRPC,
+    required super.entityStateGRPC,
     required super.stateMassage,
     required super.senderDeviceOs,
     required super.senderDeviceModel,
@@ -26,7 +26,7 @@ class GenericPingDE extends DeviceEntityAbstract {
     required this.pingSwitchState,
     DevicePowerConsumption? powerConsumption,
   }) : super(
-          deviceTypes: DeviceType(DeviceTypes.pingDevice.toString()),
+          entityTypes: DeviceType(DeviceTypes.pingDevice.toString()),
         );
 
   /// Ping instance of GenericPingEntity
@@ -34,7 +34,7 @@ class GenericPingDE extends DeviceEntityAbstract {
         uniqueId: CoreUniqueId(),
         vendorUniqueId: VendorUniqueId(),
         defaultName: DeviceDefaultName('Ping device'),
-        deviceStateGRPC: DeviceState(DeviceStateGRPC.pingNow.toString()),
+        entityStateGRPC: EntityState(DeviceStateGRPC.pingNow.toString()),
         senderDeviceOs: DeviceSenderDeviceOs('Hub'),
         senderDeviceModel: DeviceSenderDeviceModel('Hub'),
         stateMassage: DeviceStateMassage('Test'),
@@ -89,12 +89,12 @@ class GenericPingDE extends DeviceEntityAbstract {
       id: uniqueId.getOrCrash(),
       vendorUniqueId: vendorUniqueId.getOrCrash(),
       defaultName: defaultName.getOrCrash(),
-      deviceStateGRPC: deviceStateGRPC.getOrCrash(),
+      entityStateGRPC: entityStateGRPC.getOrCrash(),
       stateMassage: stateMassage.getOrCrash(),
       senderDeviceOs: senderDeviceOs.getOrCrash(),
       senderDeviceModel: senderDeviceModel.getOrCrash(),
       senderId: senderId.getOrCrash(),
-      deviceTypes: deviceTypes.getOrCrash(),
+      entityTypes: entityTypes.getOrCrash(),
       compUuid: compUuid.getOrCrash(),
       pingSwitchState: pingSwitchState!.getOrCrash(),
       deviceVendor: deviceVendor.getOrCrash(),

@@ -15,7 +15,7 @@ class SmartDeviceTypeAndToggleBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final DeviceTypes deviceType =
-        EnumHelperCbj.stringToDt(_smartDeviceObject.deviceTypes.getOrCrash())!;
+        EnumHelperCbj.stringToDt(_smartDeviceObject.entityTypes.getOrCrash())!;
     return Row(
       children: <Widget>[
         if (deviceType == DeviceTypes.light)

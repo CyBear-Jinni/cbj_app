@@ -17,11 +17,11 @@ abstract class GenericSmartTypeNotSupportedDeviceDtos
     required String id,
     required String vendorUniqueId,
     required String? defaultName,
-    required String? deviceStateGRPC,
+    required String? entityStateGRPC,
     required String? senderDeviceOs,
     required String? senderDeviceModel,
     required String? senderId,
-    required String? deviceTypes,
+    required String? entityTypes,
     required String? compUuid,
     required String? deviceVendor,
     String? deviceDtoClass,
@@ -41,15 +41,15 @@ abstract class GenericSmartTypeNotSupportedDeviceDtos
       vendorUniqueId:
           genericSmartTypeNotSupportedDE.vendorUniqueId.getOrCrash(),
       defaultName: genericSmartTypeNotSupportedDE.defaultName.getOrCrash(),
-      deviceStateGRPC:
-          genericSmartTypeNotSupportedDE.deviceStateGRPC.getOrCrash(),
+      entityStateGRPC:
+          genericSmartTypeNotSupportedDE.entityStateGRPC.getOrCrash(),
       stateMassage: genericSmartTypeNotSupportedDE.stateMassage.getOrCrash(),
       senderDeviceOs:
           genericSmartTypeNotSupportedDE.senderDeviceOs.getOrCrash(),
       senderDeviceModel:
           genericSmartTypeNotSupportedDE.senderDeviceModel.getOrCrash(),
       senderId: genericSmartTypeNotSupportedDE.senderId.getOrCrash(),
-      deviceTypes: genericSmartTypeNotSupportedDE.deviceTypes.getOrCrash(),
+      entityTypes: genericSmartTypeNotSupportedDE.entityTypes.getOrCrash(),
       compUuid: genericSmartTypeNotSupportedDE.compUuid.getOrCrash(),
       deviceVendor: genericSmartTypeNotSupportedDE.deviceVendor.getOrCrash(),
       // serverTimeStamp: FieldValue.serverTimestamp(),
@@ -71,7 +71,7 @@ abstract class GenericSmartTypeNotSupportedDeviceDtos
       uniqueId: CoreUniqueId.fromUniqueString(id),
       vendorUniqueId: VendorUniqueId.fromUniqueString(vendorUniqueId),
       defaultName: DeviceDefaultName(defaultName),
-      deviceStateGRPC: DeviceState(deviceStateGRPC),
+      entityStateGRPC: EntityState(entityStateGRPC),
       stateMassage: DeviceStateMassage(stateMassage),
       senderDeviceOs: DeviceSenderDeviceOs(senderDeviceOs),
       senderDeviceModel: DeviceSenderDeviceModel(senderDeviceModel),

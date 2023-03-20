@@ -34,7 +34,7 @@ class SceneCbjEntity with _$SceneCbjEntity {
     required SceneCbjSenderDeviceModel senderDeviceModel,
     required SceneCbjSenderId senderId,
     required SceneCbjCompUuid compUuid,
-    required SceneCbjDeviceStateGRPC deviceStateGRPC,
+    required SceneCbjDeviceStateGRPC entityStateGRPC,
   }) = _SceneCbjEntity;
 
   const SceneCbjEntity._();
@@ -50,7 +50,7 @@ class SceneCbjEntity with _$SceneCbjEntity {
       iconCodePoint: iconCodePoint.getOrCrash(),
       image: image.getOrCrash(),
       lastDateOfExecute: lastDateOfExecute.getOrCrash(),
-      deviceStateGRPC: deviceStateGRPC.getOrCrash(),
+      entityStateGRPC: entityStateGRPC.getOrCrash(),
       senderDeviceModel: senderDeviceModel.getOrCrash(),
       senderDeviceOs: senderDeviceOs.getOrCrash(),
       senderId: senderId.getOrCrash(),

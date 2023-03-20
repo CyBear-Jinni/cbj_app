@@ -9,20 +9,20 @@ class BlindsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final deviceState = _deviceEntity.deviceStateGRPC.getOrCrash();
+    final deviceState = _deviceEntity.entityStateGRPC.getOrCrash();
     final deviceAction = _deviceEntity.lightSwitchState!.getOrCrash();
 
-    bool toggleValue = false;
-    Color toggleColor = Colors.blueGrey;
+    // bool toggleValue = false;
+    // Color toggleColor = Colors.blueGrey;
 
     if (deviceAction == DeviceActions.on.toString()) {
-      toggleValue = true;
+      // toggleValue = true;
       if (deviceState == DeviceStateGRPC.ack.toString()) {
-        toggleColor = const Color(0xFFFFDF5D);
+        // toggleColor = const Color(0xFFFFDF5D);
       }
     } else {
       if (deviceState == DeviceStateGRPC.ack.toString()) {
-        toggleColor = Theme.of(context).primaryColorDark;
+        // toggleColor = Theme.of(context).primaryColorDark;
       }
     }
 

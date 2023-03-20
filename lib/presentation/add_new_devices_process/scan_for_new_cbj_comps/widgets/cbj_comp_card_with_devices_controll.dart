@@ -23,7 +23,7 @@ class CBJCompCardWithDevicesControll extends StatelessWidget {
 
     for (final GenericLightDE deviceEntity in deviceEntityList.asList()) {
       //
-      if (deviceEntity.deviceTypes.getOrCrash() !=
+      if (deviceEntity.entityTypes.getOrCrash() !=
           DeviceTypes.smartTypeNotSupported.toString()) {
         typesList.add(
           Container(
@@ -31,7 +31,7 @@ class CBJCompCardWithDevicesControll extends StatelessWidget {
             child: BlocProvider(
               create: (context) => getIt<DeviceActorBloc>(),
               child: Text(
-                'Type: ${deviceEntity.deviceTypes.getOrCrash()}',
+                'Type: ${deviceEntity.entityTypes.getOrCrash()}',
                 style: TextStyle(
                   color: Theme.of(context).textTheme.bodyLarge!.color,
                 ),
@@ -44,7 +44,7 @@ class CBJCompCardWithDevicesControll extends StatelessWidget {
           Container(
             color: Colors.orange.withOpacity(0.3),
             child: Text(
-              'Type ${deviceEntity.deviceTypes.getOrCrash()} is not supported',
+              'Type ${deviceEntity.entityTypes.getOrCrash()} is not supported',
               style: TextStyle(
                 color: Theme.of(context).textTheme.bodyLarge!.color,
               ),
