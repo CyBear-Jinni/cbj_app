@@ -15,7 +15,9 @@ abstract class GenericSmartPlugDeviceDtos
     // @JsonKey(ignore: true)
     required String id,
     required String vendorUniqueId,
-    required String? defaultName,
+    required String? cbjEntityName,
+    required String? entityOriginalName,
+    required String? deviceOriginalName,
     required String? entityStateGRPC,
     required String? senderDeviceOs,
     required String? senderDeviceModel,
@@ -24,9 +26,9 @@ abstract class GenericSmartPlugDeviceDtos
     required String? entityTypes,
     required String? compUuid,
     required String? deviceVendor,
+    required String? powerConsumption,
     String? deviceDtoClass,
     String? stateMassage
-
     // required ServerTimestampConverter() FieldValue serverTimeStamp,
     ,
   }) = _GenericSmartPlugDeviceDtos;
@@ -40,7 +42,9 @@ abstract class GenericSmartPlugDeviceDtos
       deviceDtoClass: (GenericSmartPlugDeviceDtos).toString(),
       id: genericSmartPlugDe.uniqueId.getOrCrash(),
       vendorUniqueId: genericSmartPlugDe.vendorUniqueId.getOrCrash(),
-      defaultName: genericSmartPlugDe.defaultName.getOrCrash(),
+      cbjEntityName: genericSmartPlugDe.cbjEntityName.getOrCrash(),
+      entityOriginalName: genericSmartPlugDe.entityOriginalName.getOrCrash(),
+      deviceOriginalName: genericSmartPlugDe.deviceOriginalName.getOrCrash(),
       entityStateGRPC: genericSmartPlugDe.entityStateGRPC.getOrCrash(),
       stateMassage: genericSmartPlugDe.stateMassage.getOrCrash(),
       senderDeviceOs: genericSmartPlugDe.senderDeviceOs.getOrCrash(),
@@ -50,6 +54,8 @@ abstract class GenericSmartPlugDeviceDtos
       entityTypes: genericSmartPlugDe.entityTypes.getOrCrash(),
       compUuid: genericSmartPlugDe.compUuid.getOrCrash(),
       deviceVendor: genericSmartPlugDe.deviceVendor.getOrCrash(),
+      powerConsumption: genericSmartPlugDe.powerConsumption.getOrCrash(),
+
       // serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }
@@ -65,7 +71,9 @@ abstract class GenericSmartPlugDeviceDtos
     return GenericSmartPlugDE(
       uniqueId: CoreUniqueId.fromUniqueString(id),
       vendorUniqueId: VendorUniqueId.fromUniqueString(vendorUniqueId),
-      defaultName: DeviceDefaultName(defaultName),
+      cbjEntityName: CbjEntityName(cbjEntityName),
+      entityOriginalName: EntityOriginalName(cbjEntityName),
+      deviceOriginalName: DeviceOriginalName(cbjEntityName),
       entityStateGRPC: EntityState(entityStateGRPC),
       stateMassage: DeviceStateMassage(stateMassage),
       senderDeviceOs: DeviceSenderDeviceOs(senderDeviceOs),
@@ -74,6 +82,7 @@ abstract class GenericSmartPlugDeviceDtos
       deviceVendor: DeviceVendor(deviceVendor),
       compUuid: DeviceCompUuid(compUuid),
       smartPlugState: GenericSmartPlugState(smartPlugState),
+      powerConsumption: DevicePowerConsumption(powerConsumption),
     );
   }
 }

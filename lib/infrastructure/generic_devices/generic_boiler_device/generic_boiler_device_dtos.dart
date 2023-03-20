@@ -15,7 +15,9 @@ abstract class GenericBoilerDeviceDtos
     // @JsonKey(ignore: true)
     required String id,
     required String vendorUniqueId,
-    required String? defaultName,
+    required String? cbjEntityName,
+    required String? entityOriginalName,
+    required String? deviceOriginalName,
     required String? entityStateGRPC,
     required String? senderDeviceOs,
     required String? senderDeviceModel,
@@ -24,11 +26,11 @@ abstract class GenericBoilerDeviceDtos
     required String? entityTypes,
     required String? compUuid,
     required String? deviceVendor,
+    required String? powerConsumption,
     String? deviceDtoClass,
-    String? stateMassage
+    String? stateMassage,
 
     // required ServerTimestampConverter() FieldValue serverTimeStamp,
-    ,
   }) = _GenericBoilerDeviceDtos;
 
   GenericBoilerDeviceDtos._();
@@ -38,7 +40,9 @@ abstract class GenericBoilerDeviceDtos
       deviceDtoClass: (GenericBoilerDeviceDtos).toString(),
       id: genericBoilerDE.uniqueId.getOrCrash(),
       vendorUniqueId: genericBoilerDE.vendorUniqueId.getOrCrash(),
-      defaultName: genericBoilerDE.defaultName.getOrCrash(),
+      cbjEntityName: genericBoilerDE.cbjEntityName.getOrCrash(),
+      entityOriginalName: genericBoilerDE.entityOriginalName.getOrCrash(),
+      deviceOriginalName: genericBoilerDE.deviceOriginalName.getOrCrash(),
       entityStateGRPC: genericBoilerDE.entityStateGRPC.getOrCrash(),
       stateMassage: genericBoilerDE.stateMassage.getOrCrash(),
       senderDeviceOs: genericBoilerDE.senderDeviceOs.getOrCrash(),
@@ -48,6 +52,8 @@ abstract class GenericBoilerDeviceDtos
       entityTypes: genericBoilerDE.entityTypes.getOrCrash(),
       compUuid: genericBoilerDE.compUuid.getOrCrash(),
       deviceVendor: genericBoilerDE.deviceVendor.getOrCrash(),
+      powerConsumption: genericBoilerDE.powerConsumption.getOrCrash(),
+
       // serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }
@@ -63,7 +69,9 @@ abstract class GenericBoilerDeviceDtos
     return GenericBoilerDE(
       uniqueId: CoreUniqueId.fromUniqueString(id),
       vendorUniqueId: VendorUniqueId.fromUniqueString(vendorUniqueId),
-      defaultName: DeviceDefaultName(defaultName),
+      cbjEntityName: CbjEntityName(cbjEntityName),
+      entityOriginalName: EntityOriginalName(cbjEntityName),
+      deviceOriginalName: DeviceOriginalName(cbjEntityName),
       entityStateGRPC: EntityState(entityStateGRPC),
       stateMassage: DeviceStateMassage(stateMassage),
       senderDeviceOs: DeviceSenderDeviceOs(senderDeviceOs),
@@ -72,6 +80,7 @@ abstract class GenericBoilerDeviceDtos
       deviceVendor: DeviceVendor(deviceVendor),
       compUuid: DeviceCompUuid(compUuid),
       boilerSwitchState: GenericBoilerSwitchState(boilerSwitchState),
+      powerConsumption: DevicePowerConsumption(powerConsumption),
     );
   }
 }

@@ -344,7 +344,7 @@ const SmartDeviceInfo$json = const {
   '2': const [
     const {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
     const {'1': 'state', '3': 3, '4': 1, '5': 9, '10': 'state'},
-    const {'1': 'defaultName', '3': 14, '4': 1, '5': 9, '10': 'defaultName'},
+    const {'1': 'cbjEntityName', '3': 14, '4': 1, '5': 9, '10': 'cbjEntityName'},
     const {'1': 'roomId', '3': 15, '4': 1, '5': 9, '10': 'roomId'},
     const {'1': 'senderDeviceModel', '3': 16, '4': 1, '5': 9, '10': 'senderDeviceModel'},
     const {'1': 'senderDeviceOs', '3': 17, '4': 1, '5': 9, '10': 'senderDeviceOs'},

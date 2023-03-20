@@ -15,7 +15,9 @@ abstract class GenericSwitchDeviceDtos
     // @JsonKey(ignore: true)
     required String id,
     required String vendorUniqueId,
-    required String? defaultName,
+    required String? cbjEntityName,
+    required String? entityOriginalName,
+    required String? deviceOriginalName,
     required String? entityStateGRPC,
     required String? senderDeviceOs,
     required String? senderDeviceModel,
@@ -24,10 +26,11 @@ abstract class GenericSwitchDeviceDtos
     required String? entityTypes,
     required String? compUuid,
     required String? deviceVendor,
+    required String? powerConsumption,
     String? deviceDtoClass,
-    String? stateMassage
+    String? stateMassage,
+
     // required ServerTimestampConverter() FieldValue serverTimeStamp,
-    ,
   }) = _GenericSwitchDeviceDtos;
 
   GenericSwitchDeviceDtos._();
@@ -37,7 +40,9 @@ abstract class GenericSwitchDeviceDtos
       deviceDtoClass: (GenericSwitchDeviceDtos).toString(),
       id: genericSwitchDe.uniqueId.getOrCrash(),
       vendorUniqueId: genericSwitchDe.vendorUniqueId.getOrCrash(),
-      defaultName: genericSwitchDe.defaultName.getOrCrash(),
+      cbjEntityName: genericSwitchDe.cbjEntityName.getOrCrash(),
+      entityOriginalName: genericSwitchDe.entityOriginalName.getOrCrash(),
+      deviceOriginalName: genericSwitchDe.deviceOriginalName.getOrCrash(),
       entityStateGRPC: genericSwitchDe.entityStateGRPC.getOrCrash(),
       stateMassage: genericSwitchDe.stateMassage.getOrCrash(),
       senderDeviceOs: genericSwitchDe.senderDeviceOs.getOrCrash(),
@@ -47,6 +52,8 @@ abstract class GenericSwitchDeviceDtos
       entityTypes: genericSwitchDe.entityTypes.getOrCrash(),
       compUuid: genericSwitchDe.compUuid.getOrCrash(),
       deviceVendor: genericSwitchDe.deviceVendor.getOrCrash(),
+      powerConsumption: genericSwitchDe.powerConsumption.getOrCrash(),
+
       // serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }
@@ -62,7 +69,9 @@ abstract class GenericSwitchDeviceDtos
     return GenericSwitchDE(
       uniqueId: CoreUniqueId.fromUniqueString(id),
       vendorUniqueId: VendorUniqueId.fromUniqueString(vendorUniqueId),
-      defaultName: DeviceDefaultName(defaultName),
+      cbjEntityName: CbjEntityName(cbjEntityName),
+      entityOriginalName: EntityOriginalName(cbjEntityName),
+      deviceOriginalName: DeviceOriginalName(cbjEntityName),
       entityStateGRPC: EntityState(entityStateGRPC),
       stateMassage: DeviceStateMassage(stateMassage),
       senderDeviceOs: DeviceSenderDeviceOs(senderDeviceOs),
@@ -71,6 +80,7 @@ abstract class GenericSwitchDeviceDtos
       deviceVendor: DeviceVendor(deviceVendor),
       compUuid: DeviceCompUuid(compUuid),
       switchState: GenericSwitchSwitchState(switchState),
+      powerConsumption: DevicePowerConsumption(powerConsumption),
     );
   }
 }

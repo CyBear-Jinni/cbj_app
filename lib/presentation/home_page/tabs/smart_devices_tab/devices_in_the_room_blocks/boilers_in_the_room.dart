@@ -41,9 +41,9 @@ class BoilersInTheRoom extends StatelessWidget {
   Widget build(BuildContext context) {
     String deviceText;
     if (boilersInRoom!.length == 1) {
-      deviceText = boilersInRoom![0].defaultName.getOrCrash()!;
+      deviceText = boilersInRoom![0].cbjEntityName.getOrCrash()!;
     } else {
-      deviceText = '_Blinds'.tr(args: [roomEntity.defaultName.getOrCrash()]);
+      deviceText = '_Blinds'.tr(args: [roomEntity.cbjEntityName.getOrCrash()]);
     }
 
     return GestureDetector(

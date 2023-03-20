@@ -78,7 +78,7 @@ class _SmartBoilerPage extends State<SmartBoilerPage> {
     return Column(
       children: <Widget>[
         Text(
-          _boiler!.defaultName.getOrCrash()!, //  Show boiler name
+          _boiler!.cbjEntityName.getOrCrash()!, //  Show boiler name
           style: TextStyle(
             fontSize: 19.0,
             color: Theme.of(context).textTheme.bodyMedium!.color,

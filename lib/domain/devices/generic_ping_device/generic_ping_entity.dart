@@ -16,24 +16,28 @@ class GenericPingDE extends DeviceEntityAbstract {
     required super.uniqueId,
     required super.vendorUniqueId,
     required super.deviceVendor,
-    required super.defaultName,
-    required super.entityStateGRPC,
+    required super.cbjEntityName,
+    required super.entityOriginalName,
+    required super.deviceOriginalName,
     required super.stateMassage,
     required super.senderDeviceOs,
     required super.senderDeviceModel,
     required super.senderId,
     required super.compUuid,
+    required super.powerConsumption,
     required this.pingSwitchState,
-    DevicePowerConsumption? powerConsumption,
+    required super.entityStateGRPC,
   }) : super(
-          entityTypes: DeviceType(DeviceTypes.pingDevice.toString()),
+          entityTypes: EntityType(DeviceTypes.pingDevice.toString()),
         );
 
   /// Ping instance of GenericPingEntity
   factory GenericPingDE.empty() => GenericPingDE(
         uniqueId: CoreUniqueId(),
         vendorUniqueId: VendorUniqueId(),
-        defaultName: DeviceDefaultName('Ping device'),
+        cbjEntityName: CbjEntityName('Ping device'),
+        entityOriginalName: EntityOriginalName('Missing entity original name'),
+        deviceOriginalName: DeviceOriginalName('Missing device original name'),
         entityStateGRPC: EntityState(DeviceStateGRPC.pingNow.toString()),
         senderDeviceOs: DeviceSenderDeviceOs('Hub'),
         senderDeviceModel: DeviceSenderDeviceModel('Hub'),
@@ -54,7 +58,7 @@ class GenericPingDE extends DeviceEntityAbstract {
   // /// Will return failure if any of the fields failed or return unit if fields
   // /// have legit values
   Option<CoreFailure<dynamic>> get failureOption =>
-      defaultName.value.fold((f) => some(f), (_) => none());
+      cbjEntityName.value.fold((f) => some(f), (_) => none());
   //
   // return body.failureOrUnit
   //     .andThen(todos.failureOrUnit)
@@ -88,7 +92,9 @@ class GenericPingDE extends DeviceEntityAbstract {
       deviceDtoClass: (GenericPingDeviceDtos).toString(),
       id: uniqueId.getOrCrash(),
       vendorUniqueId: vendorUniqueId.getOrCrash(),
-      defaultName: defaultName.getOrCrash(),
+      cbjEntityName: cbjEntityName.getOrCrash(),
+      entityOriginalName: entityOriginalName.getOrCrash(),
+      deviceOriginalName: deviceOriginalName.getOrCrash(),
       entityStateGRPC: entityStateGRPC.getOrCrash(),
       stateMassage: stateMassage.getOrCrash(),
       senderDeviceOs: senderDeviceOs.getOrCrash(),
@@ -96,8 +102,10 @@ class GenericPingDE extends DeviceEntityAbstract {
       senderId: senderId.getOrCrash(),
       entityTypes: entityTypes.getOrCrash(),
       compUuid: compUuid.getOrCrash(),
-      pingSwitchState: pingSwitchState!.getOrCrash(),
       deviceVendor: deviceVendor.getOrCrash(),
+      powerConsumption: powerConsumption.getOrCrash(),
+      pingSwitchState: pingSwitchState!.getOrCrash(),
+
       // serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }

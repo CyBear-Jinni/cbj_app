@@ -80,7 +80,7 @@ class RoomsBoilersWidget extends StatelessWidget {
                     return RoomBoilers(
                       devicesInRoom,
                       gradiantColor,
-                      roomEntity.defaultName.getOrCrash(),
+                      roomEntity.cbjEntityName.getOrCrash(),
                       maxBoilersToShow: 50,
                     );
                   },

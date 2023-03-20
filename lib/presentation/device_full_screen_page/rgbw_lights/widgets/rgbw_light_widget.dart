@@ -59,7 +59,7 @@ class RgbwLightWidget extends StatelessWidget {
                   children: [
                     Flexible(
                       child: Text(
-                        _deviceEntity.defaultName.getOrCrash()!,
+                        _deviceEntity.cbjEntityName.getOrCrash()!,
                         style: const TextStyle(
                           overflow: TextOverflow.clip,
                           fontSize: 20.0,

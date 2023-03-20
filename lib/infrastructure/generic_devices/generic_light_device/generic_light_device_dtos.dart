@@ -15,7 +15,9 @@ abstract class GenericLightDeviceDtos
     // @JsonKey(ignore: true)
     required String id,
     required String vendorUniqueId,
-    required String? defaultName,
+    required String? cbjEntityName,
+    required String? entityOriginalName,
+    required String? deviceOriginalName,
     required String? entityStateGRPC,
     required String? senderDeviceOs,
     required String? senderDeviceModel,
@@ -23,11 +25,12 @@ abstract class GenericLightDeviceDtos
     required String? lightSwitchState,
     required String? entityTypes,
     required String? compUuid,
-    required String? deviceVendor
-    // required ServerTimestampConverter() FieldValue serverTimeStamp,
-    ,
-    String? stateMassage,
+    required String? deviceVendor,
+    required String? powerConsumption,
     String? deviceDtoClass,
+    String? stateMassage,
+
+    // required ServerTimestampConverter() FieldValue serverTimeStamp,
   }) = _GenericLightDeviceDtos;
 
   GenericLightDeviceDtos._();
@@ -37,7 +40,9 @@ abstract class GenericLightDeviceDtos
       deviceDtoClass: (GenericLightDeviceDtos).toString(),
       id: genericLightDE.uniqueId.getOrCrash(),
       vendorUniqueId: genericLightDE.vendorUniqueId.getOrCrash(),
-      defaultName: genericLightDE.defaultName.getOrCrash(),
+      cbjEntityName: genericLightDE.cbjEntityName.getOrCrash(),
+      entityOriginalName: genericLightDE.entityOriginalName.getOrCrash(),
+      deviceOriginalName: genericLightDE.deviceOriginalName.getOrCrash(),
       entityStateGRPC: genericLightDE.entityStateGRPC.getOrCrash(),
       stateMassage: genericLightDE.stateMassage.getOrCrash(),
       senderDeviceOs: genericLightDE.senderDeviceOs.getOrCrash(),
@@ -47,6 +52,8 @@ abstract class GenericLightDeviceDtos
       entityTypes: genericLightDE.entityTypes.getOrCrash(),
       compUuid: genericLightDE.compUuid.getOrCrash(),
       deviceVendor: genericLightDE.deviceVendor.getOrCrash(),
+      powerConsumption: genericLightDE.powerConsumption.getOrCrash(),
+
       // serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }
@@ -62,7 +69,9 @@ abstract class GenericLightDeviceDtos
     return GenericLightDE(
       uniqueId: CoreUniqueId.fromUniqueString(id),
       vendorUniqueId: VendorUniqueId.fromUniqueString(vendorUniqueId),
-      defaultName: DeviceDefaultName(defaultName),
+      cbjEntityName: CbjEntityName(cbjEntityName),
+      entityOriginalName: EntityOriginalName(cbjEntityName),
+      deviceOriginalName: DeviceOriginalName(cbjEntityName),
       entityStateGRPC: EntityState(entityStateGRPC),
       stateMassage: DeviceStateMassage(stateMassage),
       senderDeviceOs: DeviceSenderDeviceOs(senderDeviceOs),
@@ -71,6 +80,7 @@ abstract class GenericLightDeviceDtos
       deviceVendor: DeviceVendor(deviceVendor),
       compUuid: DeviceCompUuid(compUuid),
       lightSwitchState: GenericLightSwitchState(lightSwitchState),
+      powerConsumption: DevicePowerConsumption(powerConsumption),
     );
   }
 }

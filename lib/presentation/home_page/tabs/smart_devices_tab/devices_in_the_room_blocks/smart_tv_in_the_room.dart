@@ -41,9 +41,9 @@ class SmartTvInTheRoom extends StatelessWidget {
   Widget build(BuildContext context) {
     String deviceText;
     if (smartTvsInRoom!.length == 1) {
-      deviceText = smartTvsInRoom![0].defaultName.getOrCrash()!;
+      deviceText = smartTvsInRoom![0].cbjEntityName.getOrCrash()!;
     } else {
-      deviceText = '_SmartTvs'.tr(args: [roomEntity.defaultName.getOrCrash()]);
+      deviceText = '_SmartTvs'.tr(args: [roomEntity.cbjEntityName.getOrCrash()]);
     }
 
     return GestureDetector(

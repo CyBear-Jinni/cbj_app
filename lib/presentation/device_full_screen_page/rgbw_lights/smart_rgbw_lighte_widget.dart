@@ -78,7 +78,7 @@ class _SmartRgbwLightPage extends State<SmartRgbwLightPage> {
     return Column(
       children: <Widget>[
         Text(
-          _rgbwLight!.defaultName.getOrCrash()!, //  Show rgbwLight name
+          _rgbwLight!.cbjEntityName.getOrCrash()!, //  Show rgbwLight name
           style: TextStyle(
             fontSize: 19.0,
             color: Theme.of(context).textTheme.bodyMedium!.color,

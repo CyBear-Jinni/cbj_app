@@ -80,7 +80,7 @@ class RoomsBlindsWidget extends StatelessWidget {
                     return RoomBlinds(
                       devicesInRoom,
                       gradiantColor,
-                      roomEntity.defaultName.getOrCrash(),
+                      roomEntity.cbjEntityName.getOrCrash(),
                       maxLightsToShow: 50,
                     );
                   },

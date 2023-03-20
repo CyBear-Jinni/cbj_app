@@ -218,7 +218,7 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
         <String, List<DeviceEntityAbstract>>{};
     // /// All Devices area
     // final RoomEntity allDevicesRoom = RoomEntity.empty().copyWith(
-    //   defaultName: RoomDefaultName('All_Devices'.tr()),
+    //   cbjEntityName: RoomDefaultName('All_Devices'.tr()),
     // );
     // final String allDevicesRoomId = allDevicesRoom.uniqueId.getOrCrash();
     // tempDevicesByRooms[allDevicesRoomId] = [];
@@ -233,7 +233,7 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
 
     /// Summary area
     final RoomEntity summaryDevicesRoom = RoomEntity.empty().copyWith(
-      defaultName: RoomDefaultName('Summary'.tr()),
+      cbjEntityName: RoomDefaultName('Summary'.tr()),
     );
 
     final String summaryRoomId = summaryDevicesRoom.uniqueId.getOrCrash();
@@ -408,7 +408,7 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
           int numberOfDevicesInTheRoom = 0;
 
           adOrRoom.value.forEach((key, value) {
-            for (final element in value) {
+            for (final DeviceEntityAbstract element in value) {
               numberOfDevicesInTheRoom++;
             }
           });

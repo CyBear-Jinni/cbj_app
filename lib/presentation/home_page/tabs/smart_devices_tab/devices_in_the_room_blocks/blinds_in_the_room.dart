@@ -43,9 +43,9 @@ class BlindsInTheRoom extends StatelessWidget {
   Widget build(BuildContext context) {
     String deviceText;
     if (blindsInRoom!.length == 1) {
-      deviceText = blindsInRoom![0]!.defaultName.getOrCrash()!;
+      deviceText = blindsInRoom![0]!.cbjEntityName.getOrCrash()!;
     } else {
-      deviceText = '_Blinds'.tr(args: [roomEntity.defaultName.getOrCrash()]);
+      deviceText = '_Blinds'.tr(args: [roomEntity.cbjEntityName.getOrCrash()]);
     }
 
     return GestureDetector(

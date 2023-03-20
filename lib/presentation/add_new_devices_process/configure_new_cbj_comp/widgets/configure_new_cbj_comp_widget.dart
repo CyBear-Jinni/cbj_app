@@ -38,7 +38,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
           DeviceTypes.smartTypeNotSupported.toString()) {
         final TextEditingController textEditingControllerTemp =
             TextEditingController(
-          text: device.defaultName.value.getOrElse(() => ''),
+          text: device.cbjEntityName.value.getOrElse(() => ''),
         );
         textEditingController[
                 '$deviceNameFieldKey/${device.uniqueId.value.getOrElse(() => 'deviceId')}'] =

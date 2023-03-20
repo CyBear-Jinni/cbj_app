@@ -49,8 +49,8 @@ class ChangeRoomForDevicesWidget extends StatelessWidget {
                 style: const TextStyle(color: Colors.white),
                 icon: const Icon(Icons.arrow_drop_down),
                 hint: Text(
-                  state.defaultName.isValid()
-                      ? state.defaultName.getOrCrash()
+                  state.cbjEntityName.isValid()
+                      ? state.cbjEntityName.getOrCrash()
                       : 'Choose Area',
                   style: const TextStyle(color: Colors.white),
                 ),
@@ -67,7 +67,7 @@ class ChangeRoomForDevicesWidget extends StatelessWidget {
                   //     .map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     value: e.uniqueId.getOrCrash(),
-                    child: Text(e.defaultName.getOrCrash()),
+                    child: Text(e.cbjEntityName.getOrCrash()),
                   );
                 }).toList(),
               ),
@@ -90,7 +90,7 @@ class ChangeRoomForDevicesWidget extends StatelessWidget {
                       state.allDevices.map(
                         (e) => MultiSelectItem(
                           e.uniqueId.getOrCrash(),
-                          e.defaultName.getOrCrash()!,
+                          e.cbjEntityName.getOrCrash()!,
                         ),
                       ),
                     ),

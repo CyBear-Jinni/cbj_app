@@ -112,9 +112,9 @@ class SettingsPageOfBlinds extends StatelessWidget {
                       color: Colors.red,
                     ),
                     child: tile(
-                      roomEntity.defaultName.getOrCrash(),
+                      roomEntity.cbjEntityName.getOrCrash(),
                       allSmartDeviceLightDevices[index]
-                          .defaultName
+                          .cbjEntityName
                           .getOrCrash()!,
                     ),
                   );

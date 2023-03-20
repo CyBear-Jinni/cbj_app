@@ -113,9 +113,9 @@ class SettingsPageOfSmartComputers extends StatelessWidget {
                       color: Colors.red,
                     ),
                     child: tile(
-                      roomEntity.defaultName.getOrCrash(),
+                      roomEntity.cbjEntityName.getOrCrash(),
                       allSmartDeviceSwitchDevices[index]
-                          .defaultName
+                          .cbjEntityName
                           .getOrCrash()!,
                     ),
                   );

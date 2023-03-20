@@ -43,9 +43,10 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
   Widget build(BuildContext context) {
     String deviceText;
     if (switchesInRoom.length == 1) {
-      deviceText = switchesInRoom[0].defaultName.getOrCrash()!;
+      deviceText = switchesInRoom[0].cbjEntityName.getOrCrash()!;
     } else {
-      deviceText = '_Switches'.tr(args: [roomEntity.defaultName.getOrCrash()]);
+      deviceText =
+          '_Switches'.tr(args: [roomEntity.cbjEntityName.getOrCrash()]);
     }
 
     return GestureDetector(

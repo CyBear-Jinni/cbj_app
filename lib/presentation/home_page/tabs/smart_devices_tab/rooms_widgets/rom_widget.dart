@@ -99,7 +99,7 @@ class RoomWidget extends StatelessWidget {
                             (element) =>
                                 element!.uniqueId.getOrCrash() == roomId,
                           )!
-                          .defaultName
+                          .cbjEntityName
                           .getOrCrash(),
                       style: TextStyle(
                         fontSize: 23,
@@ -115,7 +115,7 @@ class RoomWidget extends StatelessWidget {
                             (element) =>
                                 element!.uniqueId.getOrCrash() == roomId,
                           )!
-                          .defaultName
+                          .cbjEntityName
                           .getOrCrash(),
                       style: TextStyle(
                         fontSize: 23,
@@ -252,7 +252,7 @@ class RoomWidget extends StatelessWidget {
                     onPressed: () {
                       FlushbarHelper.createInformation(
                         message:
-                            'This device is not supported\nName: ${devicesInTheRoom[secondIndex].defaultName.getOrCrash()}',
+                            'This device is not supported\nName: ${devicesInTheRoom[secondIndex].cbjEntityName.getOrCrash()}',
                       ).show(context);
                     },
                     child: Column(

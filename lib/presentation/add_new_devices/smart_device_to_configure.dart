@@ -16,7 +16,7 @@ class SmartDeviceToConfigure extends StatelessWidget {
         children: <Widget>[
           SmartDeviceTypeAndToggleBar(smartDeviceObject),
           Text(
-            'Device Name: ${smartDeviceObject.defaultName.getOrCrash()}',
+            'Device Name: ${smartDeviceObject.cbjEntityName.getOrCrash()}',
             style: const TextStyle(fontSize: 21),
           ),
           const SizedBox(

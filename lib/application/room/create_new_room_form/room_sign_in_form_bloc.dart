@@ -68,7 +68,7 @@ class RoomSignInFormBloc
   ) async {
     final RoomEntity roomEntity = RoomEntity(
       uniqueId: RoomUniqueId.fromUniqueString(state.roomUniqueId.getOrCrash()),
-      defaultName: RoomDefaultName(state.defaultName.getOrCrash()),
+      cbjEntityName: RoomDefaultName(state.cbjEntityName.getOrCrash()),
       background: RoomBackground(state.background.getOrCrash()),
       roomTypes: RoomTypes(state.roomTypes.getOrCrash()),
       roomDevicesId: RoomDevicesId(state.roomDevicesId.getOrCrash()),
@@ -88,7 +88,7 @@ class RoomSignInFormBloc
   ) async {
     final RoomEntity roomEntity = RoomEntity(
       uniqueId: RoomUniqueId.fromUniqueString(state.roomUniqueId.getOrCrash()),
-      defaultName: RoomDefaultName(state.defaultName.getOrCrash()),
+      cbjEntityName: RoomDefaultName(state.cbjEntityName.getOrCrash()),
       background: RoomBackground(state.background.getOrCrash()),
       roomTypes: RoomTypes(state.roomTypes.getOrCrash()),
       roomDevicesId: RoomDevicesId(state.roomDevicesId.getOrCrash()),
@@ -108,7 +108,7 @@ class RoomSignInFormBloc
   ) async {
     emit(
       state.copyWith(
-        defaultName: RoomDefaultName(event.defaultName),
+        cbjEntityName: RoomDefaultName(event.cbjEntityName),
         authFailureOrSuccessOption: none(),
       ),
     );
@@ -136,7 +136,7 @@ class RoomSignInFormBloc
         emit(
           state.copyWith(
             roomUniqueId: roomEntity.uniqueId,
-            defaultName: roomEntity.defaultName,
+            cbjEntityName: roomEntity.cbjEntityName,
             authFailureOrSuccessOption: none(),
           ),
         );

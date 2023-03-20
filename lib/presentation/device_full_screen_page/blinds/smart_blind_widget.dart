@@ -78,7 +78,7 @@ class _SmartBlindPage extends State<SmartBlindPage> {
     return Column(
       children: <Widget>[
         Text(
-          _blind!.defaultName.getOrCrash()!, //  Show blind name
+          _blind!.cbjEntityName.getOrCrash()!, //  Show blind name
           style: TextStyle(
             fontSize: 19.0,
             color: Theme.of(context).textTheme.bodyMedium!.color,

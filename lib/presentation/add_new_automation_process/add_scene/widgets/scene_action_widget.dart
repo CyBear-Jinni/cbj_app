@@ -32,7 +32,7 @@ class SceneActionWidget extends StatelessWidget {
           color: Colors.yellow,
         ),
         title: AutoSizeText(
-          '${deviceEntityAbstract.defaultName.getOrCrash()!} - $propertyToChange',
+          '${deviceEntityAbstract.cbjEntityName.getOrCrash()!} - $propertyToChange',
           maxLines: 2,
         ),
         trailing: AutoSizeText(

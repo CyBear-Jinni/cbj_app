@@ -15,7 +15,9 @@ class GenericBoilerDE extends DeviceEntityAbstract {
   GenericBoilerDE({
     required super.uniqueId,
     required super.vendorUniqueId,
-    required super.defaultName,
+    required super.cbjEntityName,
+    required super.entityOriginalName,
+    required super.deviceOriginalName,
     required super.deviceVendor,
     required super.entityStateGRPC,
     required super.stateMassage,
@@ -23,17 +25,19 @@ class GenericBoilerDE extends DeviceEntityAbstract {
     required super.senderDeviceModel,
     required super.senderId,
     required super.compUuid,
+    required super.powerConsumption,
     required this.boilerSwitchState,
-    DevicePowerConsumption? powerConsumption,
   }) : super(
-          entityTypes: DeviceType(DeviceTypes.boiler.toString()),
+          entityTypes: EntityType(DeviceTypes.boiler.toString()),
         );
 
   /// Empty instance of GenericBoilerEntity
   factory GenericBoilerDE.empty() => GenericBoilerDE(
         uniqueId: CoreUniqueId(),
         vendorUniqueId: VendorUniqueId(),
-        defaultName: DeviceDefaultName(''),
+        cbjEntityName: CbjEntityName(''),
+        entityOriginalName: EntityOriginalName(''),
+        deviceOriginalName: DeviceOriginalName(''),
         entityStateGRPC: EntityState(''),
         senderDeviceOs: DeviceSenderDeviceOs(''),
         senderDeviceModel: DeviceSenderDeviceModel(''),
@@ -48,13 +52,12 @@ class GenericBoilerDE extends DeviceEntityAbstract {
 
   /// State of the boiler on/off
   GenericBoilerSwitchState? boilerSwitchState;
-  DevicePowerConsumption? powerConsumption;
 
   //
   // /// Will return failure if any of the fields failed or return unit if fields
   // /// have legit values
   Option<CoreFailure<dynamic>> get failureOption =>
-      defaultName.value.fold((f) => some(f), (_) => none());
+      cbjEntityName.value.fold((f) => some(f), (_) => none());
   //
   // return body.failureOrUnit
   //     .andThen(todos.failureOrUnit)
@@ -88,8 +91,9 @@ class GenericBoilerDE extends DeviceEntityAbstract {
       deviceDtoClass: (GenericBoilerDeviceDtos).toString(),
       id: uniqueId.getOrCrash(),
       vendorUniqueId: vendorUniqueId.getOrCrash(),
-
-      defaultName: defaultName.getOrCrash(),
+      cbjEntityName: cbjEntityName.getOrCrash(),
+      entityOriginalName: entityOriginalName.getOrCrash(),
+      deviceOriginalName: deviceOriginalName.getOrCrash(),
       entityStateGRPC: entityStateGRPC.getOrCrash(),
       stateMassage: stateMassage.getOrCrash(),
       senderDeviceOs: senderDeviceOs.getOrCrash(),
@@ -97,8 +101,10 @@ class GenericBoilerDE extends DeviceEntityAbstract {
       senderId: senderId.getOrCrash(),
       entityTypes: entityTypes.getOrCrash(),
       compUuid: compUuid.getOrCrash(),
-      boilerSwitchState: boilerSwitchState!.getOrCrash(),
       deviceVendor: deviceVendor.getOrCrash(),
+      powerConsumption: powerConsumption.getOrCrash(),
+      boilerSwitchState: boilerSwitchState!.getOrCrash(),
+
       // serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }

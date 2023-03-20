@@ -170,7 +170,7 @@ class CBJCompRepository implements ICBJCompRepository {
   //     final SmartDeviceInfo smartDeviceInfo = SmartDeviceInfo(
   //       compSpecs: compSpecs,
   //       deviceTypesActions: deviceTypesActions,
-  //       defaultName: element.defaultName.getOrCrash(),
+  //       cbjEntityName: element.cbjEntityName.getOrCrash(),
   //       senderId: element.senderId.getOrCrash(),
   //       senderDeviceModel: deviceModelString,
   //       senderDeviceOs: Platform.operatingSystem,
@@ -198,7 +198,7 @@ class CBJCompRepository implements ICBJCompRepository {
 //   for (final SmartDeviceInfo smartDeviceInfo in compInfo.smartDevicesInComp) {
 //     final GenericLightDE deviceEntity = GenericLightDE(
 //       uniqueId: CoreUniqueId.fromUniqueString(smartDeviceInfo.id),
-//       defaultName: DeviceDefaultName(smartDeviceInfo.defaultName),
+//       cbjEntityName: CbjEntityName(smartDeviceInfo.cbjEntityName),
 //       roomId: CoreUniqueId.fromUniqueString(smartDeviceInfo.roomId),
 //       roomName: DeviceRoomName('Missing area name'),
 //       entityStateGRPC: EntityState(

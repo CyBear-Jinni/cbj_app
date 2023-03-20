@@ -16,7 +16,9 @@ abstract class GenericSmartTypeNotSupportedDeviceDtos
     // @JsonKey(ignore: true)
     required String id,
     required String vendorUniqueId,
-    required String? defaultName,
+    required String? cbjEntityName,
+    required String? entityOriginalName,
+    required String? deviceOriginalName,
     required String? entityStateGRPC,
     required String? senderDeviceOs,
     required String? senderDeviceModel,
@@ -24,6 +26,7 @@ abstract class GenericSmartTypeNotSupportedDeviceDtos
     required String? entityTypes,
     required String? compUuid,
     required String? deviceVendor,
+    required String? powerConsumption,
     String? deviceDtoClass,
     String? stateMassage,
 
@@ -40,7 +43,11 @@ abstract class GenericSmartTypeNotSupportedDeviceDtos
       id: genericSmartTypeNotSupportedDE.uniqueId.getOrCrash(),
       vendorUniqueId:
           genericSmartTypeNotSupportedDE.vendorUniqueId.getOrCrash(),
-      defaultName: genericSmartTypeNotSupportedDE.defaultName.getOrCrash(),
+      cbjEntityName: genericSmartTypeNotSupportedDE.cbjEntityName.getOrCrash(),
+      entityOriginalName:
+          genericSmartTypeNotSupportedDE.entityOriginalName.getOrCrash(),
+      deviceOriginalName:
+          genericSmartTypeNotSupportedDE.deviceOriginalName.getOrCrash(),
       entityStateGRPC:
           genericSmartTypeNotSupportedDE.entityStateGRPC.getOrCrash(),
       stateMassage: genericSmartTypeNotSupportedDE.stateMassage.getOrCrash(),
@@ -52,6 +59,9 @@ abstract class GenericSmartTypeNotSupportedDeviceDtos
       entityTypes: genericSmartTypeNotSupportedDE.entityTypes.getOrCrash(),
       compUuid: genericSmartTypeNotSupportedDE.compUuid.getOrCrash(),
       deviceVendor: genericSmartTypeNotSupportedDE.deviceVendor.getOrCrash(),
+      powerConsumption:
+          genericSmartTypeNotSupportedDE.powerConsumption.getOrCrash(),
+
       // serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }
@@ -70,7 +80,9 @@ abstract class GenericSmartTypeNotSupportedDeviceDtos
     return GenericSmartTypeNotSupportedDE(
       uniqueId: CoreUniqueId.fromUniqueString(id),
       vendorUniqueId: VendorUniqueId.fromUniqueString(vendorUniqueId),
-      defaultName: DeviceDefaultName(defaultName),
+      cbjEntityName: CbjEntityName(cbjEntityName),
+      entityOriginalName: EntityOriginalName(cbjEntityName),
+      deviceOriginalName: DeviceOriginalName(cbjEntityName),
       entityStateGRPC: EntityState(entityStateGRPC),
       stateMassage: DeviceStateMassage(stateMassage),
       senderDeviceOs: DeviceSenderDeviceOs(senderDeviceOs),
@@ -78,6 +90,7 @@ abstract class GenericSmartTypeNotSupportedDeviceDtos
       senderId: DeviceSenderId.fromUniqueString(senderId),
       deviceVendor: DeviceVendor(deviceVendor),
       compUuid: DeviceCompUuid(compUuid),
+      powerConsumption: DevicePowerConsumption(powerConsumption),
     );
   }
 }

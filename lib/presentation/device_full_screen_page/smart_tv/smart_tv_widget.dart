@@ -17,7 +17,6 @@ class SmartTvPage extends StatefulWidget {
 }
 
 class _SmartSmartTvPage extends State<SmartTvPage> {
-  final bool _switchState = false;
   GenericSmartTvDE? _switch;
   bool _isLoading = true;
 
@@ -69,11 +68,10 @@ class _SmartSmartTvPage extends State<SmartTvPage> {
 
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
     return Column(
       children: <Widget>[
         Text(
-          _switch!.defaultName.getOrCrash()!, //  Show switch name
+          _switch!.cbjEntityName.getOrCrash()!, //  Show switch name
           style: TextStyle(
             fontSize: 19.0,
             color: Theme.of(context).textTheme.bodyMedium!.color,

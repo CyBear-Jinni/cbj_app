@@ -15,7 +15,9 @@ abstract class GenericSmartComputerDeviceDtos
     // @JsonKey(ignore: true)
     required String id,
     required String vendorUniqueId,
-    required String? defaultName,
+    required String? cbjEntityName,
+    required String? entityOriginalName,
+    required String? deviceOriginalName,
     required String? entityStateGRPC,
     required String? senderDeviceOs,
     required String? senderDeviceModel,
@@ -23,6 +25,7 @@ abstract class GenericSmartComputerDeviceDtos
     required String? entityTypes,
     required String? compUuid,
     required String? deviceVendor,
+    required String? powerConsumption,
     required String? smartComputerSuspendState,
     required String? smartComputerShutDownState,
     String? deviceDtoClass,
@@ -40,7 +43,11 @@ abstract class GenericSmartComputerDeviceDtos
       deviceDtoClass: (GenericSmartComputerDeviceDtos).toString(),
       id: genericSmartComputerDE.uniqueId.getOrCrash(),
       vendorUniqueId: genericSmartComputerDE.vendorUniqueId.getOrCrash(),
-      defaultName: genericSmartComputerDE.defaultName.getOrCrash(),
+      cbjEntityName: genericSmartComputerDE.cbjEntityName.getOrCrash(),
+      entityOriginalName:
+          genericSmartComputerDE.entityOriginalName.getOrCrash(),
+      deviceOriginalName:
+          genericSmartComputerDE.deviceOriginalName.getOrCrash(),
       entityStateGRPC: genericSmartComputerDE.entityStateGRPC.getOrCrash(),
       stateMassage: genericSmartComputerDE.stateMassage.getOrCrash(),
       senderDeviceOs: genericSmartComputerDE.senderDeviceOs.getOrCrash(),
@@ -53,6 +60,8 @@ abstract class GenericSmartComputerDeviceDtos
       entityTypes: genericSmartComputerDE.entityTypes.getOrCrash(),
       compUuid: genericSmartComputerDE.compUuid.getOrCrash(),
       deviceVendor: genericSmartComputerDE.deviceVendor.getOrCrash(),
+      powerConsumption: genericSmartComputerDE.powerConsumption.getOrCrash(),
+
       // serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }
@@ -69,7 +78,9 @@ abstract class GenericSmartComputerDeviceDtos
     return GenericSmartComputerDE(
       uniqueId: CoreUniqueId.fromUniqueString(id),
       vendorUniqueId: VendorUniqueId.fromUniqueString(vendorUniqueId),
-      defaultName: DeviceDefaultName(defaultName),
+      cbjEntityName: CbjEntityName(cbjEntityName),
+      entityOriginalName: EntityOriginalName(cbjEntityName),
+      deviceOriginalName: DeviceOriginalName(cbjEntityName),
       entityStateGRPC: EntityState(entityStateGRPC),
       stateMassage: DeviceStateMassage(stateMassage),
       senderDeviceOs: DeviceSenderDeviceOs(senderDeviceOs),
@@ -81,6 +92,7 @@ abstract class GenericSmartComputerDeviceDtos
           GenericSmartComputerSuspendState(smartComputerSuspendState),
       smartComputerShutDownState:
           GenericSmartComputerShutdownState(smartComputerShutDownState),
+      powerConsumption: DevicePowerConsumption(powerConsumption),
     );
   }
 }

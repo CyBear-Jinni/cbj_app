@@ -16,28 +16,32 @@ class GenericSmartTvDE extends DeviceEntityAbstract {
     required super.uniqueId,
     required super.vendorUniqueId,
     required super.deviceVendor,
-    required super.defaultName,
-    required super.entityStateGRPC,
+    required super.cbjEntityName,
+    required super.entityOriginalName,
+    required super.deviceOriginalName,
     required super.stateMassage,
     required super.senderDeviceOs,
     required super.senderDeviceModel,
     required super.senderId,
     required super.compUuid,
+    required super.entityStateGRPC,
     required this.smartTvSwitchState,
     this.openUrl,
     this.pausePlayState,
     this.skip,
     this.volume,
-    DevicePowerConsumption? powerConsumption,
+    required super.powerConsumption,
   }) : super(
-          entityTypes: DeviceType(DeviceTypes.smartTV.toString()),
+          entityTypes: EntityType(DeviceTypes.smartTV.toString()),
         );
 
   /// Empty instance of GenericSmartTvEntity
   factory GenericSmartTvDE.empty() => GenericSmartTvDE(
         uniqueId: CoreUniqueId(),
         vendorUniqueId: VendorUniqueId(),
-        defaultName: DeviceDefaultName(''),
+        cbjEntityName: CbjEntityName(''),
+        entityOriginalName: EntityOriginalName(''),
+        deviceOriginalName: DeviceOriginalName(''),
         entityStateGRPC: EntityState(''),
         senderDeviceOs: DeviceSenderDeviceOs(''),
         senderDeviceModel: DeviceSenderDeviceModel(''),
@@ -61,8 +65,7 @@ class GenericSmartTvDE extends DeviceEntityAbstract {
   // /// Will return failure if any of the fields failed or return unit if fields
   // /// have legit values
   Option<CoreFailure<dynamic>> get failureOption =>
-      defaultName.value.fold((f) => some(f), (_) => none());
-
+      cbjEntityName.value.fold((f) => some(f), (_) => none());
   //
   // return body.failureOrUnit
   //     .andThen(todos.failureOrUnit)
@@ -96,7 +99,9 @@ class GenericSmartTvDE extends DeviceEntityAbstract {
       deviceDtoClass: (GenericSmartTvDeviceDtos).toString(),
       id: uniqueId.getOrCrash(),
       vendorUniqueId: vendorUniqueId.getOrCrash(),
-      defaultName: defaultName.getOrCrash(),
+      cbjEntityName: cbjEntityName.getOrCrash(),
+      entityOriginalName: entityOriginalName.getOrCrash(),
+      deviceOriginalName: deviceOriginalName.getOrCrash(),
       entityStateGRPC: entityStateGRPC.getOrCrash(),
       stateMassage: stateMassage.getOrCrash(),
       senderDeviceOs: senderDeviceOs.getOrCrash(),
@@ -104,6 +109,7 @@ class GenericSmartTvDE extends DeviceEntityAbstract {
       senderId: senderId.getOrCrash(),
       entityTypes: entityTypes.getOrCrash(),
       compUuid: compUuid.getOrCrash(),
+      powerConsumption: powerConsumption.getOrCrash(),
       smartTvSwitchState: smartTvSwitchState!.getOrCrash(),
       deviceVendor: deviceVendor.getOrCrash(),
       openUrl: openUrl?.getOrCrash(),
@@ -139,6 +145,88 @@ class GenericSmartTvDE extends DeviceEntityAbstract {
 
   /// Please override the following methods
   Future<Either<CoreFailure, Unit>> turnOffSmartTv() async {
+    logger.w('Please override this method in the non generic implementation');
+    return left(
+      const CoreFailure.actionExcecuter(
+        failedValue: 'Action does not exist',
+      ),
+    );
+  }
+
+  /// Please override the following methods
+  Future<Either<CoreFailure, Unit>> sendUrlToDevice(String newUrl) async {
+    logger.w('Please override this method in the non generic implementation');
+    return left(
+      const CoreFailure.actionExcecuter(
+        failedValue: 'Action does not exist',
+      ),
+    );
+  }
+
+  /// Please override the following methods
+  Future<Either<CoreFailure, Unit>> togglePausePlay(
+    String toggleNewState,
+  ) async {
+    logger.w('Please override this method in the non generic implementation');
+    return left(
+      const CoreFailure.actionExcecuter(
+        failedValue: 'Action does not exist',
+      ),
+    );
+  }
+
+  /// Please override the following methods
+  Future<Either<CoreFailure, Unit>> togglePause() async {
+    logger.w('Please override this method in the non generic implementation');
+    return left(
+      const CoreFailure.actionExcecuter(
+        failedValue: 'Action does not exist',
+      ),
+    );
+  }
+
+  /// Please override the following methods
+  Future<Either<CoreFailure, Unit>> togglePlay() async {
+    logger.w('Please override this method in the non generic implementation');
+    return left(
+      const CoreFailure.actionExcecuter(
+        failedValue: 'Action does not exist',
+      ),
+    );
+  }
+
+  /// Please override the following methods
+  Future<Either<CoreFailure, Unit>> toggleStop() async {
+    logger.w('Please override this method in the non generic implementation');
+    return left(
+      const CoreFailure.actionExcecuter(
+        failedValue: 'Action does not exist',
+      ),
+    );
+  }
+
+  /// Please override the following methods
+  Future<Either<CoreFailure, Unit>> queueNext() async {
+    logger.w('Please override this method in the non generic implementation');
+    return left(
+      const CoreFailure.actionExcecuter(
+        failedValue: 'Action does not exist',
+      ),
+    );
+  }
+
+  /// Please override the following methods
+  Future<Either<CoreFailure, Unit>> queuePrev() async {
+    logger.w('Please override this method in the non generic implementation');
+    return left(
+      const CoreFailure.actionExcecuter(
+        failedValue: 'Action does not exist',
+      ),
+    );
+  }
+
+  /// Please override the following methods
+  Future<Either<CoreFailure, Unit>> closeApp() async {
     logger.w('Please override this method in the non generic implementation');
     return left(
       const CoreFailure.actionExcecuter(

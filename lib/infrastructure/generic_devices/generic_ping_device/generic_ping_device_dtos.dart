@@ -15,7 +15,9 @@ abstract class GenericPingDeviceDtos
     // @JsonKey(ignore: true)
     required String id,
     required String vendorUniqueId,
-    required String? defaultName,
+    required String? cbjEntityName,
+    required String? entityOriginalName,
+    required String? deviceOriginalName,
     required String? entityStateGRPC,
     required String? senderDeviceOs,
     required String? senderDeviceModel,
@@ -24,10 +26,11 @@ abstract class GenericPingDeviceDtos
     required String? entityTypes,
     required String? compUuid,
     required String? deviceVendor,
+    required String? powerConsumption,
     String? deviceDtoClass,
-    String? stateMassage
+    String? stateMassage,
+
     // required ServerTimestampConverter() FieldValue serverTimeStamp,
-    ,
   }) = _GenericPingDeviceDtos;
 
   GenericPingDeviceDtos._();
@@ -37,7 +40,9 @@ abstract class GenericPingDeviceDtos
       deviceDtoClass: (GenericPingDeviceDtos).toString(),
       id: genericPingDE.uniqueId.getOrCrash(),
       vendorUniqueId: genericPingDE.vendorUniqueId.getOrCrash(),
-      defaultName: genericPingDE.defaultName.getOrCrash(),
+      cbjEntityName: genericPingDE.cbjEntityName.getOrCrash(),
+      entityOriginalName: genericPingDE.entityOriginalName.getOrCrash(),
+      deviceOriginalName: genericPingDE.deviceOriginalName.getOrCrash(),
       entityStateGRPC: genericPingDE.entityStateGRPC.getOrCrash(),
       stateMassage: genericPingDE.stateMassage.getOrCrash(),
       senderDeviceOs: genericPingDE.senderDeviceOs.getOrCrash(),
@@ -47,6 +52,8 @@ abstract class GenericPingDeviceDtos
       entityTypes: genericPingDE.entityTypes.getOrCrash(),
       compUuid: genericPingDE.compUuid.getOrCrash(),
       deviceVendor: genericPingDE.deviceVendor.getOrCrash(),
+      powerConsumption: genericPingDE.powerConsumption.getOrCrash(),
+
       // serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }
@@ -62,7 +69,9 @@ abstract class GenericPingDeviceDtos
     return GenericPingDE(
       uniqueId: CoreUniqueId.fromUniqueString(id),
       vendorUniqueId: VendorUniqueId.fromUniqueString(vendorUniqueId),
-      defaultName: DeviceDefaultName(defaultName),
+      cbjEntityName: CbjEntityName(cbjEntityName),
+      entityOriginalName: EntityOriginalName(cbjEntityName),
+      deviceOriginalName: DeviceOriginalName(cbjEntityName),
       entityStateGRPC: EntityState(entityStateGRPC),
       stateMassage: DeviceStateMassage(stateMassage),
       senderDeviceOs: DeviceSenderDeviceOs(senderDeviceOs),
@@ -71,6 +80,7 @@ abstract class GenericPingDeviceDtos
       deviceVendor: DeviceVendor(deviceVendor),
       compUuid: DeviceCompUuid(compUuid),
       pingSwitchState: GenericPingSwitchState(pingSwitchState),
+      powerConsumption: DevicePowerConsumption(powerConsumption),
     );
   }
 }

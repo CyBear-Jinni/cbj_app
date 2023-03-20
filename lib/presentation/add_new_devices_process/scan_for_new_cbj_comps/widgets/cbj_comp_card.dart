@@ -45,7 +45,7 @@ class CBJCompCard extends StatelessWidget {
                           child: BlocProvider(
                             create: (context) => getIt<DeviceActorBloc>(),
                             child: Text(
-                              compEntity.defaultName.getOrCrash()!,
+                              compEntity.cbjEntityName.getOrCrash()!,
                               style: TextStyle(
                                 color: Theme.of(context)
                                     .textTheme

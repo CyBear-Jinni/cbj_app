@@ -2,7 +2,7 @@ part of 'room_sign_in_form_bloc.dart';
 
 @freezed
 class RoomSignInFormEvent with _$RoomSignInFormEvent {
-  const factory RoomSignInFormEvent.defaultNameChanged(String defaultName) =
+  const factory RoomSignInFormEvent.defaultNameChanged(String cbjEntityName) =
       DefaultNameChanged;
 
   const factory RoomSignInFormEvent.roomTypesChanged(

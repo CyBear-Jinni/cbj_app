@@ -2,7 +2,7 @@ import 'package:cybear_jinni/domain/devices/abstract_device/core_failures.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums_cbj.dart';
 import 'package:dartz/dartz.dart';
 
-Either<CoreFailure<String>, String> validateDeviceNotEmpty(String input) {
+Either<CoreFailure<String>, String> validateNotEmpty(String input) {
   if (input.isNotEmpty) {
     return right(input);
   } else {
@@ -52,7 +52,7 @@ Either<CoreFailure<String>, String> validateWiFiNameNotEmpty(String input) {
   return right(input);
 }
 
-Either<CoreFailure<String>, String> validateDeviceMaxNameLength(
+Either<CoreFailure<String>, String> validateMaxNameLength(
   String input,
   int maxLength,
 ) {

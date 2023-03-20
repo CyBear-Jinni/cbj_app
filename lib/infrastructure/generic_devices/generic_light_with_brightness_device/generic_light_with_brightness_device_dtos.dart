@@ -15,7 +15,9 @@ abstract class GenericLightWithBrightnessDeviceDtos
     // @JsonKey(ignore: true)
     required String id,
     required String vendorUniqueId,
-    required String? defaultName,
+    required String? cbjEntityName,
+    required String? entityOriginalName,
+    required String? deviceOriginalName,
     required String? entityStateGRPC,
     required String? senderDeviceOs,
     required String? senderDeviceModel,
@@ -24,6 +26,7 @@ abstract class GenericLightWithBrightnessDeviceDtos
     required String? entityTypes,
     required String? compUuid,
     required String? deviceVendor,
+    required String? powerConsumption,
     required String? lightBrightness,
     String? deviceDtoClass,
     String? stateMassage,
@@ -40,7 +43,11 @@ abstract class GenericLightWithBrightnessDeviceDtos
       deviceDtoClass: (GenericLightWithBrightnessDeviceDtos).toString(),
       id: genericLightWithBrightnessDE.uniqueId.getOrCrash(),
       vendorUniqueId: genericLightWithBrightnessDE.vendorUniqueId.getOrCrash(),
-      defaultName: genericLightWithBrightnessDE.defaultName.getOrCrash(),
+      cbjEntityName: genericLightWithBrightnessDE.cbjEntityName.getOrCrash(),
+      entityOriginalName:
+          genericLightWithBrightnessDE.entityOriginalName.getOrCrash(),
+      deviceOriginalName:
+          genericLightWithBrightnessDE.deviceOriginalName.getOrCrash(),
       entityStateGRPC:
           genericLightWithBrightnessDE.entityStateGRPC.getOrCrash(),
       stateMassage: genericLightWithBrightnessDE.stateMassage.getOrCrash(),
@@ -55,6 +62,8 @@ abstract class GenericLightWithBrightnessDeviceDtos
       deviceVendor: genericLightWithBrightnessDE.deviceVendor.getOrCrash(),
       lightBrightness:
           genericLightWithBrightnessDE.lightBrightness.getOrCrash(),
+      powerConsumption:
+          genericLightWithBrightnessDE.powerConsumption.getOrCrash(),
 
       // serverTimeStamp: FieldValue.serverTimestamp(),
     );
@@ -73,7 +82,9 @@ abstract class GenericLightWithBrightnessDeviceDtos
     return GenericLightWithBrightnessDE(
       uniqueId: CoreUniqueId.fromUniqueString(id),
       vendorUniqueId: VendorUniqueId.fromUniqueString(vendorUniqueId),
-      defaultName: DeviceDefaultName(defaultName),
+      cbjEntityName: CbjEntityName(cbjEntityName),
+      entityOriginalName: EntityOriginalName(cbjEntityName),
+      deviceOriginalName: DeviceOriginalName(cbjEntityName),
       entityStateGRPC: EntityState(entityStateGRPC),
       stateMassage: DeviceStateMassage(stateMassage),
       senderDeviceOs: DeviceSenderDeviceOs(senderDeviceOs),
@@ -83,6 +94,7 @@ abstract class GenericLightWithBrightnessDeviceDtos
       compUuid: DeviceCompUuid(compUuid),
       lightSwitchState: GenericLightWithBrightnessSwitchState(lightSwitchState),
       lightBrightness: GenericLightWithBrightnessBrightness(lightBrightness),
+      powerConsumption: DevicePowerConsumption(powerConsumption),
     );
   }
 }

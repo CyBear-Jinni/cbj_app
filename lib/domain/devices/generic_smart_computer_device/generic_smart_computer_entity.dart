@@ -16,25 +16,29 @@ class GenericSmartComputerDE extends DeviceEntityAbstract {
     required super.uniqueId,
     required super.vendorUniqueId,
     required super.deviceVendor,
-    required super.defaultName,
-    required super.entityStateGRPC,
+    required super.cbjEntityName,
+    required super.entityOriginalName,
+    required super.deviceOriginalName,
     required super.stateMassage,
     required super.senderDeviceOs,
     required super.senderDeviceModel,
     required super.senderId,
     required super.compUuid,
+    required super.entityStateGRPC,
+    required super.powerConsumption,
     required this.smartComputerSuspendState,
     required this.smartComputerShutDownState,
-    DevicePowerConsumption? powerConsumption,
   }) : super(
-          entityTypes: DeviceType(DeviceTypes.smartComputer.toString()),
+          entityTypes: EntityType(DeviceTypes.smartComputer.toString()),
         );
 
   /// Empty instance of GenericSmartComputerEntity
   factory GenericSmartComputerDE.empty() => GenericSmartComputerDE(
         uniqueId: CoreUniqueId(),
         vendorUniqueId: VendorUniqueId(),
-        defaultName: DeviceDefaultName(''),
+        cbjEntityName: CbjEntityName(''),
+        entityOriginalName: EntityOriginalName(''),
+        deviceOriginalName: DeviceOriginalName(''),
         entityStateGRPC: EntityState(''),
         senderDeviceOs: DeviceSenderDeviceOs(''),
         senderDeviceModel: DeviceSenderDeviceModel(''),
@@ -61,7 +65,7 @@ class GenericSmartComputerDE extends DeviceEntityAbstract {
   // /// Will return failure if any of the fields failed or return unit if fields
   // /// have legit values
   Option<CoreFailure<dynamic>> get failureOption =>
-      defaultName.value.fold((f) => some(f), (_) => none());
+      cbjEntityName.value.fold((f) => some(f), (_) => none());
   //
   // return body.failureOrUnit
   //     .andThen(todos.failureOrUnit)
@@ -95,17 +99,20 @@ class GenericSmartComputerDE extends DeviceEntityAbstract {
       deviceDtoClass: (GenericSmartComputerDeviceDtos).toString(),
       id: uniqueId.getOrCrash(),
       vendorUniqueId: vendorUniqueId.getOrCrash(),
-      defaultName: defaultName.getOrCrash(),
+      cbjEntityName: cbjEntityName.getOrCrash(),
+      entityOriginalName: entityOriginalName.getOrCrash(),
+      deviceOriginalName: deviceOriginalName.getOrCrash(),
       entityStateGRPC: entityStateGRPC.getOrCrash(),
       stateMassage: stateMassage.getOrCrash(),
       senderDeviceOs: senderDeviceOs.getOrCrash(),
       senderDeviceModel: senderDeviceModel.getOrCrash(),
       senderId: senderId.getOrCrash(),
       entityTypes: entityTypes.getOrCrash(),
-      compUuid: compUuid.getOrCrash(),
+      compUuid: compUuid.getOrCrash(), deviceVendor: deviceVendor.getOrCrash(),
+      powerConsumption: powerConsumption.getOrCrash(),
       smartComputerSuspendState: smartComputerSuspendState!.getOrCrash(),
       smartComputerShutDownState: smartComputerShutDownState!.getOrCrash(),
-      deviceVendor: deviceVendor.getOrCrash(),
+
       // serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }
@@ -124,7 +131,7 @@ class GenericSmartComputerDE extends DeviceEntityAbstract {
   }
 
   /// Please override the following methods
-  Future<Either<CoreFailure, Unit>> turnOnSmartComputer() async {
+  Future<Either<CoreFailure, Unit>> suspendSmartComputer() async {
     logger.w('Please override this method in the non generic implementation');
     return left(
       const CoreFailure.actionExcecuter(
@@ -134,7 +141,7 @@ class GenericSmartComputerDE extends DeviceEntityAbstract {
   }
 
   /// Please override the following methods
-  Future<Either<CoreFailure, Unit>> turnOffSmartComputer() async {
+  Future<Either<CoreFailure, Unit>> shutDownSmartComputer() async {
     logger.w('Please override this method in the non generic implementation');
     return left(
       const CoreFailure.actionExcecuter(

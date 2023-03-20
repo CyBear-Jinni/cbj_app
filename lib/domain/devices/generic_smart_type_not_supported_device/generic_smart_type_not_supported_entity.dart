@@ -14,7 +14,9 @@ class GenericSmartTypeNotSupportedDE extends DeviceEntityAbstract {
   GenericSmartTypeNotSupportedDE({
     required super.uniqueId,
     required super.vendorUniqueId,
-    required super.defaultName,
+    required super.cbjEntityName,
+    required super.entityOriginalName,
+    required super.deviceOriginalName,
     required super.deviceVendor,
     required super.entityStateGRPC,
     required super.stateMassage,
@@ -22,8 +24,9 @@ class GenericSmartTypeNotSupportedDE extends DeviceEntityAbstract {
     required super.senderDeviceModel,
     required super.senderId,
     required super.compUuid,
+    required super.powerConsumption,
   }) : super(
-          entityTypes: DeviceType(DeviceTypes.smartTypeNotSupported.toString()),
+          entityTypes: EntityType(DeviceTypes.smartTypeNotSupported.toString()),
         );
 
   /// Empty instance of GenericSmartTypeNotSupportedEntity
@@ -31,7 +34,9 @@ class GenericSmartTypeNotSupportedDE extends DeviceEntityAbstract {
       GenericSmartTypeNotSupportedDE(
         uniqueId: CoreUniqueId(),
         vendorUniqueId: VendorUniqueId(),
-        defaultName: DeviceDefaultName(''),
+        cbjEntityName: CbjEntityName(''),
+        entityOriginalName: EntityOriginalName(''),
+        deviceOriginalName: DeviceOriginalName(''),
         entityStateGRPC: EntityState(''),
         senderDeviceOs: DeviceSenderDeviceOs(''),
         senderDeviceModel: DeviceSenderDeviceModel(''),
@@ -39,16 +44,14 @@ class GenericSmartTypeNotSupportedDE extends DeviceEntityAbstract {
         senderId: DeviceSenderId(),
         deviceVendor: DeviceVendor(''),
         compUuid: DeviceCompUuid(''),
+        powerConsumption: DevicePowerConsumption(''),
       );
-
-  DevicePowerConsumption? powerConsumption;
 
   //
   // /// Will return failure if any of the fields failed or return unit if fields
   // /// have legit values
   Option<CoreFailure<dynamic>> get failureOption =>
-      defaultName.value.fold((f) => some(f), (_) => none());
-
+      cbjEntityName.value.fold((f) => some(f), (_) => none());
   //
   // return body.failureOrUnit
   //     .andThen(todos.failureOrUnit)
@@ -82,8 +85,9 @@ class GenericSmartTypeNotSupportedDE extends DeviceEntityAbstract {
       deviceDtoClass: (GenericSmartTypeNotSupportedDeviceDtos).toString(),
       id: uniqueId.getOrCrash(),
       vendorUniqueId: vendorUniqueId.getOrCrash(),
-
-      defaultName: defaultName.getOrCrash(),
+      cbjEntityName: cbjEntityName.getOrCrash(),
+      entityOriginalName: entityOriginalName.getOrCrash(),
+      deviceOriginalName: deviceOriginalName.getOrCrash(),
       entityStateGRPC: entityStateGRPC.getOrCrash(),
       stateMassage: stateMassage.getOrCrash(),
       senderDeviceOs: senderDeviceOs.getOrCrash(),
@@ -92,6 +96,7 @@ class GenericSmartTypeNotSupportedDE extends DeviceEntityAbstract {
       entityTypes: entityTypes.getOrCrash(),
       compUuid: compUuid.getOrCrash(),
       deviceVendor: deviceVendor.getOrCrash(),
+      powerConsumption: powerConsumption.getOrCrash(),
       // serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }

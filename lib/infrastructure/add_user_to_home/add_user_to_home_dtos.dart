@@ -22,7 +22,7 @@
 //   factory AddUserDtos.fromDomain(GenericLightDE deviceEntity) {
 //     return AddUserDtos(
 //       id: deviceEntity.id.getOrCrash(),
-//       defaultName: deviceEntity.defaultName.getOrCrash(),
+//       cbjEntityName: deviceEntity.cbjEntityName.getOrCrash(),
 //
 //     );
 //   }
@@ -30,7 +30,7 @@
 //   GenericLightDE toDomain() {
 //     return GenericLightDE(
 //       id: DeviceUniqueId.fromUniqueString(id),
-//       defaultName: DeviceDefaultName(defaultName),
+//       cbjEntityName: CbjEntityName(cbjEntityName),
 //       roomId: DeviceUniqueId.fromUniqueString(roomId),
 //       state: EntityState(state),
 //       stateMassage: DeviceStateMassage(stateMassage),

@@ -13,13 +13,16 @@ abstract class DeviceEntityAbstract {
     required this.vendorUniqueId,
     required this.deviceVendor,
     required this.entityTypes,
-    required this.defaultName,
+    required this.cbjEntityName,
     required this.stateMassage,
     required this.senderDeviceOs,
     required this.senderDeviceModel,
     required this.senderId,
     required this.compUuid,
     required this.entityStateGRPC,
+    required this.entityOriginalName,
+    required this.deviceOriginalName,
+    required this.powerConsumption,
   });
 
   /// The unique id that CyBear Jinni Hub gave the device
@@ -28,8 +31,14 @@ abstract class DeviceEntityAbstract {
   /// The unique id that each company gave their device
   VendorUniqueId vendorUniqueId;
 
-  /// The default name of the GenericLight
-  DeviceDefaultName defaultName;
+  /// The name to show in cbj app, can be changed by the use
+  CbjEntityName cbjEntityName;
+
+  /// The name of the entity from the vendor api, user should only view it
+  EntityOriginalName entityOriginalName;
+
+  /// The name of the device that the entity exist on from the api, user should only view it
+  DeviceOriginalName deviceOriginalName;
 
   /// Did the massage arrived or was it just sent.
   /// Will be 'set' (need change) or 'ack' for acknowledge
@@ -47,14 +56,16 @@ abstract class DeviceEntityAbstract {
   /// Last GenericLight sender id that activated the action
   DeviceSenderId senderId;
 
-  /// The smart GenericLight type
-  DeviceType entityTypes;
+  /// The smart entity type
+  EntityType entityTypes;
 
   /// The smart GenericLight type
   DeviceVendor deviceVendor;
 
   /// Unique id of the computer that the GenericLight located in
   DeviceCompUuid compUuid;
+
+  DevicePowerConsumption powerConsumption;
 
   String getDeviceId();
 
@@ -122,12 +133,17 @@ class DeviceEntityNotAbstract extends DeviceEntityAbstract {
           entityStateGRPC:
               EntityState(DeviceTypes.smartTypeNotSupported.toString()),
           compUuid: DeviceCompUuid(const Uuid().v1()),
-          defaultName: DeviceDefaultName('No Name'),
-          entityTypes: DeviceType(DeviceTypes.light.toString()),
+          cbjEntityName: CbjEntityName('No Name'),
+          entityOriginalName:
+              EntityOriginalName('Entity original name is empty'),
+          deviceOriginalName: DeviceOriginalName(
+              'Device original name that entity is exists on is empty'),
+          entityTypes: EntityType(DeviceTypes.light.toString()),
           senderDeviceModel: DeviceSenderDeviceModel('a'),
           senderDeviceOs: DeviceSenderDeviceOs('b'),
           senderId: DeviceSenderId(),
           stateMassage: DeviceStateMassage('go'),
+          powerConsumption: DevicePowerConsumption('0'),
         );
 
   @override
@@ -178,7 +194,7 @@ class DeviceEntityNotAbstract extends DeviceEntityAbstract {
 //     required DeviceUniqueId? id,
 //
 //     /// The default name of the device
-//     required DeviceDefaultName? defaultName,
+//     required CbjEntityName? cbjEntityName,
 //   }) = _DeviceEntityAbstract;
 //
 //   const DeviceEntityAbstract._();
@@ -186,13 +202,13 @@ class DeviceEntityNotAbstract extends DeviceEntityAbstract {
 //   /// Empty instance of GenericLightDE
 //   factory DeviceEntityAbstract.empty() => DeviceEntityAbstract(
 //         id: DeviceUniqueId(),
-//         defaultName: DeviceDefaultName(''),
+//         cbjEntityName: CbjEntityName(''),
 //       );
 //
 //   /// Will return failure if any of the fields failed or return unit if fields
 //   /// have legit values
 //   Option<DevicesFailure<dynamic>> get failureOption {
-//     return defaultName!.value.fold((f) => some(f), (_) => none());
+//     return cbjEntityName!.value.fold((f) => some(f), (_) => none());
 //     //
 //     // return body.failureOrUnit
 //     //     .andThen(todos.failureOrUnit)

@@ -85,7 +85,7 @@ class RoomsSmartPlugsWidget extends StatelessWidget {
                     return RoomSmartPlugs(
                       devicesInRoom,
                       gradiantColor,
-                      roomEntity.defaultName.getOrCrash(),
+                      roomEntity.cbjEntityName.getOrCrash(),
                       maxSmartPlugsToShow: 50,
                     );
                   },

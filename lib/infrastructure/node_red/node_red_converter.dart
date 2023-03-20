@@ -198,7 +198,7 @@ class NodeRedConverter {
     final NodeRedMqttOutNode mqttNode = NodeRedMqttOutNode(
       brokerNodeId: brokerNodeId,
       topic: topic,
-      name: '${device.defaultName.getOrCrash()} - $property',
+      name: '${device.cbjEntityName.getOrCrash()} - $property',
     );
 
     final NodeRedFunctionNode functionForNode =

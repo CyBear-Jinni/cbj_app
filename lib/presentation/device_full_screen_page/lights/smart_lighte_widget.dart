@@ -78,7 +78,7 @@ class _SmartLightPage extends State<SmartLightPage> {
     return Column(
       children: <Widget>[
         Text(
-          _light!.defaultName.getOrCrash()!, //  Show light name
+          _light!.cbjEntityName.getOrCrash()!, //  Show light name
           style: TextStyle(
             fontSize: 19.0,
             color: Theme.of(context).textTheme.bodyMedium!.color,

@@ -43,10 +43,10 @@ class RgbwLightsInTheRoomBlock extends StatelessWidget {
   Widget build(BuildContext context) {
     String deviceText;
     if (lightsInRoom.length == 1) {
-      deviceText = lightsInRoom[0].defaultName.getOrCrash()!;
+      deviceText = lightsInRoom[0].cbjEntityName.getOrCrash()!;
     } else {
       deviceText =
-          '_RGBW_Lights'.tr(args: [roomEntity.defaultName.getOrCrash()]);
+          '_RGBW_Lights'.tr(args: [roomEntity.cbjEntityName.getOrCrash()]);
     }
 
     return GestureDetector(

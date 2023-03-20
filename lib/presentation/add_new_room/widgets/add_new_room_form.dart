@@ -48,7 +48,7 @@ class AddNewRoomForm extends StatelessWidget {
                             validator: (_) => context
                                 .read<RoomSignInFormBloc>()
                                 .state
-                                .defaultName
+                                .cbjEntityName
                                 .value
                                 .fold(
                                   (RoomFailure f) => 'Validation error',

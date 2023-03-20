@@ -15,7 +15,9 @@ abstract class GenericPrinterDeviceDtos
     // @JsonKey(ignore: true)
     required String id,
     required String vendorUniqueId,
-    required String? defaultName,
+    required String? cbjEntityName,
+    required String? entityOriginalName,
+    required String? deviceOriginalName,
     required String? entityStateGRPC,
     required String? senderDeviceOs,
     required String? senderDeviceModel,
@@ -25,6 +27,7 @@ abstract class GenericPrinterDeviceDtos
     required String? entityTypes,
     required String? compUuid,
     required String? deviceVendor,
+    required String? powerConsumption,
     String? deviceDtoClass,
     String? stateMassage,
 
@@ -40,7 +43,9 @@ abstract class GenericPrinterDeviceDtos
       deviceDtoClass: (GenericPrinterDeviceDtos).toString(),
       id: genericPrinterDE.uniqueId.getOrCrash(),
       vendorUniqueId: genericPrinterDE.vendorUniqueId.getOrCrash(),
-      defaultName: genericPrinterDE.defaultName.getOrCrash(),
+      cbjEntityName: genericPrinterDE.cbjEntityName.getOrCrash(),
+      entityOriginalName: genericPrinterDE.entityOriginalName.getOrCrash(),
+      deviceOriginalName: genericPrinterDE.deviceOriginalName.getOrCrash(),
       entityStateGRPC: genericPrinterDE.entityStateGRPC.getOrCrash(),
       stateMassage: genericPrinterDE.stateMassage.getOrCrash(),
       senderDeviceOs: genericPrinterDE.senderDeviceOs.getOrCrash(),
@@ -51,6 +56,8 @@ abstract class GenericPrinterDeviceDtos
       entityTypes: genericPrinterDE.entityTypes.getOrCrash(),
       compUuid: genericPrinterDE.compUuid.getOrCrash(),
       deviceVendor: genericPrinterDE.deviceVendor.getOrCrash(),
+      powerConsumption: genericPrinterDE.powerConsumption.getOrCrash(),
+
       // serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }
@@ -66,7 +73,9 @@ abstract class GenericPrinterDeviceDtos
     return GenericPrinterDE(
       uniqueId: CoreUniqueId.fromUniqueString(id),
       vendorUniqueId: VendorUniqueId.fromUniqueString(vendorUniqueId),
-      defaultName: DeviceDefaultName(defaultName),
+      cbjEntityName: CbjEntityName(cbjEntityName),
+      entityOriginalName: EntityOriginalName(cbjEntityName),
+      deviceOriginalName: DeviceOriginalName(cbjEntityName),
       entityStateGRPC: EntityState(entityStateGRPC),
       stateMassage: DeviceStateMassage(stateMassage),
       senderDeviceOs: DeviceSenderDeviceOs(senderDeviceOs),
@@ -76,6 +85,7 @@ abstract class GenericPrinterDeviceDtos
       compUuid: DeviceCompUuid(compUuid),
       printerSwitchState: GenericPrinterSwitchState(printerSwitchState),
       lastKnownIp: DeviceLastKnownIp(lastKnownIp),
+      powerConsumption: DevicePowerConsumption(powerConsumption),
     );
   }
 }

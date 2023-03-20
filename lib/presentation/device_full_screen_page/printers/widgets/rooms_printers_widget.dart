@@ -84,7 +84,7 @@ class RoomsPrintersWidget extends StatelessWidget {
                     return RoomPrinters(
                       devicesInRoom,
                       gradiantColor,
-                      roomEntity.defaultName.getOrCrash(),
+                      roomEntity.cbjEntityName.getOrCrash(),
                       maxPrintersToShow: 50,
                     );
                   },

@@ -16,24 +16,28 @@ class GenericBlindsDE extends DeviceEntityAbstract {
     required super.uniqueId,
     required super.vendorUniqueId,
     required super.deviceVendor,
-    required super.defaultName,
+    required super.cbjEntityName,
+    required super.entityOriginalName,
+    required super.deviceOriginalName,
     required super.entityStateGRPC,
     required super.stateMassage,
     required super.senderDeviceOs,
     required super.senderDeviceModel,
     required super.senderId,
     required super.compUuid,
+    required super.powerConsumption,
     required this.blindsSwitchState,
-    DevicePowerConsumption? powerConsumption,
   }) : super(
-          entityTypes: DeviceType(DeviceTypes.blinds.toString()),
+          entityTypes: EntityType(DeviceTypes.blinds.toString()),
         );
 
   /// Empty instance of GenericBlindsEntity
   factory GenericBlindsDE.empty() => GenericBlindsDE(
         uniqueId: CoreUniqueId(),
         vendorUniqueId: VendorUniqueId(),
-        defaultName: DeviceDefaultName(''),
+        cbjEntityName: CbjEntityName(''),
+        entityOriginalName: EntityOriginalName(''),
+        deviceOriginalName: DeviceOriginalName(''),
         entityStateGRPC: EntityState(''),
         senderDeviceOs: DeviceSenderDeviceOs(''),
         senderDeviceModel: DeviceSenderDeviceModel(''),
@@ -53,7 +57,7 @@ class GenericBlindsDE extends DeviceEntityAbstract {
   // /// Will return failure if any of the fields failed or return unit if fields
   // /// have legit values
   Option<CoreFailure<dynamic>> get failureOption =>
-      defaultName.value.fold((f) => some(f), (_) => none());
+      cbjEntityName.value.fold((f) => some(f), (_) => none());
   //
   // return body.failureOrUnit
   //     .andThen(todos.failureOrUnit)
@@ -87,7 +91,9 @@ class GenericBlindsDE extends DeviceEntityAbstract {
       deviceDtoClass: (GenericBlindsDeviceDtos).toString(),
       id: uniqueId.getOrCrash(),
       vendorUniqueId: vendorUniqueId.getOrCrash(),
-      defaultName: defaultName.getOrCrash(),
+      cbjEntityName: cbjEntityName.getOrCrash(),
+      entityOriginalName: entityOriginalName.getOrCrash(),
+      deviceOriginalName: deviceOriginalName.getOrCrash(),
       entityStateGRPC: entityStateGRPC.getOrCrash(),
       stateMassage: stateMassage.getOrCrash(),
       senderDeviceOs: senderDeviceOs.getOrCrash(),
@@ -97,6 +103,7 @@ class GenericBlindsDE extends DeviceEntityAbstract {
       compUuid: compUuid.getOrCrash(),
       blindsSwitchState: blindsSwitchState!.getOrCrash(),
       deviceVendor: deviceVendor.getOrCrash(),
+      powerConsumption: powerConsumption.getOrCrash(),
       // serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }

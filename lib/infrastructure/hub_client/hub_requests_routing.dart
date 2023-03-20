@@ -111,7 +111,7 @@ class HubRequestRouting {
 
     final RoomEntityDtos roomEntityDtos = RoomEntityDtos(
       uniqueId: requestAsJson['uniqueId'] as String,
-      defaultName: requestAsJson['defaultName'] as String,
+      cbjEntityName: requestAsJson['cbjEntityName'] as String,
       background: requestAsJson['background'] as String,
       roomTypes: List<String>.from(requestAsJson['roomTypes'] as List<dynamic>),
       roomDevicesId:

@@ -84,7 +84,7 @@ class RoomsSmartComputersWidget extends StatelessWidget {
                     return RoomSmartComputers(
                       devicesInRoom,
                       gradiantColor,
-                      roomEntity.defaultName.getOrCrash(),
+                      roomEntity.cbjEntityName.getOrCrash(),
                       maxSmartComputersToShow: 50,
                     );
                   },

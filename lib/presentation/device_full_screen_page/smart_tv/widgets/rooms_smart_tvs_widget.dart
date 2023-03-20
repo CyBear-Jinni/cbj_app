@@ -84,7 +84,7 @@ class RoomsSmartTvsWidget extends StatelessWidget {
                     return RoomSmartTvs(
                       devicesInRoom,
                       gradiantColor,
-                      roomEntity.defaultName.getOrCrash(),
+                      roomEntity.cbjEntityName.getOrCrash(),
                       maxSmartTvsToShow: 50,
                     );
                   },

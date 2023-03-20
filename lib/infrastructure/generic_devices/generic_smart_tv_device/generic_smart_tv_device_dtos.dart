@@ -15,7 +15,9 @@ abstract class GenericSmartTvDeviceDtos
     // @JsonKey(ignore: true)
     required String id,
     required String vendorUniqueId,
-    required String? defaultName,
+    required String? cbjEntityName,
+    required String? entityOriginalName,
+    required String? deviceOriginalName,
     required String? entityStateGRPC,
     required String? senderDeviceOs,
     required String? senderDeviceModel,
@@ -24,14 +26,15 @@ abstract class GenericSmartTvDeviceDtos
     required String? entityTypes,
     required String? compUuid,
     required String? deviceVendor,
+    required String? powerConsumption,
     required String? openUrl,
     required String? pausePlayState,
     required String? skip,
     required String? volume,
     String? deviceDtoClass,
-    String? stateMassage,
-
+    String? stateMassage
     // required ServerTimestampConverter() FieldValue serverTimeStamp,
+    ,
   }) = _GenericSmartTvDeviceDtos;
 
   GenericSmartTvDeviceDtos._();
@@ -43,7 +46,9 @@ abstract class GenericSmartTvDeviceDtos
       deviceDtoClass: (GenericSmartTvDeviceDtos).toString(),
       id: genericSmartTvDE.uniqueId.getOrCrash(),
       vendorUniqueId: genericSmartTvDE.vendorUniqueId.getOrCrash(),
-      defaultName: genericSmartTvDE.defaultName.getOrCrash(),
+      cbjEntityName: genericSmartTvDE.cbjEntityName.getOrCrash(),
+      entityOriginalName: genericSmartTvDE.entityOriginalName.getOrCrash(),
+      deviceOriginalName: genericSmartTvDE.deviceOriginalName.getOrCrash(),
       entityStateGRPC: genericSmartTvDE.entityStateGRPC.getOrCrash(),
       stateMassage: genericSmartTvDE.stateMassage.getOrCrash(),
       senderDeviceOs: genericSmartTvDE.senderDeviceOs.getOrCrash(),
@@ -53,6 +58,8 @@ abstract class GenericSmartTvDeviceDtos
       entityTypes: genericSmartTvDE.entityTypes.getOrCrash(),
       compUuid: genericSmartTvDE.compUuid.getOrCrash(),
       deviceVendor: genericSmartTvDE.deviceVendor.getOrCrash(),
+      powerConsumption: genericSmartTvDE.powerConsumption.getOrCrash(),
+
       openUrl: genericSmartTvDE.openUrl?.getOrCrash(),
       pausePlayState: genericSmartTvDE.pausePlayState?.getOrCrash(),
       skip: genericSmartTvDE.skip?.getOrCrash(),
@@ -72,7 +79,9 @@ abstract class GenericSmartTvDeviceDtos
     return GenericSmartTvDE(
       uniqueId: CoreUniqueId.fromUniqueString(id),
       vendorUniqueId: VendorUniqueId.fromUniqueString(vendorUniqueId),
-      defaultName: DeviceDefaultName(defaultName),
+      cbjEntityName: CbjEntityName(cbjEntityName),
+      entityOriginalName: EntityOriginalName(cbjEntityName),
+      deviceOriginalName: DeviceOriginalName(cbjEntityName),
       entityStateGRPC: EntityState(entityStateGRPC),
       stateMassage: DeviceStateMassage(stateMassage),
       senderDeviceOs: DeviceSenderDeviceOs(senderDeviceOs),
@@ -87,6 +96,7 @@ abstract class GenericSmartTvDeviceDtos
           : GenericSmartTvPausePlayState(pausePlayState),
       skip: skip == null ? null : GenericSmartTvSkipBackOrForward(skip),
       volume: volume == null ? null : GenericSmartTvVolume(volume),
+      powerConsumption: DevicePowerConsumption(powerConsumption),
     );
   }
 }

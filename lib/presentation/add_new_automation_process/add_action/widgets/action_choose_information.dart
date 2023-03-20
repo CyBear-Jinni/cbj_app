@@ -38,7 +38,7 @@ class ActionChooseInformation extends StatelessWidget {
                   icon: const Icon(Icons.arrow_drop_down),
                   hint: Text(
                     state.allDevicesWithNewAction.isNotEmpty
-                        ? state.allDevicesWithNewAction[0].key.defaultName
+                        ? state.allDevicesWithNewAction[0].key.cbjEntityName
                             .getOrCrash()!
                         : 'Choose Device',
                     style: const TextStyle(color: Colors.white),
@@ -55,7 +55,7 @@ class ActionChooseInformation extends StatelessWidget {
                   items: state.allDevices.map<DropdownMenuItem<String>>((e) {
                     return DropdownMenuItem<String>(
                       value: e.uniqueId.getOrCrash(),
-                      child: Text(e.defaultName.getOrCrash()!),
+                      child: Text(e.cbjEntityName.getOrCrash()!),
                     );
                   }).toList(),
                 ),

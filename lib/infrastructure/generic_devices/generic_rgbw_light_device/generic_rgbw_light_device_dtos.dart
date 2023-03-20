@@ -15,7 +15,9 @@ abstract class GenericRgbwLightDeviceDtos
     // @JsonKey(ignore: true)
     required String id,
     required String vendorUniqueId,
-    required String? defaultName,
+    required String? cbjEntityName,
+    required String? entityOriginalName,
+    required String? deviceOriginalName,
     required String? entityStateGRPC,
     required String? senderDeviceOs,
     required String? senderDeviceModel,
@@ -23,6 +25,7 @@ abstract class GenericRgbwLightDeviceDtos
     required String? entityTypes,
     required String? compUuid,
     required String? deviceVendor,
+    required String? powerConsumption,
     required String? lightSwitchState,
     required String? lightColorTemperature,
     required String? lightBrightness,
@@ -45,7 +48,9 @@ abstract class GenericRgbwLightDeviceDtos
       deviceDtoClass: (GenericRgbwLightDeviceDtos).toString(),
       id: genericRgbwLightDE.uniqueId.getOrCrash(),
       vendorUniqueId: genericRgbwLightDE.vendorUniqueId.getOrCrash(),
-      defaultName: genericRgbwLightDE.defaultName.getOrCrash(),
+      cbjEntityName: genericRgbwLightDE.cbjEntityName.getOrCrash(),
+      entityOriginalName: genericRgbwLightDE.entityOriginalName.getOrCrash(),
+      deviceOriginalName: genericRgbwLightDE.deviceOriginalName.getOrCrash(),
       entityStateGRPC: genericRgbwLightDE.entityStateGRPC.getOrCrash(),
       stateMassage: genericRgbwLightDE.stateMassage.getOrCrash(),
       senderDeviceOs: genericRgbwLightDE.senderDeviceOs.getOrCrash(),
@@ -55,6 +60,8 @@ abstract class GenericRgbwLightDeviceDtos
       entityTypes: genericRgbwLightDE.entityTypes.getOrCrash(),
       compUuid: genericRgbwLightDE.compUuid.getOrCrash(),
       deviceVendor: genericRgbwLightDE.deviceVendor.getOrCrash(),
+      powerConsumption: genericRgbwLightDE.powerConsumption.getOrCrash(),
+
       lightColorTemperature:
           genericRgbwLightDE.lightColorTemperature.getOrCrash(),
       lightBrightness: genericRgbwLightDE.lightBrightness.getOrCrash(),
@@ -78,7 +85,9 @@ abstract class GenericRgbwLightDeviceDtos
     return GenericRgbwLightDE(
       uniqueId: CoreUniqueId.fromUniqueString(id),
       vendorUniqueId: VendorUniqueId.fromUniqueString(vendorUniqueId),
-      defaultName: DeviceDefaultName(defaultName),
+      cbjEntityName: CbjEntityName(cbjEntityName),
+      entityOriginalName: EntityOriginalName(cbjEntityName),
+      deviceOriginalName: DeviceOriginalName(cbjEntityName),
       entityStateGRPC: EntityState(entityStateGRPC),
       stateMassage: DeviceStateMassage(stateMassage),
       senderDeviceOs: DeviceSenderDeviceOs(senderDeviceOs),
@@ -95,6 +104,7 @@ abstract class GenericRgbwLightDeviceDtos
       lightColorSaturation:
           GenericRgbwLightColorSaturation(lightColorSaturation),
       lightColorValue: GenericRgbwLightColorValue(lightColorValue),
+      powerConsumption: DevicePowerConsumption(powerConsumption),
     );
   }
 }

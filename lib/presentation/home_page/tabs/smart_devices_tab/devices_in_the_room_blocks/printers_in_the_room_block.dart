@@ -41,9 +41,10 @@ class PrintersInTheRoomBlock extends StatelessWidget {
   Widget build(BuildContext context) {
     String deviceText;
     if (printersInRoom.length == 1) {
-      deviceText = printersInRoom[0].defaultName.getOrCrash()!;
+      deviceText = printersInRoom[0].cbjEntityName.getOrCrash()!;
     } else {
-      deviceText = '_Printers'.tr(args: [roomEntity.defaultName.getOrCrash()]);
+      deviceText =
+          '_Printers'.tr(args: [roomEntity.cbjEntityName.getOrCrash()]);
     }
 
     return GestureDetector(

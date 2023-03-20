@@ -43,10 +43,10 @@ class SmartPlugsInTheRoomBlock extends StatelessWidget {
   Widget build(BuildContext context) {
     String deviceText;
     if (smartPlugsInRoom.length == 1) {
-      deviceText = smartPlugsInRoom[0].defaultName.getOrCrash()!;
+      deviceText = smartPlugsInRoom[0].cbjEntityName.getOrCrash()!;
     } else {
       deviceText =
-          '_SmartPlugs'.tr(args: [roomEntity.defaultName.getOrCrash()]);
+          '_SmartPlugs'.tr(args: [roomEntity.cbjEntityName.getOrCrash()]);
     }
 
     return GestureDetector(

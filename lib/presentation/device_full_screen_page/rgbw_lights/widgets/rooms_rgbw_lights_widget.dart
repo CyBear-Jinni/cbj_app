@@ -83,7 +83,7 @@ class RoomsRgbwLightsWidget extends StatelessWidget {
                     return RoomRgbwLights(
                       devicesInRoom,
                       gradiantColor,
-                      roomEntity.defaultName.getOrCrash(),
+                      roomEntity.cbjEntityName.getOrCrash(),
                       maxLightsToShow: 50,
                     );
                   },

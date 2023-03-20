@@ -78,7 +78,7 @@ class _SmartSmartPlugPage extends State<SmartSmartPlugPage> {
     return Column(
       children: <Widget>[
         Text(
-          _smartPlug!.defaultName.getOrCrash()!, //  Show smartPlug name
+          _smartPlug!.cbjEntityName.getOrCrash()!, //  Show smartPlug name
           style: TextStyle(
             fontSize: 19.0,
             color: Theme.of(context).textTheme.bodyMedium!.color,
