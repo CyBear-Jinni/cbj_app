@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/domain/devices/generic_printer_device/generic_printer_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_printer_device/generic_printer_entity.dart';
 import 'package:flutter/material.dart';
 
 class ErrorPrintersDeviceCard extends StatelessWidget {

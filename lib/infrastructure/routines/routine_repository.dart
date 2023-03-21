@@ -2,7 +2,7 @@ import 'dart:collection';
 import 'dart:convert';
 
 import 'package:cybear_jinni/domain/core/value_objects.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/routine/i_routine_cbj_repository.dart';
 import 'package:cybear_jinni/domain/routine/routine_cbj_entity.dart';
 import 'package:cybear_jinni/domain/routine/routine_cbj_failures.dart';

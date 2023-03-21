@@ -1,7 +1,7 @@
-import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/value_objects_core.dart';
-import 'package:cybear_jinni/domain/devices/generic_smart_tv/generic_smart_tv_entity.dart';
-import 'package:cybear_jinni/domain/devices/generic_smart_tv/generic_smart_tv_value_objects.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/value_objects_core.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_smart_tv/generic_smart_tv_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_smart_tv/generic_smart_tv_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/abstract_device/device_entity_dto_abstract.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -14,7 +14,7 @@ abstract class GenericSmartTvDeviceDtos
   factory GenericSmartTvDeviceDtos({
     // @JsonKey(ignore: true)
     required String id,
-    required String vendorUniqueId,
+    required String entityUniqueId,
     required String? cbjEntityName,
     required String? entityOriginalName,
     required String? deviceOriginalName,
@@ -27,6 +27,15 @@ abstract class GenericSmartTvDeviceDtos
     required String? compUuid,
     required String? deviceVendor,
     required String? powerConsumption,
+    required String? deviceUniqueId,
+    required String? devicePort,
+    required String? deviceLastKnownIp,
+    required String? deviceHostName,
+    required String? deviceMdns,
+    required String? devicesMacAddress,
+    required String? entityKey,
+    required String? requestTimeStamp,
+    required String? lastResponseFromDeviceTimeStamp,
     required String? openUrl,
     required String? pausePlayState,
     required String? skip,
@@ -45,7 +54,7 @@ abstract class GenericSmartTvDeviceDtos
     return GenericSmartTvDeviceDtos(
       deviceDtoClass: (GenericSmartTvDeviceDtos).toString(),
       id: genericSmartTvDE.uniqueId.getOrCrash(),
-      vendorUniqueId: genericSmartTvDE.vendorUniqueId.getOrCrash(),
+      entityUniqueId: genericSmartTvDE.entityUniqueId.getOrCrash(),
       cbjEntityName: genericSmartTvDE.cbjEntityName.getOrCrash(),
       entityOriginalName: genericSmartTvDE.entityOriginalName.getOrCrash(),
       deviceOriginalName: genericSmartTvDE.deviceOriginalName.getOrCrash(),
@@ -59,6 +68,17 @@ abstract class GenericSmartTvDeviceDtos
       compUuid: genericSmartTvDE.compUuid.getOrCrash(),
       deviceVendor: genericSmartTvDE.deviceVendor.getOrCrash(),
       powerConsumption: genericSmartTvDE.powerConsumption.getOrCrash(),
+
+      deviceUniqueId: genericSmartTvDE.deviceUniqueId.getOrCrash(),
+      devicePort: genericSmartTvDE.devicePort.getOrCrash(),
+      deviceLastKnownIp: genericSmartTvDE.deviceLastKnownIp.getOrCrash(),
+      deviceHostName: genericSmartTvDE.deviceHostName.getOrCrash(),
+      deviceMdns: genericSmartTvDE.deviceMdns.getOrCrash(),
+      devicesMacAddress: genericSmartTvDE.devicesMacAddress.getOrCrash(),
+      entityKey: genericSmartTvDE.entityKey.getOrCrash(),
+      requestTimeStamp: genericSmartTvDE.requestTimeStamp.getOrCrash(),
+      lastResponseFromDeviceTimeStamp:
+          genericSmartTvDE.lastResponseFromDeviceTimeStamp.getOrCrash(),
 
       openUrl: genericSmartTvDE.openUrl?.getOrCrash(),
       pausePlayState: genericSmartTvDE.pausePlayState?.getOrCrash(),
@@ -78,7 +98,7 @@ abstract class GenericSmartTvDeviceDtos
   DeviceEntityAbstract toDomain() {
     return GenericSmartTvDE(
       uniqueId: CoreUniqueId.fromUniqueString(id),
-      vendorUniqueId: VendorUniqueId.fromUniqueString(vendorUniqueId),
+      entityUniqueId: EntityUniqueId(entityUniqueId),
       cbjEntityName: CbjEntityName(cbjEntityName),
       entityOriginalName: EntityOriginalName(cbjEntityName),
       deviceOriginalName: DeviceOriginalName(cbjEntityName),
@@ -97,6 +117,16 @@ abstract class GenericSmartTvDeviceDtos
       skip: skip == null ? null : GenericSmartTvSkipBackOrForward(skip),
       volume: volume == null ? null : GenericSmartTvVolume(volume),
       powerConsumption: DevicePowerConsumption(powerConsumption),
+      deviceUniqueId: DeviceUniqueId(deviceUniqueId),
+      devicePort: DevicePort(devicePort),
+      deviceLastKnownIp: DeviceLastKnownIp(deviceLastKnownIp),
+      deviceHostName: DeviceHostName(deviceHostName),
+      deviceMdns: DeviceMdns(deviceMdns),
+      devicesMacAddress: DevicesMacAddress(devicesMacAddress),
+      entityKey: EntityKey(entityKey),
+      requestTimeStamp: RequestTimeStamp(requestTimeStamp),
+      lastResponseFromDeviceTimeStamp:
+          LastResponseFromDeviceTimeStamp(lastResponseFromDeviceTimeStamp),
     );
   }
 }

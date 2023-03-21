@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cybear_jinni/application/printers/printers_actor/printers_actor_bloc.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
-import 'package:cybear_jinni/domain/devices/generic_printer_device/generic_printer_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_printer_device/generic_printer_entity.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/printers/widgets/error_printers_device_card_widget.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/printers/widgets/printer_widget.dart';

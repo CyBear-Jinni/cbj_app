@@ -1,5 +1,5 @@
 import 'package:cybear_jinni/application/boilers/boilers_watcher/boilers_watcher_bloc.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/boilers/widgets/critical_boilers_failure_display_widget.dart';

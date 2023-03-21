@@ -1,7 +1,7 @@
-import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/value_objects_core.dart';
-import 'package:cybear_jinni/domain/devices/generic_printer_device/generic_printer_entity.dart';
-import 'package:cybear_jinni/domain/devices/generic_printer_device/generic_printer_value_objects.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/value_objects_core.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_printer_device/generic_printer_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_printer_device/generic_printer_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/abstract_device/device_entity_dto_abstract.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -14,7 +14,7 @@ abstract class GenericPrinterDeviceDtos
   factory GenericPrinterDeviceDtos({
     // @JsonKey(ignore: true)
     required String id,
-    required String vendorUniqueId,
+    required String entityUniqueId,
     required String? cbjEntityName,
     required String? entityOriginalName,
     required String? deviceOriginalName,
@@ -28,6 +28,15 @@ abstract class GenericPrinterDeviceDtos
     required String? compUuid,
     required String? deviceVendor,
     required String? powerConsumption,
+    required String? deviceUniqueId,
+    required String? devicePort,
+    required String? deviceLastKnownIp,
+    required String? deviceHostName,
+    required String? deviceMdns,
+    required String? devicesMacAddress,
+    required String? entityKey,
+    required String? requestTimeStamp,
+    required String? lastResponseFromDeviceTimeStamp,
     String? deviceDtoClass,
     String? stateMassage,
 
@@ -42,7 +51,7 @@ abstract class GenericPrinterDeviceDtos
     return GenericPrinterDeviceDtos(
       deviceDtoClass: (GenericPrinterDeviceDtos).toString(),
       id: genericPrinterDE.uniqueId.getOrCrash(),
-      vendorUniqueId: genericPrinterDE.vendorUniqueId.getOrCrash(),
+      entityUniqueId: genericPrinterDE.entityUniqueId.getOrCrash(),
       cbjEntityName: genericPrinterDE.cbjEntityName.getOrCrash(),
       entityOriginalName: genericPrinterDE.entityOriginalName.getOrCrash(),
       deviceOriginalName: genericPrinterDE.deviceOriginalName.getOrCrash(),
@@ -52,12 +61,22 @@ abstract class GenericPrinterDeviceDtos
       senderDeviceModel: genericPrinterDE.senderDeviceModel.getOrCrash(),
       senderId: genericPrinterDE.senderId.getOrCrash(),
       printerSwitchState: genericPrinterDE.printerSwitchState!.getOrCrash(),
-      lastKnownIp: genericPrinterDE.lastKnownIp!.getOrCrash(),
+      lastKnownIp: genericPrinterDE.deviceLastKnownIp.getOrCrash(),
       entityTypes: genericPrinterDE.entityTypes.getOrCrash(),
       compUuid: genericPrinterDE.compUuid.getOrCrash(),
       deviceVendor: genericPrinterDE.deviceVendor.getOrCrash(),
       powerConsumption: genericPrinterDE.powerConsumption.getOrCrash(),
 
+      deviceUniqueId: genericPrinterDE.deviceUniqueId.getOrCrash(),
+      devicePort: genericPrinterDE.devicePort.getOrCrash(),
+      deviceLastKnownIp: genericPrinterDE.deviceLastKnownIp.getOrCrash(),
+      deviceHostName: genericPrinterDE.deviceHostName.getOrCrash(),
+      deviceMdns: genericPrinterDE.deviceMdns.getOrCrash(),
+      devicesMacAddress: genericPrinterDE.devicesMacAddress.getOrCrash(),
+      entityKey: genericPrinterDE.entityKey.getOrCrash(),
+      requestTimeStamp: genericPrinterDE.requestTimeStamp.getOrCrash(),
+      lastResponseFromDeviceTimeStamp:
+          genericPrinterDE.lastResponseFromDeviceTimeStamp.getOrCrash(),
       // serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }
@@ -72,7 +91,7 @@ abstract class GenericPrinterDeviceDtos
   DeviceEntityAbstract toDomain() {
     return GenericPrinterDE(
       uniqueId: CoreUniqueId.fromUniqueString(id),
-      vendorUniqueId: VendorUniqueId.fromUniqueString(vendorUniqueId),
+      entityUniqueId: EntityUniqueId(entityUniqueId),
       cbjEntityName: CbjEntityName(cbjEntityName),
       entityOriginalName: EntityOriginalName(cbjEntityName),
       deviceOriginalName: DeviceOriginalName(cbjEntityName),
@@ -84,8 +103,17 @@ abstract class GenericPrinterDeviceDtos
       deviceVendor: DeviceVendor(deviceVendor),
       compUuid: DeviceCompUuid(compUuid),
       printerSwitchState: GenericPrinterSwitchState(printerSwitchState),
-      lastKnownIp: DeviceLastKnownIp(lastKnownIp),
       powerConsumption: DevicePowerConsumption(powerConsumption),
+      deviceUniqueId: DeviceUniqueId(deviceUniqueId),
+      devicePort: DevicePort(devicePort),
+      deviceLastKnownIp: DeviceLastKnownIp(deviceLastKnownIp),
+      deviceHostName: DeviceHostName(deviceHostName),
+      deviceMdns: DeviceMdns(deviceMdns),
+      devicesMacAddress: DevicesMacAddress(devicesMacAddress),
+      entityKey: EntityKey(entityKey),
+      requestTimeStamp: RequestTimeStamp(requestTimeStamp),
+      lastResponseFromDeviceTimeStamp:
+          LastResponseFromDeviceTimeStamp(lastResponseFromDeviceTimeStamp),
     );
   }
 }
