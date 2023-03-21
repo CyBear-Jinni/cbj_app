@@ -9,7 +9,7 @@ part 'room_entity_dtos.g.dart';
 abstract class RoomEntityDtos implements _$RoomEntityDtos {
   factory RoomEntityDtos({
     required String uniqueId,
-    required String defaultName,
+    required String cbjEntityName,
     required String background,
     required List<String> roomTypes,
     required List<String> roomDevicesId,
@@ -31,7 +31,7 @@ abstract class RoomEntityDtos implements _$RoomEntityDtos {
   factory RoomEntityDtos.fromDomain(RoomEntity roomEntityDE) {
     return RoomEntityDtos(
       uniqueId: roomEntityDE.uniqueId.getOrCrash(),
-      defaultName: roomEntityDE.defaultName.getOrCrash(),
+      cbjEntityName: roomEntityDE.cbjEntityName.getOrCrash(),
       background: roomEntityDE.background.getOrCrash(),
       roomTypes: roomEntityDE.roomTypes.getOrCrash(),
       roomDevicesId: roomEntityDE.roomDevicesId.getOrCrash(),
@@ -49,7 +49,7 @@ abstract class RoomEntityDtos implements _$RoomEntityDtos {
   RoomEntity toDomain() {
     return RoomEntity(
       uniqueId: RoomUniqueId.fromUniqueString(uniqueId),
-      defaultName: RoomDefaultName(defaultName),
+      cbjEntityName: RoomDefaultName(cbjEntityName),
       background: RoomBackground(background),
       roomTypes: RoomTypes(roomTypes),
       roomDevicesId: RoomDevicesId(roomDevicesId),

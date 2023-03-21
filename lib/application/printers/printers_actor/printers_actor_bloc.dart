@@ -2,10 +2,10 @@ import 'dart:async';
 
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:bloc/bloc.dart';
-import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
-import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
-import 'package:cybear_jinni/domain/devices/generic_printer_device/generic_printer_entity.dart';
-import 'package:cybear_jinni/domain/devices/generic_switch_device/generic_switch_entity.dart';
+import 'package:cybear_jinni/domain/device/devices_failures.dart';
+import 'package:cybear_jinni/domain/device/i_device_repository.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_printer_device/generic_printer_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_switch_device/generic_switch_entity.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -75,7 +75,7 @@ class PrintersActorBloc extends Bloc<PrintersActorEvent, PrintersActorState> {
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-    final String? printerIp = event.printer.lastKnownIp?.getOrCrash();
+    final String? printerIp = event.printer.deviceLastKnownIp.getOrCrash();
     if (printerIp != null) {
       launchUrl(
         Uri.parse('http://$printerIp'),

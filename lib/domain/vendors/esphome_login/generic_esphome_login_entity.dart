@@ -34,7 +34,7 @@ class GenericEspHomeLoginDE extends LoginEntityAbstract {
   // /// Will return failure if any of the fields failed or return unit if fields
   // /// have legit values
   // Option<CoreFailure<dynamic>> get failureOption {
-  //   return defaultName!.value.fold((f) => some(f), (_) => none());
+  //   return cbjEntityName!.value.fold((f) => some(f), (_) => none());
   //
   // return body.failureOrUnit
   //     .andThen(todos.failureOrUnit)

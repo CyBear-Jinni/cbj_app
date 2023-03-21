@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:cybear_jinni/domain/devices/generic_switch_device/generic_switch_entity.dart';
-import 'package:cybear_jinni/domain/devices/generic_switch_device/generic_switch_value_objects.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_switch_device/generic_switch_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_switch_device/generic_switch_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums_cbj.dart';
 import 'package:cybear_jinni/utils.dart';
@@ -78,7 +78,7 @@ class _SmartSwitchPage extends State<SmartSwitchPage> {
     return Column(
       children: <Widget>[
         Text(
-          _switch!.defaultName.getOrCrash()!, //  Show switch name
+          _switch!.cbjEntityName.getOrCrash()!, //  Show switch name
           style: TextStyle(
             fontSize: 19.0,
             color: Theme.of(context).textTheme.bodyMedium!.color,

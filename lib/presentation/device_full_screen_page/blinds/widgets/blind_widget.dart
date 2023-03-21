@@ -1,5 +1,5 @@
 import 'package:cybear_jinni/application/blinds/blinds_actor/blinds_actor_bloc.dart';
-import 'package:cybear_jinni/domain/devices/generic_blinds_device/generic_blinds_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_blinds_device/generic_blinds_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -15,22 +15,22 @@ class BlindWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
+    // final Size screenSize = MediaQuery.of(context).size;
 
-    final deviceState = _deviceEntity.deviceStateGRPC.getOrCrash();
+    final deviceState = _deviceEntity.entityStateGRPC.getOrCrash();
     final deviceAction = _deviceEntity.blindsSwitchState!.getOrCrash();
 
-    bool toggleValue = false;
-    Color toggleColor = Colors.blueGrey;
+    // bool toggleValue = false;
+    // Color toggleColor = Colors.blueGrey;
 
     if (deviceAction == DeviceActions.on.toString()) {
-      toggleValue = true;
+      // toggleValue = true;
       if (deviceState == DeviceStateGRPC.ack.toString()) {
-        toggleColor = const Color(0xFFFFDF5D);
+        // toggleColor = const Color(0xFFFFDF5D);
       }
     } else {
       if (deviceState == DeviceStateGRPC.ack.toString()) {
-        toggleColor = Theme.of(context).primaryColorDark;
+        // toggleColor = Theme.of(context).primaryColorDark;
       }
     }
 

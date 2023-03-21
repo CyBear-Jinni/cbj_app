@@ -1,7 +1,7 @@
 import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/value_objects_core.dart';
-import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
-import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_value_objects.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/value_objects_core.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_light_device/generic_light_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_light_device/generic_light_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,8 +15,8 @@ class LightCard extends StatelessWidget {
 
   void _onChange(BuildContext context, bool value) {
     final GenericLightDE tempDeviceEntity = _deviceEntity!
-      ..deviceStateGRPC =
-          DeviceState(DeviceStateGRPC.waitingInFirebase.toString())
+      ..entityStateGRPC =
+          EntityState(DeviceStateGRPC.waitingInFirebase.toString())
       ..lightSwitchState = GenericLightSwitchState(value.toString());
     context.read<LightToggleBloc>().add(
           LightToggleEvent.changeAction(
@@ -31,7 +31,7 @@ class LightCard extends StatelessWidget {
     final Size screenSize = MediaQuery.of(context).size;
     final double sizeBoxWidth = screenSize.width * 0.25;
 
-    final deviceState = _deviceEntity!.deviceStateGRPC.getOrCrash();
+    final deviceState = _deviceEntity!.entityStateGRPC.getOrCrash();
     final deviceAction = _deviceEntity!.lightSwitchState!.getOrCrash();
 
     bool toggleValue = false;

@@ -1,8 +1,7 @@
-import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/value_objects_core.dart';
-import 'package:cybear_jinni/domain/devices/generic_empty_device/generic_empty_entity.dart';
-import 'package:cybear_jinni/domain/devices/generic_empty_device/generic_empty_value_objects.dart';
-import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/value_objects_core.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_empty_device/generic_empty_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_empty_device/generic_empty_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/abstract_device/device_entity_dto_abstract.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -15,16 +14,28 @@ abstract class GenericEmptyDeviceDtos
   factory GenericEmptyDeviceDtos({
     // @JsonKey(ignore: true)
     required String id,
-    required String vendorUniqueId,
-    required String? defaultName,
-    required String? deviceStateGRPC,
+    required String entityUniqueId,
+    required String? cbjEntityName,
+    required String? entityOriginalName,
+    required String? deviceOriginalName,
+    required String? entityStateGRPC,
     required String? senderDeviceOs,
     required String? senderDeviceModel,
     required String? senderId,
     required String? emptySwitchState,
-    required String? deviceTypes,
+    required String? entityTypes,
     required String? compUuid,
     required String? deviceVendor,
+    required String? powerConsumption,
+    required String? deviceUniqueId,
+    required String? devicePort,
+    required String? deviceLastKnownIp,
+    required String? deviceHostName,
+    required String? deviceMdns,
+    required String? devicesMacAddress,
+    required String? entityKey,
+    required String? requestTimeStamp,
+    required String? lastResponseFromDeviceTimeStamp,
     String? deviceDtoClass,
     String? stateMassage,
 
@@ -37,24 +48,37 @@ abstract class GenericEmptyDeviceDtos
     return GenericEmptyDeviceDtos(
       deviceDtoClass: (GenericEmptyDeviceDtos).toString(),
       id: genericEmptyDE.uniqueId.getOrCrash(),
-      vendorUniqueId: genericEmptyDE.vendorUniqueId.getOrCrash(),
-      defaultName: genericEmptyDE.defaultName.getOrCrash(),
-      deviceStateGRPC: genericEmptyDE.deviceStateGRPC.getOrCrash(),
+      entityUniqueId: genericEmptyDE.entityUniqueId.getOrCrash(),
+      cbjEntityName: genericEmptyDE.cbjEntityName.getOrCrash(),
+      entityOriginalName: genericEmptyDE.entityOriginalName.getOrCrash(),
+      deviceOriginalName: genericEmptyDE.deviceOriginalName.getOrCrash(),
+      entityStateGRPC: genericEmptyDE.entityStateGRPC.getOrCrash(),
       stateMassage: genericEmptyDE.stateMassage.getOrCrash(),
       senderDeviceOs: genericEmptyDE.senderDeviceOs.getOrCrash(),
       senderDeviceModel: genericEmptyDE.senderDeviceModel.getOrCrash(),
       senderId: genericEmptyDE.senderId.getOrCrash(),
       emptySwitchState: genericEmptyDE.emptySwitchState!.getOrCrash(),
-      deviceTypes: genericEmptyDE.deviceTypes.getOrCrash(),
+      entityTypes: genericEmptyDE.entityTypes.getOrCrash(),
       compUuid: genericEmptyDE.compUuid.getOrCrash(),
       deviceVendor: genericEmptyDE.deviceVendor.getOrCrash(),
+      powerConsumption: genericEmptyDE.powerConsumption.getOrCrash(),
+
+      deviceUniqueId: genericEmptyDE.deviceUniqueId.getOrCrash(),
+      devicePort: genericEmptyDE.devicePort.getOrCrash(),
+      deviceLastKnownIp: genericEmptyDE.deviceLastKnownIp.getOrCrash(),
+      deviceHostName: genericEmptyDE.deviceHostName.getOrCrash(),
+      deviceMdns: genericEmptyDE.deviceMdns.getOrCrash(),
+      devicesMacAddress: genericEmptyDE.devicesMacAddress.getOrCrash(),
+      entityKey: genericEmptyDE.entityKey.getOrCrash(),
+      requestTimeStamp: genericEmptyDE.requestTimeStamp.getOrCrash(),
+      lastResponseFromDeviceTimeStamp:
+          genericEmptyDE.lastResponseFromDeviceTimeStamp.getOrCrash(),
       // serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }
 
   factory GenericEmptyDeviceDtos.fromJson(Map<String, dynamic> json) =>
-      _$GenericEmptyDeviceDtosFromJson(json)
-          .copyWith(emptySwitchState: DeviceActions.off.toString());
+      _$GenericEmptyDeviceDtosFromJson(json);
 
   @override
   final String deviceDtoClassInstance = (GenericEmptyDeviceDtos).toString();
@@ -63,9 +87,11 @@ abstract class GenericEmptyDeviceDtos
   DeviceEntityAbstract toDomain() {
     return GenericEmptyDE(
       uniqueId: CoreUniqueId.fromUniqueString(id),
-      vendorUniqueId: VendorUniqueId.fromUniqueString(vendorUniqueId),
-      defaultName: DeviceDefaultName(defaultName),
-      deviceStateGRPC: DeviceState(deviceStateGRPC),
+      entityUniqueId: EntityUniqueId(entityUniqueId),
+      cbjEntityName: CbjEntityName(cbjEntityName),
+      entityOriginalName: EntityOriginalName(cbjEntityName),
+      deviceOriginalName: DeviceOriginalName(cbjEntityName),
+      entityStateGRPC: EntityState(entityStateGRPC),
       stateMassage: DeviceStateMassage(stateMassage),
       senderDeviceOs: DeviceSenderDeviceOs(senderDeviceOs),
       senderDeviceModel: DeviceSenderDeviceModel(senderDeviceModel),
@@ -73,6 +99,17 @@ abstract class GenericEmptyDeviceDtos
       deviceVendor: DeviceVendor(deviceVendor),
       compUuid: DeviceCompUuid(compUuid),
       emptySwitchState: GenericEmptySwitchState(emptySwitchState),
+      powerConsumption: DevicePowerConsumption(powerConsumption),
+      deviceUniqueId: DeviceUniqueId(deviceUniqueId),
+      devicePort: DevicePort(devicePort),
+      deviceLastKnownIp: DeviceLastKnownIp(deviceLastKnownIp),
+      deviceHostName: DeviceHostName(deviceHostName),
+      deviceMdns: DeviceMdns(deviceMdns),
+      devicesMacAddress: DevicesMacAddress(devicesMacAddress),
+      entityKey: EntityKey(entityKey),
+      requestTimeStamp: RequestTimeStamp(requestTimeStamp),
+      lastResponseFromDeviceTimeStamp:
+          LastResponseFromDeviceTimeStamp(lastResponseFromDeviceTimeStamp),
     );
   }
 }

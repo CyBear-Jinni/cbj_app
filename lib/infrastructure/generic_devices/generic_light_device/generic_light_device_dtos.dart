@@ -1,7 +1,7 @@
-import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/value_objects_core.dart';
-import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
-import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_value_objects.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/value_objects_core.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_light_device/generic_light_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_light_device/generic_light_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/abstract_device/device_entity_dto_abstract.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -14,20 +14,32 @@ abstract class GenericLightDeviceDtos
   factory GenericLightDeviceDtos({
     // @JsonKey(ignore: true)
     required String id,
-    required String vendorUniqueId,
-    required String? defaultName,
-    required String? deviceStateGRPC,
+    required String entityUniqueId,
+    required String? cbjEntityName,
+    required String? entityOriginalName,
+    required String? deviceOriginalName,
+    required String? entityStateGRPC,
     required String? senderDeviceOs,
     required String? senderDeviceModel,
     required String? senderId,
     required String? lightSwitchState,
-    required String? deviceTypes,
+    required String? entityTypes,
     required String? compUuid,
-    required String? deviceVendor
-    // required ServerTimestampConverter() FieldValue serverTimeStamp,
-    ,
-    String? stateMassage,
+    required String? deviceVendor,
+    required String? powerConsumption,
+    required String? deviceUniqueId,
+    required String? devicePort,
+    required String? deviceLastKnownIp,
+    required String? deviceHostName,
+    required String? deviceMdns,
+    required String? devicesMacAddress,
+    required String? entityKey,
+    required String? requestTimeStamp,
+    required String? lastResponseFromDeviceTimeStamp,
     String? deviceDtoClass,
+    String? stateMassage,
+
+    // required ServerTimestampConverter() FieldValue serverTimeStamp,
   }) = _GenericLightDeviceDtos;
 
   GenericLightDeviceDtos._();
@@ -36,17 +48,31 @@ abstract class GenericLightDeviceDtos
     return GenericLightDeviceDtos(
       deviceDtoClass: (GenericLightDeviceDtos).toString(),
       id: genericLightDE.uniqueId.getOrCrash(),
-      vendorUniqueId: genericLightDE.vendorUniqueId.getOrCrash(),
-      defaultName: genericLightDE.defaultName.getOrCrash(),
-      deviceStateGRPC: genericLightDE.deviceStateGRPC.getOrCrash(),
+      entityUniqueId: genericLightDE.entityUniqueId.getOrCrash(),
+      cbjEntityName: genericLightDE.cbjEntityName.getOrCrash(),
+      entityOriginalName: genericLightDE.entityOriginalName.getOrCrash(),
+      deviceOriginalName: genericLightDE.deviceOriginalName.getOrCrash(),
+      entityStateGRPC: genericLightDE.entityStateGRPC.getOrCrash(),
       stateMassage: genericLightDE.stateMassage.getOrCrash(),
       senderDeviceOs: genericLightDE.senderDeviceOs.getOrCrash(),
       senderDeviceModel: genericLightDE.senderDeviceModel.getOrCrash(),
       senderId: genericLightDE.senderId.getOrCrash(),
       lightSwitchState: genericLightDE.lightSwitchState!.getOrCrash(),
-      deviceTypes: genericLightDE.deviceTypes.getOrCrash(),
+      entityTypes: genericLightDE.entityTypes.getOrCrash(),
       compUuid: genericLightDE.compUuid.getOrCrash(),
       deviceVendor: genericLightDE.deviceVendor.getOrCrash(),
+      powerConsumption: genericLightDE.powerConsumption.getOrCrash(),
+
+      deviceUniqueId: genericLightDE.deviceUniqueId.getOrCrash(),
+      devicePort: genericLightDE.devicePort.getOrCrash(),
+      deviceLastKnownIp: genericLightDE.deviceLastKnownIp.getOrCrash(),
+      deviceHostName: genericLightDE.deviceHostName.getOrCrash(),
+      deviceMdns: genericLightDE.deviceMdns.getOrCrash(),
+      devicesMacAddress: genericLightDE.devicesMacAddress.getOrCrash(),
+      entityKey: genericLightDE.entityKey.getOrCrash(),
+      requestTimeStamp: genericLightDE.requestTimeStamp.getOrCrash(),
+      lastResponseFromDeviceTimeStamp:
+          genericLightDE.lastResponseFromDeviceTimeStamp.getOrCrash(),
       // serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }
@@ -61,9 +87,11 @@ abstract class GenericLightDeviceDtos
   DeviceEntityAbstract toDomain() {
     return GenericLightDE(
       uniqueId: CoreUniqueId.fromUniqueString(id),
-      vendorUniqueId: VendorUniqueId.fromUniqueString(vendorUniqueId),
-      defaultName: DeviceDefaultName(defaultName),
-      deviceStateGRPC: DeviceState(deviceStateGRPC),
+      entityUniqueId: EntityUniqueId(entityUniqueId),
+      cbjEntityName: CbjEntityName(cbjEntityName),
+      entityOriginalName: EntityOriginalName(cbjEntityName),
+      deviceOriginalName: DeviceOriginalName(cbjEntityName),
+      entityStateGRPC: EntityState(entityStateGRPC),
       stateMassage: DeviceStateMassage(stateMassage),
       senderDeviceOs: DeviceSenderDeviceOs(senderDeviceOs),
       senderDeviceModel: DeviceSenderDeviceModel(senderDeviceModel),
@@ -71,6 +99,17 @@ abstract class GenericLightDeviceDtos
       deviceVendor: DeviceVendor(deviceVendor),
       compUuid: DeviceCompUuid(compUuid),
       lightSwitchState: GenericLightSwitchState(lightSwitchState),
+      powerConsumption: DevicePowerConsumption(powerConsumption),
+      deviceUniqueId: DeviceUniqueId(deviceUniqueId),
+      devicePort: DevicePort(devicePort),
+      deviceLastKnownIp: DeviceLastKnownIp(deviceLastKnownIp),
+      deviceHostName: DeviceHostName(deviceHostName),
+      deviceMdns: DeviceMdns(deviceMdns),
+      devicesMacAddress: DevicesMacAddress(devicesMacAddress),
+      entityKey: EntityKey(entityKey),
+      requestTimeStamp: RequestTimeStamp(requestTimeStamp),
+      lastResponseFromDeviceTimeStamp:
+          LastResponseFromDeviceTimeStamp(lastResponseFromDeviceTimeStamp),
     );
   }
 }

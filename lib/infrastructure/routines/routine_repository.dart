@@ -2,7 +2,7 @@ import 'dart:collection';
 import 'dart:convert';
 
 import 'package:cybear_jinni/domain/core/value_objects.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/routine/i_routine_cbj_repository.dart';
 import 'package:cybear_jinni/domain/routine/routine_cbj_entity.dart';
 import 'package:cybear_jinni/domain/routine/routine_cbj_failures.dart';
@@ -57,7 +57,7 @@ class RoutineCbjRepository implements IRoutineCbjRepository {
           nodeRedFlowId: RoutineCbjNodeRedFlowId(null),
           firstNodeId: RoutineCbjFirstNodeId(null),
           lastDateOfExecute: RoutineCbjLastDateOfExecute(null),
-          deviceStateGRPC: RoutineCbjDeviceStateGRPC(null),
+          entityStateGRPC: RoutineCbjDeviceStateGRPC(null),
           senderDeviceModel: RoutineCbjSenderDeviceModel(null),
           senderDeviceOs: RoutineCbjSenderDeviceOs(null),
           senderId: RoutineCbjSenderId(null),
@@ -153,7 +153,7 @@ class RoutineCbjRepository implements IRoutineCbjRepository {
     for (final RoutineCbjEntity routineCbjEntity in routinesList.asList()) {
       addOrUpdateNewRoutineInHub(
         routineCbjEntity.copyWith(
-          deviceStateGRPC: RoutineCbjDeviceStateGRPC(
+          entityStateGRPC: RoutineCbjDeviceStateGRPC(
             DeviceStateGRPC.waitingInFirebase.toString(),
           ),
         ),

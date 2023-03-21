@@ -1,5 +1,5 @@
 import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
-import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/rgbw_lights/widgets/light_color_mods.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +28,7 @@ class RgbwLightWidget extends StatelessWidget {
     final Size screenSize = MediaQuery.of(context).size;
     final double sizeBoxWidth = screenSize.width * 0.25;
 
-    final deviceState = _deviceEntity.deviceStateGRPC.getOrCrash();
+    final deviceState = _deviceEntity.entityStateGRPC.getOrCrash();
     final deviceAction = _deviceEntity.lightSwitchState!.getOrCrash();
 
     bool toggleValue = false;
@@ -59,7 +59,7 @@ class RgbwLightWidget extends StatelessWidget {
                   children: [
                     Flexible(
                       child: Text(
-                        _deviceEntity.defaultName.getOrCrash()!,
+                        _deviceEntity.cbjEntityName.getOrCrash()!,
                         style: const TextStyle(
                           overflow: TextOverflow.clip,
                           fontSize: 20.0,

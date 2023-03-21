@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/domain/devices/generic_switch_device/generic_switch_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_switch_device/generic_switch_entity.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
 import 'package:cybear_jinni/utils.dart';
@@ -113,9 +113,9 @@ class SettingsPageOfSmartTvs extends StatelessWidget {
                       color: Colors.red,
                     ),
                     child: tile(
-                      roomEntity.defaultName.getOrCrash(),
+                      roomEntity.cbjEntityName.getOrCrash(),
                       allSmartDeviceSwitchDevices[index]
-                          .defaultName
+                          .cbjEntityName
                           .getOrCrash()!,
                     ),
                   );

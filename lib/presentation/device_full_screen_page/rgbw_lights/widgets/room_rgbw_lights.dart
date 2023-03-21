@@ -1,6 +1,6 @@
 import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
-import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/rgbw_lights/widgets/error_rgbw_lights_device_card_widget.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/rgbw_lights/widgets/rgbw_light_widget.dart';

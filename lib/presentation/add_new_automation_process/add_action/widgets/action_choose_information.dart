@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/add_new_action/add_new_action_bloc.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -38,7 +38,7 @@ class ActionChooseInformation extends StatelessWidget {
                   icon: const Icon(Icons.arrow_drop_down),
                   hint: Text(
                     state.allDevicesWithNewAction.isNotEmpty
-                        ? state.allDevicesWithNewAction[0].key.defaultName
+                        ? state.allDevicesWithNewAction[0].key.cbjEntityName
                             .getOrCrash()!
                         : 'Choose Device',
                     style: const TextStyle(color: Colors.white),
@@ -55,7 +55,7 @@ class ActionChooseInformation extends StatelessWidget {
                   items: state.allDevices.map<DropdownMenuItem<String>>((e) {
                     return DropdownMenuItem<String>(
                       value: e.uniqueId.getOrCrash(),
-                      child: Text(e.defaultName.getOrCrash()!),
+                      child: Text(e.cbjEntityName.getOrCrash()!),
                     );
                   }).toList(),
                 ),

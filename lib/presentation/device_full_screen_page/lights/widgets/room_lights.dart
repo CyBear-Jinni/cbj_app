@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
-import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/lights/widgets/error_lights_device_card_widget.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/lights/widgets/light_widget.dart';
@@ -57,7 +57,7 @@ class RoomLights extends StatelessWidget {
                 Column(
                   children: [
                     AutoSizeText(
-                      deviceEntityTemp.defaultName.getOrCrash()!,
+                      deviceEntityTemp.cbjEntityName.getOrCrash()!,
                       maxLines: 1,
                       maxFontSize: 19,
                       style: TextStyle(

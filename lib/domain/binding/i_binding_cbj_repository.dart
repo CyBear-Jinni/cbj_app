@@ -2,7 +2,7 @@ import 'dart:collection';
 
 import 'package:cybear_jinni/domain/binding/binding_cbj_entity.dart';
 import 'package:cybear_jinni/domain/binding/binding_cbj_failures.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:dartz/dartz.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:rxdart/rxdart.dart';
