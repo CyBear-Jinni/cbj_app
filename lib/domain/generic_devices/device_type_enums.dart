@@ -1,6 +1,5 @@
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 
-
 ///  List of all physical devices types
 enum PhysicalDeviceType {
   nanoPiDuo2,

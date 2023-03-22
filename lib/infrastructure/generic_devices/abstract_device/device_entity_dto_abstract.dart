@@ -14,7 +14,6 @@ import 'package:cybear_jinni/infrastructure/generic_devices/generic_smart_type_t
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_switch_device/generic_switch_device_dtos.dart';
 import 'package:cybear_jinni/utils.dart';
 
-
 class DeviceEntityDtoAbstract {
   DeviceEntityDtoAbstract();
 
