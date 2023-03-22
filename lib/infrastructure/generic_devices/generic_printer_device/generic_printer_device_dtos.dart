@@ -37,6 +37,7 @@ abstract class GenericPrinterDeviceDtos
     required String? entityKey,
     required String? requestTimeStamp,
     required String? lastResponseFromDeviceTimeStamp,
+    required String? deviceCbjUniqueId,
     String? deviceDtoClass,
     String? stateMassage,
 
@@ -46,38 +47,37 @@ abstract class GenericPrinterDeviceDtos
   GenericPrinterDeviceDtos._();
 
   factory GenericPrinterDeviceDtos.fromDomain(
-    GenericPrinterDE genericPrinterDE,
+    GenericPrinterDE deviceDe,
   ) {
     return GenericPrinterDeviceDtos(
       deviceDtoClass: (GenericPrinterDeviceDtos).toString(),
-      id: genericPrinterDE.uniqueId.getOrCrash(),
-      entityUniqueId: genericPrinterDE.entityUniqueId.getOrCrash(),
-      cbjEntityName: genericPrinterDE.cbjEntityName.getOrCrash(),
-      entityOriginalName: genericPrinterDE.entityOriginalName.getOrCrash(),
-      deviceOriginalName: genericPrinterDE.deviceOriginalName.getOrCrash(),
-      entityStateGRPC: genericPrinterDE.entityStateGRPC.getOrCrash(),
-      stateMassage: genericPrinterDE.stateMassage.getOrCrash(),
-      senderDeviceOs: genericPrinterDE.senderDeviceOs.getOrCrash(),
-      senderDeviceModel: genericPrinterDE.senderDeviceModel.getOrCrash(),
-      senderId: genericPrinterDE.senderId.getOrCrash(),
-      printerSwitchState: genericPrinterDE.printerSwitchState!.getOrCrash(),
-      lastKnownIp: genericPrinterDE.deviceLastKnownIp.getOrCrash(),
-      entityTypes: genericPrinterDE.entityTypes.getOrCrash(),
-      compUuid: genericPrinterDE.compUuid.getOrCrash(),
-      deviceVendor: genericPrinterDE.deviceVendor.getOrCrash(),
-      powerConsumption: genericPrinterDE.powerConsumption.getOrCrash(),
-
-      deviceUniqueId: genericPrinterDE.deviceUniqueId.getOrCrash(),
-      devicePort: genericPrinterDE.devicePort.getOrCrash(),
-      deviceLastKnownIp: genericPrinterDE.deviceLastKnownIp.getOrCrash(),
-      deviceHostName: genericPrinterDE.deviceHostName.getOrCrash(),
-      deviceMdns: genericPrinterDE.deviceMdns.getOrCrash(),
-      devicesMacAddress: genericPrinterDE.devicesMacAddress.getOrCrash(),
-      entityKey: genericPrinterDE.entityKey.getOrCrash(),
-      requestTimeStamp: genericPrinterDE.requestTimeStamp.getOrCrash(),
+      id: deviceDe.uniqueId.getOrCrash(),
+      entityUniqueId: deviceDe.entityUniqueId.getOrCrash(),
+      cbjEntityName: deviceDe.cbjEntityName.getOrCrash(),
+      entityOriginalName: deviceDe.entityOriginalName.getOrCrash(),
+      deviceOriginalName: deviceDe.deviceOriginalName.getOrCrash(),
+      entityStateGRPC: deviceDe.entityStateGRPC.getOrCrash(),
+      stateMassage: deviceDe.stateMassage.getOrCrash(),
+      senderDeviceOs: deviceDe.senderDeviceOs.getOrCrash(),
+      senderDeviceModel: deviceDe.senderDeviceModel.getOrCrash(),
+      senderId: deviceDe.senderId.getOrCrash(),
+      printerSwitchState: deviceDe.printerSwitchState!.getOrCrash(),
+      lastKnownIp: deviceDe.deviceLastKnownIp.getOrCrash(),
+      entityTypes: deviceDe.entityTypes.getOrCrash(),
+      compUuid: deviceDe.compUuid.getOrCrash(),
+      deviceVendor: deviceDe.deviceVendor.getOrCrash(),
+      powerConsumption: deviceDe.powerConsumption.getOrCrash(),
+      deviceUniqueId: deviceDe.deviceUniqueId.getOrCrash(),
+      devicePort: deviceDe.devicePort.getOrCrash(),
+      deviceLastKnownIp: deviceDe.deviceLastKnownIp.getOrCrash(),
+      deviceHostName: deviceDe.deviceHostName.getOrCrash(),
+      deviceMdns: deviceDe.deviceMdns.getOrCrash(),
+      devicesMacAddress: deviceDe.devicesMacAddress.getOrCrash(),
+      entityKey: deviceDe.entityKey.getOrCrash(),
+      requestTimeStamp: deviceDe.requestTimeStamp.getOrCrash(),
       lastResponseFromDeviceTimeStamp:
-          genericPrinterDE.lastResponseFromDeviceTimeStamp.getOrCrash(),
-      // serverTimeStamp: FieldValue.serverTimestamp(),
+          deviceDe.lastResponseFromDeviceTimeStamp.getOrCrash(),
+      deviceCbjUniqueId: deviceDe.deviceCbjUniqueId.getOrCrash(),
     );
   }
 
@@ -114,6 +114,7 @@ abstract class GenericPrinterDeviceDtos
       requestTimeStamp: RequestTimeStamp(requestTimeStamp),
       lastResponseFromDeviceTimeStamp:
           LastResponseFromDeviceTimeStamp(lastResponseFromDeviceTimeStamp),
+      deviceCbjUniqueId: CoreUniqueId.fromUniqueString(deviceCbjUniqueId!),
     );
   }
 }

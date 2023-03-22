@@ -2,6 +2,7 @@ import 'package:cybear_jinni/domain/generic_devices/abstract_device/core_failure
 import 'package:cybear_jinni/domain/generic_devices/abstract_device/value_objects_core.dart';
 import 'package:cybear_jinni/domain/generic_devices/generic_rgbw_light_device/generic_rgbw_light_validators.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+
 import 'package:dartz/dartz.dart';
 
 class GenericRgbwLightSwitchState extends ValueObjectCore<String> {

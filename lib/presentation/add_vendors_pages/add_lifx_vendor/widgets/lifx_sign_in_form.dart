@@ -107,7 +107,7 @@ class LifxSignInForm extends StatelessWidget {
                             onPressed: () {
                               context.read<LifxSignInFormBloc>().add(
                                     const LifxSignInFormEvent
-                                        .signInWithApiKey(),
+                                        .signInWithLifxApiKey(),
                                   );
 
                               Fluttertoast.showToast(

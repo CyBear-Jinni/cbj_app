@@ -1,6 +1,7 @@
 import 'package:cybear_jinni/domain/generic_devices/abstract_device/core_failures.dart';
 import 'package:cybear_jinni/domain/generic_devices/abstract_device/value_objects_core.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+
 import 'package:cybear_jinni/infrastructure/generic_devices/abstract_device/device_entity_dto_abstract.dart';
 import 'package:dartz/dartz.dart';
 import 'package:uuid/uuid.dart';
@@ -32,6 +33,7 @@ abstract class DeviceEntityAbstract {
     required this.entityKey,
     required this.requestTimeStamp,
     required this.lastResponseFromDeviceTimeStamp,
+    required this.deviceCbjUniqueId,
   });
 
   /// The unique id that CyBear Jinni Hub gave the device
@@ -103,6 +105,9 @@ abstract class DeviceEntityAbstract {
 
   /// Time of the last response from the device
   LastResponseFromDeviceTimeStamp lastResponseFromDeviceTimeStamp;
+
+  /// Unique id that cbj creates for the device that the entity is stored on
+  CoreUniqueId deviceCbjUniqueId;
 
   String getDeviceId();
 
@@ -191,6 +196,7 @@ class DeviceEntityNotAbstract extends DeviceEntityAbstract {
           requestTimeStamp: RequestTimeStamp('requestTimeStamp is empty'),
           lastResponseFromDeviceTimeStamp: LastResponseFromDeviceTimeStamp(
               'lastResponseFromDeviceTimeStamp is empty'),
+          deviceCbjUniqueId: CoreUniqueId(),
         );
 
   @override

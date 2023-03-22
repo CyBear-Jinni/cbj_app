@@ -177,6 +177,8 @@ class HubClientDemo {
       requestTimeStamp: RequestTimeStamp('requestTimeStamp'),
       lastResponseFromDeviceTimeStamp:
           LastResponseFromDeviceTimeStamp('lastResponseFromDeviceTimeStamp'),
+      deviceCbjUniqueId:
+          CoreUniqueId.fromUniqueString('n5sdf1sf-df53-v2sd-ge46-hhjlywawq166'),
     );
 
     final RequestsAndStatusFromHub requestsAndStatusFromHubBlinds =
@@ -218,6 +220,8 @@ class HubClientDemo {
       requestTimeStamp: RequestTimeStamp('requestTimeStamp'),
       lastResponseFromDeviceTimeStamp:
           LastResponseFromDeviceTimeStamp('lastResponseFromDeviceTimeStamp'),
+      deviceCbjUniqueId:
+          CoreUniqueId.fromUniqueString('b0gaseh2-u7f4-1g42-vdf2-dfnertaku3fs'),
     );
 
     final RequestsAndStatusFromHub requestsAndStatusFromHubButton =
@@ -258,6 +262,8 @@ class HubClientDemo {
       requestTimeStamp: RequestTimeStamp('requestTimeStamp'),
       lastResponseFromDeviceTimeStamp:
           LastResponseFromDeviceTimeStamp('lastResponseFromDeviceTimeStamp'),
+      deviceCbjUniqueId:
+          CoreUniqueId.fromUniqueString('654wdf2u-rge2-ffh2-gn22-rthweru521rs'),
     );
 
     final RequestsAndStatusFromHub requestsAndStatusFromHubButton2 =
@@ -299,6 +305,8 @@ class HubClientDemo {
       requestTimeStamp: RequestTimeStamp('requestTimeStamp'),
       lastResponseFromDeviceTimeStamp:
           LastResponseFromDeviceTimeStamp('lastResponseFromDeviceTimeStamp'),
+      deviceCbjUniqueId:
+          CoreUniqueId.fromUniqueString('id2erfdd-g34a-uhj5-fdfa-sdf5y3wsdfhs'),
     );
 
     final RequestsAndStatusFromHub requestsAndStatusFromHubBoiler =
@@ -346,6 +354,8 @@ class HubClientDemo {
       requestTimeStamp: RequestTimeStamp('requestTimeStamp'),
       lastResponseFromDeviceTimeStamp:
           LastResponseFromDeviceTimeStamp('lastResponseFromDeviceTimeStamp'),
+      deviceCbjUniqueId:
+          CoreUniqueId.fromUniqueString('sd3fgbns-64as-1gd2-gfdw-dgghks325as6'),
     );
 
     final RequestsAndStatusFromHub requestsAndStatusFromHubRgbLight =

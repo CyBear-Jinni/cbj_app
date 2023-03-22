@@ -3,6 +3,7 @@ import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entit
 import 'package:cybear_jinni/domain/generic_devices/abstract_device/value_objects_core.dart';
 import 'package:cybear_jinni/domain/generic_devices/generic_smart_tv/generic_smart_tv_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+
 import 'package:cybear_jinni/infrastructure/generic_devices/abstract_device/device_entity_dto_abstract.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_smart_tv_device/generic_smart_tv_device_dtos.dart';
 import 'package:cybear_jinni/utils.dart';
@@ -35,6 +36,7 @@ class GenericSmartTvDE extends DeviceEntityAbstract {
     required super.entityKey,
     required super.requestTimeStamp,
     required super.lastResponseFromDeviceTimeStamp,
+    required super.deviceCbjUniqueId,
     required this.smartTvSwitchState,
     this.openUrl,
     this.pausePlayState,
@@ -68,6 +70,7 @@ class GenericSmartTvDE extends DeviceEntityAbstract {
         entityKey: EntityKey(''),
         requestTimeStamp: RequestTimeStamp(''),
         lastResponseFromDeviceTimeStamp: LastResponseFromDeviceTimeStamp(''),
+        deviceCbjUniqueId: CoreUniqueId(),
         smartTvSwitchState:
             GenericSmartTvSwitchState(DeviceActions.off.toString()),
       );
@@ -138,13 +141,13 @@ class GenericSmartTvDE extends DeviceEntityAbstract {
       requestTimeStamp: requestTimeStamp.getOrCrash(),
       lastResponseFromDeviceTimeStamp:
           lastResponseFromDeviceTimeStamp.getOrCrash(),
+      deviceCbjUniqueId: deviceCbjUniqueId.getOrCrash(),
       smartTvSwitchState: smartTvSwitchState!.getOrCrash(),
       deviceVendor: deviceVendor.getOrCrash(),
       openUrl: openUrl?.getOrCrash(),
       pausePlayState: pausePlayState?.getOrCrash(),
       skip: skip?.getOrCrash(),
       volume: volume?.getOrCrash(),
-      // serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }
 

@@ -102,7 +102,8 @@ class EspHomeSignInForm extends StatelessWidget {
                     child: TextButton(
                       onPressed: () {
                         context.read<EspHomeSignInFormBloc>().add(
-                              const EspHomeSignInFormEvent.signInWithApiKey(),
+                              const EspHomeSignInFormEvent
+                                  .signInWithEspHomeApiKey(),
                             );
 
                         Fluttertoast.showToast(

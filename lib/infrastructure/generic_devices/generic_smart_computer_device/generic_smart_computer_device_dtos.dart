@@ -35,6 +35,7 @@ abstract class GenericSmartComputerDeviceDtos
     required String? entityKey,
     required String? requestTimeStamp,
     required String? lastResponseFromDeviceTimeStamp,
+    required String? deviceCbjUniqueId,
     required String? smartComputerSuspendState,
     required String? smartComputerShutDownState,
     String? deviceDtoClass,
@@ -46,42 +47,39 @@ abstract class GenericSmartComputerDeviceDtos
   GenericSmartComputerDeviceDtos._();
 
   factory GenericSmartComputerDeviceDtos.fromDomain(
-    GenericSmartComputerDE genericSmartComputerDE,
+    GenericSmartComputerDE deviceDe,
   ) {
     return GenericSmartComputerDeviceDtos(
       deviceDtoClass: (GenericSmartComputerDeviceDtos).toString(),
-      id: genericSmartComputerDE.uniqueId.getOrCrash(),
-      entityUniqueId: genericSmartComputerDE.entityUniqueId.getOrCrash(),
-      cbjEntityName: genericSmartComputerDE.cbjEntityName.getOrCrash(),
-      entityOriginalName:
-          genericSmartComputerDE.entityOriginalName.getOrCrash(),
-      deviceOriginalName:
-          genericSmartComputerDE.deviceOriginalName.getOrCrash(),
-      entityStateGRPC: genericSmartComputerDE.entityStateGRPC.getOrCrash(),
-      stateMassage: genericSmartComputerDE.stateMassage.getOrCrash(),
-      senderDeviceOs: genericSmartComputerDE.senderDeviceOs.getOrCrash(),
-      senderDeviceModel: genericSmartComputerDE.senderDeviceModel.getOrCrash(),
-      senderId: genericSmartComputerDE.senderId.getOrCrash(),
+      id: deviceDe.uniqueId.getOrCrash(),
+      entityUniqueId: deviceDe.entityUniqueId.getOrCrash(),
+      cbjEntityName: deviceDe.cbjEntityName.getOrCrash(),
+      entityOriginalName: deviceDe.entityOriginalName.getOrCrash(),
+      deviceOriginalName: deviceDe.deviceOriginalName.getOrCrash(),
+      entityStateGRPC: deviceDe.entityStateGRPC.getOrCrash(),
+      stateMassage: deviceDe.stateMassage.getOrCrash(),
+      senderDeviceOs: deviceDe.senderDeviceOs.getOrCrash(),
+      senderDeviceModel: deviceDe.senderDeviceModel.getOrCrash(),
+      senderId: deviceDe.senderId.getOrCrash(),
       smartComputerSuspendState:
-          genericSmartComputerDE.smartComputerSuspendState!.getOrCrash(),
+          deviceDe.smartComputerSuspendState!.getOrCrash(),
       smartComputerShutDownState:
-          genericSmartComputerDE.smartComputerShutDownState!.getOrCrash(),
-      entityTypes: genericSmartComputerDE.entityTypes.getOrCrash(),
-      compUuid: genericSmartComputerDE.compUuid.getOrCrash(),
-      deviceVendor: genericSmartComputerDE.deviceVendor.getOrCrash(),
-      powerConsumption: genericSmartComputerDE.powerConsumption.getOrCrash(),
-
-      deviceUniqueId: genericSmartComputerDE.deviceUniqueId.getOrCrash(),
-      devicePort: genericSmartComputerDE.devicePort.getOrCrash(),
-      deviceLastKnownIp: genericSmartComputerDE.deviceLastKnownIp.getOrCrash(),
-      deviceHostName: genericSmartComputerDE.deviceHostName.getOrCrash(),
-      deviceMdns: genericSmartComputerDE.deviceMdns.getOrCrash(),
-      devicesMacAddress: genericSmartComputerDE.devicesMacAddress.getOrCrash(),
-      entityKey: genericSmartComputerDE.entityKey.getOrCrash(),
-      requestTimeStamp: genericSmartComputerDE.requestTimeStamp.getOrCrash(),
+          deviceDe.smartComputerShutDownState!.getOrCrash(),
+      entityTypes: deviceDe.entityTypes.getOrCrash(),
+      compUuid: deviceDe.compUuid.getOrCrash(),
+      deviceVendor: deviceDe.deviceVendor.getOrCrash(),
+      powerConsumption: deviceDe.powerConsumption.getOrCrash(),
+      deviceUniqueId: deviceDe.deviceUniqueId.getOrCrash(),
+      devicePort: deviceDe.devicePort.getOrCrash(),
+      deviceLastKnownIp: deviceDe.deviceLastKnownIp.getOrCrash(),
+      deviceHostName: deviceDe.deviceHostName.getOrCrash(),
+      deviceMdns: deviceDe.deviceMdns.getOrCrash(),
+      devicesMacAddress: deviceDe.devicesMacAddress.getOrCrash(),
+      entityKey: deviceDe.entityKey.getOrCrash(),
+      requestTimeStamp: deviceDe.requestTimeStamp.getOrCrash(),
       lastResponseFromDeviceTimeStamp:
-          genericSmartComputerDE.lastResponseFromDeviceTimeStamp.getOrCrash(),
-      // serverTimeStamp: FieldValue.serverTimestamp(),
+          deviceDe.lastResponseFromDeviceTimeStamp.getOrCrash(),
+      deviceCbjUniqueId: deviceDe.deviceCbjUniqueId.getOrCrash(),
     );
   }
 
@@ -122,6 +120,7 @@ abstract class GenericSmartComputerDeviceDtos
       requestTimeStamp: RequestTimeStamp(requestTimeStamp),
       lastResponseFromDeviceTimeStamp:
           LastResponseFromDeviceTimeStamp(lastResponseFromDeviceTimeStamp),
+      deviceCbjUniqueId: CoreUniqueId.fromUniqueString(deviceCbjUniqueId!),
     );
   }
 }

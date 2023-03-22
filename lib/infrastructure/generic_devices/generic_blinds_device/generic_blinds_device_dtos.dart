@@ -36,6 +36,7 @@ abstract class GenericBlindsDeviceDtos
     required String? entityKey,
     required String? requestTimeStamp,
     required String? lastResponseFromDeviceTimeStamp,
+    required String? deviceCbjUniqueId,
     String? deviceDtoClass,
     String? stateMassage,
 
@@ -44,35 +45,35 @@ abstract class GenericBlindsDeviceDtos
 
   GenericBlindsDeviceDtos._();
 
-  factory GenericBlindsDeviceDtos.fromDomain(GenericBlindsDE genericBlindsDE) {
+  factory GenericBlindsDeviceDtos.fromDomain(GenericBlindsDE deviceDe) {
     return GenericBlindsDeviceDtos(
       deviceDtoClass: (GenericBlindsDeviceDtos).toString(),
-      id: genericBlindsDE.uniqueId.getOrCrash(),
-      entityUniqueId: genericBlindsDE.entityUniqueId.getOrCrash(),
-      cbjEntityName: genericBlindsDE.cbjEntityName.getOrCrash(),
-      entityOriginalName: genericBlindsDE.entityOriginalName.getOrCrash(),
-      deviceOriginalName: genericBlindsDE.deviceOriginalName.getOrCrash(),
-      entityStateGRPC: genericBlindsDE.entityStateGRPC.getOrCrash(),
-      stateMassage: genericBlindsDE.stateMassage.getOrCrash(),
-      senderDeviceOs: genericBlindsDE.senderDeviceOs.getOrCrash(),
-      senderDeviceModel: genericBlindsDE.senderDeviceModel.getOrCrash(),
-      senderId: genericBlindsDE.senderId.getOrCrash(),
-      blindsSwitchState: genericBlindsDE.blindsSwitchState!.getOrCrash(),
-      entityTypes: genericBlindsDE.entityTypes.getOrCrash(),
-      compUuid: genericBlindsDE.compUuid.getOrCrash(),
-      deviceVendor: genericBlindsDE.deviceVendor.getOrCrash(),
-      powerConsumption: genericBlindsDE.powerConsumption.getOrCrash(),
-      deviceUniqueId: genericBlindsDE.deviceUniqueId.getOrCrash(),
-      devicePort: genericBlindsDE.devicePort.getOrCrash(),
-      deviceLastKnownIp: genericBlindsDE.deviceLastKnownIp.getOrCrash(),
-      deviceHostName: genericBlindsDE.deviceHostName.getOrCrash(),
-      deviceMdns: genericBlindsDE.deviceMdns.getOrCrash(),
-      devicesMacAddress: genericBlindsDE.devicesMacAddress.getOrCrash(),
-      entityKey: genericBlindsDE.entityKey.getOrCrash(),
-      requestTimeStamp: genericBlindsDE.requestTimeStamp.getOrCrash(),
+      id: deviceDe.uniqueId.getOrCrash(),
+      entityUniqueId: deviceDe.entityUniqueId.getOrCrash(),
+      cbjEntityName: deviceDe.cbjEntityName.getOrCrash(),
+      entityOriginalName: deviceDe.entityOriginalName.getOrCrash(),
+      deviceOriginalName: deviceDe.deviceOriginalName.getOrCrash(),
+      entityStateGRPC: deviceDe.entityStateGRPC.getOrCrash(),
+      stateMassage: deviceDe.stateMassage.getOrCrash(),
+      senderDeviceOs: deviceDe.senderDeviceOs.getOrCrash(),
+      senderDeviceModel: deviceDe.senderDeviceModel.getOrCrash(),
+      senderId: deviceDe.senderId.getOrCrash(),
+      blindsSwitchState: deviceDe.blindsSwitchState!.getOrCrash(),
+      entityTypes: deviceDe.entityTypes.getOrCrash(),
+      compUuid: deviceDe.compUuid.getOrCrash(),
+      deviceVendor: deviceDe.deviceVendor.getOrCrash(),
+      powerConsumption: deviceDe.powerConsumption.getOrCrash(),
+      deviceUniqueId: deviceDe.deviceUniqueId.getOrCrash(),
+      devicePort: deviceDe.devicePort.getOrCrash(),
+      deviceLastKnownIp: deviceDe.deviceLastKnownIp.getOrCrash(),
+      deviceHostName: deviceDe.deviceHostName.getOrCrash(),
+      deviceMdns: deviceDe.deviceMdns.getOrCrash(),
+      devicesMacAddress: deviceDe.devicesMacAddress.getOrCrash(),
+      entityKey: deviceDe.entityKey.getOrCrash(),
+      requestTimeStamp: deviceDe.requestTimeStamp.getOrCrash(),
       lastResponseFromDeviceTimeStamp:
-          genericBlindsDE.lastResponseFromDeviceTimeStamp.getOrCrash(),
-      // serverTimeStamp: FieldValue.serverTimestamp(),
+          deviceDe.lastResponseFromDeviceTimeStamp.getOrCrash(),
+      deviceCbjUniqueId: deviceDe.deviceCbjUniqueId.getOrCrash(),
     );
   }
 
@@ -109,6 +110,7 @@ abstract class GenericBlindsDeviceDtos
       requestTimeStamp: RequestTimeStamp(requestTimeStamp),
       lastResponseFromDeviceTimeStamp:
           LastResponseFromDeviceTimeStamp(lastResponseFromDeviceTimeStamp),
+      deviceCbjUniqueId: CoreUniqueId.fromUniqueString(deviceCbjUniqueId!),
     );
   }
 }
