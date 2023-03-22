@@ -12,8 +12,6 @@ class AddNewDeviceWidgetPopup extends StatefulWidget {
 }
 
 class _AddNewDeviceWidgetPopup extends State<AddNewDeviceWidgetPopup> {
-  static String? _ip;
-
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   static Future<String?> getMyWifiIp() async {
@@ -31,7 +29,7 @@ class _AddNewDeviceWidgetPopup extends State<AddNewDeviceWidgetPopup> {
               autofocus: true,
               initialValue:
                   snapshot.data?.substring(0, snapshot.data!.length - 1),
-              onSaved: (String? ip) => _ip = ip,
+              onSaved: (String? ip) {},
               keyboardType: TextInputType.number,
               validator: (String? value) {
                 if (value!.isEmpty) {

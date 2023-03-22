@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/presentation/add_new_automation_process/add_action/add_action_page.dart';
 import 'package:cybear_jinni/presentation/add_new_automation_process/add_bindings/add_binding_page.dart';
 import 'package:cybear_jinni/presentation/add_new_automation_process/add_routine/add_routine_page.dart';

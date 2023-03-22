@@ -197,7 +197,8 @@ class SmartLifeSignInForm extends StatelessWidget {
                                     ),
                                   );
                               context.read<TuyaSignInFormBloc>().add(
-                                    const TuyaSignInFormEvent.signIn(),
+                                    const TuyaSignInFormEvent
+                                        .signInWithTuyaApiKey(),
                                   );
 
                               Fluttertoast.showToast(

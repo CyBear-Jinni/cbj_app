@@ -1,6 +1,6 @@
 name: cybear_jinni
 description: CyBear Jinni app to interact with your CyBear Jinni Smart Devices
-version: 1.3.9+63
+version: 1.4.0+64
 homepage: https://cybearjinni.com
 
 publish_to: 'none'

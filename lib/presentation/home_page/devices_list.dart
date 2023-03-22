@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/lights/smart_lighte_widget.dart';
 import 'package:flutter/material.dart';
 

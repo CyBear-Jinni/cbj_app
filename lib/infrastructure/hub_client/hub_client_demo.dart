@@ -2,15 +2,15 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:cybear_jinni/domain/core/value_objects.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/value_objects_core.dart';
-import 'package:cybear_jinni/domain/devices/generic_blinds_device/generic_blinds_entity.dart';
-import 'package:cybear_jinni/domain/devices/generic_blinds_device/generic_blinds_value_objects.dart';
-import 'package:cybear_jinni/domain/devices/generic_boiler_device/generic_boiler_entity.dart';
-import 'package:cybear_jinni/domain/devices/generic_boiler_device/generic_boiler_value_objects.dart';
-import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
-import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rgbw_light_value_objects.dart';
-import 'package:cybear_jinni/domain/devices/generic_switch_device/generic_switch_entity.dart';
-import 'package:cybear_jinni/domain/devices/generic_switch_device/generic_switch_value_objects.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/value_objects_core.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_blinds_device/generic_blinds_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_blinds_device/generic_blinds_value_objects.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_boiler_device/generic_boiler_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_boiler_device/generic_boiler_value_objects.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_rgbw_light_device/generic_rgbw_light_value_objects.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_switch_device/generic_switch_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_switch_device/generic_switch_value_objects.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/domain/room/value_objects_room.dart';
 import 'package:cybear_jinni/domain/scene/scene_cbj_entity.dart';
@@ -54,7 +54,7 @@ class HubClientDemo {
     final RoomEntity allRemoteCommandsRoomDiscovered = RoomEntity(
       uniqueId:
           RoomUniqueId.fromUniqueString('00000000-0000-0000-0000-000000000000'),
-      defaultName: RoomDefaultName('Discovered'),
+      cbjEntityName: RoomDefaultName('Discovered'),
       roomTypes: RoomTypes(const []),
       roomDevicesId:
           RoomDevicesId(const ['65d84b10-434d-11ed-817a-7d350fb52f91']),
@@ -82,7 +82,7 @@ class HubClientDemo {
     final RoomEntity allRemoteCommandsRoomGuy = RoomEntity(
       uniqueId:
           RoomUniqueId.fromUniqueString('23deb7f0-4193-11ed-9d1c-5747056d7848'),
-      defaultName: RoomDefaultName('Guy Room'),
+      cbjEntityName: RoomDefaultName('Guy Room'),
       roomTypes: RoomTypes(const ['0', '1', '2', '4']),
       roomDevicesId: RoomDevicesId(const [
         'a31523m6-463s-32ge-7426-g33c642r7m25',
@@ -114,7 +114,7 @@ class HubClientDemo {
     final RoomEntity allRemoteCommandsRoomOutSide = RoomEntity(
       uniqueId:
           RoomUniqueId.fromUniqueString('38b45780-419c-11ed-bce9-8dc09da0062f'),
-      defaultName: RoomDefaultName('Outside'),
+      cbjEntityName: RoomDefaultName('Outside'),
       roomTypes: RoomTypes(const ['0', '1', '2', '5']),
       roomDevicesId:
           RoomDevicesId(const ['7189ed76-4351-11ed-b249-63fd7e165c16']),
@@ -150,10 +150,12 @@ class HubClientDemo {
     final GenericBlindsDE allRemoteCommandsBlinds = GenericBlindsDE(
       uniqueId:
           CoreUniqueId.fromUniqueString('96386cd0-419b-11ed-8246-e17a279f4d89'),
-      vendorUniqueId: VendorUniqueId.fromUniqueString('63b298'),
+      entityUniqueId: EntityUniqueId('63b298'),
       deviceVendor: DeviceVendor('switcherSmartHome'),
-      defaultName: DeviceDefaultName('Guy Blinds'),
-      deviceStateGRPC: DeviceState(DeviceStateGRPC.ack.toString()),
+      cbjEntityName: CbjEntityName('Guy Blinds'),
+      entityOriginalName: EntityOriginalName('Guy Blinds'),
+      deviceOriginalName: DeviceOriginalName('Guy Blinds'),
+      entityStateGRPC: EntityState(DeviceStateGRPC.ack.toString()),
       stateMassage: DeviceStateMassage('Hello World'),
       senderDeviceOs: DeviceSenderDeviceOs('switcher'),
       senderDeviceModel:
@@ -164,6 +166,19 @@ class HubClientDemo {
       compUuid: DeviceCompUuid('34asdfrsd23gggg'),
       blindsSwitchState:
           GenericBlindsSwitchState(DeviceActions.stop.toString()),
+      powerConsumption: DevicePowerConsumption('0'),
+      deviceUniqueId: DeviceUniqueId('deviceUniqueId'),
+      devicePort: DevicePort('devicePort'),
+      deviceLastKnownIp: DeviceLastKnownIp('deviceLastKnownIp'),
+      deviceHostName: DeviceHostName('deviceHostName'),
+      deviceMdns: DeviceMdns('deviceMdns'),
+      devicesMacAddress: DevicesMacAddress('devicesMacAddress'),
+      entityKey: EntityKey('entityKey'),
+      requestTimeStamp: RequestTimeStamp('requestTimeStamp'),
+      lastResponseFromDeviceTimeStamp:
+          LastResponseFromDeviceTimeStamp('lastResponseFromDeviceTimeStamp'),
+      deviceCbjUniqueId:
+          CoreUniqueId.fromUniqueString('n5sdf1sf-df53-v2sd-ge46-hhjlywawq166'),
     );
 
     final RequestsAndStatusFromHub requestsAndStatusFromHubBlinds =
@@ -180,10 +195,12 @@ class HubClientDemo {
     final GenericSwitchDE allRemoteCommandsButton = GenericSwitchDE(
       uniqueId:
           CoreUniqueId.fromUniqueString('c90137f2-419b-11ed-8246-e17a279f4d89'),
-      vendorUniqueId: VendorUniqueId.fromUniqueString('67600068c44f33f5b515'),
+      entityUniqueId: EntityUniqueId('67600068c44f33f5b515'),
       deviceVendor: DeviceVendor('tuyaSmart'),
-      defaultName: DeviceDefaultName('Guy Ceiling Button'),
-      deviceStateGRPC: DeviceState(DeviceStateGRPC.ack.toString()),
+      cbjEntityName: CbjEntityName('Guy Ceiling Button'),
+      entityOriginalName: EntityOriginalName('Guy Ceiling Button'),
+      deviceOriginalName: DeviceOriginalName('Guy Ceiling Button'),
+      entityStateGRPC: EntityState(DeviceStateGRPC.ack.toString()),
       stateMassage: DeviceStateMassage('Hello World'),
       senderDeviceOs: DeviceSenderDeviceOs('switcher'),
       senderDeviceModel: DeviceSenderDeviceModel('Cloud'),
@@ -192,6 +209,19 @@ class HubClientDemo {
       ),
       compUuid: DeviceCompUuid('34asdfrsd23gggg'),
       switchState: GenericSwitchSwitchState(DeviceActions.on.toString()),
+      powerConsumption: DevicePowerConsumption('0'),
+      deviceUniqueId: DeviceUniqueId('deviceUniqueId'),
+      devicePort: DevicePort('devicePort'),
+      deviceLastKnownIp: DeviceLastKnownIp('deviceLastKnownIp'),
+      deviceHostName: DeviceHostName('deviceHostName'),
+      deviceMdns: DeviceMdns('deviceMdns'),
+      devicesMacAddress: DevicesMacAddress('devicesMacAddress'),
+      entityKey: EntityKey('entityKey'),
+      requestTimeStamp: RequestTimeStamp('requestTimeStamp'),
+      lastResponseFromDeviceTimeStamp:
+          LastResponseFromDeviceTimeStamp('lastResponseFromDeviceTimeStamp'),
+      deviceCbjUniqueId:
+          CoreUniqueId.fromUniqueString('b0gaseh2-u7f4-1g42-vdf2-dfnertaku3fs'),
     );
 
     final RequestsAndStatusFromHub requestsAndStatusFromHubButton =
@@ -207,10 +237,12 @@ class HubClientDemo {
     final GenericSwitchDE allRemoteCommandsButton2 = GenericSwitchDE(
       uniqueId:
           CoreUniqueId.fromUniqueString('a31523m6-463s-32ge-7426-g33c642r7m25'),
-      vendorUniqueId: VendorUniqueId.fromUniqueString('67600068c44f33f5b515'),
+      entityUniqueId: EntityUniqueId('67600068c44f33f5b515'),
       deviceVendor: DeviceVendor('tuyaSmart'),
-      defaultName: DeviceDefaultName('Guy Bedroom Button'),
-      deviceStateGRPC: DeviceState(DeviceStateGRPC.ack.toString()),
+      cbjEntityName: CbjEntityName('Guy Bedroom Button'),
+      entityOriginalName: EntityOriginalName('Guy Bedroom Button'),
+      deviceOriginalName: DeviceOriginalName('Guy Bedroom Button'),
+      entityStateGRPC: EntityState(DeviceStateGRPC.ack.toString()),
       stateMassage: DeviceStateMassage('Hello World'),
       senderDeviceOs: DeviceSenderDeviceOs('switcher'),
       senderDeviceModel: DeviceSenderDeviceModel('Cloud'),
@@ -219,6 +251,19 @@ class HubClientDemo {
       ),
       compUuid: DeviceCompUuid('34asdfrsd23gggg'),
       switchState: GenericSwitchSwitchState(DeviceActions.on.toString()),
+      powerConsumption: DevicePowerConsumption('0'),
+      deviceUniqueId: DeviceUniqueId('deviceUniqueId'),
+      devicePort: DevicePort('devicePort'),
+      deviceLastKnownIp: DeviceLastKnownIp('deviceLastKnownIp'),
+      deviceHostName: DeviceHostName('deviceHostName'),
+      deviceMdns: DeviceMdns('deviceMdns'),
+      devicesMacAddress: DevicesMacAddress('devicesMacAddress'),
+      entityKey: EntityKey('entityKey'),
+      requestTimeStamp: RequestTimeStamp('requestTimeStamp'),
+      lastResponseFromDeviceTimeStamp:
+          LastResponseFromDeviceTimeStamp('lastResponseFromDeviceTimeStamp'),
+      deviceCbjUniqueId:
+          CoreUniqueId.fromUniqueString('654wdf2u-rge2-ffh2-gn22-rthweru521rs'),
     );
 
     final RequestsAndStatusFromHub requestsAndStatusFromHubButton2 =
@@ -234,10 +279,12 @@ class HubClientDemo {
     final GenericBoilerDE allRemoteCommandsBoiler = GenericBoilerDE(
       uniqueId:
           CoreUniqueId.fromUniqueString('65d84b10-434d-11ed-817a-7d350fb52f91'),
-      vendorUniqueId: VendorUniqueId.fromUniqueString('65fd2f'),
+      entityUniqueId: EntityUniqueId('65fd2f'),
       deviceVendor: DeviceVendor('switcherSmartHome'),
-      defaultName: DeviceDefaultName('Boiler'),
-      deviceStateGRPC: DeviceState(DeviceStateGRPC.ack.toString()),
+      cbjEntityName: CbjEntityName('Boiler'),
+      entityOriginalName: EntityOriginalName('Boiler'),
+      deviceOriginalName: DeviceOriginalName('Boiler'),
+      entityStateGRPC: EntityState(DeviceStateGRPC.ack.toString()),
       stateMassage: DeviceStateMassage('Hello World'),
       senderDeviceOs: DeviceSenderDeviceOs('switcher'),
       senderDeviceModel:
@@ -247,6 +294,19 @@ class HubClientDemo {
       ),
       compUuid: DeviceCompUuid('34asdfrsd23gggg'),
       boilerSwitchState: GenericBoilerSwitchState(DeviceActions.off.toString()),
+      powerConsumption: DevicePowerConsumption('0'),
+      deviceUniqueId: DeviceUniqueId('deviceUniqueId'),
+      devicePort: DevicePort('devicePort'),
+      deviceLastKnownIp: DeviceLastKnownIp('deviceLastKnownIp'),
+      deviceHostName: DeviceHostName('deviceHostName'),
+      deviceMdns: DeviceMdns('deviceMdns'),
+      devicesMacAddress: DevicesMacAddress('devicesMacAddress'),
+      entityKey: EntityKey('entityKey'),
+      requestTimeStamp: RequestTimeStamp('requestTimeStamp'),
+      lastResponseFromDeviceTimeStamp:
+          LastResponseFromDeviceTimeStamp('lastResponseFromDeviceTimeStamp'),
+      deviceCbjUniqueId:
+          CoreUniqueId.fromUniqueString('id2erfdd-g34a-uhj5-fdfa-sdf5y3wsdfhs'),
     );
 
     final RequestsAndStatusFromHub requestsAndStatusFromHubBoiler =
@@ -262,10 +322,12 @@ class HubClientDemo {
     final GenericRgbwLightDE allRemoteCommandsRgbLight = GenericRgbwLightDE(
       uniqueId:
           CoreUniqueId.fromUniqueString('7189ed76-4351-11ed-b249-63fd7e165c16'),
-      vendorUniqueId: VendorUniqueId.fromUniqueString('bf4bccdaf68347e31dhiut'),
+      entityUniqueId: EntityUniqueId('bf4bccdaf68347e31dhiut'),
       deviceVendor: DeviceVendor('tuyaSmart'),
-      defaultName: DeviceDefaultName('Dining Room Ceiling'),
-      deviceStateGRPC: DeviceState(DeviceStateGRPC.ack.toString()),
+      cbjEntityName: CbjEntityName('Dining Room Ceiling'),
+      entityOriginalName: EntityOriginalName('Dining Room Ceiling'),
+      deviceOriginalName: DeviceOriginalName('Dining Room Ceiling'),
+      entityStateGRPC: EntityState(DeviceStateGRPC.ack.toString()),
       stateMassage: DeviceStateMassage('Hello World'),
       senderDeviceOs: DeviceSenderDeviceOs('tuya_smart'),
       senderDeviceModel: DeviceSenderDeviceModel('1SE'),
@@ -281,6 +343,19 @@ class HubClientDemo {
       lightColorSaturation: GenericRgbwLightColorSaturation('1.0'),
       lightColorTemperature: GenericRgbwLightColorTemperature('8129'),
       lightColorValue: GenericRgbwLightColorValue('1.0'),
+      powerConsumption: DevicePowerConsumption('0'),
+      deviceUniqueId: DeviceUniqueId('deviceUniqueId'),
+      devicePort: DevicePort('devicePort'),
+      deviceLastKnownIp: DeviceLastKnownIp('deviceLastKnownIp'),
+      deviceHostName: DeviceHostName('deviceHostName'),
+      deviceMdns: DeviceMdns('deviceMdns'),
+      devicesMacAddress: DevicesMacAddress('devicesMacAddress'),
+      entityKey: EntityKey('entityKey'),
+      requestTimeStamp: RequestTimeStamp('requestTimeStamp'),
+      lastResponseFromDeviceTimeStamp:
+          LastResponseFromDeviceTimeStamp('lastResponseFromDeviceTimeStamp'),
+      deviceCbjUniqueId:
+          CoreUniqueId.fromUniqueString('sd3fgbns-64as-1gd2-gfdw-dgghks325as6'),
     );
 
     final RequestsAndStatusFromHub requestsAndStatusFromHubRgbLight =
@@ -317,7 +392,7 @@ class HubClientDemo {
       senderDeviceModel: SceneCbjSenderDeviceModel(null),
       senderId: SceneCbjSenderId(null),
       compUuid: SceneCbjCompUuid(null),
-      deviceStateGRPC: SceneCbjDeviceStateGRPC('waitingInComp'),
+      entityStateGRPC: SceneCbjDeviceStateGRPC('waitingInComp'),
     );
 
     final RequestsAndStatusFromHub requestsAndStatusFromHubSceneOpen =

@@ -20,7 +20,7 @@ class EspHomeSignInFormBloc
   EspHomeSignInFormBloc(this._vendorRepository)
       : super(EspHomeSignInFormState.initial()) {
     on<ApiKeyChanged>(_apiKeyChanged);
-    on<SignInWithApiKey>(_signInWithApiKey);
+    on<SignInWithEspHomeApiKey>(_signInWithApiKey);
   }
 
   final IVendorsRepository _vendorRepository;
@@ -43,7 +43,7 @@ class EspHomeSignInFormBloc
   }
 
   Future<void> _signInWithApiKey(
-    SignInWithApiKey event,
+    SignInWithEspHomeApiKey event,
     Emitter<EspHomeSignInFormState> emit,
   ) async {
     final GenericEspHomeLoginDE genericEspHomeDE = GenericEspHomeLoginDE(

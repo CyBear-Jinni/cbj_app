@@ -1,8 +1,9 @@
 import 'dart:async';
 
-import 'package:cybear_jinni/domain/devices/generic_blinds_device/generic_blinds_entity.dart';
-import 'package:cybear_jinni/domain/devices/generic_blinds_device/generic_blinds_value_objects.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_blinds_device/generic_blinds_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_blinds_device/generic_blinds_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+
 import 'package:cybear_jinni/infrastructure/objects/enums_cbj.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:flutter/foundation.dart';
@@ -78,7 +79,7 @@ class _SmartBlindPage extends State<SmartBlindPage> {
     return Column(
       children: <Widget>[
         Text(
-          _blind!.defaultName.getOrCrash()!, //  Show blind name
+          _blind!.cbjEntityName.getOrCrash()!, //  Show blind name
           style: TextStyle(
             fontSize: 19.0,
             color: Theme.of(context).textTheme.bodyMedium!.color,

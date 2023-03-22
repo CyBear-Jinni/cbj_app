@@ -1,5 +1,5 @@
 import 'package:cybear_jinni/application/smart_tv/smart_tv_watcher/smart_tv_watcher_bloc.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/printers/widgets/critical_printers_failure_display_widget.dart';
@@ -84,7 +84,7 @@ class RoomsSmartTvsWidget extends StatelessWidget {
                     return RoomSmartTvs(
                       devicesInRoom,
                       gradiantColor,
-                      roomEntity.defaultName.getOrCrash(),
+                      roomEntity.cbjEntityName.getOrCrash(),
                       maxSmartTvsToShow: 50,
                     );
                   },

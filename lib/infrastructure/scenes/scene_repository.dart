@@ -2,12 +2,13 @@ import 'dart:collection';
 import 'dart:convert';
 
 import 'package:cybear_jinni/domain/core/value_objects.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/scene/i_scene_cbj_repository.dart';
 import 'package:cybear_jinni/domain/scene/scene_cbj_entity.dart';
 import 'package:cybear_jinni/domain/scene/scene_cbj_failures.dart';
 import 'package:cybear_jinni/domain/scene/value_objects_scene_cbj.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+
 import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
 import 'package:cybear_jinni/infrastructure/node_red/node_red_converter.dart';
 import 'package:cybear_jinni/utils.dart';
@@ -56,7 +57,7 @@ class SceneCbjRepository implements ISceneCbjRepository {
           nodeRedFlowId: SceneCbjNodeRedFlowId(null),
           firstNodeId: SceneCbjFirstNodeId(null),
           lastDateOfExecute: SceneCbjLastDateOfExecute(null),
-          deviceStateGRPC: SceneCbjDeviceStateGRPC(null),
+          entityStateGRPC: SceneCbjDeviceStateGRPC(null),
           senderDeviceModel: SceneCbjSenderDeviceModel(null),
           senderDeviceOs: SceneCbjSenderDeviceOs(null),
           senderId: SceneCbjSenderId(null),
@@ -139,7 +140,7 @@ class SceneCbjRepository implements ISceneCbjRepository {
     for (final SceneCbjEntity sceneCbjEntity in scenesList.asList()) {
       addOrUpdateNewSceneInHub(
         sceneCbjEntity.copyWith(
-          deviceStateGRPC: SceneCbjDeviceStateGRPC(
+          entityStateGRPC: SceneCbjDeviceStateGRPC(
             DeviceStateGRPC.waitingInFirebase.toString(),
           ),
         ),

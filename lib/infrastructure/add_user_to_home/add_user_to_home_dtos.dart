@@ -1,7 +1,7 @@
 // import 'package:cloud_firestore/cloud_firestore.dart';
 // import 'package:cybear_jinni/domain/add_user/add_user_to_home_value_objects.dart';
-// import 'package:cybear_jinni/domain/devices/device_entity.dart';
-// import 'package:cybear_jinni/domain/devices/value_objects.dart';
+// import 'package:cybear_jinni/domain/generic_devices/device_entity.dart';
+// import 'package:cybear_jinni/domain/generic_devices/value_objects.dart';
 // import 'package:freezed_annotation/freezed_annotation.dart';
 //
 // part 'add_user_dtos.freezed.dart';
@@ -22,7 +22,7 @@
 //   factory AddUserDtos.fromDomain(GenericLightDE deviceEntity) {
 //     return AddUserDtos(
 //       id: deviceEntity.id.getOrCrash(),
-//       defaultName: deviceEntity.defaultName.getOrCrash(),
+//       cbjEntityName: deviceEntity.cbjEntityName.getOrCrash(),
 //
 //     );
 //   }
@@ -30,9 +30,9 @@
 //   GenericLightDE toDomain() {
 //     return GenericLightDE(
 //       id: DeviceUniqueId.fromUniqueString(id),
-//       defaultName: DeviceDefaultName(defaultName),
+//       cbjEntityName: CbjEntityName(cbjEntityName),
 //       roomId: DeviceUniqueId.fromUniqueString(roomId),
-//       state: DeviceState(state),
+//       state: EntityState(state),
 //       stateMassage: DeviceStateMassage(stateMassage),
 //       senderDeviceOs: DeviceSenderDeviceOs(senderDeviceOs),
 //       senderDeviceModel: DeviceSenderDeviceModel(senderDeviceModel),

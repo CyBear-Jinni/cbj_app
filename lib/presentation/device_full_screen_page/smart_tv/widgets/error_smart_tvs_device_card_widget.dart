@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/domain/devices/generic_smart_tv/generic_smart_tv_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_smart_tv/generic_smart_tv_entity.dart';
 import 'package:flutter/material.dart';
 
 class ErrorSmartTvsDeviceCard extends StatelessWidget {

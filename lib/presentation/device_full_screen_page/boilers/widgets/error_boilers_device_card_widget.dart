@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/domain/devices/generic_boiler_device/generic_boiler_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_boiler_device/generic_boiler_entity.dart';
 import 'package:flutter/material.dart';
 
 class ErrorBoilersDeviceCard extends StatelessWidget {

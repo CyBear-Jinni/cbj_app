@@ -1,5 +1,5 @@
 import 'package:cybear_jinni/application/lights/lights_watcher/lights_watcher_bloc.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/rgbw_lights/widgets/critical_rgbw_light_failure_display_widget.dart';
@@ -83,7 +83,7 @@ class RoomsRgbwLightsWidget extends StatelessWidget {
                     return RoomRgbwLights(
                       devicesInRoom,
                       gradiantColor,
-                      roomEntity.defaultName.getOrCrash(),
+                      roomEntity.cbjEntityName.getOrCrash(),
                       maxLightsToShow: 50,
                     );
                   },

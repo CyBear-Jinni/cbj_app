@@ -20,7 +20,7 @@ class LifxSignInFormBloc
   LifxSignInFormBloc(this._vendorRepository)
       : super(LifxSignInFormState.initial()) {
     on<ApiKeyChanged>(_apiKeyChanged);
-    on<SignInWithApiKey>(_signInWithApiKey);
+    on<SignInWithLifxApiKey>(_signInWithApiKey);
   }
 
   final IVendorsRepository _vendorRepository;
@@ -42,7 +42,7 @@ class LifxSignInFormBloc
   }
 
   Future<void> _signInWithApiKey(
-    SignInWithApiKey event,
+    SignInWithLifxApiKey event,
     Emitter<LifxSignInFormState> emit,
   ) async {
     final GenericLifxLoginDE genericLifxDE = GenericLifxLoginDE(

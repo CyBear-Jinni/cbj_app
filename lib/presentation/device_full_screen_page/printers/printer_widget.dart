@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:cybear_jinni/domain/devices/generic_printer_device/generic_printer_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_printer_device/generic_printer_entity.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +17,6 @@ class PrinterPage extends StatefulWidget {
 }
 
 class _SmartPrinterPage extends State<PrinterPage> {
-  final bool _switchState = false;
   GenericPrinterDE? _switch;
   bool _isLoading = true;
 
@@ -69,11 +68,10 @@ class _SmartPrinterPage extends State<PrinterPage> {
 
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
     return Column(
       children: <Widget>[
         Text(
-          _switch!.defaultName.getOrCrash()!, //  Show switch name
+          _switch!.cbjEntityName.getOrCrash()!, //  Show switch name
           style: TextStyle(
             fontSize: 19.0,
             color: Theme.of(context).textTheme.bodyMedium!.color,

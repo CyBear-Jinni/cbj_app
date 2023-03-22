@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cybear_jinni/application/lights/lights_actor/lights_actor_bloc.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
-import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -43,10 +43,10 @@ class RgbwLightsInTheRoomBlock extends StatelessWidget {
   Widget build(BuildContext context) {
     String deviceText;
     if (lightsInRoom.length == 1) {
-      deviceText = lightsInRoom[0].defaultName.getOrCrash()!;
+      deviceText = lightsInRoom[0].cbjEntityName.getOrCrash()!;
     } else {
       deviceText =
-          '_RGBW_Lights'.tr(args: [roomEntity.defaultName.getOrCrash()]);
+          '_RGBW_Lights'.tr(args: [roomEntity.cbjEntityName.getOrCrash()]);
     }
 
     return GestureDetector(

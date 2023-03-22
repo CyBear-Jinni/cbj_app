@@ -2,25 +2,25 @@ import 'dart:async';
 import 'dart:collection';
 import 'dart:io';
 
-import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
-import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
-import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
-import 'package:cybear_jinni/domain/devices/generic_blinds_device/generic_blinds_entity.dart';
-import 'package:cybear_jinni/domain/devices/generic_blinds_device/generic_blinds_value_objects.dart';
-import 'package:cybear_jinni/domain/devices/generic_boiler_device/generic_boiler_entity.dart';
-import 'package:cybear_jinni/domain/devices/generic_boiler_device/generic_boiler_value_objects.dart';
-import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
-import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_value_objects.dart';
-import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
-import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rgbw_light_value_objects.dart';
-import 'package:cybear_jinni/domain/devices/generic_smart_computer_device/generic_smart_computer_entity.dart';
-import 'package:cybear_jinni/domain/devices/generic_smart_computer_device/generic_smart_computer_value_objects.dart';
-import 'package:cybear_jinni/domain/devices/generic_smart_plug_device/generic_smart_plug_entity.dart';
-import 'package:cybear_jinni/domain/devices/generic_smart_plug_device/generic_smart_plug_value_objects.dart';
-import 'package:cybear_jinni/domain/devices/generic_smart_tv/generic_smart_tv_entity.dart';
-import 'package:cybear_jinni/domain/devices/generic_smart_tv/generic_smart_tv_value_objects.dart';
-import 'package:cybear_jinni/domain/devices/generic_switch_device/generic_switch_entity.dart';
-import 'package:cybear_jinni/domain/devices/generic_switch_device/generic_switch_value_objects.dart';
+import 'package:cybear_jinni/domain/device/devices_failures.dart';
+import 'package:cybear_jinni/domain/device/i_device_repository.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_blinds_device/generic_blinds_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_blinds_device/generic_blinds_value_objects.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_boiler_device/generic_boiler_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_boiler_device/generic_boiler_value_objects.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_light_device/generic_light_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_light_device/generic_light_value_objects.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_rgbw_light_device/generic_rgbw_light_value_objects.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_smart_computer_device/generic_smart_computer_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_smart_computer_device/generic_smart_computer_value_objects.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_smart_plug_device/generic_smart_plug_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_smart_plug_device/generic_smart_plug_value_objects.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_smart_tv/generic_smart_tv_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_smart_tv/generic_smart_tv_value_objects.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_switch_device/generic_switch_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_switch_device/generic_switch_value_objects.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/domain/user/i_user_repository.dart';
 import 'package:cybear_jinni/domain/user/user_entity.dart';
@@ -124,9 +124,9 @@ class DeviceRepository implements IDeviceRepository {
       (event) => event.fold((l) => left(l), (r) {
         return right(
           r.toList().asList().where((element) {
-            return element!.deviceTypes.getOrCrash() ==
+            return element!.entityTypes.getOrCrash() ==
                     DeviceTypes.light.toString() ||
-                element.deviceTypes.getOrCrash() ==
+                element.entityTypes.getOrCrash() ==
                     DeviceTypes.rgbwLights.toString();
           }).toImmutableList(),
         );
@@ -143,7 +143,7 @@ class DeviceRepository implements IDeviceRepository {
       (event) => event.fold((l) => left(l), (r) {
         return right(
           r.toList().asList().where((element) {
-            return element!.deviceTypes.getOrCrash() ==
+            return element!.entityTypes.getOrCrash() ==
                 DeviceTypes.switch_.toString();
           }).toImmutableList(),
         );
@@ -160,7 +160,7 @@ class DeviceRepository implements IDeviceRepository {
       (event) => event.fold((l) => left(l), (r) {
         return right(
           r.toList().asList().where((element) {
-            return element!.deviceTypes.getOrCrash() ==
+            return element!.entityTypes.getOrCrash() ==
                 DeviceTypes.smartPlug.toString();
           }).toImmutableList(),
         );
@@ -177,7 +177,7 @@ class DeviceRepository implements IDeviceRepository {
       (event) => event.fold((l) => left(l), (r) {
         return right(
           r.toList().asList().where((element) {
-            return element!.deviceTypes.getOrCrash() ==
+            return element!.entityTypes.getOrCrash() ==
                 DeviceTypes.smartComputer.toString();
           }).toImmutableList(),
         );
@@ -194,7 +194,7 @@ class DeviceRepository implements IDeviceRepository {
       (event) => event.fold((l) => left(l), (r) {
         return right(
           r.toList().asList().where((element) {
-            return element!.deviceTypes.getOrCrash() ==
+            return element!.entityTypes.getOrCrash() ==
                 DeviceTypes.blinds.toString();
           }).toImmutableList(),
         );
@@ -211,7 +211,7 @@ class DeviceRepository implements IDeviceRepository {
       (event) => event.fold((l) => left(l), (r) {
         return right(
           r.toList().asList().where((element) {
-            return element!.deviceTypes.getOrCrash() ==
+            return element!.entityTypes.getOrCrash() ==
                 DeviceTypes.boiler.toString();
           }).toImmutableList(),
         );
@@ -226,7 +226,7 @@ class DeviceRepository implements IDeviceRepository {
       (event) => event.fold((l) => left(l), (r) {
         return right(
           r.toList().asList().where((element) {
-            return element!.deviceTypes.getOrCrash() ==
+            return element!.entityTypes.getOrCrash() ==
                 DeviceTypes.smartTV.toString();
           }).toImmutableList(),
         );
@@ -241,7 +241,7 @@ class DeviceRepository implements IDeviceRepository {
       (event) => event.fold((l) => left(l), (r) {
         return right(
           r.toList().asList().where((element) {
-            return element!.deviceTypes.getOrCrash() ==
+            return element!.entityTypes.getOrCrash() ==
                 DeviceTypes.printer.toString();
           }).toImmutableList(),
         );
@@ -278,15 +278,13 @@ class DeviceRepository implements IDeviceRepository {
               .getOrElse(() => throw 'Cant get current user');
       final String currentUserId = currentUserEntity.id!.getOrCrash()!;
 
-      final DeviceEntityAbstract deviceEntityTemp = deviceEntity
+      deviceEntity
           .copyWithStateMassage('Setting up device')
           .copyWithSenderDeviceOs(Platform.operatingSystem)
           .copyWithDeviceSenderDeviceModel(deviceModelString)
           .copyWithSenderId(currentUserId);
 
-      DeviceEntityDtoAbstract.fromDomain(
-        deviceEntityDtoAbstract: deviceEntityTemp,
-      );
+      DeviceEntityDtoAbstract.fromDomain();
 
       return right(unit);
     } on PlatformException catch (e) {
@@ -371,7 +369,7 @@ class DeviceRepository implements IDeviceRepository {
         } else {
           logger.w(
             'On action not supported for'
-            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+            ' ${deviceEntity.entityTypes.getOrCrash()} type',
           );
           continue;
         }
@@ -423,7 +421,7 @@ class DeviceRepository implements IDeviceRepository {
         } else {
           logger.w(
             'Off action not supported for'
-            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+            ' ${deviceEntity.entityTypes.getOrCrash()} type',
           );
           continue;
         }
@@ -464,7 +462,7 @@ class DeviceRepository implements IDeviceRepository {
         } else {
           logger.w(
             'Off action not supported for'
-            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+            ' ${deviceEntity.entityTypes.getOrCrash()} type',
           );
           continue;
         }
@@ -537,7 +535,7 @@ class DeviceRepository implements IDeviceRepository {
         } else {
           logger.w(
             'Off action not supported for'
-            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+            ' ${deviceEntity.entityTypes.getOrCrash()} type',
           );
           continue;
         }
@@ -601,7 +599,7 @@ class DeviceRepository implements IDeviceRepository {
         } else {
           logger.w(
             'Brightness action not supported for'
-            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+            ' ${deviceEntity.entityTypes.getOrCrash()} type',
           );
           continue;
         }
@@ -664,7 +662,7 @@ class DeviceRepository implements IDeviceRepository {
         } else {
           logger.w(
             'Off action not supported for'
-            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+            ' ${deviceEntity.entityTypes.getOrCrash()} type',
           );
           continue;
         }
@@ -708,7 +706,7 @@ class DeviceRepository implements IDeviceRepository {
         } else {
           logger.w(
             'Stop action not supported for'
-            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+            ' ${deviceEntity.entityTypes.getOrCrash()} type',
           );
           continue;
         }
@@ -748,7 +746,7 @@ class DeviceRepository implements IDeviceRepository {
         } else {
           logger.w(
             'Move down action not supported for'
-            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+            ' ${deviceEntity.entityTypes.getOrCrash()} type',
           );
           continue;
         }
@@ -789,7 +787,7 @@ class DeviceRepository implements IDeviceRepository {
         } else {
           logger.w(
             'Suspend action not supported for'
-            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+            ' ${deviceEntity.entityTypes.getOrCrash()} type',
           );
           continue;
         }
@@ -830,7 +828,7 @@ class DeviceRepository implements IDeviceRepository {
         } else {
           logger.w(
             'Shutdown action not supported for'
-            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+            ' ${deviceEntity.entityTypes.getOrCrash()} type',
           );
           continue;
         }
@@ -877,7 +875,7 @@ class DeviceRepository implements IDeviceRepository {
         } else {
           logger.w(
             'Open url action not supported for'
-            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+            ' ${deviceEntity.entityTypes.getOrCrash()} type',
           );
           continue;
         }
@@ -917,7 +915,7 @@ class DeviceRepository implements IDeviceRepository {
         } else {
           logger.w(
             'Close action not supported for'
-            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+            ' ${deviceEntity.entityTypes.getOrCrash()} type',
           );
           continue;
         }
@@ -957,7 +955,7 @@ class DeviceRepository implements IDeviceRepository {
         } else {
           logger.w(
             'Pause action not supported for'
-            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+            ' ${deviceEntity.entityTypes.getOrCrash()} type',
           );
           continue;
         }
@@ -997,7 +995,7 @@ class DeviceRepository implements IDeviceRepository {
         } else {
           logger.w(
             'Play action not supported for'
-            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+            ' ${deviceEntity.entityTypes.getOrCrash()} type',
           );
           continue;
         }
@@ -1037,7 +1035,7 @@ class DeviceRepository implements IDeviceRepository {
         } else {
           logger.w(
             'Skip prev vid action not supported for'
-            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+            ' ${deviceEntity.entityTypes.getOrCrash()} type',
           );
           continue;
         }
@@ -1077,7 +1075,7 @@ class DeviceRepository implements IDeviceRepository {
         } else {
           logger.w(
             'Skip next vid action not supported for'
-            ' ${deviceEntity.deviceTypes.getOrCrash()} type',
+            ' ${deviceEntity.entityTypes.getOrCrash()} type',
           );
           continue;
         }

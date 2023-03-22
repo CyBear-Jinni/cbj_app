@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
-import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
-import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/device/i_device_repository.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/domain/routine/i_routine_cbj_repository.dart';
 import 'package:cybear_jinni/domain/routine/value_objects_routine_cbj.dart';
 import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.dart';

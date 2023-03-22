@@ -13,9 +13,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 part 'tuya_sign_in_form_bloc.freezed.dart';
-
 part 'tuya_sign_in_form_event.dart';
-
 part 'tuya_sign_in_form_state.dart';
 
 @injectable
@@ -23,7 +21,7 @@ class TuyaSignInFormBloc
     extends Bloc<TuyaSignInFormEvent, TuyaSignInFormState> {
   TuyaSignInFormBloc(this._vendorRepository)
       : super(TuyaSignInFormState.initial()) {
-    on<SignInWithApiKey>(_signIn);
+    on<SignInWithTuyaApiKey>(_signIn);
     on<VendorChanged>(_vendorChanged);
     on<UserNameChanged>(_userNameChanged);
     on<UserPasswordChanged>(_userPasswordChanged);
@@ -39,7 +37,7 @@ class TuyaSignInFormBloc
   // SignInFormState get initialStat`e => SignInFormState.initial();
 
   Future<void> _signIn(
-    SignInWithApiKey event,
+    SignInWithTuyaApiKey event,
     Emitter<TuyaSignInFormState> emit,
   ) async {
     if (state.tuyaVendor.getOrCrash() ==

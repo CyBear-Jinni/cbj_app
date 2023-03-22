@@ -6,6 +6,7 @@ import 'package:cybear_jinni/domain/room/i_room_repository.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/domain/room/room_failures.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+
 import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:dartz/dartz.dart';

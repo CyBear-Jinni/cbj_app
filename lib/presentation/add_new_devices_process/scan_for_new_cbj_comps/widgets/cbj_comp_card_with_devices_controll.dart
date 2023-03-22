@@ -1,8 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/devices/device_actor/device_actor_bloc.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
-import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,7 @@ class CBJCompCardWithDevicesControll extends StatelessWidget {
 
     for (final GenericLightDE deviceEntity in deviceEntityList.asList()) {
       //
-      if (deviceEntity.deviceTypes.getOrCrash() !=
+      if (deviceEntity.entityTypes.getOrCrash() !=
           DeviceTypes.smartTypeNotSupported.toString()) {
         typesList.add(
           Container(
@@ -31,7 +32,7 @@ class CBJCompCardWithDevicesControll extends StatelessWidget {
             child: BlocProvider(
               create: (context) => getIt<DeviceActorBloc>(),
               child: Text(
-                'Type: ${deviceEntity.deviceTypes.getOrCrash()}',
+                'Type: ${deviceEntity.entityTypes.getOrCrash()}',
                 style: TextStyle(
                   color: Theme.of(context).textTheme.bodyLarge!.color,
                 ),
@@ -44,7 +45,7 @@ class CBJCompCardWithDevicesControll extends StatelessWidget {
           Container(
             color: Colors.orange.withOpacity(0.3),
             child: Text(
-              'Type ${deviceEntity.deviceTypes.getOrCrash()} is not supported',
+              'Type ${deviceEntity.entityTypes.getOrCrash()} is not supported',
               style: TextStyle(
                 color: Theme.of(context).textTheme.bodyLarge!.color,
               ),

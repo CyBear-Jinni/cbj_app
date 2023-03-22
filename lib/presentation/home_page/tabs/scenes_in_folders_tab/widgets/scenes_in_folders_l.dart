@@ -97,7 +97,7 @@ class ScenesInFoldersL extends StatelessWidget {
                 ),
               ),
               child: Text(
-                folderOfScenes.defaultName.getOrCrash(),
+                folderOfScenes.cbjEntityName.getOrCrash(),
                 style: TextStyle(
                   color: Theme.of(context).textTheme.bodyLarge!.color,
                   fontSize: 30,

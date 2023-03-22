@@ -1,6 +1,7 @@
 import 'package:cybear_jinni/application/boilers/boilers_actor/boilers_actor_bloc.dart';
-import 'package:cybear_jinni/domain/devices/generic_boiler_device/generic_boiler_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_boiler_device/generic_boiler_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_switch/flutter_switch.dart';
@@ -36,7 +37,7 @@ class BoilersWidget extends StatelessWidget {
     final Size screenSize = MediaQuery.of(context).size;
     final double sizeBoxWidth = screenSize.width * 0.25;
 
-    final deviceState = _deviceEntity.deviceStateGRPC.getOrCrash();
+    final deviceState = _deviceEntity.entityStateGRPC.getOrCrash();
     final deviceAction = _deviceEntity.boilerSwitchState!.getOrCrash();
 
     bool toggleValue = false;

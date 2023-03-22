@@ -5,6 +5,7 @@ import 'package:cybear_jinni/domain/remote_pipes/i_remote_pipes_repository.dart'
 import 'package:cybear_jinni/domain/remote_pipes/remote_pipes_entity.dart';
 import 'package:cybear_jinni/domain/remote_pipes/remote_pipes_failures.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+
 import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
 import 'package:cybear_jinni/infrastructure/remote_pipes/remote_pipes_dtos.dart';
 import 'package:cybear_jinni/injection.dart';

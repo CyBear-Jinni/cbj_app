@@ -1,8 +1,9 @@
 import 'dart:async';
 
-import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
-import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rgbw_light_value_objects.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_rgbw_light_device/generic_rgbw_light_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+
 import 'package:cybear_jinni/infrastructure/objects/enums_cbj.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:flutter/foundation.dart';
@@ -78,7 +79,7 @@ class _SmartRgbwLightPage extends State<SmartRgbwLightPage> {
     return Column(
       children: <Widget>[
         Text(
-          _rgbwLight!.defaultName.getOrCrash()!, //  Show rgbwLight name
+          _rgbwLight!.cbjEntityName.getOrCrash()!, //  Show rgbwLight name
           style: TextStyle(
             fontSize: 19.0,
             color: Theme.of(context).textTheme.bodyMedium!.color,

@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
 import 'package:flutter/material.dart';
 
 class ErrorRgbwLightsDeviceCard extends StatelessWidget {
