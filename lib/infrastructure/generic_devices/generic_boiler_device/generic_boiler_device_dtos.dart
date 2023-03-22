@@ -36,6 +36,7 @@ abstract class GenericBoilerDeviceDtos
     required String? entityKey,
     required String? requestTimeStamp,
     required String? lastResponseFromDeviceTimeStamp,
+    required String? deviceCbjUniqueId,
     String? deviceDtoClass,
     String? stateMassage,
 
@@ -44,36 +45,35 @@ abstract class GenericBoilerDeviceDtos
 
   GenericBoilerDeviceDtos._();
 
-  factory GenericBoilerDeviceDtos.fromDomain(GenericBoilerDE genericBoilerDE) {
+  factory GenericBoilerDeviceDtos.fromDomain(GenericBoilerDE deviceDe) {
     return GenericBoilerDeviceDtos(
       deviceDtoClass: (GenericBoilerDeviceDtos).toString(),
-      id: genericBoilerDE.uniqueId.getOrCrash(),
-      entityUniqueId: genericBoilerDE.entityUniqueId.getOrCrash(),
-      cbjEntityName: genericBoilerDE.cbjEntityName.getOrCrash(),
-      entityOriginalName: genericBoilerDE.entityOriginalName.getOrCrash(),
-      deviceOriginalName: genericBoilerDE.deviceOriginalName.getOrCrash(),
-      entityStateGRPC: genericBoilerDE.entityStateGRPC.getOrCrash(),
-      stateMassage: genericBoilerDE.stateMassage.getOrCrash(),
-      senderDeviceOs: genericBoilerDE.senderDeviceOs.getOrCrash(),
-      senderDeviceModel: genericBoilerDE.senderDeviceModel.getOrCrash(),
-      senderId: genericBoilerDE.senderId.getOrCrash(),
-      boilerSwitchState: genericBoilerDE.boilerSwitchState!.getOrCrash(),
-      entityTypes: genericBoilerDE.entityTypes.getOrCrash(),
-      compUuid: genericBoilerDE.compUuid.getOrCrash(),
-      deviceVendor: genericBoilerDE.deviceVendor.getOrCrash(),
-      powerConsumption: genericBoilerDE.powerConsumption.getOrCrash(),
-
-      deviceUniqueId: genericBoilerDE.deviceUniqueId.getOrCrash(),
-      devicePort: genericBoilerDE.devicePort.getOrCrash(),
-      deviceLastKnownIp: genericBoilerDE.deviceLastKnownIp.getOrCrash(),
-      deviceHostName: genericBoilerDE.deviceHostName.getOrCrash(),
-      deviceMdns: genericBoilerDE.deviceMdns.getOrCrash(),
-      devicesMacAddress: genericBoilerDE.devicesMacAddress.getOrCrash(),
-      entityKey: genericBoilerDE.entityKey.getOrCrash(),
-      requestTimeStamp: genericBoilerDE.requestTimeStamp.getOrCrash(),
+      id: deviceDe.uniqueId.getOrCrash(),
+      entityUniqueId: deviceDe.entityUniqueId.getOrCrash(),
+      cbjEntityName: deviceDe.cbjEntityName.getOrCrash(),
+      entityOriginalName: deviceDe.entityOriginalName.getOrCrash(),
+      deviceOriginalName: deviceDe.deviceOriginalName.getOrCrash(),
+      entityStateGRPC: deviceDe.entityStateGRPC.getOrCrash(),
+      stateMassage: deviceDe.stateMassage.getOrCrash(),
+      senderDeviceOs: deviceDe.senderDeviceOs.getOrCrash(),
+      senderDeviceModel: deviceDe.senderDeviceModel.getOrCrash(),
+      senderId: deviceDe.senderId.getOrCrash(),
+      boilerSwitchState: deviceDe.boilerSwitchState!.getOrCrash(),
+      entityTypes: deviceDe.entityTypes.getOrCrash(),
+      compUuid: deviceDe.compUuid.getOrCrash(),
+      deviceVendor: deviceDe.deviceVendor.getOrCrash(),
+      powerConsumption: deviceDe.powerConsumption.getOrCrash(),
+      deviceUniqueId: deviceDe.deviceUniqueId.getOrCrash(),
+      devicePort: deviceDe.devicePort.getOrCrash(),
+      deviceLastKnownIp: deviceDe.deviceLastKnownIp.getOrCrash(),
+      deviceHostName: deviceDe.deviceHostName.getOrCrash(),
+      deviceMdns: deviceDe.deviceMdns.getOrCrash(),
+      devicesMacAddress: deviceDe.devicesMacAddress.getOrCrash(),
+      entityKey: deviceDe.entityKey.getOrCrash(),
+      requestTimeStamp: deviceDe.requestTimeStamp.getOrCrash(),
       lastResponseFromDeviceTimeStamp:
-          genericBoilerDE.lastResponseFromDeviceTimeStamp.getOrCrash(),
-      // serverTimeStamp: FieldValue.serverTimestamp(),
+          deviceDe.lastResponseFromDeviceTimeStamp.getOrCrash(),
+      deviceCbjUniqueId: deviceDe.deviceCbjUniqueId.getOrCrash(),
     );
   }
 
@@ -110,6 +110,7 @@ abstract class GenericBoilerDeviceDtos
       requestTimeStamp: RequestTimeStamp(requestTimeStamp),
       lastResponseFromDeviceTimeStamp:
           LastResponseFromDeviceTimeStamp(lastResponseFromDeviceTimeStamp),
+      deviceCbjUniqueId: CoreUniqueId.fromUniqueString(deviceCbjUniqueId!),
     );
   }
 }

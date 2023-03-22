@@ -36,6 +36,7 @@ abstract class GenericPingDeviceDtos
     required String? entityKey,
     required String? requestTimeStamp,
     required String? lastResponseFromDeviceTimeStamp,
+    required String? deviceCbjUniqueId,
     String? deviceDtoClass,
     String? stateMassage,
 
@@ -44,36 +45,35 @@ abstract class GenericPingDeviceDtos
 
   GenericPingDeviceDtos._();
 
-  factory GenericPingDeviceDtos.fromDomain(GenericPingDE genericPingDE) {
+  factory GenericPingDeviceDtos.fromDomain(GenericPingDE deviceDe) {
     return GenericPingDeviceDtos(
       deviceDtoClass: (GenericPingDeviceDtos).toString(),
-      id: genericPingDE.uniqueId.getOrCrash(),
-      entityUniqueId: genericPingDE.entityUniqueId.getOrCrash(),
-      cbjEntityName: genericPingDE.cbjEntityName.getOrCrash(),
-      entityOriginalName: genericPingDE.entityOriginalName.getOrCrash(),
-      deviceOriginalName: genericPingDE.deviceOriginalName.getOrCrash(),
-      entityStateGRPC: genericPingDE.entityStateGRPC.getOrCrash(),
-      stateMassage: genericPingDE.stateMassage.getOrCrash(),
-      senderDeviceOs: genericPingDE.senderDeviceOs.getOrCrash(),
-      senderDeviceModel: genericPingDE.senderDeviceModel.getOrCrash(),
-      senderId: genericPingDE.senderId.getOrCrash(),
-      pingSwitchState: genericPingDE.pingSwitchState!.getOrCrash(),
-      entityTypes: genericPingDE.entityTypes.getOrCrash(),
-      compUuid: genericPingDE.compUuid.getOrCrash(),
-      deviceVendor: genericPingDE.deviceVendor.getOrCrash(),
-      powerConsumption: genericPingDE.powerConsumption.getOrCrash(),
-
-      deviceUniqueId: genericPingDE.deviceUniqueId.getOrCrash(),
-      devicePort: genericPingDE.devicePort.getOrCrash(),
-      deviceLastKnownIp: genericPingDE.deviceLastKnownIp.getOrCrash(),
-      deviceHostName: genericPingDE.deviceHostName.getOrCrash(),
-      deviceMdns: genericPingDE.deviceMdns.getOrCrash(),
-      devicesMacAddress: genericPingDE.devicesMacAddress.getOrCrash(),
-      entityKey: genericPingDE.entityKey.getOrCrash(),
-      requestTimeStamp: genericPingDE.requestTimeStamp.getOrCrash(),
+      id: deviceDe.uniqueId.getOrCrash(),
+      entityUniqueId: deviceDe.entityUniqueId.getOrCrash(),
+      cbjEntityName: deviceDe.cbjEntityName.getOrCrash(),
+      entityOriginalName: deviceDe.entityOriginalName.getOrCrash(),
+      deviceOriginalName: deviceDe.deviceOriginalName.getOrCrash(),
+      entityStateGRPC: deviceDe.entityStateGRPC.getOrCrash(),
+      stateMassage: deviceDe.stateMassage.getOrCrash(),
+      senderDeviceOs: deviceDe.senderDeviceOs.getOrCrash(),
+      senderDeviceModel: deviceDe.senderDeviceModel.getOrCrash(),
+      senderId: deviceDe.senderId.getOrCrash(),
+      pingSwitchState: deviceDe.pingSwitchState!.getOrCrash(),
+      entityTypes: deviceDe.entityTypes.getOrCrash(),
+      compUuid: deviceDe.compUuid.getOrCrash(),
+      deviceVendor: deviceDe.deviceVendor.getOrCrash(),
+      powerConsumption: deviceDe.powerConsumption.getOrCrash(),
+      deviceUniqueId: deviceDe.deviceUniqueId.getOrCrash(),
+      devicePort: deviceDe.devicePort.getOrCrash(),
+      deviceLastKnownIp: deviceDe.deviceLastKnownIp.getOrCrash(),
+      deviceHostName: deviceDe.deviceHostName.getOrCrash(),
+      deviceMdns: deviceDe.deviceMdns.getOrCrash(),
+      devicesMacAddress: deviceDe.devicesMacAddress.getOrCrash(),
+      entityKey: deviceDe.entityKey.getOrCrash(),
+      requestTimeStamp: deviceDe.requestTimeStamp.getOrCrash(),
       lastResponseFromDeviceTimeStamp:
-          genericPingDE.lastResponseFromDeviceTimeStamp.getOrCrash(),
-      // serverTimeStamp: FieldValue.serverTimestamp(),
+          deviceDe.lastResponseFromDeviceTimeStamp.getOrCrash(),
+      deviceCbjUniqueId: deviceDe.deviceCbjUniqueId.getOrCrash(),
     );
   }
 
@@ -110,6 +110,7 @@ abstract class GenericPingDeviceDtos
       requestTimeStamp: RequestTimeStamp(requestTimeStamp),
       lastResponseFromDeviceTimeStamp:
           LastResponseFromDeviceTimeStamp(lastResponseFromDeviceTimeStamp),
+      deviceCbjUniqueId: CoreUniqueId.fromUniqueString(deviceCbjUniqueId!),
     );
   }
 }

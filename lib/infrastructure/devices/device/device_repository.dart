@@ -278,7 +278,7 @@ class DeviceRepository implements IDeviceRepository {
               .getOrElse(() => throw 'Cant get current user');
       final String currentUserId = currentUserEntity.id!.getOrCrash()!;
 
-      final DeviceEntityAbstract deviceEntityTemp = deviceEntity
+      deviceEntity
           .copyWithStateMassage('Setting up device')
           .copyWithSenderDeviceOs(Platform.operatingSystem)
           .copyWithDeviceSenderDeviceModel(deviceModelString)

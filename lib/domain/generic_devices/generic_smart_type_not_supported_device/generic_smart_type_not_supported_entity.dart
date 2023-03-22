@@ -2,6 +2,7 @@ import 'package:cybear_jinni/domain/generic_devices/abstract_device/core_failure
 import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/generic_devices/abstract_device/value_objects_core.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+
 import 'package:cybear_jinni/infrastructure/generic_devices/abstract_device/device_entity_dto_abstract.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_smart_type_type_not_supported_device/generic_smart_type_not_supported_device_dtos.dart';
 import 'package:cybear_jinni/utils.dart';
@@ -34,6 +35,7 @@ class GenericSmartTypeNotSupportedDE extends DeviceEntityAbstract {
     required super.entityKey,
     required super.requestTimeStamp,
     required super.lastResponseFromDeviceTimeStamp,
+    required super.deviceCbjUniqueId,
   }) : super(
           entityTypes: EntityType(DeviceTypes.smartTypeNotSupported.toString()),
         );
@@ -63,6 +65,7 @@ class GenericSmartTypeNotSupportedDE extends DeviceEntityAbstract {
         entityKey: EntityKey(''),
         requestTimeStamp: RequestTimeStamp(''),
         lastResponseFromDeviceTimeStamp: LastResponseFromDeviceTimeStamp(''),
+        deviceCbjUniqueId: CoreUniqueId(),
       );
 
   //
@@ -125,7 +128,7 @@ class GenericSmartTypeNotSupportedDE extends DeviceEntityAbstract {
       requestTimeStamp: requestTimeStamp.getOrCrash(),
       lastResponseFromDeviceTimeStamp:
           lastResponseFromDeviceTimeStamp.getOrCrash(),
-      // serverTimeStamp: FieldValue.serverTimestamp(),
+      deviceCbjUniqueId: deviceCbjUniqueId.getOrCrash(),
     );
   }
 

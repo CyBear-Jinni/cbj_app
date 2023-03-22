@@ -36,6 +36,7 @@ abstract class GenericSmartPlugDeviceDtos
     required String? entityKey,
     required String? requestTimeStamp,
     required String? lastResponseFromDeviceTimeStamp,
+    required String? deviceCbjUniqueId,
     String? deviceDtoClass,
     String? stateMassage
     // required ServerTimestampConverter() FieldValue serverTimeStamp,
@@ -45,37 +46,36 @@ abstract class GenericSmartPlugDeviceDtos
   GenericSmartPlugDeviceDtos._();
 
   factory GenericSmartPlugDeviceDtos.fromDomain(
-    GenericSmartPlugDE genericSmartPlugDe,
+    GenericSmartPlugDE deviceDe,
   ) {
     return GenericSmartPlugDeviceDtos(
       deviceDtoClass: (GenericSmartPlugDeviceDtos).toString(),
-      id: genericSmartPlugDe.uniqueId.getOrCrash(),
-      entityUniqueId: genericSmartPlugDe.entityUniqueId.getOrCrash(),
-      cbjEntityName: genericSmartPlugDe.cbjEntityName.getOrCrash(),
-      entityOriginalName: genericSmartPlugDe.entityOriginalName.getOrCrash(),
-      deviceOriginalName: genericSmartPlugDe.deviceOriginalName.getOrCrash(),
-      entityStateGRPC: genericSmartPlugDe.entityStateGRPC.getOrCrash(),
-      stateMassage: genericSmartPlugDe.stateMassage.getOrCrash(),
-      senderDeviceOs: genericSmartPlugDe.senderDeviceOs.getOrCrash(),
-      senderDeviceModel: genericSmartPlugDe.senderDeviceModel.getOrCrash(),
-      senderId: genericSmartPlugDe.senderId.getOrCrash(),
-      smartPlugState: genericSmartPlugDe.smartPlugState!.getOrCrash(),
-      entityTypes: genericSmartPlugDe.entityTypes.getOrCrash(),
-      compUuid: genericSmartPlugDe.compUuid.getOrCrash(),
-      deviceVendor: genericSmartPlugDe.deviceVendor.getOrCrash(),
-      powerConsumption: genericSmartPlugDe.powerConsumption.getOrCrash(),
-
-      deviceUniqueId: genericSmartPlugDe.deviceUniqueId.getOrCrash(),
-      devicePort: genericSmartPlugDe.devicePort.getOrCrash(),
-      deviceLastKnownIp: genericSmartPlugDe.deviceLastKnownIp.getOrCrash(),
-      deviceHostName: genericSmartPlugDe.deviceHostName.getOrCrash(),
-      deviceMdns: genericSmartPlugDe.deviceMdns.getOrCrash(),
-      devicesMacAddress: genericSmartPlugDe.devicesMacAddress.getOrCrash(),
-      entityKey: genericSmartPlugDe.entityKey.getOrCrash(),
-      requestTimeStamp: genericSmartPlugDe.requestTimeStamp.getOrCrash(),
+      id: deviceDe.uniqueId.getOrCrash(),
+      entityUniqueId: deviceDe.entityUniqueId.getOrCrash(),
+      cbjEntityName: deviceDe.cbjEntityName.getOrCrash(),
+      entityOriginalName: deviceDe.entityOriginalName.getOrCrash(),
+      deviceOriginalName: deviceDe.deviceOriginalName.getOrCrash(),
+      entityStateGRPC: deviceDe.entityStateGRPC.getOrCrash(),
+      stateMassage: deviceDe.stateMassage.getOrCrash(),
+      senderDeviceOs: deviceDe.senderDeviceOs.getOrCrash(),
+      senderDeviceModel: deviceDe.senderDeviceModel.getOrCrash(),
+      senderId: deviceDe.senderId.getOrCrash(),
+      smartPlugState: deviceDe.smartPlugState!.getOrCrash(),
+      entityTypes: deviceDe.entityTypes.getOrCrash(),
+      compUuid: deviceDe.compUuid.getOrCrash(),
+      deviceVendor: deviceDe.deviceVendor.getOrCrash(),
+      powerConsumption: deviceDe.powerConsumption.getOrCrash(),
+      deviceUniqueId: deviceDe.deviceUniqueId.getOrCrash(),
+      devicePort: deviceDe.devicePort.getOrCrash(),
+      deviceLastKnownIp: deviceDe.deviceLastKnownIp.getOrCrash(),
+      deviceHostName: deviceDe.deviceHostName.getOrCrash(),
+      deviceMdns: deviceDe.deviceMdns.getOrCrash(),
+      devicesMacAddress: deviceDe.devicesMacAddress.getOrCrash(),
+      entityKey: deviceDe.entityKey.getOrCrash(),
+      requestTimeStamp: deviceDe.requestTimeStamp.getOrCrash(),
       lastResponseFromDeviceTimeStamp:
-          genericSmartPlugDe.lastResponseFromDeviceTimeStamp.getOrCrash(),
-      // serverTimeStamp: FieldValue.serverTimestamp(),
+          deviceDe.lastResponseFromDeviceTimeStamp.getOrCrash(),
+      deviceCbjUniqueId: deviceDe.deviceCbjUniqueId.getOrCrash(),
     );
   }
 
@@ -112,6 +112,7 @@ abstract class GenericSmartPlugDeviceDtos
       requestTimeStamp: RequestTimeStamp(requestTimeStamp),
       lastResponseFromDeviceTimeStamp:
           LastResponseFromDeviceTimeStamp(lastResponseFromDeviceTimeStamp),
+      deviceCbjUniqueId: CoreUniqueId.fromUniqueString(deviceCbjUniqueId!),
     );
   }
 }

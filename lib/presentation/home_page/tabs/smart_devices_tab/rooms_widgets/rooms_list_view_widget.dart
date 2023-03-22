@@ -408,9 +408,7 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
           int numberOfDevicesInTheRoom = 0;
 
           adOrRoom.value.forEach((key, value) {
-            for (final DeviceEntityAbstract element in value) {
-              numberOfDevicesInTheRoom++;
-            }
+            numberOfDevicesInTheRoom += value.length;
           });
 
           return RoomWidget(

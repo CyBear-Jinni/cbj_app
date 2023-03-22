@@ -36,6 +36,7 @@ abstract class GenericEmptyDeviceDtos
     required String? entityKey,
     required String? requestTimeStamp,
     required String? lastResponseFromDeviceTimeStamp,
+    required String? deviceCbjUniqueId,
     String? deviceDtoClass,
     String? stateMassage,
 
@@ -44,36 +45,35 @@ abstract class GenericEmptyDeviceDtos
 
   GenericEmptyDeviceDtos._();
 
-  factory GenericEmptyDeviceDtos.fromDomain(GenericEmptyDE genericEmptyDE) {
+  factory GenericEmptyDeviceDtos.fromDomain(GenericEmptyDE deviceDe) {
     return GenericEmptyDeviceDtos(
       deviceDtoClass: (GenericEmptyDeviceDtos).toString(),
-      id: genericEmptyDE.uniqueId.getOrCrash(),
-      entityUniqueId: genericEmptyDE.entityUniqueId.getOrCrash(),
-      cbjEntityName: genericEmptyDE.cbjEntityName.getOrCrash(),
-      entityOriginalName: genericEmptyDE.entityOriginalName.getOrCrash(),
-      deviceOriginalName: genericEmptyDE.deviceOriginalName.getOrCrash(),
-      entityStateGRPC: genericEmptyDE.entityStateGRPC.getOrCrash(),
-      stateMassage: genericEmptyDE.stateMassage.getOrCrash(),
-      senderDeviceOs: genericEmptyDE.senderDeviceOs.getOrCrash(),
-      senderDeviceModel: genericEmptyDE.senderDeviceModel.getOrCrash(),
-      senderId: genericEmptyDE.senderId.getOrCrash(),
-      emptySwitchState: genericEmptyDE.emptySwitchState!.getOrCrash(),
-      entityTypes: genericEmptyDE.entityTypes.getOrCrash(),
-      compUuid: genericEmptyDE.compUuid.getOrCrash(),
-      deviceVendor: genericEmptyDE.deviceVendor.getOrCrash(),
-      powerConsumption: genericEmptyDE.powerConsumption.getOrCrash(),
-
-      deviceUniqueId: genericEmptyDE.deviceUniqueId.getOrCrash(),
-      devicePort: genericEmptyDE.devicePort.getOrCrash(),
-      deviceLastKnownIp: genericEmptyDE.deviceLastKnownIp.getOrCrash(),
-      deviceHostName: genericEmptyDE.deviceHostName.getOrCrash(),
-      deviceMdns: genericEmptyDE.deviceMdns.getOrCrash(),
-      devicesMacAddress: genericEmptyDE.devicesMacAddress.getOrCrash(),
-      entityKey: genericEmptyDE.entityKey.getOrCrash(),
-      requestTimeStamp: genericEmptyDE.requestTimeStamp.getOrCrash(),
+      id: deviceDe.uniqueId.getOrCrash(),
+      entityUniqueId: deviceDe.entityUniqueId.getOrCrash(),
+      cbjEntityName: deviceDe.cbjEntityName.getOrCrash(),
+      entityOriginalName: deviceDe.entityOriginalName.getOrCrash(),
+      deviceOriginalName: deviceDe.deviceOriginalName.getOrCrash(),
+      entityStateGRPC: deviceDe.entityStateGRPC.getOrCrash(),
+      stateMassage: deviceDe.stateMassage.getOrCrash(),
+      senderDeviceOs: deviceDe.senderDeviceOs.getOrCrash(),
+      senderDeviceModel: deviceDe.senderDeviceModel.getOrCrash(),
+      senderId: deviceDe.senderId.getOrCrash(),
+      emptySwitchState: deviceDe.emptySwitchState!.getOrCrash(),
+      entityTypes: deviceDe.entityTypes.getOrCrash(),
+      compUuid: deviceDe.compUuid.getOrCrash(),
+      deviceVendor: deviceDe.deviceVendor.getOrCrash(),
+      powerConsumption: deviceDe.powerConsumption.getOrCrash(),
+      deviceUniqueId: deviceDe.deviceUniqueId.getOrCrash(),
+      devicePort: deviceDe.devicePort.getOrCrash(),
+      deviceLastKnownIp: deviceDe.deviceLastKnownIp.getOrCrash(),
+      deviceHostName: deviceDe.deviceHostName.getOrCrash(),
+      deviceMdns: deviceDe.deviceMdns.getOrCrash(),
+      devicesMacAddress: deviceDe.devicesMacAddress.getOrCrash(),
+      entityKey: deviceDe.entityKey.getOrCrash(),
+      requestTimeStamp: deviceDe.requestTimeStamp.getOrCrash(),
       lastResponseFromDeviceTimeStamp:
-          genericEmptyDE.lastResponseFromDeviceTimeStamp.getOrCrash(),
-      // serverTimeStamp: FieldValue.serverTimestamp(),
+          deviceDe.lastResponseFromDeviceTimeStamp.getOrCrash(),
+      deviceCbjUniqueId: deviceDe.deviceCbjUniqueId.getOrCrash(),
     );
   }
 
@@ -110,6 +110,7 @@ abstract class GenericEmptyDeviceDtos
       requestTimeStamp: RequestTimeStamp(requestTimeStamp),
       lastResponseFromDeviceTimeStamp:
           LastResponseFromDeviceTimeStamp(lastResponseFromDeviceTimeStamp),
+      deviceCbjUniqueId: CoreUniqueId.fromUniqueString(deviceCbjUniqueId!),
     );
   }
 }

@@ -3,6 +3,7 @@ import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entit
 import 'package:cybear_jinni/domain/generic_devices/abstract_device/value_objects_core.dart';
 import 'package:cybear_jinni/domain/generic_devices/generic_smart_computer_device/generic_smart_computer_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+
 import 'package:cybear_jinni/infrastructure/generic_devices/abstract_device/device_entity_dto_abstract.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_smart_computer_device/generic_smart_computer_device_dtos.dart';
 import 'package:cybear_jinni/utils.dart';
@@ -35,6 +36,7 @@ class GenericSmartComputerDE extends DeviceEntityAbstract {
     required super.entityKey,
     required super.requestTimeStamp,
     required super.lastResponseFromDeviceTimeStamp,
+    required super.deviceCbjUniqueId,
     required this.smartComputerSuspendState,
     required this.smartComputerShutDownState,
   }) : super(
@@ -65,6 +67,7 @@ class GenericSmartComputerDE extends DeviceEntityAbstract {
         entityKey: EntityKey(''),
         requestTimeStamp: RequestTimeStamp(''),
         lastResponseFromDeviceTimeStamp: LastResponseFromDeviceTimeStamp(''),
+        deviceCbjUniqueId: CoreUniqueId(),
         smartComputerSuspendState: GenericSmartComputerSuspendState(
           DeviceActions.itIsFalse.toString(),
         ),
@@ -126,7 +129,8 @@ class GenericSmartComputerDE extends DeviceEntityAbstract {
       senderDeviceModel: senderDeviceModel.getOrCrash(),
       senderId: senderId.getOrCrash(),
       entityTypes: entityTypes.getOrCrash(),
-      compUuid: compUuid.getOrCrash(), deviceVendor: deviceVendor.getOrCrash(),
+      compUuid: compUuid.getOrCrash(),
+      deviceVendor: deviceVendor.getOrCrash(),
       powerConsumption: powerConsumption.getOrCrash(),
       deviceUniqueId: deviceUniqueId.getOrCrash(),
       devicePort: devicePort.getOrCrash(),
@@ -138,10 +142,9 @@ class GenericSmartComputerDE extends DeviceEntityAbstract {
       requestTimeStamp: requestTimeStamp.getOrCrash(),
       lastResponseFromDeviceTimeStamp:
           lastResponseFromDeviceTimeStamp.getOrCrash(),
+      deviceCbjUniqueId: deviceCbjUniqueId.getOrCrash(),
       smartComputerSuspendState: smartComputerSuspendState!.getOrCrash(),
       smartComputerShutDownState: smartComputerShutDownState!.getOrCrash(),
-
-      // serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }
 

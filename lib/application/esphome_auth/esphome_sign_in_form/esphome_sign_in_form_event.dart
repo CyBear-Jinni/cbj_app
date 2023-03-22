@@ -5,5 +5,6 @@ class EspHomeSignInFormEvent with _$EspHomeSignInFormEvent {
   const factory EspHomeSignInFormEvent.apiKeyChanged(String apiKeyStr) =
       ApiKeyChanged;
 
-  const factory EspHomeSignInFormEvent.signInWithApiKey() = SignInWithApiKey;
+  const factory EspHomeSignInFormEvent.signInWithEspHomeApiKey() =
+  SignInWithEspHomeApiKey;
 }

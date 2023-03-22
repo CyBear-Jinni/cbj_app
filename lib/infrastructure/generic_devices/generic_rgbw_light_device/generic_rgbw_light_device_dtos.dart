@@ -35,6 +35,7 @@ abstract class GenericRgbwLightDeviceDtos
     required String? entityKey,
     required String? requestTimeStamp,
     required String? lastResponseFromDeviceTimeStamp,
+    required String? deviceCbjUniqueId,
     required String? lightSwitchState,
     required String? lightColorTemperature,
     required String? lightBrightness,
@@ -51,46 +52,42 @@ abstract class GenericRgbwLightDeviceDtos
   GenericRgbwLightDeviceDtos._();
 
   factory GenericRgbwLightDeviceDtos.fromDomain(
-    GenericRgbwLightDE genericRgbwLightDE,
+    GenericRgbwLightDE deviceDe,
   ) {
     return GenericRgbwLightDeviceDtos(
       deviceDtoClass: (GenericRgbwLightDeviceDtos).toString(),
-      id: genericRgbwLightDE.uniqueId.getOrCrash(),
-      entityUniqueId: genericRgbwLightDE.entityUniqueId.getOrCrash(),
-      cbjEntityName: genericRgbwLightDE.cbjEntityName.getOrCrash(),
-      entityOriginalName: genericRgbwLightDE.entityOriginalName.getOrCrash(),
-      deviceOriginalName: genericRgbwLightDE.deviceOriginalName.getOrCrash(),
-      entityStateGRPC: genericRgbwLightDE.entityStateGRPC.getOrCrash(),
-      stateMassage: genericRgbwLightDE.stateMassage.getOrCrash(),
-      senderDeviceOs: genericRgbwLightDE.senderDeviceOs.getOrCrash(),
-      senderDeviceModel: genericRgbwLightDE.senderDeviceModel.getOrCrash(),
-      senderId: genericRgbwLightDE.senderId.getOrCrash(),
-      lightSwitchState: genericRgbwLightDE.lightSwitchState!.getOrCrash(),
-      entityTypes: genericRgbwLightDE.entityTypes.getOrCrash(),
-      compUuid: genericRgbwLightDE.compUuid.getOrCrash(),
-      deviceVendor: genericRgbwLightDE.deviceVendor.getOrCrash(),
-      powerConsumption: genericRgbwLightDE.powerConsumption.getOrCrash(),
-
-      deviceUniqueId: genericRgbwLightDE.deviceUniqueId.getOrCrash(),
-      devicePort: genericRgbwLightDE.devicePort.getOrCrash(),
-      deviceLastKnownIp: genericRgbwLightDE.deviceLastKnownIp.getOrCrash(),
-      deviceHostName: genericRgbwLightDE.deviceHostName.getOrCrash(),
-      deviceMdns: genericRgbwLightDE.deviceMdns.getOrCrash(),
-      devicesMacAddress: genericRgbwLightDE.devicesMacAddress.getOrCrash(),
-      entityKey: genericRgbwLightDE.entityKey.getOrCrash(),
-      requestTimeStamp: genericRgbwLightDE.requestTimeStamp.getOrCrash(),
+      id: deviceDe.uniqueId.getOrCrash(),
+      entityUniqueId: deviceDe.entityUniqueId.getOrCrash(),
+      cbjEntityName: deviceDe.cbjEntityName.getOrCrash(),
+      entityOriginalName: deviceDe.entityOriginalName.getOrCrash(),
+      deviceOriginalName: deviceDe.deviceOriginalName.getOrCrash(),
+      entityStateGRPC: deviceDe.entityStateGRPC.getOrCrash(),
+      stateMassage: deviceDe.stateMassage.getOrCrash(),
+      senderDeviceOs: deviceDe.senderDeviceOs.getOrCrash(),
+      senderDeviceModel: deviceDe.senderDeviceModel.getOrCrash(),
+      senderId: deviceDe.senderId.getOrCrash(),
+      lightSwitchState: deviceDe.lightSwitchState!.getOrCrash(),
+      entityTypes: deviceDe.entityTypes.getOrCrash(),
+      compUuid: deviceDe.compUuid.getOrCrash(),
+      deviceVendor: deviceDe.deviceVendor.getOrCrash(),
+      powerConsumption: deviceDe.powerConsumption.getOrCrash(),
+      deviceUniqueId: deviceDe.deviceUniqueId.getOrCrash(),
+      devicePort: deviceDe.devicePort.getOrCrash(),
+      deviceLastKnownIp: deviceDe.deviceLastKnownIp.getOrCrash(),
+      deviceHostName: deviceDe.deviceHostName.getOrCrash(),
+      deviceMdns: deviceDe.deviceMdns.getOrCrash(),
+      devicesMacAddress: deviceDe.devicesMacAddress.getOrCrash(),
+      entityKey: deviceDe.entityKey.getOrCrash(),
+      requestTimeStamp: deviceDe.requestTimeStamp.getOrCrash(),
       lastResponseFromDeviceTimeStamp:
-          genericRgbwLightDE.lastResponseFromDeviceTimeStamp.getOrCrash(),
-
-      lightColorTemperature:
-          genericRgbwLightDE.lightColorTemperature.getOrCrash(),
-      lightBrightness: genericRgbwLightDE.lightBrightness.getOrCrash(),
-      lightColorAlpha: genericRgbwLightDE.lightColorAlpha.getOrCrash(),
-      lightColorHue: genericRgbwLightDE.lightColorHue.getOrCrash(),
-      lightColorSaturation:
-          genericRgbwLightDE.lightColorSaturation.getOrCrash(),
-      lightColorValue: genericRgbwLightDE.lightColorValue.getOrCrash(),
-      // serverTimeStamp: FieldValue.serverTimestamp(),
+          deviceDe.lastResponseFromDeviceTimeStamp.getOrCrash(),
+      lightColorTemperature: deviceDe.lightColorTemperature.getOrCrash(),
+      lightBrightness: deviceDe.lightBrightness.getOrCrash(),
+      lightColorAlpha: deviceDe.lightColorAlpha.getOrCrash(),
+      lightColorHue: deviceDe.lightColorHue.getOrCrash(),
+      lightColorSaturation: deviceDe.lightColorSaturation.getOrCrash(),
+      lightColorValue: deviceDe.lightColorValue.getOrCrash(),
+      deviceCbjUniqueId: deviceDe.deviceCbjUniqueId.getOrCrash(),
     );
   }
 
@@ -135,6 +132,7 @@ abstract class GenericRgbwLightDeviceDtos
       requestTimeStamp: RequestTimeStamp(requestTimeStamp),
       lastResponseFromDeviceTimeStamp:
           LastResponseFromDeviceTimeStamp(lastResponseFromDeviceTimeStamp),
+      deviceCbjUniqueId: CoreUniqueId.fromUniqueString(deviceCbjUniqueId!),
     );
   }
 }

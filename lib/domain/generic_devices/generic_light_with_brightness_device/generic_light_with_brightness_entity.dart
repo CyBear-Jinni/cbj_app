@@ -3,6 +3,7 @@ import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entit
 import 'package:cybear_jinni/domain/generic_devices/abstract_device/value_objects_core.dart';
 import 'package:cybear_jinni/domain/generic_devices/generic_light_with_brightness_device/generic_light_with_brightness_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+
 import 'package:cybear_jinni/infrastructure/generic_devices/abstract_device/device_entity_dto_abstract.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_light_with_brightness_device/generic_light_with_brightness_device_dtos.dart';
 import 'package:cybear_jinni/utils.dart';
@@ -35,6 +36,7 @@ class GenericLightWithBrightnessDE extends DeviceEntityAbstract {
     required super.entityKey,
     required super.requestTimeStamp,
     required super.lastResponseFromDeviceTimeStamp,
+    required super.deviceCbjUniqueId,
     required this.lightSwitchState,
     required this.lightBrightness,
   }) : super(
@@ -66,6 +68,7 @@ class GenericLightWithBrightnessDE extends DeviceEntityAbstract {
         entityKey: EntityKey(''),
         requestTimeStamp: RequestTimeStamp(''),
         lastResponseFromDeviceTimeStamp: LastResponseFromDeviceTimeStamp(''),
+        deviceCbjUniqueId: CoreUniqueId(),
         lightSwitchState:
             GenericLightWithBrightnessSwitchState(DeviceActions.off.toString()),
         lightBrightness: GenericLightWithBrightnessBrightness(''),
@@ -136,9 +139,9 @@ class GenericLightWithBrightnessDE extends DeviceEntityAbstract {
       requestTimeStamp: requestTimeStamp.getOrCrash(),
       lastResponseFromDeviceTimeStamp:
           lastResponseFromDeviceTimeStamp.getOrCrash(),
+      deviceCbjUniqueId: deviceCbjUniqueId.getOrCrash(),
       lightSwitchState: lightSwitchState!.getOrCrash(),
       lightBrightness: lightBrightness.getOrCrash(),
-      // serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }
 
