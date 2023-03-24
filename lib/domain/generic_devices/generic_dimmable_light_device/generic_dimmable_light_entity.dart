@@ -1,19 +1,18 @@
 import 'package:cybear_jinni/domain/generic_devices/abstract_device/core_failures.dart';
 import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/generic_devices/abstract_device/value_objects_core.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_light_with_brightness_device/generic_light_with_brightness_value_objects.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_dimmable_light_device/generic_dimmable_light_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-
 import 'package:cybear_jinni/infrastructure/generic_devices/abstract_device/device_entity_dto_abstract.dart';
-import 'package:cybear_jinni/infrastructure/generic_devices/generic_light_with_brightness_device/generic_light_with_brightness_device_dtos.dart';
+import 'package:cybear_jinni/infrastructure/generic_devices/generic_dimmable_light_device/generic_dimmable_light_device_dtos.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:dartz/dartz.dart';
 
 /// Abstract smart GenericLightWithBrightness that exist inside a computer, the
 /// implementations will be actual GenericLightWithBrightness like blinds lights and more
-class GenericLightWithBrightnessDE extends DeviceEntityAbstract {
+class GenericDimmableLightDE extends DeviceEntityAbstract {
   /// All public field of GenericLightWithBrightness entity
-  GenericLightWithBrightnessDE({
+  GenericDimmableLightDE({
     required super.uniqueId,
     required super.entityUniqueId,
     required super.deviceVendor,
@@ -40,12 +39,11 @@ class GenericLightWithBrightnessDE extends DeviceEntityAbstract {
     required this.lightSwitchState,
     required this.lightBrightness,
   }) : super(
-          // TODO: add new type named lightLightWithBrightness
-          entityTypes: EntityType(DeviceTypes.light.toString()),
+          entityTypes: EntityType(DeviceTypes.dimmableLight.toString()),
         );
 
   /// Empty instance of GenericLightWithBrightnessEntity
-  factory GenericLightWithBrightnessDE.empty() => GenericLightWithBrightnessDE(
+  factory GenericDimmableLightDE.empty() => GenericDimmableLightDE(
         uniqueId: CoreUniqueId(),
         entityUniqueId: EntityUniqueId(''),
         cbjEntityName: CbjEntityName(''),
@@ -70,15 +68,19 @@ class GenericLightWithBrightnessDE extends DeviceEntityAbstract {
         lastResponseFromDeviceTimeStamp: LastResponseFromDeviceTimeStamp(''),
         deviceCbjUniqueId: CoreUniqueId(),
         lightSwitchState:
-            GenericLightWithBrightnessSwitchState(DeviceActions.off.toString()),
-        lightBrightness: GenericLightWithBrightnessBrightness(''),
+            GenericDimmableLightSwitchState(DeviceActions.off.toString()),
+        lightBrightness: GenericDimmableLightBrightness(''),
       );
 
   /// State of the light on/off
-  GenericLightWithBrightnessSwitchState? lightSwitchState;
+  GenericDimmableLightSwitchState? lightSwitchState;
 
   /// Brightness 0-100%
-  GenericLightWithBrightnessBrightness lightBrightness;
+  GenericDimmableLightBrightness lightBrightness;
+
+  int sendNewBrightnessEachMiliseconds = 200;
+  bool doesWaitingToSendBrightnessRequest = false;
+
   //
   // /// Will return failure if any of the fields failed or return unit if fields
   // /// have legit values
@@ -108,13 +110,13 @@ class GenericLightWithBrightnessDE extends DeviceEntityAbstract {
   /// Return a list of all valid actions for this device
   @override
   List<String> getAllValidActions() {
-    return GenericLightWithBrightnessSwitchState.lightValidActions();
+    return GenericDimmableLightSwitchState.lightValidActions();
   }
 
   @override
   DeviceEntityDtoAbstract toInfrastructure() {
-    return GenericLightWithBrightnessDeviceDtos(
-      deviceDtoClass: (GenericLightWithBrightnessDeviceDtos).toString(),
+    return GenericDimmableLightDeviceDtos(
+      deviceDtoClass: (GenericDimmableLightDeviceDtos).toString(),
       id: uniqueId.getOrCrash(),
       entityUniqueId: entityUniqueId.getOrCrash(),
       cbjEntityName: cbjEntityName.getOrCrash(),
@@ -190,9 +192,8 @@ class GenericLightWithBrightnessDE extends DeviceEntityAbstract {
 
   @override
   bool replaceActionIfExist(String action) {
-    if (GenericLightWithBrightnessSwitchState.lightValidActions()
-        .contains(action)) {
-      lightSwitchState = GenericLightWithBrightnessSwitchState(action);
+    if (GenericDimmableLightSwitchState.lightValidActions().contains(action)) {
+      lightSwitchState = GenericDimmableLightSwitchState(action);
       return true;
     }
     return false;

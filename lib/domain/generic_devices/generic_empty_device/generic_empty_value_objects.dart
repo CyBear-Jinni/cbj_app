@@ -5,9 +5,8 @@ import 'package:dartz/dartz.dart';
 
 class GenericEmptySwitchState extends ValueObjectCore<String> {
   factory GenericEmptySwitchState(String? input) {
-    assert(input != null);
     return GenericEmptySwitchState._(
-      validateGenericEmptyStateNotEmpty(input!),
+      validateGenericEmptyStateNotEmpty(input ?? 'false'),
     );
   }
 

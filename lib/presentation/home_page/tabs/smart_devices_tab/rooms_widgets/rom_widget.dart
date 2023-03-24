@@ -9,7 +9,6 @@ import 'package:cybear_jinni/application/switches/switches_actor/switches_actor_
 import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/blinds_in_the_room.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/boilers_in_the_room.dart';
@@ -20,6 +19,7 @@ import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devic
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/smart_plug_in_the_room_block.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/smart_tv_in_the_room.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/switches_in_the_room_block.dart';
+import 'package:cybear_jinni/utils.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -157,7 +157,8 @@ class RoomWidget extends StatelessWidget {
                   final List<DeviceEntityAbstract> devicesInTheRoom =
                       tempDevicesByRoomsByType[roomId]![deviceType]!;
 
-                  if (deviceType == DeviceTypes.light.toString()) {
+                  if (deviceType == DeviceTypes.light.toString() ||
+                      deviceType == DeviceTypes.dimmableLight.toString()) {
                     return BlocProvider(
                       create: (context) => getIt<LightsActorBloc>(),
                       child: LightsInTheRoomBlock.withAbstractDevice(
@@ -249,6 +250,9 @@ class RoomWidget extends StatelessWidget {
                       ),
                     );
                   }
+
+                  logger.w('Arrived here unsupported device type $deviceType');
+
                   return TextButton(
                     onPressed: () {
                       FlushbarHelper.createInformation(
