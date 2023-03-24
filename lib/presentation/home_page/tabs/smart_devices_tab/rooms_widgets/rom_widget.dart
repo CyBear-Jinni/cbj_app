@@ -14,7 +14,6 @@ import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devic
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/boilers_in_the_room.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/lights_in_the_room_block.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/printers_in_the_room_block.dart';
-import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/rgbw_lights_in_the_room_block.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/smart_computers_in_the_room_block.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/smart_plug_in_the_room_block.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/smart_tv_in_the_room.dart';
@@ -160,28 +159,38 @@ class RoomWidget extends StatelessWidget {
                       tempDevicesByRoomsByType[roomId]![deviceType]!;
 
                   if (deviceType == DeviceTypes.light.toString() ||
-                      deviceType == DeviceTypes.dimmableLight.toString()) {
+                      deviceType == DeviceTypes.dimmableLight.toString() ||
+                      deviceType == DeviceTypes.rgbwLights.toString()) {
                     if (didAddedLights) {
                       return const SizedBox();
                     }
                     didAddedLights = true;
 
-                    devicesInTheRoom = tempDevicesByRoomsByType[roomId]![
-                        DeviceTypes.light.toString()]!;
-                    devicesInTheRoom.addAll(tempDevicesByRoomsByType[roomId]![
-                        DeviceTypes.dimmableLight.toString()]!);
+                    devicesInTheRoom = [];
+
+                    final List<DeviceEntityAbstract>?
+                        tempLightDevicesInTheRoom =
+                        tempDevicesByRoomsByType[roomId]
+                            ?[DeviceTypes.light.toString()];
+                    devicesInTheRoom.addAll(tempLightDevicesInTheRoom ?? []);
+
+                    final List<DeviceEntityAbstract>?
+                        tempDimmableLightDevicesInTheRoom =
+                        tempDevicesByRoomsByType[roomId]
+                            ?[DeviceTypes.dimmableLight.toString()];
+                    devicesInTheRoom
+                        .addAll(tempDimmableLightDevicesInTheRoom ?? []);
+
+                    final List<DeviceEntityAbstract>?
+                        tempRgbwLightDevicesInTheRoom =
+                        tempDevicesByRoomsByType[roomId]
+                            ?[DeviceTypes.rgbwLights.toString()];
+                    devicesInTheRoom
+                        .addAll(tempRgbwLightDevicesInTheRoom ?? []);
+
                     return BlocProvider(
                       create: (context) => getIt<LightsActorBloc>(),
                       child: LightsInTheRoomBlock.withAbstractDevice(
-                        roomEntity: roomEntity,
-                        tempDeviceInRoom: devicesInTheRoom,
-                        tempRoomColorGradiant: roomColorGradiant,
-                      ),
-                    );
-                  } else if (deviceType == DeviceTypes.rgbwLights.toString()) {
-                    return BlocProvider(
-                      create: (context) => getIt<LightsActorBloc>(),
-                      child: RgbwLightsInTheRoomBlock.withAbstractDevice(
                         roomEntity: roomEntity,
                         tempDeviceInRoom: devicesInTheRoom,
                         tempRoomColorGradiant: roomColorGradiant,

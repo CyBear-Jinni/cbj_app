@@ -87,7 +87,12 @@ class HubClientDemo {
       uniqueId:
           RoomUniqueId.fromUniqueString('23deb7f0-4193-11ed-9d1c-5747056d7848'),
       cbjEntityName: RoomDefaultName('Guy Room'),
-      roomTypes: RoomTypes(const ['0', '1', '2', '4']),
+      roomTypes: RoomTypes([
+        AreaPurposesTypes.bedroom.value.toString(),
+        AreaPurposesTypes.studyRoom.value.toString(),
+        AreaPurposesTypes.workRoom.value.toString(),
+        AreaPurposesTypes.videoGames.value.toString()
+      ]),
       roomDevicesId: RoomDevicesId(const [
         'a31523m6-463s-32ge-7426-g33c642r7m25',
         'c90137f2-419b-11ed-8246-e17a279f4d89',
@@ -119,12 +124,14 @@ class HubClientDemo {
       uniqueId:
           RoomUniqueId.fromUniqueString('38b45780-419c-11ed-bce9-8dc09da0062f'),
       cbjEntityName: RoomDefaultName('Outside'),
-      roomTypes: RoomTypes(const ['0', '1', '2', '5']),
-      roomDevicesId: RoomDevicesId(const [
-        '7189ed76-4351-11ed-b249-63fd7e165c16',
-        'sfds344t-sdf3-fd3d-24s4-bd2sdf3n5rfd',
-        'wfdsg2w6-fgde-234s-vbz2-b234jmgvbfd6',
+      roomTypes: RoomTypes([
+        AreaPurposesTypes.bedroom.value.toString(),
+        AreaPurposesTypes.studyRoom.value.toString(),
+        AreaPurposesTypes.workRoom.value.toString(),
+        AreaPurposesTypes.livingRoom.value.toString()
       ]),
+      roomDevicesId:
+          RoomDevicesId(const ['gcvweg3y-bv2s-cvwe-bdmf-7h4f3f2dw2d1']),
       roomScenesId: RoomScenesId(const []),
       roomRoutinesId: RoomRoutinesId(const []),
       roomBindingsId: RoomBindingsId(const []),
@@ -143,6 +150,42 @@ class HubClientDemo {
       ),
     );
     roomsList.add(requestsAndStatusFromHubRoomOutSide);
+
+    /// Out Side Room
+
+    final RoomEntity allRemoteCommandsRoomAmi = RoomEntity(
+      uniqueId:
+          RoomUniqueId.fromUniqueString('gai23tds-f3t7-vxa2-dvnn-hykkjty8567d'),
+      cbjEntityName: RoomDefaultName('Ami Room'),
+      roomTypes: RoomTypes([
+        AreaPurposesTypes.bedroom.value.toString(),
+        AreaPurposesTypes.studyRoom.value.toString(),
+        AreaPurposesTypes.workRoom.value.toString(),
+        AreaPurposesTypes.livingRoom.value.toString()
+      ]),
+      roomDevicesId: RoomDevicesId(const [
+        '7189ed76-4351-11ed-b249-63fd7e165c16',
+        'sfds344t-sdf3-fd3d-24s4-bd2sdf3n5rfd',
+        'wfdsg2w6-fgde-234s-vbz2-b234jmgvbfd6',
+      ]),
+      roomScenesId: RoomScenesId(const []),
+      roomRoutinesId: RoomRoutinesId(const []),
+      roomBindingsId: RoomBindingsId(const []),
+      roomMostUsedBy: RoomMostUsedBy(const []),
+      roomPermissions: RoomPermissions(const []),
+      background: RoomBackground(
+        'https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
+      ),
+    );
+
+    final RequestsAndStatusFromHub requestsAndStatusFromHubRoomAmi =
+        RequestsAndStatusFromHub(
+      sendingType: sendingTypeRoom,
+      allRemoteCommands: jsonEncode(
+        allRemoteCommandsRoomAmi.toInfrastructure().toJson(),
+      ),
+    );
+    roomsList.add(requestsAndStatusFromHubRoomAmi);
 
     return roomsList;
   }
@@ -377,7 +420,7 @@ class HubClientDemo {
 
     /// RGBLight
 
-    final GenericDimmableLightDE allRemoteCommandsDimmableLight =
+    final GenericDimmableLightDE allRemoteCommandsDimmableLight1 =
         GenericDimmableLightDE(
       uniqueId:
           CoreUniqueId.fromUniqueString('sfds344t-sdf3-fd3d-24s4-bd2sdf3n5rfd'),
@@ -412,13 +455,58 @@ class HubClientDemo {
           CoreUniqueId.fromUniqueString('dgh4nsdg-fd2d-df32-vn4g-dfgw2dvvnrrg'),
     );
 
-    final RequestsAndStatusFromHub requestsAndStatusFromHubDimmableLight =
+    final RequestsAndStatusFromHub requestsAndStatusFromHubDimmableLight1 =
         RequestsAndStatusFromHub(
       sendingType: sendingTypeDevice,
       allRemoteCommands: DeviceHelper.convertDomainToJsonString(
-          allRemoteCommandsDimmableLight),
+        allRemoteCommandsDimmableLight1,
+      ),
     );
-    devicesList.add(requestsAndStatusFromHubDimmableLight);
+    devicesList.add(requestsAndStatusFromHubDimmableLight1);
+
+    final GenericDimmableLightDE allRemoteCommandsDimmableLight2 =
+        GenericDimmableLightDE(
+      uniqueId:
+          CoreUniqueId.fromUniqueString('gcvweg3y-bv2s-cvwe-bdmf-7h4f3f2dw2d1'),
+      entityUniqueId: EntityUniqueId('4gj76jykeg3fsdf2dsq11f'),
+      deviceVendor: DeviceVendor(VendorsAndServices.lifx.toString()),
+      cbjEntityName: CbjEntityName('Ami Room Ceiling'),
+      entityOriginalName: EntityOriginalName('Ami Workshop Light'),
+      deviceOriginalName: DeviceOriginalName('Ami Workshop Light'),
+      entityStateGRPC: EntityState(DeviceStateGRPC.ack.toString()),
+      stateMassage: DeviceStateMassage('Hello World'),
+      senderDeviceOs: DeviceSenderDeviceOs('lifx'),
+      senderDeviceModel: DeviceSenderDeviceModel('1SE'),
+      senderId: DeviceSenderId.fromUniqueString(
+        'f23gg2d2-h6j7-k8ky-6ugh-6t574ty47yj5',
+      ),
+      compUuid: DeviceCompUuid('dg23esbh4eghrer'),
+      lightSwitchState:
+          GenericDimmableLightSwitchState(DeviceActions.off.toString()),
+      lightBrightness: GenericDimmableLightBrightness('100'),
+      powerConsumption: DevicePowerConsumption('0'),
+      deviceUniqueId: DeviceUniqueId('deviceUniqueId'),
+      devicePort: DevicePort('devicePort'),
+      deviceLastKnownIp: DeviceLastKnownIp('deviceLastKnownIp'),
+      deviceHostName: DeviceHostName('deviceHostName'),
+      deviceMdns: DeviceMdns('deviceMdns'),
+      devicesMacAddress: DevicesMacAddress('devicesMacAddress'),
+      entityKey: EntityKey('entityKey'),
+      requestTimeStamp: RequestTimeStamp('requestTimeStamp'),
+      lastResponseFromDeviceTimeStamp:
+          LastResponseFromDeviceTimeStamp('lastResponseFromDeviceTimeStamp'),
+      deviceCbjUniqueId:
+          CoreUniqueId.fromUniqueString('nbfsgsdf-34f3-631w-125f-324f23567731'),
+    );
+
+    final RequestsAndStatusFromHub requestsAndStatusFromHubDimmableLight2 =
+        RequestsAndStatusFromHub(
+      sendingType: sendingTypeDevice,
+      allRemoteCommands: DeviceHelper.convertDomainToJsonString(
+        allRemoteCommandsDimmableLight2,
+      ),
+    );
+    devicesList.add(requestsAndStatusFromHubDimmableLight2);
 
     /// Light
 

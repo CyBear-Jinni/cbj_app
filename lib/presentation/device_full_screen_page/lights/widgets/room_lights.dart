@@ -3,11 +3,13 @@ import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
 import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/generic_devices/generic_dimmable_light_device/generic_dimmable_light_entity.dart';
 import 'package:cybear_jinni/domain/generic_devices/generic_light_device/generic_light_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbenum.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/lights/widgets/error_lights_device_card_widget.dart';
-import 'package:cybear_jinni/presentation/device_full_screen_page/lights/widgets/light_widget.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/lights/widgets/lights_widgets/dimmable_light_widget.dart';
+import 'package:cybear_jinni/presentation/device_full_screen_page/lights/widgets/lights_widgets/light_widget.dart';
+import 'package:cybear_jinni/presentation/device_full_screen_page/lights/widgets/lights_widgets/rgb_light_widgets/rgbw_light_widget.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -107,11 +109,29 @@ class RoomLights extends StatelessWidget {
   ) {
     final List<Widget> widgetsForRow = <Widget>[];
 
-    for (final GenericDimmableLightDE dimmableLightDE in lightsList) {
+    for (final GenericDimmableLightDE lightDE in lightsList) {
       widgetsForRow.add(
         BlocProvider(
           create: (context) => getIt<LightToggleBloc>(),
-          child: DimmableLightWidget(dimmableLightDE),
+          child: DimmableLightWidget(lightDE),
+        ),
+      );
+    }
+
+    return widgetsForRow;
+  }
+
+  List<Widget> rgbwLightsToShow(
+    BuildContext context,
+    List<GenericRgbwLightDE> lightsList,
+  ) {
+    final List<Widget> widgetsForRow = <Widget>[];
+
+    for (final GenericRgbwLightDE lightDE in lightsList) {
+      widgetsForRow.add(
+        BlocProvider(
+          create: (context) => getIt<LightToggleBloc>(),
+          child: RgbwLightWidget(lightDE),
         ),
       );
     }
@@ -128,6 +148,7 @@ class RoomLights extends StatelessWidget {
 
       final List<GenericLightDE> lightList = [];
       final List<GenericDimmableLightDE> dimmableLightList = [];
+      final List<GenericRgbwLightDE> rgbwLightList = [];
 
       /// Filtering lights in the rooom to different separate lists bt types
       for (final DeviceEntityAbstract deviceEntity in _deviceEntityList.iter) {
@@ -137,21 +158,46 @@ class RoomLights extends StatelessWidget {
         } else if (deviceEntity.entityTypes.getOrCrash() ==
             DeviceTypes.dimmableLight.toString()) {
           dimmableLightList.add(deviceEntity as GenericDimmableLightDE);
+        } else if (deviceEntity.entityTypes.getOrCrash() ==
+            DeviceTypes.rgbwLights.toString()) {
+          rgbwLightList.add(deviceEntity as GenericRgbwLightDE);
         } else {
           logger.w('Please add support for new light type in room_lights page');
         }
       }
 
-      columnOfLights.addAll(lightsToShow(context, lightList));
-      columnOfLights.add(const SizedBox(height: 100));
-      columnOfLights.addAll(dimmableLightsToShow(context, dimmableLightList));
-      columnOfLights.add(const SizedBox(height: 30));
+      bool isThereDeviceAbove = false;
 
-      columnOfLights.add(
-        const SizedBox(
-          height: 5,
-        ),
-      );
+      final List<Widget> regularLightsWidgets =
+          lightsToShow(context, lightList);
+      if (regularLightsWidgets.isNotEmpty) {
+        columnOfLights.addAll(regularLightsWidgets);
+        isThereDeviceAbove = true;
+      }
+
+      final List<Widget> dimmableLightsWidgets =
+          dimmableLightsToShow(context, dimmableLightList);
+
+      if (dimmableLightsWidgets.isNotEmpty) {
+        if (isThereDeviceAbove) {
+          columnOfLights.add(const SizedBox(height: 100));
+        }
+        columnOfLights.addAll(dimmableLightsWidgets);
+        isThereDeviceAbove = true;
+      }
+
+      final List<Widget> rgbwLightsWidgets =
+          rgbwLightsToShow(context, rgbwLightList);
+
+      if (rgbwLightsWidgets.isNotEmpty) {
+        if (isThereDeviceAbove) {
+          columnOfLights.add(const SizedBox(height: 100));
+        }
+        columnOfLights.addAll(rgbwLightsWidgets);
+        isThereDeviceAbove = true;
+      }
+
+      columnOfLights.add(const SizedBox(height: 35));
 
       return Column(
         children: columnOfLights,

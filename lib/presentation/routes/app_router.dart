@@ -28,8 +28,6 @@ import 'package:cybear_jinni/presentation/device_full_screen_page/boilers/rooms_
 import 'package:cybear_jinni/presentation/device_full_screen_page/lights/lights_in_the_room/lights_in_the_room_page.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/lights/rooms_lights_page.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/printers/rooms_printers_page.dart';
-import 'package:cybear_jinni/presentation/device_full_screen_page/rgbw_lights/rgbw_lights_in_the_room/rgbw_lights_in_the_room_page.dart';
-import 'package:cybear_jinni/presentation/device_full_screen_page/rgbw_lights/rooms_rgbw_lights_page.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/smart_computers/rooms_smart_computers_page.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/smart_plugs/rooms_smart_plugs_page.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/smart_plugs/smart_plugs_in_the_room/smart_plugs_in_the_room_page.dart';
@@ -91,8 +89,6 @@ import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_pag
     AutoRoute(page: ComputerConnectionCheckPage),
     AutoRoute(page: RoomsLightsPage),
     AutoRoute(page: LightsInTheRoomPage),
-    AutoRoute(page: RoomsRgbwLightsPage),
-    AutoRoute(page: RgbwLightsInTheRoomPage),
     AutoRoute(page: RoomsSwitchesPage),
     AutoRoute(page: RoomsSmartComputersPage),
     AutoRoute(page: RoomsSmartTvsPage),
@@ -142,8 +138,6 @@ class $AppRouter {
   late AddUserToHomePage addUserToHomePage;
   late RoomsLightsPage roomsLightsPage;
   late LightsInTheRoomPage lightsInTheRoomPage;
-  late RoomsRgbwLightsPage roomsRgbwLightsPage;
-  late RgbwLightsInTheRoomPage rgbwLightsInTheRoomPage;
   late RoomsSwitchesPage roomsSwitchesPage;
   late RoomsSmartComputersPage roomsSmartComputersPage;
   late RoomsSmartTvsPage roomsSmartTvsPage;
