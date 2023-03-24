@@ -7,6 +7,10 @@ import 'package:cybear_jinni/domain/generic_devices/generic_blinds_device/generi
 import 'package:cybear_jinni/domain/generic_devices/generic_blinds_device/generic_blinds_value_objects.dart';
 import 'package:cybear_jinni/domain/generic_devices/generic_boiler_device/generic_boiler_entity.dart';
 import 'package:cybear_jinni/domain/generic_devices/generic_boiler_device/generic_boiler_value_objects.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_dimmable_light_device/generic_dimmable_light_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_dimmable_light_device/generic_dimmable_light_value_objects.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_light_device/generic_light_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_light_device/generic_light_value_objects.dart';
 import 'package:cybear_jinni/domain/generic_devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
 import 'package:cybear_jinni/domain/generic_devices/generic_rgbw_light_device/generic_rgbw_light_value_objects.dart';
 import 'package:cybear_jinni/domain/generic_devices/generic_switch_device/generic_switch_entity.dart';
@@ -116,8 +120,11 @@ class HubClientDemo {
           RoomUniqueId.fromUniqueString('38b45780-419c-11ed-bce9-8dc09da0062f'),
       cbjEntityName: RoomDefaultName('Outside'),
       roomTypes: RoomTypes(const ['0', '1', '2', '5']),
-      roomDevicesId:
-          RoomDevicesId(const ['7189ed76-4351-11ed-b249-63fd7e165c16']),
+      roomDevicesId: RoomDevicesId(const [
+        '7189ed76-4351-11ed-b249-63fd7e165c16',
+        'sfds344t-sdf3-fd3d-24s4-bd2sdf3n5rfd',
+        'wfdsg2w6-fgde-234s-vbz2-b234jmgvbfd6',
+      ]),
       roomScenesId: RoomScenesId(const []),
       roomRoutinesId: RoomRoutinesId(const []),
       roomBindingsId: RoomBindingsId(const []),
@@ -151,7 +158,8 @@ class HubClientDemo {
       uniqueId:
           CoreUniqueId.fromUniqueString('96386cd0-419b-11ed-8246-e17a279f4d89'),
       entityUniqueId: EntityUniqueId('63b298'),
-      deviceVendor: DeviceVendor('switcherSmartHome'),
+      deviceVendor:
+          DeviceVendor(VendorsAndServices.switcherSmartHome.toString()),
       cbjEntityName: CbjEntityName('Guy Blinds'),
       entityOriginalName: EntityOriginalName('Guy Blinds'),
       deviceOriginalName: DeviceOriginalName('Guy Blinds'),
@@ -196,7 +204,7 @@ class HubClientDemo {
       uniqueId:
           CoreUniqueId.fromUniqueString('c90137f2-419b-11ed-8246-e17a279f4d89'),
       entityUniqueId: EntityUniqueId('67600068c44f33f5b515'),
-      deviceVendor: DeviceVendor('tuyaSmart'),
+      deviceVendor: DeviceVendor(VendorsAndServices.tuyaSmart.toString()),
       cbjEntityName: CbjEntityName('Guy Ceiling Button'),
       entityOriginalName: EntityOriginalName('Guy Ceiling Button'),
       deviceOriginalName: DeviceOriginalName('Guy Ceiling Button'),
@@ -238,7 +246,7 @@ class HubClientDemo {
       uniqueId:
           CoreUniqueId.fromUniqueString('a31523m6-463s-32ge-7426-g33c642r7m25'),
       entityUniqueId: EntityUniqueId('67600068c44f33f5b515'),
-      deviceVendor: DeviceVendor('tuyaSmart'),
+      deviceVendor: DeviceVendor(VendorsAndServices.tuyaSmart.toString()),
       cbjEntityName: CbjEntityName('Guy Bedroom Button'),
       entityOriginalName: EntityOriginalName('Guy Bedroom Button'),
       deviceOriginalName: DeviceOriginalName('Guy Bedroom Button'),
@@ -280,7 +288,8 @@ class HubClientDemo {
       uniqueId:
           CoreUniqueId.fromUniqueString('65d84b10-434d-11ed-817a-7d350fb52f91'),
       entityUniqueId: EntityUniqueId('65fd2f'),
-      deviceVendor: DeviceVendor('switcherSmartHome'),
+      deviceVendor:
+          DeviceVendor(VendorsAndServices.switcherSmartHome.toString()),
       cbjEntityName: CbjEntityName('Boiler'),
       entityOriginalName: EntityOriginalName('Boiler'),
       deviceOriginalName: DeviceOriginalName('Boiler'),
@@ -323,7 +332,7 @@ class HubClientDemo {
       uniqueId:
           CoreUniqueId.fromUniqueString('7189ed76-4351-11ed-b249-63fd7e165c16'),
       entityUniqueId: EntityUniqueId('bf4bccdaf68347e31dhiut'),
-      deviceVendor: DeviceVendor('tuyaSmart'),
+      deviceVendor: DeviceVendor(VendorsAndServices.tuyaSmart.toString()),
       cbjEntityName: CbjEntityName('Dining Room Ceiling'),
       entityOriginalName: EntityOriginalName('Dining Room Ceiling'),
       deviceOriginalName: DeviceOriginalName('Dining Room Ceiling'),
@@ -337,7 +346,7 @@ class HubClientDemo {
       compUuid: DeviceCompUuid('34asdfrsd23gggg'),
       lightSwitchState:
           GenericRgbwLightSwitchState(DeviceActions.off.toString()),
-      lightBrightness: GenericRgbwLightBrightness('1000'),
+      lightBrightness: GenericRgbwLightBrightness('100'),
       lightColorAlpha: GenericRgbwLightColorAlpha('1.0'),
       lightColorHue: GenericRgbwLightColorHue('0.0'),
       lightColorSaturation: GenericRgbwLightColorSaturation('1.0'),
@@ -365,6 +374,93 @@ class HubClientDemo {
           DeviceHelper.convertDomainToJsonString(allRemoteCommandsRgbLight),
     );
     devicesList.add(requestsAndStatusFromHubRgbLight);
+
+    /// RGBLight
+
+    final GenericDimmableLightDE allRemoteCommandsDimmableLight =
+        GenericDimmableLightDE(
+      uniqueId:
+          CoreUniqueId.fromUniqueString('sfds344t-sdf3-fd3d-24s4-bd2sdf3n5rfd'),
+      entityUniqueId: EntityUniqueId('dn2fs1sgnxzzx34sh53qdf'),
+      deviceVendor: DeviceVendor(VendorsAndServices.lifx.toString()),
+      cbjEntityName: CbjEntityName('Dining Room Stove'),
+      entityOriginalName: EntityOriginalName('Dining Room Light 1'),
+      deviceOriginalName: DeviceOriginalName('Dining Room Light 1'),
+      entityStateGRPC: EntityState(DeviceStateGRPC.ack.toString()),
+      stateMassage: DeviceStateMassage('Hello World'),
+      senderDeviceOs: DeviceSenderDeviceOs('lifx'),
+      senderDeviceModel: DeviceSenderDeviceModel('1SE'),
+      senderId: DeviceSenderId.fromUniqueString(
+        'askf3gd7-nb21-fg2d-bvw9-xcbsd24sdgd6',
+      ),
+      compUuid: DeviceCompUuid('sn45sd1fcn5532d'),
+      lightSwitchState:
+          GenericDimmableLightSwitchState(DeviceActions.off.toString()),
+      lightBrightness: GenericDimmableLightBrightness('100'),
+      powerConsumption: DevicePowerConsumption('0'),
+      deviceUniqueId: DeviceUniqueId('deviceUniqueId'),
+      devicePort: DevicePort('devicePort'),
+      deviceLastKnownIp: DeviceLastKnownIp('deviceLastKnownIp'),
+      deviceHostName: DeviceHostName('deviceHostName'),
+      deviceMdns: DeviceMdns('deviceMdns'),
+      devicesMacAddress: DevicesMacAddress('devicesMacAddress'),
+      entityKey: EntityKey('entityKey'),
+      requestTimeStamp: RequestTimeStamp('requestTimeStamp'),
+      lastResponseFromDeviceTimeStamp:
+          LastResponseFromDeviceTimeStamp('lastResponseFromDeviceTimeStamp'),
+      deviceCbjUniqueId:
+          CoreUniqueId.fromUniqueString('dgh4nsdg-fd2d-df32-vn4g-dfgw2dvvnrrg'),
+    );
+
+    final RequestsAndStatusFromHub requestsAndStatusFromHubDimmableLight =
+        RequestsAndStatusFromHub(
+      sendingType: sendingTypeDevice,
+      allRemoteCommands: DeviceHelper.convertDomainToJsonString(
+          allRemoteCommandsDimmableLight),
+    );
+    devicesList.add(requestsAndStatusFromHubDimmableLight);
+
+    /// Light
+
+    final GenericLightDE allRemoteCommandsLight = GenericLightDE(
+      uniqueId:
+          CoreUniqueId.fromUniqueString('wfdsg2w6-fgde-234s-vbz2-b234jmgvbfd6'),
+      entityUniqueId: EntityUniqueId('cb3rdfh2ttgl9dgbvnsudt'),
+      deviceVendor: DeviceVendor(VendorsAndServices.espHome.toString()),
+      cbjEntityName: CbjEntityName('Dining Room Light 2'),
+      entityOriginalName: EntityOriginalName('Dining Room Light 2'),
+      deviceOriginalName: DeviceOriginalName('Dining Room Light 2'),
+      entityStateGRPC: EntityState(DeviceStateGRPC.ack.toString()),
+      stateMassage: DeviceStateMassage('Hello World'),
+      senderDeviceOs: DeviceSenderDeviceOs('espHome'),
+      senderDeviceModel: DeviceSenderDeviceModel('esp8266'),
+      senderId: DeviceSenderId.fromUniqueString(
+        'ffb3rg2s-cvns-awre-bmkp-yityueyertbe',
+      ),
+      compUuid: DeviceCompUuid('erbvnr34yh4627i'),
+      lightSwitchState: GenericLightSwitchState(DeviceActions.off.toString()),
+      powerConsumption: DevicePowerConsumption('0'),
+      deviceUniqueId: DeviceUniqueId('deviceUniqueId'),
+      devicePort: DevicePort('devicePort'),
+      deviceLastKnownIp: DeviceLastKnownIp('deviceLastKnownIp'),
+      deviceHostName: DeviceHostName('deviceHostName'),
+      deviceMdns: DeviceMdns('deviceMdns'),
+      devicesMacAddress: DevicesMacAddress('devicesMacAddress'),
+      entityKey: EntityKey('entityKey'),
+      requestTimeStamp: RequestTimeStamp('requestTimeStamp'),
+      lastResponseFromDeviceTimeStamp:
+          LastResponseFromDeviceTimeStamp('lastResponseFromDeviceTimeStamp'),
+      deviceCbjUniqueId:
+          CoreUniqueId.fromUniqueString('sgeryjmn-gfn3-bf3v-et24-fvd22445jng3'),
+    );
+
+    final RequestsAndStatusFromHub requestsAndStatusFromHubLight =
+        RequestsAndStatusFromHub(
+      sendingType: sendingTypeDevice,
+      allRemoteCommands:
+          DeviceHelper.convertDomainToJsonString(allRemoteCommandsLight),
+    );
+    devicesList.add(requestsAndStatusFromHubLight);
 
     return devicesList;
   }

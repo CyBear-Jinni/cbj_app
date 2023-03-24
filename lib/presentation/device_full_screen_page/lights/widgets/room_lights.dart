@@ -143,7 +143,9 @@ class RoomLights extends StatelessWidget {
       }
 
       columnOfLights.addAll(lightsToShow(context, lightList));
+      columnOfLights.add(const SizedBox(height: 100));
       columnOfLights.addAll(dimmableLightsToShow(context, dimmableLightList));
+      columnOfLights.add(const SizedBox(height: 30));
 
       columnOfLights.add(
         const SizedBox(

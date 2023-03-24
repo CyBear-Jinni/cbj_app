@@ -53,6 +53,8 @@ class RoomWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool didAddedLights = false;
+
     return Container(
       margin: EdgeInsets.only(
         bottom: bottomMargin,
@@ -154,11 +156,20 @@ class RoomWidget extends StatelessWidget {
                       .keys
                       .elementAt(secondIndex);
 
-                  final List<DeviceEntityAbstract> devicesInTheRoom =
+                  List<DeviceEntityAbstract> devicesInTheRoom =
                       tempDevicesByRoomsByType[roomId]![deviceType]!;
 
                   if (deviceType == DeviceTypes.light.toString() ||
                       deviceType == DeviceTypes.dimmableLight.toString()) {
+                    if (didAddedLights) {
+                      return const SizedBox();
+                    }
+                    didAddedLights = true;
+
+                    devicesInTheRoom = tempDevicesByRoomsByType[roomId]![
+                        DeviceTypes.light.toString()]!;
+                    devicesInTheRoom.addAll(tempDevicesByRoomsByType[roomId]![
+                        DeviceTypes.dimmableLight.toString()]!);
                     return BlocProvider(
                       create: (context) => getIt<LightsActorBloc>(),
                       child: LightsInTheRoomBlock.withAbstractDevice(
