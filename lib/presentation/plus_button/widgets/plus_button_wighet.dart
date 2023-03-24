@@ -13,8 +13,6 @@ import 'package:url_launcher/url_launcher.dart';
 class PlusButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
-
     return BlocBuilder<PlusButtonSettingsBloc, PlusButtonSettingsState>(
       builder: (context, state) {
         return state.map(
@@ -52,7 +50,7 @@ class PlusButtonWidget extends StatelessWidget {
                             leading: FaIcon(
                               FontAwesomeIcons.sitemap,
                               color:
-                                  Theme.of(context).textTheme.bodyText1!.color,
+                                  Theme.of(context).textTheme.bodyLarge!.color,
                               size: 25,
                             ),
                             title: Text(
@@ -60,7 +58,7 @@ class PlusButtonWidget extends StatelessWidget {
                               style: TextStyle(
                                 color: Theme.of(context)
                                     .textTheme
-                                    .bodyText1!
+                                    .bodyLarge!
                                     .color,
                               ),
                             ),
@@ -79,7 +77,7 @@ class PlusButtonWidget extends StatelessWidget {
                             leading: FaIcon(
                               FontAwesomeIcons.solidLightbulb,
                               color:
-                                  Theme.of(context).textTheme.bodyText1!.color,
+                                  Theme.of(context).textTheme.bodyLarge!.color,
                               size: 25,
                             ),
                             title: Text(
@@ -87,7 +85,7 @@ class PlusButtonWidget extends StatelessWidget {
                               style: TextStyle(
                                 color: Theme.of(context)
                                     .textTheme
-                                    .bodyText1!
+                                    .bodyLarge!
                                     .color,
                               ),
                             ),
@@ -106,7 +104,7 @@ class PlusButtonWidget extends StatelessWidget {
                             leading: FaIcon(
                               FontAwesomeIcons.globe,
                               color:
-                                  Theme.of(context).textTheme.bodyText1!.color,
+                                  Theme.of(context).textTheme.bodyLarge!.color,
                               size: 25,
                             ),
                             title: Text(
@@ -114,7 +112,7 @@ class PlusButtonWidget extends StatelessWidget {
                               style: TextStyle(
                                 color: Theme.of(context)
                                     .textTheme
-                                    .bodyText1!
+                                    .bodyLarge!
                                     .color,
                               ),
                             ),
@@ -159,7 +157,7 @@ class PlusButtonWidget extends StatelessWidget {
                             leading: Iconify(
                               SimpleIcons.node_red,
                               color:
-                                  Theme.of(context).textTheme.bodyText1!.color,
+                                  Theme.of(context).textTheme.bodyLarge!.color,
                               size: 23,
                             ),
                             title: Text(
@@ -167,7 +165,7 @@ class PlusButtonWidget extends StatelessWidget {
                               style: TextStyle(
                                 color: Theme.of(context)
                                     .textTheme
-                                    .bodyText1!
+                                    .bodyLarge!
                                     .color,
                               ),
                             ),
@@ -204,7 +202,7 @@ class PlusButtonWidget extends StatelessWidget {
                             leading: FaIcon(
                               FontAwesomeIcons.info,
                               color:
-                                  Theme.of(context).textTheme.bodyText1!.color,
+                                  Theme.of(context).textTheme.bodyLarge!.color,
                               size: 25,
                             ),
                             title: Text(
@@ -212,7 +210,7 @@ class PlusButtonWidget extends StatelessWidget {
                               style: TextStyle(
                                 color: Theme.of(context)
                                     .textTheme
-                                    .bodyText1!
+                                    .bodyLarge!
                                     .color,
                               ),
                             ),
@@ -230,7 +228,7 @@ class PlusButtonWidget extends StatelessWidget {
                             leading: FaIcon(
                               FontAwesomeIcons.rightFromBracket,
                               color:
-                                  Theme.of(context).textTheme.bodyText1!.color,
+                                  Theme.of(context).textTheme.bodyLarge!.color,
                               size: 25,
                             ),
                             title: Text(
@@ -238,7 +236,7 @@ class PlusButtonWidget extends StatelessWidget {
                               style: TextStyle(
                                 color: Theme.of(context)
                                     .textTheme
-                                    .bodyText1!
+                                    .bodyLarge!
                                     .color,
                               ),
                             ),

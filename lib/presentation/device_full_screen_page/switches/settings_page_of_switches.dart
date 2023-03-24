@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/domain/devices/generic_switch_device/generic_switch_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_switch_device/generic_switch_entity.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
 import 'package:cybear_jinni/utils.dart';
@@ -33,25 +33,25 @@ class SettingsPageOfSwitches extends StatelessWidget {
             title: Text(
               'Name:_',
               style: TextStyle(
-                color: Theme.of(context).textTheme.bodyText1!.color,
+                color: Theme.of(context).textTheme.bodyLarge!.color,
               ),
             ).tr(args: <String>[switchName]),
             subtitle: Text(
               'Room:_',
               style: TextStyle(
-                color: Theme.of(context).textTheme.bodyText1!.color,
+                color: Theme.of(context).textTheme.bodyLarge!.color,
               ),
             ).tr(args: <String>[roomName]),
             trailing: IconButton(
               icon: FaIcon(
                 FontAwesomeIcons.pen,
-                color: Theme.of(context).textTheme.bodyText1!.color,
+                color: Theme.of(context).textTheme.bodyLarge!.color,
               ),
               onPressed: () {},
             ),
           ),
           Divider(
-            color: Theme.of(context).textTheme.bodyText1!.color,
+            color: Theme.of(context).textTheme.bodyLarge!.color,
           ),
         ],
       );
@@ -113,9 +113,9 @@ class SettingsPageOfSwitches extends StatelessWidget {
                       color: Colors.red,
                     ),
                     child: tile(
-                      roomEntity.defaultName.getOrCrash(),
+                      roomEntity.cbjEntityName.getOrCrash(),
                       allSmartDeviceSwitchDevices[index]
-                          .defaultName
+                          .cbjEntityName
                           .getOrCrash()!,
                     ),
                   );

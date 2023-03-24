@@ -2,9 +2,9 @@ import 'dart:async';
 
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:bloc/bloc.dart';
-import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
-import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
-import 'package:cybear_jinni/domain/devices/generic_switch_device/generic_switch_entity.dart';
+import 'package:cybear_jinni/domain/device/devices_failures.dart';
+import 'package:cybear_jinni/domain/device/i_device_repository.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_switch_device/generic_switch_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -23,6 +23,7 @@ class SmartComputersActorBloc
     on<TurnOffAllSmartComputers>(_turnOffAllSmartComputers);
     on<TurnOnAllSmartComputers>(_turnOnAllSmartComputers);
     on<SuspendAllSmartComputers>(_suspendAllSmartComputers);
+    on<ShutdownAllSmartComputers>(_shutdownAllSmartComputers);
   }
 
   final IDeviceRepository _deviceRepository;
@@ -72,6 +73,18 @@ class SmartComputersActorBloc
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-    _deviceRepository.suspendDevices(devicesId: event.smartComputersIdToTurnOn);
+    _deviceRepository.suspendDevices(devicesId: event.smartComputersId);
+  }
+
+  Future<void> _shutdownAllSmartComputers(
+    ShutdownAllSmartComputers event,
+    Emitter<SmartComputersActorState> emit,
+  ) async {
+    FlushbarHelper.createLoading(
+      message: 'Suspending all Smart Computers',
+      linearProgressIndicator: const LinearProgressIndicator(),
+    ).show(event.context);
+
+    _deviceRepository.shutdownDevices(devicesId: event.smartComputersId);
   }
 }

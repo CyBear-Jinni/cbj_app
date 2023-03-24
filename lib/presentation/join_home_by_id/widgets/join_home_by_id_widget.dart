@@ -8,7 +8,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class JoinHomeByIdWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
     String homeId = '';
 
     return BlocConsumer<JoinHomeByIdBloc, JoinHomeByIdState>(
@@ -49,7 +48,7 @@ class JoinHomeByIdWidget extends StatelessWidget {
               child: Text(
                 'Paste and search',
                 style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyText1!.color,
+                  color: Theme.of(context).textTheme.bodyLarge!.color,
                 ),
               ),
             ),
@@ -69,18 +68,18 @@ class JoinHomeByIdWidget extends StatelessWidget {
                   width: 250,
                   child: TextFormField(
                     style: TextStyle(
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                     ),
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.greenAccent.withOpacity(0.3),
                       prefixIcon: Icon(
                         Icons.login,
-                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
                       ),
                       labelText: 'Home ID',
                       labelStyle: TextStyle(
-                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
                       ),
                     ),
                     autocorrect: false,
@@ -106,7 +105,7 @@ class JoinHomeByIdWidget extends StatelessWidget {
               child: Text(
                 'Join Home from text form',
                 style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyText1!.color,
+                  color: Theme.of(context).textTheme.bodyLarge!.color,
                 ),
               ),
             ),

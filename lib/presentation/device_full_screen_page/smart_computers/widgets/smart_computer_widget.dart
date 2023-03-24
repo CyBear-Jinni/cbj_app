@@ -1,5 +1,5 @@
 import 'package:cybear_jinni/application/smart_computers/smart_computers_actor/smart_computers_actor_bloc.dart';
-import 'package:cybear_jinni/domain/devices/generic_smart_computer_device/generic_smart_computer_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_smart_computer_device/generic_smart_computer_entity.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,7 +12,7 @@ class SmartComputerWidget extends StatelessWidget {
 
   final GenericSmartComputerDE? _deviceEntity;
 
-  void _onChange(BuildContext context) {
+  void suspendComputer(BuildContext context) {
     final String deviceId = _deviceEntity!.getDeviceId();
     context.read<SmartComputersActorBloc>().add(
           SmartComputersActorEvent.suspendAllSmartComputers(
@@ -22,10 +22,19 @@ class SmartComputerWidget extends StatelessWidget {
         );
   }
 
+  void shutdownComputer(BuildContext context) {
+    final String deviceId = _deviceEntity!.getDeviceId();
+    context.read<SmartComputersActorBloc>().add(
+          SmartComputersActorEvent.shutdownAllSmartComputers(
+            [deviceId],
+            context,
+          ),
+        );
+  }
+
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
-    final double sizeBoxWidth = screenSize.width * 0.15;
 
     return BlocConsumer<SmartComputersActorBloc, SmartComputersActorState>(
       listener: (context, state) {},
@@ -50,17 +59,50 @@ class SmartComputerWidget extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {
-                    _onChange(context);
+                    suspendComputer(context);
                   },
                   child: Tab(
                     icon: FaIcon(
                       FontAwesomeIcons.moon,
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                     ),
                     child: Text(
                       'Sleep',
                       style: TextStyle(
-                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
+                        fontSize: 16,
+                      ),
+                    ).tr(),
+                  ),
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                TextButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                      Colors.grey,
+                    ),
+                    side: MaterialStateProperty.all(
+                      BorderSide.lerp(
+                        const BorderSide(color: Colors.white60),
+                        const BorderSide(color: Colors.white60),
+                        22,
+                      ),
+                    ),
+                  ),
+                  onPressed: () {
+                    shutdownComputer(context);
+                  },
+                  child: Tab(
+                    icon: FaIcon(
+                      FontAwesomeIcons.powerOff,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
+                    ),
+                    child: Text(
+                      'Shutdown',
+                      style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
                         fontSize: 16,
                       ),
                     ).tr(),

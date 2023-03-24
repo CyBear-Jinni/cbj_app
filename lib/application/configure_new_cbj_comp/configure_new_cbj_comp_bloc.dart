@@ -5,10 +5,10 @@ import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_failures.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_value_objects.dart';
 import 'package:cybear_jinni/domain/cbj_comp/i_cbj_comp_repository.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/value_objects_core.dart';
-import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
-import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
-import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/value_objects_core.dart';
+import 'package:cybear_jinni/domain/device/devices_failures.dart';
+import 'package:cybear_jinni/domain/device/i_device_repository.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/domain/manage_network/i_manage_network_repository.dart';
 import 'package:cybear_jinni/domain/manage_network/manage_network_entity.dart';
 import 'package:cybear_jinni/domain/security_bear/i_security_bear_connection_repository.dart';
@@ -21,7 +21,6 @@ import 'package:flutter/widgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
-import 'package:uuid/uuid.dart';
 import 'package:wifi_iot/wifi_iot.dart';
 
 part 'configure_new_cbj_comp_bloc.freezed.dart';
@@ -145,9 +144,7 @@ class ConfigureNewCbjCompBloc
     SendFirebaseInformation event,
     Emitter<ConfigureNewCbjCompState> emit,
   ) async {
-    final CBJCompEntity compUpdatedData = event.cBJCompEntity;
-
-    const bool error = false;
+    event.cBJCompEntity;
 
     // final Either<CBJCompFailure, Unit> updateAllDevices =
     //     await _cBJCompRepository
@@ -163,12 +160,9 @@ class ConfigureNewCbjCompBloc
     //     ),
     //   ),
     // );
-    if (error) {
-      emit(const ConfigureNewCbjCompState.errorInProcess());
-    } else {
-      progressPercent += 0.3;
-      emit(ConfigureNewCbjCompState.actionInProgress(progressPercent));
-    }
+
+    progressPercent += 0.3;
+    emit(ConfigureNewCbjCompState.actionInProgress(progressPercent));
   }
 
   Future<void> _sendHotSpotInformation(
@@ -241,7 +235,7 @@ class ConfigureNewCbjCompBloc
     // TODO: Not suer if it will open the WiFi when hotspot is open, delete if not
 
     await WiFiForIoTPlugin.loadWifiList();
-    // TODO: The above line is depracted, not sure what is the coresponding
+    // TODO: The above line is deprecated, not sure what is the corresponding
     // TODO: function in the new package that got transferred to
     // await WiFiScan.instance
 
@@ -294,12 +288,11 @@ class ConfigureNewCbjCompBloc
         ConfigureNewCbjCompWidgets.deviceNameFieldKey;
     final List<GenericLightDE> deviceEntityList = [];
 
-    final String roomUuid = const Uuid().v1();
-    final String roomName = textEditingController['allInSameRoom']!.text;
+    textEditingController['allInSameRoom']!.text;
 
     final ManageNetworkEntity manageWiFiEntity =
         IManageNetworkRepository.manageWiFiEntity!;
-    final String secondWiFi = manageWiFiEntity.name!.getOrCrash();
+    manageWiFiEntity.name!.getOrCrash();
 
     cbjCompEntity.cBJCompDevices!.getOrCrash().asList().forEach((deviceE) {
       try {
@@ -307,7 +300,7 @@ class ConfigureNewCbjCompBloc
                 '$deviceNameFieldKey/${deviceE.uniqueId.getOrCrash()}']!
             .text;
         deviceEntityList.add(
-          deviceE..defaultName = DeviceDefaultName(deviceName),
+          deviceE..cbjEntityName = CbjEntityName(deviceName),
         );
       } catch (e) {
         logger.w("Can't_add_unsupported_device".tr());

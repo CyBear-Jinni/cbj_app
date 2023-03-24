@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cybear_jinni/application/blinds/blinds_actor/blinds_actor_bloc.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
-import 'package:cybear_jinni/domain/devices/generic_blinds_device/generic_blinds_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_blinds_device/generic_blinds_entity.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -43,9 +43,9 @@ class BlindsInTheRoom extends StatelessWidget {
   Widget build(BuildContext context) {
     String deviceText;
     if (blindsInRoom!.length == 1) {
-      deviceText = blindsInRoom![0]!.defaultName.getOrCrash()!;
+      deviceText = blindsInRoom![0]!.cbjEntityName.getOrCrash()!;
     } else {
-      deviceText = '_Blinds'.tr(args: [roomEntity.defaultName.getOrCrash()]);
+      deviceText = '_Blinds'.tr(args: [roomEntity.cbjEntityName.getOrCrash()]);
     }
 
     return GestureDetector(
@@ -97,7 +97,7 @@ class BlindsInTheRoom extends StatelessWidget {
                           border: Border.all(
                             color: Theme.of(context)
                                 .textTheme
-                                .bodyText1!
+                                .bodyLarge!
                                 .color!
                                 .withOpacity(0.5),
                           ),
@@ -108,7 +108,7 @@ class BlindsInTheRoom extends StatelessWidget {
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 13,
-                            color: Theme.of(context).textTheme.bodyText1!.color,
+                            color: Theme.of(context).textTheme.bodyLarge!.color,
                           ),
                         ),
                       ),
@@ -135,7 +135,7 @@ class BlindsInTheRoom extends StatelessWidget {
                   deviceText,
                   maxLines: 1,
                   style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1!.color,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
                   ),
                 ),
               ],
@@ -171,14 +171,14 @@ class BlindsInTheRoom extends StatelessWidget {
                       },
                       child: FaIcon(
                         FontAwesomeIcons.chevronDown,
-                        color: Theme.of(context).textTheme.bodyText2!.color,
+                        color: Theme.of(context).textTheme.bodyMedium!.color,
                       ),
                     ),
                     Text(
                       '·',
                       style: TextStyle(
                         fontSize: 14,
-                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
                       ),
                     ),
                     TextButton(
@@ -203,7 +203,7 @@ class BlindsInTheRoom extends StatelessWidget {
                       },
                       child: FaIcon(
                         FontAwesomeIcons.chevronUp,
-                        color: Theme.of(context).textTheme.bodyText2!.color,
+                        color: Theme.of(context).textTheme.bodyMedium!.color,
                       ),
                     ),
                   ],

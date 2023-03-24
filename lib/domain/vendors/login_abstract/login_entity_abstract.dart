@@ -1,5 +1,6 @@
 import 'package:cybear_jinni/domain/vendors/login_abstract/value_login_objects_core.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+
 import 'package:cybear_jinni/infrastructure/generic_vendors_login/generic_login_abstract/login_entity_dto_abstract.dart';
 
 abstract class LoginEntityAbstract {
@@ -51,7 +52,7 @@ abstract class LoginEntityAbstract {
   }
 
 // /// The default name of the login
-// LoginDefaultName? defaultName;
+// LoginDefaultName? cbjEntityName;
 }
 
 class LoginEntityEmpty extends LoginEntityAbstract {
@@ -77,7 +78,7 @@ class LoginEntityEmpty extends LoginEntityAbstract {
 //     required LoginUniqueId? id,
 //
 //     /// The default name of the login
-//     required LoginDefaultName? defaultName,
+//     required LoginDefaultName? cbjEntityName,
 //   }) = _LoginEntityAbstract;
 //
 //   const LoginEntityAbstract._();
@@ -85,13 +86,13 @@ class LoginEntityEmpty extends LoginEntityAbstract {
 //   /// Empty instance of GenericLightDE
 //   factory LoginEntityAbstract.empty() => LoginEntityAbstract(
 //         id: LoginUniqueId(),
-//         defaultName: LoginDefaultName(''),
+//         cbjEntityName: LoginDefaultName(''),
 //       );
 //
 //   /// Will return failure if any of the fields failed or return unit if fields
 //   /// have legit values
 //   Option<LoginsFailure<dynamic>> get failureOption {
-//     return defaultName!.value.fold((f) => some(f), (_) => none());
+//     return cbjEntityName!.value.fold((f) => some(f), (_) => none());
 //     //
 //     // return body.failureOrUnit
 //     //     .andThen(todos.failureOrUnit)

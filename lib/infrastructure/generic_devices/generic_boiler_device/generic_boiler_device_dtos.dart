@@ -1,7 +1,7 @@
-import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/value_objects_core.dart';
-import 'package:cybear_jinni/domain/devices/generic_boiler_device/generic_boiler_entity.dart';
-import 'package:cybear_jinni/domain/devices/generic_boiler_device/generic_boiler_value_objects.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/value_objects_core.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_boiler_device/generic_boiler_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_boiler_device/generic_boiler_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/abstract_device/device_entity_dto_abstract.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -14,41 +14,66 @@ abstract class GenericBoilerDeviceDtos
   factory GenericBoilerDeviceDtos({
     // @JsonKey(ignore: true)
     required String id,
-    required String vendorUniqueId,
-    required String? defaultName,
-    required String? deviceStateGRPC,
+    required String entityUniqueId,
+    required String? cbjEntityName,
+    required String? entityOriginalName,
+    required String? deviceOriginalName,
+    required String? entityStateGRPC,
     required String? senderDeviceOs,
     required String? senderDeviceModel,
     required String? senderId,
     required String? boilerSwitchState,
-    required String? deviceTypes,
+    required String? entityTypes,
     required String? compUuid,
     required String? deviceVendor,
+    required String? powerConsumption,
+    required String? deviceUniqueId,
+    required String? devicePort,
+    required String? deviceLastKnownIp,
+    required String? deviceHostName,
+    required String? deviceMdns,
+    required String? devicesMacAddress,
+    required String? entityKey,
+    required String? requestTimeStamp,
+    required String? lastResponseFromDeviceTimeStamp,
+    required String? deviceCbjUniqueId,
     String? deviceDtoClass,
-    String? stateMassage
+    String? stateMassage,
 
     // required ServerTimestampConverter() FieldValue serverTimeStamp,
-    ,
   }) = _GenericBoilerDeviceDtos;
 
   GenericBoilerDeviceDtos._();
 
-  factory GenericBoilerDeviceDtos.fromDomain(GenericBoilerDE genericBoilerDE) {
+  factory GenericBoilerDeviceDtos.fromDomain(GenericBoilerDE deviceDe) {
     return GenericBoilerDeviceDtos(
       deviceDtoClass: (GenericBoilerDeviceDtos).toString(),
-      id: genericBoilerDE.uniqueId.getOrCrash(),
-      vendorUniqueId: genericBoilerDE.vendorUniqueId.getOrCrash(),
-      defaultName: genericBoilerDE.defaultName.getOrCrash(),
-      deviceStateGRPC: genericBoilerDE.deviceStateGRPC.getOrCrash(),
-      stateMassage: genericBoilerDE.stateMassage.getOrCrash(),
-      senderDeviceOs: genericBoilerDE.senderDeviceOs.getOrCrash(),
-      senderDeviceModel: genericBoilerDE.senderDeviceModel.getOrCrash(),
-      senderId: genericBoilerDE.senderId.getOrCrash(),
-      boilerSwitchState: genericBoilerDE.boilerSwitchState!.getOrCrash(),
-      deviceTypes: genericBoilerDE.deviceTypes.getOrCrash(),
-      compUuid: genericBoilerDE.compUuid.getOrCrash(),
-      deviceVendor: genericBoilerDE.deviceVendor.getOrCrash(),
-      // serverTimeStamp: FieldValue.serverTimestamp(),
+      id: deviceDe.uniqueId.getOrCrash(),
+      entityUniqueId: deviceDe.entityUniqueId.getOrCrash(),
+      cbjEntityName: deviceDe.cbjEntityName.getOrCrash(),
+      entityOriginalName: deviceDe.entityOriginalName.getOrCrash(),
+      deviceOriginalName: deviceDe.deviceOriginalName.getOrCrash(),
+      entityStateGRPC: deviceDe.entityStateGRPC.getOrCrash(),
+      stateMassage: deviceDe.stateMassage.getOrCrash(),
+      senderDeviceOs: deviceDe.senderDeviceOs.getOrCrash(),
+      senderDeviceModel: deviceDe.senderDeviceModel.getOrCrash(),
+      senderId: deviceDe.senderId.getOrCrash(),
+      boilerSwitchState: deviceDe.boilerSwitchState!.getOrCrash(),
+      entityTypes: deviceDe.entityTypes.getOrCrash(),
+      compUuid: deviceDe.compUuid.getOrCrash(),
+      deviceVendor: deviceDe.deviceVendor.getOrCrash(),
+      powerConsumption: deviceDe.powerConsumption.getOrCrash(),
+      deviceUniqueId: deviceDe.deviceUniqueId.getOrCrash(),
+      devicePort: deviceDe.devicePort.getOrCrash(),
+      deviceLastKnownIp: deviceDe.deviceLastKnownIp.getOrCrash(),
+      deviceHostName: deviceDe.deviceHostName.getOrCrash(),
+      deviceMdns: deviceDe.deviceMdns.getOrCrash(),
+      devicesMacAddress: deviceDe.devicesMacAddress.getOrCrash(),
+      entityKey: deviceDe.entityKey.getOrCrash(),
+      requestTimeStamp: deviceDe.requestTimeStamp.getOrCrash(),
+      lastResponseFromDeviceTimeStamp:
+          deviceDe.lastResponseFromDeviceTimeStamp.getOrCrash(),
+      deviceCbjUniqueId: deviceDe.deviceCbjUniqueId.getOrCrash(),
     );
   }
 
@@ -62,9 +87,11 @@ abstract class GenericBoilerDeviceDtos
   DeviceEntityAbstract toDomain() {
     return GenericBoilerDE(
       uniqueId: CoreUniqueId.fromUniqueString(id),
-      vendorUniqueId: VendorUniqueId.fromUniqueString(vendorUniqueId),
-      defaultName: DeviceDefaultName(defaultName),
-      deviceStateGRPC: DeviceState(deviceStateGRPC),
+      entityUniqueId: EntityUniqueId(entityUniqueId),
+      cbjEntityName: CbjEntityName(cbjEntityName),
+      entityOriginalName: EntityOriginalName(cbjEntityName),
+      deviceOriginalName: DeviceOriginalName(cbjEntityName),
+      entityStateGRPC: EntityState(entityStateGRPC),
       stateMassage: DeviceStateMassage(stateMassage),
       senderDeviceOs: DeviceSenderDeviceOs(senderDeviceOs),
       senderDeviceModel: DeviceSenderDeviceModel(senderDeviceModel),
@@ -72,6 +99,18 @@ abstract class GenericBoilerDeviceDtos
       deviceVendor: DeviceVendor(deviceVendor),
       compUuid: DeviceCompUuid(compUuid),
       boilerSwitchState: GenericBoilerSwitchState(boilerSwitchState),
+      powerConsumption: DevicePowerConsumption(powerConsumption),
+      deviceUniqueId: DeviceUniqueId(deviceUniqueId),
+      devicePort: DevicePort(devicePort),
+      deviceLastKnownIp: DeviceLastKnownIp(deviceLastKnownIp),
+      deviceHostName: DeviceHostName(deviceHostName),
+      deviceMdns: DeviceMdns(deviceMdns),
+      devicesMacAddress: DevicesMacAddress(devicesMacAddress),
+      entityKey: EntityKey(entityKey),
+      requestTimeStamp: RequestTimeStamp(requestTimeStamp),
+      lastResponseFromDeviceTimeStamp:
+          LastResponseFromDeviceTimeStamp(lastResponseFromDeviceTimeStamp),
+      deviceCbjUniqueId: CoreUniqueId.fromUniqueString(deviceCbjUniqueId!),
     );
   }
 }

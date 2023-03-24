@@ -40,7 +40,7 @@ class SettingsPageOfHistory extends StatelessWidget {
               child: IconButton(
                 icon: FaIcon(
                   FontAwesomeIcons.arrowLeft,
-                  color: Theme.of(context).textTheme.bodyText1!.color,
+                  color: Theme.of(context).textTheme.bodyLarge!.color,
                 ),
                 onPressed: () => Navigator.pop(context),
               ),
@@ -49,7 +49,7 @@ class SettingsPageOfHistory extends StatelessWidget {
               'History_Settings_Page',
               style: TextStyle(
                 fontSize: 23.0,
-                color: Theme.of(context).textTheme.bodyText1!.color,
+                color: Theme.of(context).textTheme.bodyLarge!.color,
                 decoration: TextDecoration.underline,
               ),
             ).tr(),

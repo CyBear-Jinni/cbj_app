@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cybear_jinni/application/switch_toggle/switch_toggle_bloc.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
-import 'package:cybear_jinni/domain/devices/generic_switch_device/generic_switch_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_switch_device/generic_switch_entity.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/switches/widgets/error_switches_device_card_widget.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/switches/widgets/switches_widget.dart';
@@ -58,11 +58,11 @@ class RoomSwitches extends StatelessWidget {
                 Column(
                   children: [
                     AutoSizeText(
-                      deviceEntityTemp.defaultName.getOrCrash()!,
+                      deviceEntityTemp.cbjEntityName.getOrCrash()!,
                       maxLines: 1,
                       maxFontSize: 19,
                       style: TextStyle(
-                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
                       ),
                     ),
                     Container(
@@ -114,7 +114,7 @@ class RoomSwitches extends StatelessWidget {
         ),
         borderRadius: const BorderRadius.all(Radius.circular(24)),
         border: Border.all(
-          color: (Theme.of(context).textTheme.bodyText1!.color)!,
+          color: (Theme.of(context).textTheme.bodyLarge!.color)!,
           width: 0.6,
         ),
       ),
@@ -146,7 +146,7 @@ class RoomSwitches extends StatelessWidget {
                   Text(
                     _roomEntity,
                     style: TextStyle(
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                       fontSize: 25,
                       decoration: TextDecoration.underline,
                     ),
@@ -154,7 +154,7 @@ class RoomSwitches extends StatelessWidget {
                   if (_deviceEntityList.size > maxSwitchesToShow)
                     FaIcon(
                       FontAwesomeIcons.arrowRight,
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                       size: 20,
                     ),
                 ],

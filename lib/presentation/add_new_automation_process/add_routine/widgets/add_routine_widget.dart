@@ -1,8 +1,9 @@
 import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/add_new_routine/add_new_routine_bloc.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+
 import 'package:cybear_jinni/presentation/add_new_automation_process/add_routine/widgets/routine_action_widget.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
@@ -118,7 +119,7 @@ class AddRoutineWidget extends StatelessWidget {
                                   backgroundColor: Colors.blueGrey,
                                   textColor: Theme.of(context)
                                       .textTheme
-                                      .bodyText1!
+                                      .bodyLarge!
                                       .color,
                                   fontSize: 16.0,
                                 );
@@ -141,7 +142,7 @@ class AddRoutineWidget extends StatelessWidget {
                                   backgroundColor: Colors.blueGrey,
                                   textColor: Theme.of(context)
                                       .textTheme
-                                      .bodyText1!
+                                      .bodyLarge!
                                       .color,
                                   fontSize: 16.0,
                                 );
@@ -168,7 +169,7 @@ class AddRoutineWidget extends StatelessWidget {
                           gravity: ToastGravity.CENTER,
                           backgroundColor: Colors.blueGrey,
                           textColor:
-                              Theme.of(context).textTheme.bodyText1!.color,
+                              Theme.of(context).textTheme.bodyLarge!.color,
                           fontSize: 16.0,
                         );
                         context.read<AddNewRoutineBloc>().add(

@@ -6,8 +6,9 @@ import 'package:cybear_jinni/domain/binding/binding_cbj_failures.dart';
 import 'package:cybear_jinni/domain/binding/i_binding_cbj_repository.dart';
 import 'package:cybear_jinni/domain/binding/value_objects_routine_cbj.dart';
 import 'package:cybear_jinni/domain/core/value_objects.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+
 import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
 import 'package:cybear_jinni/infrastructure/node_red/node_red_converter.dart';
 import 'package:cybear_jinni/utils.dart';
@@ -57,7 +58,7 @@ class BindingCbjRepository implements IBindingCbjRepository {
           nodeRedFlowId: BindingCbjNodeRedFlowId(null),
           firstNodeId: BindingCbjFirstNodeId(null),
           lastDateOfExecute: BindingCbjLastDateOfExecute(null),
-          deviceStateGRPC: BindingCbjDeviceStateGRPC(null),
+          entityStateGRPC: BindingCbjDeviceStateGRPC(null),
           senderDeviceModel: BindingCbjSenderDeviceModel(null),
           senderDeviceOs: BindingCbjSenderDeviceOs(null),
           senderId: BindingCbjSenderId(null),
@@ -143,7 +144,7 @@ class BindingCbjRepository implements IBindingCbjRepository {
     for (final BindingCbjEntity bindingCbjEntity in bindingsList.asList()) {
       addOrUpdateNewBindingInHub(
         bindingCbjEntity.copyWith(
-          deviceStateGRPC: BindingCbjDeviceStateGRPC(
+          entityStateGRPC: BindingCbjDeviceStateGRPC(
             DeviceStateGRPC.waitingInFirebase.toString(),
           ),
         ),

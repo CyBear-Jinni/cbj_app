@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/domain/vendors/vendor.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -34,13 +35,16 @@ class VendorWidget extends StatelessWidget {
           context.router.push(const AddJinvooSmartVendorRoute());
         } else if (vendorName ==
             VendorsAndServices.espHome.name.toLowerCase()) {
+          context.router.push(const AddEspHomeVendorRoute());
+        } else if (vendorName ==
+            VendorsAndServices.philipsHue.name.toLowerCase()) {
           Fluttertoast.showToast(
-            msg: '${vendor.name.getOrCrash()} devices can only be added '
-                'manually in the Hub',
+            msg:
+                'Please press the button on top of the Philips Hue Hub for and wait 20s',
             toastLength: Toast.LENGTH_LONG,
             gravity: ToastGravity.SNACKBAR,
             backgroundColor: Colors.orangeAccent,
-            textColor: Theme.of(context).textTheme.bodyText1!.color,
+            textColor: Theme.of(context).textTheme.bodyLarge!.color,
             fontSize: 16.0,
           );
         } else {
@@ -50,7 +54,7 @@ class VendorWidget extends StatelessWidget {
             toastLength: Toast.LENGTH_SHORT,
             gravity: ToastGravity.SNACKBAR,
             backgroundColor: Colors.lightBlue,
-            textColor: Theme.of(context).textTheme.bodyText1!.color,
+            textColor: Theme.of(context).textTheme.bodyLarge!.color,
             fontSize: 16.0,
           );
         }

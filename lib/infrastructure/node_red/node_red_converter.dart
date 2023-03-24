@@ -1,12 +1,13 @@
 import 'package:cybear_jinni/domain/binding/binding_cbj_entity.dart';
 import 'package:cybear_jinni/domain/binding/value_objects_routine_cbj.dart';
 import 'package:cybear_jinni/domain/core/value_objects.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/routine/routine_cbj_entity.dart';
 import 'package:cybear_jinni/domain/routine/value_objects_routine_cbj.dart';
 import 'package:cybear_jinni/domain/scene/scene_cbj_entity.dart';
 import 'package:cybear_jinni/domain/scene/value_objects_scene_cbj.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+
 import 'package:cybear_jinni/infrastructure/node_red/node_red_nodes/node_red_function_node.dart';
 import 'package:cybear_jinni/infrastructure/node_red/node_red_nodes/node_red_inject_node.dart';
 import 'package:cybear_jinni/infrastructure/node_red/node_red_nodes/node_red_mqtt_broker_node.dart';
@@ -63,7 +64,7 @@ class NodeRedConverter {
       iconCodePoint: SceneCbjIconCodePoint(null),
       image: SceneCbjBackgroundImage(null),
       lastDateOfExecute: SceneCbjLastDateOfExecute(null),
-      deviceStateGRPC: SceneCbjDeviceStateGRPC(
+      entityStateGRPC: SceneCbjDeviceStateGRPC(
         DeviceStateGRPC.addingNewScene.toString(),
       ),
       senderDeviceModel: SceneCbjSenderDeviceModel(null),
@@ -118,7 +119,7 @@ class NodeRedConverter {
       iconCodePoint: RoutineCbjIconCodePoint(null),
       image: RoutineCbjBackgroundImage(null),
       lastDateOfExecute: RoutineCbjLastDateOfExecute(null),
-      deviceStateGRPC: RoutineCbjDeviceStateGRPC(
+      entityStateGRPC: RoutineCbjDeviceStateGRPC(
         DeviceStateGRPC.addingNewRoutine.toString(),
       ),
       senderDeviceModel: RoutineCbjSenderDeviceModel(null),
@@ -174,7 +175,7 @@ class NodeRedConverter {
       iconCodePoint: BindingCbjIconCodePoint(null),
       image: BindingCbjBackgroundImage(null),
       lastDateOfExecute: BindingCbjLastDateOfExecute(null),
-      deviceStateGRPC: BindingCbjDeviceStateGRPC(
+      entityStateGRPC: BindingCbjDeviceStateGRPC(
         DeviceStateGRPC.addingNewBinding.toString(),
       ),
       senderDeviceModel: BindingCbjSenderDeviceModel(null),
@@ -198,7 +199,7 @@ class NodeRedConverter {
     final NodeRedMqttOutNode mqttNode = NodeRedMqttOutNode(
       brokerNodeId: brokerNodeId,
       topic: topic,
-      name: '${device.defaultName.getOrCrash()} - $property',
+      name: '${device.cbjEntityName.getOrCrash()} - $property',
     );
 
     final NodeRedFunctionNode functionForNode =

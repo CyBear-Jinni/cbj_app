@@ -107,18 +107,18 @@ class LifxSignInForm extends StatelessWidget {
                             onPressed: () {
                               context.read<LifxSignInFormBloc>().add(
                                     const LifxSignInFormEvent
-                                        .signInWithApiKey(),
+                                        .signInWithLifxApiKey(),
                                   );
 
                               Fluttertoast.showToast(
-                                msg: 'Sign in to Lifix, please restart the app '
-                                    'to see the new devices',
+                                msg:
+                                    'Sign in to Lifx, devices will appear in the shortly',
                                 toastLength: Toast.LENGTH_LONG,
                                 gravity: ToastGravity.BOTTOM,
                                 backgroundColor: Colors.deepPurple,
                                 textColor: Theme.of(context)
                                     .textTheme
-                                    .bodyText1!
+                                    .bodyLarge!
                                     .color,
                                 fontSize: 16.0,
                               );
@@ -151,7 +151,7 @@ class LifxSignInForm extends StatelessWidget {
                 child: Text(
                   'Get Lifx API key from Lifx website',
                   style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1!.color,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
                   ),
                 ).tr(),
               ),

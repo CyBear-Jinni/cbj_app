@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/domain/devices/generic_smart_plug_device/generic_smart_plug_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_smart_plug_device/generic_smart_plug_entity.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/top_navigation_bar.dart';
 import 'package:cybear_jinni/utils.dart';
@@ -34,25 +34,25 @@ class SettingsPageOfSmartPlugs extends StatelessWidget {
             title: Text(
               'Name:_',
               style: TextStyle(
-                color: Theme.of(context).textTheme.bodyText1!.color,
+                color: Theme.of(context).textTheme.bodyLarge!.color,
               ),
             ).tr(args: <String>[smartPlugName]),
             subtitle: Text(
               'Room:_',
               style: TextStyle(
-                color: Theme.of(context).textTheme.bodyText1!.color,
+                color: Theme.of(context).textTheme.bodyLarge!.color,
               ),
             ).tr(args: <String>[roomName]),
             trailing: IconButton(
               icon: FaIcon(
                 FontAwesomeIcons.pen,
-                color: Theme.of(context).textTheme.bodyText1!.color,
+                color: Theme.of(context).textTheme.bodyLarge!.color,
               ),
               onPressed: () {},
             ),
           ),
           Divider(
-            color: Theme.of(context).textTheme.bodyText1!.color,
+            color: Theme.of(context).textTheme.bodyLarge!.color,
           ),
         ],
       );
@@ -114,9 +114,9 @@ class SettingsPageOfSmartPlugs extends StatelessWidget {
                       color: Colors.red,
                     ),
                     child: tile(
-                      roomEntity.defaultName.getOrCrash(),
+                      roomEntity.cbjEntityName.getOrCrash(),
                       allSmartDeviceSmartPlugDevices[index]
-                          .defaultName
+                          .cbjEntityName
                           .getOrCrash()!,
                     ),
                   );

@@ -10,28 +10,19 @@ Future<String?> getCurrentWifiName() async {
   String? wifiName = '';
 
   try {
-    final NetworkInfo networkInfo = NetworkInfo();
-
-    if (Platform.isIOS) {
-      LocationAuthorizationStatus status =
-          await networkInfo.getLocationServiceAuthorization();
-      if (status == LocationAuthorizationStatus.notDetermined) {
-        status = await networkInfo.requestLocationServiceAuthorization();
-      }
-      if (status == LocationAuthorizationStatus.authorizedAlways ||
-          status == LocationAuthorizationStatus.authorizedWhenInUse) {
+    if (Platform.isIOS || Platform.isAndroid) {
+      if (await Permission.location.serviceStatus.isEnabled) {
+        // permission is enabled
+        final PermissionStatus status = await Permission.location.status;
+        if (status.isDenied || status.isRestricted) {
+          if (await Permission.location.request().isGranted) {
+            // Either the permission was already granted before or the user just granted it.
+          }
+        }
         wifiName = await NetworkInfo().getWifiName();
       } else {
-        wifiName = await NetworkInfo().getWifiName();
+        logger.w('Permission is not enabled');
       }
-    } else if (Platform.isAndroid) {
-      final PermissionStatus status = await Permission.location.status;
-      if (status.isDenied || status.isRestricted) {
-        if (await Permission.location.request().isGranted) {
-// Either the permission was already granted before or the user just granted it.
-        }
-      }
-      wifiName = await NetworkInfo().getWifiName();
     } else {
       logger.w('Does not support this platform');
     }

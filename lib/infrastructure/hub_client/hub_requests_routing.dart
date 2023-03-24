@@ -2,8 +2,8 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
-import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
+import 'package:cybear_jinni/domain/device/i_device_repository.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
 import 'package:cybear_jinni/domain/room/i_room_repository.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
@@ -11,9 +11,11 @@ import 'package:cybear_jinni/domain/scene/i_scene_cbj_repository.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_blinds_device/generic_blinds_device_dtos.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_boiler_device/generic_boiler_device_dtos.dart';
+import 'package:cybear_jinni/infrastructure/generic_devices/generic_dimmable_light_device/generic_dimmable_light_device_dtos.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_empty_device/generic_empty_device_dtos.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_light_device/generic_light_device_dtos.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_ping_device/generic_ping_device_dtos.dart';
+import 'package:cybear_jinni/infrastructure/generic_devices/generic_printer_device/generic_printer_device_dtos.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_rgbw_light_device/generic_rgbw_light_device_dtos.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_smart_computer_device/generic_smart_computer_device_dtos.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_smart_plug_device/generic_smart_plug_device_dtos.dart';
@@ -110,7 +112,8 @@ class HubRequestRouting {
 
     final RoomEntityDtos roomEntityDtos = RoomEntityDtos(
       uniqueId: requestAsJson['uniqueId'] as String,
-      defaultName: requestAsJson['defaultName'] as String,
+      cbjEntityName: requestAsJson['cbjEntityName'] as String,
+      background: requestAsJson['background'] as String,
       roomTypes: List<String>.from(requestAsJson['roomTypes'] as List<dynamic>),
       roomDevicesId:
           List<String>.from(requestAsJson['roomDevicesId'] as List<dynamic>),
@@ -135,10 +138,10 @@ class HubRequestRouting {
   ) async {
     final Map<String, dynamic> requestAsJson =
         jsonDecode(allRemoteCommands) as Map<String, dynamic>;
-    final String? deviceTypeAsString = requestAsJson['deviceTypes'] as String?;
+    final String? deviceTypeAsString = requestAsJson['entityTypes'] as String?;
 
     final String? deviceStateAsString =
-        requestAsJson['deviceStateGRPC'] as String?;
+        requestAsJson['entityStateGRPC'] as String?;
     if (deviceTypeAsString == null || deviceStateAsString == null) {
       return;
     }
@@ -148,10 +151,10 @@ class HubRequestRouting {
     final DeviceTypes? deviceType =
         EnumHelperCbj.stringToDt(deviceTypeAsString);
 
-    final DeviceStateGRPC? deviceStateGRPC =
+    final DeviceStateGRPC? entityStateGRPC =
         EnumHelperCbj.stringToDeviceState(deviceStateAsString);
 
-    if (deviceType == null || deviceStateGRPC == null) {
+    if (deviceType == null || entityStateGRPC == null) {
       return;
     }
 
@@ -162,6 +165,11 @@ class HubRequestRouting {
         deviceEntity =
             GenericLightDeviceDtos.fromJson(requestAsJson).toDomain();
         logger.i('Adding Light device type');
+        break;
+      case DeviceTypes.dimmableLight:
+        deviceEntity =
+            GenericDimmableLightDeviceDtos.fromJson(requestAsJson).toDomain();
+        logger.i('Adding Dimmable Light device type');
         break;
       case DeviceTypes.rgbwLights:
         deviceEntity =
@@ -198,8 +206,13 @@ class HubRequestRouting {
             GenericSmartComputerDeviceDtos.fromJson(requestAsJson).toDomain();
         logger.i('Adding Smart Plug device type');
         break;
+      case DeviceTypes.printer:
+        deviceEntity =
+            GenericPrinterDeviceDtos.fromJson(requestAsJson).toDomain();
+        logger.i('Adding Smart printer device type');
+        break;
       default:
-        if (deviceStateGRPC == DeviceStateGRPC.pingNow) {
+        if (entityStateGRPC == DeviceStateGRPC.pingNow) {
           deviceEntity =
               GenericPingDeviceDtos.fromJson(requestAsJson).toDomain();
           logger.v('Got Ping request');
@@ -207,7 +220,8 @@ class HubRequestRouting {
         } else {
           deviceEntity =
               GenericEmptyDeviceDtos.fromJson(requestAsJson).toDomain();
-          logger.w('Device type is $deviceStateGRPC is not supported');
+          logger.w(
+              'Device type is $deviceType is not supported $entityStateGRPC ');
         }
         break;
     }

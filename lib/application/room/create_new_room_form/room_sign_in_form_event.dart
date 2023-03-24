@@ -2,7 +2,7 @@ part of 'room_sign_in_form_bloc.dart';
 
 @freezed
 class RoomSignInFormEvent with _$RoomSignInFormEvent {
-  const factory RoomSignInFormEvent.defaultNameChanged(String defaultName) =
+  const factory RoomSignInFormEvent.defaultNameChanged(String cbjEntityName) =
       DefaultNameChanged;
 
   const factory RoomSignInFormEvent.roomTypesChanged(
@@ -25,7 +25,8 @@ class RoomSignInFormEvent with _$RoomSignInFormEvent {
     List<String> roomPermissions,
   ) = RoomPermissionsChanged;
 
-  const factory RoomSignInFormEvent.changeRoomDevices() = ChangeRoomDevices;
+  const factory RoomSignInFormEvent.changeRoomDevices(BuildContext context) =
+      ChangeRoomDevices;
 
   const factory RoomSignInFormEvent.createRoom() = CreateRoom;
 

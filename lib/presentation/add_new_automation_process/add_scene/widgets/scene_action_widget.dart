@@ -1,5 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -32,7 +32,7 @@ class SceneActionWidget extends StatelessWidget {
           color: Colors.yellow,
         ),
         title: AutoSizeText(
-          '${deviceEntityAbstract.defaultName.getOrCrash()!} - $propertyToChange',
+          '${deviceEntityAbstract.cbjEntityName.getOrCrash()!} - $propertyToChange',
           maxLines: 2,
         ),
         trailing: AutoSizeText(

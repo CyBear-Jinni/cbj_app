@@ -159,22 +159,22 @@ class CBJCompRepository implements ICBJCompRepository {
   //   final List<SmartDeviceInfo> smartDevicesList = [];
   //
   //   final DeviceActions deviceAction = DeviceActions.actionNotSupported;
-  //   final DeviceStateGRPC deviceStateGRPC = DeviceStateGRPC.waitingInComp;
+  //   final DeviceStateGRPC entityStateGRPC = DeviceStateGRPC.waitingInComp;
   //
   //   compEntity.cBJCompDevices!.getOrCrash().forEach((GenericLightDE element) {
   //     final DeviceTypesActions deviceTypesActions = DeviceTypesActions(
   //       deviceAction: deviceAction,
-  //       deviceStateGRPC: deviceStateGRPC,
+  //       entityStateGRPC: entityStateGRPC,
   //     );
   //
   //     final SmartDeviceInfo smartDeviceInfo = SmartDeviceInfo(
   //       compSpecs: compSpecs,
   //       deviceTypesActions: deviceTypesActions,
-  //       defaultName: element.defaultName.getOrCrash(),
+  //       cbjEntityName: element.cbjEntityName.getOrCrash(),
   //       senderId: element.senderId.getOrCrash(),
   //       senderDeviceModel: deviceModelString,
   //       senderDeviceOs: Platform.operatingSystem,
-  //       state: element.deviceStateGRPC.getOrCrash(),
+  //       state: element.entityStateGRPC.getOrCrash(),
   //       stateMassage: 'Setting up device',
   //       roomId: element.roomId.getOrCrash(),
   //       id: element.uniqueId.getOrCrash(),
@@ -198,11 +198,11 @@ class CBJCompRepository implements ICBJCompRepository {
 //   for (final SmartDeviceInfo smartDeviceInfo in compInfo.smartDevicesInComp) {
 //     final GenericLightDE deviceEntity = GenericLightDE(
 //       uniqueId: CoreUniqueId.fromUniqueString(smartDeviceInfo.id),
-//       defaultName: DeviceDefaultName(smartDeviceInfo.defaultName),
+//       cbjEntityName: CbjEntityName(smartDeviceInfo.cbjEntityName),
 //       roomId: CoreUniqueId.fromUniqueString(smartDeviceInfo.roomId),
 //       roomName: DeviceRoomName('Missing area name'),
-//       deviceStateGRPC: DeviceState(
-//         smartDeviceInfo.deviceTypesActions.deviceStateGRPC.toString(),
+//       entityStateGRPC: EntityState(
+//         smartDeviceInfo.deviceTypesActions.entityStateGRPC.toString(),
 //       ),
 //       stateMassage: DeviceStateMassage(smartDeviceInfo.stateMassage),
 //       senderDeviceOs: DeviceSenderDeviceOs(smartDeviceInfo.senderDeviceOs),
@@ -221,5 +221,4 @@ class CBJCompRepository implements ICBJCompRepository {
 //   }
 //   return deviceEntityList.toImmutableList();
 // }
-
 }

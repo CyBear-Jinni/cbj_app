@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/domain/devices/generic_smart_plug_device/generic_smart_plug_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_smart_plug_device/generic_smart_plug_entity.dart';
 import 'package:flutter/material.dart';
 
 class ErrorSmartPlugsDeviceCard extends StatelessWidget {

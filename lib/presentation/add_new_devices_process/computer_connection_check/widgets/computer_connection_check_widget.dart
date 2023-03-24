@@ -62,7 +62,7 @@ class ComputerConnectionCheckWidget extends StatelessWidget {
                     'Connecting computer to WiFi',
                     style: TextStyle(
                       fontSize: 25,
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                     ),
                   ),
                 ),
@@ -79,7 +79,7 @@ class ComputerConnectionCheckWidget extends StatelessWidget {
                             valueColor:
                                 const AlwaysStoppedAnimation(Colors.pink),
                             backgroundColor:
-                                Theme.of(context).textTheme.bodyText1!.color,
+                                Theme.of(context).textTheme.bodyLarge!.color,
                             borderColor: Colors.red.withOpacity(0.9),
                             borderWidth: 4.0,
                             center: const Text(
@@ -95,7 +95,7 @@ class ComputerConnectionCheckWidget extends StatelessWidget {
                         Text(
                           'Searching for CyBear Jinni Hub in your WiFi network',
                           style: TextStyle(
-                            color: Theme.of(context).textTheme.bodyText1!.color,
+                            color: Theme.of(context).textTheme.bodyLarge!.color,
                           ),
                         ),
                       ],

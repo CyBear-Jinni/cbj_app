@@ -14,7 +14,7 @@ class IntroductionScreenBodyWelcomePage extends StatelessWidget {
                 'We',
                 style: TextStyle(
                   fontSize: 17.0,
-                  color: Theme.of(context).textTheme.bodyText1!.color,
+                  color: Theme.of(context).textTheme.bodyLarge!.color,
                 ),
               ),
               const SizedBox(width: 10.0),
@@ -24,56 +24,56 @@ class IntroductionScreenBodyWelcomePage extends StatelessWidget {
                     'are OPEN SOURCE',
                     textStyle: TextStyle(
                       fontSize: 20.0,
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                     ),
                   ),
                   TypewriterAnimatedText(
                     'are FAIR',
                     textStyle: TextStyle(
                       fontSize: 20.0,
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                     ),
                   ),
                   TypewriterAnimatedText(
                     'are INNOVATIVE',
                     textStyle: TextStyle(
                       fontSize: 20.0,
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                     ),
                   ),
                   TypewriterAnimatedText(
                     'are PRIVATE',
                     textStyle: TextStyle(
                       fontSize: 20.0,
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                     ),
                   ),
                   TypewriterAnimatedText(
                     'are SECURE',
                     textStyle: TextStyle(
                       fontSize: 20.0,
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                     ),
                   ),
                   TypewriterAnimatedText(
                     'are EASY TO USE',
                     textStyle: TextStyle(
                       fontSize: 20.0,
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                     ),
                   ),
                   TypewriterAnimatedText(
                     'support LOCAL CONNECTION',
                     textStyle: TextStyle(
                       fontSize: 20.0,
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                     ),
                   ),
                   TypewriterAnimatedText(
                     'want a BETTER FUTURE',
                     textStyle: TextStyle(
                       fontSize: 20.0,
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                     ),
                   ),
                 ],
@@ -83,10 +83,10 @@ class IntroductionScreenBodyWelcomePage extends StatelessWidget {
         ),
         Container(
           decoration: BoxDecoration(
-            color: ((Theme.of(context).textTheme.bodyText1!.color)!)
+            color: ((Theme.of(context).textTheme.bodyLarge!.color)!)
                 .withOpacity(0.3),
             border: Border.all(
-              color: (Theme.of(context).textTheme.bodyText1!.color)!,
+              color: (Theme.of(context).textTheme.bodyLarge!.color)!,
             ),
             // Make rounded corners
             borderRadius: BorderRadius.circular(30),

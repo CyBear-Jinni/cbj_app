@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/presentation/add_new_automation_process/add_action/add_action_page.dart';
 import 'package:cybear_jinni/presentation/add_new_automation_process/add_bindings/add_binding_page.dart';
 import 'package:cybear_jinni/presentation/add_new_automation_process/add_routine/add_routine_page.dart';
@@ -14,6 +14,7 @@ import 'package:cybear_jinni/presentation/add_new_devices_process/open_access_po
 import 'package:cybear_jinni/presentation/add_new_devices_process/scan_for_new_cbj_comps/scan_for_new_cbj_comps_page.dart';
 import 'package:cybear_jinni/presentation/add_new_room/add_new_room_page.dart';
 import 'package:cybear_jinni/presentation/add_user_to_home/add_user_to_home_page.dart';
+import 'package:cybear_jinni/presentation/add_vendors_pages/add_esphome_vendor/add_esphome_vendor_page.dart';
 import 'package:cybear_jinni/presentation/add_vendors_pages/add_jinvoo_smart_vendor/add_jinvoo_smart_vendor_page.dart';
 import 'package:cybear_jinni/presentation/add_vendors_pages/add_lifx_vendor/add_lifx_vendor_page.dart';
 import 'package:cybear_jinni/presentation/add_vendors_pages/add_smart_life_vendor/add_smart_life_vendor_page.dart';
@@ -26,11 +27,11 @@ import 'package:cybear_jinni/presentation/device_full_screen_page/blinds/rooms_b
 import 'package:cybear_jinni/presentation/device_full_screen_page/boilers/rooms_boilers_page.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/lights/lights_in_the_room/lights_in_the_room_page.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/lights/rooms_lights_page.dart';
-import 'package:cybear_jinni/presentation/device_full_screen_page/rgbw_lights/rgbw_lights_in_the_room/rgbw_lights_in_the_room_page.dart';
-import 'package:cybear_jinni/presentation/device_full_screen_page/rgbw_lights/rooms_rgbw_lights_page.dart';
+import 'package:cybear_jinni/presentation/device_full_screen_page/printers/rooms_printers_page.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/smart_computers/rooms_smart_computers_page.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/smart_plugs/rooms_smart_plugs_page.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/smart_plugs/smart_plugs_in_the_room/smart_plugs_in_the_room_page.dart';
+import 'package:cybear_jinni/presentation/device_full_screen_page/smart_tv/rooms_smart_tvs_page.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/switches/rooms_switches_page.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/switches/switches_in_the_room/switches_in_the_room_page.dart';
 import 'package:cybear_jinni/presentation/home_page/home_page.dart';
@@ -77,6 +78,7 @@ import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_pag
     AutoRoute(page: ChooseAutomationTypeToAddPage),
     AutoRoute(page: ChooseDeviceVendorToAddPage),
     AutoRoute(page: AddLifxVendorPage),
+    AutoRoute(page: AddEspHomeVendorPage),
     AutoRoute(page: AddTuyaVendorPage),
     AutoRoute(page: AddSmartLifeVendorPage),
     AutoRoute(page: AddJinvooSmartVendorPage),
@@ -87,10 +89,10 @@ import 'package:cybear_jinni/presentation/where_to_login_page/where_to_login_pag
     AutoRoute(page: ComputerConnectionCheckPage),
     AutoRoute(page: RoomsLightsPage),
     AutoRoute(page: LightsInTheRoomPage),
-    AutoRoute(page: RoomsRgbwLightsPage),
-    AutoRoute(page: RgbwLightsInTheRoomPage),
     AutoRoute(page: RoomsSwitchesPage),
     AutoRoute(page: RoomsSmartComputersPage),
+    AutoRoute(page: RoomsSmartTvsPage),
+    AutoRoute(page: RoomsPrintersPage),
     AutoRoute(page: SwitchesInTheRoomPage),
     AutoRoute(page: RoomsSmartPlugsPage),
     AutoRoute(page: SmartPlugsInTheRoomPage),
@@ -114,6 +116,7 @@ class $AppRouter {
   late ChooseAutomationTypeToAddPage chooseAutomationTypeToAddPage;
   late ChooseDeviceVendorToAddPage chooseDeviceVendorToAddPage;
   late AddLifxVendorPage addLifxVendorPage;
+  late AddEspHomeVendorPage addEspHomeVendorPage;
   late AddTuyaVendorPage addTuyaVendorPage;
   late AddSmartLifeVendorPage addSmartLifeVendorPage;
   late AddJinvooSmartVendorPage addJinvooSmartVendorPage;
@@ -135,10 +138,10 @@ class $AppRouter {
   late AddUserToHomePage addUserToHomePage;
   late RoomsLightsPage roomsLightsPage;
   late LightsInTheRoomPage lightsInTheRoomPage;
-  late RoomsRgbwLightsPage roomsRgbwLightsPage;
-  late RgbwLightsInTheRoomPage rgbwLightsInTheRoomPage;
   late RoomsSwitchesPage roomsSwitchesPage;
   late RoomsSmartComputersPage roomsSmartComputersPage;
+  late RoomsSmartTvsPage roomsSmartTvsPage;
+  late RoomsPrintersPage roomsPrintersPage;
   late SwitchesInTheRoomPage switchesInTheRoomPage;
   late RoomsSmartPlugsPage roomsSmartPlugsPage;
   late SmartPlugsInTheRoomPage smartPlugsInTheRoomPage;

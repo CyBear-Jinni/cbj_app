@@ -55,7 +55,7 @@ class BindingsPage extends StatelessWidget {
                     toastLength: Toast.LENGTH_LONG,
                     gravity: ToastGravity.CENTER,
                     backgroundColor: Colors.blueGrey,
-                    textColor: Theme.of(context).textTheme.bodyText1!.color,
+                    textColor: Theme.of(context).textTheme.bodyLarge!.color,
                     fontSize: 16.0,
                   );
                 },

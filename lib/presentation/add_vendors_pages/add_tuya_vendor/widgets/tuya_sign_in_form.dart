@@ -153,7 +153,10 @@ class TuyaSignInForm extends StatelessWidget {
                     const SizedBox(
                       height: 8,
                     ),
-                    const Text('Select Region:        '),
+                    const Text(
+                      'Select Region:',
+                      style: TextStyle(color: Colors.black),
+                    ),
                     DropdownButton<String>(
                       value: context
                           .read<TuyaSignInFormBloc>()
@@ -194,18 +197,19 @@ class TuyaSignInForm extends StatelessWidget {
                                     ),
                                   );
                               context.read<TuyaSignInFormBloc>().add(
-                                    const TuyaSignInFormEvent.signIn(),
+                                    const TuyaSignInFormEvent
+                                        .signInWithTuyaApiKey(),
                                   );
 
                               Fluttertoast.showToast(
-                                msg: 'Sign in to Tuya, please restart the app '
-                                    'to see the new devices',
+                                msg:
+                                    'Sign in to Tuya, devices will appear in the shortly',
                                 toastLength: Toast.LENGTH_LONG,
                                 gravity: ToastGravity.BOTTOM,
                                 backgroundColor: Colors.deepOrange,
                                 textColor: Theme.of(context)
                                     .textTheme
-                                    .bodyText1!
+                                    .bodyLarge!
                                     .color,
                                 fontSize: 16.0,
                               );

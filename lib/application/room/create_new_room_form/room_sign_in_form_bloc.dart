@@ -1,13 +1,14 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
-import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/device/i_device_repository.dart';
 import 'package:cybear_jinni/domain/room/i_room_repository.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/domain/room/value_objects_room.dart';
 import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -67,7 +68,8 @@ class RoomSignInFormBloc
   ) async {
     final RoomEntity roomEntity = RoomEntity(
       uniqueId: RoomUniqueId.fromUniqueString(state.roomUniqueId.getOrCrash()),
-      defaultName: RoomDefaultName(state.defaultName.getOrCrash()),
+      cbjEntityName: RoomDefaultName(state.cbjEntityName.getOrCrash()),
+      background: RoomBackground(state.background.getOrCrash()),
       roomTypes: RoomTypes(state.roomTypes.getOrCrash()),
       roomDevicesId: RoomDevicesId(state.roomDevicesId.getOrCrash()),
       roomScenesId: RoomScenesId(state.roomScenesId.getOrCrash()),
@@ -86,7 +88,8 @@ class RoomSignInFormBloc
   ) async {
     final RoomEntity roomEntity = RoomEntity(
       uniqueId: RoomUniqueId.fromUniqueString(state.roomUniqueId.getOrCrash()),
-      defaultName: RoomDefaultName(state.defaultName.getOrCrash()),
+      cbjEntityName: RoomDefaultName(state.cbjEntityName.getOrCrash()),
+      background: RoomBackground(state.background.getOrCrash()),
       roomTypes: RoomTypes(state.roomTypes.getOrCrash()),
       roomDevicesId: RoomDevicesId(state.roomDevicesId.getOrCrash()),
       roomScenesId: RoomScenesId(state.roomScenesId.getOrCrash()),
@@ -105,7 +108,7 @@ class RoomSignInFormBloc
   ) async {
     emit(
       state.copyWith(
-        defaultName: RoomDefaultName(event.defaultName),
+        cbjEntityName: RoomDefaultName(event.cbjEntityName),
         authFailureOrSuccessOption: none(),
       ),
     );
@@ -133,7 +136,7 @@ class RoomSignInFormBloc
         emit(
           state.copyWith(
             roomUniqueId: roomEntity.uniqueId,
-            defaultName: roomEntity.defaultName,
+            cbjEntityName: roomEntity.cbjEntityName,
             authFailureOrSuccessOption: none(),
           ),
         );

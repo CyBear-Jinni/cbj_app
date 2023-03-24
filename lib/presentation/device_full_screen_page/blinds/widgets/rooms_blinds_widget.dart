@@ -1,5 +1,5 @@
 import 'package:cybear_jinni/application/blinds/blinds_watcher/blinds_watcher_bloc.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/blinds/widgets/critical_failure_blinds_display_widget.dart';
@@ -80,7 +80,7 @@ class RoomsBlindsWidget extends StatelessWidget {
                     return RoomBlinds(
                       devicesInRoom,
                       gradiantColor,
-                      roomEntity.defaultName.getOrCrash(),
+                      roomEntity.cbjEntityName.getOrCrash(),
                       maxLightsToShow: 50,
                     );
                   },
@@ -109,7 +109,7 @@ class RoomsBlindsWidget extends StatelessWidget {
                         'Blinds does not exist.',
                         style: TextStyle(
                           fontSize: 30,
-                          color: Theme.of(context).textTheme.bodyText1!.color,
+                          color: Theme.of(context).textTheme.bodyLarge!.color,
                         ),
                       ),
                     ),

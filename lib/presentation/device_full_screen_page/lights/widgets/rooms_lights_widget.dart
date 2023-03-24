@@ -1,5 +1,5 @@
 import 'package:cybear_jinni/application/lights/lights_watcher/lights_watcher_bloc.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/lights/widgets/critical_light_failure_display_widget.dart';
@@ -82,7 +82,7 @@ class RoomsLightsWidget extends StatelessWidget {
                     return RoomLights(
                       devicesInRoom,
                       gradiantColor,
-                      roomEntity.defaultName.getOrCrash(),
+                      roomEntity.cbjEntityName.getOrCrash(),
                       maxLightsToShow: 50,
                     );
                   },
@@ -111,7 +111,7 @@ class RoomsLightsWidget extends StatelessWidget {
                         'Lights does not exist.',
                         style: TextStyle(
                           fontSize: 30,
-                          color: Theme.of(context).textTheme.bodyText1!.color,
+                          color: Theme.of(context).textTheme.bodyLarge!.color,
                         ),
                       ),
                     ),

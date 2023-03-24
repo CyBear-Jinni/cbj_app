@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:cybear_jinni/domain/devices/generic_smart_computer_device/generic_smart_computer_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_smart_computer_device/generic_smart_computer_entity.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +17,6 @@ class SmartComputerPage extends StatefulWidget {
 }
 
 class _SmartSmartComputerPage extends State<SmartComputerPage> {
-  bool _switchState = false;
   GenericSmartComputerDE? _switch;
   bool _isLoading = true;
 
@@ -69,14 +68,13 @@ class _SmartSmartComputerPage extends State<SmartComputerPage> {
 
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
     return Column(
       children: <Widget>[
         Text(
-          _switch!.defaultName.getOrCrash()!, //  Show switch name
+          _switch!.cbjEntityName.getOrCrash()!, //  Show switch name
           style: TextStyle(
             fontSize: 19.0,
-            color: Theme.of(context).textTheme.bodyText2!.color,
+            color: Theme.of(context).textTheme.bodyMedium!.color,
           ),
         ),
         const SizedBox(

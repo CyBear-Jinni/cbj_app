@@ -1,14 +1,17 @@
 import 'dart:io';
 
 import 'package:cybear_jinni/ad_state.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
-import 'package:cybear_jinni/domain/devices/generic_blinds_device/generic_blinds_entity.dart';
-import 'package:cybear_jinni/domain/devices/generic_boiler_device/generic_boiler_entity.dart';
-import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
-import 'package:cybear_jinni/domain/devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
-import 'package:cybear_jinni/domain/devices/generic_smart_plug_device/generic_smart_plug_entity.dart';
-import 'package:cybear_jinni/domain/devices/generic_smart_tv/generic_smart_tv_entity.dart';
-import 'package:cybear_jinni/domain/devices/generic_switch_device/generic_switch_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_blinds_device/generic_blinds_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_boiler_device/generic_boiler_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_dimmable_light_device/generic_dimmable_light_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_light_device/generic_light_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_printer_device/generic_printer_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_smart_computer_device/generic_smart_computer_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_smart_plug_device/generic_smart_plug_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_smart_tv/generic_smart_tv_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_switch_device/generic_switch_entity.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/domain/room/value_objects_room.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
@@ -82,13 +85,13 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
     tempDevicesByRooms.forEach((k, v) {
       tempDevicesByRoomsByType[k!] = {};
       for (final element in v) {
-        if (tempDevicesByRoomsByType[k]![element.deviceTypes.getOrCrash()] ==
+        if (tempDevicesByRoomsByType[k]![element.entityTypes.getOrCrash()] ==
             null) {
-          tempDevicesByRoomsByType[k]![element.deviceTypes.getOrCrash()] = [
+          tempDevicesByRoomsByType[k]![element.entityTypes.getOrCrash()] = [
             element
           ];
         } else {
-          tempDevicesByRoomsByType[k]![element.deviceTypes.getOrCrash()]!
+          tempDevicesByRoomsByType[k]![element.entityTypes.getOrCrash()]!
               .add(element);
         }
       }
@@ -100,12 +103,14 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
     final String onAction = DeviceActions.on.toString();
 
     if (deviceEntity is GenericBlindsDE) {
-      /// TODO: Need to check position open and not moving up
+      // TODO: Need to check position open and not moving up
       return deviceEntity.blindsSwitchState?.getOrCrash() ==
           DeviceActions.moveUp.toString();
     } else if (deviceEntity is GenericBoilerDE) {
       return deviceEntity.boilerSwitchState?.getOrCrash() == onAction;
     } else if (deviceEntity is GenericLightDE) {
+      return deviceEntity.lightSwitchState?.getOrCrash() == onAction;
+    } else if (deviceEntity is GenericDimmableLightDE) {
       return deviceEntity.lightSwitchState?.getOrCrash() == onAction;
     } else if (deviceEntity is GenericRgbwLightDE) {
       return deviceEntity.lightSwitchState?.getOrCrash() == onAction;
@@ -115,9 +120,14 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
       return deviceEntity.switchState?.getOrCrash() == onAction;
     } else if (deviceEntity is GenericSmartPlugDE) {
       return deviceEntity.smartPlugState?.getOrCrash() == onAction;
+    } else if (deviceEntity is GenericSmartComputerDE) {
+      return false;
+    } else if (deviceEntity is GenericPrinterDE) {
+      // TODO: show whenever low on ink
+      return false;
     }
     logger.w(
-      'State check is missing for device type ${deviceEntity.deviceTypes} '
+      'State check is missing for device type ${deviceEntity.entityTypes} '
       'to appear in summary',
     );
     return false;
@@ -211,7 +221,7 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
         <String, List<DeviceEntityAbstract>>{};
     // /// All Devices area
     // final RoomEntity allDevicesRoom = RoomEntity.empty().copyWith(
-    //   defaultName: RoomDefaultName('All_Devices'.tr()),
+    //   cbjEntityName: RoomDefaultName('All_Devices'.tr()),
     // );
     // final String allDevicesRoomId = allDevicesRoom.uniqueId.getOrCrash();
     // tempDevicesByRooms[allDevicesRoomId] = [];
@@ -226,7 +236,7 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
 
     /// Summary area
     final RoomEntity summaryDevicesRoom = RoomEntity.empty().copyWith(
-      defaultName: RoomDefaultName('Summary'.tr()),
+      cbjEntityName: RoomDefaultName('Summary'.tr()),
     );
 
     final String summaryRoomId = summaryDevicesRoom.uniqueId.getOrCrash();
@@ -401,9 +411,7 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
           int numberOfDevicesInTheRoom = 0;
 
           adOrRoom.value.forEach((key, value) {
-            for (final element in value) {
-              numberOfDevicesInTheRoom++;
-            }
+            numberOfDevicesInTheRoom += value.length;
           });
 
           return RoomWidget(

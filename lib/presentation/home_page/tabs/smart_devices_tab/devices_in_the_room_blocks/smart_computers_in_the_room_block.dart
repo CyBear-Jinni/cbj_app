@@ -1,10 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
-import 'package:cybear_jinni/domain/devices/generic_smart_computer_device/generic_smart_computer_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_smart_computer_device/generic_smart_computer_entity.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
-import 'package:cybear_jinni/utils.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -42,15 +41,14 @@ class SmartComputersInTheRoomBlock extends StatelessWidget {
   Widget build(BuildContext context) {
     String deviceText;
     if (smartComputersInRoom.length == 1) {
-      deviceText = smartComputersInRoom[0].defaultName.getOrCrash()!;
+      deviceText = smartComputersInRoom[0].cbjEntityName.getOrCrash()!;
     } else {
       deviceText =
-          '_SmartComputers'.tr(args: [roomEntity.defaultName.getOrCrash()]);
+          '_SmartComputers'.tr(args: [roomEntity.cbjEntityName.getOrCrash()]);
     }
 
     return GestureDetector(
       onTap: () {
-        logger.w('Tap');
         context.router.push(
           RoomsSmartComputersRoute(
             roomEntity: roomEntity,
@@ -98,7 +96,7 @@ class SmartComputersInTheRoomBlock extends StatelessWidget {
                           border: Border.all(
                             color: Theme.of(context)
                                 .textTheme
-                                .bodyText1!
+                                .bodyLarge!
                                 .color!
                                 .withOpacity(0.5),
                           ),
@@ -109,7 +107,7 @@ class SmartComputersInTheRoomBlock extends StatelessWidget {
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 13,
-                            color: Theme.of(context).textTheme.bodyText1!.color,
+                            color: Theme.of(context).textTheme.bodyLarge!.color,
                           ),
                         ),
                       ),
@@ -136,7 +134,7 @@ class SmartComputersInTheRoomBlock extends StatelessWidget {
                   deviceText,
                   maxLines: 1,
                   style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1!.color,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
                   ),
                 ),
               ],

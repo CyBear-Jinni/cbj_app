@@ -1,5 +1,5 @@
 import 'package:cybear_jinni/application/switches/switches_watcher/switches_watcher_bloc.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/switches/widgets/critical_switches_failure_display_widget.dart';
@@ -84,7 +84,7 @@ class RoomsSwitchesWidget extends StatelessWidget {
                     return RoomSwitches(
                       devicesInRoom,
                       gradiantColor,
-                      roomEntity.defaultName.getOrCrash(),
+                      roomEntity.cbjEntityName.getOrCrash(),
                       maxSwitchesToShow: 50,
                     );
                   },
@@ -113,7 +113,7 @@ class RoomsSwitchesWidget extends StatelessWidget {
                         'Switches does not exist.',
                         style: TextStyle(
                           fontSize: 30,
-                          color: Theme.of(context).textTheme.bodyText1!.color,
+                          color: Theme.of(context).textTheme.bodyLarge!.color,
                         ),
                       ),
                     ),

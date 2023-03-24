@@ -10,14 +10,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.ref }}
 
       - uses: dart-lang/setup-dart@9a04e6d73cca37bd455e0608d7e5092f881fd603
 
       - name: Perform formatting
-        run: find . -name "*.dart" ! -path '*/gen/*' | tr '\n' ' ' | xargs dart format
+        run: find . -name "*.dart" ! -path '*/gen/*' ! -name 'injection.config.dart' | tr '\n' ' ' | xargs dart format
 
       # Perform the commit at the end to make sure tests above don't fail
       - name: Commit formatting changes

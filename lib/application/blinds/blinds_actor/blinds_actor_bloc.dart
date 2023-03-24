@@ -2,9 +2,9 @@ import 'dart:async';
 
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:bloc/bloc.dart';
-import 'package:cybear_jinni/domain/devices/device/devices_failures.dart';
-import 'package:cybear_jinni/domain/devices/device/i_device_repository.dart';
-import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
+import 'package:cybear_jinni/domain/device/devices_failures.dart';
+import 'package:cybear_jinni/domain/device/i_device_repository.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_light_device/generic_light_entity.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -46,7 +46,7 @@ class BlindsActorBloc extends Bloc<BlindsActorEvent, BlindsActorState> {
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-    _deviceRepository.moveUpBlinds(devicesId: event.blindsIdToTurnUp);
+    _deviceRepository.moveUpStateDevices(devicesId: event.blindsIdToTurnUp);
   }
 
   Future<void> _stopAllBlinds(
@@ -58,7 +58,7 @@ class BlindsActorBloc extends Bloc<BlindsActorEvent, BlindsActorState> {
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-    _deviceRepository.stopBlinds(devicesId: event.blindsIdToStop);
+    _deviceRepository.stopStateDevices(devicesId: event.blindsIdToStop);
   }
 
   Future<void> _moveDownAllBlinds(
@@ -70,6 +70,6 @@ class BlindsActorBloc extends Bloc<BlindsActorEvent, BlindsActorState> {
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-    _deviceRepository.moveDownBlinds(devicesId: event.blindsIdToTurnDown);
+    _deviceRepository.moveDownStateDevices(devicesId: event.blindsIdToTurnDown);
   }
 }

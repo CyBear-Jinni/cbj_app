@@ -4,10 +4,10 @@ import 'package:cybear_jinni/domain/auth/user.dart';
 import 'package:cybear_jinni/domain/auth/value_objects.dart';
 import 'package:cybear_jinni/domain/core/errors.dart';
 import 'package:cybear_jinni/domain/core/value_objects.dart';
+import 'package:cybear_jinni/domain/local_db/i_local_db_repository.dart';
 import 'package:cybear_jinni/domain/user/i_user_repository.dart';
 import 'package:cybear_jinni/domain/user/user_entity.dart';
 import 'package:cybear_jinni/domain/user/user_value_objects.dart';
-import 'package:cybear_jinni/infrastructure/hive_local_db/hive_local_db.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
@@ -21,7 +21,9 @@ class HubAuthFacade implements IAuthFacade {
   @override
   Future<Option<MHome>> getCurrentHome() async => optionOf(
         MHome(
-          id: UniqueId.fromUniqueString(await HiveLocalDbHelper.getHomeId()),
+          id: UniqueId.fromUniqueString(
+            await getIt<ILocalDbRepository>().getHomeId(),
+          ),
         ),
       );
 

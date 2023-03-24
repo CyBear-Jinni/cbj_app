@@ -5,5 +5,6 @@ class LifxSignInFormEvent with _$LifxSignInFormEvent {
   const factory LifxSignInFormEvent.apiKeyChanged(String apiKeyStr) =
       ApiKeyChanged;
 
-  const factory LifxSignInFormEvent.signInWithApiKey() = SignInWithApiKey;
+  const factory LifxSignInFormEvent.signInWithLifxApiKey() =
+      SignInWithLifxApiKey;
 }

@@ -1,113 +1,112 @@
 {
-"Create_new_account": "नवीन खाते तयार करा,"
-"Actions_History": "क्रिया इतिहास,"
-"Empty_history": "रिकामा इतिहास,"
-"History_Settings_Page": "इतिहास सेटिंग्ज पृष्ठ,"
-"Lamps_Page": "दिवे पान,"
-"Name_": "नाव {},"
-"Room_": "खोली {},"
-"Lamps_Settings_Page": "दिवे सेटिंग्ज पृष्ठ,"
-"Welcome_to_your_Smart_Home": "तुमच्या स्मार्ट होममध्ये स्वागत आहे,"
-"Scene_Settings_Page": "दृश्य सेटिंग्ज पृष्ठ,"
-"Move_to_blinds_full_settings_page": "आंधळे पूर्ण सेटिंग्ज पृष्ठावर जा,"
-"Blinds_Page": "आंधळे पृष्ठ,"
-"Down": "खाली,"
-"Stop": "थांबा,"
-"Up": "वर,"
-"Smart_Devices_Settings_Page": "स्मार्ट डिव्हाइस सेटिंग्ज पृष्ठ,"
-"Air_Conditioners": "एअर कंडिशनर,"
-"Blinds": "पट्ट्या,"
-"Medical_Device": "वैद्यकीय उपकरण,"
-"Medical_Devices": "वैद्यकीय उपकरणे,"
-"Smart_Phone": "स्मार्ट फोन,"
-"Smart_Phones": "स्मार्ट फोन,"
-"Smart_Speakers": "स्मार्ट स्पीकर्स,"
-"Smart_Devices_page": "स्मार्ट उपकरण पृष्ठ,"
-"History": "इतिहास,"
-"Scene": "देखावा,"
-"Scenes": "दृश्ये,"
-"Lamps": "दिवे,"
-"Devices": "उपकरणे,"
-"Email_is_required": "ईमेल आवश्यक आहे,"
-"Email_cannot_contain_spaces": "ईमेलमध्ये स्पेस असू शकत नाही,"
-"Email_is_invalid": "ईमेल अवैध आहे,"
-"Email": "ईमेल,"
-"Password_is_required": "पासवर्ड आवश्यक आहे,"
-"Password_cannot_contain_spaces": "पासवर्डमध्ये मोकळी जागा असू शकत नाही,"
-"Password_must_be_bigger_than__characters": "पासवर्ड {} वर्णांपेक्षा मोठा असणे आवश्यक आहे,"
-"Password": "पासवर्ड,"
-"Log_In": "लॉग इन,"
-"Forgot_password": "पासवर्ड विसरलात,"
-"Forgot_password?": "पासवर्ड विसरलात?,"
-"title": "शीर्षक,"
-"number": "संख्या"
-"IP_is_required": "आयपी आवश्यक आहे,"
-"IP_syntax_is_incorrect": "IP वाक्यरचना चुकीची आहे,"
-"Add_Smart_Device": "स्मार्ट डिव्हाइस जोडा,"
-"Cancel": "रद्द करा,"
-"Add": "जोडा,"
-"Light": "प्रकाश,"
-"Device_ip_": "डिव्हाइस ip {},"
-"New_devices": "नवीन उपकरणे,"
-"Add_devices": "उपकरणे जोडा,"
-"Device_type_": "डिव्हाइस प्रकार {},"
-"Room_name_is_required": "खोलीचे नाव आवश्यक आहे,"
-"Room_name": "खोलीचे नाव,"
-"Device_name_is_required": "डिव्हाइसचे नाव आवश्यक आहे,"
-"Device_name": "उपकरणाचे नाव ,"
-"Update": "अपडेट करा,"
-"IP": "आयपी,"
-"This_is_firebase": "हे फायरबेस आहे,"
-"Device_with_ip_": "ip {} सह उपकरण,"
-"Update_WiFi_configuration": "वायफाय कॉन्फिगरेशन अपडेट करा,"
-"WiFi_name_is_required": "वायफाय नाव आवश्यक आहे,"
-"WiFi_Name": "वायफाय नाव,"
-"WiFi_password_is_required": "वायफाय पासवर्ड आवश्यक आहे,"
-"WiFi_Password": "वायफाय पासवर्ड,"
-"Insert_WiFi_Credentials": "वायफाय क्रेडेन्शियल्स घाला,"
-"Conditioners": "कंडिशनर्स,"
-"Medical": "वैद्यकीय,"
-"Phones": "फोन,"
-"Speakers": "वक्ते,"
-"Send": "पाठवा,"
-"All_Devices": "सर्व उपकरणे,"
-"Summary": "सारांश,"
-"Switches": "स्विचेस,"
-"Boilers": "बॉयलर,"
-"Lights": "दिवे,"
-"RGBw_Lights": "RGBw दिवे,"
-"_Switches": "{} स्विचेस,"
-"_SmartTvs": "{} स्मार्टटीव्ही,"
-"_RGBW_Lights": "{} RGBW दिवे,"
-"_Lights": "{} दिवे,"
-"_Boilers": "{} बॉयलर,"
-"_Blinds": "{} पट्ट्या,"
-"Rooms": "खोल्या,"
-"_device": "{} साधन,"
-"_devices": "{} उपकरणे,"
-"_SmartPlugs": "{} स्मार्टप्लग,"
-"On": "चालू,"
-"Off": "बंद,"
-"Color": "रंग,"
-"White": "पांढरा,"
-"Area": "क्षेत्रफळ,"
-"Areas": "क्षेत्रे,"
-"Automations": "ऑटोमेशन,"
-"Scenes_In_Folder": "फोल्डरमधील दृश्ये,"
-"Select": "निवडा,"
-"Exist": "अस्तित्वात आहे,"
-"OK": "ठीक आहे,"
-"Nothing": "काही नाही,"
-"No_need_here": "इथे गरज नाही,"
-"Do_not_need": "गरज नाही,"
-"Finish": "समाप्त,"
-"Select_Purposes_Of_The_Area": "क्षेत्राची उद्दिष्टे निवडा,"
-"Pulling_Up_all_blinds": "सर्व पट्ट्या वर खेचणे,"
-"Stopping_all_blinds": "सर्व पट्ट्या थांबवून,"
-"Pulling_down_all_blinds": "सर्व पट्ट्या खाली खेचणे,"
-"Turning_On_boiler": "बॉयलर चालू करणे,"
-"Turning_Off_boiler": "बॉयलर बंद करणे,"
-"Waiting_for_user_to_get_connected_to_WiFi": "वापरकर्ता वायफायशी कनेक्ट होण्याची वाट पाहत आहे,"
-"Can't_add_unsupported_device": "असमर्थित डिव्हाइस जोडू शकत नाही"
-
+  "Create_new_account": "नवीन खाते तयार करा,",
+  "Actions_History": "क्रिया इतिहास,",
+  "Empty_history": "रिकामा इतिहास,",
+  "History_Settings_Page": "इतिहास सेटिंग्ज पृष्ठ,",
+  "Lamps_Page": "दिवे पान,",
+  "Name_": "नाव {},",
+  "Room_": "खोली {},",
+  "Lamps_Settings_Page": "दिवे सेटिंग्ज पृष्ठ,",
+  "Welcome_to_your_Smart_Home": "तुमच्या स्मार्ट होममध्ये स्वागत आहे,",
+  "Scene_Settings_Page": "दृश्य सेटिंग्ज पृष्ठ,",
+  "Move_to_blinds_full_settings_page": "आंधळे पूर्ण सेटिंग्ज पृष्ठावर जा,",
+  "Blinds_Page": "आंधळे पृष्ठ,",
+  "Down": "खाली,",
+  "Stop": "थांबा,",
+  "Up": "वर,",
+  "Smart_Devices_Settings_Page": "स्मार्ट डिव्हाइस सेटिंग्ज पृष्ठ,",
+  "Air_Conditioners": "एअर कंडिशनर,",
+  "Blinds": "पट्ट्या,",
+  "Medical_Device": "वैद्यकीय उपकरण,",
+  "Medical_Devices": "वैद्यकीय उपकरणे,",
+  "Smart_Phone": "स्मार्ट फोन,",
+  "Smart_Phones": "स्मार्ट फोन,",
+  "Smart_Speakers": "स्मार्ट स्पीकर्स,",
+  "Smart_Devices_page": "स्मार्ट उपकरण पृष्ठ,",
+  "History": "इतिहास,",
+  "Scene": "देखावा,",
+  "Scenes": "दृश्ये,",
+  "Lamps": "दिवे,",
+  "Devices": "उपकरणे,",
+  "Email_is_required": "ईमेल आवश्यक आहे,",
+  "Email_cannot_contain_spaces": "ईमेलमध्ये स्पेस असू शकत नाही,",
+  "Email_is_invalid": "ईमेल अवैध आहे,",
+  "Email": "ईमेल,",
+  "Password_is_required": "पासवर्ड आवश्यक आहे,",
+  "Password_cannot_contain_spaces": "पासवर्डमध्ये मोकळी जागा असू शकत नाही,",
+  "Password_must_be_bigger_than__characters": "पासवर्ड {} वर्णांपेक्षा मोठा असणे आवश्यक आहे,",
+  "Password": "पासवर्ड,",
+  "Log_In": "लॉग इन,",
+  "Forgot_password": "पासवर्ड विसरलात,",
+  "Forgot_password?": "पासवर्ड विसरलात?,",
+  "title": "शीर्षक,",
+  "number": "संख्या",
+  "IP_is_required": "आयपी आवश्यक आहे,",
+  "IP_syntax_is_incorrect": "IP वाक्यरचना चुकीची आहे,",
+  "Add_Smart_Device": "स्मार्ट डिव्हाइस जोडा,",
+  "Cancel": "रद्द करा,",
+  "Add": "जोडा,",
+  "Light": "प्रकाश,",
+  "Device_ip_": "डिव्हाइस ip {},",
+  "New_devices": "नवीन उपकरणे,",
+  "Add_devices": "उपकरणे जोडा,",
+  "Device_type_": "डिव्हाइस प्रकार {},",
+  "Room_name_is_required": "खोलीचे नाव आवश्यक आहे,",
+  "Room_name": "खोलीचे नाव,",
+  "Device_name_is_required": "डिव्हाइसचे नाव आवश्यक आहे,",
+  "Device_name": "उपकरणाचे नाव ,",
+  "Update": "अपडेट करा,",
+  "IP": "आयपी,",
+  "This_is_firebase": "हे फायरबेस आहे,",
+  "Device_with_ip_": "ip {} सह उपकरण,",
+  "Update_WiFi_configuration": "वायफाय कॉन्फिगरेशन अपडेट करा,",
+  "WiFi_name_is_required": "वायफाय नाव आवश्यक आहे,",
+  "WiFi_Name": "वायफाय नाव,",
+  "WiFi_password_is_required": "वायफाय पासवर्ड आवश्यक आहे,",
+  "WiFi_Password": "वायफाय पासवर्ड,",
+  "Insert_WiFi_Credentials": "वायफाय क्रेडेन्शियल्स घाला,",
+  "Conditioners": "कंडिशनर्स,",
+  "Medical": "वैद्यकीय,",
+  "Phones": "फोन,",
+  "Speakers": "वक्ते,",
+  "Send": "पाठवा,",
+  "All_Devices": "सर्व उपकरणे,",
+  "Summary": "सारांश,",
+  "Switches": "स्विचेस,",
+  "Boilers": "बॉयलर,",
+  "Lights": "दिवे,",
+  "RGBw_Lights": "RGBw दिवे,",
+  "_Switches": "{} स्विचेस,",
+  "_SmartTvs": "{} स्मार्टटीव्ही,",
+  "_RGBW_Lights": "{} RGBW दिवे,",
+  "_Lights": "{} दिवे,",
+  "_Boilers": "{} बॉयलर,",
+  "_Blinds": "{} पट्ट्या,",
+  "Rooms": "खोल्या,",
+  "_device": "{} साधन,",
+  "_devices": "{} उपकरणे,",
+  "_SmartPlugs": "{} स्मार्टप्लग,",
+  "On": "चालू,",
+  "Off": "बंद,",
+  "Color": "रंग,",
+  "White": "पांढरा,",
+  "Area": "क्षेत्रफळ,",
+  "Areas": "क्षेत्रे,",
+  "Automations": "ऑटोमेशन,",
+  "Scenes_In_Folder": "फोल्डरमधील दृश्ये,",
+  "Select": "निवडा,",
+  "Exist": "अस्तित्वात आहे,",
+  "OK": "ठीक आहे,",
+  "Nothing": "काही नाही,",
+  "No_need_here": "इथे गरज नाही,",
+  "Do_not_need": "गरज नाही,",
+  "Finish": "समाप्त,",
+  "Select_Purposes_Of_The_Area": "क्षेत्राची उद्दिष्टे निवडा,",
+  "Pulling_Up_all_blinds": "सर्व पट्ट्या वर खेचणे,",
+  "Stopping_all_blinds": "सर्व पट्ट्या थांबवून,",
+  "Pulling_down_all_blinds": "सर्व पट्ट्या खाली खेचणे,",
+  "Turning_On_boiler": "बॉयलर चालू करणे,",
+  "Turning_Off_boiler": "बॉयलर बंद करणे,",
+  "Waiting_for_user_to_get_connected_to_WiFi": "वापरकर्ता वायफायशी कनेक्ट होण्याची वाट पाहत आहे,",
+  "Can't_add_unsupported_device": "असमर्थित डिव्हाइस जोडू शकत नाही"
 }

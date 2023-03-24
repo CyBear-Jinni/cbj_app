@@ -153,7 +153,10 @@ class SmartLifeSignInForm extends StatelessWidget {
                     const SizedBox(
                       height: 8,
                     ),
-                    const Text('Select Region:        '),
+                    const Text(
+                      'Select Region:',
+                      style: TextStyle(color: Colors.black),
+                    ),
                     DropdownButton<String>(
                       value: context
                           .read<TuyaSignInFormBloc>()
@@ -194,7 +197,8 @@ class SmartLifeSignInForm extends StatelessWidget {
                                     ),
                                   );
                               context.read<TuyaSignInFormBloc>().add(
-                                    const TuyaSignInFormEvent.signIn(),
+                                    const TuyaSignInFormEvent
+                                        .signInWithTuyaApiKey(),
                                   );
 
                               Fluttertoast.showToast(
@@ -206,7 +210,7 @@ class SmartLifeSignInForm extends StatelessWidget {
                                 backgroundColor: Colors.lightBlueAccent,
                                 textColor: Theme.of(context)
                                     .textTheme
-                                    .bodyText1!
+                                    .bodyLarge!
                                     .color,
                                 fontSize: 16.0,
                               );

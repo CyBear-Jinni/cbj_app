@@ -8,8 +8,6 @@ import 'package:introduction_screen/introduction_screen.dart';
 class IntroductionScreenBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
-
     return Container(
       decoration: const BoxDecoration(
         // Box decoration takes a gradient
@@ -31,7 +29,7 @@ class IntroductionScreenBody extends StatelessWidget {
         dotsDecorator: DotsDecorator(
           size: const Size.square(10.0),
           activeSize: const Size(20.0, 10.0),
-          activeColor: Theme.of(context).textTheme.bodyText1!.color,
+          activeColor: Theme.of(context).textTheme.bodyLarge!.color,
           color: Colors.black26,
           spacing: const EdgeInsets.symmetric(horizontal: 3.0),
           activeShape: RoundedRectangleBorder(
@@ -68,7 +66,7 @@ class IntroductionScreenBody extends StatelessWidget {
                       'CyBear Jinni',
                       style: TextStyle(
                         fontSize: 48,
-                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
                       ),
                     ),
                   ],
@@ -78,12 +76,12 @@ class IntroductionScreenBody extends StatelessWidget {
             bodyWidget: IntroductionScreenBodyWelcomePage(),
             decoration: PageDecoration(
               titleTextStyle: TextStyle(
-                color: Theme.of(context).textTheme.bodyText1!.color,
+                color: Theme.of(context).textTheme.bodyLarge!.color,
                 fontSize: 25,
               ),
               pageColor: Colors.transparent,
               bodyTextStyle: TextStyle(
-                color: Theme.of(context).textTheme.bodyText1!.color,
+                color: Theme.of(context).textTheme.bodyLarge!.color,
                 fontWeight: FontWeight.w700,
                 fontSize: 20.0,
               ),
@@ -98,7 +96,7 @@ class IntroductionScreenBody extends StatelessWidget {
                 Text(
                   'Our Vision',
                   style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1!.color,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
                     fontSize: 30,
                   ),
                 ),
@@ -107,12 +105,12 @@ class IntroductionScreenBody extends StatelessWidget {
             bodyWidget: IntroductionScreenBodyAboutPage(),
             decoration: PageDecoration(
               titleTextStyle: TextStyle(
-                color: Theme.of(context).textTheme.bodyText1!.color,
+                color: Theme.of(context).textTheme.bodyLarge!.color,
                 fontSize: 30,
               ),
               pageColor: Colors.transparent,
               bodyTextStyle: TextStyle(
-                color: Theme.of(context).textTheme.bodyText1!.color,
+                color: Theme.of(context).textTheme.bodyLarge!.color,
                 fontWeight: FontWeight.w700,
                 fontSize: 20.0,
               ),
@@ -123,7 +121,7 @@ class IntroductionScreenBody extends StatelessWidget {
           'Done',
           style: TextStyle(
             fontWeight: FontWeight.w600,
-            color: Theme.of(context).textTheme.bodyText1!.color,
+            color: Theme.of(context).textTheme.bodyLarge!.color,
           ),
         ),
         onDone: () {

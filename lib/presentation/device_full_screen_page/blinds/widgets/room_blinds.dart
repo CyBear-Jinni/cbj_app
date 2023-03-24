@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cybear_jinni/application/blinds/blinds_actor/blinds_actor_bloc.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
-import 'package:cybear_jinni/domain/devices/generic_blinds_device/generic_blinds_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_blinds_device/generic_blinds_entity.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/blinds/widgets/blind_widget.dart';
 import 'package:flutter/material.dart';
@@ -23,8 +23,6 @@ class RoomBlinds extends StatelessWidget {
 
   final int maxLightsToShow;
 
-  final int _maxLightsInRow = 2;
-
   final String _roomEntity;
 
   final List<Color>? _gradientColor;
@@ -32,7 +30,6 @@ class RoomBlinds extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
-    final double sizeBoxWidth = screenSize.width * 0.25;
 
     Widget createSwitchTableWidget() {
       final List<Widget> columnOfLights = <Widget>[];
@@ -50,11 +47,11 @@ class RoomBlinds extends StatelessWidget {
           Column(
             children: [
               AutoSizeText(
-                deviceEntityTemp.defaultName.getOrCrash()!,
+                deviceEntityTemp.cbjEntityName.getOrCrash()!,
                 maxLines: 1,
                 maxFontSize: 19,
                 style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyText2!.color,
+                  color: Theme.of(context).textTheme.bodyMedium!.color,
                 ),
               ),
               const SizedBox(
@@ -94,7 +91,7 @@ class RoomBlinds extends StatelessWidget {
         ),
         borderRadius: const BorderRadius.all(Radius.circular(24)),
         border: Border.all(
-          color: (Theme.of(context).textTheme.bodyText1!.color)!,
+          color: (Theme.of(context).textTheme.bodyLarge!.color)!,
           width: 0.6,
         ),
       ),
@@ -128,7 +125,7 @@ class RoomBlinds extends StatelessWidget {
                   Text(
                     _roomEntity,
                     style: TextStyle(
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                       fontSize: 25,
                       decoration: TextDecoration.underline,
                     ),
@@ -136,7 +133,7 @@ class RoomBlinds extends StatelessWidget {
                   if (_deviceEntityList.size > maxLightsToShow)
                     FaIcon(
                       FontAwesomeIcons.arrowRight,
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                       size: 20,
                     ),
                 ],

@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cybear_jinni/application/switches/switches_actor/switches_actor_bloc.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
-import 'package:cybear_jinni/domain/devices/generic_switch_device/generic_switch_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_switch_device/generic_switch_entity.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -43,9 +43,10 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
   Widget build(BuildContext context) {
     String deviceText;
     if (switchesInRoom.length == 1) {
-      deviceText = switchesInRoom[0].defaultName.getOrCrash()!;
+      deviceText = switchesInRoom[0].cbjEntityName.getOrCrash()!;
     } else {
-      deviceText = '_Switches'.tr(args: [roomEntity.defaultName.getOrCrash()]);
+      deviceText =
+          '_Switches'.tr(args: [roomEntity.cbjEntityName.getOrCrash()]);
     }
 
     return GestureDetector(
@@ -97,7 +98,7 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
                           border: Border.all(
                             color: Theme.of(context)
                                 .textTheme
-                                .bodyText1!
+                                .bodyLarge!
                                 .color!
                                 .withOpacity(0.5),
                           ),
@@ -108,7 +109,7 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 13,
-                            color: Theme.of(context).textTheme.bodyText1!.color,
+                            color: Theme.of(context).textTheme.bodyLarge!.color,
                           ),
                         ),
                       ),
@@ -135,7 +136,7 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
                   deviceText,
                   maxLines: 1,
                   style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1!.color,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
                   ),
                 ),
               ],
@@ -170,7 +171,7 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
                         'Off',
                         style: TextStyle(
                           fontSize: 14,
-                          color: Theme.of(context).textTheme.bodyText1!.color,
+                          color: Theme.of(context).textTheme.bodyLarge!.color,
                         ),
                       ).tr(),
                     ),
@@ -178,7 +179,7 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
                       '·',
                       style: TextStyle(
                         fontSize: 14,
-                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
                       ),
                     ),
                     TextButton(
@@ -202,7 +203,7 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
                         'On',
                         style: TextStyle(
                           fontSize: 14,
-                          color: Theme.of(context).textTheme.bodyText1!.color,
+                          color: Theme.of(context).textTheme.bodyLarge!.color,
                         ),
                       ).tr(),
                     ),

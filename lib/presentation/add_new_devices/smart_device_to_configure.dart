@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/domain/devices/generic_light_device/generic_light_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/presentation/shared_widgets/smart_device_type_and_toggle_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +16,7 @@ class SmartDeviceToConfigure extends StatelessWidget {
         children: <Widget>[
           SmartDeviceTypeAndToggleBar(smartDeviceObject),
           Text(
-            'Device Name: ${smartDeviceObject.defaultName.getOrCrash()}',
+            'Device Name: ${smartDeviceObject.cbjEntityName.getOrCrash()}',
             style: const TextStyle(fontSize: 21),
           ),
           const SizedBox(
@@ -32,7 +32,7 @@ class SmartDeviceToConfigure extends StatelessWidget {
             child: Text(
               'Edit device',
               style: TextStyle(
-                color: Theme.of(context).textTheme.bodyText1!.color,
+                color: Theme.of(context).textTheme.bodyLarge!.color,
               ),
             ),
           )

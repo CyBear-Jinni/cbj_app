@@ -1,5 +1,5 @@
 import 'package:cybear_jinni/application/devices/device_watcher/device_watcher_bloc.dart';
-import 'package:cybear_jinni/domain/devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/lights/widgets/critical_light_failure_display_widget.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/rooms_widgets/rooms_list_view_widget.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -76,7 +76,7 @@ class SmartDevicesByRooms extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 35,
                               color:
-                                  Theme.of(context).textTheme.bodyText1!.color,
+                                  Theme.of(context).textTheme.bodyLarge!.color,
                             ),
                           ).tr(),
                         ],
@@ -98,7 +98,7 @@ class SmartDevicesByRooms extends StatelessWidget {
                     toastLength: Toast.LENGTH_LONG,
                     gravity: ToastGravity.CENTER,
                     backgroundColor: Colors.blueGrey,
-                    textColor: Theme.of(context).textTheme.bodyText1!.color,
+                    textColor: Theme.of(context).textTheme.bodyLarge!.color,
                     fontSize: 16.0,
                   );
                 },
