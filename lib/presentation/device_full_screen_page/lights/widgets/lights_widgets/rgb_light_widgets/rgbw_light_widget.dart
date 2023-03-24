@@ -34,13 +34,13 @@ class RgbwLightWidget extends StatelessWidget {
     bool toggleValue = false;
     Color toggleColor = Colors.blueGrey;
 
-    if (deviceAction == DeviceActions.on.toString()) {
+    if (deviceAction == EntityActions.on.toString()) {
       toggleValue = true;
-      if (deviceState == DeviceStateGRPC.ack.toString()) {
+      if (deviceState == EntityStateGRPC.ack.toString()) {
         toggleColor = const Color(0xFFFFDF5D);
       }
     } else {
-      if (deviceState == DeviceStateGRPC.ack.toString()) {
+      if (deviceState == EntityStateGRPC.ack.toString()) {
         toggleColor = Theme.of(context).primaryColorDark;
       }
     }

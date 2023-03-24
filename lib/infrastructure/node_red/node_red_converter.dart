@@ -7,7 +7,6 @@ import 'package:cybear_jinni/domain/routine/value_objects_routine_cbj.dart';
 import 'package:cybear_jinni/domain/scene/scene_cbj_entity.dart';
 import 'package:cybear_jinni/domain/scene/value_objects_scene_cbj.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-
 import 'package:cybear_jinni/infrastructure/node_red/node_red_nodes/node_red_function_node.dart';
 import 'package:cybear_jinni/infrastructure/node_red/node_red_nodes/node_red_inject_node.dart';
 import 'package:cybear_jinni/infrastructure/node_red/node_red_nodes/node_red_mqtt_broker_node.dart';
@@ -65,7 +64,7 @@ class NodeRedConverter {
       image: SceneCbjBackgroundImage(null),
       lastDateOfExecute: SceneCbjLastDateOfExecute(null),
       entityStateGRPC: SceneCbjDeviceStateGRPC(
-        DeviceStateGRPC.addingNewScene.toString(),
+        EntityStateGRPC.addingNewScene.toString(),
       ),
       senderDeviceModel: SceneCbjSenderDeviceModel(null),
       senderDeviceOs: SceneCbjSenderDeviceOs(null),
@@ -120,7 +119,7 @@ class NodeRedConverter {
       image: RoutineCbjBackgroundImage(null),
       lastDateOfExecute: RoutineCbjLastDateOfExecute(null),
       entityStateGRPC: RoutineCbjDeviceStateGRPC(
-        DeviceStateGRPC.addingNewRoutine.toString(),
+        EntityStateGRPC.addingNewRoutine.toString(),
       ),
       senderDeviceModel: RoutineCbjSenderDeviceModel(null),
       senderDeviceOs: RoutineCbjSenderDeviceOs(null),
@@ -176,7 +175,7 @@ class NodeRedConverter {
       image: BindingCbjBackgroundImage(null),
       lastDateOfExecute: BindingCbjLastDateOfExecute(null),
       entityStateGRPC: BindingCbjDeviceStateGRPC(
-        DeviceStateGRPC.addingNewBinding.toString(),
+        EntityStateGRPC.addingNewBinding.toString(),
       ),
       senderDeviceModel: BindingCbjSenderDeviceModel(null),
       senderDeviceOs: BindingCbjSenderDeviceOs(null),

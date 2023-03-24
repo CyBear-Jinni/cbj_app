@@ -59,7 +59,7 @@ class HubRequestRouting {
     requestsFromHubSubscription = HubRequestsToApp
         .hubRequestsStreamBroadcast.stream
         .listen((RequestsAndStatusFromHub requestsAndStatusFromHub) {
-      if (requestsAndStatusFromHub.sendingType == SendingType.deviceType) {
+      if (requestsAndStatusFromHub.sendingType == SendingType.entityType) {
         navigateDeviceRequest(requestsAndStatusFromHub.allRemoteCommands);
       } else if (requestsAndStatusFromHub.sendingType == SendingType.roomType) {
         navigateRoomRequest(requestsAndStatusFromHub.allRemoteCommands);
@@ -148,10 +148,10 @@ class HubRequestRouting {
 
     ///TODO: add request type login support
 
-    final DeviceTypes? deviceType =
+    final EntityTypes? deviceType =
         EnumHelperCbj.stringToDt(deviceTypeAsString);
 
-    final DeviceStateGRPC? entityStateGRPC =
+    final EntityStateGRPC? entityStateGRPC =
         EnumHelperCbj.stringToDeviceState(deviceStateAsString);
 
     if (deviceType == null || entityStateGRPC == null) {
@@ -161,58 +161,58 @@ class HubRequestRouting {
     late DeviceEntityAbstract deviceEntity;
 
     switch (deviceType) {
-      case DeviceTypes.light:
+      case EntityTypes.light:
         deviceEntity =
             GenericLightDeviceDtos.fromJson(requestAsJson).toDomain();
         logger.i('Adding Light device type');
         break;
-      case DeviceTypes.dimmableLight:
+      case EntityTypes.dimmableLight:
         deviceEntity =
             GenericDimmableLightDeviceDtos.fromJson(requestAsJson).toDomain();
         logger.i('Adding Dimmable Light device type');
         break;
-      case DeviceTypes.rgbwLights:
+      case EntityTypes.rgbwLights:
         deviceEntity =
             GenericRgbwLightDeviceDtos.fromJson(requestAsJson).toDomain();
         logger.i('Adding rgbW light device type');
         break;
-      case DeviceTypes.blinds:
+      case EntityTypes.blinds:
         deviceEntity =
             GenericBlindsDeviceDtos.fromJson(requestAsJson).toDomain();
         logger.i('Adding Blinds device type');
         break;
-      case DeviceTypes.boiler:
+      case EntityTypes.boiler:
         deviceEntity =
             GenericBoilerDeviceDtos.fromJson(requestAsJson).toDomain();
         logger.i('Adding Boiler device type');
         break;
-      case DeviceTypes.smartTV:
+      case EntityTypes.smartTV:
         deviceEntity =
             GenericSmartTvDeviceDtos.fromJson(requestAsJson).toDomain();
         logger.i('Adding Smart TV device type');
         break;
-      case DeviceTypes.switch_:
+      case EntityTypes.switch_:
         deviceEntity =
             GenericSwitchDeviceDtos.fromJson(requestAsJson).toDomain();
         logger.i('Adding Switch device type');
         break;
-      case DeviceTypes.smartPlug:
+      case EntityTypes.smartPlug:
         deviceEntity =
             GenericSmartPlugDeviceDtos.fromJson(requestAsJson).toDomain();
         logger.i('Adding Smart Plug device type');
         break;
-      case DeviceTypes.smartComputer:
+      case EntityTypes.smartComputer:
         deviceEntity =
             GenericSmartComputerDeviceDtos.fromJson(requestAsJson).toDomain();
         logger.i('Adding Smart Plug device type');
         break;
-      case DeviceTypes.printer:
+      case EntityTypes.printer:
         deviceEntity =
             GenericPrinterDeviceDtos.fromJson(requestAsJson).toDomain();
         logger.i('Adding Smart printer device type');
         break;
       default:
-        if (entityStateGRPC == DeviceStateGRPC.pingNow) {
+        if (entityStateGRPC == EntityStateGRPC.pingNow) {
           deviceEntity =
               GenericPingDeviceDtos.fromJson(requestAsJson).toDomain();
           logger.v('Got Ping request');

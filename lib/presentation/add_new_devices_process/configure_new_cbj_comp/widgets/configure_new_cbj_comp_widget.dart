@@ -36,7 +36,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
 
     for (final GenericLightDE device in devicesList) {
       if (device.entityTypes.getOrCrash() !=
-          DeviceTypes.smartTypeNotSupported.toString()) {
+          EntityTypes.smartTypeNotSupported.toString()) {
         final TextEditingController textEditingControllerTemp =
             TextEditingController(
           text: device.cbjEntityName.value.getOrElse(() => ''),
@@ -52,7 +52,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
             child: Column(
               children: [
                 if (device.entityTypes.getOrCrash() ==
-                    DeviceTypes.light.toString())
+                    EntityTypes.light.toString())
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 40),
                     child: Row(
@@ -70,7 +70,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                     ),
                   )
                 else if (device.entityTypes.getOrCrash() ==
-                    DeviceTypes.boiler.toString())
+                    EntityTypes.boiler.toString())
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 40),
                     child: Row(
@@ -88,7 +88,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                     ),
                   )
                 else if (device.entityTypes.getOrCrash() ==
-                    DeviceTypes.blinds.toString())
+                    EntityTypes.blinds.toString())
                   Column(
                     children: [
                       Text('Type: ${device.entityTypes.getOrCrash()}'),

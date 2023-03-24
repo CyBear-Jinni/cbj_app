@@ -3,7 +3,6 @@ import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entit
 import 'package:cybear_jinni/domain/generic_devices/abstract_device/value_objects_core.dart';
 import 'package:cybear_jinni/domain/generic_devices/generic_light_device/generic_light_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-
 import 'package:cybear_jinni/infrastructure/generic_devices/abstract_device/device_entity_dto_abstract.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_light_device/generic_light_device_dtos.dart';
 import 'package:cybear_jinni/utils.dart';
@@ -39,7 +38,7 @@ class GenericLightDE extends DeviceEntityAbstract {
     required super.deviceCbjUniqueId,
     required this.lightSwitchState,
   }) : super(
-          entityTypes: EntityType(DeviceTypes.light.toString()),
+          entityTypes: EntityType(EntityTypes.light.toString()),
         );
 
   /// Empty instance of GenericLightEntity
@@ -67,7 +66,7 @@ class GenericLightDE extends DeviceEntityAbstract {
         requestTimeStamp: RequestTimeStamp(''),
         lastResponseFromDeviceTimeStamp: LastResponseFromDeviceTimeStamp(''),
         deviceCbjUniqueId: CoreUniqueId(),
-        lightSwitchState: GenericLightSwitchState(DeviceActions.off.toString()),
+        lightSwitchState: GenericLightSwitchState(EntityActions.off.toString()),
       );
 
   /// State of the light on/off

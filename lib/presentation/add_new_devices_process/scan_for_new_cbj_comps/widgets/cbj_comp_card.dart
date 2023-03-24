@@ -41,7 +41,7 @@ class CBJCompCard extends StatelessWidget {
                       final GenericLightDE compEntity =
                           cbjCompEntity.cBJCompDevices!.getOrCrash()[index];
                       if (compEntity.entityTypes.getOrCrash() ==
-                          DeviceTypes.light.toString()) {
+                          EntityTypes.light.toString()) {
                         return Center(
                           child: BlocProvider(
                             create: (context) => getIt<DeviceActorBloc>(),

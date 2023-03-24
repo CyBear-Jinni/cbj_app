@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:cybear_jinni/domain/generic_devices/generic_smart_plug_device/generic_smart_plug_entity.dart';
 import 'package:cybear_jinni/domain/generic_devices/generic_smart_plug_device/generic_smart_plug_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-
 import 'package:cybear_jinni/infrastructure/objects/enums_cbj.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:flutter/foundation.dart';
@@ -56,14 +55,14 @@ class _SmartSmartPlugPage extends State<SmartSmartPlugPage> {
     return _smartPlugState = EnumHelperCbj.stringToDeviceAction(
           _smartPlug!.smartPlugState!.getOrCrash(),
         ) ==
-        DeviceActions.on;
+        EntityActions.on;
   }
 
   Future<void> _onChange(bool value) async {
     logger.v('OnChange $value');
     _smartPlug?.smartPlugState = GenericSmartPlugState(
       EnumHelperCbj.deviceActionToString(
-        value ? DeviceActions.on : DeviceActions.off,
+        value ? EntityActions.on : EntityActions.off,
       ),
     );
     if (mounted) {

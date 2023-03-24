@@ -33,13 +33,13 @@ class LightsInTheRoomBlock extends StatelessWidget {
     final List<GenericRgbwLightDE> tempRgbwLightsInRoom = [];
 
     for (final element in tempDeviceInRoom) {
-      if (element.entityTypes.getOrCrash() == DeviceTypes.light.toString()) {
+      if (element.entityTypes.getOrCrash() == EntityTypes.light.toString()) {
         tempLightsInRoom.add(element as GenericLightDE);
       } else if (element.entityTypes.getOrCrash() ==
-          DeviceTypes.dimmableLight.toString()) {
+          EntityTypes.dimmableLight.toString()) {
         tempDimmableLightsInRoom.add(element as GenericDimmableLightDE);
       } else if (element.entityTypes.getOrCrash() ==
-          DeviceTypes.rgbwLights.toString()) {
+          EntityTypes.rgbwLights.toString()) {
         tempRgbwLightsInRoom.add(element as GenericRgbwLightDE);
       } else {
         logger.e('Unsupported light type ${element.entityTypes.getOrCrash()}');

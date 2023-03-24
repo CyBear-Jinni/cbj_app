@@ -3,7 +3,6 @@ import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entit
 import 'package:cybear_jinni/domain/generic_devices/abstract_device/value_objects_core.dart';
 import 'package:cybear_jinni/domain/generic_devices/generic_smart_plug_device/generic_smart_plug_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-
 import 'package:cybear_jinni/infrastructure/generic_devices/abstract_device/device_entity_dto_abstract.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_smart_plug_device/generic_smart_plug_device_dtos.dart';
 import 'package:cybear_jinni/utils.dart';
@@ -39,7 +38,7 @@ class GenericSmartPlugDE extends DeviceEntityAbstract {
     required super.deviceCbjUniqueId,
     required this.smartPlugState,
   }) : super(
-          entityTypes: EntityType(DeviceTypes.smartPlug.toString()),
+          entityTypes: EntityType(EntityTypes.smartPlug.toString()),
         );
 
   /// Empty instance of GenericSmartPlugEntity
@@ -67,7 +66,7 @@ class GenericSmartPlugDE extends DeviceEntityAbstract {
         requestTimeStamp: RequestTimeStamp(''),
         lastResponseFromDeviceTimeStamp: LastResponseFromDeviceTimeStamp(''),
         deviceCbjUniqueId: CoreUniqueId(),
-        smartPlugState: GenericSmartPlugState(DeviceActions.off.toString()),
+        smartPlugState: GenericSmartPlugState(EntityActions.off.toString()),
       );
 
   /// State of the smartPlug on/off

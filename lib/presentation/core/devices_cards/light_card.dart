@@ -3,7 +3,6 @@ import 'package:cybear_jinni/domain/generic_devices/abstract_device/value_object
 import 'package:cybear_jinni/domain/generic_devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/domain/generic_devices/generic_light_device/generic_light_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_switch/flutter_switch.dart';
@@ -16,8 +15,7 @@ class LightCard extends StatelessWidget {
 
   void _onChange(BuildContext context, bool value) {
     final GenericLightDE tempDeviceEntity = _deviceEntity!
-      ..entityStateGRPC =
-          EntityState(DeviceStateGRPC.waitingInFirebase.toString())
+      ..entityStateGRPC = EntityState(EntityStateGRPC.waitingInCloud.toString())
       ..lightSwitchState = GenericLightSwitchState(value.toString());
     context.read<LightToggleBloc>().add(
           LightToggleEvent.changeAction(
@@ -38,13 +36,13 @@ class LightCard extends StatelessWidget {
     bool toggleValue = false;
     Color toggleColor = Colors.blueGrey;
 
-    if (deviceAction == DeviceActions.on.toString()) {
+    if (deviceAction == EntityActions.on.toString()) {
       toggleValue = true;
-      if (deviceState == DeviceStateGRPC.ack.toString()) {
+      if (deviceState == EntityStateGRPC.ack.toString()) {
         toggleColor = const Color(0xFFFFDF5D);
       }
     } else {
-      if (deviceState == DeviceStateGRPC.ack.toString()) {
+      if (deviceState == EntityStateGRPC.ack.toString()) {
         toggleColor = Theme.of(context).primaryColorDark;
       }
     }

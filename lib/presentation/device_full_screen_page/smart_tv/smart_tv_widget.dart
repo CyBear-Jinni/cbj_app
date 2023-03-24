@@ -49,14 +49,14 @@ class _SmartSmartTvPage extends State<SmartTvPage> {
   //   return _switchState = EnumHelperCbj.stringToDeviceAction(
   //         _switch!.com!.getOrCrash(),
   //       ) ==
-  //       DeviceActions.on;
+  //       EntityActions.on;
   // }
   //
   // Future<void> _onChange(bool value) async {
   //   logger.v('OnChange $value');
   //   _switch?.switchState = GenericSmartTvSmartTvState(
   //     EnumHelperCbj.deviceActionToString(
-  //       value ? DeviceActions.on : DeviceActions.off,
+  //       value ? EntityActions.on : EntityActions.off,
   //     ),
   //   );
   //   if (mounted) {

@@ -100,12 +100,12 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
   }
 
   bool isDeviceShouldBeSownInSummaryRoom(DeviceEntityAbstract deviceEntity) {
-    final String onAction = DeviceActions.on.toString();
+    final String onAction = EntityActions.on.toString();
 
     if (deviceEntity is GenericBlindsDE) {
       // TODO: Need to check position open and not moving up
       return deviceEntity.blindsSwitchState?.getOrCrash() ==
-          DeviceActions.moveUp.toString();
+          EntityActions.moveUp.toString();
     } else if (deviceEntity is GenericBoilerDE) {
       return deviceEntity.boilerSwitchState?.getOrCrash() == onAction;
     } else if (deviceEntity is GenericLightDE) {

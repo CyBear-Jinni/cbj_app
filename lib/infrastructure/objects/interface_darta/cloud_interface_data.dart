@@ -10,25 +10,25 @@
 //     SmartRoomObject('Outside South', room4DevicesList, GradientColors.sky);
 //
 // final List<SmartDeviceObject> room1DevicesList = <SmartDeviceObject>[
-//   SmartDeviceObject(DeviceTypes.light, 'Ceiling', '10.0.0.29', 'Guy'),
+//   SmartDeviceObject(EntityTypes.light, 'Ceiling', '10.0.0.29', 'Guy'),
 // ];
 //
 // final List<SmartDeviceObject> room3DevicesList = <SmartDeviceObject>[
 //   SmartDeviceObject(
-//       DeviceTypes.light, 'UpStairs', '10.0.0.30', 'Outside North'),
-//   SmartDeviceObject(DeviceTypes.light, 'Storage', '10.0.0.30', 'Outside North'),
-//   SmartDeviceObject(DeviceTypes.light, 'Storage', '10.0.0.30', 'Outside North'),
-//   SmartDeviceObject(DeviceTypes.light, 'Storage', '10.0.0.30', 'Outside North'),
+//       EntityTypes.light, 'UpStairs', '10.0.0.30', 'Outside North'),
+//   SmartDeviceObject(EntityTypes.light, 'Storage', '10.0.0.30', 'Outside North'),
+//   SmartDeviceObject(EntityTypes.light, 'Storage', '10.0.0.30', 'Outside North'),
+//   SmartDeviceObject(EntityTypes.light, 'Storage', '10.0.0.30', 'Outside North'),
 //   SmartDeviceObject(
-//       DeviceTypes.light, 'BackDoor', '10.0.0.32', 'Outside North'),
+//       EntityTypes.light, 'BackDoor', '10.0.0.32', 'Outside North'),
 //   SmartDeviceObject(
-//       DeviceTypes.light, 'DownStairs', '10.0.0.32', 'Outside North'),
+//       EntityTypes.light, 'DownStairs', '10.0.0.32', 'Outside North'),
 // ];
 //
 // final List<SmartDeviceObject> room4DevicesList = <SmartDeviceObject>[
-//   SmartDeviceObject(DeviceTypes.light, 'Gate', '10.0.0.31', 'Outside South'),
+//   SmartDeviceObject(EntityTypes.light, 'Gate', '10.0.0.31', 'Outside South'),
 // ];
 //
 // final List<SmartBlindsObject> room1blindsList = <SmartBlindsObject>[
-//   SmartBlindsObject(DeviceTypes.blinds, 'SouthBlinds', '10.0.0.34'),
+//   SmartBlindsObject(EntityTypes.blinds, 'SouthBlinds', '10.0.0.34'),
 // ];

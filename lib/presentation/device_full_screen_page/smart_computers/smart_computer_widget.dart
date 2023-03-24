@@ -49,14 +49,14 @@ class _SmartSmartComputerPage extends State<SmartComputerPage> {
   //   return _switchState = EnumHelperCbj.stringToDeviceAction(
   //         _switch!.com!.getOrCrash(),
   //       ) ==
-  //       DeviceActions.on;
+  //       EntityActions.on;
   // }
   //
   // Future<void> _onChange(bool value) async {
   //   logger.v('OnChange $value');
   //   _switch?.switchState = GenericSmartComputerSmartComputerState(
   //     EnumHelperCbj.deviceActionToString(
-  //       value ? DeviceActions.on : DeviceActions.off,
+  //       value ? EntityActions.on : EntityActions.off,
   //     ),
   //   );
   //   if (mounted) {
