@@ -18,6 +18,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// Lights page that will call the lamps widgets file and add background
 /// and scaffold for it
+@RoutePage()
 class RoomsLightsPage extends StatelessWidget {
   const RoomsLightsPage({required this.roomEntity, this.roomColorGradiant});
 

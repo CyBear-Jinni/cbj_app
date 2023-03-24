@@ -18,6 +18,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// Blinds page that will call the blind widgets file and add background
 /// and scaffold for it
+@RoutePage()
 class RoomsBlindsPage extends StatelessWidget {
   const RoomsBlindsPage({
     required this.roomEntity,

@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/home_page/bottom_navigation_bar_home_page.dart';
@@ -10,6 +11,7 @@ import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// Home page to show all the tabs
+@RoutePage()
 class HomePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _HomePageState();

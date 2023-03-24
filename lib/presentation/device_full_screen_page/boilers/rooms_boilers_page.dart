@@ -18,6 +18,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// Boilers page that will call the lamps widgets file and add background
 /// and scaffold for it
+@RoutePage()
 class RoomsBoilersPage extends StatelessWidget {
   const RoomsBoilersPage({
     required this.roomEntity,
@@ -60,7 +61,7 @@ class RoomsBoilersPage extends StatelessWidget {
             listener: (context, state) {
               state.maybeMap(
                 unauthenticated: (_) =>
-                    context.router.replace(const ConnectToHubRoute()),
+                    context.router.replace(const ConnectToHubMoreRoute()),
                 orElse: () {},
               );
             },

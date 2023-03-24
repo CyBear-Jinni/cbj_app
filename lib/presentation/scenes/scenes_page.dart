@@ -1,4 +1,5 @@
 import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/folder_of_scenes/folder_of_scenes_bloc.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/injection.dart';
@@ -11,6 +12,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+@RoutePage()
 class ScenesPage extends StatelessWidget {
   const ScenesPage(this.folderOfScenes);
 

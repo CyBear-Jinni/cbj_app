@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/add_new_scene/add_new_scene_bloc.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/add_new_automation_process/add_scene/widgets/add_scene_widget.dart';
@@ -9,6 +10,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 /// Page for adding new scene
+@RoutePage()
 class AddScenePage extends StatelessWidget {
   void backButtonFunction(BuildContext context) {
     Navigator.pop(context);

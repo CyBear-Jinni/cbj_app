@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/add_new_binding/add_new_binding_bloc.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/add_new_automation_process/add_bindings/widgets/add_binding_widget.dart';
@@ -9,6 +10,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 /// Page for adding new binding
+@RoutePage()
 class AddBindingPage extends StatelessWidget {
   void backButtonFunction(BuildContext context) {
     Navigator.pop(context);
@@ -22,7 +24,7 @@ class AddBindingPage extends StatelessWidget {
         backgroundColor: Colors.black,
         systemOverlayStyle: SystemUiOverlayStyle.dark,
       ),
-      body: Container(
+      body: ColoredBox(
         color: HexColor('#FBF5F9'),
         child: Column(
           children: [

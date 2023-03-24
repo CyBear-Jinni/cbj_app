@@ -18,6 +18,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// Switches page that will call the lamps widgets file and add background
 /// and scaffold for it
+@RoutePage()
 class RoomsSwitchesPage extends StatelessWidget {
   const RoomsSwitchesPage({
     required this.roomEntity,

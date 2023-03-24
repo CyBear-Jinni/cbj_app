@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/configure_new_cbj_comp/configure_new_cbj_comp_bloc.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
 import 'package:cybear_jinni/injection.dart';
@@ -8,6 +9,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+@RoutePage()
 class ConfigureNewCbjCompPage extends StatelessWidget {
   const ConfigureNewCbjCompPage({
     required this.cbjCompEntity,

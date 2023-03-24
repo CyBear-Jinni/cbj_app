@@ -11,6 +11,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+@RoutePage()
 class RemotePipesPage extends StatelessWidget {
   /// Execute when remote pipes press the icon in top right side
   void userCogFunction(BuildContext context) {

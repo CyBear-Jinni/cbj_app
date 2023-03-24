@@ -18,6 +18,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// SmartComputers page that will call the lamps widgets file and add background
 /// and scaffold for it
+@RoutePage()
 class RoomsSmartComputersPage extends StatelessWidget {
   const RoomsSmartComputersPage({
     required this.roomEntity,

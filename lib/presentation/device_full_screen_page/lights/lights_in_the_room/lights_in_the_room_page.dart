@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/domain/room/smart_room_object.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/lights/widgets/room_lights_toggles_block.dart';
@@ -7,6 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// Page to show all the lights in selected room
+@RoutePage()
 class LightsInTheRoomPage extends StatelessWidget {
   LightsInTheRoomPage({required this.thisSmartRoom});
 
