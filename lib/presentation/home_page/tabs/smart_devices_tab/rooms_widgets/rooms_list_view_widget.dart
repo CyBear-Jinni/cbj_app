@@ -4,6 +4,7 @@ import 'package:cybear_jinni/ad_state.dart';
 import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/generic_devices/generic_blinds_device/generic_blinds_entity.dart';
 import 'package:cybear_jinni/domain/generic_devices/generic_boiler_device/generic_boiler_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_dimmable_light_device/generic_dimmable_light_entity.dart';
 import 'package:cybear_jinni/domain/generic_devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/domain/generic_devices/generic_printer_device/generic_printer_entity.dart';
 import 'package:cybear_jinni/domain/generic_devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
@@ -108,6 +109,8 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
     } else if (deviceEntity is GenericBoilerDE) {
       return deviceEntity.boilerSwitchState?.getOrCrash() == onAction;
     } else if (deviceEntity is GenericLightDE) {
+      return deviceEntity.lightSwitchState?.getOrCrash() == onAction;
+    } else if (deviceEntity is GenericDimmableLightDE) {
       return deviceEntity.lightSwitchState?.getOrCrash() == onAction;
     } else if (deviceEntity is GenericRgbwLightDE) {
       return deviceEntity.lightSwitchState?.getOrCrash() == onAction;

@@ -9,17 +9,16 @@ import 'package:cybear_jinni/application/switches/switches_actor/switches_actor_
 import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/blinds_in_the_room.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/boilers_in_the_room.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/lights_in_the_room_block.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/printers_in_the_room_block.dart';
-import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/rgbw_lights_in_the_room_block.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/smart_computers_in_the_room_block.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/smart_plug_in_the_room_block.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/smart_tv_in_the_room.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/switches_in_the_room_block.dart';
+import 'package:cybear_jinni/utils.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -53,6 +52,8 @@ class RoomWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool didAddedLights = false;
+
     return Container(
       margin: EdgeInsets.only(
         bottom: bottomMargin,
@@ -154,22 +155,42 @@ class RoomWidget extends StatelessWidget {
                       .keys
                       .elementAt(secondIndex);
 
-                  final List<DeviceEntityAbstract> devicesInTheRoom =
+                  List<DeviceEntityAbstract> devicesInTheRoom =
                       tempDevicesByRoomsByType[roomId]![deviceType]!;
 
-                  if (deviceType == DeviceTypes.light.toString()) {
+                  if (deviceType == DeviceTypes.light.toString() ||
+                      deviceType == DeviceTypes.dimmableLight.toString() ||
+                      deviceType == DeviceTypes.rgbwLights.toString()) {
+                    if (didAddedLights) {
+                      return const SizedBox();
+                    }
+                    didAddedLights = true;
+
+                    devicesInTheRoom = [];
+
+                    final List<DeviceEntityAbstract>?
+                        tempLightDevicesInTheRoom =
+                        tempDevicesByRoomsByType[roomId]
+                            ?[DeviceTypes.light.toString()];
+                    devicesInTheRoom.addAll(tempLightDevicesInTheRoom ?? []);
+
+                    final List<DeviceEntityAbstract>?
+                        tempDimmableLightDevicesInTheRoom =
+                        tempDevicesByRoomsByType[roomId]
+                            ?[DeviceTypes.dimmableLight.toString()];
+                    devicesInTheRoom
+                        .addAll(tempDimmableLightDevicesInTheRoom ?? []);
+
+                    final List<DeviceEntityAbstract>?
+                        tempRgbwLightDevicesInTheRoom =
+                        tempDevicesByRoomsByType[roomId]
+                            ?[DeviceTypes.rgbwLights.toString()];
+                    devicesInTheRoom
+                        .addAll(tempRgbwLightDevicesInTheRoom ?? []);
+
                     return BlocProvider(
                       create: (context) => getIt<LightsActorBloc>(),
                       child: LightsInTheRoomBlock.withAbstractDevice(
-                        roomEntity: roomEntity,
-                        tempDeviceInRoom: devicesInTheRoom,
-                        tempRoomColorGradiant: roomColorGradiant,
-                      ),
-                    );
-                  } else if (deviceType == DeviceTypes.rgbwLights.toString()) {
-                    return BlocProvider(
-                      create: (context) => getIt<LightsActorBloc>(),
-                      child: RgbwLightsInTheRoomBlock.withAbstractDevice(
                         roomEntity: roomEntity,
                         tempDeviceInRoom: devicesInTheRoom,
                         tempRoomColorGradiant: roomColorGradiant,
@@ -249,6 +270,9 @@ class RoomWidget extends StatelessWidget {
                       ),
                     );
                   }
+
+                  logger.w('Arrived here unsupported device type $deviceType');
+
                   return TextButton(
                     onPressed: () {
                       FlushbarHelper.createInformation(

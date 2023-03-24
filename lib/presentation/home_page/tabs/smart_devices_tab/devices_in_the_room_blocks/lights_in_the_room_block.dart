@@ -2,9 +2,13 @@ import 'package:auto_route/auto_route.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cybear_jinni/application/lights/lights_actor/lights_actor_bloc.dart';
 import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_dimmable_light_device/generic_dimmable_light_entity.dart';
 import 'package:cybear_jinni/domain/generic_devices/generic_light_device/generic_light_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
+import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
+import 'package:cybear_jinni/utils.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,6 +18,8 @@ class LightsInTheRoomBlock extends StatelessWidget {
   const LightsInTheRoomBlock({
     required this.roomEntity,
     required this.lightsInRoom,
+    required this.dimmableLightsInRoom,
+    required this.rgbwLightsInRoom,
     required this.roomColorGradiant,
   });
 
@@ -23,27 +29,57 @@ class LightsInTheRoomBlock extends StatelessWidget {
     required List<Color> tempRoomColorGradiant,
   }) {
     final List<GenericLightDE> tempLightsInRoom = [];
+    final List<GenericDimmableLightDE> tempDimmableLightsInRoom = [];
+    final List<GenericRgbwLightDE> tempRgbwLightsInRoom = [];
 
     for (final element in tempDeviceInRoom) {
-      tempLightsInRoom.add(element as GenericLightDE);
+      if (element.entityTypes.getOrCrash() == DeviceTypes.light.toString()) {
+        tempLightsInRoom.add(element as GenericLightDE);
+      } else if (element.entityTypes.getOrCrash() ==
+          DeviceTypes.dimmableLight.toString()) {
+        tempDimmableLightsInRoom.add(element as GenericDimmableLightDE);
+      } else if (element.entityTypes.getOrCrash() ==
+          DeviceTypes.rgbwLights.toString()) {
+        tempRgbwLightsInRoom.add(element as GenericRgbwLightDE);
+      } else {
+        logger.e('Unsupported light type ${element.entityTypes.getOrCrash()}');
+      }
     }
 
     return LightsInTheRoomBlock(
       roomEntity: roomEntity,
       lightsInRoom: tempLightsInRoom,
+      dimmableLightsInRoom: tempDimmableLightsInRoom,
+      rgbwLightsInRoom: tempRgbwLightsInRoom,
       roomColorGradiant: tempRoomColorGradiant,
     );
   }
 
   final RoomEntity roomEntity;
   final List<GenericLightDE> lightsInRoom;
+  final List<GenericDimmableLightDE> dimmableLightsInRoom;
+  final List<GenericRgbwLightDE> rgbwLightsInRoom;
   final List<Color> roomColorGradiant;
 
   @override
   Widget build(BuildContext context) {
     String deviceText;
-    if (lightsInRoom.length == 1) {
-      deviceText = lightsInRoom[0].cbjEntityName.getOrCrash()!;
+
+    final int totalLightsInTheRoom = lightsInRoom.length +
+        dimmableLightsInRoom.length +
+        rgbwLightsInRoom.length;
+
+    if (totalLightsInTheRoom == 1) {
+      if (lightsInRoom.isNotEmpty) {
+        deviceText = lightsInRoom.first.cbjEntityName.getOrCrash()!;
+      } else if (dimmableLightsInRoom.isNotEmpty) {
+        deviceText = dimmableLightsInRoom.first.cbjEntityName.getOrCrash()!;
+      } else if (rgbwLightsInRoom.isNotEmpty) {
+        deviceText = rgbwLightsInRoom.first.cbjEntityName.getOrCrash()!;
+      } else {
+        logger.w('Missing a line here');
+        deviceText = 'Light';
+      }
     } else {
       deviceText = '_Lights'.tr(args: [roomEntity.cbjEntityName.getOrCrash()]);
     }
@@ -86,7 +122,7 @@ class LightsInTheRoomBlock extends StatelessWidget {
                     ],
                   ),
                 ),
-                if (lightsInRoom.length > 1)
+                if (totalLightsInTheRoom > 1)
                   Expanded(
                     child: Container(
                       height: 55,
@@ -104,7 +140,7 @@ class LightsInTheRoomBlock extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Text(
-                          lightsInRoom.length.toString(),
+                          totalLightsInTheRoom.toString(),
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 13,
@@ -221,6 +257,13 @@ class LightsInTheRoomBlock extends StatelessWidget {
     for (final element in lightsInRoom) {
       devicesIdList.add(element.uniqueId.getOrCrash());
     }
+    for (final element in dimmableLightsInRoom) {
+      devicesIdList.add(element.uniqueId.getOrCrash());
+    }
+    for (final element in rgbwLightsInRoom) {
+      devicesIdList.add(element.uniqueId.getOrCrash());
+    }
+
     return devicesIdList;
   }
 }

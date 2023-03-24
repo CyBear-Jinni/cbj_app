@@ -9,9 +9,9 @@ import 'package:cybear_jinni/domain/room/i_room_repository.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/domain/scene/i_scene_cbj_repository.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_blinds_device/generic_blinds_device_dtos.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_boiler_device/generic_boiler_device_dtos.dart';
+import 'package:cybear_jinni/infrastructure/generic_devices/generic_dimmable_light_device/generic_dimmable_light_device_dtos.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_empty_device/generic_empty_device_dtos.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_light_device/generic_light_device_dtos.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_ping_device/generic_ping_device_dtos.dart';
@@ -166,6 +166,11 @@ class HubRequestRouting {
             GenericLightDeviceDtos.fromJson(requestAsJson).toDomain();
         logger.i('Adding Light device type');
         break;
+      case DeviceTypes.dimmableLight:
+        deviceEntity =
+            GenericDimmableLightDeviceDtos.fromJson(requestAsJson).toDomain();
+        logger.i('Adding Dimmable Light device type');
+        break;
       case DeviceTypes.rgbwLights:
         deviceEntity =
             GenericRgbwLightDeviceDtos.fromJson(requestAsJson).toDomain();
@@ -215,7 +220,8 @@ class HubRequestRouting {
         } else {
           deviceEntity =
               GenericEmptyDeviceDtos.fromJson(requestAsJson).toDomain();
-          logger.w('Device type is $entityStateGRPC is not supported');
+          logger.w(
+              'Device type is $deviceType is not supported $entityStateGRPC ');
         }
         break;
     }

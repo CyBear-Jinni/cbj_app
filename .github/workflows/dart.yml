@@ -9,7 +9,7 @@ on:
 
 env:
   flutter_channel: 'stable' # or: 'dev' or 'beta'
-  flutter_version: '3.7.6'
+  flutter_version: '3.7.7'
 
 jobs:
   build:
@@ -30,4 +30,4 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
       - name: Run tests
-        run: flutter test
+        run: dart test

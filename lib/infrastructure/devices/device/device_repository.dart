@@ -9,6 +9,8 @@ import 'package:cybear_jinni/domain/generic_devices/generic_blinds_device/generi
 import 'package:cybear_jinni/domain/generic_devices/generic_blinds_device/generic_blinds_value_objects.dart';
 import 'package:cybear_jinni/domain/generic_devices/generic_boiler_device/generic_boiler_entity.dart';
 import 'package:cybear_jinni/domain/generic_devices/generic_boiler_device/generic_boiler_value_objects.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_dimmable_light_device/generic_dimmable_light_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_dimmable_light_device/generic_dimmable_light_value_objects.dart';
 import 'package:cybear_jinni/domain/generic_devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/domain/generic_devices/generic_light_device/generic_light_value_objects.dart';
 import 'package:cybear_jinni/domain/generic_devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
@@ -126,6 +128,8 @@ class DeviceRepository implements IDeviceRepository {
           r.toList().asList().where((element) {
             return element!.entityTypes.getOrCrash() ==
                     DeviceTypes.light.toString() ||
+                element.entityTypes.getOrCrash() ==
+                    DeviceTypes.dimmableLight.toString() ||
                 element.entityTypes.getOrCrash() ==
                     DeviceTypes.rgbwLights.toString();
           }).toImmutableList(),
@@ -354,6 +358,9 @@ class DeviceRepository implements IDeviceRepository {
         if (deviceEntity is GenericLightDE) {
           deviceEntity.lightSwitchState =
               GenericLightSwitchState(DeviceActions.on.toString());
+        } else if (deviceEntity is GenericDimmableLightDE) {
+          deviceEntity.lightSwitchState =
+              GenericDimmableLightSwitchState(DeviceActions.on.toString());
         } else if (deviceEntity is GenericRgbwLightDE) {
           deviceEntity.lightSwitchState =
               GenericRgbwLightSwitchState(DeviceActions.on.toString());
@@ -406,6 +413,9 @@ class DeviceRepository implements IDeviceRepository {
         if (deviceEntity is GenericLightDE) {
           deviceEntity.lightSwitchState =
               GenericLightSwitchState(DeviceActions.off.toString());
+        } else if (deviceEntity is GenericDimmableLightDE) {
+          deviceEntity.lightSwitchState =
+              GenericDimmableLightSwitchState(DeviceActions.off.toString());
         } else if (deviceEntity is GenericRgbwLightDE) {
           deviceEntity.lightSwitchState =
               GenericRgbwLightSwitchState(DeviceActions.off.toString());
@@ -586,16 +596,23 @@ class DeviceRepository implements IDeviceRepository {
   }) async {
     final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
         await getDeviceEntityListFromId(devicesId!);
+    Either<DevicesFailure, Unit> totalActionResult = right(unit);
 
     try {
+      Either<DevicesFailure, Unit> actionResult;
+
       for (final DeviceEntityAbstract? deviceEntity
           in deviceEntityListToUpdate) {
         if (deviceEntity == null) {
           continue;
-        }
-        if (deviceEntity is GenericRgbwLightDE) {
+        } else if (deviceEntity is GenericDimmableLightDE) {
+          deviceEntity.lightBrightness =
+              GenericDimmableLightBrightness(brightnessToChange.toString());
+          actionResult = await dimDimmableLight(deviceEntity);
+        } else if (deviceEntity is GenericRgbwLightDE) {
           deviceEntity.lightBrightness =
               GenericRgbwLightBrightness(brightnessToChange.toString());
+          actionResult = await dimRgbwLight(deviceEntity);
         } else {
           logger.w(
             'Brightness action not supported for'
@@ -603,32 +620,11 @@ class DeviceRepository implements IDeviceRepository {
           );
           continue;
         }
-
-        try {
-          if (!deviceEntity.doesWaitingToSendBrightnessRequest) {
-            deviceEntity.doesWaitingToSendBrightnessRequest = true;
-
-            final Future<Either<DevicesFailure, Unit>> updateEntityResponse =
-                updateWithDeviceEntity(deviceEntity: deviceEntity);
-
-            await Future.delayed(
-              Duration(
-                milliseconds: deviceEntity.sendNewBrightnessEachMiliseconds,
-              ),
-            );
-            deviceEntity.doesWaitingToSendBrightnessRequest = false;
-            return updateEntityResponse;
-          }
-        } catch (e) {
-          await Future.delayed(
-            Duration(
-              milliseconds: deviceEntity.sendNewBrightnessEachMiliseconds,
-            ),
-          );
-          deviceEntity.doesWaitingToSendBrightnessRequest = false;
-          return left(const DevicesFailure.unexpected());
+        if (actionResult.isLeft()) {
+          totalActionResult = actionResult;
         }
       }
+      return totalActionResult;
     } on PlatformException catch (e) {
       if (e.message!.contains('PERMISSION_DENIED')) {
         return left(const DevicesFailure.insufficientPermission());
@@ -638,6 +634,65 @@ class DeviceRepository implements IDeviceRepository {
         // log.error(e.toString());
         return left(const DevicesFailure.unexpected());
       }
+    }
+  }
+
+  Future<Either<DevicesFailure, Unit>> dimDimmableLight(
+    GenericDimmableLightDE deviceEntity,
+  ) async {
+    try {
+      if (!deviceEntity.doesWaitingToSendBrightnessRequest) {
+        deviceEntity.doesWaitingToSendBrightnessRequest = true;
+
+        final Future<Either<DevicesFailure, Unit>> updateEntityResponse =
+            updateWithDeviceEntity(deviceEntity: deviceEntity);
+
+        await Future.delayed(
+          Duration(
+            milliseconds: deviceEntity.sendNewBrightnessEachMiliseconds,
+          ),
+        );
+        deviceEntity.doesWaitingToSendBrightnessRequest = false;
+        return updateEntityResponse;
+      }
+    } catch (e) {
+      await Future.delayed(
+        Duration(
+          milliseconds: deviceEntity.sendNewBrightnessEachMiliseconds,
+        ),
+      );
+      deviceEntity.doesWaitingToSendBrightnessRequest = false;
+      return left(const DevicesFailure.unexpected());
+    }
+    return right(unit);
+  }
+
+  Future<Either<DevicesFailure, Unit>> dimRgbwLight(
+    GenericRgbwLightDE deviceEntity,
+  ) async {
+    try {
+      if (!deviceEntity.doesWaitingToSendBrightnessRequest) {
+        deviceEntity.doesWaitingToSendBrightnessRequest = true;
+
+        final Future<Either<DevicesFailure, Unit>> updateEntityResponse =
+            updateWithDeviceEntity(deviceEntity: deviceEntity);
+
+        await Future.delayed(
+          Duration(
+            milliseconds: deviceEntity.sendNewBrightnessEachMiliseconds,
+          ),
+        );
+        deviceEntity.doesWaitingToSendBrightnessRequest = false;
+        return updateEntityResponse;
+      }
+    } catch (e) {
+      await Future.delayed(
+        Duration(
+          milliseconds: deviceEntity.sendNewBrightnessEachMiliseconds,
+        ),
+      );
+      deviceEntity.doesWaitingToSendBrightnessRequest = false;
+      return left(const DevicesFailure.unexpected());
     }
     return right(unit);
   }
