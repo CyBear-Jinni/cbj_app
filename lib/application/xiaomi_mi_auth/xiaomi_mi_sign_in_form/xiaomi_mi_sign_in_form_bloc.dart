@@ -19,8 +19,9 @@ class XiaomiMiSignInFormBloc
     extends Bloc<XiaomiMiSignInFormEvent, XiaomiMiSignInFormState> {
   XiaomiMiSignInFormBloc(this._vendorRepository)
       : super(XiaomiMiSignInFormState.initial()) {
-    on<ApiKeyChanged>(_apiKeyChanged);
-    on<SignInWithXiaomiMiApiKey>(_signInWithApiKey);
+    on<XiaomiMiAccountEmailChange>(_xiaomiMiAccountEmailChange);
+    on<XiaomiMiAccountPassChange>(_xiaomiMiAccountPassChange);
+    on<SignInWithXiaoMi>(_signInWithXiaoMi);
   }
 
   final IVendorsRepository _vendorRepository;
@@ -29,27 +30,40 @@ class XiaomiMiSignInFormBloc
   // @override
   // SignInFormState get initialStat`e => SignInFormState.initial();
 
-  Future<void> _apiKeyChanged(
-    ApiKeyChanged event,
+  Future<void> _xiaomiMiAccountEmailChange(
+    XiaomiMiAccountEmailChange event,
     Emitter<XiaomiMiSignInFormState> emit,
   ) async {
     emit(
       state.copyWith(
-        xiaomiMiDevicePassword:
-            GenericXiaomiMiDeviceLoginApiPass(event.apiKeyStr),
+        xiaomiMiAccountEmail: GenericXiaomiMiAccountEmail(event.email),
         authFailureOrSuccessOption: none(),
       ),
     );
   }
 
-  Future<void> _signInWithApiKey(
-    SignInWithXiaomiMiApiKey event,
+  Future<void> _xiaomiMiAccountPassChange(
+    XiaomiMiAccountPassChange event,
+    Emitter<XiaomiMiSignInFormState> emit,
+  ) async {
+    emit(
+      state.copyWith(
+        xiaomiMiAccountPass: GenericXiaomiMiAccountPass(event.pass),
+        authFailureOrSuccessOption: none(),
+      ),
+    );
+  }
+
+  Future<void> _signInWithXiaoMi(
+    SignInWithXiaoMi event,
     Emitter<XiaomiMiSignInFormState> emit,
   ) async {
     final GenericXiaomiMiLoginDE genericXiaomiMiDE = GenericXiaomiMiLoginDE(
       senderUniqueId: CoreLoginSenderId.fromUniqueString('Me'),
-      xiaomiMiDevicePass: GenericXiaomiMiDeviceLoginApiPass(
-          state.xiaomiMiDevicePassword.getOrCrash()),
+      xiaomiMiAccountEmail:
+          GenericXiaomiMiAccountEmail(state.xiaomiMiAccountEmail.getOrCrash()),
+      xiaomiMiAccountPass:
+          GenericXiaomiMiAccountPass(state.xiaomiMiAccountPass.getOrCrash()),
     );
     _vendorRepository.loginWithXiaomiMi(genericXiaomiMiDE);
     //   emit(* _performActionOnAuthFacadeWithEmailAndPassword(

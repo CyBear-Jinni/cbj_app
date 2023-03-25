@@ -73,6 +73,37 @@ class XiaomiMiSignInForm extends StatelessWidget {
               TextFormField(
                 decoration: const InputDecoration(
                   prefixIcon: FaIcon(
+                    FontAwesomeIcons.at,
+                  ),
+                  labelText: 'Xiaomi Mi device email',
+                ),
+                autocorrect: false,
+                onChanged: (value) => context
+                    .read<XiaomiMiSignInFormBloc>()
+                    .add(XiaomiMiSignInFormEvent.xiaomiMiAccountEmailChange(
+                      value,
+                    )),
+                validator: (_) => context
+                    .read<XiaomiMiSignInFormBloc>()
+                    .state
+                    .xiaomiMiAccountEmail
+                    .value
+                    .fold(
+                      (CoreLoginFailure f) => 'Validation error',
+                      //   f.maybeMap(
+                      // invalidEmail: (result) => result.failedValue,
+                      // containsSpace: (result) => result.failedValue,
+                      // orElse: () => null,
+                      // ),
+                      (r) => null,
+                    ),
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              TextFormField(
+                decoration: const InputDecoration(
+                  prefixIcon: FaIcon(
                     FontAwesomeIcons.key,
                   ),
                   labelText: 'Xiaomi Mi device password',
@@ -80,11 +111,13 @@ class XiaomiMiSignInForm extends StatelessWidget {
                 autocorrect: false,
                 onChanged: (value) => context
                     .read<XiaomiMiSignInFormBloc>()
-                    .add(XiaomiMiSignInFormEvent.apiKeyChanged(value)),
+                    .add(XiaomiMiSignInFormEvent.xiaomiMiAccountPassChange(
+                      value,
+                    )),
                 validator: (_) => context
                     .read<XiaomiMiSignInFormBloc>()
                     .state
-                    .xiaomiMiDevicePassword
+                    .xiaomiMiAccountPass
                     .value
                     .fold(
                       (CoreLoginFailure f) => 'Validation error',
@@ -105,12 +138,12 @@ class XiaomiMiSignInForm extends StatelessWidget {
                     child: TextButton(
                       onPressed: () {
                         context.read<XiaomiMiSignInFormBloc>().add(
-                              const XiaomiMiSignInFormEvent
-                                  .signInWithXiaomiMiApiKey(),
+                              const XiaomiMiSignInFormEvent.signInWithXiaoMi(),
                             );
 
                         Fluttertoast.showToast(
-                          msg: 'Sign in to ESPHome, devices will appear in the '
+                          msg:
+                              'Sign in to Xiaomi Mi, devices will appear in the '
                               'app after getting discovered',
                           toastLength: Toast.LENGTH_LONG,
                           gravity: ToastGravity.BOTTOM,

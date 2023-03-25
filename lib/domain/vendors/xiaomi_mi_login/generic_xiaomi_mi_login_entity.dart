@@ -13,7 +13,8 @@ class GenericXiaomiMiLoginDE extends LoginEntityAbstract {
   /// All public field of GenericXiaomiMi entity
   GenericXiaomiMiLoginDE({
     required super.senderUniqueId,
-    required this.xiaomiMiDevicePass,
+    required this.xiaomiMiAccountEmail,
+    required this.xiaomiMiAccountPass,
   }) : super(
           loginVendor: CoreLoginVendor(VendorsAndServices.xiaomiMi.name),
         );
@@ -21,11 +22,15 @@ class GenericXiaomiMiLoginDE extends LoginEntityAbstract {
   /// Empty instance of GenericXiaomiMiEntity
   factory GenericXiaomiMiLoginDE.empty() => GenericXiaomiMiLoginDE(
         senderUniqueId: CoreLoginSenderId.fromUniqueString(''),
-        xiaomiMiDevicePass: GenericXiaomiMiDeviceLoginApiPass(''),
+        xiaomiMiAccountEmail: GenericXiaomiMiAccountEmail(''),
+        xiaomiMiAccountPass: GenericXiaomiMiAccountPass(''),
       );
 
-  /// XiaomiMi api key
-  GenericXiaomiMiDeviceLoginApiPass xiaomiMiDevicePass;
+  /// XiaomiMi account email
+  GenericXiaomiMiAccountEmail xiaomiMiAccountEmail;
+
+  /// XiaomiMi account password
+  GenericXiaomiMiAccountPass xiaomiMiAccountPass;
 
   Option<CoreLoginFailure<dynamic>> get failureOption =>
       senderUniqueId.value.fold((f) => some(f), (_) => none());
@@ -56,7 +61,8 @@ class GenericXiaomiMiLoginDE extends LoginEntityAbstract {
     return GenericXiaomiMiLoginDtos(
       senderUniqueId: senderUniqueId.getOrCrash(),
       loginVendor: loginVendor.getOrCrash(),
-      xiaomiMiDevicePass: xiaomiMiDevicePass.getOrCrash(),
+      xiaomiMiAccountEmail: xiaomiMiAccountEmail.getOrCrash(),
+      xiaomiMiAccountPass: xiaomiMiAccountPass.getOrCrash(),
     );
   }
 }

@@ -15,7 +15,9 @@ abstract class GenericXiaomiMiLoginDtos
     // @JsonKey(ignore: true)
     required String? senderUniqueId,
     required String? loginVendor,
-    required String? xiaomiMiDevicePass,
+    required String? xiaomiMiAccountEmail,
+    required String? xiaomiMiAccountPass,
+
     // required ServerTimestampConverter() FieldValue serverTimeStamp,
   }) = _GenericXiaomiMiLoginDtos;
 
@@ -27,7 +29,8 @@ abstract class GenericXiaomiMiLoginDtos
     return GenericXiaomiMiLoginDtos(
       senderUniqueId: genericXiaomiMiDE.senderUniqueId.getOrCrash(),
       loginVendor: genericXiaomiMiDE.loginVendor.getOrCrash(),
-      xiaomiMiDevicePass: genericXiaomiMiDE.xiaomiMiDevicePass.getOrCrash(),
+      xiaomiMiAccountEmail: genericXiaomiMiDE.xiaomiMiAccountEmail.getOrCrash(),
+      xiaomiMiAccountPass: genericXiaomiMiDE.xiaomiMiAccountPass.getOrCrash(),
     );
   }
 
@@ -41,7 +44,8 @@ abstract class GenericXiaomiMiLoginDtos
   LoginEntityAbstract toDomain() {
     return GenericXiaomiMiLoginDE(
       senderUniqueId: CoreLoginSenderId.fromUniqueString(senderUniqueId),
-      xiaomiMiDevicePass: GenericXiaomiMiDeviceLoginApiPass(xiaomiMiDevicePass),
+      xiaomiMiAccountEmail: GenericXiaomiMiAccountEmail(xiaomiMiAccountEmail),
+      xiaomiMiAccountPass: GenericXiaomiMiAccountPass(xiaomiMiAccountPass),
     );
   }
 }

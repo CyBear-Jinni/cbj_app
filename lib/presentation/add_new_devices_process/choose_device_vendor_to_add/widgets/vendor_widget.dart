@@ -37,7 +37,7 @@ class VendorWidget extends StatelessWidget {
           context.router.push(AddEspHomeVendorRoute(vendor: vendor));
         } else if (vendorName ==
             VendorsAndServices.xiaomiMi.name.toLowerCase()) {
-          context.router.push(AddEspHomeVendorRoute(vendor: vendor));
+          context.router.push(AddXiaomiMiVendorRoute(vendor: vendor));
         } else if (vendorName ==
             VendorsAndServices.philipsHue.name.toLowerCase()) {
           Fluttertoast.showToast(

@@ -49,7 +49,8 @@ class EspHomeSignInFormBloc
     final GenericEspHomeLoginDE genericEspHomeDE = GenericEspHomeLoginDE(
       senderUniqueId: CoreLoginSenderId.fromUniqueString('Me'),
       espHomeDevicePass: GenericEspHomeDeviceLoginApiPass(
-          state.espHomeDevicePassword.getOrCrash()),
+        state.espHomeDevicePassword.getOrCrash(),
+      ),
     );
     _vendorRepository.loginWithEspHome(genericEspHomeDE);
     //   emit(* _performActionOnAuthFacadeWithEmailAndPassword(
