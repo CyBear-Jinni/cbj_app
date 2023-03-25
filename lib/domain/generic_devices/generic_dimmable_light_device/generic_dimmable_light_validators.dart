@@ -17,7 +17,7 @@ Either<CoreFailure<String>, String> validateGenericDimmableLightNotEmpty(
 /// Return all the valid actions for blinds
 List<String> lightAllValidActions() {
   return [
-    DeviceActions.off.toString(),
-    DeviceActions.on.toString(),
+    EntityActions.off.toString(),
+    EntityActions.on.toString(),
   ];
 }

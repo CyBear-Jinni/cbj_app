@@ -6,6 +6,7 @@ import 'package:cybear_jinni/application/printers/printers_watcher/printers_watc
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
+import 'package:cybear_jinni/presentation/core/types_to_pass.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/printers/settings_page_of_printers.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/printers/widgets/rooms_printers_widget.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
@@ -18,6 +19,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// Printers page that will call the lamps widgets file and add background
 /// and scaffold for it
+@RoutePage()
 class RoomsPrintersPage extends StatelessWidget {
   const RoomsPrintersPage({
     required this.roomEntity,
@@ -26,7 +28,7 @@ class RoomsPrintersPage extends StatelessWidget {
 
   /// If it have value will only show Printers in this room
   final RoomEntity roomEntity;
-  final List<Color>? roomColorGradiant;
+  final ListOfColors? roomColorGradiant;
 
   void cogFunction(BuildContext context) {
     Navigator.push(
@@ -106,12 +108,12 @@ class RoomsPrintersPage extends StatelessWidget {
                   rightIconFunction: cogFunction,
                   leftIcon: FontAwesomeIcons.arrowLeft,
                   leftIconFunction: backButtonFunction,
-                  backgroundColor: roomColorGradiant!.last,
+                  backgroundColor: roomColorGradiant!.listOfColors!.last,
                 ),
                 Expanded(
                   child: RoomsPrintersWidget(
                     roomEntity,
-                    roomColorGradiant!,
+                    roomColorGradiant!.listOfColors!,
                   ),
                 ),
               ],

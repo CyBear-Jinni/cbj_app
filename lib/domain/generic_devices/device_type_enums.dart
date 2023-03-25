@@ -16,7 +16,7 @@ enum RaspberryPiType {
 }
 
 class EnumHelperCbj {
-  static String dTToString(DeviceTypes deviceType) {
+  static String dTToString(EntityTypes deviceType) {
     return deviceType.toString().replaceAll('EntityState.', '');
   }
 
@@ -24,7 +24,7 @@ class EnumHelperCbj {
     return vendorsAndServices.toString().replaceAll('VendorsAndServices.', '');
   }
 
-  static DeviceTypes? stringToDt(String deviceTypeAsString) {
+  static EntityTypes? stringToDt(String deviceTypeAsString) {
     String deviceTypeAsStringTemp = deviceTypeAsString;
     if (deviceTypeAsStringTemp.contains('Object')) {
       deviceTypeAsStringTemp = deviceTypeAsStringTemp.substring(
@@ -32,7 +32,7 @@ class EnumHelperCbj {
         deviceTypeAsStringTemp.indexOf('Object'),
       );
     }
-    for (final DeviceTypes deviceType in DeviceTypes.values) {
+    for (final EntityTypes deviceType in EntityTypes.values) {
       if (dTToString(deviceType) == deviceTypeAsStringTemp) {
         return deviceType;
       }
@@ -57,13 +57,13 @@ class EnumHelperCbj {
   }
 
   ///  Convert deviceAction to string
-  static String deviceActionToString(DeviceActions deviceAction) {
-    return deviceAction.toString().replaceAll('DeviceActions.', '');
+  static String deviceActionToString(EntityActions deviceAction) {
+    return deviceAction.toString().replaceAll('EntityActions.', '');
   }
 
   ///  Convert string to deviceAction
-  static DeviceActions? stringToDeviceAction(String deviceActionString) {
-    for (final DeviceActions deviceAction in DeviceActions.values) {
+  static EntityActions? stringToDeviceAction(String deviceActionString) {
+    for (final EntityActions deviceAction in EntityActions.values) {
       if (deviceActionToString(deviceAction) == deviceActionString) {
         return deviceAction;
       }
@@ -72,13 +72,13 @@ class EnumHelperCbj {
   }
 
   ///  Convert deviceState to string
-  static String deviceStateToString(DeviceStateGRPC deviceState) {
-    return deviceState.toString().replaceAll('DeviceStateGRPC.', '');
+  static String deviceStateToString(EntityStateGRPC deviceState) {
+    return deviceState.toString().replaceAll('EntityStateGRPC.', '');
   }
 
   ///  Convert string to deviceState
-  static DeviceStateGRPC? stringToDeviceState(String deviceStateAsString) {
-    for (final DeviceStateGRPC deviceState in DeviceStateGRPC.values) {
+  static EntityStateGRPC? stringToDeviceState(String deviceStateAsString) {
+    for (final EntityStateGRPC deviceState in EntityStateGRPC.values) {
       if (deviceStateToString(deviceState) == deviceStateAsString) {
         return deviceState;
       }
@@ -93,7 +93,7 @@ class EnumHelperCbj {
 
   /// Return the corresponding SmartDeviceBaseAbstract Object of the deviceType
   static dynamic deviceTypeToSmartDeviceBaseAbstractObject(
-    DeviceTypes deviceType,
+    EntityTypes deviceType,
   ) {
     throw Exception('$deviceType Conditioner was not implemented yet');
   }
@@ -101,7 +101,7 @@ class EnumHelperCbj {
   /// Returning the non abstract of this SmartDeviceBaseAbstract
   static Type getTheNonAbstractObjectOfSmartDeviceBaseAbstract(
     dynamic smartDeviceBaseAbstract,
-    DeviceTypes deviceType,
+    EntityTypes deviceType,
   ) {
     throw Exception('$deviceType Conditioner was not implemented yet');
   }

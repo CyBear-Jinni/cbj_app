@@ -7,6 +7,7 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+@RoutePage()
 class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class SplashPage extends StatelessWidget {
             if (kIsWeb || Platform.isLinux || Platform.isWindows) {
               return context.router.replace(const ConnectToHubRoute());
             }
-            return context.router.replace(const IntroductionScreenRoute());
+            return context.router.replace(const IntroductionRouteRoute());
           },
         );
       },

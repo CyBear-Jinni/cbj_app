@@ -62,8 +62,8 @@ class SceneWidget extends StatelessWidget {
                       .add(const SceneEvent.activateScene());
 
                   // smartDevicesWithWish
-                  //     .forEach((SmartDeviceObject key, List<DeviceActions> value) {
-                  //   for (final DeviceActions deviceActionForSmartDevice in value) {
+                  //     .forEach((SmartDeviceObject key, List<EntityActions> value) {
+                  //   for (final EntityActions deviceActionForSmartDevice in value) {
                   //     key.executeWish(wishEnumForSmartDevice);
                   //   }
                   // });

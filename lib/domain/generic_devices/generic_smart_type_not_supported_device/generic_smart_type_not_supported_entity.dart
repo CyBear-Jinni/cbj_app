@@ -37,7 +37,7 @@ class GenericSmartTypeNotSupportedDE extends DeviceEntityAbstract {
     required super.lastResponseFromDeviceTimeStamp,
     required super.deviceCbjUniqueId,
   }) : super(
-          entityTypes: EntityType(DeviceTypes.smartTypeNotSupported.toString()),
+          entityTypes: EntityType(EntityTypes.smartTypeNotSupported.toString()),
         );
 
   /// Empty instance of GenericSmartTypeNotSupportedEntity

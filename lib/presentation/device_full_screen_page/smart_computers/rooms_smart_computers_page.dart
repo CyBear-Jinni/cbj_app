@@ -6,6 +6,7 @@ import 'package:cybear_jinni/application/smart_computers/smart_computers_watcher
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
+import 'package:cybear_jinni/presentation/core/types_to_pass.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/smart_computers/settings_page_of_smart_computers.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/smart_computers/widgets/rooms_smart_computers_widget.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
@@ -18,6 +19,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// SmartComputers page that will call the lamps widgets file and add background
 /// and scaffold for it
+@RoutePage()
 class RoomsSmartComputersPage extends StatelessWidget {
   const RoomsSmartComputersPage({
     required this.roomEntity,
@@ -26,7 +28,7 @@ class RoomsSmartComputersPage extends StatelessWidget {
 
   /// If it have value will only show SmartComputers in this room
   final RoomEntity roomEntity;
-  final List<Color>? roomColorGradiant;
+  final ListOfColors? roomColorGradiant;
 
   void cogFunction(BuildContext context) {
     Navigator.push(
@@ -106,12 +108,12 @@ class RoomsSmartComputersPage extends StatelessWidget {
                   rightIconFunction: cogFunction,
                   leftIcon: FontAwesomeIcons.arrowLeft,
                   leftIconFunction: backButtonFunction,
-                  backgroundColor: roomColorGradiant!.last,
+                  backgroundColor: roomColorGradiant!.listOfColors!.last,
                 ),
                 Expanded(
                   child: RoomsSmartComputersWidget(
                     roomEntity,
-                    roomColorGradiant!,
+                    roomColorGradiant!.listOfColors!,
                   ),
                 ),
               ],

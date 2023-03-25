@@ -2,7 +2,6 @@ import 'package:cybear_jinni/domain/software_info/software_info_failures.dart';
 import 'package:cybear_jinni/domain/software_info/software_info_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_app_server/protoc_as_dart/cbj_app_connections.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-
 import 'package:cybear_jinni/infrastructure/core/gen/security_bear/client/protoc_as_dart/security_bear_connections.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/software_info/software_info_dtos.dart';
 import 'package:dartz/dartz.dart';
@@ -61,7 +60,7 @@ class SoftwareInfoEntity {
     final CompHubSpecs compAppSpecs = compHubInfo.compSpecs;
 
     return SoftwareInfoEntity(
-      deviceName: SoftwareInfoDeviceName(cbjHubIno.deviceName),
+      deviceName: SoftwareInfoDeviceName(cbjHubIno.entityName),
       pubspecYamlVersion:
           SoftwareInfoPubspecYamlVersion(cbjHubIno.pubspecYamlVersion),
       protoLastGenDate:

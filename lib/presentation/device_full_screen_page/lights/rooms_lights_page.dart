@@ -6,6 +6,7 @@ import 'package:cybear_jinni/application/lights/lights_watcher/lights_watcher_bl
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
+import 'package:cybear_jinni/presentation/core/types_to_pass.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/lights/settings_page_of_lights.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/lights/widgets/rooms_lights_widget.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
@@ -18,12 +19,13 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// Lights page that will call the lamps widgets file and add background
 /// and scaffold for it
+@RoutePage()
 class RoomsLightsPage extends StatelessWidget {
   const RoomsLightsPage({required this.roomEntity, this.roomColorGradiant});
 
   /// If it have value will only show lights in this room
   final RoomEntity roomEntity;
-  final List<Color>? roomColorGradiant;
+  final ListOfColors? roomColorGradiant;
 
   void cogFunction(BuildContext context) {
     Navigator.push(

@@ -16,6 +16,7 @@ import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/domain/room/value_objects_room.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
+import 'package:cybear_jinni/presentation/core/types_to_pass.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/rooms_widgets/rom_widget.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -100,12 +101,12 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
   }
 
   bool isDeviceShouldBeSownInSummaryRoom(DeviceEntityAbstract deviceEntity) {
-    final String onAction = DeviceActions.on.toString();
+    final String onAction = EntityActions.on.toString();
 
     if (deviceEntity is GenericBlindsDE) {
       // TODO: Need to check position open and not moving up
       return deviceEntity.blindsSwitchState?.getOrCrash() ==
-          DeviceActions.moveUp.toString();
+          EntityActions.moveUp.toString();
     } else if (deviceEntity is GenericBoilerDE) {
       return deviceEntity.boilerSwitchState?.getOrCrash() == onAction;
     } else if (deviceEntity is GenericLightDE) {
@@ -322,7 +323,8 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
 
     int gradientColorCounter = 1;
 
-    List<Color> roomColorGradiant = gradientColorsList[gradientColorCounter];
+    ListOfColors roomColorGradiant =
+        ListOfColors(gradientColorsList[gradientColorCounter]);
 
     return ListView.builder(
       shrinkWrap: true,
@@ -377,7 +379,8 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
             gradientColorCounter = 1;
           }
 
-          roomColorGradiant = gradientColorsList[gradientColorCounter];
+          roomColorGradiant =
+              ListOfColors(gradientColorsList[gradientColorCounter]);
 
           /// Color for Discovered room
           // TODO: After adding 4 more colors to
@@ -393,7 +396,7 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
             bottomMargin = 15;
             borderRadius = 40;
 
-            roomColorGradiant = gradientColorsList[0];
+            roomColorGradiant = ListOfColors(gradientColorsList[0]);
             if (gradientColorCounter < 1) {
               gradientColorCounter--;
             } else {

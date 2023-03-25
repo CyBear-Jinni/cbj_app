@@ -1,14 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/auth/auth_bloc.dart';
 import 'package:cybear_jinni/injection.dart';
-import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
+import 'package:cybear_jinni/presentation/routes/app_router.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppWidget extends StatelessWidget {
-  static final _rootRouter = AppRouter();
-
   MaterialColor createMaterialColor(Color color) {
     final List<double> strengths = <double>[.05];
     final Map<int, Color> swatch = <int, Color>{};
@@ -33,6 +31,8 @@ class AppWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final rootRouter = getIt<AppRouter>();
+
     return MultiBlocProvider(
       providers: [
         BlocProvider(
@@ -41,11 +41,10 @@ class AppWidget extends StatelessWidget {
         ),
       ],
       child: MaterialApp.router(
-        routerDelegate: AutoRouterDelegate(
-          _rootRouter,
+        routerConfig: rootRouter.config(
           navigatorObservers: () => [AutoRouteObserver()],
         ),
-        routeInformationParser: _rootRouter.defaultRouteParser(),
+        // routeInformationParser: rootRouter.defaultRouteParser(),
         title: 'CyBear Jinni App',
         // builder: ExtendedNavigator(
         //   router: AppRouter(),

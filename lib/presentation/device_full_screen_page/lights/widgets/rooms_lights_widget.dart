@@ -2,6 +2,7 @@ import 'package:cybear_jinni/application/lights/lights_watcher/lights_watcher_bl
 import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
+import 'package:cybear_jinni/presentation/core/types_to_pass.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/lights/widgets/critical_light_failure_display_widget.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/lights/widgets/room_lights.dart';
 import 'package:cybear_jinni/utils.dart';
@@ -16,7 +17,7 @@ class RoomsLightsWidget extends StatelessWidget {
   });
 
   final RoomEntity roomEntity;
-  final List<Color> roomColorGradiant;
+  final ListOfColors roomColorGradiant;
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +72,7 @@ class RoomsLightsWidget extends StatelessWidget {
                     gradientColorCounter++;
                     List<Color> gradiantColor = GradientColors.sky;
                     if (roomColorGradiant != null) {
-                      gradiantColor = roomColorGradiant;
+                      gradiantColor = roomColorGradiant.listOfColors!;
                     } else if (gradientColorCounter >
                         gradientColorsList.length - 1) {
                       gradientColorCounter = 0;

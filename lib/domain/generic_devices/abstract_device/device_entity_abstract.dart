@@ -1,7 +1,6 @@
 import 'package:cybear_jinni/domain/generic_devices/abstract_device/core_failures.dart';
 import 'package:cybear_jinni/domain/generic_devices/abstract_device/value_objects_core.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-
 import 'package:cybear_jinni/infrastructure/generic_devices/abstract_device/device_entity_dto_abstract.dart';
 import 'package:dartz/dartz.dart';
 import 'package:uuid/uuid.dart';
@@ -112,12 +111,12 @@ abstract class DeviceEntityAbstract {
   String getDeviceId();
 
   /// Copy with device state to waiting or ack
-  DeviceEntityAbstract copyWithDeviceState(DeviceStateGRPC entityStateGRPC) {
+  DeviceEntityAbstract copyWithDeviceState(EntityStateGRPC entityStateGRPC) {
     return this;
   }
 
   /// Copy with device action
-  DeviceEntityAbstract copyWithDeviceAction(DeviceActions deviceActions) {
+  DeviceEntityAbstract copyWithDeviceAction(EntityActions deviceActions) {
     return this;
   }
 
@@ -173,14 +172,14 @@ class DeviceEntityNotAbstract extends DeviceEntityAbstract {
             VendorsAndServices.vendorsAndServicesNotSupported.toString(),
           ),
           entityStateGRPC:
-              EntityState(DeviceTypes.smartTypeNotSupported.toString()),
+              EntityState(EntityTypes.smartTypeNotSupported.toString()),
           compUuid: DeviceCompUuid(const Uuid().v1()),
           cbjEntityName: CbjEntityName('Cbj entity Name is empty'),
           entityOriginalName:
               EntityOriginalName('Entity original name is empty'),
           deviceOriginalName: DeviceOriginalName(
               'Device original name that entity is exists on is empty'),
-          entityTypes: EntityType(DeviceTypes.light.toString()),
+          entityTypes: EntityType(EntityTypes.light.toString()),
           senderDeviceModel: DeviceSenderDeviceModel('a'),
           senderDeviceOs: DeviceSenderDeviceOs('b'),
           senderId: DeviceSenderId(),

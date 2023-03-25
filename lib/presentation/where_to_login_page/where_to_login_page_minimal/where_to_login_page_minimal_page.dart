@@ -10,6 +10,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// The user will choose where to login to, join into an existing home or
 /// create his new home
+@RoutePage()
 class WhereToLoginPageMinimalPage extends StatelessWidget {
   const WhereToLoginPageMinimalPage();
 

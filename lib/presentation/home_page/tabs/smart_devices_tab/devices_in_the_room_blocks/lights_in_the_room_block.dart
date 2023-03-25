@@ -7,6 +7,7 @@ import 'package:cybear_jinni/domain/generic_devices/generic_light_device/generic
 import 'package:cybear_jinni/domain/generic_devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cybear_jinni/presentation/core/types_to_pass.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -26,20 +27,20 @@ class LightsInTheRoomBlock extends StatelessWidget {
   factory LightsInTheRoomBlock.withAbstractDevice({
     required RoomEntity roomEntity,
     required List<DeviceEntityAbstract> tempDeviceInRoom,
-    required List<Color> tempRoomColorGradiant,
+    required ListOfColors tempRoomColorGradiant,
   }) {
     final List<GenericLightDE> tempLightsInRoom = [];
     final List<GenericDimmableLightDE> tempDimmableLightsInRoom = [];
     final List<GenericRgbwLightDE> tempRgbwLightsInRoom = [];
 
     for (final element in tempDeviceInRoom) {
-      if (element.entityTypes.getOrCrash() == DeviceTypes.light.toString()) {
+      if (element.entityTypes.getOrCrash() == EntityTypes.light.toString()) {
         tempLightsInRoom.add(element as GenericLightDE);
       } else if (element.entityTypes.getOrCrash() ==
-          DeviceTypes.dimmableLight.toString()) {
+          EntityTypes.dimmableLight.toString()) {
         tempDimmableLightsInRoom.add(element as GenericDimmableLightDE);
       } else if (element.entityTypes.getOrCrash() ==
-          DeviceTypes.rgbwLights.toString()) {
+          EntityTypes.rgbwLights.toString()) {
         tempRgbwLightsInRoom.add(element as GenericRgbwLightDE);
       } else {
         logger.e('Unsupported light type ${element.entityTypes.getOrCrash()}');
@@ -59,7 +60,7 @@ class LightsInTheRoomBlock extends StatelessWidget {
   final List<GenericLightDE> lightsInRoom;
   final List<GenericDimmableLightDE> dimmableLightsInRoom;
   final List<GenericRgbwLightDE> rgbwLightsInRoom;
-  final List<Color> roomColorGradiant;
+  final ListOfColors roomColorGradiant;
 
   @override
   Widget build(BuildContext context) {

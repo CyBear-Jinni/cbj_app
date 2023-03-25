@@ -153,13 +153,13 @@ class RoomLights extends StatelessWidget {
       /// Filtering lights in the rooom to different separate lists bt types
       for (final DeviceEntityAbstract deviceEntity in _deviceEntityList.iter) {
         if (deviceEntity.entityTypes.getOrCrash().toString() ==
-            DeviceTypes.light.toString()) {
+            EntityTypes.light.toString()) {
           lightList.add(deviceEntity as GenericLightDE);
         } else if (deviceEntity.entityTypes.getOrCrash() ==
-            DeviceTypes.dimmableLight.toString()) {
+            EntityTypes.dimmableLight.toString()) {
           dimmableLightList.add(deviceEntity as GenericDimmableLightDE);
         } else if (deviceEntity.entityTypes.getOrCrash() ==
-            DeviceTypes.rgbwLights.toString()) {
+            EntityTypes.rgbwLights.toString()) {
           rgbwLightList.add(deviceEntity as GenericRgbwLightDE);
         } else {
           logger.w('Please add support for new light type in room_lights page');

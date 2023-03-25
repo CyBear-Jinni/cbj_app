@@ -193,7 +193,7 @@ class HubClientDemo {
   static List<RequestsAndStatusFromHub> getAllDevices() {
     final List<RequestsAndStatusFromHub> devicesList = [];
 
-    const SendingType sendingTypeDevice = SendingType.deviceType;
+    const SendingType sendingTypeDevice = SendingType.entityType;
 
     /// Guy Blinds
 
@@ -206,7 +206,7 @@ class HubClientDemo {
       cbjEntityName: CbjEntityName('Guy Blinds'),
       entityOriginalName: EntityOriginalName('Guy Blinds'),
       deviceOriginalName: DeviceOriginalName('Guy Blinds'),
-      entityStateGRPC: EntityState(DeviceStateGRPC.ack.toString()),
+      entityStateGRPC: EntityState(EntityStateGRPC.ack.toString()),
       stateMassage: DeviceStateMassage('Hello World'),
       senderDeviceOs: DeviceSenderDeviceOs('switcher'),
       senderDeviceModel:
@@ -216,7 +216,7 @@ class HubClientDemo {
       ),
       compUuid: DeviceCompUuid('34asdfrsd23gggg'),
       blindsSwitchState:
-          GenericBlindsSwitchState(DeviceActions.stop.toString()),
+          GenericBlindsSwitchState(EntityActions.stop.toString()),
       powerConsumption: DevicePowerConsumption('0'),
       deviceUniqueId: DeviceUniqueId('deviceUniqueId'),
       devicePort: DevicePort('devicePort'),
@@ -251,7 +251,7 @@ class HubClientDemo {
       cbjEntityName: CbjEntityName('Guy Ceiling Button'),
       entityOriginalName: EntityOriginalName('Guy Ceiling Button'),
       deviceOriginalName: DeviceOriginalName('Guy Ceiling Button'),
-      entityStateGRPC: EntityState(DeviceStateGRPC.ack.toString()),
+      entityStateGRPC: EntityState(EntityStateGRPC.ack.toString()),
       stateMassage: DeviceStateMassage('Hello World'),
       senderDeviceOs: DeviceSenderDeviceOs('switcher'),
       senderDeviceModel: DeviceSenderDeviceModel('Cloud'),
@@ -259,7 +259,7 @@ class HubClientDemo {
         '90d20fc3-434a-11ed-bd96-f573a00b65aa',
       ),
       compUuid: DeviceCompUuid('34asdfrsd23gggg'),
-      switchState: GenericSwitchSwitchState(DeviceActions.on.toString()),
+      switchState: GenericSwitchSwitchState(EntityActions.on.toString()),
       powerConsumption: DevicePowerConsumption('0'),
       deviceUniqueId: DeviceUniqueId('deviceUniqueId'),
       devicePort: DevicePort('devicePort'),
@@ -293,7 +293,7 @@ class HubClientDemo {
       cbjEntityName: CbjEntityName('Guy Bedroom Button'),
       entityOriginalName: EntityOriginalName('Guy Bedroom Button'),
       deviceOriginalName: DeviceOriginalName('Guy Bedroom Button'),
-      entityStateGRPC: EntityState(DeviceStateGRPC.ack.toString()),
+      entityStateGRPC: EntityState(EntityStateGRPC.ack.toString()),
       stateMassage: DeviceStateMassage('Hello World'),
       senderDeviceOs: DeviceSenderDeviceOs('switcher'),
       senderDeviceModel: DeviceSenderDeviceModel('Cloud'),
@@ -301,7 +301,7 @@ class HubClientDemo {
         '90d20fc3-434a-11ed-bd96-f573a00b65aa',
       ),
       compUuid: DeviceCompUuid('34asdfrsd23gggg'),
-      switchState: GenericSwitchSwitchState(DeviceActions.on.toString()),
+      switchState: GenericSwitchSwitchState(EntityActions.on.toString()),
       powerConsumption: DevicePowerConsumption('0'),
       deviceUniqueId: DeviceUniqueId('deviceUniqueId'),
       devicePort: DevicePort('devicePort'),
@@ -336,7 +336,7 @@ class HubClientDemo {
       cbjEntityName: CbjEntityName('Boiler'),
       entityOriginalName: EntityOriginalName('Boiler'),
       deviceOriginalName: DeviceOriginalName('Boiler'),
-      entityStateGRPC: EntityState(DeviceStateGRPC.ack.toString()),
+      entityStateGRPC: EntityState(EntityStateGRPC.ack.toString()),
       stateMassage: DeviceStateMassage('Hello World'),
       senderDeviceOs: DeviceSenderDeviceOs('switcher'),
       senderDeviceModel:
@@ -345,7 +345,7 @@ class HubClientDemo {
         '65d84b11-434d-11ed-817a-7d350fb52f91',
       ),
       compUuid: DeviceCompUuid('34asdfrsd23gggg'),
-      boilerSwitchState: GenericBoilerSwitchState(DeviceActions.off.toString()),
+      boilerSwitchState: GenericBoilerSwitchState(EntityActions.off.toString()),
       powerConsumption: DevicePowerConsumption('0'),
       deviceUniqueId: DeviceUniqueId('deviceUniqueId'),
       devicePort: DevicePort('devicePort'),
@@ -379,7 +379,7 @@ class HubClientDemo {
       cbjEntityName: CbjEntityName('Dining Room Ceiling'),
       entityOriginalName: EntityOriginalName('Dining Room Ceiling'),
       deviceOriginalName: DeviceOriginalName('Dining Room Ceiling'),
-      entityStateGRPC: EntityState(DeviceStateGRPC.ack.toString()),
+      entityStateGRPC: EntityState(EntityStateGRPC.ack.toString()),
       stateMassage: DeviceStateMassage('Hello World'),
       senderDeviceOs: DeviceSenderDeviceOs('tuya_smart'),
       senderDeviceModel: DeviceSenderDeviceModel('1SE'),
@@ -388,7 +388,7 @@ class HubClientDemo {
       ),
       compUuid: DeviceCompUuid('34asdfrsd23gggg'),
       lightSwitchState:
-          GenericRgbwLightSwitchState(DeviceActions.off.toString()),
+          GenericRgbwLightSwitchState(EntityActions.off.toString()),
       lightBrightness: GenericRgbwLightBrightness('100'),
       lightColorAlpha: GenericRgbwLightColorAlpha('1.0'),
       lightColorHue: GenericRgbwLightColorHue('0.0'),
@@ -429,7 +429,7 @@ class HubClientDemo {
       cbjEntityName: CbjEntityName('Dining Room Stove'),
       entityOriginalName: EntityOriginalName('Dining Room Light 1'),
       deviceOriginalName: DeviceOriginalName('Dining Room Light 1'),
-      entityStateGRPC: EntityState(DeviceStateGRPC.ack.toString()),
+      entityStateGRPC: EntityState(EntityStateGRPC.ack.toString()),
       stateMassage: DeviceStateMassage('Hello World'),
       senderDeviceOs: DeviceSenderDeviceOs('lifx'),
       senderDeviceModel: DeviceSenderDeviceModel('1SE'),
@@ -438,7 +438,7 @@ class HubClientDemo {
       ),
       compUuid: DeviceCompUuid('sn45sd1fcn5532d'),
       lightSwitchState:
-          GenericDimmableLightSwitchState(DeviceActions.off.toString()),
+          GenericDimmableLightSwitchState(EntityActions.off.toString()),
       lightBrightness: GenericDimmableLightBrightness('100'),
       powerConsumption: DevicePowerConsumption('0'),
       deviceUniqueId: DeviceUniqueId('deviceUniqueId'),
@@ -473,7 +473,7 @@ class HubClientDemo {
       cbjEntityName: CbjEntityName('Ami Room Ceiling'),
       entityOriginalName: EntityOriginalName('Ami Workshop Light'),
       deviceOriginalName: DeviceOriginalName('Ami Workshop Light'),
-      entityStateGRPC: EntityState(DeviceStateGRPC.ack.toString()),
+      entityStateGRPC: EntityState(EntityStateGRPC.ack.toString()),
       stateMassage: DeviceStateMassage('Hello World'),
       senderDeviceOs: DeviceSenderDeviceOs('lifx'),
       senderDeviceModel: DeviceSenderDeviceModel('1SE'),
@@ -482,7 +482,7 @@ class HubClientDemo {
       ),
       compUuid: DeviceCompUuid('dg23esbh4eghrer'),
       lightSwitchState:
-          GenericDimmableLightSwitchState(DeviceActions.off.toString()),
+          GenericDimmableLightSwitchState(EntityActions.off.toString()),
       lightBrightness: GenericDimmableLightBrightness('100'),
       powerConsumption: DevicePowerConsumption('0'),
       deviceUniqueId: DeviceUniqueId('deviceUniqueId'),
@@ -518,7 +518,7 @@ class HubClientDemo {
       cbjEntityName: CbjEntityName('Dining Room Light 2'),
       entityOriginalName: EntityOriginalName('Dining Room Light 2'),
       deviceOriginalName: DeviceOriginalName('Dining Room Light 2'),
-      entityStateGRPC: EntityState(DeviceStateGRPC.ack.toString()),
+      entityStateGRPC: EntityState(EntityStateGRPC.ack.toString()),
       stateMassage: DeviceStateMassage('Hello World'),
       senderDeviceOs: DeviceSenderDeviceOs('espHome'),
       senderDeviceModel: DeviceSenderDeviceModel('esp8266'),
@@ -526,7 +526,7 @@ class HubClientDemo {
         'ffb3rg2s-cvns-awre-bmkp-yityueyertbe',
       ),
       compUuid: DeviceCompUuid('erbvnr34yh4627i'),
-      lightSwitchState: GenericLightSwitchState(DeviceActions.off.toString()),
+      lightSwitchState: GenericLightSwitchState(EntityActions.off.toString()),
       powerConsumption: DevicePowerConsumption('0'),
       deviceUniqueId: DeviceUniqueId('deviceUniqueId'),
       devicePort: DevicePort('devicePort'),
