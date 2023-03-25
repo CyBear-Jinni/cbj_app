@@ -44,9 +44,7 @@ class AppWidget extends StatelessWidget {
         routerConfig: rootRouter.config(
           navigatorObservers: () => [AutoRouteObserver()],
         ),
-        // routerDelegate: AutoRouterDelegate(
-        // ),
-        routeInformationParser: rootRouter.defaultRouteParser(),
+        // routeInformationParser: rootRouter.defaultRouteParser(),
         title: 'CyBear Jinni App',
         // builder: ExtendedNavigator(
         //   router: AppRouter(),

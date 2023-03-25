@@ -6,6 +6,7 @@ import 'package:cybear_jinni/application/devices/device_actor/device_actor_bloc.
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
+import 'package:cybear_jinni/presentation/core/types_to_pass.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/blinds/settings_page_of_blinds.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/blinds/widgets/rooms_blinds_widget.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
@@ -26,7 +27,7 @@ class RoomsBlindsPage extends StatelessWidget {
   });
 
   final RoomEntity roomEntity;
-  final List<Color>? roomColorGradiant;
+  final ListOfColors? roomColorGradiant;
 
   void cogFunction(BuildContext context) {
     Navigator.push(
@@ -107,12 +108,12 @@ class RoomsBlindsPage extends StatelessWidget {
                   rightIconFunction: cogFunction,
                   leftIcon: FontAwesomeIcons.arrowLeft,
                   leftIconFunction: backButtonFunction,
-                  backgroundColor: roomColorGradiant!.last,
+                  backgroundColor: roomColorGradiant!.listOfColors!.last,
                 ),
                 Expanded(
                   child: RoomsBlindsWidget(
                     roomEntity: roomEntity,
-                    roomColorGradiant: roomColorGradiant!,
+                    roomColorGradiant: roomColorGradiant!.listOfColors!,
                   ),
                 ),
               ],

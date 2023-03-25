@@ -6,6 +6,7 @@ import 'package:cybear_jinni/application/switches/switches_watcher/switches_watc
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
+import 'package:cybear_jinni/presentation/core/types_to_pass.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/switches/settings_page_of_switches.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/switches/widgets/rooms_switches_widget.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
@@ -27,7 +28,7 @@ class RoomsSwitchesPage extends StatelessWidget {
 
   /// If it have value will only show switches in this room
   final RoomEntity roomEntity;
-  final List<Color>? roomColorGradiant;
+  final ListOfColors? roomColorGradiant;
 
   void cogFunction(BuildContext context) {
     Navigator.push(
@@ -107,12 +108,12 @@ class RoomsSwitchesPage extends StatelessWidget {
                   rightIconFunction: cogFunction,
                   leftIcon: FontAwesomeIcons.arrowLeft,
                   leftIconFunction: backButtonFunction,
-                  backgroundColor: roomColorGradiant!.last,
+                  backgroundColor: roomColorGradiant?.listOfColors?.last,
                 ),
                 Expanded(
                   child: RoomsSwitchesWidget(
                     roomEntity,
-                    roomColorGradiant!,
+                    roomColorGradiant!.listOfColors!,
                   ),
                 ),
               ],

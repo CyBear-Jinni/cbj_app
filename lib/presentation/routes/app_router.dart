@@ -27,9 +27,7 @@ class AppRouter extends $AppRouter {
     AutoRoute(page: AddRoutineRoute.page),
     AutoRoute(page: PickRepeatTimeRoute.page),
     AutoRoute(page: AddBindingRoute.page),
-    AutoRoute
-        // <List<MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>>>
-        (
+    AutoRoute(
       page: AddActionRoute.page,
     ),
     AutoRoute(page: ChooseAutomationTypeToAddRoute.page),

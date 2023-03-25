@@ -6,6 +6,7 @@ import 'package:cybear_jinni/application/lights/lights_watcher/lights_watcher_bl
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
+import 'package:cybear_jinni/presentation/core/types_to_pass.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/lights/settings_page_of_lights.dart';
 import 'package:cybear_jinni/presentation/device_full_screen_page/lights/widgets/rooms_lights_widget.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
@@ -24,7 +25,7 @@ class RoomsLightsPage extends StatelessWidget {
 
   /// If it have value will only show lights in this room
   final RoomEntity roomEntity;
-  final List<Color>? roomColorGradiant;
+  final ListOfColors? roomColorGradiant;
 
   void cogFunction(BuildContext context) {
     Navigator.push(

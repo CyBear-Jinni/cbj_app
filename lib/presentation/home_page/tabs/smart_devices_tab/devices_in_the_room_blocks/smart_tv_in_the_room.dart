@@ -3,6 +3,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/generic_devices/generic_smart_tv/generic_smart_tv_entity.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
+import 'package:cybear_jinni/presentation/core/types_to_pass.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class SmartTvInTheRoom extends StatelessWidget {
   factory SmartTvInTheRoom.withAbstractDevice({
     required RoomEntity roomEntity,
     required List<DeviceEntityAbstract> tempDeviceInRoom,
-    required List<Color> tempRoomColorGradiant,
+    required ListOfColors tempRoomColorGradiant,
   }) {
     final List<GenericSmartTvDE> tempLightsInRoom = [];
 
@@ -35,7 +36,7 @@ class SmartTvInTheRoom extends StatelessWidget {
 
   final RoomEntity roomEntity;
   final List<GenericSmartTvDE>? smartTvsInRoom;
-  final List<Color>? roomColorGradiant;
+  final ListOfColors? roomColorGradiant;
 
   @override
   Widget build(BuildContext context) {
