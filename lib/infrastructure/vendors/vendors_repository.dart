@@ -7,8 +7,8 @@ import 'package:cybear_jinni/domain/vendors/tuya_login/generic_tuya_login_entity
 import 'package:cybear_jinni/domain/vendors/vendor.dart';
 import 'package:cybear_jinni/domain/vendors/vendor_failures.dart';
 import 'package:cybear_jinni/domain/vendors/vendor_value_objects.dart';
+import 'package:cybear_jinni/domain/vendors/xiaomi_mi_login/generic_xiaomi_mi_login_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-
 import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
 import 'package:cybear_jinni/infrastructure/vendors/vendor_helper.dart';
 import 'package:dartz/dartz.dart';
@@ -42,7 +42,34 @@ class VendorsRepository implements IVendorsRepository {
           vendorName == VendorsAndServices.somfy.name ||
           vendorName == VendorsAndServices.tuyaSmart.name ||
           vendorName == VendorsAndServices.smartLife.name ||
-          vendorName == VendorsAndServices.jinvooSmart.name) {
+          vendorName == VendorsAndServices.jinvooSmart.name ||
+          vendorName == VendorsAndServices.cbjDeviceSmartEntity.name ||
+          vendorName == VendorsAndServices.sensibo.name ||
+          vendorName == VendorsAndServices.aqara.name ||
+          vendorName == VendorsAndServices.matter.name ||
+          vendorName == VendorsAndServices.nest.name ||
+          vendorName == VendorsAndServices.uniFi.name ||
+          vendorName == VendorsAndServices.ring.name ||
+          vendorName == VendorsAndServices.myQ.name ||
+          vendorName == VendorsAndServices.wemo.name ||
+          vendorName == VendorsAndServices.tpLink.name ||
+          vendorName == VendorsAndServices.nuki.name ||
+          vendorName == VendorsAndServices.homebridge.name ||
+          vendorName == VendorsAndServices.homeKit.name ||
+          vendorName == VendorsAndServices.twinkly.name ||
+          vendorName == VendorsAndServices.samsung.name ||
+          vendorName == VendorsAndServices.tizen.name ||
+          vendorName == VendorsAndServices.zigbee.name ||
+          vendorName == VendorsAndServices.zWave.name ||
+          vendorName == VendorsAndServices.ffmpeg.name ||
+          vendorName == VendorsAndServices.lightwaveRf.name ||
+          vendorName == VendorsAndServices.cololight.name ||
+          vendorName == VendorsAndServices.broadlink.name ||
+          vendorName == VendorsAndServices.switchBee.name ||
+          vendorName == VendorsAndServices.mycroft.name ||
+          vendorName == VendorsAndServices.cyBearJinniAppSmartEntity.name ||
+          vendorName == VendorsAndServices.securityBear.name ||
+          vendorName == VendorsAndServices.jinniAssistant.name) {
         continue;
       }
       Vendor v = vendorPlusImageFromVandorName(vendorName);
@@ -115,8 +142,16 @@ class VendorsRepository implements IVendorsRepository {
 
   @override
   Future<Either<CoreLoginFailure, Unit>> loginWithEspHome(
-      GenericEspHomeLoginDE genericEspHomeDE) {
+    GenericEspHomeLoginDE genericEspHomeDE,
+  ) {
     return loginWithVendor(genericEspHomeDE);
+  }
+
+  @override
+  Future<Either<CoreLoginFailure, Unit>> loginWithXiaomiMi(
+    GenericXiaomiMiLoginDE genericXiaomiMiDE,
+  ) {
+    return loginWithVendor(genericXiaomiMiDE);
   }
 }
 
@@ -194,11 +229,6 @@ class VendorsMocDataWithImages {
         name: VendorName('Google'),
         image:
             'https://play-lh.googleusercontent.com/DKoidc0T3T1KvYC2stChcX9zwmjKj1pgmg3hXzGBDQXM8RG_7JjgiuS0CLOh8DUa7as=s180',
-      ),
-      Vendor(
-        name: VendorName('Philips Hue'),
-        image:
-            'https://play-lh.googleusercontent.com/FUlW6h3cACamheiCHH1cE67irohAZq_dJ92irK92cryKwHUtY6ZTSv5d041qPZ9UOt3n=s180',
       ),
       Vendor(
         name: VendorName('Ikea'),
