@@ -1,4 +1,5 @@
 import 'package:cybear_jinni/domain/vendors/esphome_login/generic_esphome_login_entity.dart';
+import 'package:cybear_jinni/domain/vendors/ewelink_login/generic_ewelink_login_entity.dart';
 import 'package:cybear_jinni/domain/vendors/i_vendor_repository.dart';
 import 'package:cybear_jinni/domain/vendors/lifx_login/generic_lifx_login_entity.dart';
 import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.dart';
@@ -29,7 +30,6 @@ class VendorsRepository implements IVendorsRepository {
               VendorsAndServices.vendorsAndServicesNotSupported.name ||
           vendorName == VendorsAndServices.miHome.name ||
           vendorName == VendorsAndServices.sonoffDiy.name ||
-          vendorName == VendorsAndServices.sonoffEweLink.name ||
           vendorName == VendorsAndServices.ikea.name ||
           vendorName == VendorsAndServices.wink.name ||
           vendorName == VendorsAndServices.lg.name ||
@@ -108,24 +108,24 @@ class VendorsRepository implements IVendorsRepository {
 
   @override
   Future<Either<CoreLoginFailure, Unit>> loginWithLifx(
-    GenericLifxLoginDE genericLifxDE,
+    GenericLifxLoginDE login,
   ) async {
-    return loginWithVendor(genericLifxDE);
+    return loginWithVendor(login);
   }
 
   @override
   Future<Either<CoreLoginFailure, Unit>> loginWithTuya(
-    GenericTuyaLoginDE genericTuyaDE,
+    GenericTuyaLoginDE login,
   ) async {
-    return loginWithVendor(genericTuyaDE);
+    return loginWithVendor(login);
   }
 
   Future<Either<CoreLoginFailure, Unit>> loginWithVendor(
-    LoginEntityAbstract genericVendorDE,
+    LoginEntityAbstract login,
   ) async {
     try {
       final String loginDtoAsString =
-          VendorHelper.convertDomainToJsonString(genericVendorDE);
+          VendorHelper.convertDomainToJsonString(login);
 
       final ClientStatusRequests clientStatusRequests = ClientStatusRequests(
         allRemoteCommands: loginDtoAsString,
@@ -142,16 +142,23 @@ class VendorsRepository implements IVendorsRepository {
 
   @override
   Future<Either<CoreLoginFailure, Unit>> loginWithEspHome(
-    GenericEspHomeLoginDE genericEspHomeDE,
+    GenericEspHomeLoginDE login,
   ) {
-    return loginWithVendor(genericEspHomeDE);
+    return loginWithVendor(login);
   }
 
   @override
   Future<Either<CoreLoginFailure, Unit>> loginWithXiaomiMi(
-    GenericXiaomiMiLoginDE genericXiaomiMiDE,
+    GenericXiaomiMiLoginDE login,
   ) {
-    return loginWithVendor(genericXiaomiMiDE);
+    return loginWithVendor(login);
+  }
+
+  @override
+  Future<Either<CoreLoginFailure, Unit>> loginWithEwelink(
+    GenericEwelinkLoginDE login,
+  ) {
+    return loginWithVendor(login);
   }
 }
 
@@ -171,6 +178,11 @@ class VendorsMocDataWithImages {
         name: VendorName('Lifx'),
         image:
             'https://play-lh.googleusercontent.com/k61DT9oYt_BPdzjAFokLY5e-He-YSl7-eZHeieaVO45XDAwQ6ebegsS_ZsQytca2zWM=s180',
+      ),
+      Vendor(
+        name: VendorName('Sonoff eWeLink'),
+        image:
+            'https://play-lh.googleusercontent.com/nfDq8xm5ueWPIZswiRD8PxzjmFAmOBgByV1CpFfAhau1_D_XCP2jW0EZ3VMEtZwbVRk=s180',
       ),
       Vendor(
         name: VendorName('SwitcherSmartHome'),

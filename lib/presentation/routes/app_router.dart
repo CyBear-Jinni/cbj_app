@@ -33,6 +33,7 @@ class AppRouter extends $AppRouter {
     AutoRoute(page: AddLifxVendorRoute.page),
     AutoRoute(page: AddEspHomeVendorRoute.page),
     AutoRoute(page: AddXiaomiMiVendorRoute.page),
+    AutoRoute(page: AddEwelinkVendorRoute.page),
     AutoRoute(page: AddTuyaVendorRoute.page),
     AutoRoute(page: AddSmartLifeVendorRoute.page),
     AutoRoute(page: AddJinvooSmartVendorRoute.page),
