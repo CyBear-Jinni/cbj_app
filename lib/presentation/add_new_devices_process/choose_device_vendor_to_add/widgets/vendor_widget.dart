@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/domain/vendors/vendor.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -23,19 +22,25 @@ class VendorWidget extends StatelessWidget {
             .replaceAll('_', '');
 
         if (vendorName == VendorsAndServices.lifx.name.toLowerCase()) {
-          context.router.push(const AddLifxVendorRoute());
+          context.router.push(AddLifxVendorRoute(vendor: vendor));
         } else if (vendorName ==
             VendorsAndServices.tuyaSmart.name.toLowerCase()) {
-          context.router.push(const AddTuyaVendorRoute());
+          context.router.push(AddTuyaVendorRoute(vendor: vendor));
         } else if (vendorName ==
             VendorsAndServices.smartLife.name.toLowerCase()) {
-          context.router.push(const AddSmartLifeVendorRoute());
+          context.router.push(AddSmartLifeVendorRoute(vendor: vendor));
         } else if (vendorName ==
             VendorsAndServices.jinvooSmart.name.toLowerCase()) {
-          context.router.push(const AddJinvooSmartVendorRoute());
+          context.router.push(AddJinvooSmartVendorRoute(vendor: vendor));
         } else if (vendorName ==
             VendorsAndServices.espHome.name.toLowerCase()) {
-          context.router.push(const AddEspHomeVendorRoute());
+          context.router.push(AddEspHomeVendorRoute(vendor: vendor));
+        } else if (vendorName ==
+            VendorsAndServices.xiaomiMi.name.toLowerCase()) {
+          context.router.push(AddXiaomiMiVendorRoute(vendor: vendor));
+        } else if (vendorName ==
+            VendorsAndServices.sonoffEweLink.name.toLowerCase()) {
+          context.router.push(AddEwelinkVendorRoute(vendor: vendor));
         } else if (vendorName ==
             VendorsAndServices.philipsHue.name.toLowerCase()) {
           Fluttertoast.showToast(

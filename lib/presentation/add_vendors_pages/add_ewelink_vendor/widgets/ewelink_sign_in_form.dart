@@ -1,6 +1,6 @@
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/application/esphome_auth/esphome_sign_in_form/esphome_sign_in_form_bloc.dart';
+import 'package:cybear_jinni/application/ewelink_auth/ewelink_sign_in_form/ewelink_sign_in_form_bloc.dart';
 import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.dart';
 import 'package:cybear_jinni/domain/vendors/vendor.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
@@ -11,8 +11,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class EspHomeSignInForm extends StatelessWidget {
-  const EspHomeSignInForm(this.vendor);
+class EwelinkSignInForm extends StatelessWidget {
+  const EwelinkSignInForm(this.vendor);
 
   final Vendor vendor;
 
@@ -20,7 +20,7 @@ class EspHomeSignInForm extends StatelessWidget {
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
 
-    return BlocConsumer<EspHomeSignInFormBloc, EspHomeSignInFormState>(
+    return BlocConsumer<EwelinkSignInFormBloc, EwelinkSignInFormState>(
       listener: (context, state) {
         state.authFailureOrSuccessOption.fold(
           () {},
@@ -38,8 +38,8 @@ class EspHomeSignInForm extends StatelessWidget {
             context.router.push(const WhereToLoginRouteMinimalRoute());
 
             // context
-            //     .read()<EspHomeSignInFormBloc>()
-            //     .add(const EspHomeSignInFormEvent.());
+            //     .read()<EwelinkSignInFormBloc>()
+            //     .add(const EwelinkSignInFormEvent.());
           }),
         );
       },
@@ -59,9 +59,7 @@ class EspHomeSignInForm extends StatelessWidget {
                     height: 180,
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: NetworkImage(
-                          vendor.image ?? '',
-                        ),
+                        image: NetworkImage(vendor.image ?? ''),
                         fit: BoxFit.fitHeight,
                       ),
                     ),
@@ -75,18 +73,51 @@ class EspHomeSignInForm extends StatelessWidget {
               TextFormField(
                 decoration: const InputDecoration(
                   prefixIcon: FaIcon(
+                    FontAwesomeIcons.at,
+                  ),
+                  labelText: 'eWeLink device email',
+                ),
+                autocorrect: false,
+                onChanged: (value) => context.read<EwelinkSignInFormBloc>().add(
+                      EwelinkSignInFormEvent.ewelinkAccountEmailChange(
+                        value,
+                      ),
+                    ),
+                validator: (_) => context
+                    .read<EwelinkSignInFormBloc>()
+                    .state
+                    .ewelinkAccountEmail
+                    .value
+                    .fold(
+                      (CoreLoginFailure f) => 'Validation error',
+                      //   f.maybeMap(
+                      // invalidEmail: (result) => result.failedValue,
+                      // containsSpace: (result) => result.failedValue,
+                      // orElse: () => null,
+                      // ),
+                      (r) => null,
+                    ),
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              TextFormField(
+                decoration: const InputDecoration(
+                  prefixIcon: FaIcon(
                     FontAwesomeIcons.key,
                   ),
-                  labelText: 'ESPHome device password',
+                  labelText: 'eWeLink device password',
                 ),
                 autocorrect: false,
                 onChanged: (value) => context
-                    .read<EspHomeSignInFormBloc>()
-                    .add(EspHomeSignInFormEvent.apiKeyChanged(value)),
+                    .read<EwelinkSignInFormBloc>()
+                    .add(EwelinkSignInFormEvent.ewelinkAccountPassChange(
+                      value,
+                    )),
                 validator: (_) => context
-                    .read<EspHomeSignInFormBloc>()
+                    .read<EwelinkSignInFormBloc>()
                     .state
-                    .espHomeDevicePassword
+                    .ewelinkAccountPass
                     .value
                     .fold(
                       (CoreLoginFailure f) => 'Validation error',
@@ -106,13 +137,12 @@ class EspHomeSignInForm extends StatelessWidget {
                   Expanded(
                     child: TextButton(
                       onPressed: () {
-                        context.read<EspHomeSignInFormBloc>().add(
-                              const EspHomeSignInFormEvent
-                                  .signInWithEspHomeApiKey(),
+                        context.read<EwelinkSignInFormBloc>().add(
+                              const EwelinkSignInFormEvent.signInWithEwelink(),
                             );
 
                         Fluttertoast.showToast(
-                          msg: 'Sign in to ESPHome, devices will appear in the '
+                          msg: 'Sign in to eWeLink, devices will appear in the '
                               'app after getting discovered',
                           toastLength: Toast.LENGTH_LONG,
                           gravity: ToastGravity.BOTTOM,

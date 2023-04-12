@@ -1,6 +1,6 @@
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/application/esphome_auth/esphome_sign_in_form/esphome_sign_in_form_bloc.dart';
+import 'package:cybear_jinni/application/xiaomi_mi_auth/xiaomi_mi_sign_in_form/xiaomi_mi_sign_in_form_bloc.dart';
 import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.dart';
 import 'package:cybear_jinni/domain/vendors/vendor.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
@@ -11,8 +11,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class EspHomeSignInForm extends StatelessWidget {
-  const EspHomeSignInForm(this.vendor);
+class XiaomiMiSignInForm extends StatelessWidget {
+  const XiaomiMiSignInForm(this.vendor);
 
   final Vendor vendor;
 
@@ -20,7 +20,7 @@ class EspHomeSignInForm extends StatelessWidget {
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
 
-    return BlocConsumer<EspHomeSignInFormBloc, EspHomeSignInFormState>(
+    return BlocConsumer<XiaomiMiSignInFormBloc, XiaomiMiSignInFormState>(
       listener: (context, state) {
         state.authFailureOrSuccessOption.fold(
           () {},
@@ -38,8 +38,8 @@ class EspHomeSignInForm extends StatelessWidget {
             context.router.push(const WhereToLoginRouteMinimalRoute());
 
             // context
-            //     .read()<EspHomeSignInFormBloc>()
-            //     .add(const EspHomeSignInFormEvent.());
+            //     .read()<XiaomiMiSignInFormBloc>()
+            //     .add(const XiaomiMiSignInFormEvent.());
           }),
         );
       },
@@ -59,9 +59,7 @@ class EspHomeSignInForm extends StatelessWidget {
                     height: 180,
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: NetworkImage(
-                          vendor.image ?? '',
-                        ),
+                        image: NetworkImage(vendor.image ?? ''),
                         fit: BoxFit.fitHeight,
                       ),
                     ),
@@ -75,18 +73,51 @@ class EspHomeSignInForm extends StatelessWidget {
               TextFormField(
                 decoration: const InputDecoration(
                   prefixIcon: FaIcon(
-                    FontAwesomeIcons.key,
+                    FontAwesomeIcons.at,
                   ),
-                  labelText: 'ESPHome device password',
+                  labelText: 'Xiaomi Mi device email',
                 ),
                 autocorrect: false,
                 onChanged: (value) => context
-                    .read<EspHomeSignInFormBloc>()
-                    .add(EspHomeSignInFormEvent.apiKeyChanged(value)),
+                    .read<XiaomiMiSignInFormBloc>()
+                    .add(XiaomiMiSignInFormEvent.xiaomiMiAccountEmailChange(
+                      value,
+                    )),
                 validator: (_) => context
-                    .read<EspHomeSignInFormBloc>()
+                    .read<XiaomiMiSignInFormBloc>()
                     .state
-                    .espHomeDevicePassword
+                    .xiaomiMiAccountEmail
+                    .value
+                    .fold(
+                      (CoreLoginFailure f) => 'Validation error',
+                      //   f.maybeMap(
+                      // invalidEmail: (result) => result.failedValue,
+                      // containsSpace: (result) => result.failedValue,
+                      // orElse: () => null,
+                      // ),
+                      (r) => null,
+                    ),
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              TextFormField(
+                decoration: const InputDecoration(
+                  prefixIcon: FaIcon(
+                    FontAwesomeIcons.key,
+                  ),
+                  labelText: 'Xiaomi Mi device password',
+                ),
+                autocorrect: false,
+                onChanged: (value) => context
+                    .read<XiaomiMiSignInFormBloc>()
+                    .add(XiaomiMiSignInFormEvent.xiaomiMiAccountPassChange(
+                      value,
+                    )),
+                validator: (_) => context
+                    .read<XiaomiMiSignInFormBloc>()
+                    .state
+                    .xiaomiMiAccountPass
                     .value
                     .fold(
                       (CoreLoginFailure f) => 'Validation error',
@@ -106,13 +137,13 @@ class EspHomeSignInForm extends StatelessWidget {
                   Expanded(
                     child: TextButton(
                       onPressed: () {
-                        context.read<EspHomeSignInFormBloc>().add(
-                              const EspHomeSignInFormEvent
-                                  .signInWithEspHomeApiKey(),
+                        context.read<XiaomiMiSignInFormBloc>().add(
+                              const XiaomiMiSignInFormEvent.signInWithXiaoMi(),
                             );
 
                         Fluttertoast.showToast(
-                          msg: 'Sign in to ESPHome, devices will appear in the '
+                          msg:
+                              'Sign in to Xiaomi Mi, devices will appear in the '
                               'app after getting discovered',
                           toastLength: Toast.LENGTH_LONG,
                           gravity: ToastGravity.BOTTOM,
