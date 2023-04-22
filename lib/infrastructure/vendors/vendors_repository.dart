@@ -37,6 +37,7 @@ class VendorsRepository implements IVendorsRepository {
           vendorName == VendorsAndServices.homeAssistant.name ||
           vendorName == VendorsAndServices.yeelink.name ||
           vendorName == VendorsAndServices.xiaomi.name ||
+          vendorName == VendorsAndServices.xiaomiMi.name ||
           vendorName == VendorsAndServices.wiz.name ||
           vendorName == VendorsAndServices.switchBot.name ||
           vendorName == VendorsAndServices.somfy.name ||
