@@ -7,6 +7,7 @@ import 'package:cybear_jinni/utils.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:isar/isar.dart';
+import 'package:path_provider/path_provider.dart';
 
 @LazySingleton(as: ILocalDbRepository)
 class IsarRepository extends ILocalDbRepository {
@@ -17,11 +18,15 @@ class IsarRepository extends ILocalDbRepository {
   late Isar isar;
 
   Future<void> asyncConstractor() async {
-    isar = await Isar.open([
-      RemotePipesIsarModelSchema,
-      HubEntityIsarModelSchema,
-      HomeEntityIsarModelSchema,
-    ]);
+    final dir = await getApplicationDocumentsDirectory();
+    isar = await Isar.open(
+      [
+        RemotePipesIsarModelSchema,
+        HubEntityIsarModelSchema,
+        HomeEntityIsarModelSchema,
+      ],
+      directory: dir.path,
+    );
   }
 
   @override
