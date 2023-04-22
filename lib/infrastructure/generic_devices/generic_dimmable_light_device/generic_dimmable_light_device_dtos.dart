@@ -1,17 +1,17 @@
 import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/generic_devices/abstract_device/value_objects_core.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_light_with_brightness_device/generic_light_with_brightness_entity.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_light_with_brightness_device/generic_light_with_brightness_value_objects.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_dimmable_light_device/generic_dimmable_light_entity.dart';
+import 'package:cybear_jinni/domain/generic_devices/generic_dimmable_light_device/generic_dimmable_light_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/abstract_device/device_entity_dto_abstract.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'generic_light_with_brightness_device_dtos.freezed.dart';
-part 'generic_light_with_brightness_device_dtos.g.dart';
+part 'generic_dimmable_light_device_dtos.freezed.dart';
+part 'generic_dimmable_light_device_dtos.g.dart';
 
 @freezed
-abstract class GenericLightWithBrightnessDeviceDtos
-    implements _$GenericLightWithBrightnessDeviceDtos, DeviceEntityDtoAbstract {
-  factory GenericLightWithBrightnessDeviceDtos({
+abstract class GenericDimmableLightDeviceDtos
+    implements _$GenericDimmableLightDeviceDtos, DeviceEntityDtoAbstract {
+  factory GenericDimmableLightDeviceDtos({
     // @JsonKey(ignore: true)
     required String id,
     required String entityUniqueId,
@@ -42,15 +42,15 @@ abstract class GenericLightWithBrightnessDeviceDtos
     String? stateMassage,
 
     // required ServerTimestampConverter() FieldValue serverTimeStamp,
-  }) = _GenericLightWithBrightnessDeviceDtos;
+  }) = _GenericDimmableLightDeviceDtos;
 
-  GenericLightWithBrightnessDeviceDtos._();
+  GenericDimmableLightDeviceDtos._();
 
-  factory GenericLightWithBrightnessDeviceDtos.fromDomain(
-    GenericLightWithBrightnessDE deviceDe,
+  factory GenericDimmableLightDeviceDtos.fromDomain(
+    GenericDimmableLightDE deviceDe,
   ) {
-    return GenericLightWithBrightnessDeviceDtos(
-      deviceDtoClass: (GenericLightWithBrightnessDeviceDtos).toString(),
+    return GenericDimmableLightDeviceDtos(
+      deviceDtoClass: (GenericDimmableLightDeviceDtos).toString(),
       id: deviceDe.uniqueId.getOrCrash(),
       entityUniqueId: deviceDe.entityUniqueId.getOrCrash(),
       cbjEntityName: deviceDe.cbjEntityName.getOrCrash(),
@@ -81,17 +81,16 @@ abstract class GenericLightWithBrightnessDeviceDtos
     );
   }
 
-  factory GenericLightWithBrightnessDeviceDtos.fromJson(
-          Map<String, dynamic> json) =>
-      _$GenericLightWithBrightnessDeviceDtosFromJson(json);
+  factory GenericDimmableLightDeviceDtos.fromJson(Map<String, dynamic> json) =>
+      _$GenericDimmableLightDeviceDtosFromJson(json);
 
   @override
   final String deviceDtoClassInstance =
-      (GenericLightWithBrightnessDeviceDtos).toString();
+      (GenericDimmableLightDeviceDtos).toString();
 
   @override
   DeviceEntityAbstract toDomain() {
-    return GenericLightWithBrightnessDE(
+    return GenericDimmableLightDE(
       uniqueId: CoreUniqueId.fromUniqueString(id),
       entityUniqueId: EntityUniqueId(entityUniqueId),
       cbjEntityName: CbjEntityName(cbjEntityName),
@@ -104,8 +103,8 @@ abstract class GenericLightWithBrightnessDeviceDtos
       senderId: DeviceSenderId.fromUniqueString(senderId),
       deviceVendor: DeviceVendor(deviceVendor),
       compUuid: DeviceCompUuid(compUuid),
-      lightSwitchState: GenericLightWithBrightnessSwitchState(lightSwitchState),
-      lightBrightness: GenericLightWithBrightnessBrightness(lightBrightness),
+      lightSwitchState: GenericDimmableLightSwitchState(lightSwitchState),
+      lightBrightness: GenericDimmableLightBrightness(lightBrightness),
       powerConsumption: DevicePowerConsumption(powerConsumption),
       deviceUniqueId: DeviceUniqueId(deviceUniqueId),
       devicePort: DevicePort(devicePort),

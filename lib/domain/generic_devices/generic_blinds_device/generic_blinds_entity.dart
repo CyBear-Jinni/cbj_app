@@ -3,7 +3,6 @@ import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entit
 import 'package:cybear_jinni/domain/generic_devices/abstract_device/value_objects_core.dart';
 import 'package:cybear_jinni/domain/generic_devices/generic_blinds_device/generic_blinds_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-
 import 'package:cybear_jinni/infrastructure/generic_devices/abstract_device/device_entity_dto_abstract.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_blinds_device/generic_blinds_device_dtos.dart';
 import 'package:cybear_jinni/utils.dart';
@@ -39,7 +38,7 @@ class GenericBlindsDE extends DeviceEntityAbstract {
     required super.deviceCbjUniqueId,
     required this.blindsSwitchState,
   }) : super(
-          entityTypes: EntityType(DeviceTypes.blinds.toString()),
+          entityTypes: EntityType(EntityTypes.blinds.toString()),
         );
 
   /// Empty instance of GenericBlindsEntity
@@ -68,7 +67,7 @@ class GenericBlindsDE extends DeviceEntityAbstract {
         lastResponseFromDeviceTimeStamp: LastResponseFromDeviceTimeStamp(''),
         deviceCbjUniqueId: CoreUniqueId(),
         blindsSwitchState:
-            GenericBlindsSwitchState(DeviceActions.off.toString()),
+            GenericBlindsSwitchState(EntityActions.off.toString()),
       );
 
   /// State of the blinds on/off

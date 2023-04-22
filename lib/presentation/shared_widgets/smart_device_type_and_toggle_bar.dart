@@ -15,11 +15,11 @@ class SmartDeviceTypeAndToggleBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final DeviceTypes deviceType =
+    final EntityTypes deviceType =
         EnumHelperCbj.stringToDt(_smartDeviceObject.entityTypes.getOrCrash())!;
     return Row(
       children: <Widget>[
-        if (deviceType == DeviceTypes.light)
+        if (deviceType == EntityTypes.light)
           Container(
             margin: const EdgeInsets.only(right: 5),
             child: const CircleAvatar(
@@ -27,7 +27,7 @@ class SmartDeviceTypeAndToggleBar extends StatelessWidget {
               child: FaIcon(FontAwesomeIcons.solidLightbulb),
             ),
           ),
-        if (deviceType == DeviceTypes.blinds)
+        if (deviceType == EntityTypes.blinds)
           Container(
             margin: const EdgeInsets.only(right: 5),
             child: const CircleAvatar(
@@ -46,7 +46,7 @@ class SmartDeviceTypeAndToggleBar extends StatelessWidget {
             ,
           ),
         ).tr(args: <String>[EnumHelperCbj.dTToString(deviceType)]),
-        if (deviceType == DeviceTypes.light)
+        if (deviceType == EntityTypes.light)
           SizedBox(
             width: 100,
             child: SmartLightPage(

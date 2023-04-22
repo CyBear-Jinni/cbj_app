@@ -196,9 +196,9 @@ class DeviceAction extends ValueObjectCore<String> {
     assert(input != null);
 
     if (input == 'false') {
-      input = DeviceActions.off.toString();
+      input = EntityActions.off.toString();
     } else if (input == 'true') {
-      input = DeviceActions.on.toString();
+      input = EntityActions.on.toString();
     }
     return DeviceAction._(
       validateNotEmpty(input!)

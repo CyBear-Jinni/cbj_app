@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// The user will choose where to login to, options only for offline
+@RoutePage()
 class WhereToLoginPageOffline extends StatelessWidget {
   const WhereToLoginPageOffline();
 

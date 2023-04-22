@@ -11,7 +11,6 @@ import 'package:cybear_jinni/infrastructure/core/gen/cbj_app_server/proto_gen_da
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_app_server/protoc_as_dart/cbj_app_connections.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/proto_gen_date.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-
 import 'package:cybear_jinni/infrastructure/core/gen/security_bear/client/protoc_as_dart/security_bear_connections.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/security_bear/proto_gen_date.dart';
 import 'package:cybear_jinni/injection.dart';
@@ -113,7 +112,7 @@ class SoftwareInfoRepository implements ISoftwareInfoRepository {
       final NetworkInfo networkInfo = NetworkInfo();
 
       final CbjHubIno cbjHubIno = CbjHubIno(
-        deviceName: 'cbj App',
+        entityName: 'cbj App',
         pubspecYamlVersion: packageInfo.version,
         protoLastGenDate: hubServerProtocGenDate,
         dartSdkVersion: Platform.version,

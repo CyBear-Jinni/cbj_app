@@ -3,7 +3,6 @@ import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entit
 import 'package:cybear_jinni/domain/generic_devices/abstract_device/value_objects_core.dart';
 import 'package:cybear_jinni/domain/generic_devices/generic_empty_device/generic_empty_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-
 import 'package:cybear_jinni/infrastructure/generic_devices/abstract_device/device_entity_dto_abstract.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_empty_device/generic_empty_device_dtos.dart';
 import 'package:cybear_jinni/utils.dart';
@@ -39,7 +38,7 @@ class GenericEmptyDE extends DeviceEntityAbstract {
     required super.deviceCbjUniqueId,
     required this.emptySwitchState,
   }) : super(
-          entityTypes: EntityType(DeviceTypes.emptyDevice.toString()),
+          entityTypes: EntityType(EntityTypes.emptyEntity.toString()),
         );
 
   /// Empty instance of GenericEmptyEntity
@@ -52,7 +51,7 @@ class GenericEmptyDE extends DeviceEntityAbstract {
         cbjEntityName: CbjEntityName('Empty device'),
         entityOriginalName: EntityOriginalName('Missing entity original name'),
         deviceOriginalName: DeviceOriginalName('Missing device original name'),
-        entityStateGRPC: EntityState(DeviceStateGRPC.ack.toString()),
+        entityStateGRPC: EntityState(EntityStateGRPC.ack.toString()),
         senderDeviceOs: DeviceSenderDeviceOs('Hub'),
         senderDeviceModel: DeviceSenderDeviceModel('Hub'),
         stateMassage: DeviceStateMassage('Test'),
@@ -69,7 +68,7 @@ class GenericEmptyDE extends DeviceEntityAbstract {
         requestTimeStamp: RequestTimeStamp(''),
         lastResponseFromDeviceTimeStamp: LastResponseFromDeviceTimeStamp(''),
         deviceCbjUniqueId: CoreUniqueId(),
-        emptySwitchState: GenericEmptySwitchState(DeviceActions.off.toString()),
+        emptySwitchState: GenericEmptySwitchState(EntityActions.off.toString()),
       );
 
   /// State of the empty on/off

@@ -3,7 +3,6 @@ import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entit
 import 'package:cybear_jinni/domain/generic_devices/abstract_device/value_objects_core.dart';
 import 'package:cybear_jinni/domain/generic_devices/generic_switch_device/generic_switch_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-
 import 'package:cybear_jinni/infrastructure/generic_devices/abstract_device/device_entity_dto_abstract.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_switch_device/generic_switch_device_dtos.dart';
 import 'package:cybear_jinni/utils.dart';
@@ -39,7 +38,7 @@ class GenericSwitchDE extends DeviceEntityAbstract {
     required super.deviceCbjUniqueId,
     required this.switchState,
   }) : super(
-          entityTypes: EntityType(DeviceTypes.switch_.toString()),
+          entityTypes: EntityType(EntityTypes.switch_.toString()),
         );
 
   /// Empty instance of GenericSwitchEntity
@@ -67,7 +66,7 @@ class GenericSwitchDE extends DeviceEntityAbstract {
         requestTimeStamp: RequestTimeStamp(''),
         lastResponseFromDeviceTimeStamp: LastResponseFromDeviceTimeStamp(''),
         deviceCbjUniqueId: CoreUniqueId(),
-        switchState: GenericSwitchSwitchState(DeviceActions.off.toString()),
+        switchState: GenericSwitchSwitchState(EntityActions.off.toString()),
       );
 
   /// State of the switch on/off

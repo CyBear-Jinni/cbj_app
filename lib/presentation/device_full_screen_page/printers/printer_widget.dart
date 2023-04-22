@@ -49,14 +49,14 @@ class _SmartPrinterPage extends State<PrinterPage> {
   //   return _switchState = EnumHelperCbj.stringToDeviceAction(
   //         _switch!.com!.getOrCrash(),
   //       ) ==
-  //       DeviceActions.on;
+  //       EntityActions.on;
   // }
   //
   // Future<void> _onChange(bool value) async {
   //   logger.v('OnChange $value');
   //   _switch?.switchState = GenericPrinterPrinterState(
   //     EnumHelperCbj.deviceActionToString(
-  //       value ? DeviceActions.on : DeviceActions.off,
+  //       value ? EntityActions.on : EntityActions.off,
   //     ),
   //   );
   //   if (mounted) {

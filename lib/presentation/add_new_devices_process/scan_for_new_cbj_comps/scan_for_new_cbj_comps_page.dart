@@ -9,6 +9,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+@RoutePage()
 class ScanForNewCBJCompsPage extends StatelessWidget {
   void leftIconFunction(BuildContext context) {
     context.router.replace(const ConnectToHomeWifiRoute());

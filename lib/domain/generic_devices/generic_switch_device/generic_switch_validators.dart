@@ -12,7 +12,7 @@ Either<CoreFailure<String>, String> validateGenericSwitchStateNotEmpty(
 /// Return all the valid actions for smart switch
 List<String> smartSwitchAllValidActions() {
   return [
-    DeviceActions.off.toString(),
-    DeviceActions.on.toString(),
+    EntityActions.off.toString(),
+    EntityActions.on.toString(),
   ];
 }

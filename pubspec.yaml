@@ -1,6 +1,6 @@
 name: cybear_jinni
 description: CyBear Jinni app to interact with your CyBear Jinni Smart Devices
-version: 1.4.0+64
+version: 1.4.1+65
 homepage: https://cybearjinni.com
 
 publish_to: 'none'
@@ -40,7 +40,7 @@ dependencies:
   # Utility classes to work with asynchronous computations.
   async: ^2.11.0
   # Declarative routing solution, where everything needed for navigation is automatically generated for you.
-  auto_route: ^5.0.4
+  auto_route: ^6.0.1
   # Automatically resizes text to fit perfectly within its bounds.
   auto_size_text: ^3.0.0
   # Helps implement the BLoC pattern.
@@ -129,7 +129,7 @@ dependencies:
   # Querying information about the application package, such as CFBundleVersion
   package_info_plus: ^3.0.3
   # Finding commonly used locations on the filesystem
-  path_provider: ^2.0.13
+  path_provider: ^2.0.14
   # Popup that ask for the requested permission
   permission_handler: ^10.2.0
   # Provides runtime support for a Dart implementation of protobufs.
@@ -139,7 +139,7 @@ dependencies:
   # Implementation of the popular reactiveX api for asynchronous programming
   rxdart: ^0.27.7
   # Reading and writing simple key-value pairs
-  shared_preferences: ^2.0.18
+  shared_preferences: ^2.0.20
   # Highly customizable circular slider/progress bar & spinner.
   sleek_circular_slider: ^2.0.1
   # Plugin for launching a URL
@@ -154,7 +154,7 @@ dependencies:
 
 dev_dependencies:
   # Generator for auto_route library.
-  auto_route_generator: ^5.0.3
+  auto_route_generator: ^6.0.0
   # A build system for Dart code generation and modular compilation.
   build_runner: ^2.3.3
   # Package which simplifies the task of updating your Flutter app's launcher icon.
@@ -170,4 +170,4 @@ dev_dependencies:
   #  # Mock framework with APIs for Fakes, Mocks, behavior verification, and stubbing.
   #  mockito: ^5.3.0
   # A full featured library for writing and running Dart tests across platforms.
-  test: ^1.23.1
+  test: ^1.24.0

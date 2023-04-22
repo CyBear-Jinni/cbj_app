@@ -9,17 +9,17 @@ import 'package:cybear_jinni/application/switches/switches_actor/switches_actor_
 import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-
 import 'package:cybear_jinni/injection.dart';
+import 'package:cybear_jinni/presentation/core/types_to_pass.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/blinds_in_the_room.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/boilers_in_the_room.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/lights_in_the_room_block.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/printers_in_the_room_block.dart';
-import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/rgbw_lights_in_the_room_block.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/smart_computers_in_the_room_block.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/smart_plug_in_the_room_block.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/smart_tv_in_the_room.dart';
 import 'package:cybear_jinni/presentation/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/switches_in_the_room_block.dart';
+import 'package:cybear_jinni/utils.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -43,7 +43,7 @@ class RoomWidget extends StatelessWidget {
   final double leftMargin;
   final double rightMargin;
   final double borderRadius;
-  final List<Color> roomColorGradiant;
+  final ListOfColors roomColorGradiant;
   final List<RoomEntity?> roomsList;
   final Map<String, Map<String, List<DeviceEntityAbstract>>>
       tempDevicesByRoomsByType;
@@ -53,6 +53,8 @@ class RoomWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool didAddedLights = false;
+
     return Container(
       margin: EdgeInsets.only(
         bottom: bottomMargin,
@@ -61,7 +63,7 @@ class RoomWidget extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: roomColorGradiant,
+          colors: roomColorGradiant.listOfColors!,
           begin: Alignment.bottomLeft,
           end: Alignment.topLeft,
         ),
@@ -154,10 +156,39 @@ class RoomWidget extends StatelessWidget {
                       .keys
                       .elementAt(secondIndex);
 
-                  final List<DeviceEntityAbstract> devicesInTheRoom =
+                  List<DeviceEntityAbstract> devicesInTheRoom =
                       tempDevicesByRoomsByType[roomId]![deviceType]!;
 
-                  if (deviceType == DeviceTypes.light.toString()) {
+                  if (deviceType == EntityTypes.light.toString() ||
+                      deviceType == EntityTypes.dimmableLight.toString() ||
+                      deviceType == EntityTypes.rgbwLights.toString()) {
+                    if (didAddedLights) {
+                      return const SizedBox();
+                    }
+                    didAddedLights = true;
+
+                    devicesInTheRoom = [];
+
+                    final List<DeviceEntityAbstract>?
+                        tempLightDevicesInTheRoom =
+                        tempDevicesByRoomsByType[roomId]
+                            ?[EntityTypes.light.toString()];
+                    devicesInTheRoom.addAll(tempLightDevicesInTheRoom ?? []);
+
+                    final List<DeviceEntityAbstract>?
+                        tempDimmableLightDevicesInTheRoom =
+                        tempDevicesByRoomsByType[roomId]
+                            ?[EntityTypes.dimmableLight.toString()];
+                    devicesInTheRoom
+                        .addAll(tempDimmableLightDevicesInTheRoom ?? []);
+
+                    final List<DeviceEntityAbstract>?
+                        tempRgbwLightDevicesInTheRoom =
+                        tempDevicesByRoomsByType[roomId]
+                            ?[EntityTypes.rgbwLights.toString()];
+                    devicesInTheRoom
+                        .addAll(tempRgbwLightDevicesInTheRoom ?? []);
+
                     return BlocProvider(
                       create: (context) => getIt<LightsActorBloc>(),
                       child: LightsInTheRoomBlock.withAbstractDevice(
@@ -166,16 +197,7 @@ class RoomWidget extends StatelessWidget {
                         tempRoomColorGradiant: roomColorGradiant,
                       ),
                     );
-                  } else if (deviceType == DeviceTypes.rgbwLights.toString()) {
-                    return BlocProvider(
-                      create: (context) => getIt<LightsActorBloc>(),
-                      child: RgbwLightsInTheRoomBlock.withAbstractDevice(
-                        roomEntity: roomEntity,
-                        tempDeviceInRoom: devicesInTheRoom,
-                        tempRoomColorGradiant: roomColorGradiant,
-                      ),
-                    );
-                  } else if (deviceType == DeviceTypes.switch_.toString()) {
+                  } else if (deviceType == EntityTypes.switch_.toString()) {
                     return BlocProvider(
                       create: (context) => getIt<SwitchesActorBloc>(),
                       child: SwitchesInTheRoomBlock.withAbstractDevice(
@@ -186,7 +208,7 @@ class RoomWidget extends StatelessWidget {
                         tempRoomColorGradiant: roomColorGradiant,
                       ),
                     );
-                  } else if (deviceType == DeviceTypes.blinds.toString()) {
+                  } else if (deviceType == EntityTypes.blinds.toString()) {
                     return BlocProvider(
                       create: (context) => getIt<BlindsActorBloc>(),
                       child: BlindsInTheRoom.withAbstractDevice(
@@ -195,7 +217,7 @@ class RoomWidget extends StatelessWidget {
                         temprRoomColorGradiant: roomColorGradiant,
                       ),
                     );
-                  } else if (deviceType == DeviceTypes.boiler.toString()) {
+                  } else if (deviceType == EntityTypes.boiler.toString()) {
                     //TODO: Boiler should not user Blinds block
                     return BlocProvider(
                       create: (context) => getIt<BlindsActorBloc>(),
@@ -205,7 +227,7 @@ class RoomWidget extends StatelessWidget {
                         tempRoomColorGradiant: roomColorGradiant,
                       ),
                     );
-                  } else if (deviceType == DeviceTypes.smartTV.toString()) {
+                  } else if (deviceType == EntityTypes.smartTV.toString()) {
                     return BlocProvider(
                       create: (context) => getIt<SmartTvActorBloc>(),
                       child: SmartTvInTheRoom.withAbstractDevice(
@@ -214,7 +236,7 @@ class RoomWidget extends StatelessWidget {
                         tempRoomColorGradiant: roomColorGradiant,
                       ),
                     );
-                  } else if (deviceType == DeviceTypes.smartPlug.toString()) {
+                  } else if (deviceType == EntityTypes.smartPlug.toString()) {
                     return BlocProvider(
                       create: (context) => getIt<SmartPlugsActorBloc>(),
                       child: SmartPlugsInTheRoomBlock.withAbstractDevice(
@@ -226,7 +248,7 @@ class RoomWidget extends StatelessWidget {
                       ),
                     );
                   } else if (deviceType ==
-                      DeviceTypes.smartComputer.toString()) {
+                      EntityTypes.smartComputer.toString()) {
                     return BlocProvider(
                       create: (context) => getIt<SmartComputersActorBloc>(),
                       child: SmartComputersInTheRoomBlock.withAbstractDevice(
@@ -237,7 +259,7 @@ class RoomWidget extends StatelessWidget {
                         tempRoomColorGradiant: roomColorGradiant,
                       ),
                     );
-                  } else if (deviceType == DeviceTypes.printer.toString()) {
+                  } else if (deviceType == EntityTypes.printer.toString()) {
                     return BlocProvider(
                       create: (context) => getIt<PrintersActorBloc>(),
                       child: PrintersInTheRoomBlock.withAbstractDevice(
@@ -249,6 +271,9 @@ class RoomWidget extends StatelessWidget {
                       ),
                     );
                   }
+
+                  logger.w('Arrived here unsupported device type $deviceType');
+
                   return TextButton(
                     onPressed: () {
                       FlushbarHelper.createInformation(

@@ -10,6 +10,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 /// Page for adding new routine
+@RoutePage()
 class PickRepeatTimePage extends StatelessWidget {
   void backButtonFunction(BuildContext context) {
     Navigator.pop(context);

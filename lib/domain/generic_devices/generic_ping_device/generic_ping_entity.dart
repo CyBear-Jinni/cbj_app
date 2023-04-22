@@ -3,7 +3,6 @@ import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entit
 import 'package:cybear_jinni/domain/generic_devices/abstract_device/value_objects_core.dart';
 import 'package:cybear_jinni/domain/generic_devices/generic_ping_device/generic_ping_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-
 import 'package:cybear_jinni/infrastructure/generic_devices/abstract_device/device_entity_dto_abstract.dart';
 import 'package:cybear_jinni/infrastructure/generic_devices/generic_ping_device/generic_ping_device_dtos.dart';
 import 'package:cybear_jinni/utils.dart';
@@ -39,7 +38,7 @@ class GenericPingDE extends DeviceEntityAbstract {
     required super.deviceCbjUniqueId,
     required this.pingSwitchState,
   }) : super(
-          entityTypes: EntityType(DeviceTypes.pingDevice.toString()),
+          entityTypes: EntityType(EntityTypes.pingEntity.toString()),
         );
 
   /// Ping instance of GenericPingEntity
@@ -49,7 +48,7 @@ class GenericPingDE extends DeviceEntityAbstract {
         cbjEntityName: CbjEntityName('Ping device'),
         entityOriginalName: EntityOriginalName('Missing entity original name'),
         deviceOriginalName: DeviceOriginalName('Missing device original name'),
-        entityStateGRPC: EntityState(DeviceStateGRPC.pingNow.toString()),
+        entityStateGRPC: EntityState(EntityStateGRPC.pingNow.toString()),
         senderDeviceOs: DeviceSenderDeviceOs('Hub'),
         senderDeviceModel: DeviceSenderDeviceModel('Hub'),
         stateMassage: DeviceStateMassage('Test'),
@@ -69,7 +68,7 @@ class GenericPingDE extends DeviceEntityAbstract {
         requestTimeStamp: RequestTimeStamp(''),
         lastResponseFromDeviceTimeStamp: LastResponseFromDeviceTimeStamp(''),
         deviceCbjUniqueId: CoreUniqueId(),
-        pingSwitchState: GenericPingSwitchState(DeviceActions.off.toString()),
+        pingSwitchState: GenericPingSwitchState(EntityActions.off.toString()),
       );
 
   /// State of the ping on/off

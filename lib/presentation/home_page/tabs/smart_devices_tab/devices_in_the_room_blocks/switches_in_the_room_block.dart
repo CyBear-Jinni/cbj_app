@@ -4,6 +4,7 @@ import 'package:cybear_jinni/application/switches/switches_actor/switches_actor_
 import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/generic_devices/generic_switch_device/generic_switch_entity.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
+import 'package:cybear_jinni/presentation/core/types_to_pass.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
   factory SwitchesInTheRoomBlock.withAbstractDevice({
     required RoomEntity roomEntityTemp,
     required List<DeviceEntityAbstract> tempDeviceInRoom,
-    required List<Color> tempRoomColorGradiant,
+    required ListOfColors tempRoomColorGradiant,
   }) {
     final List<GenericSwitchDE> tempSwitchesInRoom = [];
 
@@ -37,7 +38,7 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
 
   final RoomEntity roomEntity;
   final List<GenericSwitchDE> switchesInRoom;
-  final List<Color> roomColorGradiant;
+  final ListOfColors roomColorGradiant;
 
   @override
   Widget build(BuildContext context) {

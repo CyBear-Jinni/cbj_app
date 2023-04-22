@@ -1,7 +1,6 @@
 import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
 import 'package:cybear_jinni/domain/generic_devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_switch/flutter_switch.dart';
@@ -34,13 +33,13 @@ class LightWidget extends StatelessWidget {
     bool toggleValue = false;
     Color toggleColor = Colors.blueGrey;
 
-    if (deviceAction == DeviceActions.on.toString()) {
+    if (deviceAction == EntityActions.on.toString()) {
       toggleValue = true;
-      if (deviceState == DeviceStateGRPC.ack.toString()) {
+      if (deviceState == EntityStateGRPC.ack.toString()) {
         toggleColor = const Color(0xFFFFDF5D);
       }
     } else {
-      if (deviceState == DeviceStateGRPC.ack.toString()) {
+      if (deviceState == EntityStateGRPC.ack.toString()) {
         toggleColor = Theme.of(context).primaryColorDark;
       }
     }

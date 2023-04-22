@@ -4,6 +4,7 @@ import 'package:cybear_jinni/application/smart_plugs/smart_plugs_actor/smart_plu
 import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/generic_devices/generic_smart_plug_device/generic_smart_plug_entity.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
+import 'package:cybear_jinni/presentation/core/types_to_pass.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class SmartPlugsInTheRoomBlock extends StatelessWidget {
   factory SmartPlugsInTheRoomBlock.withAbstractDevice({
     required RoomEntity roomEntityTemp,
     required List<DeviceEntityAbstract> tempDeviceInRoom,
-    required List<Color> tempRoomColorGradiant,
+    required ListOfColors tempRoomColorGradiant,
   }) {
     final List<GenericSmartPlugDE> tempSmartPlugsInRoom = [];
 
@@ -37,7 +38,7 @@ class SmartPlugsInTheRoomBlock extends StatelessWidget {
 
   final RoomEntity roomEntity;
   final List<GenericSmartPlugDE> smartPlugsInRoom;
-  final List<Color> roomColorGradiant;
+  final ListOfColors roomColorGradiant;
 
   @override
   Widget build(BuildContext context) {

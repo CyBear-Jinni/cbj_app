@@ -4,6 +4,7 @@ import 'package:cybear_jinni/application/blinds/blinds_actor/blinds_actor_bloc.d
 import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/generic_devices/generic_blinds_device/generic_blinds_entity.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
+import 'package:cybear_jinni/presentation/core/types_to_pass.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class BlindsInTheRoom extends StatelessWidget {
   factory BlindsInTheRoom.withAbstractDevice({
     required RoomEntity roomEntity,
     required List<DeviceEntityAbstract> tempDeviceInRoom,
-    required List<Color> temprRoomColorGradiant,
+    required ListOfColors temprRoomColorGradiant,
   }) {
     final List<GenericBlindsDE> tempLightsInRoom = [];
 
@@ -37,7 +38,7 @@ class BlindsInTheRoom extends StatelessWidget {
 
   final RoomEntity roomEntity;
   final List<GenericBlindsDE?>? blindsInRoom;
-  final List<Color>? roomColorGradiant;
+  final ListOfColors? roomColorGradiant;
 
   @override
   Widget build(BuildContext context) {

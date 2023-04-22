@@ -12,8 +12,8 @@ import 'package:protobuf/protobuf.dart' as $pb;
 class SendingType extends $pb.ProtobufEnum {
   static const SendingType undefinedType = SendingType._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'undefinedType');
   static const SendingType stringType = SendingType._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'stringType');
-  static const SendingType partialDeviceType = SendingType._(2, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'partialDeviceType');
-  static const SendingType deviceType = SendingType._(3, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'deviceType');
+  static const SendingType partialEntityType = SendingType._(2, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'partialEntityType');
+  static const SendingType entityType = SendingType._(3, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'entityType');
   static const SendingType mqttMassageType = SendingType._(4, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'mqttMassageType');
   static const SendingType sceneType = SendingType._(5, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'sceneType');
   static const SendingType scheduleType = SendingType._(6, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'scheduleType');
@@ -22,16 +22,16 @@ class SendingType extends $pb.ProtobufEnum {
   static const SendingType vendorLoginType = SendingType._(9, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'vendorLoginType');
   static const SendingType firstConnection = SendingType._(10, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'firstConnection');
   static const SendingType remotePipesInformation = SendingType._(11, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'remotePipesInformation');
-  static const SendingType getHubDeviceInfo = SendingType._(12, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'getHubDeviceInfo');
-  static const SendingType responseHubDeviceInfo = SendingType._(13, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'responseHubDeviceInfo');
+  static const SendingType getHubEntityInfo = SendingType._(12, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'getHubEntityInfo');
+  static const SendingType responseHubEntityInfo = SendingType._(13, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'responseHubEntityInfo');
   static const SendingType roomType = SendingType._(14, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'roomType');
   static const SendingType location = SendingType._(15, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'location');
 
   static const $core.List<SendingType> values = <SendingType> [
     undefinedType,
     stringType,
-    partialDeviceType,
-    deviceType,
+    partialEntityType,
+    entityType,
     mqttMassageType,
     sceneType,
     scheduleType,
@@ -40,8 +40,8 @@ class SendingType extends $pb.ProtobufEnum {
     vendorLoginType,
     firstConnection,
     remotePipesInformation,
-    getHubDeviceInfo,
-    responseHubDeviceInfo,
+    getHubEntityInfo,
+    responseHubEntityInfo,
     roomType,
     location,
   ];
@@ -52,39 +52,39 @@ class SendingType extends $pb.ProtobufEnum {
   const SendingType._($core.int v, $core.String n) : super(v, n);
 }
 
-class DeviceStateGRPC extends $pb.ProtobufEnum {
-  static const DeviceStateGRPC stateNotSupported = DeviceStateGRPC._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'stateNotSupported');
-  static const DeviceStateGRPC cancelStateInProcess = DeviceStateGRPC._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'cancelStateInProcess');
-  static const DeviceStateGRPC ack = DeviceStateGRPC._(2, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'ack');
-  static const DeviceStateGRPC newStateFailed = DeviceStateGRPC._(3, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'newStateFailed');
-  static const DeviceStateGRPC waitingInFirebase = DeviceStateGRPC._(4, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'waitingInFirebase');
-  static const DeviceStateGRPC waitingInComp = DeviceStateGRPC._(5, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'waitingInComp');
-  static const DeviceStateGRPC noDevicesToTransfer = DeviceStateGRPC._(6, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'noDevicesToTransfer');
-  static const DeviceStateGRPC pingNow = DeviceStateGRPC._(7, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'pingNow');
-  static const DeviceStateGRPC addingNewScene = DeviceStateGRPC._(8, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'addingNewScene');
-  static const DeviceStateGRPC addingNewRoutine = DeviceStateGRPC._(9, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'addingNewRoutine');
-  static const DeviceStateGRPC addingNewBinding = DeviceStateGRPC._(10, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'addingNewBinding');
-  static const DeviceStateGRPC updateHubDevicePropertiesFromRealDevice = DeviceStateGRPC._(11, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'updateHubDevicePropertiesFromRealDevice');
+class EntityStateGRPC extends $pb.ProtobufEnum {
+  static const EntityStateGRPC stateNotSupported = EntityStateGRPC._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'stateNotSupported');
+  static const EntityStateGRPC cancelStateInProcess = EntityStateGRPC._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'cancelStateInProcess');
+  static const EntityStateGRPC ack = EntityStateGRPC._(2, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'ack');
+  static const EntityStateGRPC newStateFailed = EntityStateGRPC._(3, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'newStateFailed');
+  static const EntityStateGRPC waitingInCloud = EntityStateGRPC._(4, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'waitingInCloud');
+  static const EntityStateGRPC waitingInComp = EntityStateGRPC._(5, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'waitingInComp');
+  static const EntityStateGRPC noEntitiesToTransfer = EntityStateGRPC._(6, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'noEntitiesToTransfer');
+  static const EntityStateGRPC pingNow = EntityStateGRPC._(7, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'pingNow');
+  static const EntityStateGRPC addingNewScene = EntityStateGRPC._(8, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'addingNewScene');
+  static const EntityStateGRPC addingNewRoutine = EntityStateGRPC._(9, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'addingNewRoutine');
+  static const EntityStateGRPC addingNewBinding = EntityStateGRPC._(10, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'addingNewBinding');
+  static const EntityStateGRPC updateHubEntityPropertiesFromRealEntity = EntityStateGRPC._(11, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'updateHubEntityPropertiesFromRealEntity');
 
-  static const $core.List<DeviceStateGRPC> values = <DeviceStateGRPC> [
+  static const $core.List<EntityStateGRPC> values = <EntityStateGRPC> [
     stateNotSupported,
     cancelStateInProcess,
     ack,
     newStateFailed,
-    waitingInFirebase,
+    waitingInCloud,
     waitingInComp,
-    noDevicesToTransfer,
+    noEntitiesToTransfer,
     pingNow,
     addingNewScene,
     addingNewRoutine,
     addingNewBinding,
-    updateHubDevicePropertiesFromRealDevice,
+    updateHubEntityPropertiesFromRealEntity,
   ];
 
-  static final $core.Map<$core.int, DeviceStateGRPC> _byValue = $pb.ProtobufEnum.initByValue(values);
-  static DeviceStateGRPC? valueOf($core.int value) => _byValue[value];
+  static final $core.Map<$core.int, EntityStateGRPC> _byValue = $pb.ProtobufEnum.initByValue(values);
+  static EntityStateGRPC? valueOf($core.int value) => _byValue[value];
 
-  const DeviceStateGRPC._($core.int v, $core.String n) : super(v, n);
+  const EntityStateGRPC._($core.int v, $core.String n) : super(v, n);
 }
 
 class VendorsAndServices extends $pb.ProtobufEnum {
@@ -111,10 +111,37 @@ class VendorsAndServices extends $pb.ProtobufEnum {
   static const VendorsAndServices yeelink = VendorsAndServices._(20, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'yeelink');
   static const VendorsAndServices xiaomi = VendorsAndServices._(21, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'xiaomi');
   static const VendorsAndServices sonoffEweLink = VendorsAndServices._(22, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'sonoffEweLink');
-  static const VendorsAndServices cbjDevices = VendorsAndServices._(23, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'cbjDevices');
+  static const VendorsAndServices cbjDeviceSmartEntity = VendorsAndServices._(23, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'cbjDeviceSmartEntity');
   static const VendorsAndServices wiz = VendorsAndServices._(24, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'wiz');
   static const VendorsAndServices switchBot = VendorsAndServices._(25, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'switchBot');
   static const VendorsAndServices somfy = VendorsAndServices._(26, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'somfy');
+  static const VendorsAndServices sensibo = VendorsAndServices._(27, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'sensibo');
+  static const VendorsAndServices aqara = VendorsAndServices._(28, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'aqara');
+  static const VendorsAndServices matter = VendorsAndServices._(29, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'matter');
+  static const VendorsAndServices nest = VendorsAndServices._(30, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'nest');
+  static const VendorsAndServices uniFi = VendorsAndServices._(31, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'uniFi');
+  static const VendorsAndServices ring = VendorsAndServices._(32, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'ring');
+  static const VendorsAndServices myQ = VendorsAndServices._(33, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'myQ');
+  static const VendorsAndServices wemo = VendorsAndServices._(34, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'wemo');
+  static const VendorsAndServices tpLink = VendorsAndServices._(35, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'tpLink');
+  static const VendorsAndServices nuki = VendorsAndServices._(36, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'nuki');
+  static const VendorsAndServices homebridge = VendorsAndServices._(37, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'homebridge');
+  static const VendorsAndServices homeKit = VendorsAndServices._(38, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'homeKit');
+  static const VendorsAndServices twinkly = VendorsAndServices._(39, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'twinkly');
+  static const VendorsAndServices samsung = VendorsAndServices._(40, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'samsung');
+  static const VendorsAndServices tizen = VendorsAndServices._(41, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'tizen');
+  static const VendorsAndServices zigbee = VendorsAndServices._(42, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'zigbee');
+  static const VendorsAndServices zWave = VendorsAndServices._(43, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'zWave');
+  static const VendorsAndServices ffmpeg = VendorsAndServices._(44, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'ffmpeg');
+  static const VendorsAndServices lightwaveRf = VendorsAndServices._(45, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'lightwaveRf');
+  static const VendorsAndServices cololight = VendorsAndServices._(46, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'cololight');
+  static const VendorsAndServices broadlink = VendorsAndServices._(47, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'broadlink');
+  static const VendorsAndServices switchBee = VendorsAndServices._(48, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'switchBee');
+  static const VendorsAndServices mycroft = VendorsAndServices._(49, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'mycroft');
+  static const VendorsAndServices xiaomiMi = VendorsAndServices._(50, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'xiaomiMi');
+  static const VendorsAndServices cyBearJinniAppSmartEntity = VendorsAndServices._(51, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'cyBearJinniAppSmartEntity');
+  static const VendorsAndServices securityBear = VendorsAndServices._(52, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'securityBear');
+  static const VendorsAndServices jinniAssistant = VendorsAndServices._(53, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'jinniAssistant');
 
   static const $core.List<VendorsAndServices> values = <VendorsAndServices> [
     vendorsAndServicesNotSupported,
@@ -140,10 +167,37 @@ class VendorsAndServices extends $pb.ProtobufEnum {
     yeelink,
     xiaomi,
     sonoffEweLink,
-    cbjDevices,
+    cbjDeviceSmartEntity,
     wiz,
     switchBot,
     somfy,
+    sensibo,
+    aqara,
+    matter,
+    nest,
+    uniFi,
+    ring,
+    myQ,
+    wemo,
+    tpLink,
+    nuki,
+    homebridge,
+    homeKit,
+    twinkly,
+    samsung,
+    tizen,
+    zigbee,
+    zWave,
+    ffmpeg,
+    lightwaveRf,
+    cololight,
+    broadlink,
+    switchBee,
+    mycroft,
+    xiaomiMi,
+    cyBearJinniAppSmartEntity,
+    securityBear,
+    jinniAssistant,
   ];
 
   static final $core.Map<$core.int, VendorsAndServices> _byValue = $pb.ProtobufEnum.initByValue(values);
@@ -152,58 +206,61 @@ class VendorsAndServices extends $pb.ProtobufEnum {
   const VendorsAndServices._($core.int v, $core.String n) : super(v, n);
 }
 
-class DeviceTypes extends $pb.ProtobufEnum {
-  static const DeviceTypes smartTypeNotSupported = DeviceTypes._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'smartTypeNotSupported');
-  static const DeviceTypes light = DeviceTypes._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'light');
-  static const DeviceTypes blinds = DeviceTypes._(2, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'blinds');
-  static const DeviceTypes boiler = DeviceTypes._(3, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'boiler');
-  static const DeviceTypes button = DeviceTypes._(4, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'button');
-  static const DeviceTypes buttonWithLight = DeviceTypes._(5, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'buttonWithLight');
-  static const DeviceTypes hub = DeviceTypes._(7, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'hub');
-  static const DeviceTypes phoneApp = DeviceTypes._(8, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'phoneApp');
-  static const DeviceTypes computerApp = DeviceTypes._(9, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'computerApp');
-  static const DeviceTypes browserApp = DeviceTypes._(10, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'browserApp');
-  static const DeviceTypes switch_ = DeviceTypes._(11, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'switch');
-  static const DeviceTypes dimmableLight = DeviceTypes._(12, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'dimmableLight');
-  static const DeviceTypes cctLight = DeviceTypes._(13, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'cctLight');
-  static const DeviceTypes rgbLights = DeviceTypes._(14, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'rgbLights');
-  static const DeviceTypes rgbwLights = DeviceTypes._(15, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'rgbwLights');
-  static const DeviceTypes rgbcctLights = DeviceTypes._(16, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'rgbcctLights');
-  static const DeviceTypes smartTV = DeviceTypes._(17, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'smartTV');
-  static const DeviceTypes smartSpeakers = DeviceTypes._(18, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'smartSpeakers');
-  static const DeviceTypes coffeeMachine = DeviceTypes._(19, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'coffeeMachine');
-  static const DeviceTypes kettle = DeviceTypes._(20, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'kettle');
-  static const DeviceTypes teapot = DeviceTypes._(21, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'teapot');
-  static const DeviceTypes washingMachine = DeviceTypes._(22, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'washingMachine');
-  static const DeviceTypes dishwasher = DeviceTypes._(23, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'dishwasher');
-  static const DeviceTypes toaster = DeviceTypes._(24, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'toaster');
-  static const DeviceTypes vacuumCleaner = DeviceTypes._(25, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'vacuumCleaner');
-  static const DeviceTypes refrigerator = DeviceTypes._(26, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'refrigerator');
-  static const DeviceTypes bed = DeviceTypes._(27, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'bed');
-  static const DeviceTypes oven = DeviceTypes._(28, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'oven');
-  static const DeviceTypes AirConditioner = DeviceTypes._(29, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'AirConditioner');
-  static const DeviceTypes smartWatch = DeviceTypes._(30, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'smartWatch');
-  static const DeviceTypes smartWaterBottle = DeviceTypes._(31, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'smartWaterBottle');
-  static const DeviceTypes microphone = DeviceTypes._(32, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'microphone');
-  static const DeviceTypes securityCamera = DeviceTypes._(33, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'securityCamera');
-  static const DeviceTypes babyMonitor = DeviceTypes._(34, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'babyMonitor');
-  static const DeviceTypes motionSensor = DeviceTypes._(35, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'motionSensor');
-  static const DeviceTypes temperatureSensor = DeviceTypes._(36, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'temperatureSensor');
-  static const DeviceTypes humiditySensor = DeviceTypes._(37, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'humiditySensor');
-  static const DeviceTypes lightSensor = DeviceTypes._(38, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'lightSensor');
-  static const DeviceTypes soundSensor = DeviceTypes._(39, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'soundSensor');
-  static const DeviceTypes smokeSensor = DeviceTypes._(40, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'smokeSensor');
-  static const DeviceTypes smokeDetector = DeviceTypes._(41, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'smokeDetector');
-  static const DeviceTypes oxygenSensor = DeviceTypes._(42, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'oxygenSensor');
-  static const DeviceTypes smartPlug = DeviceTypes._(43, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'smartPlug');
-  static const DeviceTypes printer = DeviceTypes._(44, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'printer');
-  static const DeviceTypes scanner = DeviceTypes._(45, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'scanner');
-  static const DeviceTypes printerWithScanner = DeviceTypes._(46, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'printerWithScanner');
-  static const DeviceTypes smartComputer = DeviceTypes._(47, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'smartComputer');
-  static const DeviceTypes emptyDevice = DeviceTypes._(48, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'emptyDevice');
-  static const DeviceTypes pingDevice = DeviceTypes._(49, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'pingDevice');
+class EntityTypes extends $pb.ProtobufEnum {
+  static const EntityTypes smartTypeNotSupported = EntityTypes._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'smartTypeNotSupported');
+  static const EntityTypes light = EntityTypes._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'light');
+  static const EntityTypes blinds = EntityTypes._(2, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'blinds');
+  static const EntityTypes boiler = EntityTypes._(3, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'boiler');
+  static const EntityTypes button = EntityTypes._(4, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'button');
+  static const EntityTypes buttonWithLight = EntityTypes._(5, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'buttonWithLight');
+  static const EntityTypes hub = EntityTypes._(7, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'hub');
+  static const EntityTypes phoneApp = EntityTypes._(8, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'phoneApp');
+  static const EntityTypes computerApp = EntityTypes._(9, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'computerApp');
+  static const EntityTypes browserApp = EntityTypes._(10, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'browserApp');
+  static const EntityTypes switch_ = EntityTypes._(11, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'switch');
+  static const EntityTypes dimmableLight = EntityTypes._(12, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'dimmableLight');
+  static const EntityTypes cctLight = EntityTypes._(13, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'cctLight');
+  static const EntityTypes rgbLights = EntityTypes._(14, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'rgbLights');
+  static const EntityTypes rgbwLights = EntityTypes._(15, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'rgbwLights');
+  static const EntityTypes rgbcctLights = EntityTypes._(16, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'rgbcctLights');
+  static const EntityTypes smartTV = EntityTypes._(17, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'smartTV');
+  static const EntityTypes smartSpeakers = EntityTypes._(18, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'smartSpeakers');
+  static const EntityTypes coffeeMachine = EntityTypes._(19, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'coffeeMachine');
+  static const EntityTypes kettle = EntityTypes._(20, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'kettle');
+  static const EntityTypes teapot = EntityTypes._(21, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'teapot');
+  static const EntityTypes washingMachine = EntityTypes._(22, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'washingMachine');
+  static const EntityTypes dishwasher = EntityTypes._(23, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'dishwasher');
+  static const EntityTypes toaster = EntityTypes._(24, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'toaster');
+  static const EntityTypes vacuumCleaner = EntityTypes._(25, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'vacuumCleaner');
+  static const EntityTypes refrigerator = EntityTypes._(26, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'refrigerator');
+  static const EntityTypes bed = EntityTypes._(27, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'bed');
+  static const EntityTypes oven = EntityTypes._(28, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'oven');
+  static const EntityTypes AirConditioner = EntityTypes._(29, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'AirConditioner');
+  static const EntityTypes smartWatch = EntityTypes._(30, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'smartWatch');
+  static const EntityTypes smartWaterBottle = EntityTypes._(31, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'smartWaterBottle');
+  static const EntityTypes microphone = EntityTypes._(32, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'microphone');
+  static const EntityTypes securityCamera = EntityTypes._(33, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'securityCamera');
+  static const EntityTypes babyMonitor = EntityTypes._(34, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'babyMonitor');
+  static const EntityTypes motionSensor = EntityTypes._(35, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'motionSensor');
+  static const EntityTypes temperatureSensor = EntityTypes._(36, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'temperatureSensor');
+  static const EntityTypes humiditySensor = EntityTypes._(37, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'humiditySensor');
+  static const EntityTypes lightSensor = EntityTypes._(38, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'lightSensor');
+  static const EntityTypes soundSensor = EntityTypes._(39, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'soundSensor');
+  static const EntityTypes smokeSensor = EntityTypes._(40, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'smokeSensor');
+  static const EntityTypes smokeDetector = EntityTypes._(41, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'smokeDetector');
+  static const EntityTypes oxygenSensor = EntityTypes._(42, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'oxygenSensor');
+  static const EntityTypes smartPlug = EntityTypes._(43, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'smartPlug');
+  static const EntityTypes printer = EntityTypes._(44, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'printer');
+  static const EntityTypes scanner = EntityTypes._(45, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'scanner');
+  static const EntityTypes printerWithScanner = EntityTypes._(46, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'printerWithScanner');
+  static const EntityTypes smartComputer = EntityTypes._(47, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'smartComputer');
+  static const EntityTypes emptyEntity = EntityTypes._(48, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'emptyEntity');
+  static const EntityTypes pingEntity = EntityTypes._(49, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'pingEntity');
+  static const EntityTypes routerEntity = EntityTypes._(50, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'routerEntity');
+  static const EntityTypes playerEntity = EntityTypes._(51, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'playerEntity');
+  static const EntityTypes voiceAssistant = EntityTypes._(52, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'voiceAssistant');
 
-  static const $core.List<DeviceTypes> values = <DeviceTypes> [
+  static const $core.List<EntityTypes> values = <EntityTypes> [
     smartTypeNotSupported,
     light,
     blinds,
@@ -251,47 +308,53 @@ class DeviceTypes extends $pb.ProtobufEnum {
     scanner,
     printerWithScanner,
     smartComputer,
-    emptyDevice,
-    pingDevice,
+    emptyEntity,
+    pingEntity,
+    routerEntity,
+    playerEntity,
+    voiceAssistant,
   ];
 
-  static final $core.Map<$core.int, DeviceTypes> _byValue = $pb.ProtobufEnum.initByValue(values);
-  static DeviceTypes? valueOf($core.int value) => _byValue[value];
+  static final $core.Map<$core.int, EntityTypes> _byValue = $pb.ProtobufEnum.initByValue(values);
+  static EntityTypes? valueOf($core.int value) => _byValue[value];
 
-  const DeviceTypes._($core.int v, $core.String n) : super(v, n);
+  const EntityTypes._($core.int v, $core.String n) : super(v, n);
 }
 
-class DeviceActions extends $pb.ProtobufEnum {
-  static const DeviceActions actionNotSupported = DeviceActions._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'actionNotSupported');
-  static const DeviceActions on = DeviceActions._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'on');
-  static const DeviceActions off = DeviceActions._(2, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'off');
-  static const DeviceActions moveUp = DeviceActions._(3, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'moveUp');
-  static const DeviceActions stop = DeviceActions._(4, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'stop');
-  static const DeviceActions moveDown = DeviceActions._(5, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'moveDown');
-  static const DeviceActions pressed = DeviceActions._(6, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'pressed');
-  static const DeviceActions longPress = DeviceActions._(7, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'longPress');
-  static const DeviceActions doubleTap = DeviceActions._(8, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'doubleTap');
-  static const DeviceActions position = DeviceActions._(9, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'position');
-  static const DeviceActions suspend = DeviceActions._(10, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'suspend');
-  static const DeviceActions shutdown = DeviceActions._(11, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'shutdown');
-  static const DeviceActions itIsFalse = DeviceActions._(12, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'itIsFalse');
-  static const DeviceActions itIsTrue = DeviceActions._(13, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'itIsTrue');
-  static const DeviceActions pausePlay = DeviceActions._(14, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'pausePlay');
-  static const DeviceActions changeVolume = DeviceActions._(15, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'changeVolume');
-  static const DeviceActions jump = DeviceActions._(16, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'jump');
-  static const DeviceActions skip = DeviceActions._(17, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'skip');
-  static const DeviceActions pause = DeviceActions._(18, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'pause');
-  static const DeviceActions play = DeviceActions._(19, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'play');
-  static const DeviceActions volumeUp = DeviceActions._(20, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'volumeUp');
-  static const DeviceActions volumeDown = DeviceActions._(21, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'volumeDown');
-  static const DeviceActions skipForeword = DeviceActions._(22, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'skipForeword');
-  static const DeviceActions skipBackward = DeviceActions._(23, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'skipBackward');
-  static const DeviceActions skipNextVid = DeviceActions._(24, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'skipNextVid');
-  static const DeviceActions skipPreviousVid = DeviceActions._(25, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'skipPreviousVid');
-  static const DeviceActions open = DeviceActions._(26, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'open');
-  static const DeviceActions close = DeviceActions._(27, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'close');
+class EntityActions extends $pb.ProtobufEnum {
+  static const EntityActions actionNotSupported = EntityActions._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'actionNotSupported');
+  static const EntityActions on = EntityActions._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'on');
+  static const EntityActions off = EntityActions._(2, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'off');
+  static const EntityActions moveUp = EntityActions._(3, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'moveUp');
+  static const EntityActions stop = EntityActions._(4, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'stop');
+  static const EntityActions moveDown = EntityActions._(5, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'moveDown');
+  static const EntityActions pressed = EntityActions._(6, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'pressed');
+  static const EntityActions longPress = EntityActions._(7, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'longPress');
+  static const EntityActions doubleTap = EntityActions._(8, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'doubleTap');
+  static const EntityActions position = EntityActions._(9, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'position');
+  static const EntityActions suspend = EntityActions._(10, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'suspend');
+  static const EntityActions shutdown = EntityActions._(11, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'shutdown');
+  static const EntityActions itIsFalse = EntityActions._(12, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'itIsFalse');
+  static const EntityActions itIsTrue = EntityActions._(13, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'itIsTrue');
+  static const EntityActions pausePlay = EntityActions._(14, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'pausePlay');
+  static const EntityActions changeVolume = EntityActions._(15, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'changeVolume');
+  static const EntityActions jump = EntityActions._(16, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'jump');
+  static const EntityActions skip = EntityActions._(17, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'skip');
+  static const EntityActions pause = EntityActions._(18, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'pause');
+  static const EntityActions play = EntityActions._(19, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'play');
+  static const EntityActions volumeUp = EntityActions._(20, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'volumeUp');
+  static const EntityActions volumeDown = EntityActions._(21, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'volumeDown');
+  static const EntityActions skipForeword = EntityActions._(22, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'skipForeword');
+  static const EntityActions skipBackward = EntityActions._(23, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'skipBackward');
+  static const EntityActions skipNextVid = EntityActions._(24, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'skipNextVid');
+  static const EntityActions skipPreviousVid = EntityActions._(25, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'skipPreviousVid');
+  static const EntityActions open = EntityActions._(26, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'open');
+  static const EntityActions close = EntityActions._(27, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'close');
+  static const EntityActions changeTemperature = EntityActions._(28, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'changeTemperature');
+  static const EntityActions changeFanSpeed = EntityActions._(29, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'changeFanSpeed');
+  static const EntityActions changeMod = EntityActions._(30, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'changeMod');
 
-  static const $core.List<DeviceActions> values = <DeviceActions> [
+  static const $core.List<EntityActions> values = <EntityActions> [
     actionNotSupported,
     on,
     off,
@@ -320,12 +383,15 @@ class DeviceActions extends $pb.ProtobufEnum {
     skipPreviousVid,
     open,
     close,
+    changeTemperature,
+    changeFanSpeed,
+    changeMod,
   ];
 
-  static final $core.Map<$core.int, DeviceActions> _byValue = $pb.ProtobufEnum.initByValue(values);
-  static DeviceActions? valueOf($core.int value) => _byValue[value];
+  static final $core.Map<$core.int, EntityActions> _byValue = $pb.ProtobufEnum.initByValue(values);
+  static EntityActions? valueOf($core.int value) => _byValue[value];
 
-  const DeviceActions._($core.int v, $core.String n) : super(v, n);
+  const EntityActions._($core.int v, $core.String n) : super(v, n);
 }
 
 class WhenToExecute extends $pb.ProtobufEnum {
@@ -338,7 +404,7 @@ class WhenToExecute extends $pb.ProtobufEnum {
   static const WhenToExecute never = WhenToExecute._(6, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'never');
   static const WhenToExecute onceNow = WhenToExecute._(7, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'onceNow');
   static const WhenToExecute onceInSelectedTime = WhenToExecute._(8, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'onceInSelectedTime');
-  static const WhenToExecute onlyIfDeviceListIsAreInActionListState = WhenToExecute._(9, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'onlyIfDeviceListIsAreInActionListState');
+  static const WhenToExecute onlyIfEntityListAreInActionListState = WhenToExecute._(9, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'onlyIfEntityListAreInActionListState');
   static const WhenToExecute atHome = WhenToExecute._(10, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'atHome');
   static const WhenToExecute outOfHome = WhenToExecute._(11, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'outOfHome');
   static const WhenToExecute atASpecificTime = WhenToExecute._(12, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'atASpecificTime');
@@ -353,7 +419,7 @@ class WhenToExecute extends $pb.ProtobufEnum {
     never,
     onceNow,
     onceInSelectedTime,
-    onlyIfDeviceListIsAreInActionListState,
+    onlyIfEntityListAreInActionListState,
     atHome,
     outOfHome,
     atASpecificTime,
@@ -384,7 +450,7 @@ class AreaPurposesTypes extends $pb.ProtobufEnum {
   static const AreaPurposesTypes romantic = AreaPurposesTypes._(15, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'romantic');
   static const AreaPurposesTypes stairsInside = AreaPurposesTypes._(16, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'stairsInside');
   static const AreaPurposesTypes stairsOutside = AreaPurposesTypes._(17, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'stairsOutside');
-  static const AreaPurposesTypes childrensRoom = AreaPurposesTypes._(18, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'childrensRoom');
+  static const AreaPurposesTypes childrenRoom = AreaPurposesTypes._(18, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'childrenRoom');
   static const AreaPurposesTypes cinemaRoom = AreaPurposesTypes._(19, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'cinemaRoom');
   static const AreaPurposesTypes boardGames = AreaPurposesTypes._(20, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'boardGames');
   static const AreaPurposesTypes bathtub = AreaPurposesTypes._(21, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'bathtub');
@@ -413,7 +479,7 @@ class AreaPurposesTypes extends $pb.ProtobufEnum {
     romantic,
     stairsInside,
     stairsOutside,
-    childrensRoom,
+    childrenRoom,
     cinemaRoom,
     boardGames,
     bathtub,

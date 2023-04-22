@@ -12,6 +12,6 @@ Either<CoreFailure<String>, String> validateGenericPingStateNotEmpty(
 /// Return all the valid actions for blinds
 List<String> pingAllValidActions() {
   return [
-    DeviceActions.actionNotSupported.toString(),
+    EntityActions.actionNotSupported.toString(),
   ];
 }

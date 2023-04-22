@@ -2,6 +2,7 @@ import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/esphome_auth/esphome_sign_in_form/esphome_sign_in_form_bloc.dart';
 import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.dart';
+import 'package:cybear_jinni/domain/vendors/vendor.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:dartz/dartz.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -11,6 +12,10 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class EspHomeSignInForm extends StatelessWidget {
+  const EspHomeSignInForm(this.vendor);
+
+  final Vendor vendor;
+
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
@@ -52,10 +57,10 @@ class EspHomeSignInForm extends StatelessWidget {
                   child: Container(
                     width: 180,
                     height: 180,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       image: DecorationImage(
                         image: NetworkImage(
-                          'https://i.ibb.co/W2YG23s/ESPHome-logo.png',
+                          vendor.image ?? '',
                         ),
                         fit: BoxFit.fitHeight,
                       ),
