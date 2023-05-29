@@ -12,12 +12,12 @@ import 'package:path_provider/path_provider.dart';
 @LazySingleton(as: ILocalDbRepository)
 class IsarRepository extends ILocalDbRepository {
   IsarRepository() {
-    asyncConstractor();
+    asyncConstructor();
   }
 
   late Isar isar;
 
-  Future<void> asyncConstractor() async {
+  Future<void> asyncConstructor() async {
     final dir = await getApplicationDocumentsDirectory();
     isar = await Isar.open(
       [
@@ -117,7 +117,7 @@ class IsarRepository extends ILocalDbRepository {
 
       logger.i("Didn't find any remote pipes in the local DB");
     } catch (e) {
-      logger.e('Local DB isar error: $e');
+      logger.e('Local DB isar getRemotePipesDnsName error: $e');
     }
     return left(const LocalDbFailures.unexpected());
   }
@@ -140,7 +140,7 @@ class IsarRepository extends ILocalDbRepository {
 
       logger.i("Didn't find any Hub entity in the local DB");
     } catch (e) {
-      logger.e('Local DB isar error: $e');
+      logger.e('Local DB isar getHubEntityLastKnownIp error: $e');
     }
     return left(const LocalDbFailures.unexpected());
   }
@@ -164,7 +164,7 @@ class IsarRepository extends ILocalDbRepository {
 
       logger.i("Didn't find any Hub entity in the local DB");
     } catch (e) {
-      logger.e('Local DB isar error: $e');
+      logger.e('Local DB isar getHubEntityNetworkBssid error: $e');
     }
     return left(const LocalDbFailures.unexpected());
   }
@@ -187,7 +187,7 @@ class IsarRepository extends ILocalDbRepository {
 
       logger.i("Didn't find any Hub entity in the local DB");
     } catch (e) {
-      logger.e('Local DB isar error: $e');
+      logger.e('Local DB isar getHubEntityNetworkName error: $e');
     }
     return left(const LocalDbFailures.unexpected());
   }

@@ -42,10 +42,10 @@ class ReceivedNotification {
 Future<Unit> main() async {
   configureDependencies(Env.prod);
 
+  WidgetsFlutterBinding.ensureInitialized();
   getIt<ILocalDbRepository>();
   getIt.registerSingleton<AppRouter>(AppRouter());
 
-  WidgetsFlutterBinding.ensureInitialized();
 
   AdState? adState;
   // Adds package only support Android and IOS

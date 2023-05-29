@@ -111,7 +111,7 @@ dependencies:
   # Port of Kotlin's Kotlin Standard library for Dart/Flutter projects
   kt_dart: ^1.1.0
   # Liquid progress indicator for Flutter.
-  liquid_progress_indicator: ^0.4.0
+  liquid_progress_indicator_v2: ^0.5.0
   # Handles getting a location on
   location: ^4.4.0
   # Small, easy to use and extensible logger which prints beautiful logs.
