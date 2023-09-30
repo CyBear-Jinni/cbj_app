@@ -57,6 +57,7 @@ class AppWidget extends StatelessWidget {
         //      darkTheme: ThemeData(brightness: Brightness.dark),
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
+          useMaterial3: true,
           primaryColor:
               createMaterialColor(const Color.fromRGBO(162, 129, 162, 1.0)),
           primaryColorDark: const Color(0xFF271052),

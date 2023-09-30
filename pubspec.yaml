@@ -6,7 +6,7 @@ homepage: https://cybearjinni.com
 publish_to: 'none'
 
 environment:
-  sdk: ">=2.18.2 <3.0.0"
+  sdk: ">=2.19.0 <3.0.0"
 
 # Don't get confuse, this is from the package flutter_launcher_icons and not flutter_icons
 flutter_icons:
@@ -97,7 +97,7 @@ dependencies:
   # Open source icon sets for flutter
   iconify_flutter: ^0.0.5
   # Convenient code generator for get_it
-  injectable: ^2.1.0
+  injectable: ^2.3.0
   # Allow you to have a screen at launcher for example
   introduction_screen: ^3.1.7
   # Extremely fast, easy to use, and fully async NoSQL database for Flutter.

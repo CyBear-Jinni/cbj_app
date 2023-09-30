@@ -19,13 +19,13 @@ class PickRepeatTimePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<DayInWeek> days = [
-      DayInWeek("Sun"),
-      DayInWeek("Mon"),
-      DayInWeek("Tue", isSelected: true),
-      DayInWeek("Wed"),
-      DayInWeek("Thu"),
-      DayInWeek("Fri"),
-      DayInWeek("Sat"),
+      DayInWeek("Sun", dayKey: '1'),
+      DayInWeek("Mon", dayKey: '2'),
+      DayInWeek("Tue", isSelected: true, dayKey: '3'),
+      DayInWeek("Wed", dayKey: '4'),
+      DayInWeek("Thu", dayKey: '5'),
+      DayInWeek("Fri", dayKey: '6'),
+      DayInWeek("Sat", dayKey: '7'),
     ];
 
     RoutineCbjRepeatDateDays? daysToRepeat;
