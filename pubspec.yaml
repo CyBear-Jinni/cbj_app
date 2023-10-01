@@ -145,7 +145,7 @@ dependencies:
   # Plugin for launching a URL
   url_launcher: ^6.1.11
   # Simple, fast generation of RFC4122 UUIDs.
-  uuid: ^3.0.7
+  uuid: ^4.1.0
   # Get available wifi ssid list, user can connect to wifi with ssid and password, and create hotspot
   wifi_iot: ^0.3.18
   # Scan for nearby visible WiFi access points.
