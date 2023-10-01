@@ -11,7 +11,7 @@ abstract class HomeUserDtos implements _$HomeUserDtos {
     required String? email,
     required String? name,
     required String? permission,
-    @JsonKey(ignore: true) String? id,
+    @JsonKey(includeFromJson: true) String? id,
   }) = _HomeUserDtos;
 
   const HomeUserDtos._();

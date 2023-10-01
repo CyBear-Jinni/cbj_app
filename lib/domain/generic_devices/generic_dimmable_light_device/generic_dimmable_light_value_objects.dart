@@ -24,7 +24,7 @@ class GenericDimmableLightSwitchState extends ValueObjectCore<String> {
 class GenericDimmableLightBrightness extends ValueObjectCore<String> {
   factory GenericDimmableLightBrightness(String? input) {
     assert(input != null);
-    String tempInput = input!;
+    final String tempInput = input!;
 
     return GenericDimmableLightBrightness._(
       validateGenericDimmableLightNotEmpty(tempInput),

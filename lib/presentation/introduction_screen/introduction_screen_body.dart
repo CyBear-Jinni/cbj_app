@@ -115,7 +115,7 @@ class IntroductionScreenBody extends StatelessWidget {
                 fontSize: 20.0,
               ),
             ),
-          )
+          ),
         ],
         done: Text(
           'Done',

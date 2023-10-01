@@ -12,7 +12,7 @@ part 'generic_xiaomi_mi_login_dtos.g.dart';
 abstract class GenericXiaomiMiLoginDtos
     implements _$GenericXiaomiMiLoginDtos, LoginEntityDtoAbstract {
   factory GenericXiaomiMiLoginDtos({
-    // @JsonKey(ignore: true)
+    // @JsonKey(includeFromJson: true)
     required String? senderUniqueId,
     required String? loginVendor,
     required String? xiaomiMiAccountEmail,

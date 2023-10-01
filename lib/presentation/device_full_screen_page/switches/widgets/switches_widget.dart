@@ -57,10 +57,10 @@ class SwitchWidget extends StatelessWidget {
             activeToggleColor: const Color(0xFF2F363D),
             inactiveToggleColor: Colors.deepPurple,
             activeSwitchBorder: Border.all(
-              color: (Theme.of(context).textTheme.bodyLarge!.color)!,
+              color: Theme.of(context).textTheme.bodyLarge!.color!,
             ),
             inactiveSwitchBorder: Border.all(
-              color: (Theme.of(context).textTheme.bodyLarge!.color)!,
+              color: Theme.of(context).textTheme.bodyLarge!.color!,
             ),
             activeColor: toggleColor,
             inactiveColor: toggleColor,

@@ -49,9 +49,7 @@ class AppRouter extends $AppRouter {
     AutoRoute(page: RoomsSmartTvsRoute.page),
     AutoRoute(page: RoomsPrintersRoute.page),
     AutoRoute(page: SwitchesInTheRoomRoute.page),
-    AutoRoute(
-      page: RoomsSmartPlugsRoute.page,
-    ),
+    AutoRoute(page: RoomsSmartPlugsRoute.page),
     AutoRoute(page: SmartPlugsInTheRoomRoute.page),
     AutoRoute(page: RoomsBlindsRoute.page),
     AutoRoute(page: RoomsBoilersRoute.page),

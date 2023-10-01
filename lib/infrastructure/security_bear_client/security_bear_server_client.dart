@@ -42,7 +42,7 @@ class SecurityBearServerClient {
           await stub!.setWiFiInformation(securityBearSetup);
 
       logger
-          .i('Greeter client received: ${responseSBCommendStatus.toString()}');
+          .i('Greeter client received: $responseSBCommendStatus');
 //      await channel.shutdown();
       return responseSBCommendStatus;
     } catch (e) {

@@ -82,7 +82,7 @@ class XiaomiMiSignInForm extends StatelessWidget {
                     .read<XiaomiMiSignInFormBloc>()
                     .add(XiaomiMiSignInFormEvent.xiaomiMiAccountEmailChange(
                       value,
-                    )),
+                    ),),
                 validator: (_) => context
                     .read<XiaomiMiSignInFormBloc>()
                     .state
@@ -113,7 +113,7 @@ class XiaomiMiSignInForm extends StatelessWidget {
                     .read<XiaomiMiSignInFormBloc>()
                     .add(XiaomiMiSignInFormEvent.xiaomiMiAccountPassChange(
                       value,
-                    )),
+                    ),),
                 validator: (_) => context
                     .read<XiaomiMiSignInFormBloc>()
                     .state
@@ -163,7 +163,7 @@ class XiaomiMiSignInForm extends StatelessWidget {
                 const SizedBox(
                   height: 8,
                 ),
-                const LinearProgressIndicator()
+                const LinearProgressIndicator(),
               ],
             ],
           ),

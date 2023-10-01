@@ -3,7 +3,6 @@ import 'package:cybear_jinni/application/devices/device_actor/device_actor_bloc.
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
 import 'package:cybear_jinni/domain/generic_devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +17,7 @@ class CBJCompCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return ColoredBox(
       color: Colors.orangeAccent,
       child: Column(
         children: [
@@ -26,10 +25,10 @@ class CBJCompCard extends StatelessWidget {
             decoration: BoxDecoration(
               border: Border(
                 top: BorderSide(
-                  color: (Theme.of(context).textTheme.bodyLarge!.color)!,
+                  color: Theme.of(context).textTheme.bodyLarge!.color!,
                 ),
                 bottom: BorderSide(
-                  color: (Theme.of(context).textTheme.bodyLarge!.color)!,
+                  color: Theme.of(context).textTheme.bodyLarge!.color!,
                 ),
               ),
             ),

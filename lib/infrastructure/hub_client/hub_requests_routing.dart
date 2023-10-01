@@ -165,52 +165,42 @@ class HubRequestRouting {
         deviceEntity =
             GenericLightDeviceDtos.fromJson(requestAsJson).toDomain();
         logger.i('Adding Light device type');
-        break;
       case EntityTypes.dimmableLight:
         deviceEntity =
             GenericDimmableLightDeviceDtos.fromJson(requestAsJson).toDomain();
         logger.i('Adding Dimmable Light device type');
-        break;
       case EntityTypes.rgbwLights:
         deviceEntity =
             GenericRgbwLightDeviceDtos.fromJson(requestAsJson).toDomain();
         logger.i('Adding rgbW light device type');
-        break;
       case EntityTypes.blinds:
         deviceEntity =
             GenericBlindsDeviceDtos.fromJson(requestAsJson).toDomain();
         logger.i('Adding Blinds device type');
-        break;
       case EntityTypes.boiler:
         deviceEntity =
             GenericBoilerDeviceDtos.fromJson(requestAsJson).toDomain();
         logger.i('Adding Boiler device type');
-        break;
       case EntityTypes.smartTV:
         deviceEntity =
             GenericSmartTvDeviceDtos.fromJson(requestAsJson).toDomain();
         logger.i('Adding Smart TV device type');
-        break;
       case EntityTypes.switch_:
         deviceEntity =
             GenericSwitchDeviceDtos.fromJson(requestAsJson).toDomain();
         logger.i('Adding Switch device type');
-        break;
       case EntityTypes.smartPlug:
         deviceEntity =
             GenericSmartPlugDeviceDtos.fromJson(requestAsJson).toDomain();
         logger.i('Adding Smart Plug device type');
-        break;
       case EntityTypes.smartComputer:
         deviceEntity =
             GenericSmartComputerDeviceDtos.fromJson(requestAsJson).toDomain();
         logger.i('Adding Smart Plug device type');
-        break;
       case EntityTypes.printer:
         deviceEntity =
             GenericPrinterDeviceDtos.fromJson(requestAsJson).toDomain();
         logger.i('Adding Smart printer device type');
-        break;
       default:
         if (entityStateGRPC == EntityStateGRPC.pingNow) {
           deviceEntity =
@@ -221,7 +211,7 @@ class HubRequestRouting {
           deviceEntity =
               GenericEmptyDeviceDtos.fromJson(requestAsJson).toDomain();
           logger.w(
-              'Device type is $deviceType is not supported $entityStateGRPC ');
+              'Device type is $deviceType is not supported $entityStateGRPC ',);
         }
         break;
     }

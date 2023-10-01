@@ -229,7 +229,7 @@ class TuyaSignInForm extends StatelessWidget {
                       const SizedBox(
                         height: 8,
                       ),
-                      const LinearProgressIndicator()
+                      const LinearProgressIndicator(),
                     ],
                   ],
                 ),

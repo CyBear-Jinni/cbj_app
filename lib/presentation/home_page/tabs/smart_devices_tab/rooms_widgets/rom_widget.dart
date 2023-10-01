@@ -281,9 +281,9 @@ class RoomWidget extends StatelessWidget {
                             'This device is not supported\nName: ${devicesInTheRoom[secondIndex].cbjEntityName.getOrCrash()}',
                       ).show(context);
                     },
-                    child: Column(
+                    child: const Column(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
+                      children: [
                         CircleAvatar(
                           child: FaIcon(
                             FontAwesomeIcons.eyeLowVision,

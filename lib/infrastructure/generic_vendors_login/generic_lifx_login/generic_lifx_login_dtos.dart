@@ -12,7 +12,7 @@ part 'generic_lifx_login_dtos.g.dart';
 abstract class GenericLifxLoginDtos
     implements _$GenericLifxLoginDtos, LoginEntityDtoAbstract {
   factory GenericLifxLoginDtos({
-    // @JsonKey(ignore: true)
+    // @JsonKey(includeFromJson: true)
     required String? senderUniqueId,
     required String? loginVendor,
     required String? lifxApiKey,

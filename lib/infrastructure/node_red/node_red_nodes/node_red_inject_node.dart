@@ -5,12 +5,9 @@ import 'package:cybear_jinni/utils.dart';
 ///
 class NodeRedInjectAtASpecificTimeNode extends NodeRedVisualNodeAbstract {
   NodeRedInjectAtASpecificTimeNode({
-    super.id,
+    required this.daysToRepeat, required this.hourToRepeat, required this.minutesToRepeat, super.id,
     super.name,
     super.wires,
-    required this.daysToRepeat,
-    required this.hourToRepeat,
-    required this.minutesToRepeat,
   }) : super(
           type: 'inject',
         );

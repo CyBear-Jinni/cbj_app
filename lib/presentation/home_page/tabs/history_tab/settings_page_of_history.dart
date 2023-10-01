@@ -26,7 +26,7 @@ class SettingsPageOfHistory extends StatelessWidget {
               Theme.of(context).primaryColor,
               Theme.of(context).colorScheme.secondary,
               Theme.of(context).colorScheme.secondary,
-              Theme.of(context).primaryColor
+              Theme.of(context).primaryColor,
             ],
           ),
         ),

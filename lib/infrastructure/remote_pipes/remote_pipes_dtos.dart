@@ -8,7 +8,7 @@ part 'remote_pipes_dtos.g.dart';
 @freezed
 abstract class RemotePipesDtos implements _$RemotePipesDtos {
   factory RemotePipesDtos({
-    // @JsonKey(ignore: true)
+    // @JsonKey(includeFromJson: true)
     required String domainName,
     // required ServerTimestampConverter() FieldValue serverTimeStamp,
   }) = _RemotePipesDtos;

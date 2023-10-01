@@ -13,7 +13,7 @@ abstract class GenericSmartTypeNotSupportedDeviceDtos
         _$GenericSmartTypeNotSupportedDeviceDtos,
         DeviceEntityDtoAbstract {
   factory GenericSmartTypeNotSupportedDeviceDtos({
-    // @JsonKey(ignore: true)
+    // @JsonKey(includeFromJson: true)
     required String id,
     required String entityUniqueId,
     required String? cbjEntityName,
