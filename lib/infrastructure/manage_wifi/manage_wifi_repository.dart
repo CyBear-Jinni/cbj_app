@@ -100,7 +100,6 @@ class ManageWiFiRepository implements IManageNetworkRepository {
       // if (isAPEnabled || true) {
       return right(unit);
       // }
-      return left(const HomeUserFailures.accessPointIsNotOpen());
     } catch (e) {
       return left(const HomeUserFailures.unexpected());
     }

@@ -78,7 +78,7 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
                       const SizedBox(height: 10),
                       Transform.scale(
                         scale: 1.2,
-                        child: const CircleAvatar(
+                        child: CircleAvatar(
                           child: Icon(
                             MdiIcons.lightSwitch,
                             color: Colors.white70,

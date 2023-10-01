@@ -9,8 +9,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class UserHomesListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
-    final double sizeBoxWidth = screenSize.width * 0.25;
+    // final Size screenSize = MediaQuery.of(context).size;
+    // final double sizeBoxWidth = screenSize.width * 0.25;
 
     return BlocBuilder<UserHomesListBloc, UserHomesListState>(
       builder: (context, state) {

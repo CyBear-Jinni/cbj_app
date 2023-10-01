@@ -64,11 +64,11 @@ class SmartPlugWidget extends StatelessWidget {
             ),
             activeColor: toggleColor,
             inactiveColor: toggleColor,
-            activeIcon: const Icon(
+            activeIcon: Icon(
               MdiIcons.powerSocketAu,
               color: Colors.white,
             ),
-            inactiveIcon: const Icon(
+            inactiveIcon:Icon(
               MdiIcons.powerSocketAu,
               color: Colors.white70,
             ),

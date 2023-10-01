@@ -3,7 +3,7 @@ import 'package:cybear_jinni/domain/add_user_to_home/add_user_to_home_failures.d
 import 'package:cybear_jinni/domain/add_user_to_home/i_add_user_to_home_repository.dart';
 import 'package:cybear_jinni/domain/home_user/home_user_entity.dart';
 import 'package:cybear_jinni/domain/local_db/i_local_db_repository.dart';
-import 'package:cybear_jinni/infrastructure/home_user/home_user_dtos.dart';
+// import 'package:cybear_jinni/infrastructure/home_user/home_user_dtos.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
@@ -24,11 +24,11 @@ class AddUserToHomeRepository implements IAddUserToHomeRepository {
     try {
       // final devicesDoc = await _firestore.currentHomeDocument();
       //
-      final String userId = homeUserEntity.id!.getOrCrash()!;
+      // final String userId = homeUserEntity.id!.getOrCrash()!;
       // final String userName = addUserToHomeEntity.name.getOrCrash();
       // final String userEmail = addUserToHomeEntity.email.getOrCrash();
 
-      final HomeUserDtos homeUserDtos = HomeUserDtos.fromDomain(homeUserEntity);
+      // final HomeUserDtos homeUserDtos = HomeUserDtos.fromDomain(homeUserEntity);
 
       // await devicesDoc.usersCollecttion.doc(userId).set(homeUserDtos.toJson());
       return right(unit);

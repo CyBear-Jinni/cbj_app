@@ -64,11 +64,11 @@ class SwitchWidget extends StatelessWidget {
             ),
             activeColor: toggleColor,
             inactiveColor: toggleColor,
-            activeIcon: const Icon(
+            activeIcon: Icon(
               MdiIcons.lightSwitch,
               color: Colors.white,
             ),
-            inactiveIcon: const Icon(
+            inactiveIcon: Icon(
               MdiIcons.lightSwitch,
               color: Colors.white70,
             ),

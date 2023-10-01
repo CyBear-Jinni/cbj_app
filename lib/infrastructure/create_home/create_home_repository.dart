@@ -206,9 +206,6 @@ class CreateHomeRepository implements ICreateHomeRepository {
         return left(CreateHomeFailure.unexpected(failedValue: e.message));
       }
     }
-    return left(
-      const CreateHomeFailure.unexpected(failedValue: 'Not implemented yet'),
-    );
   }
 
   @override

@@ -107,9 +107,9 @@ class _SmartBlindPage extends State<SmartBlindPage> {
             ),
             activeColor: const Color(0xFFFFDF5D),
             inactiveColor: Theme.of(context).primaryColorDark,
-            activeIcon: const Icon(
+            activeIcon: Icon(
               MdiIcons.blinds,
-              color: Color(0xFFF8E3A1),
+              color: const Color(0xFFF8E3A1),
             ),
             inactiveIcon: Icon(
               MdiIcons.blinds,
@@ -145,6 +145,9 @@ class LifecycleEventHandler extends WidgetsBindingObserver {
         if (suspendingCallBack != null) {
           await suspendingCallBack!();
         }
+        break;
+      case AppLifecycleState.hidden:
+        // TODO: Handle this case.
         break;
     }
   }

@@ -146,6 +146,9 @@ class LifecycleEventHandler extends WidgetsBindingObserver {
           await suspendingCallBack!();
         }
         break;
+      case AppLifecycleState.hidden:
+        // TODO: Handle this case.
+        break;
     }
   }
 }
