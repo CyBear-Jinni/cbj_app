@@ -57,6 +57,7 @@ class AppWidget extends StatelessWidget {
         //      darkTheme: ThemeData(brightness: Brightness.dark),
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
+          useMaterial3: true,
           primaryColor:
               createMaterialColor(const Color.fromRGBO(162, 129, 162, 1.0)),
           primaryColorDark: const Color(0xFF271052),
@@ -66,14 +67,15 @@ class AppWidget extends StatelessWidget {
             ),
           ),
           textTheme: const TextTheme(
-            bodyText1: TextStyle(color: Colors.white),
-            bodyText2: TextStyle(color: Colors.white70),
+            bodyLarge: TextStyle(color: Colors.white),
+            bodyMedium: TextStyle(color: Colors.white70),
           ),
           fontFamily: 'gidole_regular',
           colorScheme: ColorScheme.fromSwatch(
             primarySwatch: createMaterialColor(
               const Color.fromRGBO(162, 129, 162, 1.0),
             ),
+            accentColor: Colors.yellow,
           ).copyWith(
             secondary: Colors.indigo,
           ),
