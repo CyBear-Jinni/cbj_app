@@ -78,7 +78,7 @@ Future<Unit> main() async {
         Locale('fr', 'FR'),
         Locale('ge', 'GE'),
         Locale('he', 'IL'),
-        Locale('hi', 'IN'),
+        
         Locale('hr', 'HR'),
         Locale('id', 'ID'),
         Locale('it', 'IT'),
@@ -89,6 +89,7 @@ Future<Unit> main() async {
         Locale('te', 'IN'),
         Locale('th', 'TH'),
         Locale('zh', 'TW'),
+        Locale('hi','IN'),
       ],
       path: 'assets/translations', // <-- change patch to your
       fallbackLocale: const Locale('en', 'US'),
