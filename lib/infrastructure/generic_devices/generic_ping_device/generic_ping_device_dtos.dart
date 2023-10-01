@@ -12,7 +12,7 @@ part 'generic_ping_device_dtos.g.dart';
 abstract class GenericPingDeviceDtos
     implements _$GenericPingDeviceDtos, DeviceEntityDtoAbstract {
   factory GenericPingDeviceDtos({
-    // @JsonKey(ignore: true)
+    // @JsonKey(includeFromJson: true)
     required String id,
     required String entityUniqueId,
     required String? cbjEntityName,

@@ -6,7 +6,7 @@ homepage: https://cybearjinni.com
 publish_to: 'none'
 
 environment:
-  sdk: ">=2.19.0 <3.0.0"
+  sdk: '>=3.0.0 <4.0.0'
 
 # Don't get confuse, this is from the package flutter_launcher_icons and not flutter_icons
 flutter_icons:
@@ -40,7 +40,7 @@ dependencies:
   # Utility classes to work with asynchronous computations.
   async: ^2.11.0
   # Declarative routing solution, where everything needed for navigation is automatically generated for you.
-  auto_route: ^7.3.2
+  auto_route: ^7.8.3
   # Automatically resizes text to fit perfectly within its bounds.
   auto_size_text: ^3.0.0
   # Helps implement the BLoC pattern.
@@ -154,7 +154,7 @@ dependencies:
 
 dev_dependencies:
   # Generator for auto_route library.
-  auto_route_generator: ^7.1.1
+  auto_route_generator: ^7.3.1
   # A build system for Dart code generation and modular compilation.
   build_runner: ^2.4.4
   # Package which simplifies the task of updating your Flutter app's launcher icon.

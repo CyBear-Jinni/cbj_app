@@ -66,7 +66,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                               child: LightCard(device),
                             ),
                           ),
-                        )
+                        ),
                       ],
                     ),
                   )
@@ -84,7 +84,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                               child: LightCard(device),
                             ),
                           ),
-                        )
+                        ),
                       ],
                     ),
                   )
@@ -115,7 +115,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                           color:
-                              (Theme.of(context).textTheme.bodyLarge!.color)!,
+                              Theme.of(context).textTheme.bodyLarge!.color!,
                           width: 2.0,
                         ),
                         borderRadius: BorderRadius.circular(15.0),

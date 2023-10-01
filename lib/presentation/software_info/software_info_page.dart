@@ -64,7 +64,7 @@ class SoftwareInfoPage extends StatelessWidget {
               statusBarIconBrightness: Brightness.light,
             ),
           ),
-          body: Container(
+          body: ColoredBox(
             color: Colors.black87,
             child: Column(
               children: [

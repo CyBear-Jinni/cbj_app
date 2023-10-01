@@ -86,7 +86,7 @@ class RoomSmartComputersTogglesBlock extends StatelessWidget {
         ),
         borderRadius: const BorderRadius.all(Radius.circular(24)),
         border: Border.all(
-          color: (Theme.of(context).textTheme.bodyLarge!.color)!,
+          color: Theme.of(context).textTheme.bodyLarge!.color!,
           width: 0.6,
         ),
       ),

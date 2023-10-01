@@ -29,7 +29,7 @@ class ComputerConnectionCheckPage extends StatelessWidget {
         backgroundColor: Colors.black,
         systemOverlayStyle: SystemUiOverlayStyle.dark,
       ),
-      body: Container(
+      body: ColoredBox(
         color: Colors.black87,
         child: Column(
           children: [

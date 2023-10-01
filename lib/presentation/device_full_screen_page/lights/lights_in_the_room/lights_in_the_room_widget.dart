@@ -63,7 +63,7 @@ class LightsInTheRoomWidget extends StatelessWidget {
                 onPressed: () {},
               ),
             ),
-            const Divider()
+            const Divider(),
           ],
         ),
       );

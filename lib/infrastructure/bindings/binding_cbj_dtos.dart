@@ -9,7 +9,7 @@ part 'binding_cbj_dtos.g.dart';
 @freezed
 abstract class BindingCbjDtos implements _$BindingCbjDtos {
   factory BindingCbjDtos({
-    // @JsonKey(ignore: true)
+    // @JsonKey(includeFromJson: true)
     required String uniqueId,
     required String name,
     required String backgroundColor,

@@ -274,7 +274,7 @@ class DeviceRepository implements IDeviceRepository {
       } else if (Platform.isIOS) {
         final IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
         logger.i(iosInfo.utsname.machine);
-        deviceModelString = iosInfo.model!;
+        deviceModelString = iosInfo.model;
       }
 
       final UserEntity currentUserEntity =

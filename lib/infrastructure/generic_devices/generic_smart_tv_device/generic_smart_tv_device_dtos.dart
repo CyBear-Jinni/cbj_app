@@ -12,7 +12,7 @@ part 'generic_smart_tv_device_dtos.g.dart';
 abstract class GenericSmartTvDeviceDtos
     implements _$GenericSmartTvDeviceDtos, DeviceEntityDtoAbstract {
   factory GenericSmartTvDeviceDtos({
-    // @JsonKey(ignore: true)
+    // @JsonKey(includeFromJson: true)
     required String id,
     required String entityUniqueId,
     required String? cbjEntityName,
