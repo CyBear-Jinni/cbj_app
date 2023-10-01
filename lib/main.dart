@@ -78,7 +78,6 @@ Future<Unit> main() async {
         Locale('fr', 'FR'),
         Locale('ge', 'GE'),
         Locale('he', 'IL'),
-        
         Locale('hr', 'HR'),
         Locale('id', 'ID'),
         Locale('it', 'IT'),
