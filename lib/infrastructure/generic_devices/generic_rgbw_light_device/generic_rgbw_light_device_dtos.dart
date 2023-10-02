@@ -12,7 +12,7 @@ part 'generic_rgbw_light_device_dtos.g.dart';
 abstract class GenericRgbwLightDeviceDtos
     implements _$GenericRgbwLightDeviceDtos, DeviceEntityDtoAbstract {
   factory GenericRgbwLightDeviceDtos({
-    // @JsonKey(ignore: true)
+    // @JsonKey(includeFromJson: true)
     required String id,
     required String entityUniqueId,
     required String? cbjEntityName,

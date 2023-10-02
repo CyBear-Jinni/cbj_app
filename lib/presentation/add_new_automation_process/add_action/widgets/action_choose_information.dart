@@ -24,8 +24,8 @@ class ActionChooseInformation extends StatelessWidget {
                 const SizedBox(
                   height: 70,
                 ),
-                Row(
-                  children: const [
+                const Row(
+                  children: [
                     Text(
                       'Choose Action',
                       style: TextStyle(fontSize: 27),
@@ -94,7 +94,7 @@ class ActionChooseInformation extends StatelessWidget {
                           const DropdownMenuItem<String>(
                             value: 'Choose device first',
                             child: Text('Choose device first'),
-                          )
+                          ),
                         ],
                 ),
                 const SizedBox(
@@ -135,7 +135,7 @@ class ActionChooseInformation extends StatelessWidget {
                           const DropdownMenuItem<String>(
                             value: 'Choose property first',
                             child: Text('Choose property first'),
-                          )
+                          ),
                         ],
                 ),
                 const SizedBox(
@@ -167,9 +167,9 @@ class ActionChooseInformation extends StatelessWidget {
                         'Done',
                         style: TextStyle(fontSize: 20),
                       ),
-                    )
+                    ),
                   ],
-                )
+                ),
               ],
             ),
           ),

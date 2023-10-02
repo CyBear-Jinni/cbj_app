@@ -12,7 +12,7 @@ part 'generic_esphome_login_dtos.g.dart';
 abstract class GenericEspHomeLoginDtos
     implements _$GenericEspHomeLoginDtos, LoginEntityDtoAbstract {
   factory GenericEspHomeLoginDtos({
-    // @JsonKey(ignore: true)
+    // @JsonKey(includeFromJson: true)
     required String? senderUniqueId,
     required String? loginVendor,
     required String? esphomeDevicePass,

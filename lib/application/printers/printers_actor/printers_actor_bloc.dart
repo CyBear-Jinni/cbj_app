@@ -75,7 +75,7 @@ class PrintersActorBloc extends Bloc<PrintersActorEvent, PrintersActorState> {
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-    final String? printerIp = event.printer.deviceLastKnownIp.getOrCrash();
+    final String printerIp = event.printer.deviceLastKnownIp.getOrCrash();
     if (printerIp != null) {
       launchUrl(
         Uri.parse('http://$printerIp'),

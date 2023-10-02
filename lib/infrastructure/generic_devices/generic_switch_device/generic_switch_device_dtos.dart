@@ -12,7 +12,7 @@ part 'generic_switch_device_dtos.g.dart';
 abstract class GenericSwitchDeviceDtos
     implements _$GenericSwitchDeviceDtos, DeviceEntityDtoAbstract {
   factory GenericSwitchDeviceDtos({
-    // @JsonKey(ignore: true)
+    // @JsonKey(includeFromJson: true)
     required String id,
     required String entityUniqueId,
     required String? cbjEntityName,

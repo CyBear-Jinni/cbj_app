@@ -12,7 +12,7 @@ part 'generic_ewelink_login_dtos.g.dart';
 abstract class GenericEwelinkLoginDtos
     implements _$GenericEwelinkLoginDtos, LoginEntityDtoAbstract {
   factory GenericEwelinkLoginDtos({
-    // @JsonKey(ignore: true)
+    // @JsonKey(includeFromJson: true)
     required String? senderUniqueId,
     required String? loginVendor,
     required String? ewelinkAccountEmail,

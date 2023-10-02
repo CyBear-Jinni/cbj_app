@@ -11,8 +11,8 @@ abstract class CreateHomeDtos implements _$CreateHomeDtos {
     required String homeDevicesUserId,
     required String homeDevicesUserEmail,
     required String homeDevicesUserPassword,
-    @JsonKey(ignore: true) String? id,
-    @JsonKey(ignore: true) String? name,
+    @JsonKey(includeFromJson: true) String? id,
+    @JsonKey(includeFromJson: true) String? name,
     // required @ServerTimestampConverter() FieldValue serverTimeStamp,
   }) = _CreateHomeDtos;
 

@@ -14,9 +14,9 @@ class SmartDevicesByRooms extends StatelessWidget {
       builder: (context, state) {
         return state.map(
           initial: (_) => Container(),
-          loadInProgress: (_) => Column(
+          loadInProgress: (_) => const Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
+            children: [
               CircularProgressIndicator(),
               SizedBox(
                 height: 30,

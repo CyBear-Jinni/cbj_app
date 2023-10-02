@@ -157,7 +157,7 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
                       ),
                     ],
                     child: Expanded(
-                      child: Container(
+                      child: ColoredBox(
                         color: Colors.black54,
                         child: UserHomesListWidget(),
                       ),

@@ -35,7 +35,7 @@ class SmartDeviceToConfigure extends StatelessWidget {
                 color: Theme.of(context).textTheme.bodyLarge!.color,
               ),
             ),
-          )
+          ),
         ],
       ),
     );

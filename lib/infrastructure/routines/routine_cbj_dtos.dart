@@ -9,7 +9,7 @@ part 'routine_cbj_dtos.g.dart';
 @freezed
 abstract class RoutineCbjDtos implements _$RoutineCbjDtos {
   factory RoutineCbjDtos({
-    // @JsonKey(ignore: true)
+    // @JsonKey(includeFromJson: true)
     required String uniqueId,
     required String name,
     required String backgroundColor,

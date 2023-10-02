@@ -24,7 +24,7 @@ class AddScenePage extends StatelessWidget {
         backgroundColor: Colors.black,
         systemOverlayStyle: SystemUiOverlayStyle.dark,
       ),
-      body: Container(
+      body: ColoredBox(
         color: HexColor('#FBF5F9'),
         child: Column(
           children: [

@@ -89,7 +89,7 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
         if (tempDevicesByRoomsByType[k]![element.entityTypes.getOrCrash()] ==
             null) {
           tempDevicesByRoomsByType[k]![element.entityTypes.getOrCrash()] = [
-            element
+            element,
           ];
         } else {
           tempDevicesByRoomsByType[k]![element.entityTypes.getOrCrash()]!

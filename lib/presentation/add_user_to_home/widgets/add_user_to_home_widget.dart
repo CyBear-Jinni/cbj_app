@@ -185,7 +185,7 @@ class AddUserToHomeWidget extends StatelessWidget {
                   ),
                 );
               },
-            )
+            ),
           ],
         );
       },
