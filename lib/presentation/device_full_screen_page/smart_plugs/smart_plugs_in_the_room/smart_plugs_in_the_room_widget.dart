@@ -64,7 +64,7 @@ class SmartPlugsInTheRoomWidget extends StatelessWidget {
                 onPressed: () {},
               ),
             ),
-            const Divider()
+            const Divider(),
           ],
         ),
       );

@@ -74,8 +74,8 @@ class ChangeRoomForDevicesWidget extends StatelessWidget {
               SizedBox(
                 height: screenSize.height * 0.1,
               ),
-              Row(
-                children: const [
+              const Row(
+                children: [
                   Text(
                     'Choose Device',
                     style: TextStyle(fontSize: 27),
@@ -126,9 +126,9 @@ class ChangeRoomForDevicesWidget extends StatelessWidget {
                       'Done',
                       style: TextStyle(fontSize: 20),
                     ),
-                  )
+                  ),
                 ],
-              )
+              ),
             ],
           ),
         );

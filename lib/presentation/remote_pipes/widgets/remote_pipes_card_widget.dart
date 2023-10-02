@@ -16,10 +16,10 @@ class RemotePipesCard extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border(
           top: BorderSide(
-            color: (Theme.of(context).textTheme.bodyLarge!.color)!,
+            color: Theme.of(context).textTheme.bodyLarge!.color!,
           ),
           bottom: BorderSide(
-            color: (Theme.of(context).textTheme.bodyLarge!.color)!,
+            color: Theme.of(context).textTheme.bodyLarge!.color!,
           ),
         ),
       ),

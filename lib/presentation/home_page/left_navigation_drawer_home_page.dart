@@ -19,12 +19,12 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
       // Add a ListView to the drawer. This ensures the user can scroll
       // through the options in the drawer if there isn't enough vertical
       // space to fit everything.
-      child: Container(
+      child: ColoredBox(
         color: Colors.black54,
         child: ListView(
           reverse: true,
           children: <Widget>[
-            Container(
+            ColoredBox(
               color: Colors.black87,
               child: Container(
                 margin: const EdgeInsets.symmetric(horizontal: 17),
@@ -41,7 +41,7 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                             color: Theme.of(context).textTheme.bodyLarge!.color,
                             fontSize: 18,
                           ),
-                        )
+                        ),
                       ],
                     ),
                     Divider(
@@ -84,7 +84,7 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                     height: 0.5,
                     color: Theme.of(context).textTheme.bodyLarge!.color,
                   ),
-                  Container(
+                  ColoredBox(
                     color: Colors.greenAccent.withOpacity(0.8),
                     child: ListTile(
                       leading: FaIcon(
@@ -108,7 +108,7 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                     height: 0.5,
                     color: Theme.of(context).textTheme.bodyLarge!.color,
                   ),
-                  Container(
+                  ColoredBox(
                     color: Colors.orangeAccent,
                     child: ListTile(
                       leading: FaIcon(
@@ -132,7 +132,7 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                     height: 0.5,
                     color: Theme.of(context).textTheme.bodyLarge!.color,
                   ),
-                  Container(
+                  ColoredBox(
                     color: Colors.blue,
                     child: ListTile(
                       leading: FaIcon(

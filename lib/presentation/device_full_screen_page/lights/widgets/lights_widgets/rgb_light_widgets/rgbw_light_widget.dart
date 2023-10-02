@@ -48,7 +48,7 @@ class RgbwLightWidget extends StatelessWidget {
     return BlocConsumer<LightToggleBloc, LightToggleState>(
       listener: (context, state) {},
       builder: (context, state) {
-        return Container(
+        return ColoredBox(
           color: Colors.white,
           child: Column(
             children: [
@@ -131,13 +131,13 @@ class RgbwLightWidget extends StatelessWidget {
                     SizedBox(
                       width: 45,
                       child: Text(
-                        '${state.brightness.round().toString()}%',
+                        '${state.brightness.round()}%',
                         style: const TextStyle(color: Colors.black),
                       ),
                     ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         );

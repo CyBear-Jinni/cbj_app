@@ -152,7 +152,7 @@ class RoomLights extends StatelessWidget {
 
       /// Filtering lights in the rooom to different separate lists bt types
       for (final DeviceEntityAbstract deviceEntity in _deviceEntityList.iter) {
-        if (deviceEntity.entityTypes.getOrCrash().toString() ==
+        if (deviceEntity.entityTypes.getOrCrash() ==
             EntityTypes.light.toString()) {
           lightList.add(deviceEntity as GenericLightDE);
         } else if (deviceEntity.entityTypes.getOrCrash() ==
@@ -215,7 +215,7 @@ class RoomLights extends StatelessWidget {
         ),
         borderRadius: const BorderRadius.all(Radius.circular(24)),
         border: Border.all(
-          color: (Theme.of(context).textTheme.bodyLarge!.color)!,
+          color: Theme.of(context).textTheme.bodyLarge!.color!,
           width: 0.6,
         ),
       ),

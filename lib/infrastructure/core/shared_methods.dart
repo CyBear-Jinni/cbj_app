@@ -27,7 +27,7 @@ Future<String?> getCurrentWifiName() async {
       logger.w('Does not support this platform');
     }
   } on PlatformException catch (e) {
-    logger.e('Failed to get Wifi Name\n${e.toString()}');
+    logger.e('Failed to get Wifi Name\n$e');
 //      wifiName = "Failed to get Wifi Name";
   } catch (exception) {
     logger.e(exception.toString());

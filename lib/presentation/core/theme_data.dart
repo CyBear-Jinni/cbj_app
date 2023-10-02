@@ -51,7 +51,7 @@ class BacgroundGradient {
         Theme.of(context).colorScheme.secondary,
         Colors.deepPurple.withOpacity(0.9),
         Theme.of(context).colorScheme.secondary.withOpacity(0.9),
-        Colors.deepPurple
+        Colors.deepPurple,
       ],
     );
   }

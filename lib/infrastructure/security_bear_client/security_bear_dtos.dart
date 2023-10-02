@@ -8,7 +8,7 @@ part 'security_bear_dtos.g.dart';
 @freezed
 abstract class SecurityBearDtos implements _$SecurityBearDtos {
   factory SecurityBearDtos({
-    // @JsonKey(ignore: true)
+    // @JsonKey(includeFromJson: true)
 
     required String securityBearNetworkBssid,
     required String networkName,

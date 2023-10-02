@@ -19,7 +19,6 @@ class PickRepeatTimePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<DayInWeek> days = [
-
       DayInWeek('Sun', dayKey: 'Sun'),
       DayInWeek('Mon', dayKey: 'Mon'),
       DayInWeek('Tue', dayKey: 'Tue', isSelected: true),
@@ -39,7 +38,7 @@ class PickRepeatTimePage extends StatelessWidget {
         backgroundColor: Colors.black,
         systemOverlayStyle: SystemUiOverlayStyle.dark,
       ),
-      body: Container(
+      body: ColoredBox(
         color: HexColor('#FBF5F9'),
         child: Column(
           children: [

@@ -63,7 +63,7 @@ class BlindsInTheRoomWidget extends StatelessWidget {
                 onPressed: () {},
               ),
             ),
-            const Divider()
+            const Divider(),
           ],
         ),
       );

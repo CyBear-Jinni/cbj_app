@@ -91,7 +91,7 @@ class HubClientDemo {
         AreaPurposesTypes.bedroom.value.toString(),
         AreaPurposesTypes.studyRoom.value.toString(),
         AreaPurposesTypes.workRoom.value.toString(),
-        AreaPurposesTypes.videoGames.value.toString()
+        AreaPurposesTypes.videoGames.value.toString(),
       ]),
       roomDevicesId: RoomDevicesId(const [
         'a31523m6-463s-32ge-7426-g33c642r7m25',
@@ -128,7 +128,7 @@ class HubClientDemo {
         AreaPurposesTypes.bedroom.value.toString(),
         AreaPurposesTypes.studyRoom.value.toString(),
         AreaPurposesTypes.workRoom.value.toString(),
-        AreaPurposesTypes.livingRoom.value.toString()
+        AreaPurposesTypes.livingRoom.value.toString(),
       ]),
       roomDevicesId:
           RoomDevicesId(const ['gcvweg3y-bv2s-cvwe-bdmf-7h4f3f2dw2d1']),
@@ -161,7 +161,7 @@ class HubClientDemo {
         AreaPurposesTypes.bedroom.value.toString(),
         AreaPurposesTypes.studyRoom.value.toString(),
         AreaPurposesTypes.workRoom.value.toString(),
-        AreaPurposesTypes.livingRoom.value.toString()
+        AreaPurposesTypes.livingRoom.value.toString(),
       ]),
       roomDevicesId: RoomDevicesId(const [
         '7189ed76-4351-11ed-b249-63fd7e165c16',

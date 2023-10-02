@@ -100,10 +100,10 @@ class _SmartBlindPage extends State<SmartBlindPage> {
             activeToggleColor: const Color(0xFF2F363D),
             inactiveToggleColor: Theme.of(context).primaryColor,
             activeSwitchBorder: Border.all(
-              color: (Theme.of(context).textTheme.bodyLarge!.color)!,
+              color: Theme.of(context).textTheme.bodyLarge!.color!,
             ),
             inactiveSwitchBorder: Border.all(
-              color: (Theme.of(context).textTheme.bodyLarge!.color)!,
+              color: Theme.of(context).textTheme.bodyLarge!.color!,
             ),
             activeColor: const Color(0xFFFFDF5D),
             inactiveColor: Theme.of(context).primaryColorDark,
@@ -138,13 +138,13 @@ class LifecycleEventHandler extends WidgetsBindingObserver {
         if (resumeCallBack != null) {
           await resumeCallBack!();
         }
-        break;
       case AppLifecycleState.inactive:
       case AppLifecycleState.paused:
       case AppLifecycleState.detached:
         if (suspendingCallBack != null) {
           await suspendingCallBack!();
         }
+      case AppLifecycleState.hidden:
         break;
     }
   }
