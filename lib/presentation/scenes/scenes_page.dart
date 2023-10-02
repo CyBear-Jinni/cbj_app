@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/folder_of_scenes/folder_of_scenes_bloc.dart';
@@ -55,33 +57,44 @@ class ScenesPage extends StatelessWidget {
       ),
       body: Container(
         decoration: BoxDecoration(
-          gradient: BacgroundGradient.getBacground(context),
-        ),
-        child: Column(
-          children: [
-            TopNavigationBar(
-              pageName: 'Scenes_In_Folder'.tr(),
-              rightIcon: null,
-              rightIconFunction: userCogFunction,
-              leftIcon: FontAwesomeIcons.arrowLeft,
-              leftIconFunction: leftIconFunction,
-              // rightSecondIcon: FontAwesomeIcons.magnifyingGlass,
-              // rightSecondFunction: () {},
+          image: DecorationImage(
+            image: NetworkImage(
+              folderOfScenes.background.getOrCrash(),
             ),
-            Expanded(
-              child: BlocProvider(
-                create: (context) => getIt<FolderOfScenesBloc>()
-                  ..add(
-                    FolderOfScenesEvent.initialized(
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+          child: ColoredBox(
+            color: Colors.black12,
+            child: Column(
+              children: [
+                TopNavigationBar(
+                  pageName: 'Scenes_In_Folder'.tr(),
+                  rightIcon: null,
+                  rightIconFunction: userCogFunction,
+                  leftIcon: FontAwesomeIcons.arrowLeft,
+                  leftIconFunction: leftIconFunction,
+                  // rightSecondIcon: FontAwesomeIcons.magnifyingGlass,
+                  // rightSecondFunction: () {},
+                ),
+                Expanded(
+                  child: BlocProvider(
+                    create: (context) => getIt<FolderOfScenesBloc>()
+                      ..add(
+                        FolderOfScenesEvent.initialized(
+                          folderOfScenes: folderOfScenes,
+                        ),
+                      ),
+                    child: FolderOfScenesWidget(
                       folderOfScenes: folderOfScenes,
                     ),
                   ),
-                child: FolderOfScenesWidget(
-                  folderOfScenes: folderOfScenes,
                 ),
-              ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );
