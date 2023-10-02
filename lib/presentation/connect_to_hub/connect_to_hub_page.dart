@@ -18,6 +18,7 @@ class ConnectToHubPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 0,
+        backgroundColor: HexColor('#985dc7'),
         systemOverlayStyle: SystemUiOverlayStyle.light,
       ),
       //added CustomScrollView to solve pixel overflow
