@@ -86,8 +86,8 @@ class OpenAccessPointWidget extends StatelessWidget {
                                 ),
                               );
                             },
-                            child: Column(
-                              children: const <Widget>[
+                            child: const Column(
+                              children: <Widget>[
                                 Text(
                                   'Hotspot name:',
                                   style: TextStyle(color: Colors.white60),
@@ -134,8 +134,8 @@ class OpenAccessPointWidget extends StatelessWidget {
                                 ),
                               );
                             },
-                            child: Column(
-                              children: const <Widget>[
+                            child: const Column(
+                              children: <Widget>[
                                 Text(
                                   'Hotspot password:',
                                   style: TextStyle(color: Colors.white60),

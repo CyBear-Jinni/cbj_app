@@ -9,7 +9,7 @@ part 'scene_cbj_dtos.g.dart';
 @freezed
 abstract class SceneCbjDtos implements _$SceneCbjDtos {
   factory SceneCbjDtos({
-    // @JsonKey(ignore: true)
+    // @JsonKey(includeFromJson: true)
     required String uniqueId,
     required String name,
     required String backgroundColor,

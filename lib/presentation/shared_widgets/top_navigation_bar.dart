@@ -42,7 +42,7 @@ class TopNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return ColoredBox(
       color: backgroundColor != null
           ? backgroundColor!.withOpacity(0.72)
           : Colors.black.withOpacity(0.3),

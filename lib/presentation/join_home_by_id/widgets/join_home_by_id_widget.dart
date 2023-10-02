@@ -125,7 +125,7 @@ class JoinHomeByIdWidget extends StatelessWidget {
               error: (e) {
                 return const Text('Failure');
               },
-            )
+            ),
           ],
         );
       },

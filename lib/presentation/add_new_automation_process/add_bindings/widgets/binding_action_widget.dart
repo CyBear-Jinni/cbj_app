@@ -24,7 +24,7 @@ class BindingActionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return ColoredBox(
       color: Colors.blue.withOpacity(0.3),
       child: ListTile(
         leading: const FaIcon(

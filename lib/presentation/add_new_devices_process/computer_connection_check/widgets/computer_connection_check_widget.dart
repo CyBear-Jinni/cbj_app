@@ -130,7 +130,7 @@ class ComputerConnectionCheckWidget extends StatelessWidget {
                         context.router.replace(const ConnectToHubRoute());
                       },
                       child: const Text('Go Back'),
-                    )
+                    ),
                   ],
                 ),
               ),

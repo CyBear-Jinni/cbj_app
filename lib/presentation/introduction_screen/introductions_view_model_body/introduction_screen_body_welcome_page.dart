@@ -83,10 +83,10 @@ class IntroductionScreenBodyWelcomePage extends StatelessWidget {
         ),
         Container(
           decoration: BoxDecoration(
-            color: ((Theme.of(context).textTheme.bodyLarge!.color)!)
+            color: (Theme.of(context).textTheme.bodyLarge!.color!)
                 .withOpacity(0.3),
             border: Border.all(
-              color: (Theme.of(context).textTheme.bodyLarge!.color)!,
+              color: Theme.of(context).textTheme.bodyLarge!.color!,
             ),
             // Make rounded corners
             borderRadius: BorderRadius.circular(30),

@@ -113,7 +113,7 @@ class EwelinkSignInForm extends StatelessWidget {
                     .read<EwelinkSignInFormBloc>()
                     .add(EwelinkSignInFormEvent.ewelinkAccountPassChange(
                       value,
-                    )),
+                    ),),
                 validator: (_) => context
                     .read<EwelinkSignInFormBloc>()
                     .state
@@ -162,7 +162,7 @@ class EwelinkSignInForm extends StatelessWidget {
                 const SizedBox(
                   height: 8,
                 ),
-                const LinearProgressIndicator()
+                const LinearProgressIndicator(),
               ],
             ],
           ),

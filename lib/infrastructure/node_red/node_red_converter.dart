@@ -49,9 +49,9 @@ class NodeRedConverter {
     );
 
     if (nodes.isEmpty) {
-      nodes = '[${startingSceneNode.value}, ${brokerNode.toString()}]';
+      nodes = '[${startingSceneNode.value}, $brokerNode]';
     } else {
-      nodes = '[${startingSceneNode.value}, $nodes, ${brokerNode.toString()}]';
+      nodes = '[${startingSceneNode.value}, $nodes, $brokerNode]';
     }
     return SceneCbjEntity(
       uniqueId: UniqueId(),
@@ -105,7 +105,7 @@ class NodeRedConverter {
       minutesToRepeat: minutesToRepeat,
     );
 
-    nodes = '[${startingRoutineNode.value}, $nodes, ${brokerNode.toString()}]';
+    nodes = '[${startingRoutineNode.value}, $nodes, $brokerNode]';
 
     return RoutineCbjEntity(
       uniqueId: UniqueId(),
@@ -161,7 +161,7 @@ class NodeRedConverter {
       wires: allNodeRedIdToConnectTo,
     );
 
-    nodes = '[${startingBindingNode.value}, $nodes, ${brokerNode.toString()}]';
+    nodes = '[${startingBindingNode.value}, $nodes, $brokerNode]';
 
     return BindingCbjEntity(
       uniqueId: UniqueId(),
@@ -214,7 +214,7 @@ class NodeRedConverter {
 
     return MapEntry(
       functionForNode.id!,
-      '${functionForNode.toString()}, ${mqttNode.toString()}',
+      '$functionForNode, $mqttNode',
     );
   }
 

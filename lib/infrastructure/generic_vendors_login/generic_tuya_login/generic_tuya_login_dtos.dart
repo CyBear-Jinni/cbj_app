@@ -12,7 +12,7 @@ part 'generic_tuya_login_dtos.g.dart';
 abstract class GenericTuyaLoginDtos
     implements _$GenericTuyaLoginDtos, LoginEntityDtoAbstract {
   factory GenericTuyaLoginDtos({
-    // @JsonKey(ignore: true)
+    // @JsonKey(includeFromJson: true)
     required String? senderUniqueId,
     required String? loginVendor,
     required String? userName,

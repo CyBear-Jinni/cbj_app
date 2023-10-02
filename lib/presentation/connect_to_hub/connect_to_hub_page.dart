@@ -198,7 +198,7 @@ class ConnectToHubPage extends StatelessWidget {
                   ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),

@@ -8,7 +8,7 @@ part 'hub_dtos.g.dart';
 @freezed
 abstract class HubDtos implements _$HubDtos {
   factory HubDtos({
-    // @JsonKey(ignore: true)
+    // @JsonKey(includeFromJson: true)
 
     required String hubNetworkBssid,
     required String networkName,

@@ -12,7 +12,7 @@ part 'generic_smart_plug_device_dtos.g.dart';
 abstract class GenericSmartPlugDeviceDtos
     implements _$GenericSmartPlugDeviceDtos, DeviceEntityDtoAbstract {
   factory GenericSmartPlugDeviceDtos({
-    // @JsonKey(ignore: true)
+    // @JsonKey(includeFromJson: true)
     required String id,
     required String entityUniqueId,
     required String? cbjEntityName,

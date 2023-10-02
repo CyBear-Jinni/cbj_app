@@ -12,7 +12,7 @@ part 'generic_printer_device_dtos.g.dart';
 abstract class GenericPrinterDeviceDtos
     implements _$GenericPrinterDeviceDtos, DeviceEntityDtoAbstract {
   factory GenericPrinterDeviceDtos({
-    // @JsonKey(ignore: true)
+    // @JsonKey(includeFromJson: true)
     required String id,
     required String entityUniqueId,
     required String? cbjEntityName,

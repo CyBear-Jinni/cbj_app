@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
+import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/room/i_room_repository.dart';
 import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.dart';
@@ -65,7 +65,7 @@ class AddNewActionBloc extends Bloc<AddNewActionEvent, AddNewActionState> {
         emit(
           state.copyWith(
             allDevicesWithNewAction: [
-              MapEntry(device, const MapEntry(null, null))
+              MapEntry(device, const MapEntry(null, null)),
             ],
             actionsName: '',
             authFailureOrSuccessOption: none(),

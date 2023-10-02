@@ -129,13 +129,13 @@ class DimmableLightWidget extends StatelessWidget {
                     SizedBox(
                       width: 45,
                       child: Text(
-                        '${state.brightness.round().toString()}%',
+                        '${state.brightness.round()}%',
                         style: const TextStyle(color: Colors.black),
                       ),
                     ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         );

@@ -40,7 +40,7 @@ class SceneWidget extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30),
                     side: BorderSide(
-                      color: (Theme.of(context).textTheme.bodyLarge!.color)!,
+                      color: Theme.of(context).textTheme.bodyLarge!.color!,
                       width: 0.6,
                     ),
                   ),

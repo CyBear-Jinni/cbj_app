@@ -12,7 +12,7 @@
 //   const AddUserDtos._();
 //
 //   const factory AddUserDtos({
-//     @JsonKey(ignore: true) String id,
+//     @JsonKey(includeFromJson: true) String id,
 //     required AddUserEmail email,
 //     required AddUserPermission permission,
 //     required String name,

@@ -12,7 +12,7 @@ part 'generic_smart_computer_device_dtos.g.dart';
 abstract class GenericSmartComputerDeviceDtos
     implements _$GenericSmartComputerDeviceDtos, DeviceEntityDtoAbstract {
   factory GenericSmartComputerDeviceDtos({
-    // @JsonKey(ignore: true)
+    // @JsonKey(includeFromJson: true)
     required String id,
     required String entityUniqueId,
     required String? cbjEntityName,
