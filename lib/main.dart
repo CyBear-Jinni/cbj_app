@@ -90,7 +90,7 @@ Future<Unit> main() async {
         Locale('th', 'TH'),
         Locale('zh', 'TW'),
       ],
-      path: 'assets/translations', // <-- change patch to your
+      path: 'assets/translations',
       fallbackLocale: const Locale('en', 'US'),
       child: Provider.value(
         value: adState,
