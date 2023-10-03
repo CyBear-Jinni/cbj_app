@@ -3,6 +3,7 @@ import 'package:cybear_jinni/domain/hub/hub_failures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 class CbjHubInNetworkWidget extends StatelessWidget {
   @override
@@ -23,7 +24,10 @@ class CbjHubInNetworkWidget extends StatelessWidget {
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text("Can't find a Hub in your network."),
+                  const Text(
+                    "Can't find a Hub in your network.",
+                    style: TextStyle(color: Colors.white),
+                  ),
                   const SizedBox(
                     height: 20,
                   ),
@@ -32,7 +36,8 @@ class CbjHubInNetworkWidget extends StatelessWidget {
                     children: [
                       TextButton(
                         style: TextButton.styleFrom(
-                          backgroundColor: Colors.white.withOpacity(0.8),
+                          backgroundColor: HexColor('#734d99'),
+                          foregroundColor: Colors.white,
                         ),
                         onPressed: () {
                           context.read<HubInNetworkBloc>().add(
@@ -46,7 +51,8 @@ class CbjHubInNetworkWidget extends StatelessWidget {
                       ),
                       TextButton(
                         style: TextButton.styleFrom(
-                          backgroundColor: Colors.white.withOpacity(0.8),
+                          backgroundColor: HexColor('#734d99'),
+                          foregroundColor: Colors.white,
                         ),
                         onPressed: () {
                           context.read<HubInNetworkBloc>().add(
@@ -109,7 +115,10 @@ class CbjHubInNetworkWidget extends StatelessWidget {
                 const Text(
                   "Automatic search currently supported only on WiFi.\n"
                   "Please enter manually any IP on the network or connect the device to WiFi and try again.",
-                  style: TextStyle(fontSize: 18),
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.white,
+                  ),
                 ),
                 const SizedBox(height: 40),
                 Padding(
@@ -117,7 +126,10 @@ class CbjHubInNetworkWidget extends StatelessWidget {
                   child: TextFormField(
                     style: const TextStyle(color: Colors.white),
                     decoration: const InputDecoration(
-                      prefixIcon: FaIcon(FontAwesomeIcons.ethernet),
+                      prefixIcon: FaIcon(
+                        FontAwesomeIcons.ethernet,
+                        color: Colors.white,
+                      ),
                       labelText: 'Any IP on the network',
                       labelStyle: TextStyle(color: Colors.white),
                     ),
@@ -135,6 +147,7 @@ class CbjHubInNetworkWidget extends StatelessWidget {
                       'Is Hub IP',
                       style: TextStyle(
                         fontSize: 17,
+                        color: Colors.white,
                       ),
                     ),
                     Checkbox(
@@ -173,12 +186,14 @@ class CbjHubInNetworkWidget extends StatelessWidget {
                   },
                   child: const Text(
                     'Search',
+                    style: TextStyle(color: Colors.white),
                   ),
                 ),
                 const SizedBox(height: 40),
                 TextButton(
                   style: TextButton.styleFrom(
-                    backgroundColor: Colors.white.withOpacity(0.8),
+                    backgroundColor: HexColor('#734d99'),
+                    foregroundColor: Colors.white,
                   ),
                   onPressed: () {
                     context.read<HubInNetworkBloc>().add(

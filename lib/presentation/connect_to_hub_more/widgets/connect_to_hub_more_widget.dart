@@ -22,7 +22,7 @@ class ConnectToHubMoreWidget extends StatelessWidget {
                       children: [
                         Expanded(
                           child: ColoredBox(
-                            color: HexColor('#3A3A3A'),
+                            color: HexColor('#985dc7'),
                             child: Column(
                               children: [
                                 const SizedBox(
@@ -32,27 +32,20 @@ class ConnectToHubMoreWidget extends StatelessWidget {
                                   margin: const EdgeInsets.symmetric(
                                     horizontal: 15,
                                   ),
-                                  child: Row(
+                                  child: const Row(
                                     children: [
-                                      Container(
-                                        color: HexColor('#F8F9FA'),
-                                        width: 40,
-                                        height: 40,
-                                        child: Center(
-                                          child: FaIcon(
-                                            FontAwesomeIcons.globe,
-                                            color: HexColor('#495057'),
-                                          ),
-                                        ),
+                                      FaIcon(
+                                        FontAwesomeIcons.globe,
+                                        color: Colors.white,
                                       ),
-                                      const SizedBox(
+                                      SizedBox(
                                         width: 40,
                                       ),
                                       Flexible(
                                         child: Text(
                                           'Connect to Remote Pipes',
                                           style: TextStyle(
-                                            color: HexColor('#D6D6D6'),
+                                            color: Colors.white,
                                           ),
                                         ),
                                       ),
@@ -61,7 +54,10 @@ class ConnectToHubMoreWidget extends StatelessWidget {
                                 ),
                                 const Expanded(
                                   child: Center(
-                                    child: Text('Currently not supported'),
+                                    child: Text(
+                                      'Currently not supported',
+                                      style: TextStyle(color: Colors.white),
+                                    ),
                                     // BlocProvider(
                                     //   create: (context) => getIt<HubInNetworkBloc>()
                                     //     ..add(
@@ -93,21 +89,14 @@ class ConnectToHubMoreWidget extends StatelessWidget {
                   child: Container(
                     margin: const EdgeInsets.symmetric(horizontal: 30),
                     height: 60,
-                    color: HexColor('#3A3A3A'),
+                    color: HexColor('#985dc7'),
                     child: Container(
                       margin: const EdgeInsets.symmetric(horizontal: 15),
                       child: Row(
                         children: [
-                          Container(
-                            color: HexColor('#F8F9FA'),
-                            width: 40,
-                            height: 40,
-                            child: Center(
-                              child: FaIcon(
-                                FontAwesomeIcons.vial,
-                                color: HexColor('#495057'),
-                              ),
-                            ),
+                          const FaIcon(
+                            FontAwesomeIcons.vial,
+                            color: Colors.white,
                           ),
                           const SizedBox(
                             width: 40,
@@ -118,17 +107,21 @@ class ConnectToHubMoreWidget extends StatelessWidget {
                                 style: TextStyle(
                                   color: Colors.white.withOpacity(0.9),
                                 ),
-                                children: <TextSpan>[
-                                  const TextSpan(
+                                children: const <TextSpan>[
+                                  TextSpan(
                                     text: 'Open Demo\n',
-                                    style: TextStyle(fontSize: 16),
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                   TextSpan(
                                     text:
                                         'Demo mod will not let you add or control '
                                         'real smart home device!',
-                                    style:
-                                        TextStyle(color: HexColor('#D6D6D6')),
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 ],
                               ),
