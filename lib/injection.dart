@@ -3,7 +3,7 @@ import 'package:cybear_jinni/utils.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 
-GetIt getIt = GetIt.instance;
+final getIt = GetIt.instance;
 
 /// Saves the current environment for manual use
 late String currentEnv;
