@@ -6,12 +6,12 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.1.2'
+        classpath 'com.android.tools.build:gradle:7.2.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
         // Todo: as we are no longer using firestore we need to check if this line is needed,
         // it may be needed for the ads.
-        classpath 'com.google.gms:google-services:4.3.3' // For firestore
+        classpath 'com.google.gms:google-services:4.3.15' // For firestore
     }
 }
 
