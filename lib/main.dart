@@ -40,7 +40,7 @@ class ReceivedNotification {
 }
 
 Future<Unit> main() async {
-  configureDependencies(Env.prod);
+  configureDependencies(Env.dev);
 
   WidgetsFlutterBinding.ensureInitialized();
   getIt<ILocalDbRepository>();

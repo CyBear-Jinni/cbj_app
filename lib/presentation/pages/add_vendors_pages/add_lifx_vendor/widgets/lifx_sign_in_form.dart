@@ -1,7 +1,7 @@
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/lifx_auth/lifx_sign_in_form/lifx_sign_in_form_bloc.dart';
-import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.dart';
+import 'package:cbj_integrations_controller/domain/vendors/login_abstract/core_login_failures.dart';
 import 'package:cybear_jinni/domain/vendors/vendor.dart';
 import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
 import 'package:dartz/dartz.dart';

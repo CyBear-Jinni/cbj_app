@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/folder_of_scenes/folder_of_scenes_bloc.dart';
-import 'package:cybear_jinni/domain/room/room_entity.dart';
+import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/pages/scenes/widgets/folder_of_scenes.dart';
 import 'package:cybear_jinni/presentation/pages/shared_widgets/top_navigation_bar.dart';

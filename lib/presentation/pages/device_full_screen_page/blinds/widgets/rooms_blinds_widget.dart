@@ -1,6 +1,6 @@
 import 'package:cybear_jinni/application/blinds/blinds_watcher/blinds_watcher_bloc.dart';
-import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
-import 'package:cybear_jinni/domain/room/room_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/blinds/widgets/critical_failure_blinds_display_widget.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/blinds/widgets/room_blinds.dart';

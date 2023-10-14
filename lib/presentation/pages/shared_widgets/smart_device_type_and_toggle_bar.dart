@@ -1,5 +1,5 @@
-import 'package:cybear_jinni/domain/generic_devices/generic_light_device/generic_light_entity.dart';
-import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums_cbj.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/lights/smart_lighte_widget.dart';
 import 'package:easy_localization/easy_localization.dart';

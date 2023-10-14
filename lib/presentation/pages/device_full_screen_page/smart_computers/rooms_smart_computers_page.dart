@@ -3,7 +3,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/auth/auth_bloc.dart';
 import 'package:cybear_jinni/application/devices/device_actor/device_actor_bloc.dart';
 import 'package:cybear_jinni/application/smart_computers/smart_computers_watcher/smart_computer_watcher_bloc.dart';
-import 'package:cybear_jinni/domain/room/room_entity.dart';
+import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/core/types_to_pass.dart';

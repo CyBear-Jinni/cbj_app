@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/domain/vendors/vendor_value_objects.dart';
+import 'package:cbj_integrations_controller/domain/vendors/vendor_value_objects.dart';
 import 'package:flutter/widgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

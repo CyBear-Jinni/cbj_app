@@ -1,11 +1,11 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:cbj_integrations_controller/domain/room/i_room_repository.dart';
+import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
+import 'package:cbj_integrations_controller/domain/vendors/login_abstract/core_login_failures.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
-import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
-import 'package:cybear_jinni/domain/room/i_room_repository.dart';
-import 'package:cybear_jinni/domain/room/room_entity.dart';
-import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';

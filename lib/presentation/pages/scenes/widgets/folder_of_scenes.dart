@@ -1,9 +1,9 @@
 import 'package:another_flushbar/flushbar_helper.dart';
+import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
+import 'package:cbj_integrations_controller/domain/scene/scene_cbj_entity.dart';
+import 'package:cbj_integrations_controller/domain/scene/scene_cbj_failures.dart';
 import 'package:cybear_jinni/application/folder_of_scenes/folder_of_scenes_bloc.dart';
 import 'package:cybear_jinni/application/scene/scene_bloc.dart';
-import 'package:cybear_jinni/domain/room/room_entity.dart';
-import 'package:cybear_jinni/domain/scene/scene_cbj_entity.dart';
-import 'package:cybear_jinni/domain/scene/scene_cbj_failures.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/pages/scenes/widgets/scene_widget.dart';
 import 'package:dartz/dartz.dart';

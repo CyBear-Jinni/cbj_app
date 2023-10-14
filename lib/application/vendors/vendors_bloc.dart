@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:cybear_jinni/domain/auth/auth_failure.dart';
-import 'package:cybear_jinni/domain/vendors/i_vendor_repository.dart';
+import 'package:cbj_integrations_controller/domain/vendors/i_vendor_repository.dart';
 import 'package:cybear_jinni/domain/vendors/vendor.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';

@@ -1,6 +1,6 @@
 import 'package:another_flushbar/flushbar_helper.dart';
+import 'package:cbj_integrations_controller/domain/scene/scene_cbj_entity.dart';
 import 'package:cybear_jinni/application/scene/scene_bloc.dart';
-import 'package:cybear_jinni/domain/scene/scene_cbj_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

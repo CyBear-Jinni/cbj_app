@@ -1,9 +1,9 @@
+import 'package:cbj_integrations_controller/domain/core/errors.dart';
+import 'package:cbj_integrations_controller/domain/core/value_objects.dart';
 import 'package:cybear_jinni/domain/auth/auth_failure.dart';
 import 'package:cybear_jinni/domain/auth/i_auth_facade.dart';
 import 'package:cybear_jinni/domain/auth/user.dart';
 import 'package:cybear_jinni/domain/auth/value_objects.dart';
-import 'package:cybear_jinni/domain/core/errors.dart';
-import 'package:cybear_jinni/domain/core/value_objects.dart';
 import 'package:cybear_jinni/domain/local_db/i_local_db_repository.dart';
 import 'package:cybear_jinni/domain/user/i_user_repository.dart';
 import 'package:cybear_jinni/domain/user/user_entity.dart';

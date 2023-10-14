@@ -35,7 +35,7 @@
 //   SBlindsStop //  Stop the blinds
 // }
 
-import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 
 class EnumHelperCbj {
   static String dTToString(EntityTypes deviceType) {

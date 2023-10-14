@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:cybear_jinni/domain/scene/i_scene_cbj_repository.dart';
-import 'package:cybear_jinni/domain/scene/scene_cbj_entity.dart';
+import 'package:cbj_integrations_controller/domain/scene/i_scene_cbj_repository.dart';
+import 'package:cbj_integrations_controller/domain/scene/scene_cbj_entity.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';

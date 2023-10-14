@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/domain/room/smart_room_object.dart';
+import 'package:cbj_integrations_controller/domain/room/smart_room_object.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/smart_plugs/widgets/room_smart_plugs_toggles_block.dart';
 import 'package:cybear_jinni/presentation/pages/shared_widgets/top_navigation_bar.dart';

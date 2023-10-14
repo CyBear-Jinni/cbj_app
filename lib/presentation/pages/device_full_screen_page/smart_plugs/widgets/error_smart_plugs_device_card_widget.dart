@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/domain/generic_devices/generic_smart_plug_device/generic_smart_plug_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_plug_device/generic_smart_plug_entity.dart';
 import 'package:flutter/material.dart';
 
 class ErrorSmartPlugsDeviceCard extends StatelessWidget {
@@ -19,7 +19,9 @@ class ErrorSmartPlugsDeviceCard extends StatelessWidget {
           children: <Widget>[
             Text(
               'Invalid device, please, contact support',
-              style: Theme.of(context).primaryTextTheme.bodyMedium!
+              style: Theme.of(context)
+                  .primaryTextTheme
+                  .bodyMedium!
                   .copyWith(fontSize: 18),
             ),
             const SizedBox(height: 2),

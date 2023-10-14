@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_tv/generic_smart_tv_entity.dart';
 import 'package:cybear_jinni/application/smart_tv/smart_tv_actor/smart_tv_actor_bloc.dart';
-import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_smart_tv/generic_smart_tv_entity.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/smart_tv/widgets/error_smart_tvs_device_card_widget.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/smart_tv/widgets/smart_tv_widget.dart';

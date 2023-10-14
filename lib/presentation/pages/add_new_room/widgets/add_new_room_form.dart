@@ -1,7 +1,6 @@
+import 'package:cbj_integrations_controller/domain/room/room_failures.dart';
+import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/application/room/create_new_room_form/room_sign_in_form_bloc.dart';
-import 'package:cybear_jinni/domain/room/room_failures.dart';
-import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

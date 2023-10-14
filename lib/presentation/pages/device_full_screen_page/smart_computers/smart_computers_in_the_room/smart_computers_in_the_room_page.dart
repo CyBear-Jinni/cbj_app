@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/domain/room/smart_room_object.dart';
+import 'package:cbj_integrations_controller/domain/room/smart_room_object.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/smart_computers/widgets/room_smart_computers_toggles_block.dart';
 import 'package:cybear_jinni/presentation/pages/shared_widgets/top_navigation_bar.dart';

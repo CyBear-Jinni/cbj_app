@@ -1,4 +1,5 @@
 import 'package:another_flushbar/flushbar_helper.dart';
+import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/application/blinds/blinds_actor/blinds_actor_bloc.dart';
 import 'package:cybear_jinni/application/lights/lights_actor/lights_actor_bloc.dart';
 import 'package:cybear_jinni/application/printers/printers_actor/printers_actor_bloc.dart';
@@ -6,9 +7,8 @@ import 'package:cybear_jinni/application/smart_computers/smart_computers_actor/s
 import 'package:cybear_jinni/application/smart_plugs/smart_plugs_actor/smart_plugs_actor_bloc.dart';
 import 'package:cybear_jinni/application/smart_tv/smart_tv_actor/smart_tv_actor_bloc.dart';
 import 'package:cybear_jinni/application/switches/switches_actor/switches_actor_bloc.dart';
-import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
-import 'package:cybear_jinni/domain/room/room_entity.dart';
-import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/core/types_to_pass.dart';
 import 'package:cybear_jinni/presentation/pages/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/blinds_in_the_room.dart';

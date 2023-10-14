@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:cybear_jinni/domain/generic_devices/generic_smart_tv/generic_smart_tv_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_tv/generic_smart_tv_entity.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';

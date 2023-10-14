@@ -1,5 +1,5 @@
-import 'package:cybear_jinni/domain/generic_devices/generic_switch_device/generic_switch_entity.dart';
-import 'package:cybear_jinni/domain/room/room_entity.dart';
+import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_switch_device/generic_switch_entity.dart';
 import 'package:cybear_jinni/presentation/pages/shared_widgets/top_navigation_bar.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:easy_localization/easy_localization.dart';

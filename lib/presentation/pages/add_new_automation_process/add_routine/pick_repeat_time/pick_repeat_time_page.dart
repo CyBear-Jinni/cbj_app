@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/domain/routine/value_objects_routine_cbj.dart';
+import 'package:cbj_integrations_controller/domain/routine/value_objects_routine_cbj.dart';
 import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
 import 'package:cybear_jinni/presentation/pages/shared_widgets/top_navigation_bar.dart';
 import 'package:day_night_time_picker/day_night_time_picker.dart';

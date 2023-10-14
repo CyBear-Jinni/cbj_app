@@ -2,10 +2,10 @@ import 'dart:async';
 import 'dart:collection';
 
 import 'package:bloc/bloc.dart';
-import 'package:cybear_jinni/domain/binding/binding_cbj_entity.dart';
-import 'package:cybear_jinni/domain/binding/binding_cbj_failures.dart';
-import 'package:cybear_jinni/domain/binding/i_binding_cbj_repository.dart';
-import 'package:cybear_jinni/domain/room/room_entity.dart';
+import 'package:cbj_integrations_controller/domain/binding/binding_cbj_failures.dart';
+import 'package:cbj_integrations_controller/domain/binding/i_binding_cbj_repository.dart';
+import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
+import 'package:cbj_integrations_controller/domain/scene/i_scene_cbj_repositordart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
