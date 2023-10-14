@@ -16,7 +16,7 @@ part 'add_new_action_state.dart';
 
 @injectable
 class AddNewActionBloc extends Bloc<AddNewActionEvent, AddNewActionState> {
-  AddNewActionBloc(this._roomRepository, this._deviceRepository)
+  AddNewActionBloc(this._deviceRepository)
       : super(AddNewActionState.initial()) {
     on<ChangeActionDevices>(_changeActionDevices);
     on<ActionsNameChange>(_actionsNameChange);
@@ -28,7 +28,6 @@ class AddNewActionBloc extends Bloc<AddNewActionEvent, AddNewActionState> {
 
   // listOfPropertiesToChange
 
-  final IRoomRepository _roomRepository;
   final IDeviceRepository _deviceRepository;
 
   List<RoomEntity?> _allRooms = [];
@@ -38,7 +37,7 @@ class AddNewActionBloc extends Bloc<AddNewActionEvent, AddNewActionState> {
     Initialized event,
     Emitter<AddNewActionState> emit,
   ) async {
-    (await _roomRepository.getAllRooms()).fold((l) => null, (r) {
+    (await IRoomRepository.instance.getAllRooms()).fold((l) => null, (r) {
       _allRooms = List<RoomEntity>.from(r.iter);
     });
 

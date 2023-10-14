@@ -87,7 +87,7 @@ class AddUserToHomeRepository implements IAddUserToHomeRepository {
       // );
 
       // await create(homeUserEntityToAdd);
-      final String homeId = await getIt<ILocalDbRepository>().getHomeId();
+      final String homeId = await getIt<ILocalDbRepository2>().getHomeId();
       return Right(homeId);
     } catch (e) {
       return const Left(AddUserToHomeFailures.unexpected());

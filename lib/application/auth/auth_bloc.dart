@@ -33,7 +33,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   ) async {
     // For now will check only if hub connection info is saved
     emit(
-      (await getIt<ILocalDbRepository>().getHubEntityNetworkName()).fold(
+      (await getIt<ILocalDbRepository2>().getHubEntityNetworkName()).fold(
         (l) => const AuthState.unauthenticated(),
         (r) => const AuthState.authenticated(),
       ),

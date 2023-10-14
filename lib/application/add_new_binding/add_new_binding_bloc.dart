@@ -87,7 +87,8 @@ class AddNewBindingBloc extends Bloc<AddNewBindingEvent, AddNewBindingState> {
     SendBindingToHub event,
     Emitter<AddNewBindingState> emit,
   ) async {
-    _bindingRepository.addOrUpdateNewBindingInHubFromDevicesPropertyActionList(
+    IBindingCbjRepository.instance
+        .addOrUpdateNewBindingInHubFromDevicesPropertyActionList(
       bindingName,
       allDevicesWithNewAction,
     );

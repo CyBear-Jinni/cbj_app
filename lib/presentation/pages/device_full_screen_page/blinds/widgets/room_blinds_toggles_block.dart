@@ -75,7 +75,9 @@ class RoomBlindsTogglesBlock extends StatelessWidget {
       padding: const EdgeInsets.all(3),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: _smartRoomObject.grediantColor,
+          colors: _smartRoomObject.grediantColor
+              .map((e) => Color(int.parse(e.toHexColor().toCssString())))
+              .toList(),
           begin: Alignment.bottomLeft,
           end: Alignment.topLeft,
         ),

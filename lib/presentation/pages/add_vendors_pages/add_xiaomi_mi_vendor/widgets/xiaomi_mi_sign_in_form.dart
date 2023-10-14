@@ -1,8 +1,8 @@
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/application/xiaomi_mi_auth/xiaomi_mi_sign_in_form/xiaomi_mi_sign_in_form_bloc.dart';
 import 'package:cbj_integrations_controller/domain/vendors/login_abstract/core_login_failures.dart';
-import 'package:cybear_jinni/domain/vendors/vendor.dart';
+import 'package:cybear_jinni/application/xiaomi_mi_auth/xiaomi_mi_sign_in_form/xiaomi_mi_sign_in_form_bloc.dart';
+import 'package:cbj_integrations_controller/domain/vendors/vendor_data.dart';
 import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
 import 'package:dartz/dartz.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -14,7 +14,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class XiaomiMiSignInForm extends StatelessWidget {
   const XiaomiMiSignInForm(this.vendor);
 
-  final Vendor vendor;
+  final VendorData vendor;
 
   @override
   Widget build(BuildContext context) {

@@ -26,7 +26,7 @@ import 'package:permission_handler/permission_handler.dart'
 class SecurityBearConnectionRepository
     extends ISecurityBearConnectionRepository {
   SecurityBearConnectionRepository() {
-    if (currentEnv == Env.dev) {
+    if (currentEnvApp == EnvApp.dev) {
       securityBearPort = 60052;
     } else {
       securityBearPort = 50052;

@@ -95,7 +95,7 @@ class UserRepository implements IUserRepository {
       //     .doc(homeId)
       //     .set(homeUserDtos.toJson());
       //
-      await getIt<ILocalDbRepository>().setHomeId(homeId);
+      await getIt<ILocalDbRepository2>().setHomeId(homeId);
 
       return right(unit);
     } catch (e) {
@@ -159,7 +159,7 @@ class UserRepository implements IUserRepository {
       //   return left(const HomeUserFailures.homeDoesNotExist());
       // }
 
-      await getIt<ILocalDbRepository>().setHomeId(homeId);
+      await getIt<ILocalDbRepository2>().setHomeId(homeId);
 
       return right(unit);
     } catch (e) {

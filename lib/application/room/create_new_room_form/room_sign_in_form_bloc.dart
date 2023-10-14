@@ -19,7 +19,7 @@ part 'room_sign_in_form_state.dart';
 @injectable
 class RoomSignInFormBloc
     extends Bloc<RoomSignInFormEvent, RoomSignInFormState> {
-  RoomSignInFormBloc(this._roomRepository, this._deviceRepository)
+  RoomSignInFormBloc(this._deviceRepository)
       : super(RoomSignInFormState.initial()) {
     on<CreateRoom>(_createRoom);
     on<ChangeRoomDevices>(_changeRoomDevices);
@@ -34,7 +34,6 @@ class RoomSignInFormBloc
     add(const RoomSignInFormEvent.initialized());
   }
 
-  final IRoomRepository _roomRepository;
   final IDeviceRepository _deviceRepository;
 
   List<RoomEntity?> _allRooms = [];
@@ -44,7 +43,7 @@ class RoomSignInFormBloc
     Initialized event,
     Emitter<RoomSignInFormState> emit,
   ) async {
-    (await _roomRepository.getAllRooms()).fold((l) => null, (r) {
+    (await IRoomRepository.instance.getAllRooms()).fold((l) => null, (r) {
       _allRooms = List<RoomEntity>.from(r.iter);
     });
 
@@ -79,7 +78,7 @@ class RoomSignInFormBloc
       roomPermissions: RoomPermissions(state.roomPermissions.getOrCrash()),
     );
 
-    _roomRepository.create(roomEntity);
+    IRoomRepository.instance.create(roomEntity);
   }
 
   Future<void> _createRoom(
@@ -99,7 +98,7 @@ class RoomSignInFormBloc
       roomPermissions: RoomPermissions(state.roomPermissions.getOrCrash()),
     );
 
-    _roomRepository.create(roomEntity);
+    IRoomRepository.instance.create(roomEntity);
   }
 
   Future<void> _defaultNameChanged(

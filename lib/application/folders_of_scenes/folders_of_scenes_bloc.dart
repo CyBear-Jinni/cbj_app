@@ -4,7 +4,6 @@ import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/domain/room/room_failures.dart';
 import 'package:cbj_integrations_controller/domain/scene/i_scene_cbj_repository.dart';
 import 'package:cbj_integrations_controller/domain/scene/scene_cbj_entity.dart';
-import 'package:cbj_integrations_controller/domain/scene/scene_cbj_failures.dart';
 import 'package:cybear_jinni/domain/auth/auth_failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -18,14 +17,12 @@ part 'folders_of_scenes_state.dart';
 @injectable
 class FoldersOfScenesBloc
     extends Bloc<FoldersOfScenesEvent, FoldersOfScenesState> {
-  FoldersOfScenesBloc(this._roomRepository, this._iSceneRepository)
+  FoldersOfScenesBloc(this._iSceneRepository)
       : super(FoldersOfScenesState.initialized()) {
     on<Initialized>(_initialized);
   }
 
   final ISceneCbjRepository _iSceneRepository;
-
-  final IRoomRepository _roomRepository;
 
   List<SceneCbjEntity> allScenes = <SceneCbjEntity>[];
   List<RoomEntity> allRoomsWithScenes = <RoomEntity>[];
@@ -36,17 +33,19 @@ class FoldersOfScenesBloc
   ) async {
     emit(const FoldersOfScenesState.loading());
 
-    final Either<SceneCbjFailure, KtList<SceneCbjEntity>> eitherAllScenes =
-        await _iSceneRepository.getAllScenesAsList();
-    eitherAllScenes.fold((l) => null, (r) {
-      allScenes.addAll(r.asList());
-    });
+    final List<SceneCbjEntity> eitherAllScenes =
+        await ISceneCbjRepository.instance.getAllScenesAsList();
+    allScenes.addAll(eitherAllScenes);
+
+    // eitherAllScenes.fold((l) => null, (r) {
+    //   allScenes.addAll(r.asList());
+    // });
     if (allScenes.isEmpty) {
       return;
     }
 
     final Either<RoomFailure, KtList<RoomEntity>> eitherAllRooms =
-        await _roomRepository.getAllRooms();
+        await IRoomRepository.instance.getAllRooms();
     eitherAllRooms.fold((l) => null, (KtList<RoomEntity> r) {
       for (final RoomEntity rE in r.asList()) {
         if (rE.roomScenesId.getOrCrash().isNotEmpty) {

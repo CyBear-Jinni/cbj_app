@@ -1,7 +1,7 @@
-import 'package:cybear_jinni/domain/local_db/local_db_failures.dart';
+import 'package:cbj_integrations_controller/domain/local_db/local_db_failures.dart';
 import 'package:dartz/dartz.dart';
 
-abstract class ILocalDbRepository {
+abstract class ILocalDbRepository2 {
   String remotePipesBoxName = 'remotePipesBox';
   String hubEntityBoxName = 'hubEntityBox';
 

@@ -22,7 +22,7 @@ class HubAuthFacade implements IAuthFacade {
   Future<Option<MHome>> getCurrentHome() async => optionOf(
         MHome(
           id: UniqueId.fromUniqueString(
-            await getIt<ILocalDbRepository>().getHomeId(),
+            await getIt<ILocalDbRepository2>().getHomeId(),
           ),
         ),
       );

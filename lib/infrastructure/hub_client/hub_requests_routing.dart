@@ -130,7 +130,8 @@ class HubRequestRouting {
     );
 
     final RoomEntity roomEntity = roomEntityDtos.toDomain();
-    getIt<IRoomRepository>().addOrUpdateRoom(roomEntity);
+
+    IRoomRepository.instance.addOrUpdateRoom(roomEntity);
   }
 
   static Future<void> navigateDeviceRequest(

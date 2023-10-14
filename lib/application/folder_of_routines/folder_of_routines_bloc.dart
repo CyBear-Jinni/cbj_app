@@ -1,12 +1,9 @@
 import 'dart:async';
-import 'dart:collection';
 
 import 'package:bloc/bloc.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/domain/routine/i_routine_cbj_repository.dart';
 import 'package:cbj_integrations_controller/domain/routine/routine_cbj_entity.dart';
-import 'package:cbj_integrations_controller/domain/routine/routine_cbj_failures.dart';
-import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -34,17 +31,23 @@ class FolderOfRoutinesBloc
     folderOfRoutines = event.folderOfRoutines;
     emit(const FolderOfRoutinesState.loading());
 
-    final Either<RoutineCbjFailure, HashMap<String, RoutineCbjEntity>>
-        eitherAllRoutines = await _iRoutineRepository.getAllRoutinesAsMap();
-    eitherAllRoutines.fold((l) => null,
-        (HashMap<String, RoutineCbjEntity> routinesList) {
-      for (final String routineId
-          in folderOfRoutines.roomRoutinesId.getOrCrash()) {
-        if (routinesList.containsKey(routineId)) {
-          allRoutinesInTheRoom.add(routinesList[routineId]!);
-        }
+    final Map<String, RoutineCbjEntity> eitherAllRoutines =
+        await IRoutineCbjRepository.instance.getAllRoutinesAsMap();
+    for (final String routineId
+        in folderOfRoutines.roomRoutinesId.getOrCrash()) {
+      if (eitherAllRoutines.containsKey(routineId)) {
+        allRoutinesInTheRoom.add(eitherAllRoutines[routineId]!);
       }
-    });
+    }
+    // eitherAllRoutines.fold((l) => null,
+    //     (HashMap<String, RoutineCbjEntity> routinesList) {
+    //   for (final String routineId
+    //       in folderOfRoutines.roomRoutinesId.getOrCrash()) {
+    //     if (routinesList.containsKey(routineId)) {
+    //       allRoutinesInTheRoom.add(routinesList[routineId]!);
+    //     }
+    //   }
+    // });
     if (allRoutinesInTheRoom.isEmpty) {
       emit(const FolderOfRoutinesState.loadedEmptyScens());
       return;

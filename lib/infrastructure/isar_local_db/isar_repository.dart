@@ -1,5 +1,5 @@
+import 'package:cbj_integrations_controller/domain/local_db/local_db_failures.dart';
 import 'package:cybear_jinni/domain/local_db/i_local_db_repository.dart';
-import 'package:cybear_jinni/domain/local_db/local_db_failures.dart';
 import 'package:cybear_jinni/infrastructure/isar_local_db/isar_objects/home_entity_isar_model.dart';
 import 'package:cybear_jinni/infrastructure/isar_local_db/isar_objects/hub_entity_isar_model.dart';
 import 'package:cybear_jinni/infrastructure/isar_local_db/isar_objects/remote_pipes_isar_model.dart';
@@ -9,8 +9,8 @@ import 'package:injectable/injectable.dart';
 import 'package:isar/isar.dart';
 import 'package:path_provider/path_provider.dart';
 
-@LazySingleton(as: ILocalDbRepository)
-class IsarRepository extends ILocalDbRepository {
+@LazySingleton(as: ILocalDbRepository2)
+class IsarRepository extends ILocalDbRepository2 {
   IsarRepository() {
     asyncConstructor();
   }

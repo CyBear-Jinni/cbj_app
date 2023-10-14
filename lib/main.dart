@@ -1,7 +1,10 @@
 import 'dart:io';
 
+import 'package:cbj_integrations_controller/infrastructure/local_db/local_db_hive_repository.dart';
+import 'package:cbj_integrations_controller/injection.dart';
 import 'package:cybear_jinni/ad_state.dart';
 import 'package:cybear_jinni/domain/local_db/i_local_db_repository.dart';
+import 'package:cybear_jinni/infrastructure/room/room_repository.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/core/app_widget.dart';
 import 'package:cybear_jinni/presentation/core/notifications.dart';
@@ -40,10 +43,13 @@ class ReceivedNotification {
 }
 
 Future<Unit> main() async {
-  configureDependencies(Env.dev);
+  RoomRepository();
+  configureDependencies(EnvApp.dev);
+  configureInjection(Env.devPc);
 
   WidgetsFlutterBinding.ensureInitialized();
-  getIt<ILocalDbRepository>();
+  HiveRepository();
+  getIt<ILocalDbRepository2>();
   getIt.registerSingleton<AppRouter>(AppRouter());
 
   AdState? adState;

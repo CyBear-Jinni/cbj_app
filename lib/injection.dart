@@ -6,16 +6,16 @@ import 'package:injectable/injectable.dart';
 final getIt = GetIt.instance;
 
 /// Saves the current environment for manual use
-late String currentEnv;
+late String currentEnvApp;
 
 @injectableInit
 void configureDependencies(String env) {
-  currentEnv = env;
-  logger.i('Current CyBear Jinni App environment name: $currentEnv');
+  currentEnvApp = env;
+  logger.i('Current CyBear Jinni App environment name: $currentEnvApp');
   getIt.init(environment: env);
 }
 
-abstract class Env {
+abstract class EnvApp {
   static const String test = 'test';
   static const String dev = 'dev';
   static const String prod = 'prod';

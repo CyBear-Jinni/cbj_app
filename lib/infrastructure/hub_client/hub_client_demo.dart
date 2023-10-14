@@ -21,8 +21,8 @@ import 'package:cbj_integrations_controller/infrastructure/generic_devices/gener
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_rgbw_light_device/generic_rgbw_light_value_objects.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_switch_device/generic_switch_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_switch_device/generic_switch_value_objects.dart';
+import 'package:cbj_integrations_controller/utils.dart';
 import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
-import 'package:cybear_jinni/utils.dart';
 
 class HubClientDemo {
   ///  Creates a stream with the Hub

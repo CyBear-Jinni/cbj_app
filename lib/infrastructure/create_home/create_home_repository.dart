@@ -66,7 +66,7 @@ class CreateHomeRepository implements ICreateHomeRepository {
       );
 
       // create home with the current user
-      await getIt<ILocalDbRepository>()
+      await getIt<ILocalDbRepository2>()
           .setHomeId(createHomeEntityWithId.id.getOrCrash());
 
       final creatingHomeWithUser = await addUserToHome(userEntity);
