@@ -1,5 +1,5 @@
 import 'package:cbj_integrations_controller/domain/local_db/local_db_failures.dart';
-import 'package:cybear_jinni/domain/local_db/i_local_db_repository.dart';
+import 'package:cybear_jinni/domain/local_db/i_local_db_repository2.dart';
 import 'package:cybear_jinni/infrastructure/isar_local_db/isar_objects/home_entity_isar_model.dart';
 import 'package:cybear_jinni/infrastructure/isar_local_db/isar_objects/hub_entity_isar_model.dart';
 import 'package:cybear_jinni/infrastructure/isar_local_db/isar_objects/remote_pipes_isar_model.dart';
@@ -39,30 +39,30 @@ class IsarRepository extends ILocalDbRepository2 {
     });
   }
 
-  @override
-  Future<Either<LocalDbFailures, Unit>> saveRemotePipes({
-    required String remotePipesDomainName,
-  }) async {
-    try {
-      final RemotePipesIsarModel remotePipesIsarModel = RemotePipesIsarModel()
-        ..domainName = remotePipesDomainName;
-
-      await isar.writeTxn(() async {
-        await isar.remotePipesIsarModels.clear();
-        await isar.remotePipesIsarModels.put(remotePipesIsarModel);
-      });
-
-      logger.i(
-        'Remote Pipes got saved to local storage with domain name is: '
-        '$remotePipesDomainName',
-      );
-    } catch (e) {
-      logger.e('Error saving Remote Pipes to local storage');
-
-      return left(const LocalDbFailures.unexpected());
-    }
-    return right(unit);
-  }
+  // @override
+  // Future<Either<LocalDbFailures, Unit>> saveRemotePipes({
+  //   required String remotePipesDomainName,
+  // }) async {
+  //   try {
+  //     final RemotePipesIsarModel remotePipesIsarModel = RemotePipesIsarModel()
+  //       ..domainName = remotePipesDomainName;
+  //
+  //     await isar.writeTxn(() async {
+  //       await isar.remotePipesIsarModels.clear();
+  //       await isar.remotePipesIsarModels.put(remotePipesIsarModel);
+  //     });
+  //
+  //     logger.i(
+  //       'Remote Pipes got saved to local storage with domain name is: '
+  //       '$remotePipesDomainName',
+  //     );
+  //   } catch (e) {
+  //     logger.e('Error saving Remote Pipes to local storage');
+  //
+  //     return left(const LocalDbFailures.unexpected());
+  //   }
+  //   return right(unit);
+  // }
 
   @override
   Future<Either<LocalDbFailures, Unit>> saveHubEntity({
@@ -98,29 +98,29 @@ class IsarRepository extends ILocalDbRepository2 {
     return homeEntityIsarModelList[0].homeId;
   }
 
-  @override
-  Future<Either<LocalDbFailures, String>> getRemotePipesDnsName() async {
-    try {
-      final List<RemotePipesIsarModel> remotePipesIsarModelFromDb =
-          await isar.remotePipesIsarModels.where().findAll();
-
-      if (remotePipesIsarModelFromDb.isNotEmpty) {
-        final String remotePipesDnsName =
-            remotePipesIsarModelFromDb[0].domainName;
-        logger.i(
-          'Remote pipes domain name is: '
-          '${remotePipesIsarModelFromDb[0].domainName}',
-        );
-
-        return right(remotePipesDnsName);
-      }
-
-      logger.i("Didn't find any remote pipes in the local DB");
-    } catch (e) {
-      logger.e('Local DB isar getRemotePipesDnsName error: $e');
-    }
-    return left(const LocalDbFailures.unexpected());
-  }
+  // @override
+  // Future<Either<LocalDbFailures, String>> getRemotePipesDnsName() async {
+  //   try {
+  //     final List<RemotePipesIsarModel> remotePipesIsarModelFromDb =
+  //         await isar.remotePipesIsarModels.where().findAll();
+  //
+  //     if (remotePipesIsarModelFromDb.isNotEmpty) {
+  //       final String remotePipesDnsName =
+  //           remotePipesIsarModelFromDb[0].domainName;
+  //       logger.i(
+  //         'Remote pipes domain name is: '
+  //         '${remotePipesIsarModelFromDb[0].domainName}',
+  //       );
+  //
+  //       return right(remotePipesDnsName);
+  //     }
+  //
+  //     logger.i("Didn't find any remote pipes in the local DB");
+  //   } catch (e) {
+  //     logger.e('Local DB isar getRemotePipesDnsName error: $e');
+  //   }
+  //   return left(const LocalDbFailures.unexpected());
+  // }
 
   @override
   Future<Either<LocalDbFailures, String>> getHubEntityLastKnownIp() async {

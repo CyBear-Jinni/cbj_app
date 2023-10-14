@@ -27,7 +27,7 @@ class SettingsPageOfSmartComputers extends StatelessWidget {
       return Column(
         children: <Widget>[
           ListTile(
-            leading: const CircleAvatar(
+            leading: CircleAvatar(
               child: Icon(MdiIcons.lightSwitch),
             ),
             title: Text(

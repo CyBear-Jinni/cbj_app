@@ -9,17 +9,11 @@ abstract class ILocalDbRepository2 {
 
   Future<String> getHomeId();
 
-  Future<Either<LocalDbFailures, Unit>> saveRemotePipes({
-    required String remotePipesDomainName,
-  });
-
   Future<Either<LocalDbFailures, Unit>> saveHubEntity({
     required String hubNetworkBssid,
     required String networkName,
     required String lastKnownIp,
   });
-
-  Future<Either<LocalDbFailures, String>> getRemotePipesDnsName();
 
   Future<Either<LocalDbFailures, String>> getHubEntityNetworkBssid();
 

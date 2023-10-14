@@ -34,7 +34,7 @@ class SmartTvsInTheRoomWidget extends StatelessWidget {
         child: Column(
           children: <Widget>[
             ListTile(
-              leading: const CircleAvatar(
+              leading: CircleAvatar(
                 child: Icon(MdiIcons.lightSwitch),
 //                backgroundImage: AssetImage('assets/cbj_logo.png'),
 //              backgroundImage: AssetImage(products[index]['image']),

@@ -13,12 +13,11 @@ part 'scene_state.dart';
 
 @injectable
 class SceneBloc extends Bloc<SceneEvent, SceneState> {
-  SceneBloc(this._iSceneRepository) : super(SceneState.initialized()) {
+  SceneBloc() : super(SceneState.initialized()) {
     on<Initialized>(_initialized);
     on<ActivateScene>(_activateScene);
   }
 
-  final ISceneCbjRepository _iSceneRepository;
   late SceneCbjEntity sceneCbj;
 
   Future<void> _initialized(
@@ -34,6 +33,6 @@ class SceneBloc extends Bloc<SceneEvent, SceneState> {
     ActivateScene event,
     Emitter<SceneState> emit,
   ) async {
-    _iSceneRepository.activateScenes([sceneCbj].toImmutableList());
+    ISceneCbjRepository.instance.activateScenes([sceneCbj].toImmutableList());
   }
 }

@@ -14,12 +14,10 @@ part 'folder_of_scenes_state.dart';
 @injectable
 class FolderOfScenesBloc
     extends Bloc<FolderOfScenesEvent, FolderOfScenesState> {
-  FolderOfScenesBloc(this._iSceneRepository)
-      : super(FolderOfScenesState.initialized()) {
+  FolderOfScenesBloc() : super(FolderOfScenesState.initialized()) {
     on<Initialized>(_initialized);
   }
 
-  final ISceneCbjRepository _iSceneRepository;
   late RoomEntity folderOfScenes;
 
   List<SceneCbjEntity> allScenesInTheRoom = [];

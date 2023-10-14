@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:cybear_jinni/domain/auth/i_auth_facade.dart';
-import 'package:cybear_jinni/domain/local_db/i_local_db_repository.dart';
+import 'package:cybear_jinni/domain/local_db/i_local_db_repository2.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';

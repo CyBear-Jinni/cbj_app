@@ -18,13 +18,13 @@ class BottomNavigationBarHomePage extends StatelessWidget {
       onTap: (value) => callback(value),
       items: [
         BottomNavigationBarItem(
-          activeIcon: const Icon(MdiIcons.sitemap),
-          icon: const Icon(MdiIcons.sitemapOutline),
+          activeIcon: Icon(MdiIcons.sitemap),
+          icon: Icon(MdiIcons.sitemapOutline),
           label: 'Automations'.tr(),
         ),
         BottomNavigationBarItem(
-          activeIcon: const Icon(MdiIcons.lightbulbOn),
-          icon: const Icon(MdiIcons.lightbulbOutline),
+          activeIcon: Icon(MdiIcons.lightbulbOn),
+          icon: Icon(MdiIcons.lightbulbOutline),
           label: 'Devices'.tr(),
         ),
         // BottomNavigationBarItem(

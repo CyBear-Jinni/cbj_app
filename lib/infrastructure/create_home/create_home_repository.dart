@@ -9,7 +9,7 @@ import 'package:cybear_jinni/domain/create_home/create_home_value_objects.dart';
 import 'package:cybear_jinni/domain/create_home/i_create_home_repository.dart';
 import 'package:cybear_jinni/domain/home_user/home_user_entity.dart';
 import 'package:cybear_jinni/domain/home_user/home_user_value_objects.dart';
-import 'package:cybear_jinni/domain/local_db/i_local_db_repository.dart';
+import 'package:cybear_jinni/domain/local_db/i_local_db_repository2.dart';
 import 'package:cybear_jinni/domain/manage_network/manage_network_entity.dart';
 import 'package:cybear_jinni/domain/manage_network/manage_network_value_objects.dart';
 import 'package:cybear_jinni/domain/user/all_homes_of_user/all_homes_of_user_entity.dart';
