@@ -1,19 +1,19 @@
 import 'dart:io';
 
+import 'package:cbj_integrations_controller/domain/local_db/i_local_devices_db_repository.dart';
+import 'package:cbj_integrations_controller/domain/local_db/local_db_failures.dart';
+import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cbj_integrations_controller/utils.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:cybear_jinni/domain/hub/hub_entity.dart';
 import 'package:cybear_jinni/domain/hub/hub_failures.dart';
 import 'package:cybear_jinni/domain/hub/hub_value_objects.dart';
 import 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
-import 'package:cybear_jinni/domain/local_db/i_local_db_repository.dart';
-import 'package:cybear_jinni/domain/local_db/local_db_failures.dart';
-import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-
+import 'package:cybear_jinni/domain/local_db/i_local_db_repository2.dart';
 import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
 import 'package:cybear_jinni/infrastructure/hub_client/hub_client_demo.dart';
 import 'package:cybear_jinni/infrastructure/hub_client/hub_dtos.dart';
 import 'package:cybear_jinni/injection.dart';
-import 'package:cybear_jinni/utils.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:injectable/injectable.dart';
@@ -28,7 +28,7 @@ import 'package:wifi_iot/wifi_iot.dart';
 @LazySingleton(as: IHubConnectionRepository)
 class HubConnectionRepository extends IHubConnectionRepository {
   HubConnectionRepository() {
-    if (currentEnv == Env.prod) {
+    if (currentEnvApp == EnvApp.prod) {
       hubPort = 50055;
     } else {
       hubPort = 60055;
@@ -84,9 +84,9 @@ class HubConnectionRepository extends IHubConnectionRepository {
     } catch (e) {
       logger.w("Can't get WiFi BSSID");
     }
-
+    ;
     final Either<LocalDbFailures, String> remotePipesInformation =
-        await getIt<ILocalDbRepository>().getRemotePipesDnsName();
+        await ILocalDbRepository.instance.getRemotePipesDnsName();
 
     // Check if you are connected to the home local network for direct
     // communication with the Hub.
@@ -128,19 +128,19 @@ class HubConnectionRepository extends IHubConnectionRepository {
     if (IHubConnectionRepository.hubEntity == null) {
       try {
         String? hubNetworkBssid;
-        (await getIt<ILocalDbRepository>().getHubEntityNetworkBssid()).fold(
+        (await getIt<ILocalDbRepository2>().getHubEntityNetworkBssid()).fold(
           (l) => throw 'Error getting Hub network Bssid',
           (r) => hubNetworkBssid = r,
         );
 
         String? hubNetworkName;
-        (await getIt<ILocalDbRepository>().getHubEntityNetworkName()).fold(
+        (await getIt<ILocalDbRepository2>().getHubEntityNetworkName()).fold(
           (l) => throw 'Error getting Hub network name',
           (r) => hubNetworkName = r,
         );
 
         String? hubNetworkIp;
-        (await getIt<ILocalDbRepository>().getHubEntityLastKnownIp()).fold(
+        (await getIt<ILocalDbRepository2>().getHubEntityLastKnownIp()).fold(
           (l) => throw 'Error getting Hub network IP',
           (r) => hubNetworkIp = r,
         );
@@ -222,7 +222,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
       // return;
     } else {
       logger.i('Connect using Remote Pipes');
-      return (await getIt<ILocalDbRepository>().getRemotePipesDnsName()).fold(
+      return (await ILocalDbRepository.instance.getRemotePipesDnsName()).fold(
           (l) {
         logger.e('Cant find local Remote Pipes Dns name');
         return left(const HubFailures.unexpected());
@@ -437,7 +437,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
     final HubDtos hubDtos =
         IHubConnectionRepository.hubEntity!.toInfrastructure();
 
-    (await getIt<ILocalDbRepository>().saveHubEntity(
+    (await getIt<ILocalDbRepository2>().saveHubEntity(
       hubNetworkBssid: hubDtos.hubNetworkBssid,
       networkName: hubDtos.networkName,
       lastKnownIp: hubDtos.lastKnownIp,
@@ -458,19 +458,19 @@ class HubConnectionRepository extends IHubConnectionRepository {
   Future<void> loadNetworkInformationFromDb() async {
     try {
       String? hubNetworkBssid;
-      (await getIt<ILocalDbRepository>().getHubEntityNetworkBssid()).fold(
+      (await getIt<ILocalDbRepository2>().getHubEntityNetworkBssid()).fold(
         (l) => throw 'Error getting Hub network Bssid',
         (r) => hubNetworkBssid = r,
       );
 
       String? hubNetworkName;
-      (await getIt<ILocalDbRepository>().getHubEntityNetworkName()).fold(
+      (await getIt<ILocalDbRepository2>().getHubEntityNetworkName()).fold(
         (l) => throw 'Error getting Hub network name',
         (r) => hubNetworkName = r,
       );
 
       String? hubNetworkIp;
-      (await getIt<ILocalDbRepository>().getHubEntityLastKnownIp()).fold(
+      (await getIt<ILocalDbRepository2>().getHubEntityLastKnownIp()).fold(
         (l) => throw 'Error getting Hub network IP',
         (r) => hubNetworkIp = r,
       );
@@ -504,7 +504,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
       // If can't find hub in local network
       if (foundAHub.isLeft()) {
         // Connect using Remote pipes if connection information exists
-        if ((await getIt<ILocalDbRepository>().getRemotePipesDnsName())
+        if ((await ILocalDbRepository.instance.getRemotePipesDnsName())
             .isRight()) {
           await connectionUsingRemotePipes();
           return;
@@ -527,7 +527,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
 
   /// Connect to the Hub using the Remote Pipes
   Future<void> connectionUsingRemotePipes() async {
-    (await getIt<ILocalDbRepository>().getRemotePipesDnsName()).fold(
+    (await ILocalDbRepository.instance.getRemotePipesDnsName()).fold(
       (l) async {
         (await OpenAndroidWifiSettingIfPosiible()).fold(
           (l) {

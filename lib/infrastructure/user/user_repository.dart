@@ -1,7 +1,7 @@
+import 'package:cbj_integrations_controller/domain/core/errors.dart';
 import 'package:cybear_jinni/domain/auth/i_auth_facade.dart';
-import 'package:cybear_jinni/domain/core/errors.dart';
 import 'package:cybear_jinni/domain/home_user/home_user_failures.dart';
-import 'package:cybear_jinni/domain/local_db/i_local_db_repository.dart';
+import 'package:cybear_jinni/domain/local_db/i_local_db_repository2.dart';
 import 'package:cybear_jinni/domain/user/all_homes_of_user/all_homes_of_user_entity.dart';
 import 'package:cybear_jinni/domain/user/all_homes_of_user/all_homes_of_user_failures.dart';
 import 'package:cybear_jinni/domain/user/i_user_repository.dart';
@@ -95,7 +95,7 @@ class UserRepository implements IUserRepository {
       //     .doc(homeId)
       //     .set(homeUserDtos.toJson());
       //
-      await getIt<ILocalDbRepository>().setHomeId(homeId);
+      await getIt<ILocalDbRepository2>().setHomeId(homeId);
 
       return right(unit);
     } catch (e) {
@@ -159,7 +159,7 @@ class UserRepository implements IUserRepository {
       //   return left(const HomeUserFailures.homeDoesNotExist());
       // }
 
-      await getIt<ILocalDbRepository>().setHomeId(homeId);
+      await getIt<ILocalDbRepository2>().setHomeId(homeId);
 
       return right(unit);
     } catch (e) {

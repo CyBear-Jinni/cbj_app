@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:cybear_jinni/domain/vendors/login_abstract/login_entity_abstract.dart';
-import 'package:cybear_jinni/infrastructure/generic_vendors_login/generic_login_abstract/login_entity_dto_abstract.dart';
+import 'package:cbj_integrations_controller/domain/vendors/login_abstract/login_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_vendors_login/generic_login_abstract/login_entity_dto_abstract.dart';
 
 class VendorHelper {
   /// Dto to json

@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/auth/auth_bloc.dart';
 import 'package:cybear_jinni/injection.dart';
-import 'package:cybear_jinni/presentation/routes/app_router.dart';
+import 'package:cybear_jinni/presentation/pages/routes/app_router.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

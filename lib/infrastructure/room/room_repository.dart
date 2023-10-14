@@ -2,22 +2,22 @@ import 'dart:async';
 import 'dart:collection';
 import 'dart:convert';
 
-import 'package:cybear_jinni/domain/room/i_room_repository.dart';
-import 'package:cybear_jinni/domain/room/room_entity.dart';
-import 'package:cybear_jinni/domain/room/room_failures.dart';
-import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-
+import 'package:cbj_integrations_controller/domain/room/i_room_repository.dart';
+import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
+import 'package:cbj_integrations_controller/domain/room/room_failures.dart';
+import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:dartz/dartz.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
-import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
 import 'package:rxdart/rxdart.dart';
 
-@LazySingleton(as: IRoomRepository)
 class RoomRepository implements IRoomRepository {
+  RoomRepository() {
+    IRoomRepository.instance = this;
+  }
+
   static HashMap<String, RoomEntity> allRooms = HashMap<String, RoomEntity>();
 
   @override
@@ -53,7 +53,7 @@ class RoomRepository implements IRoomRepository {
   @override
   Future<Either<RoomFailure, Unit>> changeHsvColorRooms({
     required List<String>? roomsId,
-    required HSVColor hsvColorToChange,
+    required dynamic hsvColorToChange,
   }) async {
     // TODO: implement changeHsvColorRooms
     throw UnimplementedError();

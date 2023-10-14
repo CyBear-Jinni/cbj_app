@@ -1,11 +1,11 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:cbj_integrations_controller/domain/room/i_room_repository.dart';
+import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
+import 'package:cbj_integrations_controller/domain/vendors/login_abstract/core_login_failures.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
-import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
-import 'package:cybear_jinni/domain/room/i_room_repository.dart';
-import 'package:cybear_jinni/domain/room/room_entity.dart';
-import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -16,7 +16,7 @@ part 'add_new_action_state.dart';
 
 @injectable
 class AddNewActionBloc extends Bloc<AddNewActionEvent, AddNewActionState> {
-  AddNewActionBloc(this._roomRepository, this._deviceRepository)
+  AddNewActionBloc(this._deviceRepository)
       : super(AddNewActionState.initial()) {
     on<ChangeActionDevices>(_changeActionDevices);
     on<ActionsNameChange>(_actionsNameChange);
@@ -28,7 +28,6 @@ class AddNewActionBloc extends Bloc<AddNewActionEvent, AddNewActionState> {
 
   // listOfPropertiesToChange
 
-  final IRoomRepository _roomRepository;
   final IDeviceRepository _deviceRepository;
 
   List<RoomEntity?> _allRooms = [];
@@ -38,7 +37,7 @@ class AddNewActionBloc extends Bloc<AddNewActionEvent, AddNewActionState> {
     Initialized event,
     Emitter<AddNewActionState> emit,
   ) async {
-    (await _roomRepository.getAllRooms()).fold((l) => null, (r) {
+    (await IRoomRepository.instance.getAllRooms()).fold((l) => null, (r) {
       _allRooms = List<RoomEntity>.from(r.iter);
     });
 

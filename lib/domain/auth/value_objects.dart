@@ -1,5 +1,5 @@
-import 'package:cybear_jinni/domain/core/failures.dart';
-import 'package:cybear_jinni/domain/core/value_objects.dart';
+import 'package:cbj_integrations_controller/domain/core/failures.dart';
+import 'package:cbj_integrations_controller/domain/core/value_objects.dart';
 import 'package:cybear_jinni/domain/core/value_validators.dart';
 import 'package:dartz/dartz.dart';
 

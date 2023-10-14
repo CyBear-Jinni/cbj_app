@@ -1,11 +1,12 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:cbj_integrations_controller/domain/scene/i_scene_cbj_repository.dart';
+import 'package:cbj_integrations_controller/domain/vendors/login_abstract/core_login_failures.dart';
+import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
-import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_light_device/generic_light_entity.dart';
-import 'package:cybear_jinni/domain/scene/i_scene_cbj_repository.dart';
-import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -90,6 +91,8 @@ class AddNewSceneBloc extends Bloc<AddNewSceneEvent, AddNewSceneState> {
     _sceneRepository.addOrUpdateNewSceneInHubFromDevicesPropertyActionList(
       sceneName,
       allDevicesWithNewAction,
+      // TODO: Check what value to use
+      AreaPurposesTypes.laundryRoom,
     );
   }
 

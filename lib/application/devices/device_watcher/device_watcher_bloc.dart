@@ -1,12 +1,12 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:cbj_integrations_controller/domain/room/i_room_repository.dart';
+import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
+import 'package:cbj_integrations_controller/domain/room/room_failures.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
-import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
-import 'package:cybear_jinni/domain/room/i_room_repository.dart';
-import 'package:cybear_jinni/domain/room/room_entity.dart';
-import 'package:cybear_jinni/domain/room/room_failures.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -18,7 +18,7 @@ part 'device_watcher_state.dart';
 
 @injectable
 class DeviceWatcherBloc extends Bloc<DeviceWatcherEvent, DeviceWatcherState> {
-  DeviceWatcherBloc(this._roomRepository, this._deviceRepository)
+  DeviceWatcherBloc(this._deviceRepository)
       : super(DeviceWatcherState.initial()) {
     on<WatchAllStarted>(_watchAllStarted);
     on<RoomsReceived>(_roomsReceived);
@@ -26,7 +26,6 @@ class DeviceWatcherBloc extends Bloc<DeviceWatcherEvent, DeviceWatcherState> {
   }
 
   final IDeviceRepository _deviceRepository;
-  final IRoomRepository _roomRepository;
 
   KtList<DeviceEntityAbstract?> listOfDevices = [null].toImmutableList();
   KtList<RoomEntity?> listOfRooms = [null].toImmutableList();
@@ -95,7 +94,7 @@ class DeviceWatcherBloc extends Bloc<DeviceWatcherEvent, DeviceWatcherState> {
     emit(const DeviceWatcherState.loadInProgress());
 
     _roomStreamSubscription =
-        _roomRepository.watchAllRooms().listen((eventWatch) {
+        IRoomRepository.instance.watchAllRooms().listen((eventWatch) {
       add(DeviceWatcherEvent.roomsReceived(eventWatch));
     });
 

@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/domain/core/failures.dart';
+import 'package:cbj_integrations_controller/domain/core/failures.dart';
 import 'package:dartz/dartz.dart';
 import 'package:easy_localization/easy_localization.dart';
 
