@@ -6,8 +6,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class VendorsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
-
     return BlocBuilder<VendorsBloc, VendorsState>(
       builder: (context, state) {
         return state.map(

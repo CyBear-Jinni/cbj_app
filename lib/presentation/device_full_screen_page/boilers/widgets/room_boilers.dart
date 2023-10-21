@@ -18,13 +18,14 @@ class RoomBoilers extends StatelessWidget {
     this._gradientColor,
     this._roomEntity, {
     this.maxBoilersToShow = 4,
+    this.maxBoilersInRow = 2,
   });
 
   final KtList<DeviceEntityAbstract?>? _deviceEntityList;
 
   final int? maxBoilersToShow;
 
-  final int _maxBoilersInRow = 2;
+  final int maxBoilersInRow;
 
   final String? _roomEntity;
 
@@ -44,8 +45,8 @@ class RoomBoilers extends StatelessWidget {
               ? maxBoilersToShow
               : _deviceEntityList!.size;
 
-      for (int i = 0; i < numberOfBoilersToShow!; i += _maxBoilersInRow) {
-        for (int v = 0; v < _maxBoilersInRow; v++) {
+      for (int i = 0; i < numberOfBoilersToShow!; i += maxBoilersInRow) {
+        for (int v = 0; v < maxBoilersInRow; v++) {
           if (_deviceEntityList!.size > i + v) {
             final GenericBoilerDE? deviceEntityTemp;
 

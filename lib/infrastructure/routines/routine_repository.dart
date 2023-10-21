@@ -17,7 +17,7 @@ import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
-import 'package:rxdart/src/subjects/behavior_subject.dart';
+import 'package:rxdart/rxdart.dart';
 
 @LazySingleton(as: IRoutineCbjRepository)
 class RoutineCbjRepository implements IRoutineCbjRepository {

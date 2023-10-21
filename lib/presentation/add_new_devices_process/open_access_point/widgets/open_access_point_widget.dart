@@ -9,8 +9,6 @@ import 'package:fluttertoast/fluttertoast.dart';
 class OpenAccessPointWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
-
     return BlocBuilder<ManageAccessPointBloc, ManageAccessPointState>(
       builder: (context, state) {
         return SingleChildScrollView(

@@ -67,6 +67,7 @@ class RoomsBlindsWidget extends StatelessWidget {
                   padding: EdgeInsets.zero,
                   itemBuilder: (context, index) {
                     List<Color>? gradiantColor;
+                    // ignore: unnecessary_null_comparison
                     if (roomColorGradiant != null) {
                       gradiantColor = roomColorGradiant;
                     } else if (gradientColorCounter >

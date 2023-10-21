@@ -133,6 +133,7 @@ class SecurityBearConnectionRepository
     }
 
     final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
+    // ignore: unused_local_variable
     final String? wifiBSSIDWithoutLastNumber =
         wifiBSSID?.substring(0, wifiBSSID.lastIndexOf(':'));
 

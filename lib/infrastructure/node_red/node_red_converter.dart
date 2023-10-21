@@ -300,7 +300,9 @@ class NodeRedConverter {
       if (nodes.isNotEmpty) {
         nodes += ', ';
       }
-      nodes += nodeRedStringNode.value;
+
+      // ignore: use_string_buffers
+      nodes = nodes + nodeRedStringNode.value;
       allNodeRedIdToConnectTo.add(nodeRedStringNode.key);
     }
     return MapEntry(nodes, allNodeRedIdToConnectTo);

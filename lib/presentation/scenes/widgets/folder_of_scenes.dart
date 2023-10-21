@@ -18,6 +18,7 @@ class FolderOfScenesWidget extends StatelessWidget {
   SceneCbjEntity getTheScen(
     Either<SceneCbjFailure, SceneCbjEntity> scenesList,
   ) {
+    // ignore: null_check_always_fails
     return scenesList.fold((l) => null!, (r) => r);
   }
 

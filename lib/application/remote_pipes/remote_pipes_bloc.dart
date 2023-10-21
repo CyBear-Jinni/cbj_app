@@ -1,8 +1,6 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:cybear_jinni/domain/remote_pipes/i_remote_pipes_repository.dart';
-import 'package:cybear_jinni/domain/remote_pipes/remote_pipes_entity.dart';
 import 'package:cybear_jinni/domain/remote_pipes/remote_pipes_value_objects.dart';
 import 'package:flutter/widgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -14,15 +12,12 @@ part 'remote_pipes_state.dart';
 
 @injectable
 class RemotePipesBloc extends Bloc<RemotePipesEvent, RemotePipesState> {
-  RemotePipesBloc(this._remotePipesRepository)
-      : super(RemotePipesState.initial()) {
+  RemotePipesBloc() : super(RemotePipesState.initial()) {
     on<Initialized>(_initialized);
     on<RemotePipesDomainChanged>(_remotePipesDomainChanged);
     on<PermissionChanged>(_permissionChanged);
     on<AddRemotePipeUrl>(_addRemotePipeUrl);
   }
-
-  final IRemotePipesRepository _remotePipesRepository;
 
   Future<void> _initialized(
     Initialized event,
@@ -54,15 +49,6 @@ class RemotePipesBloc extends Bloc<RemotePipesEvent, RemotePipesState> {
     AddRemotePipeUrl event,
     Emitter<RemotePipesState> emit,
   ) async {
-    final RemotePipesEntity remotePipesEntity =
-        RemotePipesEntity.empty().copyWith(
-      domainName: RemotePipesDomain(
-        state.remotePipesDomainName.getOrCrash(),
-      ),
-    );
-
-    final remotePipesSetDomainResponse = await _remotePipesRepository
-        .setRemotePipesDomainName(remotePipesEntity);
     Navigator.pop(event.context);
   }
 }

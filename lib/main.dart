@@ -1,3 +1,5 @@
+// ignore_for_file: unreachable_from_main
+
 import 'dart:io';
 
 import 'package:cybear_jinni/ad_state.dart';
@@ -17,6 +19,7 @@ import 'package:rxdart/rxdart.dart';
 
 /// Streams are created so that app can respond to notification-related events
 /// since the plugin is initialised in the `main` function
+
 final BehaviorSubject<ReceivedNotification> didReceiveLocalNotificationSubject =
     BehaviorSubject<ReceivedNotification>();
 
@@ -45,7 +48,6 @@ Future<Unit> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   getIt<ILocalDbRepository>();
   getIt.registerSingleton<AppRouter>(AppRouter());
-
 
   AdState? adState;
   // Adds package only support Android and IOS

@@ -13,7 +13,6 @@ class PrinterWidget extends StatelessWidget {
   final GenericPrinterDE? _deviceEntity;
 
   void openPrintersWebPage(BuildContext context) {
-    final String deviceId = _deviceEntity!.getDeviceId();
     context.read<PrintersActorBloc>().add(
           PrintersActorEvent.openPrintersWebPage(
             _deviceEntity!,
@@ -34,8 +33,6 @@ class PrinterWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
-
     return BlocConsumer<PrintersActorBloc, PrintersActorState>(
       listener: (context, state) {},
       builder: (context, state) {

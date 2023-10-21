@@ -76,6 +76,7 @@ class PrintersActorBloc extends Bloc<PrintersActorEvent, PrintersActorState> {
     ).show(event.context);
 
     final String printerIp = event.printer.deviceLastKnownIp.getOrCrash();
+    // ignore: unnecessary_null_comparison
     if (printerIp != null) {
       launchUrl(
         Uri.parse('http://$printerIp'),

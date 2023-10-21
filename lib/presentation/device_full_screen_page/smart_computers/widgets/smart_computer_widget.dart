@@ -34,8 +34,6 @@ class SmartComputerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
-
     return BlocConsumer<SmartComputersActorBloc, SmartComputersActorState>(
       listener: (context, state) {},
       builder: (context, state) {

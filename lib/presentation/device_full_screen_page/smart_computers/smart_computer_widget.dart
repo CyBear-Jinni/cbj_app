@@ -17,7 +17,7 @@ class SmartComputerPage extends StatefulWidget {
 }
 
 class _SmartSmartComputerPage extends State<SmartComputerPage> {
-  GenericSmartComputerDE? _switch;
+  late GenericSmartComputerDE? _switch;
   bool _isLoading = true;
 
   @override

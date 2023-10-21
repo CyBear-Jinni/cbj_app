@@ -92,6 +92,7 @@ class AddSceneWidget extends StatelessWidget {
                                   const AddActionRoute(),
                                 );
                                 if (actionList != null) {
+                                  // ignore: use_build_context_synchronously
                                   context.read<AddNewSceneBloc>().add(
                                         AddNewSceneEvent
                                             .addDevicesWithNewActions(

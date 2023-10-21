@@ -15,6 +15,7 @@ class BottomNavigationBarHomePage extends StatelessWidget {
       selectedItemColor: Theme.of(context).primaryColor,
       unselectedItemColor: Colors.grey[500],
       currentIndex: pageIndex,
+      // ignore: avoid_dynamic_calls
       onTap: (value) => callback(value),
       items: [
         BottomNavigationBarItem(

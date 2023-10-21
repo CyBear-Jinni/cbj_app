@@ -1,11 +1,9 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:cybear_jinni/domain/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
 import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/generic_devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
-import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -58,17 +56,8 @@ class LightToggleBloc extends Bloc<LightToggleEvent, LightToggleState> {
     ChangeState event,
     Emitter<LightToggleState> emit,
   ) async {
-    Either<DevicesFailure, Unit> actionResult;
-
     if (event.changeToState) {
-      actionResult = await _deviceRepository.turnOnDevices(
-        devicesId: [event.deviceEntity.uniqueId.getOrCrash()],
-      );
-    } else {
-      actionResult = await _deviceRepository.turnOffDevices(
-        devicesId: [event.deviceEntity.uniqueId.getOrCrash()],
-      );
-    }
+    } else {}
   }
 
   Future<void> _changeColorTemperature(

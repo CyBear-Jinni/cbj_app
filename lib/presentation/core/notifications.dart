@@ -3,7 +3,9 @@ import 'package:cybear_jinni/utils.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_timezone/flutter_timezone.dart';
+// ignore: depend_on_referenced_packages
 import 'package:timezone/data/latest.dart' as tz;
+// ignore: depend_on_referenced_packages
 import 'package:timezone/timezone.dart' as tz;
 
 FlutterLocalNotificationsPlugin? flutterLocalNotificationsPlugin;
@@ -95,7 +97,7 @@ Future<void> zonedScheduleNotification() async {
         ),
       ),
     ),
-    androidAllowWhileIdle: true,
+    // androidAllowWhileIdle: true,
     uiLocalNotificationDateInterpretation:
         UILocalNotificationDateInterpretation.absoluteTime,
   );

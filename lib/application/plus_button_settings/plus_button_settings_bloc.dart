@@ -37,7 +37,8 @@ class PlusButtonSettingsBloc
     Emitter<PlusButtonSettingsState> emit,
   ) async {
     emit(PlusButtonSettingsState.loadInProgress());
-    await _hubConnectionRepository.closeConnection();
-    context.router.replace(const ConnectToHubRoute());
+    await _hubConnectionRepository
+        .closeConnection()
+        .whenComplete(() => context.router.replace(const ConnectToHubRoute()));
   }
 }

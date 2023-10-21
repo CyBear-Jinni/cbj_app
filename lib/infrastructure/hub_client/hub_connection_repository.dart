@@ -103,7 +103,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
             connectivityResult == ConnectivityResult.ethernet &&
             savedWifiBssidWithoutLastNumber == 'no:Network:Bssid') ||
         (kIsWeb && savedWifiBssidWithoutLastNumber == 'no:Network:Bssid')) {
-      (await OpenAndroidWifiSettingIfPosiible()).fold(
+      (await openAndroidWifiSettingIfPosiible()).fold(
         (l) {
           logger
               .w('No way to establish connection with the Hub, WiFi or location'
@@ -529,7 +529,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
   Future<void> connectionUsingRemotePipes() async {
     (await getIt<ILocalDbRepository>().getRemotePipesDnsName()).fold(
       (l) async {
-        (await OpenAndroidWifiSettingIfPosiible()).fold(
+        (await openAndroidWifiSettingIfPosiible()).fold(
           (l) {
             logger.w(
                 'No way to establish connection with the Hub, WiFi or location'
@@ -548,7 +548,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
     );
   }
 
-  Future<Either<HubFailures, Unit>> OpenAndroidWifiSettingIfPosiible() async {
+  Future<Either<HubFailures, Unit>> openAndroidWifiSettingIfPosiible() async {
     final bool wifiEnabled = await WiFiForIoTPlugin.isEnabled();
     final Location location = Location();
 

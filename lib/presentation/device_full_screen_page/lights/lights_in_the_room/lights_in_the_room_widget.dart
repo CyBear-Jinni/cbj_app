@@ -22,6 +22,7 @@ class LightsInTheRoomWidget extends StatelessWidget {
         key: Key(index.toString()),
         onDismissed: (DismissDirection direction) {
           if (direction == DismissDirection.endToStart) {
+            // ignore: avoid_dynamic_calls
             deleteProduct(0);
           } else if (direction == DismissDirection.startToEnd) {
             logger.v('Swiped start to end');

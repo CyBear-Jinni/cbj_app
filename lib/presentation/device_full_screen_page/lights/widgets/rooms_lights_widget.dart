@@ -71,10 +71,7 @@ class RoomsLightsWidget extends StatelessWidget {
                   itemBuilder: (context, index) {
                     gradientColorCounter++;
                     List<Color> gradiantColor = GradientColors.sky;
-                    if (roomColorGradiant != null) {
-                      gradiantColor = roomColorGradiant.listOfColors!;
-                    } else if (gradientColorCounter >
-                        gradientColorsList.length - 1) {
+                    if (gradientColorCounter > gradientColorsList.length - 1) {
                       gradientColorCounter = 0;
                       gradiantColor = gradientColorsList[gradientColorCounter];
                     }

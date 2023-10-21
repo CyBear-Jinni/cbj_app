@@ -23,6 +23,7 @@ class RoomLights extends StatelessWidget {
     this._deviceEntityList,
     this._gradientColor,
     this._roomEntity, {
+    this.maxLightsInRow = 2,
     this.maxLightsToShow = 4,
   });
 
@@ -30,7 +31,7 @@ class RoomLights extends StatelessWidget {
 
   final int maxLightsToShow;
 
-  final int _maxLightsInRow = 2;
+  final int maxLightsInRow;
 
   final String _roomEntity;
 
@@ -51,8 +52,8 @@ class RoomLights extends StatelessWidget {
         ? maxLightsToShow
         : _deviceEntityList.size;
 
-    for (int i = 0; i < numberOfLightsToShow; i += _maxLightsInRow) {
-      for (int v = 0; v < _maxLightsInRow; v++) {
+    for (int i = 0; i < numberOfLightsToShow; i += maxLightsInRow) {
+      for (int v = 0; v < maxLightsInRow; v++) {
         if (lightsList.length > i + v) {
           final GenericLightDE deviceEntityTemp = lightsList[i + v];
           if (deviceEntityTemp.failureOption.isSome()) {

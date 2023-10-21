@@ -41,6 +41,7 @@ class JoinHomeByIdWidget extends StatelessWidget {
               onPressed: () async {
                 final String fromClipboard = await FlutterClipboard.paste();
 
+                // ignore: use_build_context_synchronously
                 context
                     .read<JoinHomeByIdBloc>()
                     .add(JoinHomeByIdEvent.addHomeById(fromClipboard));

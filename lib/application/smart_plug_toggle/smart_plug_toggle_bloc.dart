@@ -33,6 +33,7 @@ class SmartPlugToggleBloc
     CreateDevice event,
     Emitter<SmartPlugToggleState> emit,
   ) async {
+    // ignore: unused_local_variable
     final actionResult = await _deviceRepository.create(event.deviceEntity);
   }
 
