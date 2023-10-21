@@ -1,6 +1,6 @@
-import 'package:cybear_jinni/application/smart_computers/smart_computers_watcher/smart_computer_watcher_bloc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/application/smart_computers/smart_computers_watcher/smart_computer_watcher_bloc.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/smart_computers/widgets/critical_smart_computers_failure_display_widget.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/smart_computers/widgets/room_smart_computers.dart';
@@ -24,7 +24,7 @@ class RoomsSmartComputersWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<SmartComputersWatcherBloc, SmartComputersWatcherState>(
       builder: (context, state) {
-        logger.v('SmartComputers loadSuccess');
+        logger.t('SmartComputers loadSuccess');
 
         return state.map(
           initial: (_) => Container(),
@@ -72,10 +72,10 @@ class RoomsSmartComputersWidget extends StatelessWidget {
                   itemBuilder: (context, index) {
                     gradientColorCounter++;
                     List<Color> gradiantColor = GradientColors.sky;
-                    if (roomColorGradiant != null) {
-                      gradiantColor = roomColorGradiant;
-                    } else if (gradientColorCounter >
-                        gradientColorsList.length - 1) {
+                    // if (roomColorGradiant != null) {
+                    //   gradiantColor = roomColorGradiant;
+                    // } else
+                    if (gradientColorCounter > gradientColorsList.length - 1) {
                       gradientColorCounter = 0;
                       gradiantColor = gradientColorsList[gradientColorCounter];
                     }

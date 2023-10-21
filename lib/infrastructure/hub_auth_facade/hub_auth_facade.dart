@@ -69,6 +69,7 @@ class HubAuthFacade implements IAuthFacade {
         name: UserName(userName),
         firstName: UserFirstName(' '),
         lastName: UserLastName(' '),
+        pass: UserPass(passwordStr),
       );
 
       final registrarOutput = await getIt<IUserRepository>().create(userEntity);
@@ -90,8 +91,8 @@ class HubAuthFacade implements IAuthFacade {
     required EmailAddress emailAddress,
     required Password password,
   }) async {
-    final emailAddressStr = emailAddress.getOrCrash();
-    final passwordStr = password.getOrCrash();
+    // final emailAddressStr = emailAddress.getOrCrash();
+    // final passwordStr = password.getOrCrash();
 
     try {
       return right(unit);

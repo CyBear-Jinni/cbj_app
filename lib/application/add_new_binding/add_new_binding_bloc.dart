@@ -16,7 +16,7 @@ part 'add_new_binding_state.dart';
 
 @injectable
 class AddNewBindingBloc extends Bloc<AddNewBindingEvent, AddNewBindingState> {
-  AddNewBindingBloc(this._deviceRepository, this._bindingRepository)
+  AddNewBindingBloc(this._deviceRepository)
       : super(AddNewBindingState.initial()) {
     on<ChangeActionDevices>(_changeActionDevices);
     on<BindingNameChange>(_bindingNameChange);
@@ -29,7 +29,6 @@ class AddNewBindingBloc extends Bloc<AddNewBindingEvent, AddNewBindingState> {
   }
 
   final IDeviceRepository _deviceRepository;
-  final IBindingCbjRepository _bindingRepository;
 
   List<DeviceEntityAbstract?> _allDevices = [];
 

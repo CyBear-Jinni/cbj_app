@@ -79,6 +79,7 @@ class AddNewRoomForm extends StatelessWidget {
                                 if (a[0] == a[0].toUpperCase()) {
                                   areaNameEdited += ' ';
                                 }
+                                // ignore: use_string_buffers
                                 areaNameEdited += a;
                               }
 

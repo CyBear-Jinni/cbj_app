@@ -18,13 +18,14 @@ class RoomPrinters extends StatelessWidget {
     this._gradientColor,
     this._roomEntity, {
     this.maxPrintersToShow = 4,
+    this.maxPrintersInRow = 2,
   });
 
   final KtList<DeviceEntityAbstract> _deviceEntityList;
 
   final int maxPrintersToShow;
 
-  final int _maxPrintersInRow = 2;
+  final int maxPrintersInRow;
 
   final String _roomEntity;
 
@@ -43,8 +44,8 @@ class RoomPrinters extends StatelessWidget {
               ? maxPrintersToShow
               : _deviceEntityList.size;
 
-      for (int i = 0; i < numberOfPrintersToShow; i += _maxPrintersInRow) {
-        for (int v = 0; v < _maxPrintersInRow; v++) {
+      for (int i = 0; i < numberOfPrintersToShow; i += maxPrintersInRow) {
+        for (int v = 0; v < maxPrintersInRow; v++) {
           if (_deviceEntityList.size > i + v &&
               _deviceEntityList[i + v] is GenericPrinterDE) {
             final GenericPrinterDE deviceEntityTemp =

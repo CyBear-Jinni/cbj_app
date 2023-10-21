@@ -18,13 +18,14 @@ class RoomSmartTvs extends StatelessWidget {
     this._gradientColor,
     this._roomEntity, {
     this.maxSmartTvsToShow = 4,
+    this.maxSmartTvsInRow = 2,
   });
 
   final KtList<DeviceEntityAbstract> _deviceEntityList;
 
   final int maxSmartTvsToShow;
 
-  final int _maxSmartTvsInRow = 2;
+  final int maxSmartTvsInRow;
 
   final String _roomEntity;
 
@@ -43,8 +44,8 @@ class RoomSmartTvs extends StatelessWidget {
               ? maxSmartTvsToShow
               : _deviceEntityList.size;
 
-      for (int i = 0; i < numberOfSmartTvsToShow; i += _maxSmartTvsInRow) {
-        for (int v = 0; v < _maxSmartTvsInRow; v++) {
+      for (int i = 0; i < numberOfSmartTvsToShow; i += maxSmartTvsInRow) {
+        for (int v = 0; v < maxSmartTvsInRow; v++) {
           if (_deviceEntityList.size > i + v &&
               _deviceEntityList[i + v] is GenericSmartTvDE) {
             final GenericSmartTvDE deviceEntityTemp =

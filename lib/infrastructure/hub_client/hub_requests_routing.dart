@@ -75,10 +75,10 @@ class HubRequestRouting {
     });
     requestsFromHubSubscription?.onError((error) async {
       if (error is GrpcError && error.code == 1) {
-        logger.v('Hub have been disconnected');
+        logger.t('Hub have been disconnected');
       }
       // else if (error is GrpcError && error.code == 2) {
-      //   logger.v('Hub have been terminated');
+      //   logger.t('Hub have been terminated');
       // }
       else {
         logger.e('Hub stream error: $error');
@@ -207,7 +207,7 @@ class HubRequestRouting {
         if (entityStateGRPC == EntityStateGRPC.pingNow) {
           deviceEntity =
               GenericPingDeviceDtos.fromJson(requestAsJson).toDomain();
-          logger.v('Got Ping request');
+          logger.t('Got Ping request');
           return;
         } else {
           deviceEntity =

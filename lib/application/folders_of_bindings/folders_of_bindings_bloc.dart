@@ -17,12 +17,9 @@ part 'folders_of_bindings_state.dart';
 @injectable
 class FoldersOfBindingsBloc
     extends Bloc<FoldersOfBindingsEvent, FoldersOfBindingsState> {
-  FoldersOfBindingsBloc(this._iBindingsRepository)
-      : super(FoldersOfBindingsState.initialized()) {
+  FoldersOfBindingsBloc() : super(FoldersOfBindingsState.initialized()) {
     on<Initialized>(_initialized);
   }
-
-  final IBindingCbjRepository _iBindingsRepository;
 
   List<BindingCbjEntity> allBindings = <BindingCbjEntity>[];
   List<RoomEntity> allRoomsWithBindings = <RoomEntity>[];

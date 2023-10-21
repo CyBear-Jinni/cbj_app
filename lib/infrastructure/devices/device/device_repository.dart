@@ -35,8 +35,8 @@ import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:dartz/dartz.dart';
 import 'package:device_info_plus/device_info_plus.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/src/painting/colors.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
 import 'package:multicast_dns/multicast_dns.dart';
@@ -1244,18 +1244,18 @@ class DeviceRepository implements IDeviceRepository {
       ResourceRecordQuery.addressIPv4(fullMdnsName),
     )) {
       deviceIp = record.address.address;
-      logger.v('Found address (${record.address}).');
+      logger.t('Found address (${record.address}).');
     }
 
     // await for (final IPAddressResourceRecord record
     //     in client.lookup<IPAddressResourceRecord>(
     //         ResourceRecordQuery.addressIPv6(fullMdnsName))) {
-    //   logger.v('Found address (${record.address}).');
+    //   logger.t('Found address (${record.address}).');
     // }
 
     client.stop();
 
-    logger.v('Done.');
+    logger.t('Done.');
 
     return deviceIp;
   }

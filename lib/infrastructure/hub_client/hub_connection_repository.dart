@@ -84,7 +84,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
     } catch (e) {
       logger.w("Can't get WiFi BSSID");
     }
-    ;
+
     final Either<LocalDbFailures, String> remotePipesInformation =
         await ILocalDbRepository.instance.getRemotePipesDnsName();
 
@@ -103,7 +103,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
             connectivityResult == ConnectivityResult.ethernet &&
             savedWifiBssidWithoutLastNumber == 'no:Network:Bssid') ||
         (kIsWeb && savedWifiBssidWithoutLastNumber == 'no:Network:Bssid')) {
-      (await OpenAndroidWifiSettingIfPosiible()).fold(
+      (await openAndroidWifiSettingIfPosiible()).fold(
         (l) {
           logger
               .w('No way to establish connection with the Hub, WiFi or location'
@@ -280,12 +280,12 @@ class HubConnectionRepository extends IHubConnectionRepository {
     // await for (final IPAddressResourceRecord record
     //     in client.lookup<IPAddressResourceRecord>(
     //         ResourceRecordQuery.addressIPv6(fullMdnsName))) {
-    //   logger.v('Found address (${record.address}).');
+    //   logger.t('Found address (${record.address}).');
     // }
 
     client.stop();
 
-    logger.v('Done.');
+    logger.t('Done.');
 
     return deviceIp;
   }
@@ -529,7 +529,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
   Future<void> connectionUsingRemotePipes() async {
     (await ILocalDbRepository.instance.getRemotePipesDnsName()).fold(
       (l) async {
-        (await OpenAndroidWifiSettingIfPosiible()).fold(
+        (await openAndroidWifiSettingIfPosiible()).fold(
           (l) {
             logger.w(
                 'No way to establish connection with the Hub, WiFi or location'
@@ -548,7 +548,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
     );
   }
 
-  Future<Either<HubFailures, Unit>> OpenAndroidWifiSettingIfPosiible() async {
+  Future<Either<HubFailures, Unit>> openAndroidWifiSettingIfPosiible() async {
     final bool wifiEnabled = await WiFiForIoTPlugin.isEnabled();
     final Location location = Location();
 
@@ -571,7 +571,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
       //       );
       //     }
       //   } else {
-      //     logger.v('User not connected to any WiFi, Will try again.');
+      //     logger.t('User not connected to any WiFi, Will try again.');
       //     tryAgainConnectToTheHubOnceMore = 0;
       //     await Future.delayed(const Duration(milliseconds: 500));
       //

@@ -1,6 +1,6 @@
-import 'package:cybear_jinni/application/lights/lights_watcher/lights_watcher_bloc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/application/lights/lights_watcher/lights_watcher_bloc.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/core/types_to_pass.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/lights/widgets/critical_light_failure_display_widget.dart';
@@ -23,7 +23,7 @@ class RoomsLightsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<LightsWatcherBloc, LightsWatcherState>(
       builder: (context, state) {
-        logger.v('Lights loadSuccess');
+        logger.t('Lights loadSuccess');
 
         return state.map(
           initial: (_) => Container(),
@@ -71,10 +71,10 @@ class RoomsLightsWidget extends StatelessWidget {
                   itemBuilder: (context, index) {
                     gradientColorCounter++;
                     List<Color> gradiantColor = GradientColors.sky;
-                    if (roomColorGradiant != null) {
-                      gradiantColor = roomColorGradiant.listOfColors!;
-                    } else if (gradientColorCounter >
-                        gradientColorsList.length - 1) {
+                    // if (roomColorGradiant != null) {
+                    //   gradiantColor = roomColorGradiant.listOfColors!;
+                    // } else
+                    if (gradientColorCounter > gradientColorsList.length - 1) {
                       gradientColorCounter = 0;
                       gradiantColor = gradientColorsList[gradientColorCounter];
                     }

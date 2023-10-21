@@ -6,8 +6,6 @@ import 'package:cybear_jinni/domain/user/all_homes_of_user/all_homes_of_user_ent
 import 'package:cybear_jinni/domain/user/all_homes_of_user/all_homes_of_user_failures.dart';
 import 'package:cybear_jinni/domain/user/i_user_repository.dart';
 import 'package:cybear_jinni/domain/user/user_entity.dart';
-import 'package:cybear_jinni/infrastructure/user/all_homes_of_user_entity/all_homes_of_user_dtos.dart';
-import 'package:cybear_jinni/infrastructure/user/user_dtos.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/services.dart';
@@ -20,7 +18,7 @@ class UserRepository implements IUserRepository {
   Future<Either<HomeUserFailures, Unit>> create(UserEntity userEntity) async {
     try {
       // final userCollec = await _firestore.usersCollection();
-      final userDtos = UserDtos.fromDomain(userEntity);
+      // final userDtos = UserDtos.fromDomain(userEntity);
 
       // await userCollec.doc(userDtos.id.toString()).set(userDtos.toJson());
 
@@ -40,7 +38,7 @@ class UserRepository implements IUserRepository {
     try {
       // final userCollec = await _firestore.usersCollection();
 
-      final String userId = (await getIt<IAuthFacade>().getSignedInUser())
+      (await getIt<IAuthFacade>().getSignedInUser())
           .getOrElse(() => throw NotAuthenticatedError())
           .id
           .getOrCrash();
@@ -75,7 +73,7 @@ class UserRepository implements IUserRepository {
       // final usersCollection = await _firestore.usersCollection();
       // final homeCollection = await _firestore.homeCollection();
 
-      final String userId = userEntity.id!.getOrCrash()!;
+      // final String userId = userEntity.id!.getOrCrash()!;
       final String homeId = allHomesOfUserEntity.id!.getOrCrash()!;
 
       // final userInHomeRef =
@@ -86,8 +84,8 @@ class UserRepository implements IUserRepository {
       //   return left(const HomeUserFailures.homeDoesNotExist());
       // }
       //
-      final AllHomesOfUserDtos homeUserDtos =
-          AllHomesOfUserDtos.fromDomain(allHomesOfUserEntity);
+      // final AllHomesOfUserDtos homeUserDtos =
+      //     AllHomesOfUserDtos.fromDomain(allHomesOfUserEntity);
       //
       // await usersCollection
       //     .doc(userId)
@@ -145,7 +143,7 @@ class UserRepository implements IUserRepository {
     try {
       // final homeCollection = await _firestore.homeCollection();
 
-      final String userId = (await getIt<IAuthFacade>().getSignedInUser())
+      (await getIt<IAuthFacade>().getSignedInUser())
           .getOrElse(() => throw NotAuthenticatedError())
           .id
           .getOrCrash();

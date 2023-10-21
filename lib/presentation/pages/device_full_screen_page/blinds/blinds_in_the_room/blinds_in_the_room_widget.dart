@@ -22,11 +22,12 @@ class BlindsInTheRoomWidget extends StatelessWidget {
         key: Key(index.toString()),
         onDismissed: (DismissDirection direction) {
           if (direction == DismissDirection.endToStart) {
+            // ignore: avoid_dynamic_calls
             deleteProduct(0);
           } else if (direction == DismissDirection.startToEnd) {
-            logger.v('Swiped start to end');
+            logger.t('Swiped start to end');
           } else {
-            logger.v('Other swiping');
+            logger.t('Other swiping');
           }
         },
         background: Container(color: Colors.red),

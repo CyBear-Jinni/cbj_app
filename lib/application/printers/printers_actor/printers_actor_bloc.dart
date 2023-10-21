@@ -10,7 +10,6 @@ import 'package:cybear_jinni/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 part 'printers_actor_bloc.freezed.dart';
 part 'printers_actor_event.dart';
@@ -75,21 +74,21 @@ class PrintersActorBloc extends Bloc<PrintersActorEvent, PrintersActorState> {
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-    final String printerIp = event.printer.deviceLastKnownIp.getOrCrash();
-    if (printerIp != null) {
-      launchUrl(
-        Uri.parse('http://$printerIp'),
-        mode: LaunchMode.externalApplication,
-      );
-    } else {
-      logger.e('Printer does not have lastKnownIp');
+    // final String printerIp = event.printer.deviceLastKnownIp.getOrCrash();
+    // if (printerIp != null) {
+    //   launchUrl(
+    //     Uri.parse('http://$printerIp'),
+    //     mode: LaunchMode.externalApplication,
+    //   );
+    // } else {
+    logger.e('Printer does not have lastKnownIp');
 
-      FlushbarHelper.createLoading(
-        message: 'Printer last ip does not exist',
-        linearProgressIndicator: const LinearProgressIndicator(),
-      ).show(event.context);
-    }
+    FlushbarHelper.createLoading(
+      message: 'Printer last ip does not exist',
+      linearProgressIndicator: const LinearProgressIndicator(),
+    ).show(event.context);
   }
+  // }
 
   Future<void> _shutdownAllPrinters(
     ShutdownAllPrinters event,

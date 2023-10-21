@@ -11,6 +11,7 @@ abstract class HomeUserDtos implements _$HomeUserDtos {
     required String? email,
     required String? name,
     required String? permission,
+    // ignore: invalid_annotation_target
     @JsonKey(includeFromJson: true) String? id,
   }) = _HomeUserDtos;
 

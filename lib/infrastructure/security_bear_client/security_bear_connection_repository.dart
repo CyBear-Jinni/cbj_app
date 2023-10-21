@@ -132,9 +132,9 @@ class SecurityBearConnectionRepository
       logger.w('Cant check connectivity this is probably PC, error\n$e');
     }
 
-    final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
-    final String? wifiBSSIDWithoutLastNumber =
-        wifiBSSID?.substring(0, wifiBSSID.lastIndexOf(':'));
+    // final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
+    // final String? wifiBSSIDWithoutLastNumber =
+    //     wifiBSSID?.substring(0, wifiBSSID.lastIndexOf(':'));
 
     // Check if you are connected to the home local network for direct
     // communication with the SecurityBear.

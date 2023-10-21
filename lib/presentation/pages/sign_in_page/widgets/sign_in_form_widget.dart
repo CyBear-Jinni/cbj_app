@@ -29,6 +29,7 @@ class SignInFormWidget extends StatelessWidget {
                   }, (_) {
             context.router.push(const WhereToLoginRouteMinimalRoute());
 
+            // ignore: avoid_dynamic_calls
             context
                 .read()<AuthBloc>()
                 .add(const AuthEvent.authCheckRequested());

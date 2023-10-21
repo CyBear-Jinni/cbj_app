@@ -1,20 +1,20 @@
-import 'package:cybear_jinni/application/smart_tv/smart_tv_actor/smart_tv_actor_bloc.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_tv/generic_smart_tv_entity.dart';
+import 'package:cybear_jinni/application/smart_tv/smart_tv_actor/smart_tv_actor_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class OpenUrlPopUp {
-  OpenUrlPopUp(this.contextFromParent, this._deviceEntity) {
+  OpenUrlPopUp(this.contextFromParent, this.deviceEntity) {
     openUrlPopUp();
   }
 
   BuildContext contextFromParent;
-  final GenericSmartTvDE? _deviceEntity;
+  final GenericSmartTvDE? deviceEntity;
 
-  openUrlPopUp() {
+  Future openUrlPopUp() {
     String url = '';
 
-    showDialog(
+    return showDialog(
       context: contextFromParent,
       builder: (context) {
         return AlertDialog(
@@ -82,7 +82,7 @@ class OpenUrlPopUp {
   }
 
   void playVideo(BuildContext context, String url) {
-    final String deviceId = _deviceEntity!.getDeviceId();
+    final String deviceId = deviceEntity!.getDeviceId();
     context.read<SmartTvActorBloc>().add(
           SmartTvActorEvent.openUrl(
             context,

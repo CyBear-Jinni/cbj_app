@@ -18,13 +18,14 @@ class RoomSwitches extends StatelessWidget {
     this._gradientColor,
     this._roomEntity, {
     this.maxSwitchesToShow = 4,
+    this.maxSwitchesInRow = 2,
   });
 
   final KtList<DeviceEntityAbstract> _deviceEntityList;
 
   final int maxSwitchesToShow;
 
-  final int _maxSwitchesInRow = 2;
+  final int maxSwitchesInRow;
 
   final String _roomEntity;
 
@@ -44,8 +45,8 @@ class RoomSwitches extends StatelessWidget {
               ? maxSwitchesToShow
               : _deviceEntityList.size;
 
-      for (int i = 0; i < numberOfSwitchesToShow; i += _maxSwitchesInRow) {
-        for (int v = 0; v < _maxSwitchesInRow; v++) {
+      for (int i = 0; i < numberOfSwitchesToShow; i += maxSwitchesInRow) {
+        for (int v = 0; v < maxSwitchesInRow; v++) {
           if (_deviceEntityList.size > i + v &&
               _deviceEntityList[i + v] is GenericSwitchDE) {
             final GenericSwitchDE deviceEntityTemp =

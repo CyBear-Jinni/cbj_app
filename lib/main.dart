@@ -16,31 +16,31 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
-import 'package:rxdart/rxdart.dart';
 
 /// Streams are created so that app can respond to notification-related events
 /// since the plugin is initialised in the `main` function
-final BehaviorSubject<ReceivedNotification> didReceiveLocalNotificationSubject =
-    BehaviorSubject<ReceivedNotification>();
+// final BehaviorSubject<ReceivedNotification> didReceiveLocalNotificationSubject =
+//     BehaviorSubject<ReceivedNotification>();
 
-final BehaviorSubject<String> selectNotificationSubject =
-    BehaviorSubject<String>();
+// final BehaviorSubject<String> selectNotificationSubject =
+//     BehaviorSubject<String>();
 
+// ignore: unreachable_from_main
 const MethodChannel platform = MethodChannel('cybear_jinni/smart_home');
 
-class ReceivedNotification {
-  ReceivedNotification({
-    required this.id,
-    required this.title,
-    required this.body,
-    required this.payload,
-  });
+// class ReceivedNotification {
+//   ReceivedNotification({
+//     required this.id,
+//     required this.title,
+//     required this.body,
+//     required this.payload,
+//   });
 
-  final int? id;
-  final String? title;
-  final String? body;
-  final String? payload;
-}
+//   final int? id;
+//   final String? title;
+//   final String? body;
+//   final String? payload;
+// }
 
 Future<Unit> main() async {
   RoomRepository();

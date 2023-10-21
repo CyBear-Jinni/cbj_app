@@ -1,5 +1,4 @@
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_tv/generic_smart_tv_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_tv/generic_smart_tv_entity.dart';
 import 'package:flutter/material.dart';
 
 class ErrorSmartTvsDeviceCard extends StatelessWidget {

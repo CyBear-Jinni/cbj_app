@@ -10,6 +10,7 @@ abstract class UserDtos implements _$UserDtos {
   const factory UserDtos({
     required String email,
     required String name,
+    // ignore: invalid_annotation_target
     @JsonKey(includeFromJson: true) String? id,
     String? firstName,
     String? lastName,

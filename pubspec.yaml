@@ -147,6 +147,7 @@ dependencies:
   # Highly customizable circular slider/progress bar & spinner.
   sleek_circular_slider: ^2.0.1
   # Plugin for launching a URL
+  timezone: ^0.9.2
   url_launcher: ^6.1.11
   # Simple, fast generation of RFC4122 UUIDs.
   uuid: ^4.1.0

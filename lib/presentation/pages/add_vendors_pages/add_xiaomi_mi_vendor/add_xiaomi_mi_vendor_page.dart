@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/application/xiaomi_mi_auth/xiaomi_mi_sign_in_form/xiaomi_mi_sign_in_form_bloc.dart';
 import 'package:cbj_integrations_controller/domain/vendors/vendor_data.dart';
+import 'package:cybear_jinni/application/xiaomi_mi_auth/xiaomi_mi_sign_in_form/xiaomi_mi_sign_in_form_bloc.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/pages/add_vendors_pages/add_xiaomi_mi_vendor/widgets/xiaomi_mi_sign_in_form.dart';
 import 'package:flutter/material.dart';

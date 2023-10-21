@@ -95,7 +95,7 @@ Future<void> zonedScheduleNotification() async {
         ),
       ),
     ),
-    androidAllowWhileIdle: true,
+    // androidAllowWhileIdle: true,
     uiLocalNotificationDateInterpretation:
         UILocalNotificationDateInterpretation.absoluteTime,
   );

@@ -62,6 +62,7 @@ class TopNavigationBar extends StatelessWidget {
                         size: 19,
                         color: Theme.of(context).textTheme.bodyLarge!.color,
                       ),
+                      // ignore: avoid_dynamic_calls
                       onPressed: () => leftIconFunction!(context),
                     ),
                   )
@@ -88,6 +89,7 @@ class TopNavigationBar extends StatelessWidget {
                             EdgeInsets.zero,
                           ),
                         ),
+                        // ignore: avoid_dynamic_calls
                         onPressed: () => rightSecondFunction!(context),
                         child: FaIcon(
                           rightSecondIcon,
@@ -104,6 +106,7 @@ class TopNavigationBar extends StatelessWidget {
                           EdgeInsets.zero,
                         ),
                       ),
+                      // ignore: avoid_dynamic_calls
                       onPressed: () => rightIconFunction!(context),
                       child: Icon(
                         rightIcon,

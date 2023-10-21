@@ -17,7 +17,7 @@ class SmartComputerPage extends StatefulWidget {
 }
 
 class _SmartSmartComputerPage extends State<SmartComputerPage> {
-  GenericSmartComputerDE? _switch;
+  late GenericSmartComputerDE? _switch;
   bool _isLoading = true;
 
   @override
@@ -53,7 +53,7 @@ class _SmartSmartComputerPage extends State<SmartComputerPage> {
   // }
   //
   // Future<void> _onChange(bool value) async {
-  //   logger.v('OnChange $value');
+  //   logger.t('OnChange $value');
   //   _switch?.switchState = GenericSmartComputerSmartComputerState(
   //     EnumHelperCbj.deviceActionToString(
   //       value ? EntityActions.on : EntityActions.off,

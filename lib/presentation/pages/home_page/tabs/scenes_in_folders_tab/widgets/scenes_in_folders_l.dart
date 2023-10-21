@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/application/folders_of_scenes/folders_of_scenes_bloc.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
+import 'package:cybear_jinni/application/folders_of_scenes/folders_of_scenes_bloc.dart';
 import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

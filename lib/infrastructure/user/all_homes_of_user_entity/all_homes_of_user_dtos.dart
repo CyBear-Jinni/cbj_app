@@ -9,6 +9,7 @@ part 'all_homes_of_user_dtos.g.dart';
 abstract class AllHomesOfUserDtos implements _$AllHomesOfUserDtos {
   const factory AllHomesOfUserDtos({
     required String name,
+    // ignore: invalid_annotation_target
     @JsonKey(includeFromJson: true) String? id,
   }) = _AllHomesOfUserDtos;
 

@@ -58,6 +58,7 @@ class LightToggleBloc extends Bloc<LightToggleEvent, LightToggleState> {
     ChangeState event,
     Emitter<LightToggleState> emit,
   ) async {
+    // ignore: unused_local_variable
     Either<DevicesFailure, Unit> actionResult;
 
     if (event.changeToState) {

@@ -17,7 +17,7 @@ class PrinterPage extends StatefulWidget {
 }
 
 class _SmartPrinterPage extends State<PrinterPage> {
-  GenericPrinterDE? _switch;
+  late GenericPrinterDE? _switch;
   bool _isLoading = true;
 
   @override
@@ -53,7 +53,7 @@ class _SmartPrinterPage extends State<PrinterPage> {
   // }
   //
   // Future<void> _onChange(bool value) async {
-  //   logger.v('OnChange $value');
+  //   logger.t('OnChange $value');
   //   _switch?.switchState = GenericPrinterPrinterState(
   //     EnumHelperCbj.deviceActionToString(
   //       value ? EntityActions.on : EntityActions.off,

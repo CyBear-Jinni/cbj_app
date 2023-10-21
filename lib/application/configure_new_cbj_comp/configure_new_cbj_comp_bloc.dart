@@ -234,7 +234,8 @@ class ConfigureNewCbjCompBloc
   ) async {
     // TODO: Not suer if it will open the WiFi when hotspot is open, delete if not
 
-    await WiFiForIoTPlugin.loadWifiList();
+    // await WiFiForIoTPlugin.loadWifiList();
+
     // TODO: The above line is deprecated, not sure what is the corresponding
     // TODO: function in the new package that got transferred to
     // await WiFiScan.instance

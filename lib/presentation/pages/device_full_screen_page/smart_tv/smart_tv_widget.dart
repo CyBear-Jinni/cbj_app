@@ -17,7 +17,7 @@ class SmartTvPage extends StatefulWidget {
 }
 
 class _SmartSmartTvPage extends State<SmartTvPage> {
-  GenericSmartTvDE? _switch;
+  late GenericSmartTvDE? _switch;
   bool _isLoading = true;
 
   @override
@@ -53,7 +53,7 @@ class _SmartSmartTvPage extends State<SmartTvPage> {
   // }
   //
   // Future<void> _onChange(bool value) async {
-  //   logger.v('OnChange $value');
+  //   logger.t('OnChange $value');
   //   _switch?.switchState = GenericSmartTvSmartTvState(
   //     EnumHelperCbj.deviceActionToString(
   //       value ? EntityActions.on : EntityActions.off,

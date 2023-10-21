@@ -59,7 +59,7 @@ class _SmartSmartPlugPage extends State<SmartSmartPlugPage> {
   }
 
   Future<void> _onChange(bool value) async {
-    logger.v('OnChange $value');
+    logger.t('OnChange $value');
     _smartPlug?.smartPlugState = GenericSmartPlugState(
       EnumHelperCbj.deviceActionToString(
         value ? EntityActions.on : EntityActions.off,
@@ -109,7 +109,7 @@ class _SmartSmartPlugPage extends State<SmartSmartPlugPage> {
             inactiveColor: Theme.of(context).primaryColorDark,
             activeIcon: Icon(
               MdiIcons.powerSocketAu,
-              color: Color(0xFFF8E3A1),
+              color: const Color(0xFFF8E3A1),
             ),
             inactiveIcon: Icon(
               MdiIcons.powerSocketAu,

@@ -18,13 +18,14 @@ class RoomSmartComputers extends StatelessWidget {
     this._gradientColor,
     this._roomEntity, {
     this.maxSmartComputersToShow = 4,
+    this.maxSmartComputersInRow = 2,
   });
 
   final KtList<DeviceEntityAbstract> _deviceEntityList;
 
   final int maxSmartComputersToShow;
 
-  final int _maxSmartComputersInRow = 2;
+  final int maxSmartComputersInRow;
 
   final String _roomEntity;
 
@@ -46,8 +47,8 @@ class RoomSmartComputers extends StatelessWidget {
 
       for (int i = 0;
           i < numberOfSmartComputersToShow;
-          i += _maxSmartComputersInRow) {
-        for (int v = 0; v < _maxSmartComputersInRow; v++) {
+          i += maxSmartComputersInRow) {
+        for (int v = 0; v < maxSmartComputersInRow; v++) {
           if (_deviceEntityList.size > i + v &&
               _deviceEntityList[i + v] is GenericSmartComputerDE) {
             final GenericSmartComputerDE deviceEntityTemp =
