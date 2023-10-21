@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:bloc/bloc.dart';
-import 'package:cybear_jinni/domain/device/devices_failures.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/hub/hub_failures.dart';
 import 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
 import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
@@ -47,12 +47,20 @@ class HubInNetworkBloc extends Bloc<HubInNetworkEvent, HubInNetworkState> {
   ) async {
     emit(const HubInNetworkState.loadInProgress());
     emit(
-      (await _hubConnectionRepository.searchForHub())
-          .fold((l) => HubInNetworkState.loadFailure(l), (r) {
+      await (await _hubConnectionRepository.searchForHub()).fold((l) async {
+        return (await _searchSmartDevices()).fold(
+          (HubFailures l) => HubInNetworkState.loadFailure(l),
+          (r) => const HubInNetworkState.loadSuccess(),
+        );
+      }, (r) {
         context?.router.replace(const HomeRoute());
         return const HubInNetworkState.loadSuccess();
       }),
     );
+  }
+
+  Future<Either<HubFailures, Unit>> _searchSmartDevices() {
+    return _hubConnectionRepository.containsSmartDevice();
   }
 
   Future<void> _searchHubUsingAnyIpOnTheNetwork(

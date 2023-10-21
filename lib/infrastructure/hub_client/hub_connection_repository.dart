@@ -1,7 +1,10 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:cbj_integrations_controller/domain/local_db/i_local_devices_db_repository.dart';
 import 'package:cbj_integrations_controller/domain/local_db/local_db_failures.dart';
+import 'package:cbj_integrations_controller/infrastructure/devices/companies_connector_conjector.dart';
+import 'package:cbj_integrations_controller/infrastructure/devices/switcher/switcher_connector_conjector.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cbj_integrations_controller/utils.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
@@ -23,6 +26,7 @@ import 'package:network_info_plus/network_info_plus.dart';
 import 'package:network_tools/network_tools.dart';
 import 'package:permission_handler/permission_handler.dart'
     as permission_handler;
+import 'package:switcher_dart/switcher_dart.dart';
 import 'package:wifi_iot/wifi_iot.dart';
 
 @LazySingleton(as: IHubConnectionRepository)
@@ -601,5 +605,53 @@ class HubConnectionRepository extends IHubConnectionRepository {
       });
     }
     return const Left(HubFailures.unexpected());
+  }
+
+  @override
+  Future<Either<HubFailures, Unit>> containsSmartDevice() async {
+    final Future<List<ActiveHost>> mdnsDevices =
+        CompaniesConnectorConjector.searchMdnsDevices();
+
+    final Future<List<ActiveHost>> pingableDevices =
+        CompaniesConnectorConjector.searchPingableDevices();
+
+    final List<Stream<dynamic>> socketBindingsList =
+        CompaniesConnectorConjector.findDevicesByBindingIntoSockets();
+
+    final List<StreamSubscription> listenToSocketBinding = [];
+    for (final Stream<dynamic> socketBinding in socketBindingsList) {
+      listenToSocketBinding.add(
+        socketBinding.listen((switcherApiObject) {
+          // TODO: Make it work with all types and not just SwitcherApiObject
+          getIt<SwitcherConnectorConjector>()
+              .addOnlyNewSwitcherDevice(switcherApiObject as SwitcherApiObject);
+        }),
+      );
+    }
+
+    try {
+      for (final ActiveHost activeHost in await mdnsDevices) {
+        CompaniesConnectorConjector.setMdnsDeviceByCompany(activeHost);
+      }
+    } catch (e) {
+      logger.e('Mdns search error\n$e');
+    }
+
+    for (final ActiveHost activeHost in await pingableDevices) {
+      try {
+        CompaniesConnectorConjector.setHostNameDeviceByCompany(
+          activeHost: activeHost,
+        );
+      } catch (e) {
+        continue;
+      }
+    }
+
+    for (final StreamSubscription socketBindingSubscription
+        in listenToSocketBinding) {
+      await socketBindingSubscription.cancel();
+    }
+
+    return right(unit);
   }
 }

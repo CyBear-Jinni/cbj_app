@@ -19,5 +19,7 @@ abstract class IHubConnectionRepository {
     bool? isThatTheIpOfTheHub,
   });
 
+  Future<Either<HubFailures, Unit>> containsSmartDevice();
+
   Future<void> saveHubIP(String hubIP);
 }

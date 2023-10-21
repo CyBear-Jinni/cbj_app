@@ -15,6 +15,8 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:network_tools/network_tools.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -48,6 +50,8 @@ Future<Unit> main() async {
   configureInjection(Env.devPc);
 
   WidgetsFlutterBinding.ensureInitialized();
+  final appDocDirectory = await getApplicationDocumentsDirectory();
+  await configureNetworkTools(appDocDirectory.path, enableDebugging: true);
   HiveRepository();
   getIt<ILocalDbRepository2>();
   getIt.registerSingleton<AppRouter>(AppRouter());
