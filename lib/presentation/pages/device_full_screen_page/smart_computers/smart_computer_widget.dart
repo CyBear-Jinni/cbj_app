@@ -53,7 +53,7 @@ class _SmartSmartComputerPage extends State<SmartComputerPage> {
   // }
   //
   // Future<void> _onChange(bool value) async {
-  //   logger.v('OnChange $value');
+  //   logger.t('OnChange $value');
   //   _switch?.switchState = GenericSmartComputerSmartComputerState(
   //     EnumHelperCbj.deviceActionToString(
   //       value ? EntityActions.on : EntityActions.off,

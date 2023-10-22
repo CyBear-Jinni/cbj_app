@@ -59,7 +59,7 @@ class _SmartSwitchPage extends State<SmartSwitchPage> {
   }
 
   Future<void> _onChange(bool value) async {
-    logger.v('OnChange $value');
+    logger.t('OnChange $value');
     _switch?.switchState = GenericSwitchSwitchState(
       EnumHelperCbj.deviceActionToString(
         value ? EntityActions.on : EntityActions.off,

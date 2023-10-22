@@ -24,7 +24,7 @@ class RoomsPrintersWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<PrintersWatcherBloc, PrintersWatcherState>(
       builder: (context, state) {
-        logger.v('Printers loadSuccess');
+        logger.t('Printers loadSuccess');
 
         return state.map(
           initial: (_) => Container(),

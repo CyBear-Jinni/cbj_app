@@ -24,7 +24,7 @@ class RoomsSwitchesWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<SwitchesWatcherBloc, SwitchesWatcherState>(
       builder: (context, state) {
-        logger.v('Switches loadSuccess');
+        logger.t('Switches loadSuccess');
 
         return state.map(
           initial: (_) => Container(),

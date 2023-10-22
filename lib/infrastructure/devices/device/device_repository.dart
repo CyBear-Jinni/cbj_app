@@ -1244,18 +1244,18 @@ class DeviceRepository implements IDeviceRepository {
       ResourceRecordQuery.addressIPv4(fullMdnsName),
     )) {
       deviceIp = record.address.address;
-      logger.v('Found address (${record.address}).');
+      logger.t('Found address (${record.address}).');
     }
 
     // await for (final IPAddressResourceRecord record
     //     in client.lookup<IPAddressResourceRecord>(
     //         ResourceRecordQuery.addressIPv6(fullMdnsName))) {
-    //   logger.v('Found address (${record.address}).');
+    //   logger.t('Found address (${record.address}).');
     // }
 
     client.stop();
 
-    logger.v('Done.');
+    logger.t('Done.');
 
     return deviceIp;
   }

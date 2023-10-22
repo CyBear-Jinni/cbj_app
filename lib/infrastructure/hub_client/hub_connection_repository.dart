@@ -284,12 +284,12 @@ class HubConnectionRepository extends IHubConnectionRepository {
     // await for (final IPAddressResourceRecord record
     //     in client.lookup<IPAddressResourceRecord>(
     //         ResourceRecordQuery.addressIPv6(fullMdnsName))) {
-    //   logger.v('Found address (${record.address}).');
+    //   logger.t('Found address (${record.address}).');
     // }
 
     client.stop();
 
-    logger.v('Done.');
+    logger.t('Done.');
 
     return deviceIp;
   }
@@ -575,7 +575,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
       //       );
       //     }
       //   } else {
-      //     logger.v('User not connected to any WiFi, Will try again.');
+      //     logger.t('User not connected to any WiFi, Will try again.');
       //     tryAgainConnectToTheHubOnceMore = 0;
       //     await Future.delayed(const Duration(milliseconds: 500));
       //

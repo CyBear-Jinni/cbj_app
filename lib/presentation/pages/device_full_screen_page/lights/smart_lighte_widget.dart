@@ -59,7 +59,7 @@ class _SmartLightPage extends State<SmartLightPage> {
   }
 
   Future<void> _onChange(bool value) async {
-    logger.v('OnChange $value');
+    logger.t('OnChange $value');
     _light?.lightSwitchState = GenericLightSwitchState(
       EnumHelperCbj.deviceActionToString(
         value ? EntityActions.on : EntityActions.off,
