@@ -53,7 +53,7 @@ class _SmartPrinterPage extends State<PrinterPage> {
   // }
   //
   // Future<void> _onChange(bool value) async {
-  //   logger.v('OnChange $value');
+  //   logger.t('OnChange $value');
   //   _switch?.switchState = GenericPrinterPrinterState(
   //     EnumHelperCbj.deviceActionToString(
   //       value ? EntityActions.on : EntityActions.off,

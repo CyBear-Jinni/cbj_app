@@ -24,7 +24,7 @@ class RoomsSmartComputersWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<SmartComputersWatcherBloc, SmartComputersWatcherState>(
       builder: (context, state) {
-        logger.v('SmartComputers loadSuccess');
+        logger.t('SmartComputers loadSuccess');
 
         return state.map(
           initial: (_) => Container(),

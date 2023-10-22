@@ -30,7 +30,7 @@ class CBJAppServerD extends CyBearJinniAppServiceBase {
 //     final String smartDeviceIp = smartDevice.smartDeviceIP;
 //
 //     AddNewCBJDevices.newDevicesStringList.add(smartDeviceIp);
-//     logger.v('Smart device IP is $smartDeviceIp');
+//     logger.t('Smart device IP is $smartDeviceIp');
 //
 //
 //     if (!AddNewCBJDevices.newDevicesList

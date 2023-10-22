@@ -24,7 +24,7 @@ class RoomsSmartPlugsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<SmartPlugsWatcherBloc, SmartPlugsWatcherState>(
       builder: (context, state) {
-        logger.v('SmartPlugs loadSuccess');
+        logger.t('SmartPlugs loadSuccess');
 
         return state.map(
           initial: (_) => Container(),
