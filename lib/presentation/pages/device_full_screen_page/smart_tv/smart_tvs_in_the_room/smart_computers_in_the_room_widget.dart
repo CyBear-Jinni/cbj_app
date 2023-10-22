@@ -25,9 +25,9 @@ class SmartTvsInTheRoomWidget extends StatelessWidget {
           if (direction == DismissDirection.endToStart) {
             deleteProduct(0);
           } else if (direction == DismissDirection.startToEnd) {
-            logger.v('Swiped start to end');
+            logger.t('Swiped start to end');
           } else {
-            logger.v('Other swiping');
+            logger.t('Other swiping');
           }
         },
         background: Container(color: Colors.red),

@@ -15,15 +15,15 @@ class AdState {
   BannerAdListener get adListener => _adListener;
 
   final BannerAdListener _adListener = AdManagerBannerAdListener(
-    onAdLoaded: (ad) => logger.v('Ad loaded: ${ad.adUnitId}.'),
-    onAdClosed: (ad) => logger.v('Ad closed: ${ad.adUnitId}.'),
+    onAdLoaded: (ad) => logger.t('Ad loaded: ${ad.adUnitId}.'),
+    onAdClosed: (ad) => logger.t('Ad closed: ${ad.adUnitId}.'),
     onAdFailedToLoad: (ad, error) =>
-        logger.v('Ad failed to load: ${ad.adUnitId}, $error.'),
-    onAdOpened: (ad) => logger.v('Ad opened: ${ad.adUnitId}.'),
+        logger.t('Ad failed to load: ${ad.adUnitId}, $error.'),
+    onAdOpened: (ad) => logger.t('Ad opened: ${ad.adUnitId}.'),
     onAppEvent: (ad, name, data) =>
-        logger.v('App event: ${ad.adUnitId}, $name, $data'),
-    onAdImpression: (ad) => logger.v('Ad impression: ${ad.adUnitId}.'),
+        logger.t('App event: ${ad.adUnitId}, $name, $data'),
+    onAdImpression: (ad) => logger.t('Ad impression: ${ad.adUnitId}.'),
     onAdWillDismissScreen: (ad) =>
-        logger.v('Ad dismiss screen: ${ad.adUnitId}.'),
+        logger.t('Ad dismiss screen: ${ad.adUnitId}.'),
   );
 }

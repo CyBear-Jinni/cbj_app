@@ -23,7 +23,7 @@ class RoomsLightsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<LightsWatcherBloc, LightsWatcherState>(
       builder: (context, state) {
-        logger.v('Lights loadSuccess');
+        logger.t('Lights loadSuccess');
 
         return state.map(
           initial: (_) => Container(),

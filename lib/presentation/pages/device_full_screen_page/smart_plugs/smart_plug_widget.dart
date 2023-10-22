@@ -59,7 +59,7 @@ class _SmartSmartPlugPage extends State<SmartSmartPlugPage> {
   }
 
   Future<void> _onChange(bool value) async {
-    logger.v('OnChange $value');
+    logger.t('OnChange $value');
     _smartPlug?.smartPlugState = GenericSmartPlugState(
       EnumHelperCbj.deviceActionToString(
         value ? EntityActions.on : EntityActions.off,

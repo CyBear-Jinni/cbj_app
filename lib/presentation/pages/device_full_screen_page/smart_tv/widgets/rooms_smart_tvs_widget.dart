@@ -24,7 +24,7 @@ class RoomsSmartTvsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<SmartTvWatcherBloc, SmartTvWatcherState>(
       builder: (context, state) {
-        logger.v('SmartTvs loadSuccess');
+        logger.t('SmartTvs loadSuccess');
 
         return state.map(
           initial: (_) => Container(),
