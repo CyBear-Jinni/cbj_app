@@ -1,5 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/hub_in_network/hub_in_network_bloc.dart';
 import 'package:cybear_jinni/domain/hub/hub_failures.dart';
+import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -18,6 +20,13 @@ class CbjHubInNetworkWidget extends StatelessWidget {
             child: CircularProgressIndicator(),
           ),
           loadSuccess: (_) => const Text('Found hub'),
+          loadSuccessSecurityCamera: (loadSuccessSecurityCamera value) {
+            context.router.push(
+              VideoStreamOutputContainerRoute(streamAddress: value.address),
+            );
+
+            return const Text('Found Smart Camera');
+          },
           loadFailure: (failure) {
             if (failure.hubFailure ==
                 const HubFailures.cantFindHubInNetwork()) {

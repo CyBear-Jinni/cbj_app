@@ -82,7 +82,7 @@ class DeviceRepository implements IDeviceRepository {
 
   @override
   Future<void> initiateHubConnection() async {
-    AppRequestsToHub.lisenToApp();
+    AppRequestsToHub.listenToApp();
     HubRequestsToApp.lisenToApp();
 
     HubRequestRouting.navigateRequest();

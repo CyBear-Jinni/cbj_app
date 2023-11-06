@@ -50,7 +50,7 @@ class HubInNetworkBloc extends Bloc<HubInNetworkEvent, HubInNetworkState> {
       await (await _hubConnectionRepository.searchForHub()).fold((l) async {
         return (await _searchSmartDevices()).fold(
           (HubFailures l) => HubInNetworkState.loadFailure(l),
-          (r) => const HubInNetworkState.loadSuccess(),
+          (r) => HubInNetworkState.loadSuccessSecurityCamera(r),
         );
       }, (r) {
         context?.router.replace(const HomeRoute());
@@ -59,7 +59,7 @@ class HubInNetworkBloc extends Bloc<HubInNetworkEvent, HubInNetworkState> {
     );
   }
 
-  Future<Either<HubFailures, Unit>> _searchSmartDevices() {
+  Future<Either<HubFailures, String>> _searchSmartDevices() {
     return _hubConnectionRepository.containsSmartDevice();
   }
 

@@ -103,7 +103,7 @@ class AppRequestsToHub {
   static final appRequestsToHubStreamController =
       StreamController<ClientStatusRequests>();
 
-  static Future<void> lisenToApp() async {
+  static Future<void> listenToApp() async {
     if (boolListenWorking) {
       return;
     }

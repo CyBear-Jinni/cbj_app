@@ -109,7 +109,7 @@ class _SmartSwitchPage extends State<SmartSwitchPage> {
             inactiveColor: Theme.of(context).primaryColorDark,
             activeIcon: Icon(
               MdiIcons.lightSwitch,
-              color: Color(0xFFF8E3A1),
+              color: const Color(0xFFF8E3A1),
             ),
             inactiveIcon: Icon(
               MdiIcons.lightSwitch,
