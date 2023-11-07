@@ -5,6 +5,7 @@ import 'package:cbj_integrations_controller/domain/local_db/i_local_devices_db_r
 import 'package:cbj_integrations_controller/domain/local_db/local_db_failures.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cbj_integrations_controller/utils.dart';
+import 'package:cbj_smart_device/application/usecases/smart_server_u/smart_server_u.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:cybear_jinni/domain/hub/hub_entity.dart';
 import 'package:cybear_jinni/domain/hub/hub_failures.dart';
@@ -623,7 +624,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
       final Stream<ActiveHost> devicesWithPort =
           HostScanner.scanDevicesForSinglePort(
         subnet,
-        hubPort,
+        CbjSmartDeviceServerU.port,
 
         /// TODO: return this settings when can use with the await for loop
         // resultsInIpAscendingOrder: false,
@@ -636,9 +637,6 @@ class HubConnectionRepository extends IHubConnectionRepository {
       }
     } catch (e) {
       logger.w('Exception searchForHub\n$e');
-    }
-    if (currentDeviceIP != '192.168.31.75') {
-      return right('192.168.31.75');
     }
 
     // TODO: Create support for all types
