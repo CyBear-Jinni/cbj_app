@@ -173,6 +173,55 @@ class ConnectToHubPage extends StatelessWidget {
                       ),
                     ),
                   ),
+                  const SizedBox(height: 20),
+                  GestureDetector(
+                    onTap: () {
+                      getIt<HubInNetworkBloc>().add(
+                        HubInNetworkEvent.openSmartCameraPage(context),
+                      );
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 30),
+                      height: 60,
+                      color: HexColor('#985dc7'),
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(horizontal: 15),
+                        child: Row(
+                          children: [
+                            const FaIcon(
+                              FontAwesomeIcons.camera,
+                              color: Colors.white,
+                            ),
+                            const SizedBox(
+                              width: 40,
+                            ),
+                            Flexible(
+                              child: RichText(
+                                text: TextSpan(
+                                  style: TextStyle(
+                                    color: Colors.white.withOpacity(0.9),
+                                  ),
+                                  children: const <TextSpan>[
+                                    TextSpan(
+                                      text: 'Security Camera\n',
+                                      style: TextStyle(fontSize: 16),
+                                    ),
+                                    TextSpan(
+                                      text:
+                                          'Transform your phone into a smart security camera',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
                   const SizedBox(
                     height: 15,
                   ),

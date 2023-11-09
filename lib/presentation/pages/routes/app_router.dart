@@ -53,5 +53,9 @@ class AppRouter extends $AppRouter {
     AutoRoute(page: SmartPlugsInTheRoomRoute.page),
     AutoRoute(page: RoomsBlindsRoute.page),
     AutoRoute(page: RoomsBoilersRoute.page),
+
+    // Pages from packages
+    AutoRoute(page: SmartCameraContainerRoute.page),
+    AutoRoute(page: VideoStreamOutputContainerRoute.page),
   ];
 }

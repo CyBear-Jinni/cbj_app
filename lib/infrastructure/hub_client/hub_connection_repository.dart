@@ -1,9 +1,11 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:cbj_integrations_controller/domain/local_db/i_local_devices_db_repository.dart';
 import 'package:cbj_integrations_controller/domain/local_db/local_db_failures.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cbj_integrations_controller/utils.dart';
+import 'package:cbj_smart_device/application/usecases/smart_server_u/smart_server_u.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:cybear_jinni/domain/hub/hub_entity.dart';
 import 'package:cybear_jinni/domain/hub/hub_failures.dart';
@@ -84,7 +86,6 @@ class HubConnectionRepository extends IHubConnectionRepository {
     } catch (e) {
       logger.w("Can't get WiFi BSSID");
     }
-    ;
     final Either<LocalDbFailures, String> remotePipesInformation =
         await ILocalDbRepository.instance.getRemotePipesDnsName();
 
@@ -103,7 +104,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
             connectivityResult == ConnectivityResult.ethernet &&
             savedWifiBssidWithoutLastNumber == 'no:Network:Bssid') ||
         (kIsWeb && savedWifiBssidWithoutLastNumber == 'no:Network:Bssid')) {
-      (await OpenAndroidWifiSettingIfPosiible()).fold(
+      (await openAndroidWifiSettingIfPossible()).fold(
         (l) {
           logger
               .w('No way to establish connection with the Hub, WiFi or location'
@@ -529,7 +530,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
   Future<void> connectionUsingRemotePipes() async {
     (await ILocalDbRepository.instance.getRemotePipesDnsName()).fold(
       (l) async {
-        (await OpenAndroidWifiSettingIfPosiible()).fold(
+        (await openAndroidWifiSettingIfPossible()).fold(
           (l) {
             logger.w(
                 'No way to establish connection with the Hub, WiFi or location'
@@ -548,7 +549,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
     );
   }
 
-  Future<Either<HubFailures, Unit>> OpenAndroidWifiSettingIfPosiible() async {
+  Future<Either<HubFailures, Unit>> openAndroidWifiSettingIfPossible() async {
     final bool wifiEnabled = await WiFiForIoTPlugin.isEnabled();
     final Location location = Location();
 
@@ -601,5 +602,86 @@ class HubConnectionRepository extends IHubConnectionRepository {
       });
     }
     return const Left(HubFailures.unexpected());
+  }
+
+  @override
+  Future<Either<HubFailures, String>> containsSmartDevice() async {
+    String? currentDeviceIP;
+    try {
+      final NetworkInfo networkInfo = NetworkInfo();
+      currentDeviceIP = await networkInfo.getWifiIP();
+
+      if (currentDeviceIP == null) {
+        return left(const HubFailures.cantFindHubInNetwork());
+      }
+
+      final String subnet =
+          currentDeviceIP.substring(0, currentDeviceIP.lastIndexOf('.'));
+
+      logger.i('CBJ smart camera search subnet IP $subnet');
+
+      final Stream<ActiveHost> devicesWithPort =
+          HostScanner.scanDevicesForSinglePort(
+        subnet,
+        CbjSmartDeviceServerU.port,
+
+        /// TODO: return this settings when can use with the await for loop
+        // resultsInIpAscendingOrder: false,
+        timeout: const Duration(milliseconds: 600),
+      );
+
+      await for (final ActiveHost activeHost in devicesWithPort) {
+        logger.i('Found CBJ Smart security camera: ${activeHost.address}');
+        return right(activeHost.address);
+      }
+    } catch (e) {
+      logger.w('Exception searchForHub\n$e');
+    }
+
+    // TODO: Create support for all types
+    // final Future<List<ActiveHost>> mdnsDevices =
+    //     CompaniesConnectorConjector.searchMdnsDevices();
+    //
+    // final Future<List<ActiveHost>> pingableDevices =
+    //     CompaniesConnectorConjector.searchPingableDevices();
+
+    // final List<Stream<dynamic>> socketBindingsList =
+    //     CompaniesConnectorConjector.findDevicesByBindingIntoSockets();
+    //
+    // final List<StreamSubscription> listenToSocketBinding = [];
+    // for (final Stream<dynamic> socketBinding in socketBindingsList) {
+    //   listenToSocketBinding.add(
+    //     socketBinding.listen((switcherApiObject) {
+    //       // TODO: Make it work with all types and not just SwitcherApiObject
+    //       getIt<SwitcherConnectorConjector>()
+    //           .addOnlyNewSwitcherDevice(switcherApiObject as SwitcherApiObject);
+    //     }),
+    //   );
+    // }
+    //
+    // for (final StreamSubscription socketBindingSubscription
+    // in listenToSocketBinding) {
+    //   await socketBindingSubscription.cancel();
+    // }
+
+    // try {
+    //   for (final ActiveHost activeHost in await mdnsDevices) {
+    //     CompaniesConnectorConjector.setMdnsDeviceByCompany(activeHost);
+    //   }
+    // } catch (e) {
+    //   logger.e('Mdns search error\n$e');
+    // }
+    //
+    // for (final ActiveHost activeHost in await pingableDevices) {
+    //   try {
+    //     CompaniesConnectorConjector.setHostNameDeviceByCompany(
+    //       activeHost: activeHost,
+    //     );
+    //   } catch (e) {
+    //     continue;
+    //   }
+    // } r
+
+    return left(const HubFailures.cantFindHubInNetwork());
   }
 }

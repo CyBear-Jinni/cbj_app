@@ -1,6 +1,6 @@
-import 'package:cybear_jinni/application/smart_plugs/smart_plugs_watcher/smart_plugs_watcher_bloc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/application/smart_plugs/smart_plugs_watcher/smart_plugs_watcher_bloc.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/smart_plugs/widgets/critical_smart_plugs_failure_display_widget.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/smart_plugs/widgets/room_smart_plugs.dart';

@@ -4,6 +4,7 @@
 
 list(APPEND FLUTTER_PLUGIN_LIST
   connectivity_plus
+  file_selector_windows
   isar_flutter_libs
   permission_handler_windows
   url_launcher_windows
