@@ -8,7 +8,8 @@ import 'package:cybear_jinni/domain/hub/hub_failures.dart';
 import 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
 import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
 import 'package:dartz/dartz.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
@@ -23,6 +24,7 @@ class HubInNetworkBloc extends Bloc<HubInNetworkEvent, HubInNetworkState> {
       : super(HubInNetworkState.initial()) {
     on<InitialEvent>(_initialEvent);
     on<SearchHubInNetwork>(_searchHubInNetwork);
+    on<OpenSmartCameraPage>(_openSmartCameraPage);
     on<SearchHubUsingAnyIpOnTheNetwork>(_searchHubUsingAnyIpOnTheNetwork);
     on<IsHubIpCheckBoxChangedState>(_isHubIpCheckBoxChangedState);
   }
@@ -32,6 +34,7 @@ class HubInNetworkBloc extends Bloc<HubInNetworkEvent, HubInNetworkState> {
       _deviceStreamSubscription;
 
   BuildContext? context;
+  static bool loading = false;
 
   Future<void> _initialEvent(
     InitialEvent event,
@@ -45,6 +48,7 @@ class HubInNetworkBloc extends Bloc<HubInNetworkEvent, HubInNetworkState> {
     SearchHubInNetwork event,
     Emitter<HubInNetworkState> emit,
   ) async {
+    loading = true;
     emit(const HubInNetworkState.loadInProgress());
     emit(
       await (await _hubConnectionRepository.searchForHub()).fold((l) async {
@@ -57,6 +61,7 @@ class HubInNetworkBloc extends Bloc<HubInNetworkEvent, HubInNetworkState> {
         return const HubInNetworkState.loadSuccess();
       }),
     );
+    loading = false;
   }
 
   Future<Either<HubFailures, String>> _searchSmartDevices() {
@@ -85,6 +90,24 @@ class HubInNetworkBloc extends Bloc<HubInNetworkEvent, HubInNetworkState> {
     Emitter<HubInNetworkState> emit,
   ) async {
     emit(HubInNetworkState.tryIpManually(event.ipOnTheNetwork, event.isHubIp));
+  }
+
+  Future<void> _openSmartCameraPage(
+    OpenSmartCameraPage event,
+    Emitter<HubInNetworkState> emit,
+  ) async {
+    if (loading) {
+      Fluttertoast.showToast(
+        msg: 'Wait until search completes',
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        backgroundColor: Colors.blueGrey,
+        textColor: Theme.of(event.context).textTheme.bodyLarge!.color,
+        fontSize: 16.0,
+      );
+      return;
+    }
+    event.context.router.push(const SmartCameraContainerRoute());
   }
 
   @override

@@ -109,7 +109,7 @@ class _SmartSmartPlugPage extends State<SmartSmartPlugPage> {
             inactiveColor: Theme.of(context).primaryColorDark,
             activeIcon: Icon(
               MdiIcons.powerSocketAu,
-              color: Color(0xFFF8E3A1),
+              color: const Color(0xFFF8E3A1),
             ),
             inactiveIcon: Icon(
               MdiIcons.powerSocketAu,

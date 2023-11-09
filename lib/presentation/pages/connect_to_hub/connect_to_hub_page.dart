@@ -176,7 +176,9 @@ class ConnectToHubPage extends StatelessWidget {
                   const SizedBox(height: 20),
                   GestureDetector(
                     onTap: () {
-                      context.router.push(const SmartCameraContainerRoute());
+                      getIt<HubInNetworkBloc>().add(
+                        HubInNetworkEvent.openSmartCameraPage(context),
+                      );
                     },
                     child: Container(
                       margin: const EdgeInsets.symmetric(horizontal: 30),
