@@ -2,33 +2,33 @@ import 'dart:async';
 import 'dart:collection';
 import 'dart:io';
 
+import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/devices/device_helper/device_helper.dart';
+import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_dto_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_blinds_device/generic_blinds_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_blinds_device/generic_blinds_value_objects.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_boiler_device/generic_boiler_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_boiler_device/generic_boiler_value_objects.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_dimmable_light_device/generic_dimmable_light_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_dimmable_light_device/generic_dimmable_light_value_objects.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_light_device/generic_light_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_light_device/generic_light_value_objects.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_rgbw_light_device/generic_rgbw_light_value_objects.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_computer_device/generic_smart_computer_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_computer_device/generic_smart_computer_value_objects.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_plug_device/generic_smart_plug_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_plug_device/generic_smart_plug_value_objects.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_tv/generic_smart_tv_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_tv/generic_smart_tv_value_objects.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_switch_device/generic_switch_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_switch_device/generic_switch_value_objects.dart';
 import 'package:cybear_jinni/domain/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
-import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_blinds_device/generic_blinds_entity.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_blinds_device/generic_blinds_value_objects.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_boiler_device/generic_boiler_entity.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_boiler_device/generic_boiler_value_objects.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_dimmable_light_device/generic_dimmable_light_entity.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_dimmable_light_device/generic_dimmable_light_value_objects.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_light_device/generic_light_entity.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_light_device/generic_light_value_objects.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_rgbw_light_device/generic_rgbw_light_value_objects.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_smart_computer_device/generic_smart_computer_entity.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_smart_computer_device/generic_smart_computer_value_objects.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_smart_plug_device/generic_smart_plug_entity.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_smart_plug_device/generic_smart_plug_value_objects.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_smart_tv/generic_smart_tv_entity.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_smart_tv/generic_smart_tv_value_objects.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_switch_device/generic_switch_entity.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_switch_device/generic_switch_value_objects.dart';
-import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/domain/user/i_user_repository.dart';
 import 'package:cybear_jinni/domain/user/user_entity.dart';
-import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cybear_jinni/infrastructure/devices/device_helper.dart';
-import 'package:cybear_jinni/infrastructure/generic_devices/abstract_device/device_entity_dto_abstract.dart';
 import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
 import 'package:cybear_jinni/infrastructure/hub_client/hub_requests_routing.dart';
 import 'package:cybear_jinni/injection.dart';
@@ -82,7 +82,7 @@ class DeviceRepository implements IDeviceRepository {
 
   @override
   Future<void> initiateHubConnection() async {
-    AppRequestsToHub.lisenToApp();
+    AppRequestsToHub.listenToApp();
     HubRequestsToApp.lisenToApp();
 
     HubRequestRouting.navigateRequest();
@@ -1244,18 +1244,18 @@ class DeviceRepository implements IDeviceRepository {
       ResourceRecordQuery.addressIPv4(fullMdnsName),
     )) {
       deviceIp = record.address.address;
-      logger.v('Found address (${record.address}).');
+      logger.t('Found address (${record.address}).');
     }
 
     // await for (final IPAddressResourceRecord record
     //     in client.lookup<IPAddressResourceRecord>(
     //         ResourceRecordQuery.addressIPv6(fullMdnsName))) {
-    //   logger.v('Found address (${record.address}).');
+    //   logger.t('Found address (${record.address}).');
     // }
 
     client.stop();
 
-    logger.v('Done.');
+    logger.t('Done.');
 
     return deviceIp;
   }

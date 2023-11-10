@@ -1,30 +1,30 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:cbj_integrations_controller/domain/room/i_room_repository.dart';
+import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
+import 'package:cbj_integrations_controller/domain/scene/i_scene_cbj_repository.dart';
+import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_blinds_device/generic_blinds_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_boiler_device/generic_boiler_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_dimmable_light_device/generic_dimmable_light_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_empty_device/generic_empty_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_light_device/generic_light_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_ping_device/generic_ping_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_printer_device/generic_printer_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_rgbw_light_device/generic_rgbw_light_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_computer_device/generic_smart_computer_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_plug_device/generic_smart_plug_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_tv_device/generic_smart_tv_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_switch_device/generic_switch_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/room/room_entity_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/scenes/scene_cbj_dtos.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
-import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
-import 'package:cybear_jinni/domain/room/i_room_repository.dart';
-import 'package:cybear_jinni/domain/room/room_entity.dart';
-import 'package:cybear_jinni/domain/scene/i_scene_cbj_repository.dart';
-import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cybear_jinni/infrastructure/generic_devices/generic_blinds_device/generic_blinds_device_dtos.dart';
-import 'package:cybear_jinni/infrastructure/generic_devices/generic_boiler_device/generic_boiler_device_dtos.dart';
-import 'package:cybear_jinni/infrastructure/generic_devices/generic_dimmable_light_device/generic_dimmable_light_device_dtos.dart';
-import 'package:cybear_jinni/infrastructure/generic_devices/generic_empty_device/generic_empty_device_dtos.dart';
-import 'package:cybear_jinni/infrastructure/generic_devices/generic_light_device/generic_light_device_dtos.dart';
-import 'package:cybear_jinni/infrastructure/generic_devices/generic_ping_device/generic_ping_device_dtos.dart';
-import 'package:cybear_jinni/infrastructure/generic_devices/generic_printer_device/generic_printer_device_dtos.dart';
-import 'package:cybear_jinni/infrastructure/generic_devices/generic_rgbw_light_device/generic_rgbw_light_device_dtos.dart';
-import 'package:cybear_jinni/infrastructure/generic_devices/generic_smart_computer_device/generic_smart_computer_device_dtos.dart';
-import 'package:cybear_jinni/infrastructure/generic_devices/generic_smart_plug_device/generic_smart_plug_device_dtos.dart';
-import 'package:cybear_jinni/infrastructure/generic_devices/generic_smart_tv_device/generic_smart_tv_device_dtos.dart';
-import 'package:cybear_jinni/infrastructure/generic_devices/generic_switch_device/generic_switch_device_dtos.dart';
 import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums_cbj.dart';
-import 'package:cybear_jinni/infrastructure/room/room_entity_dtos.dart';
-import 'package:cybear_jinni/infrastructure/scenes/scene_cbj_dtos.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:grpc/grpc.dart';
@@ -75,10 +75,10 @@ class HubRequestRouting {
     });
     requestsFromHubSubscription?.onError((error) async {
       if (error is GrpcError && error.code == 1) {
-        logger.v('Hub have been disconnected');
+        logger.t('Hub have been disconnected');
       }
       // else if (error is GrpcError && error.code == 2) {
-      //   logger.v('Hub have been terminated');
+      //   logger.t('Hub have been terminated');
       // }
       else {
         logger.e('Hub stream error: $error');
@@ -130,7 +130,8 @@ class HubRequestRouting {
     );
 
     final RoomEntity roomEntity = roomEntityDtos.toDomain();
-    getIt<IRoomRepository>().addOrUpdateRoom(roomEntity);
+
+    IRoomRepository.instance.addOrUpdateRoom(roomEntity);
   }
 
   static Future<void> navigateDeviceRequest(
@@ -188,7 +189,8 @@ class HubRequestRouting {
       case EntityTypes.switch_:
         deviceEntity =
             GenericSwitchDeviceDtos.fromJson(requestAsJson).toDomain();
-        logger.i('Adding Switch device type');
+        logger.i('Addin'
+            'g Switch device type');
       case EntityTypes.smartPlug:
         deviceEntity =
             GenericSmartPlugDeviceDtos.fromJson(requestAsJson).toDomain();
@@ -205,13 +207,14 @@ class HubRequestRouting {
         if (entityStateGRPC == EntityStateGRPC.pingNow) {
           deviceEntity =
               GenericPingDeviceDtos.fromJson(requestAsJson).toDomain();
-          logger.v('Got Ping request');
+          logger.t('Got Ping request');
           return;
         } else {
           deviceEntity =
               GenericEmptyDeviceDtos.fromJson(requestAsJson).toDomain();
           logger.w(
-              'Device type is $deviceType is not supported $entityStateGRPC ',);
+            'Device type is $deviceType is not supported $entityStateGRPC ',
+          );
         }
         break;
     }

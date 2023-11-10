@@ -1,8 +1,8 @@
+import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/value_objects_core.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_light_device/generic_light_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_light_device/generic_light_value_objects.dart';
 import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
-import 'package:cybear_jinni/domain/generic_devices/abstract_device/value_objects_core.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_light_device/generic_light_entity.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_light_device/generic_light_value_objects.dart';
-import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_switch/flutter_switch.dart';

@@ -7,6 +7,9 @@ class HubInNetworkEvent with _$HubInNetworkEvent {
 
   const factory HubInNetworkEvent.searchHubInNetwork() = SearchHubInNetwork;
 
+  const factory HubInNetworkEvent.openSmartCameraPage(BuildContext context) =
+      OpenSmartCameraPage;
+
   const factory HubInNetworkEvent.searchHubUsingAnyIpOnTheNetwork(
     String ipOnTheNetwork,
     bool isHubIp,

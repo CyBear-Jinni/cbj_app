@@ -92,8 +92,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
     Future<Either<AuthFailure, Unit>> Function({
       required EmailAddress emailAddress,
       required Password password,
-    })
-        forwardedCall,
+    }) forwardedCall,
   ) async* {
     Either<AuthFailure, Unit>? failureOrSuccess;
 

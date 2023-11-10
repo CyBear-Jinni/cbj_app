@@ -1,11 +1,11 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:cybear_jinni/domain/vendors/i_vendor_repository.dart';
-import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.dart';
-import 'package:cybear_jinni/domain/vendors/login_abstract/value_login_objects_core.dart';
-import 'package:cybear_jinni/domain/vendors/xiaomi_mi_login/generic_xiaomi_mi_login_entity.dart';
-import 'package:cybear_jinni/domain/vendors/xiaomi_mi_login/generic_xiaomi_mi_login_value_objects.dart';
+import 'package:cbj_integrations_controller/domain/vendors/i_vendor_repository.dart';
+import 'package:cbj_integrations_controller/domain/vendors/login_abstract/core_login_failures.dart';
+import 'package:cbj_integrations_controller/domain/vendors/login_abstract/value_login_objects_core.dart';
+import 'package:cbj_integrations_controller/domain/vendors/xiaomi_mi_login/generic_xiaomi_mi_login_entity.dart';
+import 'package:cbj_integrations_controller/domain/vendors/xiaomi_mi_login/generic_xiaomi_mi_login_value_objects.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';

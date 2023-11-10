@@ -8,6 +8,9 @@ class HubInNetworkState with _$HubInNetworkState {
 
   const factory HubInNetworkState.loadSuccess() = _loadSuccess;
 
+  const factory HubInNetworkState.loadSuccessSecurityCamera(String address) =
+      loadSuccessSecurityCamera;
+
   const factory HubInNetworkState.tryIpManually(
     String ipOnTheNetwork,
     bool isHubIp,
