@@ -14,14 +14,11 @@ part 'add_user_to_home_state.dart';
 
 @injectable
 class AddUserToHomeBloc extends Bloc<AddUserToHomeEvent, AddUserToHomeState> {
-  AddUserToHomeBloc(this._addUserToHomeRepo)
-      : super(AddUserToHomeState.initial()) {
+  AddUserToHomeBloc() : super(AddUserToHomeState.initial()) {
     on<EmailChanged>(_emailChanged);
     on<PermissionChanged>(_permissionChanged);
     on<AddUserToHomeByEmail>(_addUserToHomeByEmail);
   }
-
-  final IAddUserToHomeRepository _addUserToHomeRepo;
 
   Future<void> _emailChanged(
     EmailChanged event,
@@ -43,7 +40,8 @@ class AddUserToHomeBloc extends Bloc<AddUserToHomeEvent, AddUserToHomeState> {
       email: HomeUserEmail(event.email),
       permission: HomeUserPermission('Admin'),
     );
-    final userOption = await _addUserToHomeRepo.add(addUserHomeEntity);
+    final userOption =
+        await IAddUserToHomeRepository.instance.add(addUserHomeEntity);
     emit(
       userOption.fold(
         (_) => const AddUserToHomeState.addingHomeFailure(),

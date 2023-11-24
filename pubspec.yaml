@@ -45,6 +45,8 @@ dependencies:
   auto_size_text: ^3.0.0
   # Helps implement the BLoC pattern.
   bloc: ^8.1.2
+  cbj_integrations_controller:
+    git: https://github.com/CyBear-Jinni/cbj_integrations_controller.git
   cbj_smart_device_flutter:
     git: https://github.com/CyBear-Jinni/cbj_smart_device_flutter.git
   # Copy text from and to clipboard

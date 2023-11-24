@@ -15,15 +15,12 @@ part 'manage_users_state.dart';
 
 @injectable
 class ManageUsersBloc extends Bloc<ManageUsersEvent, ManageUsersState> {
-  ManageUsersBloc(this._userRepository)
-      : super(const ManageUsersState.initial()) {
+  ManageUsersBloc() : super(const ManageUsersState.initial()) {
     on<Initialized>(_initialized);
     on<UserReceived>(_userReceived);
     on<AddByEmail>(_addByEmail);
     on<Deleted>(_deleted);
   }
-
-  final IHomeUserRepository _userRepository;
 
   StreamSubscription<Either<HomeUserFailures, KtList<HomeUserEntity>>>?
       _userStreamSubscription;
@@ -34,7 +31,7 @@ class ManageUsersBloc extends Bloc<ManageUsersEvent, ManageUsersState> {
   ) async {
     emit(const ManageUsersState.inProgress());
     await _userStreamSubscription?.cancel();
-    _userStreamSubscription = _userRepository.getAllUsers().listen(
+    _userStreamSubscription = IHomeUserRepository.instance.getAllUsers().listen(
           (allUsersEvent) => add(ManageUsersEvent.userReceived(allUsersEvent)),
         );
   }

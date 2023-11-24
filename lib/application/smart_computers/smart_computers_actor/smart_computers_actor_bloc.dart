@@ -16,7 +16,7 @@ part 'smart_computers_actor_state.dart';
 @injectable
 class SmartComputersActorBloc
     extends Bloc<SmartComputersActorEvent, SmartComputersActorState> {
-  SmartComputersActorBloc(this._deviceRepository)
+  SmartComputersActorBloc()
       : super(const SmartComputersActorState.initial()) {
     on<Initialized>(_initialized);
     on<Deleted>(_deleted);
@@ -25,8 +25,6 @@ class SmartComputersActorBloc
     on<SuspendAllSmartComputers>(_suspendAllSmartComputers);
     on<ShutdownAllSmartComputers>(_shutdownAllSmartComputers);
   }
-
-  final IDeviceRepository _deviceRepository;
 
   Future<void> _initialized(
     Initialized event,
@@ -47,7 +45,7 @@ class SmartComputersActorBloc
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-    _deviceRepository.turnOffDevices(
+  IDeviceRepository.instance.turnOffDevices(
       devicesId: event.smartComputersIdToTurnOff,
     );
   }
@@ -61,7 +59,7 @@ class SmartComputersActorBloc
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-    _deviceRepository.turnOnDevices(devicesId: event.smartComputersIdToTurnOn);
+  IDeviceRepository.instance.turnOnDevices(devicesId: event.smartComputersIdToTurnOn);
   }
 
   Future<void> _suspendAllSmartComputers(
@@ -73,7 +71,7 @@ class SmartComputersActorBloc
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-    _deviceRepository.suspendDevices(devicesId: event.smartComputersId);
+  IDeviceRepository.instance.suspendDevices(devicesId: event.smartComputersId);
   }
 
   Future<void> _shutdownAllSmartComputers(
@@ -85,6 +83,6 @@ class SmartComputersActorBloc
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-    _deviceRepository.shutdownDevices(devicesId: event.smartComputersId);
+  IDeviceRepository.instance.shutdownDevices(devicesId: event.smartComputersId);
   }
 }

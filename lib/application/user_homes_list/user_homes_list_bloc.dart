@@ -16,14 +16,12 @@ part 'user_homes_list_state.dart';
 
 @injectable
 class UserHomesListBloc extends Bloc<UserHomesListEvent, UserHomesListState> {
-  UserHomesListBloc(this._userRepository)
-      : super(UserHomesListState.initial()) {
+  UserHomesListBloc() : super(UserHomesListState.initial()) {
     on<WatchAllStarted>(_watchAllStarted);
     on<AllHomesOfUserReceived>(_allHomesOfUserReceived);
     on<JoinExistingHome>(_joinExistingHome);
   }
 
-  final IUserRepository _userRepository;
   StreamSubscription<
           Either<AllHomesOfUserFailures, KtList<AllHomesOfUserEntity>>>?
       _userHomesStreamSubscription;
@@ -34,7 +32,7 @@ class UserHomesListBloc extends Bloc<UserHomesListEvent, UserHomesListState> {
   ) async {
     emit(const UserHomesListState.loadInProgress());
     await _userHomesStreamSubscription?.cancel();
-    _userHomesStreamSubscription = _userRepository.watchAll().listen(
+    _userHomesStreamSubscription = IUserRepository.instance.watchAll().listen(
           (failureOrDevices) => add(
             UserHomesListEvent.allHomesOfUserReceived(failureOrDevices),
           ),
@@ -61,8 +59,9 @@ class UserHomesListBloc extends Bloc<UserHomesListEvent, UserHomesListState> {
   ) async {
     emit(const UserHomesListState.loadInProgress());
 
-    final Either<HomeUserFailures, Unit> joinHomeOutput =
-        await _userRepository.joinExistingHome(event.allHomesOfUserEntity!);
+    final Either<HomeUserFailures, Unit> joinHomeOutput = await IUserRepository
+        .instance
+        .joinExistingHome(event.allHomesOfUserEntity!);
     emit(
       joinHomeOutput.fold(
         (f) => UserHomesListState.loadFailureEnteringHome(f),

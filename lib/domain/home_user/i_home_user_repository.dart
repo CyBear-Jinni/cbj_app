@@ -1,14 +1,15 @@
 import 'package:cybear_jinni/domain/home_user/home_user_entity.dart';
 import 'package:cybear_jinni/domain/home_user/home_user_failures.dart';
+import 'package:cybear_jinni/infrastructure/home_user/home_user_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:kt_dart/collection.dart';
 
-abstract class IHomeUserRepository {
-  // watch devices
-  // watch only a
-  // CUD
+abstract interface class IHomeUserRepository {
+  static IHomeUserRepository? _instance;
 
-  // C Read UD
+  static IHomeUserRepository get instance {
+    return _instance ??= HomeUserRepository();
+  }
 
   Stream<Either<HomeUserFailures, KtList<HomeUserEntity>>> getAllUsers();
 

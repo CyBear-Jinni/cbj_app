@@ -15,7 +15,7 @@ part 'lights_actor_state.dart';
 
 @injectable
 class LightsActorBloc extends Bloc<LightsActorEvent, LightsActorState> {
-  LightsActorBloc(this._deviceRepository)
+  LightsActorBloc()
       : super(const LightsActorState.initial()) {
     on<Initialized>(_initialized);
     on<Deleted>(_deleted);
@@ -23,7 +23,6 @@ class LightsActorBloc extends Bloc<LightsActorEvent, LightsActorState> {
     on<TurnOnAllLights>(_turnOnAllLights);
   }
 
-  final IDeviceRepository _deviceRepository;
 
   Future<void> _initialized(
     Initialized event,
@@ -44,7 +43,7 @@ class LightsActorBloc extends Bloc<LightsActorEvent, LightsActorState> {
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-    _deviceRepository.turnOffDevices(devicesId: event.lightsIdToTurnOff);
+    IDeviceRepository.instance.turnOffDevices(devicesId: event.lightsIdToTurnOff);
   }
 
   Future<void> _turnOnAllLights(
@@ -56,6 +55,6 @@ class LightsActorBloc extends Bloc<LightsActorEvent, LightsActorState> {
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-    _deviceRepository.turnOnDevices(devicesId: event.lightsIdToTurnOn);
+    IDeviceRepository.instance.turnOnDevices(devicesId: event.lightsIdToTurnOn);
   }
 }

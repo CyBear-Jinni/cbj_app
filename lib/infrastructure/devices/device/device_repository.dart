@@ -37,14 +37,12 @@ import 'package:dartz/dartz.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/src/painting/colors.dart';
-import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
 import 'package:multicast_dns/multicast_dns.dart';
 import 'package:network_info_plus/network_info_plus.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:rxdart/rxdart.dart';
 
-@LazySingleton(as: IDeviceRepository)
 class DeviceRepository implements IDeviceRepository {
   // final DeviceRemoteService _deviceRemoteService;
   // final DeviceLocalService _deviceLocalService;
@@ -278,7 +276,7 @@ class DeviceRepository implements IDeviceRepository {
       }
 
       final UserEntity currentUserEntity =
-          (await getIt<IUserRepository>().getCurrentUser())
+          (await IUserRepository.instance.getCurrentUser())
               .getOrElse(() => throw 'Cant get current user');
       final String currentUserId = currentUserEntity.id!.getOrCrash()!;
 

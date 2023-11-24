@@ -2,9 +2,9 @@ import 'dart:async';
 
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:bloc/bloc.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/domain/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_light_device/generic_light_entity.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -16,16 +16,13 @@ part 'blinds_actor_state.dart';
 
 @injectable
 class BlindsActorBloc extends Bloc<BlindsActorEvent, BlindsActorState> {
-  BlindsActorBloc(this._deviceRepository)
-      : super(const BlindsActorState.initial()) {
+  BlindsActorBloc() : super(const BlindsActorState.initial()) {
     on<Deleted>(_deleted);
     on<Initialized>(_initialized);
     on<MoveUpAllBlinds>(_moveUpAllBlinds);
     on<StopAllBlinds>(_stopAllBlinds);
     on<MoveDownAllBlinds>(_moveDownAllBlinds);
   }
-
-  final IDeviceRepository _deviceRepository;
 
   Future<void> _deleted(
     Deleted event,
@@ -46,7 +43,8 @@ class BlindsActorBloc extends Bloc<BlindsActorEvent, BlindsActorState> {
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-    _deviceRepository.moveUpStateDevices(devicesId: event.blindsIdToTurnUp);
+    IDeviceRepository.instance
+        .moveUpStateDevices(devicesId: event.blindsIdToTurnUp);
   }
 
   Future<void> _stopAllBlinds(
@@ -58,7 +56,8 @@ class BlindsActorBloc extends Bloc<BlindsActorEvent, BlindsActorState> {
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-    _deviceRepository.stopStateDevices(devicesId: event.blindsIdToStop);
+    IDeviceRepository.instance
+        .stopStateDevices(devicesId: event.blindsIdToStop);
   }
 
   Future<void> _moveDownAllBlinds(
@@ -70,6 +69,7 @@ class BlindsActorBloc extends Bloc<BlindsActorEvent, BlindsActorState> {
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-    _deviceRepository.moveDownStateDevices(devicesId: event.blindsIdToTurnDown);
+    IDeviceRepository.instance
+        .moveDownStateDevices(devicesId: event.blindsIdToTurnDown);
   }
 }

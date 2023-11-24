@@ -16,15 +16,13 @@ part 'light_toggle_state.dart';
 
 @injectable
 class LightToggleBloc extends Bloc<LightToggleEvent, LightToggleState> {
-  LightToggleBloc(this._deviceRepository) : super(LightToggleState.initial()) {
+  LightToggleBloc() : super(LightToggleState.initial()) {
     on<Initialized>(_initialized);
     on<ChangeState>(_changeState);
     on<ChangeColorTemperature>(_changeColorTemperature);
     on<ChangeHsvColor>(_changeHsvColor);
     on<ChangeBrightness>(_changeBrightness);
   }
-
-  final IDeviceRepository _deviceRepository;
 
   Future<void> _initialized(
     Initialized event,
@@ -61,11 +59,11 @@ class LightToggleBloc extends Bloc<LightToggleEvent, LightToggleState> {
     Either<DevicesFailure, Unit> actionResult;
 
     if (event.changeToState) {
-      actionResult = await _deviceRepository.turnOnDevices(
+      actionResult = await IDeviceRepository.instance.turnOnDevices(
         devicesId: [event.deviceEntity.uniqueId.getOrCrash()],
       );
     } else {
-      actionResult = await _deviceRepository.turnOffDevices(
+      actionResult = await IDeviceRepository.instance.turnOffDevices(
         devicesId: [event.deviceEntity.uniqueId.getOrCrash()],
       );
     }
@@ -76,7 +74,7 @@ class LightToggleBloc extends Bloc<LightToggleEvent, LightToggleState> {
     Emitter<LightToggleState> emit,
   ) async {
     emit(state.copyWith(colorTemperature: event.newColorTemperature));
-    _deviceRepository.changeColorTemperatureDevices(
+    IDeviceRepository.instance.changeColorTemperatureDevices(
       devicesId: [event.deviceEntity.uniqueId.getOrCrash()],
       colorTemperatureToChange: event.newColorTemperature,
     );
@@ -87,7 +85,7 @@ class LightToggleBloc extends Bloc<LightToggleEvent, LightToggleState> {
     Emitter<LightToggleState> emit,
   ) async {
     emit(state.copyWith(hsvColor: event.newHsvColor));
-    _deviceRepository.changeHsvColorDevices(
+    IDeviceRepository.instance.changeHsvColorDevices(
       devicesId: [event.deviceEntity.uniqueId.getOrCrash()],
       hsvColorToChange: event.newHsvColor,
     );
@@ -99,7 +97,7 @@ class LightToggleBloc extends Bloc<LightToggleEvent, LightToggleState> {
   ) async {
     emit(state.copyWith(brightness: event.brightness));
 
-    _deviceRepository.changeBrightnessDevices(
+    IDeviceRepository.instance.changeBrightnessDevices(
       devicesId: [event.deviceEntity.uniqueId.getOrCrash()],
       brightnessToChange: event.brightness.round(),
     );

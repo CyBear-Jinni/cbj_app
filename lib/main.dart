@@ -53,7 +53,7 @@ Future<Unit> main() async {
   final appDocDirectory = await getApplicationDocumentsDirectory();
   await configureNetworkTools(appDocDirectory.path, enableDebugging: true);
   HiveRepository();
-  getIt<ILocalDbRepository2>();
+  ILocalDbRepository2.instance;
   getIt.registerSingleton<AppRouter>(AppRouter());
 
   AdState? adState;

@@ -19,7 +19,7 @@ part 'room_sign_in_form_state.dart';
 @injectable
 class RoomSignInFormBloc
     extends Bloc<RoomSignInFormEvent, RoomSignInFormState> {
-  RoomSignInFormBloc(this._deviceRepository)
+  RoomSignInFormBloc()
       : super(RoomSignInFormState.initial()) {
     on<CreateRoom>(_createRoom);
     on<ChangeRoomDevices>(_changeRoomDevices);
@@ -34,7 +34,6 @@ class RoomSignInFormBloc
     add(const RoomSignInFormEvent.initialized());
   }
 
-  final IDeviceRepository _deviceRepository;
 
   List<RoomEntity?> _allRooms = [];
   List<DeviceEntityAbstract?> _allDevices = [];
@@ -47,7 +46,7 @@ class RoomSignInFormBloc
       _allRooms = List<RoomEntity>.from(r.iter);
     });
 
-    (await _deviceRepository.getAllDevices()).fold((l) => null, (r) {
+    (await IDeviceRepository.instance.getAllDevices()).fold((l) => null, (r) {
       _allDevices = List<DeviceEntityAbstract>.from(r.iter);
     });
     _allRooms.removeWhere((element) => element == null);

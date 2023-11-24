@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:cybear_jinni/domain/auth/i_auth_facade.dart';
 import 'package:cybear_jinni/domain/local_db/i_local_db_repository2.dart';
-import 'package:cybear_jinni/injection.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -11,13 +10,11 @@ part 'auth_state.dart';
 
 @injectable
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  AuthBloc(this._authFacade) : super(const AuthState.initial()) {
+  AuthBloc() : super(const AuthState.initial()) {
     on<Initialized>(_initialized);
     on<AuthCheckRequested>(_authCheckRequested);
     on<SignedOut>(_signedOut);
   }
-
-  final IAuthFacade _authFacade;
 
   Future<void> _initialized(
     Initialized event,
@@ -33,7 +30,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   ) async {
     // For now will check only if hub connection info is saved
     emit(
-      (await getIt<ILocalDbRepository2>().getHubEntityNetworkName()).fold(
+      (await ILocalDbRepository2.instance.getHubEntityNetworkName()).fold(
         (l) => const AuthState.unauthenticated(),
         (r) => const AuthState.authenticated(),
       ),
@@ -50,7 +47,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     SignedOut event,
     Emitter<AuthState> emit,
   ) async {
-    await _authFacade.signOut();
+    await IAuthFacade.instance.signOut();
     emit(const AuthState.unauthenticated());
   }
 }

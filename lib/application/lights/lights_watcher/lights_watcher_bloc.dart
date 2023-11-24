@@ -15,13 +15,12 @@ part 'lights_watcher_state.dart';
 
 @injectable
 class LightsWatcherBloc extends Bloc<LightsWatcherEvent, LightsWatcherState> {
-  LightsWatcherBloc(this._deviceRepository)
+  LightsWatcherBloc()
       : super(LightsWatcherState.initial()) {
     on<WatchAllStarted>(_watchAllStarted);
     on<DevicesReceived>(_devicesReceived);
   }
 
-  final IDeviceRepository _deviceRepository;
   StreamSubscription<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>?
       _deviceStreamSubscription;
 
@@ -31,7 +30,7 @@ class LightsWatcherBloc extends Bloc<LightsWatcherEvent, LightsWatcherState> {
   ) async {
     emit(const LightsWatcherState.loadInProgress());
     await _deviceStreamSubscription?.cancel();
-    _deviceStreamSubscription = _deviceRepository.watchLights().listen(
+    _deviceStreamSubscription = IDeviceRepository.instance.watchLights().listen(
           (eventWatch) => add(LightsWatcherEvent.devicesReceived(eventWatch)),
         );
   }

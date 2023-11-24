@@ -17,7 +17,7 @@ part 'smart_tv_watcher_state.dart';
 @injectable
 class SmartTvWatcherBloc
     extends Bloc<SmartTvWatcherEvent, SmartTvWatcherState> {
-  SmartTvWatcherBloc(this._deviceRepository)
+  SmartTvWatcherBloc()
       : super(SmartTvWatcherState.initial()) {
     on<WatchAllSmartTvStarted>(_watchAllStarted);
     on<Smart_tvReceived>(_smartTvReceived);
@@ -29,7 +29,7 @@ class SmartTvWatcherBloc
   ) async {
     emit(const SmartTvWatcherState.loadInProgress());
     await _deviceStreamSubscription?.cancel();
-    _deviceStreamSubscription = _deviceRepository.watchSmartTv().listen(
+    _deviceStreamSubscription = IDeviceRepository.instance.watchSmartTv().listen(
           (eventWatch) => add(SmartTvWatcherEvent.smartTvReceived(eventWatch)),
         );
   }
@@ -50,7 +50,6 @@ class SmartTvWatcherBloc
     );
   }
 
-  final IDeviceRepository _deviceRepository;
   StreamSubscription<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>?
       _deviceStreamSubscription;
 

@@ -15,13 +15,10 @@ part 'create_home_state.dart';
 
 @injectable
 class CreateHomeBloc extends Bloc<CreateHomeEvent, CreateHomeState> {
-  CreateHomeBloc(this._createHomeRepository)
-      : super(CreateHomeState.initialized()) {
+  CreateHomeBloc() : super(CreateHomeState.initialized()) {
     on<Initialized>(_initialized);
     on<CreateHome>(_createHome);
   }
-
-  final ICreateHomeRepository _createHomeRepository;
 
   Future<void> _initialized(
     Initialized event,
@@ -42,7 +39,7 @@ class CreateHomeBloc extends Bloc<CreateHomeEvent, CreateHomeState> {
     );
 
     final initialization =
-        await _createHomeRepository.createNewHome(createHomeEntity);
+        await ICreateHomeRepository.instance.createNewHome(createHomeEntity);
 
     emit(
       initialization.fold(

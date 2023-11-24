@@ -13,13 +13,12 @@ part 'device_actor_state.dart';
 
 @injectable
 class DeviceActorBloc extends Bloc<DeviceActorEvent, DeviceActorState> {
-  DeviceActorBloc(this._deviceRepository)
+  DeviceActorBloc()
       : super(const DeviceActorState.initial()) {
     on<Deleted>(_deleted);
     on<Initialized>(_initialized);
   }
 
-  final IDeviceRepository _deviceRepository;
 
   Future<void> _deleted(
     Deleted event,

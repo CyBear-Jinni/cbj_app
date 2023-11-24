@@ -14,14 +14,11 @@ part 'plus_button_settings_state.dart';
 @injectable
 class PlusButtonSettingsBloc
     extends Bloc<PlusButtonSettingsEvent, PlusButtonSettingsState> {
-  PlusButtonSettingsBloc(this._hubConnectionRepository)
-      : super(PlusButtonSettingsState.initial()) {
+  PlusButtonSettingsBloc() : super(PlusButtonSettingsState.initial()) {
     on<Initialized>(_initialized);
 
     on<Logout>(_logout);
   }
-
-  final IHubConnectionRepository _hubConnectionRepository;
 
   late BuildContext context;
 
@@ -37,7 +34,8 @@ class PlusButtonSettingsBloc
     Emitter<PlusButtonSettingsState> emit,
   ) async {
     emit(PlusButtonSettingsState.loadInProgress());
-    await _hubConnectionRepository.closeConnection();
+    await IHubConnectionRepository.instance.closeConnection();
+
     context.router.replace(const ConnectToHubRoute());
   }
 }

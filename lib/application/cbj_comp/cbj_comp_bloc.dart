@@ -14,15 +14,13 @@ part 'cbj_comp_state.dart';
 
 @injectable
 class CBJCompBloc extends Bloc<CBJCompEvent, CBJCompState> {
-  CBJCompBloc(this._cBJCompRepository) : super(CBJCompState.initial()) {
+  CBJCompBloc() : super(CBJCompState.initial()) {
     on<Initialized>(_initialized);
     on<WatchAllStarted>(_watchAllStarted);
     on<ChangeState>(_changeAction);
     on<CompDevicesReceived>(_compDevicesReceived);
     on<CreateDevice>(_create);
   }
-
-  final ICBJCompRepository _cBJCompRepository;
 
   StreamSubscription<Either<CBJCompFailure, String>>?
       _cbjCompStreamSubscription;
@@ -43,7 +41,7 @@ class CBJCompBloc extends Bloc<CBJCompEvent, CBJCompState> {
   ) async {
     emit(const CBJCompState.loadInProgress());
     await _cbjCompStreamSubscription?.cancel();
-    _cbjCompStreamSubscription = _cBJCompRepository
+    _cbjCompStreamSubscription = ICBJCompRepository.instance
         .getConnectedComputersIP()
         .listen((failureOrCBJCompList) {
       final dynamic failureOrCompListDynamic = failureOrCBJCompList.fold(
@@ -92,7 +90,7 @@ class CBJCompBloc extends Bloc<CBJCompEvent, CBJCompState> {
     Emitter<CBJCompState> emit,
   ) async {
     final actionResult =
-        await _cBJCompRepository.updateCompInfo(event.cBJCompEntity);
+        await ICBJCompRepository.instance.updateCompInfo(event.cBJCompEntity);
 
     emit(
       actionResult.fold(
@@ -105,7 +103,7 @@ class CBJCompBloc extends Bloc<CBJCompEvent, CBJCompState> {
   @override
   Future<void> close() async {
     await _cbjCompStreamSubscription?.cancel();
-    await _cBJCompRepository.shutdownServer();
+    await ICBJCompRepository.instance.shutdownServer();
     return super.close();
   }
 }

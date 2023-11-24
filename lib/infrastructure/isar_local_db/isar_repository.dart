@@ -5,12 +5,10 @@ import 'package:cybear_jinni/infrastructure/isar_local_db/isar_objects/hub_entit
 import 'package:cybear_jinni/infrastructure/isar_local_db/isar_objects/remote_pipes_isar_model.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:dartz/dartz.dart';
-import 'package:injectable/injectable.dart';
 import 'package:isar/isar.dart';
 import 'package:path_provider/path_provider.dart';
 
-@LazySingleton(as: ILocalDbRepository2)
-class IsarRepository extends ILocalDbRepository2 {
+class IsarRepository implements ILocalDbRepository2 {
   IsarRepository() {
     asyncConstructor();
   }

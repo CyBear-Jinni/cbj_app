@@ -10,9 +10,7 @@ import 'package:cybear_jinni/domain/user/user_entity.dart';
 import 'package:cybear_jinni/domain/user/user_value_objects.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:dartz/dartz.dart';
-import 'package:injectable/injectable.dart';
 
-@LazySingleton(as: IAuthFacade)
 class HubAuthFacade implements IAuthFacade {
   @override
   Future<Option<MUser>> getSignedInUser() async =>
@@ -22,7 +20,7 @@ class HubAuthFacade implements IAuthFacade {
   Future<Option<MHome>> getCurrentHome() async => optionOf(
         MHome(
           id: UniqueId.fromUniqueString(
-            await getIt<ILocalDbRepository2>().getHomeId(),
+            await ILocalDbRepository2.instance.getHomeId(),
           ),
         ),
       );
@@ -71,7 +69,7 @@ class HubAuthFacade implements IAuthFacade {
         lastName: UserLastName(' '),
       );
 
-      final registrarOutput = await getIt<IUserRepository>().create(userEntity);
+      final registrarOutput = await IUserRepository.instance.create(userEntity);
       registrarOutput.getOrElse(() => throw NotAuthenticatedError());
 
       final MUser mUser = MUser(id: UniqueId.fromUniqueString(userIdString));

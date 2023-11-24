@@ -16,13 +16,12 @@ part 'blinds_watcher_state.dart';
 
 @injectable
 class BlindsWatcherBloc extends Bloc<BlindsWatcherEvent, BlindsWatcherState> {
-  BlindsWatcherBloc(this._deviceRepository)
+  BlindsWatcherBloc()
       : super(BlindsWatcherState.initial()) {
     on<WatchAllBlindsStarted>(_watchAllStarted);
     on<BlindsReceived>(_blindsReceived);
   }
 
-  final IDeviceRepository _deviceRepository;
   StreamSubscription<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>?
       _deviceStreamSubscription;
 
@@ -32,7 +31,7 @@ class BlindsWatcherBloc extends Bloc<BlindsWatcherEvent, BlindsWatcherState> {
   ) async {
     emit(const BlindsWatcherState.loadInProgress());
     await _deviceStreamSubscription?.cancel();
-    _deviceStreamSubscription = _deviceRepository.watchBlinds().listen(
+    _deviceStreamSubscription = IDeviceRepository.instance.watchBlinds().listen(
           (eventWatch) => add(BlindsWatcherEvent.blindsReceived(eventWatch)),
         );
   }

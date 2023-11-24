@@ -11,10 +11,8 @@ import 'package:cybear_jinni/infrastructure/user/user_dtos.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/services.dart';
-import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
 
-@LazySingleton(as: IUserRepository)
 class UserRepository implements IUserRepository {
   @override
   Future<Either<HomeUserFailures, Unit>> create(UserEntity userEntity) async {
@@ -40,7 +38,7 @@ class UserRepository implements IUserRepository {
     try {
       // final userCollec = await _firestore.usersCollection();
 
-      final String userId = (await getIt<IAuthFacade>().getSignedInUser())
+      final String userId = (await IAuthFacade.instance.getSignedInUser())
           .getOrElse(() => throw NotAuthenticatedError())
           .id
           .getOrCrash();
@@ -95,7 +93,7 @@ class UserRepository implements IUserRepository {
       //     .doc(homeId)
       //     .set(homeUserDtos.toJson());
       //
-      await getIt<ILocalDbRepository2>().setHomeId(homeId);
+      await ILocalDbRepository2.instance.setHomeId(homeId);
 
       return right(unit);
     } catch (e) {
@@ -145,7 +143,7 @@ class UserRepository implements IUserRepository {
     try {
       // final homeCollection = await _firestore.homeCollection();
 
-      final String userId = (await getIt<IAuthFacade>().getSignedInUser())
+      final String userId = (await IAuthFacade.instance.getSignedInUser())
           .getOrElse(() => throw NotAuthenticatedError())
           .id
           .getOrCrash();
@@ -159,7 +157,7 @@ class UserRepository implements IUserRepository {
       //   return left(const HomeUserFailures.homeDoesNotExist());
       // }
 
-      await getIt<ILocalDbRepository2>().setHomeId(homeId);
+      await ILocalDbRepository2.instance.setHomeId(homeId);
 
       return right(unit);
     } catch (e) {

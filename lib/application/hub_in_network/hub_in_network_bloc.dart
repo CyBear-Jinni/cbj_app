@@ -20,8 +20,7 @@ part 'hub_in_network_state.dart';
 
 @injectable
 class HubInNetworkBloc extends Bloc<HubInNetworkEvent, HubInNetworkState> {
-  HubInNetworkBloc(this._hubConnectionRepository)
-      : super(HubInNetworkState.initial()) {
+  HubInNetworkBloc() : super(HubInNetworkState.initial()) {
     on<InitialEvent>(_initialEvent);
     on<SearchHubInNetwork>(_searchHubInNetwork);
     on<OpenSmartCameraPage>(_openSmartCameraPage);
@@ -29,7 +28,6 @@ class HubInNetworkBloc extends Bloc<HubInNetworkEvent, HubInNetworkState> {
     on<IsHubIpCheckBoxChangedState>(_isHubIpCheckBoxChangedState);
   }
 
-  final IHubConnectionRepository _hubConnectionRepository;
   StreamSubscription<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>?
       _deviceStreamSubscription;
 
@@ -51,7 +49,8 @@ class HubInNetworkBloc extends Bloc<HubInNetworkEvent, HubInNetworkState> {
     loading = true;
     emit(const HubInNetworkState.loadInProgress());
     emit(
-      await (await _hubConnectionRepository.searchForHub()).fold((l) async {
+      await (await IHubConnectionRepository.instance.searchForHub()).fold(
+          (l) async {
         return (await _searchSmartDevices()).fold(
           (HubFailures l) => HubInNetworkState.loadFailure(l),
           (r) => HubInNetworkState.loadSuccessSecurityCamera(r),
@@ -65,7 +64,7 @@ class HubInNetworkBloc extends Bloc<HubInNetworkEvent, HubInNetworkState> {
   }
 
   Future<Either<HubFailures, String>> _searchSmartDevices() {
-    return _hubConnectionRepository.containsSmartDevice();
+    return IHubConnectionRepository.instance.containsSmartDevice();
   }
 
   Future<void> _searchHubUsingAnyIpOnTheNetwork(
@@ -74,7 +73,7 @@ class HubInNetworkBloc extends Bloc<HubInNetworkEvent, HubInNetworkState> {
   ) async {
     emit(const HubInNetworkState.loadInProgress());
     emit(
-      (await _hubConnectionRepository.searchForHub(
+      (await IHubConnectionRepository.instance.searchForHub(
         deviceIpOnTheNetwork: event.ipOnTheNetwork,
         isThatTheIpOfTheHub: event.isHubIp,
       ))

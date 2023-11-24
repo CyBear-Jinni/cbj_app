@@ -30,11 +30,7 @@ part 'configure_new_cbj_comp_state.dart';
 @injectable
 class ConfigureNewCbjCompBloc
     extends Bloc<ConfigureNewCbjCompEvent, ConfigureNewCbjCompState> {
-  ConfigureNewCbjCompBloc(
-    this._deviceRepository,
-    this._cBJCompRepository,
-    this._securityBearConnectionRepository,
-  ) : super(const ConfigureNewCbjCompState.initial()) {
+  ConfigureNewCbjCompBloc() : super(const ConfigureNewCbjCompState.initial()) {
     on<Initialized>(_initialized);
     on<Deleted>(_deleted);
     on<SetupNewDevice>(_setupNewDevice);
@@ -49,13 +45,8 @@ class ConfigureNewCbjCompBloc
     on<SearchIfHubOnTheSameWifiNetwork>(_searchIfHubOnTheSameWifiNetwork);
   }
 
-  final ISecurityBearConnectionRepository _securityBearConnectionRepository;
-  final IDeviceRepository _deviceRepository;
-
   /// Progress counter for setting new devices
   double progressPercent = 0.0;
-
-  final ICBJCompRepository _cBJCompRepository;
 
   Future<void> _initialized(
     Initialized event,
@@ -105,7 +96,7 @@ class ConfigureNewCbjCompBloc
 
     for (final GenericLightDE device in devicesList.asList()) {
       final Either<DevicesFailure, Unit> createInCloudResponse =
-          await _deviceRepository.create(device);
+          await IDeviceRepository.instance.create(device);
 
       createInCloudResponse.fold(
         (l) {
@@ -174,7 +165,7 @@ class ConfigureNewCbjCompBloc
 
     final CBJCompEntity compUpdatedData = event.cBJCompEntity;
     final Either<SecurityBearFailures, Unit> setSecurityBearWiFi =
-        await _securityBearConnectionRepository
+        await ISecurityBearConnectionRepository.instance
             .setSecurityBearWiFiInformation(compUpdatedData);
 
     setSecurityBearWiFi.fold(
@@ -204,7 +195,7 @@ class ConfigureNewCbjCompBloc
 
     final CBJCompEntity compUpdatedData = event.cBJCompEntity;
     final Either<SecurityBearFailures, Unit> setSecurityBearWiFi =
-        await _securityBearConnectionRepository
+        await ISecurityBearConnectionRepository.instance
             .setSecurityBearWiFiInformation(compUpdatedData);
 
     setSecurityBearWiFi.fold(
@@ -264,7 +255,7 @@ class ConfigureNewCbjCompBloc
 
     while (true) {
       connectionTimeout++;
-      (await _securityBearConnectionRepository
+      (await ISecurityBearConnectionRepository.instance
               .searchForSecurityBearInCurrentNetwork())
           .fold((l) {}, (r) {
         emit(const ConfigureNewCbjCompState.completeSuccess());
@@ -317,7 +308,7 @@ class ConfigureNewCbjCompBloc
     bool error = false;
 
     final Either<CBJCompFailure, Unit> updateAllDevices =
-        await _cBJCompRepository.firstSetup(compUpdatedData);
+        await ICBJCompRepository.instance.firstSetup(compUpdatedData);
 
     updateAllDevices.fold(
       (l) {

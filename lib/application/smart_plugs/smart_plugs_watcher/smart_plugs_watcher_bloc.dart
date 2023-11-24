@@ -16,13 +16,12 @@ part 'smart_plugs_watcher_state.dart';
 @injectable
 class SmartPlugsWatcherBloc
     extends Bloc<SmartPlugsWatcherEvent, SmartPlugsWatcherState> {
-  SmartPlugsWatcherBloc(this._deviceRepository)
+  SmartPlugsWatcherBloc()
       : super(SmartPlugsWatcherState.initial()) {
     on<WatchAllStarted>(_watchAllStarted);
     on<DevicesReceived>(_devicesReceived);
   }
 
-  final IDeviceRepository _deviceRepository;
   StreamSubscription<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>?
       _deviceStreamSubscription;
 
@@ -32,7 +31,7 @@ class SmartPlugsWatcherBloc
   ) async {
     emit(const SmartPlugsWatcherState.loadInProgress());
     await _deviceStreamSubscription?.cancel();
-    _deviceStreamSubscription = _deviceRepository.watchSmartPlugs().listen(
+    _deviceStreamSubscription = IDeviceRepository.instance.watchSmartPlugs().listen(
           (eventWatch) =>
               add(SmartPlugsWatcherEvent.devicesReceived(eventWatch)),
         );

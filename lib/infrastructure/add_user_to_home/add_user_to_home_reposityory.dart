@@ -8,13 +8,9 @@ import 'package:cybear_jinni/injection.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:injectable/injectable.dart';
 
-@LazySingleton(as: IAddUserToHomeRepository)
 class AddUserToHomeRepository implements IAddUserToHomeRepository {
-  AddUserToHomeRepository(this._firestore);
-
-  final String _firestore;
+  AddUserToHomeRepository();
 
   @override
   @required
@@ -87,7 +83,7 @@ class AddUserToHomeRepository implements IAddUserToHomeRepository {
       // );
 
       // await create(homeUserEntityToAdd);
-      final String homeId = await getIt<ILocalDbRepository2>().getHomeId();
+      final String homeId = await ILocalDbRepository2.instance.getHomeId();
       return Right(homeId);
     } catch (e) {
       return const Left(AddUserToHomeFailures.unexpected());

@@ -14,15 +14,12 @@ part 'remote_pipes_state.dart';
 
 @injectable
 class RemotePipesBloc extends Bloc<RemotePipesEvent, RemotePipesState> {
-  RemotePipesBloc(this._remotePipesRepository)
-      : super(RemotePipesState.initial()) {
+  RemotePipesBloc() : super(RemotePipesState.initial()) {
     on<Initialized>(_initialized);
     on<RemotePipesDomainChanged>(_remotePipesDomainChanged);
     on<PermissionChanged>(_permissionChanged);
     on<AddRemotePipeUrl>(_addRemotePipeUrl);
   }
-
-  final IRemotePipesRepository _remotePipesRepository;
 
   Future<void> _initialized(
     Initialized event,
@@ -61,7 +58,7 @@ class RemotePipesBloc extends Bloc<RemotePipesEvent, RemotePipesState> {
       ),
     );
 
-    final remotePipesSetDomainResponse = await _remotePipesRepository
+    final remotePipesSetDomainResponse = await IRemotePipesRepository.instance
         .setRemotePipesDomainName(remotePipesEntity);
     Navigator.pop(event.context);
   }

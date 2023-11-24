@@ -17,13 +17,12 @@ part 'boilers_watcher_state.dart';
 @injectable
 class BoilersWatcherBloc
     extends Bloc<BoilersWatcherEvent, BoilersWatcherState> {
-  BoilersWatcherBloc(this._deviceRepository)
+  BoilersWatcherBloc()
       : super(BoilersWatcherState.initial()) {
     on<WatchAllBoilersStarted>(_watchAllStarted);
     on<BoilersReceived>(_boilersReceived);
   }
 
-  final IDeviceRepository _deviceRepository;
   StreamSubscription<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>?
       _deviceStreamSubscription;
 
@@ -33,7 +32,7 @@ class BoilersWatcherBloc
   ) async {
     emit(const BoilersWatcherState.loadInProgress());
     await _deviceStreamSubscription?.cancel();
-    _deviceStreamSubscription = _deviceRepository.watchBoilers().listen(
+    _deviceStreamSubscription = IDeviceRepository.instance.watchBoilers().listen(
           (eventWatch) => add(BoilersWatcherEvent.boilersReceived(eventWatch)),
         );
   }

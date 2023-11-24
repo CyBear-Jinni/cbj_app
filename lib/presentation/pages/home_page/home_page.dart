@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
-import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/pages/home_page/bottom_navigation_bar_home_page.dart';
 import 'package:cybear_jinni/presentation/pages/home_page/left_navigation_drawer_home_page.dart';
 import 'package:cybear_jinni/presentation/pages/home_page/tabs/scenes_in_folders_tab/scenes_in_folders_tab.dart';
@@ -20,7 +19,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   void initState() {
-    getIt<IDeviceRepository>().initiateHubConnection();
+    IDeviceRepository.instance.initiateHubConnection();
 
     super.initState();
   }

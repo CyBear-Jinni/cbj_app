@@ -101,7 +101,7 @@ class HubRequestRouting {
       navigateRequest();
     });
 
-    await getIt<IHubConnectionRepository>().connectWithHub();
+    await IHubConnectionRepository.instance.connectWithHub();
   }
 
   static Future<void> navigateRoomRequest(
@@ -218,8 +218,7 @@ class HubRequestRouting {
         }
         break;
     }
-
-    getIt<IDeviceRepository>().addOrUpdateDevice(deviceEntity);
+    IDeviceRepository.instance.addOrUpdateDevice(deviceEntity);
   }
 
   static Future<void> navigateSceneRequest(

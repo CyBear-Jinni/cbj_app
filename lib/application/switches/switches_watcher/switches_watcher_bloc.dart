@@ -16,13 +16,12 @@ part 'switches_watcher_state.dart';
 @injectable
 class SwitchesWatcherBloc
     extends Bloc<SwitchesWatcherEvent, SwitchesWatcherState> {
-  SwitchesWatcherBloc(this._deviceRepository)
+  SwitchesWatcherBloc()
       : super(SwitchesWatcherState.initial()) {
     on<WatchAllStarted>(_watchAllStarted);
     on<DevicesReceived>(_devicesReceived);
   }
 
-  final IDeviceRepository _deviceRepository;
   StreamSubscription<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>?
       _deviceStreamSubscription;
 
@@ -32,7 +31,7 @@ class SwitchesWatcherBloc
   ) async {
     emit(const SwitchesWatcherState.loadInProgress());
     await _deviceStreamSubscription?.cancel();
-    _deviceStreamSubscription = _deviceRepository.watchSwitches().listen(
+    _deviceStreamSubscription = IDeviceRepository.instance.watchSwitches().listen(
           (eventWatch) => add(SwitchesWatcherEvent.devicesReceived(eventWatch)),
         );
   }

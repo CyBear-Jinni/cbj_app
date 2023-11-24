@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:bloc/bloc.dart';
-import 'package:cybear_jinni/domain/device/devices_failures.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/hub/hub_failures.dart';
 import 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
 import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
@@ -20,14 +20,12 @@ part 'more_connections_options_state.dart';
 @injectable
 class MoreConnectionsOptionsBloc
     extends Bloc<MoreConnectionsOptionsEvent, MoreConnectionsOptionsState> {
-  MoreConnectionsOptionsBloc(this._hubConnectionRepository)
-      : super(MoreConnectionsOptionsState.initial()) {
+  MoreConnectionsOptionsBloc() : super(MoreConnectionsOptionsState.initial()) {
     on<InitialEvent>(_initialEvent);
     on<ConnectToRemotePipes>(_connectToRemotePipes);
     on<ConnectInDemoMode>(_connectInDemoMode);
   }
 
-  final IHubConnectionRepository _hubConnectionRepository;
   StreamSubscription<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>?
       _deviceStreamSubscription;
 
@@ -50,7 +48,7 @@ class MoreConnectionsOptionsBloc
     Emitter<MoreConnectionsOptionsState> emit,
   ) async {
     context.router.replace(const HomeRoute());
-    _hubConnectionRepository.connectWithHub(demoMod: true);
+    IHubConnectionRepository.instance.connectWithHub(demoMod: true);
   }
 
   @override

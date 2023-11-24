@@ -18,14 +18,13 @@ part 'device_watcher_state.dart';
 
 @injectable
 class DeviceWatcherBloc extends Bloc<DeviceWatcherEvent, DeviceWatcherState> {
-  DeviceWatcherBloc(this._deviceRepository)
+  DeviceWatcherBloc()
       : super(DeviceWatcherState.initial()) {
     on<WatchAllStarted>(_watchAllStarted);
     on<RoomsReceived>(_roomsReceived);
     on<DevicesReceived>(_devicesReceived);
   }
 
-  final IDeviceRepository _deviceRepository;
 
   KtList<DeviceEntityAbstract?> listOfDevices = [null].toImmutableList();
   KtList<RoomEntity?> listOfRooms = [null].toImmutableList();
@@ -99,7 +98,7 @@ class DeviceWatcherBloc extends Bloc<DeviceWatcherEvent, DeviceWatcherState> {
     });
 
     _deviceStreamSubscription =
-        _deviceRepository.watchAllDevices().listen((eventWatch) {
+  IDeviceRepository.instance.watchAllDevices().listen((eventWatch) {
       add(DeviceWatcherEvent.devicesReceived(eventWatch));
     });
   }

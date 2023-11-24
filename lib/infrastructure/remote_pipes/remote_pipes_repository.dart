@@ -8,9 +8,7 @@ import 'package:cybear_jinni/domain/remote_pipes/remote_pipes_failures.dart';
 import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
 import 'package:cybear_jinni/infrastructure/remote_pipes/remote_pipes_dtos.dart';
 import 'package:dartz/dartz.dart';
-import 'package:injectable/injectable.dart';
 
-@LazySingleton(as: IRemotePipesRepository)
 class RemotePipesRepository implements IRemotePipesRepository {
   @override
   Future<Either<RemotePipesFailures, Unit>> setRemotePipesDomainName(

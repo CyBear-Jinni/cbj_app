@@ -16,13 +16,12 @@ part 'printers_watcher_state.dart';
 @injectable
 class PrintersWatcherBloc
     extends Bloc<PrintersWatcherEvent, PrintersWatcherState> {
-  PrintersWatcherBloc(this._deviceRepository)
+  PrintersWatcherBloc()
       : super(PrintersWatcherState.initial()) {
     on<WatchAllStarted>(_watchAllStarted);
     on<DevicesReceived>(_devicesReceived);
   }
 
-  final IDeviceRepository _deviceRepository;
   StreamSubscription<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>?
       _deviceStreamSubscription;
 
@@ -32,7 +31,7 @@ class PrintersWatcherBloc
   ) async {
     emit(const PrintersWatcherState.loadInProgress());
     await _deviceStreamSubscription?.cancel();
-    _deviceStreamSubscription = _deviceRepository.watchPrinters().listen(
+    _deviceStreamSubscription = IDeviceRepository.instance.watchPrinters().listen(
           (eventWatch) => add(PrintersWatcherEvent.devicesReceived(eventWatch)),
         );
   }

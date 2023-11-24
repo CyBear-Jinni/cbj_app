@@ -18,7 +18,7 @@ part 'printers_actor_state.dart';
 
 @injectable
 class PrintersActorBloc extends Bloc<PrintersActorEvent, PrintersActorState> {
-  PrintersActorBloc(this._deviceRepository)
+  PrintersActorBloc()
       : super(const PrintersActorState.initial()) {
     on<Initialized>(_initialized);
     on<Deleted>(_deleted);
@@ -28,7 +28,6 @@ class PrintersActorBloc extends Bloc<PrintersActorEvent, PrintersActorState> {
     on<ShutdownAllPrinters>(_shutdownAllPrinters);
   }
 
-  final IDeviceRepository _deviceRepository;
 
   Future<void> _initialized(
     Initialized event,
@@ -49,7 +48,7 @@ class PrintersActorBloc extends Bloc<PrintersActorEvent, PrintersActorState> {
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-    _deviceRepository.turnOffDevices(
+  IDeviceRepository.instance.turnOffDevices(
       devicesId: event.printersIdToTurnOff,
     );
   }
@@ -63,7 +62,7 @@ class PrintersActorBloc extends Bloc<PrintersActorEvent, PrintersActorState> {
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-    _deviceRepository.turnOnDevices(devicesId: event.printersIdToTurnOn);
+  IDeviceRepository.instance.turnOnDevices(devicesId: event.printersIdToTurnOn);
   }
 
   Future<void> _openPrintersWebPage(
@@ -100,6 +99,6 @@ class PrintersActorBloc extends Bloc<PrintersActorEvent, PrintersActorState> {
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-    _deviceRepository.shutdownDevices(devicesId: event.printersId);
+  IDeviceRepository.instance.shutdownDevices(devicesId: event.printersId);
   }
 }

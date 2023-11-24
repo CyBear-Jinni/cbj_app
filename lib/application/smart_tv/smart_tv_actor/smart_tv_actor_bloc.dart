@@ -14,7 +14,7 @@ part 'smart_tv_actor_state.dart';
 
 @injectable
 class SmartTvActorBloc extends Bloc<SmartTvActorEvent, SmartTvActorState> {
-  SmartTvActorBloc(this._deviceRepository)
+  SmartTvActorBloc()
       : super(const SmartTvActorState.initial()) {
     on<Initialized>(_initialized);
     on<OpenUrl>(_openUrl);
@@ -27,8 +27,6 @@ class SmartTvActorBloc extends Bloc<SmartTvActorEvent, SmartTvActorState> {
     on<QueuePrevEvent>(_queuePrevEvent);
     on<QueueNextEvent>(_queueNextEvent);
   }
-
-  final IDeviceRepository _deviceRepository;
 
   Future<void> _initialized(
     Initialized event,
@@ -43,7 +41,7 @@ class SmartTvActorBloc extends Bloc<SmartTvActorEvent, SmartTvActorState> {
       message: 'Open url on smart tv',
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
-    _deviceRepository.openUrlOnDevices(
+  IDeviceRepository.instance.openUrlOnDevices(
       devicesId: event.smartTvId,
       url: event.url,
     );
@@ -58,7 +56,7 @@ class SmartTvActorBloc extends Bloc<SmartTvActorEvent, SmartTvActorState> {
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-    _deviceRepository.stopStateDevices(devicesId: event.smartTvId);
+  IDeviceRepository.instance.stopStateDevices(devicesId: event.smartTvId);
   }
 
   Future<void> _closeEvent(
@@ -70,7 +68,7 @@ class SmartTvActorBloc extends Bloc<SmartTvActorEvent, SmartTvActorState> {
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-    _deviceRepository.closeStateDevices(devicesId: event.smartTvId);
+  IDeviceRepository.instance.closeStateDevices(devicesId: event.smartTvId);
   }
 
   Future<void> _pauseState(
@@ -82,7 +80,7 @@ class SmartTvActorBloc extends Bloc<SmartTvActorEvent, SmartTvActorState> {
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-    _deviceRepository.pauseStateDevices(devicesId: event.smartTvId);
+  IDeviceRepository.instance.pauseStateDevices(devicesId: event.smartTvId);
   }
 
   Future<void> _playState(
@@ -94,7 +92,7 @@ class SmartTvActorBloc extends Bloc<SmartTvActorEvent, SmartTvActorState> {
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-    _deviceRepository.playStateDevices(devicesId: event.smartTvId);
+  IDeviceRepository.instance.playStateDevices(devicesId: event.smartTvId);
   }
 
   Future<void> _skipVideoTo(
@@ -106,7 +104,7 @@ class SmartTvActorBloc extends Bloc<SmartTvActorEvent, SmartTvActorState> {
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-    _deviceRepository.skipVideoDevices(devicesId: event.smartTvId);
+  IDeviceRepository.instance.skipVideoDevices(devicesId: event.smartTvId);
   }
 
   Future<void> _changeVolume(
@@ -118,7 +116,7 @@ class SmartTvActorBloc extends Bloc<SmartTvActorEvent, SmartTvActorState> {
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-    _deviceRepository.changeVolumeDevices(devicesId: event.smartTvId);
+  IDeviceRepository.instance.changeVolumeDevices(devicesId: event.smartTvId);
   }
 
   Future<void> _queuePrevEvent(
@@ -130,7 +128,7 @@ class SmartTvActorBloc extends Bloc<SmartTvActorEvent, SmartTvActorState> {
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-    _deviceRepository.queuePrevStateDevices(devicesId: event.smartTvId);
+  IDeviceRepository.instance.queuePrevStateDevices(devicesId: event.smartTvId);
   }
 
   Future<void> _queueNextEvent(
@@ -142,6 +140,6 @@ class SmartTvActorBloc extends Bloc<SmartTvActorEvent, SmartTvActorState> {
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-    _deviceRepository.queueNextStateDevices(devicesId: event.smartTvId);
+  IDeviceRepository.instance.queueNextStateDevices(devicesId: event.smartTvId);
   }
 }

@@ -16,14 +16,13 @@ part 'smart_plug_toggle_state.dart';
 @injectable
 class SmartPlugToggleBloc
     extends Bloc<SmartPlugToggleEvent, SmartPlugToggleState> {
-  SmartPlugToggleBloc(this._deviceRepository)
+  SmartPlugToggleBloc()
       : super(SmartPlugToggleState.initial()) {
     on<CreateDevice>(_create);
     on<ChangeState>(_changeAction);
     on<ChangeColor>(_changeColor);
   }
 
-  final IDeviceRepository _deviceRepository;
 
   int sendNewColorEachMiliseconds = 200;
   Timer? timeFromLastColorChange;
@@ -33,7 +32,7 @@ class SmartPlugToggleBloc
     CreateDevice event,
     Emitter<SmartPlugToggleState> emit,
   ) async {
-    final actionResult = await _deviceRepository.create(event.deviceEntity);
+    final actionResult = await IDeviceRepository.instance.create(event.deviceEntity);
   }
 
   Future<void> _changeAction(
@@ -45,11 +44,11 @@ class SmartPlugToggleBloc
     Either<DevicesFailure, Unit> actionResult;
 
     if (event.changeToState) {
-      actionResult = await _deviceRepository.turnOnDevices(
+      actionResult = await IDeviceRepository.instance.turnOnDevices(
         devicesId: [event.deviceEntity.uniqueId.getOrCrash()],
       );
     } else {
-      actionResult = await _deviceRepository.turnOffDevices(
+      actionResult = await IDeviceRepository.instance.turnOffDevices(
         devicesId: [event.deviceEntity.uniqueId.getOrCrash()],
       );
     }
@@ -79,7 +78,7 @@ class SmartPlugToggleBloc
   /// different colors which is not efficient and some device can't even handle
   /// so many requests.
   Future<void> changeColorOncePerTimer(ChangeColor e) async {
-    await _deviceRepository.changeHsvColorDevices(
+    await IDeviceRepository.instance.changeHsvColorDevices(
       devicesId: [e.deviceEntity.uniqueId.getOrCrash()],
       hsvColorToChange: lastColoredPicked!,
     );

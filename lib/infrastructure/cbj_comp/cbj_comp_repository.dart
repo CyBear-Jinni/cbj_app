@@ -6,9 +6,7 @@ import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_failures.dart';
 import 'package:cybear_jinni/domain/cbj_comp/i_cbj_comp_repository.dart';
 import 'package:cybear_jinni/infrastructure/cbj_app_server/cbj_app_server_d.dart';
 import 'package:dartz/dartz.dart';
-import 'package:injectable/injectable.dart';
 
-@LazySingleton(as: ICBJCompRepository)
 class CBJCompRepository implements ICBJCompRepository {
   @override
   Future<Either<CBJCompFailure, Unit>> shutdownServer() async {
@@ -24,14 +22,14 @@ class CBJCompRepository implements ICBJCompRepository {
       // final CompHubInfo compInfo = await compEntityToCompInfo(cBJCompEntity);
       //
       // final UserEntity deviceUser =
-      //     (await getIt<ICreateHomeRepository>().getDeviceUserFromHome())
+      //     (await ICreateHomeRepository.instance.getDeviceUserFromHome())
       //         .getOrElse(() => throw "Device user can't be found");
       //
       // final String fireBaseProjectId = ConstantCredentials.fireBaseProjectId;
       // final String fireBaseApiKey = ConstantCredentials.fireBaseApiKey;
       // final String userEmail = deviceUser.email!.getOrCrash();
       // final String userPassword = deviceUser.pass!.getOrCrash();
-      // final String homeId = (await getIt<IAuthFacade>().getCurrentHome())
+      // final String homeId = (await IAuthFacade.instance.getCurrentHome())
       //     .getOrElse(() => throw MissingCurrentHomeError())
       //     .id
       //     .getOrCrash()!;

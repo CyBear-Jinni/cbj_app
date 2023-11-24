@@ -14,12 +14,10 @@ part 'folder_of_routines_state.dart';
 @injectable
 class FolderOfRoutinesBloc
     extends Bloc<FolderOfRoutinesEvent, FolderOfRoutinesState> {
-  FolderOfRoutinesBloc(this._iRoutineRepository)
-      : super(FolderOfRoutinesState.initialized()) {
+  FolderOfRoutinesBloc() : super(FolderOfRoutinesState.initialized()) {
     on<Initialized>(_initialized);
   }
 
-  final IRoutineCbjRepository _iRoutineRepository;
   late RoomEntity folderOfRoutines;
 
   List<RoutineCbjEntity> allRoutinesInTheRoom = [];

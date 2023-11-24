@@ -16,7 +16,7 @@ part 'boilers_actor_state.dart';
 
 @injectable
 class BoilersActorBloc extends Bloc<BoilersActorEvent, BoilersActorState> {
-  BoilersActorBloc(this._deviceRepository)
+  BoilersActorBloc()
       : super(const BoilersActorState.initial()) {
     on<Deleted>(_deleted);
     on<Initialized>(_initialized);
@@ -24,7 +24,6 @@ class BoilersActorBloc extends Bloc<BoilersActorEvent, BoilersActorState> {
     on<TurnOffAllBoilers>(_turnOffAllBoilers);
   }
 
-  final IDeviceRepository _deviceRepository;
 
   Future<void> _deleted(
     Deleted event,
@@ -45,7 +44,7 @@ class BoilersActorBloc extends Bloc<BoilersActorEvent, BoilersActorState> {
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-    _deviceRepository.turnOnDevices(devicesId: event.boilersIdToTurnUp);
+  IDeviceRepository.instance.turnOnDevices(devicesId: event.boilersIdToTurnUp);
   }
 
   Future<void> _turnOffAllBoilers(
@@ -57,6 +56,6 @@ class BoilersActorBloc extends Bloc<BoilersActorEvent, BoilersActorState> {
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-    _deviceRepository.turnOffDevices(devicesId: event.boilersIdToTurnOff);
+  IDeviceRepository.instance.turnOffDevices(devicesId: event.boilersIdToTurnOff);
   }
 }

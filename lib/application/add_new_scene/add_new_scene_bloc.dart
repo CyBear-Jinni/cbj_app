@@ -17,8 +17,7 @@ part 'add_new_scene_state.dart';
 
 @injectable
 class AddNewSceneBloc extends Bloc<AddNewSceneEvent, AddNewSceneState> {
-  AddNewSceneBloc(this._deviceRepository, this._sceneRepository)
-      : super(AddNewSceneState.initial()) {
+  AddNewSceneBloc() : super(AddNewSceneState.initial()) {
     on<ChangeActionDevices>(_changeActionDevices);
     on<SceneNameChange>(_sceneNameChange);
     on<AddDevicesWithNewActions>(_addDevicesWithNewActions);
@@ -28,9 +27,6 @@ class AddNewSceneBloc extends Bloc<AddNewSceneEvent, AddNewSceneState> {
 
     add(const AddNewSceneEvent.initialized());
   }
-
-  final IDeviceRepository _deviceRepository;
-  final ISceneCbjRepository _sceneRepository;
 
   List<DeviceEntityAbstract?> _allDevices = [];
 
@@ -49,7 +45,7 @@ class AddNewSceneBloc extends Bloc<AddNewSceneEvent, AddNewSceneState> {
     Initialized event,
     Emitter<AddNewSceneState> emit,
   ) async {
-    (await _deviceRepository.getAllDevices()).fold((l) => null, (r) {
+    (await IDeviceRepository.instance.getAllDevices()).fold((l) => null, (r) {
       _allDevices = List<DeviceEntityAbstract>.from(r.iter);
     });
     _allDevices.removeWhere((element) => element == null);
@@ -88,7 +84,8 @@ class AddNewSceneBloc extends Bloc<AddNewSceneEvent, AddNewSceneState> {
     SendSceneToHub event,
     Emitter<AddNewSceneState> emit,
   ) async {
-    _sceneRepository.addOrUpdateNewSceneInHubFromDevicesPropertyActionList(
+    ISceneCbjRepository.instance
+        .addOrUpdateNewSceneInHubFromDevicesPropertyActionList(
       sceneName,
       allDevicesWithNewAction,
       // TODO: Check what value to use
