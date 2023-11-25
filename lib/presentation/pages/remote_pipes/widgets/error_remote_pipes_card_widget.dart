@@ -19,7 +19,9 @@ class ErrorRemotePipesCard extends StatelessWidget {
           children: <Widget>[
             Text(
               'Invalid remote pipes, please, contact support',
-              style: Theme.of(context).primaryTextTheme.bodyMedium!
+              style: Theme.of(context)
+                  .primaryTextTheme
+                  .bodyMedium!
                   .copyWith(fontSize: 18),
             ),
             const SizedBox(height: 2),

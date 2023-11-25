@@ -19,7 +19,9 @@ class ErrorSoftwareInfoCard extends StatelessWidget {
           children: <Widget>[
             Text(
               'Invalid software nfo, please, contact support',
-              style: Theme.of(context).primaryTextTheme.bodyMedium!
+              style: Theme.of(context)
+                  .primaryTextTheme
+                  .bodyMedium!
                   .copyWith(fontSize: 18),
             ),
             const SizedBox(height: 2),
