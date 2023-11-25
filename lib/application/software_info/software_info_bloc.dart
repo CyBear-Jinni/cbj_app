@@ -12,13 +12,10 @@ part 'software_info_state.dart';
 
 @injectable
 class SoftwareInfoBloc extends Bloc<SoftwareInfoEvent, SoftwareInfoState> {
-  SoftwareInfoBloc(this._softwareInfoRepository)
-      : super(SoftwareInfoState.initial()) {
+  SoftwareInfoBloc() : super(SoftwareInfoState.initial()) {
     on<Initialized>(_initialized);
     on<GetSoftwareInfo>(_getSoftwareInfo);
   }
-
-  final ISoftwareInfoRepository _softwareInfoRepository;
 
   Map<String, SoftwareInfoEntity> softwaresInfo = {};
 
@@ -27,7 +24,7 @@ class SoftwareInfoBloc extends Bloc<SoftwareInfoEvent, SoftwareInfoState> {
     Emitter<SoftwareInfoState> emit,
   ) async {
     SoftwareInfoEntity? appInfoEntity;
-    (await _softwareInfoRepository.getAppSoftwareInfo()).fold(
+    (await ISoftwareInfoRepository.instance.getAppSoftwareInfo()).fold(
       (l) => l,
       (r) {
         appInfoEntity = r;
@@ -40,7 +37,7 @@ class SoftwareInfoBloc extends Bloc<SoftwareInfoEvent, SoftwareInfoState> {
     }
 
     SoftwareInfoEntity? hubInfoEntity;
-    (await _softwareInfoRepository.getHubSoftwareInfo()).fold(
+    (await ISoftwareInfoRepository.instance.getHubSoftwareInfo()).fold(
       (l) => l,
       (r) {
         hubInfoEntity = r;
@@ -54,7 +51,7 @@ class SoftwareInfoBloc extends Bloc<SoftwareInfoEvent, SoftwareInfoState> {
     }
 
     SoftwareInfoEntity? securityBearInfoEntity;
-    (await _softwareInfoRepository.getSecurityBearSoftwareInfo()).fold(
+    (await ISoftwareInfoRepository.instance.getSecurityBearSoftwareInfo()).fold(
       (l) => l,
       (r) {
         securityBearInfoEntity = r;

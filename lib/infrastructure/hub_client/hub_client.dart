@@ -1,9 +1,8 @@
 import 'dart:async';
 
 import 'package:async/async.dart';
-import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-
-import 'package:cybear_jinni/utils.dart';
+import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cbj_integrations_controller/utils.dart';
 import 'package:grpc/grpc.dart';
 
 class HubClient {
@@ -25,7 +24,7 @@ class HubClient {
     ResponseStream<RequestsAndStatusFromHub> response;
 
     try {
-      response = stub!.clientTransferDevices(
+      response = stub!.clientTransferEntities(
         AppRequestsToHub.appRequestsToHubStreamBroadcast.stream,
       );
 
@@ -104,7 +103,7 @@ class AppRequestsToHub {
   static final appRequestsToHubStreamController =
       StreamController<ClientStatusRequests>();
 
-  static Future<void> lisenToApp() async {
+  static Future<void> listenToApp() async {
     if (boolListenWorking) {
       return;
     }

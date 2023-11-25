@@ -4,7 +4,8 @@ part of 'vendors_bloc.dart';
 class VendorsState with _$VendorsState {
   const factory VendorsState({
     required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
-  }) = _AddServiceState;
+  }) = _VendorsEvent;
+// }) = _AddServiceState;
 
   factory VendorsState.initialized() => VendorsState(
         authFailureOrSuccessOption: none(),
@@ -12,7 +13,7 @@ class VendorsState with _$VendorsState {
 
   const factory VendorsState.loading() = Loading;
 
-  const factory VendorsState.loaded(KtList<Vendor> vendorsList) = Loaded;
+  const factory VendorsState.loaded(KtList<VendorData> vendorsList) = Loaded;
 
   const factory VendorsState.error() = Error;
 }

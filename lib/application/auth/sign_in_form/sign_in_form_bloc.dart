@@ -14,15 +14,13 @@ part 'sign_in_form_state.dart';
 
 @injectable
 class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
-  SignInFormBloc(this._authFacade) : super(SignInFormState.initial()) {
+  SignInFormBloc() : super(SignInFormState.initial()) {
     on<EmailChanged>(_emailChanged);
     on<PasswordChanged>(_passwordChanged);
     on<RegisterWithEmailAndPassword>(_registerWithEmailAndPassword);
     on<SignInWithEmailAndPasswordPassed>(_signInWithEmailAndPasswordPassed);
     on<SignInWithGooglePressed>(_signInWithGooglePressed);
   }
-
-  final IAuthFacade _authFacade;
 
   Future<void> _emailChanged(
     EmailChanged event,
@@ -53,7 +51,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
     Emitter<SignInFormState> emit,
   ) async {
     _performActionOnAuthFacadeWithEmailAndPassword(
-      _authFacade.registerWithEmailAndPassword,
+      IAuthFacade.instance.registerWithEmailAndPassword,
     ).forEach((element) {
       emit(element);
     });
@@ -64,7 +62,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
     Emitter<SignInFormState> emit,
   ) async {
     _performActionOnAuthFacadeWithEmailAndPassword(
-      _authFacade.signInWithEmailAndPassword,
+      IAuthFacade.instance.signInWithEmailAndPassword,
     ).forEach((element) {
       emit(element);
     });
@@ -92,8 +90,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
     Future<Either<AuthFailure, Unit>> Function({
       required EmailAddress emailAddress,
       required Password password,
-    })
-        forwardedCall,
+    }) forwardedCall,
   ) async* {
     Either<AuthFailure, Unit>? failureOrSuccess;
 

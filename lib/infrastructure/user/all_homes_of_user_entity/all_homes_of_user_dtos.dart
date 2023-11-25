@@ -9,7 +9,7 @@ part 'all_homes_of_user_dtos.g.dart';
 abstract class AllHomesOfUserDtos implements _$AllHomesOfUserDtos {
   const factory AllHomesOfUserDtos({
     required String name,
-    @JsonKey(ignore: true) String? id,
+    @JsonKey(includeFromJson: true) String? id,
   }) = _AllHomesOfUserDtos;
 
   const AllHomesOfUserDtos._();
@@ -19,7 +19,7 @@ abstract class AllHomesOfUserDtos implements _$AllHomesOfUserDtos {
   ) {
     return AllHomesOfUserDtos(
       id: allHomesOfUserEntity.id!.getOrCrash(),
-      name: (allHomesOfUserEntity.name!.getOrCrash())!,
+      name: allHomesOfUserEntity.name!.getOrCrash()!,
     );
   }
 

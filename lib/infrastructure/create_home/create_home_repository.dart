@@ -9,7 +9,7 @@ import 'package:cybear_jinni/domain/create_home/create_home_value_objects.dart';
 import 'package:cybear_jinni/domain/create_home/i_create_home_repository.dart';
 import 'package:cybear_jinni/domain/home_user/home_user_entity.dart';
 import 'package:cybear_jinni/domain/home_user/home_user_value_objects.dart';
-import 'package:cybear_jinni/domain/local_db/i_local_db_repository.dart';
+import 'package:cybear_jinni/domain/local_db/i_local_db_repository2.dart';
 import 'package:cybear_jinni/domain/manage_network/manage_network_entity.dart';
 import 'package:cybear_jinni/domain/manage_network/manage_network_value_objects.dart';
 import 'package:cybear_jinni/domain/user/all_homes_of_user/all_homes_of_user_entity.dart';
@@ -22,9 +22,7 @@ import 'package:cybear_jinni/infrastructure/create_home/create_home_dtos.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/services.dart';
-import 'package:injectable/injectable.dart';
 
-@LazySingleton(as: ICreateHomeRepository)
 class CreateHomeRepository implements ICreateHomeRepository {
   final String smartHomesPath = 'SmartHomes';
   final String usersInHomePath = 'Users';
@@ -42,13 +40,13 @@ class CreateHomeRepository implements ICreateHomeRepository {
           createHomeEntity.copyWith(id: HomeUniqueId());
 
       final UserEntity userEntity =
-          (await getIt<IUserRepository>().getCurrentUser()).getOrElse(
+          (await IUserRepository.instance.getCurrentUser()).getOrElse(
         () => throw UserUnexpectedValueError(const UserFailures.unexpected()),
       );
 
       // Create user for devices
       final registerDeviceUser =
-          await getIt<IAuthFacade>().registerWithEmailAndPasswordReturnUserId(
+          await IAuthFacade.instance.registerWithEmailAndPasswordReturnUserId(
         emailAddress: EmailAddress(
           createHomeEntityWithId.homeDevicesUserEmail!.getOrCrash(),
         ),
@@ -66,7 +64,7 @@ class CreateHomeRepository implements ICreateHomeRepository {
       );
 
       // create home with the current user
-      await getIt<ILocalDbRepository>()
+      await ILocalDbRepository2.instance
           .setHomeId(createHomeEntityWithId.id.getOrCrash());
 
       final creatingHomeWithUser = await addUserToHome(userEntity);
@@ -116,7 +114,7 @@ class CreateHomeRepository implements ICreateHomeRepository {
         id: AllHomesOfUserUniqueId.fromUniqueString(homeId),
         name: AllHomesOfUserName(homeName),
       );
-      final addHomeToUserHomesList = await getIt<IUserRepository>()
+      final addHomeToUserHomesList = await IUserRepository.instance
           .addHome(userEntity, allHomesOfUserEntity);
 
       addHomeToUserHomesList.getOrElse(
@@ -205,10 +203,9 @@ class CreateHomeRepository implements ICreateHomeRepository {
         // log.error(e.toString());
         return left(CreateHomeFailure.unexpected(failedValue: e.message));
       }
+    } catch (error) {
+      return left(CreateHomeFailure.unexpected(failedValue: error.toString()));
     }
-    return left(
-      const CreateHomeFailure.unexpected(failedValue: 'Not implemented yet'),
-    );
   }
 
   @override
@@ -228,7 +225,7 @@ class CreateHomeRepository implements ICreateHomeRepository {
       );
 
       final Either<AddUserToHomeFailures, Unit> createHome =
-          await getIt<IAddUserToHomeRepository>().create(homeUserEntity);
+          await IAddUserToHomeRepository.instance.create(homeUserEntity);
       createHome.getOrElse(
         () => throw UserUnexpectedValueError(const UserFailures.unexpected()),
       );

@@ -1,12 +1,12 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/domain/room/i_room_repository.dart';
+import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
+import 'package:cbj_integrations_controller/domain/room/value_objects_room.dart';
+import 'package:cbj_integrations_controller/domain/vendors/login_abstract/core_login_failures.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
-import 'package:cybear_jinni/domain/room/i_room_repository.dart';
-import 'package:cybear_jinni/domain/room/room_entity.dart';
-import 'package:cybear_jinni/domain/room/value_objects_room.dart';
-import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -19,7 +19,7 @@ part 'room_sign_in_form_state.dart';
 @injectable
 class RoomSignInFormBloc
     extends Bloc<RoomSignInFormEvent, RoomSignInFormState> {
-  RoomSignInFormBloc(this._roomRepository, this._deviceRepository)
+  RoomSignInFormBloc()
       : super(RoomSignInFormState.initial()) {
     on<CreateRoom>(_createRoom);
     on<ChangeRoomDevices>(_changeRoomDevices);
@@ -34,8 +34,6 @@ class RoomSignInFormBloc
     add(const RoomSignInFormEvent.initialized());
   }
 
-  final IRoomRepository _roomRepository;
-  final IDeviceRepository _deviceRepository;
 
   List<RoomEntity?> _allRooms = [];
   List<DeviceEntityAbstract?> _allDevices = [];
@@ -44,11 +42,11 @@ class RoomSignInFormBloc
     Initialized event,
     Emitter<RoomSignInFormState> emit,
   ) async {
-    (await _roomRepository.getAllRooms()).fold((l) => null, (r) {
+    (await IRoomRepository.instance.getAllRooms()).fold((l) => null, (r) {
       _allRooms = List<RoomEntity>.from(r.iter);
     });
 
-    (await _deviceRepository.getAllDevices()).fold((l) => null, (r) {
+    (await IDeviceRepository.instance.getAllDevices()).fold((l) => null, (r) {
       _allDevices = List<DeviceEntityAbstract>.from(r.iter);
     });
     _allRooms.removeWhere((element) => element == null);
@@ -79,7 +77,7 @@ class RoomSignInFormBloc
       roomPermissions: RoomPermissions(state.roomPermissions.getOrCrash()),
     );
 
-    _roomRepository.create(roomEntity);
+    IRoomRepository.instance.create(roomEntity);
   }
 
   Future<void> _createRoom(
@@ -99,7 +97,7 @@ class RoomSignInFormBloc
       roomPermissions: RoomPermissions(state.roomPermissions.getOrCrash()),
     );
 
-    _roomRepository.create(roomEntity);
+    IRoomRepository.instance.create(roomEntity);
   }
 
   Future<void> _defaultNameChanged(

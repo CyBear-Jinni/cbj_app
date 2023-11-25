@@ -4,7 +4,7 @@ import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:bloc/bloc.dart';
 import 'package:cybear_jinni/domain/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_smart_plug_device/generic_smart_plug_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_plug_device/generic_smart_plug_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -16,7 +16,7 @@ part 'smart_plugs_actor_state.dart';
 @injectable
 class SmartPlugsActorBloc
     extends Bloc<SmartPlugsActorEvent, SmartPlugsActorState> {
-  SmartPlugsActorBloc(this._deviceRepository)
+  SmartPlugsActorBloc()
       : super(const SmartPlugsActorState.initial()) {
     on<Initialized>(_initialized);
     on<Deleted>(_deleted);
@@ -24,7 +24,6 @@ class SmartPlugsActorBloc
     on<TurnOnAllSmartPlugs>(_turnOnAllSmartPlugs);
   }
 
-  final IDeviceRepository _deviceRepository;
 
   Future<void> _initialized(
     Initialized event,
@@ -45,7 +44,7 @@ class SmartPlugsActorBloc
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-    _deviceRepository.turnOffDevices(devicesId: event.smartPlugsIdToTurnOff);
+  IDeviceRepository.instance.turnOffDevices(devicesId: event.smartPlugsIdToTurnOff);
   }
 
   Future<void> _turnOnAllSmartPlugs(
@@ -57,6 +56,6 @@ class SmartPlugsActorBloc
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-    _deviceRepository.turnOnDevices(devicesId: event.smartPlugsIdToTurnOn);
+  IDeviceRepository.instance.turnOnDevices(devicesId: event.smartPlugsIdToTurnOn);
   }
 }

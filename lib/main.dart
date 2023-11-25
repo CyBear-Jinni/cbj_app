@@ -1,16 +1,28 @@
 import 'dart:io';
 
+import 'package:cbj_integrations_controller/domain/local_db/i_local_devices_db_repository.dart';
+import 'package:cbj_integrations_controller/domain/saved_devices/i_saved_devices_repo.dart';
+import 'package:cbj_integrations_controller/infrastructure/local_db/local_db_hive_repository.dart';
+import 'package:cbj_integrations_controller/infrastructure/system_commands/system_commands_manager_d.dart';
+import 'package:cbj_integrations_controller/injection.dart';
 import 'package:cybear_jinni/ad_state.dart';
-import 'package:cybear_jinni/domain/local_db/i_local_db_repository.dart';
+import 'package:cybear_jinni/domain/local_db/i_local_db_repository2.dart';
+import 'package:cybear_jinni/infrastructure/commands/flutter_commands.dart';
+import 'package:cybear_jinni/infrastructure/mqtt/mqtt.dart';
+import 'package:cybear_jinni/infrastructure/phone_hub/phone_hub.dart';
+import 'package:cybear_jinni/infrastructure/room/room_repository.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/core/app_widget.dart';
 import 'package:cybear_jinni/presentation/core/notifications.dart';
+import 'package:cybear_jinni/presentation/pages/routes/app_router.dart';
 import 'package:dartz/dartz.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:network_tools/network_tools.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -39,11 +51,16 @@ class ReceivedNotification {
 }
 
 Future<Unit> main() async {
-  configureDependencies(Env.prod);
-
-  getIt<ILocalDbRepository>();
+  RoomRepository();
+  configureDependencies(EnvApp.dev);
+  configureInjection(Env.devPc);
 
   WidgetsFlutterBinding.ensureInitialized();
+  final appDocDirectory = await getApplicationDocumentsDirectory();
+  await configureNetworkTools(appDocDirectory.path, enableDebugging: true);
+  HiveRepository();
+  ILocalDbRepository2.instance;
+  getIt.registerSingleton<AppRouter>(AppRouter());
 
   AdState? adState;
   // Adds package only support Android and IOS
@@ -58,6 +75,12 @@ Future<Unit> main() async {
   await configureLocalTimeZone();
 
   await initialisationNotifications();
+  MqttServerRepository();
+  PhoneCommandsD();
+  SystemCommandsManager();
+  await ILocalDbRepository.instance.initializeDb();
+  await ISavedDevicesRepo.instance.setUpAllFromDb();
+  PhoneHub.searchDevices();
 
   runApp(
     /// Use https://lingohub.com/developers/supported-locales/language-designators-with-regions
@@ -88,7 +111,7 @@ Future<Unit> main() async {
         Locale('th', 'TH'),
         Locale('zh', 'TW'),
       ],
-      path: 'assets/translations', // <-- change patch to your
+      path: 'assets/translations',
       fallbackLocale: const Locale('en', 'US'),
       child: Provider.value(
         value: adState,

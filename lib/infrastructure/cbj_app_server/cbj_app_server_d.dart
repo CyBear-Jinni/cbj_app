@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:cybear_jinni/infrastructure/core/gen/cbj_app_server/protoc_as_dart/cbj_app_connections.pbgrpc.dart';
+import 'package:cbj_integrations_controller/infrastructure/gen/cbj_app_server/protoc_as_dart/cbj_app_connections.pbgrpc.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:grpc/grpc.dart';
 
@@ -30,7 +30,7 @@ class CBJAppServerD extends CyBearJinniAppServiceBase {
 //     final String smartDeviceIp = smartDevice.smartDeviceIP;
 //
 //     AddNewCBJDevices.newDevicesStringList.add(smartDeviceIp);
-//     logger.v('Smart device IP is $smartDeviceIp');
+//     logger.t('Smart device IP is $smartDeviceIp');
 //
 //
 //     if (!AddNewCBJDevices.newDevicesList

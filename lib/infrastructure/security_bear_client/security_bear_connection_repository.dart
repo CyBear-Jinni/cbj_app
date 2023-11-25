@@ -15,18 +15,16 @@ import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
-import 'package:injectable/injectable.dart';
 import 'package:location/location.dart';
 import 'package:network_info_plus/network_info_plus.dart';
 import 'package:network_tools/network_tools.dart';
 import 'package:permission_handler/permission_handler.dart'
     as permission_handler;
 
-@LazySingleton(as: ISecurityBearConnectionRepository)
 class SecurityBearConnectionRepository
-    extends ISecurityBearConnectionRepository {
+    implements ISecurityBearConnectionRepository {
   SecurityBearConnectionRepository() {
-    if (currentEnv == Env.dev) {
+    if (currentEnvApp == EnvApp.dev) {
       securityBearPort = 60052;
     } else {
       securityBearPort = 50052;
@@ -275,7 +273,7 @@ class SecurityBearConnectionRepository
   ) async {
     try {
       final ManageNetworkEntity firstWifiEntityOrFailure =
-          (await getIt<ICreateHomeRepository>().getFirstWifi())
+          (await ICreateHomeRepository.instance.getFirstWifi())
               .getOrElse(() => throw 'Error');
 
       final ManageNetworkEntity secondWifiEntityOrFailure =

@@ -1,18 +1,16 @@
+import 'package:cbj_integrations_controller/domain/core/errors.dart';
+import 'package:cbj_integrations_controller/domain/core/value_objects.dart';
 import 'package:cybear_jinni/domain/auth/auth_failure.dart';
 import 'package:cybear_jinni/domain/auth/i_auth_facade.dart';
 import 'package:cybear_jinni/domain/auth/user.dart';
 import 'package:cybear_jinni/domain/auth/value_objects.dart';
-import 'package:cybear_jinni/domain/core/errors.dart';
-import 'package:cybear_jinni/domain/core/value_objects.dart';
-import 'package:cybear_jinni/domain/local_db/i_local_db_repository.dart';
+import 'package:cybear_jinni/domain/local_db/i_local_db_repository2.dart';
 import 'package:cybear_jinni/domain/user/i_user_repository.dart';
 import 'package:cybear_jinni/domain/user/user_entity.dart';
 import 'package:cybear_jinni/domain/user/user_value_objects.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:dartz/dartz.dart';
-import 'package:injectable/injectable.dart';
 
-@LazySingleton(as: IAuthFacade)
 class HubAuthFacade implements IAuthFacade {
   @override
   Future<Option<MUser>> getSignedInUser() async =>
@@ -22,7 +20,7 @@ class HubAuthFacade implements IAuthFacade {
   Future<Option<MHome>> getCurrentHome() async => optionOf(
         MHome(
           id: UniqueId.fromUniqueString(
-            await getIt<ILocalDbRepository>().getHomeId(),
+            await ILocalDbRepository2.instance.getHomeId(),
           ),
         ),
       );
@@ -71,7 +69,7 @@ class HubAuthFacade implements IAuthFacade {
         lastName: UserLastName(' '),
       );
 
-      final registrarOutput = await getIt<IUserRepository>().create(userEntity);
+      final registrarOutput = await IUserRepository.instance.create(userEntity);
       registrarOutput.getOrElse(() => throw NotAuthenticatedError());
 
       final MUser mUser = MUser(id: UniqueId.fromUniqueString(userIdString));

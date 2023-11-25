@@ -2,33 +2,33 @@ import 'dart:async';
 import 'dart:collection';
 import 'dart:io';
 
+import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/devices/device_helper/device_helper.dart';
+import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_dto_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_blinds_device/generic_blinds_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_blinds_device/generic_blinds_value_objects.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_boiler_device/generic_boiler_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_boiler_device/generic_boiler_value_objects.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_dimmable_light_device/generic_dimmable_light_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_dimmable_light_device/generic_dimmable_light_value_objects.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_light_device/generic_light_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_light_device/generic_light_value_objects.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_rgbw_light_device/generic_rgbw_light_value_objects.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_computer_device/generic_smart_computer_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_computer_device/generic_smart_computer_value_objects.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_plug_device/generic_smart_plug_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_plug_device/generic_smart_plug_value_objects.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_tv/generic_smart_tv_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_tv/generic_smart_tv_value_objects.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_switch_device/generic_switch_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_switch_device/generic_switch_value_objects.dart';
 import 'package:cybear_jinni/domain/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
-import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_blinds_device/generic_blinds_entity.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_blinds_device/generic_blinds_value_objects.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_boiler_device/generic_boiler_entity.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_boiler_device/generic_boiler_value_objects.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_dimmable_light_device/generic_dimmable_light_entity.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_dimmable_light_device/generic_dimmable_light_value_objects.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_light_device/generic_light_entity.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_light_device/generic_light_value_objects.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_rgbw_light_device/generic_rgbw_light_value_objects.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_smart_computer_device/generic_smart_computer_entity.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_smart_computer_device/generic_smart_computer_value_objects.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_smart_plug_device/generic_smart_plug_entity.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_smart_plug_device/generic_smart_plug_value_objects.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_smart_tv/generic_smart_tv_entity.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_smart_tv/generic_smart_tv_value_objects.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_switch_device/generic_switch_entity.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_switch_device/generic_switch_value_objects.dart';
-import 'package:cybear_jinni/domain/room/room_entity.dart';
 import 'package:cybear_jinni/domain/user/i_user_repository.dart';
 import 'package:cybear_jinni/domain/user/user_entity.dart';
-import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cybear_jinni/infrastructure/devices/device_helper.dart';
-import 'package:cybear_jinni/infrastructure/generic_devices/abstract_device/device_entity_dto_abstract.dart';
 import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
 import 'package:cybear_jinni/infrastructure/hub_client/hub_requests_routing.dart';
 import 'package:cybear_jinni/injection.dart';
@@ -37,14 +37,12 @@ import 'package:dartz/dartz.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/src/painting/colors.dart';
-import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
 import 'package:multicast_dns/multicast_dns.dart';
 import 'package:network_info_plus/network_info_plus.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:rxdart/rxdart.dart';
 
-@LazySingleton(as: IDeviceRepository)
 class DeviceRepository implements IDeviceRepository {
   // final DeviceRemoteService _deviceRemoteService;
   // final DeviceLocalService _deviceLocalService;
@@ -75,14 +73,14 @@ class DeviceRepository implements IDeviceRepository {
   void addOrUpdateDeviceAndStateToWaiting(DeviceEntityAbstract deviceEntity) {
     addOrUpdateDevice(
       deviceEntity.copyWithDeviceState(
-        DeviceStateGRPC.waitingInComp,
+        EntityStateGRPC.waitingInComp,
       ),
     );
   }
 
   @override
   Future<void> initiateHubConnection() async {
-    AppRequestsToHub.lisenToApp();
+    AppRequestsToHub.listenToApp();
     HubRequestsToApp.lisenToApp();
 
     HubRequestRouting.navigateRequest();
@@ -127,11 +125,11 @@ class DeviceRepository implements IDeviceRepository {
         return right(
           r.toList().asList().where((element) {
             return element!.entityTypes.getOrCrash() ==
-                    DeviceTypes.light.toString() ||
+                    EntityTypes.light.toString() ||
                 element.entityTypes.getOrCrash() ==
-                    DeviceTypes.dimmableLight.toString() ||
+                    EntityTypes.dimmableLight.toString() ||
                 element.entityTypes.getOrCrash() ==
-                    DeviceTypes.rgbwLights.toString();
+                    EntityTypes.rgbwLights.toString();
           }).toImmutableList(),
         );
       }),
@@ -148,7 +146,7 @@ class DeviceRepository implements IDeviceRepository {
         return right(
           r.toList().asList().where((element) {
             return element!.entityTypes.getOrCrash() ==
-                DeviceTypes.switch_.toString();
+                EntityTypes.switch_.toString();
           }).toImmutableList(),
         );
       }),
@@ -165,7 +163,7 @@ class DeviceRepository implements IDeviceRepository {
         return right(
           r.toList().asList().where((element) {
             return element!.entityTypes.getOrCrash() ==
-                DeviceTypes.smartPlug.toString();
+                EntityTypes.smartPlug.toString();
           }).toImmutableList(),
         );
       }),
@@ -182,7 +180,7 @@ class DeviceRepository implements IDeviceRepository {
         return right(
           r.toList().asList().where((element) {
             return element!.entityTypes.getOrCrash() ==
-                DeviceTypes.smartComputer.toString();
+                EntityTypes.smartComputer.toString();
           }).toImmutableList(),
         );
       }),
@@ -199,7 +197,7 @@ class DeviceRepository implements IDeviceRepository {
         return right(
           r.toList().asList().where((element) {
             return element!.entityTypes.getOrCrash() ==
-                DeviceTypes.blinds.toString();
+                EntityTypes.blinds.toString();
           }).toImmutableList(),
         );
       }),
@@ -216,7 +214,7 @@ class DeviceRepository implements IDeviceRepository {
         return right(
           r.toList().asList().where((element) {
             return element!.entityTypes.getOrCrash() ==
-                DeviceTypes.boiler.toString();
+                EntityTypes.boiler.toString();
           }).toImmutableList(),
         );
       }),
@@ -231,7 +229,7 @@ class DeviceRepository implements IDeviceRepository {
         return right(
           r.toList().asList().where((element) {
             return element!.entityTypes.getOrCrash() ==
-                DeviceTypes.smartTV.toString();
+                EntityTypes.smartTV.toString();
           }).toImmutableList(),
         );
       }),
@@ -246,7 +244,7 @@ class DeviceRepository implements IDeviceRepository {
         return right(
           r.toList().asList().where((element) {
             return element!.entityTypes.getOrCrash() ==
-                DeviceTypes.printer.toString();
+                EntityTypes.printer.toString();
           }).toImmutableList(),
         );
       }),
@@ -274,11 +272,11 @@ class DeviceRepository implements IDeviceRepository {
       } else if (Platform.isIOS) {
         final IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
         logger.i(iosInfo.utsname.machine);
-        deviceModelString = iosInfo.model!;
+        deviceModelString = iosInfo.model;
       }
 
       final UserEntity currentUserEntity =
-          (await getIt<IUserRepository>().getCurrentUser())
+          (await IUserRepository.instance.getCurrentUser())
               .getOrElse(() => throw 'Cant get current user');
       final String currentUserId = currentUserEntity.id!.getOrCrash()!;
 
@@ -357,22 +355,22 @@ class DeviceRepository implements IDeviceRepository {
         }
         if (deviceEntity is GenericLightDE) {
           deviceEntity.lightSwitchState =
-              GenericLightSwitchState(DeviceActions.on.toString());
+              GenericLightSwitchState(EntityActions.on.toString());
         } else if (deviceEntity is GenericDimmableLightDE) {
           deviceEntity.lightSwitchState =
-              GenericDimmableLightSwitchState(DeviceActions.on.toString());
+              GenericDimmableLightSwitchState(EntityActions.on.toString());
         } else if (deviceEntity is GenericRgbwLightDE) {
           deviceEntity.lightSwitchState =
-              GenericRgbwLightSwitchState(DeviceActions.on.toString());
+              GenericRgbwLightSwitchState(EntityActions.on.toString());
         } else if (deviceEntity is GenericSwitchDE) {
           deviceEntity.switchState =
-              GenericSwitchSwitchState(DeviceActions.on.toString());
+              GenericSwitchSwitchState(EntityActions.on.toString());
         } else if (deviceEntity is GenericBoilerDE) {
           deviceEntity.boilerSwitchState =
-              GenericBoilerSwitchState(DeviceActions.on.toString());
+              GenericBoilerSwitchState(EntityActions.on.toString());
         } else if (deviceEntity is GenericSmartPlugDE) {
           deviceEntity.smartPlugState =
-              GenericSmartPlugState(DeviceActions.on.toString());
+              GenericSmartPlugState(EntityActions.on.toString());
         } else {
           logger.w(
             'On action not supported for'
@@ -412,22 +410,22 @@ class DeviceRepository implements IDeviceRepository {
         }
         if (deviceEntity is GenericLightDE) {
           deviceEntity.lightSwitchState =
-              GenericLightSwitchState(DeviceActions.off.toString());
+              GenericLightSwitchState(EntityActions.off.toString());
         } else if (deviceEntity is GenericDimmableLightDE) {
           deviceEntity.lightSwitchState =
-              GenericDimmableLightSwitchState(DeviceActions.off.toString());
+              GenericDimmableLightSwitchState(EntityActions.off.toString());
         } else if (deviceEntity is GenericRgbwLightDE) {
           deviceEntity.lightSwitchState =
-              GenericRgbwLightSwitchState(DeviceActions.off.toString());
+              GenericRgbwLightSwitchState(EntityActions.off.toString());
         } else if (deviceEntity is GenericSwitchDE) {
           deviceEntity.switchState =
-              GenericSwitchSwitchState(DeviceActions.off.toString());
+              GenericSwitchSwitchState(EntityActions.off.toString());
         } else if (deviceEntity is GenericBoilerDE) {
           deviceEntity.boilerSwitchState =
-              GenericBoilerSwitchState(DeviceActions.off.toString());
+              GenericBoilerSwitchState(EntityActions.off.toString());
         } else if (deviceEntity is GenericSmartPlugDE) {
           deviceEntity.smartPlugState =
-              GenericSmartPlugState(DeviceActions.off.toString());
+              GenericSmartPlugState(EntityActions.off.toString());
         } else {
           logger.w(
             'Off action not supported for'
@@ -713,7 +711,7 @@ class DeviceRepository implements IDeviceRepository {
         }
         if (deviceEntity is GenericBlindsDE) {
           deviceEntity.blindsSwitchState =
-              GenericBlindsSwitchState(DeviceActions.moveUp.toString());
+              GenericBlindsSwitchState(EntityActions.moveUp.toString());
         } else {
           logger.w(
             'Off action not supported for'
@@ -753,10 +751,10 @@ class DeviceRepository implements IDeviceRepository {
         }
         if (deviceEntity is GenericBlindsDE) {
           deviceEntity.blindsSwitchState =
-              GenericBlindsSwitchState(DeviceActions.stop.toString());
+              GenericBlindsSwitchState(EntityActions.stop.toString());
         } else if (deviceEntity is GenericSmartTvDE) {
           deviceEntity.pausePlayState = GenericSmartTvPausePlayState(
-            DeviceActions.stop.toString(),
+            EntityActions.stop.toString(),
           );
         } else {
           logger.w(
@@ -797,7 +795,7 @@ class DeviceRepository implements IDeviceRepository {
         }
         if (deviceEntity is GenericBlindsDE) {
           deviceEntity.blindsSwitchState =
-              GenericBlindsSwitchState(DeviceActions.moveDown.toString());
+              GenericBlindsSwitchState(EntityActions.moveDown.toString());
         } else {
           logger.w(
             'Move down action not supported for'
@@ -837,7 +835,7 @@ class DeviceRepository implements IDeviceRepository {
         if (deviceEntity is GenericSmartComputerDE) {
           deviceEntity.smartComputerSuspendState =
               GenericSmartComputerSuspendState(
-            DeviceActions.suspend.toString(),
+            EntityActions.suspend.toString(),
           );
         } else {
           logger.w(
@@ -878,7 +876,7 @@ class DeviceRepository implements IDeviceRepository {
         if (deviceEntity is GenericSmartComputerDE) {
           deviceEntity.smartComputerShutDownState =
               GenericSmartComputerShutdownState(
-            DeviceActions.shutdown.toString(),
+            EntityActions.shutdown.toString(),
           );
         } else {
           logger.w(
@@ -966,7 +964,7 @@ class DeviceRepository implements IDeviceRepository {
         }
         if (deviceEntity is GenericBlindsDE) {
           deviceEntity.blindsSwitchState =
-              GenericBlindsSwitchState(DeviceActions.close.toString());
+              GenericBlindsSwitchState(EntityActions.close.toString());
         } else {
           logger.w(
             'Close action not supported for'
@@ -1005,7 +1003,7 @@ class DeviceRepository implements IDeviceRepository {
         }
         if (deviceEntity is GenericSmartTvDE) {
           deviceEntity.pausePlayState = GenericSmartTvPausePlayState(
-            DeviceActions.pause.toString(),
+            EntityActions.pause.toString(),
           );
         } else {
           logger.w(
@@ -1045,7 +1043,7 @@ class DeviceRepository implements IDeviceRepository {
         }
         if (deviceEntity is GenericSmartTvDE) {
           deviceEntity.pausePlayState = GenericSmartTvPausePlayState(
-            DeviceActions.play.toString(),
+            EntityActions.play.toString(),
           );
         } else {
           logger.w(
@@ -1085,7 +1083,7 @@ class DeviceRepository implements IDeviceRepository {
         }
         if (deviceEntity is GenericSmartTvDE) {
           deviceEntity.pausePlayState = GenericSmartTvPausePlayState(
-            DeviceActions.skipPreviousVid.toString(),
+            EntityActions.skipPreviousVid.toString(),
           );
         } else {
           logger.w(
@@ -1125,7 +1123,7 @@ class DeviceRepository implements IDeviceRepository {
         }
         if (deviceEntity is GenericSmartTvDE) {
           deviceEntity.pausePlayState = GenericSmartTvPausePlayState(
-            DeviceActions.skipNextVid.toString(),
+            EntityActions.skipNextVid.toString(),
           );
         } else {
           logger.w(
@@ -1178,13 +1176,13 @@ class DeviceRepository implements IDeviceRepository {
       addOrUpdateDeviceAndStateToWaiting(deviceEntity);
 
       try {
-        deviceEntity.copyWithDeviceState(DeviceStateGRPC.waitingInFirebase);
+        deviceEntity.copyWithDeviceState(EntityStateGRPC.waitingInCloud);
 
         final String deviceDtoAsString =
             DeviceHelper.convertDomainToJsonString(deviceEntity);
         final ClientStatusRequests clientStatusRequests = ClientStatusRequests(
           allRemoteCommands: deviceDtoAsString,
-          sendingType: SendingType.deviceType,
+          sendingType: SendingType.entityType,
         );
         AppRequestsToHub.appRequestsToHubStreamController
             .add(clientStatusRequests);
@@ -1244,18 +1242,18 @@ class DeviceRepository implements IDeviceRepository {
       ResourceRecordQuery.addressIPv4(fullMdnsName),
     )) {
       deviceIp = record.address.address;
-      logger.v('Found address (${record.address}).');
+      logger.t('Found address (${record.address}).');
     }
 
     // await for (final IPAddressResourceRecord record
     //     in client.lookup<IPAddressResourceRecord>(
     //         ResourceRecordQuery.addressIPv6(fullMdnsName))) {
-    //   logger.v('Found address (${record.address}).');
+    //   logger.t('Found address (${record.address}).');
     // }
 
     client.stop();
 
-    logger.v('Done.');
+    logger.t('Done.');
 
     return deviceIp;
   }

@@ -1,6 +1,7 @@
 import 'package:cybear_jinni/domain/auth/auth_failure.dart';
 import 'package:cybear_jinni/domain/auth/user.dart';
 import 'package:cybear_jinni/domain/auth/value_objects.dart';
+import 'package:cybear_jinni/infrastructure/hub_auth_facade/hub_auth_facade.dart';
 import 'package:dartz/dartz.dart';
 
 // Class that starts with I is interface.
@@ -11,7 +12,13 @@ import 'package:dartz/dartz.dart';
 
 // FirebaseAuth, GoogleSignIn
 
-abstract class IAuthFacade {
+abstract interface class IAuthFacade {
+  static IAuthFacade? _instance;
+
+  static IAuthFacade get instance {
+    return _instance ??= HubAuthFacade();
+  }
+
   Future<Option<MUser>> getSignedInUser();
 
   Future<Option<MHome>> getCurrentHome();

@@ -1,13 +1,14 @@
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_failures.dart';
+import 'package:cybear_jinni/infrastructure/cbj_comp/cbj_comp_repository.dart';
 import 'package:dartz/dartz.dart';
 
-abstract class ICBJCompRepository {
-  // watch devices
-  // watch only a
-  // CUD
+abstract interface class ICBJCompRepository {
+  static ICBJCompRepository? _instance;
 
-  // C Read UD
+  static ICBJCompRepository get instance {
+    return _instance ??= CBJCompRepository();
+  }
 
   Future<Either<CBJCompFailure, Unit>> shutdownServer();
 

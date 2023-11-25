@@ -8,7 +8,7 @@ part 'software_info_dtos.g.dart';
 @freezed
 abstract class SoftwareInfoDtos implements _$SoftwareInfoDtos {
   factory SoftwareInfoDtos({
-    // @JsonKey(ignore: true)
+    // @JsonKey(includeFromJson: true)
     required String deviceName,
     required String pubspecYamlVersion,
     required String protoLastGenDate,

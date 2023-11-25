@@ -1,4 +1,4 @@
-// enum DeviceTypes {
+// enum EntityTypes {
 //   Light, // Light ON/OFF
 //   DynamicLight, // Light with brightness 0% to 100%
 //   Blinds,
@@ -22,7 +22,7 @@
 // }
 //
 // //  List of all the wishes that can be made
-// enum DeviceActions {
+// enum EntityActions {
 //   SOn, //  Turn the device on
 //   SOff, //  Turn the device off
 //   SChangeState, //  Change device state to the opposite one
@@ -35,14 +35,14 @@
 //   SBlindsStop //  Stop the blinds
 // }
 
-import 'package:cybear_jinni/infrastructure/core/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 
 class EnumHelperCbj {
-  static String dTToString(DeviceTypes deviceType) {
+  static String dTToString(EntityTypes deviceType) {
     return deviceType.toString().replaceAll('DeviceType.', '');
   }
 
-  static DeviceTypes? stringToDt(String deviceTypeAsString) {
+  static EntityTypes? stringToDt(String deviceTypeAsString) {
     String deviceTypeAsStringTemp = deviceTypeAsString;
     if (deviceTypeAsStringTemp.contains('Object')) {
       deviceTypeAsStringTemp = deviceTypeAsStringTemp.substring(
@@ -50,7 +50,7 @@ class EnumHelperCbj {
         deviceTypeAsStringTemp.indexOf('Object'),
       );
     }
-    for (final DeviceTypes deviceType in DeviceTypes.values) {
+    for (final EntityTypes deviceType in EntityTypes.values) {
       if (dTToString(deviceType) == deviceTypeAsStringTemp) {
         return deviceType;
       }
@@ -79,13 +79,13 @@ class EnumHelperCbj {
   }
 
   ///  Convert deviceAction to string
-  static String deviceActionToString(DeviceActions deviceAction) {
-    return deviceAction.toString().replaceAll('DeviceActions.', '');
+  static String deviceActionToString(EntityActions deviceAction) {
+    return deviceAction.toString().replaceAll('EntityActions.', '');
   }
 
   ///  Convert string to deviceAction
-  static DeviceActions? stringToDeviceAction(String deviceActionString) {
-    for (final DeviceActions deviceAction in DeviceActions.values) {
+  static EntityActions? stringToDeviceAction(String deviceActionString) {
+    for (final EntityActions deviceAction in EntityActions.values) {
       if (deviceActionToString(deviceAction) == deviceActionString) {
         return deviceAction;
       }
@@ -94,13 +94,13 @@ class EnumHelperCbj {
   }
 
   ///  Convert deviceState to string
-  static String deviceStateToString(DeviceStateGRPC deviceState) {
-    return deviceState.toString().replaceAll('DeviceStateGRPC.', '');
+  static String deviceStateToString(EntityStateGRPC deviceState) {
+    return deviceState.toString().replaceAll('EntityStateGRPC.', '');
   }
 
   ///  Convert string to deviceState
-  static DeviceStateGRPC? stringToDeviceState(String deviceDysyrString) {
-    for (final DeviceStateGRPC deviceState in DeviceStateGRPC.values) {
+  static EntityStateGRPC? stringToDeviceState(String deviceDysyrString) {
+    for (final EntityStateGRPC deviceState in EntityStateGRPC.values) {
       if (deviceStateToString(deviceState) == deviceDysyrString) {
         return deviceState;
       }

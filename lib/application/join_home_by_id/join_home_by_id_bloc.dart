@@ -15,13 +15,10 @@ part 'join_home_by_id_state.dart';
 
 @injectable
 class JoinHomeByIdBloc extends Bloc<JoinHomeByIdEvent, JoinHomeByIdState> {
-  JoinHomeByIdBloc(this._iUserRepository)
-      : super(JoinHomeByIdState.initialized()) {
+  JoinHomeByIdBloc() : super(JoinHomeByIdState.initialized()) {
     on<Initialized>(_initialized);
     on<AddHomeById>(_addHomeById);
   }
-
-  final IUserRepository _iUserRepository;
 
   Future<void> _initialized(
     Initialized event,
@@ -39,8 +36,8 @@ class JoinHomeByIdBloc extends Bloc<JoinHomeByIdEvent, JoinHomeByIdState> {
   ) async {
     emit(const JoinHomeByIdState.loading());
 
-    final getCurrentUser =
-        (await _iUserRepository.getCurrentUser()).fold((l) => null, (r) => r);
+    final getCurrentUser = (await IUserRepository.instance.getCurrentUser())
+        .fold((l) => null, (r) => r);
     if (getCurrentUser == null) {
       emit(const JoinHomeByIdState.error());
     } else {
@@ -48,7 +45,7 @@ class JoinHomeByIdBloc extends Bloc<JoinHomeByIdEvent, JoinHomeByIdState> {
         id: AllHomesOfUserUniqueId.fromUniqueString(event.id),
         name: AllHomesOfUserName('home'),
       );
-      final initialization = await _iUserRepository.addHome(
+      final initialization = await IUserRepository.instance.addHome(
         getCurrentUser,
         allHomesOfUserEntity,
       );

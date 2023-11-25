@@ -17,13 +17,10 @@ part 'manage_access_point_state.dart';
 @injectable
 class ManageAccessPointBloc
     extends Bloc<ManageAccessPointEvent, ManageAccessPointState> {
-  ManageAccessPointBloc(this._manageAccessPointRepository)
-      : super(ManageAccessPointState.initial()) {
+  ManageAccessPointBloc() : super(ManageAccessPointState.initial()) {
     on<Initialized>(_initialized);
     on<DoesAccessPointOpen>(_doesAccessPointOpen);
   }
-
-  final IManageNetworkRepository _manageAccessPointRepository;
 
   ManageWiFiName? wifiName;
   ManageWiFiPass? wifiPassword;
@@ -41,7 +38,7 @@ class ManageAccessPointBloc
       );
 
       final Either<HomeUserFailures, Unit> openedAccessPoint =
-          await _manageAccessPointRepository
+          await IManageNetworkRepository.instance
               .openAccessPoint(manageNetworkEntity);
 
       emit(
@@ -63,7 +60,7 @@ class ManageAccessPointBloc
 
     if (Platform.isAndroid) {
       final Either<HomeUserFailures, Unit> openedAccessPoint =
-          await _manageAccessPointRepository.doesAccessPointOpen();
+          await IManageNetworkRepository.instance.doesAccessPointOpen();
 
       emit(
         openedAccessPoint.fold(

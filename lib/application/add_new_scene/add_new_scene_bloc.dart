@@ -1,11 +1,12 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/domain/scene/i_scene_cbj_repository.dart';
+import 'package:cbj_integrations_controller/domain/vendors/login_abstract/core_login_failures.dart';
+import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_light_device/generic_light_entity.dart';
-import 'package:cybear_jinni/domain/scene/i_scene_cbj_repository.dart';
-import 'package:cybear_jinni/domain/vendors/login_abstract/core_login_failures.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -16,8 +17,7 @@ part 'add_new_scene_state.dart';
 
 @injectable
 class AddNewSceneBloc extends Bloc<AddNewSceneEvent, AddNewSceneState> {
-  AddNewSceneBloc(this._deviceRepository, this._sceneRepository)
-      : super(AddNewSceneState.initial()) {
+  AddNewSceneBloc() : super(AddNewSceneState.initial()) {
     on<ChangeActionDevices>(_changeActionDevices);
     on<SceneNameChange>(_sceneNameChange);
     on<AddDevicesWithNewActions>(_addDevicesWithNewActions);
@@ -27,9 +27,6 @@ class AddNewSceneBloc extends Bloc<AddNewSceneEvent, AddNewSceneState> {
 
     add(const AddNewSceneEvent.initialized());
   }
-
-  final IDeviceRepository _deviceRepository;
-  final ISceneCbjRepository _sceneRepository;
 
   List<DeviceEntityAbstract?> _allDevices = [];
 
@@ -48,7 +45,7 @@ class AddNewSceneBloc extends Bloc<AddNewSceneEvent, AddNewSceneState> {
     Initialized event,
     Emitter<AddNewSceneState> emit,
   ) async {
-    (await _deviceRepository.getAllDevices()).fold((l) => null, (r) {
+    (await IDeviceRepository.instance.getAllDevices()).fold((l) => null, (r) {
       _allDevices = List<DeviceEntityAbstract>.from(r.iter);
     });
     _allDevices.removeWhere((element) => element == null);
@@ -87,9 +84,12 @@ class AddNewSceneBloc extends Bloc<AddNewSceneEvent, AddNewSceneState> {
     SendSceneToHub event,
     Emitter<AddNewSceneState> emit,
   ) async {
-    _sceneRepository.addOrUpdateNewSceneInHubFromDevicesPropertyActionList(
+    ISceneCbjRepository.instance
+        .addOrUpdateNewSceneInHubFromDevicesPropertyActionList(
       sceneName,
       allDevicesWithNewAction,
+      // TODO: Check what value to use
+      AreaPurposesTypes.laundryRoom,
     );
   }
 

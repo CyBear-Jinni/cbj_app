@@ -2,7 +2,7 @@ import 'package:cybear_jinni/domain/user/all_homes_of_user/all_homes_of_user_fai
 import 'package:cybear_jinni/domain/user/user_entity.dart';
 import 'package:dartz/dartz.dart';
 
-abstract class IAllHomesOfUserRepository {
+abstract interface class IAllHomesOfUserRepository {
   // watch devices
   // watch only a
   // CUD

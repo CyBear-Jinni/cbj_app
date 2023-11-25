@@ -15,16 +15,13 @@ part 'manage_wifi_state.dart';
 
 @injectable
 class ManageWifiBloc extends Bloc<ManageWifiEvent, ManageWifiState> {
-  ManageWifiBloc(this._manageWiFiRepository)
-      : super(ManageWifiState.initial()) {
+  ManageWifiBloc() : super(ManageWifiState.initial()) {
     on<Initialized>(_initialized);
     on<ScanForWiFiNetworks>(_scanForWiFiNetworks);
     on<ConnectToWifi>(_connectToWiFi);
     on<WifiSsidChanged>(_wifiSsidChanged);
     on<WifiPassChanged>(_wifiPassChanged);
   }
-
-  final IManageNetworkRepository _manageWiFiRepository;
 
   ManageWiFiName? wifiName;
   ManageWiFiPass? wifiPassword;
@@ -36,7 +33,7 @@ class ManageWifiBloc extends Bloc<ManageWifiEvent, ManageWifiState> {
     emit(ManageWifiState.loading());
 
     final Either<HomeUserFailures, String?> doesWiFiEnabled =
-        await _manageWiFiRepository.doesWiFiEnabled();
+        await IManageNetworkRepository.instance.doesWiFiEnabled();
 
     emit(
       doesWiFiEnabled.fold((f) => ManageWifiState.wifiIsDisabled(), (r) {
@@ -66,7 +63,7 @@ class ManageWifiBloc extends Bloc<ManageWifiEvent, ManageWifiState> {
     );
 
     final Either<HomeUserFailures, Unit> doesWiFiEnabled =
-        await _manageWiFiRepository.connectToWiFi(manageWiFiEntity);
+        await IManageNetworkRepository.instance.connectToWiFi(manageWiFiEntity);
 
     emit(
       doesWiFiEnabled.fold(

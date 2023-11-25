@@ -10,7 +10,7 @@ abstract class UserDtos implements _$UserDtos {
   const factory UserDtos({
     required String email,
     required String name,
-    @JsonKey(ignore: true) String? id,
+    @JsonKey(includeFromJson: true) String? id,
     String? firstName,
     String? lastName,
   }) = _UserDtos;

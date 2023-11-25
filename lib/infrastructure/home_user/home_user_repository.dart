@@ -2,10 +2,8 @@ import 'package:cybear_jinni/domain/home_user/home_user_entity.dart';
 import 'package:cybear_jinni/domain/home_user/home_user_failures.dart';
 import 'package:cybear_jinni/domain/home_user/i_home_user_repository.dart';
 import 'package:dartz/dartz.dart';
-import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
 
-@LazySingleton(as: IHomeUserRepository)
 class HomeUserRepository implements IHomeUserRepository {
   @override
   Future<Either<HomeUserFailures, Unit>> add(

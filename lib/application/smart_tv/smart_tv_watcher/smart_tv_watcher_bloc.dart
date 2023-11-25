@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_tv/generic_smart_tv_entity.dart';
 import 'package:cybear_jinni/domain/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
-import 'package:cybear_jinni/domain/generic_devices/abstract_device/device_entity_abstract.dart';
-import 'package:cybear_jinni/domain/generic_devices/generic_smart_tv/generic_smart_tv_entity.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -17,7 +17,7 @@ part 'smart_tv_watcher_state.dart';
 @injectable
 class SmartTvWatcherBloc
     extends Bloc<SmartTvWatcherEvent, SmartTvWatcherState> {
-  SmartTvWatcherBloc(this._deviceRepository)
+  SmartTvWatcherBloc()
       : super(SmartTvWatcherState.initial()) {
     on<WatchAllSmartTvStarted>(_watchAllStarted);
     on<Smart_tvReceived>(_smartTvReceived);
@@ -29,7 +29,7 @@ class SmartTvWatcherBloc
   ) async {
     emit(const SmartTvWatcherState.loadInProgress());
     await _deviceStreamSubscription?.cancel();
-    _deviceStreamSubscription = _deviceRepository.watchSmartTv().listen(
+    _deviceStreamSubscription = IDeviceRepository.instance.watchSmartTv().listen(
           (eventWatch) => add(SmartTvWatcherEvent.smartTvReceived(eventWatch)),
         );
   }
@@ -50,7 +50,6 @@ class SmartTvWatcherBloc
     );
   }
 
-  final IDeviceRepository _deviceRepository;
   StreamSubscription<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>?
       _deviceStreamSubscription;
 
