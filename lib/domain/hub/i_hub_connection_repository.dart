@@ -26,7 +26,5 @@ abstract interface class IHubConnectionRepository {
     bool? isThatTheIpOfTheHub,
   });
 
-  Future<Either<HubFailures, String>> containsSmartDevice();
-
   Future<void> saveHubIP(String hubIP);
 }

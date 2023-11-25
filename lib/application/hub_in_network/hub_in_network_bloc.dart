@@ -3,9 +3,11 @@ import 'dart:async';
 import 'package:auto_route/auto_route.dart';
 import 'package:bloc/bloc.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/utils.dart';
 import 'package:cybear_jinni/domain/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/hub/hub_failures.dart';
 import 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
+import 'package:cybear_jinni/infrastructure/phone_hub/phone_hub.dart';
 import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
@@ -51,20 +53,21 @@ class HubInNetworkBloc extends Bloc<HubInNetworkEvent, HubInNetworkState> {
     emit(
       await (await IHubConnectionRepository.instance.searchForHub()).fold(
           (l) async {
-        return (await _searchSmartDevices()).fold(
-          (HubFailures l) => HubInNetworkState.loadFailure(l),
-          (r) => HubInNetworkState.loadSuccessSecurityCamera(r),
-        );
+        final PhoneHub phoneHub = PhoneHub();
+
+        final Map<String, DeviceEntityAbstract> smartDevices =
+            await phoneHub.requestsAndStatusFromHub;
+        if (smartDevices.isEmpty) {
+          return HubInNetworkState.loadFailure(l);
+        }
+        logger.i('All Devices  smartDevices $smartDevices');
+        return const HubInNetworkState.loadSuccessSecurityCamera('');
       }, (r) {
         context?.router.replace(const HomeRoute());
         return const HubInNetworkState.loadSuccess();
       }),
     );
     loading = false;
-  }
-
-  Future<Either<HubFailures, String>> _searchSmartDevices() {
-    return IHubConnectionRepository.instance.containsSmartDevice();
   }
 
   Future<void> _searchHubUsingAnyIpOnTheNetwork(

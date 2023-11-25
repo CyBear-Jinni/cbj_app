@@ -1,9 +1,15 @@
 import 'dart:io';
 
+import 'package:cbj_integrations_controller/domain/local_db/i_local_devices_db_repository.dart';
+import 'package:cbj_integrations_controller/domain/saved_devices/i_saved_devices_repo.dart';
 import 'package:cbj_integrations_controller/infrastructure/local_db/local_db_hive_repository.dart';
+import 'package:cbj_integrations_controller/infrastructure/system_commands/system_commands_manager_d.dart';
 import 'package:cbj_integrations_controller/injection.dart';
 import 'package:cybear_jinni/ad_state.dart';
 import 'package:cybear_jinni/domain/local_db/i_local_db_repository2.dart';
+import 'package:cybear_jinni/infrastructure/commands/flutter_commands.dart';
+import 'package:cybear_jinni/infrastructure/mqtt/mqtt.dart';
+import 'package:cybear_jinni/infrastructure/phone_hub/phone_hub.dart';
 import 'package:cybear_jinni/infrastructure/room/room_repository.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/core/app_widget.dart';
@@ -69,6 +75,12 @@ Future<Unit> main() async {
   await configureLocalTimeZone();
 
   await initialisationNotifications();
+  MqttServerRepository();
+  PhoneCommandsD();
+  SystemCommandsManager();
+  await ILocalDbRepository.instance.initializeDb();
+  await ISavedDevicesRepo.instance.setUpAllFromDb();
+  PhoneHub.searchDevices();
 
   runApp(
     /// Use https://lingohub.com/developers/supported-locales/language-designators-with-regions
