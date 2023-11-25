@@ -31,7 +31,6 @@ import 'package:cybear_jinni/domain/user/i_user_repository.dart';
 import 'package:cybear_jinni/domain/user/user_entity.dart';
 import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
 import 'package:cybear_jinni/infrastructure/hub_client/hub_requests_routing.dart';
-import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:dartz/dartz.dart';
 import 'package:device_info_plus/device_info_plus.dart';
@@ -81,7 +80,7 @@ class DeviceRepository implements IDeviceRepository {
   @override
   Future<void> initiateHubConnection() async {
     AppRequestsToHub.listenToApp();
-    HubRequestsToApp.lisenToApp();
+    HubRequestsToApp.listenToApp();
 
     HubRequestRouting.navigateRequest();
   }

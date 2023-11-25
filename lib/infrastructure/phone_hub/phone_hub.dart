@@ -2,7 +2,11 @@ import 'dart:async';
 
 import 'package:cbj_integrations_controller/domain/saved_devices/i_saved_devices_repo.dart';
 import 'package:cbj_integrations_controller/infrastructure/devices/companies_connector_conjector.dart';
+import 'package:cbj_integrations_controller/infrastructure/devices/helper_methods/device_helper_methods.dart';
+import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/value_objects_core.dart';
+import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:network_tools/network_tools.dart';
 
@@ -15,7 +19,9 @@ class PhoneHub {
 
   static final PhoneHub _instance = PhoneHub._singletonContractor();
 
-  Future<Map<String, DeviceEntityAbstract>> get requestsAndStatusFromHub {
+  bool phoneAsHub = false;
+
+  Future<Map<String, DeviceEntityAbstract>> get getAllDevices {
     return ISavedDevicesRepo.instance.getAllDevices();
   }
 
@@ -51,5 +57,27 @@ class PhoneHub {
         );
       }
     }
+  }
+
+  startListen() {
+    phoneAsHub = true;
+    CompaniesConnectorConjector.updateAllDevicesReposWithDeviceChanges(
+      AppRequestsToHub.appRequestsToHubStreamController.stream
+          .map((clientStatusRequests) {
+        if (!phoneAsHub) {
+          return '';
+        }
+        dynamic dtosEntity =
+            DeviceHelperMethods.clientStatusRequestsToItsDtosType(
+          clientStatusRequests,
+        );
+        if (dtosEntity is DeviceEntityAbstract) {
+          dtosEntity.entityStateGRPC =
+              EntityState(EntityStateGRPC.waitingInComp.toString());
+          return dtosEntity;
+        }
+        return '';
+      }),
+    );
   }
 }

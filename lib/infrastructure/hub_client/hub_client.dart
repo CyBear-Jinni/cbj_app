@@ -72,7 +72,7 @@ class HubClient {
 /// Requests and updates from hub to the app
 class HubRequestsToApp {
   /// Stream of the requests from the hub
-  /// Broadcast can be lisent multiple times
+  /// Broadcast can be listen multiple times
   static StreamGroup<RequestsAndStatusFromHub> hubRequestsStreamBroadcast =
       StreamGroup.broadcast();
 
@@ -82,7 +82,7 @@ class HubRequestsToApp {
   static final hubRequestsStreamController =
       StreamController<RequestsAndStatusFromHub>();
 
-  static Future<void> lisenToApp() async {
+  static Future<void> listenToApp() async {
     if (boolListenWorking) {
       return;
     }

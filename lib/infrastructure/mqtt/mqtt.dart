@@ -1,5 +1,8 @@
 import 'package:cbj_integrations_controller/domain/mqtt_server/i_mqtt_server_repository.dart';
+import 'package:cbj_integrations_controller/infrastructure/devices/device_helper/device_helper.dart';
+import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
 import 'package:mqtt_client/mqtt_client.dart';
 import 'package:mqtt_client/mqtt_server_client.dart';
 import 'package:mqtt_client/src/observable/src/records.dart';
@@ -42,8 +45,17 @@ class MqttServerRepository extends IMqttServerRepository {
   String getScenesTopicTypeName() => '';
 
   @override
-  Future<void> postSmartDeviceToAppMqtt(
-      {required DeviceEntityAbstract entityFromTheHub}) async {}
+  Future<void> postSmartDeviceToAppMqtt({
+    required DeviceEntityAbstract entityFromTheHub,
+  }) async {
+    HubRequestsToApp.hubRequestsStreamController.sink.add(
+      RequestsAndStatusFromHub(
+        sendingType: SendingType.entityType,
+        allRemoteCommands:
+            DeviceHelper.convertDomainToJsonString(entityFromTheHub),
+      ),
+    );
+  }
 
   @override
   Future<void> postToAppMqtt(
@@ -51,7 +63,7 @@ class MqttServerRepository extends IMqttServerRepository {
 
   @override
   Future<void> postToHubMqtt({
-    required entityFromTheApp,
+    required dynamic entityFromTheApp,
     bool? gotFromApp,
   }) async {}
 

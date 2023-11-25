@@ -56,10 +56,12 @@ class HubInNetworkBloc extends Bloc<HubInNetworkEvent, HubInNetworkState> {
         final PhoneHub phoneHub = PhoneHub();
 
         final Map<String, DeviceEntityAbstract> smartDevices =
-            await phoneHub.requestsAndStatusFromHub;
+            await phoneHub.getAllDevices;
         if (smartDevices.isEmpty) {
           return HubInNetworkState.loadFailure(l);
         }
+        await IHubConnectionRepository.instance.closeConnection();
+        phoneHub.startListen();
         logger.i('All Devices  smartDevices $smartDevices');
         context?.router.replace(const HomeRoute());
         return const HubInNetworkState.loadSuccess();
@@ -110,6 +112,8 @@ class HubInNetworkBloc extends Bloc<HubInNetworkEvent, HubInNetworkState> {
       );
       return;
     }
+    await IHubConnectionRepository.instance.closeConnection();
+
     event.context.router.push(const SmartCameraContainerRoute());
   }
 
