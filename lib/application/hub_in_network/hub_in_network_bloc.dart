@@ -61,7 +61,8 @@ class HubInNetworkBloc extends Bloc<HubInNetworkEvent, HubInNetworkState> {
           return HubInNetworkState.loadFailure(l);
         }
         logger.i('All Devices  smartDevices $smartDevices');
-        return const HubInNetworkState.loadSuccessSecurityCamera('');
+        context?.router.replace(const HomeRoute());
+        return const HubInNetworkState.loadSuccess();
       }, (r) {
         context?.router.replace(const HomeRoute());
         return const HubInNetworkState.loadSuccess();

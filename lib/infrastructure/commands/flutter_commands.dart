@@ -65,12 +65,6 @@ class PhoneCommandsD implements IPhoneCommandsD {
   }
 
   @override
-  Future<String?> getIpFromMdnsName(String mdnsName) async {
-    // TODO: implement getIpFromMdnsName
-    throw UnimplementedError();
-  }
-
-  @override
   Future<String?> suspendComputer() {
     // TODO: implement goToSleep
     throw UnimplementedError();
