@@ -270,6 +270,18 @@ class RoomWidget extends StatelessWidget {
                         tempRoomColorGradiant: roomColorGradiant,
                       ),
                     );
+                  } else if (deviceType ==
+                      EntityTypes.securityCamera.toString()) {
+                    return BlocProvider(
+                      create: (context) => getIt<PrintersActorBloc>(),
+                      child: PrintersInTheRoomBlock.withAbstractDevice(
+                        roomEntityTemp: roomsList.firstWhere(
+                          (element) => element!.uniqueId.getOrCrash() == roomId,
+                        )!,
+                        tempDeviceInRoom: devicesInTheRoom,
+                        tempRoomColorGradiant: roomColorGradiant,
+                      ),
+                    );
                   }
 
                   logger.w('Arrived here unsupported device type $deviceType');

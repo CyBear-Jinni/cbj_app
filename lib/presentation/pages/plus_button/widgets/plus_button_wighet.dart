@@ -41,11 +41,9 @@ class PlusButtonWidget extends StatelessWidget {
                     color: Colors.white,
                     child: Column(
                       children: [
-                        const SizedBox(
-                          height: 1,
-                        ),
+                        const SizedBox(height: 1),
                         ColoredBox(
-                          color: Colors.purple.withOpacity(0.7),
+                          color: Colors.indigoAccent.withOpacity(0.7),
                           child: ListTile(
                             leading: FaIcon(
                               FontAwesomeIcons.sitemap,
@@ -54,7 +52,7 @@ class PlusButtonWidget extends StatelessWidget {
                               size: 25,
                             ),
                             title: Text(
-                              'Add Automation',
+                              'Turn Phone To a Security Camera',
                               style: TextStyle(
                                 color: Theme.of(context)
                                     .textTheme
@@ -62,9 +60,12 @@ class PlusButtonWidget extends StatelessWidget {
                                     .color,
                               ),
                             ),
-                            onTap: () {
+                            onTap: () async {
+                              await IHubConnectionRepository.instance
+                                  .closeConnection();
+
                               context.router
-                                  .push(const ChooseAutomationTypeToAddRoute());
+                                  .push(const SmartCameraContainerRoute());
                             },
                           ),
                         ),
@@ -95,9 +96,7 @@ class PlusButtonWidget extends StatelessWidget {
                             },
                           ),
                         ),
-                        const SizedBox(
-                          height: 1,
-                        ),
+                        const SizedBox(height: 1),
                         ColoredBox(
                           color: Colors.blue,
                           child: ListTile(
@@ -121,9 +120,32 @@ class PlusButtonWidget extends StatelessWidget {
                             },
                           ),
                         ),
-                        const SizedBox(
-                          height: 1,
+                        const SizedBox(height: 1),
+                        ColoredBox(
+                          color: Colors.purple.withOpacity(0.7),
+                          child: ListTile(
+                            leading: FaIcon(
+                              FontAwesomeIcons.sitemap,
+                              color:
+                                  Theme.of(context).textTheme.bodyLarge!.color,
+                              size: 25,
+                            ),
+                            title: Text(
+                              'Add Automation',
+                              style: TextStyle(
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .bodyLarge!
+                                    .color,
+                              ),
+                            ),
+                            onTap: () {
+                              context.router
+                                  .push(const ChooseAutomationTypeToAddRoute());
+                            },
+                          ),
                         ),
+                        const SizedBox(height: 1),
                       ],
                     ),
                   ),
@@ -267,3 +289,54 @@ class PlusButtonWidget extends StatelessWidget {
     );
   }
 }
+
+//
+// GestureDetector(
+// onTap: () {
+//
+// await IHubConnectionRepository.instance.closeConnection();
+//
+// event.context.router.push(const SmartCameraContainerRoute());
+// },
+// child: Container(
+// margin: const EdgeInsets.symmetric(horizontal: 30),
+// height: 60,
+// color: HexColor('#985dc7'),
+// child: Container(
+// margin: const EdgeInsets.symmetric(horizontal: 15),
+// child: Row(
+// children: [
+// const FaIcon(
+// FontAwesomeIcons.camera,
+// color: Colors.white,
+// ),
+// const SizedBox(
+// width: 40,
+// ),
+// Flexible(
+// child: RichText(
+// text: TextSpan(
+// style: TextStyle(
+// color: Colors.white.withOpacity(0.9),
+// ),
+// children: const <TextSpan>[
+// TextSpan(
+// text: 'Security Camera\n',
+// style: TextStyle(fontSize: 16),
+// ),
+// TextSpan(
+// text:
+// 'Transform your phone into a smart security camera',
+// style: TextStyle(
+// color: Colors.white,
+// ),
+// ),
+// ],
+// ),
+// ),
+// ),
+// ],
+// ),
+// ),
+// ),
+// ),

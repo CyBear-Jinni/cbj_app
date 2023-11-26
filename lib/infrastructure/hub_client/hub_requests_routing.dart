@@ -14,6 +14,7 @@ import 'package:cbj_integrations_controller/infrastructure/generic_devices/gener
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_ping_device/generic_ping_device_dtos.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_printer_device/generic_printer_device_dtos.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_rgbw_light_device/generic_rgbw_light_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_security_camera_device/generic_security_camera_device_dtos.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_computer_device/generic_smart_computer_device_dtos.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_plug_device/generic_smart_plug_device_dtos.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_tv_device/generic_smart_tv_device_dtos.dart';
@@ -203,6 +204,10 @@ class HubRequestRouting {
         deviceEntity =
             GenericPrinterDeviceDtos.fromJson(requestAsJson).toDomain();
         logger.i('Adding Smart printer device type');
+      case EntityTypes.securityCamera:
+        deviceEntity =
+            GenericSecurityCameraDeviceDtos.fromJson(requestAsJson).toDomain();
+        logger.i('Adding Smart camera device type');
       default:
         if (entityStateGRPC == EntityStateGRPC.pingNow) {
           deviceEntity =
@@ -210,11 +215,11 @@ class HubRequestRouting {
           logger.t('Got Ping request');
           return;
         } else {
-          deviceEntity =
-              GenericEmptyDeviceDtos.fromJson(requestAsJson).toDomain();
           logger.w(
             'Device type is $deviceType is not supported $entityStateGRPC ',
           );
+          deviceEntity =
+              GenericEmptyDeviceDtos.fromJson(requestAsJson).toDomain();
         }
         break;
     }
