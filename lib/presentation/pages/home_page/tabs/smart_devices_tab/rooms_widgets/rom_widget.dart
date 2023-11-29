@@ -5,6 +5,7 @@ import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstr
 import 'package:cybear_jinni/application/blinds/blinds_actor/blinds_actor_bloc.dart';
 import 'package:cybear_jinni/application/lights/lights_actor/lights_actor_bloc.dart';
 import 'package:cybear_jinni/application/printers/printers_actor/printers_actor_bloc.dart';
+import 'package:cybear_jinni/application/security_camera/security_camera_actor/security_camera_actor_bloc.dart';
 import 'package:cybear_jinni/application/smart_computers/smart_computers_actor/smart_computers_actor_bloc.dart';
 import 'package:cybear_jinni/application/smart_plugs/smart_plugs_actor/smart_plugs_actor_bloc.dart';
 import 'package:cybear_jinni/application/smart_tv/smart_tv_actor/smart_tv_actor_bloc.dart';
@@ -15,6 +16,7 @@ import 'package:cybear_jinni/presentation/pages/home_page/tabs/smart_devices_tab
 import 'package:cybear_jinni/presentation/pages/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/boilers_in_the_room.dart';
 import 'package:cybear_jinni/presentation/pages/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/lights_in_the_room_block.dart';
 import 'package:cybear_jinni/presentation/pages/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/printers_in_the_room_block.dart';
+import 'package:cybear_jinni/presentation/pages/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/security_cameras_in_the_room_block.dart';
 import 'package:cybear_jinni/presentation/pages/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/smart_computers_in_the_room_block.dart';
 import 'package:cybear_jinni/presentation/pages/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/smart_plug_in_the_room_block.dart';
 import 'package:cybear_jinni/presentation/pages/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/smart_tv_in_the_room.dart';
@@ -273,8 +275,8 @@ class RoomWidget extends StatelessWidget {
                   } else if (deviceType ==
                       EntityTypes.securityCamera.toString()) {
                     return BlocProvider(
-                      create: (context) => getIt<PrintersActorBloc>(),
-                      child: PrintersInTheRoomBlock.withAbstractDevice(
+                      create: (context) => getIt<SecurityCamerasActorBloc>(),
+                      child: SecurityCamerasInTheRoomBlock.withAbstractDevice(
                         roomEntityTemp: roomsList.firstWhere(
                           (element) => element!.uniqueId.getOrCrash() == roomId,
                         )!,
