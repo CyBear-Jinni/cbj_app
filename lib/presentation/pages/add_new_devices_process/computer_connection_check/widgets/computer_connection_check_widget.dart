@@ -2,6 +2,7 @@ import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/configure_new_cbj_comp/configure_new_cbj_comp_bloc.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -32,7 +33,7 @@ class ComputerConnectionCheckWidget extends StatelessWidget {
                 child: SizedBox(
                   height: 80,
                   width: 250,
-                  child: Text(
+                  child: TextAtom(
                     'Please reconnect back to you home WiFi',
                     style: TextStyle(fontSize: 20),
                   ),
@@ -58,7 +59,7 @@ class ComputerConnectionCheckWidget extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                   ),
                   alignment: Alignment.center,
-                  child: Text(
+                  child: TextAtom(
                     'Connecting computer to WiFi',
                     style: TextStyle(
                       fontSize: 25,
@@ -82,7 +83,7 @@ class ComputerConnectionCheckWidget extends StatelessWidget {
                                 Theme.of(context).textTheme.bodyLarge!.color,
                             borderColor: Colors.red.withOpacity(0.9),
                             borderWidth: 4.0,
-                            center: const Text(
+                            center: const TextAtom(
                               'Loading...',
                               style: TextStyle(color: Colors.black),
                             ),
@@ -92,7 +93,7 @@ class ComputerConnectionCheckWidget extends StatelessWidget {
                         const SizedBox(
                           height: 20,
                         ),
-                        Text(
+                        TextAtom(
                           'Searching for CyBear Jinni Hub in your WiFi network',
                           style: TextStyle(
                             color: Theme.of(context).textTheme.bodyLarge!.color,
@@ -113,14 +114,14 @@ class ComputerConnectionCheckWidget extends StatelessWidget {
               linearProgressIndicator: const LinearProgressIndicator(),
             ).show(context);
 
-            return const Text('completeSuccess');
+            return const TextAtom('completeSuccess');
           },
           errorInProcess: (ErrorInProcess value) {
             return Expanded(
               child: Center(
                 child: Column(
                   children: [
-                    const Text(
+                    const TextAtom(
                       'Error finding CyBear Jinni Hub in your current'
                       ' network.\n'
                       'Please restart connecting Hub to WiFi process.',
@@ -129,7 +130,7 @@ class ComputerConnectionCheckWidget extends StatelessWidget {
                       onPressed: () {
                         context.router.replace(const ConnectToHubRoute());
                       },
-                      child: const Text('Go Back'),
+                      child: const TextAtom('Go Back'),
                     ),
                   ],
                 ),

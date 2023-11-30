@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:cybear_jinni/domain/auth/i_auth_facade.dart';
 import 'package:cybear_jinni/domain/local_db/i_local_db_repository2.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -13,7 +12,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc() : super(const AuthState.initial()) {
     on<Initialized>(_initialized);
     on<AuthCheckRequested>(_authCheckRequested);
-    on<SignedOut>(_signedOut);
   }
 
   Future<void> _initialized(
@@ -41,13 +39,5 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     //   () => const AuthState.unauthenticated(),
     //   (_) => const AuthState.authenticated(),
     // );
-  }
-
-  Future<void> _signedOut(
-    SignedOut event,
-    Emitter<AuthState> emit,
-  ) async {
-    await IAuthFacade.instance.signOut();
-    emit(const AuthState.unauthenticated());
   }
 }

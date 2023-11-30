@@ -1,4 +1,5 @@
 import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/home_page/tabs/bindings_tab/add_bindings/add_bindings_page.dart';
 import 'package:cybear_jinni/presentation/pages/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,7 @@ class BindingsPage extends StatelessWidget {
       context: context,
       actions: <BottomSheetAction>[
         BottomSheetAction(
-          title: const Text(
+          title: const TextAtom(
             '⚙️ Bindings Settings',
             style: TextStyle(color: Colors.blueGrey, fontSize: 23),
           ),
@@ -65,14 +66,14 @@ class BindingsPage extends StatelessWidget {
                     Container(
                       margin: const EdgeInsets.symmetric(vertical: 30),
                       alignment: Alignment.center,
-                      child: Image.asset(
+                      child: ImageAtom(
                         'assets/cbj_logo.png',
                         fit: BoxFit.fitHeight,
                       ),
                     ),
                     Align(
                       alignment: Alignment.topCenter,
-                      child: Text(
+                      child: TextAtom(
                         'Bindings list is empty',
                         style: TextStyle(
                           fontSize: 30,
@@ -89,7 +90,7 @@ class BindingsPage extends StatelessWidget {
         Column(
           children: [
             const Expanded(
-              child: Text(''),
+              child: TextAtom(''),
             ),
             SizedBox(
               height: 100,

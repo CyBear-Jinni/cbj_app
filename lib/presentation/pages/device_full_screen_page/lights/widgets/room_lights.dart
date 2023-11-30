@@ -6,6 +6,7 @@ import 'package:cbj_integrations_controller/infrastructure/generic_devices/gener
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
 import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
 import 'package:cybear_jinni/injection.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/lights/widgets/error_lights_device_card_widget.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/lights/widgets/lights_widgets/dimmable_light_widget.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/lights/widgets/lights_widgets/light_widget.dart';
@@ -244,7 +245,7 @@ class RoomLights extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text(
+                  TextAtom(
                     _roomEntity,
                     style: TextStyle(
                       color: Theme.of(context).textTheme.bodyLarge!.color,

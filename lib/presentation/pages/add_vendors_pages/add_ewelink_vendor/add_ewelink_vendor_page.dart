@@ -1,7 +1,8 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/application/ewelink_auth/ewelink_sign_in_form/ewelink_sign_in_form_bloc.dart';
 import 'package:cbj_integrations_controller/domain/vendors/vendor_data.dart';
+import 'package:cybear_jinni/application/ewelink_auth/ewelink_sign_in_form/ewelink_sign_in_form_bloc.dart';
 import 'package:cybear_jinni/injection.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/add_vendors_pages/add_ewelink_vendor/widgets/ewelink_sign_in_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,7 +18,7 @@ class AddEwelinkVendorPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blueAccent,
-        title: const Text('eWeLink Sign In'),
+        title: const TextAtom('eWeLink Sign In'),
       ),
       body: BlocProvider(
         create: (context) => getIt<EwelinkSignInFormBloc>(),

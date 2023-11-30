@@ -1,6 +1,7 @@
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/create_home/create_home_bloc.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,7 +17,7 @@ class CreateHomeWidget extends StatelessWidget {
         Container(
           color: Colors.black54,
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
-          child: const Text(
+          child: const TextAtom(
             'Name for your home',
             style: TextStyle(fontSize: 20),
           ),
@@ -53,7 +54,7 @@ class CreateHomeWidget extends StatelessWidget {
         Container(
           color: Colors.black54,
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
-          child: const Text(
+          child: const TextAtom(
             'Email for the Smart Devices',
             style: TextStyle(fontSize: 20),
           ),
@@ -89,7 +90,7 @@ class CreateHomeWidget extends StatelessWidget {
         ),
         Container(
           margin: const EdgeInsets.symmetric(horizontal: 48),
-          child: Text(
+          child: TextAtom(
             'Smart devices needs account to function.\nPlease enter new email.',
             style: TextStyle(
               fontSize: 15,
@@ -109,7 +110,7 @@ class CreateHomeWidget extends StatelessWidget {
                 .read<CreateHomeBloc>()
                 .add(CreateHomeEvent.createHome(homeName!, devicesEmail!));
           },
-          child: Text(
+          child: TextAtom(
             'Create Home',
             style: TextStyle(
               color: Theme.of(context).textTheme.bodyLarge!.color,
@@ -120,18 +121,18 @@ class CreateHomeWidget extends StatelessWidget {
           builder: (context, state) {
             return state.map(
               (value) {
-                return const Text('');
+                return const TextAtom('');
               },
               loading: (loadingNow) {
                 return const CircularProgressIndicator();
               },
               error: (errorNow) {
                 FlushbarHelper.createError(message: 'Error');
-                return const Text('Error');
+                return const TextAtom('Error');
               },
               loaded: (_) {
                 context.router.replace(const HomeRoute());
-                return const Text('Loaded');
+                return const TextAtom('Loaded');
               },
             );
           },

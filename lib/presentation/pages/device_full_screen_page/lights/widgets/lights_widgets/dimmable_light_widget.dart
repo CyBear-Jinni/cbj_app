@@ -1,6 +1,7 @@
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_dimmable_light_device/generic_dimmable_light_entity.dart';
+import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_switch/flutter_switch.dart';
@@ -57,7 +58,7 @@ class DimmableLightWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Flexible(
-                      child: Text(
+                      child: TextAtom(
                         _deviceEntity.cbjEntityName.getOrCrash()!,
                         style: const TextStyle(
                           overflow: TextOverflow.clip,
@@ -128,7 +129,7 @@ class DimmableLightWidget extends StatelessWidget {
                     ),
                     SizedBox(
                       width: 45,
-                      child: Text(
+                      child: TextAtom(
                         '${state.brightness.round()}%',
                         style: const TextStyle(color: Colors.black),
                       ),

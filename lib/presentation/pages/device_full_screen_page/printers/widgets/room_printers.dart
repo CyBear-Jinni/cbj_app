@@ -3,6 +3,7 @@ import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstr
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_printer_device/generic_printer_entity.dart';
 import 'package:cybear_jinni/application/printers/printers_actor/printers_actor_bloc.dart';
 import 'package:cybear_jinni/injection.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/printers/widgets/error_printers_device_card_widget.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/printers/widgets/printer_widget.dart';
 import 'package:flutter/material.dart';
@@ -141,7 +142,7 @@ class RoomPrinters extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text(
+                  TextAtom(
                     _roomEntity,
                     style: TextStyle(
                       color: Theme.of(context).textTheme.bodyLarge!.color,

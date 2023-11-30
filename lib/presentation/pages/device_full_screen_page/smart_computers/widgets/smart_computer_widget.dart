@@ -1,6 +1,6 @@
-import 'package:cybear_jinni/application/smart_computers/smart_computers_actor/smart_computers_actor_bloc.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_computer_device/generic_smart_computer_entity.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:cybear_jinni/application/smart_computers/smart_computers_actor/smart_computers_actor_bloc.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -34,8 +34,6 @@ class SmartComputerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
-
     return BlocConsumer<SmartComputersActorBloc, SmartComputersActorState>(
       listener: (context, state) {},
       builder: (context, state) {
@@ -66,13 +64,13 @@ class SmartComputerWidget extends StatelessWidget {
                       FontAwesomeIcons.moon,
                       color: Theme.of(context).textTheme.bodyLarge!.color,
                     ),
-                    child: Text(
+                    child: TextAtom(
                       'Sleep',
                       style: TextStyle(
                         color: Theme.of(context).textTheme.bodyLarge!.color,
                         fontSize: 16,
                       ),
-                    ).tr(),
+                    ),
                   ),
                 ),
                 const SizedBox(
@@ -99,13 +97,13 @@ class SmartComputerWidget extends StatelessWidget {
                       FontAwesomeIcons.powerOff,
                       color: Theme.of(context).textTheme.bodyLarge!.color,
                     ),
-                    child: Text(
+                    child: TextAtom(
                       'Shutdown',
                       style: TextStyle(
                         color: Theme.of(context).textTheme.bodyLarge!.color,
                         fontSize: 16,
                       ),
-                    ).tr(),
+                    ),
                   ),
                 ),
               ],

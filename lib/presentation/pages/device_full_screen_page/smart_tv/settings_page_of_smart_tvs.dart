@@ -1,8 +1,8 @@
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_switch_device/generic_switch_entity.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/shared_widgets/top_navigation_bar.dart';
 import 'package:cybear_jinni/utils.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -30,18 +30,16 @@ class SettingsPageOfSmartTvs extends StatelessWidget {
             leading: CircleAvatar(
               child: Icon(MdiIcons.lightSwitch),
             ),
-            title: Text(
-              'Name:_',
-              style: TextStyle(
-                color: Theme.of(context).textTheme.bodyLarge!.color,
-              ),
-            ).tr(args: <String>[switchName]),
-            subtitle: Text(
-              'Room:_',
-              style: TextStyle(
-                color: Theme.of(context).textTheme.bodyLarge!.color,
-              ),
-            ).tr(args: <String>[roomName]),
+            title: TextAtom('Name:_',
+                style: TextStyle(
+                  color: Theme.of(context).textTheme.bodyLarge!.color,
+                ),
+                translationArgs: [switchName]),
+            subtitle: TextAtom('Room:_',
+                style: TextStyle(
+                  color: Theme.of(context).textTheme.bodyLarge!.color,
+                ),
+                translationArgs: [roomName]),
             trailing: IconButton(
               icon: FaIcon(
                 FontAwesomeIcons.pen,

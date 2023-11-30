@@ -2,6 +2,7 @@ import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/auth/auth_bloc.dart';
 import 'package:cybear_jinni/application/auth/sign_in_form/sign_in_form_bloc.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -49,7 +50,7 @@ class SignInFormWidget extends StatelessWidget {
                       child: CircleAvatar(
                         backgroundColor: Colors.transparent,
                         radius: screenSize.height * 0.1,
-                        child: Image.asset('assets/cbj_logo.png'),
+                        child: ImageAtom('assets/cbj_logo.png'),
                       ),
                     ),
                     const SizedBox(
@@ -115,7 +116,7 @@ class SignInFormWidget extends StatelessWidget {
                                         .signInWithEmailAndPasswordPassed(),
                                   );
                             },
-                            child: const Text('SIGN IN'),
+                            child: const TextAtom('SIGN IN'),
                           ),
                         ),
                         Expanded(
@@ -126,7 +127,7 @@ class SignInFormWidget extends StatelessWidget {
                                         .registerWithEmailAndPassword(),
                                   );
                             },
-                            child: const Text('REGISTER'),
+                            child: const TextAtom('REGISTER'),
                           ),
                         ),
                       ],
@@ -152,7 +153,7 @@ class SignInFormWidget extends StatelessWidget {
                 onPressed: () {
                   context.router.push(const WhereToLoginRouteOffline());
                 },
-                child: Text(
+                child: TextAtom(
                   'For More Options',
                   style: TextStyle(
                     color: Theme.of(context).textTheme.bodyLarge!.color,

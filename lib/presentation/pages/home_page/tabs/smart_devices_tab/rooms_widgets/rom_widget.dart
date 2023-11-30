@@ -11,6 +11,7 @@ import 'package:cybear_jinni/application/smart_plugs/smart_plugs_actor/smart_plu
 import 'package:cybear_jinni/application/smart_tv/smart_tv_actor/smart_tv_actor_bloc.dart';
 import 'package:cybear_jinni/application/switches/switches_actor/switches_actor_bloc.dart';
 import 'package:cybear_jinni/injection.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/types_to_pass.dart';
 import 'package:cybear_jinni/presentation/pages/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/blinds_in_the_room.dart';
 import 'package:cybear_jinni/presentation/pages/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/boilers_in_the_room.dart';
@@ -22,7 +23,6 @@ import 'package:cybear_jinni/presentation/pages/home_page/tabs/smart_devices_tab
 import 'package:cybear_jinni/presentation/pages/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/smart_tv_in_the_room.dart';
 import 'package:cybear_jinni/presentation/pages/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/switches_in_the_room_block.dart';
 import 'package:cybear_jinni/utils.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -98,7 +98,7 @@ class RoomWidget extends StatelessWidget {
                 alignment: Alignment.topCenter,
                 child: Stack(
                   children: <Widget>[
-                    Text(
+                    TextAtom(
                       roomsList
                           .firstWhere(
                             (element) =>
@@ -114,7 +114,7 @@ class RoomWidget extends StatelessWidget {
                           ..color = Colors.black,
                       ),
                     ),
-                    Text(
+                    TextAtom(
                       roomsList
                           .firstWhere(
                             (element) =>
@@ -131,15 +131,17 @@ class RoomWidget extends StatelessWidget {
                 ),
               ),
               if (numberOfDevicesInTheRoom == 1)
-                const Text(
+                TextAtom(
                   '_device',
                   style: TextStyle(fontSize: 12),
-                ).tr(args: [numberOfDevicesInTheRoom.toString()])
+                  translationArgs: [numberOfDevicesInTheRoom.toString()],
+                )
               else
-                const Text(
+                TextAtom(
                   '_devices',
                   style: TextStyle(fontSize: 12),
-                ).tr(args: [numberOfDevicesInTheRoom.toString()]),
+                  translationArgs: [numberOfDevicesInTheRoom.toString()],
+                ),
 
               /// Build the devices in the room by type
               GridView.builder(
@@ -304,7 +306,7 @@ class RoomWidget extends StatelessWidget {
                             color: Colors.red,
                           ),
                         ),
-                        Text(
+                        TextAtom(
                           'Unsupported Type',
                           style: TextStyle(color: Colors.white),
                         ),

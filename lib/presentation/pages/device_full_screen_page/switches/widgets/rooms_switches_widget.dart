@@ -1,6 +1,7 @@
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/application/switches/switches_watcher/switches_watcher_bloc.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/switches/widgets/critical_switches_failure_display_widget.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/switches/widgets/room_switches.dart';
@@ -100,7 +101,7 @@ class RoomsSwitchesWidget extends StatelessWidget {
                     Container(
                       margin: const EdgeInsets.symmetric(vertical: 30),
                       alignment: Alignment.center,
-                      child: Image.asset(
+                      child: ImageAtom(
                         'assets/cbj_logo.png',
                         fit: BoxFit.fitHeight,
                       ),
@@ -109,7 +110,7 @@ class RoomsSwitchesWidget extends StatelessWidget {
                       onPressed: () {
                         Navigator.pop(context);
                       },
-                      child: Text(
+                      child: TextAtom(
                         'Switches does not exist.',
                         style: TextStyle(
                           fontSize: 30,
@@ -128,7 +129,7 @@ class RoomsSwitchesWidget extends StatelessWidget {
             );
           },
           switchesError: (SwitchesError value) {
-            return const Text('Error');
+            return const TextAtom('Error');
           },
         );
       },

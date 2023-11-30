@@ -1,9 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/application/devices/device_actor/device_actor_bloc.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/injection.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -30,7 +31,7 @@ class CBJCompCardWithDevicesControll extends StatelessWidget {
             color: Colors.yellowAccent.withOpacity(0.3),
             child: BlocProvider(
               create: (context) => getIt<DeviceActorBloc>(),
-              child: Text(
+              child: TextAtom(
                 'Type: ${deviceEntity.entityTypes.getOrCrash()}',
                 style: TextStyle(
                   color: Theme.of(context).textTheme.bodyLarge!.color,
@@ -43,7 +44,7 @@ class CBJCompCardWithDevicesControll extends StatelessWidget {
         typesList.add(
           ColoredBox(
             color: Colors.orange.withOpacity(0.3),
-            child: Text(
+            child: TextAtom(
               'Type ${deviceEntity.entityTypes.getOrCrash()} is not supported',
               style: TextStyle(
                 color: Theme.of(context).textTheme.bodyLarge!.color,
@@ -54,7 +55,7 @@ class CBJCompCardWithDevicesControll extends StatelessWidget {
       }
     }
     if (typesList.isEmpty) {
-      typesList.add(const Text('Computer does not contain any devices'));
+      typesList.add(const TextAtom('Computer does not contain any devices'));
     }
 
     final Column deviceColumn = Column(
@@ -96,25 +97,25 @@ class CBJCompCardWithDevicesControll extends StatelessWidget {
                 height: 30,
               ),
               state.map(
-                initial: (_) => Text(
+                initial: (_) => TextAtom(
                   'Initial',
                   style: TextStyle(
                     color: Theme.of(context).textTheme.bodyLarge!.color,
                   ),
                 ),
-                actionInProgress: (_) => Text(
+                actionInProgress: (_) => TextAtom(
                   'actionInProgress',
                   style: TextStyle(
                     color: Theme.of(context).textTheme.bodyLarge!.color,
                   ),
                 ),
-                deleteFailure: (_) => Text(
+                deleteFailure: (_) => TextAtom(
                   'deleteFailure',
                   style: TextStyle(
                     color: Theme.of(context).textTheme.bodyLarge!.color,
                   ),
                 ),
-                deleteSuccess: (_) => Text(
+                deleteSuccess: (_) => TextAtom(
                   'deleteSuccess',
                   style: TextStyle(
                     color: Theme.of(context).textTheme.bodyLarge!.color,
@@ -132,7 +133,7 @@ class CBJCompCardWithDevicesControll extends StatelessWidget {
                     ConfigureNewCbjCompRoute(cbjCompEntity: cbjCompEntity),
                   );
                 },
-                child: Text(
+                child: TextAtom(
                   'Set up computer',
                   style: TextStyle(
                     color: Theme.of(context).textTheme.bodyLarge!.color,

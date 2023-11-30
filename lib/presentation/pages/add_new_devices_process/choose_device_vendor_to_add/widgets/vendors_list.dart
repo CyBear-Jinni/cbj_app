@@ -1,4 +1,5 @@
 import 'package:cybear_jinni/application/vendors/vendors_bloc.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/add_new_devices_process/choose_device_vendor_to_add/widgets/vendor_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -6,12 +7,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class VendorsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
-
     return BlocBuilder<VendorsBloc, VendorsState>(
       builder: (context, state) {
         return state.map(
-          (value) => const Text('sd'),
+          (value) => const TextAtom('sd'),
           loading: (_) => const Center(
             child: CircularProgressIndicator(),
           ),
@@ -32,7 +31,7 @@ class VendorsList extends StatelessWidget {
             );
           },
           error: (_) {
-            return const Text('Error');
+            return const TextAtom('Error');
           },
         );
       },

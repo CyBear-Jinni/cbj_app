@@ -1,6 +1,7 @@
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:cbj_integrations_controller/domain/scene/scene_cbj_entity.dart';
 import 'package:cybear_jinni/application/scene/scene_bloc.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,13 +22,13 @@ class SceneWidget extends StatelessWidget {
           error: (errorNow) {
             FlushbarHelper.createError(message: 'Error');
           },
-          loaded: (_) => const Text('loaded'),
+          loaded: (_) => const TextAtom('loaded'),
         );
       },
       builder: (context, state) {
         return state.map(
-          (value) => const Text('value'),
-          loading: (_) => const Text('Loading'),
+          (value) => const TextAtom('value'),
+          loading: (_) => const TextAtom('Loading'),
           loaded: (sceneState) {
             return Container(
               margin: const EdgeInsets.fromLTRB(5, 0, 5, 10),
@@ -74,7 +75,7 @@ class SceneWidget extends StatelessWidget {
                     color: Colors.black54,
                   ),
                   alignment: Alignment.center,
-                  child: Text(
+                  child: TextAtom(
                     currentScene.name.getOrCrash(),
                     style: TextStyle(
                       fontSize: 23,
@@ -86,7 +87,7 @@ class SceneWidget extends StatelessWidget {
               ),
             );
           },
-          error: (_) => const Text('Error'),
+          error: (_) => const TextAtom('Error'),
         );
       },
     );

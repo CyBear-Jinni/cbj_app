@@ -1,4 +1,5 @@
 import 'package:cybear_jinni/application/more_connections_options/more_connections_options_bloc.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -42,7 +43,7 @@ class ConnectToHubMoreWidget extends StatelessWidget {
                                         width: 40,
                                       ),
                                       Flexible(
-                                        child: Text(
+                                        child: TextAtom(
                                           'Connect to Remote Pipes',
                                           style: TextStyle(
                                             color: Colors.white,
@@ -54,7 +55,7 @@ class ConnectToHubMoreWidget extends StatelessWidget {
                                 ),
                                 const Expanded(
                                   child: Center(
-                                    child: Text(
+                                    child: TextAtom(
                                       'Currently not supported',
                                       style: TextStyle(color: Colors.white),
                                     ),
@@ -140,8 +141,8 @@ class ConnectToHubMoreWidget extends StatelessWidget {
             width: 70,
             child: CircularProgressIndicator(),
           ),
-          loadSuccess: (_) => const Text('Found hub'),
-          loadFailure: (failure) => const Text('Failure'),
+          loadSuccess: (_) => const TextAtom('Found hub'),
+          loadFailure: (failure) => const TextAtom('Failure'),
         );
       },
     );

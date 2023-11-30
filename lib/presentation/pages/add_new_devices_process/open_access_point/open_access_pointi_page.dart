@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/manage_access_point/manage_access_point_bloc.dart';
 import 'package:cybear_jinni/injection.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/add_new_devices_process/open_access_point/widgets/open_access_point_widget.dart';
 import 'package:cybear_jinni/presentation/pages/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/material.dart';
@@ -58,7 +59,7 @@ class OpenAccessPointPage extends StatelessWidget {
                 borderRadius: BorderRadius.all(Radius.circular(10)),
               ),
               alignment: Alignment.center,
-              child: Text(
+              child: TextAtom(
                 'Open Access Point',
                 style: TextStyle(
                   fontSize: 25,

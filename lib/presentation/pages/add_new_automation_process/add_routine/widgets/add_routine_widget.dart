@@ -1,8 +1,9 @@
 import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cybear_jinni/application/add_new_routine/add_new_routine_bloc.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/application/add_new_routine/add_new_routine_bloc.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/add_new_automation_process/add_routine/widgets/routine_action_widget.dart';
 import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,7 @@ class AddRoutineWidget extends StatelessWidget {
     return BlocBuilder<AddNewRoutineBloc, AddNewRoutineState>(
       builder: (context, state) {
         return state.map(
-          initial: (_) => const Text('Initial'),
+          initial: (_) => const TextAtom('Initial'),
           loadPageState: (loadPageState) {
             return Container(
               margin: const EdgeInsets.symmetric(horizontal: 20),
@@ -74,7 +75,7 @@ class AddRoutineWidget extends StatelessWidget {
                           context: context,
                           actions: <BottomSheetAction>[
                             BottomSheetAction(
-                              title: const Text(
+                              title: const TextAtom(
                                 'Add device action',
                                 style: TextStyle(
                                   color: Colors.blueGrey,
@@ -102,7 +103,7 @@ class AddRoutineWidget extends StatelessWidget {
                               },
                             ),
                             BottomSheetAction(
-                              title: Text(
+                              title: TextAtom(
                                 'Add service action',
                                 style: TextStyle(
                                   color: Colors.green.shade600,
@@ -125,7 +126,7 @@ class AddRoutineWidget extends StatelessWidget {
                               },
                             ),
                             BottomSheetAction(
-                              title: const Text(
+                              title: const TextAtom(
                                 'Add time based action',
                                 style: TextStyle(
                                   color: Colors.blue,
@@ -150,7 +151,7 @@ class AddRoutineWidget extends StatelessWidget {
                           ],
                         );
                       },
-                      child: const Text('+ Add action'),
+                      child: const TextAtom('+ Add action'),
                     ),
                   ),
                   const SizedBox(height: 10),
@@ -175,7 +176,7 @@ class AddRoutineWidget extends StatelessWidget {
                               const AddNewRoutineEvent.sendRoutineToHub(),
                             );
                       },
-                      child: const Text('Add Routine'),
+                      child: const TextAtom('Add Routine'),
                     ),
                   ),
                 ],
@@ -183,10 +184,10 @@ class AddRoutineWidget extends StatelessWidget {
             );
           },
           loadInProgress: (loadInProgress) {
-            return const Text('load In Progress');
+            return const TextAtom('load In Progress');
           },
           addNewRoutineFailure: (AddNewRoutineFailure value) {
-            return const Text('Failure while adding new routine');
+            return const TextAtom('Failure while adding new routine');
           },
         );
       },

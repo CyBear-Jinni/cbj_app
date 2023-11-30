@@ -7,6 +7,7 @@ import 'package:cbj_integrations_controller/infrastructure/generic_devices/gener
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_light_device/generic_light_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
 import 'package:cybear_jinni/application/lights/lights_actor/lights_actor_bloc.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/types_to_pass.dart';
 import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
 import 'package:cybear_jinni/utils.dart';
@@ -106,7 +107,7 @@ class LightsInTheRoomBlock extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Expanded(child: Text('')),
+                const Expanded(child: TextAtom('')),
                 Expanded(
                   child: Column(
                     children: [
@@ -140,7 +141,7 @@ class LightsInTheRoomBlock extends StatelessWidget {
                           ),
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: Text(
+                        child: TextAtom(
                           totalLightsInTheRoom.toString(),
                           textAlign: TextAlign.center,
                           style: TextStyle(
@@ -152,7 +153,7 @@ class LightsInTheRoomBlock extends StatelessWidget {
                     ),
                   )
                 else
-                  const Expanded(child: Text('')),
+                  const Expanded(child: TextAtom('')),
               ],
             ),
             const SizedBox(height: 5),
@@ -203,15 +204,14 @@ class LightsInTheRoomBlock extends StatelessWidget {
                               ),
                             );
                       },
-                      child: Text(
+                      child: TextAtom(
                         'Off',
                         style: TextStyle(
                           fontSize: 14,
                           color: Theme.of(context).textTheme.bodyLarge!.color,
                         ),
-                      ).tr(),
-                    ),
-                    Text(
+                      ),                    ),
+                    TextAtom(
                       '·',
                       style: TextStyle(
                         fontSize: 14,
@@ -235,14 +235,13 @@ class LightsInTheRoomBlock extends StatelessWidget {
                               ),
                             );
                       },
-                      child: Text(
+                      child: TextAtom(
                         'On',
                         style: TextStyle(
                           fontSize: 14,
                           color: Theme.of(context).textTheme.bodyLarge!.color,
                         ),
-                      ).tr(),
-                    ),
+                      ),                    ),
                   ],
                 );
               },

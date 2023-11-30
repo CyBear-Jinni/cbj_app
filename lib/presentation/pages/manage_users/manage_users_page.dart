@@ -3,6 +3,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/auth/auth_bloc.dart';
 import 'package:cybear_jinni/application/manage_users/manage_users_bloc.dart';
 import 'package:cybear_jinni/injection.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/manage_users/widgets/manage_users_widget.dart';
 import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
 import 'package:cybear_jinni/presentation/pages/shared_widgets/top_navigation_bar.dart';
@@ -19,7 +20,7 @@ class ManageUsersPage extends StatelessWidget {
       context: context,
       actions: <BottomSheetAction>[
         BottomSheetAction(
-          title: const Text(
+          title: const TextAtom(
             '➕ Add User',
             style: TextStyle(color: Colors.green, fontSize: 23),
           ),

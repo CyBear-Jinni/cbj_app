@@ -1,6 +1,7 @@
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/application/blinds/blinds_watcher/blinds_watcher_bloc.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/blinds/widgets/critical_failure_blinds_display_widget.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/blinds/widgets/room_blinds.dart';
@@ -96,7 +97,7 @@ class RoomsBlindsWidget extends StatelessWidget {
                     Container(
                       margin: const EdgeInsets.symmetric(vertical: 30),
                       alignment: Alignment.center,
-                      child: Image.asset(
+                      child: ImageAtom(
                         'assets/cbj_logo.png',
                         fit: BoxFit.fitHeight,
                       ),
@@ -105,7 +106,7 @@ class RoomsBlindsWidget extends StatelessWidget {
                       onPressed: () {
                         Navigator.pop(context);
                       },
-                      child: Text(
+                      child: TextAtom(
                         'Blinds does not exist.',
                         style: TextStyle(
                           fontSize: 30,
@@ -124,7 +125,7 @@ class RoomsBlindsWidget extends StatelessWidget {
             );
           },
           blindError: (BlindError value) {
-            return const Text('Error');
+            return const TextAtom('Error');
           },
         );
       },

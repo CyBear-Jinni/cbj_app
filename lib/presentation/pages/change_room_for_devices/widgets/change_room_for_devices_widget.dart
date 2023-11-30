@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/room/create_new_room_form/room_sign_in_form_bloc.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,7 +26,7 @@ class ChangeRoomForDevicesWidget extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
+                  const TextAtom(
                     'Choose Area',
                     style: TextStyle(fontSize: 27),
                   ),
@@ -33,7 +34,7 @@ class ChangeRoomForDevicesWidget extends StatelessWidget {
                     onPressed: () {
                       context.router.push(const AddNewRoomRoute());
                     },
-                    child: const Text(
+                    child: const TextAtom(
                       'Add New Area',
                       style: TextStyle(
                         fontSize: 16,
@@ -48,7 +49,7 @@ class ChangeRoomForDevicesWidget extends StatelessWidget {
                 dropdownColor: Colors.black,
                 style: const TextStyle(color: Colors.white),
                 icon: const Icon(Icons.arrow_drop_down),
-                hint: Text(
+                hint: TextAtom(
                   state.cbjEntityName.isValid()
                       ? state.cbjEntityName.getOrCrash()
                       : 'Choose Area',
@@ -67,7 +68,7 @@ class ChangeRoomForDevicesWidget extends StatelessWidget {
                   //     .map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     value: e.uniqueId.getOrCrash(),
-                    child: Text(e.cbjEntityName.getOrCrash()),
+                    child: TextAtom(e.cbjEntityName.getOrCrash()),
                   );
                 }).toList(),
               ),
@@ -76,7 +77,7 @@ class ChangeRoomForDevicesWidget extends StatelessWidget {
               ),
               const Row(
                 children: [
-                  Text(
+                  TextAtom(
                     'Choose Device',
                     style: TextStyle(fontSize: 27),
                   ),
@@ -122,7 +123,7 @@ class ChangeRoomForDevicesWidget extends StatelessWidget {
                             RoomSignInFormEvent.changeRoomDevices(context),
                           );
                     },
-                    child: const Text(
+                    child: const TextAtom(
                       'Done',
                       style: TextStyle(fontSize: 20),
                     ),

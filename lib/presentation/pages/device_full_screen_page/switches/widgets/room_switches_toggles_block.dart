@@ -1,4 +1,5 @@
 import 'package:cbj_integrations_controller/domain/room/smart_room_object.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/switches/smart_switch_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -116,7 +117,7 @@ class RoomSwitchesTogglesBlock extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text(
+                  TextAtom(
                     _smartRoomObject!.getRoomName(),
                     style: TextStyle(
                       color: Theme.of(context).textTheme.bodyLarge!.color,

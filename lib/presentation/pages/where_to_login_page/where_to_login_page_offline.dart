@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -16,7 +17,7 @@ class WhereToLoginPageOffline extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Choose type of login'),
+        title: const TextAtom('Choose type of login'),
       ),
       backgroundColor: Colors.deepPurpleAccent[200]!.withOpacity(0.6),
       body: Column(
@@ -31,7 +32,7 @@ class WhereToLoginPageOffline extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(10)),
             ),
             alignment: Alignment.center,
-            child: Text(
+            child: TextAtom(
               'What would you like to do',
               style: TextStyle(
                 fontSize: 25,
@@ -68,7 +69,7 @@ class WhereToLoginPageOffline extends StatelessWidget {
                             const SizedBox(
                               width: 20,
                             ),
-                            Text(
+                            TextAtom(
                               'Open Demo',
                               style: TextStyle(
                                 fontSize: 25,
@@ -110,7 +111,7 @@ class WhereToLoginPageOffline extends StatelessWidget {
                             const SizedBox(
                               width: 20,
                             ),
-                            Text(
+                            TextAtom(
                               'Work Only On WiFi',
                               style: TextStyle(
                                 fontSize: 25,

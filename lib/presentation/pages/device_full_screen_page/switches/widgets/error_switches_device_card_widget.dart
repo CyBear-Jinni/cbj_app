@@ -1,4 +1,5 @@
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_switch_device/generic_switch_entity.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:flutter/material.dart';
 
 class ErrorSwitchesDeviceCard extends StatelessWidget {
@@ -17,7 +18,7 @@ class ErrorSwitchesDeviceCard extends StatelessWidget {
         padding: const EdgeInsets.all(4),
         child: Column(
           children: <Widget>[
-            Text(
+            TextAtom(
               'Invalid device, please, contact support',
               style: Theme.of(context)
                   .primaryTextTheme
@@ -25,11 +26,11 @@ class ErrorSwitchesDeviceCard extends StatelessWidget {
                   .copyWith(fontSize: 18),
             ),
             const SizedBox(height: 2),
-            Text(
+            TextAtom(
               'Details for nerds:',
               style: Theme.of(context).primaryTextTheme.bodyMedium,
             ),
-            Text(
+            TextAtom(
               device!.failureOption.fold(() => '', (f) => f.toString()),
               style: Theme.of(context).primaryTextTheme.bodyMedium,
             ),

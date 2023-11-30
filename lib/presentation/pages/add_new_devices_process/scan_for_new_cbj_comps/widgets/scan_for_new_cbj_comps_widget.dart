@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/cbj_comp/cbj_comp_bloc.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_value_objects.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,14 +15,14 @@ class ScanForNewCBJCompsWidget extends StatelessWidget {
     return BlocBuilder<CBJCompBloc, CBJCompState>(
       builder: (context, state) {
         return state.map(
-          initial: (_) => const Text('Initial'),
+          initial: (_) => const TextAtom('Initial'),
           loadInProgress: (value) {
             return Column(
               children: [
                 const SizedBox(
                   height: 20,
                 ),
-                Text(
+                TextAtom(
                   'Scanning For Devices',
                   style: TextStyle(
                     color: Theme.of(context).textTheme.bodyLarge!.color,
@@ -52,13 +53,13 @@ class ScanForNewCBJCompsWidget extends StatelessWidget {
             );
           },
           loadSuccessTemp: (state) {
-            return const Text('Load success temp');
+            return const TextAtom('Load success temp');
           },
           loadFailure: (state) {
-            return const Text('Load Failure');
+            return const TextAtom('Load Failure');
           },
           error: (state) {
-            return const Text('Error');
+            return const TextAtom('Error');
           },
         );
       },

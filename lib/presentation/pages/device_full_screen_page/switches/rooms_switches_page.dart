@@ -11,7 +11,6 @@ import 'package:cybear_jinni/presentation/pages/device_full_screen_page/switches
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/switches/widgets/rooms_switches_widget.dart';
 import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
 import 'package:cybear_jinni/presentation/pages/shared_widgets/top_navigation_bar.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -98,12 +97,12 @@ class RoomsSwitchesPage extends StatelessWidget {
           ),
           body: Container(
             decoration: BoxDecoration(
-              gradient: BacgroundGradient.getBacground(context),
+              gradient: BackgroundGradient.getBackground(context),
             ),
             child: Column(
               children: [
                 TopNavigationBar(
-                  pageName: 'Switches'.tr(),
+                  pageName: 'Switches',
                   rightIcon: null,
                   rightIconFunction: cogFunction,
                   leftIcon: FontAwesomeIcons.arrowLeft,

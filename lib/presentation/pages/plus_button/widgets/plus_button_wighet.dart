@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/plus_button_settings/plus_button_settings_bloc.dart';
 import 'package:cybear_jinni/domain/hub/hub_entity.dart';
 import 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -26,7 +27,7 @@ class PlusButtonWidget extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 15),
                     alignment: Alignment.topLeft,
-                    child: const Text(
+                    child: const TextAtom(
                       'Add:',
                       style: TextStyle(
                         color: Colors.white,
@@ -51,7 +52,7 @@ class PlusButtonWidget extends StatelessWidget {
                                   Theme.of(context).textTheme.bodyLarge!.color,
                               size: 25,
                             ),
-                            title: Text(
+                            title: TextAtom(
                               'Turn Phone To a Security Camera',
                               style: TextStyle(
                                 color: Theme.of(context)
@@ -81,7 +82,7 @@ class PlusButtonWidget extends StatelessWidget {
                                   Theme.of(context).textTheme.bodyLarge!.color,
                               size: 25,
                             ),
-                            title: Text(
+                            title: TextAtom(
                               'Add Device',
                               style: TextStyle(
                                 color: Theme.of(context)
@@ -106,7 +107,7 @@ class PlusButtonWidget extends StatelessWidget {
                                   Theme.of(context).textTheme.bodyLarge!.color,
                               size: 25,
                             ),
-                            title: Text(
+                            title: TextAtom(
                               'Add Remote Control Support',
                               style: TextStyle(
                                 color: Theme.of(context)
@@ -130,7 +131,7 @@ class PlusButtonWidget extends StatelessWidget {
                                   Theme.of(context).textTheme.bodyLarge!.color,
                               size: 25,
                             ),
-                            title: Text(
+                            title: TextAtom(
                               'Add Automation',
                               style: TextStyle(
                                 color: Theme.of(context)
@@ -155,7 +156,7 @@ class PlusButtonWidget extends StatelessWidget {
                   Container(
                     alignment: Alignment.topLeft,
                     padding: const EdgeInsets.symmetric(horizontal: 15),
-                    child: const Text(
+                    child: const TextAtom(
                       'Manage:',
                       style: TextStyle(
                         color: Colors.white,
@@ -182,7 +183,7 @@ class PlusButtonWidget extends StatelessWidget {
                                   Theme.of(context).textTheme.bodyLarge!.color,
                               size: 23,
                             ),
-                            title: Text(
+                            title: TextAtom(
                               'Open Node-RED of Hub',
                               style: TextStyle(
                                 color: Theme.of(context)
@@ -206,7 +207,7 @@ class PlusButtonWidget extends StatelessWidget {
                                 showDialog(
                                   context: context,
                                   builder: (_) => const AlertDialog(
-                                    title: Text(
+                                    title: TextAtom(
                                       "Can't find Hub/Node-Red IP to connect to",
                                     ),
                                   ),
@@ -227,7 +228,7 @@ class PlusButtonWidget extends StatelessWidget {
                                   Theme.of(context).textTheme.bodyLarge!.color,
                               size: 25,
                             ),
-                            title: Text(
+                            title: TextAtom(
                               'Software Info',
                               style: TextStyle(
                                 color: Theme.of(context)
@@ -253,7 +254,7 @@ class PlusButtonWidget extends StatelessWidget {
                                   Theme.of(context).textTheme.bodyLarge!.color,
                               size: 25,
                             ),
-                            title: Text(
+                            title: TextAtom(
                               'Log Out',
                               style: TextStyle(
                                 color: Theme.of(context)
@@ -282,8 +283,8 @@ class PlusButtonWidget extends StatelessWidget {
           loadInProgress: (_) => const Center(
             child: CircularProgressIndicator(),
           ),
-          loadSuccess: (_) => const Text('Found hub'),
-          loadFailure: (failure) => const Text('Failure'),
+          loadSuccess: (_) => const TextAtom('Found hub'),
+          loadFailure: (failure) => const TextAtom('Failure'),
         );
       },
     );

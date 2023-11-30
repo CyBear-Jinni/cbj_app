@@ -31,7 +31,7 @@ class SmartPlugsInTheRoomPage extends StatelessWidget {
       body: Container(
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
-          gradient: BacgroundGradient.getBacground(context),
+          gradient: BackgroundGradient.getBackground(context),
         ),
         child: Column(
           children: <Widget>[

@@ -1,6 +1,7 @@
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/application/smart_computers/smart_computers_watcher/smart_computer_watcher_bloc.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/smart_computers/widgets/critical_smart_computers_failure_display_widget.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/smart_computers/widgets/room_smart_computers.dart';
@@ -100,7 +101,7 @@ class RoomsSmartComputersWidget extends StatelessWidget {
                     Container(
                       margin: const EdgeInsets.symmetric(vertical: 30),
                       alignment: Alignment.center,
-                      child: Image.asset(
+                      child: ImageAtom(
                         'assets/cbj_logo.png',
                         fit: BoxFit.fitHeight,
                       ),
@@ -109,7 +110,7 @@ class RoomsSmartComputersWidget extends StatelessWidget {
                       onPressed: () {
                         Navigator.pop(context);
                       },
-                      child: Text(
+                      child: TextAtom(
                         'SmartComputers does not exist.',
                         style: TextStyle(
                           fontSize: 30,
@@ -128,7 +129,7 @@ class RoomsSmartComputersWidget extends StatelessWidget {
             );
           },
           smartComputersError: (SmartComputersError value) {
-            return const Text('Error');
+            return const TextAtom('Error');
           },
         );
       },

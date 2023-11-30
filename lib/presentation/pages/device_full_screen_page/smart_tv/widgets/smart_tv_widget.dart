@@ -1,7 +1,7 @@
-import 'package:cybear_jinni/application/smart_tv/smart_tv_actor/smart_tv_actor_bloc.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_tv/generic_smart_tv_entity.dart';
+import 'package:cybear_jinni/application/smart_tv/smart_tv_actor/smart_tv_actor_bloc.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/smart_tv/widgets/open_url_widget.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -113,14 +113,13 @@ class SmartTvWidget extends StatelessWidget {
                       FontAwesomeIcons.video,
                       color: Theme.of(context).textTheme.bodyLarge!.color,
                     ),
-                    child: Text(
+                    child: TextAtom(
                       'Open Video',
                       style: TextStyle(
                         color: Theme.of(context).textTheme.bodyLarge!.color,
                         fontSize: 16,
                       ),
-                    ).tr(),
-                  ),
+                    ),                  ),
                 ),
                 const SizedBox(
                   width: 10,
@@ -146,14 +145,13 @@ class SmartTvWidget extends StatelessWidget {
                       FontAwesomeIcons.xmark,
                       color: Theme.of(context).textTheme.bodyLarge!.color,
                     ),
-                    child: Text(
+                    child: TextAtom(
                       'Close',
                       style: TextStyle(
                         color: Theme.of(context).textTheme.bodyLarge!.color,
                         fontSize: 16,
                       ),
-                    ).tr(),
-                  ),
+                    ),                  ),
                 ),
                 const SizedBox(
                   width: 5,
@@ -179,14 +177,13 @@ class SmartTvWidget extends StatelessWidget {
                       FontAwesomeIcons.pause,
                       color: Theme.of(context).textTheme.bodyLarge!.color,
                     ),
-                    child: Text(
+                    child: TextAtom(
                       'Pause',
                       style: TextStyle(
                         color: Theme.of(context).textTheme.bodyLarge!.color,
                         fontSize: 16,
                       ),
-                    ).tr(),
-                  ),
+                    ),                  ),
                 ),
                 const SizedBox(
                   width: 5,
@@ -212,14 +209,13 @@ class SmartTvWidget extends StatelessWidget {
                       FontAwesomeIcons.play,
                       color: Theme.of(context).textTheme.bodyLarge!.color,
                     ),
-                    child: Text(
+                    child: TextAtom(
                       'Play',
                       style: TextStyle(
                         color: Theme.of(context).textTheme.bodyLarge!.color,
                         fontSize: 16,
                       ),
-                    ).tr(),
-                  ),
+                    ),                  ),
                 ),
               ],
             ),
@@ -253,14 +249,13 @@ class SmartTvWidget extends StatelessWidget {
             //           FontAwesomeIcons.backwardStep,
             //           color: Theme.of(context).textTheme.bodyLarge!.color,
             //         ),
-            //         child: Text(
+            //         child: TextAtom(
             //           'Queue Prev',
             //           style: TextStyle(
             //             color: Theme.of(context).textTheme.bodyLarge!.color,
             //             fontSize: 16,
             //           ),
-            //         ).tr(),
-            //       ),
+            //         ),            //       ),
             //     ),
             //     const SizedBox(width: 10),
             //     TextButton(
@@ -286,14 +281,13 @@ class SmartTvWidget extends StatelessWidget {
             //           FontAwesomeIcons.forwardStep,
             //           color: Theme.of(context).textTheme.bodyLarge!.color,
             //         ),
-            //         child: Text(
+            //         child: TextAtom(
             //           'Queue Next',
             //           style: TextStyle(
             //             color: Theme.of(context).textTheme.bodyLarge!.color,
             //             fontSize: 16,
             //           ),
-            //         ).tr(),
-            //       ),
+            //         ),            //       ),
             //     ),
             //   ],
             // ),

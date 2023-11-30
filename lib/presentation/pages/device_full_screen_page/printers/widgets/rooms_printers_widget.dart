@@ -1,6 +1,7 @@
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/application/printers/printers_watcher/printers_watcher_bloc.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/printers/widgets/room_printers.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/smart_computers/widgets/critical_smart_computers_failure_display_widget.dart';
@@ -100,7 +101,7 @@ class RoomsPrintersWidget extends StatelessWidget {
                     Container(
                       margin: const EdgeInsets.symmetric(vertical: 30),
                       alignment: Alignment.center,
-                      child: Image.asset(
+                      child: ImageAtom(
                         'assets/cbj_logo.png',
                         fit: BoxFit.fitHeight,
                       ),
@@ -109,7 +110,7 @@ class RoomsPrintersWidget extends StatelessWidget {
                       onPressed: () {
                         Navigator.pop(context);
                       },
-                      child: Text(
+                      child: TextAtom(
                         'Printers does not exist.',
                         style: TextStyle(
                           fontSize: 30,
@@ -128,7 +129,7 @@ class RoomsPrintersWidget extends StatelessWidget {
             );
           },
           printersError: (PrintersError value) {
-            return const Text('Error');
+            return const TextAtom('Error');
           },
         );
       },

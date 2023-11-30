@@ -1,5 +1,5 @@
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/home_page/tabs/history_tab/settings_page_of_history.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -26,18 +26,18 @@ class HistoryTab extends StatelessWidget {
             ),
           ),
         ),
-        Text(
+        TextAtom(
           'Actions_History',
           style: TextStyle(
             fontSize: 23.0,
             color: Theme.of(context).textTheme.bodyLarge!.color,
             decoration: TextDecoration.underline,
           ),
-        ).tr(),
+        ),
         Container(
           height: 20,
         ),
-        const Text('Empty_history').tr(),
+        const TextAtom('Empty_history'),
       ],
     );
   }

@@ -1,8 +1,8 @@
-import 'package:cybear_jinni/application/devices/device_watcher/device_watcher_bloc.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/application/devices/device_watcher/device_watcher_bloc.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/lights/widgets/critical_light_failure_display_widget.dart';
 import 'package:cybear_jinni/presentation/pages/home_page/tabs/smart_devices_tab/rooms_widgets/rooms_list_view_widget.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -21,7 +21,7 @@ class SmartDevicesByRooms extends StatelessWidget {
               SizedBox(
                 height: 30,
               ),
-              Text(
+              TextAtom(
                 'Searching for CyBear Jinni Hub',
                 style: TextStyle(
                   fontSize: 18,
@@ -46,7 +46,7 @@ class SmartDevicesByRooms extends StatelessWidget {
                       Container(
                         margin: const EdgeInsets.only(bottom: 10),
                         alignment: Alignment.center,
-                        child: Image.asset(
+                        child: ImageAtom(
                           'assets/cbj_logo.png',
                           width: 200.0,
                           fit: BoxFit.fill,
@@ -61,7 +61,7 @@ class SmartDevicesByRooms extends StatelessWidget {
                       ),
                       child: Stack(
                         children: <Widget>[
-                          Text(
+                          TextAtom(
                             'Areas',
                             style: TextStyle(
                               fontSize: 35,
@@ -70,15 +70,15 @@ class SmartDevicesByRooms extends StatelessWidget {
                                 ..strokeWidth = 3
                                 ..color = Colors.black.withOpacity(0.2),
                             ),
-                          ).tr(),
-                          Text(
+                          ),
+                          TextAtom(
                             'Areas',
                             style: TextStyle(
                               fontSize: 35,
                               color:
                                   Theme.of(context).textTheme.bodyLarge!.color,
                             ),
-                          ).tr(),
+                          ),
                         ],
                       ),
                     ),
@@ -110,14 +110,14 @@ class SmartDevicesByRooms extends StatelessWidget {
                       Container(
                         margin: const EdgeInsets.symmetric(vertical: 30),
                         alignment: Alignment.center,
-                        child: Image.asset(
+                        child: ImageAtom(
                           'assets/cbj_logo.png',
                           fit: BoxFit.fitHeight,
                         ),
                       ),
                       Align(
                         alignment: Alignment.topCenter,
-                        child: Text(
+                        child: TextAtom(
                           'Devices list is empty',
                           style: TextStyle(
                             fontSize: 30,
@@ -137,7 +137,7 @@ class SmartDevicesByRooms extends StatelessWidget {
             );
           },
           error: (Error value) {
-            return const Text('Error');
+            return const TextAtom('Error');
           },
         );
       },

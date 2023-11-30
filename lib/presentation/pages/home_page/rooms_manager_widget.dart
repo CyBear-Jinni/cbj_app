@@ -1,3 +1,4 @@
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:flutter/material.dart';
 
 ///  This class show all the rooms in the house and quick access to the light switch from the rom_widget page
@@ -11,7 +12,7 @@ class RoomsManagerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text('RoomsManagerWidget');
+    return const TextAtom('RoomsManagerWidget');
     //   Expanded(
     //   child: ListView.builder(
     //     padding: const EdgeInsets.fromLTRB(5, 10, 5, 0),

@@ -1,4 +1,4 @@
-import 'package:easy_localization/easy_localization.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -67,14 +67,13 @@ class TopNavigationBar extends StatelessWidget {
                   )
                 else
                   const SizedBox(),
-                Text(
+                TextAtom(
                   pageName!,
                   style: TextStyle(
                     fontSize: 16.0,
                     color: Theme.of(context).textTheme.bodyLarge!.color,
                   ),
-                ).tr(),
-              ],
+                ),              ],
             ),
             if (rightIcon != null)
               Row(

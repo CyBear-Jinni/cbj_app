@@ -2,6 +2,7 @@ import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/user_homes_list/user_homes_list_bloc.dart';
 import 'package:cybear_jinni/domain/user/all_homes_of_user/all_homes_of_user_entity.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,17 +21,17 @@ class HomeCardWidget extends StatelessWidget {
     return BlocBuilder<UserHomesListBloc, UserHomesListState>(
       builder: (context, state) {
         state.map(
-          initial: (_) => const Text('initial'),
-          loadInProgress: (_) => const Text('loadInProgress'),
-          loadSuccess: (_) => const Text('loadInSuccess'),
+          initial: (_) => const TextAtom('initial'),
+          loadInProgress: (_) => const TextAtom('loadInProgress'),
+          loadSuccess: (_) => const TextAtom('loadInSuccess'),
           enterHome: (_) {
             context.router.replace(const HomeRoute());
           },
-          loadFailure: (_) => const Text('loadFailure'),
+          loadFailure: (_) => const TextAtom('loadFailure'),
           loadFailureEnteringHome: (_) => FlushbarHelper.createError(
             message: "Can't enter this home",
           ),
-          error: (_) => const Text('error'),
+          error: (_) => const TextAtom('error'),
         );
         return TextButton(
           onPressed: () {
@@ -59,7 +60,7 @@ class HomeCardWidget extends StatelessWidget {
                 title: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
+                    TextAtom(
                       home!.name!.getOrCrash()!,
                       style: TextStyle(
                         color: Theme.of(context).textTheme.bodyLarge!.color,

@@ -1,6 +1,6 @@
-import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:provider/src/provider.dart';
@@ -114,26 +114,24 @@ class _LightColorMods extends State<LightColorMods> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               TextButton(
-                child: Text(
+                child: TextAtom(
                   'White',
                   style: TextStyle(
                     color: (colorModFocus == 0) ? Colors.red : Colors.grey,
                     fontSize: 18,
                   ),
-                ).tr(),
-                onPressed: () {
+                ),                onPressed: () {
                   _showWhiteMode();
                 },
               ),
               TextButton(
-                child: Text(
+                child: TextAtom(
                   'Color',
                   style: TextStyle(
                     color: (colorModFocus == 1) ? Colors.red : Colors.grey,
                     fontSize: 18,
                   ),
-                ).tr(),
-                onPressed: () {
+                ),                onPressed: () {
                   _showColorMode();
                 },
               ),

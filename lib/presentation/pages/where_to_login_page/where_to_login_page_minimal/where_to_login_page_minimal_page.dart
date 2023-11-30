@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/auth/auth_bloc.dart';
 import 'package:cybear_jinni/application/user_homes_list/user_homes_list_bloc.dart';
 import 'package:cybear_jinni/injection.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
 import 'package:cybear_jinni/presentation/pages/where_to_login_page/where_to_login_page_minimal/widgets/user_homes_list_widget.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,7 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.deepPurpleAccent[200]!.withOpacity(0.6),
-        title: const Text('Choose type of login'),
+        title: const TextAtom('Choose type of login'),
       ),
       body: Column(
         children: <Widget>[
@@ -37,7 +38,7 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(10)),
             ),
             alignment: Alignment.center,
-            child: Text(
+            child: TextAtom(
               'What would you like to do',
               style: TextStyle(
                 fontSize: 25,
@@ -74,7 +75,7 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
                           const SizedBox(
                             width: 20,
                           ),
-                          Text(
+                          TextAtom(
                             'Create Your Home',
                             style: TextStyle(
                               fontSize: 25,
@@ -113,7 +114,7 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
                           const SizedBox(
                             width: 20,
                           ),
-                          Text(
+                          TextAtom(
                             'Join Existing Home',
                             style: TextStyle(
                               fontSize: 25,
@@ -131,7 +132,7 @@ class WhereToLoginPageMinimalPage extends StatelessWidget {
                   width: double.infinity,
                   color: Colors.black87,
                   child: const Center(
-                    child: Text(
+                    child: TextAtom(
                       'Homes you have add',
                       style: TextStyle(fontSize: 20),
                     ),

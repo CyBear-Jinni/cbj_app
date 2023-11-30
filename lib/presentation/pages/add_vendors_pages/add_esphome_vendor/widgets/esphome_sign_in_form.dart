@@ -1,11 +1,11 @@
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/domain/vendors/login_abstract/core_login_failures.dart';
-import 'package:cybear_jinni/application/esphome_auth/esphome_sign_in_form/esphome_sign_in_form_bloc.dart';
 import 'package:cbj_integrations_controller/domain/vendors/vendor_data.dart';
+import 'package:cybear_jinni/application/esphome_auth/esphome_sign_in_form/esphome_sign_in_form_bloc.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
 import 'package:dartz/dartz.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -66,7 +66,7 @@ class EspHomeSignInForm extends StatelessWidget {
                       ),
                     ),
                   ),
-                  // Image.asset('assets/cbj_logo.png'),
+                  // ImageAtom('assets/cbj_logo.png'),
                 ),
               ),
               const SizedBox(
@@ -123,7 +123,7 @@ class EspHomeSignInForm extends StatelessWidget {
                         );
                         Navigator.pop(context);
                       },
-                      child: const Text('SIGN IN').tr(),
+                      child: const TextAtom('SIGN IN'),
                     ),
                   ),
                 ],

@@ -1,5 +1,6 @@
 import 'package:clipboard/clipboard.dart';
 import 'package:cybear_jinni/application/add_user_to_home/add_user_to_home_bloc.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -12,7 +13,7 @@ class AddUserToHomeWidget extends StatelessWidget {
     return BlocConsumer<AddUserToHomeBloc, AddUserToHomeState>(
       listener: (context, state) {
         state.map(
-          (value) => const Text('Initial'),
+          (value) => const TextAtom('Initial'),
           actionInProgress: (_) {
             return const CircularProgressIndicator(
               backgroundColor: Colors.cyan,
@@ -20,10 +21,11 @@ class AddUserToHomeWidget extends StatelessWidget {
             );
           },
           addingUserSuccess: (s) {
-            return TextButton(onPressed: () {}, child: const Text('Success'));
+            return TextButton(
+                onPressed: () {}, child: const TextAtom('Success'));
           },
           addingHomeFailure: (e) {
-            return const Text('Failure');
+            return const TextAtom('Failure');
           },
         );
       },
@@ -38,7 +40,7 @@ class AddUserToHomeWidget extends StatelessWidget {
                 const SizedBox(
                   width: 10,
                 ),
-                const Text('Email'),
+                const TextAtom('Email'),
                 const SizedBox(
                   width: 30,
                 ),
@@ -82,7 +84,7 @@ class AddUserToHomeWidget extends StatelessWidget {
                       AddUserToHomeEvent.addUserToHomeByEmail(userToAddEmail),
                     );
               },
-              child: Text(
+              child: TextAtom(
                 'Add User',
                 style: TextStyle(
                   color: Theme.of(context).textTheme.bodyLarge!.color,
@@ -105,7 +107,7 @@ class AddUserToHomeWidget extends StatelessWidget {
                       const SizedBox(
                         height: 30,
                       ),
-                      Text(
+                      TextAtom(
                         'User have been add successfully',
                         style: TextStyle(
                           color: Theme.of(context).textTheme.bodyLarge!.color,
@@ -118,7 +120,7 @@ class AddUserToHomeWidget extends StatelessWidget {
                       const SizedBox(
                         height: 30,
                       ),
-                      Text(
+                      TextAtom(
                         'Copy home ID',
                         style: TextStyle(
                           color: Theme.of(context).textTheme.bodyLarge!.color,
@@ -149,8 +151,8 @@ class AddUserToHomeWidget extends StatelessWidget {
                         },
                         child: Column(
                           children: <Widget>[
-                            const Text('Press to copy'),
-                            Text(
+                            const TextAtom('Press to copy'),
+                            TextAtom(
                               s.homeId,
                               style: TextStyle(
                                 color: Theme.of(context)
@@ -164,7 +166,7 @@ class AddUserToHomeWidget extends StatelessWidget {
                           ],
                         ),
                       ),
-                      Text(
+                      TextAtom(
                         'Please give home id to the user, he needs it to'
                         ' join the home.',
                         style: TextStyle(
@@ -177,7 +179,7 @@ class AddUserToHomeWidget extends StatelessWidget {
                 );
               },
               addingHomeFailure: (e) {
-                return Text(
+                return TextAtom(
                   'Adding user Failed.\n'
                   'Did the user already created account with that email?',
                   style: TextStyle(

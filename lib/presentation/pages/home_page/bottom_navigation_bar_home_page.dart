@@ -1,4 +1,3 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
@@ -20,20 +19,20 @@ class BottomNavigationBarHomePage extends StatelessWidget {
         BottomNavigationBarItem(
           activeIcon: Icon(MdiIcons.sitemap),
           icon: Icon(MdiIcons.sitemapOutline),
-          label: 'Automations'.tr(),
+          label: 'Automations',
         ),
         BottomNavigationBarItem(
           activeIcon: Icon(MdiIcons.lightbulbOn),
           icon: Icon(MdiIcons.lightbulbOutline),
-          label: 'Devices'.tr(),
+          label: 'Devices',
         ),
         // BottomNavigationBarItem(
         //   icon: const FaIcon(FontAwesomeIcons.history),
-        //   label: 'Routines'.tr(),
+        //   label: 'Routines'.
         // ),
         // BottomNavigationBarItem(
         //   icon: const FaIcon(FontAwesomeIcons.link),
-        //   label: 'Bindings'.tr(),
+        //   label: 'Bindings'.
         // ),
       ],
     );

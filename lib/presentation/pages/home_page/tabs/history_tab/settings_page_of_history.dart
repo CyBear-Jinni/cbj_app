@@ -1,4 +1,4 @@
-import 'package:easy_localization/easy_localization.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -45,14 +45,14 @@ class SettingsPageOfHistory extends StatelessWidget {
                 onPressed: () => Navigator.pop(context),
               ),
             ),
-            Text(
+            TextAtom(
               'History_Settings_Page',
               style: TextStyle(
                 fontSize: 23.0,
                 color: Theme.of(context).textTheme.bodyLarge!.color,
                 decoration: TextDecoration.underline,
               ),
-            ).tr(),
+            ),
           ],
         ),
       ),

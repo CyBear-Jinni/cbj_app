@@ -3,6 +3,7 @@ import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstr
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_computer_device/generic_smart_computer_entity.dart';
 import 'package:cybear_jinni/application/smart_computers/smart_computers_actor/smart_computers_actor_bloc.dart';
 import 'package:cybear_jinni/injection.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/smart_computers/widgets/error_smart_computers_device_card_widget.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/smart_computers/widgets/smart_computer_widget.dart';
 import 'package:flutter/material.dart';
@@ -145,7 +146,7 @@ class RoomSmartComputers extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text(
+                  TextAtom(
                     _roomEntity,
                     style: TextStyle(
                       color: Theme.of(context).textTheme.bodyLarge!.color,

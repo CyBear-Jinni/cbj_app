@@ -1,4 +1,5 @@
 import 'package:cybear_jinni/application/remote_pipes/remote_pipes_bloc.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -16,7 +17,7 @@ class RemotePipesWidget extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
+              const TextAtom(
                 'Please insert the Remote Pipes domain',
                 style: TextStyle(color: Colors.black, fontSize: 25),
               ),
@@ -64,7 +65,7 @@ class RemotePipesWidget extends StatelessWidget {
                         RemotePipesEvent.addRemotePipeUrl(context),
                       );
                 },
-                child: const Text('Connect'),
+                child: const TextAtom('Connect'),
               ),
             ],
           ),

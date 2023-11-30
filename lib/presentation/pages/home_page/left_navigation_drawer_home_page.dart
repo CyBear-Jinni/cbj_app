@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +36,7 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                     ),
                     Row(
                       children: <Widget>[
-                        Text(
+                        TextAtom(
                           'Settings',
                           style: TextStyle(
                             color: Theme.of(context).textTheme.bodyLarge!.color,
@@ -51,7 +52,7 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                       children: [
                         Container(
                           alignment: Alignment.center,
-                          child: Image.asset(
+                          child: ImageAtom(
                             'assets/cbj_half_app_logo.png',
                             width: 70.0,
                           ),
@@ -59,7 +60,7 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                         const SizedBox(
                           width: 20,
                         ),
-                        Text(
+                        TextAtom(
                           'CyBear Jinni',
                           style: TextStyle(
                             color: Theme.of(context).textTheme.bodyLarge!.color,
@@ -92,7 +93,7 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                         color: Theme.of(context).textTheme.bodyLarge!.color,
                         size: 25,
                       ),
-                      title: Text(
+                      title: TextAtom(
                         'Log Out',
                         style: TextStyle(
                           color: Theme.of(context).textTheme.bodyLarge!.color,
@@ -116,7 +117,7 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                         color: Theme.of(context).textTheme.bodyLarge!.color,
                         size: 25,
                       ),
-                      title: Text(
+                      title: TextAtom(
                         'Software Info',
                         style: TextStyle(
                           color: Theme.of(context).textTheme.bodyLarge!.color,
@@ -140,7 +141,7 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                         color: Theme.of(context).textTheme.bodyLarge!.color,
                         size: 25,
                       ),
-                      title: Text(
+                      title: TextAtom(
                         'Add Remote Control Support',
                         style: TextStyle(
                           color: Theme.of(context).textTheme.bodyLarge!.color,
@@ -164,7 +165,7 @@ class LeftNavigationDrawerHomePage extends StatelessWidget {
                   //       color: Theme.of(context).textTheme.bodyLarge!.color,
                   //       size: 25,
                   //     ),
-                  //     title: Text(
+                  //     title: TextAtom(
                   //       'Manage Users',
                   //       style: TextStyle(
                   //         color: Theme.of(context).textTheme.bodyLarge!.color,

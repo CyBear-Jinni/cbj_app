@@ -1,8 +1,8 @@
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_plug_device/generic_smart_plug_entity.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/shared_widgets/top_navigation_bar.dart';
 import 'package:cybear_jinni/utils.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -31,18 +31,20 @@ class SettingsPageOfSmartPlugs extends StatelessWidget {
             leading: CircleAvatar(
               child: Icon(MdiIcons.powerSocketAu),
             ),
-            title: Text(
+            title: TextAtom(
               'Name:_',
               style: TextStyle(
                 color: Theme.of(context).textTheme.bodyLarge!.color,
               ),
-            ).tr(args: <String>[smartPlugName]),
-            subtitle: Text(
+              translationArgs: [smartPlugName],
+            ),
+            subtitle: TextAtom(
               'Room:_',
               style: TextStyle(
                 color: Theme.of(context).textTheme.bodyLarge!.color,
               ),
-            ).tr(args: <String>[roomName]),
+              translationArgs: [roomName],
+            ),
             trailing: IconButton(
               icon: FaIcon(
                 FontAwesomeIcons.pen,

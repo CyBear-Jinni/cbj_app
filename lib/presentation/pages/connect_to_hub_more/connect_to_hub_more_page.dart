@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/more_connections_options/more_connections_options_bloc.dart';
 import 'package:cybear_jinni/injection.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/connect_to_hub_more/widgets/connect_to_hub_more_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -33,7 +34,7 @@ class ConnectToHubMorePage extends StatelessWidget {
             ),
             Container(
               alignment: Alignment.center,
-              child: const Text(
+              child: const TextAtom(
                 'More Connections Options',
                 textAlign: TextAlign.center,
                 style: TextStyle(
@@ -76,7 +77,7 @@ class ConnectToHubMorePage extends StatelessWidget {
                       backgroundColor: HexColor('#985dc7'),
                       foregroundColor: Colors.white,
                     ),
-                    child: const Text(
+                    child: const TextAtom(
                       'Back',
                       style: TextStyle(color: Colors.white),
                     ),

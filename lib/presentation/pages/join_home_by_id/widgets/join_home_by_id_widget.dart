@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:clipboard/clipboard.dart';
 import 'package:cybear_jinni/application/join_home_by_id/join_home_by_id_bloc.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,10 +22,10 @@ class JoinHomeByIdWidget extends StatelessWidget {
             );
           },
           loaded: (l) {
-            return const Text('Loaded');
+            return const TextAtom('Loaded');
           },
           error: (e) {
-            return const Text('Failure');
+            return const TextAtom('Failure');
           },
         );
       },
@@ -45,7 +46,7 @@ class JoinHomeByIdWidget extends StatelessWidget {
                     .read<JoinHomeByIdBloc>()
                     .add(JoinHomeByIdEvent.addHomeById(fromClipboard));
               },
-              child: Text(
+              child: TextAtom(
                 'Paste and search',
                 style: TextStyle(
                   color: Theme.of(context).textTheme.bodyLarge!.color,
@@ -60,7 +61,7 @@ class JoinHomeByIdWidget extends StatelessWidget {
                 const SizedBox(
                   width: 10,
                 ),
-                const Text('Home ID'),
+                const TextAtom('Home ID'),
                 const SizedBox(
                   width: 30,
                 ),
@@ -102,7 +103,7 @@ class JoinHomeByIdWidget extends StatelessWidget {
                     .read<JoinHomeByIdBloc>()
                     .add(JoinHomeByIdEvent.addHomeById(homeId));
               },
-              child: Text(
+              child: TextAtom(
                 'Join Home from text form',
                 style: TextStyle(
                   color: Theme.of(context).textTheme.bodyLarge!.color,
@@ -120,10 +121,10 @@ class JoinHomeByIdWidget extends StatelessWidget {
               loaded: (l) {
                 context.router.replace(const HomeRoute());
 
-                return const Text('Loaded');
+                return const TextAtom('Loaded');
               },
               error: (e) {
-                return const Text('Failure');
+                return const TextAtom('Failure');
               },
             ),
           ],

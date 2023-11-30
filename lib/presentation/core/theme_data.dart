@@ -38,8 +38,8 @@ class GradientColors {
   ];
 }
 
-class BacgroundGradient {
-  static LinearGradient getBacground(BuildContext context) {
+class BackgroundGradient {
+  static LinearGradient getBackground(BuildContext context) {
     return LinearGradient(
       // Where the linear gradient begins and ends
       begin: Alignment.topRight,

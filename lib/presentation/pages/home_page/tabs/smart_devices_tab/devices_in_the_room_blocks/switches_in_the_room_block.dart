@@ -4,6 +4,7 @@ import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_switch_device/generic_switch_entity.dart';
 import 'package:cybear_jinni/application/switches/switches_actor/switches_actor_bloc.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/types_to_pass.dart';
 import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -71,7 +72,7 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Expanded(child: Text('')),
+                const Expanded(child: TextAtom('')),
                 Expanded(
                   child: Column(
                     children: [
@@ -105,7 +106,7 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
                           ),
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: Text(
+                        child: TextAtom(
                           switchesInRoom.length.toString(),
                           textAlign: TextAlign.center,
                           style: TextStyle(
@@ -117,7 +118,7 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
                     ),
                   )
                 else
-                  const Expanded(child: Text('')),
+                  const Expanded(child: TextAtom('')),
               ],
             ),
             const SizedBox(height: 5),
@@ -168,15 +169,14 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
                               ),
                             );
                       },
-                      child: Text(
+                      child: TextAtom(
                         'Off',
                         style: TextStyle(
                           fontSize: 14,
                           color: Theme.of(context).textTheme.bodyLarge!.color,
                         ),
-                      ).tr(),
-                    ),
-                    Text(
+                      ),                    ),
+                    TextAtom(
                       '·',
                       style: TextStyle(
                         fontSize: 14,
@@ -200,14 +200,13 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
                               ),
                             );
                       },
-                      child: Text(
+                      child: TextAtom(
                         'On',
                         style: TextStyle(
                           fontSize: 14,
                           color: Theme.of(context).textTheme.bodyLarge!.color,
                         ),
-                      ).tr(),
-                    ),
+                      ),                    ),
                   ],
                 );
               },

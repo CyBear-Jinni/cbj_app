@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_tv/generic_smart_tv_entity.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -70,7 +71,7 @@ class _SmartSmartTvPage extends State<SmartTvPage> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Text(
+        TextAtom(
           _switch!.cbjEntityName.getOrCrash()!, //  Show switch name
           style: TextStyle(
             fontSize: 19.0,
@@ -83,7 +84,7 @@ class _SmartSmartTvPage extends State<SmartTvPage> {
         if (_isLoading)
           const Center(child: CircularProgressIndicator())
         else
-          const Text('Smart Tv Widget'),
+          const TextAtom('Smart Tv Widget'),
       ],
     );
   }

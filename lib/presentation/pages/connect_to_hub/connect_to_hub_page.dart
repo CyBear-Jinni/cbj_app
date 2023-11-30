@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/hub_in_network/hub_in_network_bloc.dart';
 import 'package:cybear_jinni/injection.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/connect_to_hub/widgets/cbj_hub_in_network_widget.dart';
 import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
@@ -47,7 +48,7 @@ class ConnectToHubPage extends StatelessWidget {
                           ),
                           Container(
                             alignment: Alignment.center,
-                            child: const Text(
+                            child: const TextAtom(
                               ' Connect to Hub',
                               textAlign: TextAlign.center,
                               style: TextStyle(
@@ -81,7 +82,7 @@ class ConnectToHubPage extends StatelessWidget {
                                           width: 40,
                                         ),
                                         Flexible(
-                                          child: Text(
+                                          child: TextAtom(
                                             'Search a CyBear Jinni Hub in your network',
                                             style: TextStyle(
                                               color: Colors.white,
@@ -238,7 +239,7 @@ class ConnectToHubPage extends StatelessWidget {
                             minimumSize: const Size(70, 30),
                             backgroundColor: HexColor('#985dc7'),
                           ),
-                          child: const Text(
+                          child: const TextAtom(
                             'More',
                             style: TextStyle(color: Colors.white),
                           ),

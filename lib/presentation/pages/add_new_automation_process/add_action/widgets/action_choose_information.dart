@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/application/add_new_action/add_new_action_bloc.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/application/add_new_action/add_new_action_bloc.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -26,7 +27,7 @@ class ActionChooseInformation extends StatelessWidget {
                 ),
                 const Row(
                   children: [
-                    Text(
+                    TextAtom(
                       'Choose Action',
                       style: TextStyle(fontSize: 27),
                     ),
@@ -36,7 +37,7 @@ class ActionChooseInformation extends StatelessWidget {
                   dropdownColor: Colors.black,
                   style: const TextStyle(color: Colors.white),
                   icon: const Icon(Icons.arrow_drop_down),
-                  hint: Text(
+                  hint: TextAtom(
                     state.allDevicesWithNewAction.isNotEmpty
                         ? state.allDevicesWithNewAction[0].key.cbjEntityName
                             .getOrCrash()!
@@ -55,7 +56,7 @@ class ActionChooseInformation extends StatelessWidget {
                   items: state.allDevices.map<DropdownMenuItem<String>>((e) {
                     return DropdownMenuItem<String>(
                       value: e.uniqueId.getOrCrash(),
-                      child: Text(e.cbjEntityName.getOrCrash()!),
+                      child: TextAtom(e.cbjEntityName.getOrCrash()!),
                     );
                   }).toList(),
                 ),
@@ -66,7 +67,7 @@ class ActionChooseInformation extends StatelessWidget {
                   dropdownColor: Colors.black,
                   style: const TextStyle(color: Colors.white),
                   icon: const Icon(Icons.arrow_drop_down),
-                  hint: Text(
+                  hint: TextAtom(
                     state.propertyName != ''
                         ? state.propertyName
                         : 'Property to change',
@@ -87,13 +88,13 @@ class ActionChooseInformation extends StatelessWidget {
                           .map<DropdownMenuItem<String>>((e) {
                           return DropdownMenuItem<String>(
                             value: e,
-                            child: Text(e),
+                            child: TextAtom(e),
                           );
                         }).toList()
                       : <DropdownMenuItem<String>>[
                           const DropdownMenuItem<String>(
                             value: 'Choose device first',
-                            child: Text('Choose device first'),
+                            child: TextAtom('Choose device first'),
                           ),
                         ],
                 ),
@@ -104,7 +105,7 @@ class ActionChooseInformation extends StatelessWidget {
                   dropdownColor: Colors.black,
                   style: const TextStyle(color: Colors.white),
                   icon: const Icon(Icons.arrow_drop_down),
-                  hint: Text(
+                  hint: TextAtom(
                     state.actionsName != ''
                         ? state.actionsName
                         : 'Choose Action',
@@ -128,13 +129,13 @@ class ActionChooseInformation extends StatelessWidget {
                           .map<DropdownMenuItem<String>>((e) {
                           return DropdownMenuItem<String>(
                             value: e,
-                            child: Text(e),
+                            child: TextAtom(e),
                           );
                         }).toList()
                       : <DropdownMenuItem<String>>[
                           const DropdownMenuItem<String>(
                             value: 'Choose property first',
-                            child: Text('Choose property first'),
+                            child: TextAtom('Choose property first'),
                           ),
                         ],
                 ),
@@ -163,7 +164,7 @@ class ActionChooseInformation extends StatelessWidget {
                           state.allDevicesWithNewAction,
                         );
                       },
-                      child: const Text(
+                      child: const TextAtom(
                         'Done',
                         style: TextStyle(fontSize: 20),
                       ),

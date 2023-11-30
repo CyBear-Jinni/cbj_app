@@ -1,3 +1,4 @@
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -46,7 +47,7 @@ class AddBindingsPage extends StatelessWidget {
             const SizedBox(
               height: 100,
             ),
-            const Text(
+            const TextAtom(
               'Press here to set your home location',
               style: TextStyle(fontSize: 20),
             ),
@@ -62,7 +63,7 @@ class AddBindingsPage extends StatelessWidget {
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                child: Text(
+                child: TextAtom(
                   'Set Home Location',
                   style: TextStyle(
                     color: Theme.of(context).textTheme.bodyLarge!.color,
@@ -75,7 +76,7 @@ class AddBindingsPage extends StatelessWidget {
             ),
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 20),
-              child: const Text(
+              child: const TextAtom(
                 'By pressing here you allow the app to access your location'
                 ' even when the app is not open.',
                 style: TextStyle(fontSize: 14),

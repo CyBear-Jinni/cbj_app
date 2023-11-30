@@ -1,10 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/application/configure_new_cbj_comp/configure_new_cbj_comp_bloc.dart';
 import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/injection.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/devices_cards/blinds_card.dart';
 import 'package:cybear_jinni/presentation/core/devices_cards/light_card.dart';
 import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
@@ -56,7 +57,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                     margin: const EdgeInsets.symmetric(horizontal: 40),
                     child: Row(
                       children: [
-                        Text('Type: ${device.entityTypes.getOrCrash()}'),
+                        TextAtom('Type: ${device.entityTypes.getOrCrash()}'),
                         Expanded(
                           child: Center(
                             child: BlocProvider(
@@ -74,7 +75,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                     margin: const EdgeInsets.symmetric(horizontal: 40),
                     child: Row(
                       children: [
-                        Text('Type: ${device.entityTypes.getOrCrash()}'),
+                        TextAtom('Type: ${device.entityTypes.getOrCrash()}'),
                         Expanded(
                           child: Center(
                             child: BlocProvider(
@@ -90,7 +91,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                     EntityTypes.blinds.toString())
                   Column(
                     children: [
-                      Text('Type: ${device.entityTypes.getOrCrash()}'),
+                      TextAtom('Type: ${device.entityTypes.getOrCrash()}'),
                       Center(
                         child: BlocProvider(
                           create: (context) => getIt<LightToggleBloc>(),
@@ -146,7 +147,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
               children: [
                 Expanded(
                   child: Center(
-                    child: Text(
+                    child: TextAtom(
                       'Type ${device.entityTypes.getOrCrash()} is not supported yet',
                       style: TextStyle(
                         color: Theme.of(context).textTheme.bodyLarge!.color,
@@ -183,7 +184,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
 
             state = const ConfigureNewCbjCompState.actionInProgress(0);
 
-            return Text(
+            return TextAtom(
               'Configure devices',
               style: TextStyle(
                 color: Theme.of(context).textTheme.bodyLarge!.color,
@@ -204,7 +205,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                   ),
                   alignment: Alignment.center,
-                  child: Text(
+                  child: TextAtom(
                     'Connecting computer to WiFi',
                     style: TextStyle(
                       fontSize: 25,
@@ -228,7 +229,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                                 Theme.of(context).textTheme.bodyLarge!.color,
                             borderColor: Colors.red.withOpacity(0.9),
                             borderWidth: 4.0,
-                            center: const Text(
+                            center: const TextAtom(
                               'Loading...',
                               style: TextStyle(color: Colors.black),
                             ),
@@ -238,7 +239,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                         const SizedBox(
                           height: 20,
                         ),
-                        Text(
+                        TextAtom(
                           'Please wait as we are setting your new computer',
                           style: TextStyle(
                             color: Theme.of(context).textTheme.bodyLarge!.color,
@@ -258,7 +259,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
             );
           },
           errorInProcess: (value) {
-            return Text(
+            return TextAtom(
               'Error in the process.',
               style: TextStyle(
                 color: Theme.of(context).textTheme.bodyLarge!.color,
@@ -271,7 +272,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                 cbjCompEntity: cbjCompEntity,
               ),
             );
-            return Text(
+            return TextAtom(
               'Computer have been configured.',
               style: TextStyle(
                 color: Theme.of(context).textTheme.bodyLarge!.color,

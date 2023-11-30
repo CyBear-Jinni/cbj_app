@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/hub_in_network/hub_in_network_bloc.dart';
 import 'package:cybear_jinni/domain/hub/hub_failures.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,19 +14,19 @@ class CbjHubInNetworkWidget extends StatelessWidget {
     return BlocBuilder<HubInNetworkBloc, HubInNetworkState>(
       builder: (context, state) {
         return state.map(
-          initial: (_) => const Text('Go'),
+          initial: (_) => const TextAtom('Go'),
           loadInProgress: (_) => const SizedBox(
             height: 70,
             width: 70,
             child: CircularProgressIndicator(),
           ),
-          loadSuccess: (_) => const Text('Found hub'),
+          loadSuccess: (_) => const TextAtom('Found hub'),
           loadSuccessSecurityCamera: (loadSuccessSecurityCamera value) {
             context.router.push(
               VideoStreamOutputContainerRoute(streamAddress: value.address),
             );
 
-            return const Text('Found Smart Camera');
+            return const TextAtom('Found Smart Camera');
           },
           loadFailure: (failure) {
             if (failure.hubFailure ==
@@ -33,7 +34,7 @@ class CbjHubInNetworkWidget extends StatelessWidget {
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text(
+                  const TextAtom(
                     "Can't find a Hub in your network.",
                     style: TextStyle(color: Colors.white),
                   ),
@@ -53,7 +54,7 @@ class CbjHubInNetworkWidget extends StatelessWidget {
                                 const HubInNetworkEvent.searchHubInNetwork(),
                               );
                         },
-                        child: const Text('Retry'),
+                        child: const TextAtom('Retry'),
                       ),
                       const SizedBox(
                         width: 40,
@@ -72,7 +73,7 @@ class CbjHubInNetworkWidget extends StatelessWidget {
                                 ),
                               );
                         },
-                        child: const Text('Retry Manually'),
+                        child: const TextAtom('Retry Manually'),
                       ),
                     ],
                   ),
@@ -80,7 +81,7 @@ class CbjHubInNetworkWidget extends StatelessWidget {
               );
             } else if (failure.hubFailure ==
                 const HubFailures.automaticHubSearchNotSupportedOnWeb()) {
-              return const Text(
+              return const TextAtom(
                 'Automatic search does not supported on the web.',
               );
             } else if (failure.hubFailure ==
@@ -96,7 +97,7 @@ class CbjHubInNetworkWidget extends StatelessWidget {
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text("Unexpected error"),
+                const TextAtom("Unexpected error"),
                 const SizedBox(
                   height: 20,
                 ),
@@ -109,19 +110,19 @@ class CbjHubInNetworkWidget extends StatelessWidget {
                           const HubInNetworkEvent.searchHubInNetwork(),
                         );
                   },
-                  child: const Text('Retry'),
+                  child: const TextAtom('Retry'),
                 ),
               ],
             );
           },
-          lightError: (_) => const Text('Got Error'),
+          lightError: (_) => const TextAtom('Got Error'),
           tryIpManually: (TryIpManually tryIpManuallyValue) {
             String anyIpOnTheNetwork = tryIpManuallyValue.ipOnTheNetwork;
 
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
+                const TextAtom(
                   "Automatic search currently supported only on WiFi.\n"
                   "Please enter manually any IP on the network or connect the device to WiFi and try again.",
                   style: TextStyle(
@@ -152,7 +153,7 @@ class CbjHubInNetworkWidget extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
+                    const TextAtom(
                       'Is Hub IP',
                       style: TextStyle(
                         fontSize: 17,
@@ -179,7 +180,7 @@ class CbjHubInNetworkWidget extends StatelessWidget {
                       showDialog(
                         context: context,
                         builder: (_) => const AlertDialog(
-                          title: Text(
+                          title: TextAtom(
                             'Please insert valid IP before clicking the Search Button',
                           ),
                         ),
@@ -193,7 +194,7 @@ class CbjHubInNetworkWidget extends StatelessWidget {
                           ),
                         );
                   },
-                  child: const Text(
+                  child: const TextAtom(
                     'Search',
                     style: TextStyle(color: Colors.white),
                   ),
@@ -209,7 +210,7 @@ class CbjHubInNetworkWidget extends StatelessWidget {
                           const HubInNetworkEvent.searchHubInNetwork(),
                         );
                   },
-                  child: const Text('Retry'),
+                  child: const TextAtom('Retry'),
                 ),
               ],
             );

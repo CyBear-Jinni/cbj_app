@@ -1,5 +1,6 @@
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_tv/generic_smart_tv_entity.dart';
 import 'package:cybear_jinni/application/smart_tv/smart_tv_actor/smart_tv_actor_bloc.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -28,7 +29,7 @@ class OpenUrlPopUp {
           contentPadding: const EdgeInsets.only(
             top: 10.0,
           ),
-          title: const Text(
+          title: const TextAtom(
             "Open URL",
             style: TextStyle(fontSize: 24.0),
           ),
@@ -67,7 +68,7 @@ class OpenUrlPopUp {
                         backgroundColor: Colors.black,
                         // fixedSize: Size(250, 50),
                       ),
-                      child: const Text(
+                      child: const TextAtom(
                         "Submit",
                       ),
                     ),

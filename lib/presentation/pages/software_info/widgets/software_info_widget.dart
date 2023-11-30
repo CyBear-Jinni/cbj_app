@@ -1,5 +1,6 @@
 import 'package:cybear_jinni/application/software_info/software_info_bloc.dart';
 import 'package:cybear_jinni/domain/software_info/software_info_entity.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -27,7 +28,7 @@ class SoftwareInfoWidget extends StatelessWidget {
                     softwareInfoEntities[key];
                 return Column(
                   children: [
-                    Text(
+                    TextAtom(
                       key,
                       style: const TextStyle(fontSize: 26),
                     ),
@@ -38,8 +39,8 @@ class SoftwareInfoWidget extends StatelessWidget {
                           ListTile(
                             title: Row(
                               children: [
-                                const Text('Device name: '),
-                                Text(
+                                const TextAtom('Device name: '),
+                                TextAtom(
                                   softwareInfoEntity?.deviceName.getOrCrash() ??
                                       'No Info',
                                 ),
@@ -49,8 +50,8 @@ class SoftwareInfoWidget extends StatelessWidget {
                           ListTile(
                             title: Row(
                               children: [
-                                const Text('Pubspec yaml version: '),
-                                Text(
+                                const TextAtom('Pubspec yaml version: '),
+                                TextAtom(
                                   softwareInfoEntity?.pubspecYamlVersion
                                           .getOrCrash() ??
                                       'No Info',
@@ -61,8 +62,8 @@ class SoftwareInfoWidget extends StatelessWidget {
                           ListTile(
                             title: Row(
                               children: [
-                                const Text('Proto last gen date: '),
-                                Text(
+                                const TextAtom('Proto last gen date: '),
+                                TextAtom(
                                   softwareInfoEntity?.protoLastGenDate
                                           .getOrCrash() ??
                                       'No Info',
@@ -74,9 +75,9 @@ class SoftwareInfoWidget extends StatelessWidget {
                             title: Row(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const Text('Dart SDK version: '),
+                                const TextAtom('Dart SDK version: '),
                                 Flexible(
-                                  child: Text(
+                                  child: TextAtom(
                                     softwareInfoEntity?.dartSdkVersion
                                             .getOrCrash() ??
                                         'No Info',
@@ -88,8 +89,8 @@ class SoftwareInfoWidget extends StatelessWidget {
                           ListTile(
                             title: Row(
                               children: [
-                                const Text('Comp id: '),
-                                Text(
+                                const TextAtom('Comp id: '),
+                                TextAtom(
                                   softwareInfoEntity?.compId.getOrCrash() ??
                                       'No Info',
                                 ),
@@ -99,8 +100,8 @@ class SoftwareInfoWidget extends StatelessWidget {
                           ListTile(
                             title: Row(
                               children: [
-                                const Text('Comp uuid: '),
-                                Text(
+                                const TextAtom('Comp uuid: '),
+                                TextAtom(
                                   softwareInfoEntity?.compUuid.getOrCrash() ??
                                       'No Info',
                                 ),
@@ -110,8 +111,8 @@ class SoftwareInfoWidget extends StatelessWidget {
                           ListTile(
                             title: Row(
                               children: [
-                                const Text('Comp os: '),
-                                Text(
+                                const TextAtom('Comp os: '),
+                                TextAtom(
                                   softwareInfoEntity?.compOs.getOrCrash() ??
                                       'No Info',
                                 ),

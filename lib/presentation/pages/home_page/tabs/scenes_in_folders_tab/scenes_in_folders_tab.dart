@@ -1,9 +1,9 @@
 import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
 import 'package:cybear_jinni/application/folders_of_scenes/folders_of_scenes_bloc.dart';
 import 'package:cybear_jinni/injection.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/home_page/tabs/scenes_in_folders_tab/widgets/scenes_in_folders_l.dart';
 import 'package:cybear_jinni/presentation/pages/shared_widgets/top_navigation_bar.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -16,7 +16,7 @@ class ScenesInFoldersTab extends StatelessWidget {
       context: context,
       actions: <BottomSheetAction>[
         BottomSheetAction(
-          title: const Text(
+          title: const TextAtom(
             '⚙️ Scenes Settings',
             style: TextStyle(
               color: Colors.blueGrey,
@@ -49,7 +49,7 @@ class ScenesInFoldersTab extends StatelessWidget {
     return Column(
       children: <Widget>[
         TopNavigationBar(
-          pageName: 'Automations'.tr(),
+          pageName: 'Automations',
           rightIcon: null,
           rightIconFunction: userCogFunction,
           leftIcon: FontAwesomeIcons.sitemap,

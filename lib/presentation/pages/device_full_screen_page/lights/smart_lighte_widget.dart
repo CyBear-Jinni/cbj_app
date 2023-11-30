@@ -4,6 +4,7 @@ import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/pr
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_light_device/generic_light_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_light_device/generic_light_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums_cbj.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -77,7 +78,7 @@ class _SmartLightPage extends State<SmartLightPage> {
     final Size screenSize = MediaQuery.of(context).size;
     return Column(
       children: <Widget>[
-        Text(
+        TextAtom(
           _light!.cbjEntityName.getOrCrash()!, //  Show light name
           style: TextStyle(
             fontSize: 19.0,

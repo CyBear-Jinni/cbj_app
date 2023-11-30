@@ -1,4 +1,5 @@
 import 'package:cybear_jinni/application/manage_users/manage_users_bloc.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/manage_users/widgets/error_user_card_widget.dart';
 import 'package:cybear_jinni/presentation/pages/manage_users/widgets/user_card_widget.dart';
 import 'package:flutter/material.dart';
@@ -9,9 +10,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class ManageUsersWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
-    final double sizeBoxWidth = screenSize.width * 0.25;
-
     return BlocBuilder<ManageUsersBloc, ManageUsersState>(
       builder: (context, state) {
         return state.map(
@@ -38,19 +36,19 @@ class ManageUsersWidget extends StatelessWidget {
             );
           },
           loadFailure: (state) {
-            return const Text('Load Failure');
+            return const TextAtom('Load Failure');
           },
           addSuccess: (state) {
-            return const Text('Add Success');
+            return const TextAtom('Add Success');
           },
           deleteFailure: (state) {
-            return const Text('Delete Failure');
+            return const TextAtom('Delete Failure');
           },
           deleteSuccess: (state) {
-            return const Text('Delete Success');
+            return const TextAtom('Delete Success');
           },
           error: (state) {
-            return const Text('Error');
+            return const TextAtom('Error');
           },
         );
       },

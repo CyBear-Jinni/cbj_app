@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/application/auth/auth_bloc.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
@@ -36,7 +37,7 @@ class _PageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Image.asset(
+        child: ImageAtom(
           'assets/cbj_logo.png',
         ),
       ),

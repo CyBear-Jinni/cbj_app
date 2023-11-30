@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:clipboard/clipboard.dart';
 import 'package:cybear_jinni/application/manage_access_point/manage_access_point_bloc.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,8 +10,6 @@ import 'package:fluttertoast/fluttertoast.dart';
 class OpenAccessPointWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
-
     return BlocBuilder<ManageAccessPointBloc, ManageAccessPointState>(
       builder: (context, state) {
         return SingleChildScrollView(
@@ -29,7 +28,7 @@ class OpenAccessPointWidget extends StatelessWidget {
                           .read<ManageAccessPointBloc>()
                           .add(ManageAccessPointEvent.initialized());
                     },
-                    child: const Text('Create Access Pint'),
+                    child: const TextAtom('Create Access Pint'),
                   );
                 },
                 loading: (_) {
@@ -41,17 +40,17 @@ class OpenAccessPointWidget extends StatelessWidget {
                 loaded: (l) {
                   // ExtendedNavigator.of(context)
                   //     .push(Routes.openAccessPointPage);
-                  return const Text('Loaded');
+                  return const TextAtom('Loaded');
                 },
                 error: (e) {
-                  return const Text('Failure');
+                  return const TextAtom('Failure');
                 },
                 iOSDevice: (IOSDevice value) {
                   return Column(
                     children: <Widget>[
                       Container(
                         margin: const EdgeInsets.symmetric(horizontal: 50),
-                        child: const Text(
+                        child: const TextAtom(
                           'Please Open Access point with the following '
                           'credentials in the OS Settings.',
                           style: TextStyle(fontSize: 17),
@@ -88,11 +87,11 @@ class OpenAccessPointWidget extends StatelessWidget {
                             },
                             child: const Column(
                               children: <Widget>[
-                                Text(
+                                TextAtom(
                                   'Hotspot name:',
                                   style: TextStyle(color: Colors.white60),
                                 ),
-                                Text(
+                                TextAtom(
                                   'CyBear Jinni',
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
@@ -136,11 +135,11 @@ class OpenAccessPointWidget extends StatelessWidget {
                             },
                             child: const Column(
                               children: <Widget>[
-                                Text(
+                                TextAtom(
                                   'Hotspot password:',
                                   style: TextStyle(color: Colors.white60),
                                 ),
-                                Text(
+                                TextAtom(
                                   'CyBear Jinni',
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
@@ -164,19 +163,19 @@ class OpenAccessPointWidget extends StatelessWidget {
                 },
                 cantDetermineAccessPointOpenOrNot:
                     (CantDetermineAccessPointOpenOrNot value) {
-                  return const Text('CantDetermineAccessPointOpenOrNot');
+                  return const TextAtom('CantDetermineAccessPointOpenOrNot');
                 },
                 accessPointIsNotOpen: (AccessPointIsNotOpen value) {
-                  return const Text('AccessPointIsNotOpen');
+                  return const TextAtom('AccessPointIsNotOpen');
                 },
                 accessPointIsOpen: (AccessPointIsOpen value) {
                   context.router.replace(const ScanForNewCBJCompsRoute());
-                  return const Text('AccessPointIsOpen');
+                  return const TextAtom('AccessPointIsOpen');
                 },
               ),
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 50),
-                child: const Text(
+                child: const TextAtom(
                   "Currently we can't verify that you have opened Access pont.\n"
                   'Press next only after you have preformed the actions above!.',
                   style: TextStyle(fontSize: 17),
@@ -196,7 +195,7 @@ class OpenAccessPointWidget extends StatelessWidget {
                       .read<ManageAccessPointBloc>()
                       .add(ManageAccessPointEvent.doesAccessPointOpen());
                 },
-                child: const Text('Next'),
+                child: const TextAtom('Next'),
               ),
             ],
           ),

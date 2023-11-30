@@ -5,6 +5,7 @@ import 'package:cbj_integrations_controller/domain/scene/scene_cbj_failures.dart
 import 'package:cybear_jinni/application/folder_of_scenes/folder_of_scenes_bloc.dart';
 import 'package:cybear_jinni/application/scene/scene_bloc.dart';
 import 'package:cybear_jinni/injection.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/scenes/widgets/scene_widget.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
@@ -34,22 +35,22 @@ class FolderOfScenesWidget extends StatelessWidget {
       listener: (context, FolderOfScenesState state) {
         state.map(
           (value) => (v) {
-            return const Text('value');
+            return const TextAtom('value');
           },
           loading: (loadingNow) {
-            return const Text('loading');
+            return const TextAtom('loading');
           },
           error: (errorNow) {
             FlushbarHelper.createError(message: 'Error');
           },
-          loaded: (_) => const Text('Loaded'),
+          loaded: (_) => const TextAtom('Loaded'),
           loadedEmptyScens: (LoadedEmptyScens value) {},
         );
       },
       builder: (context, state) {
         return state.map(
-          (value) => const Text('Start'),
-          loading: (_) => const Text('loading'),
+          (value) => const TextAtom('Start'),
+          loading: (_) => const TextAtom('loading'),
           loaded: (scenesList) {
             return GridView.builder(
               reverse: true,
@@ -73,7 +74,7 @@ class FolderOfScenesWidget extends StatelessWidget {
           },
           loadedEmptyScens: (LoadedEmptyScens value) {
             return const Center(
-              child: Text(
+              child: TextAtom(
                 'You can add automations in the plus button',
                 style: TextStyle(
                   fontSize: 18,
@@ -82,7 +83,7 @@ class FolderOfScenesWidget extends StatelessWidget {
               ),
             );
           },
-          error: (_) => const Text('error'),
+          error: (_) => const TextAtom('error'),
         );
       },
     );

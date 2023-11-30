@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/application/folders_of_scenes/folders_of_scenes_bloc.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
+import 'package:cybear_jinni/application/folders_of_scenes/folders_of_scenes_bloc.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,7 +12,7 @@ class ScenesInFoldersL extends StatelessWidget {
     return BlocBuilder<FoldersOfScenesBloc, FoldersOfScenesState>(
       builder: (context, state) {
         return state.map(
-          (value) => const Text('sd'),
+          (value) => const TextAtom('sd'),
           loading: (_) => const Center(
             child: CircularProgressIndicator(),
           ),
@@ -31,7 +32,7 @@ class ScenesInFoldersL extends StatelessWidget {
           },
           loadedEmpty: (LoadedEmpty value) {
             return const Center(
-              child: Text(
+              child: TextAtom(
                 'You can add automations in the plus button',
                 style: TextStyle(
                   fontSize: 18,
@@ -41,7 +42,7 @@ class ScenesInFoldersL extends StatelessWidget {
             );
           },
           error: (_) {
-            return const Text('Error');
+            return const TextAtom('Error');
           },
         );
       },
@@ -96,7 +97,7 @@ class ScenesInFoldersL extends StatelessWidget {
                   bottomLeft: Radius.circular(borderRadius),
                 ),
               ),
-              child: Text(
+              child: TextAtom(
                 folderOfScenes.cbjEntityName.getOrCrash(),
                 style: TextStyle(
                   color: Theme.of(context).textTheme.bodyLarge!.color,

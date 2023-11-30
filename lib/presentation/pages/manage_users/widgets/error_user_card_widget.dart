@@ -1,4 +1,5 @@
 import 'package:cybear_jinni/domain/home_user/home_user_entity.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:flutter/material.dart';
 
 class ErrorUserCard extends StatelessWidget {
@@ -17,7 +18,7 @@ class ErrorUserCard extends StatelessWidget {
         padding: const EdgeInsets.all(4),
         child: Column(
           children: <Widget>[
-            Text(
+            TextAtom(
               'Invalid user, please, contact support',
               style: Theme.of(context)
                   .primaryTextTheme
@@ -25,11 +26,11 @@ class ErrorUserCard extends StatelessWidget {
                   .copyWith(fontSize: 18),
             ),
             const SizedBox(height: 2),
-            Text(
+            TextAtom(
               'Details for nerds:',
               style: Theme.of(context).primaryTextTheme.bodyMedium,
             ),
-            Text(
+            TextAtom(
               homeUser!.failureOption.fold(() => '', (f) => f.toString()),
               style: Theme.of(context).primaryTextTheme.bodyMedium,
             ),
