@@ -11,10 +11,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class SmartTvWidget extends StatelessWidget {
   const SmartTvWidget(this._deviceEntity);
 
-  final GenericSmartTvDE? _deviceEntity;
+  final GenericSmartTvDE _deviceEntity;
 
   void stopState(BuildContext context) {
-    final String deviceId = _deviceEntity!.getDeviceId();
+    final String deviceId = _deviceEntity.getDeviceId();
     context.read<SmartTvActorBloc>().add(
           SmartTvActorEvent.stopEvent(
             [deviceId],
@@ -33,7 +33,7 @@ class SmartTvWidget extends StatelessWidget {
   //       );
   // }
   void closeEvent(BuildContext context) {
-    final String deviceId = _deviceEntity!.getDeviceId();
+    final String deviceId = _deviceEntity.getDeviceId();
     context.read<SmartTvActorBloc>().add(
           SmartTvActorEvent.closeEvent(
             [deviceId],
@@ -43,7 +43,7 @@ class SmartTvWidget extends StatelessWidget {
   }
 
   void playEvent(BuildContext context) {
-    final String deviceId = _deviceEntity!.getDeviceId();
+    final String deviceId = _deviceEntity.getDeviceId();
     context.read<SmartTvActorBloc>().add(
           SmartTvActorEvent.playEvent(
             [deviceId],
@@ -53,7 +53,7 @@ class SmartTvWidget extends StatelessWidget {
   }
 
   void queueNextEvent(BuildContext context) {
-    final String deviceId = _deviceEntity!.getDeviceId();
+    final String deviceId = _deviceEntity.getDeviceId();
     context.read<SmartTvActorBloc>().add(
           SmartTvActorEvent.queueNextEvent(
             [deviceId],
@@ -63,7 +63,7 @@ class SmartTvWidget extends StatelessWidget {
   }
 
   void queuePrevEvent(BuildContext context) {
-    final String deviceId = _deviceEntity!.getDeviceId();
+    final String deviceId = _deviceEntity.getDeviceId();
     context.read<SmartTvActorBloc>().add(
           SmartTvActorEvent.queuePrevEvent(
             [deviceId],
@@ -119,7 +119,8 @@ class SmartTvWidget extends StatelessWidget {
                         color: Theme.of(context).textTheme.bodyLarge!.color,
                         fontSize: 16,
                       ),
-                    ),                  ),
+                    ),
+                  ),
                 ),
                 const SizedBox(
                   width: 10,
@@ -151,7 +152,8 @@ class SmartTvWidget extends StatelessWidget {
                         color: Theme.of(context).textTheme.bodyLarge!.color,
                         fontSize: 16,
                       ),
-                    ),                  ),
+                    ),
+                  ),
                 ),
                 const SizedBox(
                   width: 5,
@@ -183,7 +185,8 @@ class SmartTvWidget extends StatelessWidget {
                         color: Theme.of(context).textTheme.bodyLarge!.color,
                         fontSize: 16,
                       ),
-                    ),                  ),
+                    ),
+                  ),
                 ),
                 const SizedBox(
                   width: 5,
@@ -215,7 +218,8 @@ class SmartTvWidget extends StatelessWidget {
                         color: Theme.of(context).textTheme.bodyLarge!.color,
                         fontSize: 16,
                       ),
-                    ),                  ),
+                    ),
+                  ),
                 ),
               ],
             ),

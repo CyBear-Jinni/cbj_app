@@ -139,7 +139,7 @@ class ConnectToHubMoreWidget extends StatelessWidget {
           loadInProgress: (_) => const SizedBox(
             height: 70,
             width: 70,
-            child: CircularProgressIndicator(),
+            child: CircularProgressIndicatorAtom(),
           ),
           loadSuccess: (_) => const TextAtom('Found hub'),
           loadFailure: (failure) => const TextAtom('Failure'),

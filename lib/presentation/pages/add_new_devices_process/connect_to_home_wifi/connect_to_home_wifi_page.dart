@@ -41,7 +41,6 @@ class ConnectToHomeWifiPage extends StatelessWidget {
             TopNavigationBar(
               pageName: 'Add Devices',
               rightIcon: null,
-              rightIconFunction: () {},
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
             ),

@@ -16,10 +16,10 @@ class FolderOfScenesWidget extends StatelessWidget {
 
   final RoomEntity folderOfScenes;
 
-  SceneCbjEntity getTheScen(
+  SceneCbjEntity getTheScene(
     Either<SceneCbjFailure, SceneCbjEntity> scenesList,
   ) {
-    return scenesList.fold((l) => null!, (r) => r);
+    return scenesList.fold((l) => throw 'Invalid value', (r) => r);
   }
 
   @override

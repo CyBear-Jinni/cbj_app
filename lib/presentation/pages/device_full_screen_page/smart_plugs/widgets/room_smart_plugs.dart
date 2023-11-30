@@ -25,7 +25,7 @@ class RoomSmartPlugs extends StatelessWidget {
 
   final int maxSmartPlugsToShow;
 
-  final int _maxSmartPlugsInRow = 2;
+  int get _maxSmartPlugsInRow => 2;
 
   final String _roomEntity;
 

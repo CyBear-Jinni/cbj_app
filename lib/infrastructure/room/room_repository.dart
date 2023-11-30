@@ -6,7 +6,7 @@ import 'package:cbj_integrations_controller/domain/room/i_room_repository.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/domain/room/room_failures.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
+import 'package:cbj_integrations_controller/infrastructure/hub_client/hub_client.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/services.dart';

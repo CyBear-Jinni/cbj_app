@@ -47,7 +47,7 @@ class CreateTheCBJAppServer {
   ///  This function will create the server
   Future<void> createServer(StreamController<CompInfoSB> compInfoStream) async {
     await server?.shutdown();
-    server = Server(<CBJAppServerD>[CBJAppServerD(compInfoStream)]);
+    server = Server.create(services: [CBJAppServerD(compInfoStream)]);
     await server!.serve(port: 30055);
     logger.i('App server listening on port ${server!.port}...');
   }

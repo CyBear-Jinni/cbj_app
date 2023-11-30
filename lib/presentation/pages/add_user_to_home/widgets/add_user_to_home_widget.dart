@@ -15,14 +15,13 @@ class AddUserToHomeWidget extends StatelessWidget {
         state.map(
           (value) => const TextAtom('Initial'),
           actionInProgress: (_) {
-            return const CircularProgressIndicator(
-              backgroundColor: Colors.cyan,
-              strokeWidth: 5,
-            );
+            return const CircularProgressIndicatorAtom();
           },
           addingUserSuccess: (s) {
             return TextButton(
-                onPressed: () {}, child: const TextAtom('Success'));
+              onPressed: () {},
+              child: const TextAtom('Success'),
+            );
           },
           addingHomeFailure: (e) {
             return const TextAtom('Failure');
@@ -94,10 +93,7 @@ class AddUserToHomeWidget extends StatelessWidget {
             state.map(
               (value) => const SizedBox(),
               actionInProgress: (_) {
-                return const CircularProgressIndicator(
-                  backgroundColor: Colors.cyan,
-                  strokeWidth: 5,
-                );
+                return const CircularProgressIndicatorAtom();
               },
               addingUserSuccess: (s) {
                 return Container(

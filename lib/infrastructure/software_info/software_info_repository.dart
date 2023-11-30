@@ -1,10 +1,10 @@
 import 'dart:io';
 
+import 'package:cbj_integrations_controller/domain/hub/hub_failures.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_app_server/proto_gen_date.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_app_server/protoc_as_dart/cbj_app_connections.pbgrpc.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/proto_gen_date.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cybear_jinni/domain/hub/hub_failures.dart';
 import 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
 import 'package:cybear_jinni/domain/security_bear/i_security_bear_connection_repository.dart';
 import 'package:cybear_jinni/domain/security_bear/security_bear_failures.dart';

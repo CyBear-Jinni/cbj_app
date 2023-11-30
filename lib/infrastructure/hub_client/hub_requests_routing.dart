@@ -19,12 +19,12 @@ import 'package:cbj_integrations_controller/infrastructure/generic_devices/gener
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_plug_device/generic_smart_plug_device_dtos.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_tv_device/generic_smart_tv_device_dtos.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_switch_device/generic_switch_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/hub_client/hub_client.dart';
 import 'package:cbj_integrations_controller/infrastructure/room/room_entity_dtos.dart';
 import 'package:cbj_integrations_controller/infrastructure/scenes/scene_cbj_dtos.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
 import 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
-import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums_cbj.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/utils.dart';
@@ -57,9 +57,11 @@ class HubRequestRouting {
     // requestsFromHubSubscription = null;
     connectivityChangedStream = null;
 
-    requestsFromHubSubscription = HubRequestsToApp
-        .hubRequestsStreamBroadcast.stream
-        .listen((RequestsAndStatusFromHub requestsAndStatusFromHub) {
+    requestsFromHubSubscription = HubRequestsToApp.streamRequestsToApp.stream
+        .listen((dynamic requestsAndStatusFromHub) {
+      if (requestsAndStatusFromHub is! RequestsAndStatusFromHub) {
+        return;
+      }
       if (requestsAndStatusFromHub.sendingType == SendingType.entityType) {
         navigateDeviceRequest(requestsAndStatusFromHub.allRemoteCommands);
       } else if (requestsAndStatusFromHub.sendingType == SendingType.roomType) {
@@ -73,7 +75,7 @@ class HubRequestRouting {
           '${requestsAndStatusFromHub.sendingType}',
         );
       }
-    });
+    }) as StreamSubscription<RequestsAndStatusFromHub>?;
     requestsFromHubSubscription?.onError((error) async {
       if (error is GrpcError && error.code == 1) {
         logger.t('Hub have been disconnected');

@@ -97,7 +97,6 @@ class SettingsPageOfPrinters extends StatelessWidget {
             TopNavigationBar(
               pageName: 'Printers Settings',
               rightIcon: null,
-              rightIconFunction: () {},
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
             ),

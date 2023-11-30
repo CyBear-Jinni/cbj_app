@@ -32,10 +32,7 @@ class OpenAccessPointWidget extends StatelessWidget {
                   );
                 },
                 loading: (_) {
-                  return const CircularProgressIndicator(
-                    backgroundColor: Colors.cyan,
-                    strokeWidth: 5,
-                  );
+                  return const CircularProgressIndicatorAtom();
                 },
                 loaded: (l) {
                   // ExtendedNavigator.of(context)

@@ -30,16 +30,20 @@ class SettingsPageOfSmartTvs extends StatelessWidget {
             leading: CircleAvatar(
               child: Icon(MdiIcons.lightSwitch),
             ),
-            title: TextAtom('Name:_',
-                style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyLarge!.color,
-                ),
-                translationArgs: [switchName]),
-            subtitle: TextAtom('Room:_',
-                style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyLarge!.color,
-                ),
-                translationArgs: [roomName]),
+            title: TextAtom(
+              'Name:_',
+              style: TextStyle(
+                color: Theme.of(context).textTheme.bodyLarge!.color,
+              ),
+              translationArgs: [switchName],
+            ),
+            subtitle: TextAtom(
+              'Room:_',
+              style: TextStyle(
+                color: Theme.of(context).textTheme.bodyLarge!.color,
+              ),
+              translationArgs: [roomName],
+            ),
             trailing: IconButton(
               icon: FaIcon(
                 FontAwesomeIcons.pen,
@@ -93,7 +97,6 @@ class SettingsPageOfSmartTvs extends StatelessWidget {
             TopNavigationBar(
               pageName: 'SmartTvs Settings',
               rightIcon: null,
-              rightIconFunction: () {},
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
             ),

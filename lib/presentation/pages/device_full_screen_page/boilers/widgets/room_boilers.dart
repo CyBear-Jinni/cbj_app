@@ -25,7 +25,7 @@ class RoomBoilers extends StatelessWidget {
 
   final int? maxBoilersToShow;
 
-  final int _maxBoilersInRow = 2;
+  int get _maxBoilersInRow => 2;
 
   final String? _roomEntity;
 

@@ -25,7 +25,7 @@ class RoomSmartTvs extends StatelessWidget {
 
   final int maxSmartTvsToShow;
 
-  final int _maxSmartTvsInRow = 2;
+  int get _maxSmartTvsInRow => 2;
 
   final String _roomEntity;
 

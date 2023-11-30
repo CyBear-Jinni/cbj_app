@@ -97,7 +97,6 @@ class SettingsPageOfSwitches extends StatelessWidget {
             TopNavigationBar(
               pageName: 'Switches Settings',
               rightIcon: null,
-              rightIconFunction: () {},
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
             ),

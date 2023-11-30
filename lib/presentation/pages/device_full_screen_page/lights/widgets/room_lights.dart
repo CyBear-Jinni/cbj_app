@@ -31,7 +31,7 @@ class RoomLights extends StatelessWidget {
 
   final int maxLightsToShow;
 
-  final int _maxLightsInRow = 2;
+  int get _maxLightsInRow => 2;
 
   final String _roomEntity;
 

@@ -36,7 +36,6 @@ class ConfigureNewCbjCompPage extends StatelessWidget {
             TopNavigationBar(
               pageName: 'Add CBJ Computer',
               rightIcon: null,
-              rightIconFunction: null,
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: leftIconFunction,
             ),

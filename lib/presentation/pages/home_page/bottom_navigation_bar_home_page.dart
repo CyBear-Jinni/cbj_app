@@ -4,7 +4,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 class BottomNavigationBarHomePage extends StatelessWidget {
   const BottomNavigationBarHomePage(this.callback, this.pageIndex);
 
-  final Function callback;
+  final Function(int) callback;
 
   final int pageIndex;
 
@@ -14,7 +14,7 @@ class BottomNavigationBarHomePage extends StatelessWidget {
       selectedItemColor: Theme.of(context).primaryColor,
       unselectedItemColor: Colors.grey[500],
       currentIndex: pageIndex,
-      onTap: (value) => callback(value),
+      onTap: callback,
       items: [
         BottomNavigationBarItem(
           activeIcon: Icon(MdiIcons.sitemap),

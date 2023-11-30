@@ -25,17 +25,17 @@ import 'package:cbj_integrations_controller/infrastructure/generic_devices/gener
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_tv/generic_smart_tv_value_objects.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_switch_device/generic_switch_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_switch_device/generic_switch_value_objects.dart';
+import 'package:cbj_integrations_controller/infrastructure/hub_client/hub_client.dart';
 import 'package:cybear_jinni/domain/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
 import 'package:cybear_jinni/domain/user/i_user_repository.dart';
 import 'package:cybear_jinni/domain/user/user_entity.dart';
-import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
 import 'package:cybear_jinni/infrastructure/hub_client/hub_requests_routing.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:dartz/dartz.dart';
 import 'package:device_info_plus/device_info_plus.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/src/painting/colors.dart';
 import 'package:kt_dart/kt.dart';
 import 'package:multicast_dns/multicast_dns.dart';
 import 'package:network_info_plus/network_info_plus.dart';
@@ -80,7 +80,6 @@ class DeviceRepository implements IDeviceRepository {
   @override
   Future<void> initiateHubConnection() async {
     AppRequestsToHub.listenToApp();
-    HubRequestsToApp.listenToApp();
 
     HubRequestRouting.navigateRequest();
   }

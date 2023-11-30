@@ -29,8 +29,7 @@ class SwitchToggleBloc extends Bloc<SwitchToggleEvent, SwitchToggleState> {
     CreateDevice event,
     Emitter<SwitchToggleState> emit,
   ) async {
-    final actionResult =
-        await IDeviceRepository.instance.create(event.deviceEntity);
+    await IDeviceRepository.instance.create(event.deviceEntity);
   }
 
   Future<void> _changeAction(

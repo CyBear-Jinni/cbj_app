@@ -89,7 +89,7 @@ class _SmartSwitchPage extends State<SmartSwitchPage> {
           height: 3,
         ),
         if (_isLoading)
-          const Center(child: CircularProgressIndicator())
+          const Center(child: CircularProgressIndicatorAtom())
         else
           FlutterSwitch(
             width: screenSize.width * 0.25,

@@ -29,7 +29,6 @@ class ChangeRoomForDevicesPage extends StatelessWidget {
           TopNavigationBar(
             pageName: 'Change Area For Devices',
             rightIcon: null,
-            rightIconFunction: null,
             leftIcon: FontAwesomeIcons.arrowLeft,
             leftIconFunction: backButtonFunction,
           ),

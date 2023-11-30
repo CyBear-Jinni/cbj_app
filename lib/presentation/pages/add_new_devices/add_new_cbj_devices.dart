@@ -77,7 +77,6 @@ class _AddNewCBJDevices extends State<AddNewCBJDevices> {
             TopNavigationBar(
               pageName: 'Add New CyBear Jinni Devices',
               rightIcon: null,
-              rightIconFunction: () {},
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
             ),

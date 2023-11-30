@@ -38,12 +38,12 @@ class _AddNewDeviceWidgetPopup extends State<AddNewDeviceWidgetPopup> {
                 }
                 return null;
               },
-              decoration: InputDecoration(
-                labelText: 'IP'
+              decoration: const InputDecoration(
+                labelText: 'IP',
               ),
             );
           } else {
-            return const CircularProgressIndicator();
+            return const CircularProgressIndicatorAtom();
           }
         },
       ),

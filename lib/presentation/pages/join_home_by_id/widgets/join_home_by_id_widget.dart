@@ -16,10 +16,7 @@ class JoinHomeByIdWidget extends StatelessWidget {
         state.map(
           (value) => null,
           loading: (_) {
-            return const CircularProgressIndicator(
-              backgroundColor: Colors.cyan,
-              strokeWidth: 5,
-            );
+            return const CircularProgressIndicatorAtom();
           },
           loaded: (l) {
             return const TextAtom('Loaded');
@@ -113,10 +110,7 @@ class JoinHomeByIdWidget extends StatelessWidget {
             state.map(
               (value) => const SizedBox(),
               loading: (_) {
-                return const CircularProgressIndicator(
-                  backgroundColor: Colors.cyan,
-                  strokeWidth: 5,
-                );
+                return const CircularProgressIndicatorAtom();
               },
               loaded: (l) {
                 context.router.replace(const HomeRoute());

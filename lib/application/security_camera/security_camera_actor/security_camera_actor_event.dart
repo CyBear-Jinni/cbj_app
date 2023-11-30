@@ -25,5 +25,6 @@ class SecurityCamerasActorEvent with _$SecurityCamerasActorEvent {
   ) = ShutdownAllSecurityCameras;
 
   const factory SecurityCamerasActorEvent.deleted(
-      GenericSwitchDE deviceEntity) = Deleted;
+    GenericSwitchDE deviceEntity,
+  ) = Deleted;
 }

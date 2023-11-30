@@ -6,7 +6,7 @@ import 'package:cbj_integrations_controller/infrastructure/devices/helper_method
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/value_objects_core.dart';
-import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
+import 'package:cbj_integrations_controller/infrastructure/hub_client/hub_client.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:network_tools/network_tools.dart';
 
@@ -42,7 +42,7 @@ class PhoneHub {
       logger.i('mdnsDevicesTemp is empty');
     }
     for (final ActiveHost activeHost in mdnsDevicesTemp) {
-      print('activeHost $activeHost');
+      logger.i('activeHost $activeHost');
       CompaniesConnectorConjector.setMdnsDeviceByCompany(activeHost);
       // }
 
@@ -51,7 +51,7 @@ class PhoneHub {
         logger.i('pingableDevicesTemp is empty');
       }
       for (final ActiveHost activeHost in pingableDevicesTemp) {
-        print('activeHost2 $activeHost');
+        logger.i('activeHost2 $activeHost');
         CompaniesConnectorConjector.setHostNameDeviceByCompany(
           activeHost: activeHost,
         );
@@ -59,7 +59,7 @@ class PhoneHub {
     }
   }
 
-  startListen() {
+  void startListen() {
     phoneAsHub = true;
     CompaniesConnectorConjector.updateAllDevicesReposWithDeviceChanges(
       AppRequestsToHub.appRequestsToHubStreamController.stream
@@ -67,7 +67,7 @@ class PhoneHub {
         if (!phoneAsHub) {
           return '';
         }
-        dynamic dtosEntity =
+        final dynamic dtosEntity =
             DeviceHelperMethods.clientStatusRequestsToItsDtosType(
           clientStatusRequests,
         );

@@ -14,7 +14,7 @@ class ScenesInFoldersL extends StatelessWidget {
         return state.map(
           (value) => const TextAtom('sd'),
           loading: (_) => const Center(
-            child: CircularProgressIndicator(),
+            child: CircularProgressIndicatorAtom(),
           ),
           loaded: (state) {
             return ListView.builder(

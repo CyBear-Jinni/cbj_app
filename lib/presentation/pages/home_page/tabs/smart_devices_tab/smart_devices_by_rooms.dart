@@ -17,7 +17,7 @@ class SmartDevicesByRooms extends StatelessWidget {
           loadInProgress: (_) => const Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              CircularProgressIndicator(),
+              CircularProgressIndicatorAtom(),
               SizedBox(
                 height: 30,
               ),
@@ -46,7 +46,7 @@ class SmartDevicesByRooms extends StatelessWidget {
                       Container(
                         margin: const EdgeInsets.only(bottom: 10),
                         alignment: Alignment.center,
-                        child: ImageAtom(
+                        child: const ImageAtom(
                           'assets/cbj_logo.png',
                           width: 200.0,
                           fit: BoxFit.fill,
@@ -110,7 +110,7 @@ class SmartDevicesByRooms extends StatelessWidget {
                       Container(
                         margin: const EdgeInsets.symmetric(vertical: 30),
                         alignment: Alignment.center,
-                        child: ImageAtom(
+                        child: const ImageAtom(
                           'assets/cbj_logo.png',
                           fit: BoxFit.fitHeight,
                         ),

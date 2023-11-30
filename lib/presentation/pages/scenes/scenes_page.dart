@@ -76,7 +76,7 @@ class ScenesPage extends StatelessWidget {
                   leftIcon: FontAwesomeIcons.arrowLeft,
                   leftIconFunction: leftIconFunction,
                   // rightSecondIcon: FontAwesomeIcons.magnifyingGlass,
-                  // rightSecondFunction: () {},
+                  //
                 ),
                 Expanded(
                   child: BlocProvider(

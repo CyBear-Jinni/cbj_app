@@ -58,8 +58,8 @@ class RemotePipesBloc extends Bloc<RemotePipesEvent, RemotePipesState> {
       ),
     );
 
-    final remotePipesSetDomainResponse = await IRemotePipesRepository.instance
-        .setRemotePipesDomainName(remotePipesEntity);
     Navigator.pop(event.context);
+    await IRemotePipesRepository.instance
+        .setRemotePipesDomainName(remotePipesEntity);
   }
 }

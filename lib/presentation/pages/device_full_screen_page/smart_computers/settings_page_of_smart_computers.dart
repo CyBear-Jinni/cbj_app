@@ -97,7 +97,6 @@ class SettingsPageOfSmartComputers extends StatelessWidget {
             TopNavigationBar(
               pageName: 'SmartComputers Settings',
               rightIcon: null,
-              rightIconFunction: () {},
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
             ),

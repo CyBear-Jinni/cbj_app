@@ -25,7 +25,7 @@ class RoomSmartComputers extends StatelessWidget {
 
   final int maxSmartComputersToShow;
 
-  final int _maxSmartComputersInRow = 2;
+  int get _maxSmartComputersInRow => 2;
 
   final String _roomEntity;
 

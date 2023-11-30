@@ -33,7 +33,6 @@ class ScanForNewCBJCompsPage extends StatelessWidget {
               TopNavigationBar(
                 pageName: 'Add CBJ Devices',
                 rightIcon: null,
-                rightIconFunction: null,
                 leftIcon: FontAwesomeIcons.arrowLeft,
                 leftIconFunction: leftIconFunction,
               ),

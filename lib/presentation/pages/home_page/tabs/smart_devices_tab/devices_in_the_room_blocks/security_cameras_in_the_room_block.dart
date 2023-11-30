@@ -51,9 +51,12 @@ class SecurityCamerasInTheRoomBlock extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        context.router.push(VideoStreamOutputContainerRoute(
+        context.router.push(
+          VideoStreamOutputContainerRoute(
             streamAddress:
-                securityCamerasInRoom.first.deviceLastKnownIp.getOrCrash()));
+                securityCamerasInRoom.first.deviceLastKnownIp.getOrCrash(),
+          ),
+        );
       },
       child: Container(
         decoration: BoxDecoration(
@@ -76,7 +79,7 @@ class SecurityCamerasInTheRoomBlock extends StatelessWidget {
                         scale: 1.2,
                         child: const CircleAvatar(
                           child: FaIcon(
-                            FontAwesomeIcons.print,
+                            FontAwesomeIcons.camera,
                             color: Colors.white70,
                           ),
                         ),

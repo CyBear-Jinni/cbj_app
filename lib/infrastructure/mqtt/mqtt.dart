@@ -2,7 +2,7 @@ import 'package:cbj_integrations_controller/domain/mqtt_server/i_mqtt_server_rep
 import 'package:cbj_integrations_controller/infrastructure/devices/device_helper/device_helper.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
-import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
+import 'package:cbj_integrations_controller/infrastructure/hub_client/hub_client.dart';
 import 'package:mqtt_client/mqtt_client.dart';
 import 'package:mqtt_client/mqtt_server_client.dart';
 import 'package:mqtt_client/src/observable/src/records.dart';
@@ -48,7 +48,7 @@ class MqttServerRepository extends IMqttServerRepository {
   Future<void> postSmartDeviceToAppMqtt({
     required DeviceEntityAbstract entityFromTheHub,
   }) async {
-    HubRequestsToApp.hubRequestsStreamController.sink.add(
+    HubRequestsToApp.streamRequestsToApp.sink.add(
       RequestsAndStatusFromHub(
         sendingType: SendingType.entityType,
         allRemoteCommands:
@@ -58,8 +58,9 @@ class MqttServerRepository extends IMqttServerRepository {
   }
 
   @override
-  Future<void> postToAppMqtt(
-      {required DeviceEntityAbstract entityFromTheHub}) async {}
+  Future<void> postToAppMqtt({
+    required DeviceEntityAbstract entityFromTheHub,
+  }) async {}
 
   @override
   Future<void> postToHubMqtt({
@@ -112,7 +113,8 @@ class MqttServerRepository extends IMqttServerRepository {
 
   @override
   Stream<List<MqttReceivedMessage<MqttMessage?>>> streamOfChosenSubscription(
-      String topicPath) {
+    String topicPath,
+  ) {
     // TODO: implement streamOfChosenSubscription
     throw UnimplementedError();
   }

@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/domain/hub/hub_failures.dart';
+import 'package:cbj_integrations_controller/domain/hub/hub_failures.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
+import 'package:cybear_jinni/infrastructure/phone_hub/phone_hub.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
 import 'package:dartz/dartz.dart' as dartz;
@@ -41,8 +43,15 @@ class _CbjHubInNetworkWidgetState extends State<CbjHubInNetworkWidget> {
     eitherHub.fold((l) async {
       await IHubConnectionRepository.instance.closeConnection();
 
+      final Map<String, DeviceEntityAbstract> devices =
+          await PhoneHub().getAllDevices;
+
       if (!mounted) {
         return null;
+      }
+      if (devices.isNotEmpty) {
+        context.router.replace(const HomeRoute());
+        return;
       }
       setState(() {
         state = FindingHubState.tryIpManually;
@@ -76,7 +85,7 @@ class _CbjHubInNetworkWidgetState extends State<CbjHubInNetworkWidget> {
       return const SizedBox(
         height: 70,
         width: 70,
-        child: CircularProgressIndicator(),
+        child: CircularProgressIndicatorAtom(),
       );
     }
 
@@ -128,7 +137,8 @@ class _CbjHubInNetworkWidgetState extends State<CbjHubInNetworkWidget> {
                 return;
               }
               _searchHubUsingAnyIpOnTheNetwork(
-                  ipOnTheNetwork: anyIpOnTheNetwork);
+                ipOnTheNetwork: anyIpOnTheNetwork,
+              );
             },
             child: const TextAtom(
               'Search',

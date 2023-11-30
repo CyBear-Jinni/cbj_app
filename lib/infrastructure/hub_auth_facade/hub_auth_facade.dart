@@ -8,7 +8,6 @@ import 'package:cybear_jinni/domain/local_db/i_local_db_repository2.dart';
 import 'package:cybear_jinni/domain/user/i_user_repository.dart';
 import 'package:cybear_jinni/domain/user/user_entity.dart';
 import 'package:cybear_jinni/domain/user/user_value_objects.dart';
-import 'package:cybear_jinni/injection.dart';
 import 'package:dartz/dartz.dart';
 
 class HubAuthFacade implements IAuthFacade {
@@ -49,7 +48,6 @@ class HubAuthFacade implements IAuthFacade {
     Password? password,
   }) async {
     final emailAddressStr = emailAddress!.getOrCrash();
-    final passwordStr = password!.getOrCrash();
 
     try {
       // final UserCredential userCredential =
@@ -88,9 +86,6 @@ class HubAuthFacade implements IAuthFacade {
     required EmailAddress emailAddress,
     required Password password,
   }) async {
-    final emailAddressStr = emailAddress.getOrCrash();
-    final passwordStr = password.getOrCrash();
-
     try {
       return right(unit);
     } catch (e) {

@@ -8,7 +8,7 @@ class TopNavigationBar extends StatelessWidget {
   const TopNavigationBar({
     required this.pageName,
     required this.rightIcon,
-    required this.rightIconFunction,
+    this.rightIconFunction,
     this.leftIcon,
     this.leftIconFunction,
     this.rightSecondIcon,
@@ -30,13 +30,13 @@ class TopNavigationBar extends StatelessWidget {
   final IconData? leftIcon;
 
   /// Function to execute when pressing the icon in the right side
-  final Function? rightIconFunction;
+  final Function(BuildContext)? rightIconFunction;
 
   /// What to execute if second right icon was pressed
-  final Function? rightSecondFunction;
+  final Function(BuildContext)? rightSecondFunction;
 
   /// What to execute if back button was pressed
-  final Function? leftIconFunction;
+  final Function(BuildContext)? leftIconFunction;
 
   final Color? backgroundColor;
 
@@ -73,7 +73,8 @@ class TopNavigationBar extends StatelessWidget {
                     fontSize: 16.0,
                     color: Theme.of(context).textTheme.bodyLarge!.color,
                   ),
-                ),              ],
+                ),
+              ],
             ),
             if (rightIcon != null)
               Row(

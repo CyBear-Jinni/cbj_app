@@ -15,7 +15,7 @@ class ManageUsersWidget extends StatelessWidget {
         return state.map(
           initial: (_) => Container(),
           inProgress: (state) => const Center(
-            child: CircularProgressIndicator(),
+            child: CircularProgressIndicatorAtom(),
           ),
           loadSuccess: (state) {
             return Container(

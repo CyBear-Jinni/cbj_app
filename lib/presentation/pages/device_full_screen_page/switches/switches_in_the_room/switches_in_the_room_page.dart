@@ -38,11 +38,9 @@ class SwitchesInTheRoomPage extends StatelessWidget {
             TopNavigationBar(
               pageName: thisSmartRoom!.getRoomName(),
               rightIcon: Icons.more_vert,
-              rightIconFunction: () {},
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
               rightSecondIcon: FontAwesomeIcons.magnifyingGlass,
-              rightSecondFunction: () {},
             ),
             Expanded(
               child: Container(

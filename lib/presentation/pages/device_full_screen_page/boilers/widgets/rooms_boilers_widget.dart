@@ -2,7 +2,6 @@ import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/application/boilers/boilers_watcher/boilers_watcher_bloc.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
-import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/boilers/widgets/critical_boilers_failure_display_widget.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/boilers/widgets/room_boilers.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +24,7 @@ class RoomsBoilersWidget extends StatelessWidget {
         return state.map(
           initial: (_) => Container(),
           loadInProgress: (_) => const Center(
-            child: CircularProgressIndicator(),
+            child: CircularProgressIndicatorAtom(),
           ),
           loadSuccess: (state) {
             if (state.devices.size != 0) {
@@ -59,23 +58,14 @@ class RoomsBoilersWidget extends StatelessWidget {
                 devicesByRooms.add(v.toImmutableList());
               });
 
-              int gradientColorCounter = -1;
-
               return Container(
                 margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 15),
                 child: ListView.builder(
                   reverse: true,
                   padding: EdgeInsets.zero,
                   itemBuilder: (context, index) {
-                    gradientColorCounter++;
-                    List<Color> gradiantColor = GradientColors.sky;
-                    if (roomColorGradiant != null) {
-                      gradiantColor = roomColorGradiant;
-                    } else if (gradientColorCounter >
-                        gradientColorsList.length - 1) {
-                      gradientColorCounter = 0;
-                      gradiantColor = gradientColorsList[gradientColorCounter];
-                    }
+                    final List<Color> gradiantColor = roomColorGradiant;
+
                     final devicesInRoom = devicesByRooms[index];
 
                     return RoomBoilers(
@@ -97,7 +87,7 @@ class RoomsBoilersWidget extends StatelessWidget {
                     Container(
                       margin: const EdgeInsets.symmetric(vertical: 30),
                       alignment: Alignment.center,
-                      child: ImageAtom(
+                      child: const ImageAtom(
                         'assets/cbj_logo.png',
                         fit: BoxFit.fitHeight,
                       ),

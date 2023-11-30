@@ -6,7 +6,6 @@ import 'package:cbj_integrations_controller/infrastructure/generic_devices/gener
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_switch_device/generic_switch_entity.dart';
 import 'package:cybear_jinni/domain/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
-import 'package:cybear_jinni/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -18,8 +17,7 @@ part 'printers_actor_state.dart';
 
 @injectable
 class PrintersActorBloc extends Bloc<PrintersActorEvent, PrintersActorState> {
-  PrintersActorBloc()
-      : super(const PrintersActorState.initial()) {
+  PrintersActorBloc() : super(const PrintersActorState.initial()) {
     on<Initialized>(_initialized);
     on<Deleted>(_deleted);
     on<TurnOffAllPrinters>(_turnOffAllPrinters);
@@ -27,7 +25,6 @@ class PrintersActorBloc extends Bloc<PrintersActorEvent, PrintersActorState> {
     on<OpenPrintersWebPage>(_openPrintersWebPage);
     on<ShutdownAllPrinters>(_shutdownAllPrinters);
   }
-
 
   Future<void> _initialized(
     Initialized event,
@@ -48,7 +45,7 @@ class PrintersActorBloc extends Bloc<PrintersActorEvent, PrintersActorState> {
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-  IDeviceRepository.instance.turnOffDevices(
+    IDeviceRepository.instance.turnOffDevices(
       devicesId: event.printersIdToTurnOff,
     );
   }
@@ -62,7 +59,8 @@ class PrintersActorBloc extends Bloc<PrintersActorEvent, PrintersActorState> {
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-  IDeviceRepository.instance.turnOnDevices(devicesId: event.printersIdToTurnOn);
+    IDeviceRepository.instance
+        .turnOnDevices(devicesId: event.printersIdToTurnOn);
   }
 
   Future<void> _openPrintersWebPage(
@@ -75,19 +73,10 @@ class PrintersActorBloc extends Bloc<PrintersActorEvent, PrintersActorState> {
     ).show(event.context);
 
     final String printerIp = event.printer.deviceLastKnownIp.getOrCrash();
-    if (printerIp != null) {
-      launchUrl(
-        Uri.parse('http://$printerIp'),
-        mode: LaunchMode.externalApplication,
-      );
-    } else {
-      logger.e('Printer does not have lastKnownIp');
-
-      FlushbarHelper.createLoading(
-        message: 'Printer last ip does not exist',
-        linearProgressIndicator: const LinearProgressIndicator(),
-      ).show(event.context);
-    }
+    launchUrl(
+      Uri.parse('http://$printerIp'),
+      mode: LaunchMode.externalApplication,
+    );
   }
 
   Future<void> _shutdownAllPrinters(
@@ -99,6 +88,6 @@ class PrintersActorBloc extends Bloc<PrintersActorEvent, PrintersActorState> {
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(event.context);
 
-  IDeviceRepository.instance.shutdownDevices(devicesId: event.printersId);
+    IDeviceRepository.instance.shutdownDevices(devicesId: event.printersId);
   }
 }

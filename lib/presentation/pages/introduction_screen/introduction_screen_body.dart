@@ -44,7 +44,7 @@ class IntroductionScreenBody extends StatelessWidget {
               children: [
                 Container(
                   margin: const EdgeInsets.only(top: 20, bottom: 5),
-                  child: Center(
+                  child: const Center(
                     child: ImageAtom(
                       'assets/cbj_logo.png',
                       height: 200.0,

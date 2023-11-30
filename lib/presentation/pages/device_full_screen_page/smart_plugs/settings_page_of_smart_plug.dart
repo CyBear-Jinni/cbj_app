@@ -98,7 +98,6 @@ class SettingsPageOfSmartPlugs extends StatelessWidget {
             TopNavigationBar(
               pageName: 'SmartPlugs Settings',
               rightIcon: null,
-              rightIconFunction: () {},
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
             ),

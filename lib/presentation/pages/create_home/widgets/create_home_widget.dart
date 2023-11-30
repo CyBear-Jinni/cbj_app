@@ -124,7 +124,7 @@ class CreateHomeWidget extends StatelessWidget {
                 return const TextAtom('');
               },
               loading: (loadingNow) {
-                return const CircularProgressIndicator();
+                return const CircularProgressIndicatorAtom();
               },
               error: (errorNow) {
                 FlushbarHelper.createError(message: 'Error');

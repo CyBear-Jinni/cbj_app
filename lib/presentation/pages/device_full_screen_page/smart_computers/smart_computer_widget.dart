@@ -18,7 +18,7 @@ class SmartComputerPage extends StatefulWidget {
 }
 
 class _SmartSmartComputerPage extends State<SmartComputerPage> {
-  GenericSmartComputerDE? _switch;
+  late GenericSmartComputerDE _switch;
   bool _isLoading = true;
 
   @override
@@ -72,7 +72,7 @@ class _SmartSmartComputerPage extends State<SmartComputerPage> {
     return Column(
       children: <Widget>[
         TextAtom(
-          _switch!.cbjEntityName.getOrCrash()!, //  Show switch name
+          _switch.cbjEntityName.getOrCrash()!, //  Show switch name
           style: TextStyle(
             fontSize: 19.0,
             color: Theme.of(context).textTheme.bodyMedium!.color,
@@ -82,7 +82,7 @@ class _SmartSmartComputerPage extends State<SmartComputerPage> {
           height: 3,
         ),
         if (_isLoading)
-          const Center(child: CircularProgressIndicator())
+          const Center(child: CircularProgressIndicatorAtom())
         else
           const TextAtom('Smart Computer Widget'),
       ],

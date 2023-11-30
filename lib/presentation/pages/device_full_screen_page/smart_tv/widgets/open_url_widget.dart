@@ -10,9 +10,9 @@ class OpenUrlPopUp {
   }
 
   BuildContext contextFromParent;
-  final GenericSmartTvDE? _deviceEntity;
+  final GenericSmartTvDE _deviceEntity;
 
-  openUrlPopUp() {
+  void openUrlPopUp() {
     String url = '';
 
     showDialog(
@@ -83,7 +83,7 @@ class OpenUrlPopUp {
   }
 
   void playVideo(BuildContext context, String url) {
-    final String deviceId = _deviceEntity!.getDeviceId();
+    final String deviceId = _deviceEntity.getDeviceId();
     context.read<SmartTvActorBloc>().add(
           SmartTvActorEvent.openUrl(
             context,

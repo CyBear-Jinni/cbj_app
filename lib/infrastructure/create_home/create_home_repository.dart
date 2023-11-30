@@ -19,7 +19,6 @@ import 'package:cybear_jinni/domain/user/user_entity.dart';
 import 'package:cybear_jinni/domain/user/user_errors.dart';
 import 'package:cybear_jinni/domain/user/user_failures.dart';
 import 'package:cybear_jinni/infrastructure/create_home/create_home_dtos.dart';
-import 'package:cybear_jinni/injection.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/services.dart';
 
@@ -136,8 +135,7 @@ class CreateHomeRepository implements ICreateHomeRepository {
     CreateHomeEntity createHomeEntity,
   ) async {
     try {
-      final CreateHomeDtos deviceHomeUserDtos =
-          CreateHomeDtos.fromDomain(createHomeEntity);
+      CreateHomeDtos.fromDomain(createHomeEntity);
 
       // await homeDoc.devicesUsersCollecttion
       //     .doc('default')

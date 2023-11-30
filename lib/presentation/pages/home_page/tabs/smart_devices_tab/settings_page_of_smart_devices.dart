@@ -39,7 +39,6 @@ class SettingsPageSmartDevices extends StatelessWidget {
             TopNavigationBar(
               pageName: 'Smart Devices Settings',
               rightIcon: null,
-              rightIconFunction: () {},
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
             ),

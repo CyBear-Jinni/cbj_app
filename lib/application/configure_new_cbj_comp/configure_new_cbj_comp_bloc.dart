@@ -22,6 +22,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
 import 'package:wifi_iot/wifi_iot.dart';
+import 'package:wifi_scan/wifi_scan.dart';
 
 part 'configure_new_cbj_comp_bloc.freezed.dart';
 part 'configure_new_cbj_comp_event.dart';
@@ -223,12 +224,13 @@ class ConfigureNewCbjCompBloc
     CheckConnectedToWiFiNetwork event,
     Emitter<ConfigureNewCbjCompState> emit,
   ) async {
-    // TODO: Not suer if it will open the WiFi when hotspot is open, delete if not
-
-    await WiFiForIoTPlugin.loadWifiList();
-    // TODO: The above line is deprecated, not sure what is the corresponding
-    // TODO: function in the new package that got transferred to
-    // await WiFiScan.instance
+    if ((await WiFiScan.instance.canStartScan()) == CanStartScan.yes) {
+      await WiFiScan.instance.startScan();
+      if ((await WiFiScan.instance.canGetScannedResults()) ==
+          CanGetScannedResults.yes) {
+        await WiFiScan.instance.getScannedResults();
+      }
+    }
 
     bool isConnectedToWifi = false;
     logger.i('Waiting_for_user_to_get_connected_to_WiFi'.tr());
@@ -236,8 +238,6 @@ class ConfigureNewCbjCompBloc
     while (true) {
       isConnectedToWifi = await WiFiForIoTPlugin.isConnected();
       if (isConnectedToWifi) {
-        // TODO: Check if connected to the same WiFI that user set up in the
-        //  first screen, if not show the user massage about it
         break;
       }
       await Future.delayed(const Duration(seconds: 10));

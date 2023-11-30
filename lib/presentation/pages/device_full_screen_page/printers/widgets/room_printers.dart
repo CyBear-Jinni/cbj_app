@@ -25,7 +25,7 @@ class RoomPrinters extends StatelessWidget {
 
   final int maxPrintersToShow;
 
-  final int _maxPrintersInRow = 2;
+  int get _maxPrintersInRow => 2;
 
   final String _roomEntity;
 

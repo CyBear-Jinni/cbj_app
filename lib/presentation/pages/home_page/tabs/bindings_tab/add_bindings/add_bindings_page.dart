@@ -40,7 +40,6 @@ class AddBindingsPage extends StatelessWidget {
             TopNavigationBar(
               pageName: 'Add Binding',
               rightIcon: null,
-              rightIconFunction: () {},
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
             ),

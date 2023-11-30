@@ -1,12 +1,9 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/application/vendors/vendors_bloc.dart';
-import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/add_new_devices_process/choose_device_vendor_to_add/widgets/vendors_list.dart';
 import 'package:cybear_jinni/presentation/pages/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
 
@@ -45,11 +42,7 @@ class ChooseDeviceVendorToAddPage extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: BlocProvider(
-                create: (context) =>
-                    getIt<VendorsBloc>()..add(const VendorsEvent.initialized()),
-                child: VendorsList(),
-              ),
+              child: VendorsList(),
             ),
             const SizedBox(
               height: 50,

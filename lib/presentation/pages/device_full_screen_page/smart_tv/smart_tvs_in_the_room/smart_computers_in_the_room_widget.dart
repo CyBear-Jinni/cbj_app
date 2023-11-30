@@ -14,7 +14,7 @@ class SmartTvsInTheRoomWidget extends StatelessWidget {
   );
 
   final Function updateProduct;
-  final Function deleteProduct;
+  final Function(int) deleteProduct;
   final List<Map<String, dynamic>> products;
 
   @override

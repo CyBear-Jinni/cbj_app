@@ -36,7 +36,6 @@ class ComputerConnectionCheckPage extends StatelessWidget {
             TopNavigationBar(
               pageName: 'Final setting up step',
               rightIcon: null,
-              rightIconFunction: null,
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: leftIconFunction,
             ),

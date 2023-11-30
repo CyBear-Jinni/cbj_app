@@ -133,13 +133,13 @@ class RoomWidget extends StatelessWidget {
               if (numberOfDevicesInTheRoom == 1)
                 TextAtom(
                   '_device',
-                  style: TextStyle(fontSize: 12),
+                  style: const TextStyle(fontSize: 12),
                   translationArgs: [numberOfDevicesInTheRoom.toString()],
                 )
               else
                 TextAtom(
                   '_devices',
-                  style: TextStyle(fontSize: 12),
+                  style: const TextStyle(fontSize: 12),
                   translationArgs: [numberOfDevicesInTheRoom.toString()],
                 ),
 

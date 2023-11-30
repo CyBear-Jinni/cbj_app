@@ -249,7 +249,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                     ),
                   ),
                   // child: Center(
-                  //   child: CircularProgressIndicator(
+                  //   child: CircularProgressIndicatorAtom(
                   //     backgroundColor: Colors.cyan,
                   //     strokeWidth: 5,
                   //   ),

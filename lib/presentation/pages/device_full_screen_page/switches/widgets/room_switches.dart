@@ -25,7 +25,7 @@ class RoomSwitches extends StatelessWidget {
 
   final int maxSwitchesToShow;
 
-  final int _maxSwitchesInRow = 2;
+  int get _maxSwitchesInRow => 2;
 
   final String _roomEntity;
 

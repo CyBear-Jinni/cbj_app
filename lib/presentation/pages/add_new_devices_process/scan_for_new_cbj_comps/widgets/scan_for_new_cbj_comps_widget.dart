@@ -31,7 +31,7 @@ class ScanForNewCBJCompsWidget extends StatelessWidget {
                 ),
                 const Expanded(
                   child: Center(
-                    child: CircularProgressIndicator(),
+                    child: CircularProgressIndicatorAtom(),
                   ),
                 ),
               ],
@@ -48,7 +48,7 @@ class ScanForNewCBJCompsWidget extends StatelessWidget {
 
             return const Expanded(
               child: Center(
-                child: CircularProgressIndicator(),
+                child: CircularProgressIndicatorAtom(),
               ),
             );
           },

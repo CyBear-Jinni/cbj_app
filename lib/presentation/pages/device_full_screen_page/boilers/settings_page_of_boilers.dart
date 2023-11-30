@@ -96,7 +96,6 @@ class SettingsPageOfBoilers extends StatelessWidget {
             TopNavigationBar(
               pageName: 'Lights Settings',
               rightIcon: null,
-              rightIconFunction: () {},
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
             ),
