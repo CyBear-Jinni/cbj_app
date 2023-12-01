@@ -28,8 +28,6 @@ import 'package:cbj_integrations_controller/infrastructure/generic_devices/gener
 import 'package:cbj_integrations_controller/infrastructure/hub_client/hub_client.dart';
 import 'package:cybear_jinni/domain/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
-import 'package:cybear_jinni/domain/user/i_user_repository.dart';
-import 'package:cybear_jinni/domain/user/user_entity.dart';
 import 'package:cybear_jinni/infrastructure/hub_client/hub_requests_routing.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:dartz/dartz.dart';
@@ -273,10 +271,7 @@ class DeviceRepository implements IDeviceRepository {
         deviceModelString = iosInfo.model;
       }
 
-      final UserEntity currentUserEntity =
-          (await IUserRepository.instance.getCurrentUser())
-              .getOrElse(() => throw 'Cant get current user');
-      final String currentUserId = currentUserEntity.id!.getOrCrash()!;
+      const String currentUserId = 'user id';
 
       deviceEntity
           .copyWithStateMassage('Setting up device')

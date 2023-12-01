@@ -2,9 +2,9 @@ import 'dart:io';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
-import 'package:cybear_jinni/domain/create_home/i_create_home_repository.dart';
 import 'package:cybear_jinni/domain/manage_network/i_manage_network_repository.dart';
 import 'package:cybear_jinni/domain/manage_network/manage_network_entity.dart';
+import 'package:cybear_jinni/domain/manage_network/manage_network_value_objects.dart';
 import 'package:cybear_jinni/domain/security_bear/i_security_bear_connection_repository.dart';
 import 'package:cybear_jinni/domain/security_bear/security_bear_entity.dart';
 import 'package:cybear_jinni/domain/security_bear/security_bear_failures.dart';
@@ -269,8 +269,7 @@ class SecurityBearConnectionRepository
   ) async {
     try {
       final ManageNetworkEntity firstWifiEntityOrFailure =
-          (await ICreateHomeRepository.instance.getFirstWifi())
-              .getOrElse(() => throw 'Error');
+          ManageNetworkEntity(name: ManageWiFiName('CyBear Jinni'));
 
       final ManageNetworkEntity secondWifiEntityOrFailure =
           IManageNetworkRepository.manageWiFiEntity!;
