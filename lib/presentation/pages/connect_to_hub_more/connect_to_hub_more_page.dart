@@ -1,11 +1,8 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/application/more_connections_options/more_connections_options_bloc.dart';
-import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/connect_to_hub_more/widgets/connect_to_hub_more_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 @RoutePage()
@@ -48,16 +45,7 @@ class ConnectToHubMorePage extends StatelessWidget {
             ),
             Expanded(
               child: Center(
-                child: BlocProvider(
-                  create: (BuildContext context) =>
-                      getIt<MoreConnectionsOptionsBloc>()
-                        ..add(
-                          MoreConnectionsOptionsEvent.initialEvent(
-                            context,
-                          ),
-                        ),
-                  child: ConnectToHubMoreWidget(),
-                ),
+                child: ConnectToHubMoreWidget(),
               ),
             ),
             const SizedBox(

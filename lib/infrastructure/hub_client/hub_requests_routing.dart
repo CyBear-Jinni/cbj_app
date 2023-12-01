@@ -31,8 +31,7 @@ import 'package:cybear_jinni/utils.dart';
 import 'package:grpc/grpc.dart';
 
 class HubRequestRouting {
-  static StreamSubscription<RequestsAndStatusFromHub>?
-      requestsFromHubSubscription;
+  static StreamSubscription<dynamic>? requestsFromHubSubscription;
 
   static Stream<ConnectivityResult>? connectivityChangedStream;
 
@@ -75,7 +74,7 @@ class HubRequestRouting {
           '${requestsAndStatusFromHub.sendingType}',
         );
       }
-    }) as StreamSubscription<RequestsAndStatusFromHub>?;
+    });
     requestsFromHubSubscription?.onError((error) async {
       if (error is GrpcError && error.code == 1) {
         logger.t('Hub have been disconnected');

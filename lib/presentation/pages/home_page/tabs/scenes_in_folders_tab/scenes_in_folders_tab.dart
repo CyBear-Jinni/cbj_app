@@ -1,11 +1,8 @@
 import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
-import 'package:cybear_jinni/application/folders_of_scenes/folders_of_scenes_bloc.dart';
-import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/home_page/tabs/scenes_in_folders_tab/widgets/scenes_in_folders_l.dart';
 import 'package:cybear_jinni/presentation/pages/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -58,11 +55,7 @@ class ScenesInFoldersTab extends StatelessWidget {
           // rightSecondFunction: rightSecondFunction,
         ),
         Expanded(
-          child: BlocProvider(
-            create: (context) => getIt<FoldersOfScenesBloc>()
-              ..add(const FoldersOfScenesEvent.initialized()),
-            child: ScenesInFoldersL(),
-          ),
+          child: ScenesInFoldersL(),
         ),
       ],
     );

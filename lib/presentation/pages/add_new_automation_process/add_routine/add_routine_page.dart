@@ -1,12 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/domain/routine/value_objects_routine_cbj.dart';
-import 'package:cybear_jinni/application/add_new_routine/add_new_routine_bloc.dart';
-import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/pages/add_new_automation_process/add_routine/widgets/add_routine_widget.dart';
 import 'package:cybear_jinni/presentation/pages/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
 
@@ -46,17 +43,7 @@ class AddRoutinePage extends StatelessWidget {
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
             ),
-            BlocProvider(
-              create: (context) => getIt<AddNewRoutineBloc>()
-                ..add(
-                  AddNewRoutineEvent.addRoutineDate(
-                    daysToRepeat: daysToRepeat,
-                    hourToRepeat: hourToRepeat,
-                    minutesToRepeat: minutesToRepeat,
-                  ),
-                ),
-              child: AddRoutineWidget(),
-            ),
+            AddRoutineWidget(),
           ],
         ),
       ),

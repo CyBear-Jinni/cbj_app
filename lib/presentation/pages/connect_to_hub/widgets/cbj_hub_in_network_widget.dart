@@ -50,6 +50,7 @@ class _CbjHubInNetworkWidgetState extends State<CbjHubInNetworkWidget> {
         return null;
       }
       if (devices.isNotEmpty) {
+        PhoneHub().startListen();
         context.router.replace(const HomeRoute());
         return;
       }

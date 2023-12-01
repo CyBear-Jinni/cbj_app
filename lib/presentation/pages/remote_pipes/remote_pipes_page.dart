@@ -1,7 +1,5 @@
 import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/application/remote_pipes/remote_pipes_bloc.dart';
-import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/remote_pipes/widgets/manage_remote_pipes_widget.dart';
 import 'package:cybear_jinni/presentation/pages/shared_widgets/top_navigation_bar.dart';
@@ -36,34 +34,27 @@ class RemotePipesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider<RemotePipesBloc>(
-          create: (context) => getIt<RemotePipesBloc>(),
+    return MultiBlocListener(
+      listeners: const [],
+      child: Scaffold(
+        appBar: AppBar(
+          toolbarHeight: 0,
+          backgroundColor: Colors.black,
+          systemOverlayStyle: SystemUiOverlayStyle.dark,
         ),
-      ],
-      child: MultiBlocListener(
-        listeners: [],
-        child: Scaffold(
-          appBar: AppBar(
-            toolbarHeight: 0,
-            backgroundColor: Colors.black,
-            systemOverlayStyle: SystemUiOverlayStyle.dark,
-          ),
-          body: Column(
-            children: [
-              TopNavigationBar(
-                pageName: 'Remote Pipes',
-                rightIcon: null,
-                rightIconFunction: userCogFunction,
-                leftIcon: FontAwesomeIcons.arrowLeft,
-                leftIconFunction: leftIconFunction,
-              ),
-              Expanded(
-                child: RemotePipesWidget(),
-              ),
-            ],
-          ),
+        body: Column(
+          children: [
+            TopNavigationBar(
+              pageName: 'Remote Pipes',
+              rightIcon: null,
+              rightIconFunction: userCogFunction,
+              leftIcon: FontAwesomeIcons.arrowLeft,
+              leftIconFunction: leftIconFunction,
+            ),
+            Expanded(
+              child: RemotePipesWidget(),
+            ),
+          ],
         ),
       ),
     );
