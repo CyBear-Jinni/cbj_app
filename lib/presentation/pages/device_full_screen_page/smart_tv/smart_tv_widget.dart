@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_tv/generic_smart_tv_entity.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ class SmartTvPage extends StatefulWidget {
 }
 
 class _SmartSmartTvPage extends State<SmartTvPage> {
-  GenericSmartTvDE? _switch;
+  late GenericSmartTvDE _switch;
   bool _isLoading = true;
 
   @override
@@ -70,8 +71,8 @@ class _SmartSmartTvPage extends State<SmartTvPage> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Text(
-          _switch!.cbjEntityName.getOrCrash()!, //  Show switch name
+        TextAtom(
+          _switch.cbjEntityName.getOrCrash()!, //  Show switch name
           style: TextStyle(
             fontSize: 19.0,
             color: Theme.of(context).textTheme.bodyMedium!.color,
@@ -81,9 +82,9 @@ class _SmartSmartTvPage extends State<SmartTvPage> {
           height: 3,
         ),
         if (_isLoading)
-          const Center(child: CircularProgressIndicator())
+          const Center(child: CircularProgressIndicatorAtom())
         else
-          const Text('Smart Tv Widget'),
+          const TextAtom('Smart Tv Widget'),
       ],
     );
   }

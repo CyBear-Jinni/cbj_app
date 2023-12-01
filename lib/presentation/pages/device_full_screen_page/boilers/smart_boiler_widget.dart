@@ -4,6 +4,7 @@ import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/pr
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_boiler_device/generic_boiler_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_boiler_device/generic_boiler_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums_cbj.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -77,7 +78,7 @@ class _SmartBoilerPage extends State<SmartBoilerPage> {
     final Size screenSize = MediaQuery.of(context).size;
     return Column(
       children: <Widget>[
-        Text(
+        TextAtom(
           _boiler!.cbjEntityName.getOrCrash()!, //  Show boiler name
           style: TextStyle(
             fontSize: 19.0,
@@ -88,7 +89,7 @@ class _SmartBoilerPage extends State<SmartBoilerPage> {
           height: 3,
         ),
         if (_isLoading)
-          const Center(child: CircularProgressIndicator())
+          const Center(child: CircularProgressIndicatorAtom())
         else
           FlutterSwitch(
             width: screenSize.width * 0.25,

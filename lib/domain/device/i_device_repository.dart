@@ -3,12 +3,19 @@ import 'dart:async';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/device/devices_failures.dart';
+import 'package:cybear_jinni/infrastructure/devices/device/device_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/widgets.dart';
 import 'package:kt_dart/kt.dart';
 import 'package:rxdart/rxdart.dart';
 
-abstract class IDeviceRepository {
+abstract interface class IDeviceRepository {
+  static IDeviceRepository? _instance;
+
+  static IDeviceRepository get instance {
+    return _instance ??= DeviceRepository();
+  }
+
   void addOrUpdateDevice(DeviceEntityAbstract deviceEntity);
 
   void addOrUpdateDeviceAndStateToWaiting(DeviceEntityAbstract deviceEntity);

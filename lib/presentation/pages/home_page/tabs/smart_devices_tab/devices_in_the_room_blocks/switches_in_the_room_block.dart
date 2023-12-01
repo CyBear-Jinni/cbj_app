@@ -1,14 +1,15 @@
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_switch_device/generic_switch_entity.dart';
-import 'package:cybear_jinni/application/switches/switches_actor/switches_actor_bloc.dart';
+import 'package:cybear_jinni/domain/device/i_device_repository.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/types_to_pass.dart';
 import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class SwitchesInTheRoomBlock extends StatelessWidget {
@@ -39,6 +40,30 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
   final RoomEntity roomEntity;
   final List<GenericSwitchDE> switchesInRoom;
   final ListOfColors roomColorGradiant;
+
+  Future<void> _turnOffAllSwitches(
+    BuildContext context,
+    List<String>? switchesIdToTurnOff,
+  ) async {
+    FlushbarHelper.createLoading(
+      message: 'Turning Off all switches',
+      linearProgressIndicator: const LinearProgressIndicator(),
+    ).show(context);
+
+    IDeviceRepository.instance.turnOffDevices(devicesId: switchesIdToTurnOff);
+  }
+
+  Future<void> _turnOnAllSwitches(
+    BuildContext context,
+    List<String>? switchesIdToTurnOn,
+  ) async {
+    FlushbarHelper.createLoading(
+      message: 'Turning On all switches',
+      linearProgressIndicator: const LinearProgressIndicator(),
+    ).show(context);
+
+    IDeviceRepository.instance.turnOnDevices(devicesId: switchesIdToTurnOn);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +96,7 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Expanded(child: Text('')),
+                const Expanded(child: TextAtom('')),
                 Expanded(
                   child: Column(
                     children: [
@@ -105,7 +130,7 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
                           ),
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: Text(
+                        child: TextAtom(
                           switchesInRoom.length.toString(),
                           textAlign: TextAlign.center,
                           style: TextStyle(
@@ -117,7 +142,7 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
                     ),
                   )
                 else
-                  const Expanded(child: Text('')),
+                  const Expanded(child: TextAtom('')),
               ],
             ),
             const SizedBox(height: 5),
@@ -145,72 +170,63 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            BlocConsumer<SwitchesActorBloc, SwitchesActorState>(
-              listener: (context, state) {},
-              builder: (context, state) {
-                return Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    TextButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(
-                          Colors.grey.withOpacity(0.6),
-                        ),
-                        side: MaterialStateProperty.all(
-                          const BorderSide(width: 0.2),
-                        ),
-                      ),
-                      onPressed: () {
-                        context.read<SwitchesActorBloc>().add(
-                              SwitchesActorEvent.turnOffAllSwitches(
-                                extractDevicesId(),
-                                context,
-                              ),
-                            );
-                      },
-                      child: Text(
-                        'Off',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Theme.of(context).textTheme.bodyLarge!.color,
-                        ),
-                      ).tr(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                TextButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                      Colors.grey.withOpacity(0.6),
                     ),
-                    Text(
-                      '·',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Theme.of(context).textTheme.bodyLarge!.color,
-                      ),
+                    side: MaterialStateProperty.all(
+                      const BorderSide(width: 0.2),
                     ),
-                    TextButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(
-                          Colors.grey.withOpacity(0.6),
-                        ),
-                        side: MaterialStateProperty.all(
-                          const BorderSide(width: 0.2),
-                        ),
-                      ),
-                      onPressed: () {
-                        context.read<SwitchesActorBloc>().add(
-                              SwitchesActorEvent.turnOnAllSwitches(
-                                extractDevicesId(),
-                                context,
-                              ),
-                            );
-                      },
-                      child: Text(
-                        'On',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Theme.of(context).textTheme.bodyLarge!.color,
-                        ),
-                      ).tr(),
+                  ),
+                  onPressed: () {
+                    _turnOffAllSwitches(
+                      context,
+                      extractDevicesId(),
+                    );
+                  },
+                  child: TextAtom(
+                    'Off',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                     ),
-                  ],
-                );
-              },
+                  ),
+                ),
+                TextAtom(
+                  '·',
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
+                  ),
+                ),
+                TextButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                      Colors.grey.withOpacity(0.6),
+                    ),
+                    side: MaterialStateProperty.all(
+                      const BorderSide(width: 0.2),
+                    ),
+                  ),
+                  onPressed: () {
+                    _turnOnAllSwitches(
+                      context,
+                      extractDevicesId(),
+                    );
+                  },
+                  child: TextAtom(
+                    'On',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),

@@ -1,19 +1,28 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cybear_jinni/application/configure_new_cbj_comp/configure_new_cbj_comp_bloc.dart';
-import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
-import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/value_objects_core.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_light_device/generic_light_entity.dart';
-import 'package:cybear_jinni/injection.dart';
+import 'package:cbj_integrations_controller/utils.dart';
+import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
+import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_failures.dart';
+import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_value_objects.dart';
+import 'package:cybear_jinni/domain/cbj_comp/i_cbj_comp_repository.dart';
+import 'package:cybear_jinni/domain/manage_network/i_manage_network_repository.dart';
+import 'package:cybear_jinni/domain/manage_network/manage_network_entity.dart';
+import 'package:cybear_jinni/domain/security_bear/i_security_bear_connection_repository.dart';
+import 'package:cybear_jinni/domain/security_bear/security_bear_failures.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/devices_cards/blinds_card.dart';
 import 'package:cybear_jinni/presentation/core/devices_cards/light_card.dart';
 import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
+import 'package:dartz/dartz.dart' as dartz;
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:kt_dart/collection.dart';
 import 'package:liquid_progress_indicator_v2/liquid_progress_indicator.dart';
+import 'package:wifi_iot/wifi_iot.dart';
 
-class ConfigureNewCbjCompWidgets extends StatelessWidget {
+class ConfigureNewCbjCompWidgets extends StatefulWidget {
   const ConfigureNewCbjCompWidgets({
     required this.cbjCompEntity,
   });
@@ -22,6 +31,115 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
 
   static String deviceNameFieldKey = 'deviceNameField';
   static String devicesDefaultRoomNameField = '';
+
+  @override
+  State<ConfigureNewCbjCompWidgets> createState() =>
+      _ConfigureNewCbjCompWidgetsState();
+}
+
+class _ConfigureNewCbjCompWidgetsState
+    extends State<ConfigureNewCbjCompWidgets> {
+  ConfigureNewCbjCompState state = ConfigureNewCbjCompState.actionInProgress;
+
+  /// Progress counter for setting new devices
+  double progressPercentage = 0.0;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _sendHotSpotInformation(widget.cbjCompEntity);
+  }
+
+  Future<void> _sendHotSpotInformation(CBJCompEntity cBJCompEntity) async {
+    progressPercentage += 0.3;
+    setState(() {
+      state = ConfigureNewCbjCompState.actionInProgress;
+    });
+
+    final CBJCompEntity compUpdatedData = cBJCompEntity;
+    final dartz.Either<SecurityBearFailures, dartz.Unit> setSecurityBearWiFi =
+        await ISecurityBearConnectionRepository.instance
+            .setSecurityBearWiFiInformation(compUpdatedData);
+
+    setSecurityBearWiFi.fold(
+      (l) {
+        setState(() {
+          state = ConfigureNewCbjCompState.errorInProcess;
+        });
+        return;
+      },
+      (r) {
+        progressPercentage += 0.5;
+        WiFiForIoTPlugin.disconnect();
+
+        setState(() {
+          state = ConfigureNewCbjCompState.actionInProgress;
+        });
+      },
+    );
+  }
+
+  void routeToHub() {
+    context.router.replace(
+      ComputerConnectionCheckRoute(
+        cbjCompEntity: widget.cbjCompEntity,
+      ),
+    );
+
+    setState(() {
+      state = ConfigureNewCbjCompState.completeSuccess;
+    });
+  }
+
+  /// Organize all the data from the text fields to updated CBJCompEntity
+  CBJCompEntity newCBJCompEntity(
+    CBJCompEntity cbjCompEntity,
+    Map<String, TextEditingController> textEditingController,
+  ) {
+    final String deviceNameFieldKey =
+        ConfigureNewCbjCompWidgets.deviceNameFieldKey;
+    final List<GenericLightDE> deviceEntityList = [];
+
+    textEditingController['allInSameRoom']!.text;
+
+    final ManageNetworkEntity manageWiFiEntity =
+        IManageNetworkRepository.manageWiFiEntity!;
+    manageWiFiEntity.name!.getOrCrash();
+
+    cbjCompEntity.cBJCompDevices!.getOrCrash().asList().forEach((deviceE) {
+      try {
+        final String deviceName = textEditingController[
+                '$deviceNameFieldKey/${deviceE.uniqueId.getOrCrash()}']!
+            .text;
+        deviceEntityList.add(
+          deviceE..cbjEntityName = CbjEntityName(deviceName),
+        );
+      } catch (e) {
+        logger.w("Can't add unsupported device");
+      }
+    });
+    final CBJCompEntity compUpdatedData = cbjCompEntity.copyWith(
+      cBJCompDevices: CBJCompDevices(deviceEntityList.toImmutableList()),
+    );
+
+    return compUpdatedData;
+  }
+
+  Future<bool> initialNewDevice(CBJCompEntity compUpdatedData) async {
+    bool error = false;
+
+    final dartz.Either<CBJCompFailure, dartz.Unit> updateAllDevices =
+        await ICBJCompRepository.instance.firstSetup(compUpdatedData);
+
+    updateAllDevices.fold(
+      (l) {
+        error = true;
+      },
+      (r) {},
+    );
+    return error;
+  }
 
   Widget devicesList(
     CBJCompEntity cbjCompEntityForDeviceList,
@@ -41,7 +159,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
           text: device.cbjEntityName.value.getOrElse(() => ''),
         );
         textEditingController[
-                '$deviceNameFieldKey/${device.uniqueId.value.getOrElse(() => 'deviceId')}'] =
+                '${ConfigureNewCbjCompWidgets.deviceNameFieldKey}/${device.uniqueId.value.getOrElse(() => 'deviceId')}'] =
             textEditingControllerTemp;
         widgetList.add(
           Container(
@@ -56,13 +174,10 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                     margin: const EdgeInsets.symmetric(horizontal: 40),
                     child: Row(
                       children: [
-                        Text('Type: ${device.entityTypes.getOrCrash()}'),
+                        TextAtom('Type: ${device.entityTypes.getOrCrash()}'),
                         Expanded(
                           child: Center(
-                            child: BlocProvider(
-                              create: (context) => getIt<LightToggleBloc>(),
-                              child: LightCard(device),
-                            ),
+                            child: LightCard(device),
                           ),
                         ),
                       ],
@@ -74,13 +189,10 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                     margin: const EdgeInsets.symmetric(horizontal: 40),
                     child: Row(
                       children: [
-                        Text('Type: ${device.entityTypes.getOrCrash()}'),
+                        TextAtom('Type: ${device.entityTypes.getOrCrash()}'),
                         Expanded(
                           child: Center(
-                            child: BlocProvider(
-                              create: (context) => getIt<LightToggleBloc>(),
-                              child: LightCard(device),
-                            ),
+                            child: LightCard(device),
                           ),
                         ),
                       ],
@@ -90,12 +202,9 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
                     EntityTypes.blinds.toString())
                   Column(
                     children: [
-                      Text('Type: ${device.entityTypes.getOrCrash()}'),
+                      TextAtom('Type: ${device.entityTypes.getOrCrash()}'),
                       Center(
-                        child: BlocProvider(
-                          create: (context) => getIt<LightToggleBloc>(),
-                          child: BlindsCard(device),
-                        ),
+                        child: BlindsCard(device),
                       ),
                     ],
                   ),
@@ -146,7 +255,7 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
               children: [
                 Expanded(
                   child: Center(
-                    child: Text(
+                    child: TextAtom(
                       'Type ${device.entityTypes.getOrCrash()} is not supported yet',
                       style: TextStyle(
                         color: Theme.of(context).textTheme.bodyLarge!.color,
@@ -167,119 +276,97 @@ class ConfigureNewCbjCompWidgets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final CBJCompEntity cbjCompEntityInBuild = cbjCompEntity;
     final Map<String, TextEditingController> textEditingController = {};
     textEditingController['allInSameRoom'] = TextEditingController();
 
-    return BlocBuilder<ConfigureNewCbjCompBloc, ConfigureNewCbjCompState>(
-      builder: (context, state) {
-        return state.map(
-          initial: (_) {
-            context.read<ConfigureNewCbjCompBloc>().add(
-                  ConfigureNewCbjCompEvent.sendHotSpotInformation(
-                    cbjCompEntityInBuild,
-                  ),
-                );
-
-            state = const ConfigureNewCbjCompState.actionInProgress(0);
-
-            return Text(
-              'Configure devices',
-              style: TextStyle(
-                color: Theme.of(context).textTheme.bodyLarge!.color,
+    switch (state) {
+      case ConfigureNewCbjCompState.actionInProgress:
+        return Column(
+          children: [
+            const SizedBox(
+              height: 30,
+            ),
+            Container(
+              height: 35,
+              width: MediaQuery.of(context).size.width - 20,
+              decoration: const BoxDecoration(
+                color: Colors.black38,
+                borderRadius: BorderRadius.all(Radius.circular(10)),
               ),
-            );
-          },
-          actionInProgress: (actionInProgress) {
-            return Column(
-              children: [
-                const SizedBox(
-                  height: 30,
+              alignment: Alignment.center,
+              child: TextAtom(
+                'Connecting computer to WiFi',
+                style: TextStyle(
+                  fontSize: 25,
+                  color: Theme.of(context).textTheme.bodyLarge!.color,
                 ),
-                Container(
-                  height: 35,
-                  width: MediaQuery.of(context).size.width - 20,
-                  decoration: const BoxDecoration(
-                    color: Colors.black38,
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                  ),
-                  alignment: Alignment.center,
-                  child: Text(
-                    'Connecting computer to WiFi',
-                    style: TextStyle(
-                      fontSize: 25,
-                      color: Theme.of(context).textTheme.bodyLarge!.color,
+              ),
+            ),
+            Expanded(
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      height: 80,
+                      width: 250,
+                      child: LiquidLinearProgressIndicator(
+                        value: progressPercentage,
+                        valueColor: const AlwaysStoppedAnimation(Colors.pink),
+                        backgroundColor:
+                            Theme.of(context).textTheme.bodyLarge!.color,
+                        borderColor: Colors.red.withOpacity(0.9),
+                        borderWidth: 4.0,
+                        center: const TextAtom(
+                          'Loading...',
+                          style: TextStyle(color: Colors.black),
+                        ),
+                        borderRadius: 2,
+                      ),
                     ),
-                  ),
-                ),
-                Expanded(
-                  child: Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          height: 80,
-                          width: 250,
-                          child: LiquidLinearProgressIndicator(
-                            value: actionInProgress.progressPercentage,
-                            valueColor:
-                                const AlwaysStoppedAnimation(Colors.pink),
-                            backgroundColor:
-                                Theme.of(context).textTheme.bodyLarge!.color,
-                            borderColor: Colors.red.withOpacity(0.9),
-                            borderWidth: 4.0,
-                            center: const Text(
-                              'Loading...',
-                              style: TextStyle(color: Colors.black),
-                            ),
-                            borderRadius: 2,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        Text(
-                          'Please wait as we are setting your new computer',
-                          style: TextStyle(
-                            color: Theme.of(context).textTheme.bodyLarge!.color,
-                          ),
-                        ),
-                      ],
+                    const SizedBox(
+                      height: 20,
                     ),
-                  ),
-                  // child: Center(
-                  //   child: CircularProgressIndicator(
-                  //     backgroundColor: Colors.cyan,
-                  //     strokeWidth: 5,
-                  //   ),
-                  // ),
+                    TextAtom(
+                      'Please wait as we are setting your new computer',
+                      style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            );
-          },
-          errorInProcess: (value) {
-            return Text(
-              'Error in the process.',
-              style: TextStyle(
-                color: Theme.of(context).textTheme.bodyLarge!.color,
               ),
-            );
-          },
-          completeSuccess: (CompleteSuccess value) {
-            context.router.replace(
-              ComputerConnectionCheckRoute(
-                cbjCompEntity: cbjCompEntity,
-              ),
-            );
-            return Text(
-              'Computer have been configured.',
-              style: TextStyle(
-                color: Theme.of(context).textTheme.bodyLarge!.color,
-              ),
-            );
-          },
+              // child: Center(
+              //   child: CircularProgressIndicatorAtom(
+              //     backgroundColor: Colors.cyan,
+              //     strokeWidth: 5,
+              //   ),
+              // ),
+            ),
+          ],
         );
-      },
-    );
+
+      case ConfigureNewCbjCompState.errorInProcess:
+        return TextAtom(
+          'Error in the process.',
+          style: TextStyle(
+            color: Theme.of(context).textTheme.bodyLarge!.color,
+          ),
+        );
+      case ConfigureNewCbjCompState.completeSuccess:
+        return TextAtom(
+          'Computer have been configured.',
+          style: TextStyle(
+            color: Theme.of(context).textTheme.bodyLarge!.color,
+          ),
+        );
+    }
   }
+}
+
+enum ConfigureNewCbjCompState {
+  actionInProgress,
+  errorInProcess,
+  completeSuccess,
+  ;
 }

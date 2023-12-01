@@ -15,6 +15,7 @@ import 'package:cbj_integrations_controller/infrastructure/generic_devices/gener
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_tv/generic_smart_tv_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_switch_device/generic_switch_entity.dart';
 import 'package:cybear_jinni/ad_state.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/core/types_to_pass.dart';
 import 'package:cybear_jinni/presentation/pages/home_page/tabs/smart_devices_tab/rooms_widgets/rom_widget.dart';
@@ -430,7 +431,7 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
             numberOfDevicesInTheRoom: numberOfDevicesInTheRoom,
           );
         }
-        return const Text('Error');
+        return const TextAtom('Error');
       },
       itemCount: objectList.length,
     );

@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cbj_integrations_controller/domain/vendors/vendor_data.dart';
+import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -24,20 +25,8 @@ class VendorWidget extends StatelessWidget {
         if (vendorName == VendorsAndServices.lifx.name.toLowerCase()) {
           context.router.push(AddLifxVendorRoute(vendor: vendor));
         } else if (vendorName ==
-            VendorsAndServices.tuyaSmart.name.toLowerCase()) {
-          context.router.push(AddTuyaVendorRoute(vendor: vendor));
-        } else if (vendorName ==
-            VendorsAndServices.smartLife.name.toLowerCase()) {
-          context.router.push(AddSmartLifeVendorRoute(vendor: vendor));
-        } else if (vendorName ==
-            VendorsAndServices.jinvooSmart.name.toLowerCase()) {
-          context.router.push(AddJinvooSmartVendorRoute(vendor: vendor));
-        } else if (vendorName ==
             VendorsAndServices.espHome.name.toLowerCase()) {
           context.router.push(AddEspHomeVendorRoute(vendor: vendor));
-        } else if (vendorName ==
-            VendorsAndServices.xiaomiMi.name.toLowerCase()) {
-          context.router.push(AddXiaomiMiVendorRoute(vendor: vendor));
         } else if (vendorName ==
             VendorsAndServices.sonoffEweLink.name.toLowerCase()) {
           context.router.push(AddEwelinkVendorRoute(vendor: vendor));
@@ -86,7 +75,7 @@ class VendorWidget extends StatelessWidget {
             const SizedBox(
               width: 10,
             ),
-            Text(
+            TextAtom(
               vendor.name.getOrCrash(),
               style: const TextStyle(
                 color: Colors.black,

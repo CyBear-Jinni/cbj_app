@@ -1,24 +1,22 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:cbj_integrations_controller/domain/hub/hub_entity.dart';
+import 'package:cbj_integrations_controller/domain/hub/hub_failures.dart';
+import 'package:cbj_integrations_controller/domain/hub/hub_value_objects.dart';
 import 'package:cbj_integrations_controller/domain/local_db/i_local_devices_db_repository.dart';
 import 'package:cbj_integrations_controller/domain/local_db/local_db_failures.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cbj_integrations_controller/infrastructure/hub_client/hub_client.dart';
+import 'package:cbj_integrations_controller/infrastructure/hub_client/hub_client_demo.dart';
+import 'package:cbj_integrations_controller/infrastructure/hub_client/hub_dtos.dart';
 import 'package:cbj_integrations_controller/utils.dart';
-import 'package:cbj_smart_device/application/usecases/smart_server_u/smart_server_u.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:cybear_jinni/domain/hub/hub_entity.dart';
-import 'package:cybear_jinni/domain/hub/hub_failures.dart';
-import 'package:cybear_jinni/domain/hub/hub_value_objects.dart';
 import 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
 import 'package:cybear_jinni/domain/local_db/i_local_db_repository2.dart';
-import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
-import 'package:cybear_jinni/infrastructure/hub_client/hub_client_demo.dart';
-import 'package:cybear_jinni/infrastructure/hub_client/hub_dtos.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
-import 'package:injectable/injectable.dart';
 import 'package:location/location.dart';
 import 'package:multicast_dns/multicast_dns.dart';
 import 'package:network_info_plus/network_info_plus.dart';
@@ -27,8 +25,7 @@ import 'package:permission_handler/permission_handler.dart'
     as permission_handler;
 import 'package:wifi_iot/wifi_iot.dart';
 
-@LazySingleton(as: IHubConnectionRepository)
-class HubConnectionRepository extends IHubConnectionRepository {
+class HubConnectionRepository implements IHubConnectionRepository {
   HubConnectionRepository() {
     if (currentEnvApp == EnvApp.prod) {
       hubPort = 50055;
@@ -129,19 +126,19 @@ class HubConnectionRepository extends IHubConnectionRepository {
     if (IHubConnectionRepository.hubEntity == null) {
       try {
         String? hubNetworkBssid;
-        (await getIt<ILocalDbRepository2>().getHubEntityNetworkBssid()).fold(
+        (await ILocalDbRepository2.instance.getHubEntityNetworkBssid()).fold(
           (l) => throw 'Error getting Hub network Bssid',
           (r) => hubNetworkBssid = r,
         );
 
         String? hubNetworkName;
-        (await getIt<ILocalDbRepository2>().getHubEntityNetworkName()).fold(
+        (await ILocalDbRepository2.instance.getHubEntityNetworkName()).fold(
           (l) => throw 'Error getting Hub network name',
           (r) => hubNetworkName = r,
         );
 
         String? hubNetworkIp;
-        (await getIt<ILocalDbRepository2>().getHubEntityLastKnownIp()).fold(
+        (await ILocalDbRepository2.instance.getHubEntityLastKnownIp()).fold(
           (l) => throw 'Error getting Hub network IP',
           (r) => hubNetworkIp = r,
         );
@@ -438,7 +435,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
     final HubDtos hubDtos =
         IHubConnectionRepository.hubEntity!.toInfrastructure();
 
-    (await getIt<ILocalDbRepository2>().saveHubEntity(
+    (await ILocalDbRepository2.instance.saveHubEntity(
       hubNetworkBssid: hubDtos.hubNetworkBssid,
       networkName: hubDtos.networkName,
       lastKnownIp: hubDtos.lastKnownIp,
@@ -459,19 +456,19 @@ class HubConnectionRepository extends IHubConnectionRepository {
   Future<void> loadNetworkInformationFromDb() async {
     try {
       String? hubNetworkBssid;
-      (await getIt<ILocalDbRepository2>().getHubEntityNetworkBssid()).fold(
+      (await ILocalDbRepository2.instance.getHubEntityNetworkBssid()).fold(
         (l) => throw 'Error getting Hub network Bssid',
         (r) => hubNetworkBssid = r,
       );
 
       String? hubNetworkName;
-      (await getIt<ILocalDbRepository2>().getHubEntityNetworkName()).fold(
+      (await ILocalDbRepository2.instance.getHubEntityNetworkName()).fold(
         (l) => throw 'Error getting Hub network name',
         (r) => hubNetworkName = r,
       );
 
       String? hubNetworkIp;
-      (await getIt<ILocalDbRepository2>().getHubEntityLastKnownIp()).fold(
+      (await ILocalDbRepository2.instance.getHubEntityLastKnownIp()).fold(
         (l) => throw 'Error getting Hub network IP',
         (r) => hubNetworkIp = r,
       );
@@ -602,86 +599,5 @@ class HubConnectionRepository extends IHubConnectionRepository {
       });
     }
     return const Left(HubFailures.unexpected());
-  }
-
-  @override
-  Future<Either<HubFailures, String>> containsSmartDevice() async {
-    String? currentDeviceIP;
-    try {
-      final NetworkInfo networkInfo = NetworkInfo();
-      currentDeviceIP = await networkInfo.getWifiIP();
-
-      if (currentDeviceIP == null) {
-        return left(const HubFailures.cantFindHubInNetwork());
-      }
-
-      final String subnet =
-          currentDeviceIP.substring(0, currentDeviceIP.lastIndexOf('.'));
-
-      logger.i('CBJ smart camera search subnet IP $subnet');
-
-      final Stream<ActiveHost> devicesWithPort =
-          HostScanner.scanDevicesForSinglePort(
-        subnet,
-        CbjSmartDeviceServerU.port,
-
-        /// TODO: return this settings when can use with the await for loop
-        // resultsInIpAscendingOrder: false,
-        timeout: const Duration(milliseconds: 600),
-      );
-
-      await for (final ActiveHost activeHost in devicesWithPort) {
-        logger.i('Found CBJ Smart security camera: ${activeHost.address}');
-        return right(activeHost.address);
-      }
-    } catch (e) {
-      logger.w('Exception searchForHub\n$e');
-    }
-
-    // TODO: Create support for all types
-    // final Future<List<ActiveHost>> mdnsDevices =
-    //     CompaniesConnectorConjector.searchMdnsDevices();
-    //
-    // final Future<List<ActiveHost>> pingableDevices =
-    //     CompaniesConnectorConjector.searchPingableDevices();
-
-    // final List<Stream<dynamic>> socketBindingsList =
-    //     CompaniesConnectorConjector.findDevicesByBindingIntoSockets();
-    //
-    // final List<StreamSubscription> listenToSocketBinding = [];
-    // for (final Stream<dynamic> socketBinding in socketBindingsList) {
-    //   listenToSocketBinding.add(
-    //     socketBinding.listen((switcherApiObject) {
-    //       // TODO: Make it work with all types and not just SwitcherApiObject
-    //       getIt<SwitcherConnectorConjector>()
-    //           .addOnlyNewSwitcherDevice(switcherApiObject as SwitcherApiObject);
-    //     }),
-    //   );
-    // }
-    //
-    // for (final StreamSubscription socketBindingSubscription
-    // in listenToSocketBinding) {
-    //   await socketBindingSubscription.cancel();
-    // }
-
-    // try {
-    //   for (final ActiveHost activeHost in await mdnsDevices) {
-    //     CompaniesConnectorConjector.setMdnsDeviceByCompany(activeHost);
-    //   }
-    // } catch (e) {
-    //   logger.e('Mdns search error\n$e');
-    // }
-    //
-    // for (final ActiveHost activeHost in await pingableDevices) {
-    //   try {
-    //     CompaniesConnectorConjector.setHostNameDeviceByCompany(
-    //       activeHost: activeHost,
-    //     );
-    //   } catch (e) {
-    //     continue;
-    //   }
-    // } r
-
-    return left(const HubFailures.cantFindHubInNetwork());
   }
 }

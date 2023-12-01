@@ -1,5 +1,6 @@
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/objects/enums_cbj.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:network_info_plus/network_info_plus.dart';
@@ -37,12 +38,12 @@ class _AddNewDeviceWidgetPopup extends State<AddNewDeviceWidgetPopup> {
                 }
                 return null;
               },
-              decoration: InputDecoration(
-                labelText: 'IP'.tr(),
+              decoration: const InputDecoration(
+                labelText: 'IP',
               ),
             );
           } else {
-            return const CircularProgressIndicator();
+            return const CircularProgressIndicatorAtom();
           }
         },
       ),
@@ -54,7 +55,7 @@ class _AddNewDeviceWidgetPopup extends State<AddNewDeviceWidgetPopup> {
     return Form(
       key: _formKey,
       child: AlertDialog(
-        title: const Text('Add_Smart_Device').tr(),
+        title: const TextAtom('Add_Smart_Device'),
         content: SingleChildScrollView(
           child: addNewDeviceWidget,
         ),
@@ -63,7 +64,7 @@ class _AddNewDeviceWidgetPopup extends State<AddNewDeviceWidgetPopup> {
             onPressed: () {
               Navigator.of(context).pop();
             },
-            child: const Text('Cancel').tr(),
+            child: const TextAtom('Cancel'),
           ),
           TextButton(
             onPressed: () {
@@ -71,7 +72,7 @@ class _AddNewDeviceWidgetPopup extends State<AddNewDeviceWidgetPopup> {
 //              rooms[0].getLights()[0] =
 //                  SmartDeviceObject(_deviceType, _deviceName, _ip, _roomName);
             },
-            child: const Text('Add').tr(),
+            child: const TextAtom('Add'),
           ),
         ],
       ),
@@ -110,7 +111,7 @@ class _DropDownMenu extends State<DropDownMenu> {
       ].map<DropdownMenuItem<String>>((String value) {
         return DropdownMenuItem<String>(
           value: value,
-          child: Text(value),
+          child: TextAtom(value),
         );
       }).toList(),
     );

@@ -25,26 +25,21 @@ import 'package:cbj_integrations_controller/infrastructure/generic_devices/gener
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_tv/generic_smart_tv_value_objects.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_switch_device/generic_switch_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_switch_device/generic_switch_value_objects.dart';
+import 'package:cbj_integrations_controller/infrastructure/hub_client/hub_client.dart';
 import 'package:cybear_jinni/domain/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
-import 'package:cybear_jinni/domain/user/i_user_repository.dart';
-import 'package:cybear_jinni/domain/user/user_entity.dart';
-import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
 import 'package:cybear_jinni/infrastructure/hub_client/hub_requests_routing.dart';
-import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:dartz/dartz.dart';
 import 'package:device_info_plus/device_info_plus.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/src/painting/colors.dart';
-import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
 import 'package:multicast_dns/multicast_dns.dart';
 import 'package:network_info_plus/network_info_plus.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:rxdart/rxdart.dart';
 
-@LazySingleton(as: IDeviceRepository)
 class DeviceRepository implements IDeviceRepository {
   // final DeviceRemoteService _deviceRemoteService;
   // final DeviceLocalService _deviceLocalService;
@@ -83,7 +78,6 @@ class DeviceRepository implements IDeviceRepository {
   @override
   Future<void> initiateHubConnection() async {
     AppRequestsToHub.listenToApp();
-    HubRequestsToApp.lisenToApp();
 
     HubRequestRouting.navigateRequest();
   }
@@ -277,10 +271,7 @@ class DeviceRepository implements IDeviceRepository {
         deviceModelString = iosInfo.model;
       }
 
-      final UserEntity currentUserEntity =
-          (await getIt<IUserRepository>().getCurrentUser())
-              .getOrElse(() => throw 'Cant get current user');
-      final String currentUserId = currentUserEntity.id!.getOrCrash()!;
+      const String currentUserId = 'user id';
 
       deviceEntity
           .copyWithStateMassage('Setting up device')
@@ -487,7 +478,7 @@ class DeviceRepository implements IDeviceRepository {
             await Future.delayed(
               Duration(
                 milliseconds:
-                    deviceEntity.sendNewTemperatureColorEachMiliseconds,
+                    deviceEntity.sendNewTemperatureColorEachMilliseconds,
               ),
             );
             deviceEntity.doesWaitingToSendTemperatureColorRequest = false;
@@ -497,7 +488,8 @@ class DeviceRepository implements IDeviceRepository {
         } catch (e) {
           await Future.delayed(
             Duration(
-              milliseconds: deviceEntity.sendNewTemperatureColorEachMiliseconds,
+              milliseconds:
+                  deviceEntity.sendNewTemperatureColorEachMilliseconds,
             ),
           );
           deviceEntity.doesWaitingToSendTemperatureColorRequest = false;
@@ -559,7 +551,7 @@ class DeviceRepository implements IDeviceRepository {
 
             await Future.delayed(
               Duration(
-                milliseconds: deviceEntity.sendNewHsvColorEachMiliseconds,
+                milliseconds: deviceEntity.sendNewHsvColorEachMilliseconds,
               ),
             );
             deviceEntity.doesWaitingToSendHsvColorRequest = false;
@@ -569,7 +561,7 @@ class DeviceRepository implements IDeviceRepository {
         } catch (e) {
           await Future.delayed(
             Duration(
-              milliseconds: deviceEntity.sendNewHsvColorEachMiliseconds,
+              milliseconds: deviceEntity.sendNewHsvColorEachMilliseconds,
             ),
           );
           deviceEntity.doesWaitingToSendHsvColorRequest = false;
@@ -649,7 +641,7 @@ class DeviceRepository implements IDeviceRepository {
 
         await Future.delayed(
           Duration(
-            milliseconds: deviceEntity.sendNewBrightnessEachMiliseconds,
+            milliseconds: deviceEntity.sendNewBrightnessEachMilliseconds,
           ),
         );
         deviceEntity.doesWaitingToSendBrightnessRequest = false;
@@ -658,7 +650,7 @@ class DeviceRepository implements IDeviceRepository {
     } catch (e) {
       await Future.delayed(
         Duration(
-          milliseconds: deviceEntity.sendNewBrightnessEachMiliseconds,
+          milliseconds: deviceEntity.sendNewBrightnessEachMilliseconds,
         ),
       );
       deviceEntity.doesWaitingToSendBrightnessRequest = false;
@@ -679,7 +671,7 @@ class DeviceRepository implements IDeviceRepository {
 
         await Future.delayed(
           Duration(
-            milliseconds: deviceEntity.sendNewBrightnessEachMiliseconds,
+            milliseconds: deviceEntity.sendNewBrightnessEachMilliseconds,
           ),
         );
         deviceEntity.doesWaitingToSendBrightnessRequest = false;
@@ -688,7 +680,7 @@ class DeviceRepository implements IDeviceRepository {
     } catch (e) {
       await Future.delayed(
         Duration(
-          milliseconds: deviceEntity.sendNewBrightnessEachMiliseconds,
+          milliseconds: deviceEntity.sendNewBrightnessEachMilliseconds,
         ),
       );
       deviceEntity.doesWaitingToSendBrightnessRequest = false;
