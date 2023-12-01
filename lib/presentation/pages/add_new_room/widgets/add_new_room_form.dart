@@ -1,146 +1,207 @@
+import 'package:cbj_integrations_controller/domain/room/i_room_repository.dart';
+import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/domain/room/room_failures.dart';
+import 'package:cbj_integrations_controller/domain/room/value_objects_room.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cybear_jinni/application/room/create_new_room_form/room_sign_in_form_bloc.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/domain/device/i_device_repository.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:dartz/dartz.dart' as dartz;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
 
-class AddNewRoomForm extends StatelessWidget {
+class AddNewRoomForm extends StatefulWidget {
+  @override
+  State<AddNewRoomForm> createState() => _AddNewRoomFormState();
+}
+
+class _AddNewRoomFormState extends State<AddNewRoomForm> {
+  List<RoomEntity?> _allRooms = [];
+  List<DeviceEntityAbstract?> _allDevices = [];
+  RoomUniqueId roomUniqueId = RoomUniqueId();
+  RoomDefaultName cbjEntityName = RoomDefaultName('');
+  RoomBackground background = RoomBackground(
+    'https://live.staticflickr.com/5220/5486044345_f67abff3e9_h.jpg',
+  );
+  RoomTypes roomTypes = RoomTypes(const []);
+  RoomDevicesId roomDevicesId = RoomDevicesId(const []);
+  RoomScenesId roomScenesId = RoomScenesId(const []);
+  RoomRoutinesId roomRoutinesId = RoomRoutinesId(const []);
+  RoomBindingsId roomBindingsId = RoomBindingsId(const []);
+  RoomMostUsedBy roomMostUsedBy = RoomMostUsedBy(const []);
+  RoomPermissions roomPermissions = RoomPermissions(const []);
+  bool showErrorMessages = false;
+  bool isSubmitting = false;
+  dartz.Option authFailureOrSuccessOption = dartz.none();
+
+  @override
+  void initState() {
+    super.initState();
+    _initialized();
+  }
+
+  Future<void> _initialized() async {
+    (await IRoomRepository.instance.getAllRooms()).fold((l) => null, (r) {
+      _allRooms = List<RoomEntity>.from(r.iter);
+    });
+
+    (await IDeviceRepository.instance.getAllDevices()).fold((l) => null, (r) {
+      _allDevices = List<DeviceEntityAbstract>.from(r.iter);
+    });
+    _allRooms.removeWhere((element) => element == null);
+    _allDevices.removeWhere((element) => element == null);
+    setState(() {
+      _allRooms = _allRooms as List<RoomEntity>;
+      _allDevices = _allDevices as List<DeviceEntityAbstract>;
+    });
+  }
+
+  Future<void> _createRoom() async {
+    final RoomEntity roomEntity = RoomEntity(
+      uniqueId: RoomUniqueId.fromUniqueString(roomUniqueId.getOrCrash()),
+      cbjEntityName: RoomDefaultName(cbjEntityName.getOrCrash()),
+      background: RoomBackground(background.getOrCrash()),
+      roomTypes: RoomTypes(roomTypes.getOrCrash()),
+      roomDevicesId: RoomDevicesId(roomDevicesId.getOrCrash()),
+      roomScenesId: RoomScenesId(roomScenesId.getOrCrash()),
+      roomRoutinesId: RoomRoutinesId(roomRoutinesId.getOrCrash()),
+      roomBindingsId: RoomBindingsId(roomBindingsId.getOrCrash()),
+      roomMostUsedBy: RoomMostUsedBy(roomMostUsedBy.getOrCrash()),
+      roomPermissions: RoomPermissions(roomPermissions.getOrCrash()),
+    );
+
+    IRoomRepository.instance.create(roomEntity);
+  }
+
+  Future<void> _defaultNameChanged(String value) async {
+    setState(() {
+      cbjEntityName = RoomDefaultName(value);
+      authFailureOrSuccessOption = dartz.none();
+    });
+  }
+
+  Future<void> _roomTypesChanged(List<String> value) async {
+    setState(() {
+      roomTypes = RoomTypes(value);
+      authFailureOrSuccessOption = dartz.none();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
 
-    return BlocConsumer<RoomSignInFormBloc, RoomSignInFormState>(
-      listener: (context, state) {},
-      builder: (context, state) {
-        return Center(
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 800),
-            child: Column(
-              children: [
-                Form(
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  child: Container(
-                    constraints:
-                        BoxConstraints(maxHeight: screenSize.height * 0.83),
-                    child: SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          const SizedBox(
-                            height: 70,
-                          ),
-                          TextFormField(
-                            decoration: const InputDecoration(
-                              prefixIcon:
-                                  FaIcon(FontAwesomeIcons.rightToBracket),
-                              labelText: 'Area Name',
-                            ),
-                            autocorrect: false,
-                            onChanged: (value) =>
-                                context.read<RoomSignInFormBloc>().add(
-                                      RoomSignInFormEvent.defaultNameChanged(
-                                        value,
-                                      ),
-                                    ),
-                            validator: (_) => context
-                                .read<RoomSignInFormBloc>()
-                                .state
-                                .cbjEntityName
-                                .value
-                                .fold(
-                                  (RoomFailure f) => 'Validation error',
-                                  (r) => null,
-                                ),
-                          ),
-                          const SizedBox(
-                            height: 30,
-                          ),
-                          MultiSelectDialogField(
-                            buttonText: const Text(
-                              'Select_Purposes_Of_The_Area',
-                              style: TextStyle(
-                                color: Colors.black,
-                              ),
-                            ).tr(),
-                            cancelText: const Text('CANCEL').tr(),
-                            confirmText: const Text('OK').tr(),
-                            title: const TextAtom('Select'),
-                            items: AreaPurposesTypes.values
-                                .map((AreaPurposesTypes areaPurposeType) {
-                              final String tempAreaName = areaPurposeType.name
-                                  .substring(1, areaPurposeType.name.length);
-                              String areaNameEdited = areaPurposeType.name
-                                  .substring(0, 1)
-                                  .toUpperCase();
-                              for (final String a in tempAreaName.characters) {
-                                if (a[0] == a[0].toUpperCase()) {
-                                  areaNameEdited += ' ';
-                                }
-                                areaNameEdited += a;
-                              }
-
-                              return MultiSelectItem(
-                                areaPurposeType.value,
-                                areaNameEdited,
-                              );
-                            }).toList(),
-                            listType: MultiSelectListType.CHIP,
-                            onConfirm: (List<int> values) {
-                              context.read<RoomSignInFormBloc>().add(
-                                    RoomSignInFormEvent.roomTypesChanged(
-                                      values.map((e) => e.toString()).toList(),
-                                    ),
-                                  );
-                              // _selectedAnimals = values;
-                            },
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 5.0),
-                  child: Row(
+    return Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 800),
+        child: Column(
+          children: [
+            Form(
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              child: Container(
+                constraints:
+                    BoxConstraints(maxHeight: screenSize.height * 0.83),
+                child: SingleChildScrollView(
+                  child: Column(
                     children: [
-                      Expanded(
-                        child: TextButton(
-                          onPressed: () {
-                            context.read<RoomSignInFormBloc>().add(
-                                  const RoomSignInFormEvent.createRoom(),
-                                );
-                            Fluttertoast.showToast(
-                              msg: 'Adding area',
-                              toastLength: Toast.LENGTH_LONG,
-                              gravity: ToastGravity.BOTTOM,
-                              backgroundColor: Colors.purple,
-                              textColor:
-                                  Theme.of(context).textTheme.bodyLarge!.color,
-                              fontSize: 16.0,
-                            );
-                            Navigator.pop(context);
-                          },
-                          child: const TextAtom('ADD'),
+                      const SizedBox(
+                        height: 70,
+                      ),
+                      TextFormField(
+                        decoration: const InputDecoration(
+                          prefixIcon: FaIcon(FontAwesomeIcons.rightToBracket),
+                          labelText: 'Area Name',
                         ),
+                        autocorrect: false,
+                        onChanged: (value) => _defaultNameChanged(
+                          value,
+                        ),
+                        validator: (_) => cbjEntityName.value.fold(
+                          (RoomFailure f) => 'Validation error',
+                          (r) => null,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      MultiSelectDialogField(
+                        buttonText: const Text(
+                          'Select_Purposes_Of_The_Area',
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
+                        ).tr(),
+                        cancelText: const Text('CANCEL').tr(),
+                        confirmText: const Text('OK').tr(),
+                        title: const TextAtom('Select'),
+                        items: AreaPurposesTypes.values
+                            .map((AreaPurposesTypes areaPurposeType) {
+                          final String tempAreaName = areaPurposeType.name
+                              .substring(1, areaPurposeType.name.length);
+                          String areaNameEdited = areaPurposeType.name
+                              .substring(0, 1)
+                              .toUpperCase();
+                          for (final String a in tempAreaName.characters) {
+                            if (a[0] == a[0].toUpperCase()) {
+                              areaNameEdited += ' ';
+                            }
+                            areaNameEdited += a;
+                          }
+
+                          return MultiSelectItem(
+                            areaPurposeType.value,
+                            areaNameEdited,
+                          );
+                        }).toList(),
+                        listType: MultiSelectListType.CHIP,
+                        onConfirm: (List<int> values) {
+                          _roomTypesChanged(
+                            values.map((e) => e.toString()).toList(),
+                          );
+                        },
                       ),
                     ],
                   ),
                 ),
-                if (state.isSubmitting) ...[
-                  const SizedBox(
-                    height: 8,
-                  ),
-                  const LinearProgressIndicator(),
-                ],
-              ],
+              ),
             ),
-          ),
-        );
-      },
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 5.0),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: TextButton(
+                      onPressed: () {
+                        _createRoom();
+                        Fluttertoast.showToast(
+                          msg: 'Adding area',
+                          toastLength: Toast.LENGTH_LONG,
+                          gravity: ToastGravity.BOTTOM,
+                          backgroundColor: Colors.purple,
+                          textColor:
+                              Theme.of(context).textTheme.bodyLarge!.color,
+                          fontSize: 16.0,
+                        );
+                        Navigator.pop(context);
+                      },
+                      child: const TextAtom('ADD'),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            if (isSubmitting) ...[
+              const SizedBox(
+                height: 8,
+              ),
+              const LinearProgressIndicator(),
+            ],
+          ],
+        ),
+      ),
     );
   }
 }

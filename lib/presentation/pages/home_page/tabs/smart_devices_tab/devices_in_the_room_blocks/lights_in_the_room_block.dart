@@ -1,3 +1,4 @@
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
@@ -6,17 +7,16 @@ import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstr
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_dimmable_light_device/generic_dimmable_light_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_light_device/generic_light_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
-import 'package:cybear_jinni/application/lights/lights_actor/lights_actor_bloc.dart';
+import 'package:cybear_jinni/domain/device/i_device_repository.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/types_to_pass.dart';
 import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class LightsInTheRoomBlock extends StatelessWidget {
+class LightsInTheRoomBlock extends StatefulWidget {
   const LightsInTheRoomBlock({
     required this.roomEntity,
     required this.lightsInRoom,
@@ -64,34 +64,74 @@ class LightsInTheRoomBlock extends StatelessWidget {
   final ListOfColors roomColorGradiant;
 
   @override
+  State<LightsInTheRoomBlock> createState() => _LightsInTheRoomBlockState();
+}
+
+class _LightsInTheRoomBlockState extends State<LightsInTheRoomBlock> {
+  Future<void> _turnOffAllLights(List<String> lightsIdToTurnOff) async {
+    FlushbarHelper.createLoading(
+      message: 'Turning Off all lights',
+      linearProgressIndicator: const LinearProgressIndicator(),
+    ).show(context);
+
+    IDeviceRepository.instance.turnOffDevices(devicesId: lightsIdToTurnOff);
+  }
+
+  Future<void> _turnOnAllLights(List<String> lightsIdToTurnOn) async {
+    FlushbarHelper.createLoading(
+      message: 'Turning On all lights',
+      linearProgressIndicator: const LinearProgressIndicator(),
+    ).show(context);
+
+    IDeviceRepository.instance.turnOnDevices(devicesId: lightsIdToTurnOn);
+  }
+
+  List<String> extractDevicesId() {
+    final List<String> devicesIdList = [];
+    for (final element in widget.lightsInRoom) {
+      devicesIdList.add(element.uniqueId.getOrCrash());
+    }
+    for (final element in widget.dimmableLightsInRoom) {
+      devicesIdList.add(element.uniqueId.getOrCrash());
+    }
+    for (final element in widget.rgbwLightsInRoom) {
+      devicesIdList.add(element.uniqueId.getOrCrash());
+    }
+
+    return devicesIdList;
+  }
+
+  @override
   Widget build(BuildContext context) {
     String deviceText;
 
-    final int totalLightsInTheRoom = lightsInRoom.length +
-        dimmableLightsInRoom.length +
-        rgbwLightsInRoom.length;
+    final int totalLightsInTheRoom = widget.lightsInRoom.length +
+        widget.dimmableLightsInRoom.length +
+        widget.rgbwLightsInRoom.length;
 
     if (totalLightsInTheRoom == 1) {
-      if (lightsInRoom.isNotEmpty) {
-        deviceText = lightsInRoom.first.cbjEntityName.getOrCrash()!;
-      } else if (dimmableLightsInRoom.isNotEmpty) {
-        deviceText = dimmableLightsInRoom.first.cbjEntityName.getOrCrash()!;
-      } else if (rgbwLightsInRoom.isNotEmpty) {
-        deviceText = rgbwLightsInRoom.first.cbjEntityName.getOrCrash()!;
+      if (widget.lightsInRoom.isNotEmpty) {
+        deviceText = widget.lightsInRoom.first.cbjEntityName.getOrCrash()!;
+      } else if (widget.dimmableLightsInRoom.isNotEmpty) {
+        deviceText =
+            widget.dimmableLightsInRoom.first.cbjEntityName.getOrCrash()!;
+      } else if (widget.rgbwLightsInRoom.isNotEmpty) {
+        deviceText = widget.rgbwLightsInRoom.first.cbjEntityName.getOrCrash()!;
       } else {
         logger.w('Missing a line here');
         deviceText = 'Light';
       }
     } else {
-      deviceText = '_Lights'.tr(args: [roomEntity.cbjEntityName.getOrCrash()]);
+      deviceText =
+          '_Lights'.tr(args: [widget.roomEntity.cbjEntityName.getOrCrash()]);
     }
 
     return GestureDetector(
       onTap: () {
         context.router.push(
           RoomsLightsRoute(
-            roomEntity: roomEntity,
-            roomColorGradiant: roomColorGradiant,
+            roomEntity: widget.roomEntity,
+            roomColorGradiant: widget.roomColorGradiant,
           ),
         );
       },
@@ -181,89 +221,61 @@ class LightsInTheRoomBlock extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            BlocConsumer<LightsActorBloc, LightsActorState>(
-              listener: (context, state) {},
-              builder: (context, state) {
-                return Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    TextButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(
-                          Colors.grey.withOpacity(0.6),
-                        ),
-                        side: MaterialStateProperty.all(
-                          const BorderSide(width: 0.2),
-                        ),
-                      ),
-                      onPressed: () {
-                        context.read<LightsActorBloc>().add(
-                              LightsActorEvent.turnOffAllLights(
-                                extractDevicesId(),
-                                context,
-                              ),
-                            );
-                      },
-                      child: TextAtom(
-                        'Off',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Theme.of(context).textTheme.bodyLarge!.color,
-                        ),
-                      ),                    ),
-                    TextAtom(
-                      '·',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Theme.of(context).textTheme.bodyLarge!.color,
-                      ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                TextButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                      Colors.grey.withOpacity(0.6),
                     ),
-                    TextButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(
-                          Colors.grey.withOpacity(0.6),
-                        ),
-                        side: MaterialStateProperty.all(
-                          const BorderSide(width: 0.2),
-                        ),
-                      ),
-                      onPressed: () {
-                        context.read<LightsActorBloc>().add(
-                              LightsActorEvent.turnOnAllLights(
-                                extractDevicesId(),
-                                context,
-                              ),
-                            );
-                      },
-                      child: TextAtom(
-                        'On',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Theme.of(context).textTheme.bodyLarge!.color,
-                        ),
-                      ),                    ),
-                  ],
-                );
-              },
+                    side: MaterialStateProperty.all(
+                      const BorderSide(width: 0.2),
+                    ),
+                  ),
+                  onPressed: () {
+                    _turnOffAllLights(extractDevicesId());
+                  },
+                  child: TextAtom(
+                    'Off',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
+                    ),
+                  ),
+                ),
+                TextAtom(
+                  '·',
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
+                  ),
+                ),
+                TextButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                      Colors.grey.withOpacity(0.6),
+                    ),
+                    side: MaterialStateProperty.all(
+                      const BorderSide(width: 0.2),
+                    ),
+                  ),
+                  onPressed: () {
+                    _turnOnAllLights(extractDevicesId());
+                  },
+                  child: TextAtom(
+                    'On',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
       ),
     );
-  }
-
-  List<String> extractDevicesId() {
-    final List<String> devicesIdList = [];
-    for (final element in lightsInRoom) {
-      devicesIdList.add(element.uniqueId.getOrCrash());
-    }
-    for (final element in dimmableLightsInRoom) {
-      devicesIdList.add(element.uniqueId.getOrCrash());
-    }
-    for (final element in rgbwLightsInRoom) {
-      devicesIdList.add(element.uniqueId.getOrCrash());
-    }
-
-    return devicesIdList;
   }
 }

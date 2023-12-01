@@ -1,13 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_computer_device/generic_smart_computer_entity.dart';
-import 'package:cybear_jinni/application/smart_computers/smart_computers_actor/smart_computers_actor_bloc.dart';
-import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/smart_computers/widgets/error_smart_computers_device_card_widget.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/smart_computers/widgets/smart_computer_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kt_dart/collection.dart';
 
@@ -71,10 +68,7 @@ class RoomSmartComputers extends StatelessWidget {
                     Container(
                       margin: const EdgeInsets.symmetric(vertical: 5),
                       width: sizeBoxWidth + 15,
-                      child: BlocProvider(
-                        create: (context) => getIt<SmartComputersActorBloc>(),
-                        child: SmartComputerWidget(deviceEntityTemp),
-                      ),
+                      child: SmartComputerWidget(deviceEntityTemp),
                     ),
                   ],
                 ),

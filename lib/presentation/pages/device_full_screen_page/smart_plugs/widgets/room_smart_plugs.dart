@@ -1,13 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_plug_device/generic_smart_plug_entity.dart';
-import 'package:cybear_jinni/application/smart_plug_toggle/smart_plug_toggle_bloc.dart';
-import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/smart_plugs/widgets/error_smart_plugs_device_card_widget.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/smart_plugs/widgets/smart_plugs_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kt_dart/collection.dart';
 
@@ -69,10 +66,7 @@ class RoomSmartPlugs extends StatelessWidget {
                     Container(
                       margin: const EdgeInsets.symmetric(vertical: 5),
                       width: sizeBoxWidth + 15,
-                      child: BlocProvider(
-                        create: (context) => getIt<SmartPlugToggleBloc>(),
-                        child: SmartPlugWidget(deviceEntityTemp),
-                      ),
+                      child: SmartPlugsWidget(deviceEntityTemp),
                     ),
                   ],
                 ),

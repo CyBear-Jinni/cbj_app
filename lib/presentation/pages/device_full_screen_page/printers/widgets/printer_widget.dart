@@ -1,86 +1,80 @@
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_printer_device/generic_printer_entity.dart';
-import 'package:cybear_jinni/application/printers/printers_actor/printers_actor_bloc.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 /// Show switch toggles in a container with the background color from smart room
 /// object
-class PrinterWidget extends StatelessWidget {
+class PrinterWidget extends StatefulWidget {
   const PrinterWidget(this._deviceEntity);
 
-  final GenericPrinterDE? _deviceEntity;
+  final GenericPrinterDE _deviceEntity;
 
-  void openPrintersWebPage(BuildContext context) {
-    _deviceEntity!.getDeviceId();
-    context.read<PrintersActorBloc>().add(
-          PrintersActorEvent.openPrintersWebPage(
-            _deviceEntity!,
-            context,
-          ),
-        );
-  }
+  @override
+  State<PrinterWidget> createState() => _PrinterWidgetState();
+}
 
-  void shutdownComputer(BuildContext context) {
-    final String deviceId = _deviceEntity!.getDeviceId();
-    context.read<PrintersActorBloc>().add(
-          PrintersActorEvent.shutdownAllPrinters(
-            [deviceId],
-            context,
-          ),
-        );
+class _PrinterWidgetState extends State<PrinterWidget> {
+  Future<void> _openPrintersWebPage() async {
+    FlushbarHelper.createLoading(
+      message: 'Opening printers Web Page',
+      linearProgressIndicator: const LinearProgressIndicator(),
+    ).show(context);
+
+    final String printerIp =
+        widget._deviceEntity.deviceLastKnownIp.getOrCrash();
+    launchUrl(
+      Uri.parse('http://$printerIp'),
+      mode: LaunchMode.externalApplication,
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<PrintersActorBloc, PrintersActorState>(
-      listener: (context, state) {},
-      builder: (context, state) {
-        return Column(
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                TextButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(
-                      Colors.grey,
-                    ),
-                    side: MaterialStateProperty.all(
-                      BorderSide.lerp(
-                        const BorderSide(color: Colors.white60),
-                        const BorderSide(color: Colors.white60),
-                        22,
-                      ),
-                    ),
-                  ),
-                  onPressed: () {
-                    openPrintersWebPage(context);
-                  },
-                  child: Tab(
-                    icon: FaIcon(
-                      FontAwesomeIcons.link,
-                      color: Theme.of(context).textTheme.bodyLarge!.color,
-                    ),
-                    child: TextAtom(
-                      "Open Printer's Web Page",
-                      style: TextStyle(
-                        color: Theme.of(context).textTheme.bodyLarge!.color,
-                        fontSize: 16,
-                      ),
-                    ),
+            TextButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(
+                  Colors.grey,
+                ),
+                side: MaterialStateProperty.all(
+                  BorderSide.lerp(
+                    const BorderSide(color: Colors.white60),
+                    const BorderSide(color: Colors.white60),
+                    22,
                   ),
                 ),
-              ],
-            ),
-            const SizedBox(
-              height: 20,
+              ),
+              onPressed: () {
+                _openPrintersWebPage();
+              },
+              child: Tab(
+                icon: FaIcon(
+                  FontAwesomeIcons.link,
+                  color: Theme.of(context).textTheme.bodyLarge!.color,
+                ),
+                child: TextAtom(
+                  "Open Printer's Web Page",
+                  style: TextStyle(
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
+                    fontSize: 16,
+                  ),
+                ),
+              ),
             ),
           ],
-        );
-      },
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+      ],
     );
   }
 }

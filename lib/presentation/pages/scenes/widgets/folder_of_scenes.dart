@@ -2,13 +2,10 @@ import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/domain/scene/i_scene_cbj_repository.dart';
 import 'package:cbj_integrations_controller/domain/scene/scene_cbj_entity.dart';
 import 'package:cbj_integrations_controller/domain/scene/scene_cbj_failures.dart';
-import 'package:cybear_jinni/application/scene/scene_bloc.dart';
-import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/scenes/widgets/scene_widget.dart';
 import 'package:dartz/dartz.dart' as dartz;
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FolderOfScenesWidget extends StatefulWidget {
   const FolderOfScenesWidget({required this.folderOfScenes});
@@ -24,6 +21,8 @@ class _FolderOfScenesWidgetState extends State<FolderOfScenesWidget> {
 
   List<SceneCbjEntity> allScenesInTheRoom = [];
   List<SceneCbjEntity>? scenesList;
+
+  late SceneCbjEntity sceneCbj;
 
   @override
   void initState() {
@@ -83,15 +82,7 @@ class _FolderOfScenesWidgetState extends State<FolderOfScenesWidget> {
       reverse: true,
       itemBuilder: (context, index) {
         final SceneCbjEntity sceneCbj = scenesList![index];
-        return BlocProvider(
-          create: (context) => getIt<SceneBloc>()
-            ..add(
-              SceneEvent.initialized(
-                sceneCbj: sceneCbj,
-              ),
-            ),
-          child: SceneWidget(sceneCbj),
-        );
+        return SceneWidget(sceneCbj);
       },
       itemCount: scenesList!.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

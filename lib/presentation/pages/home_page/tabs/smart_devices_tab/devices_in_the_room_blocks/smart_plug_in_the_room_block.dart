@@ -1,18 +1,18 @@
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_plug_device/generic_smart_plug_entity.dart';
-import 'package:cybear_jinni/application/smart_plugs/smart_plugs_actor/smart_plugs_actor_bloc.dart';
+import 'package:cybear_jinni/domain/device/i_device_repository.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/types_to_pass.dart';
 import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-class SmartPlugsInTheRoomBlock extends StatelessWidget {
+class SmartPlugsInTheRoomBlock extends StatefulWidget {
   const SmartPlugsInTheRoomBlock({
     required this.roomEntity,
     required this.smartPlugsInRoom,
@@ -42,21 +42,45 @@ class SmartPlugsInTheRoomBlock extends StatelessWidget {
   final ListOfColors roomColorGradiant;
 
   @override
+  State<SmartPlugsInTheRoomBlock> createState() =>
+      _SmartPlugsInTheRoomBlockState();
+}
+
+class _SmartPlugsInTheRoomBlockState extends State<SmartPlugsInTheRoomBlock> {
+  Future<void> _turnOffAllSmartPlugs(List<String> smartPlugsIdToTurnOff) async {
+    FlushbarHelper.createLoading(
+      message: 'Turning Off all smartPlugs',
+      linearProgressIndicator: const LinearProgressIndicator(),
+    ).show(context);
+
+    IDeviceRepository.instance.turnOffDevices(devicesId: smartPlugsIdToTurnOff);
+  }
+
+  Future<void> _turnOnAllSmartPlugs(List<String> smartPlugsIdToTurnOn) async {
+    FlushbarHelper.createLoading(
+      message: 'Turning On all smartPlugs',
+      linearProgressIndicator: const LinearProgressIndicator(),
+    ).show(context);
+
+    IDeviceRepository.instance.turnOnDevices(devicesId: smartPlugsIdToTurnOn);
+  }
+
+  @override
   Widget build(BuildContext context) {
     String deviceText;
-    if (smartPlugsInRoom.length == 1) {
-      deviceText = smartPlugsInRoom[0].cbjEntityName.getOrCrash()!;
+    if (widget.smartPlugsInRoom.length == 1) {
+      deviceText = widget.smartPlugsInRoom[0].cbjEntityName.getOrCrash()!;
     } else {
-      deviceText =
-          '_SmartPlugs'.tr(args: [roomEntity.cbjEntityName.getOrCrash()]);
+      deviceText = '_SmartPlugs'
+          .tr(args: [widget.roomEntity.cbjEntityName.getOrCrash()]);
     }
 
     return GestureDetector(
       onTap: () {
         context.router.push(
           RoomsSmartPlugsRoute(
-            roomEntity: roomEntity,
-            roomColorGradiant: roomColorGradiant,
+            roomEntity: widget.roomEntity,
+            roomColorGradiant: widget.roomColorGradiant,
           ),
         );
       },
@@ -89,7 +113,7 @@ class SmartPlugsInTheRoomBlock extends StatelessWidget {
                     ],
                   ),
                 ),
-                if (smartPlugsInRoom.length > 1)
+                if (widget.smartPlugsInRoom.length > 1)
                   Expanded(
                     child: Container(
                       height: 55,
@@ -107,7 +131,7 @@ class SmartPlugsInTheRoomBlock extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: TextAtom(
-                          smartPlugsInRoom.length.toString(),
+                          widget.smartPlugsInRoom.length.toString(),
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 13,
@@ -146,70 +170,57 @@ class SmartPlugsInTheRoomBlock extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            BlocConsumer<SmartPlugsActorBloc, SmartPlugsActorState>(
-              listener: (context, state) {},
-              builder: (context, state) {
-                return Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    TextButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(
-                          Colors.grey.withOpacity(0.6),
-                        ),
-                        side: MaterialStateProperty.all(
-                          const BorderSide(width: 0.2),
-                        ),
-                      ),
-                      onPressed: () {
-                        context.read<SmartPlugsActorBloc>().add(
-                              SmartPlugsActorEvent.turnOffAllSmartPlugs(
-                                extractDevicesId(),
-                                context,
-                              ),
-                            );
-                      },
-                      child: TextAtom(
-                        'Off',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Theme.of(context).textTheme.bodyLarge!.color,
-                        ),
-                      ),                    ),
-                    TextAtom(
-                      '·',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Theme.of(context).textTheme.bodyLarge!.color,
-                      ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                TextButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                      Colors.grey.withOpacity(0.6),
                     ),
-                    TextButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(
-                          Colors.grey.withOpacity(0.6),
-                        ),
-                        side: MaterialStateProperty.all(
-                          const BorderSide(width: 0.2),
-                        ),
-                      ),
-                      onPressed: () {
-                        context.read<SmartPlugsActorBloc>().add(
-                              SmartPlugsActorEvent.turnOnAllSmartPlugs(
-                                extractDevicesId(),
-                                context,
-                              ),
-                            );
-                      },
-                      child: TextAtom(
-                        'On',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Theme.of(context).textTheme.bodyLarge!.color,
-                        ),
-                      ),                    ),
-                  ],
-                );
-              },
+                    side: MaterialStateProperty.all(
+                      const BorderSide(width: 0.2),
+                    ),
+                  ),
+                  onPressed: () {
+                    _turnOffAllSmartPlugs(extractDevicesId());
+                  },
+                  child: TextAtom(
+                    'Off',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
+                    ),
+                  ),
+                ),
+                TextAtom(
+                  '·',
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
+                  ),
+                ),
+                TextButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                      Colors.grey.withOpacity(0.6),
+                    ),
+                    side: MaterialStateProperty.all(
+                      const BorderSide(width: 0.2),
+                    ),
+                  ),
+                  onPressed: () {
+                    _turnOnAllSmartPlugs(extractDevicesId());
+                  },
+                  child: TextAtom(
+                    'On',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
@@ -219,7 +230,7 @@ class SmartPlugsInTheRoomBlock extends StatelessWidget {
 
   List<String> extractDevicesId() {
     final List<String> devicesIdList = [];
-    for (final element in smartPlugsInRoom) {
+    for (final element in widget.smartPlugsInRoom) {
       devicesIdList.add(element.uniqueId.getOrCrash());
     }
     return devicesIdList;

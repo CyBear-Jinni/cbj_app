@@ -478,7 +478,7 @@ class DeviceRepository implements IDeviceRepository {
             await Future.delayed(
               Duration(
                 milliseconds:
-                    deviceEntity.sendNewTemperatureColorEachMiliseconds,
+                    deviceEntity.sendNewTemperatureColorEachMilliseconds,
               ),
             );
             deviceEntity.doesWaitingToSendTemperatureColorRequest = false;
@@ -488,7 +488,8 @@ class DeviceRepository implements IDeviceRepository {
         } catch (e) {
           await Future.delayed(
             Duration(
-              milliseconds: deviceEntity.sendNewTemperatureColorEachMiliseconds,
+              milliseconds:
+                  deviceEntity.sendNewTemperatureColorEachMilliseconds,
             ),
           );
           deviceEntity.doesWaitingToSendTemperatureColorRequest = false;
@@ -550,7 +551,7 @@ class DeviceRepository implements IDeviceRepository {
 
             await Future.delayed(
               Duration(
-                milliseconds: deviceEntity.sendNewHsvColorEachMiliseconds,
+                milliseconds: deviceEntity.sendNewHsvColorEachMilliseconds,
               ),
             );
             deviceEntity.doesWaitingToSendHsvColorRequest = false;
@@ -560,7 +561,7 @@ class DeviceRepository implements IDeviceRepository {
         } catch (e) {
           await Future.delayed(
             Duration(
-              milliseconds: deviceEntity.sendNewHsvColorEachMiliseconds,
+              milliseconds: deviceEntity.sendNewHsvColorEachMilliseconds,
             ),
           );
           deviceEntity.doesWaitingToSendHsvColorRequest = false;
@@ -640,7 +641,7 @@ class DeviceRepository implements IDeviceRepository {
 
         await Future.delayed(
           Duration(
-            milliseconds: deviceEntity.sendNewBrightnessEachMiliseconds,
+            milliseconds: deviceEntity.sendNewBrightnessEachMilliseconds,
           ),
         );
         deviceEntity.doesWaitingToSendBrightnessRequest = false;
@@ -649,7 +650,7 @@ class DeviceRepository implements IDeviceRepository {
     } catch (e) {
       await Future.delayed(
         Duration(
-          milliseconds: deviceEntity.sendNewBrightnessEachMiliseconds,
+          milliseconds: deviceEntity.sendNewBrightnessEachMilliseconds,
         ),
       );
       deviceEntity.doesWaitingToSendBrightnessRequest = false;
@@ -670,7 +671,7 @@ class DeviceRepository implements IDeviceRepository {
 
         await Future.delayed(
           Duration(
-            milliseconds: deviceEntity.sendNewBrightnessEachMiliseconds,
+            milliseconds: deviceEntity.sendNewBrightnessEachMilliseconds,
           ),
         );
         deviceEntity.doesWaitingToSendBrightnessRequest = false;
@@ -679,7 +680,7 @@ class DeviceRepository implements IDeviceRepository {
     } catch (e) {
       await Future.delayed(
         Duration(
-          milliseconds: deviceEntity.sendNewBrightnessEachMiliseconds,
+          milliseconds: deviceEntity.sendNewBrightnessEachMilliseconds,
         ),
       );
       deviceEntity.doesWaitingToSendBrightnessRequest = false;

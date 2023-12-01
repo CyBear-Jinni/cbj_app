@@ -1,12 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_blinds_device/generic_blinds_entity.dart';
-import 'package:cybear_jinni/application/blinds/blinds_actor/blinds_actor_bloc.dart';
-import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/blinds/widgets/blind_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kt_dart/collection.dart';
 
@@ -60,10 +57,7 @@ class RoomBlinds extends StatelessWidget {
               ),
               Container(
                 margin: const EdgeInsets.symmetric(vertical: 5),
-                child: BlocProvider(
-                  create: (context) => getIt<BlindsActorBloc>(),
-                  child: BlindWidget(deviceEntityTemp),
-                ),
+                child: BlindWidget(deviceEntityTemp),
               ),
             ],
           ),
