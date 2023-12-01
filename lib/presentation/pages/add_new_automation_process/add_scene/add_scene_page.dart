@@ -32,7 +32,7 @@ class AddScenePage extends StatelessWidget {
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
             ),
-            AddSceneWidget()
+            AddSceneWidget(),
           ],
         ),
       ),

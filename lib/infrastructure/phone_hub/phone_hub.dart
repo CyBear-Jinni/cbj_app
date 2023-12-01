@@ -60,7 +60,11 @@ class PhoneHub {
   }
 
   void startListen() {
+    if (phoneAsHub) {
+      return;
+    }
     phoneAsHub = true;
+
     CompaniesConnectorConjector.updateAllDevicesReposWithDeviceChanges(
       AppRequestsToHub.appRequestsToHubStreamController.stream
           .map((clientStatusRequests) {

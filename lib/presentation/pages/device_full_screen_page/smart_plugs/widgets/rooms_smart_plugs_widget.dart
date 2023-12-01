@@ -48,8 +48,9 @@ class _RoomsSmartPlugsWidgetState extends State<RoomsSmartPlugsWidget> {
   }
 
   Future<void> _devicesReceived(
-      dartz.Either<DevicesFailure<dynamic>, KtList<DeviceEntityAbstract?>>
-          failureOrDevices) async {
+    dartz.Either<DevicesFailure<dynamic>, KtList<DeviceEntityAbstract?>>
+        failureOrDevices,
+  ) async {
     final KtList<DeviceEntityAbstract?> devicesTemp = failureOrDevices.fold(
       (f) => const KtList<DeviceEntityAbstract?>.empty(),
       (d) => d.map((v) => v!).toMutableList(),

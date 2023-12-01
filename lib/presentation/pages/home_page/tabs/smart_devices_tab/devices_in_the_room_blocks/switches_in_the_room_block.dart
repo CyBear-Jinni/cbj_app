@@ -42,7 +42,9 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
   final ListOfColors roomColorGradiant;
 
   Future<void> _turnOffAllSwitches(
-      BuildContext context, List<String>? switchesIdToTurnOff) async {
+    BuildContext context,
+    List<String>? switchesIdToTurnOff,
+  ) async {
     FlushbarHelper.createLoading(
       message: 'Turning Off all switches',
       linearProgressIndicator: const LinearProgressIndicator(),
@@ -52,7 +54,9 @@ class SwitchesInTheRoomBlock extends StatelessWidget {
   }
 
   Future<void> _turnOnAllSwitches(
-      BuildContext context, List<String>? switchesIdToTurnOn) async {
+    BuildContext context,
+    List<String>? switchesIdToTurnOn,
+  ) async {
     FlushbarHelper.createLoading(
       message: 'Turning On all switches',
       linearProgressIndicator: const LinearProgressIndicator(),

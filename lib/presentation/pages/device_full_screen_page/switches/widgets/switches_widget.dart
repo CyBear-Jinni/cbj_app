@@ -72,31 +72,32 @@ class _SwitchWidgetState extends State<SwitchWidget> {
       margin: const EdgeInsets.symmetric(vertical: 5),
       width: sizeBoxWidth + 15,
       child: FlutterSwitch(
-          width: screenSize.width * 0.25,
-          height: screenSize.height * 0.0655,
-          toggleSize: screenSize.height * 0.0655,
-          value: toggleValue,
-          borderRadius: 25.0,
-          padding: 0.0,
-          activeToggleColor: const Color(0xFF2F363D),
-          inactiveToggleColor: Colors.deepPurple,
-          activeSwitchBorder: Border.all(
-            color: Theme.of(context).textTheme.bodyLarge!.color!,
-          ),
-          inactiveSwitchBorder: Border.all(
-            color: Theme.of(context).textTheme.bodyLarge!.color!,
-          ),
-          activeColor: toggleColor,
-          inactiveColor: toggleColor,
-          activeIcon: Icon(
-            MdiIcons.lightSwitch,
-            color: Colors.white,
-          ),
-          inactiveIcon: Icon(
-            MdiIcons.lightSwitch,
-            color: Colors.white70,
-          ),
-          onToggle: (bool value) => _changeAction(value)),
+        width: screenSize.width * 0.25,
+        height: screenSize.height * 0.0655,
+        toggleSize: screenSize.height * 0.0655,
+        value: toggleValue,
+        borderRadius: 25.0,
+        padding: 0.0,
+        activeToggleColor: const Color(0xFF2F363D),
+        inactiveToggleColor: Colors.deepPurple,
+        activeSwitchBorder: Border.all(
+          color: Theme.of(context).textTheme.bodyLarge!.color!,
+        ),
+        inactiveSwitchBorder: Border.all(
+          color: Theme.of(context).textTheme.bodyLarge!.color!,
+        ),
+        activeColor: toggleColor,
+        inactiveColor: toggleColor,
+        activeIcon: Icon(
+          MdiIcons.lightSwitch,
+          color: Colors.white,
+        ),
+        inactiveIcon: Icon(
+          MdiIcons.lightSwitch,
+          color: Colors.white70,
+        ),
+        onToggle: (bool value) => _changeAction(value),
+      ),
     );
   }
 }

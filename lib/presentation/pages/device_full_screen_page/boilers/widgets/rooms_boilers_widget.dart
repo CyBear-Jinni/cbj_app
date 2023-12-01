@@ -45,8 +45,9 @@ class _RoomsBoilersWidgetState extends State<RoomsBoilersWidget> {
   }
 
   Future<void> _boilersReceived(
-      dartz.Either<DevicesFailure<dynamic>, KtList<DeviceEntityAbstract?>>
-          failureOrDevices) async {
+    dartz.Either<DevicesFailure<dynamic>, KtList<DeviceEntityAbstract?>>
+        failureOrDevices,
+  ) async {
     final KtList<GenericBoilerDE?> devicesTemp = failureOrDevices.fold(
       (f) => const KtList<GenericBoilerDE?>.empty(),
       (d) => d.map((v) => v! as GenericBoilerDE).toMutableList(),

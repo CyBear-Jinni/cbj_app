@@ -65,7 +65,7 @@ class _RoomsBlindsWidgetState extends State<RoomsBlindsWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (devices.isNotEmpty()) {
+    if (devices.isEmpty()) {
       return SingleChildScrollView(
         reverse: true,
         padding: const EdgeInsets.only(bottom: 15),

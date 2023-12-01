@@ -71,31 +71,32 @@ class _BoilersWidgetState extends State<BoilersWidget> {
       margin: const EdgeInsets.symmetric(vertical: 5),
       width: sizeBoxWidth + 15,
       child: FlutterSwitch(
-          width: screenSize.width * 0.25,
-          height: screenSize.height * 0.065,
-          toggleSize: screenSize.height * 0.065,
-          value: toggleValue,
-          borderRadius: 25.0,
-          padding: 0.0,
-          activeToggleColor: const Color(0xFF2F363D),
-          inactiveToggleColor: Colors.deepPurple,
-          activeSwitchBorder: Border.all(
-            color: Theme.of(context).textTheme.bodyLarge!.color!,
-          ),
-          inactiveSwitchBorder: Border.all(
-            color: Theme.of(context).textTheme.bodyLarge!.color!,
-          ),
-          activeColor: toggleColor,
-          inactiveColor: toggleColor,
-          activeIcon: const Icon(
-            FontAwesomeIcons.temperatureThreeQuarters,
-            color: Color(0xFFF8E3A1),
-          ),
-          inactiveIcon: Icon(
-            FontAwesomeIcons.temperatureThreeQuarters,
-            color: Theme.of(context).textTheme.bodyLarge!.color,
-          ),
-          onToggle: (bool value) => _onChange(value)),
+        width: screenSize.width * 0.25,
+        height: screenSize.height * 0.065,
+        toggleSize: screenSize.height * 0.065,
+        value: toggleValue,
+        borderRadius: 25.0,
+        padding: 0.0,
+        activeToggleColor: const Color(0xFF2F363D),
+        inactiveToggleColor: Colors.deepPurple,
+        activeSwitchBorder: Border.all(
+          color: Theme.of(context).textTheme.bodyLarge!.color!,
+        ),
+        inactiveSwitchBorder: Border.all(
+          color: Theme.of(context).textTheme.bodyLarge!.color!,
+        ),
+        activeColor: toggleColor,
+        inactiveColor: toggleColor,
+        activeIcon: const Icon(
+          FontAwesomeIcons.temperatureThreeQuarters,
+          color: Color(0xFFF8E3A1),
+        ),
+        inactiveIcon: Icon(
+          FontAwesomeIcons.temperatureThreeQuarters,
+          color: Theme.of(context).textTheme.bodyLarge!.color,
+        ),
+        onToggle: (bool value) => _onChange(value),
+      ),
     );
   }
 }

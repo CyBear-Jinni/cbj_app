@@ -43,8 +43,6 @@ dependencies:
   auto_route: ^7.8.4
   # Automatically resizes text to fit perfectly within its bounds.
   auto_size_text: ^3.0.0
-  # Helps implement the BLoC pattern.
-  bloc: ^8.1.2
   cbj_integrations_controller:
     path: ../cbj_integrations_controller
 #    git: https://github.com/CyBear-Jinni/cbj_integrations_controller.git

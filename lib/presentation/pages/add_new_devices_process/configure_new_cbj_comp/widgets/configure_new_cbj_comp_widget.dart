@@ -3,7 +3,6 @@ import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/pr
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/value_objects_core.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_light_device/generic_light_entity.dart';
 import 'package:cbj_integrations_controller/utils.dart';
-import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_failures.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_value_objects.dart';
@@ -12,14 +11,12 @@ import 'package:cybear_jinni/domain/manage_network/i_manage_network_repository.d
 import 'package:cybear_jinni/domain/manage_network/manage_network_entity.dart';
 import 'package:cybear_jinni/domain/security_bear/i_security_bear_connection_repository.dart';
 import 'package:cybear_jinni/domain/security_bear/security_bear_failures.dart';
-import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/devices_cards/blinds_card.dart';
 import 'package:cybear_jinni/presentation/core/devices_cards/light_card.dart';
 import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
 import 'package:dartz/dartz.dart' as dartz;
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:liquid_progress_indicator_v2/liquid_progress_indicator.dart';
@@ -180,10 +177,7 @@ class _ConfigureNewCbjCompWidgetsState
                         TextAtom('Type: ${device.entityTypes.getOrCrash()}'),
                         Expanded(
                           child: Center(
-                            child: BlocProvider(
-                              create: (context) => getIt<LightToggleBloc>(),
-                              child: LightCard(device),
-                            ),
+                            child: LightCard(device),
                           ),
                         ),
                       ],
@@ -198,10 +192,7 @@ class _ConfigureNewCbjCompWidgetsState
                         TextAtom('Type: ${device.entityTypes.getOrCrash()}'),
                         Expanded(
                           child: Center(
-                            child: BlocProvider(
-                              create: (context) => getIt<LightToggleBloc>(),
-                              child: LightCard(device),
-                            ),
+                            child: LightCard(device),
                           ),
                         ),
                       ],
@@ -213,10 +204,7 @@ class _ConfigureNewCbjCompWidgetsState
                     children: [
                       TextAtom('Type: ${device.entityTypes.getOrCrash()}'),
                       Center(
-                        child: BlocProvider(
-                          create: (context) => getIt<LightToggleBloc>(),
-                          child: BlindsCard(device),
-                        ),
+                        child: BlindsCard(device),
                       ),
                     ],
                   ),

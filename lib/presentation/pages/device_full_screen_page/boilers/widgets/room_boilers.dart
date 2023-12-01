@@ -72,9 +72,10 @@ class RoomBoilers extends StatelessWidget {
                       height: 3,
                     ),
                     Container(
-                        margin: const EdgeInsets.symmetric(vertical: 5),
-                        width: sizeBoxWidth + 15,
-                        child: BoilersWidget(deviceEntityTemp)),
+                      margin: const EdgeInsets.symmetric(vertical: 5),
+                      width: sizeBoxWidth + 15,
+                      child: BoilersWidget(deviceEntityTemp),
+                    ),
                   ],
                 ),
               );

@@ -1,14 +1,9 @@
 import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
-import 'package:another_flushbar/flushbar_helper.dart';
-import 'package:cybear_jinni/application/devices/device_actor/device_actor_bloc.dart';
-import 'package:cybear_jinni/application/devices/device_watcher/device_watcher_bloc.dart';
-import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/change_room_for_devices/change_room_for_devices_page.dart';
 import 'package:cybear_jinni/presentation/pages/home_page/tabs/smart_devices_tab/smart_devices_by_rooms.dart';
 import 'package:cybear_jinni/presentation/pages/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SmartDevicesWidgets extends StatelessWidget {
@@ -52,59 +47,21 @@ class SmartDevicesWidgets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider<DeviceWatcherBloc>(
-          create: (context) => getIt<DeviceWatcherBloc>()
-            ..add(
-              const DeviceWatcherEvent.watchAllStarted(),
-            ),
+    return Column(
+      children: <Widget>[
+        TopNavigationBar(
+          pageName: 'Devices',
+          rightIcon: Icons.more_vert,
+          rightIconFunction: userCogFunction,
+          leftIcon: FontAwesomeIcons.solidLightbulb,
+          leftIconFunction: (BuildContext context) {},
+          // rightSecondIcon: FontAwesomeIcons.magnifyingGlass,
+          // rightSecondFunction: rightSecondFunction,
         ),
-        BlocProvider<DeviceActorBloc>(
-          create: (context) => getIt<DeviceActorBloc>(),
+        Expanded(
+          child: SmartDevicesByRooms(),
         ),
       ],
-      child: MultiBlocListener(
-        listeners: [
-          BlocListener<DeviceActorBloc, DeviceActorState>(
-            listener: (context, state) {
-              state.maybeMap(
-                deleteFailure: (state) {
-                  FlushbarHelper.createError(
-                    duration: const Duration(seconds: 5),
-                    message: 'Error',
-                    // state.devicesFailure.map(
-                    //   unexpected: (_) =>
-                    //       'Unexpected error occured while deleting,' +
-                    //       'please contact support.',
-                    //   insufficientPermission: (_) =>
-                    //       'Insufficient permissions ❌',
-                    //   unableToUpdate: (_) => 'Impossible error',
-                    // ),
-                  ).show(context);
-                },
-                orElse: () {},
-              );
-            },
-          ),
-        ],
-        child: Column(
-          children: <Widget>[
-            TopNavigationBar(
-              pageName: 'Devices',
-              rightIcon: Icons.more_vert,
-              rightIconFunction: userCogFunction,
-              leftIcon: FontAwesomeIcons.solidLightbulb,
-              leftIconFunction: (BuildContext context) {},
-              // rightSecondIcon: FontAwesomeIcons.magnifyingGlass,
-              // rightSecondFunction: rightSecondFunction,
-            ),
-            Expanded(
-              child: SmartDevicesByRooms(),
-            ),
-          ],
-        ),
-      ),
     );
   }
 }
