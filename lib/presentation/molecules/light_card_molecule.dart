@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class LightCard extends StatelessWidget {
-  const LightCard(this._deviceEntity);
+class LightCardMolecule extends StatelessWidget {
+  const LightCardMolecule(this._deviceEntity);
 
   final GenericLightDE? _deviceEntity;
 

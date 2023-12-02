@@ -58,13 +58,7 @@ class _AppWidgetState extends State<AppWidget> {
       routerConfig: rootRouter.config(
         navigatorObservers: () => [AutoRouteObserver()],
       ),
-      // routeInformationParser: rootRouter.defaultRouteParser(),
       title: 'CyBear Jinni App',
-      // builder: ExtendedNavigator(
-      //   router: AppRouter(),
-      // ),
-      // initialRoute:
-      // auth.currentU1`ser != null ? '/$homePage' : '/$loginPage',
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,

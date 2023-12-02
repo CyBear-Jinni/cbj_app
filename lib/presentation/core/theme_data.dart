@@ -38,13 +38,20 @@ class GradientColors {
   ];
 }
 
+class ListOfColors {
+  ListOfColors(this.listOfColors);
+
+  List<Color>? listOfColors;
+}
+
 class BackgroundGradient {
   static LinearGradient getBackground(BuildContext context) {
     return LinearGradient(
-      // Where the linear gradient begins and ends
+      /// Where the linear gradient begins and ends
       begin: Alignment.topRight,
       end: Alignment.bottomCenter,
-      // Add one stop for each color. Stops should increase from 0 to 1
+
+      /// Add one stop for each color. Stops should increase from 0 to 1
       stops: const <double>[0, 0.2, 0.5, 0.6, 1],
       colors: <Color>[
         Colors.deepPurple,

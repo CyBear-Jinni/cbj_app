@@ -1,75 +1,63 @@
 import 'dart:async';
 
 import 'package:cbj_integrations_controller/domain/saved_devices/i_saved_devices_repo.dart';
-import 'package:cbj_integrations_controller/infrastructure/devices/companies_connector_conjector.dart';
+import 'package:cbj_integrations_controller/infrastructure/devices/companies_connector_conjecture.dart';
 import 'package:cbj_integrations_controller/infrastructure/devices/helper_methods/device_helper_methods.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/value_objects_core.dart';
 import 'package:cbj_integrations_controller/infrastructure/hub_client/hub_client.dart';
-import 'package:cybear_jinni/utils.dart';
+import 'package:cybear_jinni/domain/i_phone_as_hub.dart';
 import 'package:network_tools/network_tools.dart';
 
-class PhoneHub {
-  factory PhoneHub() {
-    return _instance;
-  }
-
-  PhoneHub._singletonContractor();
-
-  static final PhoneHub _instance = PhoneHub._singletonContractor();
-
+class PhoneAsHub implements IPhoneAsHub {
   bool phoneAsHub = false;
 
+  @override
+  Future dispose() async {
+    phoneAsHub = false;
+  }
+
+  @override
   Future<Map<String, DeviceEntityAbstract>> get getAllDevices {
     return ISavedDevicesRepo.instance.getAllDevices();
   }
 
-  static Future searchDevices() async {
-    logger.i('Found searchDevices');
-    CompaniesConnectorConjector.searchDevicesByBindingIntoSockets();
+  @override
+  Future searchDevices() async {
+    CompaniesConnectorConjecture().searchDevicesByBindingIntoSockets();
 
-    logger.i('Found searchDevices2');
-
-    // while (true) {
     final Future<List<ActiveHost>> mdnsDevices =
-        CompaniesConnectorConjector.searchMdnsDevices();
+        CompaniesConnectorConjecture().searchMdnsDevices();
     final Future<List<ActiveHost>> pingableDevices =
-        CompaniesConnectorConjector.searchPingableDevices();
+        CompaniesConnectorConjecture().searchPingableDevices();
 
     final List<ActiveHost> mdnsDevicesTemp = await mdnsDevices;
-    if (mdnsDevicesTemp.isEmpty) {
-      logger.i('mdnsDevicesTemp is empty');
-    }
     for (final ActiveHost activeHost in mdnsDevicesTemp) {
-      logger.i('activeHost $activeHost');
-      CompaniesConnectorConjector.setMdnsDeviceByCompany(activeHost);
-      // }
+      CompaniesConnectorConjecture().setMdnsDeviceByCompany(activeHost);
 
       final List<ActiveHost> pingableDevicesTemp = await pingableDevices;
-      if (pingableDevicesTemp.isEmpty) {
-        logger.i('pingableDevicesTemp is empty');
-      }
+
       for (final ActiveHost activeHost in pingableDevicesTemp) {
-        logger.i('activeHost2 $activeHost');
-        CompaniesConnectorConjector.setHostNameDeviceByCompany(
+        CompaniesConnectorConjecture().setHostNameDeviceByCompany(
           activeHost: activeHost,
         );
       }
     }
   }
 
+  @override
   void startListen() {
     if (phoneAsHub) {
       return;
     }
     phoneAsHub = true;
 
-    CompaniesConnectorConjector.updateAllDevicesReposWithDeviceChanges(
+    CompaniesConnectorConjecture().updateAllDevicesReposWithDeviceChanges(
       AppRequestsToHub.appRequestsToHubStreamController.stream
           .map((clientStatusRequests) {
         if (!phoneAsHub) {
-          return '';
+          return 'phoneAsHub false';
         }
         final dynamic dtosEntity =
             DeviceHelperMethods.clientStatusRequestsToItsDtosType(
@@ -80,7 +68,7 @@ class PhoneHub {
               EntityState(EntityStateGRPC.waitingInComp.toString());
           return dtosEntity;
         }
-        return '';
+        return 'phoneAsHub false';
       }),
     );
   }

@@ -16,7 +16,7 @@ class MqttServerRepository extends IMqttServerRepository {
   Future<void> allHubDevicesSubscriptions() async {}
 
   @override
-  Future<void> asyncConstractor() async {}
+  Future<void> asyncConstructor() async {}
 
   @override
   Future<MqttServerClient> connect() async {

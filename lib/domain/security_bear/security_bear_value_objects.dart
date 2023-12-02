@@ -12,7 +12,6 @@ abstract class SecurityBearValueObjectAbstract<T> {
 
   /// Throws [UnexpectedValueError] containing the [SecurityBearFailures]
   T getOrCrash() {
-    // id = identity - same as writing (right) => right
     return value.fold((f) => throw SecurityBearUnexpectedValueError(f), id);
   }
 

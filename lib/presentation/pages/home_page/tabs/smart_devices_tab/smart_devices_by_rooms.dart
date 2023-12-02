@@ -7,12 +7,12 @@ import 'package:cbj_integrations_controller/domain/room/value_objects_room.dart'
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
-import 'package:cybear_jinni/infrastructure/phone_hub/phone_hub.dart';
+import 'package:cybear_jinni/domain/i_phone_as_hub.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybear_jinni/presentation/core/snack_bar_service.dart';
 import 'package:cybear_jinni/presentation/pages/home_page/tabs/smart_devices_tab/rooms_widgets/rooms_list_view_widget.dart';
 import 'package:dartz/dartz.dart' as dartz;
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:kt_dart/collection.dart';
 
 class SmartDevicesByRooms extends StatefulWidget {
@@ -84,7 +84,7 @@ class _SmartDevicesByRoomsState extends State<SmartDevicesByRooms> {
     );
 
     final Map<String, DeviceEntityAbstract> allDevice =
-        await PhoneHub().getAllDevices;
+        await IPhoneAsHub.instance.getAllDevices;
 
     for (final String deviceId in allDevice.keys) {
       discoveredRoom.addDeviceId(deviceId);
@@ -105,10 +105,10 @@ class _SmartDevicesByRoomsState extends State<SmartDevicesByRooms> {
   }
 
   @override
-  Future<void> dispose() async {
-    await _roomStreamSubscription?.cancel();
-    await _deviceStreamSubscription?.cancel();
-    return super.dispose();
+  void dispose() {
+    _roomStreamSubscription?.cancel();
+    _deviceStreamSubscription?.cancel();
+    super.dispose();
   }
 
   @override
@@ -116,13 +116,9 @@ class _SmartDevicesByRoomsState extends State<SmartDevicesByRooms> {
     if (devices.isEmpty()) {
       return GestureDetector(
         onTap: () {
-          Fluttertoast.showToast(
-            msg: 'Add new device by pressing the plus button',
-            toastLength: Toast.LENGTH_LONG,
-            gravity: ToastGravity.CENTER,
-            backgroundColor: Colors.blueGrey,
-            textColor: Theme.of(context).textTheme.bodyLarge!.color,
-            fontSize: 16.0,
+          SnackBarService().show(
+            context,
+            'Add new device by pressing the plus button',
           );
         },
         child: SingleChildScrollView(

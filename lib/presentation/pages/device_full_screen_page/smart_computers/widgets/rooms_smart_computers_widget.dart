@@ -62,8 +62,8 @@ class _RoomsSmartComputersWidgetState extends State<RoomsSmartComputersWidget> {
   }
 
   @override
-  Future<void> dispose() async {
-    await _deviceStreamSubscription?.cancel();
+  void dispose() {
+    _deviceStreamSubscription?.cancel();
     return super.dispose();
   }
 

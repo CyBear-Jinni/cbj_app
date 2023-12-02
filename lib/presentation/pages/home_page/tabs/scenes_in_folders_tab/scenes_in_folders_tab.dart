@@ -1,9 +1,9 @@
 import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybear_jinni/presentation/core/snack_bar_service.dart';
 import 'package:cybear_jinni/presentation/pages/home_page/tabs/scenes_in_folders_tab/widgets/scenes_in_folders_l.dart';
 import 'package:cybear_jinni/presentation/pages/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ScenesInFoldersTab extends StatelessWidget {
@@ -21,13 +21,9 @@ class ScenesInFoldersTab extends StatelessWidget {
             ),
           ),
           onPressed: (_) {
-            Fluttertoast.showToast(
-              msg: 'Settings page will be added in the future',
-              toastLength: Toast.LENGTH_LONG,
-              gravity: ToastGravity.CENTER,
-              backgroundColor: Colors.blueGrey,
-              textColor: Theme.of(context).textTheme.bodyLarge!.color,
-              fontSize: 16.0,
+            SnackBarService().show(
+              context,
+              'Settings page will be added in the future',
             );
           },
         ),

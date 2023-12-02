@@ -5,7 +5,7 @@ import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstr
 import 'package:cybear_jinni/domain/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
-import 'package:cybear_jinni/presentation/core/types_to_pass.dart';
+import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/lights/widgets/room_lights.dart';
 import 'package:dartz/dartz.dart' as dartz;
 import 'package:flutter/material.dart';
@@ -60,8 +60,8 @@ class _RoomsLightsWidgetState extends State<RoomsLightsWidget> {
   }
 
   @override
-  Future<void> dispose() async {
-    await _deviceStreamSubscription?.cancel();
+  void dispose() {
+    _deviceStreamSubscription?.cancel();
     return super.dispose();
   }
 

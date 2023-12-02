@@ -30,8 +30,8 @@ class _ConnectToHubMoreWidgetState extends State<ConnectToHubMoreWidget> {
   }
 
   @override
-  Future<void> dispose() async {
-    await _deviceStreamSubscription?.cancel();
+  void dispose() {
+    _deviceStreamSubscription?.cancel();
 
     super.dispose();
   }

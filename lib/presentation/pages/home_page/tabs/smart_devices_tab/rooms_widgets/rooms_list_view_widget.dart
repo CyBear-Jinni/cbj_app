@@ -17,7 +17,6 @@ import 'package:cbj_integrations_controller/infrastructure/generic_devices/gener
 import 'package:cybear_jinni/ad_state.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
-import 'package:cybear_jinni/presentation/core/types_to_pass.dart';
 import 'package:cybear_jinni/presentation/pages/home_page/tabs/smart_devices_tab/rooms_widgets/rom_widget.dart';
 import 'package:cybear_jinni/utils.dart';
 import 'package:easy_localization/easy_localization.dart';

@@ -6,10 +6,10 @@ import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/pr
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybear_jinni/presentation/core/snack_bar_service.dart';
 import 'package:dartz/dartz.dart' as dartz;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
 
@@ -176,14 +176,9 @@ class _AddNewRoomFormState extends State<AddNewRoomForm> {
                     child: TextButton(
                       onPressed: () {
                         _createRoom();
-                        Fluttertoast.showToast(
-                          msg: 'Adding area',
-                          toastLength: Toast.LENGTH_LONG,
-                          gravity: ToastGravity.BOTTOM,
-                          backgroundColor: Colors.purple,
-                          textColor:
-                              Theme.of(context).textTheme.bodyLarge!.color,
-                          fontSize: 16.0,
+                        SnackBarService().show(
+                          context,
+                          'Adding area',
                         );
                         Navigator.pop(context);
                       },

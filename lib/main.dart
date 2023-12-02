@@ -8,9 +8,9 @@ import 'package:cbj_integrations_controller/infrastructure/system_commands/syste
 import 'package:cbj_integrations_controller/injection.dart';
 import 'package:cbj_smart_device_flutter/commands/flutter_commands.dart';
 import 'package:cybear_jinni/ad_state.dart';
+import 'package:cybear_jinni/domain/i_phone_as_hub.dart';
 import 'package:cybear_jinni/domain/local_db/i_local_db_repository2.dart';
 import 'package:cybear_jinni/infrastructure/mqtt/mqtt.dart';
-import 'package:cybear_jinni/infrastructure/phone_hub/phone_hub.dart';
 import 'package:cybear_jinni/infrastructure/room/room_repository.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/core/app_widget.dart';
@@ -32,7 +32,7 @@ Future<Unit> main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
   final appDocDirectory = await getApplicationDocumentsDirectory();
-  await configureNetworkTools(appDocDirectory.path, enableDebugging: true);
+  await configureNetworkTools(appDocDirectory.path);
   HiveRepository();
   ILocalDbRepository2.instance;
   getIt.registerSingleton<AppRouter>(AppRouter());
@@ -56,7 +56,7 @@ Future<Unit> main() async {
   NodeRedRepository();
   await ILocalDbRepository.instance.initializeDb();
   await ISavedDevicesRepo.instance.setUpAllFromDb();
-  PhoneHub.searchDevices();
+  IPhoneAsHub.instance.searchDevices();
 
   runApp(
     /// Use https://lingohub.com/developers/supported-locales/language-designators-with-regions
