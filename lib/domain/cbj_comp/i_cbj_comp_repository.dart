@@ -1,13 +1,18 @@
+import 'dart:async';
+
+import 'package:cbj_integrations_controller/infrastructure/gen/cbj_app_server/protoc_as_dart/cbj_app_connections.pbgrpc.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_failures.dart';
-import 'package:cybear_jinni/infrastructure/cbj_comp/cbj_comp_repository.dart';
+import 'package:cybear_jinni/infrastructure/cbj_app_server/cbj_app_server_d.dart';
 import 'package:dartz/dartz.dart';
+
+part 'package:cybear_jinni/infrastructure/cbj_comp/cbj_comp_repository.dart';
 
 abstract interface class ICBJCompRepository {
   static ICBJCompRepository? _instance;
 
   static ICBJCompRepository get instance {
-    return _instance ??= CBJCompRepository();
+    return _instance ??= _CBJCompRepository();
   }
 
   Future<Either<CBJCompFailure, Unit>> shutdownServer();

@@ -1,16 +1,6 @@
-import 'dart:async';
+part of 'package:cybear_jinni/domain/i_phone_as_hub.dart';
 
-import 'package:cbj_integrations_controller/domain/saved_devices/i_saved_devices_repo.dart';
-import 'package:cbj_integrations_controller/infrastructure/devices/companies_connector_conjecture.dart';
-import 'package:cbj_integrations_controller/infrastructure/devices/helper_methods/device_helper_methods.dart';
-import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/value_objects_core.dart';
-import 'package:cbj_integrations_controller/infrastructure/hub_client/hub_client.dart';
-import 'package:cybear_jinni/domain/i_phone_as_hub.dart';
-import 'package:network_tools/network_tools.dart';
-
-class PhoneAsHub implements IPhoneAsHub {
+class _PhoneAsHubRepository implements IPhoneAsHub {
   bool phoneAsHub = false;
 
   @override
@@ -20,7 +10,7 @@ class PhoneAsHub implements IPhoneAsHub {
 
   @override
   Future<Map<String, DeviceEntityAbstract>> get getAllDevices {
-    return ISavedDevicesRepo.instance.getAllDevices();
+    return ISavedDevicesRepo.instance.getAllDevicesAfterInitialize();
   }
 
   @override
@@ -52,24 +42,17 @@ class PhoneAsHub implements IPhoneAsHub {
       return;
     }
     phoneAsHub = true;
-
     CompaniesConnectorConjecture().updateAllDevicesReposWithDeviceChanges(
-      AppRequestsToHub.appRequestsToHubStreamController.stream
-          .map((clientStatusRequests) {
-        if (!phoneAsHub) {
-          return 'phoneAsHub false';
-        }
-        final dynamic dtosEntity =
-            DeviceHelperMethods.clientStatusRequestsToItsDtosType(
-          clientStatusRequests,
-        );
-        if (dtosEntity is DeviceEntityAbstract) {
-          dtosEntity.entityStateGRPC =
-              EntityState(EntityStateGRPC.waitingInComp.toString());
-          return dtosEntity;
-        }
-        return 'phoneAsHub false';
-      }),
+      ConnectorDevicesStreamFromMqtt.fromMqttStream,
     );
+
+    AppRequestsToHub.appRequestsToHubStreamController.stream
+        .listen((clientStatusRequests) {
+      if (!phoneAsHub) {
+        logger.i('Phone as a hub should be canceled');
+        return;
+      }
+      DeviceHelperMethods().handleClientStatusRequests(clientStatusRequests);
+    });
   }
 }

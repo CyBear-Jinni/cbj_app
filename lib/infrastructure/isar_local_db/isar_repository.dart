@@ -1,18 +1,6 @@
-import 'package:cbj_integrations_controller/domain/local_db/local_db_failures.dart';
-import 'package:cybear_jinni/domain/local_db/i_local_db_repository2.dart';
-import 'package:cybear_jinni/infrastructure/isar_local_db/isar_objects/home_entity_isar_model.dart';
-import 'package:cybear_jinni/infrastructure/isar_local_db/isar_objects/hub_entity_isar_model.dart';
-import 'package:cybear_jinni/infrastructure/isar_local_db/isar_objects/remote_pipes_isar_model.dart';
-import 'package:cybear_jinni/utils.dart';
-import 'package:dartz/dartz.dart';
-import 'package:isar/isar.dart';
-import 'package:path_provider/path_provider.dart';
+part of 'package:cybear_jinni/domain/local_db/i_local_db_repository2.dart';
 
-class IsarRepository implements ILocalDbRepository2 {
-  IsarRepository() {
-    asyncConstructor();
-  }
-
+class _IsarRepository implements ILocalDbRepository2 {
   late Isar isar;
 
   Future<void> asyncConstructor() async {

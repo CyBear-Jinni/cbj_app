@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:cbj_integrations_controller/domain/local_db/i_local_devices_db_repository.dart';
 import 'package:cbj_integrations_controller/domain/saved_devices/i_saved_devices_repo.dart';
-import 'package:cbj_integrations_controller/infrastructure/local_db/local_db_hive_repository.dart';
 import 'package:cbj_integrations_controller/infrastructure/node_red/node_red_repository.dart';
 import 'package:cbj_integrations_controller/infrastructure/system_commands/system_commands_manager_d.dart';
 import 'package:cbj_integrations_controller/injection.dart';
@@ -11,7 +10,6 @@ import 'package:cybear_jinni/ad_state.dart';
 import 'package:cybear_jinni/domain/i_phone_as_hub.dart';
 import 'package:cybear_jinni/domain/local_db/i_local_db_repository2.dart';
 import 'package:cybear_jinni/infrastructure/mqtt/mqtt.dart';
-import 'package:cybear_jinni/infrastructure/room/room_repository.dart';
 import 'package:cybear_jinni/injection.dart';
 import 'package:cybear_jinni/presentation/core/app_widget.dart';
 import 'package:cybear_jinni/presentation/core/notifications.dart';
@@ -26,14 +24,13 @@ import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 
 Future<Unit> main() async {
-  RoomRepository();
   configureDependencies(EnvApp.dev);
   configureInjection(Env.devPc);
 
   WidgetsFlutterBinding.ensureInitialized();
   final appDocDirectory = await getApplicationDocumentsDirectory();
   await configureNetworkTools(appDocDirectory.path);
-  HiveRepository();
+  ILocalDbRepository.instance;
   ILocalDbRepository2.instance;
   getIt.registerSingleton<AppRouter>(AppRouter());
 

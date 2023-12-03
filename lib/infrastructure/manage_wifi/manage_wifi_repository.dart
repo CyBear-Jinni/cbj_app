@@ -1,13 +1,6 @@
-import 'package:cybear_jinni/domain/home_user/home_user_failures.dart';
-import 'package:cybear_jinni/domain/manage_network/i_manage_network_repository.dart';
-import 'package:cybear_jinni/domain/manage_network/manage_network_entity.dart';
-import 'package:cybear_jinni/domain/manage_network/manage_network_value_objects.dart';
-import 'package:cybear_jinni/infrastructure/core/shared_methods.dart';
-import 'package:dartz/dartz.dart';
-import 'package:kt_dart/collection.dart';
-import 'package:wifi_iot/wifi_iot.dart';
+part of 'package:cybear_jinni/domain/manage_network/i_manage_network_repository.dart';
 
-class ManageWiFiRepository implements IManageNetworkRepository {
+class _ManageWiFiRepository implements IManageNetworkRepository {
   final NetworkSecurity networkSecurity = NetworkSecurity.WPA;
 
   @override
