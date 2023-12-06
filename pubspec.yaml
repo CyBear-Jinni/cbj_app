@@ -94,6 +94,10 @@ dependencies:
   grpc: ^3.2.4
   # Add hex color codes to your flutter projects
   hexcolor: ^3.0.1
+  # key-value database
+  hive: ^2.2.3
+  # Hive db flutter extension
+  hive_flutter: ^1.1.0
   # A composable, multi-platform, Future-based API for HTTP requests.
   http: ^1.1.0
   # Open source icon sets for flutter

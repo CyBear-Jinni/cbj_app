@@ -210,7 +210,6 @@ class _RoomWidgetState extends State<RoomWidget> {
                       tempRoomColorGradiant: widget.roomColorGradiant,
                     );
                   } else if (deviceType == EntityTypes.boiler.toString()) {
-                    //TODO: Boiler should not user Blinds block
                     return BoilersInTheRoom.withAbstractDevice(
                       roomEntity: widget.roomEntity,
                       tempDeviceInRoom: devicesInTheRoom,
