@@ -38,7 +38,7 @@ class HubRequestRouting {
   static bool areWeRunning = false;
 
   // static int numberOfCrashes = 0;
-  static int numberOfConnactivityChange = 0;
+  static int numberOfConnectivityChange = 0;
 
   static Future<void> navigateRequest() async {
     if (areWeRunning) {
@@ -94,9 +94,9 @@ class HubRequestRouting {
 
     connectivityChangedStream = Connectivity().onConnectivityChanged;
     connectivityChangedStream?.listen((ConnectivityResult event) async {
-      numberOfConnactivityChange++;
+      numberOfConnectivityChange++;
       logger.i('Connectivity changed ${event.name} And $event');
-      if (event == ConnectivityResult.none || numberOfConnactivityChange <= 1) {
+      if (event == ConnectivityResult.none || numberOfConnectivityChange <= 1) {
         return;
       }
       areWeRunning = false;

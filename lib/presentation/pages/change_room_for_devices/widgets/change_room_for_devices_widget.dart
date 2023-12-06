@@ -6,7 +6,7 @@ import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstr
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/snack_bar_service.dart';
-import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
+import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
 import 'package:dartz/dartz.dart' as dartz;
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -45,7 +45,7 @@ class _ChangeRoomForDevicesWidgetState
   }
 
   Future<void> _initialized() async {
-    (await IRoomRepository.instance.getAllRooms()).fold((l) => null, (r) {
+    IRoomRepository.instance.getAllRooms().fold((l) => null, (r) {
       _allRooms = List<RoomEntity>.from(r.iter);
     });
 

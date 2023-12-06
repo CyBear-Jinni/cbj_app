@@ -38,6 +38,10 @@ class GradientColors {
   ];
 }
 
+class AppThemeData {
+  static double get generalSpacing => 20;
+}
+
 class ListOfColors {
   ListOfColors(this.listOfColors);
 

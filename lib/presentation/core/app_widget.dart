@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/domain/local_db/i_local_db_repository2.dart';
 import 'package:cybear_jinni/injection.dart';
-import 'package:cybear_jinni/presentation/pages/routes/app_router.dart';
-import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
+import 'package:cybear_jinni/presentation/core/routes/app_router.dart';
+import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 

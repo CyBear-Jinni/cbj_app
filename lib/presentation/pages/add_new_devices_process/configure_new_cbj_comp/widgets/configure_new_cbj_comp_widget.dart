@@ -13,7 +13,7 @@ import 'package:cybear_jinni/domain/security_bear/i_security_bear_connection_rep
 import 'package:cybear_jinni/domain/security_bear/security_bear_failures.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/molecules/molecules.dart';
-import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
+import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
 import 'package:dartz/dartz.dart' as dartz;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';

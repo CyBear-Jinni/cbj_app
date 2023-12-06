@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:cbj_integrations_controller/domain/mqtt_server/i_mqtt_server_repository.dart';
 import 'package:cbj_integrations_controller/domain/rooms/i_saved_rooms_repo.dart';
 import 'package:cbj_integrations_controller/infrastructure/devices/device_helper/device_helper.dart';
@@ -93,6 +95,13 @@ class MqttServerRepository extends IMqttServerRepository {
       ISavedRoomsRepo.instance.addOrUpdateRoom(entityFromTheApp.toDomain());
 
       /// Sends directly to device connector conjecture
+      HubRequestsToApp.streamRequestsToApp.add(
+        RequestsAndStatusFromHub(
+          sendingType: SendingType.roomType,
+          allRemoteCommands: jsonEncode(entityFromTheApp.toJson()),
+        ),
+      );
+      return;
     }
     logger.i('Type interaction support is missing $entityFromTheApp');
   }

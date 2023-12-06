@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
+import 'package:cybear_jinni/presentation/core//routes/app_router.gr.dart';
 
 @AutoRouterConfig()
 class AppRouter extends $AppRouter {
@@ -43,6 +43,7 @@ class AppRouter extends $AppRouter {
     AutoRoute(page: SmartPlugsInTheRoomRoute.page),
     AutoRoute(page: RoomsBlindsRoute.page),
     AutoRoute(page: RoomsBoilersRoute.page),
+    AutoRoute(page: DevicesInNetworkRoute.page),
 
     // Pages from packages
     AutoRoute(page: SmartCameraContainerRoute.page),
