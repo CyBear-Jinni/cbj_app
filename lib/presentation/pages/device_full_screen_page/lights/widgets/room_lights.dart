@@ -5,11 +5,11 @@ import 'package:cbj_integrations_controller/infrastructure/generic_devices/gener
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_light_device/generic_light_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybear_jinni/presentation/core/utils.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/lights/widgets/error_lights_device_card_widget.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/lights/widgets/lights_widgets/dimmable_light_widget.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/lights/widgets/lights_widgets/light_widget.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/lights/widgets/lights_widgets/rgb_light_widgets/rgbw_light_widget.dart';
-import 'package:cybear_jinni/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kt_dart/collection.dart';

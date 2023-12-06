@@ -5,7 +5,7 @@ import 'package:cbj_integrations_controller/infrastructure/generic_devices/devic
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_blinds_device/generic_blinds_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_blinds_device/generic_blinds_value_objects.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
-import 'package:cybear_jinni/utils.dart';
+import 'package:cybear_jinni/presentation/core/utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';

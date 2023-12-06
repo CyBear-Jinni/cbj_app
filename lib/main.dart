@@ -6,13 +6,13 @@ import 'package:cbj_integrations_controller/infrastructure/node_red/node_red_rep
 import 'package:cbj_integrations_controller/infrastructure/system_commands/system_commands_manager_d.dart';
 import 'package:cbj_integrations_controller/injection.dart';
 import 'package:cbj_smart_device_flutter/commands/flutter_commands.dart';
-import 'package:cybear_jinni/ad_state.dart';
+import 'package:cybear_jinni/domain/i_local_db_repository.dart';
+import 'package:cybear_jinni/domain/i_notification_service.dart';
 import 'package:cybear_jinni/domain/i_phone_as_hub.dart';
-import 'package:cybear_jinni/domain/local_db/i_local_db_repository2.dart';
-import 'package:cybear_jinni/infrastructure/mqtt/mqtt.dart';
-import 'package:cybear_jinni/injection.dart';
+import 'package:cybear_jinni/infrastructure/mqtt.dart';
+import 'package:cybear_jinni/presentation/core/ad_state.dart';
 import 'package:cybear_jinni/presentation/core/app_widget.dart';
-import 'package:cybear_jinni/presentation/core/notifications.dart';
+import 'package:cybear_jinni/presentation/core/injection.dart';
 import 'package:cybear_jinni/presentation/core/routes/app_router.dart';
 import 'package:dartz/dartz.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -30,8 +30,8 @@ Future<Unit> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final appDocDirectory = await getApplicationDocumentsDirectory();
   await configureNetworkTools(appDocDirectory.path);
+  ICbjIntegrationsControllerDbRepository.instance;
   ILocalDbRepository.instance;
-  ILocalDbRepository2.instance;
   getIt.registerSingleton<AppRouter>(AppRouter());
 
   AdState? adState;
@@ -44,14 +44,13 @@ Future<Unit> main() async {
   await EasyLocalization.ensureInitialized();
   //  debugPaintSizeEnabled = true;
 
-  await configureLocalTimeZone();
+  await INotificationService.instance.asyncConstructor();
 
-  await initialisationNotifications();
   MqttServerRepository();
   PhoneCommandsD();
   SystemCommandsManager();
   NodeRedRepository();
-  await ILocalDbRepository.instance.initializeDb();
+  await ILocalDbRepository.instance.asyncConstructor();
   await ISavedDevicesRepo.instance.setUpAllFromDb();
   IPhoneAsHub.instance.searchDevices();
 

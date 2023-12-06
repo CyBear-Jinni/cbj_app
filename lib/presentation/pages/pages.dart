@@ -34,7 +34,7 @@ export 'package:cybear_jinni/presentation/pages/introduction_screen/introduction
 export 'package:cybear_jinni/presentation/pages/plus_button/plus_button.dart';
 export 'package:cybear_jinni/presentation/pages/remote_pipes/remote_pipes_page.dart';
 export 'package:cybear_jinni/presentation/pages/scenes/scenes_page.dart';
-export 'package:cybear_jinni/presentation/pages/smart_camera_container_page/smart_camera_container_page.dart';
+export 'package:cybear_jinni/presentation/pages/smart_camera_container_page.dart';
 export 'package:cybear_jinni/presentation/pages/software_info/software_info_page.dart';
-export 'package:cybear_jinni/presentation/pages/splash/splash_page.dart';
-export 'package:cybear_jinni/presentation/pages/video_stream_output_container_page/video_stream_output_container_page.dart';
+export 'package:cybear_jinni/presentation/pages/splash_page.dart';
+export 'package:cybear_jinni/presentation/pages/video_stream_output_container_page.dart';

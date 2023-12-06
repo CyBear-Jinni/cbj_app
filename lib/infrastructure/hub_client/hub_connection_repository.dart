@@ -1,4 +1,4 @@
-part of 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
+part of 'package:cybear_jinni/domain/i_hub_connection_repository.dart';
 
 class _HubConnectionRepository implements IHubConnectionRepository {
   _HubConnectionRepository() {
@@ -101,19 +101,19 @@ class _HubConnectionRepository implements IHubConnectionRepository {
     if (IHubConnectionRepository.hubEntity == null) {
       try {
         String? hubNetworkBssid;
-        (await ILocalDbRepository2.instance.getHubEntityNetworkBssid()).fold(
+        (await ILocalDbRepository.instance.getHubEntityNetworkBssid()).fold(
           (l) => throw 'Error getting Hub network Bssid',
           (r) => hubNetworkBssid = r,
         );
 
         String? hubNetworkName;
-        (await ILocalDbRepository2.instance.getHubEntityNetworkName()).fold(
+        (await ILocalDbRepository.instance.getHubEntityNetworkName()).fold(
           (l) => throw 'Error getting Hub network name',
           (r) => hubNetworkName = r,
         );
 
         String? hubNetworkIp;
-        (await ILocalDbRepository2.instance.getHubEntityLastKnownIp()).fold(
+        (await ILocalDbRepository.instance.getHubEntityLastKnownIp()).fold(
           (l) => throw 'Error getting Hub network IP',
           (r) => hubNetworkIp = r,
         );
@@ -410,7 +410,7 @@ class _HubConnectionRepository implements IHubConnectionRepository {
     final HubDtos hubDtos =
         IHubConnectionRepository.hubEntity!.toInfrastructure();
 
-    (await ILocalDbRepository2.instance.saveHubEntity(
+    (await ILocalDbRepository.instance.saveHubEntity(
       hubNetworkBssid: hubDtos.hubNetworkBssid,
       networkName: hubDtos.networkName,
       lastKnownIp: hubDtos.lastKnownIp,
@@ -431,19 +431,19 @@ class _HubConnectionRepository implements IHubConnectionRepository {
   Future<void> loadNetworkInformationFromDb() async {
     try {
       String? hubNetworkBssid;
-      (await ILocalDbRepository2.instance.getHubEntityNetworkBssid()).fold(
+      (await ILocalDbRepository.instance.getHubEntityNetworkBssid()).fold(
         (l) => throw 'Error getting Hub network Bssid',
         (r) => hubNetworkBssid = r,
       );
 
       String? hubNetworkName;
-      (await ILocalDbRepository2.instance.getHubEntityNetworkName()).fold(
+      (await ILocalDbRepository.instance.getHubEntityNetworkName()).fold(
         (l) => throw 'Error getting Hub network name',
         (r) => hubNetworkName = r,
       );
 
       String? hubNetworkIp;
-      (await ILocalDbRepository2.instance.getHubEntityLastKnownIp()).fold(
+      (await ILocalDbRepository.instance.getHubEntityLastKnownIp()).fold(
         (l) => throw 'Error getting Hub network IP',
         (r) => hubNetworkIp = r,
       );

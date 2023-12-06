@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/domain/local_db/i_local_db_repository2.dart';
+import 'package:cybear_jinni/domain/i_local_db_repository.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
@@ -22,7 +22,7 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   Future _navigate() async {
-    (await ILocalDbRepository2.instance.getHubEntityNetworkName()).fold(
+    (await ILocalDbRepository.instance.getHubEntityNetworkName()).fold(
       (l) {
         if (kIsWeb || Platform.isLinux || Platform.isWindows) {
           return context.router.replace(const ConnectToHubRoute());

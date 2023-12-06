@@ -3,7 +3,7 @@ part of 'package:cybear_jinni/domain/cbj_comp/i_cbj_comp_repository.dart';
 class _CBJCompRepository implements ICBJCompRepository {
   @override
   Future<Either<CBJCompFailure, Unit>> shutdownServer() async {
-    await CreateTheCBJAppServer.shutdownServer();
+    await CreateTheCBJAppServer().shutdownServer();
     return right(unit);
   }
 

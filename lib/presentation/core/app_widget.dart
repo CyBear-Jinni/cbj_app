@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/domain/local_db/i_local_db_repository2.dart';
-import 'package:cybear_jinni/injection.dart';
+import 'package:cybear_jinni/domain/i_local_db_repository.dart';
+import 'package:cybear_jinni/presentation/core/injection.dart';
 import 'package:cybear_jinni/presentation/core/routes/app_router.dart';
 import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -18,7 +18,7 @@ class _AppWidgetState extends State<AppWidget> {
   }
 
   Future<void> initialize() async {
-    (await ILocalDbRepository2.instance.getHubEntityNetworkName()).fold(
+    (await ILocalDbRepository.instance.getHubEntityNetworkName()).fold(
       (l) {
         context.router.replace(const ConnectToHubRoute());
       },

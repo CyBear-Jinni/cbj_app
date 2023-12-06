@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_computer_device/generic_smart_computer_entity.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
-import 'package:cybear_jinni/utils.dart';
+import 'package:cybear_jinni/presentation/core/utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 

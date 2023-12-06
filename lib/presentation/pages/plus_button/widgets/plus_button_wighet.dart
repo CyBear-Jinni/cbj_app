@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/domain/hub/hub_entity.dart';
-import 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
+import 'package:cybear_jinni/domain/i_hub_connection_repository.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';

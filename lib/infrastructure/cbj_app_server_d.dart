@@ -1,12 +1,12 @@
 import 'dart:async';
 
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_app_server/protoc_as_dart/cbj_app_connections.pbgrpc.dart';
-import 'package:cybear_jinni/utils.dart';
+import 'package:cybear_jinni/presentation/core/utils.dart';
 import 'package:grpc/grpc.dart';
 
 /// The implantation of the CyBear Jinni App Server from grpc
-class CBJAppServerD extends CyBearJinniAppServiceBase {
-  CBJAppServerD(this.cbjCommendStatus);
+class _CBJAppServerD extends CyBearJinniAppServiceBase {
+  _CBJAppServerD(this.cbjCommendStatus);
 
   StreamController<CompInfoSB> cbjCommendStatus;
 
@@ -42,17 +42,26 @@ class CBJAppServerD extends CyBearJinniAppServiceBase {
 
 /// Helper class to control the Server
 class CreateTheCBJAppServer {
-  static Server? server;
+  factory CreateTheCBJAppServer() {
+    return _instance;
+  }
+
+  CreateTheCBJAppServer._singletonConstructor();
+
+  static final CreateTheCBJAppServer _instance =
+      CreateTheCBJAppServer._singletonConstructor();
+
+  Server? server;
 
   ///  This function will create the server
   Future<void> createServer(StreamController<CompInfoSB> compInfoStream) async {
     await server?.shutdown();
-    server = Server.create(services: [CBJAppServerD(compInfoStream)]);
+    server = Server.create(services: [_CBJAppServerD(compInfoStream)]);
     await server!.serve(port: 30055);
     logger.i('App server listening on port ${server!.port}...');
   }
 
-  static Future<void> shutdownServer() async {
+  Future<void> shutdownServer() async {
     await server?.shutdown();
     return;
   }
