@@ -39,7 +39,10 @@ class GradientColors {
 }
 
 class AppThemeData {
-  static double get generalSpacing => 20;
+  static const double generalSpacing = 20;
+
+  static EdgeInsets generalHorizontalEdgeInsets =
+      const EdgeInsets.symmetric(horizontal: generalSpacing);
 }
 
 class ListOfColors {

@@ -154,7 +154,7 @@ class PlusButtonWidget extends StatelessWidget {
                   height: 1,
                 ),
                 ColoredBox(
-                  color: Colors.redAccent.withOpacity(0.9),
+                  color: Colors.pink.withOpacity(0.9),
                   child: ListTile(
                     leading: FaIcon(
                       FontAwesomeIcons.computer,
