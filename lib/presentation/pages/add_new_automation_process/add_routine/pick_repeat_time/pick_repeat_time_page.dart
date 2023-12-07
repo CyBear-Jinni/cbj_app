@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/domain/routine/value_objects_routine_cbj.dart';
-import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
 import 'package:cybear_jinni/presentation/pages/shared_widgets/top_navigation_bar.dart';
 import 'package:day_night_time_picker/day_night_time_picker.dart';
 import 'package:day_picker/day_picker.dart';
@@ -59,7 +60,7 @@ class PickRepeatTimePage extends StatelessWidget {
                         const SizedBox(
                           height: 30,
                         ),
-                        const Text(
+                        const TextAtom(
                           'Pick days and hour for the Routine to Repeat',
                           style: TextStyle(
                             color: Colors.black,
@@ -136,14 +137,14 @@ class PickRepeatTimePage extends StatelessWidget {
                               showDialog(
                                 context: context,
                                 builder: (_) => const AlertDialog(
-                                  title: Text(
+                                  title: TextAtom(
                                     'Please choose days to repeat as well as time',
                                   ),
                                 ),
                               );
                             }
                           },
-                          child: const Text(
+                          child: const TextAtom(
                             'Next',
                             style: TextStyle(color: Colors.black),
                           ),

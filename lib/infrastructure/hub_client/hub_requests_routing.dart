@@ -6,6 +6,7 @@ import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/domain/scene/i_scene_cbj_repository.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/device_type_enums.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_blinds_device/generic_blinds_device_dtos.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_boiler_device/generic_boiler_device_dtos.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_dimmable_light_device/generic_dimmable_light_device_dtos.dart';
@@ -14,31 +15,30 @@ import 'package:cbj_integrations_controller/infrastructure/generic_devices/gener
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_ping_device/generic_ping_device_dtos.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_printer_device/generic_printer_device_dtos.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_rgbw_light_device/generic_rgbw_light_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_security_camera_device/generic_security_camera_device_dtos.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_computer_device/generic_smart_computer_device_dtos.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_plug_device/generic_smart_plug_device_dtos.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_tv_device/generic_smart_tv_device_dtos.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_switch_device/generic_switch_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/hub_client/hub_client.dart';
 import 'package:cbj_integrations_controller/infrastructure/room/room_entity_dtos.dart';
 import 'package:cbj_integrations_controller/infrastructure/scenes/scene_cbj_dtos.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
-import 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
-import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
-import 'package:cybear_jinni/infrastructure/objects/enums_cbj.dart';
-import 'package:cybear_jinni/injection.dart';
-import 'package:cybear_jinni/utils.dart';
+import 'package:cybear_jinni/domain/i_hub_connection_repository.dart';
+import 'package:cybear_jinni/presentation/core/injection.dart';
+import 'package:cybear_jinni/presentation/core/utils.dart';
 import 'package:grpc/grpc.dart';
 
 class HubRequestRouting {
-  static StreamSubscription<RequestsAndStatusFromHub>?
-      requestsFromHubSubscription;
+  static StreamSubscription<dynamic>? requestsFromHubSubscription;
 
   static Stream<ConnectivityResult>? connectivityChangedStream;
 
   static bool areWeRunning = false;
 
   // static int numberOfCrashes = 0;
-  static int numberOfConnactivityChange = 0;
+  static int numberOfConnectivityChange = 0;
 
   static Future<void> navigateRequest() async {
     if (areWeRunning) {
@@ -56,9 +56,11 @@ class HubRequestRouting {
     // requestsFromHubSubscription = null;
     connectivityChangedStream = null;
 
-    requestsFromHubSubscription = HubRequestsToApp
-        .hubRequestsStreamBroadcast.stream
-        .listen((RequestsAndStatusFromHub requestsAndStatusFromHub) {
+    requestsFromHubSubscription = HubRequestsToApp.streamRequestsToApp.stream
+        .listen((dynamic requestsAndStatusFromHub) {
+      if (requestsAndStatusFromHub is! RequestsAndStatusFromHub) {
+        return;
+      }
       if (requestsAndStatusFromHub.sendingType == SendingType.entityType) {
         navigateDeviceRequest(requestsAndStatusFromHub.allRemoteCommands);
       } else if (requestsAndStatusFromHub.sendingType == SendingType.roomType) {
@@ -92,9 +94,9 @@ class HubRequestRouting {
 
     connectivityChangedStream = Connectivity().onConnectivityChanged;
     connectivityChangedStream?.listen((ConnectivityResult event) async {
-      numberOfConnactivityChange++;
+      numberOfConnectivityChange++;
       logger.i('Connectivity changed ${event.name} And $event');
-      if (event == ConnectivityResult.none || numberOfConnactivityChange <= 1) {
+      if (event == ConnectivityResult.none || numberOfConnectivityChange <= 1) {
         return;
       }
       areWeRunning = false;
@@ -203,6 +205,10 @@ class HubRequestRouting {
         deviceEntity =
             GenericPrinterDeviceDtos.fromJson(requestAsJson).toDomain();
         logger.i('Adding Smart printer device type');
+      case EntityTypes.securityCamera:
+        deviceEntity =
+            GenericSecurityCameraDeviceDtos.fromJson(requestAsJson).toDomain();
+        logger.i('Adding Smart camera device type');
       default:
         if (entityStateGRPC == EntityStateGRPC.pingNow) {
           deviceEntity =
@@ -210,11 +216,11 @@ class HubRequestRouting {
           logger.t('Got Ping request');
           return;
         } else {
-          deviceEntity =
-              GenericEmptyDeviceDtos.fromJson(requestAsJson).toDomain();
           logger.w(
             'Device type is $deviceType is not supported $entityStateGRPC ',
           );
+          deviceEntity =
+              GenericEmptyDeviceDtos.fromJson(requestAsJson).toDomain();
         }
         break;
     }

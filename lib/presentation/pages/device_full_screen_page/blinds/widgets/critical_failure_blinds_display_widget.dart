@@ -1,4 +1,5 @@
 import 'package:cybear_jinni/domain/device/devices_failures.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:flutter/material.dart';
 
 class CriticalFailureBlindsDisplay extends StatelessWidget {
@@ -15,11 +16,11 @@ class CriticalFailureBlindsDisplay extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          const Text(
+          const TextAtom(
             '😱',
             style: TextStyle(fontSize: 100),
           ),
-          const Text(
+          const TextAtom(
             'Unexpected error. \nPlease, contact support',
             // failure.maybeMap(
             //   insufficientPermission: (_) => 'Insufficient permissions',
@@ -35,7 +36,7 @@ class CriticalFailureBlindsDisplay extends StatelessWidget {
               children: <Widget>[
                 Icon(Icons.mail),
                 SizedBox(width: 4),
-                Text('I NEED HELP'),
+                TextAtom('I NEED HELP'),
               ],
             ),
           ),

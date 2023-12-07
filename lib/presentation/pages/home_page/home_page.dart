@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/home_page/bottom_navigation_bar_home_page.dart';
-import 'package:cybear_jinni/presentation/pages/home_page/left_navigation_drawer_home_page.dart';
 import 'package:cybear_jinni/presentation/pages/home_page/tabs/scenes_in_folders_tab/scenes_in_folders_tab.dart';
 import 'package:cybear_jinni/presentation/pages/home_page/tabs/smart_devices_tab/smart_devices_widgets.dart';
 import 'package:cybear_jinni/presentation/pages/plus_button/plus_button.dart';
@@ -73,14 +73,13 @@ class _HomePageState extends State<HomePage> {
               controller: _pageController,
               children: _pages,
             ),
-            drawer: LeftNavigationDrawerHomePage(),
             bottomNavigationBar:
                 BottomNavigationBarHomePage(callback, _currentTabNum),
           ),
           Column(
             children: [
               const Expanded(
-                child: Text(''),
+                child: TextAtom(''),
               ),
               SizedBox(
                 height: 55,

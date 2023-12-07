@@ -1,4 +1,5 @@
 import 'package:cybear_jinni/domain/home_user/home_user_entity.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -33,7 +34,7 @@ class SoftwareInfoCard extends StatelessWidget {
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
+              TextAtom(
                 homeUser!.email!.getOrCrash()!,
                 style: TextStyle(
                   color: Theme.of(context).textTheme.bodyLarge!.color,

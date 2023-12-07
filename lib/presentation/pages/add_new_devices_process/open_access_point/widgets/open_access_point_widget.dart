@@ -1,207 +1,253 @@
+import 'dart:io';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:clipboard/clipboard.dart';
-import 'package:cybear_jinni/application/manage_access_point/manage_access_point_bloc.dart';
-import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
+import 'package:cybear_jinni/domain/home_user/home_user_failures.dart';
+import 'package:cybear_jinni/domain/manage_network/i_manage_network_repository.dart';
+import 'package:cybear_jinni/domain/manage_network/manage_network_entity.dart';
+import 'package:cybear_jinni/domain/manage_network/manage_network_value_objects.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybear_jinni/presentation/core/snack_bar_service.dart';
+import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
+import 'package:dartz/dartz.dart' as dartz;
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
-class OpenAccessPointWidget extends StatelessWidget {
+class OpenAccessPointWidget extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
+  State<OpenAccessPointWidget> createState() => _OpenAccessPointWidgetState();
+}
 
-    return BlocBuilder<ManageAccessPointBloc, ManageAccessPointState>(
-      builder: (context, state) {
-        return SingleChildScrollView(
-          child: Column(
-            children: [
-              state.map(
-                initial: (value) {
-                  return TextButton(
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(
-                        Colors.greenAccent,
-                      ),
+class _OpenAccessPointWidgetState extends State<OpenAccessPointWidget> {
+  OpenAccessPointState state = OpenAccessPointState.initial;
+
+  ManageWiFiName? wifiName;
+  ManageWiFiPass? wifiPassword;
+
+  @override
+  void initState() {
+    super.initState();
+    _initialized();
+  }
+
+  Future<void> _initialized() async {
+    OpenAccessPointState stateTemp;
+    if (Platform.isAndroid) {
+      final ManageNetworkEntity manageNetworkEntity = ManageNetworkEntity(
+        name: ManageWiFiName('CyBear Jinni'),
+        pass: ManageWiFiPass('CyBear Jinni'),
+      );
+
+      final dartz.Either<HomeUserFailures, dartz.Unit> openedAccessPoint =
+          await IManageNetworkRepository.instance
+              .openAccessPoint(manageNetworkEntity);
+      stateTemp = openedAccessPoint.fold(
+        (f) => OpenAccessPointState.iOSDevice,
+        (r) => OpenAccessPointState.loaded,
+      );
+    } else {
+      stateTemp = OpenAccessPointState.iOSDevice;
+    }
+    setState(() {
+      state = stateTemp;
+    });
+  }
+
+  Future<void> _doesAccessPointOpen() async {
+    OpenAccessPointState stateTemp;
+
+    if (Platform.isAndroid) {
+      final dartz.Either<HomeUserFailures, dartz.Unit> openedAccessPoint =
+          await IManageNetworkRepository.instance.doesAccessPointOpen();
+
+      stateTemp = openedAccessPoint.fold((HomeUserFailures f) {
+        if (f == const HomeUserFailures.accessPointIsNotOpen()) {
+          return OpenAccessPointState.accessPointIsNotOpen;
+        }
+        return OpenAccessPointState.cantDetermineAccessPointOpenOrNot;
+      }, (r) {
+        context.router.replace(const ScanForNewCBJCompsRoute());
+
+        return OpenAccessPointState.accessPointIsOpen;
+      });
+    } else {
+      stateTemp = OpenAccessPointState.cantDetermineAccessPointOpenOrNot;
+    }
+    setState(() {
+      state = stateTemp;
+    });
+  }
+
+  Widget getStateWidget() {
+    switch (state) {
+      case OpenAccessPointState.initial:
+        return TextButton(
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(
+              Colors.greenAccent,
+            ),
+          ),
+          onPressed: _initialized,
+          child: const TextAtom('Create Access Pint'),
+        );
+      case OpenAccessPointState.loading:
+        return const CircularProgressIndicatorAtom();
+      case OpenAccessPointState.loaded:
+        return const TextAtom('Loaded');
+      case OpenAccessPointState.error:
+        return const TextAtom('Failure');
+      case OpenAccessPointState.iOSDevice:
+        return Column(
+          children: <Widget>[
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 50),
+              child: const TextAtom(
+                'Please Open Access point with the following '
+                'credentials in the OS Settings.',
+                style: TextStyle(fontSize: 17),
+              ),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: SizedBox(
+                width: double.infinity,
+                height: 70,
+                child: TextButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                      Colors.black12,
                     ),
-                    onPressed: () {
-                      context
-                          .read<ManageAccessPointBloc>()
-                          .add(ManageAccessPointEvent.initialized());
-                    },
-                    child: const Text('Create Access Pint'),
-                  );
-                },
-                loading: (_) {
-                  return const CircularProgressIndicator(
-                    backgroundColor: Colors.cyan,
-                    strokeWidth: 5,
-                  );
-                },
-                loaded: (l) {
-                  // ExtendedNavigator.of(context)
-                  //     .push(Routes.openAccessPointPage);
-                  return const Text('Loaded');
-                },
-                error: (e) {
-                  return const Text('Failure');
-                },
-                iOSDevice: (IOSDevice value) {
-                  return Column(
+                  ),
+                  onPressed: () {
+                    FlutterClipboard.copy('CyBear Jinni').then(
+                      (value) => SnackBarService().show(
+                        context,
+                        'Copy',
+                      ),
+                    );
+                  },
+                  child: const Column(
                     children: <Widget>[
-                      Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 50),
-                        child: const Text(
-                          'Please Open Access point with the following '
-                          'credentials in the OS Settings.',
-                          style: TextStyle(fontSize: 17),
+                      TextAtom(
+                        'Hotspot name:',
+                        style: TextStyle(color: Colors.white60),
+                      ),
+                      TextAtom(
+                        'CyBear Jinni',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: Colors.white70,
                         ),
-                      ),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: SizedBox(
-                          width: double.infinity,
-                          height: 70,
-                          child: TextButton(
-                            style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all(
-                                Colors.black12,
-                              ),
-                            ),
-                            onPressed: () {
-                              FlutterClipboard.copy('CyBear Jinni').then(
-                                (value) => Fluttertoast.showToast(
-                                  msg: 'Copy',
-                                  toastLength: Toast.LENGTH_SHORT,
-                                  gravity: ToastGravity.SNACKBAR,
-                                  backgroundColor: Colors.lightBlue,
-                                  textColor: Theme.of(context)
-                                      .textTheme
-                                      .bodyLarge!
-                                      .color,
-                                  fontSize: 16.0,
-                                ),
-                              );
-                            },
-                            child: const Column(
-                              children: <Widget>[
-                                Text(
-                                  'Hotspot name:',
-                                  style: TextStyle(color: Colors.white60),
-                                ),
-                                Text(
-                                  'CyBear Jinni',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20,
-                                    color: Colors.white70,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 2,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: SizedBox(
-                          width: double.infinity,
-                          height: 70,
-                          child: TextButton(
-                            style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all(
-                                Colors.black12,
-                              ),
-                            ),
-                            onPressed: () {
-                              FlutterClipboard.copy('CyBear Jinni').then(
-                                (value) => Fluttertoast.showToast(
-                                  msg: 'Copy',
-                                  toastLength: Toast.LENGTH_SHORT,
-                                  gravity: ToastGravity.SNACKBAR,
-                                  backgroundColor: Colors.lightBlue,
-                                  textColor: Theme.of(context)
-                                      .textTheme
-                                      .bodyLarge!
-                                      .color,
-                                  fontSize: 16.0,
-                                ),
-                              );
-                            },
-                            child: const Column(
-                              children: <Widget>[
-                                Text(
-                                  'Hotspot password:',
-                                  style: TextStyle(color: Colors.white60),
-                                ),
-                                Text(
-                                  'CyBear Jinni',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20,
-                                    color: Colors.white70,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      const SizedBox(
-                        height: 20,
                       ),
                     ],
-                  );
-                },
-                cantDetermineAccessPointOpenOrNot:
-                    (CantDetermineAccessPointOpenOrNot value) {
-                  return const Text('CantDetermineAccessPointOpenOrNot');
-                },
-                accessPointIsNotOpen: (AccessPointIsNotOpen value) {
-                  return const Text('AccessPointIsNotOpen');
-                },
-                accessPointIsOpen: (AccessPointIsOpen value) {
-                  context.router.replace(const ScanForNewCBJCompsRoute());
-                  return const Text('AccessPointIsOpen');
-                },
-              ),
-              Container(
-                margin: const EdgeInsets.symmetric(horizontal: 50),
-                child: const Text(
-                  "Currently we can't verify that you have opened Access pont.\n"
-                  'Press next only after you have preformed the actions above!.',
-                  style: TextStyle(fontSize: 17),
-                ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              TextButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
-                    Colors.greenAccent,
                   ),
                 ),
-                onPressed: () {
-                  context
-                      .read<ManageAccessPointBloc>()
-                      .add(ManageAccessPointEvent.doesAccessPointOpen());
-                },
-                child: const Text('Next'),
               ),
-            ],
-          ),
+            ),
+            const SizedBox(
+              height: 2,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: SizedBox(
+                width: double.infinity,
+                height: 70,
+                child: TextButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                      Colors.black12,
+                    ),
+                  ),
+                  onPressed: () {
+                    FlutterClipboard.copy('CyBear Jinni').then(
+                      (value) => SnackBarService().show(
+                        context,
+                        'Copy',
+                      ),
+                    );
+                  },
+                  child: const Column(
+                    children: <Widget>[
+                      TextAtom(
+                        'Hotspot password:',
+                        style: TextStyle(color: Colors.white60),
+                      ),
+                      TextAtom(
+                        'CyBear Jinni',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: Colors.white70,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+          ],
         );
-      },
+
+      case OpenAccessPointState.cantDetermineAccessPointOpenOrNot:
+        return const TextAtom('CantDetermineAccessPointOpenOrNot');
+
+      case OpenAccessPointState.accessPointIsNotOpen:
+        return const TextAtom('AccessPointIsNotOpen');
+
+      case OpenAccessPointState.accessPointIsOpen:
+        return const TextAtom('AccessPointIsOpen');
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          getStateWidget(),
+          Container(
+            margin: const EdgeInsets.symmetric(horizontal: 50),
+            child: const TextAtom(
+              "Currently we can't verify that you have opened Access pont.\n"
+              'Press next only after you have preformed the actions above!.',
+              style: TextStyle(fontSize: 17),
+            ),
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          TextButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(
+                Colors.greenAccent,
+              ),
+            ),
+            onPressed: _doesAccessPointOpen,
+            child: const TextAtom('Next'),
+          ),
+        ],
+      ),
     );
   }
+}
+
+enum OpenAccessPointState {
+  initial,
+  loading,
+  loaded,
+  error,
+  iOSDevice,
+  cantDetermineAccessPointOpenOrNot,
+  accessPointIsNotOpen,
+  accessPointIsOpen,
+  ;
 }

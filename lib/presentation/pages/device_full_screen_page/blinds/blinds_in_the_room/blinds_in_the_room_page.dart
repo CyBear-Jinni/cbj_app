@@ -29,18 +29,16 @@ class BlindsInTheRoomPage extends StatelessWidget {
       body: Container(
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
-          gradient: BacgroundGradient.getBacground(context),
+          gradient: BackgroundGradient.getBackground(context),
         ),
         child: Column(
           children: <Widget>[
             TopNavigationBar(
               pageName: thisSmartRoom!.getRoomName(),
               rightIcon: Icons.more_vert,
-              rightIconFunction: () {},
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
               rightSecondIcon: FontAwesomeIcons.magnifyingGlass,
-              rightSecondFunction: () {},
             ),
             Expanded(
               child: Container(

@@ -1,17 +1,18 @@
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_blinds_device/generic_blinds_entity.dart';
-import 'package:cybear_jinni/application/blinds/blinds_actor/blinds_actor_bloc.dart';
-import 'package:cybear_jinni/presentation/core/types_to_pass.dart';
-import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
+import 'package:cybear_jinni/domain/device/i_device_repository.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
+import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class BlindsInTheRoom extends StatelessWidget {
+class BlindsInTheRoom extends StatefulWidget {
   const BlindsInTheRoom({
     required this.roomEntity,
     this.blindsInRoom,
@@ -21,7 +22,7 @@ class BlindsInTheRoom extends StatelessWidget {
   factory BlindsInTheRoom.withAbstractDevice({
     required RoomEntity roomEntity,
     required List<DeviceEntityAbstract> tempDeviceInRoom,
-    required ListOfColors temprRoomColorGradiant,
+    required ListOfColors tempRoomColorGradiant,
   }) {
     final List<GenericBlindsDE> tempLightsInRoom = [];
 
@@ -32,7 +33,7 @@ class BlindsInTheRoom extends StatelessWidget {
     return BlindsInTheRoom(
       roomEntity: roomEntity,
       blindsInRoom: tempLightsInRoom,
-      roomColorGradiant: temprRoomColorGradiant,
+      roomColorGradiant: tempRoomColorGradiant,
     );
   }
 
@@ -41,20 +42,53 @@ class BlindsInTheRoom extends StatelessWidget {
   final ListOfColors? roomColorGradiant;
 
   @override
+  State<BlindsInTheRoom> createState() => _BlindsInTheRoomState();
+}
+
+class _BlindsInTheRoomState extends State<BlindsInTheRoom> {
+  Future<void> _moveUpAllBlinds(List<String> blindsIdToTurnUp) async {
+    FlushbarHelper.createLoading(
+      message: 'Pulling_Up_all_blinds'.tr(),
+      linearProgressIndicator: const LinearProgressIndicator(),
+    ).show(context);
+
+    IDeviceRepository.instance.moveUpStateDevices(devicesId: blindsIdToTurnUp);
+  }
+
+  Future<void> _moveDownAllBlinds(List<String> blindsIdToTurnDown) async {
+    FlushbarHelper.createLoading(
+      message: 'Pulling_down_all_blinds'.tr(),
+      linearProgressIndicator: const LinearProgressIndicator(),
+    ).show(context);
+
+    IDeviceRepository.instance
+        .moveDownStateDevices(devicesId: blindsIdToTurnDown);
+  }
+
+  List<String> extractDevicesId() {
+    final List<String> devicesIdList = [];
+    for (final element in widget.blindsInRoom!) {
+      devicesIdList.add(element!.uniqueId.getOrCrash());
+    }
+    return devicesIdList;
+  }
+
+  @override
   Widget build(BuildContext context) {
     String deviceText;
-    if (blindsInRoom!.length == 1) {
-      deviceText = blindsInRoom![0]!.cbjEntityName.getOrCrash()!;
+    if (widget.blindsInRoom!.length == 1) {
+      deviceText = widget.blindsInRoom![0]!.cbjEntityName.getOrCrash()!;
     } else {
-      deviceText = '_Blinds'.tr(args: [roomEntity.cbjEntityName.getOrCrash()]);
+      deviceText =
+          '_Blinds'.tr(args: [widget.roomEntity.cbjEntityName.getOrCrash()]);
     }
 
     return GestureDetector(
       onTap: () {
         context.router.push(
           RoomsBlindsRoute(
-            roomEntity: roomEntity,
-            roomColorGradiant: roomColorGradiant,
+            roomEntity: widget.roomEntity,
+            roomColorGradiant: widget.roomColorGradiant,
           ),
         );
       },
@@ -70,7 +104,7 @@ class BlindsInTheRoom extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Expanded(child: Text('')),
+                const Expanded(child: TextAtom('')),
                 Expanded(
                   child: Column(
                     children: [
@@ -87,7 +121,7 @@ class BlindsInTheRoom extends StatelessWidget {
                     ],
                   ),
                 ),
-                if (blindsInRoom!.length > 1)
+                if (widget.blindsInRoom!.length > 1)
                   Expanded(
                     child: Container(
                       height: 55,
@@ -104,8 +138,8 @@ class BlindsInTheRoom extends StatelessWidget {
                           ),
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: Text(
-                          blindsInRoom!.length.toString(),
+                        child: TextAtom(
+                          widget.blindsInRoom!.length.toString(),
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 13,
@@ -116,7 +150,7 @@ class BlindsInTheRoom extends StatelessWidget {
                     ),
                   )
                 else
-                  const Expanded(child: Text('')),
+                  const Expanded(child: TextAtom('')),
               ],
             ),
             const SizedBox(height: 5),
@@ -144,84 +178,61 @@ class BlindsInTheRoom extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            BlocConsumer<BlindsActorBloc, BlindsActorState>(
-              listener: (context, state) {},
-              builder: (context, state) {
-                return Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    TextButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(
-                          Colors.grey.withOpacity(0.6),
-                        ),
-                        side: MaterialStateProperty.all(
-                          const BorderSide(width: 0.2),
-                        ),
-                        padding: MaterialStateProperty.all<EdgeInsets>(
-                          EdgeInsets.zero,
-                        ),
-                      ),
-                      onPressed: () {
-                        context.read<BlindsActorBloc>().add(
-                              BlindsActorEvent.moveDownAllBlinds(
-                                extractDevicesId(),
-                                context,
-                              ),
-                            );
-                      },
-                      child: FaIcon(
-                        FontAwesomeIcons.chevronDown,
-                        color: Theme.of(context).textTheme.bodyMedium!.color,
-                      ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                TextButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                      Colors.grey.withOpacity(0.6),
                     ),
-                    Text(
-                      '·',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Theme.of(context).textTheme.bodyLarge!.color,
-                      ),
+                    side: MaterialStateProperty.all(
+                      const BorderSide(width: 0.2),
                     ),
-                    TextButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(
-                          Colors.grey.withOpacity(0.6),
-                        ),
-                        side: MaterialStateProperty.all(
-                          const BorderSide(width: 0.2),
-                        ),
-                        padding: MaterialStateProperty.all<EdgeInsets>(
-                          EdgeInsets.zero,
-                        ),
-                      ),
-                      onPressed: () {
-                        context.read<BlindsActorBloc>().add(
-                              BlindsActorEvent.moveUpAllBlinds(
-                                extractDevicesId(),
-                                context,
-                              ),
-                            );
-                      },
-                      child: FaIcon(
-                        FontAwesomeIcons.chevronUp,
-                        color: Theme.of(context).textTheme.bodyMedium!.color,
-                      ),
+                    padding: MaterialStateProperty.all<EdgeInsets>(
+                      EdgeInsets.zero,
                     ),
-                  ],
-                );
-              },
+                  ),
+                  onPressed: () {
+                    _moveDownAllBlinds(extractDevicesId());
+                  },
+                  child: FaIcon(
+                    FontAwesomeIcons.chevronDown,
+                    color: Theme.of(context).textTheme.bodyMedium!.color,
+                  ),
+                ),
+                TextAtom(
+                  '·',
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
+                  ),
+                ),
+                TextButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                      Colors.grey.withOpacity(0.6),
+                    ),
+                    side: MaterialStateProperty.all(
+                      const BorderSide(width: 0.2),
+                    ),
+                    padding: MaterialStateProperty.all<EdgeInsets>(
+                      EdgeInsets.zero,
+                    ),
+                  ),
+                  onPressed: () {
+                    _moveUpAllBlinds(extractDevicesId());
+                  },
+                  child: FaIcon(
+                    FontAwesomeIcons.chevronUp,
+                    color: Theme.of(context).textTheme.bodyMedium!.color,
+                  ),
+                ),
+              ],
             ),
           ],
         ),
       ),
     );
-  }
-
-  List<String> extractDevicesId() {
-    final List<String> devicesIdList = [];
-    for (final element in blindsInRoom!) {
-      devicesIdList.add(element!.uniqueId.getOrCrash());
-    }
-    return devicesIdList;
   }
 }

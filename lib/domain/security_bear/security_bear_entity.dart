@@ -28,7 +28,6 @@ abstract class SecurityBearEntity implements _$SecurityBearEntity {
       securityBearNetworkBssid: securityBearNetworkBssid.getOrCrash(),
       networkName: networkName.getOrCrash(),
       lastKnownIp: lastKnownIp.getOrCrash(),
-      // serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }
 
