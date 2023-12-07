@@ -59,8 +59,8 @@ class _RoomsBoilersWidgetState extends State<RoomsBoilersWidget> {
   }
 
   @override
-  Future<void> dispose() async {
-    await _deviceStreamSubscription?.cancel();
+  void dispose() {
+    _deviceStreamSubscription?.cancel();
     return super.dispose();
   }
 

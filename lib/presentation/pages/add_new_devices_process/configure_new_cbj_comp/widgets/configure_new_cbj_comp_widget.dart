@@ -12,9 +12,8 @@ import 'package:cybear_jinni/domain/manage_network/manage_network_entity.dart';
 import 'package:cybear_jinni/domain/security_bear/i_security_bear_connection_repository.dart';
 import 'package:cybear_jinni/domain/security_bear/security_bear_failures.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
-import 'package:cybear_jinni/presentation/core/devices_cards/blinds_card.dart';
-import 'package:cybear_jinni/presentation/core/devices_cards/light_card.dart';
-import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
+import 'package:cybear_jinni/presentation/molecules/molecules.dart';
+import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
 import 'package:dartz/dartz.dart' as dartz;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -177,7 +176,7 @@ class _ConfigureNewCbjCompWidgetsState
                         TextAtom('Type: ${device.entityTypes.getOrCrash()}'),
                         Expanded(
                           child: Center(
-                            child: LightCard(device),
+                            child: LightCardMolecule(device),
                           ),
                         ),
                       ],
@@ -192,7 +191,7 @@ class _ConfigureNewCbjCompWidgetsState
                         TextAtom('Type: ${device.entityTypes.getOrCrash()}'),
                         Expanded(
                           child: Center(
-                            child: LightCard(device),
+                            child: LightCardMolecule(device),
                           ),
                         ),
                       ],
@@ -204,7 +203,7 @@ class _ConfigureNewCbjCompWidgetsState
                     children: [
                       TextAtom('Type: ${device.entityTypes.getOrCrash()}'),
                       Center(
-                        child: BlindsCard(device),
+                        child: BlindsCardMolecule(device),
                       ),
                     ],
                   ),

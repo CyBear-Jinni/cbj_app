@@ -5,10 +5,10 @@ import 'package:cbj_integrations_controller/domain/room/value_objects_room.dart'
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
-import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
+import 'package:cybear_jinni/presentation/core/snack_bar_service.dart';
+import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
 import 'package:dartz/dartz.dart' as dartz;
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
 
@@ -45,7 +45,7 @@ class _ChangeRoomForDevicesWidgetState
   }
 
   Future<void> _initialized() async {
-    (await IRoomRepository.instance.getAllRooms()).fold((l) => null, (r) {
+    IRoomRepository.instance.getAllRooms().fold((l) => null, (r) {
       _allRooms = List<RoomEntity>.from(r.iter);
     });
 
@@ -193,13 +193,9 @@ class _ChangeRoomForDevicesWidgetState
             children: [
               TextButton(
                 onPressed: () {
-                  Fluttertoast.showToast(
-                    msg: 'Changing devices for area',
-                    toastLength: Toast.LENGTH_LONG,
-                    gravity: ToastGravity.BOTTOM,
-                    backgroundColor: Colors.purple,
-                    textColor: Theme.of(context).textTheme.bodyLarge!.color,
-                    fontSize: 16.0,
+                  SnackBarService().show(
+                    context,
+                    'Changing devices for area',
                   );
                   _changeRoomDevices();
                 },

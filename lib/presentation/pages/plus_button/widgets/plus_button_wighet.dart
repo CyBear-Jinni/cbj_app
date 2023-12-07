@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/domain/hub/hub_entity.dart';
-import 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
+import 'package:cybear_jinni/domain/i_hub_connection_repository.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
-import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
+import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
@@ -46,7 +46,7 @@ class PlusButtonWidget extends StatelessWidget {
                   color: Colors.indigoAccent.withOpacity(0.7),
                   child: ListTile(
                     leading: FaIcon(
-                      FontAwesomeIcons.sitemap,
+                      FontAwesomeIcons.camera,
                       color: Theme.of(context).textTheme.bodyLarge!.color,
                       size: 25,
                     ),
@@ -150,6 +150,27 @@ class PlusButtonWidget extends StatelessWidget {
             color: Colors.white,
             child: Column(
               children: [
+                const SizedBox(
+                  height: 1,
+                ),
+                ColoredBox(
+                  color: Colors.pink.withOpacity(0.9),
+                  child: ListTile(
+                    leading: FaIcon(
+                      FontAwesomeIcons.computer,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
+                      size: 25,
+                    ),
+                    title: TextAtom(
+                      'All Devices in the network',
+                      style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
+                      ),
+                    ),
+                    onTap: () =>
+                        context.router.push(const DevicesInNetworkRoute()),
+                  ),
+                ),
                 const SizedBox(
                   height: 1,
                 ),

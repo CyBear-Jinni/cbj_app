@@ -1,9 +1,9 @@
 import 'package:cbj_integrations_controller/domain/scene/i_scene_cbj_repository.dart';
 import 'package:cbj_integrations_controller/domain/scene/scene_cbj_entity.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybear_jinni/presentation/core/snack_bar_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:kt_dart/collection.dart';
 
 class SceneWidget extends StatefulWidget {
@@ -43,13 +43,9 @@ class _SceneWidgetState extends State<SceneWidget> {
         onPressed: () {
           HapticFeedback.lightImpact();
 
-          Fluttertoast.showToast(
-            msg: 'Activating Scene',
-            toastLength: Toast.LENGTH_SHORT,
-            gravity: ToastGravity.BOTTOM,
-            backgroundColor: Colors.purple,
-            textColor: Theme.of(context).textTheme.bodyLarge!.color,
-            fontSize: 16.0,
+          SnackBarService().show(
+            context,
+            'Activating Scene',
           );
           _activateScene();
         },

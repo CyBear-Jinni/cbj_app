@@ -1,5 +1,5 @@
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/device_type_enums.dart';
 import 'package:cybear_jinni/domain/device/devices_failures.dart';
-import 'package:cybear_jinni/infrastructure/objects/enums_cbj.dart';
 import 'package:dartz/dartz.dart';
 
 Either<DevicesFailure<String>, String> validateDeviceNotEmpty(String input) {

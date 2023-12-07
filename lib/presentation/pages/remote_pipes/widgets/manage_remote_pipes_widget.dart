@@ -2,8 +2,8 @@ import 'package:cbj_integrations_controller/domain/remote_pipes/i_remote_pipes_r
 import 'package:cbj_integrations_controller/domain/remote_pipes/remote_pipes_entity.dart';
 import 'package:cbj_integrations_controller/domain/remote_pipes/remote_pipes_value_objects.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybear_jinni/presentation/core/snack_bar_service.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// Show light toggles in a container with the background color from smart room
@@ -15,11 +15,6 @@ class RemotePipesWidget extends StatefulWidget {
 
 class _RemotePipesWidgetState extends State<RemotePipesWidget> {
   String? remotePipesDomainName;
-
-  @override
-  void initState() {
-    super.initState();
-  }
 
   Future<void> _remotePipesDomainChanged(String value) async {
     setState(() {
@@ -69,13 +64,9 @@ class _RemotePipesWidgetState extends State<RemotePipesWidget> {
           ),
           TextButton(
             onPressed: () {
-              Fluttertoast.showToast(
-                msg: 'Sending domain name to the Hub',
-                toastLength: Toast.LENGTH_LONG,
-                gravity: ToastGravity.BOTTOM,
-                backgroundColor: Colors.blueGrey,
-                textColor: Theme.of(context).textTheme.bodyLarge!.color,
-                fontSize: 16.0,
+              SnackBarService().show(
+                context,
+                'Sending domain name to the Hub',
               );
               _addRemotePipeUrl();
             },

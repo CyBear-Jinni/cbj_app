@@ -6,6 +6,7 @@ import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/domain/scene/i_scene_cbj_repository.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/device_type_enums.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_blinds_device/generic_blinds_device_dtos.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_boiler_device/generic_boiler_device_dtos.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_dimmable_light_device/generic_dimmable_light_device_dtos.dart';
@@ -24,10 +25,9 @@ import 'package:cbj_integrations_controller/infrastructure/room/room_entity_dtos
 import 'package:cbj_integrations_controller/infrastructure/scenes/scene_cbj_dtos.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
-import 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
-import 'package:cybear_jinni/infrastructure/objects/enums_cbj.dart';
-import 'package:cybear_jinni/injection.dart';
-import 'package:cybear_jinni/utils.dart';
+import 'package:cybear_jinni/domain/i_hub_connection_repository.dart';
+import 'package:cybear_jinni/presentation/core/injection.dart';
+import 'package:cybear_jinni/presentation/core/utils.dart';
 import 'package:grpc/grpc.dart';
 
 class HubRequestRouting {
@@ -38,7 +38,7 @@ class HubRequestRouting {
   static bool areWeRunning = false;
 
   // static int numberOfCrashes = 0;
-  static int numberOfConnactivityChange = 0;
+  static int numberOfConnectivityChange = 0;
 
   static Future<void> navigateRequest() async {
     if (areWeRunning) {
@@ -94,9 +94,9 @@ class HubRequestRouting {
 
     connectivityChangedStream = Connectivity().onConnectivityChanged;
     connectivityChangedStream?.listen((ConnectivityResult event) async {
-      numberOfConnactivityChange++;
+      numberOfConnectivityChange++;
       logger.i('Connectivity changed ${event.name} And $event');
-      if (event == ConnectivityResult.none || numberOfConnactivityChange <= 1) {
+      if (event == ConnectivityResult.none || numberOfConnectivityChange <= 1) {
         return;
       }
       areWeRunning = false;

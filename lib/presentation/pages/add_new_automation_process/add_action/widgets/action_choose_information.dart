@@ -4,8 +4,8 @@ import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybear_jinni/presentation/core/snack_bar_service.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 class ActionChooseInformation extends StatefulWidget {
@@ -107,7 +107,13 @@ class _ActionChooseInformationState extends State<ActionChooseInformation> {
   @override
   Widget build(BuildContext context) {
     if (_allDevices.isEmpty || _allRooms.isEmpty) {
-      return const CircularProgressIndicatorAtom();
+      return const Expanded(
+        child: Center(
+          child: TextAtom(
+            'At lest one area and device needed for this feature',
+          ),
+        ),
+      );
     }
 
     return SingleChildScrollView(
@@ -228,14 +234,7 @@ class _ActionChooseInformationState extends State<ActionChooseInformation> {
               children: [
                 TextButton(
                   onPressed: () {
-                    Fluttertoast.showToast(
-                      msg: 'Add action',
-                      toastLength: Toast.LENGTH_LONG,
-                      gravity: ToastGravity.BOTTOM,
-                      backgroundColor: Colors.purple,
-                      textColor: Theme.of(context).textTheme.bodyLarge!.color,
-                      fontSize: 16.0,
-                    );
+                    SnackBarService().show(context, 'Add action');
 
                     context.router.pop<
                         List<

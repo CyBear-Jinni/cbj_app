@@ -4,8 +4,8 @@ import 'package:cbj_integrations_controller/domain/vendors/i_vendor_repository.d
 import 'package:cbj_integrations_controller/domain/vendors/login_abstract/value_login_objects_core.dart';
 import 'package:cbj_integrations_controller/domain/vendors/vendor_data.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybear_jinni/presentation/core/snack_bar_service.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class EspHomeSignInForm extends StatefulWidget {
@@ -89,14 +89,10 @@ class _EspHomeSignInFormState extends State<EspHomeSignInForm> {
                   onPressed: () {
                     _login();
 
-                    Fluttertoast.showToast(
-                      msg: 'Sign in to ESPHome, devices will appear in the '
-                          'app after getting discovered',
-                      toastLength: Toast.LENGTH_LONG,
-                      gravity: ToastGravity.BOTTOM,
-                      backgroundColor: Colors.deepPurple,
-                      textColor: Theme.of(context).textTheme.bodyLarge!.color,
-                      fontSize: 16.0,
+                    SnackBarService().show(
+                      context,
+                      'Sign in to ESPHome, devices will appear in the '
+                      'app after getting discovered',
                     );
                     Navigator.pop(context);
                   },

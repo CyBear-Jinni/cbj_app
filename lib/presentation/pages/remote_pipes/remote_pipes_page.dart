@@ -5,7 +5,6 @@ import 'package:cybear_jinni/presentation/pages/remote_pipes/widgets/manage_remo
 import 'package:cybear_jinni/presentation/pages/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 @RoutePage()
@@ -34,28 +33,25 @@ class RemotePipesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocListener(
-      listeners: const [],
-      child: Scaffold(
-        appBar: AppBar(
-          toolbarHeight: 0,
-          backgroundColor: Colors.black,
-          systemOverlayStyle: SystemUiOverlayStyle.dark,
-        ),
-        body: Column(
-          children: [
-            TopNavigationBar(
-              pageName: 'Remote Pipes',
-              rightIcon: null,
-              rightIconFunction: userCogFunction,
-              leftIcon: FontAwesomeIcons.arrowLeft,
-              leftIconFunction: leftIconFunction,
-            ),
-            Expanded(
-              child: RemotePipesWidget(),
-            ),
-          ],
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: 0,
+        backgroundColor: Colors.black,
+        systemOverlayStyle: SystemUiOverlayStyle.dark,
+      ),
+      body: Column(
+        children: [
+          TopNavigationBar(
+            pageName: 'Remote Pipes',
+            rightIcon: null,
+            rightIconFunction: userCogFunction,
+            leftIcon: FontAwesomeIcons.arrowLeft,
+            leftIconFunction: leftIconFunction,
+          ),
+          Expanded(
+            child: RemotePipesWidget(),
+          ),
+        ],
       ),
     );
   }

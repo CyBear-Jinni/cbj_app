@@ -6,10 +6,10 @@ import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/pr
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybear_jinni/presentation/core/snack_bar_service.dart';
 import 'package:dartz/dartz.dart' as dartz;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
 
@@ -44,7 +44,7 @@ class _AddNewRoomFormState extends State<AddNewRoomForm> {
   }
 
   Future<void> _initialized() async {
-    (await IRoomRepository.instance.getAllRooms()).fold((l) => null, (r) {
+    IRoomRepository.instance.getAllRooms().fold((l) => null, (r) {
       _allRooms = List<RoomEntity>.from(r.iter);
     });
 
@@ -94,113 +94,103 @@ class _AddNewRoomFormState extends State<AddNewRoomForm> {
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
 
-    return Center(
-      child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 800),
-        child: Column(
-          children: [
-            Form(
-              autovalidateMode: AutovalidateMode.onUserInteraction,
-              child: Container(
-                constraints:
-                    BoxConstraints(maxHeight: screenSize.height * 0.83),
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      const SizedBox(
-                        height: 70,
+    return MarginedExpandedAtom(
+      child: Column(
+        children: [
+          Form(
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            child: Container(
+              constraints: BoxConstraints(maxHeight: screenSize.height * 0.83),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    const SizedBox(
+                      height: 70,
+                    ),
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        prefixIcon: FaIcon(FontAwesomeIcons.rightToBracket),
+                        labelText: 'Area Name',
                       ),
-                      TextFormField(
-                        decoration: const InputDecoration(
-                          prefixIcon: FaIcon(FontAwesomeIcons.rightToBracket),
-                          labelText: 'Area Name',
-                        ),
-                        autocorrect: false,
-                        onChanged: (value) => _defaultNameChanged(
-                          value,
-                        ),
-                        validator: (_) => cbjEntityName.value.fold(
-                          (RoomFailure f) => 'Validation error',
-                          (r) => null,
-                        ),
+                      autocorrect: false,
+                      onChanged: (value) => _defaultNameChanged(
+                        value,
                       ),
-                      const SizedBox(
-                        height: 30,
+                      validator: (_) => cbjEntityName.value.fold(
+                        (RoomFailure f) => 'Validation error',
+                        (r) => null,
                       ),
-                      MultiSelectDialogField(
-                        buttonText: const Text(
-                          'Select_Purposes_Of_The_Area',
-                          style: TextStyle(
-                            color: Colors.black,
-                          ),
-                        ).tr(),
-                        cancelText: const Text('CANCEL').tr(),
-                        confirmText: const Text('OK').tr(),
-                        title: const TextAtom('Select'),
-                        items: AreaPurposesTypes.values
-                            .map((AreaPurposesTypes areaPurposeType) {
-                          final String tempAreaName = areaPurposeType.name
-                              .substring(1, areaPurposeType.name.length);
-                          String areaNameEdited = areaPurposeType.name
-                              .substring(0, 1)
-                              .toUpperCase();
-                          for (final String a in tempAreaName.characters) {
-                            if (a[0] == a[0].toUpperCase()) {
-                              areaNameEdited += ' ';
-                            }
-                            areaNameEdited += a;
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    MultiSelectDialogField(
+                      buttonText: const Text(
+                        'Select_Purposes_Of_The_Area',
+                        style: TextStyle(
+                          color: Colors.black,
+                        ),
+                      ).tr(),
+                      cancelText: const Text('CANCEL').tr(),
+                      confirmText: const Text('OK').tr(),
+                      title: const TextAtom('Select'),
+                      items: AreaPurposesTypes.values
+                          .map((AreaPurposesTypes areaPurposeType) {
+                        final String tempAreaName = areaPurposeType.name
+                            .substring(1, areaPurposeType.name.length);
+                        String areaNameEdited =
+                            areaPurposeType.name.substring(0, 1).toUpperCase();
+                        for (final String a in tempAreaName.characters) {
+                          if (a[0] == a[0].toUpperCase()) {
+                            areaNameEdited += ' ';
                           }
+                          areaNameEdited += a;
+                        }
 
-                          return MultiSelectItem(
-                            areaPurposeType.value,
-                            areaNameEdited,
-                          );
-                        }).toList(),
-                        listType: MultiSelectListType.CHIP,
-                        onConfirm: (List<int> values) {
-                          _roomTypesChanged(
-                            values.map((e) => e.toString()).toList(),
-                          );
-                        },
-                      ),
-                    ],
-                  ),
+                        return MultiSelectItem(
+                          areaPurposeType.value,
+                          areaNameEdited,
+                        );
+                      }).toList(),
+                      listType: MultiSelectListType.CHIP,
+                      onConfirm: (List<int> values) {
+                        _roomTypesChanged(
+                          values.map((e) => e.toString()).toList(),
+                        );
+                      },
+                    ),
+                  ],
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 5.0),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: TextButton(
-                      onPressed: () {
-                        _createRoom();
-                        Fluttertoast.showToast(
-                          msg: 'Adding area',
-                          toastLength: Toast.LENGTH_LONG,
-                          gravity: ToastGravity.BOTTOM,
-                          backgroundColor: Colors.purple,
-                          textColor:
-                              Theme.of(context).textTheme.bodyLarge!.color,
-                          fontSize: 16.0,
-                        );
-                        Navigator.pop(context);
-                      },
-                      child: const TextAtom('ADD'),
-                    ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 5.0),
+            child: Row(
+              children: [
+                Expanded(
+                  child: TextButton(
+                    onPressed: () {
+                      _createRoom();
+                      SnackBarService().show(
+                        context,
+                        'Adding area',
+                      );
+                      Navigator.pop(context);
+                    },
+                    child: const TextAtom('ADD'),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-            if (isSubmitting) ...[
-              const SizedBox(
-                height: 8,
-              ),
-              const LinearProgressIndicator(),
-            ],
+          ),
+          if (isSubmitting) ...[
+            const SizedBox(
+              height: 8,
+            ),
+            const LinearProgressIndicator(),
           ],
-        ),
+        ],
       ),
     );
   }

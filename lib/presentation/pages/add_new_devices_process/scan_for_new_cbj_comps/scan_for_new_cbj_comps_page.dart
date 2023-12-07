@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/presentation/pages/add_new_devices_process/scan_for_new_cbj_comps/widgets/scan_for_new_cbj_comps_widget.dart';
-import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
+import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
 import 'package:cybear_jinni/presentation/pages/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

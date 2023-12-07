@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
+import 'package:cybear_jinni/domain/i_hub_connection_repository.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
 import 'package:cybear_jinni/presentation/pages/connect_to_hub/widgets/cbj_hub_in_network_widget.dart';
-import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';

@@ -7,10 +7,10 @@ import 'package:cybear_jinni/domain/manage_network/i_manage_network_repository.d
 import 'package:cybear_jinni/domain/manage_network/manage_network_entity.dart';
 import 'package:cybear_jinni/domain/manage_network/manage_network_value_objects.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
-import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
+import 'package:cybear_jinni/presentation/core/snack_bar_service.dart';
+import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
 import 'package:dartz/dartz.dart' as dartz;
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 class OpenAccessPointWidget extends StatefulWidget {
   @override
@@ -122,13 +122,9 @@ class _OpenAccessPointWidgetState extends State<OpenAccessPointWidget> {
                   ),
                   onPressed: () {
                     FlutterClipboard.copy('CyBear Jinni').then(
-                      (value) => Fluttertoast.showToast(
-                        msg: 'Copy',
-                        toastLength: Toast.LENGTH_SHORT,
-                        gravity: ToastGravity.SNACKBAR,
-                        backgroundColor: Colors.lightBlue,
-                        textColor: Theme.of(context).textTheme.bodyLarge!.color,
-                        fontSize: 16.0,
+                      (value) => SnackBarService().show(
+                        context,
+                        'Copy',
                       ),
                     );
                   },
@@ -167,13 +163,9 @@ class _OpenAccessPointWidgetState extends State<OpenAccessPointWidget> {
                   ),
                   onPressed: () {
                     FlutterClipboard.copy('CyBear Jinni').then(
-                      (value) => Fluttertoast.showToast(
-                        msg: 'Copy',
-                        toastLength: Toast.LENGTH_SHORT,
-                        gravity: ToastGravity.SNACKBAR,
-                        backgroundColor: Colors.lightBlue,
-                        textColor: Theme.of(context).textTheme.bodyLarge!.color,
-                        fontSize: 16.0,
+                      (value) => SnackBarService().show(
+                        context,
+                        'Copy',
                       ),
                     );
                   },

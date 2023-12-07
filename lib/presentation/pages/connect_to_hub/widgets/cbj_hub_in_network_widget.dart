@@ -1,10 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/domain/hub/hub_failures.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
-import 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
-import 'package:cybear_jinni/infrastructure/phone_hub/phone_hub.dart';
+import 'package:cybear_jinni/domain/i_hub_connection_repository.dart';
+import 'package:cybear_jinni/domain/i_phone_as_hub.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
-import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
+import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
 import 'package:dartz/dartz.dart' as dartz;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -44,13 +44,13 @@ class _CbjHubInNetworkWidgetState extends State<CbjHubInNetworkWidget> {
       await IHubConnectionRepository.instance.closeConnection();
 
       final Map<String, DeviceEntityAbstract> devices =
-          await PhoneHub().getAllDevices;
+          await IPhoneAsHub.instance.getAllDevices;
 
       if (!mounted) {
         return null;
       }
       if (devices.isNotEmpty) {
-        PhoneHub().startListen();
+        IPhoneAsHub.instance.startListen();
         context.router.replace(const HomeRoute());
         return;
       }

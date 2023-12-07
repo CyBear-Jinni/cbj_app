@@ -1,5 +1,5 @@
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cybear_jinni/infrastructure/objects/enums_cbj.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/device_type_enums.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';

@@ -7,11 +7,11 @@ import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/pr
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybear_jinni/presentation/core/snack_bar_service.dart';
 import 'package:cybear_jinni/presentation/pages/add_new_automation_process/add_routine/widgets/routine_action_widget.dart';
-import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
+import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
 import 'package:dartz/dartz.dart' as dartz;
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class AddRoutineWidget extends StatefulWidget {
@@ -171,15 +171,9 @@ class _AddRoutineWidgetState extends State<AddRoutineWidget> {
                         ),
                       ),
                       onPressed: (_) {
-                        Fluttertoast.showToast(
-                          msg:
-                              'Adding service action will be added in the future',
-                          toastLength: Toast.LENGTH_LONG,
-                          gravity: ToastGravity.CENTER,
-                          backgroundColor: Colors.blueGrey,
-                          textColor:
-                              Theme.of(context).textTheme.bodyLarge!.color,
-                          fontSize: 16.0,
+                        SnackBarService().show(
+                          context,
+                          'Adding service action will be added in the future',
                         );
                       },
                     ),
@@ -192,15 +186,9 @@ class _AddRoutineWidgetState extends State<AddRoutineWidget> {
                         ),
                       ),
                       onPressed: (_) {
-                        Fluttertoast.showToast(
-                          msg:
-                              'Adding time based action will be added in the future',
-                          toastLength: Toast.LENGTH_LONG,
-                          gravity: ToastGravity.CENTER,
-                          backgroundColor: Colors.blueGrey,
-                          textColor:
-                              Theme.of(context).textTheme.bodyLarge!.color,
-                          fontSize: 16.0,
+                        SnackBarService().show(
+                          context,
+                          'Adding time based action will be added in the future',
                         );
                       },
                     ),
@@ -219,13 +207,9 @@ class _AddRoutineWidgetState extends State<AddRoutineWidget> {
             ),
             child: TextButton(
               onPressed: () {
-                Fluttertoast.showToast(
-                  msg: 'Adding Routine',
-                  toastLength: Toast.LENGTH_SHORT,
-                  gravity: ToastGravity.CENTER,
-                  backgroundColor: Colors.blueGrey,
-                  textColor: Theme.of(context).textTheme.bodyLarge!.color,
-                  fontSize: 16.0,
+                SnackBarService().show(
+                  context,
+                  'Adding Routine',
                 );
                 _sendRoutineToHub();
               },
