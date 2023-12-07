@@ -12,7 +12,6 @@ abstract class ManageNetworkValueObjectAbstract<T> {
 
   /// Throws [UnexpectedValueError] containing the [ManageWiFiFailures]
   T getOrCrash() {
-    // id = identity - same as writing (right) => right
     return value.fold((f) => throw ManageNetworkUnexpectedValueError(f), id);
   }
 

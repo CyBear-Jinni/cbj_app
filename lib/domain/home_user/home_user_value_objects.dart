@@ -13,7 +13,6 @@ abstract class HomeUserValueObjectAbstract<T> {
 
   /// Throws [UnexpectedValueError] containing the [UserFailures]
   T getOrCrash() {
-    // id = identity - same as writing (right) => right
     return value.fold((f) => throw HomeUserUnexpectedValueError(f), id);
   }
 

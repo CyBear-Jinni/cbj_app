@@ -1,4 +1,5 @@
-import 'package:cybear_jinni/utils.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybear_jinni/presentation/core/utils.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -13,7 +14,7 @@ class SmartComputersInTheRoomWidget extends StatelessWidget {
   );
 
   final Function updateProduct;
-  final Function deleteProduct;
+  final Function(int) deleteProduct;
   final List<Map<String, dynamic>> products;
 
   @override
@@ -52,7 +53,7 @@ class SmartComputersInTheRoomWidget extends StatelessWidget {
                   color: Theme.of(context).textTheme.bodyLarge!.color,
                 ),
               ),
-              subtitle: Text(
+              subtitle: TextAtom(
                 products[index]['number'.tr()].toString(),
                 style: TextStyle(
                   color: Theme.of(context).textTheme.bodyLarge!.color,

@@ -1,10 +1,11 @@
 import 'dart:async';
 
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/device_type_enums.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_switch_device/generic_switch_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_switch_device/generic_switch_value_objects.dart';
-import 'package:cybear_jinni/infrastructure/objects/enums_cbj.dart';
-import 'package:cybear_jinni/utils.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybear_jinni/presentation/core/utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
@@ -77,7 +78,7 @@ class _SmartSwitchPage extends State<SmartSwitchPage> {
     final Size screenSize = MediaQuery.of(context).size;
     return Column(
       children: <Widget>[
-        Text(
+        TextAtom(
           _switch!.cbjEntityName.getOrCrash()!, //  Show switch name
           style: TextStyle(
             fontSize: 19.0,
@@ -88,7 +89,7 @@ class _SmartSwitchPage extends State<SmartSwitchPage> {
           height: 3,
         ),
         if (_isLoading)
-          const Center(child: CircularProgressIndicator())
+          const Center(child: CircularProgressIndicatorAtom())
         else
           FlutterSwitch(
             width: screenSize.width * 0.25,

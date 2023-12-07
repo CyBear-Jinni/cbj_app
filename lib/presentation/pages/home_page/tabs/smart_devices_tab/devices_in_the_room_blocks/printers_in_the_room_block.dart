@@ -3,8 +3,9 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_printer_device/generic_printer_entity.dart';
-import 'package:cybear_jinni/presentation/core/types_to_pass.dart';
-import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybear_jinni/presentation/core/theme_data.dart';
+import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -69,7 +70,7 @@ class PrintersInTheRoomBlock extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Expanded(child: Text('')),
+                const Expanded(child: TextAtom('')),
                 Expanded(
                   child: Column(
                     children: [
@@ -103,7 +104,7 @@ class PrintersInTheRoomBlock extends StatelessWidget {
                           ),
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: Text(
+                        child: TextAtom(
                           printersInRoom.length.toString(),
                           textAlign: TextAlign.center,
                           style: TextStyle(
@@ -115,7 +116,7 @@ class PrintersInTheRoomBlock extends StatelessWidget {
                     ),
                   )
                 else
-                  const Expanded(child: Text('')),
+                  const Expanded(child: TextAtom('')),
               ],
             ),
             const SizedBox(height: 5),

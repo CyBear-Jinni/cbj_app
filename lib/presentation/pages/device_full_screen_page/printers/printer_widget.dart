@@ -1,7 +1,8 @@
 import 'dart:async';
 
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_printer_device/generic_printer_entity.dart';
-import 'package:cybear_jinni/utils.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybear_jinni/presentation/core/utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,7 @@ class PrinterPage extends StatefulWidget {
 }
 
 class _SmartPrinterPage extends State<PrinterPage> {
-  GenericPrinterDE? _switch;
+  late GenericPrinterDE _switch;
   bool _isLoading = true;
 
   @override
@@ -70,8 +71,8 @@ class _SmartPrinterPage extends State<PrinterPage> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Text(
-          _switch!.cbjEntityName.getOrCrash()!, //  Show switch name
+        TextAtom(
+          _switch.cbjEntityName.getOrCrash()!, //  Show switch name
           style: TextStyle(
             fontSize: 19.0,
             color: Theme.of(context).textTheme.bodyMedium!.color,
@@ -81,9 +82,9 @@ class _SmartPrinterPage extends State<PrinterPage> {
           height: 3,
         ),
         if (_isLoading)
-          const Center(child: CircularProgressIndicator())
+          const Center(child: CircularProgressIndicatorAtom())
         else
-          const Text('Smart Computer Widget'),
+          const TextAtom('Smart Computer Widget'),
       ],
     );
   }

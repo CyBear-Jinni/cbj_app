@@ -1,12 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_boiler_device/generic_boiler_entity.dart';
-import 'package:cybear_jinni/application/boilers/boilers_actor/boilers_actor_bloc.dart';
-import 'package:cybear_jinni/injection.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/boilers/widgets/boilers_widget.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/boilers/widgets/error_boilers_device_card_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kt_dart/collection.dart';
 
@@ -24,7 +22,7 @@ class RoomBoilers extends StatelessWidget {
 
   final int? maxBoilersToShow;
 
-  final int _maxBoilersInRow = 2;
+  int get _maxBoilersInRow => 2;
 
   final String? _roomEntity;
 
@@ -76,10 +74,7 @@ class RoomBoilers extends StatelessWidget {
                     Container(
                       margin: const EdgeInsets.symmetric(vertical: 5),
                       width: sizeBoxWidth + 15,
-                      child: BlocProvider(
-                        create: (context) => getIt<BoilersActorBloc>(),
-                        child: BoilersWidget(deviceEntityTemp),
-                      ),
+                      child: BoilersWidget(deviceEntityTemp),
                     ),
                   ],
                 ),
@@ -154,7 +149,7 @@ class RoomBoilers extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text(
+                  TextAtom(
                     _roomEntity!,
                     style: TextStyle(
                       color: Theme.of(context).textTheme.bodyLarge!.color,

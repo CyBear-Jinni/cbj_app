@@ -1,3 +1,4 @@
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:flutter/material.dart';
 
 class IntroductionScreenBodyAboutPage extends StatelessWidget {
@@ -21,7 +22,7 @@ class IntroductionScreenBodyAboutPage extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.all(20),
             child: const SingleChildScrollView(
-              child: Text(
+              child: TextAtom(
                 'You are now starting a journey into the world of CyBear '
                 'Jinni.\n\nWe are trying to build an ecosystem of smart'
                 ' home that is built upon openness and trust.\n\n'

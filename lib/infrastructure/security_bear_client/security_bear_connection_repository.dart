@@ -1,29 +1,8 @@
-import 'dart:io';
+part of 'package:cybear_jinni/domain/security_bear/i_security_bear_connection_repository.dart';
 
-import 'package:cbj_integrations_controller/infrastructure/gen/security_bear_server_d/protoc_as_dart/security_bear_connections.pbgrpc.dart';
-import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
-import 'package:cybear_jinni/domain/create_home/i_create_home_repository.dart';
-import 'package:cybear_jinni/domain/manage_network/i_manage_network_repository.dart';
-import 'package:cybear_jinni/domain/manage_network/manage_network_entity.dart';
-import 'package:cybear_jinni/domain/security_bear/i_security_bear_connection_repository.dart';
-import 'package:cybear_jinni/domain/security_bear/security_bear_entity.dart';
-import 'package:cybear_jinni/domain/security_bear/security_bear_failures.dart';
-import 'package:cybear_jinni/domain/security_bear/security_bear_value_objects.dart';
-import 'package:cybear_jinni/infrastructure/security_bear_client/security_bear_server_client.dart';
-import 'package:cybear_jinni/injection.dart';
-import 'package:cybear_jinni/utils.dart';
-import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
-import 'package:location/location.dart';
-import 'package:network_info_plus/network_info_plus.dart';
-import 'package:network_tools/network_tools.dart';
-import 'package:permission_handler/permission_handler.dart'
-    as permission_handler;
-
-class SecurityBearConnectionRepository
+class _SecurityBearConnectionRepository
     implements ISecurityBearConnectionRepository {
-  SecurityBearConnectionRepository() {
+  _SecurityBearConnectionRepository() {
     if (currentEnvApp == EnvApp.dev) {
       securityBearPort = 60052;
     } else {
@@ -129,10 +108,6 @@ class SecurityBearConnectionRepository
     } catch (e) {
       logger.w('Cant check connectivity this is probably PC, error\n$e');
     }
-
-    final String? wifiBSSID = await NetworkInfo().getWifiBSSID();
-    final String? wifiBSSIDWithoutLastNumber =
-        wifiBSSID?.substring(0, wifiBSSID.lastIndexOf(':'));
 
     // Check if you are connected to the home local network for direct
     // communication with the SecurityBear.
@@ -273,8 +248,7 @@ class SecurityBearConnectionRepository
   ) async {
     try {
       final ManageNetworkEntity firstWifiEntityOrFailure =
-          (await ICreateHomeRepository.instance.getFirstWifi())
-              .getOrElse(() => throw 'Error');
+          ManageNetworkEntity(name: ManageWiFiName('CyBear Jinni'));
 
       final ManageNetworkEntity secondWifiEntityOrFailure =
           IManageNetworkRepository.manageWiFiEntity!;

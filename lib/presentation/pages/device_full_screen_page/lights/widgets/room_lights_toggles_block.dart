@@ -1,7 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/domain/room/smart_room_object.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/lights/smart_lighte_widget.dart';
-import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
+import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -114,7 +115,7 @@ class RoomLightsTogglesBlock extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text(
+                  TextAtom(
                     _smartRoomObject!.getRoomName(),
                     style: TextStyle(
                       color: Theme.of(context).textTheme.bodyLarge!.color,

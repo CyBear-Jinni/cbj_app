@@ -4,15 +4,13 @@ import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstr
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_dimmable_light_device/generic_dimmable_light_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_light_device/generic_light_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
-import 'package:cybear_jinni/application/light_toggle/light_toggle_bloc.dart';
-import 'package:cybear_jinni/injection.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybear_jinni/presentation/core/utils.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/lights/widgets/error_lights_device_card_widget.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/lights/widgets/lights_widgets/dimmable_light_widget.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/lights/widgets/lights_widgets/light_widget.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/lights/widgets/lights_widgets/rgb_light_widgets/rgbw_light_widget.dart';
-import 'package:cybear_jinni/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kt_dart/collection.dart';
 
@@ -30,7 +28,7 @@ class RoomLights extends StatelessWidget {
 
   final int maxLightsToShow;
 
-  final int _maxLightsInRow = 2;
+  int get _maxLightsInRow => 2;
 
   final String _roomEntity;
 
@@ -75,10 +73,7 @@ class RoomLights extends StatelessWidget {
                   Container(
                     margin: const EdgeInsets.symmetric(vertical: 5),
                     width: sizeBoxWidth + 15,
-                    child: BlocProvider(
-                      create: (context) => getIt<LightToggleBloc>(),
-                      child: LightWidget(deviceEntityTemp),
-                    ),
+                    child: LightWidget(deviceEntityTemp),
                   ),
                 ],
               ),
@@ -110,12 +105,7 @@ class RoomLights extends StatelessWidget {
     final List<Widget> widgetsForRow = <Widget>[];
 
     for (final GenericDimmableLightDE lightDE in lightsList) {
-      widgetsForRow.add(
-        BlocProvider(
-          create: (context) => getIt<LightToggleBloc>(),
-          child: DimmableLightWidget(lightDE),
-        ),
-      );
+      widgetsForRow.add(DimmableLightWidget(lightDE));
     }
 
     return widgetsForRow;
@@ -128,12 +118,7 @@ class RoomLights extends StatelessWidget {
     final List<Widget> widgetsForRow = <Widget>[];
 
     for (final GenericRgbwLightDE lightDE in lightsList) {
-      widgetsForRow.add(
-        BlocProvider(
-          create: (context) => getIt<LightToggleBloc>(),
-          child: RgbwLightWidget(lightDE),
-        ),
-      );
+      widgetsForRow.add(RgbwLightWidget(lightDE));
     }
 
     return widgetsForRow;
@@ -244,7 +229,7 @@ class RoomLights extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text(
+                  TextAtom(
                     _roomEntity,
                     style: TextStyle(
                       color: Theme.of(context).textTheme.bodyLarge!.color,
