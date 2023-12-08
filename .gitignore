@@ -152,3 +152,5 @@ smart_home_flutter/gen/
 
 .fvm/
 
+# melos
+pubspec_overrides.yaml

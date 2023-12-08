@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:cbj_integrations_controller/infrastructure/gen/security_bear_server_d/protoc_as_dart/security_bear_connections.pbgrpc.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
 import 'package:cybear_jinni/domain/manage_network/i_manage_network_repository.dart';
@@ -8,7 +9,6 @@ import 'package:cybear_jinni/domain/manage_network/manage_network_value_objects.
 import 'package:cybear_jinni/domain/security_bear/security_bear_entity.dart';
 import 'package:cybear_jinni/domain/security_bear/security_bear_failures.dart';
 import 'package:cybear_jinni/domain/security_bear/security_bear_value_objects.dart';
-import 'package:cybear_jinni/infrastructure/core/gen/security_bear/client/protoc_as_dart/security_bear_connections.pbgrpc.dart';
 import 'package:cybear_jinni/infrastructure/security_bear_client/security_bear_server_client.dart';
 import 'package:cybear_jinni/presentation/core/injection.dart';
 import 'package:cybear_jinni/presentation/core/utils.dart';
