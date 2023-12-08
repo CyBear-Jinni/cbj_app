@@ -4,8 +4,8 @@ import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstr
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_dimmable_light_device/generic_dimmable_light_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_light_device/generic_light_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
-import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/infrastructure/core/logger.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/lights/widgets/error_lights_device_card_widget.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/lights/widgets/lights_widgets/dimmable_light_widget.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/lights/widgets/lights_widgets/light_widget.dart';
