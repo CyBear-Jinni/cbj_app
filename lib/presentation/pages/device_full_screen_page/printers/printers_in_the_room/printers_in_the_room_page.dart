@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/domain/room/smart_room_object.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/printers/widgets/room_printers_toggles_block.dart';
@@ -15,7 +16,7 @@ class PrintersInTheRoomPage extends StatelessWidget {
       <Map<String, dynamic>>[];
 
   void backButtonFunction(BuildContext context) {
-    Navigator.pop(context);
+    context.router.pop();
   }
 
   @override

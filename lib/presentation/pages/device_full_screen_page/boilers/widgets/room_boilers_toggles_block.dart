@@ -104,13 +104,7 @@ class RoomBoilersTogglesBlock extends StatelessWidget {
                   Colors.transparent,
                 ),
               ),
-              onPressed: () {
-                // if (maxBoilersToShow != null &&
-                //     _smartRoomObject.getBoilers().length > maxBoilersToShow) {
-                //   ExtendedNavigator.of(context).pushBoilersInTheRoomPage(
-                //       thisSmartRoom: _smartRoomObject);
-                // }
-              },
+              onPressed: () {},
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[

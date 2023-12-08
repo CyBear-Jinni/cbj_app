@@ -9,7 +9,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 @RoutePage()
 class ConnectToHomeWifiPage extends StatelessWidget {
   void backButtonFunction(BuildContext context) {
-    Navigator.pop(context);
+    context.router.pop();
   }
 
   @override

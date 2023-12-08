@@ -1,5 +1,6 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_plug_device/generic_smart_plug_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_switch_device/generic_switch_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/logger.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/shared_widgets/top_navigation_bar.dart';
@@ -8,35 +9,35 @@ import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-class SettingsPageOfSmartPlugs extends StatelessWidget {
-  SettingsPageOfSmartPlugs({required this.roomEntity}) {
+@RoutePage()
+class SettingsPageOfSwitchesPage extends StatelessWidget {
+  SettingsPageOfSwitchesPage({required this.roomEntity}) {
     // for (final SmartRoomObject smartRoomObject in rooms) {
-    //   for (final SmartDeviceObject smartSmartPlugObject
-    //       in smartRoomObject.getSmartPlugs()) {
-    //     allSmartDeviceSmartPlugDevices.add(smartSmartPlugObject);
+    //   for (final SmartDeviceObject smartSwitchObject
+    //       in smartRoomObject.getSwitches()) {
+    //     allSmartDeviceSwitchDevices.add(smartSwitchObject);
     //   }
     // }
   }
 
   final RoomEntity roomEntity;
-  final List<GenericSmartPlugDE> allSmartDeviceSmartPlugDevices =
-      <GenericSmartPlugDE>[];
+  final List<GenericSwitchDE> allSmartDeviceSwitchDevices = <GenericSwitchDE>[];
 
   @override
   Widget build(BuildContext context) {
-    Widget tile(String roomName, String smartPlugName) {
+    Widget tile(String roomName, String switchName) {
       return Column(
         children: <Widget>[
           ListTile(
             leading: CircleAvatar(
-              child: Icon(MdiIcons.powerSocketAu),
+              child: Icon(MdiIcons.lightSwitch),
             ),
             title: TextAtom(
               'Name:_',
               style: TextStyle(
                 color: Theme.of(context).textTheme.bodyLarge!.color,
               ),
-              translationArgs: [smartPlugName],
+              translationArgs: [switchName],
             ),
             subtitle: TextAtom(
               'Room:_',
@@ -61,7 +62,7 @@ class SettingsPageOfSmartPlugs extends StatelessWidget {
     }
 
     void backButtonFunction(BuildContext context) {
-      Navigator.pop(context);
+      context.router.pop();
     }
 
     return Scaffold(
@@ -96,7 +97,7 @@ class SettingsPageOfSmartPlugs extends StatelessWidget {
         child: Column(
           children: <Widget>[
             TopNavigationBar(
-              pageName: 'SmartPlugs Settings',
+              pageName: 'Switches Settings',
               rightIcon: null,
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
@@ -116,13 +117,13 @@ class SettingsPageOfSmartPlugs extends StatelessWidget {
                     ),
                     child: tile(
                       roomEntity.cbjEntityName.getOrCrash(),
-                      allSmartDeviceSmartPlugDevices[index]
+                      allSmartDeviceSwitchDevices[index]
                           .cbjEntityName
                           .getOrCrash()!,
                     ),
                   );
                 },
-                itemCount: allSmartDeviceSmartPlugDevices.length,
+                itemCount: allSmartDeviceSwitchDevices.length,
               ),
             ),
           ],

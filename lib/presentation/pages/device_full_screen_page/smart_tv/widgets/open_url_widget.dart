@@ -1,4 +1,5 @@
 import 'package:another_flushbar/flushbar_helper.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_tv/generic_smart_tv_entity.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
@@ -61,8 +62,7 @@ class OpenUrlPopUp {
                     child: ElevatedButton(
                       onPressed: () {
                         playVideo(contextFromParent, url);
-
-                        Navigator.of(context).pop();
+                        context.router.pop();
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.black,

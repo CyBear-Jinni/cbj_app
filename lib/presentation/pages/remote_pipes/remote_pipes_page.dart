@@ -28,7 +28,7 @@ class RemotePipesPage extends StatelessWidget {
   }
 
   void leftIconFunction(BuildContext context) {
-    Navigator.pop(context);
+    context.router.pop();
   }
 
   @override

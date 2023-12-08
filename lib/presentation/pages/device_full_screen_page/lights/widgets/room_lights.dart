@@ -220,12 +220,7 @@ class RoomLights extends StatelessWidget {
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(Colors.transparent),
               ),
-              onPressed: () {
-                if (_deviceEntityList.size > maxLightsToShow) {
-                  // ExtendedNavigator.of(context).pushLightsInTheRoomPage(
-                  //     thisSmartRoom: _deviceEntityList);
-                }
-              },
+              onPressed: () {},
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[

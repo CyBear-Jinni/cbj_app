@@ -1,41 +1,42 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_switch_device/generic_switch_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/logger.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/pages/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-class SettingsPageOfSwitches extends StatelessWidget {
-  SettingsPageOfSwitches({required this.roomEntity}) {
+@RoutePage()
+class SettingsPageOfBlindsPage extends StatelessWidget {
+  SettingsPageOfBlindsPage({required this.roomEntity}) {
     // for (final SmartRoomObject smartRoomObject in rooms) {
-    //   for (final SmartDeviceObject smartSwitchObject
-    //       in smartRoomObject.getSwitches()) {
-    //     allSmartDeviceSwitchDevices.add(smartSwitchObject);
+    //   for (final SmartDeviceObject smartLightObject
+    //       in smartRoomObject.getLights()) {
+    //     allSmartDeviceLightDevices.add(smartLightObject);
     //   }
     // }
   }
 
   final RoomEntity roomEntity;
-  final List<GenericSwitchDE> allSmartDeviceSwitchDevices = <GenericSwitchDE>[];
+  final List<GenericLightDE> allSmartDeviceLightDevices = <GenericLightDE>[];
 
   @override
   Widget build(BuildContext context) {
-    Widget tile(String roomName, String switchName) {
+    Widget tile(String roomName, String lightName) {
       return Column(
         children: <Widget>[
           ListTile(
-            leading: CircleAvatar(
-              child: Icon(MdiIcons.lightSwitch),
+            leading: const CircleAvatar(
+              child: FaIcon(FontAwesomeIcons.solidLightbulb),
             ),
             title: TextAtom(
               'Name:_',
               style: TextStyle(
                 color: Theme.of(context).textTheme.bodyLarge!.color,
               ),
-              translationArgs: [switchName],
+              translationArgs: [lightName],
             ),
             subtitle: TextAtom(
               'Room:_',
@@ -60,7 +61,7 @@ class SettingsPageOfSwitches extends StatelessWidget {
     }
 
     void backButtonFunction(BuildContext context) {
-      Navigator.pop(context);
+      context.router.pop();
     }
 
     return Scaffold(
@@ -95,7 +96,7 @@ class SettingsPageOfSwitches extends StatelessWidget {
         child: Column(
           children: <Widget>[
             TopNavigationBar(
-              pageName: 'Switches Settings',
+              pageName: 'Lights Settings',
               rightIcon: null,
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
@@ -115,13 +116,13 @@ class SettingsPageOfSwitches extends StatelessWidget {
                     ),
                     child: tile(
                       roomEntity.cbjEntityName.getOrCrash(),
-                      allSmartDeviceSwitchDevices[index]
+                      allSmartDeviceLightDevices[index]
                           .cbjEntityName
                           .getOrCrash()!,
                     ),
                   );
                 },
-                itemCount: allSmartDeviceSwitchDevices.length,
+                itemCount: allSmartDeviceLightDevices.length,
               ),
             ),
           ],

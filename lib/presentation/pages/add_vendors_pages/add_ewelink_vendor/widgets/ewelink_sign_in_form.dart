@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/domain/vendors/ewelink_login/generic_ewelink_login_entity.dart';
 import 'package:cbj_integrations_controller/domain/vendors/ewelink_login/generic_ewelink_login_value_objects.dart';
 import 'package:cbj_integrations_controller/domain/vendors/i_vendor_repository.dart';
@@ -35,7 +36,7 @@ class _EwelinkSignInFormState extends State<EwelinkSignInForm> {
       'Sign in to eWeLink, devices will appear in the '
       'app after getting discovered',
     );
-    Navigator.pop(context);
+    context.router.pop();
 
     final GenericEwelinkLoginDE genericEwelinkDE = GenericEwelinkLoginDE(
       senderUniqueId: CoreLoginSenderId.fromUniqueString('Me'),

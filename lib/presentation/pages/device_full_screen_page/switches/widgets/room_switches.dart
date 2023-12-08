@@ -129,12 +129,7 @@ class RoomSwitches extends StatelessWidget {
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(Colors.transparent),
               ),
-              onPressed: () {
-                if (_deviceEntityList.size > maxSwitchesToShow) {
-                  // ExtendedNavigator.of(context).pushSwitchesInTheRoomPage(
-                  //     thisSmartRoom: _deviceEntityList);
-                }
-              },
+              onPressed: () {},
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[

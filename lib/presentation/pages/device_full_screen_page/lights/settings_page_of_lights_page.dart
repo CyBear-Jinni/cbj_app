@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_light_device/generic_light_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/logger.dart';
@@ -7,8 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class SettingsPageOfBlinds extends StatelessWidget {
-  SettingsPageOfBlinds({required this.roomEntity}) {
+@RoutePage()
+class SettingsPageOfLightsPage extends StatelessWidget {
+  SettingsPageOfLightsPage({required this.roomEntity}) {
     // for (final SmartRoomObject smartRoomObject in rooms) {
     //   for (final SmartDeviceObject smartLightObject
     //       in smartRoomObject.getLights()) {
@@ -59,7 +61,7 @@ class SettingsPageOfBlinds extends StatelessWidget {
     }
 
     void backButtonFunction(BuildContext context) {
-      Navigator.pop(context);
+      context.router.pop();
     }
 
     return Scaffold(

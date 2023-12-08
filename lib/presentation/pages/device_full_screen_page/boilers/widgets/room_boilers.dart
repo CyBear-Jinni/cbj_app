@@ -139,13 +139,7 @@ class RoomBoilers extends StatelessWidget {
                   Colors.transparent,
                 ),
               ),
-              onPressed: () {
-                if (maxBoilersToShow != null &&
-                    _deviceEntityList!.size > maxBoilersToShow!) {
-                  // ExtendedNavigator.of(context).pushBoilersInTheRoomPage(
-                  //     thisSmartRoom: _deviceEntityList);
-                }
-              },
+              onPressed: () {},
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[

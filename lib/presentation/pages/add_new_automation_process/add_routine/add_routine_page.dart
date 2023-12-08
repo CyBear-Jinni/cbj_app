@@ -21,7 +21,7 @@ class AddRoutinePage extends StatelessWidget {
   final RoutineCbjRepeatDateMinute minutesToRepeat;
 
   void backButtonFunction(BuildContext context) {
-    Navigator.pop(context);
+    context.router.pop();
   }
 
   @override

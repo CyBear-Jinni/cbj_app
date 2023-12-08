@@ -14,7 +14,7 @@ import 'package:hexcolor/hexcolor.dart';
 @RoutePage()
 class PickRepeatTimePage extends StatelessWidget {
   void backButtonFunction(BuildContext context) {
-    Navigator.pop(context);
+    context.router.pop();
   }
 
   @override

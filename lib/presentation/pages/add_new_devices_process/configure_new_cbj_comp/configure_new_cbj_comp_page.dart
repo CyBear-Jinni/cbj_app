@@ -15,7 +15,7 @@ class ConfigureNewCbjCompPage extends StatelessWidget {
   final CBJCompEntity cbjCompEntity;
 
   void leftIconFunction(BuildContext context) {
-    Navigator.pop(context);
+    context.router.pop();
   }
 
   @override

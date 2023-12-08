@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_boiler_device/generic_boiler_entity.dart';
@@ -82,7 +83,7 @@ class _RoomsBoilersWidgetState extends State<RoomsBoilersWidget> {
             ),
             TextButton(
               onPressed: () {
-                Navigator.pop(context);
+                context.router.pop();
               },
               child: TextAtom(
                 'Boilers does not exist.',

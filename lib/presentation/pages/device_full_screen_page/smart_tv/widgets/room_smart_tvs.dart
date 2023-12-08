@@ -128,12 +128,7 @@ class RoomSmartTvs extends StatelessWidget {
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(Colors.transparent),
               ),
-              onPressed: () {
-                if (_deviceEntityList.size > maxSmartTvsToShow) {
-                  // ExtendedNavigator.of(context).pushSmartTvsInTheRoomPage(
-                  //     thisSmartRoom: _deviceEntityList);
-                }
-              },
+              onPressed: () {},
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[

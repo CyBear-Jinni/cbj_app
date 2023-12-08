@@ -17,7 +17,7 @@ class SwitchesInTheRoomPage extends StatelessWidget {
       <Map<String, dynamic>>[];
 
   void backButtonFunction(BuildContext context) {
-    Navigator.pop(context);
+    context.router.pop();
   }
 
   @override

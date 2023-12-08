@@ -129,12 +129,7 @@ class RoomSmartPlugs extends StatelessWidget {
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(Colors.transparent),
               ),
-              onPressed: () {
-                if (_deviceEntityList.size > maxSmartPlugsToShow) {
-                  // ExtendedNavigator.of(context).pushSmartPlugsInTheRoomPage(
-                  //     thisSmartRoom: _deviceEntityList);
-                }
-              },
+              onPressed: () {},
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[

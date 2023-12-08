@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/domain/vendors/esphome_login/generic_esphome_login_entity.dart';
 import 'package:cbj_integrations_controller/domain/vendors/esphome_login/generic_esphome_login_value_objects.dart';
 import 'package:cbj_integrations_controller/domain/vendors/i_vendor_repository.dart';
@@ -25,7 +26,7 @@ class _EspHomeSignInFormState extends State<EspHomeSignInForm> {
       return;
     }
 
-    Navigator.pop(context);
+    context.router.pop();
 
     IVendorsRepository.instance.loginWithEspHome(
       GenericEspHomeLoginDE(
@@ -94,7 +95,7 @@ class _EspHomeSignInFormState extends State<EspHomeSignInForm> {
                       'Sign in to ESPHome, devices will appear in the '
                       'app after getting discovered',
                     );
-                    Navigator.pop(context);
+                    context.router.pop();
                   },
                   child: const TextAtom('SIGN IN'),
                 ),

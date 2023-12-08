@@ -26,7 +26,7 @@ class AddActionPage extends StatelessWidget {
             pageName: 'Add Action',
             rightIcon: null,
             leftIcon: FontAwesomeIcons.arrowLeft,
-            leftIconFunction: (_) => Navigator.pop(context),
+            leftIconFunction: (_) => context.router.pop(),
           ),
           ActionChooseInformation(),
         ],

@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/domain/room/i_room_repository.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/domain/room/room_failures.dart';
@@ -177,7 +178,7 @@ class _AddNewRoomFormState extends State<AddNewRoomForm> {
                         context,
                         'Adding area',
                       );
-                      Navigator.pop(context);
+                      context.router.pop();
                     },
                     child: const TextAtom('ADD'),
                   ),

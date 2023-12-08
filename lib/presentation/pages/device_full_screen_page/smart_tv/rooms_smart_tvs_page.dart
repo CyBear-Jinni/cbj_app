@@ -1,7 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
+import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
-import 'package:cybear_jinni/presentation/pages/device_full_screen_page/smart_tv/settings_page_of_smart_tvs.dart';
+import 'package:cybear_jinni/presentation/pages/device_full_screen_page/smart_tv/settings_page_of_smart_tvs_page.dart';
 import 'package:cybear_jinni/presentation/pages/device_full_screen_page/smart_tv/widgets/rooms_smart_tvs_widget.dart';
 import 'package:cybear_jinni/presentation/pages/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/material.dart';
@@ -22,18 +23,11 @@ class RoomsSmartTvsPage extends StatelessWidget {
   final ListOfColors? roomColorGradiant;
 
   void cogFunction(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (BuildContext context) => SettingsPageOfSmartTvs(
-          roomEntity: roomEntity,
-        ),
-      ),
-    );
+    context.router.push(SettingsRouteOfSmartTvsRoute(roomEntity: roomEntity));
   }
 
   void backButtonFunction(BuildContext context) {
-    Navigator.pop(context);
+    context.router.pop();
   }
 
   @override

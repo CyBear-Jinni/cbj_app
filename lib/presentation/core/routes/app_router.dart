@@ -44,6 +44,14 @@ class AppRouter extends $AppRouter {
     AutoRoute(page: RoomsBlindsRoute.page),
     AutoRoute(page: RoomsBoilersRoute.page),
     AutoRoute(page: DevicesInNetworkRoute.page),
+    AutoRoute(page: SettingsRouteOfBlindsRoute.page),
+    AutoRoute(page: SettingsRouteOfBoilersRoute.page),
+    AutoRoute(page: SettingsRouteOfPrintersRoute.page),
+    AutoRoute(page: SettingsRouteOfLightsRoute.page),
+    AutoRoute(page: SettingsRouteOfSmartComputersRoute.page),
+    AutoRoute(page: SettingsRouteOfSmartPlugsRoute.page),
+    AutoRoute(page: SettingsRouteOfSmartTvsRoute.page),
+    AutoRoute(page: SettingsRouteOfSwitchesRoute.page),
 
     // Pages from packages
     AutoRoute(page: SmartCameraContainerRoute.page),

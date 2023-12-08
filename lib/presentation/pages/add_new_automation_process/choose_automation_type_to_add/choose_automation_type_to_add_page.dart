@@ -12,7 +12,7 @@ import 'package:hexcolor/hexcolor.dart';
 @RoutePage()
 class ChooseAutomationTypeToAddPage extends StatelessWidget {
   void backButtonFunction(BuildContext context) {
-    Navigator.pop(context);
+    context.router.pop();
   }
 
   @override

@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_switch_device/generic_switch_entity.dart';
 import 'package:cybear_jinni/infrastructure/core/logger.dart';
@@ -8,8 +9,9 @@ import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-class SettingsPageOfSmartTvs extends StatelessWidget {
-  SettingsPageOfSmartTvs({required this.roomEntity}) {
+@RoutePage()
+class SettingsPageOfSmartTvsPage extends StatelessWidget {
+  SettingsPageOfSmartTvsPage({required this.roomEntity}) {
     // for (final SmartRoomObject smartRoomObject in rooms) {
     //   for (final SmartDeviceObject smartSwitchObject
     //       in smartRoomObject.getSmartTvs()) {
@@ -60,7 +62,7 @@ class SettingsPageOfSmartTvs extends StatelessWidget {
     }
 
     void backButtonFunction(BuildContext context) {
-      Navigator.pop(context);
+      context.router.pop();
     }
 
     return Scaffold(

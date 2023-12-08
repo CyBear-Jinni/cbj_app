@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/domain/vendors/i_vendor_repository.dart';
 import 'package:cbj_integrations_controller/domain/vendors/lifx_login/generic_lifx_login_entity.dart';
 import 'package:cbj_integrations_controller/domain/vendors/lifx_login/generic_lifx_login_value_objects.dart';
@@ -31,7 +32,7 @@ class _LifxSignInFormState extends State<LifxSignInForm> {
       lifxApiKey: GenericLifxLoginApiKey(api),
     );
     IVendorsRepository.instance.loginWithLifx(genericLifxDE);
-    Navigator.pop(context);
+    context.router.pop();
   }
 
   @override
