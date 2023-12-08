@@ -9,9 +9,9 @@ import 'package:cybear_jinni/domain/manage_network/manage_network_value_objects.
 import 'package:cybear_jinni/domain/security_bear/security_bear_entity.dart';
 import 'package:cybear_jinni/domain/security_bear/security_bear_failures.dart';
 import 'package:cybear_jinni/domain/security_bear/security_bear_value_objects.dart';
+import 'package:cybear_jinni/infrastructure/core/injection.dart';
+import 'package:cybear_jinni/infrastructure/core/logger.dart';
 import 'package:cybear_jinni/infrastructure/security_bear_client/security_bear_server_client.dart';
-import 'package:cybear_jinni/presentation/core/injection.dart';
-import 'package:cybear_jinni/presentation/core/utils.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:location/location.dart';

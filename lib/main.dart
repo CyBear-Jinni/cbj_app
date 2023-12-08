@@ -13,7 +13,7 @@ import 'package:cybear_jinni/infrastructure/app_commands.dart';
 import 'package:cybear_jinni/infrastructure/mqtt.dart';
 import 'package:cybear_jinni/presentation/core/ad_state.dart';
 import 'package:cybear_jinni/presentation/core/app_widget.dart';
-import 'package:cybear_jinni/presentation/core/injection.dart';
+import 'package:cybear_jinni/infrastructure/core/injection.dart';
 import 'package:cybear_jinni/presentation/core/routes/app_router.dart';
 import 'package:dartz/dartz.dart';
 import 'package:easy_localization/easy_localization.dart';

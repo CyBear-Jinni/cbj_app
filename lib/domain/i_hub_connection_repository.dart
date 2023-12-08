@@ -12,7 +12,7 @@ import 'package:cbj_integrations_controller/infrastructure/hub_client/hub_dtos.d
 import 'package:cbj_integrations_controller/utils.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:cybear_jinni/domain/i_local_db_repository.dart';
-import 'package:cybear_jinni/presentation/core/injection.dart';
+import 'package:cybear_jinni/infrastructure/core/injection.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:location/location.dart';

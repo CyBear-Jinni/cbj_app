@@ -1,5 +1,5 @@
 import 'package:cbj_integrations_controller/injection.config.dart';
-import 'package:cybear_jinni/presentation/core/utils.dart';
+import 'package:cybear_jinni/infrastructure/core/logger.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 

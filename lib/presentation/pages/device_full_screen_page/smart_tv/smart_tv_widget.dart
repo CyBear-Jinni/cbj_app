@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_tv/generic_smart_tv_entity.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
-import 'package:cybear_jinni/presentation/core/utils.dart';
+import 'package:cybear_jinni/infrastructure/core/logger.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 

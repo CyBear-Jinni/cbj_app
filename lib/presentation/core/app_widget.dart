@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/domain/i_local_db_repository.dart';
-import 'package:cybear_jinni/presentation/core/injection.dart';
+import 'package:cybear_jinni/infrastructure/core/injection.dart';
 import 'package:cybear_jinni/presentation/core/routes/app_router.dart';
 import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
 import 'package:easy_localization/easy_localization.dart';

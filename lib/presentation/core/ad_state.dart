@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:cybear_jinni/presentation/core/utils.dart';
+import 'package:cybear_jinni/infrastructure/core/logger.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class AdState {

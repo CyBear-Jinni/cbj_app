@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_app_server/protoc_as_dart/cbj_app_connections.pbgrpc.dart';
-import 'package:cybear_jinni/presentation/core/utils.dart';
+import 'package:cybear_jinni/infrastructure/core/logger.dart';
 import 'package:grpc/grpc.dart';
 
 /// The implantation of the CyBear Jinni App Server from grpc

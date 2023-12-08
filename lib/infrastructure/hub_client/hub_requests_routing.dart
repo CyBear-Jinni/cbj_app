@@ -26,8 +26,8 @@ import 'package:cbj_integrations_controller/infrastructure/scenes/scene_cbj_dtos
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
 import 'package:cybear_jinni/domain/i_hub_connection_repository.dart';
-import 'package:cybear_jinni/presentation/core/injection.dart';
-import 'package:cybear_jinni/presentation/core/utils.dart';
+import 'package:cybear_jinni/infrastructure/core/injection.dart';
+import 'package:cybear_jinni/infrastructure/core/logger.dart';
 import 'package:grpc/grpc.dart';
 
 class HubRequestRouting {

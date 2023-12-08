@@ -12,7 +12,7 @@ import 'package:cybear_jinni/domain/security_bear/i_security_bear_connection_rep
 import 'package:cybear_jinni/domain/security_bear/security_bear_failures.dart';
 import 'package:cybear_jinni/domain/software_info/software_info_entity.dart';
 import 'package:cybear_jinni/domain/software_info/software_info_failures.dart';
-import 'package:cybear_jinni/presentation/core/utils.dart';
+import 'package:cybear_jinni/infrastructure/core/logger.dart';
 import 'package:dartz/dartz.dart';
 import 'package:network_info_plus/network_info_plus.dart';
 import 'package:package_info_plus/package_info_plus.dart';
