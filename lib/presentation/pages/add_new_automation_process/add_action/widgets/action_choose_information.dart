@@ -35,7 +35,7 @@ class _ActionChooseInformationState extends State<ActionChooseInformation> {
 
   Future<void> _initialized() async {
     List<RoomEntity?> allRoomsTemp = [];
-    (await IRoomRepository.instance.getAllRooms()).fold((l) => null, (r) {
+    IRoomRepository.instance.getAllRooms().fold((l) => null, (r) {
       allRoomsTemp = List<RoomEntity?>.from(r.iter);
     });
     allRoomsTemp.removeWhere((element) => element == null);

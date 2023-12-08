@@ -144,6 +144,7 @@ class _AddNewRoomFormState extends State<AddNewRoomForm> {
                           if (a[0] == a[0].toUpperCase()) {
                             areaNameEdited += ' ';
                           }
+                          // ignore: use_string_buffers
                           areaNameEdited += a;
                         }
 
