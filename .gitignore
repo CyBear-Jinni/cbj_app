@@ -154,3 +154,6 @@ smart_home_flutter/gen/
 
 # melos
 pubspec_overrides.yaml
+
+# Linux
+.directory
