@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cbj_integrations_controller/infrastructure/core/utils.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/value_objects_core.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_light_device/generic_light_entity.dart';
-import 'package:cbj_integrations_controller/utils.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_failures.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_value_objects.dart';
@@ -115,7 +115,7 @@ class _ConfigureNewCbjCompWidgetsState
           deviceE..cbjEntityName = CbjEntityName(deviceName),
         );
       } catch (e) {
-        logger.w("Can't add unsupported device");
+        icLogger.w("Can't add unsupported device");
       }
     });
     final CBJCompEntity compUpdatedData = cbjCompEntity.copyWith(
