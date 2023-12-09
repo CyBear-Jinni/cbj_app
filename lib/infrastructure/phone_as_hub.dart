@@ -42,9 +42,6 @@ class _PhoneAsHubRepository implements IPhoneAsHub {
       return;
     }
     phoneAsHub = true;
-    CompaniesConnectorConjecture().updateAllDevicesReposWithDeviceChanges(
-      ConnectorDevicesStreamFromMqtt.fromMqttStream,
-    );
 
     AppRequestsToHub.appRequestsToHubStreamController.stream
         .listen((clientStatusRequests) {

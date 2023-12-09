@@ -2,7 +2,10 @@ import 'dart:async';
 
 import 'package:cbj_integrations_controller/domain/i_saved_devices_repo.dart';
 import 'package:cbj_integrations_controller/infrastructure/devices/companies_connector_conjecture.dart';
+import 'package:cbj_integrations_controller/infrastructure/devices/helper_methods/device_helper_methods.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/hub_client/hub_client.dart';
+import 'package:cybear_jinni/infrastructure/core/logger.dart';
 
 import 'package:network_tools/network_tools.dart';
 
