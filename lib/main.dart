@@ -1,7 +1,7 @@
 import 'dart:io';
 
+import 'package:cbj_integrations_controller/domain/i_saved_devices_repo.dart';
 import 'package:cbj_integrations_controller/domain/local_db/i_local_devices_db_repository.dart';
-import 'package:cbj_integrations_controller/domain/saved_devices/i_saved_devices_repo.dart';
 import 'package:cbj_integrations_controller/infrastructure/node_red/node_red_repository.dart';
 import 'package:cbj_integrations_controller/infrastructure/system_commands/system_commands_manager_d.dart';
 import 'package:cbj_integrations_controller/injection.dart';
