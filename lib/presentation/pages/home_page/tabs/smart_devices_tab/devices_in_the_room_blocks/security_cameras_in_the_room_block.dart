@@ -54,7 +54,7 @@ class SecurityCamerasInTheRoomBlock extends StatelessWidget {
         context.router.push(
           VideoStreamOutputContainerRoute(
             streamAddress:
-                securityCamerasInRoom.first.deviceLastKnownIp.getOrCrash(),
+                securityCamerasInRoom.first.deviceLastKnownIp.getOrCrash()!,
           ),
         );
       },

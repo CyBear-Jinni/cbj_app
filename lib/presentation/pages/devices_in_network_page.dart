@@ -73,6 +73,12 @@ class _DevicesInNetworkPageState extends State<DevicesInNetworkPage> {
                   TextAtom(
                     ', Mac: ${device.devicesMacAddress.getOrCrash()}',
                   ),
+                  TextAtom(
+                    ', Srv: ${device.srvResourceRecord.getOrCrash()}',
+                  ),
+                  TextAtom(
+                    ', Ptr: ${device.ptrResourceRecord.getOrCrash()}',
+                  ),
                 ],
               ),
             );

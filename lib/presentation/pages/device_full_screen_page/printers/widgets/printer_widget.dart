@@ -24,7 +24,7 @@ class _PrinterWidgetState extends State<PrinterWidget> {
     ).show(context);
 
     final String printerIp =
-        widget._deviceEntity.deviceLastKnownIp.getOrCrash();
+        widget._deviceEntity.deviceLastKnownIp.getOrCrash()!;
     launchUrl(
       Uri.parse('http://$printerIp'),
       mode: LaunchMode.externalApplication,
