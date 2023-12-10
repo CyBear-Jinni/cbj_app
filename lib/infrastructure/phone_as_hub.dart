@@ -15,25 +15,7 @@ class _PhoneAsHubRepository implements IPhoneAsHub {
 
   @override
   Future searchDevices() async {
-    CompaniesConnectorConjecture().searchDevicesByBindingIntoSockets();
-
-    final Future<List<ActiveHost>> mdnsDevices =
-        CompaniesConnectorConjecture().searchMdnsDevices();
-    final Future<List<ActiveHost>> pingableDevices =
-        CompaniesConnectorConjecture().searchPingableDevices();
-
-    final List<ActiveHost> mdnsDevicesTemp = await mdnsDevices;
-    for (final ActiveHost activeHost in mdnsDevicesTemp) {
-      CompaniesConnectorConjecture().setMdnsDeviceByCompany(activeHost);
-
-      final List<ActiveHost> pingableDevicesTemp = await pingableDevices;
-
-      for (final ActiveHost activeHost in pingableDevicesTemp) {
-        CompaniesConnectorConjecture().setHostNameDeviceByCompany(
-          activeHost: activeHost,
-        );
-      }
-    }
+    SearchDevices().startSearch();
   }
 
   @override
