@@ -57,6 +57,7 @@ Future<Unit> main() async {
   PhoneCommandsD();
   SystemCommandsManager();
   NodeRedRepository();
+  IPhoneAsHub.instance.startListen();
   IPhoneAsHub.instance.searchDevices();
 
   runApp(

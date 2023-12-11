@@ -84,7 +84,7 @@ class _SmartDevicesByRoomsState extends State<SmartDevicesByRooms> {
     );
 
     final Map<String, DeviceEntityAbstract> allDevice =
-        await IPhoneAsHub.instance.getAllDevices;
+        await IPhoneAsHub.instance.getAllEntities;
 
     for (final String deviceId in allDevice.keys) {
       discoveredRoom.addDeviceId(deviceId);

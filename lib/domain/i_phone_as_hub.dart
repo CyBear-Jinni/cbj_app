@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:cbj_integrations_controller/domain/i_saved_devices_repo.dart';
 import 'package:cbj_integrations_controller/infrastructure/devices/helper_methods/device_helper_methods.dart';
+import 'package:cbj_integrations_controller/infrastructure/devices_service.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cbj_integrations_controller/infrastructure/hub_client/hub_client.dart';
 import 'package:cbj_integrations_controller/infrastructure/search_devices.dart';
@@ -18,7 +18,7 @@ abstract interface class IPhoneAsHub {
 
   Future searchDevices();
 
-  Future<Map<String, DeviceEntityAbstract>> get getAllDevices;
+  Future<Map<String, DeviceEntityAbstract>> get getAllEntities;
 
   void startListen();
   Future dispose();

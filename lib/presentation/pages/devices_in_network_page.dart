@@ -22,7 +22,7 @@ class _DevicesInNetworkPageState extends State<DevicesInNetworkPage> {
 
   Future initializeAllDevices() async {
     final Map<String, DeviceEntityAbstract> devices =
-        await IPhoneAsHub.instance.getAllDevices;
+        await IPhoneAsHub.instance.getAllEntities;
     setState(() {
       allDevices = devices.values.toList();
     });

@@ -44,13 +44,12 @@ class _CbjHubInNetworkWidgetState extends State<CbjHubInNetworkWidget> {
       await IHubConnectionRepository.instance.closeConnection();
 
       final Map<String, DeviceEntityAbstract> devices =
-          await IPhoneAsHub.instance.getAllDevices;
+          await IPhoneAsHub.instance.getAllEntities;
 
       if (!mounted) {
         return null;
       }
       if (devices.isNotEmpty) {
-        IPhoneAsHub.instance.startListen();
         context.router.replace(const HomeRoute());
         return;
       }
