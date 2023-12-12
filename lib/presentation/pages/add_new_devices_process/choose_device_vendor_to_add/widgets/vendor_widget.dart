@@ -7,7 +7,6 @@ import 'package:cybear_jinni/presentation/core/snack_bar_service.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-
 class VendorWidget extends StatelessWidget {
   const VendorWidget(this.vendor);
 
