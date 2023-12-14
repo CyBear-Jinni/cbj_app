@@ -21,7 +21,7 @@ class _DeviceRepository implements IDeviceRepository {
 
   @override
   void addOrUpdateDevice(DeviceEntityAbstract deviceEntity) {
-    allDevices[deviceEntity.uniqueId.getOrCrash()] = deviceEntity;
+    allDevices[deviceEntity.cbjDeviceVendor.getOrCrash()] = deviceEntity;
     devicesResponseFromTheHubStreamController.sink
         .add(allDevices.values.toImmutableList());
   }

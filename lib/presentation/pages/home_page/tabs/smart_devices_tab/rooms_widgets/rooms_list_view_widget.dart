@@ -157,7 +157,8 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
           /// Check if app already received the device, it could also
           /// be on the way
           for (final DeviceEntityAbstract? device in devicesListTemp) {
-            if (device != null && device.uniqueId.getOrCrash() == deviceId) {
+            if (device != null &&
+                device.deviceCbjUniqueId.getOrCrash() == deviceId) {
               tempDevicesByRooms[roomId]!.add(device);
 
               devicesListTemp.remove(device);
@@ -197,7 +198,8 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
           /// Check if app already received the device, it could also
           /// be on the way
           for (final DeviceEntityAbstract? device in devicesListTemp) {
-            if (device != null && device.uniqueId.getOrCrash() == deviceId) {
+            if (device != null &&
+                device.deviceCbjUniqueId.getOrCrash() == deviceId) {
               tempDevicesByRooms[roomId]!.add(device);
 
               devicesListTemp.remove(device);
@@ -245,7 +247,7 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
 
     for (final DeviceEntityAbstract? device in devicesList) {
       if (device != null && isDeviceShouldBeSownInSummaryRoom(device)) {
-        summaryDevicesRoom.addDeviceId(device.uniqueId.getOrCrash());
+        summaryDevicesRoom.addDeviceId(device.deviceCbjUniqueId.getOrCrash());
         tempDevicesByRooms[summaryRoomId]!.add(device);
       }
     }

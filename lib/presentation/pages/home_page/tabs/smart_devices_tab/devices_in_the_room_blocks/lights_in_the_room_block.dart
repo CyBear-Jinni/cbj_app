@@ -129,7 +129,8 @@ class _LightsInTheRoomBlockState extends State<LightsInTheRoomBlock> {
     return GestureDetector(
       onTap: () {
         context.router.push(
-          RoomsLightsRoute(
+          DevicesInRoomRoute(
+            entityTypes: EntityTypes.light,
             roomEntity: widget.roomEntity,
             roomColorGradiant: widget.roomColorGradiant,
           ),

@@ -19,9 +19,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   void initState() {
-    IDeviceRepository.instance.initiateHubConnection();
-
     super.initState();
+    IDeviceRepository.instance.initiateHubConnection();
   }
 
   /// Tab num, value will be the default tab to show

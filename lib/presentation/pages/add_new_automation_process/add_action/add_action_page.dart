@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cybear_jinni/presentation/molecules/molecules.dart';
 import 'package:cybear_jinni/presentation/pages/add_new_automation_process/add_action/widgets/action_choose_information.dart';
-import 'package:cybear_jinni/presentation/pages/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -22,9 +22,8 @@ class AddActionPage extends StatelessWidget {
       backgroundColor: HexColor('#303030'),
       body: Column(
         children: [
-          TopNavigationBar(
+          TopBarMolecule(
             pageName: 'Add Action',
-            rightIcon: null,
             leftIcon: FontAwesomeIcons.arrowLeft,
             leftIconFunction: (_) => context.router.pop(),
           ),

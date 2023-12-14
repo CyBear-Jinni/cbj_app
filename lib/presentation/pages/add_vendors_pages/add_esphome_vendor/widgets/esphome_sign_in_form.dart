@@ -62,7 +62,6 @@ class _EspHomeSignInFormState extends State<EspHomeSignInForm> {
                   ),
                 ),
               ),
-              // ImageAtom('assets/cbj_logo.png'),
             ),
           ),
           const SizedBox(

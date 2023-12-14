@@ -1,8 +1,8 @@
 import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybear_jinni/presentation/molecules/molecules.dart';
 import 'package:cybear_jinni/presentation/pages/remote_pipes/widgets/manage_remote_pipes_widget.dart';
-import 'package:cybear_jinni/presentation/pages/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -41,9 +41,8 @@ class RemotePipesPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          TopNavigationBar(
+          TopBarMolecule(
             pageName: 'Remote Pipes',
-            rightIcon: null,
             rightIconFunction: userCogFunction,
             leftIcon: FontAwesomeIcons.arrowLeft,
             leftIconFunction: leftIconFunction,

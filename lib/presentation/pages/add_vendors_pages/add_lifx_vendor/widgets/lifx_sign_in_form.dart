@@ -64,7 +64,6 @@ class _LifxSignInFormState extends State<LifxSignInForm> {
                         ),
                       ),
                     ),
-                    // ImageAtom('assets/cbj_logo.png'),
                   ),
                 ),
                 const SizedBox(

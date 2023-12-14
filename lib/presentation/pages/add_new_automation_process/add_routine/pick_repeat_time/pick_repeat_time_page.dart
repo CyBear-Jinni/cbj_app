@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/domain/routine/value_objects_routine_cbj.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
-import 'package:cybear_jinni/presentation/pages/shared_widgets/top_navigation_bar.dart';
+import 'package:cybear_jinni/presentation/molecules/molecules.dart';
 import 'package:day_night_time_picker/day_night_time_picker.dart';
 import 'package:day_picker/day_picker.dart';
 import 'package:flutter/material.dart';
@@ -43,9 +43,8 @@ class PickRepeatTimePage extends StatelessWidget {
         color: HexColor('#FBF5F9'),
         child: Column(
           children: [
-            TopNavigationBar(
+            TopBarMolecule(
               pageName: 'Pick Time',
-              rightIcon: null,
               rightIconFunction: backButtonFunction,
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,

@@ -30,7 +30,12 @@ class _DevicesInNetworkPageState extends State<DevicesInNetworkPage> {
   }
 
   Widget getTextIfNotNull(String name, String? var1) {
-    if (var1 == null || var1.isEmpty || var1 == '0' || var1 == '[]') {
+    if (var1 == null ||
+        var1.isEmpty ||
+        var1 == '0' ||
+        var1 == '0.0.0.0' ||
+        var1 == '[]' ||
+        var1 == 'vendorsAndServicesNotSupported') {
       return const SizedBox();
     }
     return Row(
@@ -66,7 +71,7 @@ class _DevicesInNetworkPageState extends State<DevicesInNetworkPage> {
                 device.deviceOriginalName.getOrCrash();
             final String entityOriginalName =
                 device.entityOriginalName.getOrCrash();
-            final String deviceHostName = device.deviceHostName.getOrCrash();
+            final String? deviceHostName = device.deviceHostName.getOrCrash();
             final String? deviceMdns = device.deviceMdns.getOrCrash();
             final String devicePort = device.devicePort.getOrCrash();
             final String cbjDeviceVendor = device.cbjDeviceVendor.getOrCrash();

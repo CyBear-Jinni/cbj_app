@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
+import 'package:cybear_jinni/presentation/molecules/molecules.dart';
 import 'package:cybear_jinni/presentation/pages/add_new_devices_process/configure_new_cbj_comp/widgets/configure_new_cbj_comp_widget.dart';
-import 'package:cybear_jinni/presentation/pages/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -30,9 +30,8 @@ class ConfigureNewCbjCompPage extends StatelessWidget {
         color: Colors.black87,
         child: Column(
           children: [
-            TopNavigationBar(
+            TopBarMolecule(
               pageName: 'Add CBJ Computer',
-              rightIcon: null,
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: leftIconFunction,
             ),

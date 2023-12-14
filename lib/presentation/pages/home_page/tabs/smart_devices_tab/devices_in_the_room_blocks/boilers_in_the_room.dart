@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_boiler_device/generic_boiler_entity.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
@@ -51,7 +52,8 @@ class BoilersInTheRoom extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         context.router.push(
-          RoomsBoilersRoute(
+          DevicesInRoomRoute(
+            entityTypes: EntityTypes.boiler,
             roomEntity: roomEntity,
             roomColorGradiant: roomColorGradiant,
           ),
