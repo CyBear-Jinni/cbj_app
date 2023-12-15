@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/domain/hub/hub_failures.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/i_hub_connection_repository.dart';
 import 'package:cybear_jinni/domain/i_phone_as_hub.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
@@ -44,13 +44,12 @@ class _CbjHubInNetworkWidgetState extends State<CbjHubInNetworkWidget> {
       await IHubConnectionRepository.instance.closeConnection();
 
       final Map<String, DeviceEntityAbstract> devices =
-          await IPhoneAsHub.instance.getAllDevices;
+          await IPhoneAsHub.instance.getAllEntities;
 
       if (!mounted) {
         return null;
       }
       if (devices.isNotEmpty) {
-        IPhoneAsHub.instance.startListen();
         context.router.replace(const HomeRoute());
         return;
       }

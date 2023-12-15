@@ -1,10 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
 import 'package:cybear_jinni/presentation/pages/home_page/bottom_navigation_bar_home_page.dart';
 import 'package:cybear_jinni/presentation/pages/home_page/tabs/scenes_in_folders_tab/scenes_in_folders_tab.dart';
 import 'package:cybear_jinni/presentation/pages/home_page/tabs/smart_devices_tab/smart_devices_widgets.dart';
-import 'package:cybear_jinni/presentation/pages/plus_button/plus_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -19,9 +19,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   void initState() {
-    IDeviceRepository.instance.initiateHubConnection();
-
     super.initState();
+    IDeviceRepository.instance.initiateHubConnection();
   }
 
   /// Tab num, value will be the default tab to show
@@ -88,12 +87,7 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (BuildContext context) => PlusButtonPage(),
-                          ),
-                        );
+                        context.router.push(const PlusButtonRoute());
                       },
                       child: CircleAvatar(
                         backgroundColor: Colors.blue.withOpacity(0.9),

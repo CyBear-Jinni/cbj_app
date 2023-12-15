@@ -64,10 +64,6 @@ class _AppNotificationService extends INotificationService {
     if (payload != null) {
       logger.d('notification payload: $payload');
     }
-    // await Navigator.push(
-    //   context,
-    //   MaterialPageRoute<void>(builder: (context) => SecondScreen(payload)),
-    // );
   }
 
   Future selectNotificationIos(
@@ -79,10 +75,6 @@ class _AppNotificationService extends INotificationService {
     if (payload != null) {
       logger.d('notification payload: $payload');
     }
-    // await Navigator.push(
-    //   context,
-    //   MaterialPageRoute<void>(builder: (context) => SecondScreen(payload)),
-    // );
   }
 
   Future<void> zonedScheduleNotification() async {

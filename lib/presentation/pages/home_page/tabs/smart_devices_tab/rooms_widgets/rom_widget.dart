@@ -1,10 +1,10 @@
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_abstract.dart';
+import 'package:cybear_jinni/infrastructure/core/logger.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
-import 'package:cybear_jinni/presentation/core/utils.dart';
 import 'package:cybear_jinni/presentation/pages/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/blinds_in_the_room.dart';
 import 'package:cybear_jinni/presentation/pages/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/boilers_in_the_room.dart';
 import 'package:cybear_jinni/presentation/pages/home_page/tabs/smart_devices_tab/devices_in_the_room_blocks/lights_in_the_room_block.dart';
@@ -191,7 +191,7 @@ class _RoomWidgetState extends State<RoomWidget> {
 
                     return LightsInTheRoomBlock.withAbstractDevice(
                       roomEntity: widget.roomEntity,
-                      tempDeviceInRoom: devicesInTheRoom,
+                      entities: devicesInTheRoom,
                       tempRoomColorGradiant: widget.roomColorGradiant,
                     );
                   } else if (deviceType == EntityTypes.switch_.toString()) {
@@ -200,7 +200,7 @@ class _RoomWidgetState extends State<RoomWidget> {
                         (element) =>
                             element!.uniqueId.getOrCrash() == widget.roomId,
                       )!,
-                      tempDeviceInRoom: devicesInTheRoom,
+                      entities: devicesInTheRoom,
                       tempRoomColorGradiant: widget.roomColorGradiant,
                     );
                   } else if (deviceType == EntityTypes.blinds.toString()) {
@@ -227,7 +227,7 @@ class _RoomWidgetState extends State<RoomWidget> {
                         (element) =>
                             element!.uniqueId.getOrCrash() == widget.roomId,
                       )!,
-                      tempDeviceInRoom: devicesInTheRoom,
+                      entities: devicesInTheRoom,
                       tempRoomColorGradiant: widget.roomColorGradiant,
                     );
                   } else if (deviceType ==

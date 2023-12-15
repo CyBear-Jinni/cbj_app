@@ -1,33 +1,10 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/domain/i_local_db_repository.dart';
-import 'package:cybear_jinni/presentation/core/injection.dart';
+import 'package:cybear_jinni/infrastructure/core/injection.dart';
 import 'package:cybear_jinni/presentation/core/routes/app_router.dart';
-import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-class AppWidget extends StatefulWidget {
-  @override
-  State<AppWidget> createState() => _AppWidgetState();
-}
-
-class _AppWidgetState extends State<AppWidget> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  Future<void> initialize() async {
-    (await ILocalDbRepository.instance.getHubEntityNetworkName()).fold(
-      (l) {
-        context.router.replace(const ConnectToHubRoute());
-      },
-      (r) {
-        context.router.replace(const HomeRoute());
-      },
-    );
-  }
-
+class AppWidget extends StatelessWidget {
   MaterialColor createMaterialColor(Color color) {
     final List<double> strengths = <double>[.05];
     final Map<int, Color> swatch = <int, Color>{};

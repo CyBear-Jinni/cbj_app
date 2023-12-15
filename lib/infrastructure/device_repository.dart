@@ -21,7 +21,7 @@ class _DeviceRepository implements IDeviceRepository {
 
   @override
   void addOrUpdateDevice(DeviceEntityAbstract deviceEntity) {
-    allDevices[deviceEntity.uniqueId.getOrCrash()] = deviceEntity;
+    allDevices[deviceEntity.cbjDeviceVendor.getOrCrash()] = deviceEntity;
     devicesResponseFromTheHubStreamController.sink
         .add(allDevices.values.toImmutableList());
   }
@@ -1166,8 +1166,16 @@ class _DeviceRepository implements IDeviceRepository {
   ) async {
     final List<DeviceEntityAbstract> deviceEntityList = [];
 
+    if (allDevices.isEmpty) {
+      return [];
+    }
+
     for (final deviceId in deviceIdList) {
-      deviceEntityList.add(allDevices[deviceId]!);
+      final DeviceEntityAbstract? device = allDevices[deviceId];
+      if (device == null) {
+        continue;
+      }
+      deviceEntityList.add(device);
     }
     return deviceEntityList;
   }

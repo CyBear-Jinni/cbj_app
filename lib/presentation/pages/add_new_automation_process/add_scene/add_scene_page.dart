@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cybear_jinni/presentation/molecules/molecules.dart';
 import 'package:cybear_jinni/presentation/pages/add_new_automation_process/add_scene/widgets/add_scene_widget.dart';
-import 'package:cybear_jinni/presentation/pages/shared_widgets/top_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -10,7 +10,7 @@ import 'package:hexcolor/hexcolor.dart';
 @RoutePage()
 class AddScenePage extends StatelessWidget {
   void backButtonFunction(BuildContext context) {
-    Navigator.pop(context);
+    context.router.pop();
   }
 
   @override
@@ -25,9 +25,8 @@ class AddScenePage extends StatelessWidget {
         color: HexColor('#FBF5F9'),
         child: Column(
           children: [
-            TopNavigationBar(
+            TopBarMolecule(
               pageName: 'Add Scene',
-              rightIcon: null,
               rightIconFunction: backButtonFunction,
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,

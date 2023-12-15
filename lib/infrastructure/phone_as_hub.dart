@@ -9,31 +9,13 @@ class _PhoneAsHubRepository implements IPhoneAsHub {
   }
 
   @override
-  Future<Map<String, DeviceEntityAbstract>> get getAllDevices {
-    return ISavedDevicesRepo.instance.getAllDevicesAfterInitialize();
+  Future<Map<String, DeviceEntityAbstract>> get getAllEntities async {
+    return DevicesService().getEntities();
   }
 
   @override
   Future searchDevices() async {
-    CompaniesConnectorConjecture().searchDevicesByBindingIntoSockets();
-
-    final Future<List<ActiveHost>> mdnsDevices =
-        CompaniesConnectorConjecture().searchMdnsDevices();
-    final Future<List<ActiveHost>> pingableDevices =
-        CompaniesConnectorConjecture().searchPingableDevices();
-
-    final List<ActiveHost> mdnsDevicesTemp = await mdnsDevices;
-    for (final ActiveHost activeHost in mdnsDevicesTemp) {
-      CompaniesConnectorConjecture().setMdnsDeviceByCompany(activeHost);
-
-      final List<ActiveHost> pingableDevicesTemp = await pingableDevices;
-
-      for (final ActiveHost activeHost in pingableDevicesTemp) {
-        CompaniesConnectorConjecture().setHostNameDeviceByCompany(
-          activeHost: activeHost,
-        );
-      }
-    }
+    SearchDevices().startSearch();
   }
 
   @override
@@ -42,17 +24,28 @@ class _PhoneAsHubRepository implements IPhoneAsHub {
       return;
     }
     phoneAsHub = true;
-    CompaniesConnectorConjecture().updateAllDevicesReposWithDeviceChanges(
-      ConnectorDevicesStreamFromMqtt.fromMqttStream,
-    );
 
-    AppRequestsToHub.appRequestsToHubStreamController.stream
-        .listen((clientStatusRequests) {
-      if (!phoneAsHub) {
-        logger.i('Phone as a hub should be canceled');
-        return;
-      }
-      DeviceHelperMethods().handleClientStatusRequests(clientStatusRequests);
-    });
+    // AppRequestsToHub.appRequestsToHubStreamController.stream
+    //     .listen((clientStatusRequests) {
+    //   if (!phoneAsHub) {
+    //     logger.i('Phone as a hub should be canceled');
+    //     return;
+    //   }
+    //   DeviceHelperMethods().handleClientStatusRequests(clientStatusRequests);
+    // });
   }
+
+  @override
+  void setEntityState({
+    required HashMap<VendorsAndServices, HashSet<String>> uniqueIdByVendor,
+    required EntityProperties property,
+    required EntityActions actionType,
+    dynamic value,
+  }) =>
+      DevicesService().setEntityState(
+        uniqueIdByVendor: uniqueIdByVendor,
+        action: actionType,
+        property: property,
+        value: value,
+      );
 }

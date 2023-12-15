@@ -1,7 +1,7 @@
 import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
-import 'package:cybear_jinni/presentation/pages/shared_widgets/top_navigation_bar.dart';
+import 'package:cybear_jinni/presentation/molecules/molecules.dart';
 import 'package:cybear_jinni/presentation/pages/software_info/widgets/software_info_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -28,7 +28,7 @@ class SoftwareInfoPage extends StatelessWidget {
   }
 
   void leftIconFunction(BuildContext context) {
-    Navigator.pop(context);
+    context.router.pop();
   }
 
   @override
@@ -45,9 +45,8 @@ class SoftwareInfoPage extends StatelessWidget {
         color: Colors.black87,
         child: Column(
           children: [
-            TopNavigationBar(
+            TopBarMolecule(
               pageName: 'Software Info',
-              rightIcon: null,
               rightIconFunction: userCogFunction,
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: leftIconFunction,

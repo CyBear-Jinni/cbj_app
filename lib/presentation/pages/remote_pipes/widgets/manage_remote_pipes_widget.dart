@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/domain/remote_pipes/i_remote_pipes_repository.dart';
 import 'package:cbj_integrations_controller/domain/remote_pipes/remote_pipes_entity.dart';
 import 'package:cbj_integrations_controller/domain/remote_pipes/remote_pipes_value_objects.dart';
@@ -32,7 +33,7 @@ class _RemotePipesWidgetState extends State<RemotePipesWidget> {
       domainName: RemotePipesDomain(remotePipesDomainName!),
     );
 
-    Navigator.pop(context);
+    context.router.pop();
     await IRemotePipesRepository.instance
         .setRemotePipesDomainName(remotePipesEntity);
   }

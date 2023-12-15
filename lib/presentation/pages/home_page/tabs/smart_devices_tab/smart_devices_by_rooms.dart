@@ -4,12 +4,12 @@ import 'package:cbj_integrations_controller/domain/room/i_room_repository.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/domain/room/room_failures.dart';
 import 'package:cbj_integrations_controller/domain/room/value_objects_room.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/device/devices_failures.dart';
-import 'package:cybear_jinni/domain/device/i_device_repository.dart';
 import 'package:cybear_jinni/domain/i_phone_as_hub.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/snack_bar_service.dart';
+import 'package:cybear_jinni/presentation/organisms/organisms.dart';
 import 'package:cybear_jinni/presentation/pages/home_page/tabs/smart_devices_tab/rooms_widgets/rooms_list_view_widget.dart';
 import 'package:dartz/dartz.dart' as dartz;
 import 'package:flutter/material.dart';
@@ -84,7 +84,7 @@ class _SmartDevicesByRoomsState extends State<SmartDevicesByRooms> {
     );
 
     final Map<String, DeviceEntityAbstract> allDevice =
-        await IPhoneAsHub.instance.getAllDevices;
+        await IPhoneAsHub.instance.getAllEntities;
 
     for (final String deviceId in allDevice.keys) {
       discoveredRoom.addDeviceId(deviceId);
@@ -98,10 +98,10 @@ class _SmartDevicesByRoomsState extends State<SmartDevicesByRooms> {
       _roomsReceived(eventWatch);
     });
 
-    _deviceStreamSubscription =
-        IDeviceRepository.instance.watchAllDevices().listen((eventWatch) {
-      _devicesReceived(eventWatch);
-    });
+    // _deviceStreamSubscription =
+    //     IDeviceRepository.instance.watchAllDevices().listen((eventWatch) {
+    //   _devicesReceived(eventWatch);
+    // });
   }
 
   @override
@@ -121,32 +121,7 @@ class _SmartDevicesByRoomsState extends State<SmartDevicesByRooms> {
             'Add new device by pressing the plus button',
           );
         },
-        child: SingleChildScrollView(
-          reverse: true,
-          padding: const EdgeInsets.only(bottom: 15),
-          child: Column(
-            children: [
-              Container(
-                margin: const EdgeInsets.symmetric(vertical: 30),
-                alignment: Alignment.center,
-                child: const ImageAtom(
-                  'assets/cbj_logo.png',
-                  fit: BoxFit.fitHeight,
-                ),
-              ),
-              Align(
-                alignment: Alignment.topCenter,
-                child: TextAtom(
-                  'Devices list is empty',
-                  style: TextStyle(
-                    fontSize: 30,
-                    color: Theme.of(context).primaryColor,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
+        child: EmptyOpenRoomOrganism(),
       );
     }
     final Map<String?, List<DeviceEntityAbstract>> tempDevicesByRooms =

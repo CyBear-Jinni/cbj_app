@@ -1,9 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/domain/room/i_room_repository.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/domain/room/room_failures.dart';
 import 'package:cbj_integrations_controller/domain/room/value_objects_room.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/snack_bar_service.dart';
@@ -144,6 +145,7 @@ class _AddNewRoomFormState extends State<AddNewRoomForm> {
                           if (a[0] == a[0].toUpperCase()) {
                             areaNameEdited += ' ';
                           }
+                          // ignore: use_string_buffers
                           areaNameEdited += a;
                         }
 
@@ -176,7 +178,7 @@ class _AddNewRoomFormState extends State<AddNewRoomForm> {
                         context,
                         'Adding area',
                       );
-                      Navigator.pop(context);
+                      context.router.pop();
                     },
                     child: const TextAtom('ADD'),
                   ),

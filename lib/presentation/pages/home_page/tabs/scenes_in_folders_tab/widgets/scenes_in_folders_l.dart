@@ -36,7 +36,7 @@ class _ScenesInFoldersLState extends State<ScenesInFoldersL> {
     }
 
     final dartz.Either<RoomFailure, KtList<RoomEntity>> eitherAllRooms =
-        await IRoomRepository.instance.getAllRooms();
+        IRoomRepository.instance.getAllRooms();
     eitherAllRooms.fold((l) => null, (KtList<RoomEntity> r) {
       for (final RoomEntity rE in r.asList()) {
         if (rE.roomScenesId.getOrCrash().isNotEmpty) {

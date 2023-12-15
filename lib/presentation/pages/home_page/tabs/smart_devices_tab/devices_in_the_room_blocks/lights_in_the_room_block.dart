@@ -1,17 +1,20 @@
+import 'dart:collection';
+
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_dimmable_light_device/generic_dimmable_light_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_light_device/generic_light_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
-import 'package:cybear_jinni/domain/device/i_device_repository.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/entity_type_utils.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_dimmable_light_entity/generic_dimmable_light_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_light_entity/generic_light_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_rgbw_light_entity/generic_rgbw_light_entity.dart';
+import 'package:cybear_jinni/domain/i_phone_as_hub.dart';
+import 'package:cybear_jinni/infrastructure/core/logger.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
-import 'package:cybear_jinni/presentation/core/utils.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -20,6 +23,7 @@ class LightsInTheRoomBlock extends StatefulWidget {
   const LightsInTheRoomBlock({
     required this.roomEntity,
     required this.lightsInRoom,
+    required this.entities,
     required this.dimmableLightsInRoom,
     required this.rgbwLightsInRoom,
     required this.roomColorGradiant,
@@ -27,14 +31,14 @@ class LightsInTheRoomBlock extends StatefulWidget {
 
   factory LightsInTheRoomBlock.withAbstractDevice({
     required RoomEntity roomEntity,
-    required List<DeviceEntityAbstract> tempDeviceInRoom,
+    required List<DeviceEntityAbstract> entities,
     required ListOfColors tempRoomColorGradiant,
   }) {
     final List<GenericLightDE> tempLightsInRoom = [];
     final List<GenericDimmableLightDE> tempDimmableLightsInRoom = [];
     final List<GenericRgbwLightDE> tempRgbwLightsInRoom = [];
 
-    for (final element in tempDeviceInRoom) {
+    for (final element in entities) {
       if (element.entityTypes.getOrCrash() == EntityTypes.light.toString()) {
         tempLightsInRoom.add(element as GenericLightDE);
       } else if (element.entityTypes.getOrCrash() ==
@@ -51,6 +55,7 @@ class LightsInTheRoomBlock extends StatefulWidget {
     return LightsInTheRoomBlock(
       roomEntity: roomEntity,
       lightsInRoom: tempLightsInRoom,
+      entities: entities,
       dimmableLightsInRoom: tempDimmableLightsInRoom,
       rgbwLightsInRoom: tempRgbwLightsInRoom,
       roomColorGradiant: tempRoomColorGradiant,
@@ -62,43 +67,71 @@ class LightsInTheRoomBlock extends StatefulWidget {
   final List<GenericDimmableLightDE> dimmableLightsInRoom;
   final List<GenericRgbwLightDE> rgbwLightsInRoom;
   final ListOfColors roomColorGradiant;
+  final List<DeviceEntityAbstract> entities;
 
   @override
   State<LightsInTheRoomBlock> createState() => _LightsInTheRoomBlockState();
 }
 
 class _LightsInTheRoomBlockState extends State<LightsInTheRoomBlock> {
-  Future<void> _turnOffAllLights(List<String> lightsIdToTurnOff) async {
+  Future<void> _turnOffAllLights() async {
     FlushbarHelper.createLoading(
       message: 'Turning Off all lights',
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(context);
 
-    IDeviceRepository.instance.turnOffDevices(devicesId: lightsIdToTurnOff);
+    setEntityState(EntityActions.off);
   }
 
-  Future<void> _turnOnAllLights(List<String> lightsIdToTurnOn) async {
+  Future<void> _turnOnAllLights() async {
     FlushbarHelper.createLoading(
       message: 'Turning On all lights',
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(context);
 
-    IDeviceRepository.instance.turnOnDevices(devicesId: lightsIdToTurnOn);
+    setEntityState(EntityActions.on);
   }
 
-  List<String> extractDevicesId() {
-    final List<String> devicesIdList = [];
-    for (final element in widget.lightsInRoom) {
-      devicesIdList.add(element.uniqueId.getOrCrash());
-    }
-    for (final element in widget.dimmableLightsInRoom) {
-      devicesIdList.add(element.uniqueId.getOrCrash());
-    }
-    for (final element in widget.rgbwLightsInRoom) {
-      devicesIdList.add(element.uniqueId.getOrCrash());
+  void setEntityState(EntityActions action) {
+    final VendorsAndServices? vendor =
+        widget.entities.first.cbjDeviceVendor.vendorsAndServices;
+    if (vendor == null) {
+      return;
     }
 
-    return devicesIdList;
+    IPhoneAsHub.instance.setEntityState(
+      uniqueIdByVendor: getUniqueIdByVendor(),
+      property: EntityProperties.lightSwitchState,
+      actionType: action,
+    );
+  }
+
+  HashMap<VendorsAndServices, HashSet<String>>? _uniqueIdByVendor;
+
+  HashMap<VendorsAndServices, HashSet<String>> getUniqueIdByVendor() {
+    if (_uniqueIdByVendor != null) {
+      return _uniqueIdByVendor!;
+    }
+
+    final HashMap<VendorsAndServices, HashSet<String>> uniqueIdByVendor =
+        HashMap();
+    for (final DeviceEntityAbstract? element in widget.entities) {
+      final VendorsAndServices? vendor =
+          element?.cbjDeviceVendor.vendorsAndServices;
+
+      if (vendor == null) {
+        continue;
+      }
+      final HashSet<String> idsInVendor =
+          uniqueIdByVendor[vendor] ??= HashSet<String>();
+
+      final String deviceCbjUniqueId = element!.deviceCbjUniqueId.getOrCrash();
+
+      idsInVendor.add(deviceCbjUniqueId);
+
+      uniqueIdByVendor.addEntries([MapEntry(vendor, idsInVendor)]);
+    }
+    return _uniqueIdByVendor = uniqueIdByVendor;
   }
 
   @override
@@ -129,7 +162,8 @@ class _LightsInTheRoomBlockState extends State<LightsInTheRoomBlock> {
     return GestureDetector(
       onTap: () {
         context.router.push(
-          RoomsLightsRoute(
+          DevicesInRoomRoute(
+            entityTypes: EntityTypes.light,
             roomEntity: widget.roomEntity,
             roomColorGradiant: widget.roomColorGradiant,
           ),
@@ -233,9 +267,7 @@ class _LightsInTheRoomBlockState extends State<LightsInTheRoomBlock> {
                       const BorderSide(width: 0.2),
                     ),
                   ),
-                  onPressed: () {
-                    _turnOffAllLights(extractDevicesId());
-                  },
+                  onPressed: _turnOffAllLights,
                   child: TextAtom(
                     'Off',
                     style: TextStyle(
@@ -260,9 +292,7 @@ class _LightsInTheRoomBlockState extends State<LightsInTheRoomBlock> {
                       const BorderSide(width: 0.2),
                     ),
                   ),
-                  onPressed: () {
-                    _turnOnAllLights(extractDevicesId());
-                  },
+                  onPressed: _turnOnAllLights,
                   child: TextAtom(
                     'On',
                     style: TextStyle(

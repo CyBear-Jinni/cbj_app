@@ -3,21 +3,21 @@ import 'dart:io';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/domain/room/value_objects_room.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_blinds_device/generic_blinds_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_boiler_device/generic_boiler_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_dimmable_light_device/generic_dimmable_light_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_light_device/generic_light_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_printer_device/generic_printer_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_computer_device/generic_smart_computer_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_plug_device/generic_smart_plug_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_tv/generic_smart_tv_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_switch_device/generic_switch_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_blinds_entity/generic_blinds_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_boiler_entity/generic_boiler_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_dimmable_light_entity/generic_dimmable_light_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_light_entity/generic_light_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_printer_entity/generic_printer_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_rgbw_light_entity/generic_rgbw_light_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_smart_computer_entity/generic_smart_computer_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_smart_plug_entity/generic_smart_plug_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_smart_tv_entity/generic_smart_tv_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_switch_entity/generic_switch_entity.dart';
+import 'package:cybear_jinni/infrastructure/core/logger.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/ad_state.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
-import 'package:cybear_jinni/presentation/core/utils.dart';
 import 'package:cybear_jinni/presentation/pages/home_page/tabs/smart_devices_tab/rooms_widgets/rom_widget.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
@@ -108,19 +108,19 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
       return deviceEntity.blindsSwitchState?.getOrCrash() ==
           EntityActions.moveUp.toString();
     } else if (deviceEntity is GenericBoilerDE) {
-      return deviceEntity.boilerSwitchState?.getOrCrash() == onAction;
+      return deviceEntity.boilerSwitchState.getOrCrash() == onAction;
     } else if (deviceEntity is GenericLightDE) {
-      return deviceEntity.lightSwitchState?.getOrCrash() == onAction;
+      return deviceEntity.lightSwitchState.getOrCrash() == onAction;
     } else if (deviceEntity is GenericDimmableLightDE) {
-      return deviceEntity.lightSwitchState?.getOrCrash() == onAction;
+      return deviceEntity.lightSwitchState.getOrCrash() == onAction;
     } else if (deviceEntity is GenericRgbwLightDE) {
-      return deviceEntity.lightSwitchState?.getOrCrash() == onAction;
+      return deviceEntity.lightSwitchState.getOrCrash() == onAction;
     } else if (deviceEntity is GenericSmartTvDE) {
       return deviceEntity.smartTvSwitchState?.getOrCrash() == onAction;
     } else if (deviceEntity is GenericSwitchDE) {
-      return deviceEntity.switchState?.getOrCrash() == onAction;
+      return deviceEntity.switchState.getOrCrash() == onAction;
     } else if (deviceEntity is GenericSmartPlugDE) {
-      return deviceEntity.smartPlugState?.getOrCrash() == onAction;
+      return deviceEntity.smartPlugState.getOrCrash() == onAction;
     } else if (deviceEntity is GenericSmartComputerDE) {
       return false;
     } else if (deviceEntity is GenericPrinterDE) {
@@ -157,7 +157,8 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
           /// Check if app already received the device, it could also
           /// be on the way
           for (final DeviceEntityAbstract? device in devicesListTemp) {
-            if (device != null && device.uniqueId.getOrCrash() == deviceId) {
+            if (device != null &&
+                device.deviceCbjUniqueId.getOrCrash() == deviceId) {
               tempDevicesByRooms[roomId]!.add(device);
 
               devicesListTemp.remove(device);
@@ -197,7 +198,8 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
           /// Check if app already received the device, it could also
           /// be on the way
           for (final DeviceEntityAbstract? device in devicesListTemp) {
-            if (device != null && device.uniqueId.getOrCrash() == deviceId) {
+            if (device != null &&
+                device.deviceCbjUniqueId.getOrCrash() == deviceId) {
               tempDevicesByRooms[roomId]!.add(device);
 
               devicesListTemp.remove(device);
@@ -245,7 +247,7 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
 
     for (final DeviceEntityAbstract? device in devicesList) {
       if (device != null && isDeviceShouldBeSownInSummaryRoom(device)) {
-        summaryDevicesRoom.addDeviceId(device.uniqueId.getOrCrash());
+        summaryDevicesRoom.addDeviceId(device.deviceCbjUniqueId.getOrCrash());
         tempDevicesByRooms[summaryRoomId]!.add(device);
       }
     }

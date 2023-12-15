@@ -1,19 +1,19 @@
 import 'dart:io';
 
-import 'package:cbj_integrations_controller/domain/local_db/i_local_devices_db_repository.dart';
-import 'package:cbj_integrations_controller/domain/saved_devices/i_saved_devices_repo.dart';
+import 'package:cbj_integrations_controller/domain/i_saved_devices_repo.dart';
+import 'package:cbj_integrations_controller/domain/local_db/i_local_db_repository.dart';
+import 'package:cbj_integrations_controller/infrastructure/core/injection.dart';
 import 'package:cbj_integrations_controller/infrastructure/node_red/node_red_repository.dart';
 import 'package:cbj_integrations_controller/infrastructure/system_commands/system_commands_manager_d.dart';
-import 'package:cbj_integrations_controller/injection.dart';
 import 'package:cbj_smart_device_flutter/commands/flutter_commands.dart';
 import 'package:cybear_jinni/domain/i_local_db_repository.dart';
 import 'package:cybear_jinni/domain/i_notification_service.dart';
 import 'package:cybear_jinni/domain/i_phone_as_hub.dart';
 import 'package:cybear_jinni/infrastructure/app_commands.dart';
+import 'package:cybear_jinni/infrastructure/core/injection.dart';
 import 'package:cybear_jinni/infrastructure/mqtt.dart';
 import 'package:cybear_jinni/presentation/core/ad_state.dart';
 import 'package:cybear_jinni/presentation/core/app_widget.dart';
-import 'package:cybear_jinni/presentation/core/injection.dart';
 import 'package:cybear_jinni/presentation/core/routes/app_router.dart';
 import 'package:dartz/dartz.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -35,8 +35,7 @@ Future<Unit> main() async {
   await Hive.initFlutter();
   AppCommands();
   await Future.value([
-    ICbjIntegrationsControllerDbRepository.instance
-        .initializeDb(isFlutter: true),
+    IDbRepository.instance.initializeDb(isFlutter: true),
     ILocalDbRepository.instance.asyncConstructor(),
     ISavedDevicesRepo.instance.setUpAllFromDb(),
   ]);
@@ -58,6 +57,7 @@ Future<Unit> main() async {
   PhoneCommandsD();
   SystemCommandsManager();
   NodeRedRepository();
+  IPhoneAsHub.instance.startListen();
   IPhoneAsHub.instance.searchDevices();
 
   runApp(
