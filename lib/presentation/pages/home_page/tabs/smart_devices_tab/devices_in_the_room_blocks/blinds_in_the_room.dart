@@ -1,11 +1,14 @@
+import 'dart:collection';
+
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/entity_type_utils.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_blinds_entity/generic_blinds_entity.dart';
-import 'package:cybear_jinni/domain/device/i_device_repository.dart';
+import 'package:cybear_jinni/domain/i_phone_as_hub.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
@@ -16,7 +19,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class BlindsInTheRoom extends StatefulWidget {
   const BlindsInTheRoom({
     required this.roomEntity,
-    this.blindsInRoom,
+    this.entities,
     this.roomColorGradiant,
   });
 
@@ -33,13 +36,13 @@ class BlindsInTheRoom extends StatefulWidget {
 
     return BlindsInTheRoom(
       roomEntity: roomEntity,
-      blindsInRoom: tempLightsInRoom,
+      entities: tempLightsInRoom,
       roomColorGradiant: tempRoomColorGradiant,
     );
   }
 
   final RoomEntity roomEntity;
-  final List<GenericBlindsDE?>? blindsInRoom;
+  final List<GenericBlindsDE?>? entities;
   final ListOfColors? roomColorGradiant;
 
   @override
@@ -47,38 +50,71 @@ class BlindsInTheRoom extends StatefulWidget {
 }
 
 class _BlindsInTheRoomState extends State<BlindsInTheRoom> {
-  Future<void> _moveUpAllBlinds(List<String> blindsIdToTurnUp) async {
+  Future<void> _moveUpAllBlinds() async {
     FlushbarHelper.createLoading(
       message: 'Pulling_Up_all_blinds'.tr(),
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(context);
 
-    IDeviceRepository.instance.moveUpStateDevices(devicesId: blindsIdToTurnUp);
+    setEntityState(EntityActions.moveUp);
   }
 
-  Future<void> _moveDownAllBlinds(List<String> blindsIdToTurnDown) async {
+  Future<void> _moveDownAllBlinds() async {
     FlushbarHelper.createLoading(
       message: 'Pulling_down_all_blinds'.tr(),
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(context);
 
-    IDeviceRepository.instance
-        .moveDownStateDevices(devicesId: blindsIdToTurnDown);
+    setEntityState(EntityActions.moveDown);
   }
 
-  List<String> extractDevicesId() {
-    final List<String> devicesIdList = [];
-    for (final element in widget.blindsInRoom!) {
-      devicesIdList.add(element!.uniqueId.getOrCrash());
+  void setEntityState(EntityActions action) {
+    final VendorsAndServices? vendor =
+        widget.entities?.first?.cbjDeviceVendor.vendorsAndServices;
+    if (vendor == null) {
+      return;
     }
-    return devicesIdList;
+
+    IPhoneAsHub.instance.setEntityState(
+      uniqueIdByVendor: getUniqueIdByVendor(),
+      property: EntityProperties.blindsSwitchState,
+      actionType: action,
+    );
+  }
+
+  HashMap<VendorsAndServices, HashSet<String>>? _uniqueIdByVendor;
+
+  HashMap<VendorsAndServices, HashSet<String>> getUniqueIdByVendor() {
+    if (_uniqueIdByVendor != null) {
+      return _uniqueIdByVendor!;
+    }
+
+    final HashMap<VendorsAndServices, HashSet<String>> uniqueIdByVendor =
+        HashMap();
+    for (final GenericBlindsDE? element in widget.entities!) {
+      final VendorsAndServices? vendor =
+          element?.cbjDeviceVendor.vendorsAndServices;
+
+      if (vendor == null) {
+        continue;
+      }
+      final HashSet<String> idsInVendor =
+          uniqueIdByVendor[vendor] ??= HashSet<String>();
+
+      final String deviceCbjUniqueId = element!.deviceCbjUniqueId.getOrCrash();
+
+      idsInVendor.add(deviceCbjUniqueId);
+
+      uniqueIdByVendor.addEntries([MapEntry(vendor, idsInVendor)]);
+    }
+    return _uniqueIdByVendor = uniqueIdByVendor;
   }
 
   @override
   Widget build(BuildContext context) {
     String deviceText;
-    if (widget.blindsInRoom!.length == 1) {
-      deviceText = widget.blindsInRoom![0]!.cbjEntityName.getOrCrash()!;
+    if (widget.entities!.length == 1) {
+      deviceText = widget.entities![0]!.cbjEntityName.getOrCrash()!;
     } else {
       deviceText =
           '_Blinds'.tr(args: [widget.roomEntity.cbjEntityName.getOrCrash()]);
@@ -123,7 +159,7 @@ class _BlindsInTheRoomState extends State<BlindsInTheRoom> {
                     ],
                   ),
                 ),
-                if (widget.blindsInRoom!.length > 1)
+                if (widget.entities!.length > 1)
                   Expanded(
                     child: Container(
                       height: 55,
@@ -141,7 +177,7 @@ class _BlindsInTheRoomState extends State<BlindsInTheRoom> {
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: TextAtom(
-                          widget.blindsInRoom!.length.toString(),
+                          widget.entities!.length.toString(),
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 13,
@@ -195,9 +231,7 @@ class _BlindsInTheRoomState extends State<BlindsInTheRoom> {
                       EdgeInsets.zero,
                     ),
                   ),
-                  onPressed: () {
-                    _moveDownAllBlinds(extractDevicesId());
-                  },
+                  onPressed: _moveDownAllBlinds,
                   child: FaIcon(
                     FontAwesomeIcons.chevronDown,
                     color: Theme.of(context).textTheme.bodyMedium!.color,
@@ -222,9 +256,7 @@ class _BlindsInTheRoomState extends State<BlindsInTheRoom> {
                       EdgeInsets.zero,
                     ),
                   ),
-                  onPressed: () {
-                    _moveUpAllBlinds(extractDevicesId());
-                  },
+                  onPressed: _moveUpAllBlinds,
                   child: FaIcon(
                     FontAwesomeIcons.chevronUp,
                     color: Theme.of(context).textTheme.bodyMedium!.color,

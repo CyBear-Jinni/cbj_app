@@ -108,19 +108,19 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
       return deviceEntity.blindsSwitchState?.getOrCrash() ==
           EntityActions.moveUp.toString();
     } else if (deviceEntity is GenericBoilerDE) {
-      return deviceEntity.boilerSwitchState?.getOrCrash() == onAction;
+      return deviceEntity.boilerSwitchState.getOrCrash() == onAction;
     } else if (deviceEntity is GenericLightDE) {
-      return deviceEntity.lightSwitchState?.getOrCrash() == onAction;
+      return deviceEntity.lightSwitchState.getOrCrash() == onAction;
     } else if (deviceEntity is GenericDimmableLightDE) {
-      return deviceEntity.lightSwitchState?.getOrCrash() == onAction;
+      return deviceEntity.lightSwitchState.getOrCrash() == onAction;
     } else if (deviceEntity is GenericRgbwLightDE) {
-      return deviceEntity.lightSwitchState?.getOrCrash() == onAction;
+      return deviceEntity.lightSwitchState.getOrCrash() == onAction;
     } else if (deviceEntity is GenericSmartTvDE) {
       return deviceEntity.smartTvSwitchState?.getOrCrash() == onAction;
     } else if (deviceEntity is GenericSwitchDE) {
-      return deviceEntity.switchState?.getOrCrash() == onAction;
+      return deviceEntity.switchState.getOrCrash() == onAction;
     } else if (deviceEntity is GenericSmartPlugDE) {
-      return deviceEntity.smartPlugState?.getOrCrash() == onAction;
+      return deviceEntity.smartPlugState.getOrCrash() == onAction;
     } else if (deviceEntity is GenericSmartComputerDE) {
       return false;
     } else if (deviceEntity is GenericPrinterDE) {

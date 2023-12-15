@@ -11,7 +11,7 @@ class BlindsCardMolecule extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final deviceState = entity.entityStateGRPC.getOrCrash();
-    final deviceAction = entity.lightSwitchState!.getOrCrash();
+    final deviceAction = entity.lightSwitchState.getOrCrash();
 
     if (deviceAction == EntityActions.on.toString()) {
       if (deviceState == EntityStateGRPC.ack.toString()) {

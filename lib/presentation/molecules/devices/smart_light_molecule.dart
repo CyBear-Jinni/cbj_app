@@ -55,7 +55,7 @@ class _SmartLightPage extends State<SmartLightMolecule> {
   //  Send request to light to retrieve his state on or off
   Future<bool> getLightAction() async {
     return _switchState = EntityUtils.stringToDeviceAction(
-          _light!.lightSwitchState!.getOrCrash(),
+          _light!.lightSwitchState.getOrCrash(),
         ) ==
         EntityActions.on;
   }

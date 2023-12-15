@@ -191,7 +191,7 @@ class _RoomWidgetState extends State<RoomWidget> {
 
                     return LightsInTheRoomBlock.withAbstractDevice(
                       roomEntity: widget.roomEntity,
-                      tempDeviceInRoom: devicesInTheRoom,
+                      entities: devicesInTheRoom,
                       tempRoomColorGradiant: widget.roomColorGradiant,
                     );
                   } else if (deviceType == EntityTypes.switch_.toString()) {
@@ -200,7 +200,7 @@ class _RoomWidgetState extends State<RoomWidget> {
                         (element) =>
                             element!.uniqueId.getOrCrash() == widget.roomId,
                       )!,
-                      tempDeviceInRoom: devicesInTheRoom,
+                      entities: devicesInTheRoom,
                       tempRoomColorGradiant: widget.roomColorGradiant,
                     );
                   } else if (deviceType == EntityTypes.blinds.toString()) {
@@ -227,7 +227,7 @@ class _RoomWidgetState extends State<RoomWidget> {
                         (element) =>
                             element!.uniqueId.getOrCrash() == widget.roomId,
                       )!,
-                      tempDeviceInRoom: devicesInTheRoom,
+                      entities: devicesInTheRoom,
                       tempRoomColorGradiant: widget.roomColorGradiant,
                     );
                   } else if (deviceType ==

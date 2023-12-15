@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/entity_type_utils.dart';
@@ -37,9 +39,20 @@ class _BlindMoleculeState extends State<BlindMolecule> {
       return;
     }
 
+    final HashMap<VendorsAndServices, HashSet<String>> uniqueIdByVendor =
+        HashMap();
+    uniqueIdByVendor.addEntries(
+      [
+        MapEntry(
+          vendor,
+          HashSet<String>()
+            ..addAll([widget.entity.deviceCbjUniqueId.getOrCrash()]),
+        ),
+      ],
+    );
+
     IPhoneAsHub.instance.setEntityState(
-      cbjUniqeId: widget.entity.deviceCbjUniqueId.getOrCrash(),
-      vendor: vendor,
+      uniqueIdByVendor: uniqueIdByVendor,
       property: EntityProperties.blindsSwitchState,
       actionType: action,
     );

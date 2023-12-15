@@ -1,11 +1,14 @@
+import 'dart:collection';
+
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/entity_type_utils.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_smart_plug_entity/generic_smart_plug_entity.dart';
-import 'package:cybear_jinni/domain/device/i_device_repository.dart';
+import 'package:cybear_jinni/domain/i_phone_as_hub.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
@@ -18,16 +21,17 @@ class SmartPlugsInTheRoomBlock extends StatefulWidget {
     required this.roomEntity,
     required this.smartPlugsInRoom,
     required this.roomColorGradiant,
+    required this.entities,
   });
 
   factory SmartPlugsInTheRoomBlock.withAbstractDevice({
     required RoomEntity roomEntityTemp,
-    required List<DeviceEntityAbstract> tempDeviceInRoom,
+    required List<DeviceEntityAbstract> entities,
     required ListOfColors tempRoomColorGradiant,
   }) {
     final List<GenericSmartPlugDE> tempSmartPlugsInRoom = [];
 
-    for (final element in tempDeviceInRoom) {
+    for (final element in entities) {
       tempSmartPlugsInRoom.add(element as GenericSmartPlugDE);
     }
 
@@ -35,12 +39,14 @@ class SmartPlugsInTheRoomBlock extends StatefulWidget {
       roomEntity: roomEntityTemp,
       smartPlugsInRoom: tempSmartPlugsInRoom,
       roomColorGradiant: tempRoomColorGradiant,
+      entities: entities,
     );
   }
 
   final RoomEntity roomEntity;
   final List<GenericSmartPlugDE> smartPlugsInRoom;
   final ListOfColors roomColorGradiant;
+  final List<DeviceEntityAbstract> entities;
 
   @override
   State<SmartPlugsInTheRoomBlock> createState() =>
@@ -48,22 +54,64 @@ class SmartPlugsInTheRoomBlock extends StatefulWidget {
 }
 
 class _SmartPlugsInTheRoomBlockState extends State<SmartPlugsInTheRoomBlock> {
-  Future<void> _turnOffAllSmartPlugs(List<String> smartPlugsIdToTurnOff) async {
+  Future<void> _turnOffAllSmartPlugs() async {
     FlushbarHelper.createLoading(
       message: 'Turning Off all smartPlugs',
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(context);
 
-    IDeviceRepository.instance.turnOffDevices(devicesId: smartPlugsIdToTurnOff);
+    setEntityState(EntityActions.off);
   }
 
-  Future<void> _turnOnAllSmartPlugs(List<String> smartPlugsIdToTurnOn) async {
+  Future<void> _turnOnAllSmartPlugs() async {
     FlushbarHelper.createLoading(
       message: 'Turning On all smartPlugs',
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(context);
 
-    IDeviceRepository.instance.turnOnDevices(devicesId: smartPlugsIdToTurnOn);
+    setEntityState(EntityActions.on);
+  }
+
+  void setEntityState(EntityActions action) {
+    final VendorsAndServices? vendor =
+        widget.entities.first.cbjDeviceVendor.vendorsAndServices;
+    if (vendor == null) {
+      return;
+    }
+
+    IPhoneAsHub.instance.setEntityState(
+      uniqueIdByVendor: getUniqueIdByVendor(),
+      property: EntityProperties.smartPlugState,
+      actionType: action,
+    );
+  }
+
+  HashMap<VendorsAndServices, HashSet<String>>? _uniqueIdByVendor;
+
+  HashMap<VendorsAndServices, HashSet<String>> getUniqueIdByVendor() {
+    if (_uniqueIdByVendor != null) {
+      return _uniqueIdByVendor!;
+    }
+
+    final HashMap<VendorsAndServices, HashSet<String>> uniqueIdByVendor =
+        HashMap();
+    for (final DeviceEntityAbstract? element in widget.entities) {
+      final VendorsAndServices? vendor =
+          element?.cbjDeviceVendor.vendorsAndServices;
+
+      if (vendor == null) {
+        continue;
+      }
+      final HashSet<String> idsInVendor =
+          uniqueIdByVendor[vendor] ??= HashSet<String>();
+
+      final String deviceCbjUniqueId = element!.deviceCbjUniqueId.getOrCrash();
+
+      idsInVendor.add(deviceCbjUniqueId);
+
+      uniqueIdByVendor.addEntries([MapEntry(vendor, idsInVendor)]);
+    }
+    return _uniqueIdByVendor = uniqueIdByVendor;
   }
 
   @override
@@ -184,9 +232,7 @@ class _SmartPlugsInTheRoomBlockState extends State<SmartPlugsInTheRoomBlock> {
                       const BorderSide(width: 0.2),
                     ),
                   ),
-                  onPressed: () {
-                    _turnOffAllSmartPlugs(extractDevicesId());
-                  },
+                  onPressed: _turnOffAllSmartPlugs,
                   child: TextAtom(
                     'Off',
                     style: TextStyle(
@@ -211,9 +257,7 @@ class _SmartPlugsInTheRoomBlockState extends State<SmartPlugsInTheRoomBlock> {
                       const BorderSide(width: 0.2),
                     ),
                   ),
-                  onPressed: () {
-                    _turnOnAllSmartPlugs(extractDevicesId());
-                  },
+                  onPressed: _turnOnAllSmartPlugs,
                   child: TextAtom(
                     'On',
                     style: TextStyle(

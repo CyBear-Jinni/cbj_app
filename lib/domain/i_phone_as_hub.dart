@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:collection';
 
 import 'package:cbj_integrations_controller/infrastructure/devices_service.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
@@ -18,8 +19,7 @@ abstract interface class IPhoneAsHub {
   Future searchDevices();
 
   void setEntityState({
-    required String cbjUniqeId,
-    required VendorsAndServices vendor,
+    required HashMap<VendorsAndServices, HashSet<String>> uniqueIdByVendor,
     required EntityProperties property,
     required EntityActions actionType,
     dynamic value,

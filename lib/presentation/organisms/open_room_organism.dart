@@ -40,7 +40,7 @@ class _OpenRoomOrganismState extends State<OpenRoomOrganism> {
 
     final String? entityTypeName = widget.entityTypes?.name;
 
-    List<DeviceEntityAbstract> tempDevices = devicesMap.values
+    final List<DeviceEntityAbstract> tempDevices = devicesMap.values
         .where(
           (element) =>
               deviceIdsInRoom

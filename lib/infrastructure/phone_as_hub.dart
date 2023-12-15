@@ -37,15 +37,13 @@ class _PhoneAsHubRepository implements IPhoneAsHub {
 
   @override
   void setEntityState({
-    required String cbjUniqeId,
-    required VendorsAndServices vendor,
+    required HashMap<VendorsAndServices, HashSet<String>> uniqueIdByVendor,
     required EntityProperties property,
     required EntityActions actionType,
     dynamic value,
   }) =>
       DevicesService().setEntityState(
-        cbjUniqeId: cbjUniqeId,
-        vendor: vendor,
+        uniqueIdByVendor: uniqueIdByVendor,
         action: actionType,
         property: property,
         value: value,
