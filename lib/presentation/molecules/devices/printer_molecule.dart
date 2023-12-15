@@ -1,5 +1,5 @@
 import 'package:another_flushbar/flushbar_helper.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_printer_device/generic_printer_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_printer_entity/generic_printer_entity.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -8,9 +8,9 @@ import 'package:url_launcher/url_launcher.dart';
 /// Show switch toggles in a container with the background color from smart room
 /// object
 class PrinterMolecule extends StatefulWidget {
-  const PrinterMolecule(this._deviceEntity);
+  const PrinterMolecule(this.entity);
 
-  final GenericPrinterDE _deviceEntity;
+  final GenericPrinterDE entity;
 
   @override
   State<PrinterMolecule> createState() => _PrinterMoleculeState();
@@ -23,8 +23,7 @@ class _PrinterMoleculeState extends State<PrinterMolecule> {
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(context);
 
-    final String printerIp =
-        widget._deviceEntity.deviceLastKnownIp.getOrCrash()!;
+    final String printerIp = widget.entity.deviceLastKnownIp.getOrCrash()!;
     launchUrl(
       Uri.parse('http://$printerIp'),
       mode: LaunchMode.externalApplication,

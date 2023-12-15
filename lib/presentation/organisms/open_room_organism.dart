@@ -1,6 +1,6 @@
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/i_phone_as_hub.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/molecules/molecules.dart';
@@ -40,7 +40,7 @@ class _OpenRoomOrganismState extends State<OpenRoomOrganism> {
 
     final String? entityTypeName = widget.entityTypes?.name;
 
-    final List<DeviceEntityAbstract> tempDevices = devicesMap.values
+    List<DeviceEntityAbstract> tempDevices = devicesMap.values
         .where(
           (element) =>
               deviceIdsInRoom

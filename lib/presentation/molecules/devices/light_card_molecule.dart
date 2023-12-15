@@ -1,19 +1,19 @@
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/value_objects_core.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_light_device/generic_light_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_light_device/generic_light_value_objects.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/value_objects_core.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_light_entity/generic_light_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_light_entity/generic_light_value_objects.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LightCardMolecule extends StatelessWidget {
-  const LightCardMolecule(this._deviceEntity);
+  const LightCardMolecule(this.entity);
 
-  final GenericLightDE? _deviceEntity;
+  final GenericLightDE? entity;
 
   Future<void> _onChange(bool value) async {
-    final GenericLightDE tempDeviceEntity = _deviceEntity!
+    final GenericLightDE tempDeviceEntity = entity!
       ..entityStateGRPC = EntityState(EntityStateGRPC.waitingInCloud.toString())
       ..lightSwitchState = GenericLightSwitchState(value.toString());
 
@@ -33,8 +33,8 @@ class LightCardMolecule extends StatelessWidget {
     final Size screenSize = MediaQuery.of(context).size;
     final double sizeBoxWidth = screenSize.width * 0.25;
 
-    final deviceState = _deviceEntity!.entityStateGRPC.getOrCrash();
-    final deviceAction = _deviceEntity!.lightSwitchState!.getOrCrash();
+    final deviceState = entity!.entityStateGRPC.getOrCrash();
+    final deviceAction = entity!.lightSwitchState!.getOrCrash();
 
     bool toggleValue = false;
     Color toggleColor = Colors.blueGrey;

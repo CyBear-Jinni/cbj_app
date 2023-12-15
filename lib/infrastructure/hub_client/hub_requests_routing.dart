@@ -5,21 +5,21 @@ import 'package:cbj_integrations_controller/domain/room/i_room_repository.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/domain/scene/i_scene_cbj_repository.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/device_type_enums.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_blinds_device/generic_blinds_device_dtos.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_boiler_device/generic_boiler_device_dtos.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_dimmable_light_device/generic_dimmable_light_device_dtos.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_empty_device/generic_empty_device_dtos.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_light_device/generic_light_device_dtos.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_ping_device/generic_ping_device_dtos.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_printer_device/generic_printer_device_dtos.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_rgbw_light_device/generic_rgbw_light_device_dtos.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_security_camera_device/generic_security_camera_device_dtos.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_computer_device/generic_smart_computer_device_dtos.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_plug_device/generic_smart_plug_device_dtos.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_tv_device/generic_smart_tv_device_dtos.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_switch_device/generic_switch_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/entity_type_utils.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_blinds_entity/generic_blinds_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_boiler_entity/generic_boiler_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_dimmable_light_entity/generic_dimmable_light_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_empty_entity/generic_empty_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_light_entity/generic_light_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_ping_entity/generic_ping_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_printer_entity/generic_printer_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_rgbw_light_entity/generic_rgbw_light_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_security_camera_entity/generic_security_camera_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_smart_computer_entity/generic_smart_computer_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_smart_plug_entity/generic_smart_plug_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_smart_tv_entity/generic_smart_tv_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_switch_entity/generic_switch_device_dtos.dart';
 import 'package:cbj_integrations_controller/infrastructure/hub_client/hub_client.dart';
 import 'package:cbj_integrations_controller/infrastructure/room/room_entity_dtos.dart';
 import 'package:cbj_integrations_controller/infrastructure/scenes/scene_cbj_dtos.dart';
@@ -151,11 +151,10 @@ class HubRequestRouting {
 
     ///TODO: add request type login support
 
-    final EntityTypes? deviceType =
-        EnumHelperCbj.stringToDt(deviceTypeAsString);
+    final EntityTypes? deviceType = EntityUtils.stringToDt(deviceTypeAsString);
 
     final EntityStateGRPC? entityStateGRPC =
-        EnumHelperCbj.stringToDeviceState(deviceStateAsString);
+        EntityUtils.stringToDeviceState(deviceStateAsString);
 
     if (deviceType == null || entityStateGRPC == null) {
       return;

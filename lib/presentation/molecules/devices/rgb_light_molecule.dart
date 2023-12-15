@@ -1,5 +1,5 @@
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_rgbw_light_device/generic_rgbw_light_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_rgbw_light_entity/generic_rgbw_light_entity.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:flutter/material.dart';
@@ -10,9 +10,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 /// Show light toggles in a container with the background color from smart room
 /// object
 class RgbwLightMolecule extends StatefulWidget {
-  const RgbwLightMolecule(this._deviceEntity);
+  const RgbwLightMolecule(this.entity);
 
-  final GenericRgbwLightDE _deviceEntity;
+  final GenericRgbwLightDE entity;
 
   @override
   State<RgbwLightMolecule> createState() => _RgbwLightMoleculeState();
@@ -30,7 +30,7 @@ class _RgbwLightMoleculeState extends State<RgbwLightMolecule> {
   }
 
   Future<void> _initialized() async {
-    final GenericRgbwLightDE rgbwLightDe = widget._deviceEntity;
+    final GenericRgbwLightDE rgbwLightDe = widget.entity;
 
     int lightColorTemperature =
         int.parse(rgbwLightDe.lightColorTemperature.getOrCrash());
@@ -55,11 +55,11 @@ class _RgbwLightMoleculeState extends State<RgbwLightMolecule> {
   Future<void> _changeState(bool changeToState) async {
     if (changeToState) {
       await IDeviceRepository.instance.turnOnDevices(
-        devicesId: [widget._deviceEntity.cbjDeviceVendor.getOrCrash()],
+        devicesId: [widget.entity.cbjDeviceVendor.getOrCrash()],
       );
     } else {
       await IDeviceRepository.instance.turnOffDevices(
-        devicesId: [widget._deviceEntity.cbjDeviceVendor.getOrCrash()],
+        devicesId: [widget.entity.cbjDeviceVendor.getOrCrash()],
       );
     }
   }
@@ -68,7 +68,7 @@ class _RgbwLightMoleculeState extends State<RgbwLightMolecule> {
     brightness = value;
 
     IDeviceRepository.instance.changeBrightnessDevices(
-      devicesId: [widget._deviceEntity.cbjDeviceVendor.getOrCrash()],
+      devicesId: [widget.entity.cbjDeviceVendor.getOrCrash()],
       brightnessToChange: value.round(),
     );
   }
@@ -78,8 +78,8 @@ class _RgbwLightMoleculeState extends State<RgbwLightMolecule> {
     final Size screenSize = MediaQuery.of(context).size;
     final double sizeBoxWidth = screenSize.width * 0.25;
 
-    final deviceState = widget._deviceEntity.entityStateGRPC.getOrCrash();
-    final deviceAction = widget._deviceEntity.lightSwitchState!.getOrCrash();
+    final deviceState = widget.entity.entityStateGRPC.getOrCrash();
+    final deviceAction = widget.entity.lightSwitchState!.getOrCrash();
 
     bool toggleValue = false;
     Color toggleColor = Colors.blueGrey;
@@ -106,7 +106,7 @@ class _RgbwLightMoleculeState extends State<RgbwLightMolecule> {
               children: [
                 Flexible(
                   child: TextAtom(
-                    widget._deviceEntity.cbjEntityName.getOrCrash()!,
+                    widget.entity.cbjEntityName.getOrCrash()!,
                     style: const TextStyle(
                       overflow: TextOverflow.clip,
                       fontSize: 20.0,
@@ -147,7 +147,7 @@ class _RgbwLightMoleculeState extends State<RgbwLightMolecule> {
           const SizedBox(
             height: 3,
           ),
-          LightColorMods(deviceEntity: widget._deviceEntity),
+          LightColorMods(deviceEntity: widget.entity),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Row(

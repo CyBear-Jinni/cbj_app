@@ -1,6 +1,8 @@
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_light_device/generic_light_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/entity_type_utils.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_light_entity/generic_light_entity.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
+import 'package:cybear_jinni/domain/i_phone_as_hub.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -8,20 +10,27 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 /// Show light toggles in a container with the background color from smart room
 /// object
 class LightMolecule extends StatelessWidget {
-  const LightMolecule(this._deviceEntity);
+  const LightMolecule(this.entity);
 
-  final GenericLightDE _deviceEntity;
+  final GenericLightDE entity;
 
   Future<void> _onChange(bool value) async {
-    if (value) {
-      await IDeviceRepository.instance.turnOnDevices(
-        devicesId: [_deviceEntity.cbjDeviceVendor.getOrCrash()],
-      );
-    } else {
-      await IDeviceRepository.instance.turnOffDevices(
-        devicesId: [_deviceEntity.cbjDeviceVendor.getOrCrash()],
-      );
+    setEntityState(value ? EntityActions.on : EntityActions.off);
+  }
+
+  void setEntityState(EntityActions action) {
+    final VendorsAndServices? vendor =
+        entity.cbjDeviceVendor.vendorsAndServices;
+    if (vendor == null) {
+      return;
     }
+
+    IPhoneAsHub.instance.setEntityState(
+      cbjUniqeId: entity.deviceCbjUniqueId.getOrCrash(),
+      vendor: vendor,
+      property: EntityProperties.lightSwitchState,
+      actionType: action,
+    );
   }
 
   @override
@@ -29,8 +38,8 @@ class LightMolecule extends StatelessWidget {
     final Size screenSize = MediaQuery.of(context).size;
     final double sizeBoxWidth = screenSize.width * 0.25;
 
-    final deviceState = _deviceEntity.entityStateGRPC.getOrCrash();
-    final deviceAction = _deviceEntity.lightSwitchState!.getOrCrash();
+    final deviceState = entity.entityStateGRPC.getOrCrash();
+    final deviceAction = entity.lightSwitchState!.getOrCrash();
 
     bool toggleValue = false;
     Color toggleColor = Colors.blueGrey;

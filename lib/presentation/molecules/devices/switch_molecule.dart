@@ -1,8 +1,10 @@
 import 'dart:async';
 
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_switch_device/generic_switch_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/entity_type_utils.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_switch_entity/generic_switch_entity.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
+import 'package:cybear_jinni/domain/i_phone_as_hub.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -10,9 +12,9 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 /// Show switch toggles in a container with the background color from smart room
 /// object
 class SwitchMolecule extends StatefulWidget {
-  const SwitchMolecule(this._deviceEntity);
+  const SwitchMolecule(this.entity);
 
-  final GenericSwitchDE _deviceEntity;
+  final GenericSwitchDE entity;
 
   @override
   State<SwitchMolecule> createState() => _SwitchMoleculeState();
@@ -23,26 +25,22 @@ class _SwitchMoleculeState extends State<SwitchMolecule> {
   Timer? timeFromLastColorChange;
   HSVColor? lastColoredPicked;
 
-  Future<void> _changeAction(bool changeToState) async {
-    if (changeToState) {
-      await IDeviceRepository.instance.turnOnDevices(
-        devicesId: [widget._deviceEntity.cbjDeviceVendor.getOrCrash()],
-      );
-    } else {
-      await IDeviceRepository.instance.turnOffDevices(
-        devicesId: [widget._deviceEntity.cbjDeviceVendor.getOrCrash()],
-      );
-    }
+  Future<void> _changeAction(bool value) async {
+    setEntityState(value ? EntityActions.on : EntityActions.off);
   }
 
-  /// This function will make sure that the app sends color once each x seconds.
-  /// Moving the hand on the color slider sends tons of requests with
-  /// different colors which is not efficient and some device can't even handle
-  /// so many requests.
-  Future<void> changeColorOncePerTimer() async {
-    await IDeviceRepository.instance.changeHsvColorDevices(
-      devicesId: [widget._deviceEntity.cbjDeviceVendor.getOrCrash()],
-      hsvColorToChange: lastColoredPicked!,
+  void setEntityState(EntityActions action) {
+    final VendorsAndServices? vendor =
+        widget.entity.cbjDeviceVendor.vendorsAndServices;
+    if (vendor == null) {
+      return;
+    }
+
+    IPhoneAsHub.instance.setEntityState(
+      cbjUniqeId: widget.entity.deviceCbjUniqueId.getOrCrash(),
+      vendor: vendor,
+      property: EntityProperties.lightSwitchState,
+      actionType: action,
     );
   }
 
@@ -51,8 +49,8 @@ class _SwitchMoleculeState extends State<SwitchMolecule> {
     final Size screenSize = MediaQuery.of(context).size;
     final double sizeBoxWidth = screenSize.width * 0.25;
 
-    final deviceState = widget._deviceEntity.entityStateGRPC.getOrCrash();
-    final deviceAction = widget._deviceEntity.switchState!.getOrCrash();
+    final deviceState = widget.entity.entityStateGRPC.getOrCrash();
+    final deviceAction = widget.entity.switchState!.getOrCrash();
 
     bool toggleValue = false;
     Color toggleColor = Colors.blueGrey;

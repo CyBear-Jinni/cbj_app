@@ -1,7 +1,8 @@
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_boiler_device/generic_boiler_entity.dart';
-import 'package:cybear_jinni/domain/device/i_device_repository.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/entity_type_utils.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_boiler_entity/generic_boiler_entity.dart';
+import 'package:cybear_jinni/domain/i_phone_as_hub.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
@@ -17,29 +18,45 @@ class BoilerMolecule extends StatefulWidget {
 }
 
 class _BoilerMoleculeState extends State<BoilerMolecule> {
-  Future<void> _turnOnAllBoilers(List<String> boilersIdToTurnUp) async {
+  Future<void> _turnOnAllBoilers() async {
     FlushbarHelper.createLoading(
       message: 'Turning_On_boiler'.tr(),
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(context);
 
-    IDeviceRepository.instance.turnOnDevices(devicesId: boilersIdToTurnUp);
+    setEntityState(EntityActions.on);
+    // IDeviceRepository.instance.moveUpStateDevices(devicesId: blindsIdToTurnUp);
   }
 
-  Future<void> _turnOffAllBoilers(List<String> boilersIdToTurnOff) async {
+  void setEntityState(EntityActions action) {
+    final VendorsAndServices? vendor =
+        widget.entity.cbjDeviceVendor.vendorsAndServices;
+    if (vendor == null) {
+      return;
+    }
+
+    IPhoneAsHub.instance.setEntityState(
+      cbjUniqeId: widget.entity.deviceCbjUniqueId.getOrCrash(),
+      vendor: vendor,
+      property: EntityProperties.boilerSwitchState,
+      actionType: action,
+    );
+  }
+
+  Future<void> _turnOffAllBoilers() async {
     FlushbarHelper.createLoading(
       message: 'Turning_Off_boiler'.tr(),
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(context);
 
-    IDeviceRepository.instance.turnOffDevices(devicesId: boilersIdToTurnOff);
+    setEntityState(EntityActions.on);
   }
 
   void _onChange(bool value) {
     if (value) {
-      _turnOnAllBoilers([widget.entity.cbjDeviceVendor.getOrCrash()]);
+      _turnOnAllBoilers();
     } else {
-      _turnOffAllBoilers([widget.entity.cbjDeviceVendor.getOrCrash()]);
+      _turnOffAllBoilers();
     }
   }
 

@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/device_type_enums.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_light_device/generic_light_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_light_device/generic_light_value_objects.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/entity_type_utils.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_light_entity/generic_light_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_light_entity/generic_light_value_objects.dart';
 import 'package:cybear_jinni/infrastructure/core/logger.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:flutter/foundation.dart';
@@ -11,10 +11,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+// TODO: Check if duplicate of LightMolecule
 class SmartLightMolecule extends StatefulWidget {
-  const SmartLightMolecule(this.genericLightLight);
+  const SmartLightMolecule(this.entity);
 
-  final GenericLightDE genericLightLight;
+  final GenericLightDE entity;
 
   @override
   State<StatefulWidget> createState() {
@@ -30,7 +31,7 @@ class _SmartLightPage extends State<SmartLightMolecule> {
   @override
   void initState() {
     super.initState();
-    _light = widget.genericLightLight;
+    _light = widget.entity;
     getAndUpdateState();
 
     WidgetsBinding.instance
@@ -53,7 +54,7 @@ class _SmartLightPage extends State<SmartLightMolecule> {
 
   //  Send request to light to retrieve his state on or off
   Future<bool> getLightAction() async {
-    return _switchState = EnumHelperCbj.stringToDeviceAction(
+    return _switchState = EntityUtils.stringToDeviceAction(
           _light!.lightSwitchState!.getOrCrash(),
         ) ==
         EntityActions.on;
@@ -62,7 +63,7 @@ class _SmartLightPage extends State<SmartLightMolecule> {
   Future<void> _onChange(bool value) async {
     logger.t('OnChange $value');
     _light?.lightSwitchState = GenericLightSwitchState(
-      EnumHelperCbj.deviceActionToString(
+      EntityUtils.deviceActionToString(
         value ? EntityActions.on : EntityActions.off,
       ),
     );

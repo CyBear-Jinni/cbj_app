@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_abstract.dart';
 import 'package:cybear_jinni/presentation/molecules/molecules.dart';
 import 'package:cybear_jinni/presentation/pages/add_new_automation_process/add_action/widgets/action_choose_information.dart';
 import 'package:flutter/material.dart';

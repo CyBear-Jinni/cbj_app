@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/domain/room/i_room_repository.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_abstract.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/snack_bar_service.dart';
@@ -180,8 +180,8 @@ class _ActionChooseInformationState extends State<ActionChooseInformation> {
                       .getListOfPropertiesToChange()
                       .map<DropdownMenuItem<String>>((e) {
                       return DropdownMenuItem<String>(
-                        value: e,
-                        child: TextAtom(e),
+                        value: e.name,
+                        child: TextAtom(e.name),
                       );
                     }).toList()
                   : <DropdownMenuItem<String>>[

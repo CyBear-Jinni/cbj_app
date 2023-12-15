@@ -1,7 +1,8 @@
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_blinds_device/generic_blinds_entity.dart';
-import 'package:cybear_jinni/domain/device/i_device_repository.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/entity_type_utils.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_blinds_entity/generic_blinds_entity.dart';
+import 'package:cybear_jinni/domain/i_phone_as_hub.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -10,22 +11,38 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 /// Show light toggles in a container with the background color from smart room
 /// object
 class BlindMolecule extends StatefulWidget {
-  const BlindMolecule(this._deviceEntity);
+  const BlindMolecule(this.entity);
 
-  final GenericBlindsDE _deviceEntity;
+  final GenericBlindsDE entity;
 
   @override
   State<BlindMolecule> createState() => _BlindMoleculeState();
 }
 
 class _BlindMoleculeState extends State<BlindMolecule> {
-  Future<void> _moveUpAllBlinds(List<String> blindsIdToTurnUp) async {
+  Future<void> _moveUpAllBlinds() async {
     FlushbarHelper.createLoading(
       message: 'Pulling_Up_all_blinds'.tr(),
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(context);
 
-    IDeviceRepository.instance.moveUpStateDevices(devicesId: blindsIdToTurnUp);
+    setEntityState(EntityActions.moveUp);
+    // IDeviceRepository.instance.moveUpStateDevices(devicesId: blindsIdToTurnUp);
+  }
+
+  void setEntityState(EntityActions action) {
+    final VendorsAndServices? vendor =
+        widget.entity.cbjDeviceVendor.vendorsAndServices;
+    if (vendor == null) {
+      return;
+    }
+
+    IPhoneAsHub.instance.setEntityState(
+      cbjUniqeId: widget.entity.deviceCbjUniqueId.getOrCrash(),
+      vendor: vendor,
+      property: EntityProperties.blindsSwitchState,
+      actionType: action,
+    );
   }
 
   Future<void> _stopAllBlinds(List<String> blindsIdToStop) async {
@@ -34,7 +51,9 @@ class _BlindMoleculeState extends State<BlindMolecule> {
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(context);
 
-    IDeviceRepository.instance.stopStateDevices(devicesId: blindsIdToStop);
+    setEntityState(EntityActions.stop);
+
+    // IDeviceRepository.instance.stopStateDevices(devicesId: blindsIdToStop);
   }
 
   Future<void> _moveDownAllBlinds(List<String> blindsIdToTurnDown) async {
@@ -43,16 +62,18 @@ class _BlindMoleculeState extends State<BlindMolecule> {
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(context);
 
-    IDeviceRepository.instance
-        .moveDownStateDevices(devicesId: blindsIdToTurnDown);
+    setEntityState(EntityActions.moveDown);
+
+    // IDeviceRepository.instance
+    // .moveDownStateDevices(devicesId: blindsIdToTurnDown);
   }
 
   @override
   Widget build(BuildContext context) {
     // final Size screenSize = MediaQuery.of(context).size;
 
-    final deviceState = widget._deviceEntity.entityStateGRPC.getOrCrash();
-    final deviceAction = widget._deviceEntity.blindsSwitchState!.getOrCrash();
+    final deviceState = widget.entity.entityStateGRPC.getOrCrash();
+    final deviceAction = widget.entity.blindsSwitchState!.getOrCrash();
 
     // bool toggleValue = false;
     // Color toggleColor = Colors.blueGrey;
@@ -91,7 +112,7 @@ class _BlindMoleculeState extends State<BlindMolecule> {
               ),
               onPressed: () {
                 _moveDownAllBlinds(
-                  [widget._deviceEntity.cbjDeviceVendor.getOrCrash()],
+                  [widget.entity.cbjDeviceVendor.getOrCrash()],
                 );
               },
               child: Tab(
@@ -126,7 +147,7 @@ class _BlindMoleculeState extends State<BlindMolecule> {
               ),
               onPressed: () {
                 _stopAllBlinds(
-                  [widget._deviceEntity.cbjDeviceVendor.getOrCrash()],
+                  [widget.entity.cbjDeviceVendor.getOrCrash()],
                 );
               },
               child: Tab(
@@ -160,9 +181,7 @@ class _BlindMoleculeState extends State<BlindMolecule> {
                 ),
               ),
               onPressed: () {
-                _moveUpAllBlinds(
-                  [widget._deviceEntity.cbjDeviceVendor.getOrCrash()],
-                );
+                _moveUpAllBlinds();
               },
               child: Tab(
                 icon: FaIcon(

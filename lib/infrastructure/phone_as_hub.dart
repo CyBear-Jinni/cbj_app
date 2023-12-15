@@ -25,13 +25,29 @@ class _PhoneAsHubRepository implements IPhoneAsHub {
     }
     phoneAsHub = true;
 
-    AppRequestsToHub.appRequestsToHubStreamController.stream
-        .listen((clientStatusRequests) {
-      if (!phoneAsHub) {
-        logger.i('Phone as a hub should be canceled');
-        return;
-      }
-      DeviceHelperMethods().handleClientStatusRequests(clientStatusRequests);
-    });
+    // AppRequestsToHub.appRequestsToHubStreamController.stream
+    //     .listen((clientStatusRequests) {
+    //   if (!phoneAsHub) {
+    //     logger.i('Phone as a hub should be canceled');
+    //     return;
+    //   }
+    //   DeviceHelperMethods().handleClientStatusRequests(clientStatusRequests);
+    // });
   }
+
+  @override
+  void setEntityState({
+    required String cbjUniqeId,
+    required VendorsAndServices vendor,
+    required EntityProperties property,
+    required EntityActions actionType,
+    dynamic value,
+  }) =>
+      DevicesService().setEntityState(
+        cbjUniqeId: cbjUniqeId,
+        vendor: vendor,
+        action: actionType,
+        property: property,
+        value: value,
+      );
 }

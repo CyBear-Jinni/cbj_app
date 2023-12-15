@@ -1,17 +1,17 @@
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_light_device/generic_light_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_light_entity/generic_light_entity.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:flutter/material.dart';
 
 class BlindsCardMolecule extends StatelessWidget {
-  const BlindsCardMolecule(this._deviceEntity);
+  const BlindsCardMolecule(this.entity);
 
-  final GenericLightDE _deviceEntity;
+  final GenericLightDE entity;
 
   @override
   Widget build(BuildContext context) {
-    final deviceState = _deviceEntity.entityStateGRPC.getOrCrash();
-    final deviceAction = _deviceEntity.lightSwitchState!.getOrCrash();
+    final deviceState = entity.entityStateGRPC.getOrCrash();
+    final deviceAction = entity.lightSwitchState!.getOrCrash();
 
     if (deviceAction == EntityActions.on.toString()) {
       if (deviceState == EntityStateGRPC.ack.toString()) {

@@ -1,4 +1,4 @@
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_light_device/generic_light_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_light_entity/generic_light_entity.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/organisms/organisms.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +15,7 @@ class SmartDeviceToConfigure extends StatelessWidget {
       color: Colors.black54,
       child: Column(
         children: <Widget>[
-          SmartDeviceTypeAndToggleBar(smartDeviceObject),
+          EntityTypeAndToggleBar(smartDeviceObject),
           TextAtom(
             'Device Name: ${smartDeviceObject.cbjEntityName.getOrCrash()}',
             style: const TextStyle(fontSize: 21),

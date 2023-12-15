@@ -1,5 +1,5 @@
 import 'package:another_flushbar/flushbar_helper.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_computer_device/generic_smart_computer_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_smart_computer_entity/generic_smart_computer_entity.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:flutter/material.dart';
@@ -8,9 +8,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 /// Show switch toggles in a container with the background color from smart room
 /// object
 class SmartComputerMolecule extends StatefulWidget {
-  const SmartComputerMolecule(this._deviceEntity);
+  const SmartComputerMolecule(this.entity);
 
-  final GenericSmartComputerDE? _deviceEntity;
+  final GenericSmartComputerDE? entity;
 
   @override
   State<SmartComputerMolecule> createState() => _SmartComputerMoleculeState();
@@ -36,12 +36,12 @@ class _SmartComputerMoleculeState extends State<SmartComputerMolecule> {
   }
 
   void suspendComputer(BuildContext context) {
-    final String deviceId = widget._deviceEntity!.getDeviceId();
+    final String deviceId = widget.entity!.getDeviceId();
     _suspendAllSmartComputers([deviceId]);
   }
 
   void shutdownComputer(BuildContext context) {
-    final String deviceId = widget._deviceEntity!.getDeviceId();
+    final String deviceId = widget.entity!.getDeviceId();
     _shutdownAllSmartComputers([deviceId]);
   }
 

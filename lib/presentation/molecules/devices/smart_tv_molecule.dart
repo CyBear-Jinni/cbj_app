@@ -1,6 +1,6 @@
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_tv/generic_smart_tv_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_smart_tv_entity/generic_smart_tv_entity.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:flutter/material.dart';
@@ -9,9 +9,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 /// Show switch toggles in a container with the background color from smart room
 /// object
 class SmartTvMolecule extends StatefulWidget {
-  const SmartTvMolecule(this._deviceEntity);
+  const SmartTvMolecule(this.entity);
 
-  final GenericSmartTvDE _deviceEntity;
+  final GenericSmartTvDE entity;
 
   @override
   State<SmartTvMolecule> createState() => _SmartTvMoleculeState();
@@ -25,7 +25,7 @@ class _SmartTvMoleculeState extends State<SmartTvMolecule> {
     ).show(context);
 
     IDeviceRepository.instance
-        .stopStateDevices(devicesId: [widget._deviceEntity.getDeviceId()]);
+        .stopStateDevices(devicesId: [widget.entity.getDeviceId()]);
   }
 
   Future _playState() async {
@@ -35,7 +35,7 @@ class _SmartTvMoleculeState extends State<SmartTvMolecule> {
     ).show(context);
 
     IDeviceRepository.instance
-        .playStateDevices(devicesId: [widget._deviceEntity.getDeviceId()]);
+        .playStateDevices(devicesId: [widget.entity.getDeviceId()]);
   }
 
   Future _queuePrevEvent(List<String> smartTvId) async {
@@ -57,7 +57,7 @@ class _SmartTvMoleculeState extends State<SmartTvMolecule> {
   }
 
   void closeEvent(BuildContext context) {
-    final String deviceId = widget._deviceEntity.getDeviceId();
+    final String deviceId = widget.entity.getDeviceId();
 
     FlushbarHelper.createLoading(
       message: 'Close current app on smart tv',
@@ -68,12 +68,12 @@ class _SmartTvMoleculeState extends State<SmartTvMolecule> {
   }
 
   void queueNextEvent(BuildContext context) {
-    final String deviceId = widget._deviceEntity.getDeviceId();
+    final String deviceId = widget.entity.getDeviceId();
     _queueNextEvent([deviceId]);
   }
 
   void queuePrevEvent(BuildContext context) {
-    final String deviceId = widget._deviceEntity.getDeviceId();
+    final String deviceId = widget.entity.getDeviceId();
     _queuePrevEvent([deviceId]);
   }
 
@@ -107,7 +107,7 @@ class _SmartTvMoleculeState extends State<SmartTvMolecule> {
                 // );
                 OpenUrlPopUp(
                   context,
-                  widget._deviceEntity,
+                  widget.entity,
                 );
               },
               child: Tab(
