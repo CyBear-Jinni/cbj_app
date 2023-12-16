@@ -65,19 +65,29 @@ class _OpenRoomOrganismState extends State<OpenRoomOrganism> {
       return EmptyOpenRoomOrganism();
     }
 
-    return Expanded(
-      child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 15),
-        child: ListView.builder(
-          reverse: true,
-          padding: EdgeInsets.zero,
-          itemBuilder: (context, index) {
-            final DeviceEntityAbstract device = devices![index];
+    final ThemeData themeData = Theme.of(context);
+    final TextTheme textTheme = themeData.textTheme;
 
-            return DeviceByTypeMolecule(device);
-          },
-          itemCount: devices!.length,
-        ),
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 15),
+      child: ListView.builder(
+        reverse: true,
+        padding: EdgeInsets.zero,
+        itemBuilder: (context, index) {
+          final DeviceEntityAbstract device = devices![index];
+
+          return Column(
+            children: [
+              TextAtom(
+                device.cbjEntityName.getOrCrash() ?? '',
+                style: textTheme.titleMedium,
+              ),
+              const SeparatorAtom(),
+              DeviceByTypeMolecule(device),
+            ],
+          );
+        },
+        itemCount: devices!.length,
       ),
     );
   }

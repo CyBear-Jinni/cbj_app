@@ -73,7 +73,7 @@ class _DevicesInNetworkPageState extends State<DevicesInNetworkPage> {
                 device.entityOriginalName.getOrCrash();
             final String? deviceHostName = device.deviceHostName.getOrCrash();
             final String? deviceMdns = device.deviceMdns.getOrCrash();
-            final String devicePort = device.devicePort.getOrCrash();
+            final String? devicePort = device.devicePort.getOrCrash();
             final String cbjDeviceVendor = device.cbjDeviceVendor.getOrCrash();
             final String? devicesMacAddress =
                 device.devicesMacAddress.getOrCrash();

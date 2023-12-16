@@ -16,25 +16,21 @@ class PageOrganism extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData themeData = Theme.of(context);
-    final ColorScheme colorScheme = themeData.colorScheme;
-
     return Scaffold(
-      body: Material(
-        color: colorScheme.background,
-        child: Expanded(
-          child: Column(
-            children: [
-              TopBarMolecule(
-                pageName: pageName,
-                backgroundColor: topBarColor,
-                leftIcon: FontAwesomeIcons.arrowLeft,
-                leftIconFunction: (_) => context.router.pop(),
-              ),
-              child,
-            ],
+      body: Column(
+        children: [
+          SafeArea(
+            child: TopBarMolecule(
+              pageName: pageName,
+              backgroundColor: topBarColor,
+              leftIcon: FontAwesomeIcons.arrowLeft,
+              leftIconFunction: (_) => context.router.pop(),
+            ),
           ),
-        ),
+          Expanded(
+            child: child,
+          ),
+        ],
       ),
     );
   }

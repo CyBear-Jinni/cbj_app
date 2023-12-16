@@ -80,7 +80,7 @@ class MqttServerRepository extends IMqttServerRepository {
       final DeviceEntityAbstract deviceEntityAbstract =
           entityFromTheApp.toDomain();
       deviceEntityAbstract.entityStateGRPC =
-          EntityState(EntityStateGRPC.waitingInComp.toString());
+          EntityState.state(EntityStateGRPC.waitingInComp);
 
       /// Sends directly to device connector conjecture
       ISavedDevicesRepo.instance.addOrUpdateFromMqtt(deviceEntityAbstract);
@@ -88,7 +88,7 @@ class MqttServerRepository extends IMqttServerRepository {
       return;
     } else if (entityFromTheApp is DeviceEntityAbstract) {
       entityFromTheApp.entityStateGRPC =
-          EntityState(EntityStateGRPC.waitingInComp.toString());
+          EntityState.state(EntityStateGRPC.waitingInComp);
 
       /// Sends directly to device connector conjecture
       // ConnectorDevicesStreamFromMqtt.fromMqttStream.add(entityFromTheApp);

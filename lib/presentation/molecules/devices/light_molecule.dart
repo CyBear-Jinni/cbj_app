@@ -14,7 +14,7 @@ class LightMolecule extends StatelessWidget {
 
   final GenericLightDE entity;
 
-  Future<void> _onChange(bool value) async {
+  void _onChange(bool value) {
     setEntityState(value ? EntityActions.on : EntityActions.off);
   }
 

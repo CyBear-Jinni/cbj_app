@@ -13,7 +13,7 @@ class LightCardMolecule extends StatelessWidget {
 
   Future<void> _onChange(bool value) async {
     final GenericLightDE tempDeviceEntity = entity!
-      ..entityStateGRPC = EntityState(EntityStateGRPC.waitingInCloud.toString())
+      ..entityStateGRPC = EntityState.state(EntityStateGRPC.waitingInCloud)
       ..lightSwitchState = GenericLightSwitchState(value.toString());
 
     if (value) {
