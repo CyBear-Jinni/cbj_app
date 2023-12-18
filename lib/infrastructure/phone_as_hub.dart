@@ -9,7 +9,7 @@ class _PhoneAsHubRepository implements IPhoneAsHub {
   }
 
   @override
-  Future<Map<String, DeviceEntityAbstract>> get getAllEntities async {
+  Future<Map<String, DeviceEntityBase>> get getAllEntities async {
     return DevicesService().getEntities();
   }
 

@@ -5,7 +5,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/entity_type_utils.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_blinds_entity/generic_blinds_entity.dart';
 import 'package:cybear_jinni/domain/i_phone_as_hub.dart';
@@ -25,7 +25,7 @@ class BlindsInTheRoom extends StatefulWidget {
 
   factory BlindsInTheRoom.withAbstractDevice({
     required RoomEntity roomEntity,
-    required List<DeviceEntityAbstract> tempDeviceInRoom,
+    required List<DeviceEntityBase> tempDeviceInRoom,
     required ListOfColors tempRoomColorGradiant,
   }) {
     final List<GenericBlindsDE> tempLightsInRoom = [];

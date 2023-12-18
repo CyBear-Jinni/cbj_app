@@ -4,7 +4,7 @@ import 'package:cbj_integrations_controller/domain/room/i_room_repository.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/domain/room/room_failures.dart';
 import 'package:cbj_integrations_controller/domain/room/value_objects_room.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
 import 'package:cybear_jinni/domain/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/i_phone_as_hub.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
@@ -22,16 +22,14 @@ class SmartDevicesByRooms extends StatefulWidget {
 
 class _SmartDevicesByRoomsState extends State<SmartDevicesByRooms> {
   KtList<RoomEntity?> rooms = const KtList<RoomEntity?>.empty();
-  KtList<DeviceEntityAbstract?> devices =
-      const KtList<DeviceEntityAbstract?>.empty();
-  KtList<DeviceEntityAbstract?> listOfDevices = [null].toImmutableList();
+  KtList<DeviceEntityBase?> devices = const KtList<DeviceEntityBase?>.empty();
+  KtList<DeviceEntityBase?> listOfDevices = [null].toImmutableList();
   KtList<RoomEntity?> listOfRooms = [null].toImmutableList();
 
   StreamSubscription<dartz.Either<RoomFailure, KtList<RoomEntity?>>>?
       _roomStreamSubscription;
 
-  StreamSubscription<
-          dartz.Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>?
+  StreamSubscription<dartz.Either<DevicesFailure, KtList<DeviceEntityBase?>>>?
       _deviceStreamSubscription;
   late RoomEntity discoveredRoom;
 
@@ -48,11 +46,11 @@ class _SmartDevicesByRoomsState extends State<SmartDevicesByRooms> {
   }
 
   Future<void> _devicesReceived(
-    dartz.Either<DevicesFailure<dynamic>, KtList<DeviceEntityAbstract?>>
+    dartz.Either<DevicesFailure<dynamic>, KtList<DeviceEntityBase?>>
         failureOrDevices,
   ) async {
-    final KtList<DeviceEntityAbstract?> devicesTemp = failureOrDevices.fold(
-      (f) => const KtList<DeviceEntityAbstract?>.empty(),
+    final KtList<DeviceEntityBase?> devicesTemp = failureOrDevices.fold(
+      (f) => const KtList<DeviceEntityBase?>.empty(),
       (d) => d,
     );
     setState(() {
@@ -83,7 +81,7 @@ class _SmartDevicesByRoomsState extends State<SmartDevicesByRooms> {
       ),
     );
 
-    final Map<String, DeviceEntityAbstract> allDevice =
+    final Map<String, DeviceEntityBase> allDevice =
         await IPhoneAsHub.instance.getAllEntities;
 
     for (final String deviceId in allDevice.keys) {
@@ -124,10 +122,10 @@ class _SmartDevicesByRoomsState extends State<SmartDevicesByRooms> {
         child: EmptyOpenRoomOrganism(),
       );
     }
-    final Map<String?, List<DeviceEntityAbstract>> tempDevicesByRooms =
-        <String, List<DeviceEntityAbstract>>{};
+    final Map<String?, List<DeviceEntityBase>> tempDevicesByRooms =
+        <String, List<DeviceEntityBase>>{};
 
-    final List<DeviceEntityAbstract?> devicesList = devices.iter.toList();
+    final List<DeviceEntityBase?> devicesList = devices.iter.toList();
 
     return SingleChildScrollView(
       reverse: true,

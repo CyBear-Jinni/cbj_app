@@ -3,7 +3,7 @@ import 'dart:collection';
 
 import 'package:cbj_integrations_controller/infrastructure/devices_service.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/entity_type_utils.dart';
 import 'package:cbj_integrations_controller/infrastructure/search_devices.dart';
 
@@ -25,7 +25,7 @@ abstract interface class IPhoneAsHub {
     dynamic value,
   });
 
-  Future<Map<String, DeviceEntityAbstract>> get getAllEntities;
+  Future<Map<String, DeviceEntityBase>> get getAllEntities;
 
   void startListen();
 

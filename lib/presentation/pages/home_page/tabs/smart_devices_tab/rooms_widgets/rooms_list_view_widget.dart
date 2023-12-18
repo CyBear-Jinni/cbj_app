@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/domain/room/value_objects_room.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_blinds_entity/generic_blinds_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_boiler_entity/generic_boiler_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_dimmable_light_entity/generic_dimmable_light_entity.dart';
@@ -33,8 +33,8 @@ class RoomsListViewWidget extends StatefulWidget {
     required this.roomsList,
   });
 
-  final Map<String?, List<DeviceEntityAbstract>> tempDevicesByRooms;
-  final List<DeviceEntityAbstract?> devicesList;
+  final Map<String?, List<DeviceEntityBase>> tempDevicesByRooms;
+  final List<DeviceEntityBase?> devicesList;
   final List<RoomEntity?> roomsList;
 
   @override
@@ -75,13 +75,13 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
 
   /// RoomId than TypeName than list of devices of this type in
   /// this room
-  Map<String, Map<String, List<DeviceEntityAbstract>>>
+  Map<String, Map<String, List<DeviceEntityBase>>>
       mapOfRoomsIdWithListOfDevices({
-    required Map<String?, List<DeviceEntityAbstract>> tempDevicesByRooms,
+    required Map<String?, List<DeviceEntityBase>> tempDevicesByRooms,
   }) {
-    final Map<String, Map<String, List<DeviceEntityAbstract>>>
+    final Map<String, Map<String, List<DeviceEntityBase>>>
         tempDevicesByRoomsByType =
-        <String, Map<String, List<DeviceEntityAbstract>>>{};
+        <String, Map<String, List<DeviceEntityBase>>>{};
 
     tempDevicesByRooms.forEach((k, v) {
       tempDevicesByRoomsByType[k!] = {};
@@ -100,7 +100,7 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
     return tempDevicesByRoomsByType;
   }
 
-  bool isDeviceShouldBeSownInSummaryRoom(DeviceEntityAbstract deviceEntity) {
+  bool isDeviceShouldBeSownInSummaryRoom(DeviceEntityBase deviceEntity) {
     final String onAction = EntityActions.on.toString();
 
     if (deviceEntity is GenericBlindsDE) {
@@ -134,14 +134,14 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
     return false;
   }
 
-  Map<String?, List<DeviceEntityAbstract>> listOfDevicesInDiscoveredRoom({
+  Map<String?, List<DeviceEntityBase>> listOfDevicesInDiscoveredRoom({
     required List<RoomEntity?> rooms,
-    required List<DeviceEntityAbstract?> devicesList,
+    required List<DeviceEntityBase?> devicesList,
   }) {
-    final List<DeviceEntityAbstract?> devicesListTemp = List.from(devicesList);
+    final List<DeviceEntityBase?> devicesListTemp = List.from(devicesList);
 
-    final Map<String?, List<DeviceEntityAbstract>> tempDevicesByRooms =
-        <String, List<DeviceEntityAbstract>>{};
+    final Map<String?, List<DeviceEntityBase>> tempDevicesByRooms =
+        <String, List<DeviceEntityBase>>{};
 
     /// Adding discovered room first so it will be the last in
     /// the list
@@ -156,7 +156,7 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
         for (final String deviceId in room.roomDevicesId.getOrCrash()) {
           /// Check if app already received the device, it could also
           /// be on the way
-          for (final DeviceEntityAbstract? device in devicesListTemp) {
+          for (final DeviceEntityBase? device in devicesListTemp) {
             if (device != null &&
                 device.deviceCbjUniqueId.getOrCrash() == deviceId) {
               tempDevicesByRooms[roomId]!.add(device);
@@ -176,14 +176,14 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
     return tempDevicesByRooms;
   }
 
-  Map<String?, List<DeviceEntityAbstract>> listOfDevicesInRooms({
+  Map<String?, List<DeviceEntityBase>> listOfDevicesInRooms({
     required List<RoomEntity?> rooms,
-    required List<DeviceEntityAbstract?> devicesList,
+    required List<DeviceEntityBase?> devicesList,
   }) {
-    final List<DeviceEntityAbstract?> devicesListTemp = List.from(devicesList);
+    final List<DeviceEntityBase?> devicesListTemp = List.from(devicesList);
 
-    final Map<String?, List<DeviceEntityAbstract>> tempDevicesByRooms =
-        <String, List<DeviceEntityAbstract>>{};
+    final Map<String?, List<DeviceEntityBase>> tempDevicesByRooms =
+        <String, List<DeviceEntityBase>>{};
 
     /// Loops on the rooms
     for (final RoomEntity? room in rooms) {
@@ -197,7 +197,7 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
         for (final String deviceId in room.roomDevicesId.getOrCrash()) {
           /// Check if app already received the device, it could also
           /// be on the way
-          for (final DeviceEntityAbstract? device in devicesListTemp) {
+          for (final DeviceEntityBase? device in devicesListTemp) {
             if (device != null &&
                 device.deviceCbjUniqueId.getOrCrash() == deviceId) {
               tempDevicesByRooms[roomId]!.add(device);
@@ -216,12 +216,12 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
     return tempDevicesByRooms;
   }
 
-  Map<String?, List<DeviceEntityAbstract>> listOfDevicesInSummaryArea({
+  Map<String?, List<DeviceEntityBase>> listOfDevicesInSummaryArea({
     required List<RoomEntity?> rooms,
-    required List<DeviceEntityAbstract?> devicesList,
+    required List<DeviceEntityBase?> devicesList,
   }) {
-    final Map<String?, List<DeviceEntityAbstract>> tempDevicesByRooms =
-        <String, List<DeviceEntityAbstract>>{};
+    final Map<String?, List<DeviceEntityBase>> tempDevicesByRooms =
+        <String, List<DeviceEntityBase>>{};
     // /// All Devices area
     // final RoomEntity allDevicesRoom = RoomEntity.empty().copyWith(
     //   cbjEntityName: RoomDefaultName('All_Devices'.tr()),
@@ -229,7 +229,7 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
     // final String allDevicesRoomId = allDevicesRoom.uniqueId.getOrCrash();
     // tempDevicesByRooms[allDevicesRoomId] = [];
     //
-    // for (final DeviceEntityAbstract? device in devicesList) {
+    // for (final DeviceEntityBase? device in devicesList) {
     //   if (device != null) {
     //     allDevicesRoom.addDeviceId(device.uniqueId.getOrCrash());
     //     tempDevicesByRooms[allDevicesRoomId]!.add(device);
@@ -245,7 +245,7 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
     final String summaryRoomId = summaryDevicesRoom.uniqueId.getOrCrash();
     tempDevicesByRooms[summaryRoomId] = [];
 
-    for (final DeviceEntityAbstract? device in devicesList) {
+    for (final DeviceEntityBase? device in devicesList) {
       if (device != null && isDeviceShouldBeSownInSummaryRoom(device)) {
         summaryDevicesRoom.addDeviceId(device.deviceCbjUniqueId.getOrCrash());
         tempDevicesByRooms[summaryRoomId]!.add(device);
@@ -258,13 +258,12 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final Map<String?, List<DeviceEntityAbstract>> tempDevicesByRooms =
-        Map<String?, List<DeviceEntityAbstract>>.from(
+    final Map<String?, List<DeviceEntityBase>> tempDevicesByRooms =
+        Map<String?, List<DeviceEntityBase>>.from(
       widget.tempDevicesByRooms,
     );
 
-    final List<DeviceEntityAbstract?> devicesList =
-        List.from(widget.devicesList);
+    final List<DeviceEntityBase?> devicesList = List.from(widget.devicesList);
     final List<RoomEntity?> roomsList = List.from(widget.roomsList);
 
     tempDevicesByRooms.addAll(
@@ -290,9 +289,9 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
       );
     }
 
-    final Map<String, Map<String, List<DeviceEntityAbstract>>>
+    final Map<String, Map<String, List<DeviceEntityBase>>>
         tempDevicesByRoomsByType =
-        <String, Map<String, List<DeviceEntityAbstract>>>{};
+        <String, Map<String, List<DeviceEntityBase>>>{};
 
     tempDevicesByRoomsByType.addAll(
       mapOfRoomsIdWithListOfDevices(
@@ -303,9 +302,8 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
     List<Object> objectList = [];
 
     tempDevicesByRoomsByType.forEach((key, value) {
-      final MapEntry<String, Map<String, List<DeviceEntityAbstract>>>
-          tempEntry =
-          MapEntry<String, Map<String, List<DeviceEntityAbstract>>>(key, value);
+      final MapEntry<String, Map<String, List<DeviceEntityBase>>> tempEntry =
+          MapEntry<String, Map<String, List<DeviceEntityBase>>>(key, value);
       objectList.add(tempEntry);
     });
 
@@ -365,8 +363,7 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
             ),
           );
         }
-        if (adOrRoom
-            is MapEntry<String, Map<String, List<DeviceEntityAbstract>>>) {
+        if (adOrRoom is MapEntry<String, Map<String, List<DeviceEntityBase>>>) {
           gradientColorCounter++;
           // Don't make the last room pain blue as this will look the same with
           // Summary room blue

@@ -4,7 +4,7 @@ import 'package:cbj_integrations_controller/domain/routine/i_routine_cbj_reposit
 import 'package:cbj_integrations_controller/domain/routine/value_objects_routine_cbj.dart';
 import 'package:cbj_integrations_controller/domain/vendors/login_abstract/core_login_failures.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
@@ -20,7 +20,7 @@ class AddRoutineWidget extends StatefulWidget {
 }
 
 class _AddRoutineWidgetState extends State<AddRoutineWidget> {
-  List<DeviceEntityAbstract> _allDevices = [];
+  List<DeviceEntityBase> _allDevices = [];
 
   String? routineName;
 
@@ -29,7 +29,7 @@ class _AddRoutineWidgetState extends State<AddRoutineWidget> {
   RoutineCbjRepeatDateMinute? minutesToRepeat;
 
   /// List of devices with entities, will be treated as actions
-  List<MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>>
+  List<MapEntry<DeviceEntityBase, MapEntry<String?, String?>>>
       allDevicesWithNewAction = [];
   List<MapEntry<String, String>> allEntityActions = [];
   bool showErrorMessages = false;
@@ -45,9 +45,9 @@ class _AddRoutineWidgetState extends State<AddRoutineWidget> {
   }
 
   Future<void> _initialized() async {
-    List<DeviceEntityAbstract?> temp = [];
+    List<DeviceEntityBase?> temp = [];
     (await IDeviceRepository.instance.getAllDevices()).fold((l) => null, (r) {
-      temp = List<DeviceEntityAbstract?>.from(r.iter);
+      temp = List<DeviceEntityBase?>.from(r.iter);
     });
     temp.removeWhere((element) => element == null);
 
@@ -78,7 +78,7 @@ class _AddRoutineWidgetState extends State<AddRoutineWidget> {
   }
 
   Future<void> _addDevicesWithNewActions(
-    Iterable<MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>> value,
+    Iterable<MapEntry<DeviceEntityBase, MapEntry<String?, String?>>> value,
   ) async {
     setState(() {
       allDevicesWithNewAction.addAll(value);
@@ -111,13 +111,13 @@ class _AddRoutineWidgetState extends State<AddRoutineWidget> {
             child: ListView.builder(
               itemCount: allDevicesWithNewAction.length,
               itemBuilder: (BuildContext context, int index) {
-                final MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>
+                final MapEntry<DeviceEntityBase, MapEntry<String?, String?>>
                     currentDevice = allDevicesWithNewAction[index];
 
                 return Container(
                   margin: const EdgeInsets.symmetric(vertical: 1),
                   child: RoutineActionWidget(
-                    deviceEntityAbstract: currentDevice.key,
+                    deviceEntityBase: currentDevice.key,
                     propertyToChange:
                         currentDevice.value.key ?? 'Missing property',
                     actionToChange: currentDevice.value.value ??
@@ -149,11 +149,11 @@ class _AddRoutineWidgetState extends State<AddRoutineWidget> {
                       ),
                       onPressed: (_) async {
                         final List<
-                                MapEntry<DeviceEntityAbstract,
+                                MapEntry<DeviceEntityBase,
                                     MapEntry<String?, String?>>>? actionList =
                             await context.router.push<
                                 List<
-                                    MapEntry<DeviceEntityAbstract,
+                                    MapEntry<DeviceEntityBase,
                                         MapEntry<String?, String?>>>>(
                           const AddActionRoute(),
                         );

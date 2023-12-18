@@ -3,7 +3,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/domain/scene/i_scene_cbj_repository.dart';
 import 'package:cbj_integrations_controller/domain/vendors/login_abstract/core_login_failures.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
@@ -20,10 +20,10 @@ class AddSceneWidget extends StatefulWidget {
 
 class _AddSceneWidgetState extends State<AddSceneWidget> {
   String sceneName = '';
-  List<DeviceEntityAbstract> allDevices = [];
+  List<DeviceEntityBase> allDevices = [];
 
   /// List of devices with entities, will be treated as actions
-  List<MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>>
+  List<MapEntry<DeviceEntityBase, MapEntry<String?, String?>>>
       allDevicesWithNewAction = [];
   List<MapEntry<String, String>> allEntityActions = [];
   bool showErrorMessages = false;
@@ -38,9 +38,9 @@ class _AddSceneWidgetState extends State<AddSceneWidget> {
   }
 
   Future<void> _initialized() async {
-    List<DeviceEntityAbstract?> allDevicesTemp = [];
+    List<DeviceEntityBase?> allDevicesTemp = [];
     (await IDeviceRepository.instance.getAllDevices()).fold((l) => null, (r) {
-      allDevicesTemp = List<DeviceEntityAbstract>.from(r.iter);
+      allDevicesTemp = List<DeviceEntityBase>.from(r.iter);
     });
 
     allDevicesTemp.removeWhere((element) => element == null);
@@ -64,18 +64,18 @@ class _AddSceneWidgetState extends State<AddSceneWidget> {
   }
 
   Future<void> _addDevicesWithNewActions(
-    List<MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>> value,
+    List<MapEntry<DeviceEntityBase, MapEntry<String?, String?>>> value,
   ) async {
     setState(() {
       allDevicesWithNewAction.addAll(value);
     });
   }
 
-  // List<MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>>
+  // List<MapEntry<DeviceEntityBase, MapEntry<String?, String?>>>
   // smartDevicesWithActionToAdd,
   //     required String actionsName,
-  //     required List<DeviceEntityAbstract> allDevices,
-  //     required List<MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>>
+  //     required List<DeviceEntityBase> allDevices,
+  //     required List<MapEntry<DeviceEntityBase, MapEntry<String?, String?>>>
   // allDevicesWithNewAction,
   //     required List<MapEntry<String, String>> allEntityActions,
   //     required bool showErrorMessages,
@@ -109,13 +109,13 @@ class _AddSceneWidgetState extends State<AddSceneWidget> {
             child: ListView.builder(
               itemCount: allDevicesWithNewAction.length,
               itemBuilder: (BuildContext context, int index) {
-                final MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>
+                final MapEntry<DeviceEntityBase, MapEntry<String?, String?>>
                     currentDevice = allDevicesWithNewAction[index];
 
                 return Container(
                   margin: const EdgeInsets.symmetric(vertical: 1),
                   child: SceneActionWidget(
-                    deviceEntityAbstract: currentDevice.key,
+                    deviceEntityBase: currentDevice.key,
                     propertyToChange:
                         currentDevice.value.key ?? 'Missing property',
                     actionToChange: currentDevice.value.value ??
@@ -147,11 +147,11 @@ class _AddSceneWidgetState extends State<AddSceneWidget> {
                       ),
                       onPressed: (_) async {
                         final List<
-                                MapEntry<DeviceEntityAbstract,
+                                MapEntry<DeviceEntityBase,
                                     MapEntry<String?, String?>>>? actionList =
                             await context.router.push<
                                 List<
-                                    MapEntry<DeviceEntityAbstract,
+                                    MapEntry<DeviceEntityBase,
                                         MapEntry<String?, String?>>>>(
                           const AddActionRoute(),
                         );

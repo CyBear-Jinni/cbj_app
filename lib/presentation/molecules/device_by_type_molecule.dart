@@ -1,5 +1,5 @@
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbenum.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/entity_type_utils.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_blinds_entity/generic_blinds_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_boiler_entity/generic_boiler_entity.dart';
@@ -18,7 +18,7 @@ import 'package:flutter/material.dart';
 class DeviceByTypeMolecule extends StatelessWidget {
   const DeviceByTypeMolecule(this.entity);
 
-  final DeviceEntityAbstract entity;
+  final DeviceEntityBase entity;
 
   @override
   Widget build(BuildContext context) {

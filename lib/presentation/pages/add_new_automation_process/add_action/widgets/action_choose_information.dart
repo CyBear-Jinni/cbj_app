@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/domain/room/i_room_repository.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/snack_bar_service.dart';
@@ -16,13 +16,13 @@ class ActionChooseInformation extends StatefulWidget {
 
 class _ActionChooseInformationState extends State<ActionChooseInformation> {
   List<RoomEntity> _allRooms = [];
-  List<DeviceEntityAbstract> _allDevices = [];
+  List<DeviceEntityBase> _allDevices = [];
 
   String actionsName = '';
   String propertyName = '';
 
   /// Will contain (in that order) device to change his property to change and the new value of this property
-  List<MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>>
+  List<MapEntry<DeviceEntityBase, MapEntry<String?, String?>>>
       allDevicesWithNewAction = [];
   List<MapEntry<String, String>> allEntityActions = [];
   bool isSubmitting = false;
@@ -40,9 +40,9 @@ class _ActionChooseInformationState extends State<ActionChooseInformation> {
     });
     allRoomsTemp.removeWhere((element) => element == null);
 
-    List<DeviceEntityAbstract?> allDevicesTemp = [];
+    List<DeviceEntityBase?> allDevicesTemp = [];
     (await IDeviceRepository.instance.getAllDevices()).fold((l) => null, (r) {
-      allDevicesTemp = List<DeviceEntityAbstract>.from(r.iter);
+      allDevicesTemp = List<DeviceEntityBase>.from(r.iter);
     });
     allDevicesTemp.removeWhere((element) => element == null);
     setState(() {
@@ -52,7 +52,7 @@ class _ActionChooseInformationState extends State<ActionChooseInformation> {
   }
 
   Future<void> _changeActionDevices(String actionForProperty) async {
-    for (final DeviceEntityAbstract? device in _allDevices) {
+    for (final DeviceEntityBase? device in _allDevices) {
       if (device != null && actionForProperty == device.uniqueId.getOrCrash()) {
         setState(() {
           allDevicesWithNewAction = [
@@ -66,7 +66,7 @@ class _ActionChooseInformationState extends State<ActionChooseInformation> {
 
   Future<void> _actionsNameChange(String value) async {
     if (allDevicesWithNewAction.isNotEmpty) {
-      final List<MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>>
+      final List<MapEntry<DeviceEntityBase, MapEntry<String?, String?>>>
           tempAllDevicesWithNewActionList = List.from(allDevicesWithNewAction);
 
       final MapEntry<String?, String> propertyWithAction = MapEntry(
@@ -86,7 +86,7 @@ class _ActionChooseInformationState extends State<ActionChooseInformation> {
 
   Future<void> _changePropertyForDevices(String propertyOfDevice) async {
     if (allDevicesWithNewAction.isNotEmpty) {
-      final List<MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>>
+      final List<MapEntry<DeviceEntityBase, MapEntry<String?, String?>>>
           tempAllDevicesWithNewActionList = List.from(allDevicesWithNewAction);
 
       final MapEntry<String?, String?> propertyWithAction = MapEntry(
@@ -238,7 +238,7 @@ class _ActionChooseInformationState extends State<ActionChooseInformation> {
 
                     context.router.pop<
                         List<
-                            MapEntry<DeviceEntityAbstract,
+                            MapEntry<DeviceEntityBase,
                                 MapEntry<String?, String?>>>>(
                       allDevicesWithNewAction,
                     );

@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/domain/room/i_room_repository.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/domain/room/value_objects_room.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
@@ -21,7 +21,7 @@ class ChangeRoomForDevicesWidget extends StatefulWidget {
 class _ChangeRoomForDevicesWidgetState
     extends State<ChangeRoomForDevicesWidget> {
   List<RoomEntity?> _allRooms = [];
-  List<DeviceEntityAbstract?> _allDevices = [];
+  List<DeviceEntityBase?> _allDevices = [];
   RoomUniqueId roomUniqueId = RoomUniqueId();
   RoomDefaultName cbjEntityName = RoomDefaultName('');
   RoomBackground background = RoomBackground(
@@ -50,13 +50,13 @@ class _ChangeRoomForDevicesWidgetState
     });
 
     (await IDeviceRepository.instance.getAllDevices()).fold((l) => null, (r) {
-      _allDevices = List<DeviceEntityAbstract>.from(r.iter);
+      _allDevices = List<DeviceEntityBase>.from(r.iter);
     });
     _allRooms.removeWhere((element) => element == null);
     _allDevices.removeWhere((element) => element == null);
     setState(() {
       _allRooms = _allRooms as List<RoomEntity>;
-      _allDevices = _allDevices as List<DeviceEntityAbstract>;
+      _allDevices = _allDevices as List<DeviceEntityBase>;
     });
   }
 

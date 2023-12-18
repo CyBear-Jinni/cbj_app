@@ -1,7 +1,7 @@
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
 import 'package:cybear_jinni/infrastructure/core/logger.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
@@ -37,7 +37,7 @@ class RoomWidget extends StatefulWidget {
   final double borderRadius;
   final ListOfColors roomColorGradiant;
   final List<RoomEntity?> roomsList;
-  final Map<String, Map<String, List<DeviceEntityAbstract>>>
+  final Map<String, Map<String, List<DeviceEntityBase>>>
       tempDevicesByRoomsByType;
   final String roomId;
   final int numberOfDevicesInTheRoom;
@@ -156,7 +156,7 @@ class _RoomWidgetState extends State<RoomWidget> {
                       .tempDevicesByRoomsByType[widget.roomId]!.keys
                       .elementAt(secondIndex);
 
-                  List<DeviceEntityAbstract> devicesInTheRoom = widget
+                  List<DeviceEntityBase> devicesInTheRoom = widget
                       .tempDevicesByRoomsByType[widget.roomId]![deviceType]!;
 
                   if (deviceType == EntityTypes.light.toString() ||
@@ -169,20 +169,19 @@ class _RoomWidgetState extends State<RoomWidget> {
 
                     devicesInTheRoom = [];
 
-                    final List<DeviceEntityAbstract>?
-                        tempLightDevicesInTheRoom =
+                    final List<DeviceEntityBase>? tempLightDevicesInTheRoom =
                         widget.tempDevicesByRoomsByType[widget.roomId]
                             ?[EntityTypes.light.toString()];
                     devicesInTheRoom.addAll(tempLightDevicesInTheRoom ?? []);
 
-                    final List<DeviceEntityAbstract>?
+                    final List<DeviceEntityBase>?
                         tempDimmableLightDevicesInTheRoom =
                         widget.tempDevicesByRoomsByType[widget.roomId]
                             ?[EntityTypes.dimmableLight.toString()];
                     devicesInTheRoom
                         .addAll(tempDimmableLightDevicesInTheRoom ?? []);
 
-                    final List<DeviceEntityAbstract>?
+                    final List<DeviceEntityBase>?
                         tempRgbwLightDevicesInTheRoom =
                         widget.tempDevicesByRoomsByType[widget.roomId]
                             ?[EntityTypes.rgbwLights.toString()];

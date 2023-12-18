@@ -1,6 +1,6 @@
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
 import 'package:cybear_jinni/domain/i_phone_as_hub.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/molecules/molecules.dart';
@@ -24,7 +24,7 @@ class OpenRoomOrganism extends StatefulWidget {
 }
 
 class _OpenRoomOrganismState extends State<OpenRoomOrganism> {
-  List<DeviceEntityAbstract>? devices;
+  List<DeviceEntityBase>? devices;
 
   @override
   void initState() {
@@ -33,14 +33,14 @@ class _OpenRoomOrganismState extends State<OpenRoomOrganism> {
   }
 
   Future initialzeDevices() async {
-    final Map<String, DeviceEntityAbstract> devicesMap =
+    final Map<String, DeviceEntityBase> devicesMap =
         await IPhoneAsHub.instance.getAllEntities;
     final Set<String> deviceIdsInRoom =
         widget.roomEntity.roomDevicesId.getOrCrash().toSet();
 
     final String? entityTypeName = widget.entityTypes?.name;
 
-    final List<DeviceEntityAbstract> tempDevices = devicesMap.values
+    final List<DeviceEntityBase> tempDevices = devicesMap.values
         .where(
           (element) =>
               deviceIdsInRoom
@@ -74,7 +74,7 @@ class _OpenRoomOrganismState extends State<OpenRoomOrganism> {
         reverse: true,
         padding: EdgeInsets.zero,
         itemBuilder: (context, index) {
-          final DeviceEntityAbstract device = devices![index];
+          final DeviceEntityBase device = devices![index];
 
           return Column(
             children: [
