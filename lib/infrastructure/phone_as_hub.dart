@@ -40,7 +40,7 @@ class _PhoneAsHubRepository implements IPhoneAsHub {
     required HashMap<VendorsAndServices, HashSet<String>> uniqueIdByVendor,
     required EntityProperties property,
     required EntityActions actionType,
-    dynamic value,
+    HashMap<ActionValues, dynamic>? value,
   }) =>
       DevicesService().setEntityState(
         uniqueIdByVendor: uniqueIdByVendor,

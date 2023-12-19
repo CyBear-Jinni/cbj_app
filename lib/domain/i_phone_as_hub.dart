@@ -22,7 +22,7 @@ abstract interface class IPhoneAsHub {
     required HashMap<VendorsAndServices, HashSet<String>> uniqueIdByVendor,
     required EntityProperties property,
     required EntityActions actionType,
-    dynamic value,
+    HashMap<ActionValues, dynamic>? value,
   });
 
   Future<Map<String, DeviceEntityBase>> get getAllEntities;

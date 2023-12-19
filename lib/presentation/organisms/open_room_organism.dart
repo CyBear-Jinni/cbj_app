@@ -70,7 +70,7 @@ class _OpenRoomOrganismState extends State<OpenRoomOrganism> {
 
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 15),
-      child: ListView.builder(
+      child: ListView.separated(
         reverse: true,
         padding: EdgeInsets.zero,
         itemBuilder: (context, index) {
@@ -82,12 +82,14 @@ class _OpenRoomOrganismState extends State<OpenRoomOrganism> {
                 device.cbjEntityName.getOrCrash() ?? '',
                 style: textTheme.titleMedium,
               ),
-              const SeparatorAtom(),
+              const SeparatorAtom(multiple: 0.5),
               DeviceByTypeMolecule(device),
             ],
           );
         },
         itemCount: devices!.length,
+        separatorBuilder: (BuildContext context, int index) =>
+            const SeparatorAtom(),
       ),
     );
   }
