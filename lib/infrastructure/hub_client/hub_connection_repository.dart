@@ -313,26 +313,27 @@ class _HubConnectionRepository implements IHubConnectionRepository {
 
       icLogger.i('Hub Search subnet IP $subnet');
 
-      final Stream<ActiveHost> devicesWithPort =
-          HostScanner.scanDevicesForSinglePort(
-        subnet,
-        hubPort,
+      // TODO: Search for hub
+      // final Stream<ActiveHost> devicesWithPort =
+      //     HostScanner.scanDevicesForSinglePort(
+      //   subnet,
+      //   hubPort,
 
-        /// TODO: return this settings when can use with the await for loop
-        // resultsInIpAscendingOrder: false,
-        timeout: const Duration(milliseconds: 600),
-      );
+      //   /// TODO: return this settings when can use with the await for loop
+      //   // resultsInIpAscendingOrder: false,
+      //   timeout: const Duration(milliseconds: 600),
+      // );
 
-      await for (final ActiveHost activeHost in devicesWithPort) {
-        icLogger.i('Found Cbj Hub device: ${activeHost.address}');
-        if (networkBSSID != null && networkName != null) {
-          return insertHubInfo(
-            networkIp: activeHost.address,
-            networkBSSID: networkBSSID,
-            networkName: networkName,
-          );
-        }
-      }
+      // await for (final ActiveHost activeHost in devicesWithPort) {
+      //   icLogger.i('Found Cbj Hub device: ${activeHost.address}');
+      //   if (networkBSSID != null && networkName != null) {
+      //     return insertHubInfo(
+      //       networkIp: activeHost.address,
+      //       networkBSSID: networkBSSID,
+      //       networkName: networkName,
+      //     );
+      //   }
+      // }
     } catch (e) {
       icLogger.w('Exception searchForHub\n$e');
     }

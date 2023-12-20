@@ -21,8 +21,7 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:network_tools/network_tools.dart';
-import 'package:path_provider/path_provider.dart';
+
 import 'package:provider/provider.dart';
 
 Future<Unit> main() async {
@@ -30,8 +29,8 @@ Future<Unit> main() async {
   configureInjection(Env.devPc);
 
   WidgetsFlutterBinding.ensureInitialized();
-  final appDocDirectory = await getApplicationDocumentsDirectory();
-  await configureNetworkTools(appDocDirectory.path);
+  // final Directory appDocDirectory = await getApplicationDocumentsDirectory();
+  // await configureNetworkTools(appDocDirectory.path);
   await Hive.initFlutter();
   AppCommands();
   await Future.value([

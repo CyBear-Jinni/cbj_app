@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:cbj_integrations_controller/infrastructure/system_commands/phone_commands_d/common_batch_commands_d.dart';
 import 'package:device_info_plus/device_info_plus.dart';
+import 'package:path_provider/path_provider.dart';
 
 class AppCommands implements IPhoneCommandsD {
   AppCommands() {
@@ -61,14 +62,14 @@ class AppCommands implements IPhoneCommandsD {
   }
 
   @override
-  Future<String> getLocalDbPath(Future<String?> currentUserName) {
-    // TODO: implement getLocalDbPath
-    throw UnimplementedError();
+  Future<String> getLocalDbPath(Future<String?> currentUserName) async {
+    final Directory appDocDirectory = await getApplicationDocumentsDirectory();
+    return appDocDirectory.path;
   }
 
   @override
   Future<String> getProjectFilesLocation() {
-    // TODO: implement getProjectFilesLocation
+    // TODO: implement IPhonasdeCommandsD
     throw UnimplementedError();
   }
 

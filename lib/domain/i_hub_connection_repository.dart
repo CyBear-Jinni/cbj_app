@@ -18,7 +18,6 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:location/location.dart';
 import 'package:multicast_dns/multicast_dns.dart';
 import 'package:network_info_plus/network_info_plus.dart';
-import 'package:network_tools/network_tools.dart';
 import 'package:permission_handler/permission_handler.dart'
     as permission_handler;
 import 'package:wifi_iot/wifi_iot.dart';

@@ -15,7 +15,7 @@ class _PhoneAsHubRepository implements IPhoneAsHub {
 
   @override
   Future searchDevices() async {
-    SearchDevices().startSearch();
+    SearchDevices().startSearchIsolate();
   }
 
   @override
