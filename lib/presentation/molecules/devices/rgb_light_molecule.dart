@@ -1,5 +1,11 @@
+import 'dart:collection';
+
+import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/entity_type_utils.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_rgbw_light_entity/generic_rgbw_light_entity.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
+import 'package:cybear_jinni/domain/i_phone_as_hub.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
@@ -50,24 +56,51 @@ class _RgbwLightMoleculeState extends State<RgbwLightMolecule> {
     });
   }
 
-  Future<void> _changeState(bool changeToState) async {
-    if (changeToState) {
-      await IDeviceRepository.instance.turnOnDevices(
-        devicesId: [widget.entity.cbjDeviceVendor.getOrCrash()],
-      );
-    } else {
-      await IDeviceRepository.instance.turnOffDevices(
-        devicesId: [widget.entity.cbjDeviceVendor.getOrCrash()],
-      );
+  void _onChange(bool value) {
+    setEntityState(
+      EntityProperties.lightSwitchState,
+      value ? EntityActions.on : EntityActions.off,
+    );
+  }
+
+  void setEntityState(
+    EntityProperties entityProperties,
+    EntityActions action, {
+    HashMap<ActionValues, dynamic>? value,
+  }) {
+    final VendorsAndServices? vendor =
+        widget.entity.cbjDeviceVendor.vendorsAndServices;
+    if (vendor == null) {
+      return;
     }
+
+    final HashMap<VendorsAndServices, HashSet<String>> uniqueIdByVendor =
+        HashMap();
+    uniqueIdByVendor.addEntries(
+      [
+        MapEntry(
+          vendor,
+          HashSet<String>()
+            ..addAll([widget.entity.deviceCbjUniqueId.getOrCrash()]),
+        ),
+      ],
+    );
+    IPhoneAsHub.instance.setEntityState(
+      uniqueIdByVendor: uniqueIdByVendor,
+      property: entityProperties,
+      actionType: action,
+      value: value,
+    );
   }
 
   Future<void> _changeBrightness(double value) async {
-    brightness = value;
-
-    IDeviceRepository.instance.changeBrightnessDevices(
-      devicesId: [widget.entity.cbjDeviceVendor.getOrCrash()],
-      brightnessToChange: value.round(),
+    setState(() {
+      brightness = value;
+    });
+    setEntityState(
+      EntityProperties.lightBrightness,
+      EntityActions.actionNotSupported,
+      value: HashMap.from({ActionValues.brightness: value.round()}),
     );
   }
 
@@ -94,7 +127,7 @@ class _RgbwLightMoleculeState extends State<RgbwLightMolecule> {
                 ),
                 SwitchAtom(
                   variant: SwitchVariant.light,
-                  onToggle: _changeState,
+                  onToggle: _onChange,
                   action: widget.entity.lightSwitchState.action,
                   state: widget.entity.entityStateGRPC.state,
                 ),

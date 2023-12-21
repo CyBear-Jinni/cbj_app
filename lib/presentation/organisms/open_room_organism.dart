@@ -11,13 +11,13 @@ class OpenRoomOrganism extends StatefulWidget {
   const OpenRoomOrganism({
     required this.roomEntity,
     required this.roomColorGradiant,
-    this.entityTypes,
+    required this.entityTypes,
   });
 
   /// If it have value will only show Printers in this room
   final RoomEntity roomEntity;
   final List<Color>? roomColorGradiant;
-  final EntityTypes? entityTypes;
+  final List<EntityTypes> entityTypes;
 
   @override
   State<OpenRoomOrganism> createState() => _OpenRoomOrganismState();
@@ -38,15 +38,17 @@ class _OpenRoomOrganismState extends State<OpenRoomOrganism> {
     final Set<String> deviceIdsInRoom =
         widget.roomEntity.roomDevicesId.getOrCrash().toSet();
 
-    final String? entityTypeName = widget.entityTypes?.name;
+    final List<EntityTypes> entityTypes = widget.entityTypes;
+    if (entityTypes.isEmpty) {
+      return;
+    }
 
     final List<DeviceEntityBase> tempDevices = devicesMap.values
         .where(
           (element) =>
               deviceIdsInRoom
                   .contains(element.deviceCbjUniqueId.getOrCrash()) &&
-              (entityTypeName == null ||
-                  entityTypeName == element.entityTypes.getOrCrash()),
+              entityTypes.contains(element.entityTypes.type),
         )
         .toList();
 

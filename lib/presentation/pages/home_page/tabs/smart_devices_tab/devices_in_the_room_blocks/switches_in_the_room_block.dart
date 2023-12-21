@@ -133,7 +133,7 @@ class _SwitchesInTheRoomBlockState extends State<SwitchesInTheRoomBlock> {
       onTap: () {
         context.router.push(
           DevicesInRoomRoute(
-            entityTypes: EntityTypes.switch_,
+            entityTypes: const [EntityTypes.switch_],
             roomEntity: widget.roomEntity,
             roomColorGradiant: widget.roomColorGradiant,
           ),

@@ -53,7 +53,7 @@ class BoilersInTheRoom extends StatelessWidget {
       onTap: () {
         context.router.push(
           DevicesInRoomRoute(
-            entityTypes: EntityTypes.boiler,
+            entityTypes: const [EntityTypes.boiler],
             roomEntity: roomEntity,
             roomColorGradiant: roomColorGradiant,
           ),

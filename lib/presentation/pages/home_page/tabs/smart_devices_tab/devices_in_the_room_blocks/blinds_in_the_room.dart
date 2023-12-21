@@ -124,7 +124,7 @@ class _BlindsInTheRoomState extends State<BlindsInTheRoom> {
       onTap: () {
         context.router.push(
           DevicesInRoomRoute(
-            entityTypes: EntityTypes.blinds,
+            entityTypes: const [EntityTypes.blinds],
             roomEntity: widget.roomEntity,
             roomColorGradiant: widget.roomColorGradiant,
           ),

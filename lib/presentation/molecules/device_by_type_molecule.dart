@@ -42,7 +42,7 @@ class DeviceByTypeMolecule extends StatelessWidget {
         return SwitchMolecule(entity as GenericSwitchDE);
       case EntityTypes.light:
         return LightMolecule(entity as GenericLightDE);
-      case EntityTypes.rgbLights:
+      case EntityTypes.rgbwLights:
         return RgbwLightMolecule(entity as GenericRgbwLightDE);
       case EntityTypes.dimmableLight:
         return DimmableLightMolecule(entity as GenericDimmableLightDE);

@@ -116,7 +116,12 @@ class _ScenesInFoldersLState extends State<ScenesInFoldersL> {
   @override
   Widget build(BuildContext context) {
     if (allRoomsWithScenes == null) {
-      return const CircularProgressIndicatorAtom();
+      return const Center(
+        child: TextAtom(
+          'In development',
+          style: TextStyle(color: Colors.purple),
+        ),
+      );
     }
 
     if (allRoomsWithScenes!.isEmpty) {

@@ -163,7 +163,12 @@ class _LightsInTheRoomBlockState extends State<LightsInTheRoomBlock> {
       onTap: () {
         context.router.push(
           DevicesInRoomRoute(
-            entityTypes: EntityTypes.light,
+            entityTypes: const [
+              EntityTypes.light,
+              EntityTypes.rgbLights,
+              EntityTypes.rgbwLights,
+              EntityTypes.rgbcctLights,
+            ],
             roomEntity: widget.roomEntity,
             roomColorGradiant: widget.roomColorGradiant,
           ),

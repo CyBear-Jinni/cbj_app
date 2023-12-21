@@ -128,7 +128,7 @@ class _SmartPlugsInTheRoomBlockState extends State<SmartPlugsInTheRoomBlock> {
       onTap: () {
         context.router.push(
           DevicesInRoomRoute(
-            entityTypes: EntityTypes.smartPlug,
+            entityTypes: const [EntityTypes.smartPlug],
             roomEntity: widget.roomEntity,
             roomColorGradiant: widget.roomColorGradiant,
           ),
