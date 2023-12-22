@@ -19,14 +19,14 @@ class AddBindingWidget extends StatefulWidget {
 }
 
 class _AddBindingWidgetState extends State<AddBindingWidget> {
-  List<DeviceEntityBase> _allDevices = [];
+  Set<DeviceEntityBase> _allDevices = {};
 
   String bindingName = '';
 
   /// List of devices with entities, will be treated as actions
-  List<MapEntry<DeviceEntityBase, MapEntry<String?, String?>>>
-      allDevicesWithNewAction = [];
-  List<MapEntry<String, String>> allEntityActions = [];
+  Set<MapEntry<DeviceEntityBase, MapEntry<String?, String?>>>
+      allDevicesWithNewAction = {};
+  Set<MapEntry<String, String>> allEntityActions = {};
   bool showErrorMessages = false;
   bool isSubmitting = false;
   dartz.Option<dartz.Either<CoreLoginFailure, dartz.Unit>>
@@ -39,14 +39,14 @@ class _AddBindingWidgetState extends State<AddBindingWidget> {
   }
 
   Future<void> _initialized() async {
-    List<DeviceEntityBase?> value = [];
+    Set<DeviceEntityBase?> value = {};
     (await IDeviceRepository.instance.getAllDevices()).fold((l) => null, (r) {
-      value = List<DeviceEntityBase?>.from(r.iter);
+      value = Set<DeviceEntityBase?>.from(r.iter);
     });
     value.removeWhere((element) => element == null);
 
     setState(() {
-      _allDevices = value.map((e) => e!).toList();
+      _allDevices = value.map((e) => e!).toSet();
     });
   }
 
@@ -59,7 +59,7 @@ class _AddBindingWidgetState extends State<AddBindingWidget> {
   }
 
   Future<void> _addDevicesWithNewActions(
-    List<MapEntry<DeviceEntityBase, MapEntry<String?, String?>>> value,
+    Set<MapEntry<DeviceEntityBase, MapEntry<String?, String?>>> value,
   ) async {
     setState(() {
       allDevicesWithNewAction.addAll(value);
@@ -95,7 +95,7 @@ class _AddBindingWidgetState extends State<AddBindingWidget> {
               itemCount: allDevicesWithNewAction.length,
               itemBuilder: (BuildContext context, int index) {
                 final MapEntry<DeviceEntityBase, MapEntry<String?, String?>>
-                    currentDevice = allDevicesWithNewAction[index];
+                    currentDevice = allDevicesWithNewAction.elementAt(index);
 
                 return Container(
                   margin: const EdgeInsets.symmetric(vertical: 1),
@@ -131,11 +131,11 @@ class _AddBindingWidgetState extends State<AddBindingWidget> {
                         ),
                       ),
                       onPressed: (_) async {
-                        final List<
+                        final Set<
                                 MapEntry<DeviceEntityBase,
                                     MapEntry<String?, String?>>>? actionList =
                             await context.router.push<
-                                List<
+                                Set<
                                     MapEntry<DeviceEntityBase,
                                         MapEntry<String?, String?>>>>(
                           const AddActionRoute(),

@@ -20,7 +20,7 @@ class AddRoutineWidget extends StatefulWidget {
 }
 
 class _AddRoutineWidgetState extends State<AddRoutineWidget> {
-  List<DeviceEntityBase> _allDevices = [];
+  Set<DeviceEntityBase> _allDevices = {};
 
   String? routineName;
 
@@ -29,9 +29,9 @@ class _AddRoutineWidgetState extends State<AddRoutineWidget> {
   RoutineCbjRepeatDateMinute? minutesToRepeat;
 
   /// List of devices with entities, will be treated as actions
-  List<MapEntry<DeviceEntityBase, MapEntry<String?, String?>>>
-      allDevicesWithNewAction = [];
-  List<MapEntry<String, String>> allEntityActions = [];
+  Set<MapEntry<DeviceEntityBase, MapEntry<String?, String?>>>
+      allDevicesWithNewAction = {};
+  Set<MapEntry<String, String>> allEntityActions = {};
   bool showErrorMessages = false;
   bool isSubmitting = false;
   dartz.Option<dartz.Either<CoreLoginFailure, dartz.Unit>>
@@ -45,14 +45,14 @@ class _AddRoutineWidgetState extends State<AddRoutineWidget> {
   }
 
   Future<void> _initialized() async {
-    List<DeviceEntityBase?> temp = [];
+    Set<DeviceEntityBase?> temp = {};
     (await IDeviceRepository.instance.getAllDevices()).fold((l) => null, (r) {
-      temp = List<DeviceEntityBase?>.from(r.iter);
+      temp = Set<DeviceEntityBase?>.from(r.iter);
     });
     temp.removeWhere((element) => element == null);
 
     setState(() {
-      _allDevices = temp.map((e) => e!).toList();
+      _allDevices = temp.map((e) => e!).toSet();
     });
   }
 
@@ -112,7 +112,7 @@ class _AddRoutineWidgetState extends State<AddRoutineWidget> {
               itemCount: allDevicesWithNewAction.length,
               itemBuilder: (BuildContext context, int index) {
                 final MapEntry<DeviceEntityBase, MapEntry<String?, String?>>
-                    currentDevice = allDevicesWithNewAction[index];
+                    currentDevice = allDevicesWithNewAction.elementAt(index);
 
                 return Container(
                   margin: const EdgeInsets.symmetric(vertical: 1),
@@ -148,11 +148,11 @@ class _AddRoutineWidgetState extends State<AddRoutineWidget> {
                         ),
                       ),
                       onPressed: (_) async {
-                        final List<
+                        final Set<
                                 MapEntry<DeviceEntityBase,
                                     MapEntry<String?, String?>>>? actionList =
                             await context.router.push<
-                                List<
+                                Set<
                                     MapEntry<DeviceEntityBase,
                                         MapEntry<String?, String?>>>>(
                           const AddActionRoute(),

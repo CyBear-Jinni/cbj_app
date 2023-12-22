@@ -1,19 +1,16 @@
 import 'dart:async';
+import 'dart:collection';
 
-import 'package:cbj_integrations_controller/domain/room/i_room_repository.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
-import 'package:cbj_integrations_controller/domain/room/room_failures.dart';
 import 'package:cbj_integrations_controller/domain/room/value_objects_room.dart';
+import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
-import 'package:cybear_jinni/domain/device/devices_failures.dart';
 import 'package:cybear_jinni/domain/i_phone_as_hub.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/snack_bar_service.dart';
 import 'package:cybear_jinni/presentation/organisms/organisms.dart';
 import 'package:cybear_jinni/presentation/pages/home_page/tabs/smart_devices_tab/rooms_widgets/rooms_list_view_widget.dart';
-import 'package:dartz/dartz.dart' as dartz;
 import 'package:flutter/material.dart';
-import 'package:kt_dart/collection.dart';
 
 class SmartDevicesByRooms extends StatefulWidget {
   @override
@@ -21,97 +18,64 @@ class SmartDevicesByRooms extends StatefulWidget {
 }
 
 class _SmartDevicesByRoomsState extends State<SmartDevicesByRooms> {
-  KtList<RoomEntity?> rooms = const KtList<RoomEntity?>.empty();
-  KtList<DeviceEntityBase?> devices = const KtList<DeviceEntityBase?>.empty();
-  KtList<DeviceEntityBase?> listOfDevices = [null].toImmutableList();
-  KtList<RoomEntity?> listOfRooms = [null].toImmutableList();
+  HashMap<String, RoomEntity> rooms = HashMap();
+  HashMap<String, DeviceEntityBase> devices = HashMap();
 
-  StreamSubscription<dartz.Either<RoomFailure, KtList<RoomEntity?>>>?
-      _roomStreamSubscription;
-
-  StreamSubscription<dartz.Either<DevicesFailure, KtList<DeviceEntityBase?>>>?
-      _deviceStreamSubscription;
   late RoomEntity discoveredRoom;
 
-  Future<void> _roomsReceived(
-    dartz.Either<dynamic, KtList<RoomEntity>> failureOrRooms,
-  ) async {
-    final KtList<RoomEntity> roomsTemp = failureOrRooms.fold(
-      (f) => const KtList<RoomEntity>.empty(),
-      (d) => d,
-    );
+  Future<void> _roomsReceived(RoomEntity discoveredRoom) async {
     setState(() {
-      rooms = roomsTemp;
-    });
-  }
-
-  Future<void> _devicesReceived(
-    dartz.Either<DevicesFailure<dynamic>, KtList<DeviceEntityBase?>>
-        failureOrDevices,
-  ) async {
-    final KtList<DeviceEntityBase?> devicesTemp = failureOrDevices.fold(
-      (f) => const KtList<DeviceEntityBase?>.empty(),
-      (d) => d,
-    );
-    setState(() {
-      devices = devicesTemp;
+      rooms.addEntries([
+        MapEntry<String, RoomEntity>(
+          discoveredRoom.uniqueId.getOrCrash(),
+          discoveredRoom,
+        ),
+      ]);
     });
   }
 
   @override
   void initState() {
     super.initState();
-    _watchAllStarted();
+    _initialzeRoomsAndDevices();
   }
 
-  Future<void> _watchAllStarted() async {
+  Future<void> _initialzeRoomsAndDevices() async {
     discoveredRoom = RoomEntity(
-      uniqueId:
-          RoomUniqueId.fromUniqueString('00000000-0000-0000-0000-000000000000'),
+      uniqueId: RoomUniqueId.discovered(),
       cbjEntityName: RoomDefaultName('Discovered'),
-      roomTypes: RoomTypes(const []),
-      roomDevicesId: RoomDevicesId(const []),
-      roomScenesId: RoomScenesId(const []),
-      roomRoutinesId: RoomRoutinesId(const []),
-      roomBindingsId: RoomBindingsId(const []),
-      roomMostUsedBy: RoomMostUsedBy(const []),
-      roomPermissions: RoomPermissions(const []),
+      roomTypes: RoomTypes(const {}),
+      roomDevicesId: RoomDevicesId(const {}),
+      roomScenesId: RoomScenesId(const {}),
+      roomRoutinesId: RoomRoutinesId(const {}),
+      roomBindingsId: RoomBindingsId(const {}),
+      roomMostUsedBy: RoomMostUsedBy(const {}),
+      roomPermissions: RoomPermissions(const {}),
       background: RoomBackground(
         'https://images.pexels.com/photos/459654/pexels-photo-459654.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
       ),
     );
 
-    final Map<String, DeviceEntityBase> allDevice =
+    final HashMap<String, DeviceEntityBase> allDevice =
         await IPhoneAsHub.instance.getAllEntities;
-
+    allDevice.removeWhere(
+      (key, value) =>
+          value.entityTypes.type == EntityTypes.smartTypeNotSupported ||
+          value.entityTypes.type == EntityTypes.emptyEntity,
+    );
     for (final String deviceId in allDevice.keys) {
       discoveredRoom.addDeviceId(deviceId);
     }
-    _roomsReceived(dartz.right([discoveredRoom].toImmutableList()));
+    _roomsReceived(discoveredRoom);
 
-    _devicesReceived(dartz.right(allDevice.values.toImmutableList()));
-
-    _roomStreamSubscription =
-        IRoomRepository.instance.watchAllRooms().listen((eventWatch) {
-      _roomsReceived(eventWatch);
+    setState(() {
+      devices = allDevice;
     });
-
-    // _deviceStreamSubscription =
-    //     IDeviceRepository.instance.watchAllDevices().listen((eventWatch) {
-    //   _devicesReceived(eventWatch);
-    // });
-  }
-
-  @override
-  void dispose() {
-    _roomStreamSubscription?.cancel();
-    _deviceStreamSubscription?.cancel();
-    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    if (devices.isEmpty()) {
+    if (devices.isEmpty || rooms.isEmpty) {
       return GestureDetector(
         onTap: () {
           SnackBarService().show(
@@ -122,25 +86,11 @@ class _SmartDevicesByRoomsState extends State<SmartDevicesByRooms> {
         child: EmptyOpenRoomOrganism(),
       );
     }
-    final Map<String?, List<DeviceEntityBase>> tempDevicesByRooms =
-        <String, List<DeviceEntityBase>>{};
-
-    final List<DeviceEntityBase?> devicesList = devices.iter.toList();
 
     return SingleChildScrollView(
       reverse: true,
       child: Column(
         children: [
-          if (tempDevicesByRooms.length == 1)
-            Container(
-              margin: const EdgeInsets.only(bottom: 10),
-              alignment: Alignment.center,
-              child: const ImageAtom(
-                'assets/cbj_logo.png',
-                width: 200.0,
-                fit: BoxFit.fill,
-              ),
-            ),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 50),
             margin: const EdgeInsets.symmetric(vertical: 20),
@@ -171,9 +121,8 @@ class _SmartDevicesByRoomsState extends State<SmartDevicesByRooms> {
             ),
           ),
           RoomsListViewWidget(
-            tempDevicesByRooms: tempDevicesByRooms,
-            devicesList: devicesList,
-            roomsList: rooms.iter.toList(),
+            entities: devices,
+            roomsList: rooms,
           ),
         ],
       ),

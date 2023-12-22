@@ -36,8 +36,7 @@ class _OpenRoomOrganismState extends State<OpenRoomOrganism> {
     final Map<String, DeviceEntityBase> devicesMap =
         await IPhoneAsHub.instance.getAllEntities;
     final Set<String> deviceIdsInRoom =
-        widget.roomEntity.roomDevicesId.getOrCrash().toSet();
-
+        widget.roomEntity.roomDevicesId.getOrCrash();
     final List<EntityTypes> entityTypes = widget.entityTypes;
     if (entityTypes.isEmpty) {
       return;

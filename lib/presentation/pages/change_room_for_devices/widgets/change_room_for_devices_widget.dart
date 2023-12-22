@@ -20,20 +20,20 @@ class ChangeRoomForDevicesWidget extends StatefulWidget {
 
 class _ChangeRoomForDevicesWidgetState
     extends State<ChangeRoomForDevicesWidget> {
-  List<RoomEntity?> _allRooms = [];
-  List<DeviceEntityBase?> _allDevices = [];
+  Set<RoomEntity?> _allRooms = {};
+  Set<DeviceEntityBase?> _allDevices = {};
   RoomUniqueId roomUniqueId = RoomUniqueId();
   RoomDefaultName cbjEntityName = RoomDefaultName('');
   RoomBackground background = RoomBackground(
     'https://live.staticflickr.com/5220/5486044345_f67abff3e9_h.jpg',
   );
-  RoomTypes roomTypes = RoomTypes(const []);
-  RoomDevicesId roomDevicesId = RoomDevicesId(const []);
-  RoomScenesId roomScenesId = RoomScenesId(const []);
-  RoomRoutinesId roomRoutinesId = RoomRoutinesId(const []);
-  RoomBindingsId roomBindingsId = RoomBindingsId(const []);
-  RoomMostUsedBy roomMostUsedBy = RoomMostUsedBy(const []);
-  RoomPermissions roomPermissions = RoomPermissions(const []);
+  RoomTypes roomTypes = RoomTypes(const {});
+  RoomDevicesId roomDevicesId = RoomDevicesId(const {});
+  RoomScenesId roomScenesId = RoomScenesId(const {});
+  RoomRoutinesId roomRoutinesId = RoomRoutinesId(const {});
+  RoomBindingsId roomBindingsId = RoomBindingsId(const {});
+  RoomMostUsedBy roomMostUsedBy = RoomMostUsedBy(const {});
+  RoomPermissions roomPermissions = RoomPermissions(const {});
   bool showErrorMessages = false;
   bool isSubmitting = false;
   dartz.Option authFailureOrSuccessOption = dartz.none();
@@ -46,17 +46,17 @@ class _ChangeRoomForDevicesWidgetState
 
   Future<void> _initialized() async {
     IRoomRepository.instance.getAllRooms().fold((l) => null, (r) {
-      _allRooms = List<RoomEntity>.from(r.iter);
+      _allRooms = Set<RoomEntity>.from(r.iter);
     });
 
     (await IDeviceRepository.instance.getAllDevices()).fold((l) => null, (r) {
-      _allDevices = List<DeviceEntityBase>.from(r.iter);
+      _allDevices = Set<DeviceEntityBase>.from(r.iter);
     });
     _allRooms.removeWhere((element) => element == null);
     _allDevices.removeWhere((element) => element == null);
     setState(() {
-      _allRooms = _allRooms as List<RoomEntity>;
-      _allDevices = _allDevices as List<DeviceEntityBase>;
+      _allRooms = _allRooms as Set<RoomEntity>;
+      _allDevices = _allDevices as Set<DeviceEntityBase>;
     });
   }
 
@@ -91,7 +91,7 @@ class _ChangeRoomForDevicesWidgetState
     }
   }
 
-  Future<void> _roomDevicesIdChanged(List<String> value) async {
+  Future<void> _roomDevicesIdChanged(Set<String> value) async {
     setState(() {
       roomDevicesId = RoomDevicesId(value);
       authFailureOrSuccessOption = dartz.none();
@@ -182,7 +182,7 @@ class _ChangeRoomForDevicesWidgetState
                 listType: MultiSelectListType.CHIP,
                 onConfirm: (List<String?> values) {
                   _roomDevicesIdChanged(
-                    List<String>.from(values),
+                    Set<String>.from(values),
                   );
                 },
               ),

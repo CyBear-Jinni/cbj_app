@@ -25,9 +25,11 @@ abstract interface class IPhoneAsHub {
     HashMap<ActionValues, dynamic>? value,
   });
 
-  Future<Map<String, DeviceEntityBase>> get getAllEntities;
+  Future<HashMap<String, DeviceEntityBase>> get getAllEntities;
 
   void startListen();
+
+  Stream<MapEntry<String, DeviceEntityBase>> watchEntities();
 
   Future dispose();
 }

@@ -1,13 +1,13 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/domain/device/i_device_repository.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
-import 'package:cybear_jinni/presentation/pages/home_page/bottom_navigation_bar_home_page.dart';
+import 'package:cybear_jinni/presentation/molecules/molecules.dart';
 import 'package:cybear_jinni/presentation/pages/home_page/tabs/scenes_in_folders_tab/scenes_in_folders_tab.dart';
 import 'package:cybear_jinni/presentation/pages/home_page/tabs/smart_devices_tab/smart_devices_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 /// Home page to show all the tabs
 @RoutePage()
@@ -20,7 +20,6 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    IDeviceRepository.instance.initiateHubConnection();
   }
 
   /// Tab num, value will be the default tab to show
@@ -38,7 +37,30 @@ class _HomePageState extends State<HomePage> {
     super.dispose();
   }
 
-  void callback(int index) {
+  static List<BottomNavigationBarItemAtom> getBottomNavigationBarItems() {
+    return [
+      BottomNavigationBarItemAtom(
+        activeIcon: Icon(MdiIcons.sitemap),
+        icon: Icon(MdiIcons.sitemapOutline),
+        label: 'Automations',
+      ),
+      BottomNavigationBarItemAtom(
+        activeIcon: Icon(MdiIcons.lightbulbOn),
+        icon: Icon(MdiIcons.lightbulbOutline),
+        label: 'Devices',
+      ),
+      // BottomNavigationBarItemAtom(
+      //   icon: const FaIcon(FontAwesomeIcons.history),
+      //   label: 'Routines'.
+      // ),
+      // BottomNavigationBarItemAtom(
+      //   icon: const FaIcon(FontAwesomeIcons.link),
+      //   label: 'Bindings'.
+      // ),
+    ];
+  }
+
+  void changeByTabNumber(int index) {
     setState(() {
       _currentTabNum = index;
       _pageController.animateToPage(
@@ -72,8 +94,12 @@ class _HomePageState extends State<HomePage> {
               controller: _pageController,
               children: _pages,
             ),
-            bottomNavigationBar:
-                BottomNavigationBarHomePage(callback, _currentTabNum),
+            bottomNavigationBar: BottomNavigationBarMolecule(
+              bottomNaviList: getBottomNavigationBarItems(),
+              onTap: changeByTabNumber,
+              pageIndex: _currentTabNum,
+            ),
+            // BottomNavigationBarHomePage(callback, _currentTabNum),
           ),
           Column(
             children: [

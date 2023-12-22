@@ -4,7 +4,6 @@ import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/snack_bar_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:kt_dart/collection.dart';
 
 class SceneWidget extends StatefulWidget {
   const SceneWidget(this.currentScene);
@@ -19,7 +18,7 @@ class _SceneWidgetState extends State<SceneWidget> {
   late SceneCbjEntity sceneCbj;
 
   Future<void> _activateScene() async {
-    ISceneCbjRepository.instance.activateScenes([sceneCbj].toImmutableList());
+    ISceneCbjRepository.instance.activateScenes({sceneCbj});
   }
 
   @override

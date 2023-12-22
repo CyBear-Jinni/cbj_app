@@ -9,7 +9,7 @@ class _PhoneAsHubRepository implements IPhoneAsHub {
   }
 
   @override
-  Future<Map<String, DeviceEntityBase>> get getAllEntities async {
+  Future<HashMap<String, DeviceEntityBase>> get getAllEntities async {
     return DevicesService().getEntities();
   }
 
@@ -34,6 +34,10 @@ class _PhoneAsHubRepository implements IPhoneAsHub {
     //   DeviceHelperMethods().handleClientStatusRequests(clientStatusRequests);
     // });
   }
+
+  @override
+  Stream<MapEntry<String, DeviceEntityBase>> watchEntities() =>
+      DevicesService().watchEntities();
 
   @override
   void setEntityState({

@@ -116,19 +116,19 @@ class HubRequestRouting {
       uniqueId: requestAsJson['uniqueId'] as String,
       cbjEntityName: requestAsJson['cbjEntityName'] as String,
       background: requestAsJson['background'] as String,
-      roomTypes: List<String>.from(requestAsJson['roomTypes'] as List<dynamic>),
+      roomTypes: Set<String>.from(requestAsJson['roomTypes'] as Set<dynamic>),
       roomDevicesId:
-          List<String>.from(requestAsJson['roomDevicesId'] as List<dynamic>),
+          Set<String>.from(requestAsJson['roomDevicesId'] as Set<dynamic>),
       roomScenesId:
-          List<String>.from(requestAsJson['roomScenesId'] as List<dynamic>),
+          Set<String>.from(requestAsJson['roomScenesId'] as Set<dynamic>),
       roomRoutinesId:
-          List<String>.from(requestAsJson['roomRoutinesId'] as List<dynamic>),
+          Set<String>.from(requestAsJson['roomRoutinesId'] as Set<dynamic>),
       roomBindingsId:
-          List<String>.from(requestAsJson['roomBindingsId'] as List<dynamic>),
+          Set<String>.from(requestAsJson['roomBindingsId'] as Set<dynamic>),
       roomMostUsedBy:
-          List<String>.from(requestAsJson['roomMostUsedBy'] as List<dynamic>),
+          Set<String>.from(requestAsJson['roomMostUsedBy'] as Set<dynamic>),
       roomPermissions:
-          List<String>.from(requestAsJson['roomPermissions'] as List<dynamic>),
+          Set<String>.from(requestAsJson['roomPermissions'] as Set<dynamic>),
     );
 
     final RoomEntity roomEntity = roomEntityDtos.toDomain();

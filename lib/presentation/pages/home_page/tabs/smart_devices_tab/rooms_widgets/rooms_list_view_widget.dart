@@ -1,326 +1,92 @@
-import 'dart:io';
+import 'dart:async';
+import 'dart:collection';
 
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/domain/room/value_objects_room.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_blinds_entity/generic_blinds_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_boiler_entity/generic_boiler_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_dimmable_light_entity/generic_dimmable_light_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_light_entity/generic_light_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_printer_entity/generic_printer_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_rgbw_light_entity/generic_rgbw_light_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_smart_computer_entity/generic_smart_computer_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_smart_plug_entity/generic_smart_plug_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_smart_tv_entity/generic_smart_tv_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_switch_entity/generic_switch_entity.dart';
-import 'package:cybear_jinni/infrastructure/core/logger.dart';
-import 'package:cybear_jinni/presentation/atoms/atoms.dart';
-import 'package:cybear_jinni/presentation/core/ad_state.dart';
+import 'package:cybear_jinni/domain/i_phone_as_hub.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/pages/home_page/tabs/smart_devices_tab/rooms_widgets/rom_widget.dart';
-import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:provider/provider.dart';
 
 class RoomsListViewWidget extends StatefulWidget {
   /// Builds the rooms
   const RoomsListViewWidget({
-    required this.tempDevicesByRooms,
-    required this.devicesList,
+    required this.entities,
     required this.roomsList,
   });
 
-  final Map<String?, List<DeviceEntityBase>> tempDevicesByRooms;
-  final List<DeviceEntityBase?> devicesList;
-  final List<RoomEntity?> roomsList;
+  final HashMap<String, DeviceEntityBase> entities;
+  final HashMap<String, RoomEntity> roomsList;
 
   @override
   State<RoomsListViewWidget> createState() => _RoomsListViewWidgetState();
 }
 
 class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
-  List<BannerAd> banners = [];
+  Set<BannerAd> banners = {};
 
-  List<Object> itemList = [];
+  final HashMap<String, DeviceEntityBase> entities = HashMap();
+  final HashMap<String, RoomEntity> rooms = HashMap();
+
+  /// Id of room and id lish of id of devies in the room
+  final HashMap<String, Set<String>> devicesByRooms = HashMap();
 
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    final Size screenSize = MediaQuery.of(context).size;
+  void initState() {
+    super.initState();
+    rooms.addAll(widget.roomsList);
+    entities.addAll(widget.entities);
+    initialzeEntitiesByRooms();
+    _watchEntities();
+  }
 
-    // Adds package only support Android and IOS
-    if (!kIsWeb && (Platform.isAndroid || Platform.isIOS)) {
-      final adState = Provider.of<AdState>(context);
-      adState.initialization.then((status) {
-        setState(() {
-          for (int adForRooms = 0;
-              adForRooms < widget.roomsList.length;
-              adForRooms += 3) {
-            banners.add(
-              BannerAd(
-                adUnitId: adState.bannerAdUnitId,
-                size: AdSize(width: screenSize.width.toInt(), height: 60),
-                request: const AdRequest(),
-                listener: adState.adListener,
-              )..load(),
-            );
-          }
-        });
+  @override
+  void dispose() {
+    entitiesStream?.cancel();
+    super.dispose();
+  }
+
+  void initialzeEntitiesByRooms() {
+    devicesByRooms.addAll(
+      rooms
+          .map((key, value) => MapEntry(key, value.roomDevicesId.getOrCrash())),
+    );
+  }
+
+  StreamSubscription<MapEntry<String, DeviceEntityBase>>? entitiesStream;
+
+  Future _watchEntities() async {
+    await entitiesStream?.cancel();
+
+    entitiesStream = IPhoneAsHub.instance
+        .watchEntities()
+        .listen((MapEntry<String, DeviceEntityBase> entityEntery) {
+      if (!mounted ||
+          entityEntery.value.entityTypes.type ==
+              EntityTypes.smartTypeNotSupported ||
+          entityEntery.value.entityTypes.type == EntityTypes.emptyEntity) {
+        return;
+      }
+
+      final RoomEntity? discoverRoom = rooms[RoomUniqueId.discovereId];
+
+      if (discoverRoom == null) {
+        return;
+      }
+      discoverRoom.addDeviceId(entityEntery.key);
+      setState(() {
+        devicesByRooms[RoomUniqueId.discovereId]?.add(entityEntery.key);
+        entities.addEntries([entityEntery]);
+        rooms[RoomUniqueId.discovereId] = discoverRoom;
       });
-    }
-  }
-
-  /// RoomId than TypeName than list of devices of this type in
-  /// this room
-  Map<String, Map<String, List<DeviceEntityBase>>>
-      mapOfRoomsIdWithListOfDevices({
-    required Map<String?, List<DeviceEntityBase>> tempDevicesByRooms,
-  }) {
-    final Map<String, Map<String, List<DeviceEntityBase>>>
-        tempDevicesByRoomsByType =
-        <String, Map<String, List<DeviceEntityBase>>>{};
-
-    tempDevicesByRooms.forEach((k, v) {
-      tempDevicesByRoomsByType[k!] = {};
-      for (final element in v) {
-        if (tempDevicesByRoomsByType[k]![element.entityTypes.getOrCrash()] ==
-            null) {
-          tempDevicesByRoomsByType[k]![element.entityTypes.getOrCrash()] = [
-            element,
-          ];
-        } else {
-          tempDevicesByRoomsByType[k]![element.entityTypes.getOrCrash()]!
-              .add(element);
-        }
-      }
     });
-    return tempDevicesByRoomsByType;
-  }
-
-  bool isDeviceShouldBeSownInSummaryRoom(DeviceEntityBase deviceEntity) {
-    final String onAction = EntityActions.on.toString();
-
-    if (deviceEntity is GenericBlindsDE) {
-      // TODO: Need to check position open and not moving up
-      return deviceEntity.blindsSwitchState?.getOrCrash() ==
-          EntityActions.moveUp.toString();
-    } else if (deviceEntity is GenericBoilerDE) {
-      return deviceEntity.boilerSwitchState.getOrCrash() == onAction;
-    } else if (deviceEntity is GenericLightDE) {
-      return deviceEntity.lightSwitchState.getOrCrash() == onAction;
-    } else if (deviceEntity is GenericDimmableLightDE) {
-      return deviceEntity.lightSwitchState.getOrCrash() == onAction;
-    } else if (deviceEntity is GenericRgbwLightDE) {
-      return deviceEntity.lightSwitchState.getOrCrash() == onAction;
-    } else if (deviceEntity is GenericSmartTvDE) {
-      return deviceEntity.smartTvSwitchState?.getOrCrash() == onAction;
-    } else if (deviceEntity is GenericSwitchDE) {
-      return deviceEntity.switchState.getOrCrash() == onAction;
-    } else if (deviceEntity is GenericSmartPlugDE) {
-      return deviceEntity.smartPlugState.getOrCrash() == onAction;
-    } else if (deviceEntity is GenericSmartComputerDE) {
-      return false;
-    } else if (deviceEntity is GenericPrinterDE) {
-      // TODO: show whenever low on ink
-      return false;
-    }
-    logger.w(
-      'State check is missing for device type ${deviceEntity.entityTypes} '
-      'to appear in summary',
-    );
-    return false;
-  }
-
-  Map<String?, List<DeviceEntityBase>> listOfDevicesInDiscoveredRoom({
-    required List<RoomEntity?> rooms,
-    required List<DeviceEntityBase?> devicesList,
-  }) {
-    final List<DeviceEntityBase?> devicesListTemp = List.from(devicesList);
-
-    final Map<String?, List<DeviceEntityBase>> tempDevicesByRooms =
-        <String, List<DeviceEntityBase>>{};
-
-    /// Adding discovered room first so it will be the last in
-    /// the list
-    for (final RoomEntity? room in rooms) {
-      if (room != null &&
-          room.uniqueId.getOrCrash() ==
-              RoomUniqueId.discoveredRoomId().getOrCrash()) {
-        final String roomId = room.uniqueId.getOrCrash();
-        tempDevicesByRooms[roomId] = [];
-
-        /// Loops on the devices in the room
-        for (final String deviceId in room.roomDevicesId.getOrCrash()) {
-          /// Check if app already received the device, it could also
-          /// be on the way
-          for (final DeviceEntityBase? device in devicesListTemp) {
-            if (device != null &&
-                device.deviceCbjUniqueId.getOrCrash() == deviceId) {
-              tempDevicesByRooms[roomId]!.add(device);
-
-              devicesListTemp.remove(device);
-              break;
-            }
-          }
-        }
-
-        if (tempDevicesByRooms[roomId]!.isEmpty) {
-          tempDevicesByRooms.remove(roomId);
-        }
-        break;
-      }
-    }
-    return tempDevicesByRooms;
-  }
-
-  Map<String?, List<DeviceEntityBase>> listOfDevicesInRooms({
-    required List<RoomEntity?> rooms,
-    required List<DeviceEntityBase?> devicesList,
-  }) {
-    final List<DeviceEntityBase?> devicesListTemp = List.from(devicesList);
-
-    final Map<String?, List<DeviceEntityBase>> tempDevicesByRooms =
-        <String, List<DeviceEntityBase>>{};
-
-    /// Loops on the rooms
-    for (final RoomEntity? room in rooms) {
-      if (room != null &&
-          room.uniqueId.getOrCrash() !=
-              RoomUniqueId.discoveredRoomId().getOrCrash()) {
-        final String roomId = room.uniqueId.getOrCrash();
-        tempDevicesByRooms[roomId] = [];
-
-        /// Loops on the devices in the room
-        for (final String deviceId in room.roomDevicesId.getOrCrash()) {
-          /// Check if app already received the device, it could also
-          /// be on the way
-          for (final DeviceEntityBase? device in devicesListTemp) {
-            if (device != null &&
-                device.deviceCbjUniqueId.getOrCrash() == deviceId) {
-              tempDevicesByRooms[roomId]!.add(device);
-
-              devicesListTemp.remove(device);
-              break;
-            }
-          }
-        }
-        if (tempDevicesByRooms[roomId]!.isEmpty) {
-          tempDevicesByRooms.remove(roomId);
-        }
-      }
-    }
-
-    return tempDevicesByRooms;
-  }
-
-  Map<String?, List<DeviceEntityBase>> listOfDevicesInSummaryArea({
-    required List<RoomEntity?> rooms,
-    required List<DeviceEntityBase?> devicesList,
-  }) {
-    final Map<String?, List<DeviceEntityBase>> tempDevicesByRooms =
-        <String, List<DeviceEntityBase>>{};
-    // /// All Devices area
-    // final RoomEntity allDevicesRoom = RoomEntity.empty().copyWith(
-    //   cbjEntityName: RoomDefaultName('All_Devices'.tr()),
-    // );
-    // final String allDevicesRoomId = allDevicesRoom.uniqueId.getOrCrash();
-    // tempDevicesByRooms[allDevicesRoomId] = [];
-    //
-    // for (final DeviceEntityBase? device in devicesList) {
-    //   if (device != null) {
-    //     allDevicesRoom.addDeviceId(device.uniqueId.getOrCrash());
-    //     tempDevicesByRooms[allDevicesRoomId]!.add(device);
-    //   }
-    // }
-    // rooms.add(allDevicesRoom);
-
-    /// Summary area
-    final RoomEntity summaryDevicesRoom = RoomEntity.empty().copyWith(
-      cbjEntityName: RoomDefaultName('Summary'.tr()),
-    );
-
-    final String summaryRoomId = summaryDevicesRoom.uniqueId.getOrCrash();
-    tempDevicesByRooms[summaryRoomId] = [];
-
-    for (final DeviceEntityBase? device in devicesList) {
-      if (device != null && isDeviceShouldBeSownInSummaryRoom(device)) {
-        summaryDevicesRoom.addDeviceId(device.deviceCbjUniqueId.getOrCrash());
-        tempDevicesByRooms[summaryRoomId]!.add(device);
-      }
-    }
-    rooms.add(summaryDevicesRoom);
-
-    return tempDevicesByRooms;
   }
 
   @override
   Widget build(BuildContext context) {
-    final Map<String?, List<DeviceEntityBase>> tempDevicesByRooms =
-        Map<String?, List<DeviceEntityBase>>.from(
-      widget.tempDevicesByRooms,
-    );
-
-    final List<DeviceEntityBase?> devicesList = List.from(widget.devicesList);
-    final List<RoomEntity?> roomsList = List.from(widget.roomsList);
-
-    tempDevicesByRooms.addAll(
-      listOfDevicesInDiscoveredRoom(
-        rooms: roomsList,
-        devicesList: devicesList,
-      ),
-    );
-
-    tempDevicesByRooms.addAll(
-      listOfDevicesInRooms(
-        rooms: roomsList,
-        devicesList: devicesList,
-      ),
-    );
-
-    if (roomsList.length > 2) {
-      tempDevicesByRooms.addAll(
-        listOfDevicesInSummaryArea(
-          rooms: roomsList,
-          devicesList: devicesList,
-        ),
-      );
-    }
-
-    final Map<String, Map<String, List<DeviceEntityBase>>>
-        tempDevicesByRoomsByType =
-        <String, Map<String, List<DeviceEntityBase>>>{};
-
-    tempDevicesByRoomsByType.addAll(
-      mapOfRoomsIdWithListOfDevices(
-        tempDevicesByRooms: tempDevicesByRooms,
-      ),
-    );
-
-    List<Object> objectList = [];
-
-    tempDevicesByRoomsByType.forEach((key, value) {
-      final MapEntry<String, Map<String, List<DeviceEntityBase>>> tempEntry =
-          MapEntry<String, Map<String, List<DeviceEntityBase>>>(key, value);
-      objectList.add(tempEntry);
-    });
-
-    if (objectList.length >= 3) {
-      objectList = List<Object>.from(objectList.reversed);
-
-      int adTempCounter = 0;
-      for (int enterAd = 3; enterAd < objectList.length - 1; enterAd += 2) {
-        if (adTempCounter < banners.length) {
-          objectList.insert(enterAd + adTempCounter, banners[adTempCounter]);
-          adTempCounter++;
-        }
-      }
-
-      objectList = List<Object>.from(objectList.reversed);
-    }
-
     int gradientColorCounter = 1;
 
     ListOfColors roomColorGradiant =
@@ -331,107 +97,56 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
       physics: const NeverScrollableScrollPhysics(),
       padding: EdgeInsets.zero,
       itemBuilder: (context, index) {
-        final Object adOrRoom = objectList[index];
+        final String roomId = devicesByRooms.keys.elementAt(index);
+        final Set<String>? entitiesInTheRoom = devicesByRooms[roomId];
+        final RoomEntity? room = rooms[roomId];
+
+        if (entitiesInTheRoom == null || room == null) {
+          return const SizedBox();
+        }
 
         double bottomMargin = 15;
         double leftMargin = 0;
         double rightMargin = 0;
         double borderRadius = 5;
 
-        if (adOrRoom is BannerAd) {
-          return Container(
-            height: 60,
-            width: double.infinity,
-            margin: EdgeInsets.only(bottom: bottomMargin),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(borderRadius),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),
-                  spreadRadius: 2,
-                  blurRadius: 5,
-                  offset: const Offset(
-                    0,
-                    3,
-                  ), // changes position of shadow
-                ),
-              ],
-            ),
-            child: AdWidget(
-              ad: adOrRoom,
-            ),
-          );
-        }
-        if (adOrRoom is MapEntry<String, Map<String, List<DeviceEntityBase>>>) {
+        if (gradientColorCounter >= gradientColorsList.length) {
+          gradientColorCounter = 1;
+        } else {
           gradientColorCounter++;
-          // Don't make the last room pain blue as this will look the same with
-          // Summary room blue
-          if (objectList.length >= 3 &&
-              adOrRoom == objectList[objectList.length - 2] &&
-              gradientColorCounter ==
-                  gradientColorsList.indexOf(GradientColors.sea)) {
-            gradientColorCounter++;
-          }
-
-          if (gradientColorCounter >= gradientColorsList.length) {
-            gradientColorCounter = 1;
-          }
-
-          roomColorGradiant =
-              ListOfColors(gradientColorsList[gradientColorCounter]);
-
-          /// Color for Discovered room
-          // TODO: After adding 4 more colors to
-          // gradientColorsList uncomment this section
-          // if (index == 0) {
-          //   roomColorGradiant = gradientColorsList[2];
-          // }
-
-          /// Color for Summary page
-          if (index == objectList.length - 1) {
-            leftMargin = 10;
-            rightMargin = 10;
-            bottomMargin = 15;
-            borderRadius = 40;
-
-            roomColorGradiant = ListOfColors(gradientColorsList[0]);
-            if (gradientColorCounter < 1) {
-              gradientColorCounter--;
-            } else {
-              gradientColorCounter = gradientColorsList.length;
-            }
-            bottomMargin = 0;
-          }
-
-          final String roomId = adOrRoom.key;
-
-          final RoomEntity roomEntity = roomsList.firstWhere(
-            (element) => element!.uniqueId.getOrCrash() == roomId,
-          )!;
-
-          int numberOfDevicesInTheRoom = 0;
-
-          adOrRoom.value.forEach((key, value) {
-            numberOfDevicesInTheRoom += value.length;
-          });
-
-          return RoomWidget(
-            roomColorGradiant: roomColorGradiant,
-            roomsList: roomsList,
-            tempDevicesByRoomsByType: tempDevicesByRoomsByType,
-            borderRadius: borderRadius,
-            bottomMargin: bottomMargin,
-            leftMargin: leftMargin,
-            rightMargin: rightMargin,
-            roomEntity: roomEntity,
-            roomId: roomId,
-            numberOfDevicesInTheRoom: numberOfDevicesInTheRoom,
-          );
         }
-        return const TextAtom('Error');
+
+        roomColorGradiant =
+            ListOfColors(gradientColorsList[gradientColorCounter]);
+
+        /// Color for Summary page
+        if (index == gradientColorsList.length - 1) {
+          leftMargin = 10;
+          rightMargin = 10;
+          bottomMargin = 15;
+          borderRadius = 40;
+
+          roomColorGradiant = ListOfColors(gradientColorsList[0]);
+          if (gradientColorCounter < 1) {
+            gradientColorCounter--;
+          } else {
+            gradientColorCounter = gradientColorsList.length;
+          }
+          bottomMargin = 0;
+        }
+        return RoomWidget(
+          room: room,
+          rooms: rooms,
+          entities: entities,
+          entitiesInTheRoom: entitiesInTheRoom,
+          borderRadius: borderRadius,
+          bottomMargin: bottomMargin,
+          leftMargin: leftMargin,
+          rightMargin: rightMargin,
+          roomColorGradiant: roomColorGradiant,
+        );
       },
-      itemCount: objectList.length,
+      itemCount: devicesByRooms.length,
     );
   }
 }

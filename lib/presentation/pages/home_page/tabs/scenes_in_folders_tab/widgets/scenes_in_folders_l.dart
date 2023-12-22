@@ -27,7 +27,7 @@ class _ScenesInFoldersLState extends State<ScenesInFoldersL> {
 
   Future<void> _initialized() async {
     final List<RoomEntity> temp = [];
-    final List<SceneCbjEntity> eitherAllScenes =
+    final Set<SceneCbjEntity> eitherAllScenes =
         await ISceneCbjRepository.instance.getAllScenesAsList();
     allScenes.addAll(eitherAllScenes);
 
