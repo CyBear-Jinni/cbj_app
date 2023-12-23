@@ -1,6 +1,6 @@
 name: cybear_jinni
 description: CyBear Jinni app to interact with your CyBear Jinni Smart Devices
-version: 1.4.2+66
+version: 1.4.3+67
 homepage: https://cybearjinni.com
 
 publish_to: 'none'
@@ -44,10 +44,8 @@ dependencies:
   # Automatically resizes text to fit perfectly within its bounds.
   auto_size_text: ^3.0.0
   cbj_integrations_controller:
-#    path: ../cbj_integrations_controller
     git: https://github.com/CyBear-Jinni/cbj_integrations_controller.git
   cbj_smart_device_flutter:
-#    path: ../cbj_smart_device_flutter
     git: https://github.com/CyBear-Jinni/cbj_smart_device_flutter.git
   # Copy text from and to clipboard
   clipboard: ^0.1.3

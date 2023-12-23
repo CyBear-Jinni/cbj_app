@@ -8,7 +8,7 @@ import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/pr
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/entity_type_utils.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_switch_entity/generic_switch_entity.dart';
-import 'package:cybear_jinni/domain/i_phone_as_hub.dart';
+import 'package:cybear_jinni/domain/connections_service.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
@@ -84,7 +84,7 @@ class _SwitchesInTheRoomBlockState extends State<SwitchesInTheRoomBlock> {
       return;
     }
 
-    IPhoneAsHub.instance.setEntityState(
+    ConnectionsService.instance.setEntityState(
       uniqueIdByVendor: getUniqueIdByVendor(),
       property: EntityProperties.switchState,
       actionType: action,
@@ -133,7 +133,7 @@ class _SwitchesInTheRoomBlockState extends State<SwitchesInTheRoomBlock> {
       onTap: () {
         context.router.push(
           DevicesInRoomRoute(
-            entityTypes: const [EntityTypes.switch_],
+            entityTypes: const {EntityTypes.switch_},
             roomEntity: widget.roomEntity,
             roomColorGradiant: widget.roomColorGradiant,
           ),

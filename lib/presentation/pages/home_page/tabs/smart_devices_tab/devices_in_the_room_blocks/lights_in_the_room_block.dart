@@ -10,7 +10,7 @@ import 'package:cbj_integrations_controller/infrastructure/generic_entities/enti
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_dimmable_light_entity/generic_dimmable_light_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_light_entity/generic_light_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_rgbw_light_entity/generic_rgbw_light_entity.dart';
-import 'package:cybear_jinni/domain/i_phone_as_hub.dart';
+import 'package:cybear_jinni/domain/connections_service.dart';
 import 'package:cybear_jinni/infrastructure/core/logger.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
@@ -99,7 +99,7 @@ class _LightsInTheRoomBlockState extends State<LightsInTheRoomBlock> {
       return;
     }
 
-    IPhoneAsHub.instance.setEntityState(
+    ConnectionsService.instance.setEntityState(
       uniqueIdByVendor: getUniqueIdByVendor(),
       property: EntityProperties.lightSwitchState,
       actionType: action,
@@ -163,12 +163,12 @@ class _LightsInTheRoomBlockState extends State<LightsInTheRoomBlock> {
       onTap: () {
         context.router.push(
           DevicesInRoomRoute(
-            entityTypes: const [
+            entityTypes: const {
               EntityTypes.light,
               EntityTypes.rgbLights,
               EntityTypes.rgbwLights,
               EntityTypes.rgbcctLights,
-            ],
+            },
             roomEntity: widget.roomEntity,
             roomColorGradiant: widget.roomColorGradiant,
           ),

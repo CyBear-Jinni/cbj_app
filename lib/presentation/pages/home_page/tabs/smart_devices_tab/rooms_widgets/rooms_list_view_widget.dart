@@ -1,96 +1,40 @@
-import 'dart:async';
 import 'dart:collection';
 
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
-import 'package:cbj_integrations_controller/domain/room/value_objects_room.dart';
-import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
-import 'package:cybear_jinni/domain/i_phone_as_hub.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/pages/home_page/tabs/smart_devices_tab/rooms_widgets/rom_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 
-class RoomsListViewWidget extends StatefulWidget {
-  /// Builds the rooms
+class RoomsListViewWidget extends StatelessWidget {
   const RoomsListViewWidget({
     required this.entities,
-    required this.roomsList,
+    required this.rooms,
   });
 
   final HashMap<String, DeviceEntityBase> entities;
-  final HashMap<String, RoomEntity> roomsList;
+  final HashMap<String, RoomEntity> rooms;
 
-  @override
-  State<RoomsListViewWidget> createState() => _RoomsListViewWidgetState();
-}
+  HashMap<String, Set<String>> initialzeEntitiesByRooms() {
+    final HashMap<String, Set<String>> devicesByRooms = HashMap();
 
-class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
-  Set<BannerAd> banners = {};
-
-  final HashMap<String, DeviceEntityBase> entities = HashMap();
-  final HashMap<String, RoomEntity> rooms = HashMap();
-
-  /// Id of room and id lish of id of devies in the room
-  final HashMap<String, Set<String>> devicesByRooms = HashMap();
-
-  @override
-  void initState() {
-    super.initState();
-    rooms.addAll(widget.roomsList);
-    entities.addAll(widget.entities);
-    initialzeEntitiesByRooms();
-    _watchEntities();
-  }
-
-  @override
-  void dispose() {
-    entitiesStream?.cancel();
-    super.dispose();
-  }
-
-  void initialzeEntitiesByRooms() {
     devicesByRooms.addAll(
       rooms
           .map((key, value) => MapEntry(key, value.roomDevicesId.getOrCrash())),
     );
-  }
-
-  StreamSubscription<MapEntry<String, DeviceEntityBase>>? entitiesStream;
-
-  Future _watchEntities() async {
-    await entitiesStream?.cancel();
-
-    entitiesStream = IPhoneAsHub.instance
-        .watchEntities()
-        .listen((MapEntry<String, DeviceEntityBase> entityEntery) {
-      if (!mounted ||
-          entityEntery.value.entityTypes.type ==
-              EntityTypes.smartTypeNotSupported ||
-          entityEntery.value.entityTypes.type == EntityTypes.emptyEntity) {
-        return;
-      }
-
-      final RoomEntity? discoverRoom = rooms[RoomUniqueId.discovereId];
-
-      if (discoverRoom == null) {
-        return;
-      }
-      discoverRoom.addDeviceId(entityEntery.key);
-      setState(() {
-        devicesByRooms[RoomUniqueId.discovereId]?.add(entityEntery.key);
-        entities.addEntries([entityEntery]);
-        rooms[RoomUniqueId.discovereId] = discoverRoom;
-      });
-    });
+    return devicesByRooms;
   }
 
   @override
   Widget build(BuildContext context) {
+    final HashMap<String, Set<String>> devicesByRooms =
+        initialzeEntitiesByRooms();
+
     int gradientColorCounter = 1;
 
-    ListOfColors roomColorGradiant =
-        ListOfColors(gradientColorsList[gradientColorCounter]);
+    ListOfColors roomColorGradiant = ListOfColors(
+      gradientColorsList.elementAt(gradientColorCounter).toSet(),
+    );
 
     return ListView.builder(
       shrinkWrap: true,
@@ -116,8 +60,9 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
           gradientColorCounter++;
         }
 
-        roomColorGradiant =
-            ListOfColors(gradientColorsList[gradientColorCounter]);
+        roomColorGradiant = ListOfColors(
+          gradientColorsList.elementAt(gradientColorCounter).toSet(),
+        );
 
         /// Color for Summary page
         if (index == gradientColorsList.length - 1) {
@@ -126,7 +71,7 @@ class _RoomsListViewWidgetState extends State<RoomsListViewWidget> {
           bottomMargin = 15;
           borderRadius = 40;
 
-          roomColorGradiant = ListOfColors(gradientColorsList[0]);
+          roomColorGradiant = ListOfColors(gradientColorsList.first.toSet());
           if (gradientColorCounter < 1) {
             gradientColorCounter--;
           } else {

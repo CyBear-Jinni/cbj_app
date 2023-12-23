@@ -81,7 +81,7 @@ class ConnectToHubPage extends StatelessWidget {
                                         ),
                                         Flexible(
                                           child: TextAtom(
-                                            'Search a CyBear Jinni Hub in your network',
+                                            'Search devices in your network',
                                             style: TextStyle(
                                               color: Colors.white,
                                             ),

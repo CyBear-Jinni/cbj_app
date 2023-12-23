@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
-import 'package:cybear_jinni/domain/i_phone_as_hub.dart';
+import 'package:cybear_jinni/domain/connections_service.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/molecules/molecules.dart';
@@ -23,7 +23,7 @@ class _DevicesInNetworkPageState extends State<DevicesInNetworkPage> {
 
   Future initializeAllDevices() async {
     final Map<String, DeviceEntityBase> devices =
-        await IPhoneAsHub.instance.getAllEntities;
+        await ConnectionsService.instance.getAllEntities;
     setState(() {
       allDevices = devices.values.toList();
     });

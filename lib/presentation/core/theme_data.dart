@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 // TODO: Add at least 4 more colors
 ///List of all the GradientColors to iterate on
-final List<List<Color>> gradientColorsList = [
+final Set<List<Color>> gradientColorsList = {
   GradientColors.sky,
   GradientColors.fire,
   GradientColors.new1,
   GradientColors.sunset,
   GradientColors.sea,
   GradientColors.mango,
-];
+};
 
 class GradientColors {
   static List<Color> sky = [
@@ -48,7 +48,7 @@ class AppThemeData {
 class ListOfColors {
   ListOfColors(this.listOfColors);
 
-  List<Color>? listOfColors;
+  Set<Color>? listOfColors;
 }
 
 class BackgroundGradient {

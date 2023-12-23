@@ -62,7 +62,7 @@ class _RoomWidgetState extends State<RoomWidget> {
       ),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: widget.roomColorGradiant.listOfColors!,
+          colors: widget.roomColorGradiant.listOfColors!.toList(),
           begin: Alignment.bottomLeft,
           end: Alignment.topLeft,
         ),
@@ -93,10 +93,7 @@ class _RoomWidgetState extends State<RoomWidget> {
                 child: Stack(
                   children: <Widget>[
                     TextAtom(
-                      widget.entities[widget.entitiesInTheRoom.first]
-                              ?.cbjEntityName
-                              .getOrCrash() ??
-                          '',
+                      widget.room.cbjEntityName.getOrCrash(),
                       style: TextStyle(
                         fontSize: 23,
                         foreground: Paint()
@@ -106,10 +103,7 @@ class _RoomWidgetState extends State<RoomWidget> {
                       ),
                     ),
                     TextAtom(
-                      widget.entities[widget.entitiesInTheRoom.first]
-                              ?.cbjEntityName
-                              .getOrCrash() ??
-                          '',
+                      widget.room.cbjEntityName.getOrCrash(),
                       style: TextStyle(
                         fontSize: 23,
                         color: Theme.of(context).textTheme.bodyLarge!.color,

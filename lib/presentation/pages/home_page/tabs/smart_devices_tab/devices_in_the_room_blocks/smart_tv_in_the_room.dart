@@ -54,7 +54,7 @@ class SmartTvInTheRoom extends StatelessWidget {
       onTap: () {
         context.router.push(
           DevicesInRoomRoute(
-            entityTypes: const [EntityTypes.smartTV],
+            entityTypes: const {EntityTypes.smartTV},
             roomEntity: roomEntity,
             roomColorGradiant: roomColorGradiant,
           ),

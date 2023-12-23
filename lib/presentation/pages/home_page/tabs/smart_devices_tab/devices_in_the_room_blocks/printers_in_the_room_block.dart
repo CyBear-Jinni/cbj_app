@@ -54,7 +54,7 @@ class PrintersInTheRoomBlock extends StatelessWidget {
       onTap: () {
         context.router.push(
           DevicesInRoomRoute(
-            entityTypes: const [EntityTypes.printer],
+            entityTypes: const {EntityTypes.printer},
             roomEntity: roomEntity,
             roomColorGradiant: roomColorGradiant,
           ),

@@ -8,7 +8,7 @@ import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/pr
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/entity_type_utils.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_blinds_entity/generic_blinds_entity.dart';
-import 'package:cybear_jinni/domain/i_phone_as_hub.dart';
+import 'package:cybear_jinni/domain/connections_service.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
@@ -75,7 +75,7 @@ class _BlindsInTheRoomState extends State<BlindsInTheRoom> {
       return;
     }
 
-    IPhoneAsHub.instance.setEntityState(
+    ConnectionsService.instance.setEntityState(
       uniqueIdByVendor: getUniqueIdByVendor(),
       property: EntityProperties.blindsSwitchState,
       actionType: action,
@@ -124,7 +124,7 @@ class _BlindsInTheRoomState extends State<BlindsInTheRoom> {
       onTap: () {
         context.router.push(
           DevicesInRoomRoute(
-            entityTypes: const [EntityTypes.blinds],
+            entityTypes: const {EntityTypes.blinds},
             roomEntity: widget.roomEntity,
             roomColorGradiant: widget.roomColorGradiant,
           ),

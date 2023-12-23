@@ -10,18 +10,18 @@ class DevicesInRoomPage extends StatelessWidget {
   const DevicesInRoomPage({
     required this.roomEntity,
     required this.roomColorGradiant,
-   required this.entityTypes ,
-  });  
+    required this.entityTypes,
+  });
 
   /// If it have value will only show Printers in this room
   final RoomEntity roomEntity;
   final ListOfColors? roomColorGradiant;
-  final List<EntityTypes> entityTypes;
+  final Set<EntityTypes> entityTypes;
 
   @override
   Widget build(BuildContext context) {
     return PageOrganism(
-      pageName: 'Device ${entityTypes.first.name }',
+      pageName: 'Device ${entityTypes.first.name}',
       topBarColor: roomColorGradiant!.listOfColors!.last,
       child: OpenRoomOrganism(
         roomEntity: roomEntity,

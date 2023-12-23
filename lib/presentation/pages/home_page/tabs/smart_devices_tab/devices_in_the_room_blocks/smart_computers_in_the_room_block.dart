@@ -54,7 +54,7 @@ class SmartComputersInTheRoomBlock extends StatelessWidget {
       onTap: () {
         context.router.push(
           DevicesInRoomRoute(
-            entityTypes: const [EntityTypes.smartComputer],
+            entityTypes: const {EntityTypes.smartComputer},
             roomEntity: roomEntity,
             roomColorGradiant: roomColorGradiant,
           ),

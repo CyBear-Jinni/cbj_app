@@ -1,28 +1,21 @@
-import 'dart:io';
-
 import 'package:cbj_integrations_controller/domain/i_saved_devices_repo.dart';
 import 'package:cbj_integrations_controller/domain/local_db/i_local_db_repository.dart';
 import 'package:cbj_integrations_controller/infrastructure/core/injection.dart';
 import 'package:cbj_integrations_controller/infrastructure/node_red/node_red_repository.dart';
 import 'package:cbj_integrations_controller/infrastructure/system_commands/system_commands_manager_d.dart';
 import 'package:cbj_smart_device_flutter/commands/flutter_commands.dart';
+import 'package:cybear_jinni/domain/connections_service.dart';
 import 'package:cybear_jinni/domain/i_local_db_repository.dart';
 import 'package:cybear_jinni/domain/i_notification_service.dart';
-import 'package:cybear_jinni/domain/i_phone_as_hub.dart';
 import 'package:cybear_jinni/infrastructure/app_commands.dart';
 import 'package:cybear_jinni/infrastructure/core/injection.dart';
 import 'package:cybear_jinni/infrastructure/mqtt.dart';
-import 'package:cybear_jinni/presentation/core/ad_state.dart';
 import 'package:cybear_jinni/presentation/core/app_widget.dart';
 import 'package:cybear_jinni/presentation/core/routes/app_router.dart';
 import 'package:dartz/dartz.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-
-import 'package:provider/provider.dart';
 
 Future<Unit> main() async {
   configureDependencies(EnvApp.dev);
@@ -41,23 +34,13 @@ Future<Unit> main() async {
   await EasyLocalization.ensureInitialized();
   getIt.registerSingleton<AppRouter>(AppRouter());
 
-  AdState? adState;
-  // Adds package only support Android and IOS
-  if (!kIsWeb && (Platform.isAndroid || Platform.isIOS)) {
-    final initFuture = MobileAds.instance.initialize();
-    adState = AdState(initFuture);
-  }
-
-  //  debugPaintSizeEnabled = true;
-
   await INotificationService.instance.asyncConstructor();
 
   MqttServerRepository();
   PhoneCommandsD();
   SystemCommandsManager();
   NodeRedRepository();
-  IPhoneAsHub.instance.startListen();
-  IPhoneAsHub.instance.searchDevices();
+  ConnectionsService.instance;
 
   runApp(
     /// Use https://lingohub.com/developers/supported-locales/language-designators-with-regions
@@ -90,10 +73,7 @@ Future<Unit> main() async {
       ],
       path: 'assets/translations',
       fallbackLocale: const Locale('en', 'US'),
-      child: Provider.value(
-        value: adState,
-        builder: (context, child) => AppWidget(),
-      ),
+      child: AppWidget(),
     ),
   );
   return unit;

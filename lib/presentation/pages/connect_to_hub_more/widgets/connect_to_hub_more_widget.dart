@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
+import 'package:cybear_jinni/domain/connections_service.dart';
 import 'package:cybear_jinni/domain/device/devices_failures.dart';
-import 'package:cybear_jinni/domain/i_hub_connection_repository.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
 import 'package:dartz/dartz.dart' as dartz;
@@ -24,8 +24,8 @@ class _ConnectToHubMoreWidgetState extends State<ConnectToHubMoreWidget> {
   bool isLoading = false;
 
   Future<void> _connectInDemoMode() async {
+    ConnectionsService.setCurrentConnectionType(ConnectionType.demo);
     context.router.replace(const HomeRoute());
-    IHubConnectionRepository.instance.connectWithHub(demoMod: true);
   }
 
   @override

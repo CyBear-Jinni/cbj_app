@@ -5,7 +5,7 @@ import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/domain/room/value_objects_room.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
-import 'package:cybear_jinni/domain/i_phone_as_hub.dart';
+import 'package:cybear_jinni/domain/connections_service.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/snack_bar_service.dart';
 import 'package:cybear_jinni/presentation/organisms/organisms.dart';
@@ -21,27 +21,21 @@ class _SmartDevicesByRoomsState extends State<SmartDevicesByRooms> {
   HashMap<String, RoomEntity> rooms = HashMap();
   HashMap<String, DeviceEntityBase> devices = HashMap();
 
-  late RoomEntity discoveredRoom;
-
-  Future<void> _roomsReceived(RoomEntity discoveredRoom) async {
-    setState(() {
-      rooms.addEntries([
-        MapEntry<String, RoomEntity>(
-          discoveredRoom.uniqueId.getOrCrash(),
-          discoveredRoom,
-        ),
-      ]);
-    });
-  }
-
   @override
   void initState() {
     super.initState();
-    _initialzeRoomsAndDevices();
+    addDiscoverdRoom();
+    _watchEntities();
   }
 
-  Future<void> _initialzeRoomsAndDevices() async {
-    discoveredRoom = RoomEntity(
+  @override
+  void dispose() {
+    entitiesStream?.cancel();
+    super.dispose();
+  }
+
+  void addDiscoverdRoom() {
+    final RoomEntity discoveredRoom = RoomEntity(
       uniqueId: RoomUniqueId.discovered(),
       cbjEntityName: RoomDefaultName('Discovered'),
       roomTypes: RoomTypes(const {}),
@@ -55,22 +49,70 @@ class _SmartDevicesByRoomsState extends State<SmartDevicesByRooms> {
         'https://images.pexels.com/photos/459654/pexels-photo-459654.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
       ),
     );
+    rooms[RoomUniqueId.discovered().getOrCrash()] = discoveredRoom;
+  }
 
+  StreamSubscription<MapEntry<String, DeviceEntityBase>>? entitiesStream;
+
+  Future _watchEntities() async {
+    await entitiesStream?.cancel();
+
+    entitiesStream = ConnectionsService.instance
+        .watchEntities()
+        .listen((MapEntry<String, DeviceEntityBase> entityEntery) {
+      if (!mounted ||
+          supportedDeviceType(entityEntery.value.entityTypes.type)) {
+        return;
+      }
+
+      final RoomEntity? discoverRoom = rooms[RoomUniqueId.discovereId];
+
+      if (discoverRoom == null) {
+        return;
+      }
+      discoverRoom.addDeviceId(entityEntery.key);
+
+      setState(() {
+        rooms[RoomUniqueId.discovered().getOrCrash()] = discoverRoom;
+        devices.addEntries([entityEntery]);
+      });
+    });
+    _initialzeRoomsAndDevices();
+  }
+
+  Future<void> _initialzeRoomsAndDevices() async {
     final HashMap<String, DeviceEntityBase> allDevice =
-        await IPhoneAsHub.instance.getAllEntities;
-    allDevice.removeWhere(
-      (key, value) =>
-          value.entityTypes.type == EntityTypes.smartTypeNotSupported ||
-          value.entityTypes.type == EntityTypes.emptyEntity,
-    );
-    for (final String deviceId in allDevice.keys) {
-      discoveredRoom.addDeviceId(deviceId);
+        await ConnectionsService.instance.getAllEntities;
+
+    final HashMap<String, DeviceEntityBase> supportedEntities =
+        getSupportedEnities(allDevice);
+    final RoomEntity? tempDiscoverRoom =
+        rooms[RoomUniqueId.discovered().getOrCrash()];
+    if (tempDiscoverRoom == null) {
+      return;
     }
-    _roomsReceived(discoveredRoom);
+    for (final String deviceId in supportedEntities.keys) {
+      tempDiscoverRoom.addDeviceId(deviceId);
+    }
 
     setState(() {
-      devices = allDevice;
+      rooms[RoomUniqueId.discovered().getOrCrash()] = tempDiscoverRoom;
+      devices.addAll(supportedEntities);
     });
+  }
+
+  HashMap<String, DeviceEntityBase> getSupportedEnities(
+    HashMap<String, DeviceEntityBase> entities,
+  ) {
+    entities.removeWhere(
+      (key, value) => supportedDeviceType(value.entityTypes.type),
+    );
+    return entities;
+  }
+
+  bool supportedDeviceType(EntityTypes type) {
+    return type == EntityTypes.smartTypeNotSupported ||
+        type == EntityTypes.emptyEntity;
   }
 
   @override
@@ -122,7 +164,7 @@ class _SmartDevicesByRoomsState extends State<SmartDevicesByRooms> {
           ),
           RoomsListViewWidget(
             entities: devices,
-            roomsList: rooms,
+            rooms: rooms,
           ),
         ],
       ),

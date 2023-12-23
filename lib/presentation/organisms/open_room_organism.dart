@@ -1,7 +1,7 @@
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
-import 'package:cybear_jinni/domain/i_phone_as_hub.dart';
+import 'package:cybear_jinni/domain/connections_service.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/molecules/molecules.dart';
 import 'package:cybear_jinni/presentation/organisms/organisms.dart';
@@ -16,15 +16,15 @@ class OpenRoomOrganism extends StatefulWidget {
 
   /// If it have value will only show Printers in this room
   final RoomEntity roomEntity;
-  final List<Color>? roomColorGradiant;
-  final List<EntityTypes> entityTypes;
+  final Set<Color>? roomColorGradiant;
+  final Set<EntityTypes> entityTypes;
 
   @override
   State<OpenRoomOrganism> createState() => _OpenRoomOrganismState();
 }
 
 class _OpenRoomOrganismState extends State<OpenRoomOrganism> {
-  List<DeviceEntityBase>? devices;
+  Set<DeviceEntityBase>? devices;
 
   @override
   void initState() {
@@ -34,22 +34,20 @@ class _OpenRoomOrganismState extends State<OpenRoomOrganism> {
 
   Future initialzeDevices() async {
     final Map<String, DeviceEntityBase> devicesMap =
-        await IPhoneAsHub.instance.getAllEntities;
+        await ConnectionsService.instance.getAllEntities;
     final Set<String> deviceIdsInRoom =
         widget.roomEntity.roomDevicesId.getOrCrash();
-    final List<EntityTypes> entityTypes = widget.entityTypes;
+    final Set<EntityTypes> entityTypes = widget.entityTypes;
     if (entityTypes.isEmpty) {
       return;
     }
-
-    final List<DeviceEntityBase> tempDevices = devicesMap.values
+    final Set<DeviceEntityBase> tempDevices = devicesMap.values
         .where(
           (element) =>
-              deviceIdsInRoom
-                  .contains(element.deviceCbjUniqueId.getOrCrash()) &&
+              deviceIdsInRoom.contains(element.getCbjDeviceId) &&
               entityTypes.contains(element.entityTypes.type),
         )
-        .toList();
+        .toSet();
 
     setState(() {
       devices = tempDevices;
@@ -75,7 +73,7 @@ class _OpenRoomOrganismState extends State<OpenRoomOrganism> {
         reverse: true,
         padding: EdgeInsets.zero,
         itemBuilder: (context, index) {
-          final DeviceEntityBase device = devices![index];
+          final DeviceEntityBase device = devices!.elementAt(index);
 
           return Column(
             children: [
