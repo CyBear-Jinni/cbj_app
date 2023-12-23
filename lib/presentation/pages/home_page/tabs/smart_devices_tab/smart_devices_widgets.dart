@@ -1,9 +1,9 @@
 import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/presentation/atoms/atoms.dart';
-import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
-import 'package:cybear_jinni/presentation/molecules/molecules.dart';
-import 'package:cybear_jinni/presentation/pages/home_page/tabs/smart_devices_tab/smart_devices_by_rooms.dart';
+import 'package:cybearjinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
+import 'package:cybearjinni/presentation/molecules/molecules.dart';
+import 'package:cybearjinni/presentation/pages/home_page/tabs/smart_devices_tab/smart_devices_by_rooms.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 

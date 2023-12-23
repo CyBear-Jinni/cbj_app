@@ -5,11 +5,11 @@ import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/domain/room/value_objects_room.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
-import 'package:cybear_jinni/domain/connections_service.dart';
-import 'package:cybear_jinni/presentation/atoms/atoms.dart';
-import 'package:cybear_jinni/presentation/core/snack_bar_service.dart';
-import 'package:cybear_jinni/presentation/organisms/organisms.dart';
-import 'package:cybear_jinni/presentation/pages/home_page/tabs/smart_devices_tab/rooms_widgets/rooms_list_view_widget.dart';
+import 'package:cybearjinni/domain/connections_service.dart';
+import 'package:cybearjinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/presentation/core/snack_bar_service.dart';
+import 'package:cybearjinni/presentation/organisms/organisms.dart';
+import 'package:cybearjinni/presentation/pages/home_page/tabs/smart_devices_tab/rooms_widgets/rooms_list_view_widget.dart';
 import 'package:flutter/material.dart';
 
 class SmartDevicesByRooms extends StatefulWidget {

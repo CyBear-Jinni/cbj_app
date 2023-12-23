@@ -1,4 +1,4 @@
-part of 'package:cybear_jinni/domain/manage_network/i_manage_network_repository.dart';
+part of 'package:cybearjinni/domain/manage_network/i_manage_network_repository.dart';
 
 class _ManageWiFiRepository implements IManageNetworkRepository {
   final NetworkSecurity networkSecurity = NetworkSecurity.WPA;

@@ -1,6 +1,6 @@
-import 'package:cybear_jinni/domain/security_bear/security_bear_failures.dart';
-import 'package:cybear_jinni/domain/security_bear/security_bear_value_objects.dart';
-import 'package:cybear_jinni/infrastructure/security_bear_client/security_bear_dtos.dart';
+import 'package:cybearjinni/domain/security_bear/security_bear_failures.dart';
+import 'package:cybearjinni/domain/security_bear/security_bear_value_objects.dart';
+import 'package:cybearjinni/infrastructure/security_bear_client/security_bear_dtos.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

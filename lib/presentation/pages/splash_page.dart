@@ -1,9 +1,9 @@
 import 'dart:io';
 
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/domain/i_local_db_repository.dart';
-import 'package:cybear_jinni/presentation/atoms/atoms.dart';
-import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
+import 'package:cybearjinni/domain/i_local_db_repository.dart';
+import 'package:cybearjinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 

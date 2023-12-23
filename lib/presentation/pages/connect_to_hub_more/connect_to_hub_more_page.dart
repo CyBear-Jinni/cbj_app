@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/presentation/atoms/atoms.dart';
-import 'package:cybear_jinni/presentation/pages/connect_to_hub_more/widgets/connect_to_hub_more_widget.dart';
+import 'package:cybearjinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/presentation/pages/connect_to_hub_more/widgets/connect_to_hub_more_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hexcolor/hexcolor.dart';

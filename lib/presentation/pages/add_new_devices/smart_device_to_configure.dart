@@ -1,6 +1,6 @@
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_light_entity/generic_light_entity.dart';
-import 'package:cybear_jinni/presentation/atoms/atoms.dart';
-import 'package:cybear_jinni/presentation/organisms/organisms.dart';
+import 'package:cybearjinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/presentation/organisms/organisms.dart';
 import 'package:flutter/material.dart';
 
 class SmartDeviceToConfigure extends StatelessWidget {

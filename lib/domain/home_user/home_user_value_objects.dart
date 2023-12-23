@@ -1,6 +1,6 @@
-import 'package:cybear_jinni/domain/home_user/home_user_errors.dart';
-import 'package:cybear_jinni/domain/home_user/home_user_failures.dart';
-import 'package:cybear_jinni/domain/home_user/home_user_validators.dart';
+import 'package:cybearjinni/domain/home_user/home_user_errors.dart';
+import 'package:cybearjinni/domain/home_user/home_user_failures.dart';
+import 'package:cybearjinni/domain/home_user/home_user_validators.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:uuid/uuid.dart';

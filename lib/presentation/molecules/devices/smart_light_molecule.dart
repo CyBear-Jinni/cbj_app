@@ -4,8 +4,8 @@ import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/pr
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/entity_type_utils.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_light_entity/generic_light_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_light_entity/generic_light_value_objects.dart';
-import 'package:cybear_jinni/infrastructure/core/logger.dart';
-import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/infrastructure/core/logger.dart';
+import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';

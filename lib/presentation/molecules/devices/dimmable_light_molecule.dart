@@ -1,6 +1,6 @@
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_dimmable_light_entity/generic_dimmable_light_entity.dart';
-import 'package:cybear_jinni/domain/device/i_device_repository.dart';
-import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/domain/device/i_device_repository.dart';
+import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 

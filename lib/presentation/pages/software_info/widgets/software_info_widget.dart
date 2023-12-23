@@ -1,6 +1,6 @@
-import 'package:cybear_jinni/domain/software_info/i_software_info_repository.dart';
-import 'package:cybear_jinni/domain/software_info/software_info_entity.dart';
-import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/domain/software_info/i_software_info_repository.dart';
+import 'package:cybearjinni/domain/software_info/software_info_entity.dart';
+import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:flutter/material.dart';
 
 /// Show light toggles in a container with the background color from smart room

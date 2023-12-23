@@ -1,9 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_light_entity/generic_light_entity.dart';
-import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_entity.dart';
-import 'package:cybear_jinni/presentation/atoms/atoms.dart';
-import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
+import 'package:cybearjinni/domain/cbj_comp/cbj_comp_entity.dart';
+import 'package:cybearjinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 
 class CBJCompCard extends StatelessWidget {

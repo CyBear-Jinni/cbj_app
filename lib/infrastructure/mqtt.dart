@@ -10,7 +10,7 @@ import 'package:cbj_integrations_controller/infrastructure/generic_entities/abst
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/value_objects_core.dart';
 import 'package:cbj_integrations_controller/infrastructure/hub_client/hub_client.dart';
 import 'package:cbj_integrations_controller/infrastructure/room/room_entity_dtos.dart';
-import 'package:cybear_jinni/infrastructure/core/logger.dart';
+import 'package:cybearjinni/infrastructure/core/logger.dart';
 import 'package:mqtt_client/mqtt_client.dart';
 import 'package:mqtt_client/mqtt_server_client.dart';
 // ignore: implementation_imports

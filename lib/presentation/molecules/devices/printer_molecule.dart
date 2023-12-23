@@ -1,6 +1,6 @@
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_printer_entity/generic_printer_entity.dart';
-import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';

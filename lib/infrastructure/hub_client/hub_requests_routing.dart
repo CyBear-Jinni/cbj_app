@@ -24,10 +24,10 @@ import 'package:cbj_integrations_controller/infrastructure/hub_client/hub_client
 import 'package:cbj_integrations_controller/infrastructure/room/room_entity_dtos.dart';
 import 'package:cbj_integrations_controller/infrastructure/scenes/scene_cbj_dtos.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:cybear_jinni/domain/device/i_device_repository.dart';
-import 'package:cybear_jinni/domain/i_hub_connection_repository.dart';
-import 'package:cybear_jinni/infrastructure/core/injection.dart';
-import 'package:cybear_jinni/infrastructure/core/logger.dart';
+import 'package:cybearjinni/domain/device/i_device_repository.dart';
+import 'package:cybearjinni/domain/i_hub_connection_repository.dart';
+import 'package:cybearjinni/infrastructure/core/injection.dart';
+import 'package:cybearjinni/infrastructure/core/logger.dart';
 import 'package:grpc/grpc.dart';
 
 class HubRequestRouting {

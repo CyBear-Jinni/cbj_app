@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/presentation/molecules/top_bar_molecule.dart';
+import 'package:cybearjinni/presentation/molecules/top_bar_molecule.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 

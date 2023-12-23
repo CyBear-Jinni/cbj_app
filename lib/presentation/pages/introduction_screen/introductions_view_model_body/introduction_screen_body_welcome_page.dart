@@ -1,5 +1,5 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:flutter/material.dart';
 
 class IntroductionScreenBodyWelcomePage extends StatelessWidget {

@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/presentation/core/theme_data.dart';
+import 'package:cybearjinni/presentation/core/theme_data.dart';
 import 'package:flutter/cupertino.dart';
 
 class SeparatorAtom extends StatelessWidget {

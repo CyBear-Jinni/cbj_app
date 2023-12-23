@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:flutter/cupertino.dart';
 
 class ListViewSeparatedMolecule extends StatelessWidget {

@@ -1,4 +1,4 @@
-part of 'package:cybear_jinni/domain/device/i_device_repository.dart';
+part of 'package:cybearjinni/domain/device/i_device_repository.dart';
 
 class _DeviceRepository implements IDeviceRepository {
   // final DeviceRemoteService _deviceRemoteService;

@@ -1,4 +1,4 @@
-part of 'package:cybear_jinni/domain/i_local_db_repository.dart';
+part of 'package:cybearjinni/domain/i_local_db_repository.dart';
 
 class _IsarRepository implements ILocalDbRepository {
   late Isar isar;

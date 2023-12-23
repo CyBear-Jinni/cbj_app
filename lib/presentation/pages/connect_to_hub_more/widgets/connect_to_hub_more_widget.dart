@@ -2,10 +2,10 @@ import 'dart:async';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
-import 'package:cybear_jinni/domain/connections_service.dart';
-import 'package:cybear_jinni/domain/device/devices_failures.dart';
-import 'package:cybear_jinni/presentation/atoms/atoms.dart';
-import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
+import 'package:cybearjinni/domain/connections_service.dart';
+import 'package:cybearjinni/domain/device/devices_failures.dart';
+import 'package:cybearjinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
 import 'package:dartz/dartz.dart' as dartz;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';

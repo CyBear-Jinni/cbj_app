@@ -1,4 +1,4 @@
-part of 'package:cybear_jinni/domain/i_notification_service.dart';
+part of 'package:cybearjinni/domain/i_notification_service.dart';
 
 class _AppNotificationService extends INotificationService {
   FlutterLocalNotificationsPlugin? flutterLocalNotificationsPlugin;

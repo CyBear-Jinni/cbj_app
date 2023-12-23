@@ -10,11 +10,11 @@ import 'package:cbj_integrations_controller/infrastructure/generic_entities/enti
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_dimmable_light_entity/generic_dimmable_light_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_light_entity/generic_light_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_rgbw_light_entity/generic_rgbw_light_entity.dart';
-import 'package:cybear_jinni/domain/connections_service.dart';
-import 'package:cybear_jinni/infrastructure/core/logger.dart';
-import 'package:cybear_jinni/presentation/atoms/atoms.dart';
-import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
-import 'package:cybear_jinni/presentation/core/theme_data.dart';
+import 'package:cybearjinni/domain/connections_service.dart';
+import 'package:cybearjinni/infrastructure/core/logger.dart';
+import 'package:cybearjinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
+import 'package:cybearjinni/presentation/core/theme_data.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
