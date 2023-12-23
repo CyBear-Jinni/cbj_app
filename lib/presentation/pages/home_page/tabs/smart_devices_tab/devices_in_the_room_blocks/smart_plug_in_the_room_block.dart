@@ -1,31 +1,37 @@
+import 'dart:collection';
+
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_plug_device/generic_smart_plug_entity.dart';
-import 'package:cybear_jinni/application/smart_plugs/smart_plugs_actor/smart_plugs_actor_bloc.dart';
-import 'package:cybear_jinni/presentation/core/types_to_pass.dart';
-import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
+import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/entity_type_utils.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_smart_plug_entity/generic_smart_plug_entity.dart';
+import 'package:cybear_jinni/domain/connections_service.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
+import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-class SmartPlugsInTheRoomBlock extends StatelessWidget {
+class SmartPlugsInTheRoomBlock extends StatefulWidget {
   const SmartPlugsInTheRoomBlock({
     required this.roomEntity,
     required this.smartPlugsInRoom,
     required this.roomColorGradiant,
+    required this.entities,
   });
 
   factory SmartPlugsInTheRoomBlock.withAbstractDevice({
     required RoomEntity roomEntityTemp,
-    required List<DeviceEntityAbstract> tempDeviceInRoom,
+    required List<DeviceEntityBase> entities,
     required ListOfColors tempRoomColorGradiant,
   }) {
     final List<GenericSmartPlugDE> tempSmartPlugsInRoom = [];
 
-    for (final element in tempDeviceInRoom) {
+    for (final element in entities) {
       tempSmartPlugsInRoom.add(element as GenericSmartPlugDE);
     }
 
@@ -33,29 +39,98 @@ class SmartPlugsInTheRoomBlock extends StatelessWidget {
       roomEntity: roomEntityTemp,
       smartPlugsInRoom: tempSmartPlugsInRoom,
       roomColorGradiant: tempRoomColorGradiant,
+      entities: entities,
     );
   }
 
   final RoomEntity roomEntity;
   final List<GenericSmartPlugDE> smartPlugsInRoom;
   final ListOfColors roomColorGradiant;
+  final List<DeviceEntityBase> entities;
+
+  @override
+  State<SmartPlugsInTheRoomBlock> createState() =>
+      _SmartPlugsInTheRoomBlockState();
+}
+
+class _SmartPlugsInTheRoomBlockState extends State<SmartPlugsInTheRoomBlock> {
+  Future<void> _turnOffAllSmartPlugs() async {
+    FlushbarHelper.createLoading(
+      message: 'Turning Off all smartPlugs',
+      linearProgressIndicator: const LinearProgressIndicator(),
+    ).show(context);
+
+    setEntityState(EntityActions.off);
+  }
+
+  Future<void> _turnOnAllSmartPlugs() async {
+    FlushbarHelper.createLoading(
+      message: 'Turning On all smartPlugs',
+      linearProgressIndicator: const LinearProgressIndicator(),
+    ).show(context);
+
+    setEntityState(EntityActions.on);
+  }
+
+  void setEntityState(EntityActions action) {
+    final VendorsAndServices? vendor =
+        widget.entities.first.cbjDeviceVendor.vendorsAndServices;
+    if (vendor == null) {
+      return;
+    }
+
+    ConnectionsService.instance.setEntityState(
+      uniqueIdByVendor: getUniqueIdByVendor(),
+      property: EntityProperties.smartPlugState,
+      actionType: action,
+    );
+  }
+
+  HashMap<VendorsAndServices, HashSet<String>>? _uniqueIdByVendor;
+
+  HashMap<VendorsAndServices, HashSet<String>> getUniqueIdByVendor() {
+    if (_uniqueIdByVendor != null) {
+      return _uniqueIdByVendor!;
+    }
+
+    final HashMap<VendorsAndServices, HashSet<String>> uniqueIdByVendor =
+        HashMap();
+    for (final DeviceEntityBase? element in widget.entities) {
+      final VendorsAndServices? vendor =
+          element?.cbjDeviceVendor.vendorsAndServices;
+
+      if (vendor == null) {
+        continue;
+      }
+      final HashSet<String> idsInVendor =
+          uniqueIdByVendor[vendor] ??= HashSet<String>();
+
+      final String deviceCbjUniqueId = element!.deviceCbjUniqueId.getOrCrash();
+
+      idsInVendor.add(deviceCbjUniqueId);
+
+      uniqueIdByVendor.addEntries([MapEntry(vendor, idsInVendor)]);
+    }
+    return _uniqueIdByVendor = uniqueIdByVendor;
+  }
 
   @override
   Widget build(BuildContext context) {
     String deviceText;
-    if (smartPlugsInRoom.length == 1) {
-      deviceText = smartPlugsInRoom[0].cbjEntityName.getOrCrash()!;
+    if (widget.smartPlugsInRoom.length == 1) {
+      deviceText = widget.smartPlugsInRoom[0].cbjEntityName.getOrCrash()!;
     } else {
-      deviceText =
-          '_SmartPlugs'.tr(args: [roomEntity.cbjEntityName.getOrCrash()]);
+      deviceText = '_SmartPlugs'
+          .tr(args: [widget.roomEntity.cbjEntityName.getOrCrash()]);
     }
 
     return GestureDetector(
       onTap: () {
         context.router.push(
-          RoomsSmartPlugsRoute(
-            roomEntity: roomEntity,
-            roomColorGradiant: roomColorGradiant,
+          DevicesInRoomRoute(
+            entityTypes: const {EntityTypes.smartPlug},
+            roomEntity: widget.roomEntity,
+            roomColorGradiant: widget.roomColorGradiant,
           ),
         );
       },
@@ -71,7 +146,7 @@ class SmartPlugsInTheRoomBlock extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Expanded(child: Text('')),
+                const Expanded(child: TextAtom('')),
                 Expanded(
                   child: Column(
                     children: [
@@ -88,7 +163,7 @@ class SmartPlugsInTheRoomBlock extends StatelessWidget {
                     ],
                   ),
                 ),
-                if (smartPlugsInRoom.length > 1)
+                if (widget.smartPlugsInRoom.length > 1)
                   Expanded(
                     child: Container(
                       height: 55,
@@ -105,8 +180,8 @@ class SmartPlugsInTheRoomBlock extends StatelessWidget {
                           ),
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: Text(
-                          smartPlugsInRoom.length.toString(),
+                        child: TextAtom(
+                          widget.smartPlugsInRoom.length.toString(),
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 13,
@@ -117,7 +192,7 @@ class SmartPlugsInTheRoomBlock extends StatelessWidget {
                     ),
                   )
                 else
-                  const Expanded(child: Text('')),
+                  const Expanded(child: TextAtom('')),
               ],
             ),
             const SizedBox(height: 5),
@@ -145,72 +220,53 @@ class SmartPlugsInTheRoomBlock extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            BlocConsumer<SmartPlugsActorBloc, SmartPlugsActorState>(
-              listener: (context, state) {},
-              builder: (context, state) {
-                return Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    TextButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(
-                          Colors.grey.withOpacity(0.6),
-                        ),
-                        side: MaterialStateProperty.all(
-                          const BorderSide(width: 0.2),
-                        ),
-                      ),
-                      onPressed: () {
-                        context.read<SmartPlugsActorBloc>().add(
-                              SmartPlugsActorEvent.turnOffAllSmartPlugs(
-                                extractDevicesId(),
-                                context,
-                              ),
-                            );
-                      },
-                      child: Text(
-                        'Off',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Theme.of(context).textTheme.bodyLarge!.color,
-                        ),
-                      ).tr(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                TextButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                      Colors.grey.withOpacity(0.6),
                     ),
-                    Text(
-                      '·',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Theme.of(context).textTheme.bodyLarge!.color,
-                      ),
+                    side: MaterialStateProperty.all(
+                      const BorderSide(width: 0.2),
                     ),
-                    TextButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(
-                          Colors.grey.withOpacity(0.6),
-                        ),
-                        side: MaterialStateProperty.all(
-                          const BorderSide(width: 0.2),
-                        ),
-                      ),
-                      onPressed: () {
-                        context.read<SmartPlugsActorBloc>().add(
-                              SmartPlugsActorEvent.turnOnAllSmartPlugs(
-                                extractDevicesId(),
-                                context,
-                              ),
-                            );
-                      },
-                      child: Text(
-                        'On',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Theme.of(context).textTheme.bodyLarge!.color,
-                        ),
-                      ).tr(),
+                  ),
+                  onPressed: _turnOffAllSmartPlugs,
+                  child: TextAtom(
+                    'Off',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                     ),
-                  ],
-                );
-              },
+                  ),
+                ),
+                TextAtom(
+                  '·',
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
+                  ),
+                ),
+                TextButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                      Colors.grey.withOpacity(0.6),
+                    ),
+                    side: MaterialStateProperty.all(
+                      const BorderSide(width: 0.2),
+                    ),
+                  ),
+                  onPressed: _turnOnAllSmartPlugs,
+                  child: TextAtom(
+                    'On',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
@@ -220,7 +276,7 @@ class SmartPlugsInTheRoomBlock extends StatelessWidget {
 
   List<String> extractDevicesId() {
     final List<String> devicesIdList = [];
-    for (final element in smartPlugsInRoom) {
+    for (final element in widget.smartPlugsInRoom) {
       devicesIdList.add(element.uniqueId.getOrCrash());
     }
     return devicesIdList;

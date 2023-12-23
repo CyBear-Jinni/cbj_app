@@ -1,11 +1,10 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/application/hub_in_network/hub_in_network_bloc.dart';
-import 'package:cybear_jinni/injection.dart';
+import 'package:cybear_jinni/domain/i_hub_connection_repository.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
 import 'package:cybear_jinni/presentation/pages/connect_to_hub/widgets/cbj_hub_in_network_widget.dart';
-import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
 
@@ -47,8 +46,8 @@ class ConnectToHubPage extends StatelessWidget {
                           ),
                           Container(
                             alignment: Alignment.center,
-                            child: const Text(
-                              ' Connect to Hub',
+                            child: const TextAtom(
+                              'Connect to Hub',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: 35,
@@ -81,8 +80,8 @@ class ConnectToHubPage extends StatelessWidget {
                                           width: 40,
                                         ),
                                         Flexible(
-                                          child: Text(
-                                            'Search a CyBear Jinni Hub in your network',
+                                          child: TextAtom(
+                                            'Search devices in your network',
                                             style: TextStyle(
                                               color: Colors.white,
                                             ),
@@ -91,18 +90,9 @@ class ConnectToHubPage extends StatelessWidget {
                                       ],
                                     ),
                                   ),
-                                  Expanded(
+                                  const Expanded(
                                     child: Center(
-                                      child: BlocProvider(
-                                        create: (BuildContext context) =>
-                                            getIt<HubInNetworkBloc>()
-                                              ..add(
-                                                HubInNetworkEvent.initialEvent(
-                                                  context,
-                                                ),
-                                              ),
-                                        child: CbjHubInNetworkWidget(),
-                                      ),
+                                      child: CbjHubInNetworkWidget(),
                                     ),
                                   ),
                                 ],
@@ -176,9 +166,8 @@ class ConnectToHubPage extends StatelessWidget {
                   const SizedBox(height: 20),
                   GestureDetector(
                     onTap: () {
-                      getIt<HubInNetworkBloc>().add(
-                        HubInNetworkEvent.openSmartCameraPage(context),
-                      );
+                      context.router.push(const SmartCameraContainerRoute());
+                      IHubConnectionRepository.instance.closeConnection();
                     },
                     child: Container(
                       margin: const EdgeInsets.symmetric(horizontal: 30),
@@ -238,7 +227,7 @@ class ConnectToHubPage extends StatelessWidget {
                             minimumSize: const Size(70, 30),
                             backgroundColor: HexColor('#985dc7'),
                           ),
-                          child: const Text(
+                          child: const TextAtom(
                             'More',
                             style: TextStyle(color: Colors.white),
                           ),

@@ -1,10 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_computer_device/generic_smart_computer_entity.dart';
-import 'package:cybear_jinni/presentation/core/types_to_pass.dart';
-import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
+import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_smart_computer_entity/generic_smart_computer_entity.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
+import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -18,7 +20,7 @@ class SmartComputersInTheRoomBlock extends StatelessWidget {
 
   factory SmartComputersInTheRoomBlock.withAbstractDevice({
     required RoomEntity roomEntityTemp,
-    required List<DeviceEntityAbstract> tempDeviceInRoom,
+    required List<DeviceEntityBase> tempDeviceInRoom,
     required ListOfColors tempRoomColorGradiant,
   }) {
     final List<GenericSmartComputerDE> tempSmartComputersInRoom = [];
@@ -51,7 +53,8 @@ class SmartComputersInTheRoomBlock extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         context.router.push(
-          RoomsSmartComputersRoute(
+          DevicesInRoomRoute(
+            entityTypes: const {EntityTypes.smartComputer},
             roomEntity: roomEntity,
             roomColorGradiant: roomColorGradiant,
           ),
@@ -69,7 +72,7 @@ class SmartComputersInTheRoomBlock extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Expanded(child: Text('')),
+                const Expanded(child: TextAtom('')),
                 Expanded(
                   child: Column(
                     children: [
@@ -103,7 +106,7 @@ class SmartComputersInTheRoomBlock extends StatelessWidget {
                           ),
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: Text(
+                        child: TextAtom(
                           smartComputersInRoom.length.toString(),
                           textAlign: TextAlign.center,
                           style: TextStyle(
@@ -115,7 +118,7 @@ class SmartComputersInTheRoomBlock extends StatelessWidget {
                     ),
                   )
                 else
-                  const Expanded(child: Text('')),
+                  const Expanded(child: TextAtom('')),
               ],
             ),
             const SizedBox(height: 5),

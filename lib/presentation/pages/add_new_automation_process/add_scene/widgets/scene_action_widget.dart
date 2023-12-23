@@ -1,5 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -8,13 +8,13 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class SceneActionWidget extends StatelessWidget {
   /// Get all and store all info about the action
   const SceneActionWidget({
-    required this.deviceEntityAbstract,
+    required this.deviceEntityBase,
     required this.propertyToChange,
     required this.actionToChange,
   });
 
   /// Cbj unique id of a device
-  final DeviceEntityAbstract deviceEntityAbstract;
+  final DeviceEntityBase deviceEntityBase;
 
   /// The action for the device
   final String propertyToChange;
@@ -32,7 +32,7 @@ class SceneActionWidget extends StatelessWidget {
           color: Colors.yellow,
         ),
         title: AutoSizeText(
-          '${deviceEntityAbstract.cbjEntityName.getOrCrash()!} - $propertyToChange',
+          '${deviceEntityBase.cbjEntityName.getOrCrash()!} - $propertyToChange',
           maxLines: 2,
         ),
         trailing: AutoSizeText(

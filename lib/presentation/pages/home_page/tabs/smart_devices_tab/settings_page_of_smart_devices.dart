@@ -1,11 +1,13 @@
-import 'package:cybear_jinni/presentation/pages/shared_widgets/top_navigation_bar.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybear_jinni/presentation/molecules/molecules.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SettingsPageSmartDevices extends StatelessWidget {
   void backButtonFunction(BuildContext context) {
-    Navigator.pop(context);
+    context.router.pop();
   }
 
   @override
@@ -35,10 +37,8 @@ class SettingsPageSmartDevices extends StatelessWidget {
         ),
         child: Column(
           children: <Widget>[
-            TopNavigationBar(
+            TopBarMolecule(
               pageName: 'Smart Devices Settings',
-              rightIcon: null,
-              rightIconFunction: () {},
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
             ),
@@ -53,7 +53,7 @@ class SettingsPageSmartDevices extends StatelessWidget {
                 borderRadius: BorderRadius.all(Radius.circular(10)),
               ),
               alignment: Alignment.center,
-              child: Text(
+              child: TextAtom(
                 'Open Access Point',
                 style: TextStyle(
                   fontSize: 25,

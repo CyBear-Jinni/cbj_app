@@ -1,146 +1,173 @@
-import 'package:cybear_jinni/application/devices/device_watcher/device_watcher_bloc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
-import 'package:cybear_jinni/presentation/pages/device_full_screen_page/lights/widgets/critical_light_failure_display_widget.dart';
-import 'package:cybear_jinni/presentation/pages/home_page/tabs/smart_devices_tab/rooms_widgets/rooms_list_view_widget.dart';
-import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'dart:async';
+import 'dart:collection';
 
-class SmartDevicesByRooms extends StatelessWidget {
+import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
+import 'package:cbj_integrations_controller/domain/room/value_objects_room.dart';
+import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
+import 'package:cybear_jinni/domain/connections_service.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybear_jinni/presentation/core/snack_bar_service.dart';
+import 'package:cybear_jinni/presentation/organisms/organisms.dart';
+import 'package:cybear_jinni/presentation/pages/home_page/tabs/smart_devices_tab/rooms_widgets/rooms_list_view_widget.dart';
+import 'package:flutter/material.dart';
+
+class SmartDevicesByRooms extends StatefulWidget {
+  @override
+  State<SmartDevicesByRooms> createState() => _SmartDevicesByRoomsState();
+}
+
+class _SmartDevicesByRoomsState extends State<SmartDevicesByRooms> {
+  HashMap<String, RoomEntity> rooms = HashMap();
+  HashMap<String, DeviceEntityBase> devices = HashMap();
+
+  @override
+  void initState() {
+    super.initState();
+    addDiscoverdRoom();
+    _watchEntities();
+  }
+
+  @override
+  void dispose() {
+    entitiesStream?.cancel();
+    super.dispose();
+  }
+
+  void addDiscoverdRoom() {
+    final RoomEntity discoveredRoom = RoomEntity(
+      uniqueId: RoomUniqueId.discovered(),
+      cbjEntityName: RoomDefaultName('Discovered'),
+      roomTypes: RoomTypes(const {}),
+      roomDevicesId: RoomDevicesId(const {}),
+      roomScenesId: RoomScenesId(const {}),
+      roomRoutinesId: RoomRoutinesId(const {}),
+      roomBindingsId: RoomBindingsId(const {}),
+      roomMostUsedBy: RoomMostUsedBy(const {}),
+      roomPermissions: RoomPermissions(const {}),
+      background: RoomBackground(
+        'https://images.pexels.com/photos/459654/pexels-photo-459654.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
+      ),
+    );
+    rooms[RoomUniqueId.discovered().getOrCrash()] = discoveredRoom;
+  }
+
+  StreamSubscription<MapEntry<String, DeviceEntityBase>>? entitiesStream;
+
+  Future _watchEntities() async {
+    await entitiesStream?.cancel();
+
+    entitiesStream = ConnectionsService.instance
+        .watchEntities()
+        .listen((MapEntry<String, DeviceEntityBase> entityEntery) {
+      if (!mounted ||
+          supportedDeviceType(entityEntery.value.entityTypes.type)) {
+        return;
+      }
+
+      final RoomEntity? discoverRoom = rooms[RoomUniqueId.discovereId];
+
+      if (discoverRoom == null) {
+        return;
+      }
+      discoverRoom.addDeviceId(entityEntery.key);
+
+      setState(() {
+        rooms[RoomUniqueId.discovered().getOrCrash()] = discoverRoom;
+        devices.addEntries([entityEntery]);
+      });
+    });
+    _initialzeRoomsAndDevices();
+  }
+
+  Future<void> _initialzeRoomsAndDevices() async {
+    final HashMap<String, DeviceEntityBase> allDevice =
+        await ConnectionsService.instance.getAllEntities;
+
+    final HashMap<String, DeviceEntityBase> supportedEntities =
+        getSupportedEnities(allDevice);
+    final RoomEntity? tempDiscoverRoom =
+        rooms[RoomUniqueId.discovered().getOrCrash()];
+    if (tempDiscoverRoom == null) {
+      return;
+    }
+    for (final String deviceId in supportedEntities.keys) {
+      tempDiscoverRoom.addDeviceId(deviceId);
+    }
+
+    setState(() {
+      rooms[RoomUniqueId.discovered().getOrCrash()] = tempDiscoverRoom;
+      devices.addAll(supportedEntities);
+    });
+  }
+
+  HashMap<String, DeviceEntityBase> getSupportedEnities(
+    HashMap<String, DeviceEntityBase> entities,
+  ) {
+    entities.removeWhere(
+      (key, value) => supportedDeviceType(value.entityTypes.type),
+    );
+    return entities;
+  }
+
+  bool supportedDeviceType(EntityTypes type) {
+    return type == EntityTypes.smartTypeNotSupported ||
+        type == EntityTypes.emptyEntity;
+  }
+
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<DeviceWatcherBloc, DeviceWatcherState>(
-      builder: (context, state) {
-        return state.map(
-          initial: (_) => Container(),
-          loadInProgress: (_) => const Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CircularProgressIndicator(),
-              SizedBox(
-                height: 30,
-              ),
-              Text(
-                'Searching for CyBear Jinni Hub',
-                style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.blue,
-                ),
-              ),
-            ],
-          ),
-          loadSuccess: (state) {
-            if (state.devices.size != 0) {
-              final Map<String?, List<DeviceEntityAbstract>>
-                  tempDevicesByRooms = <String, List<DeviceEntityAbstract>>{};
+    if (devices.isEmpty || rooms.isEmpty) {
+      return GestureDetector(
+        onTap: () {
+          SnackBarService().show(
+            context,
+            'Add new device by pressing the plus button',
+          );
+        },
+        child: EmptyOpenRoomOrganism(),
+      );
+    }
 
-              final List<DeviceEntityAbstract?> devicesList =
-                  state.devices.iter.toList();
-
-              return SingleChildScrollView(
-                reverse: true,
-                child: Column(
-                  children: [
-                    if (tempDevicesByRooms.length == 1)
-                      Container(
-                        margin: const EdgeInsets.only(bottom: 10),
-                        alignment: Alignment.center,
-                        child: Image.asset(
-                          'assets/cbj_logo.png',
-                          width: 200.0,
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 50),
-                      margin: const EdgeInsets.symmetric(vertical: 20),
-                      decoration: BoxDecoration(
-                        color: Colors.black.withOpacity(0.2),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Stack(
-                        children: <Widget>[
-                          Text(
-                            'Areas',
-                            style: TextStyle(
-                              fontSize: 35,
-                              foreground: Paint()
-                                ..style = PaintingStyle.stroke
-                                ..strokeWidth = 3
-                                ..color = Colors.black.withOpacity(0.2),
-                            ),
-                          ).tr(),
-                          Text(
-                            'Areas',
-                            style: TextStyle(
-                              fontSize: 35,
-                              color:
-                                  Theme.of(context).textTheme.bodyLarge!.color,
-                            ),
-                          ).tr(),
-                        ],
-                      ),
-                    ),
-                    RoomsListViewWidget(
-                      tempDevicesByRooms: tempDevicesByRooms,
-                      devicesList: devicesList,
-                      roomsList: state.rooms.iter.toList(),
-                    ),
-                  ],
-                ),
-              );
-            } else {
-              return GestureDetector(
-                onTap: () {
-                  Fluttertoast.showToast(
-                    msg: 'Add new device by pressing the plus button',
-                    toastLength: Toast.LENGTH_LONG,
-                    gravity: ToastGravity.CENTER,
-                    backgroundColor: Colors.blueGrey,
-                    textColor: Theme.of(context).textTheme.bodyLarge!.color,
-                    fontSize: 16.0,
-                  );
-                },
-                child: SingleChildScrollView(
-                  reverse: true,
-                  padding: const EdgeInsets.only(bottom: 15),
-                  child: Column(
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.symmetric(vertical: 30),
-                        alignment: Alignment.center,
-                        child: Image.asset(
-                          'assets/cbj_logo.png',
-                          fit: BoxFit.fitHeight,
-                        ),
-                      ),
-                      Align(
-                        alignment: Alignment.topCenter,
-                        child: Text(
-                          'Devices list is empty',
-                          style: TextStyle(
-                            fontSize: 30,
-                            color: Theme.of(context).primaryColor,
-                          ),
-                        ),
-                      ),
-                    ],
+    return SingleChildScrollView(
+      reverse: true,
+      child: Column(
+        children: [
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 50),
+            margin: const EdgeInsets.symmetric(vertical: 20),
+            decoration: BoxDecoration(
+              color: Colors.black.withOpacity(0.2),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Stack(
+              children: <Widget>[
+                TextAtom(
+                  'Areas',
+                  style: TextStyle(
+                    fontSize: 35,
+                    foreground: Paint()
+                      ..style = PaintingStyle.stroke
+                      ..strokeWidth = 3
+                      ..color = Colors.black.withOpacity(0.2),
                   ),
                 ),
-              );
-            }
-          },
-          loadFailure: (state) {
-            return CriticalLightFailureDisplay(
-              failure: state.devicesFailure,
-            );
-          },
-          error: (Error value) {
-            return const Text('Error');
-          },
-        );
-      },
+                TextAtom(
+                  'Areas',
+                  style: TextStyle(
+                    fontSize: 35,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          RoomsListViewWidget(
+            entities: devices,
+            rooms: rooms,
+          ),
+        ],
+      ),
     );
   }
 }

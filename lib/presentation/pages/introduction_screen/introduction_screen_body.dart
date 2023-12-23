@@ -1,7 +1,8 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
 import 'package:cybear_jinni/presentation/pages/introduction_screen/introductions_view_model_body/introduction_screen_body_about_page.dart';
 import 'package:cybear_jinni/presentation/pages/introduction_screen/introductions_view_model_body/introduction_screen_body_welcome_page.dart';
-import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
@@ -43,8 +44,8 @@ class IntroductionScreenBody extends StatelessWidget {
               children: [
                 Container(
                   margin: const EdgeInsets.only(top: 20, bottom: 5),
-                  child: Center(
-                    child: Image.asset(
+                  child: const Center(
+                    child: ImageAtom(
                       'assets/cbj_logo.png',
                       height: 200.0,
                     ),
@@ -52,7 +53,7 @@ class IntroductionScreenBody extends StatelessWidget {
                 ),
                 Stack(
                   children: <Widget>[
-                    Text(
+                    TextAtom(
                       'CyBear Jinni',
                       style: TextStyle(
                         fontSize: 48,
@@ -62,7 +63,7 @@ class IntroductionScreenBody extends StatelessWidget {
                           ..color = Colors.pink.withOpacity(0.13),
                       ),
                     ),
-                    Text(
+                    TextAtom(
                       'CyBear Jinni',
                       style: TextStyle(
                         fontSize: 48,
@@ -93,7 +94,7 @@ class IntroductionScreenBody extends StatelessWidget {
                 const SizedBox(
                   height: 40,
                 ),
-                Text(
+                TextAtom(
                   'Our Vision',
                   style: TextStyle(
                     color: Theme.of(context).textTheme.bodyLarge!.color,
@@ -117,7 +118,7 @@ class IntroductionScreenBody extends StatelessWidget {
             ),
           ),
         ],
-        done: Text(
+        done: TextAtom(
           'Done',
           style: TextStyle(
             fontWeight: FontWeight.w600,

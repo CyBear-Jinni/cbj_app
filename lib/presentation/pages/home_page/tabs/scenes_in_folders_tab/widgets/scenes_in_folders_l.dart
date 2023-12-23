@@ -1,51 +1,53 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/application/folders_of_scenes/folders_of_scenes_bloc.dart';
+import 'package:cbj_integrations_controller/domain/room/i_room_repository.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
-import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
+import 'package:cbj_integrations_controller/domain/room/room_failures.dart';
+import 'package:cbj_integrations_controller/domain/scene/i_scene_cbj_repository.dart';
+import 'package:cbj_integrations_controller/domain/scene/scene_cbj_entity.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
+import 'package:dartz/dartz.dart' as dartz;
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:kt_dart/collection.dart';
 
-class ScenesInFoldersL extends StatelessWidget {
+class ScenesInFoldersL extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<FoldersOfScenesBloc, FoldersOfScenesState>(
-      builder: (context, state) {
-        return state.map(
-          (value) => const Text('sd'),
-          loading: (_) => const Center(
-            child: CircularProgressIndicator(),
-          ),
-          loaded: (state) {
-            return ListView.builder(
-              reverse: true,
-              padding: EdgeInsets.zero,
-              itemBuilder: (context, index) {
-                final RoomEntity sceneFolder = state.foldersOfScenes[index];
-                return scenesFoldersWidget(
-                  context,
-                  sceneFolder,
-                );
-              },
-              itemCount: state.foldersOfScenes.length,
-            );
-          },
-          loadedEmpty: (LoadedEmpty value) {
-            return const Center(
-              child: Text(
-                'You can add automations in the plus button',
-                style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.black,
-                ),
-              ),
-            );
-          },
-          error: (_) {
-            return const Text('Error');
-          },
-        );
-      },
-    );
+  State<ScenesInFoldersL> createState() => _ScenesInFoldersLState();
+}
+
+class _ScenesInFoldersLState extends State<ScenesInFoldersL> {
+  List<SceneCbjEntity> allScenes = <SceneCbjEntity>[];
+  List<RoomEntity>? allRoomsWithScenes;
+
+  @override
+  void initState() {
+    super.initState();
+    _initialized();
+  }
+
+  Future<void> _initialized() async {
+    final List<RoomEntity> temp = [];
+    final Set<SceneCbjEntity> eitherAllScenes =
+        await ISceneCbjRepository.instance.getAllScenesAsList();
+    allScenes.addAll(eitherAllScenes);
+
+    if (allScenes.isEmpty) {
+      return;
+    }
+
+    final dartz.Either<RoomFailure, KtList<RoomEntity>> eitherAllRooms =
+        IRoomRepository.instance.getAllRooms();
+    eitherAllRooms.fold((l) => null, (KtList<RoomEntity> r) {
+      for (final RoomEntity rE in r.asList()) {
+        if (rE.roomScenesId.getOrCrash().isNotEmpty) {
+          temp.add(rE);
+        }
+      }
+    });
+
+    setState(() {
+      allRoomsWithScenes = temp;
+    });
   }
 
   Widget scenesFoldersWidget(
@@ -96,7 +98,7 @@ class ScenesInFoldersL extends StatelessWidget {
                   bottomLeft: Radius.circular(borderRadius),
                 ),
               ),
-              child: Text(
+              child: TextAtom(
                 folderOfScenes.cbjEntityName.getOrCrash(),
                 style: TextStyle(
                   color: Theme.of(context).textTheme.bodyLarge!.color,
@@ -108,6 +110,43 @@ class ScenesInFoldersL extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (allRoomsWithScenes == null) {
+      return const Center(
+        child: TextAtom(
+          'In development',
+          style: TextStyle(color: Colors.purple),
+        ),
+      );
+    }
+
+    if (allRoomsWithScenes!.isEmpty) {
+      return const Center(
+        child: TextAtom(
+          'You can add automations in the plus button',
+          style: TextStyle(
+            fontSize: 18,
+            color: Colors.black,
+          ),
+        ),
+      );
+    }
+
+    return ListView.builder(
+      reverse: true,
+      padding: EdgeInsets.zero,
+      itemBuilder: (context, index) {
+        final RoomEntity sceneFolder = allRoomsWithScenes![index];
+        return scenesFoldersWidget(
+          context,
+          sceneFolder,
+        );
+      },
+      itemCount: allRoomsWithScenes!.length,
     );
   }
 }

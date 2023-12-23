@@ -17,7 +17,6 @@ analyzer:
     - "**/*.config.dart"
     - "lib/infrastructure/core/gen/**"
 
-
 linter:
   rules:
     # Use parameter order as in json response

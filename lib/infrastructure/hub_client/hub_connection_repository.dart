@@ -1,35 +1,7 @@
-import 'dart:async';
-import 'dart:io';
+part of 'package:cybear_jinni/domain/i_hub_connection_repository.dart';
 
-import 'package:cbj_integrations_controller/domain/local_db/i_local_devices_db_repository.dart';
-import 'package:cbj_integrations_controller/domain/local_db/local_db_failures.dart';
-import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/utils.dart';
-import 'package:cbj_smart_device/application/usecases/smart_server_u/smart_server_u.dart';
-import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:cybear_jinni/domain/hub/hub_entity.dart';
-import 'package:cybear_jinni/domain/hub/hub_failures.dart';
-import 'package:cybear_jinni/domain/hub/hub_value_objects.dart';
-import 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
-import 'package:cybear_jinni/domain/local_db/i_local_db_repository2.dart';
-import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
-import 'package:cybear_jinni/infrastructure/hub_client/hub_client_demo.dart';
-import 'package:cybear_jinni/infrastructure/hub_client/hub_dtos.dart';
-import 'package:cybear_jinni/injection.dart';
-import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart' show kIsWeb;
-import 'package:injectable/injectable.dart';
-import 'package:location/location.dart';
-import 'package:multicast_dns/multicast_dns.dart';
-import 'package:network_info_plus/network_info_plus.dart';
-import 'package:network_tools/network_tools.dart';
-import 'package:permission_handler/permission_handler.dart'
-    as permission_handler;
-import 'package:wifi_iot/wifi_iot.dart';
-
-@LazySingleton(as: IHubConnectionRepository)
-class HubConnectionRepository extends IHubConnectionRepository {
-  HubConnectionRepository() {
+class _HubConnectionRepository implements IHubConnectionRepository {
+  _HubConnectionRepository() {
     if (currentEnvApp == EnvApp.prod) {
       hubPort = 50055;
     } else {
@@ -41,11 +13,11 @@ class HubConnectionRepository extends IHubConnectionRepository {
   /// running environment
   late int hubPort;
 
-  static int tryAgainConnectToTheHubOnceMore = 0;
+  int tryAgainConnectToTheHubOnceMore = 0;
 
-  static bool cancelConnectionWithHub = false;
+  bool cancelConnectionWithHub = false;
 
-  static bool appInDemoMod = false;
+  bool appInDemoMod = false;
 
   @override
   Future<void> connectWithHub({bool demoMod = false}) async {
@@ -68,7 +40,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
     try {
       connectivityResult = await Connectivity().checkConnectivity();
     } catch (e) {
-      logger.w('Cant check connectivity this is probably PC, error\n$e');
+      icLogger.w('Cant check connectivity this is probably PC, error\n$e');
     }
 
     // Last Number of bssid can change fix?, need to check if more numbers
@@ -84,7 +56,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
       wifiBSSIDWithoutLastNumber =
           wifiBSSID?.substring(0, wifiBSSID.lastIndexOf(':'));
     } catch (e) {
-      logger.w("Can't get WiFi BSSID");
+      icLogger.w("Can't get WiFi BSSID");
     }
     final Either<LocalDbFailures, String> remotePipesInformation =
         await ILocalDbRepository.instance.getRemotePipesDnsName();
@@ -106,14 +78,14 @@ class HubConnectionRepository extends IHubConnectionRepository {
         (kIsWeb && savedWifiBssidWithoutLastNumber == 'no:Network:Bssid')) {
       (await openAndroidWifiSettingIfPossible()).fold(
         (l) {
-          logger
+          icLogger
               .w('No way to establish connection with the Hub, WiFi or location'
                   ' permission is closed for here');
           return;
         },
         (r) async {},
       );
-      logger.i('Connect using direct connection to Hub');
+      icLogger.i('Connect using direct connection to Hub');
 
       await connectDirectlyToHub();
       return;
@@ -129,19 +101,19 @@ class HubConnectionRepository extends IHubConnectionRepository {
     if (IHubConnectionRepository.hubEntity == null) {
       try {
         String? hubNetworkBssid;
-        (await getIt<ILocalDbRepository2>().getHubEntityNetworkBssid()).fold(
+        (await ILocalDbRepository.instance.getHubEntityNetworkBssid()).fold(
           (l) => throw 'Error getting Hub network Bssid',
           (r) => hubNetworkBssid = r,
         );
 
         String? hubNetworkName;
-        (await getIt<ILocalDbRepository2>().getHubEntityNetworkName()).fold(
+        (await ILocalDbRepository.instance.getHubEntityNetworkName()).fold(
           (l) => throw 'Error getting Hub network name',
           (r) => hubNetworkName = r,
         );
 
         String? hubNetworkIp;
-        (await getIt<ILocalDbRepository2>().getHubEntityLastKnownIp()).fold(
+        (await ILocalDbRepository.instance.getHubEntityLastKnownIp()).fold(
           (l) => throw 'Error getting Hub network IP',
           (r) => hubNetworkIp = r,
         );
@@ -151,7 +123,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
           networkName: hubNetworkName!,
         ).toDomain();
       } catch (e) {
-        logger.e('Crashed while setting Hub info from local db\n$e');
+        icLogger.e('Crashed while setting Hub info from local db\n$e');
       }
     }
 
@@ -159,7 +131,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
     try {
       connectivityResult = await Connectivity().checkConnectivity();
     } catch (e) {
-      logger.w('Cant check connectivity this is probably PC, error\n$e');
+      icLogger.w('Cant check connectivity this is probably PC, error\n$e');
     }
 
     // Last Number of bssid can change fix?, need to check if more numbers
@@ -183,7 +155,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
         savedWifiBssidWithoutLastNumber != null &&
         wifiBSSIDWithoutLastNumber != null &&
         savedWifiBssidWithoutLastNumber == wifiBSSIDWithoutLastNumber) {
-      logger.i('Connect using direct connection to Hub');
+      icLogger.i('Connect using direct connection to Hub');
 
       if (IHubConnectionRepository.hubEntity?.lastKnownIp.getOrCrash() !=
           null) {
@@ -216,16 +188,16 @@ class HubConnectionRepository extends IHubConnectionRepository {
         }
         return right(compHubInfo);
       } catch (e) {
-        logger.e('Error getting hubInfo\n$e');
+        icLogger.e('Error getting hubInfo\n$e');
         return left(const HubFailures.unexpected());
       }
 
       // return;
     } else {
-      logger.i('Connect using Remote Pipes');
+      icLogger.i('Connect using Remote Pipes');
       return (await ILocalDbRepository.instance.getRemotePipesDnsName()).fold(
           (l) {
-        logger.e('Cant find local Remote Pipes Dns name');
+        icLogger.e('Cant find local Remote Pipes Dns name');
         return left(const HubFailures.unexpected());
       }, (r) async {
         try {
@@ -237,7 +209,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
           }
           return right(compHubInfo);
         } catch (e) {
-          logger.e('Error getting hubInfo\n$e');
+          icLogger.e('Error getting hubInfo\n$e');
           return left(const HubFailures.unexpected());
         }
       });
@@ -275,7 +247,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
       ResourceRecordQuery.addressIPv4(mDnsName),
     )) {
       deviceIp = record.address.address;
-      logger.i('Found address (${record.address}).');
+      icLogger.i('Found address (${record.address}).');
     }
 
     // await for (final IPAddressResourceRecord record
@@ -286,7 +258,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
 
     client.stop();
 
-    logger.t('Done.');
+    icLogger.t('Done.');
 
     return deviceIp;
   }
@@ -304,7 +276,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
         return locationRequest;
       }
 
-      logger.i('searchForHub');
+      icLogger.i('searchForHub');
 
       String? currentDeviceIP;
       String? networkBSSID;
@@ -339,30 +311,31 @@ class HubConnectionRepository extends IHubConnectionRepository {
       final String subnet =
           currentDeviceIP!.substring(0, currentDeviceIP.lastIndexOf('.'));
 
-      logger.i('Hub Search subnet IP $subnet');
+      icLogger.i('Hub Search subnet IP $subnet');
 
-      final Stream<ActiveHost> devicesWithPort =
-          HostScanner.scanDevicesForSinglePort(
-        subnet,
-        hubPort,
+      // TODO: Search for hub
+      // final Stream<ActiveHost> devicesWithPort =
+      //     HostScanner.scanDevicesForSinglePort(
+      //   subnet,
+      //   hubPort,
 
-        /// TODO: return this settings when can use with the await for loop
-        // resultsInIpAscendingOrder: false,
-        timeout: const Duration(milliseconds: 600),
-      );
+      //   /// TODO: return this settings when can use with the await for loop
+      //   // resultsInIpAscendingOrder: false,
+      //   timeout: const Duration(milliseconds: 600),
+      // );
 
-      await for (final ActiveHost activeHost in devicesWithPort) {
-        logger.i('Found Cbj Hub device: ${activeHost.address}');
-        if (networkBSSID != null && networkName != null) {
-          return insertHubInfo(
-            networkIp: activeHost.address,
-            networkBSSID: networkBSSID,
-            networkName: networkName,
-          );
-        }
-      }
+      // await for (final ActiveHost activeHost in devicesWithPort) {
+      //   icLogger.i('Found Cbj Hub device: ${activeHost.address}');
+      //   if (networkBSSID != null && networkName != null) {
+      //     return insertHubInfo(
+      //       networkIp: activeHost.address,
+      //       networkBSSID: networkBSSID,
+      //       networkName: networkName,
+      //     );
+      //   }
+      // }
     } catch (e) {
-      logger.w('Exception searchForHub\n$e');
+      icLogger.w('Exception searchForHub\n$e');
     }
     await Future.delayed(const Duration(seconds: 5));
     return left(const HubFailures.cantFindHubInNetwork());
@@ -370,7 +343,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
 
   @override
   Future<void> saveHubIP(String hubIP) async {
-    logger.w('saveHubIP');
+    icLogger.w('saveHubIP');
   }
 
   Future<Either<HubFailures, Unit>> askLocationPermissionAndLocationOn() async {
@@ -392,7 +365,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
       if (permissionGranted == PermissionStatus.denied) {
         permissionGranted = await location.requestPermission();
         if (permissionGranted != PermissionStatus.granted) {
-          logger.e('Permission to use location is denied');
+          icLogger.e('Permission to use location is denied');
           await Future.delayed(const Duration(seconds: 10));
 
           permissionCounter++;
@@ -413,7 +386,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
           if (disabledCounter > 2) {
             return const Left(HubFailures.unexpected());
           }
-          logger.w('Location is disabled');
+          icLogger.w('Location is disabled');
           await Future.delayed(const Duration(seconds: 5));
           continue;
         }
@@ -438,14 +411,14 @@ class HubConnectionRepository extends IHubConnectionRepository {
     final HubDtos hubDtos =
         IHubConnectionRepository.hubEntity!.toInfrastructure();
 
-    (await getIt<ILocalDbRepository2>().saveHubEntity(
+    (await ILocalDbRepository.instance.saveHubEntity(
       hubNetworkBssid: hubDtos.hubNetworkBssid,
       networkName: hubDtos.networkName,
       lastKnownIp: hubDtos.lastKnownIp,
     ))
         .fold(
-      (l) => logger.e('Cant find local Remote Pipes Dns name'),
-      (r) => logger.i('Found CyBear Jinni Hub'),
+      (l) => icLogger.e('Cant find local Remote Pipes Dns name'),
+      (r) => icLogger.i('Found CyBear Jinni Hub'),
     );
     return right(unit);
   }
@@ -459,19 +432,19 @@ class HubConnectionRepository extends IHubConnectionRepository {
   Future<void> loadNetworkInformationFromDb() async {
     try {
       String? hubNetworkBssid;
-      (await getIt<ILocalDbRepository2>().getHubEntityNetworkBssid()).fold(
+      (await ILocalDbRepository.instance.getHubEntityNetworkBssid()).fold(
         (l) => throw 'Error getting Hub network Bssid',
         (r) => hubNetworkBssid = r,
       );
 
       String? hubNetworkName;
-      (await getIt<ILocalDbRepository2>().getHubEntityNetworkName()).fold(
+      (await ILocalDbRepository.instance.getHubEntityNetworkName()).fold(
         (l) => throw 'Error getting Hub network name',
         (r) => hubNetworkName = r,
       );
 
       String? hubNetworkIp;
-      (await getIt<ILocalDbRepository2>().getHubEntityLastKnownIp()).fold(
+      (await ILocalDbRepository.instance.getHubEntityLastKnownIp()).fold(
         (l) => throw 'Error getting Hub network IP',
         (r) => hubNetworkIp = r,
       );
@@ -481,7 +454,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
         networkName: hubNetworkName!,
       ).toDomain();
     } catch (e) {
-      logger.e('Crashed while setting Hub info from local db\n$e');
+      icLogger.e('Crashed while setting Hub info from local db\n$e');
     }
   }
 
@@ -532,7 +505,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
       (l) async {
         (await openAndroidWifiSettingIfPossible()).fold(
           (l) {
-            logger.w(
+            icLogger.w(
                 'No way to establish connection with the Hub, WiFi or location'
                 ' permission is closed');
           },
@@ -542,7 +515,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
         );
       },
       (r) {
-        logger.i('Connect using Remote Pipes');
+        icLogger.i('Connect using Remote Pipes');
         HubClient.createStreamWithHub(r, 50056);
         tryAgainConnectToTheHubOnceMore = 0;
       },
@@ -580,7 +553,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
       //   }
       // }
     } else {
-      logger.w(
+      icLogger.w(
         'Will ask the user to open WiFi and gps to try local connection',
       );
       final bool wifiEnabled = await WiFiForIoTPlugin.isEnabled();
@@ -592,7 +565,7 @@ class HubConnectionRepository extends IHubConnectionRepository {
       }
 
       (await askLocationPermissionAndLocationOn()).fold((l) {
-        logger.e(
+        icLogger.e(
           'User does not allow opening location and does not have remote pipes info',
         );
       }, (r) async {
@@ -602,86 +575,5 @@ class HubConnectionRepository extends IHubConnectionRepository {
       });
     }
     return const Left(HubFailures.unexpected());
-  }
-
-  @override
-  Future<Either<HubFailures, String>> containsSmartDevice() async {
-    String? currentDeviceIP;
-    try {
-      final NetworkInfo networkInfo = NetworkInfo();
-      currentDeviceIP = await networkInfo.getWifiIP();
-
-      if (currentDeviceIP == null) {
-        return left(const HubFailures.cantFindHubInNetwork());
-      }
-
-      final String subnet =
-          currentDeviceIP.substring(0, currentDeviceIP.lastIndexOf('.'));
-
-      logger.i('CBJ smart camera search subnet IP $subnet');
-
-      final Stream<ActiveHost> devicesWithPort =
-          HostScanner.scanDevicesForSinglePort(
-        subnet,
-        CbjSmartDeviceServerU.port,
-
-        /// TODO: return this settings when can use with the await for loop
-        // resultsInIpAscendingOrder: false,
-        timeout: const Duration(milliseconds: 600),
-      );
-
-      await for (final ActiveHost activeHost in devicesWithPort) {
-        logger.i('Found CBJ Smart security camera: ${activeHost.address}');
-        return right(activeHost.address);
-      }
-    } catch (e) {
-      logger.w('Exception searchForHub\n$e');
-    }
-
-    // TODO: Create support for all types
-    // final Future<List<ActiveHost>> mdnsDevices =
-    //     CompaniesConnectorConjector.searchMdnsDevices();
-    //
-    // final Future<List<ActiveHost>> pingableDevices =
-    //     CompaniesConnectorConjector.searchPingableDevices();
-
-    // final List<Stream<dynamic>> socketBindingsList =
-    //     CompaniesConnectorConjector.findDevicesByBindingIntoSockets();
-    //
-    // final List<StreamSubscription> listenToSocketBinding = [];
-    // for (final Stream<dynamic> socketBinding in socketBindingsList) {
-    //   listenToSocketBinding.add(
-    //     socketBinding.listen((switcherApiObject) {
-    //       // TODO: Make it work with all types and not just SwitcherApiObject
-    //       getIt<SwitcherConnectorConjector>()
-    //           .addOnlyNewSwitcherDevice(switcherApiObject as SwitcherApiObject);
-    //     }),
-    //   );
-    // }
-    //
-    // for (final StreamSubscription socketBindingSubscription
-    // in listenToSocketBinding) {
-    //   await socketBindingSubscription.cancel();
-    // }
-
-    // try {
-    //   for (final ActiveHost activeHost in await mdnsDevices) {
-    //     CompaniesConnectorConjector.setMdnsDeviceByCompany(activeHost);
-    //   }
-    // } catch (e) {
-    //   logger.e('Mdns search error\n$e');
-    // }
-    //
-    // for (final ActiveHost activeHost in await pingableDevices) {
-    //   try {
-    //     CompaniesConnectorConjector.setHostNameDeviceByCompany(
-    //       activeHost: activeHost,
-    //     );
-    //   } catch (e) {
-    //     continue;
-    //   }
-    // } r
-
-    return left(const HubFailures.cantFindHubInNetwork());
   }
 }

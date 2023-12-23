@@ -1,7 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cybear_jinni/presentation/pages/routes/app_router.gr.dart';
-import 'package:cybear_jinni/presentation/pages/shared_widgets/top_navigation_bar.dart';
+import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
+import 'package:cybear_jinni/presentation/molecules/molecules.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -11,7 +12,7 @@ import 'package:hexcolor/hexcolor.dart';
 @RoutePage()
 class ChooseAutomationTypeToAddPage extends StatelessWidget {
   void backButtonFunction(BuildContext context) {
-    Navigator.pop(context);
+    context.router.pop();
   }
 
   @override
@@ -26,9 +27,9 @@ class ChooseAutomationTypeToAddPage extends StatelessWidget {
         color: HexColor('#FBF5F9'),
         child: Column(
           children: [
-            TopNavigationBar(
+            TopBarMolecule(
               pageName: 'Add Automations',
-              rightIcon: null,
+
               // FontAwesomeIcons.magnifyingGlass,
               rightIconFunction: backButtonFunction,
               leftIcon: FontAwesomeIcons.arrowLeft,
@@ -41,7 +42,7 @@ class ChooseAutomationTypeToAddPage extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  const Text(
+                  const TextAtom(
                     'Do several things at once or start actions'
                     ' automatically by adding a trigger.',
                     style: TextStyle(
@@ -51,7 +52,7 @@ class ChooseAutomationTypeToAddPage extends StatelessWidget {
                   const SizedBox(
                     height: 13,
                   ),
-                  const Text(
+                  const TextAtom(
                     'Please choose your automation trigger',
                     style: TextStyle(
                       color: Colors.black,
@@ -79,7 +80,7 @@ class ChooseAutomationTypeToAddPage extends StatelessWidget {
                               children: [
                                 Row(
                                   children: [
-                                    Text(
+                                    TextAtom(
                                       'Scenes - ',
                                       style: TextStyle(
                                         color: Colors.black,
@@ -95,14 +96,14 @@ class ChooseAutomationTypeToAddPage extends StatelessWidget {
                                     ),
                                   ],
                                 ),
-                                Text(
+                                TextAtom(
                                   'Combining a number of actions in a big button.',
                                   style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 13,
                                   ),
                                 ),
-                                Text(
+                                TextAtom(
                                   'Example:\n"Arriving Home" button that will turn on some lights and turn up all the blinds when you click on it.',
                                   style: TextStyle(
                                     color: Colors.black,
@@ -128,7 +129,7 @@ class ChooseAutomationTypeToAddPage extends StatelessWidget {
                               // showDialog(
                               //   context: context,
                               //   builder: (_) => const AlertDialog(
-                              //     title: Text(
+                              //     title: TextAtom(
                               //       'Not supported yet',
                               //     ),
                               //   ),
@@ -139,7 +140,7 @@ class ChooseAutomationTypeToAddPage extends StatelessWidget {
                               children: [
                                 Row(
                                   children: [
-                                    Text(
+                                    TextAtom(
                                       'Routines - ',
                                       style: TextStyle(
                                         color: Colors.black,
@@ -155,14 +156,14 @@ class ChooseAutomationTypeToAddPage extends StatelessWidget {
                                     ),
                                   ],
                                 ),
-                                Text(
+                                TextAtom(
                                   'Like alarm clock but for triggering actions.',
                                   style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 13,
                                   ),
                                 ),
-                                Text(
+                                TextAtom(
                                   'Example:\nTurn on the thermostat for an hour and open all blinds each day at 7:00am.',
                                   style: TextStyle(
                                     color: Colors.black,
@@ -188,7 +189,7 @@ class ChooseAutomationTypeToAddPage extends StatelessWidget {
                               showDialog(
                                 context: context,
                                 builder: (_) => const AlertDialog(
-                                  title: Text(
+                                  title: TextAtom(
                                     'Not supported yet',
                                   ),
                                 ),
@@ -202,7 +203,7 @@ class ChooseAutomationTypeToAddPage extends StatelessWidget {
                               children: [
                                 Row(
                                   children: [
-                                    Text(
+                                    TextAtom(
                                       'Bindings - ',
                                       style: TextStyle(
                                         color: Colors.black,
@@ -218,14 +219,14 @@ class ChooseAutomationTypeToAddPage extends StatelessWidget {
                                     ),
                                   ],
                                 ),
-                                Text(
+                                TextAtom(
                                   'Trigger actions whenever an external action occurs.',
                                   style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 13,
                                   ),
                                 ),
-                                Text(
+                                TextAtom(
                                   'Example:\nIf the home door got opened from 3:00am - 6:00am trigger anti-thief alarm system.',
                                   style: TextStyle(
                                     color: Colors.black,

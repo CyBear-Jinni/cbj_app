@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 // TODO: Add at least 4 more colors
 ///List of all the GradientColors to iterate on
-final List<List<Color>> gradientColorsList = [
+final Set<List<Color>> gradientColorsList = {
   GradientColors.sky,
   GradientColors.fire,
   GradientColors.new1,
   GradientColors.sunset,
   GradientColors.sea,
   GradientColors.mango,
-];
+};
 
 class GradientColors {
   static List<Color> sky = [
@@ -38,13 +38,27 @@ class GradientColors {
   ];
 }
 
-class BacgroundGradient {
-  static LinearGradient getBacground(BuildContext context) {
+class AppThemeData {
+  static const double generalSpacing = 20;
+
+  static EdgeInsets generalHorizontalEdgeInsets =
+      const EdgeInsets.symmetric(horizontal: generalSpacing);
+}
+
+class ListOfColors {
+  ListOfColors(this.listOfColors);
+
+  Set<Color>? listOfColors;
+}
+
+class BackgroundGradient {
+  static LinearGradient getBackground(BuildContext context) {
     return LinearGradient(
-      // Where the linear gradient begins and ends
+      /// Where the linear gradient begins and ends
       begin: Alignment.topRight,
       end: Alignment.bottomCenter,
-      // Add one stop for each color. Stops should increase from 0 to 1
+
+      /// Add one stop for each color. Stops should increase from 0 to 1
       stops: const <double>[0, 0.2, 0.5, 0.6, 1],
       colors: <Color>[
         Colors.deepPurple,

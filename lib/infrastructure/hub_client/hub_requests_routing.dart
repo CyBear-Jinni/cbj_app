@@ -5,40 +5,40 @@ import 'package:cbj_integrations_controller/domain/room/i_room_repository.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/domain/scene/i_scene_cbj_repository.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/abstract_device/device_entity_abstract.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_blinds_device/generic_blinds_device_dtos.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_boiler_device/generic_boiler_device_dtos.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_dimmable_light_device/generic_dimmable_light_device_dtos.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_empty_device/generic_empty_device_dtos.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_light_device/generic_light_device_dtos.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_ping_device/generic_ping_device_dtos.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_printer_device/generic_printer_device_dtos.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_rgbw_light_device/generic_rgbw_light_device_dtos.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_computer_device/generic_smart_computer_device_dtos.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_plug_device/generic_smart_plug_device_dtos.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_smart_tv_device/generic_smart_tv_device_dtos.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_devices/generic_switch_device/generic_switch_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/entity_type_utils.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_blinds_entity/generic_blinds_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_boiler_entity/generic_boiler_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_dimmable_light_entity/generic_dimmable_light_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_empty_entity/generic_empty_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_light_entity/generic_light_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_ping_entity/generic_ping_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_printer_entity/generic_printer_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_rgbw_light_entity/generic_rgbw_light_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_security_camera_entity/generic_security_camera_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_smart_computer_entity/generic_smart_computer_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_smart_plug_entity/generic_smart_plug_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_smart_tv_entity/generic_smart_tv_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_switch_entity/generic_switch_device_dtos.dart';
+import 'package:cbj_integrations_controller/infrastructure/hub_client/hub_client.dart';
 import 'package:cbj_integrations_controller/infrastructure/room/room_entity_dtos.dart';
 import 'package:cbj_integrations_controller/infrastructure/scenes/scene_cbj_dtos.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
-import 'package:cybear_jinni/domain/hub/i_hub_connection_repository.dart';
-import 'package:cybear_jinni/infrastructure/hub_client/hub_client.dart';
-import 'package:cybear_jinni/infrastructure/objects/enums_cbj.dart';
-import 'package:cybear_jinni/injection.dart';
-import 'package:cybear_jinni/utils.dart';
+import 'package:cybear_jinni/domain/i_hub_connection_repository.dart';
+import 'package:cybear_jinni/infrastructure/core/injection.dart';
+import 'package:cybear_jinni/infrastructure/core/logger.dart';
 import 'package:grpc/grpc.dart';
 
 class HubRequestRouting {
-  static StreamSubscription<RequestsAndStatusFromHub>?
-      requestsFromHubSubscription;
+  static StreamSubscription<dynamic>? requestsFromHubSubscription;
 
   static Stream<ConnectivityResult>? connectivityChangedStream;
 
   static bool areWeRunning = false;
 
   // static int numberOfCrashes = 0;
-  static int numberOfConnactivityChange = 0;
+  static int numberOfConnectivityChange = 0;
 
   static Future<void> navigateRequest() async {
     if (areWeRunning) {
@@ -56,9 +56,11 @@ class HubRequestRouting {
     // requestsFromHubSubscription = null;
     connectivityChangedStream = null;
 
-    requestsFromHubSubscription = HubRequestsToApp
-        .hubRequestsStreamBroadcast.stream
-        .listen((RequestsAndStatusFromHub requestsAndStatusFromHub) {
+    requestsFromHubSubscription = HubRequestsToApp.streamRequestsToApp.stream
+        .listen((dynamic requestsAndStatusFromHub) {
+      if (requestsAndStatusFromHub is! RequestsAndStatusFromHub) {
+        return;
+      }
       if (requestsAndStatusFromHub.sendingType == SendingType.entityType) {
         navigateDeviceRequest(requestsAndStatusFromHub.allRemoteCommands);
       } else if (requestsAndStatusFromHub.sendingType == SendingType.roomType) {
@@ -92,16 +94,16 @@ class HubRequestRouting {
 
     connectivityChangedStream = Connectivity().onConnectivityChanged;
     connectivityChangedStream?.listen((ConnectivityResult event) async {
-      numberOfConnactivityChange++;
+      numberOfConnectivityChange++;
       logger.i('Connectivity changed ${event.name} And $event');
-      if (event == ConnectivityResult.none || numberOfConnactivityChange <= 1) {
+      if (event == ConnectivityResult.none || numberOfConnectivityChange <= 1) {
         return;
       }
       areWeRunning = false;
       navigateRequest();
     });
 
-    await getIt<IHubConnectionRepository>().connectWithHub();
+    await IHubConnectionRepository.instance.connectWithHub();
   }
 
   static Future<void> navigateRoomRequest(
@@ -114,19 +116,19 @@ class HubRequestRouting {
       uniqueId: requestAsJson['uniqueId'] as String,
       cbjEntityName: requestAsJson['cbjEntityName'] as String,
       background: requestAsJson['background'] as String,
-      roomTypes: List<String>.from(requestAsJson['roomTypes'] as List<dynamic>),
+      roomTypes: Set<String>.from(requestAsJson['roomTypes'] as Set<dynamic>),
       roomDevicesId:
-          List<String>.from(requestAsJson['roomDevicesId'] as List<dynamic>),
+          Set<String>.from(requestAsJson['roomDevicesId'] as Set<dynamic>),
       roomScenesId:
-          List<String>.from(requestAsJson['roomScenesId'] as List<dynamic>),
+          Set<String>.from(requestAsJson['roomScenesId'] as Set<dynamic>),
       roomRoutinesId:
-          List<String>.from(requestAsJson['roomRoutinesId'] as List<dynamic>),
+          Set<String>.from(requestAsJson['roomRoutinesId'] as Set<dynamic>),
       roomBindingsId:
-          List<String>.from(requestAsJson['roomBindingsId'] as List<dynamic>),
+          Set<String>.from(requestAsJson['roomBindingsId'] as Set<dynamic>),
       roomMostUsedBy:
-          List<String>.from(requestAsJson['roomMostUsedBy'] as List<dynamic>),
+          Set<String>.from(requestAsJson['roomMostUsedBy'] as Set<dynamic>),
       roomPermissions:
-          List<String>.from(requestAsJson['roomPermissions'] as List<dynamic>),
+          Set<String>.from(requestAsJson['roomPermissions'] as Set<dynamic>),
     );
 
     final RoomEntity roomEntity = roomEntityDtos.toDomain();
@@ -149,17 +151,16 @@ class HubRequestRouting {
 
     ///TODO: add request type login support
 
-    final EntityTypes? deviceType =
-        EnumHelperCbj.stringToDt(deviceTypeAsString);
+    final EntityTypes? deviceType = EntityUtils.stringToDt(deviceTypeAsString);
 
     final EntityStateGRPC? entityStateGRPC =
-        EnumHelperCbj.stringToDeviceState(deviceStateAsString);
+        EntityUtils.stringToDeviceState(deviceStateAsString);
 
     if (deviceType == null || entityStateGRPC == null) {
       return;
     }
 
-    late DeviceEntityAbstract deviceEntity;
+    late DeviceEntityBase deviceEntity;
 
     switch (deviceType) {
       case EntityTypes.light:
@@ -203,6 +204,10 @@ class HubRequestRouting {
         deviceEntity =
             GenericPrinterDeviceDtos.fromJson(requestAsJson).toDomain();
         logger.i('Adding Smart printer device type');
+      case EntityTypes.securityCamera:
+        deviceEntity =
+            GenericSecurityCameraDeviceDtos.fromJson(requestAsJson).toDomain();
+        logger.i('Adding Smart camera device type');
       default:
         if (entityStateGRPC == EntityStateGRPC.pingNow) {
           deviceEntity =
@@ -210,16 +215,15 @@ class HubRequestRouting {
           logger.t('Got Ping request');
           return;
         } else {
-          deviceEntity =
-              GenericEmptyDeviceDtos.fromJson(requestAsJson).toDomain();
           logger.w(
             'Device type is $deviceType is not supported $entityStateGRPC ',
           );
+          deviceEntity =
+              GenericUnsupportedDeviceDtos.fromJson(requestAsJson).toDomain();
         }
         break;
     }
-
-    getIt<IDeviceRepository>().addOrUpdateDevice(deviceEntity);
+    IDeviceRepository.instance.addOrUpdateDevice(deviceEntity);
   }
 
   static Future<void> navigateSceneRequest(

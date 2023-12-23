@@ -1,10 +1,8 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/application/auth/auth_bloc.dart';
-import 'package:cybear_jinni/injection.dart';
-import 'package:cybear_jinni/presentation/pages/routes/app_router.dart';
+import 'package:cybear_jinni/infrastructure/core/injection.dart';
+import 'package:cybear_jinni/presentation/core/routes/app_router.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppWidget extends StatelessWidget {
   MaterialColor createMaterialColor(Color color) {
@@ -33,52 +31,38 @@ class AppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final rootRouter = getIt<AppRouter>();
 
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) =>
-              getIt<AuthBloc>()..add(const AuthEvent.initialized()),
+    return MaterialApp.router(
+      routerConfig: rootRouter.config(
+        navigatorObservers: () => [AutoRouteObserver()],
+      ),
+      title: 'CyBear Jinni App',
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
+      //      darkTheme: ThemeData(brightness: Brightness.dark),
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        useMaterial3: true,
+        primaryColor:
+            createMaterialColor(const Color.fromRGBO(162, 129, 162, 1.0)),
+        primaryColorDark: const Color(0xFF271052),
+        inputDecorationTheme: InputDecorationTheme(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
         ),
-      ],
-      child: MaterialApp.router(
-        routerConfig: rootRouter.config(
-          navigatorObservers: () => [AutoRouteObserver()],
+        textTheme: const TextTheme(
+          bodyLarge: TextStyle(color: Colors.white),
+          bodyMedium: TextStyle(color: Colors.white70),
         ),
-        // routeInformationParser: rootRouter.defaultRouteParser(),
-        title: 'CyBear Jinni App',
-        // builder: ExtendedNavigator(
-        //   router: AppRouter(),
-        // ),
-        // initialRoute:
-        // auth.currentU1`ser != null ? '/$homePage' : '/$loginPage',
-        localizationsDelegates: context.localizationDelegates,
-        supportedLocales: context.supportedLocales,
-        locale: context.locale,
-        //      darkTheme: ThemeData(brightness: Brightness.dark),
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          useMaterial3: true,
-          primaryColor:
-              createMaterialColor(const Color.fromRGBO(162, 129, 162, 1.0)),
-          primaryColorDark: const Color(0xFF271052),
-          inputDecorationTheme: InputDecorationTheme(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8),
-            ),
+        fontFamily: 'gidole_regular',
+        colorScheme: ColorScheme.fromSwatch(
+          primarySwatch: createMaterialColor(
+            const Color.fromRGBO(162, 129, 162, 1.0),
           ),
-          textTheme: const TextTheme(
-            bodyLarge: TextStyle(color: Colors.white),
-            bodyMedium: TextStyle(color: Colors.white70),
-          ),
-          fontFamily: 'gidole_regular',
-          colorScheme: ColorScheme.fromSwatch(
-            primarySwatch: createMaterialColor(
-              const Color.fromRGBO(162, 129, 162, 1.0),
-            ),
-            accentColor: Colors.yellow,
-          ).copyWith(
-            secondary: Colors.indigo,
-          ),
+          accentColor: Colors.yellow,
+        ).copyWith(
+          secondary: Colors.indigo,
         ),
       ),
     );
