@@ -1,7 +1,7 @@
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_abstract.dart';
-import 'package:cybear_jinni/domain/i_phone_as_hub.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
+import 'package:cybear_jinni/domain/connections_service.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/molecules/molecules.dart';
 import 'package:cybear_jinni/presentation/organisms/organisms.dart';
@@ -11,20 +11,20 @@ class OpenRoomOrganism extends StatefulWidget {
   const OpenRoomOrganism({
     required this.roomEntity,
     required this.roomColorGradiant,
-    this.entityTypes,
+    required this.entityTypes,
   });
 
   /// If it have value will only show Printers in this room
   final RoomEntity roomEntity;
-  final List<Color>? roomColorGradiant;
-  final EntityTypes? entityTypes;
+  final Set<Color>? roomColorGradiant;
+  final Set<EntityTypes> entityTypes;
 
   @override
   State<OpenRoomOrganism> createState() => _OpenRoomOrganismState();
 }
 
 class _OpenRoomOrganismState extends State<OpenRoomOrganism> {
-  List<DeviceEntityAbstract>? devices;
+  Set<DeviceEntityBase>? devices;
 
   @override
   void initState() {
@@ -33,22 +33,21 @@ class _OpenRoomOrganismState extends State<OpenRoomOrganism> {
   }
 
   Future initialzeDevices() async {
-    final Map<String, DeviceEntityAbstract> devicesMap =
-        await IPhoneAsHub.instance.getAllEntities;
+    final Map<String, DeviceEntityBase> devicesMap =
+        await ConnectionsService.instance.getAllEntities;
     final Set<String> deviceIdsInRoom =
-        widget.roomEntity.roomDevicesId.getOrCrash().toSet();
-
-    final String? entityTypeName = widget.entityTypes?.name;
-
-    final List<DeviceEntityAbstract> tempDevices = devicesMap.values
+        widget.roomEntity.roomDevicesId.getOrCrash();
+    final Set<EntityTypes> entityTypes = widget.entityTypes;
+    if (entityTypes.isEmpty) {
+      return;
+    }
+    final Set<DeviceEntityBase> tempDevices = devicesMap.values
         .where(
           (element) =>
-              deviceIdsInRoom
-                  .contains(element.deviceCbjUniqueId.getOrCrash()) &&
-              (entityTypeName == null ||
-                  entityTypeName == element.entityTypes.getOrCrash()),
+              deviceIdsInRoom.contains(element.getCbjDeviceId) &&
+              entityTypes.contains(element.entityTypes.type),
         )
-        .toList();
+        .toSet();
 
     setState(() {
       devices = tempDevices;
@@ -65,19 +64,31 @@ class _OpenRoomOrganismState extends State<OpenRoomOrganism> {
       return EmptyOpenRoomOrganism();
     }
 
-    return Expanded(
-      child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 15),
-        child: ListView.builder(
-          reverse: true,
-          padding: EdgeInsets.zero,
-          itemBuilder: (context, index) {
-            final DeviceEntityAbstract device = devices![index];
+    final ThemeData themeData = Theme.of(context);
+    final TextTheme textTheme = themeData.textTheme;
 
-            return DeviceByTypeMolecule(device);
-          },
-          itemCount: devices!.length,
-        ),
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 15),
+      child: ListView.separated(
+        reverse: true,
+        padding: EdgeInsets.zero,
+        itemBuilder: (context, index) {
+          final DeviceEntityBase device = devices!.elementAt(index);
+
+          return Column(
+            children: [
+              TextAtom(
+                device.cbjEntityName.getOrCrash() ?? '',
+                style: textTheme.titleMedium,
+              ),
+              const SeparatorAtom(multiple: 0.5),
+              DeviceByTypeMolecule(device),
+            ],
+          );
+        },
+        itemCount: devices!.length,
+        separatorBuilder: (BuildContext context, int index) =>
+            const SeparatorAtom(),
       ),
     );
   }

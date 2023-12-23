@@ -4,7 +4,7 @@ import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/domain/room/room_failures.dart';
 import 'package:cbj_integrations_controller/domain/room/value_objects_room.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/snack_bar_service.dart';
@@ -20,20 +20,20 @@ class AddNewRoomForm extends StatefulWidget {
 }
 
 class _AddNewRoomFormState extends State<AddNewRoomForm> {
-  List<RoomEntity?> _allRooms = [];
-  List<DeviceEntityAbstract?> _allDevices = [];
+  Set<RoomEntity?> _allRooms = {};
+  Set<DeviceEntityBase?> _allDevices = {};
   RoomUniqueId roomUniqueId = RoomUniqueId();
   RoomDefaultName cbjEntityName = RoomDefaultName('');
   RoomBackground background = RoomBackground(
     'https://live.staticflickr.com/5220/5486044345_f67abff3e9_h.jpg',
   );
-  RoomTypes roomTypes = RoomTypes(const []);
-  RoomDevicesId roomDevicesId = RoomDevicesId(const []);
-  RoomScenesId roomScenesId = RoomScenesId(const []);
-  RoomRoutinesId roomRoutinesId = RoomRoutinesId(const []);
-  RoomBindingsId roomBindingsId = RoomBindingsId(const []);
-  RoomMostUsedBy roomMostUsedBy = RoomMostUsedBy(const []);
-  RoomPermissions roomPermissions = RoomPermissions(const []);
+  RoomTypes roomTypes = RoomTypes(const {});
+  RoomDevicesId roomDevicesId = RoomDevicesId(const {});
+  RoomScenesId roomScenesId = RoomScenesId(const {});
+  RoomRoutinesId roomRoutinesId = RoomRoutinesId(const {});
+  RoomBindingsId roomBindingsId = RoomBindingsId(const {});
+  RoomMostUsedBy roomMostUsedBy = RoomMostUsedBy(const {});
+  RoomPermissions roomPermissions = RoomPermissions(const {});
   bool showErrorMessages = false;
   bool isSubmitting = false;
   dartz.Option authFailureOrSuccessOption = dartz.none();
@@ -46,17 +46,17 @@ class _AddNewRoomFormState extends State<AddNewRoomForm> {
 
   Future<void> _initialized() async {
     IRoomRepository.instance.getAllRooms().fold((l) => null, (r) {
-      _allRooms = List<RoomEntity>.from(r.iter);
+      _allRooms = Set<RoomEntity>.from(r.iter);
     });
 
     (await IDeviceRepository.instance.getAllDevices()).fold((l) => null, (r) {
-      _allDevices = List<DeviceEntityAbstract>.from(r.iter);
+      _allDevices = Set<DeviceEntityBase>.from(r.iter);
     });
     _allRooms.removeWhere((element) => element == null);
     _allDevices.removeWhere((element) => element == null);
     setState(() {
-      _allRooms = _allRooms as List<RoomEntity>;
-      _allDevices = _allDevices as List<DeviceEntityAbstract>;
+      _allRooms = _allRooms as Set<RoomEntity>;
+      _allDevices = _allDevices as Set<DeviceEntityBase>;
     });
   }
 
@@ -84,7 +84,7 @@ class _AddNewRoomFormState extends State<AddNewRoomForm> {
     });
   }
 
-  Future<void> _roomTypesChanged(List<String> value) async {
+  Future<void> _roomTypesChanged(Set<String> value) async {
     setState(() {
       roomTypes = RoomTypes(value);
       authFailureOrSuccessOption = dartz.none();
@@ -157,7 +157,7 @@ class _AddNewRoomFormState extends State<AddNewRoomForm> {
                       listType: MultiSelectListType.CHIP,
                       onConfirm: (List<int> values) {
                         _roomTypesChanged(
-                          values.map((e) => e.toString()).toList(),
+                          values.map((e) => e.toString()).toSet(),
                         );
                       },
                     ),

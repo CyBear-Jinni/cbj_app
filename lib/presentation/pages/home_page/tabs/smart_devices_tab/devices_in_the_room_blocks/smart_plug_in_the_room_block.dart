@@ -5,10 +5,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/entity_type_utils.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_smart_plug_entity/generic_smart_plug_entity.dart';
-import 'package:cybear_jinni/domain/i_phone_as_hub.dart';
+import 'package:cybear_jinni/domain/connections_service.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
@@ -26,7 +26,7 @@ class SmartPlugsInTheRoomBlock extends StatefulWidget {
 
   factory SmartPlugsInTheRoomBlock.withAbstractDevice({
     required RoomEntity roomEntityTemp,
-    required List<DeviceEntityAbstract> entities,
+    required List<DeviceEntityBase> entities,
     required ListOfColors tempRoomColorGradiant,
   }) {
     final List<GenericSmartPlugDE> tempSmartPlugsInRoom = [];
@@ -46,7 +46,7 @@ class SmartPlugsInTheRoomBlock extends StatefulWidget {
   final RoomEntity roomEntity;
   final List<GenericSmartPlugDE> smartPlugsInRoom;
   final ListOfColors roomColorGradiant;
-  final List<DeviceEntityAbstract> entities;
+  final List<DeviceEntityBase> entities;
 
   @override
   State<SmartPlugsInTheRoomBlock> createState() =>
@@ -79,7 +79,7 @@ class _SmartPlugsInTheRoomBlockState extends State<SmartPlugsInTheRoomBlock> {
       return;
     }
 
-    IPhoneAsHub.instance.setEntityState(
+    ConnectionsService.instance.setEntityState(
       uniqueIdByVendor: getUniqueIdByVendor(),
       property: EntityProperties.smartPlugState,
       actionType: action,
@@ -95,7 +95,7 @@ class _SmartPlugsInTheRoomBlockState extends State<SmartPlugsInTheRoomBlock> {
 
     final HashMap<VendorsAndServices, HashSet<String>> uniqueIdByVendor =
         HashMap();
-    for (final DeviceEntityAbstract? element in widget.entities) {
+    for (final DeviceEntityBase? element in widget.entities) {
       final VendorsAndServices? vendor =
           element?.cbjDeviceVendor.vendorsAndServices;
 
@@ -128,7 +128,7 @@ class _SmartPlugsInTheRoomBlockState extends State<SmartPlugsInTheRoomBlock> {
       onTap: () {
         context.router.push(
           DevicesInRoomRoute(
-            entityTypes: EntityTypes.smartPlug,
+            entityTypes: const {EntityTypes.smartPlug},
             roomEntity: widget.roomEntity,
             roomColorGradiant: widget.roomColorGradiant,
           ),

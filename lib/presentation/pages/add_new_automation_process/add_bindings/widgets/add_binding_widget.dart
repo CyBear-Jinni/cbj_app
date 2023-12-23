@@ -3,7 +3,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/domain/binding/i_binding_cbj_repository.dart';
 import 'package:cbj_integrations_controller/domain/vendors/login_abstract/core_login_failures.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
 import 'package:cybear_jinni/domain/device/i_device_repository.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
@@ -19,14 +19,14 @@ class AddBindingWidget extends StatefulWidget {
 }
 
 class _AddBindingWidgetState extends State<AddBindingWidget> {
-  List<DeviceEntityAbstract> _allDevices = [];
+  Set<DeviceEntityBase> _allDevices = {};
 
   String bindingName = '';
 
   /// List of devices with entities, will be treated as actions
-  List<MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>>
-      allDevicesWithNewAction = [];
-  List<MapEntry<String, String>> allEntityActions = [];
+  Set<MapEntry<DeviceEntityBase, MapEntry<String?, String?>>>
+      allDevicesWithNewAction = {};
+  Set<MapEntry<String, String>> allEntityActions = {};
   bool showErrorMessages = false;
   bool isSubmitting = false;
   dartz.Option<dartz.Either<CoreLoginFailure, dartz.Unit>>
@@ -39,14 +39,14 @@ class _AddBindingWidgetState extends State<AddBindingWidget> {
   }
 
   Future<void> _initialized() async {
-    List<DeviceEntityAbstract?> value = [];
+    Set<DeviceEntityBase?> value = {};
     (await IDeviceRepository.instance.getAllDevices()).fold((l) => null, (r) {
-      value = List<DeviceEntityAbstract?>.from(r.iter);
+      value = Set<DeviceEntityBase?>.from(r.iter);
     });
     value.removeWhere((element) => element == null);
 
     setState(() {
-      _allDevices = value.map((e) => e!).toList();
+      _allDevices = value.map((e) => e!).toSet();
     });
   }
 
@@ -59,7 +59,7 @@ class _AddBindingWidgetState extends State<AddBindingWidget> {
   }
 
   Future<void> _addDevicesWithNewActions(
-    List<MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>> value,
+    Set<MapEntry<DeviceEntityBase, MapEntry<String?, String?>>> value,
   ) async {
     setState(() {
       allDevicesWithNewAction.addAll(value);
@@ -94,13 +94,13 @@ class _AddBindingWidgetState extends State<AddBindingWidget> {
             child: ListView.builder(
               itemCount: allDevicesWithNewAction.length,
               itemBuilder: (BuildContext context, int index) {
-                final MapEntry<DeviceEntityAbstract, MapEntry<String?, String?>>
-                    currentDevice = allDevicesWithNewAction[index];
+                final MapEntry<DeviceEntityBase, MapEntry<String?, String?>>
+                    currentDevice = allDevicesWithNewAction.elementAt(index);
 
                 return Container(
                   margin: const EdgeInsets.symmetric(vertical: 1),
                   child: BindingActionWidget(
-                    deviceEntityAbstract: currentDevice.key,
+                    deviceEntityBase: currentDevice.key,
                     propertyToChange:
                         currentDevice.value.key ?? 'Missing property',
                     actionToChange: currentDevice.value.value ??
@@ -131,12 +131,12 @@ class _AddBindingWidgetState extends State<AddBindingWidget> {
                         ),
                       ),
                       onPressed: (_) async {
-                        final List<
-                                MapEntry<DeviceEntityAbstract,
+                        final Set<
+                                MapEntry<DeviceEntityBase,
                                     MapEntry<String?, String?>>>? actionList =
                             await context.router.push<
-                                List<
-                                    MapEntry<DeviceEntityAbstract,
+                                Set<
+                                    MapEntry<DeviceEntityBase,
                                         MapEntry<String?, String?>>>>(
                           const AddActionRoute(),
                         );

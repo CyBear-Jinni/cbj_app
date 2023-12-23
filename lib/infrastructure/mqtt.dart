@@ -5,8 +5,8 @@ import 'package:cbj_integrations_controller/domain/i_saved_devices_repo.dart';
 import 'package:cbj_integrations_controller/domain/i_saved_rooms_repo.dart';
 import 'package:cbj_integrations_controller/infrastructure/devices/device_helper/device_helper.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_abstract.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_dto_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_dto_base.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/value_objects_core.dart';
 import 'package:cbj_integrations_controller/infrastructure/hub_client/hub_client.dart';
 import 'package:cbj_integrations_controller/infrastructure/room/room_entity_dtos.dart';
@@ -55,7 +55,7 @@ class MqttServerRepository extends IMqttServerRepository {
 
   @override
   Future<void> postSmartDeviceToAppMqtt({
-    required DeviceEntityAbstract entityFromTheHub,
+    required DeviceEntityBase entityFromTheHub,
   }) async {
     HubRequestsToApp.streamRequestsToApp.sink.add(
       RequestsAndStatusFromHub(
@@ -68,7 +68,7 @@ class MqttServerRepository extends IMqttServerRepository {
 
   @override
   Future<void> postToAppMqtt({
-    required DeviceEntityAbstract entityFromTheHub,
+    required DeviceEntityBase entityFromTheHub,
   }) async {}
 
   @override
@@ -76,19 +76,18 @@ class MqttServerRepository extends IMqttServerRepository {
     required dynamic entityFromTheApp,
     bool? gotFromApp,
   }) async {
-    if (entityFromTheApp is DeviceEntityDtoAbstract) {
-      final DeviceEntityAbstract deviceEntityAbstract =
-          entityFromTheApp.toDomain();
-      deviceEntityAbstract.entityStateGRPC =
-          EntityState(EntityStateGRPC.waitingInComp.toString());
+    if (entityFromTheApp is DeviceEntityDtoBase) {
+      final DeviceEntityBase deviceEntityBase = entityFromTheApp.toDomain();
+      deviceEntityBase.entityStateGRPC =
+          EntityState.state(EntityStateGRPC.waitingInComp);
 
       /// Sends directly to device connector conjecture
-      ISavedDevicesRepo.instance.addOrUpdateFromMqtt(deviceEntityAbstract);
+      ISavedDevicesRepo.instance.addOrUpdateFromMqtt(deviceEntityBase);
 
       return;
-    } else if (entityFromTheApp is DeviceEntityAbstract) {
+    } else if (entityFromTheApp is DeviceEntityBase) {
       entityFromTheApp.entityStateGRPC =
-          EntityState(EntityStateGRPC.waitingInComp.toString());
+          EntityState.state(EntityStateGRPC.waitingInComp);
 
       /// Sends directly to device connector conjecture
       // ConnectorDevicesStreamFromMqtt.fromMqttStream.add(entityFromTheApp);
@@ -110,7 +109,7 @@ class MqttServerRepository extends IMqttServerRepository {
 
   @override
   Future<void> publishDeviceEntity(
-    DeviceEntityAbstract deviceEntityDtoAbstract,
+    DeviceEntityBase deviceEntityDtoAbstract,
   ) async {}
 
   @override

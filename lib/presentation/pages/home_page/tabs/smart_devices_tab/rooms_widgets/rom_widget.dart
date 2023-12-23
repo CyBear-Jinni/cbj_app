@@ -1,7 +1,9 @@
+import 'dart:collection';
+
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
 import 'package:cybear_jinni/infrastructure/core/logger.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
@@ -19,29 +21,26 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class RoomWidget extends StatefulWidget {
   const RoomWidget({
-    required this.roomColorGradiant,
-    required this.roomsList,
-    required this.tempDevicesByRoomsByType,
+    required this.room,
+    required this.rooms,
+    required this.entities,
+    required this.entitiesInTheRoom,
     required this.bottomMargin,
     required this.leftMargin,
     required this.rightMargin,
     required this.borderRadius,
-    required this.roomId,
-    required this.numberOfDevicesInTheRoom,
-    required this.roomEntity,
+    required this.roomColorGradiant,
   });
 
+  final RoomEntity room;
   final double bottomMargin;
   final double leftMargin;
   final double rightMargin;
   final double borderRadius;
   final ListOfColors roomColorGradiant;
-  final List<RoomEntity?> roomsList;
-  final Map<String, Map<String, List<DeviceEntityAbstract>>>
-      tempDevicesByRoomsByType;
-  final String roomId;
-  final int numberOfDevicesInTheRoom;
-  final RoomEntity roomEntity;
+  final HashMap<String, RoomEntity> rooms;
+  final Set<String> entitiesInTheRoom;
+  final HashMap<String, DeviceEntityBase> entities;
 
   @override
   State<RoomWidget> createState() => _RoomWidgetState();
@@ -50,7 +49,10 @@ class RoomWidget extends StatefulWidget {
 class _RoomWidgetState extends State<RoomWidget> {
   @override
   Widget build(BuildContext context) {
-    bool didAddedLights = false;
+    if (widget.entitiesInTheRoom.isEmpty) {
+      return const SizedBox();
+    }
+    final int numberOfDevicesInTheRoom = widget.entitiesInTheRoom.length;
 
     return Container(
       margin: EdgeInsets.only(
@@ -60,7 +62,7 @@ class _RoomWidgetState extends State<RoomWidget> {
       ),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: widget.roomColorGradiant.listOfColors!,
+          colors: widget.roomColorGradiant.listOfColors!.toList(),
           begin: Alignment.bottomLeft,
           end: Alignment.topLeft,
         ),
@@ -71,10 +73,7 @@ class _RoomWidgetState extends State<RoomWidget> {
             color: Colors.black.withOpacity(0.6),
             spreadRadius: 2,
             blurRadius: 5,
-            offset: const Offset(
-              0,
-              3,
-            ), // changes position of shadow
+            offset: const Offset(0, 3),
           ),
         ],
       ),
@@ -94,13 +93,7 @@ class _RoomWidgetState extends State<RoomWidget> {
                 child: Stack(
                   children: <Widget>[
                     TextAtom(
-                      widget.roomsList
-                          .firstWhere(
-                            (element) =>
-                                element!.uniqueId.getOrCrash() == widget.roomId,
-                          )!
-                          .cbjEntityName
-                          .getOrCrash(),
+                      widget.room.cbjEntityName.getOrCrash(),
                       style: TextStyle(
                         fontSize: 23,
                         foreground: Paint()
@@ -110,13 +103,7 @@ class _RoomWidgetState extends State<RoomWidget> {
                       ),
                     ),
                     TextAtom(
-                      widget.roomsList
-                          .firstWhere(
-                            (element) =>
-                                element!.uniqueId.getOrCrash() == widget.roomId,
-                          )!
-                          .cbjEntityName
-                          .getOrCrash(),
+                      widget.room.cbjEntityName.getOrCrash(),
                       style: TextStyle(
                         fontSize: 23,
                         color: Theme.of(context).textTheme.bodyLarge!.color,
@@ -125,17 +112,17 @@ class _RoomWidgetState extends State<RoomWidget> {
                   ],
                 ),
               ),
-              if (widget.numberOfDevicesInTheRoom == 1)
+              if (numberOfDevicesInTheRoom == 1)
                 TextAtom(
                   '_device',
                   style: const TextStyle(fontSize: 12),
-                  translationArgs: [widget.numberOfDevicesInTheRoom.toString()],
+                  translationArgs: [numberOfDevicesInTheRoom.toString()],
                 )
               else
                 TextAtom(
                   '_devices',
                   style: const TextStyle(fontSize: 12),
-                  translationArgs: [widget.numberOfDevicesInTheRoom.toString()],
+                  translationArgs: [numberOfDevicesInTheRoom.toString()],
                 ),
 
               /// Build the devices in the room by type
@@ -149,114 +136,70 @@ class _RoomWidgetState extends State<RoomWidget> {
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 15,
                 ),
-                itemCount:
-                    widget.tempDevicesByRoomsByType[widget.roomId]!.keys.length,
+                itemCount: widget.entitiesInTheRoom.length,
                 itemBuilder: (BuildContext ctx, secondIndex) {
-                  final String deviceType = widget
-                      .tempDevicesByRoomsByType[widget.roomId]!.keys
-                      .elementAt(secondIndex);
+                  final DeviceEntityBase? entity = widget.entities[
+                      widget.entitiesInTheRoom.elementAt(secondIndex)];
+                  if (entity == null) {
+                    return const SizedBox();
+                  }
 
-                  List<DeviceEntityAbstract> devicesInTheRoom = widget
-                      .tempDevicesByRoomsByType[widget.roomId]![deviceType]!;
+                  final EntityTypes deviceType = entity.entityTypes.type;
 
-                  if (deviceType == EntityTypes.light.toString() ||
-                      deviceType == EntityTypes.dimmableLight.toString() ||
-                      deviceType == EntityTypes.rgbwLights.toString()) {
-                    if (didAddedLights) {
-                      return const SizedBox();
-                    }
-                    didAddedLights = true;
-
-                    devicesInTheRoom = [];
-
-                    final List<DeviceEntityAbstract>?
-                        tempLightDevicesInTheRoom =
-                        widget.tempDevicesByRoomsByType[widget.roomId]
-                            ?[EntityTypes.light.toString()];
-                    devicesInTheRoom.addAll(tempLightDevicesInTheRoom ?? []);
-
-                    final List<DeviceEntityAbstract>?
-                        tempDimmableLightDevicesInTheRoom =
-                        widget.tempDevicesByRoomsByType[widget.roomId]
-                            ?[EntityTypes.dimmableLight.toString()];
-                    devicesInTheRoom
-                        .addAll(tempDimmableLightDevicesInTheRoom ?? []);
-
-                    final List<DeviceEntityAbstract>?
-                        tempRgbwLightDevicesInTheRoom =
-                        widget.tempDevicesByRoomsByType[widget.roomId]
-                            ?[EntityTypes.rgbwLights.toString()];
-                    devicesInTheRoom
-                        .addAll(tempRgbwLightDevicesInTheRoom ?? []);
-
+                  if (deviceType == EntityTypes.light ||
+                      deviceType == EntityTypes.dimmableLight ||
+                      deviceType == EntityTypes.rgbwLights) {
                     return LightsInTheRoomBlock.withAbstractDevice(
-                      roomEntity: widget.roomEntity,
-                      entities: devicesInTheRoom,
+                      roomEntity: widget.room,
+                      entities: [entity],
                       tempRoomColorGradiant: widget.roomColorGradiant,
                     );
-                  } else if (deviceType == EntityTypes.switch_.toString()) {
+                  } else if (deviceType == EntityTypes.switch_) {
                     return SwitchesInTheRoomBlock.withAbstractDevice(
-                      roomEntityTemp: widget.roomsList.firstWhere(
-                        (element) =>
-                            element!.uniqueId.getOrCrash() == widget.roomId,
-                      )!,
-                      entities: devicesInTheRoom,
+                      roomEntityTemp: widget.room,
+                      entities: [entity],
                       tempRoomColorGradiant: widget.roomColorGradiant,
                     );
-                  } else if (deviceType == EntityTypes.blinds.toString()) {
+                  } else if (deviceType == EntityTypes.blinds) {
                     return BlindsInTheRoom.withAbstractDevice(
-                      roomEntity: widget.roomEntity,
-                      tempDeviceInRoom: devicesInTheRoom,
+                      roomEntity: widget.room,
+                      tempDeviceInRoom: [entity],
                       tempRoomColorGradiant: widget.roomColorGradiant,
                     );
-                  } else if (deviceType == EntityTypes.boiler.toString()) {
+                  } else if (deviceType == EntityTypes.boiler) {
                     return BoilersInTheRoom.withAbstractDevice(
-                      roomEntity: widget.roomEntity,
-                      tempDeviceInRoom: devicesInTheRoom,
+                      roomEntity: widget.room,
+                      tempDeviceInRoom: [entity],
                       tempRoomColorGradiant: widget.roomColorGradiant,
                     );
-                  } else if (deviceType == EntityTypes.smartTV.toString()) {
+                  } else if (deviceType == EntityTypes.smartTV) {
                     return SmartTvInTheRoom.withAbstractDevice(
-                      roomEntity: widget.roomEntity,
-                      tempDeviceInRoom: devicesInTheRoom,
+                      roomEntity: widget.room,
+                      tempDeviceInRoom: [entity],
                       tempRoomColorGradiant: widget.roomColorGradiant,
                     );
-                  } else if (deviceType == EntityTypes.smartPlug.toString()) {
+                  } else if (deviceType == EntityTypes.smartPlug) {
                     return SmartPlugsInTheRoomBlock.withAbstractDevice(
-                      roomEntityTemp: widget.roomsList.firstWhere(
-                        (element) =>
-                            element!.uniqueId.getOrCrash() == widget.roomId,
-                      )!,
-                      entities: devicesInTheRoom,
+                      roomEntityTemp: widget.room,
+                      entities: [entity],
                       tempRoomColorGradiant: widget.roomColorGradiant,
                     );
-                  } else if (deviceType ==
-                      EntityTypes.smartComputer.toString()) {
+                  } else if (deviceType == EntityTypes.smartComputer) {
                     return SmartComputersInTheRoomBlock.withAbstractDevice(
-                      roomEntityTemp: widget.roomsList.firstWhere(
-                        (element) =>
-                            element!.uniqueId.getOrCrash() == widget.roomId,
-                      )!,
-                      tempDeviceInRoom: devicesInTheRoom,
+                      roomEntityTemp: widget.room,
+                      tempDeviceInRoom: [entity],
                       tempRoomColorGradiant: widget.roomColorGradiant,
                     );
-                  } else if (deviceType == EntityTypes.printer.toString()) {
+                  } else if (deviceType == EntityTypes.printer) {
                     return PrintersInTheRoomBlock.withAbstractDevice(
-                      roomEntityTemp: widget.roomsList.firstWhere(
-                        (element) =>
-                            element!.uniqueId.getOrCrash() == widget.roomId,
-                      )!,
-                      tempDeviceInRoom: devicesInTheRoom,
+                      roomEntityTemp: widget.room,
+                      tempDeviceInRoom: [entity],
                       tempRoomColorGradiant: widget.roomColorGradiant,
                     );
-                  } else if (deviceType ==
-                      EntityTypes.securityCamera.toString()) {
+                  } else if (deviceType == EntityTypes.securityCamera) {
                     return SecurityCamerasInTheRoomBlock.withAbstractDevice(
-                      roomEntityTemp: widget.roomsList.firstWhere(
-                        (element) =>
-                            element!.uniqueId.getOrCrash() == widget.roomId,
-                      )!,
-                      tempDeviceInRoom: devicesInTheRoom,
+                      roomEntityTemp: widget.room,
+                      tempDeviceInRoom: [entity],
                       tempRoomColorGradiant: widget.roomColorGradiant,
                     );
                   }
@@ -267,7 +210,7 @@ class _RoomWidgetState extends State<RoomWidget> {
                     onPressed: () {
                       FlushbarHelper.createInformation(
                         message:
-                            'This device is not supported\nName: ${devicesInTheRoom[secondIndex].cbjEntityName.getOrCrash()}',
+                            'This device is not supported\nName: ${entity.cbjEntityName.getOrCrash()}',
                       ).show(context);
                     },
                     child: const Column(

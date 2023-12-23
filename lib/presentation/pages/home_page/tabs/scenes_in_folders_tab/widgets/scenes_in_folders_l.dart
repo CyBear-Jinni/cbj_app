@@ -27,7 +27,7 @@ class _ScenesInFoldersLState extends State<ScenesInFoldersL> {
 
   Future<void> _initialized() async {
     final List<RoomEntity> temp = [];
-    final List<SceneCbjEntity> eitherAllScenes =
+    final Set<SceneCbjEntity> eitherAllScenes =
         await ISceneCbjRepository.instance.getAllScenesAsList();
     allScenes.addAll(eitherAllScenes);
 
@@ -116,7 +116,12 @@ class _ScenesInFoldersLState extends State<ScenesInFoldersL> {
   @override
   Widget build(BuildContext context) {
     if (allRoomsWithScenes == null) {
-      return const CircularProgressIndicatorAtom();
+      return const Center(
+        child: TextAtom(
+          'In development',
+          style: TextStyle(color: Colors.purple),
+        ),
+      );
     }
 
     if (allRoomsWithScenes!.isEmpty) {

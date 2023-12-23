@@ -5,7 +5,7 @@ import 'package:cbj_integrations_controller/domain/room/i_room_repository.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/domain/scene/i_scene_cbj_repository.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/entity_type_utils.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_blinds_entity/generic_blinds_device_dtos.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_boiler_entity/generic_boiler_device_dtos.dart';
@@ -116,19 +116,19 @@ class HubRequestRouting {
       uniqueId: requestAsJson['uniqueId'] as String,
       cbjEntityName: requestAsJson['cbjEntityName'] as String,
       background: requestAsJson['background'] as String,
-      roomTypes: List<String>.from(requestAsJson['roomTypes'] as List<dynamic>),
+      roomTypes: Set<String>.from(requestAsJson['roomTypes'] as Set<dynamic>),
       roomDevicesId:
-          List<String>.from(requestAsJson['roomDevicesId'] as List<dynamic>),
+          Set<String>.from(requestAsJson['roomDevicesId'] as Set<dynamic>),
       roomScenesId:
-          List<String>.from(requestAsJson['roomScenesId'] as List<dynamic>),
+          Set<String>.from(requestAsJson['roomScenesId'] as Set<dynamic>),
       roomRoutinesId:
-          List<String>.from(requestAsJson['roomRoutinesId'] as List<dynamic>),
+          Set<String>.from(requestAsJson['roomRoutinesId'] as Set<dynamic>),
       roomBindingsId:
-          List<String>.from(requestAsJson['roomBindingsId'] as List<dynamic>),
+          Set<String>.from(requestAsJson['roomBindingsId'] as Set<dynamic>),
       roomMostUsedBy:
-          List<String>.from(requestAsJson['roomMostUsedBy'] as List<dynamic>),
+          Set<String>.from(requestAsJson['roomMostUsedBy'] as Set<dynamic>),
       roomPermissions:
-          List<String>.from(requestAsJson['roomPermissions'] as List<dynamic>),
+          Set<String>.from(requestAsJson['roomPermissions'] as Set<dynamic>),
     );
 
     final RoomEntity roomEntity = roomEntityDtos.toDomain();
@@ -160,7 +160,7 @@ class HubRequestRouting {
       return;
     }
 
-    late DeviceEntityAbstract deviceEntity;
+    late DeviceEntityBase deviceEntity;
 
     switch (deviceType) {
       case EntityTypes.light:

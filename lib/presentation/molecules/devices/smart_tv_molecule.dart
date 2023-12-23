@@ -1,7 +1,11 @@
+import 'dart:collection';
+
 import 'package:another_flushbar/flushbar_helper.dart';
-import 'package:auto_route/auto_route.dart';
+import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/entity_type_utils.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_smart_tv_entity/generic_smart_tv_entity.dart';
-import 'package:cybear_jinni/domain/device/i_device_repository.dart';
+import 'package:cybear_jinni/domain/connections_service.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -18,302 +22,106 @@ class SmartTvMolecule extends StatefulWidget {
 }
 
 class _SmartTvMoleculeState extends State<SmartTvMolecule> {
-  Future _stopState() async {
+  Future onVolumeUp() async {
     FlushbarHelper.createLoading(
-      message: 'Stop smart tv',
+      message: 'Volume Up',
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(context);
 
-    IDeviceRepository.instance
-        .stopStateDevices(devicesId: [widget.entity.getDeviceId()]);
+    setEntityState(EntityProperties.smartTvSwitchState, EntityActions.volumeUp);
   }
 
-  Future _playState() async {
+  Future onVolumeDown() async {
     FlushbarHelper.createLoading(
-      message: 'Play smart tv',
+      message: 'Volume Down',
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(context);
 
-    IDeviceRepository.instance
-        .playStateDevices(devicesId: [widget.entity.getDeviceId()]);
-  }
-
-  Future _queuePrevEvent(List<String> smartTvId) async {
-    FlushbarHelper.createLoading(
-      message: 'Change volume smart tv',
-      linearProgressIndicator: const LinearProgressIndicator(),
-    ).show(context);
-
-    IDeviceRepository.instance.queuePrevStateDevices(devicesId: smartTvId);
-  }
-
-  Future _queueNextEvent(List<String> smartTvId) async {
-    FlushbarHelper.createLoading(
-      message: 'Change volume smart tv',
-      linearProgressIndicator: const LinearProgressIndicator(),
-    ).show(context);
-
-    IDeviceRepository.instance.queueNextStateDevices(devicesId: smartTvId);
-  }
-
-  void closeEvent(BuildContext context) {
-    final String deviceId = widget.entity.getDeviceId();
-
-    FlushbarHelper.createLoading(
-      message: 'Close current app on smart tv',
-      linearProgressIndicator: const LinearProgressIndicator(),
-    ).show(context);
-
-    IDeviceRepository.instance.closeStateDevices(devicesId: [deviceId]);
-  }
-
-  void queueNextEvent(BuildContext context) {
-    final String deviceId = widget.entity.getDeviceId();
-    _queueNextEvent([deviceId]);
-  }
-
-  void queuePrevEvent(BuildContext context) {
-    final String deviceId = widget.entity.getDeviceId();
-    _queuePrevEvent([deviceId]);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            TextButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(
-                  Colors.grey,
-                ),
-                side: MaterialStateProperty.all(
-                  BorderSide.lerp(
-                    const BorderSide(color: Colors.white60),
-                    const BorderSide(color: Colors.white60),
-                    22,
-                  ),
-                ),
-              ),
-              onPressed: () {
-                // TextField(
-                //   decoration: InputDecoration(
-                //     border: OutlineInputBorder(),
-                //     hintText: 'Enter a search term',
-                //   ),
-                // );
-                OpenUrlPopUp(
-                  context,
-                  widget.entity,
-                );
-              },
-              child: Tab(
-                icon: FaIcon(
-                  FontAwesomeIcons.video,
-                  color: Theme.of(context).textTheme.bodyLarge!.color,
-                ),
-                child: TextAtom(
-                  'Open Video',
-                  style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyLarge!.color,
-                    fontSize: 16,
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(
-              width: 10,
-            ),
-            TextButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(
-                  Colors.grey,
-                ),
-                side: MaterialStateProperty.all(
-                  BorderSide.lerp(
-                    const BorderSide(color: Colors.white60),
-                    const BorderSide(color: Colors.white60),
-                    22,
-                  ),
-                ),
-              ),
-              onPressed: _stopState,
-              child: Tab(
-                icon: FaIcon(
-                  FontAwesomeIcons.xmark,
-                  color: Theme.of(context).textTheme.bodyLarge!.color,
-                ),
-                child: TextAtom(
-                  'Close',
-                  style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyLarge!.color,
-                    fontSize: 16,
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(
-              width: 5,
-            ),
-            TextButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(
-                  Colors.grey,
-                ),
-                side: MaterialStateProperty.all(
-                  BorderSide.lerp(
-                    const BorderSide(color: Colors.white60),
-                    const BorderSide(color: Colors.white60),
-                    22,
-                  ),
-                ),
-              ),
-              onPressed: () {
-                closeEvent(context);
-              },
-              child: Tab(
-                icon: FaIcon(
-                  FontAwesomeIcons.pause,
-                  color: Theme.of(context).textTheme.bodyLarge!.color,
-                ),
-                child: TextAtom(
-                  'Pause',
-                  style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyLarge!.color,
-                    fontSize: 16,
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(
-              width: 5,
-            ),
-            TextButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(
-                  Colors.grey,
-                ),
-                side: MaterialStateProperty.all(
-                  BorderSide.lerp(
-                    const BorderSide(color: Colors.white60),
-                    const BorderSide(color: Colors.white60),
-                    22,
-                  ),
-                ),
-              ),
-              onPressed: _playState,
-              child: Tab(
-                icon: FaIcon(
-                  FontAwesomeIcons.play,
-                  color: Theme.of(context).textTheme.bodyLarge!.color,
-                ),
-                child: TextAtom(
-                  'Play',
-                  style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyLarge!.color,
-                    fontSize: 16,
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-        const SizedBox(
-          height: 20,
-        ),
-        // Next and previous does not seep to currently work for me on Chromecast
-        // Row(
-        //   mainAxisAlignment: MainAxisAlignment.center,
-        //   children: <Widget>[
-        //     TextButton(
-        //       style: ButtonStyle(
-        //         backgroundColor: MaterialStateProperty.all(
-        //           Colors.grey,
-        //         ),
-        //         side: MaterialStateProperty.all(
-        //           BorderSide.lerp(
-        //             const BorderSide(color: Colors.white60),
-        //             const BorderSide(color: Colors.white60),
-        //             22,
-        //           ),
-        //         ),
-        //       ),
-        //       onPressed: () {
-        //         queueNextEvent(
-        //           context,
-        //         );
-        //       },
-        //       child: Tab(
-        //         icon: FaIcon(
-        //           FontAwesomeIcons.backwardStep,
-        //           color: Theme.of(context).textTheme.bodyLarge!.color,
-        //         ),
-        //         child: TextAtom(
-        //           'Queue Prev',
-        //           style: TextStyle(
-        //             color: Theme.of(context).textTheme.bodyLarge!.color,
-        //             fontSize: 16,
-        //           ),
-        //         ),            //       ),
-        //     ),
-        //     const SizedBox(width: 10),
-        //     TextButton(
-        //       style: ButtonStyle(
-        //         backgroundColor: MaterialStateProperty.all(
-        //           Colors.grey,
-        //         ),
-        //         side: MaterialStateProperty.all(
-        //           BorderSide.lerp(
-        //             const BorderSide(color: Colors.white60),
-        //             const BorderSide(color: Colors.white60),
-        //             22,
-        //           ),
-        //         ),
-        //       ),
-        //       onPressed: () {
-        //         queueNextEvent(
-        //           context,
-        //         );
-        //       },
-        //       child: Tab(
-        //         icon: FaIcon(
-        //           FontAwesomeIcons.forwardStep,
-        //           color: Theme.of(context).textTheme.bodyLarge!.color,
-        //         ),
-        //         child: TextAtom(
-        //           'Queue Next',
-        //           style: TextStyle(
-        //             color: Theme.of(context).textTheme.bodyLarge!.color,
-        //             fontSize: 16,
-        //           ),
-        //         ),            //       ),
-        //     ),
-        //   ],
-        // ),
-        // const SizedBox(
-        //   height: 20,
-        // ),
-      ],
+    setEntityState(
+      EntityProperties.smartTvSwitchState,
+      EntityActions.volumeDown,
     );
   }
-}
 
-class OpenUrlPopUp {
-  OpenUrlPopUp(this.contextFromParent, this._deviceEntity) {
-    openUrlPopUp();
+  Future onPlay() async {
+    FlushbarHelper.createLoading(
+      message: 'Play video',
+      linearProgressIndicator: const LinearProgressIndicator(),
+    ).show(context);
+
+    setEntityState(EntityProperties.smartTvSwitchState, EntityActions.play);
   }
 
-  BuildContext contextFromParent;
-  final GenericSmartTvDE _deviceEntity;
+  Future onNetflix() async {
+    FlushbarHelper.createLoading(
+      message: 'Open Netflix',
+      linearProgressIndicator: const LinearProgressIndicator(),
+    ).show(context);
+
+    setEntityState(
+      EntityProperties.openUrl,
+      EntityActions.open,
+      value: HashMap.from({ActionValues.url: 'netflix'}),
+    );
+  }
+
+  void onPause() {
+    FlushbarHelper.createLoading(
+      message: 'Close open app',
+      linearProgressIndicator: const LinearProgressIndicator(),
+    ).show(context);
+
+    setEntityState(EntityProperties.smartTvSwitchState, EntityActions.pause);
+  }
+
+  void setEntityState(
+    EntityProperties property,
+    EntityActions action, {
+    HashMap<ActionValues, dynamic>? value,
+  }) {
+    final VendorsAndServices? vendor =
+        widget.entity.cbjDeviceVendor.vendorsAndServices;
+    if (vendor == null) {
+      return;
+    }
+    final HashMap<VendorsAndServices, HashSet<String>> uniqueIdByVendor =
+        HashMap();
+    uniqueIdByVendor.addEntries(
+      [
+        MapEntry(
+          vendor,
+          HashSet<String>()
+            ..addAll([widget.entity.deviceCbjUniqueId.getOrCrash()]),
+        ),
+      ],
+    );
+    ConnectionsService.instance.setEntityState(
+      uniqueIdByVendor: uniqueIdByVendor,
+      property: property,
+      actionType: action,
+      value: value,
+    );
+  }
+
+  void playVideo(String url) {
+    FlushbarHelper.createLoading(
+      message: 'Open the url',
+      linearProgressIndicator: const LinearProgressIndicator(),
+    ).show(context);
+
+    setEntityState(
+      EntityProperties.openUrl,
+      EntityActions.open,
+      value: HashMap.from({ActionValues.url: url}),
+    );
+  }
 
   void openUrlPopUp() {
-    String url = '';
+    String url =
+        'http://commondatastorage.googleapis.com/gtv-videos-bucket/big_buck_bunny_1080p.mp4';
 
     showDialog(
-      context: contextFromParent,
+      context: context,
       builder: (context) {
         return AlertDialog(
           shape: const RoundedRectangleBorder(
@@ -327,7 +135,7 @@ class OpenUrlPopUp {
             top: 10.0,
           ),
           title: const TextAtom(
-            "Open URL",
+            'Open URL',
             style: TextStyle(fontSize: 24.0),
           ),
           content: SizedBox(
@@ -340,7 +148,8 @@ class OpenUrlPopUp {
                 children: <Widget>[
                   Container(
                     padding: const EdgeInsets.all(8.0),
-                    child: TextField(
+                    child: TextFormField(
+                      initialValue: url,
                       onChanged: (textInUrl) {
                         url = textInUrl;
                       },
@@ -357,8 +166,8 @@ class OpenUrlPopUp {
                     padding: const EdgeInsets.all(8.0),
                     child: ElevatedButton(
                       onPressed: () {
-                        playVideo(contextFromParent, url);
-                        context.router.pop();
+                        Navigator.pop(context);
+                        playVideo(url);
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.black,
@@ -378,15 +187,195 @@ class OpenUrlPopUp {
     );
   }
 
-  void playVideo(BuildContext context, String url) {
-    final String deviceId = _deviceEntity.getDeviceId();
-    FlushbarHelper.createLoading(
-      message: 'Open url on smart tv',
-      linearProgressIndicator: const LinearProgressIndicator(),
-    ).show(context);
-    IDeviceRepository.instance.openUrlOnDevices(
-      devicesId: [deviceId],
-      url: url,
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 100,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              const SeparatorAtom(),
+              TextButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(
+                    Colors.grey,
+                  ),
+                  side: MaterialStateProperty.all(
+                    BorderSide.lerp(
+                      const BorderSide(color: Colors.white60),
+                      const BorderSide(color: Colors.white60),
+                      22,
+                    ),
+                  ),
+                ),
+                onPressed: onPause,
+                child: Tab(
+                  icon: FaIcon(
+                    FontAwesomeIcons.pause,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
+                  ),
+                  child: TextAtom(
+                    'Pause',
+                    style: TextStyle(
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ),
+              const SeparatorAtom(multiple: 0.5),
+              TextButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(
+                    Colors.grey,
+                  ),
+                  side: MaterialStateProperty.all(
+                    BorderSide.lerp(
+                      const BorderSide(color: Colors.white60),
+                      const BorderSide(color: Colors.white60),
+                      22,
+                    ),
+                  ),
+                ),
+                onPressed: onPlay,
+                child: Tab(
+                  icon: FaIcon(
+                    FontAwesomeIcons.play,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
+                  ),
+                  child: TextAtom(
+                    'Play',
+                    style: TextStyle(
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ),
+              const SeparatorAtom(),
+              TextButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(
+                    Colors.grey,
+                  ),
+                  side: MaterialStateProperty.all(
+                    BorderSide.lerp(
+                      const BorderSide(color: Colors.white60),
+                      const BorderSide(color: Colors.white60),
+                      22,
+                    ),
+                  ),
+                ),
+                onPressed: onVolumeDown,
+                child: Tab(
+                  icon: FaIcon(
+                    FontAwesomeIcons.volumeLow,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
+                  ),
+                  child: TextAtom(
+                    'Down',
+                    style: TextStyle(
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ),
+              const SeparatorAtom(multiple: 0.5),
+              TextButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(
+                    Colors.grey,
+                  ),
+                  side: MaterialStateProperty.all(
+                    BorderSide.lerp(
+                      const BorderSide(color: Colors.white60),
+                      const BorderSide(color: Colors.white60),
+                      22,
+                    ),
+                  ),
+                ),
+                onPressed: onVolumeUp,
+                child: Tab(
+                  icon: FaIcon(
+                    FontAwesomeIcons.volumeHigh,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
+                  ),
+                  child: TextAtom(
+                    'Up',
+                    style: TextStyle(
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ),
+              const SeparatorAtom(),
+              TextButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(
+                    Colors.grey,
+                  ),
+                  side: MaterialStateProperty.all(
+                    BorderSide.lerp(
+                      const BorderSide(color: Colors.white60),
+                      const BorderSide(color: Colors.white60),
+                      22,
+                    ),
+                  ),
+                ),
+                onPressed: onNetflix,
+                child: Tab(
+                  icon: FaIcon(
+                    FontAwesomeIcons.video,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
+                  ),
+                  child: TextAtom(
+                    'Netflix',
+                    style: TextStyle(
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ),
+              const SeparatorAtom(),
+              TextButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(
+                    Colors.grey,
+                  ),
+                  side: MaterialStateProperty.all(
+                    BorderSide.lerp(
+                      const BorderSide(color: Colors.white60),
+                      const BorderSide(color: Colors.white60),
+                      22,
+                    ),
+                  ),
+                ),
+                onPressed: openUrlPopUp,
+                child: Tab(
+                  icon: FaIcon(
+                    FontAwesomeIcons.video,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
+                  ),
+                  child: TextAtom(
+                    'Video',
+                    style: TextStyle(
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ),
+              const SeparatorAtom(),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

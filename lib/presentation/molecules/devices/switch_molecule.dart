@@ -4,7 +4,7 @@ import 'dart:collection';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/entity_type_utils.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_switch_entity/generic_switch_entity.dart';
-import 'package:cybear_jinni/domain/i_phone_as_hub.dart';
+import 'package:cybear_jinni/domain/connections_service.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:flutter/material.dart';
 
@@ -45,7 +45,7 @@ class _SwitchMoleculeState extends State<SwitchMolecule> {
         ),
       ],
     );
-    IPhoneAsHub.instance.setEntityState(
+    ConnectionsService.instance.setEntityState(
       uniqueIdByVendor: uniqueIdByVendor,
       property: EntityProperties.lightSwitchState,
       actionType: action,

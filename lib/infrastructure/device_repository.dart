@@ -3,14 +3,14 @@ part of 'package:cybear_jinni/domain/device/i_device_repository.dart';
 class _DeviceRepository implements IDeviceRepository {
   // final DeviceRemoteService _deviceRemoteService;
   // final DeviceLocalService _deviceLocalService;
-  HashMap<String, DeviceEntityAbstract> allDevices =
-      HashMap<String, DeviceEntityAbstract>();
+  HashMap<String, DeviceEntityBase> allDevices =
+      HashMap<String, DeviceEntityBase>();
 
   // @override
   // void addOrUpdateFromApp(dynamic entity) {
   //   if (entity is RoomEntity) {
   //     _addOrUpdateRoom(entity);
-  //   } else if (entity is DeviceEntityAbstract) {
+  //   } else if (entity is DeviceEntityBase) {
   //     _addOrUpdateDevice(entity);
   //   } else {
   //     logger.w('Entity type to update ${entity.runtimeType} is not supported');
@@ -20,14 +20,14 @@ class _DeviceRepository implements IDeviceRepository {
   // }
 
   @override
-  void addOrUpdateDevice(DeviceEntityAbstract deviceEntity) {
+  void addOrUpdateDevice(DeviceEntityBase deviceEntity) {
     allDevices[deviceEntity.cbjDeviceVendor.getOrCrash()] = deviceEntity;
     devicesResponseFromTheHubStreamController.sink
         .add(allDevices.values.toImmutableList());
   }
 
   @override
-  void addOrUpdateDeviceAndStateToWaiting(DeviceEntityAbstract deviceEntity) {
+  void addOrUpdateDeviceAndStateToWaiting(DeviceEntityBase deviceEntity) {
     addOrUpdateDevice(
       deviceEntity.copyWithDeviceState(
         EntityStateGRPC.waitingInComp,
@@ -43,7 +43,7 @@ class _DeviceRepository implements IDeviceRepository {
   }
 
   @override
-  Future<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
+  Future<Either<DevicesFailure, KtList<DeviceEntityBase?>>>
       getAllDevices() async {
     try {
       return right(allDevices.values.toImmutableList());
@@ -65,14 +65,14 @@ class _DeviceRepository implements IDeviceRepository {
   }
 
   @override
-  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
+  Stream<Either<DevicesFailure, KtList<DeviceEntityBase?>>>
       watchAllDevices() async* {
     yield* devicesResponseFromTheHubStreamController.stream
         .map((event) => right(event));
   }
 
   @override
-  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
+  Stream<Either<DevicesFailure, KtList<DeviceEntityBase?>>>
       watchLights() async* {
     // Using watchAll devices from server function and filtering out only the
     // Light device type
@@ -93,7 +93,7 @@ class _DeviceRepository implements IDeviceRepository {
   }
 
   @override
-  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
+  Stream<Either<DevicesFailure, KtList<DeviceEntityBase?>>>
       watchSwitches() async* {
     // Using watchAll devices from server function and filtering out only the
     // Switches device type
@@ -110,7 +110,7 @@ class _DeviceRepository implements IDeviceRepository {
   }
 
   @override
-  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
+  Stream<Either<DevicesFailure, KtList<DeviceEntityBase?>>>
       watchSmartPlugs() async* {
     // Using watchAll devices from server function and filtering out only the
     // Smart Plugs device type
@@ -127,7 +127,7 @@ class _DeviceRepository implements IDeviceRepository {
   }
 
   @override
-  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
+  Stream<Either<DevicesFailure, KtList<DeviceEntityBase?>>>
       watchSmartComputers() async* {
     // Using watchAll devices from server function and filtering out only the
     // Smart Computers device type
@@ -144,7 +144,7 @@ class _DeviceRepository implements IDeviceRepository {
   }
 
   @override
-  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
+  Stream<Either<DevicesFailure, KtList<DeviceEntityBase?>>>
       watchBlinds() async* {
     // Using watchAll devices from server function and filtering out only the
     // Blinds device type
@@ -161,7 +161,7 @@ class _DeviceRepository implements IDeviceRepository {
   }
 
   @override
-  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
+  Stream<Either<DevicesFailure, KtList<DeviceEntityBase?>>>
       watchBoilers() async* {
     // Using watchAll devices from server function and filtering out only the
     // Boilers device type
@@ -178,7 +178,7 @@ class _DeviceRepository implements IDeviceRepository {
   }
 
   @override
-  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
+  Stream<Either<DevicesFailure, KtList<DeviceEntityBase?>>>
       watchSmartTv() async* {
     yield* watchAllDevices().map(
       (event) => event.fold((l) => left(l), (r) {
@@ -193,7 +193,7 @@ class _DeviceRepository implements IDeviceRepository {
   }
 
   @override
-  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
+  Stream<Either<DevicesFailure, KtList<DeviceEntityBase?>>>
       watchPrinters() async* {
     yield* watchAllDevices().map(
       (event) => event.fold((l) => left(l), (r) {
@@ -208,15 +208,14 @@ class _DeviceRepository implements IDeviceRepository {
   }
 
   @override
-  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract>>>
-      watchUncompleted() {
+  Stream<Either<DevicesFailure, KtList<DeviceEntityBase>>> watchUncompleted() {
     // TODO: implement watchUncompleted
     throw UnimplementedError();
   }
 
   @override
   Future<Either<DevicesFailure, Unit>> create(
-    DeviceEntityAbstract deviceEntity,
+    DeviceEntityBase deviceEntity,
   ) async {
     try {
       String deviceModelString = 'No Model found';
@@ -239,7 +238,7 @@ class _DeviceRepository implements IDeviceRepository {
           .copyWithDeviceSenderDeviceModel(deviceModelString)
           .copyWithSenderId(currentUserId);
 
-      DeviceEntityDtoAbstract.fromDomain();
+      DeviceEntityDtoBase.fromDomain();
 
       return right(unit);
     } on PlatformException catch (e) {
@@ -273,7 +272,7 @@ class _DeviceRepository implements IDeviceRepository {
 
   @override
   Future<Either<DevicesFailure, Unit>> updateWithDeviceEntity({
-    required DeviceEntityAbstract deviceEntity,
+    required DeviceEntityBase deviceEntity,
   }) async {
     const String updateLocation = 'L';
 
@@ -297,12 +296,11 @@ class _DeviceRepository implements IDeviceRepository {
     List<String>? devicesId,
     String? forceUpdateLocation,
   }) async {
-    final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
+    final List<DeviceEntityBase?> deviceEntityListToUpdate =
         await getDeviceEntityListFromId(devicesId!);
 
     try {
-      for (final DeviceEntityAbstract? deviceEntity
-          in deviceEntityListToUpdate) {
+      for (final DeviceEntityBase? deviceEntity in deviceEntityListToUpdate) {
         if (deviceEntity == null) {
           continue;
         }
@@ -352,12 +350,11 @@ class _DeviceRepository implements IDeviceRepository {
     List<String>? devicesId,
     String? forceUpdateLocation,
   }) async {
-    final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
+    final List<DeviceEntityBase?> deviceEntityListToUpdate =
         await getDeviceEntityListFromId(devicesId!);
 
     try {
-      for (final DeviceEntityAbstract? deviceEntity
-          in deviceEntityListToUpdate) {
+      for (final DeviceEntityBase? deviceEntity in deviceEntityListToUpdate) {
         if (deviceEntity == null) {
           continue;
         }
@@ -407,12 +404,11 @@ class _DeviceRepository implements IDeviceRepository {
     required List<String>? devicesId,
     required int colorTemperatureToChange,
   }) async {
-    final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
+    final List<DeviceEntityBase?> deviceEntityListToUpdate =
         await getDeviceEntityListFromId(devicesId!);
 
     try {
-      for (final DeviceEntityAbstract? deviceEntity
-          in deviceEntityListToUpdate) {
+      for (final DeviceEntityBase? deviceEntity in deviceEntityListToUpdate) {
         if (deviceEntity == null) {
           continue;
         }
@@ -474,12 +470,11 @@ class _DeviceRepository implements IDeviceRepository {
     required List<String>? devicesId,
     required HSVColor hsvColorToChange,
   }) async {
-    final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
+    final List<DeviceEntityBase?> deviceEntityListToUpdate =
         await getDeviceEntityListFromId(devicesId!);
 
     try {
-      for (final DeviceEntityAbstract? deviceEntity
-          in deviceEntityListToUpdate) {
+      for (final DeviceEntityBase? deviceEntity in deviceEntityListToUpdate) {
         if (deviceEntity == null) {
           continue;
         }
@@ -546,15 +541,14 @@ class _DeviceRepository implements IDeviceRepository {
     required List<String>? devicesId,
     required int brightnessToChange,
   }) async {
-    final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
+    final List<DeviceEntityBase?> deviceEntityListToUpdate =
         await getDeviceEntityListFromId(devicesId!);
     Either<DevicesFailure, Unit> totalActionResult = right(unit);
 
     try {
       Either<DevicesFailure, Unit> actionResult;
 
-      for (final DeviceEntityAbstract? deviceEntity
-          in deviceEntityListToUpdate) {
+      for (final DeviceEntityBase? deviceEntity in deviceEntityListToUpdate) {
         if (deviceEntity == null) {
           continue;
         } else if (deviceEntity is GenericDimmableLightDE) {
@@ -654,12 +648,11 @@ class _DeviceRepository implements IDeviceRepository {
     List<String>? devicesId,
     String? forceUpdateLocation,
   }) async {
-    final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
+    final List<DeviceEntityBase?> deviceEntityListToUpdate =
         await getDeviceEntityListFromId(devicesId!);
 
     try {
-      for (final DeviceEntityAbstract? deviceEntity
-          in deviceEntityListToUpdate) {
+      for (final DeviceEntityBase? deviceEntity in deviceEntityListToUpdate) {
         if (deviceEntity == null) {
           continue;
         }
@@ -694,12 +687,11 @@ class _DeviceRepository implements IDeviceRepository {
     List<String>? devicesId,
     String? forceUpdateLocation,
   }) async {
-    final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
+    final List<DeviceEntityBase?> deviceEntityListToUpdate =
         await getDeviceEntityListFromId(devicesId!);
 
     try {
-      for (final DeviceEntityAbstract? deviceEntity
-          in deviceEntityListToUpdate) {
+      for (final DeviceEntityBase? deviceEntity in deviceEntityListToUpdate) {
         if (deviceEntity == null) {
           continue;
         }
@@ -738,12 +730,11 @@ class _DeviceRepository implements IDeviceRepository {
     List<String>? devicesId,
     String? forceUpdateLocation,
   }) async {
-    final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
+    final List<DeviceEntityBase?> deviceEntityListToUpdate =
         await getDeviceEntityListFromId(devicesId!);
 
     try {
-      for (final DeviceEntityAbstract? deviceEntity
-          in deviceEntityListToUpdate) {
+      for (final DeviceEntityBase? deviceEntity in deviceEntityListToUpdate) {
         if (deviceEntity == null) {
           continue;
         }
@@ -777,12 +768,11 @@ class _DeviceRepository implements IDeviceRepository {
   Future<Either<DevicesFailure, Unit>> suspendDevices({
     required List<String>? devicesId,
   }) async {
-    final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
+    final List<DeviceEntityBase?> deviceEntityListToUpdate =
         await getDeviceEntityListFromId(devicesId!);
 
     try {
-      for (final DeviceEntityAbstract? deviceEntity
-          in deviceEntityListToUpdate) {
+      for (final DeviceEntityBase? deviceEntity in deviceEntityListToUpdate) {
         if (deviceEntity == null) {
           continue;
         }
@@ -818,12 +808,11 @@ class _DeviceRepository implements IDeviceRepository {
   Future<Either<DevicesFailure, Unit>> shutdownDevices({
     required List<String>? devicesId,
   }) async {
-    final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
+    final List<DeviceEntityBase?> deviceEntityListToUpdate =
         await getDeviceEntityListFromId(devicesId!);
 
     try {
-      for (final DeviceEntityAbstract? deviceEntity
-          in deviceEntityListToUpdate) {
+      for (final DeviceEntityBase? deviceEntity in deviceEntityListToUpdate) {
         if (deviceEntity == null) {
           continue;
         }
@@ -868,12 +857,11 @@ class _DeviceRepository implements IDeviceRepository {
     required List<String>? devicesId,
     required String url,
   }) async {
-    final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
+    final List<DeviceEntityBase?> deviceEntityListToUpdate =
         await getDeviceEntityListFromId(devicesId!);
 
     try {
-      for (final DeviceEntityAbstract? deviceEntity
-          in deviceEntityListToUpdate) {
+      for (final DeviceEntityBase? deviceEntity in deviceEntityListToUpdate) {
         if (deviceEntity == null) {
           continue;
         }
@@ -907,12 +895,11 @@ class _DeviceRepository implements IDeviceRepository {
     List<String>? devicesId,
     String? forceUpdateLocation,
   }) async {
-    final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
+    final List<DeviceEntityBase?> deviceEntityListToUpdate =
         await getDeviceEntityListFromId(devicesId!);
 
     try {
-      for (final DeviceEntityAbstract? deviceEntity
-          in deviceEntityListToUpdate) {
+      for (final DeviceEntityBase? deviceEntity in deviceEntityListToUpdate) {
         if (deviceEntity == null) {
           continue;
         }
@@ -946,12 +933,11 @@ class _DeviceRepository implements IDeviceRepository {
   Future<Either<DevicesFailure, Unit>> pauseStateDevices({
     required List<String>? devicesId,
   }) async {
-    final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
+    final List<DeviceEntityBase?> deviceEntityListToUpdate =
         await getDeviceEntityListFromId(devicesId!);
 
     try {
-      for (final DeviceEntityAbstract? deviceEntity
-          in deviceEntityListToUpdate) {
+      for (final DeviceEntityBase? deviceEntity in deviceEntityListToUpdate) {
         if (deviceEntity == null) {
           continue;
         }
@@ -986,12 +972,11 @@ class _DeviceRepository implements IDeviceRepository {
   Future<Either<DevicesFailure, Unit>> playStateDevices({
     required List<String>? devicesId,
   }) async {
-    final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
+    final List<DeviceEntityBase?> deviceEntityListToUpdate =
         await getDeviceEntityListFromId(devicesId!);
 
     try {
-      for (final DeviceEntityAbstract? deviceEntity
-          in deviceEntityListToUpdate) {
+      for (final DeviceEntityBase? deviceEntity in deviceEntityListToUpdate) {
         if (deviceEntity == null) {
           continue;
         }
@@ -1026,12 +1011,11 @@ class _DeviceRepository implements IDeviceRepository {
   Future<Either<DevicesFailure, Unit>> queuePrevStateDevices({
     required List<String>? devicesId,
   }) async {
-    final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
+    final List<DeviceEntityBase?> deviceEntityListToUpdate =
         await getDeviceEntityListFromId(devicesId!);
 
     try {
-      for (final DeviceEntityAbstract? deviceEntity
-          in deviceEntityListToUpdate) {
+      for (final DeviceEntityBase? deviceEntity in deviceEntityListToUpdate) {
         if (deviceEntity == null) {
           continue;
         }
@@ -1066,12 +1050,11 @@ class _DeviceRepository implements IDeviceRepository {
   Future<Either<DevicesFailure, Unit>> queueNextStateDevices({
     required List<String>? devicesId,
   }) async {
-    final List<DeviceEntityAbstract?> deviceEntityListToUpdate =
+    final List<DeviceEntityBase?> deviceEntityListToUpdate =
         await getDeviceEntityListFromId(devicesId!);
 
     try {
-      for (final DeviceEntityAbstract? deviceEntity
-          in deviceEntityListToUpdate) {
+      for (final DeviceEntityBase? deviceEntity in deviceEntityListToUpdate) {
         if (deviceEntity == null) {
           continue;
         }
@@ -1112,19 +1095,19 @@ class _DeviceRepository implements IDeviceRepository {
 
   @override
   Future<Either<DevicesFailure, Unit>> delete(
-    DeviceEntityAbstract deviceEntity,
+    DeviceEntityBase deviceEntity,
   ) async {
     return left(const DevicesFailure.unexpected());
   }
 
   Future<Either<DevicesFailure, Unit>> updateRemoteDB(
-    DeviceEntityAbstract deviceEntity,
+    DeviceEntityBase deviceEntity,
   ) async {
     return left(const DevicesFailure.unexpected());
   }
 
   Future<Either<DevicesFailure, Unit>> updateComputer(
-    DeviceEntityAbstract deviceEntity,
+    DeviceEntityBase deviceEntity,
   ) async {
     try {
       addOrUpdateDeviceAndStateToWaiting(deviceEntity);
@@ -1161,17 +1144,17 @@ class _DeviceRepository implements IDeviceRepository {
     }
   }
 
-  Future<List<DeviceEntityAbstract?>> getDeviceEntityListFromId(
+  Future<List<DeviceEntityBase?>> getDeviceEntityListFromId(
     List<String> deviceIdList,
   ) async {
-    final List<DeviceEntityAbstract> deviceEntityList = [];
+    final List<DeviceEntityBase> deviceEntityList = [];
 
     if (allDevices.isEmpty) {
       return [];
     }
 
     for (final deviceId in deviceIdList) {
-      final DeviceEntityAbstract? device = allDevices[deviceId];
+      final DeviceEntityBase? device = allDevices[deviceId];
       if (device == null) {
         continue;
       }
@@ -1259,9 +1242,9 @@ class _DeviceRepository implements IDeviceRepository {
       BehaviorSubject<KtList>();
 
   @override
-  BehaviorSubject<KtList<DeviceEntityAbstract>>
+  BehaviorSubject<KtList<DeviceEntityBase>>
       devicesResponseFromTheHubStreamController =
-      BehaviorSubject<KtList<DeviceEntityAbstract>>();
+      BehaviorSubject<KtList<DeviceEntityBase>>();
 
   @override
   BehaviorSubject<KtList<RoomEntity>> roomsResponseFromTheHubStreamController =

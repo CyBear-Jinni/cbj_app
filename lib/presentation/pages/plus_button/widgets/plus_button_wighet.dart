@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/domain/hub/hub_entity.dart';
+import 'package:cybear_jinni/domain/connections_service.dart';
 import 'package:cybear_jinni/domain/i_hub_connection_repository.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
@@ -12,7 +13,7 @@ import 'package:url_launcher/url_launcher.dart';
 class PlusButtonWidget extends StatelessWidget {
   Future<void> _logout(BuildContext context) async {
     context.router.replace(const ConnectToHubRoute());
-    await IHubConnectionRepository.instance.closeConnection();
+    ConnectionsService.setCurrentConnectionType(null);
   }
 
   @override

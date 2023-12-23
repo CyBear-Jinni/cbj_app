@@ -1,3 +1,4 @@
+export 'bottom_navigation_bar_molecule.dart';
 export 'device_by_type_molecule.dart';
 export 'devices/blind_molecule.dart';
 export 'devices/blinds_card_molecule.dart';

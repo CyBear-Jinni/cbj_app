@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_abstract.dart';
-import 'package:cybear_jinni/domain/i_phone_as_hub.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
+import 'package:cybear_jinni/domain/connections_service.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/theme_data.dart';
 import 'package:cybear_jinni/presentation/molecules/molecules.dart';
@@ -13,7 +13,7 @@ class DevicesInNetworkPage extends StatefulWidget {
 }
 
 class _DevicesInNetworkPageState extends State<DevicesInNetworkPage> {
-  List<DeviceEntityAbstract>? allDevices;
+  List<DeviceEntityBase>? allDevices;
 
   @override
   void initState() {
@@ -22,8 +22,8 @@ class _DevicesInNetworkPageState extends State<DevicesInNetworkPage> {
   }
 
   Future initializeAllDevices() async {
-    final Map<String, DeviceEntityAbstract> devices =
-        await IPhoneAsHub.instance.getAllEntities;
+    final Map<String, DeviceEntityBase> devices =
+        await ConnectionsService.instance.getAllEntities;
     setState(() {
       allDevices = devices.values.toList();
     });
@@ -63,7 +63,7 @@ class _DevicesInNetworkPageState extends State<DevicesInNetworkPage> {
         child: ListViewSeparatedMolecule(
           itemCount: allDevices!.length,
           itemBuilder: (context, index) {
-            final DeviceEntityAbstract device = allDevices!.elementAt(index);
+            final DeviceEntityBase device = allDevices!.elementAt(index);
 
             final String? deviceLastKnownIp =
                 device.deviceLastKnownIp.getOrCrash();
@@ -73,7 +73,7 @@ class _DevicesInNetworkPageState extends State<DevicesInNetworkPage> {
                 device.entityOriginalName.getOrCrash();
             final String? deviceHostName = device.deviceHostName.getOrCrash();
             final String? deviceMdns = device.deviceMdns.getOrCrash();
-            final String devicePort = device.devicePort.getOrCrash();
+            final String? devicePort = device.devicePort.getOrCrash();
             final String cbjDeviceVendor = device.cbjDeviceVendor.getOrCrash();
             final String? devicesMacAddress =
                 device.devicesMacAddress.getOrCrash();

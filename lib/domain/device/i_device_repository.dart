@@ -5,8 +5,8 @@ import 'dart:io';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/devices/device_helper/device_helper.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_abstract.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_dto_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_dto_base.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_blinds_entity/generic_blinds_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_blinds_entity/generic_blinds_value_objects.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_boiler_entity/generic_boiler_entity.dart';
@@ -49,42 +49,39 @@ abstract interface class IDeviceRepository {
     return _instance ??= _DeviceRepository();
   }
 
-  void addOrUpdateDevice(DeviceEntityAbstract deviceEntity);
+  void addOrUpdateDevice(DeviceEntityBase deviceEntity);
 
-  void addOrUpdateDeviceAndStateToWaiting(DeviceEntityAbstract deviceEntity);
+  void addOrUpdateDeviceAndStateToWaiting(DeviceEntityBase deviceEntity);
 
   Future<void> initiateHubConnection();
 
-  Future<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>> getAllDevices();
+  Future<Either<DevicesFailure, KtList<DeviceEntityBase?>>> getAllDevices();
 
   Stream<Either<dynamic, KtList<dynamic>>> watchAll();
 
-  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
-      watchAllDevices();
+  Stream<Either<DevicesFailure, KtList<DeviceEntityBase?>>> watchAllDevices();
 
-  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>> watchLights();
+  Stream<Either<DevicesFailure, KtList<DeviceEntityBase?>>> watchLights();
 
-  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>> watchBlinds();
+  Stream<Either<DevicesFailure, KtList<DeviceEntityBase?>>> watchBlinds();
 
-  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>> watchBoilers();
+  Stream<Either<DevicesFailure, KtList<DeviceEntityBase?>>> watchBoilers();
 
-  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>> watchSmartTv();
+  Stream<Either<DevicesFailure, KtList<DeviceEntityBase?>>> watchSmartTv();
 
-  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>> watchSwitches();
+  Stream<Either<DevicesFailure, KtList<DeviceEntityBase?>>> watchSwitches();
 
-  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
-      watchSmartPlugs();
+  Stream<Either<DevicesFailure, KtList<DeviceEntityBase?>>> watchSmartPlugs();
 
-  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
+  Stream<Either<DevicesFailure, KtList<DeviceEntityBase?>>>
       watchSmartComputers();
 
-  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>> watchPrinters();
+  Stream<Either<DevicesFailure, KtList<DeviceEntityBase?>>> watchPrinters();
 
-  Stream<Either<DevicesFailure, KtList<DeviceEntityAbstract?>>>
-      watchUncompleted();
+  Stream<Either<DevicesFailure, KtList<DeviceEntityBase?>>> watchUncompleted();
 
   Future<Either<DevicesFailure, Unit>> create(
-    DeviceEntityAbstract deviceEntity,
+    DeviceEntityBase deviceEntity,
   );
 
   /// Update document in the database in the following fields
@@ -94,7 +91,7 @@ abstract interface class IDeviceRepository {
   });
 
   Future<Either<DevicesFailure, Unit>> updateWithDeviceEntity({
-    required DeviceEntityAbstract deviceEntity,
+    required DeviceEntityBase deviceEntity,
   });
 
   Future<Either<DevicesFailure, Unit>> turnOnDevices({
@@ -174,7 +171,7 @@ abstract interface class IDeviceRepository {
   });
 
   Future<Either<DevicesFailure, Unit>> delete(
-    DeviceEntityAbstract deviceEntity,
+    DeviceEntityBase deviceEntity,
   );
 
   BehaviorSubject<KtList<dynamic>> allResponseFromTheHubStreamController =
@@ -183,7 +180,7 @@ abstract interface class IDeviceRepository {
   BehaviorSubject<KtList<RoomEntity>> roomsResponseFromTheHubStreamController =
       BehaviorSubject<KtList<RoomEntity>>();
 
-  BehaviorSubject<KtList<DeviceEntityAbstract>>
+  BehaviorSubject<KtList<DeviceEntityBase>>
       devicesResponseFromTheHubStreamController =
-      BehaviorSubject<KtList<DeviceEntityAbstract>>();
+      BehaviorSubject<KtList<DeviceEntityBase>>();
 }

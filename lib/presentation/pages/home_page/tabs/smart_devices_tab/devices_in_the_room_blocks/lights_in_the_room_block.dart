@@ -5,12 +5,12 @@ import 'package:auto_route/auto_route.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_abstract.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/entity_type_utils.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_dimmable_light_entity/generic_dimmable_light_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_light_entity/generic_light_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_rgbw_light_entity/generic_rgbw_light_entity.dart';
-import 'package:cybear_jinni/domain/i_phone_as_hub.dart';
+import 'package:cybear_jinni/domain/connections_service.dart';
 import 'package:cybear_jinni/infrastructure/core/logger.dart';
 import 'package:cybear_jinni/presentation/atoms/atoms.dart';
 import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
@@ -31,7 +31,7 @@ class LightsInTheRoomBlock extends StatefulWidget {
 
   factory LightsInTheRoomBlock.withAbstractDevice({
     required RoomEntity roomEntity,
-    required List<DeviceEntityAbstract> entities,
+    required List<DeviceEntityBase> entities,
     required ListOfColors tempRoomColorGradiant,
   }) {
     final List<GenericLightDE> tempLightsInRoom = [];
@@ -67,7 +67,7 @@ class LightsInTheRoomBlock extends StatefulWidget {
   final List<GenericDimmableLightDE> dimmableLightsInRoom;
   final List<GenericRgbwLightDE> rgbwLightsInRoom;
   final ListOfColors roomColorGradiant;
-  final List<DeviceEntityAbstract> entities;
+  final List<DeviceEntityBase> entities;
 
   @override
   State<LightsInTheRoomBlock> createState() => _LightsInTheRoomBlockState();
@@ -99,7 +99,7 @@ class _LightsInTheRoomBlockState extends State<LightsInTheRoomBlock> {
       return;
     }
 
-    IPhoneAsHub.instance.setEntityState(
+    ConnectionsService.instance.setEntityState(
       uniqueIdByVendor: getUniqueIdByVendor(),
       property: EntityProperties.lightSwitchState,
       actionType: action,
@@ -115,7 +115,7 @@ class _LightsInTheRoomBlockState extends State<LightsInTheRoomBlock> {
 
     final HashMap<VendorsAndServices, HashSet<String>> uniqueIdByVendor =
         HashMap();
-    for (final DeviceEntityAbstract? element in widget.entities) {
+    for (final DeviceEntityBase? element in widget.entities) {
       final VendorsAndServices? vendor =
           element?.cbjDeviceVendor.vendorsAndServices;
 
@@ -163,7 +163,12 @@ class _LightsInTheRoomBlockState extends State<LightsInTheRoomBlock> {
       onTap: () {
         context.router.push(
           DevicesInRoomRoute(
-            entityTypes: EntityTypes.light,
+            entityTypes: const {
+              EntityTypes.light,
+              EntityTypes.rgbLights,
+              EntityTypes.rgbwLights,
+              EntityTypes.rgbcctLights,
+            },
             roomEntity: widget.roomEntity,
             roomColorGradiant: widget.roomColorGradiant,
           ),
