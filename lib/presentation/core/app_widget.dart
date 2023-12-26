@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybearjinni/infrastructure/core/injection.dart';
+import 'package:cybearjinni/presentation/core/color_schemes.dart';
 import 'package:cybearjinni/presentation/core/routes/app_router.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -30,41 +31,18 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final rootRouter = getIt<AppRouter>();
-
     return MaterialApp.router(
       routerConfig: rootRouter.config(
         navigatorObservers: () => [AutoRouteObserver()],
       ),
+      themeMode: ThemeMode.light,
+      theme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
+      darkTheme: ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
       title: 'CyBear Jinni App',
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-      //      darkTheme: ThemeData(brightness: Brightness.dark),
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: true,
-        primaryColor:
-            createMaterialColor(const Color.fromRGBO(162, 129, 162, 1.0)),
-        primaryColorDark: const Color(0xFF271052),
-        inputDecorationTheme: InputDecorationTheme(
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8),
-          ),
-        ),
-        textTheme: const TextTheme(
-          bodyLarge: TextStyle(color: Colors.white),
-          bodyMedium: TextStyle(color: Colors.white70),
-        ),
-        fontFamily: 'gidole_regular',
-        colorScheme: ColorScheme.fromSwatch(
-          primarySwatch: createMaterialColor(
-            const Color.fromRGBO(162, 129, 162, 1.0),
-          ),
-          accentColor: Colors.yellow,
-        ).copyWith(
-          secondary: Colors.indigo,
-        ),
-      ),
     );
   }
 }

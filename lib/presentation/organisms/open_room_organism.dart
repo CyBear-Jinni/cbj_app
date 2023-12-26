@@ -81,14 +81,14 @@ class _OpenRoomOrganismState extends State<OpenRoomOrganism> {
                 device.cbjEntityName.getOrCrash() ?? '',
                 style: textTheme.titleMedium,
               ),
-              const SeparatorAtom(multiple: 0.5),
+              const SeparatorAtom(SeparatorVariant.closeWidgets),
               DeviceByTypeMolecule(device),
             ],
           );
         },
         itemCount: devices!.length,
         separatorBuilder: (BuildContext context, int index) =>
-            const SeparatorAtom(),
+            const SeparatorAtom(SeparatorVariant.generalSpacing),
       ),
     );
   }

@@ -13,6 +13,7 @@ export 'devices/smart_light_molecule.dart';
 export 'devices/smart_plug_molecule.dart';
 export 'devices/smart_tv_molecule.dart';
 export 'devices/switch_molecule.dart';
-export 'list_view_separated_molecule.dart';
+export 'list_tile_molecule.dart';
+export 'list_view_molecule.dart';
 export 'loading_page_molecule.dart';
 export 'top_bar_molecule.dart';

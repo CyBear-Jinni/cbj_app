@@ -41,7 +41,7 @@ class _DevicesInNetworkPageState extends State<DevicesInNetworkPage> {
     return Row(
       children: [
         TextAtom('$name: $var1'),
-        const SeparatorAtom(),
+        const SeparatorAtom(SeparatorVariant.generalSpacing),
       ],
     );
   }
@@ -60,7 +60,8 @@ class _DevicesInNetworkPageState extends State<DevicesInNetworkPage> {
       backgroundColor: Colors.black.withOpacity(0.7),
       body: Container(
         margin: AppThemeData.generalHorizontalEdgeInsets,
-        child: ListViewSeparatedMolecule(
+        child: ListViewMolecule(
+          ListViewVeriant.separated,
           itemCount: allDevices!.length,
           itemBuilder: (context, index) {
             final DeviceEntityBase device = allDevices!.elementAt(index);

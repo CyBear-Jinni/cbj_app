@@ -197,7 +197,7 @@ class _SmartTvMoleculeState extends State<SmartTvMolecule> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              const SeparatorAtom(),
+              const SeparatorAtom(SeparatorVariant.generalSpacing),
               TextButton(
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(
@@ -226,7 +226,7 @@ class _SmartTvMoleculeState extends State<SmartTvMolecule> {
                   ),
                 ),
               ),
-              const SeparatorAtom(multiple: 0.5),
+              const SeparatorAtom(SeparatorVariant.closeWidgets),
               TextButton(
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(
@@ -255,7 +255,7 @@ class _SmartTvMoleculeState extends State<SmartTvMolecule> {
                   ),
                 ),
               ),
-              const SeparatorAtom(),
+              const SeparatorAtom(SeparatorVariant.generalSpacing),
               TextButton(
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(
@@ -284,7 +284,7 @@ class _SmartTvMoleculeState extends State<SmartTvMolecule> {
                   ),
                 ),
               ),
-              const SeparatorAtom(multiple: 0.5),
+              const SeparatorAtom(SeparatorVariant.closeWidgets),
               TextButton(
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(
@@ -313,7 +313,7 @@ class _SmartTvMoleculeState extends State<SmartTvMolecule> {
                   ),
                 ),
               ),
-              const SeparatorAtom(),
+              const SeparatorAtom(SeparatorVariant.generalSpacing),
               TextButton(
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(
@@ -342,7 +342,7 @@ class _SmartTvMoleculeState extends State<SmartTvMolecule> {
                   ),
                 ),
               ),
-              const SeparatorAtom(),
+              const SeparatorAtom(SeparatorVariant.generalSpacing),
               TextButton(
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(
@@ -371,7 +371,7 @@ class _SmartTvMoleculeState extends State<SmartTvMolecule> {
                   ),
                 ),
               ),
-              const SeparatorAtom(),
+              const SeparatorAtom(SeparatorVariant.generalSpacing),
             ],
           ),
         ],

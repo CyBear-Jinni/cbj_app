@@ -73,10 +73,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      color: const Color.fromRGBO(251, 245, 249, 1.0),
-      child: Stack(
+    return Scaffold(
+      body: Stack(
         children: [
           Scaffold(
             appBar: AppBar(

@@ -129,6 +129,10 @@ class _SmartDevicesByRoomsState extends State<SmartDevicesByRooms> {
       );
     }
 
+    ThemeData themeData = Theme.of(context);
+    TextTheme textTheme = themeData.textTheme;
+    ColorScheme colorScheme = themeData.colorScheme;
+
     return SingleChildScrollView(
       reverse: true,
       child: Column(
@@ -140,31 +144,16 @@ class _SmartDevicesByRoomsState extends State<SmartDevicesByRooms> {
               color: Colors.black.withOpacity(0.2),
               borderRadius: BorderRadius.circular(10),
             ),
-            child: Stack(
-              children: <Widget>[
-                TextAtom(
-                  'Areas',
-                  style: TextStyle(
-                    fontSize: 35,
-                    foreground: Paint()
-                      ..style = PaintingStyle.stroke
-                      ..strokeWidth = 3
-                      ..color = Colors.black.withOpacity(0.2),
-                  ),
-                ),
-                TextAtom(
-                  'Areas',
-                  style: TextStyle(
-                    fontSize: 35,
-                    color: Theme.of(context).textTheme.bodyLarge!.color,
-                  ),
-                ),
-              ],
+            child: TextAtom(
+              'Areas',
+              style: textTheme.headlineLarge,
             ),
           ),
-          RoomsListViewWidget(
-            entities: devices,
-            rooms: rooms,
+          MarginedExpandedAtom(
+            child: RoomsListViewWidget(
+              entities: devices,
+              rooms: rooms,
+            ),
           ),
         ],
       ),

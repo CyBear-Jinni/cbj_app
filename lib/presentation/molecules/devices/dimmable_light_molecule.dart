@@ -1,5 +1,10 @@
+import 'dart:collection';
+
+import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/entity_type_utils.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_dimmable_light_entity/generic_dimmable_light_entity.dart';
-import 'package:cybearjinni/domain/device/i_device_repository.dart';
+import 'package:cybearjinni/domain/connections_service.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -18,24 +23,58 @@ class DimmableLightMolecule extends StatefulWidget {
 class _DimmableLightMoleculeState extends State<DimmableLightMolecule> {
   double brightness = 100;
 
-  Future<void> _onChange(bool value) async {
-    if (value) {
-      await IDeviceRepository.instance.turnOnDevices(
-        devicesId: [widget.entity.cbjDeviceVendor.getOrCrash()],
-      );
-    } else {
-      await IDeviceRepository.instance.turnOffDevices(
-        devicesId: [widget.entity.cbjDeviceVendor.getOrCrash()],
-      );
-    }
+  Future<void> _changeBrightness(double value) async {
+    setState(() {
+      brightness = value;
+    });
+
+    final HashMap<ActionValues, String> hashValue =
+        HashMap<ActionValues, String>()
+          ..addEntries([
+            MapEntry(ActionValues.brightness, value.round().toString()),
+          ]);
+
+    setEntityState(
+      EntityProperties.lightBrightness,
+      EntityActions.actionNotSupported,
+      value: hashValue,
+    );
   }
 
-  Future<void> _changeBrightness(double value) async {
-    brightness = value;
+  void _onChange(bool value) {
+    setEntityState(
+      EntityProperties.lightSwitchState,
+      value ? EntityActions.on : EntityActions.off,
+    );
+  }
 
-    IDeviceRepository.instance.changeBrightnessDevices(
-      devicesId: [widget.entity.cbjDeviceVendor.getOrCrash()],
-      brightnessToChange: value.round(),
+  void setEntityState(
+    EntityProperties property,
+    EntityActions action, {
+    HashMap<ActionValues, dynamic>? value,
+  }) {
+    final VendorsAndServices? vendor =
+        widget.entity.cbjDeviceVendor.vendorsAndServices;
+    if (vendor == null) {
+      return;
+    }
+
+    final HashMap<VendorsAndServices, HashSet<String>> uniqueIdByVendor =
+        HashMap();
+    uniqueIdByVendor.addEntries(
+      [
+        MapEntry(
+          vendor,
+          HashSet<String>()
+            ..addAll([widget.entity.deviceCbjUniqueId.getOrCrash()]),
+        ),
+      ],
+    );
+    ConnectionsService.instance.setEntityState(
+      uniqueIdByVendor: uniqueIdByVendor,
+      property: property,
+      actionType: action,
+      value: value,
     );
   }
 
