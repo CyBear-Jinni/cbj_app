@@ -24,7 +24,7 @@ class _SmartDevicesByRoomsState extends State<SmartDevicesByRooms> {
   @override
   void initState() {
     super.initState();
-    addDiscoverdRoom();
+    addDiscoveredRoom();
     _watchEntities();
   }
 
@@ -34,7 +34,7 @@ class _SmartDevicesByRoomsState extends State<SmartDevicesByRooms> {
     super.dispose();
   }
 
-  void addDiscoverdRoom() {
+  void addDiscoveredRoom() {
     final RoomEntity discoveredRoom = RoomEntity(
       uniqueId: RoomUniqueId.discovered(),
       cbjEntityName: RoomDefaultName('Discovered'),
@@ -129,9 +129,8 @@ class _SmartDevicesByRoomsState extends State<SmartDevicesByRooms> {
       );
     }
 
-    ThemeData themeData = Theme.of(context);
-    TextTheme textTheme = themeData.textTheme;
-    ColorScheme colorScheme = themeData.colorScheme;
+    final ThemeData themeData = Theme.of(context);
+    final TextTheme textTheme = themeData.textTheme;
 
     return SingleChildScrollView(
       reverse: true,

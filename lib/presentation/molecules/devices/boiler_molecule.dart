@@ -6,6 +6,7 @@ import 'package:cbj_integrations_controller/infrastructure/generic_entities/enti
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_boiler_entity/generic_boiler_entity.dart';
 import 'package:cybearjinni/domain/connections_service.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
@@ -73,11 +74,14 @@ class _BoilerMoleculeState extends State<BoilerMolecule> {
 
   @override
   Widget build(BuildContext context) {
-    return SwitchAtom(
-      variant: SwitchVariant.boiler,
-      onToggle: _onChange,
-      action: widget.entity.boilerSwitchState.action,
-      state: widget.entity.entityStateGRPC.state,
+    return DeviceNameRow(
+      widget.entity.cbjEntityName.getOrCrash()!,
+      SwitchAtom(
+        variant: SwitchVariant.boiler,
+        onToggle: _onChange,
+        action: widget.entity.boilerSwitchState.action,
+        state: widget.entity.entityStateGRPC.state,
+      ),
     );
   }
 }

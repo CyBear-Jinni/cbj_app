@@ -7,6 +7,7 @@ import 'package:cbj_integrations_controller/infrastructure/generic_entities/gene
 import 'package:cybearjinni/domain/connections_service.dart';
 import 'package:cybearjinni/domain/device/i_device_repository.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -106,70 +107,52 @@ class _RgbwLightMoleculeState extends State<RgbwLightMolecule> {
 
   @override
   Widget build(BuildContext context) {
-    return ColoredBox(
-      color: Colors.white,
-      child: Column(
-        children: [
-          Container(
-            margin: const EdgeInsets.symmetric(horizontal: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Flexible(
-                  child: TextAtom(
-                    widget.entity.cbjEntityName.getOrCrash()!,
-                    style: const TextStyle(
-                      overflow: TextOverflow.clip,
-                      fontSize: 20.0,
-                      color: Colors.black,
-                    ),
-                  ),
-                ),
-                SwitchAtom(
-                  variant: SwitchVariant.light,
-                  onToggle: _onChange,
-                  action: widget.entity.lightSwitchState.action,
-                  state: widget.entity.entityStateGRPC.state,
-                ),
-              ],
-            ),
+    return Column(
+      children: [
+        DeviceNameRow(
+          widget.entity.cbjEntityName.getOrCrash()!,
+          SwitchAtom(
+            variant: SwitchVariant.light,
+            onToggle: _onChange,
+            action: widget.entity.lightSwitchState.action,
+            state: widget.entity.entityStateGRPC.state,
           ),
-          const SizedBox(
-            height: 3,
+        ),
+        const SizedBox(
+          height: 3,
+        ),
+        LightColorMods(deviceEntity: widget.entity),
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: Row(
+            children: [
+              const FaIcon(
+                FontAwesomeIcons.solidSun,
+                color: Colors.blueGrey,
+              ),
+              Expanded(
+                child: Slider(
+                  thumbColor: Colors.white,
+                  activeColor: Colors.orangeAccent.shade100,
+                  inactiveColor: Colors.grey,
+                  value: brightness,
+                  divisions: 100,
+                  min: 1,
+                  max: 100,
+                  onChanged: _changeBrightness,
+                ),
+              ),
+              SizedBox(
+                width: 45,
+                child: TextAtom(
+                  '${brightness.round()}%',
+                  style: const TextStyle(color: Colors.black),
+                ),
+              ),
+            ],
           ),
-          LightColorMods(deviceEntity: widget.entity),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Row(
-              children: [
-                const FaIcon(
-                  FontAwesomeIcons.solidSun,
-                  color: Colors.blueGrey,
-                ),
-                Expanded(
-                  child: Slider(
-                    thumbColor: Colors.white,
-                    activeColor: Colors.orangeAccent.shade100,
-                    inactiveColor: Colors.grey,
-                    value: brightness,
-                    divisions: 100,
-                    min: 1,
-                    max: 100,
-                    onChanged: _changeBrightness,
-                  ),
-                ),
-                SizedBox(
-                  width: 45,
-                  child: TextAtom(
-                    '${brightness.round()}%',
-                    style: const TextStyle(color: Colors.black),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
@@ -309,7 +292,6 @@ class _LightColorMods extends State<LightColorMods> {
       children: [
         colorModeWidget,
         Container(
-          color: Colors.white,
           margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,

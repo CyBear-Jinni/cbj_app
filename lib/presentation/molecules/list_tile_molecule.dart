@@ -6,11 +6,13 @@ class ListTileAtom extends StatelessWidget {
     this.headline,
     this.supportingText,
     this.leadingIcon,
+    this.onTap,
   });
 
   final String? headline;
   final String? supportingText;
   final IconData? leadingIcon;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +20,7 @@ class ListTileAtom extends StatelessWidget {
       title: headline != null ? TextAtom(headline!) : null,
       subtitle: supportingText != null ? TextAtom(supportingText!) : null,
       leading: leadingIcon != null ? IconAtom(leadingIcon!) : null,
+      onTap: onTap,
     );
   }
 }

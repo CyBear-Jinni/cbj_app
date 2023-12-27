@@ -2,6 +2,7 @@ import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_smart_computer_entity/generic_smart_computer_entity.dart';
 import 'package:cybearjinni/domain/device/i_device_repository.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -10,7 +11,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class SmartComputerMolecule extends StatefulWidget {
   const SmartComputerMolecule(this.entity);
 
-  final GenericSmartComputerDE? entity;
+  final GenericSmartComputerDE entity;
 
   @override
   State<SmartComputerMolecule> createState() => _SmartComputerMoleculeState();
@@ -47,81 +48,76 @@ class _SmartComputerMoleculeState extends State<SmartComputerMolecule> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            TextButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(
-                  Colors.grey,
-                ),
-                side: MaterialStateProperty.all(
-                  BorderSide.lerp(
-                    const BorderSide(color: Colors.white60),
-                    const BorderSide(color: Colors.white60),
-                    22,
-                  ),
+    return DeviceNameRow(
+      widget.entity.cbjEntityName.getOrCrash()!,
+      Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          TextButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(
+                Colors.grey,
+              ),
+              side: MaterialStateProperty.all(
+                BorderSide.lerp(
+                  const BorderSide(color: Colors.white60),
+                  const BorderSide(color: Colors.white60),
+                  22,
                 ),
               ),
-              onPressed: () {
-                suspendComputer(context);
-              },
-              child: Tab(
-                icon: FaIcon(
-                  FontAwesomeIcons.moon,
+            ),
+            onPressed: () {
+              suspendComputer(context);
+            },
+            child: Tab(
+              icon: FaIcon(
+                FontAwesomeIcons.moon,
+                color: Theme.of(context).textTheme.bodyLarge!.color,
+              ),
+              child: TextAtom(
+                'Sleep',
+                style: TextStyle(
                   color: Theme.of(context).textTheme.bodyLarge!.color,
-                ),
-                child: TextAtom(
-                  'Sleep',
-                  style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyLarge!.color,
-                    fontSize: 16,
-                  ),
+                  fontSize: 16,
                 ),
               ),
             ),
-            const SizedBox(
-              width: 10,
-            ),
-            TextButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(
-                  Colors.grey,
-                ),
-                side: MaterialStateProperty.all(
-                  BorderSide.lerp(
-                    const BorderSide(color: Colors.white60),
-                    const BorderSide(color: Colors.white60),
-                    22,
-                  ),
+          ),
+          const SizedBox(
+            width: 10,
+          ),
+          TextButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(
+                Colors.grey,
+              ),
+              side: MaterialStateProperty.all(
+                BorderSide.lerp(
+                  const BorderSide(color: Colors.white60),
+                  const BorderSide(color: Colors.white60),
+                  22,
                 ),
               ),
-              onPressed: () {
-                shutdownComputer(context);
-              },
-              child: Tab(
-                icon: FaIcon(
-                  FontAwesomeIcons.powerOff,
+            ),
+            onPressed: () {
+              shutdownComputer(context);
+            },
+            child: Tab(
+              icon: FaIcon(
+                FontAwesomeIcons.powerOff,
+                color: Theme.of(context).textTheme.bodyLarge!.color,
+              ),
+              child: TextAtom(
+                'Shutdown',
+                style: TextStyle(
                   color: Theme.of(context).textTheme.bodyLarge!.color,
-                ),
-                child: TextAtom(
-                  'Shutdown',
-                  style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyLarge!.color,
-                    fontSize: 16,
-                  ),
+                  fontSize: 16,
                 ),
               ),
             ),
-          ],
-        ),
-        const SizedBox(
-          height: 20,
-        ),
-      ],
+          ),
+        ],
+      ),
     );
   }
 }

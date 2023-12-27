@@ -21,7 +21,7 @@ class DevicesInRoomPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PageOrganism(
-      pageName: 'Device ${entityTypes.first.name}',
+      pageName: 'Device ${entityTypes.firstOrNull?.name}',
       topBarColor: roomColorGradiant!.listOfColors!.last,
       child: OpenRoomOrganism(
         roomEntity: roomEntity,

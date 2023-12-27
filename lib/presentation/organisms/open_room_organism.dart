@@ -38,14 +38,13 @@ class _OpenRoomOrganismState extends State<OpenRoomOrganism> {
     final Set<String> deviceIdsInRoom =
         widget.roomEntity.roomDevicesId.getOrCrash();
     final Set<EntityTypes> entityTypes = widget.entityTypes;
-    if (entityTypes.isEmpty) {
-      return;
-    }
-    final Set<DeviceEntityBase> tempDevices = devicesMap.values
+    final Set<DeviceEntityBase> tempDevices;
+    final bool showAllTypes = entityTypes.isEmpty;
+    tempDevices = devicesMap.values
         .where(
           (element) =>
               deviceIdsInRoom.contains(element.getCbjDeviceId) &&
-              entityTypes.contains(element.entityTypes.type),
+              (showAllTypes || entityTypes.contains(element.entityTypes.type)),
         )
         .toSet();
 
@@ -75,20 +74,11 @@ class _OpenRoomOrganismState extends State<OpenRoomOrganism> {
         itemBuilder: (context, index) {
           final DeviceEntityBase device = devices!.elementAt(index);
 
-          return Column(
-            children: [
-              TextAtom(
-                device.cbjEntityName.getOrCrash() ?? '',
-                style: textTheme.titleMedium,
-              ),
-              const SeparatorAtom(SeparatorVariant.closeWidgets),
-              DeviceByTypeMolecule(device),
-            ],
-          );
+          return DeviceByTypeMolecule(device);
         },
         itemCount: devices!.length,
         separatorBuilder: (BuildContext context, int index) =>
-            const SeparatorAtom(SeparatorVariant.generalSpacing),
+            const SeparatorAtom(SeparatorVariant.farAppart),
       ),
     );
   }

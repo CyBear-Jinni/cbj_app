@@ -6,6 +6,7 @@ import 'package:cbj_integrations_controller/infrastructure/generic_entities/enti
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_dimmable_light_entity/generic_dimmable_light_entity.dart';
 import 'package:cybearjinni/domain/connections_service.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -80,69 +81,51 @@ class _DimmableLightMoleculeState extends State<DimmableLightMolecule> {
 
   @override
   Widget build(BuildContext context) {
-    return ColoredBox(
-      color: Colors.white,
-      child: Column(
-        children: [
-          Container(
-            margin: const EdgeInsets.symmetric(horizontal: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Flexible(
-                  child: TextAtom(
-                    widget.entity.cbjEntityName.getOrCrash()!,
-                    style: const TextStyle(
-                      overflow: TextOverflow.clip,
-                      fontSize: 20.0,
-                      color: Colors.black,
-                    ),
-                  ),
-                ),
-                SwitchAtom(
-                  variant: SwitchVariant.light,
-                  action: widget.entity.lightSwitchState.action,
-                  state: widget.entity.entityStateGRPC.state,
-                  onToggle: _onChange,
-                ),
-              ],
-            ),
+    return Column(
+      children: [
+        DeviceNameRow(
+          widget.entity.cbjEntityName.getOrCrash()!,
+          SwitchAtom(
+            variant: SwitchVariant.light,
+            action: widget.entity.lightSwitchState.action,
+            state: widget.entity.entityStateGRPC.state,
+            onToggle: _onChange,
           ),
-          const SizedBox(
-            height: 3,
+        ),
+        const SizedBox(
+          height: 3,
+        ),
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: Row(
+            children: [
+              const FaIcon(
+                FontAwesomeIcons.solidSun,
+                color: Colors.blueGrey,
+              ),
+              Expanded(
+                child: Slider(
+                  thumbColor: Colors.white,
+                  activeColor: Colors.orangeAccent.shade100,
+                  inactiveColor: Colors.grey,
+                  value: brightness,
+                  divisions: 100,
+                  min: 1,
+                  max: 100,
+                  onChanged: _changeBrightness,
+                ),
+              ),
+              SizedBox(
+                width: 45,
+                child: TextAtom(
+                  '${brightness.round()}%',
+                  style: const TextStyle(color: Colors.black),
+                ),
+              ),
+            ],
           ),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Row(
-              children: [
-                const FaIcon(
-                  FontAwesomeIcons.solidSun,
-                  color: Colors.blueGrey,
-                ),
-                Expanded(
-                  child: Slider(
-                    thumbColor: Colors.white,
-                    activeColor: Colors.orangeAccent.shade100,
-                    inactiveColor: Colors.grey,
-                    value: brightness,
-                    divisions: 100,
-                    min: 1,
-                    max: 100,
-                    onChanged: _changeBrightness,
-                  ),
-                ),
-                SizedBox(
-                  width: 45,
-                  child: TextAtom(
-                    '${brightness.round()}%',
-                    style: const TextStyle(color: Colors.black),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

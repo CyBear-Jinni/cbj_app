@@ -51,7 +51,9 @@ class _CbjHubInNetworkWidgetState extends State<CbjHubInNetworkWidget> {
       }
       foundEntity = true;
 
-      context.router.replace(const HomeRoute());
+      if (mounted) {
+        context.router.replace(const HomeRoute());
+      }
       return;
     }
 

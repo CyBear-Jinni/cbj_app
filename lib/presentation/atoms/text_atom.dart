@@ -11,6 +11,7 @@ class TextAtom extends StatelessWidget {
     this.maxLines,
     this.translationArgs,
     this.translate = true,
+    this.veriant = TextVeriant.regular,
   });
 
   final String text;
@@ -20,9 +21,22 @@ class TextAtom extends StatelessWidget {
   final int? maxLines;
   final List<String>? translationArgs;
   final bool translate;
+  final TextVeriant veriant;
 
   @override
   Widget build(BuildContext context) {
+    if (veriant == TextVeriant.smallTitle) {
+      final ThemeData themeData = Theme.of(context);
+      final TextTheme textTheme = themeData.textTheme;
+      return Text(
+        translate && text.isNotEmpty ? text.tr(args: translationArgs) : text,
+        style: textTheme.titleLarge,
+        maxLines: maxLines,
+        overflow: overflow,
+        textAlign: textAlign,
+      );
+    }
+
     return Text(
       translate && text.isNotEmpty ? text.tr(args: translationArgs) : text,
       style: style,
@@ -31,4 +45,10 @@ class TextAtom extends StatelessWidget {
       textAlign: textAlign,
     );
   }
+}
+
+enum TextVeriant {
+  regular,
+  smallTitle,
+  ;
 }

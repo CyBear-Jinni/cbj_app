@@ -7,6 +7,7 @@ import 'package:cbj_integrations_controller/infrastructure/generic_entities/enti
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_smart_tv_entity/generic_smart_tv_entity.dart';
 import 'package:cybearjinni/domain/connections_service.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -191,190 +192,193 @@ class _SmartTvMoleculeState extends State<SmartTvMolecule> {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 100,
-      child: ListView(
-        scrollDirection: Axis.horizontal,
-        children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              const SeparatorAtom(SeparatorVariant.generalSpacing),
-              TextButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
-                    Colors.grey,
-                  ),
-                  side: MaterialStateProperty.all(
-                    BorderSide.lerp(
-                      const BorderSide(color: Colors.white60),
-                      const BorderSide(color: Colors.white60),
-                      22,
+      child: DeviceNameRow(
+        widget.entity.cbjEntityName.getOrCrash()!,
+        ListView(
+          scrollDirection: Axis.horizontal,
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                const SeparatorAtom(SeparatorVariant.generalSpacing),
+                TextButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                      Colors.grey,
+                    ),
+                    side: MaterialStateProperty.all(
+                      BorderSide.lerp(
+                        const BorderSide(color: Colors.white60),
+                        const BorderSide(color: Colors.white60),
+                        22,
+                      ),
                     ),
                   ),
-                ),
-                onPressed: onPause,
-                child: Tab(
-                  icon: FaIcon(
-                    FontAwesomeIcons.pause,
-                    color: Theme.of(context).textTheme.bodyLarge!.color,
-                  ),
-                  child: TextAtom(
-                    'Pause',
-                    style: TextStyle(
+                  onPressed: onPause,
+                  child: Tab(
+                    icon: FaIcon(
+                      FontAwesomeIcons.pause,
                       color: Theme.of(context).textTheme.bodyLarge!.color,
-                      fontSize: 16,
+                    ),
+                    child: TextAtom(
+                      'Pause',
+                      style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
+                        fontSize: 16,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              const SeparatorAtom(SeparatorVariant.closeWidgets),
-              TextButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
-                    Colors.grey,
-                  ),
-                  side: MaterialStateProperty.all(
-                    BorderSide.lerp(
-                      const BorderSide(color: Colors.white60),
-                      const BorderSide(color: Colors.white60),
-                      22,
+                const SeparatorAtom(SeparatorVariant.closeWidgets),
+                TextButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                      Colors.grey,
+                    ),
+                    side: MaterialStateProperty.all(
+                      BorderSide.lerp(
+                        const BorderSide(color: Colors.white60),
+                        const BorderSide(color: Colors.white60),
+                        22,
+                      ),
                     ),
                   ),
-                ),
-                onPressed: onPlay,
-                child: Tab(
-                  icon: FaIcon(
-                    FontAwesomeIcons.play,
-                    color: Theme.of(context).textTheme.bodyLarge!.color,
-                  ),
-                  child: TextAtom(
-                    'Play',
-                    style: TextStyle(
+                  onPressed: onPlay,
+                  child: Tab(
+                    icon: FaIcon(
+                      FontAwesomeIcons.play,
                       color: Theme.of(context).textTheme.bodyLarge!.color,
-                      fontSize: 16,
+                    ),
+                    child: TextAtom(
+                      'Play',
+                      style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
+                        fontSize: 16,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              const SeparatorAtom(SeparatorVariant.generalSpacing),
-              TextButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
-                    Colors.grey,
-                  ),
-                  side: MaterialStateProperty.all(
-                    BorderSide.lerp(
-                      const BorderSide(color: Colors.white60),
-                      const BorderSide(color: Colors.white60),
-                      22,
+                const SeparatorAtom(SeparatorVariant.generalSpacing),
+                TextButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                      Colors.grey,
+                    ),
+                    side: MaterialStateProperty.all(
+                      BorderSide.lerp(
+                        const BorderSide(color: Colors.white60),
+                        const BorderSide(color: Colors.white60),
+                        22,
+                      ),
                     ),
                   ),
-                ),
-                onPressed: onVolumeDown,
-                child: Tab(
-                  icon: FaIcon(
-                    FontAwesomeIcons.volumeLow,
-                    color: Theme.of(context).textTheme.bodyLarge!.color,
-                  ),
-                  child: TextAtom(
-                    'Down',
-                    style: TextStyle(
+                  onPressed: onVolumeDown,
+                  child: Tab(
+                    icon: FaIcon(
+                      FontAwesomeIcons.volumeLow,
                       color: Theme.of(context).textTheme.bodyLarge!.color,
-                      fontSize: 16,
+                    ),
+                    child: TextAtom(
+                      'Down',
+                      style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
+                        fontSize: 16,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              const SeparatorAtom(SeparatorVariant.closeWidgets),
-              TextButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
-                    Colors.grey,
-                  ),
-                  side: MaterialStateProperty.all(
-                    BorderSide.lerp(
-                      const BorderSide(color: Colors.white60),
-                      const BorderSide(color: Colors.white60),
-                      22,
+                const SeparatorAtom(SeparatorVariant.closeWidgets),
+                TextButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                      Colors.grey,
+                    ),
+                    side: MaterialStateProperty.all(
+                      BorderSide.lerp(
+                        const BorderSide(color: Colors.white60),
+                        const BorderSide(color: Colors.white60),
+                        22,
+                      ),
                     ),
                   ),
-                ),
-                onPressed: onVolumeUp,
-                child: Tab(
-                  icon: FaIcon(
-                    FontAwesomeIcons.volumeHigh,
-                    color: Theme.of(context).textTheme.bodyLarge!.color,
-                  ),
-                  child: TextAtom(
-                    'Up',
-                    style: TextStyle(
+                  onPressed: onVolumeUp,
+                  child: Tab(
+                    icon: FaIcon(
+                      FontAwesomeIcons.volumeHigh,
                       color: Theme.of(context).textTheme.bodyLarge!.color,
-                      fontSize: 16,
+                    ),
+                    child: TextAtom(
+                      'Up',
+                      style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
+                        fontSize: 16,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              const SeparatorAtom(SeparatorVariant.generalSpacing),
-              TextButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
-                    Colors.grey,
-                  ),
-                  side: MaterialStateProperty.all(
-                    BorderSide.lerp(
-                      const BorderSide(color: Colors.white60),
-                      const BorderSide(color: Colors.white60),
-                      22,
+                const SeparatorAtom(SeparatorVariant.generalSpacing),
+                TextButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                      Colors.grey,
+                    ),
+                    side: MaterialStateProperty.all(
+                      BorderSide.lerp(
+                        const BorderSide(color: Colors.white60),
+                        const BorderSide(color: Colors.white60),
+                        22,
+                      ),
                     ),
                   ),
-                ),
-                onPressed: onNetflix,
-                child: Tab(
-                  icon: FaIcon(
-                    FontAwesomeIcons.video,
-                    color: Theme.of(context).textTheme.bodyLarge!.color,
-                  ),
-                  child: TextAtom(
-                    'Netflix',
-                    style: TextStyle(
+                  onPressed: onNetflix,
+                  child: Tab(
+                    icon: FaIcon(
+                      FontAwesomeIcons.video,
                       color: Theme.of(context).textTheme.bodyLarge!.color,
-                      fontSize: 16,
+                    ),
+                    child: TextAtom(
+                      'Netflix',
+                      style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
+                        fontSize: 16,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              const SeparatorAtom(SeparatorVariant.generalSpacing),
-              TextButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
-                    Colors.grey,
-                  ),
-                  side: MaterialStateProperty.all(
-                    BorderSide.lerp(
-                      const BorderSide(color: Colors.white60),
-                      const BorderSide(color: Colors.white60),
-                      22,
+                const SeparatorAtom(SeparatorVariant.generalSpacing),
+                TextButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                      Colors.grey,
+                    ),
+                    side: MaterialStateProperty.all(
+                      BorderSide.lerp(
+                        const BorderSide(color: Colors.white60),
+                        const BorderSide(color: Colors.white60),
+                        22,
+                      ),
                     ),
                   ),
-                ),
-                onPressed: openUrlPopUp,
-                child: Tab(
-                  icon: FaIcon(
-                    FontAwesomeIcons.video,
-                    color: Theme.of(context).textTheme.bodyLarge!.color,
-                  ),
-                  child: TextAtom(
-                    'Video',
-                    style: TextStyle(
+                  onPressed: openUrlPopUp,
+                  child: Tab(
+                    icon: FaIcon(
+                      FontAwesomeIcons.video,
                       color: Theme.of(context).textTheme.bodyLarge!.color,
-                      fontSize: 16,
+                    ),
+                    child: TextAtom(
+                      'Video',
+                      style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
+                        fontSize: 16,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              const SeparatorAtom(SeparatorVariant.generalSpacing),
-            ],
-          ),
-        ],
+                const SeparatorAtom(SeparatorVariant.generalSpacing),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
