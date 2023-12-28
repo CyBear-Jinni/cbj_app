@@ -90,7 +90,7 @@ class _SoftwareInfoWidgetState extends State<SoftwareInfoWidget> {
                   ListTile(
                     title: Row(
                       children: [
-                        const TextAtom('Device name: '),
+                        const TextAtom('Entitey name: '),
                         TextAtom(
                           softwareInfoEntity?.deviceName.getOrCrash() ??
                               'No Info',

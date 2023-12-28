@@ -5,7 +5,6 @@ import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:cybearjinni/presentation/pages/home_page/tabs/scenes_in_folders_tab/scenes_in_folders_tab.dart';
 import 'package:cybearjinni/presentation/pages/home_page/tabs/smart_devices_tab/smart_devices_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
@@ -47,7 +46,7 @@ class _HomePageState extends State<HomePage> {
       BottomNavigationBarItemAtom(
         activeIcon: Icon(MdiIcons.lightbulbOn),
         icon: Icon(MdiIcons.lightbulbOutline),
-        label: 'Devices',
+        label: 'Entities',
       ),
       // BottomNavigationBarItemAtom(
       //   icon: const FaIcon(FontAwesomeIcons.history),
@@ -77,12 +76,6 @@ class _HomePageState extends State<HomePage> {
       body: Stack(
         children: [
           Scaffold(
-            appBar: AppBar(
-              toolbarHeight: 0,
-              backgroundColor: Colors.white,
-              systemOverlayStyle: SystemUiOverlayStyle.dark,
-            ),
-            backgroundColor: Colors.transparent,
             body: PageView(
               onPageChanged: (index) {
                 setState(() {

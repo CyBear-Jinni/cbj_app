@@ -55,7 +55,7 @@ abstract interface class IDeviceRepository {
 
   Future<void> initiateHubConnection();
 
-  Future<Either<DevicesFailure, KtList<DeviceEntityBase?>>> getAllDevices();
+  Future<Either<DevicesFailure, KtList<DeviceEntityBase?>>> getAllEntites();
 
   Stream<Either<dynamic, KtList<dynamic>>> watchAll();
 

@@ -1,36 +1,48 @@
+import 'dart:collection';
+
 import 'package:auto_route/auto_route.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
+import 'package:cybearjinni/domain/connections_service.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
 import 'package:cybearjinni/presentation/pages/introduction_screen/introductions_view_model_body/introduction_screen_body_about_page.dart';
 import 'package:cybearjinni/presentation/pages/introduction_screen/introductions_view_model_body/introduction_screen_body_welcome_page.dart';
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
-class IntroductionScreenBody extends StatelessWidget {
+class IntroductionScreenBody extends StatefulWidget {
+  @override
+  State<IntroductionScreenBody> createState() => _IntroductionScreenBodyState();
+}
+
+class _IntroductionScreenBodyState extends State<IntroductionScreenBody> {
   @override
   Widget build(BuildContext context) {
+    final ThemeData themeData = Theme.of(context);
+    final TextTheme textTheme = themeData.textTheme;
+
+    final Size screenSize = MediaQuery.of(context).size;
+    final double sizeWidth = screenSize.width;
+    final double sizeHeight = screenSize.height;
+
     return Container(
-      decoration: const BoxDecoration(
-        // Box decoration takes a gradient
+      decoration: BoxDecoration(
         gradient: LinearGradient(
-          // Where the linear gradient begins and ends
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          // Add one stop for each color. Stops should increase from 0 to 1
-          stops: [0.06, 0.9],
+          begin: Alignment.centerRight,
+          end: Alignment.centerLeft,
+          stops: const [0.06, 0.9],
           colors: [
-            // Colors are easy thanks to Flutter's Colors class.
-            Colors.grey,
-            Colors.deepPurple,
+            HexColor('#ca6ce3'),
+            HexColor('#aa5fe4'),
           ],
         ),
       ),
       child: IntroductionScreen(
-        showNextButton: false,
         dotsDecorator: DotsDecorator(
           size: const Size.square(10.0),
           activeSize: const Size(20.0, 10.0),
-          activeColor: Theme.of(context).textTheme.bodyLarge!.color,
+          activeColor: Colors.white,
           color: Colors.black26,
           spacing: const EdgeInsets.symmetric(horizontal: 3.0),
           activeShape: RoundedRectangleBorder(
@@ -40,51 +52,42 @@ class IntroductionScreenBody extends StatelessWidget {
         globalBackgroundColor: Colors.transparent,
         pages: [
           PageViewModel(
-            titleWidget: Column(
-              children: [
-                Container(
-                  margin: const EdgeInsets.only(top: 20, bottom: 5),
-                  child: const Center(
-                    child: ImageAtom(
-                      'assets/cbj_logo.png',
-                      height: 200.0,
+            useScrollView: false,
+            titleWidget: const SizedBox(),
+            bodyWidget: SizedBox(
+              width: sizeWidth,
+              height: sizeHeight - 195,
+              child: Column(
+                children: [
+                  const Expanded(
+                    child: SizedBox(),
+                  ),
+                  const Expanded(
+                    child: Center(
+                      child: ImageAtom(
+                        'assets/cbj_logo.png',
+                        hero: 'full_logo',
+                      ),
                     ),
                   ),
-                ),
-                Stack(
-                  children: <Widget>[
-                    TextAtom(
-                      'CyBear Jinni',
-                      style: TextStyle(
-                        fontSize: 48,
-                        foreground: Paint()
-                          ..style = PaintingStyle.stroke
-                          ..strokeWidth = 5
-                          ..color = Colors.pink.withOpacity(0.13),
+                  Expanded(
+                    child: MarginedExpandedAtom(
+                      child: Column(
+                        children: [
+                          TextAtom(
+                            'CyBear Jinni',
+                            style: textTheme.displaySmall!
+                                .copyWith(color: Colors.white),
+                          ),
+                          const SeparatorAtom(
+                            variant: SeparatorVariant.farAppart,
+                          ),
+                          IntroductionScreenBodyWelcomePage(),
+                        ],
                       ),
                     ),
-                    TextAtom(
-                      'CyBear Jinni',
-                      style: TextStyle(
-                        fontSize: 48,
-                        color: Theme.of(context).textTheme.bodyLarge!.color,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            bodyWidget: IntroductionScreenBodyWelcomePage(),
-            decoration: PageDecoration(
-              titleTextStyle: TextStyle(
-                color: Theme.of(context).textTheme.bodyLarge!.color,
-                fontSize: 25,
-              ),
-              pageColor: Colors.transparent,
-              bodyTextStyle: TextStyle(
-                color: Theme.of(context).textTheme.bodyLarge!.color,
-                fontWeight: FontWeight.w700,
-                fontSize: 20.0,
+                  ),
+                ],
               ),
             ),
           ),
@@ -96,36 +99,31 @@ class IntroductionScreenBody extends StatelessWidget {
                 ),
                 TextAtom(
                   'Our Vision',
-                  style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyLarge!.color,
-                    fontSize: 30,
-                  ),
+                  style: textTheme.displaySmall!.copyWith(color: Colors.white),
                 ),
               ],
             ),
             bodyWidget: IntroductionScreenBodyAboutPage(),
-            decoration: PageDecoration(
-              titleTextStyle: TextStyle(
-                color: Theme.of(context).textTheme.bodyLarge!.color,
-                fontSize: 30,
-              ),
-              pageColor: Colors.transparent,
-              bodyTextStyle: TextStyle(
-                color: Theme.of(context).textTheme.bodyLarge!.color,
-                fontWeight: FontWeight.w700,
-                fontSize: 20.0,
-              ),
-            ),
           ),
         ],
+        next: TextAtom(
+          'Next',
+          style: textTheme.titleMedium!.copyWith(color: Colors.white),
+        ),
         done: TextAtom(
           'Done',
-          style: TextStyle(
-            fontWeight: FontWeight.w600,
-            color: Theme.of(context).textTheme.bodyLarge!.color,
-          ),
+          style: textTheme.titleMedium!.copyWith(color: Colors.white),
         ),
-        onDone: () {
+        onDone: () async {
+          final HashMap<String, DeviceEntityBase> entities =
+              await ConnectionsService.instance.getAllEntities;
+          if (!mounted) {
+            return;
+          }
+          if (entities.isNotEmpty) {
+            context.router.replace(const HomeRoute());
+            return;
+          }
           context.router.replace(const ConnectToHubRoute());
         },
       ),

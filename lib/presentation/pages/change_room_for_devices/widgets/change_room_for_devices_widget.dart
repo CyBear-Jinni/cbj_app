@@ -9,7 +9,6 @@ import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
 import 'package:cybearjinni/presentation/core/snack_bar_service.dart';
 import 'package:dartz/dartz.dart' as dartz;
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
 
 class ChangeRoomForDevicesWidget extends StatefulWidget {
@@ -49,7 +48,7 @@ class _ChangeRoomForDevicesWidgetState
       _allRooms = Set<RoomEntity>.from(r.iter);
     });
 
-    (await IDeviceRepository.instance.getAllDevices()).fold((l) => null, (r) {
+    (await IDeviceRepository.instance.getAllEntites()).fold((l) => null, (r) {
       _allDevices = Set<DeviceEntityBase>.from(r.iter);
     });
     _allRooms.removeWhere((element) => element == null);
@@ -102,7 +101,6 @@ class _ChangeRoomForDevicesWidgetState
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
     return Container(
-      color: HexColor('#3A3A3A'),
       margin: const EdgeInsets.symmetric(horizontal: 10),
       child: Column(
         children: [
@@ -125,7 +123,7 @@ class _ChangeRoomForDevicesWidgetState
                   style: TextStyle(
                     fontSize: 16,
                     color: Colors.white,
-                    backgroundColor: Colors.blue,
+                    backgroundColor: Colors.pink,
                   ),
                 ),
               ),
@@ -133,13 +131,11 @@ class _ChangeRoomForDevicesWidgetState
           ),
           DropdownButton<String>(
             dropdownColor: Colors.black,
-            style: const TextStyle(color: Colors.white),
             icon: const Icon(Icons.arrow_drop_down),
             hint: TextAtom(
               cbjEntityName.isValid()
                   ? cbjEntityName.getOrCrash()
                   : 'Choose Area',
-              style: const TextStyle(color: Colors.white),
             ),
             elevation: 16,
             underline: Container(

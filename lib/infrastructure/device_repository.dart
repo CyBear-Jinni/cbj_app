@@ -44,7 +44,7 @@ class _DeviceRepository implements IDeviceRepository {
 
   @override
   Future<Either<DevicesFailure, KtList<DeviceEntityBase?>>>
-      getAllDevices() async {
+      getAllEntites() async {
     try {
       return right(allDevices.values.toImmutableList());
     } catch (e) {

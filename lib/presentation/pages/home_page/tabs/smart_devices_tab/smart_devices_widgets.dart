@@ -15,7 +15,7 @@ class SmartDevicesWidgets extends StatelessWidget {
       actions: <BottomSheetAction>[
         BottomSheetAction(
           title: const TextAtom(
-            '⚙️ Change Area For Devices',
+            '⚙️ Change Area For Entities',
             style: TextStyle(color: Colors.blueGrey, fontSize: 23),
           ),
           onPressed: (_) {
@@ -40,7 +40,7 @@ class SmartDevicesWidgets extends StatelessWidget {
     return Column(
       children: <Widget>[
         TopBarMolecule(
-          pageName: 'Devices',
+          pageName: 'Entities',
           rightIcon: Icons.more_vert,
           rightIconFunction: userCogFunction,
           leftIcon: FontAwesomeIcons.solidLightbulb,

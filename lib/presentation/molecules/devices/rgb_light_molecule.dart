@@ -107,6 +107,10 @@ class _RgbwLightMoleculeState extends State<RgbwLightMolecule> {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData themeData = Theme.of(context);
+    final ColorScheme colorScheme = themeData.colorScheme;
+    final TextTheme textTheme = themeData.textTheme;
+
     return Column(
       children: [
         DeviceNameRow(
@@ -118,39 +122,31 @@ class _RgbwLightMoleculeState extends State<RgbwLightMolecule> {
             state: widget.entity.entityStateGRPC.state,
           ),
         ),
-        const SizedBox(
-          height: 3,
-        ),
+        const SeparatorAtom(variant: SeparatorVariant.reletedElements),
         LightColorMods(deviceEntity: widget.entity),
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          child: Row(
-            children: [
-              const FaIcon(
-                FontAwesomeIcons.solidSun,
-                color: Colors.blueGrey,
+        Row(
+          children: [
+            const FaIcon(FontAwesomeIcons.solidSun),
+            Expanded(
+              child: Slider(
+                thumbColor: colorScheme.onBackground,
+                activeColor: colorScheme.tertiary,
+                inactiveColor: colorScheme.outline,
+                value: brightness,
+                divisions: 100,
+                min: 1,
+                max: 100,
+                onChanged: _changeBrightness,
               ),
-              Expanded(
-                child: Slider(
-                  thumbColor: Colors.white,
-                  activeColor: Colors.orangeAccent.shade100,
-                  inactiveColor: Colors.grey,
-                  value: brightness,
-                  divisions: 100,
-                  min: 1,
-                  max: 100,
-                  onChanged: _changeBrightness,
-                ),
+            ),
+            SizedBox(
+              width: 45,
+              child: TextAtom(
+                '${brightness.round()}%',
+                style: textTheme.bodyMedium,
               ),
-              SizedBox(
-                width: 45,
-                child: TextAtom(
-                  '${brightness.round()}%',
-                  style: const TextStyle(color: Colors.black),
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ],
     );
@@ -288,40 +284,45 @@ class _LightColorMods extends State<LightColorMods> {
   }
 
   Widget lightModBarFocus() {
+    final ThemeData themeData = Theme.of(context);
+    final ColorScheme colorScheme = themeData.colorScheme;
+
     return Column(
       children: [
         colorModeWidget,
-        Container(
-          margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              TextButton(
-                child: TextAtom(
-                  'White',
-                  style: TextStyle(
-                    color: (colorModFocus == 0) ? Colors.red : Colors.grey,
-                    fontSize: 18,
-                  ),
+        const SeparatorAtom(variant: SeparatorVariant.reletedElements),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            OutlinedButton(
+              child: TextAtom(
+                'White',
+                style: TextStyle(
+                  color: (colorModFocus == 0)
+                      ? colorScheme.primary
+                      : colorScheme.onBackground,
+                  fontSize: 18,
                 ),
-                onPressed: () {
-                  _showWhiteMode();
-                },
               ),
-              TextButton(
-                child: TextAtom(
-                  'Color',
-                  style: TextStyle(
-                    color: (colorModFocus == 1) ? Colors.red : Colors.grey,
-                    fontSize: 18,
-                  ),
+              onPressed: () {
+                _showWhiteMode();
+              },
+            ),
+            OutlinedButton(
+              child: TextAtom(
+                'Color',
+                style: TextStyle(
+                  color: (colorModFocus == 1)
+                      ? colorScheme.primary
+                      : colorScheme.onBackground,
+                  fontSize: 18,
                 ),
-                onPressed: () {
-                  _showColorMode();
-                },
               ),
-            ],
-          ),
+              onPressed: () {
+                _showColorMode();
+              },
+            ),
+          ],
         ),
       ],
     );

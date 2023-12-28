@@ -131,23 +131,18 @@ class _SmartDevicesByRoomsState extends State<SmartDevicesByRooms> {
 
     final ThemeData themeData = Theme.of(context);
     final TextTheme textTheme = themeData.textTheme;
+    final ColorScheme colorScheme = themeData.colorScheme;
 
     return SingleChildScrollView(
       reverse: true,
       child: Column(
         children: [
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 50),
-            margin: const EdgeInsets.symmetric(vertical: 20),
-            decoration: BoxDecoration(
-              color: Colors.black.withOpacity(0.2),
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: TextAtom(
-              'Areas',
-              style: textTheme.headlineLarge,
-            ),
+          TextAtom(
+            'Areas',
+            style:
+                textTheme.headlineLarge!.copyWith(color: colorScheme.primary),
           ),
+          const SeparatorAtom(variant: SeparatorVariant.farAppart),
           MarginedExpandedAtom(
             child: RoomsListViewWidget(
               entities: devices,

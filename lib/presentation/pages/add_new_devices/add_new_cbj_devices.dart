@@ -5,7 +5,6 @@ import 'package:cbj_integrations_controller/infrastructure/generic_entities/gene
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// This page will show all the CyBear Jinni devices that have connected to the
@@ -51,11 +50,6 @@ class _AddNewCBJDevices extends State<AddNewCBJDevices> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 0,
-        backgroundColor: Colors.black,
-        systemOverlayStyle: SystemUiOverlayStyle.dark,
-      ),
       body: Container(
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(

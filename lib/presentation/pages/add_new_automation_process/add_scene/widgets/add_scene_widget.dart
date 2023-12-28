@@ -39,7 +39,7 @@ class _AddSceneWidgetState extends State<AddSceneWidget> {
 
   Future<void> _initialized() async {
     Set<DeviceEntityBase?> allDevicesTemp = {};
-    (await IDeviceRepository.instance.getAllDevices()).fold((l) => null, (r) {
+    (await IDeviceRepository.instance.getAllEntites()).fold((l) => null, (r) {
       allDevicesTemp = Set<DeviceEntityBase>.from(r.iter);
     });
 

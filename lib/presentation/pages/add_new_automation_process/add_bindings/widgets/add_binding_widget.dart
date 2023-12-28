@@ -40,7 +40,7 @@ class _AddBindingWidgetState extends State<AddBindingWidget> {
 
   Future<void> _initialized() async {
     Set<DeviceEntityBase?> value = {};
-    (await IDeviceRepository.instance.getAllDevices()).fold((l) => null, (r) {
+    (await IDeviceRepository.instance.getAllEntites()).fold((l) => null, (r) {
       value = Set<DeviceEntityBase?>.from(r.iter);
     });
     value.removeWhere((element) => element == null);

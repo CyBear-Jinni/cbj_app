@@ -1,4 +1,5 @@
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class DeviceNameRow extends StatelessWidget {
@@ -10,12 +11,12 @@ class DeviceNameRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        TextAtom(
-          name,
-          veriant: TextVeriant.smallTitle,
-        ),
-        const Expanded(
-          child: SizedBox(),
+        Expanded(
+          child: TextAtom(
+            name,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 1,
+          ),
         ),
         second,
       ],

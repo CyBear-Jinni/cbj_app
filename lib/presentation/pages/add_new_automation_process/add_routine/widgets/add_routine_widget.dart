@@ -46,7 +46,7 @@ class _AddRoutineWidgetState extends State<AddRoutineWidget> {
 
   Future<void> _initialized() async {
     Set<DeviceEntityBase?> temp = {};
-    (await IDeviceRepository.instance.getAllDevices()).fold((l) => null, (r) {
+    (await IDeviceRepository.instance.getAllEntites()).fold((l) => null, (r) {
       temp = Set<DeviceEntityBase?>.from(r.iter);
     });
     temp.removeWhere((element) => element == null);

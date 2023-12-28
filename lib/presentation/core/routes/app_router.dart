@@ -32,8 +32,8 @@ class AppRouter extends $AppRouter {
     AutoRoute(page: ScanForNewCBJCompsRoute.page),
     AutoRoute(page: ConfigureNewCbjCompRoute.page),
     AutoRoute(page: ComputerConnectionCheckRoute.page),
-    AutoRoute(page: DevicesInNetworkRoute.page),
-    AutoRoute(page: DevicesInRoomRoute.page),
+    AutoRoute(page: EntitiesInNetworkRoute.page),
+    AutoRoute(page: EntitiesInRoomRoute.page),
 
     // Pages from packages
     AutoRoute(page: SmartCameraContainerRoute.page),

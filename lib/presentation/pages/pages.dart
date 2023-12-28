@@ -17,8 +17,8 @@ export 'package:cybearjinni/presentation/pages/add_vendors_pages/add_lifx_vendor
 export 'package:cybearjinni/presentation/pages/change_room_for_devices/change_room_for_devices_page.dart';
 export 'package:cybearjinni/presentation/pages/connect_to_hub/connect_to_hub_page.dart';
 export 'package:cybearjinni/presentation/pages/connect_to_hub_more/connect_to_hub_more_page.dart';
-export 'package:cybearjinni/presentation/pages/devices_in_network_page.dart';
-export 'package:cybearjinni/presentation/pages/devices_in_room_page.dart';
+export 'package:cybearjinni/presentation/pages/entities_in_network_page.dart';
+export 'package:cybearjinni/presentation/pages/entities_in_room_page.dart';
 export 'package:cybearjinni/presentation/pages/home_page/home_page.dart';
 export 'package:cybearjinni/presentation/pages/introduction_screen/introduction_screen_page.dart';
 export 'package:cybearjinni/presentation/pages/plus_button/plus_button.dart';

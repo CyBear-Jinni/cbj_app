@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:cybearjinni/presentation/pages/add_new_automation_process/add_scene/widgets/add_scene_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
 
@@ -16,11 +15,6 @@ class AddScenePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 0,
-        backgroundColor: Colors.black,
-        systemOverlayStyle: SystemUiOverlayStyle.dark,
-      ),
       body: ColoredBox(
         color: HexColor('#FBF5F9'),
         child: Column(

@@ -5,7 +5,6 @@ import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
-import 'package:cybearjinni/presentation/core/theme_data.dart';
 import 'package:cybearjinni/presentation/organisms/organisms.dart';
 import 'package:flutter/material.dart';
 
@@ -35,6 +34,7 @@ class _RoomWidgetState extends State<RoomWidget> {
 
     final ThemeData themeData = Theme.of(context);
     final TextTheme textTheme = themeData.textTheme;
+    final ColorScheme colorScheme = themeData.colorScheme;
 
     final int numberOfDevicesInTheRoom = widget.entitiesInTheRoom.length;
 
@@ -45,10 +45,9 @@ class _RoomWidgetState extends State<RoomWidget> {
           TextButton(
             onPressed: () {
               context.router.push(
-                DevicesInRoomRoute(
+                EntitiesInRoomRoute(
                   entityTypes: const {},
                   roomEntity: widget.room,
-                  roomColorGradiant: ListOfColors({Colors.blue}),
                 ),
               );
             },
@@ -58,7 +57,8 @@ class _RoomWidgetState extends State<RoomWidget> {
                 children: [
                   TextAtom(
                     widget.room.cbjEntityName.getOrCrash(),
-                    style: textTheme.headlineSmall,
+                    style: textTheme.headlineSmall!
+                        .copyWith(color: colorScheme.secondary),
                   ),
                   const Expanded(
                     child: SizedBox(),
@@ -73,15 +73,14 @@ class _RoomWidgetState extends State<RoomWidget> {
               ),
             ),
           ),
-          const SeparatorAtom(SeparatorVariant.closeWidgets),
+          const SeparatorAtom(variant: SeparatorVariant.closeWidgets),
           DevicesListView(
             HashSet.from(widget.entities.values),
             (entity) {
               context.router.push(
-                DevicesInRoomRoute(
+                EntitiesInRoomRoute(
                   entityTypes: entity,
                   roomEntity: widget.room,
-                  roomColorGradiant: ListOfColors({Colors.blue}),
                 ),
               );
             },

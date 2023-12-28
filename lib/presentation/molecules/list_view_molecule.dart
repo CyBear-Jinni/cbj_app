@@ -44,7 +44,7 @@ class ListViewMolecule extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) =>
               itemBuilder(context, index),
           separatorBuilder: (context, index) =>
-              const SeparatorAtom(SeparatorVariant.reletedElements),
+              const SeparatorAtom(variant: SeparatorVariant.reletedElements),
         );
     }
   }

@@ -2,7 +2,7 @@ import 'package:cybearjinni/presentation/core/theme_data.dart';
 import 'package:flutter/cupertino.dart';
 
 class SeparatorAtom extends StatelessWidget {
-  const SeparatorAtom(this.variant);
+  const SeparatorAtom({this.variant = SeparatorVariant.generalSpacing});
 
   final SeparatorVariant variant;
 

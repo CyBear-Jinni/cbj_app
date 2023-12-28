@@ -48,7 +48,7 @@ class DeviceByTypeMolecule extends StatelessWidget {
         return DimmableLightMolecule(entity as GenericDimmableLightDE);
 
       default:
-        return TextAtom('Device type not supported ${type?.name ?? 'null'}');
+        return TextAtom('Entity type is unsupported ${type?.name ?? 'null'}');
     }
   }
 }

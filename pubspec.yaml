@@ -21,9 +21,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
-    - assets/symbols/
     - assets/translations/
-    - assets/gif/
 
   fonts:
     - family: gidole_regular
@@ -72,8 +70,6 @@ dependencies:
     sdk: flutter
   # HSV(HSB)/HSL/RGB/Material color picker
   flutter_colorpicker: ^1.0.3
-  # A cross platform plugin for displaying local notifications.
-  flutter_local_notifications: ^16.1.0
   # An easy to implement custom switch
   flutter_switch: ^0.3.2
   # Getting the local timezone of the os.
@@ -85,7 +81,6 @@ dependencies:
   # Service locator
   get_it: ^7.6.4
   # Google Mobile Ads
-  google_mobile_ads: ^3.1.0
   # Secure authentication system for signing in with a Google account on Android and iOS
   #  google_sign_in: ^5.0.4
   # A high performance, open source, general RPC framework that puts mobile and HTTP/2 first.

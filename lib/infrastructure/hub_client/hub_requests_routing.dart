@@ -216,7 +216,7 @@ class HubRequestRouting {
           return;
         } else {
           logger.w(
-            'Device type is $deviceType is not supported $entityStateGRPC ',
+            'Entity type is $deviceType is not supported $entityStateGRPC ',
           );
           deviceEntity =
               GenericUnsupportedDeviceDtos.fromJson(requestAsJson).toDomain();

@@ -7,7 +7,6 @@ import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:cybearjinni/presentation/pages/scenes/widgets/folder_of_scenes.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 @RoutePage()
@@ -46,11 +45,6 @@ class ScenesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 0,
-        backgroundColor: Colors.black,
-        systemOverlayStyle: SystemUiOverlayStyle.dark,
-      ),
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(

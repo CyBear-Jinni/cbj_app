@@ -7,12 +7,12 @@ class PageOrganism extends StatelessWidget {
   const PageOrganism({
     required this.child,
     required this.pageName,
-    required this.topBarColor,
+    this.topBarColor,
   });
 
   final Widget child;
   final String pageName;
-  final Color topBarColor;
+  final Color? topBarColor;
 
   @override
   Widget build(BuildContext context) {

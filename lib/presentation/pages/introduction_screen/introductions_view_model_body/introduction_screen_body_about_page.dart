@@ -4,15 +4,16 @@ import 'package:flutter/material.dart';
 class IntroductionScreenBodyAboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final ThemeData themeData = Theme.of(context);
+    final TextTheme textTheme = themeData.textTheme;
+    final ColorScheme colorScheme = themeData.colorScheme;
+
     return Column(
       children: [
-        const SizedBox(
-          height: 20,
-        ),
+        const SeparatorAtom(),
         Container(
           decoration: BoxDecoration(
-            color:
-                Theme.of(context).textTheme.bodyLarge!.color!.withOpacity(0.55),
+            color: colorScheme.background,
             border: Border.all(
               color: Theme.of(context).textTheme.bodyLarge!.color!,
             ),
@@ -21,19 +22,24 @@ class IntroductionScreenBodyAboutPage extends StatelessWidget {
           ),
           child: Container(
             padding: const EdgeInsets.all(20),
-            child: const SingleChildScrollView(
+            child: SingleChildScrollView(
               child: TextAtom(
-                'You are now starting a journey into the world of CyBear '
-                'Jinni.\n\nWe are trying to build an ecosystem of smart'
+                'You are now starting a journey into the world of CyBear'
+                ' Jinni.\n\nWe are trying to build an ecosystem of smart'
                 ' home that is built upon openness and trust.\n\n'
-                'Our products are open source to show you that we '
-                'protect your privacy by default.\n\n'
-                'The functionality of the devices will support local '
-                'WiFi execution whenever possible, this way you will'
-                ' be able to control your smart home even if you are'
-                ' disconnected from the world (as long as you are '
-                'connected to your home WiFi).\n',
-                style: TextStyle(fontSize: 17, color: Colors.black),
+                'Our products are open source to show you that we'
+                ' protect your privacy by default.\n\n'
+                'The functionality of the devices will support local'
+                ' WiFi execution whenever possible, this way you will'
+                ' be able to control your smart home reliably even if you are'
+                ' disconnected from the world or the vendor decided to'
+                ' drop support.\n\n'
+                'For controlling out side of the home WiFi you will need a CBJ Hub which grants'
+                ' a lot of extra functionality (very recommended).\n'
+                'You can create a Hub by following the simple documentation from the site.\n\n'
+                "Thanks for joining and let's continue to make the future better for everyone by choosing open-source technology.",
+                style: textTheme.bodyLarge!
+                    .copyWith(color: colorScheme.onBackground),
               ),
             ),
           ),

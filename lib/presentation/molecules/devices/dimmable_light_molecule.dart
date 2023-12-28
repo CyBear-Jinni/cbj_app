@@ -81,6 +81,9 @@ class _DimmableLightMoleculeState extends State<DimmableLightMolecule> {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData themeData = Theme.of(context);
+    final ColorScheme colorScheme = themeData.colorScheme;
+
     return Column(
       children: [
         DeviceNameRow(
@@ -101,13 +104,12 @@ class _DimmableLightMoleculeState extends State<DimmableLightMolecule> {
             children: [
               const FaIcon(
                 FontAwesomeIcons.solidSun,
-                color: Colors.blueGrey,
               ),
               Expanded(
                 child: Slider(
-                  thumbColor: Colors.white,
-                  activeColor: Colors.orangeAccent.shade100,
-                  inactiveColor: Colors.grey,
+                  thumbColor: colorScheme.onBackground,
+                  activeColor: colorScheme.tertiary,
+                  inactiveColor: colorScheme.outline,
                   value: brightness,
                   divisions: 100,
                   min: 1,

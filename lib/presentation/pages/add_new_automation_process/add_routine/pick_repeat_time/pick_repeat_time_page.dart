@@ -6,7 +6,6 @@ import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:day_night_time_picker/day_night_time_picker.dart';
 import 'package:day_picker/day_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
 
@@ -34,11 +33,6 @@ class PickRepeatTimePage extends StatelessWidget {
     RoutineCbjRepeatDateMinute? minutesToRepeat;
 
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 0,
-        backgroundColor: Colors.black,
-        systemOverlayStyle: SystemUiOverlayStyle.dark,
-      ),
       body: ColoredBox(
         color: HexColor('#FBF5F9'),
         child: Column(

@@ -25,21 +25,22 @@ class TextAtom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (veriant == TextVeriant.smallTitle) {
-      final ThemeData themeData = Theme.of(context);
-      final TextTheme textTheme = themeData.textTheme;
-      return Text(
-        translate && text.isNotEmpty ? text.tr(args: translationArgs) : text,
-        style: textTheme.titleLarge,
-        maxLines: maxLines,
-        overflow: overflow,
-        textAlign: textAlign,
-      );
+    final ThemeData themeData = Theme.of(context);
+    final TextTheme textTheme = themeData.textTheme;
+    TextStyle? tempStyle = style;
+
+    switch (veriant) {
+      case TextVeriant.regular:
+        break;
+      case TextVeriant.smallTitle:
+        tempStyle = textTheme.titleLarge;
+      case TextVeriant.medium:
+        tempStyle = textTheme.bodyMedium;
     }
 
     return Text(
       translate && text.isNotEmpty ? text.tr(args: translationArgs) : text,
-      style: style,
+      style: tempStyle,
       maxLines: maxLines,
       overflow: overflow,
       textAlign: textAlign,
@@ -48,7 +49,10 @@ class TextAtom extends StatelessWidget {
 }
 
 enum TextVeriant {
-  regular,
   smallTitle,
+
+  /// define out side, trying to deprecate
+  regular,
+  medium,
   ;
 }

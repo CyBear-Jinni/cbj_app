@@ -89,6 +89,9 @@ class _BlindMoleculeState extends State<BlindMolecule> {
     final deviceState = widget.entity.entityStateGRPC.getOrCrash();
     final deviceAction = widget.entity.blindsSwitchState!.getOrCrash();
 
+    final ThemeData themeData = Theme.of(context);
+    final ColorScheme colorScheme = themeData.colorScheme;
+
     // bool toggleValue = false;
     // Color toggleColor = Colors.blueGrey;
 
@@ -110,7 +113,7 @@ class _BlindMoleculeState extends State<BlindMolecule> {
           TextButton(
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all(
-                Colors.brown,
+                colorScheme.surface,
               ),
               side: MaterialStateProperty.all(
                 BorderSide.lerp(
@@ -145,7 +148,7 @@ class _BlindMoleculeState extends State<BlindMolecule> {
           TextButton(
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all(
-                Colors.grey,
+                colorScheme.surface,
               ),
               side: MaterialStateProperty.all(
                 BorderSide.lerp(
@@ -180,7 +183,7 @@ class _BlindMoleculeState extends State<BlindMolecule> {
           TextButton(
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all(
-                Colors.amber,
+                colorScheme.surface,
               ),
               side: MaterialStateProperty.all(
                 BorderSide.lerp(

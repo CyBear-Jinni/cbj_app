@@ -16,14 +16,14 @@ class ActionChooseInformation extends StatefulWidget {
 
 class _ActionChooseInformationState extends State<ActionChooseInformation> {
   List<RoomEntity> _allRooms = [];
-  List<DeviceEntityBase> _allDevices = [];
+  List<DeviceEntityBase> _allEntities = [];
 
   String actionsName = '';
   String propertyName = '';
 
   /// Will contain (in that order) device to change his property to change and the new value of this property
   List<MapEntry<DeviceEntityBase, MapEntry<String?, String?>>>
-      allDevicesWithNewAction = [];
+      allEntitiesWithNewAction = [];
   List<MapEntry<String, String>> allEntityActions = [];
   bool isSubmitting = false;
 
@@ -40,22 +40,22 @@ class _ActionChooseInformationState extends State<ActionChooseInformation> {
     });
     allRoomsTemp.removeWhere((element) => element == null);
 
-    List<DeviceEntityBase?> allDevicesTemp = [];
-    (await IDeviceRepository.instance.getAllDevices()).fold((l) => null, (r) {
-      allDevicesTemp = List<DeviceEntityBase>.from(r.iter);
+    List<DeviceEntityBase?> allEntitiesTemp = [];
+    (await IDeviceRepository.instance.getAllEntites()).fold((l) => null, (r) {
+      allEntitiesTemp = List<DeviceEntityBase>.from(r.iter);
     });
-    allDevicesTemp.removeWhere((element) => element == null);
+    allEntitiesTemp.removeWhere((element) => element == null);
     setState(() {
       _allRooms = allRoomsTemp.map((e) => e!).toList();
-      _allDevices = allDevicesTemp.map((e) => e!).toList();
+      _allEntities = allEntitiesTemp.map((e) => e!).toList();
     });
   }
 
-  Future<void> _changeActionDevices(String actionForProperty) async {
-    for (final DeviceEntityBase? device in _allDevices) {
+  Future<void> _changeActionEntities(String actionForProperty) async {
+    for (final DeviceEntityBase? device in _allEntities) {
       if (device != null && actionForProperty == device.uniqueId.getOrCrash()) {
         setState(() {
-          allDevicesWithNewAction = [
+          allEntitiesWithNewAction = [
             MapEntry(device, const MapEntry(null, null)),
           ];
           actionsName = '';
@@ -65,48 +65,50 @@ class _ActionChooseInformationState extends State<ActionChooseInformation> {
   }
 
   Future<void> _actionsNameChange(String value) async {
-    if (allDevicesWithNewAction.isNotEmpty) {
+    if (allEntitiesWithNewAction.isNotEmpty) {
       final List<MapEntry<DeviceEntityBase, MapEntry<String?, String?>>>
-          tempAllDevicesWithNewActionList = List.from(allDevicesWithNewAction);
+          tempAllEntitiesWithNewActionList =
+          List.from(allEntitiesWithNewAction);
 
       final MapEntry<String?, String> propertyWithAction = MapEntry(
-        tempAllDevicesWithNewActionList[0].value.key,
+        tempAllEntitiesWithNewActionList[0].value.key,
         actionsName,
       );
 
-      tempAllDevicesWithNewActionList[0] =
-          MapEntry(tempAllDevicesWithNewActionList[0].key, propertyWithAction);
+      tempAllEntitiesWithNewActionList[0] =
+          MapEntry(tempAllEntitiesWithNewActionList[0].key, propertyWithAction);
 
       setState(() {
         actionsName = value;
-        allDevicesWithNewAction = tempAllDevicesWithNewActionList;
+        allEntitiesWithNewAction = tempAllEntitiesWithNewActionList;
       });
     }
   }
 
-  Future<void> _changePropertyForDevices(String propertyOfDevice) async {
-    if (allDevicesWithNewAction.isNotEmpty) {
+  Future<void> _changePropertyForEntities(String propertyOfDevice) async {
+    if (allEntitiesWithNewAction.isNotEmpty) {
       final List<MapEntry<DeviceEntityBase, MapEntry<String?, String?>>>
-          tempAllDevicesWithNewActionList = List.from(allDevicesWithNewAction);
+          tempAllEntitiesWithNewActionList =
+          List.from(allEntitiesWithNewAction);
 
       final MapEntry<String?, String?> propertyWithAction = MapEntry(
         propertyOfDevice,
         null,
       );
 
-      tempAllDevicesWithNewActionList[0] =
-          MapEntry(tempAllDevicesWithNewActionList[0].key, propertyWithAction);
+      tempAllEntitiesWithNewActionList[0] =
+          MapEntry(tempAllEntitiesWithNewActionList[0].key, propertyWithAction);
 
       setState(() {
         propertyName = propertyOfDevice;
-        allDevicesWithNewAction = tempAllDevicesWithNewActionList;
+        allEntitiesWithNewAction = tempAllEntitiesWithNewActionList;
       });
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    if (_allDevices.isEmpty || _allRooms.isEmpty) {
+    if (_allEntities.isEmpty || _allRooms.isEmpty) {
       return const Expanded(
         child: Center(
           child: TextAtom(
@@ -141,8 +143,11 @@ class _ActionChooseInformationState extends State<ActionChooseInformation> {
               style: const TextStyle(color: Colors.white),
               icon: const Icon(Icons.arrow_drop_down),
               hint: TextAtom(
-                allDevicesWithNewAction.isNotEmpty
-                    ? allDevicesWithNewAction[0].key.cbjEntityName.getOrCrash()!
+                allEntitiesWithNewAction.isNotEmpty
+                    ? allEntitiesWithNewAction[0]
+                        .key
+                        .cbjEntityName
+                        .getOrCrash()!
                     : 'Choose Device',
                 style: const TextStyle(color: Colors.white),
               ),
@@ -150,8 +155,8 @@ class _ActionChooseInformationState extends State<ActionChooseInformation> {
               underline: Container(
                 height: 2,
               ),
-              onChanged: (value) => _changeActionDevices(value!),
-              items: _allDevices.map<DropdownMenuItem<String>>((e) {
+              onChanged: (value) => _changeActionEntities(value!),
+              items: _allEntities.map<DropdownMenuItem<String>>((e) {
                 return DropdownMenuItem<String>(
                   value: e.uniqueId.getOrCrash(),
                   child: TextAtom(e.cbjEntityName.getOrCrash()!),
@@ -173,9 +178,9 @@ class _ActionChooseInformationState extends State<ActionChooseInformation> {
               underline: Container(
                 height: 2,
               ),
-              onChanged: (value) => _changePropertyForDevices(value!),
-              items: allDevicesWithNewAction.isNotEmpty
-                  ? allDevicesWithNewAction[0]
+              onChanged: (value) => _changePropertyForEntities(value!),
+              items: allEntitiesWithNewAction.isNotEmpty
+                  ? allEntitiesWithNewAction[0]
                       .key
                       .getListOfPropertiesToChange()
                       .map<DropdownMenuItem<String>>((e) {
@@ -186,8 +191,8 @@ class _ActionChooseInformationState extends State<ActionChooseInformation> {
                     }).toList()
                   : <DropdownMenuItem<String>>[
                       const DropdownMenuItem<String>(
-                        value: 'Choose device first',
-                        child: TextAtom('Choose device first'),
+                        value: 'Choose entity first',
+                        child: TextAtom('Choose entity first'),
                       ),
                     ],
             ),
@@ -207,10 +212,10 @@ class _ActionChooseInformationState extends State<ActionChooseInformation> {
                 height: 2,
               ),
               onChanged: (value) => _actionsNameChange(value!),
-              items: (allDevicesWithNewAction.isNotEmpty &&
-                      allDevicesWithNewAction[0].value.key != null &&
-                      allDevicesWithNewAction[0].value.key!.isNotEmpty)
-                  ? allDevicesWithNewAction[0]
+              items: (allEntitiesWithNewAction.isNotEmpty &&
+                      allEntitiesWithNewAction[0].value.key != null &&
+                      allEntitiesWithNewAction[0].value.key!.isNotEmpty)
+                  ? allEntitiesWithNewAction[0]
                       .key
                       .getAllValidActions()
                       .map<DropdownMenuItem<String>>((e) {
@@ -240,7 +245,7 @@ class _ActionChooseInformationState extends State<ActionChooseInformation> {
                         List<
                             MapEntry<DeviceEntityBase,
                                 MapEntry<String?, String?>>>>(
-                      allDevicesWithNewAction,
+                      allEntitiesWithNewAction,
                     );
                   },
                   child: const TextAtom(

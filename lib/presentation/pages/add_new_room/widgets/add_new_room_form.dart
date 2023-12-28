@@ -49,7 +49,7 @@ class _AddNewRoomFormState extends State<AddNewRoomForm> {
       _allRooms = Set<RoomEntity>.from(r.iter);
     });
 
-    (await IDeviceRepository.instance.getAllDevices()).fold((l) => null, (r) {
+    (await IDeviceRepository.instance.getAllEntites()).fold((l) => null, (r) {
       _allDevices = Set<DeviceEntityBase>.from(r.iter);
     });
     _allRooms.removeWhere((element) => element == null);

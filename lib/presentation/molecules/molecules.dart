@@ -1,5 +1,6 @@
 export 'bottom_navigation_bar_molecule.dart';
 export 'device_by_type_molecule.dart';
+export 'device_name_row.dart';
 export 'devices/blind_molecule.dart';
 export 'devices/blinds_card_molecule.dart';
 export 'devices/boiler_molecule.dart';
@@ -12,7 +13,6 @@ export 'devices/smart_computer_molecule.dart';
 export 'devices/smart_plug_molecule.dart';
 export 'devices/smart_tv_molecule.dart';
 export 'devices/switch_molecule.dart';
-export 'device_name_row.dart';
 export 'list_tile_molecule.dart';
 export 'list_view_molecule.dart';
 export 'loading_page_molecule.dart';

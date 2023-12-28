@@ -4,7 +4,6 @@ import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
 import 'package:cybearjinni/presentation/pages/connect_to_hub/widgets/cbj_hub_in_network_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
 
@@ -15,12 +14,6 @@ class ConnectToHubPage extends StatelessWidget {
     final Size screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 0,
-        backgroundColor: HexColor('#985dc7'),
-        systemOverlayStyle: SystemUiOverlayStyle.light,
-      ),
-      //added CustomScrollView to solve pixel overflow
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
