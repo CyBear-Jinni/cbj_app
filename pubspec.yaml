@@ -21,9 +21,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
-    - assets/symbols/
     - assets/translations/
-    - assets/gif/
 
   fonts:
     - family: gidole_regular
