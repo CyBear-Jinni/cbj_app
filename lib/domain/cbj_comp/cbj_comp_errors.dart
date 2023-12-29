@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_failures.dart';
+import 'package:cybearjinni/domain/cbj_comp/cbj_comp_failures.dart';
 
 class CBJCompUnexpectedValueError extends Error {
   CBJCompUnexpectedValueError(this.cBJCompFailure);

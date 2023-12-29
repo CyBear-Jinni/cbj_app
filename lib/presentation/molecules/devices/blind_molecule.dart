@@ -4,8 +4,9 @@ import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/entity_type_utils.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_blinds_entity/generic_blinds_entity.dart';
-import 'package:cybear_jinni/domain/connections_service.dart';
-import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/domain/connections_service.dart';
+import 'package:cybearjinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -88,6 +89,9 @@ class _BlindMoleculeState extends State<BlindMolecule> {
     final deviceState = widget.entity.entityStateGRPC.getOrCrash();
     final deviceAction = widget.entity.blindsSwitchState!.getOrCrash();
 
+    final ThemeData themeData = Theme.of(context);
+    final ColorScheme colorScheme = themeData.colorScheme;
+
     // bool toggleValue = false;
     // Color toggleColor = Colors.blueGrey;
 
@@ -102,123 +106,112 @@ class _BlindMoleculeState extends State<BlindMolecule> {
       }
     }
 
-    return Column(
-      children: <Widget>[
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const SizedBox(
-              width: 10,
-            ),
-            TextButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(
-                  Colors.brown,
-                ),
-                side: MaterialStateProperty.all(
-                  BorderSide.lerp(
-                    const BorderSide(color: Colors.white60),
-                    const BorderSide(color: Colors.white60),
-                    22,
-                  ),
+    return DeviceNameRow(
+      widget.entity.cbjEntityName.getOrCrash()!,
+      Row(
+        children: [
+          TextButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(
+                colorScheme.surface,
+              ),
+              side: MaterialStateProperty.all(
+                BorderSide.lerp(
+                  const BorderSide(color: Colors.white60),
+                  const BorderSide(color: Colors.white60),
+                  22,
                 ),
               ),
-              onPressed: () {
-                _moveDownAllBlinds(
-                  [widget.entity.cbjDeviceVendor.getOrCrash()],
-                );
-              },
-              child: Tab(
-                icon: FaIcon(
-                  FontAwesomeIcons.arrowDown,
+            ),
+            onPressed: () {
+              _moveDownAllBlinds(
+                [widget.entity.cbjDeviceVendor.getOrCrash()],
+              );
+            },
+            child: Tab(
+              icon: FaIcon(
+                FontAwesomeIcons.arrowDown,
+                color: Theme.of(context).textTheme.bodyLarge!.color,
+              ),
+              child: TextAtom(
+                'Down',
+                style: TextStyle(
                   color: Theme.of(context).textTheme.bodyLarge!.color,
-                ),
-                child: TextAtom(
-                  'Down',
-                  style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyLarge!.color,
-                    fontSize: 16,
-                  ),
+                  fontSize: 16,
                 ),
               ),
             ),
-            const SizedBox(
-              width: 10,
-            ),
-            TextButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(
-                  Colors.grey,
-                ),
-                side: MaterialStateProperty.all(
-                  BorderSide.lerp(
-                    const BorderSide(color: Colors.white60),
-                    const BorderSide(color: Colors.white60),
-                    22,
-                  ),
+          ),
+          const SizedBox(
+            width: 10,
+          ),
+          TextButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(
+                colorScheme.surface,
+              ),
+              side: MaterialStateProperty.all(
+                BorderSide.lerp(
+                  const BorderSide(color: Colors.white60),
+                  const BorderSide(color: Colors.white60),
+                  22,
                 ),
               ),
-              onPressed: () {
-                _stopAllBlinds(
-                  [widget.entity.cbjDeviceVendor.getOrCrash()],
-                );
-              },
-              child: Tab(
-                icon: FaIcon(
-                  FontAwesomeIcons.solidHand,
+            ),
+            onPressed: () {
+              _stopAllBlinds(
+                [widget.entity.cbjDeviceVendor.getOrCrash()],
+              );
+            },
+            child: Tab(
+              icon: FaIcon(
+                FontAwesomeIcons.solidHand,
+                color: Theme.of(context).textTheme.bodyLarge!.color,
+              ),
+              child: TextAtom(
+                'Stop',
+                style: TextStyle(
                   color: Theme.of(context).textTheme.bodyLarge!.color,
-                ),
-                child: TextAtom(
-                  'Stop',
-                  style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyLarge!.color,
-                    fontSize: 16,
-                  ),
+                  fontSize: 16,
                 ),
               ),
             ),
-            const SizedBox(
-              width: 10,
-            ),
-            TextButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(
-                  Colors.amber,
-                ),
-                side: MaterialStateProperty.all(
-                  BorderSide.lerp(
-                    const BorderSide(color: Colors.white60),
-                    const BorderSide(color: Colors.white60),
-                    22,
-                  ),
+          ),
+          const SizedBox(
+            width: 10,
+          ),
+          TextButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(
+                colorScheme.surface,
+              ),
+              side: MaterialStateProperty.all(
+                BorderSide.lerp(
+                  const BorderSide(color: Colors.white60),
+                  const BorderSide(color: Colors.white60),
+                  22,
                 ),
               ),
-              onPressed: () {
-                _moveUpAllBlinds();
-              },
-              child: Tab(
-                icon: FaIcon(
-                  FontAwesomeIcons.arrowUp,
+            ),
+            onPressed: () {
+              _moveUpAllBlinds();
+            },
+            child: Tab(
+              icon: FaIcon(
+                FontAwesomeIcons.arrowUp,
+                color: Theme.of(context).textTheme.bodyLarge!.color,
+              ),
+              child: TextAtom(
+                'Up',
+                style: TextStyle(
                   color: Theme.of(context).textTheme.bodyLarge!.color,
-                ),
-                child: TextAtom(
-                  'Up',
-                  style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyLarge!.color,
-                    fontSize: 16,
-                  ),
+                  fontSize: 16,
                 ),
               ),
             ),
-            const SizedBox(
-              width: 10,
-            ),
-          ],
-        ),
-        const SizedBox(
-          height: 20,
-        ),
-      ],
+          ),
+        ],
+      ),
     );
   }
 }

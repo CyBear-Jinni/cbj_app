@@ -11,8 +11,8 @@ import 'package:cbj_integrations_controller/infrastructure/hub_client/hub_client
 import 'package:cbj_integrations_controller/infrastructure/hub_client/hub_client_demo.dart';
 import 'package:cbj_integrations_controller/infrastructure/hub_client/hub_dtos.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:cybear_jinni/domain/i_local_db_repository.dart';
-import 'package:cybear_jinni/infrastructure/core/injection.dart';
+import 'package:cybearjinni/domain/i_local_db_repository.dart';
+import 'package:cybearjinni/infrastructure/core/injection.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:location/location.dart';
@@ -22,7 +22,7 @@ import 'package:permission_handler/permission_handler.dart'
     as permission_handler;
 import 'package:wifi_iot/wifi_iot.dart';
 
-part 'package:cybear_jinni/infrastructure/hub_client/hub_connection_repository.dart';
+part 'package:cybearjinni/infrastructure/hub_client/hub_connection_repository.dart';
 
 abstract class IHubConnectionRepository {
   static IHubConnectionRepository? _instance;

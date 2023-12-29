@@ -1,6 +1,6 @@
 import 'package:cbj_integrations_controller/domain/vendors/i_vendor_repository.dart';
 import 'package:cbj_integrations_controller/domain/vendors/vendor_data.dart';
-import 'package:cybear_jinni/presentation/pages/add_new_devices_process/choose_device_vendor_to_add/widgets/vendor_widget.dart';
+import 'package:cybearjinni/presentation/pages/add_new_devices_process/choose_device_vendor_to_add/widgets/vendor_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:kt_dart/kt.dart';
 

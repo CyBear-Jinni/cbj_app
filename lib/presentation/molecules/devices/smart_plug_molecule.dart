@@ -4,8 +4,9 @@ import 'dart:collection';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/entity_type_utils.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_smart_plug_entity/generic_smart_plug_entity.dart';
-import 'package:cybear_jinni/domain/connections_service.dart';
-import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/domain/connections_service.dart';
+import 'package:cybearjinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:flutter/material.dart';
 
 /// Show smartPlug toggles in a container with the background color from smart room
@@ -54,11 +55,14 @@ class _SmartPlugsMoleculeState extends State<SmartPlugsMolecule> {
 
   @override
   Widget build(BuildContext context) {
-    return SwitchAtom(
-      variant: SwitchVariant.smartPlug,
-      onToggle: _changeAction,
-      action: widget.entity.smartPlugState.action,
-      state: widget.entity.entityStateGRPC.state,
+    return DeviceNameRow(
+      widget.entity.cbjEntityName.getOrCrash()!,
+      SwitchAtom(
+        variant: SwitchVariant.smartPlug,
+        onToggle: _changeAction,
+        action: widget.entity.smartPlugState.action,
+        state: widget.entity.entityStateGRPC.state,
+      ),
     );
   }
 }

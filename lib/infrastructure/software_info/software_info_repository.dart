@@ -1,4 +1,4 @@
-part of 'package:cybear_jinni/domain/software_info/i_software_info_repository.dart';
+part of 'package:cybearjinni/domain/software_info/i_software_info_repository.dart';
 
 class _SoftwareInfoRepository implements ISoftwareInfoRepository {
   @override

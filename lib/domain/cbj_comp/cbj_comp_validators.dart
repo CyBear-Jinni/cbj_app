@@ -1,5 +1,5 @@
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_light_entity/generic_light_entity.dart';
-import 'package:cybear_jinni/domain/cbj_comp/cbj_comp_failures.dart';
+import 'package:cybearjinni/domain/cbj_comp/cbj_comp_failures.dart';
 import 'package:dartz/dartz.dart';
 import 'package:kt_dart/kt.dart';
 

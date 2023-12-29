@@ -1,9 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/domain/hub/hub_entity.dart';
-import 'package:cybear_jinni/domain/connections_service.dart';
-import 'package:cybear_jinni/domain/i_hub_connection_repository.dart';
-import 'package:cybear_jinni/presentation/atoms/atoms.dart';
-import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
+import 'package:cybearjinni/domain/connections_service.dart';
+import 'package:cybearjinni/domain/i_hub_connection_repository.dart';
+import 'package:cybearjinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
@@ -18,6 +18,10 @@ class PlusButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData themeData = Theme.of(context);
+    final TextTheme textTheme = themeData.textTheme;
+    final ColorScheme colorScheme = themeData.colorScheme;
+
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -27,12 +31,9 @@ class PlusButtonWidget extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 15),
             alignment: Alignment.topLeft,
-            child: const TextAtom(
+            child: TextAtom(
               'Add:',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-              ),
+              style: textTheme.titleMedium,
             ),
           ),
           const SizedBox(
@@ -48,8 +49,7 @@ class PlusButtonWidget extends StatelessWidget {
                   child: ListTile(
                     leading: FaIcon(
                       FontAwesomeIcons.camera,
-                      color: Theme.of(context).textTheme.bodyLarge!.color,
-                      size: 25,
+                      color: colorScheme.background,
                     ),
                     title: TextAtom(
                       'Turn Phone To a Security Camera',
@@ -71,11 +71,10 @@ class PlusButtonWidget extends StatelessWidget {
                   child: ListTile(
                     leading: FaIcon(
                       FontAwesomeIcons.solidLightbulb,
-                      color: Theme.of(context).textTheme.bodyLarge!.color,
-                      size: 25,
+                      color: colorScheme.background,
                     ),
                     title: TextAtom(
-                      'Add Device',
+                      'Add Entity',
                       style: TextStyle(
                         color: Theme.of(context).textTheme.bodyLarge!.color,
                       ),
@@ -91,8 +90,7 @@ class PlusButtonWidget extends StatelessWidget {
                   child: ListTile(
                     leading: FaIcon(
                       FontAwesomeIcons.globe,
-                      color: Theme.of(context).textTheme.bodyLarge!.color,
-                      size: 25,
+                      color: colorScheme.background,
                     ),
                     title: TextAtom(
                       'Add Remote Control Support',
@@ -111,8 +109,7 @@ class PlusButtonWidget extends StatelessWidget {
                   child: ListTile(
                     leading: FaIcon(
                       FontAwesomeIcons.sitemap,
-                      color: Theme.of(context).textTheme.bodyLarge!.color,
-                      size: 25,
+                      color: colorScheme.background,
                     ),
                     title: TextAtom(
                       'Add Automation',
@@ -136,12 +133,9 @@ class PlusButtonWidget extends StatelessWidget {
           Container(
             alignment: Alignment.topLeft,
             padding: const EdgeInsets.symmetric(horizontal: 15),
-            child: const TextAtom(
+            child: TextAtom(
               'Manage:',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-              ),
+              style: textTheme.titleMedium,
             ),
           ),
           const SizedBox(
@@ -159,17 +153,16 @@ class PlusButtonWidget extends StatelessWidget {
                   child: ListTile(
                     leading: FaIcon(
                       FontAwesomeIcons.computer,
-                      color: Theme.of(context).textTheme.bodyLarge!.color,
-                      size: 25,
+                      color: colorScheme.background,
                     ),
                     title: TextAtom(
-                      'All Devices in the network',
+                      'All Entities in the network',
                       style: TextStyle(
                         color: Theme.of(context).textTheme.bodyLarge!.color,
                       ),
                     ),
                     onTap: () =>
-                        context.router.push(const DevicesInNetworkRoute()),
+                        context.router.push(const EntitiesInNetworkRoute()),
                   ),
                 ),
                 const SizedBox(
@@ -180,8 +173,7 @@ class PlusButtonWidget extends StatelessWidget {
                   child: ListTile(
                     leading: Iconify(
                       SimpleIcons.node_red,
-                      color: Theme.of(context).textTheme.bodyLarge!.color,
-                      size: 23,
+                      color: colorScheme.background,
                     ),
                     title: TextAtom(
                       'Open Node-RED of Hub',
@@ -221,8 +213,7 @@ class PlusButtonWidget extends StatelessWidget {
                   child: ListTile(
                     leading: FaIcon(
                       FontAwesomeIcons.info,
-                      color: Theme.of(context).textTheme.bodyLarge!.color,
-                      size: 25,
+                      color: colorScheme.background,
                     ),
                     title: TextAtom(
                       'Software Info',
@@ -243,8 +234,7 @@ class PlusButtonWidget extends StatelessWidget {
                   child: ListTile(
                     leading: FaIcon(
                       FontAwesomeIcons.rightFromBracket,
-                      color: Theme.of(context).textTheme.bodyLarge!.color,
-                      size: 25,
+                      color: colorScheme.background,
                     ),
                     title: TextAtom(
                       'Log Out',

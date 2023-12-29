@@ -9,3 +9,5 @@ app/google-services.json
 GeneratedPluginRegistrant.java
 gradle-wrapper.jar
 key.properties
+**/*.keystore
+**/*.jks

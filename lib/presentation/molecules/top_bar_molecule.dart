@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -42,81 +42,86 @@ class TopBarMolecule extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ColoredBox(
-      color: backgroundColor != null
-          ? backgroundColor!.withOpacity(0.72)
-          : Colors.black.withOpacity(0.3),
-      child: Container(
-        margin: const EdgeInsets.fromLTRB(9, 3, 9, 0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Row(
-              children: <Widget>[
-                if (leftIcon != null)
-                  Container(
-                    alignment: Alignment.centerLeft,
-                    child: IconButton(
-                      icon: FaIcon(
-                        leftIcon,
-                        size: 19,
-                        color: Theme.of(context).textTheme.bodyLarge!.color,
-                      ),
-                      onPressed: () => leftIconFunction!(context),
-                    ),
-                  )
-                else
-                  const SizedBox(),
-                TextAtom(
-                  pageName!,
-                  style: TextStyle(
-                    fontSize: 16.0,
-                    color: Theme.of(context).textTheme.bodyLarge!.color,
-                  ),
-                ),
-              ],
-            ),
-            if (rightIcon != null)
+    final ThemeData themeData = Theme.of(context);
+    final ColorScheme colorScheme = themeData.colorScheme;
+    final TextTheme textTheme = themeData.textTheme;
+
+    final TextStyle style = textTheme.bodyLarge!;
+
+    return SafeArea(
+      child: ColoredBox(
+        color: backgroundColor != null
+            ? backgroundColor!.withOpacity(0.72)
+            : colorScheme.background,
+        child: Container(
+          margin: const EdgeInsets.fromLTRB(9, 3, 9, 0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
               Row(
-                children: [
-                  if (rightSecondIcon != null)
+                children: <Widget>[
+                  if (leftIcon != null)
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      child: IconButton(
+                        icon: FaIcon(
+                          leftIcon,
+                          size: style.fontSize,
+                          color: colorScheme.tertiary,
+                        ),
+                        onPressed: () => leftIconFunction!(context),
+                      ),
+                    )
+                  else
+                    const SizedBox(),
+                  TextAtom(
+                    pageName!,
+                    style: style.copyWith(color: colorScheme.tertiary),
+                  ),
+                ],
+              ),
+              if (rightIcon != null)
+                Row(
+                  children: [
+                    if (rightSecondIcon != null)
+                      SizedBox(
+                        width: 70,
+                        child: TextButton(
+                          style: ButtonStyle(
+                            padding: MaterialStateProperty.all<EdgeInsets>(
+                              EdgeInsets.zero,
+                            ),
+                          ),
+                          onPressed: () => rightSecondFunction!(context),
+                          child: FaIcon(
+                            rightSecondIcon,
+                            size: style.fontSize,
+                            color: style.color,
+                          ),
+                        ),
+                      ),
                     SizedBox(
-                      width: 70,
+                      width: 25,
                       child: TextButton(
                         style: ButtonStyle(
                           padding: MaterialStateProperty.all<EdgeInsets>(
                             EdgeInsets.zero,
                           ),
                         ),
-                        onPressed: () => rightSecondFunction!(context),
-                        child: FaIcon(
-                          rightSecondIcon,
-                          size: 19,
-                          color: Theme.of(context).textTheme.bodyLarge!.color,
+                        onPressed: () => rightIconFunction!(context),
+                        child: Icon(
+                          rightIcon,
+                          size: style.fontSize! + 5,
+                          color: style.color,
                         ),
                       ),
                     ),
-                  SizedBox(
-                    width: 25,
-                    child: TextButton(
-                      style: ButtonStyle(
-                        padding: MaterialStateProperty.all<EdgeInsets>(
-                          EdgeInsets.zero,
-                        ),
-                      ),
-                      onPressed: () => rightIconFunction!(context),
-                      child: Icon(
-                        rightIcon,
-                        size: 26,
-                        color: Theme.of(context).textTheme.bodyLarge!.color,
-                      ),
-                    ),
-                  ),
-                ],
-              )
-            else
-              const SizedBox(),
-          ],
+                  ],
+                )
+              else
+                const SizedBox(),
+            ],
+          ),
         ),
       ),
     );

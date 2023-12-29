@@ -1,6 +1,12 @@
+import 'dart:collection';
+
+import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/entity_type_utils.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_dimmable_light_entity/generic_dimmable_light_entity.dart';
-import 'package:cybear_jinni/domain/device/i_device_repository.dart';
-import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/domain/connections_service.dart';
+import 'package:cybearjinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -18,92 +24,110 @@ class DimmableLightMolecule extends StatefulWidget {
 class _DimmableLightMoleculeState extends State<DimmableLightMolecule> {
   double brightness = 100;
 
-  Future<void> _onChange(bool value) async {
-    if (value) {
-      await IDeviceRepository.instance.turnOnDevices(
-        devicesId: [widget.entity.cbjDeviceVendor.getOrCrash()],
-      );
-    } else {
-      await IDeviceRepository.instance.turnOffDevices(
-        devicesId: [widget.entity.cbjDeviceVendor.getOrCrash()],
-      );
-    }
+  Future<void> _changeBrightness(double value) async {
+    setState(() {
+      brightness = value;
+    });
+
+    final HashMap<ActionValues, String> hashValue =
+        HashMap<ActionValues, String>()
+          ..addEntries([
+            MapEntry(ActionValues.brightness, value.round().toString()),
+          ]);
+
+    setEntityState(
+      EntityProperties.lightBrightness,
+      EntityActions.actionNotSupported,
+      value: hashValue,
+    );
   }
 
-  Future<void> _changeBrightness(double value) async {
-    brightness = value;
+  void _onChange(bool value) {
+    setEntityState(
+      EntityProperties.lightSwitchState,
+      value ? EntityActions.on : EntityActions.off,
+    );
+  }
 
-    IDeviceRepository.instance.changeBrightnessDevices(
-      devicesId: [widget.entity.cbjDeviceVendor.getOrCrash()],
-      brightnessToChange: value.round(),
+  void setEntityState(
+    EntityProperties property,
+    EntityActions action, {
+    HashMap<ActionValues, dynamic>? value,
+  }) {
+    final VendorsAndServices? vendor =
+        widget.entity.cbjDeviceVendor.vendorsAndServices;
+    if (vendor == null) {
+      return;
+    }
+
+    final HashMap<VendorsAndServices, HashSet<String>> uniqueIdByVendor =
+        HashMap();
+    uniqueIdByVendor.addEntries(
+      [
+        MapEntry(
+          vendor,
+          HashSet<String>()
+            ..addAll([widget.entity.deviceCbjUniqueId.getOrCrash()]),
+        ),
+      ],
+    );
+    ConnectionsService.instance.setEntityState(
+      uniqueIdByVendor: uniqueIdByVendor,
+      property: property,
+      actionType: action,
+      value: value,
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return ColoredBox(
-      color: Colors.white,
-      child: Column(
-        children: [
-          Container(
-            margin: const EdgeInsets.symmetric(horizontal: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Flexible(
-                  child: TextAtom(
-                    widget.entity.cbjEntityName.getOrCrash()!,
-                    style: const TextStyle(
-                      overflow: TextOverflow.clip,
-                      fontSize: 20.0,
-                      color: Colors.black,
-                    ),
-                  ),
-                ),
-                SwitchAtom(
-                  variant: SwitchVariant.light,
-                  action: widget.entity.lightSwitchState.action,
-                  state: widget.entity.entityStateGRPC.state,
-                  onToggle: _onChange,
-                ),
-              ],
-            ),
+    final ThemeData themeData = Theme.of(context);
+    final ColorScheme colorScheme = themeData.colorScheme;
+
+    return Column(
+      children: [
+        DeviceNameRow(
+          widget.entity.cbjEntityName.getOrCrash()!,
+          SwitchAtom(
+            variant: SwitchVariant.light,
+            action: widget.entity.lightSwitchState.action,
+            state: widget.entity.entityStateGRPC.state,
+            onToggle: _onChange,
           ),
-          const SizedBox(
-            height: 3,
+        ),
+        const SizedBox(
+          height: 3,
+        ),
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: Row(
+            children: [
+              const FaIcon(
+                FontAwesomeIcons.solidSun,
+              ),
+              Expanded(
+                child: Slider(
+                  thumbColor: colorScheme.onBackground,
+                  activeColor: colorScheme.tertiary,
+                  inactiveColor: colorScheme.outline,
+                  value: brightness,
+                  divisions: 100,
+                  min: 1,
+                  max: 100,
+                  onChanged: _changeBrightness,
+                ),
+              ),
+              SizedBox(
+                width: 45,
+                child: TextAtom(
+                  '${brightness.round()}%',
+                  style: const TextStyle(color: Colors.black),
+                ),
+              ),
+            ],
           ),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Row(
-              children: [
-                const FaIcon(
-                  FontAwesomeIcons.solidSun,
-                  color: Colors.blueGrey,
-                ),
-                Expanded(
-                  child: Slider(
-                    thumbColor: Colors.white,
-                    activeColor: Colors.orangeAccent.shade100,
-                    inactiveColor: Colors.grey,
-                    value: brightness,
-                    divisions: 100,
-                    min: 1,
-                    max: 100,
-                    onChanged: _changeBrightness,
-                  ),
-                ),
-                SizedBox(
-                  width: 45,
-                  child: TextAtom(
-                    '${brightness.round()}%',
-                    style: const TextStyle(color: Colors.black),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

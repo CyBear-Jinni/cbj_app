@@ -1,9 +1,9 @@
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_app_server/protoc_as_dart/cbj_app_connections.pbgrpc.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/security_bear_server_d/protoc_as_dart/security_bear_connections.pbgrpc.dart';
-import 'package:cybear_jinni/domain/software_info/software_info_failures.dart';
-import 'package:cybear_jinni/domain/software_info/software_info_value_objects.dart';
-import 'package:cybear_jinni/infrastructure/software_info/software_info_dtos.dart';
+import 'package:cybearjinni/domain/software_info/software_info_failures.dart';
+import 'package:cybearjinni/domain/software_info/software_info_value_objects.dart';
+import 'package:cybearjinni/infrastructure/software_info/software_info_dtos.dart';
 import 'package:dartz/dartz.dart';
 
 class SoftwareInfoEntity {

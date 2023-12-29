@@ -1,5 +1,5 @@
-import 'package:cybear_jinni/domain/software_info/software_info_entity.dart';
-import 'package:cybear_jinni/domain/software_info/software_info_value_objects.dart';
+import 'package:cybearjinni/domain/software_info/software_info_entity.dart';
+import 'package:cybearjinni/domain/software_info/software_info_value_objects.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'software_info_dtos.freezed.dart';

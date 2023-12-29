@@ -1,4 +1,4 @@
-part of 'package:cybear_jinni/domain/cbj_comp/i_cbj_comp_repository.dart';
+part of 'package:cybearjinni/domain/cbj_comp/i_cbj_comp_repository.dart';
 
 class _CBJCompRepository implements ICBJCompRepository {
   @override

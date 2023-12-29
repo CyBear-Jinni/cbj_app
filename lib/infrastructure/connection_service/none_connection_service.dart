@@ -1,4 +1,4 @@
-part of 'package:cybear_jinni/domain/connections_service.dart';
+part of 'package:cybearjinni/domain/connections_service.dart';
 
 class _NoneConnectionService implements ConnectionsService {
   StreamController<MapEntry<String, DeviceEntityBase>>? stream;

@@ -5,11 +5,11 @@ import 'package:cbj_integrations_controller/domain/routine/value_objects_routine
 import 'package:cbj_integrations_controller/domain/vendors/login_abstract/core_login_failures.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
-import 'package:cybear_jinni/domain/device/i_device_repository.dart';
-import 'package:cybear_jinni/presentation/atoms/atoms.dart';
-import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
-import 'package:cybear_jinni/presentation/core/snack_bar_service.dart';
-import 'package:cybear_jinni/presentation/pages/add_new_automation_process/add_routine/widgets/routine_action_widget.dart';
+import 'package:cybearjinni/domain/device/i_device_repository.dart';
+import 'package:cybearjinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
+import 'package:cybearjinni/presentation/core/snack_bar_service.dart';
+import 'package:cybearjinni/presentation/pages/add_new_automation_process/add_routine/widgets/routine_action_widget.dart';
 import 'package:dartz/dartz.dart' as dartz;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -46,7 +46,7 @@ class _AddRoutineWidgetState extends State<AddRoutineWidget> {
 
   Future<void> _initialized() async {
     Set<DeviceEntityBase?> temp = {};
-    (await IDeviceRepository.instance.getAllDevices()).fold((l) => null, (r) {
+    (await IDeviceRepository.instance.getAllEntites()).fold((l) => null, (r) {
       temp = Set<DeviceEntityBase?>.from(r.iter);
     });
     temp.removeWhere((element) => element == null);

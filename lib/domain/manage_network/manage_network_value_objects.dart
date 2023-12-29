@@ -1,6 +1,6 @@
-import 'package:cybear_jinni/domain/manage_network/manage_network_errors.dart';
-import 'package:cybear_jinni/domain/manage_network/manage_network_failures.dart';
-import 'package:cybear_jinni/domain/manage_network/manage_network_validators.dart';
+import 'package:cybearjinni/domain/manage_network/manage_network_errors.dart';
+import 'package:cybearjinni/domain/manage_network/manage_network_failures.dart';
+import 'package:cybearjinni/domain/manage_network/manage_network_validators.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 

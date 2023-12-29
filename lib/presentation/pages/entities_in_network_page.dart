@@ -1,31 +1,31 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
-import 'package:cybear_jinni/domain/connections_service.dart';
-import 'package:cybear_jinni/presentation/atoms/atoms.dart';
-import 'package:cybear_jinni/presentation/core/theme_data.dart';
-import 'package:cybear_jinni/presentation/molecules/molecules.dart';
+import 'package:cybearjinni/domain/connections_service.dart';
+import 'package:cybearjinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/presentation/core/theme_data.dart';
+import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
-class DevicesInNetworkPage extends StatefulWidget {
+class EntitiesInNetworkPage extends StatefulWidget {
   @override
-  State<DevicesInNetworkPage> createState() => _DevicesInNetworkPageState();
+  State<EntitiesInNetworkPage> createState() => _EntitiesInNetworkPageState();
 }
 
-class _DevicesInNetworkPageState extends State<DevicesInNetworkPage> {
-  List<DeviceEntityBase>? allDevices;
+class _EntitiesInNetworkPageState extends State<EntitiesInNetworkPage> {
+  List<DeviceEntityBase>? allEntities;
 
   @override
   void initState() {
     super.initState();
-    initializeAllDevices();
+    initializeAllEntities();
   }
 
-  Future initializeAllDevices() async {
-    final Map<String, DeviceEntityBase> devices =
+  Future initializeAllEntities() async {
+    final Map<String, DeviceEntityBase> entities =
         await ConnectionsService.instance.getAllEntities;
     setState(() {
-      allDevices = devices.values.toList();
+      allEntities = entities.values.toList();
     });
   }
 
@@ -48,7 +48,7 @@ class _DevicesInNetworkPageState extends State<DevicesInNetworkPage> {
 
   @override
   Widget build(BuildContext context) {
-    if (allDevices == null) {
+    if (allEntities == null) {
       return const CircularProgressIndicator();
     }
 
@@ -57,13 +57,13 @@ class _DevicesInNetworkPageState extends State<DevicesInNetworkPage> {
         title: const TextAtom('Add and Manage'),
         backgroundColor: Colors.purple.withOpacity(0.7),
       ),
-      backgroundColor: Colors.black.withOpacity(0.7),
       body: Container(
         margin: AppThemeData.generalHorizontalEdgeInsets,
-        child: ListViewSeparatedMolecule(
-          itemCount: allDevices!.length,
+        child: ListViewMolecule(
+          ListViewVeriant.separated,
+          itemCount: allEntities!.length,
           itemBuilder: (context, index) {
-            final DeviceEntityBase device = allDevices!.elementAt(index);
+            final DeviceEntityBase device = allEntities!.elementAt(index);
 
             final String? deviceLastKnownIp =
                 device.deviceLastKnownIp.getOrCrash();

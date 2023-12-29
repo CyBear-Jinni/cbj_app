@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/domain/home_user/home_user_failures.dart';
+import 'package:cybearjinni/domain/home_user/home_user_failures.dart';
 
 class HomeUserUnexpectedValueError extends Error {
   HomeUserUnexpectedValueError(this.homeUserValueFailure);

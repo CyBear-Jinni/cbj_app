@@ -1,4 +1,4 @@
-part of 'package:cybear_jinni/domain/device/i_device_repository.dart';
+part of 'package:cybearjinni/domain/device/i_device_repository.dart';
 
 class _DeviceRepository implements IDeviceRepository {
   // final DeviceRemoteService _deviceRemoteService;
@@ -44,7 +44,7 @@ class _DeviceRepository implements IDeviceRepository {
 
   @override
   Future<Either<DevicesFailure, KtList<DeviceEntityBase?>>>
-      getAllDevices() async {
+      getAllEntites() async {
     try {
       return right(allDevices.values.toImmutableList());
     } catch (e) {

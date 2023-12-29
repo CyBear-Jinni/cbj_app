@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/domain/security_bear/security_bear_failures.dart';
+import 'package:cybearjinni/domain/security_bear/security_bear_failures.dart';
 
 class SecurityBearUnexpectedValueError extends Error {
   SecurityBearUnexpectedValueError(this.homeUserValueFailure);

@@ -1,6 +1,6 @@
-import 'package:cybear_jinni/domain/security_bear/security_bear_errors.dart';
-import 'package:cybear_jinni/domain/security_bear/security_bear_failures.dart';
-import 'package:cybear_jinni/domain/security_bear/security_bear_validators.dart';
+import 'package:cybearjinni/domain/security_bear/security_bear_errors.dart';
+import 'package:cybearjinni/domain/security_bear/security_bear_failures.dart';
+import 'package:cybearjinni/domain/security_bear/security_bear_validators.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 

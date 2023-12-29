@@ -5,11 +5,11 @@ import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/domain/room/value_objects_room.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
-import 'package:cybear_jinni/domain/connections_service.dart';
-import 'package:cybear_jinni/presentation/atoms/atoms.dart';
-import 'package:cybear_jinni/presentation/core/snack_bar_service.dart';
-import 'package:cybear_jinni/presentation/organisms/organisms.dart';
-import 'package:cybear_jinni/presentation/pages/home_page/tabs/smart_devices_tab/rooms_widgets/rooms_list_view_widget.dart';
+import 'package:cybearjinni/domain/connections_service.dart';
+import 'package:cybearjinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/presentation/core/snack_bar_service.dart';
+import 'package:cybearjinni/presentation/organisms/organisms.dart';
+import 'package:cybearjinni/presentation/pages/home_page/tabs/smart_devices_tab/rooms_widgets/rooms_list_view_widget.dart';
 import 'package:flutter/material.dart';
 
 class SmartDevicesByRooms extends StatefulWidget {
@@ -24,7 +24,7 @@ class _SmartDevicesByRoomsState extends State<SmartDevicesByRooms> {
   @override
   void initState() {
     super.initState();
-    addDiscoverdRoom();
+    addDiscoveredRoom();
     _watchEntities();
   }
 
@@ -34,7 +34,7 @@ class _SmartDevicesByRoomsState extends State<SmartDevicesByRooms> {
     super.dispose();
   }
 
-  void addDiscoverdRoom() {
+  void addDiscoveredRoom() {
     final RoomEntity discoveredRoom = RoomEntity(
       uniqueId: RoomUniqueId.discovered(),
       cbjEntityName: RoomDefaultName('Discovered'),
@@ -129,42 +129,25 @@ class _SmartDevicesByRoomsState extends State<SmartDevicesByRooms> {
       );
     }
 
+    final ThemeData themeData = Theme.of(context);
+    final TextTheme textTheme = themeData.textTheme;
+    final ColorScheme colorScheme = themeData.colorScheme;
+
     return SingleChildScrollView(
       reverse: true,
       child: Column(
         children: [
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 50),
-            margin: const EdgeInsets.symmetric(vertical: 20),
-            decoration: BoxDecoration(
-              color: Colors.black.withOpacity(0.2),
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Stack(
-              children: <Widget>[
-                TextAtom(
-                  'Areas',
-                  style: TextStyle(
-                    fontSize: 35,
-                    foreground: Paint()
-                      ..style = PaintingStyle.stroke
-                      ..strokeWidth = 3
-                      ..color = Colors.black.withOpacity(0.2),
-                  ),
-                ),
-                TextAtom(
-                  'Areas',
-                  style: TextStyle(
-                    fontSize: 35,
-                    color: Theme.of(context).textTheme.bodyLarge!.color,
-                  ),
-                ),
-              ],
-            ),
+          TextAtom(
+            'Areas',
+            style:
+                textTheme.headlineLarge!.copyWith(color: colorScheme.primary),
           ),
-          RoomsListViewWidget(
-            entities: devices,
-            rooms: rooms,
+          const SeparatorAtom(variant: SeparatorVariant.farAppart),
+          MarginedExpandedAtom(
+            child: RoomsListViewWidget(
+              entities: devices,
+              rooms: rooms,
+            ),
           ),
         ],
       ),

@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 project(runner LANGUAGES CXX)
 
 set(BINARY_NAME "CyBear-Jinni_App")
-set(APPLICATION_ID "com.cybear_jinni.smart_home")
+set(APPLICATION_ID "com.cybearjinni.app")
 
 cmake_policy(SET CMP0063 NEW)
 

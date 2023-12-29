@@ -1,11 +1,10 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/presentation/atoms/atoms.dart';
-import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
-import 'package:cybear_jinni/presentation/molecules/molecules.dart';
-import 'package:cybear_jinni/presentation/pages/home_page/tabs/scenes_in_folders_tab/scenes_in_folders_tab.dart';
-import 'package:cybear_jinni/presentation/pages/home_page/tabs/smart_devices_tab/smart_devices_widgets.dart';
+import 'package:cybearjinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
+import 'package:cybearjinni/presentation/molecules/molecules.dart';
+import 'package:cybearjinni/presentation/pages/home_page/tabs/scenes_in_folders_tab/scenes_in_folders_tab.dart';
+import 'package:cybearjinni/presentation/pages/home_page/tabs/smart_devices_tab/smart_devices_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
@@ -47,7 +46,7 @@ class _HomePageState extends State<HomePage> {
       BottomNavigationBarItemAtom(
         activeIcon: Icon(MdiIcons.lightbulbOn),
         icon: Icon(MdiIcons.lightbulbOutline),
-        label: 'Devices',
+        label: 'Entities',
       ),
       // BottomNavigationBarItemAtom(
       //   icon: const FaIcon(FontAwesomeIcons.history),
@@ -73,18 +72,10 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      color: const Color.fromRGBO(251, 245, 249, 1.0),
-      child: Stack(
+    return Scaffold(
+      body: Stack(
         children: [
           Scaffold(
-            appBar: AppBar(
-              toolbarHeight: 0,
-              backgroundColor: Colors.white,
-              systemOverlayStyle: SystemUiOverlayStyle.dark,
-            ),
-            backgroundColor: Colors.transparent,
             body: PageView(
               onPageChanged: (index) {
                 setState(() {
