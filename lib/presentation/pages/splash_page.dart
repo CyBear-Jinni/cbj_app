@@ -52,10 +52,6 @@ class _SplashPageState extends State<SplashPage> {
         if (kIsWeb || Platform.isLinux || Platform.isWindows) {
           return context.router.replace(const ConnectToHubRoute());
         }
-        await Future.delayed(const Duration(seconds: 2));
-        if (!mounted) {
-          return 0;
-        }
         return context.router.replace(const IntroductionRouteRoute());
       },
       (r) => context.router.replace(const HomeRoute()),
