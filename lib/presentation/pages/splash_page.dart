@@ -46,16 +46,13 @@ class _SplashPageState extends State<SplashPage> {
     _navigate();
   }
 
-  Future _navigate() async {
-    (await ILocalDbRepository.instance.getHubEntityNetworkName()).fold(
-      (l) async {
-        if (kIsWeb || Platform.isLinux || Platform.isWindows) {
-          return context.router.replace(const ConnectToHubRoute());
-        }
-        return context.router.replace(const IntroductionRouteRoute());
-      },
-      (r) => context.router.replace(const HomeRoute()),
-    );
+  void _navigate() {
+    if (kIsWeb || Platform.isLinux || Platform.isWindows) {
+      context.router.replace(const ConnectToHubRoute());
+      return;
+    }
+    context.router.replace(const IntroductionRouteRoute());
+    return;
   }
 
   @override
