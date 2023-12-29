@@ -1,5 +1,6 @@
 export 'bottom_navigation_bar_item_atom.dart';
 export 'card_atom.dart';
+export 'button_atom.dart';
 export 'circular_progress_indicator_atom.dart';
 export 'icon_atom.dart';
 export 'image_atom.dart';
