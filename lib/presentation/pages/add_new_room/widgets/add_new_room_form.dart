@@ -5,9 +5,9 @@ import 'package:cbj_integrations_controller/domain/room/room_failures.dart';
 import 'package:cbj_integrations_controller/domain/room/value_objects_room.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
-import 'package:cybear_jinni/domain/device/i_device_repository.dart';
-import 'package:cybear_jinni/presentation/atoms/atoms.dart';
-import 'package:cybear_jinni/presentation/core/snack_bar_service.dart';
+import 'package:cybearjinni/domain/device/i_device_repository.dart';
+import 'package:cybearjinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/presentation/core/snack_bar_service.dart';
 import 'package:dartz/dartz.dart' as dartz;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -49,7 +49,7 @@ class _AddNewRoomFormState extends State<AddNewRoomForm> {
       _allRooms = Set<RoomEntity>.from(r.iter);
     });
 
-    (await IDeviceRepository.instance.getAllDevices()).fold((l) => null, (r) {
+    (await IDeviceRepository.instance.getAllEntites()).fold((l) => null, (r) {
       _allDevices = Set<DeviceEntityBase>.from(r.iter);
     });
     _allRooms.removeWhere((element) => element == null);

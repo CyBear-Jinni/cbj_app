@@ -1,5 +1,5 @@
-import 'package:cybear_jinni/domain/software_info/software_info_errors.dart';
-import 'package:cybear_jinni/domain/software_info/software_info_failures.dart';
+import 'package:cybearjinni/domain/software_info/software_info_errors.dart';
+import 'package:cybearjinni/domain/software_info/software_info_failures.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 

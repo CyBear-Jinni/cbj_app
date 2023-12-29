@@ -4,8 +4,8 @@ import 'package:cbj_integrations_controller/domain/vendors/lifx_login/generic_li
 import 'package:cbj_integrations_controller/domain/vendors/lifx_login/generic_lifx_login_value_objects.dart';
 import 'package:cbj_integrations_controller/domain/vendors/login_abstract/value_login_objects_core.dart';
 import 'package:cbj_integrations_controller/domain/vendors/vendor_data.dart';
-import 'package:cybear_jinni/presentation/atoms/atoms.dart';
-import 'package:cybear_jinni/presentation/core/snack_bar_service.dart';
+import 'package:cybearjinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/presentation/core/snack_bar_service.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';

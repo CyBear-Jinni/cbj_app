@@ -1,5 +1,5 @@
-import 'package:cybear_jinni/domain/home_user/home_user_failures.dart';
-import 'package:cybear_jinni/domain/home_user/home_user_value_objects.dart';
+import 'package:cybearjinni/domain/home_user/home_user_failures.dart';
+import 'package:cybearjinni/domain/home_user/home_user_value_objects.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

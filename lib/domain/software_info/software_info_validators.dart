@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/domain/software_info/software_info_failures.dart';
+import 'package:cybearjinni/domain/software_info/software_info_failures.dart';
 import 'package:dartz/dartz.dart';
 
 Either<SoftwareInfoFailures<String>, String> validateSoftwareInfoEmpty(

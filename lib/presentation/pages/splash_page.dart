@@ -1,7 +1,21 @@
+import 'dart:io';
+
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cbj_integrations_controller/domain/i_saved_devices_repo.dart';
+import 'package:cbj_integrations_controller/domain/local_db/i_local_db_repository.dart';
+import 'package:cbj_integrations_controller/infrastructure/node_red/node_red_repository.dart';
+import 'package:cbj_integrations_controller/infrastructure/system_commands/system_commands_manager_d.dart';
+import 'package:cbj_smart_device_flutter/commands/flutter_commands.dart';
+import 'package:cybearjinni/domain/connections_service.dart';
+import 'package:cybearjinni/domain/i_local_db_repository.dart';
+import 'package:cybearjinni/infrastructure/app_commands.dart';
+import 'package:cybearjinni/infrastructure/mqtt.dart';
+import 'package:cybearjinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:hexcolor/hexcolor.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 @RoutePage()
 class SplashPage extends StatefulWidget {
@@ -13,86 +27,55 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-
-    // _navigate();
-    openUpdateDialog();
+    initilizeApp();
   }
 
-  Future openUpdateDialog() async {
-    await Future.delayed(const Duration(seconds: 1));
-    if (context.mounted) {
-      await showDialog<void>(
-        context: context,
-        builder: (BuildContext context) => UpdateDialog(),
-      );
+  Future initilizeApp() async {
+    await Hive.initFlutter();
+    AppCommands();
+    await Future.value([
+      IDbRepository.instance.initializeDb(isFlutter: true),
+      ILocalDbRepository.instance.asyncConstructor(),
+      ISavedDevicesRepo.instance.setUpAllFromDb(),
+    ]);
+    MqttServerRepository();
+    PhoneCommandsD();
+    SystemCommandsManager();
+    NodeRedRepository();
+    ConnectionsService.instance;
+    _navigate();
+  }
+
+  void _navigate() {
+    if (kIsWeb || Platform.isLinux || Platform.isWindows) {
+      context.router.replace(const ConnectToHubRoute());
+      return;
     }
+    context.router.replace(const IntroductionRouteRoute());
+    return;
   }
-
-  // Future _navigate() async {
-  //   (await ILocalDbRepository.instance.getHubEntityNetworkName()).fold(
-  //     (l) {
-  //       if (kIsWeb || Platform.isLinux || Platform.isWindows) {
-  //         return context.router.replace(const ConnectToHubRoute());
-  //       }
-  //       return context.router.replace(const IntroductionRouteRoute());
-  //     },
-  //     (r) => context.router.replace(const HomeRoute()),
-  //   );
-  // }
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: ImageAtom(
-          'assets/cbj_logo.png',
-        ),
-      ),
-    );
-  }
-}
-
-class UpdateDialog extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    final ThemeData themeData = Theme.of(context);
-    final TextTheme textTheme = themeData.textTheme;
-    final ColorScheme colorScheme = themeData.colorScheme;
-
-    return Center(
-      child: AlertDialog(
-        title: TextAtom('A New App', style: textTheme.titleLarge),
-        content: SizedBox(
-          height: 170,
-          child: Column(
-            children: [
-              TextAtom(
-                'We have moved to a new app.\n'
-                'Please download the new app and delete this one.\n'
-                'See you in the other side :D',
-                style: textTheme.titleMedium,
-              ),
-              const Expanded(
-                child: SizedBox(),
-              ),
-              ElevatedButton(
-                child: TextAtom(
-                  'Download',
-                  style: textTheme.titleMedium,
-                ),
-                onPressed: () {
-                  launchUrl(
-                    Uri.parse(
-                      'https://play.google.com/store/apps/details?id=com.cybearjinni.app',
-                    ),
-                    mode: LaunchMode.externalApplication,
-                  );
-                },
-              ),
+    return Scaffold(
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.centerRight,
+            end: Alignment.centerLeft,
+            stops: const [0.06, 0.9],
+            colors: [
+              HexColor('#ca6ce3'),
+              HexColor('#aa5fe4'),
             ],
           ),
         ),
-        actions: [],
+        child: const Center(
+          child: ImageAtom(
+            'assets/cbj_logo.png',
+            hero: 'full_logo',
+          ),
+        ),
       ),
     );
   }

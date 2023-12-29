@@ -1,4 +1,4 @@
-part of 'package:cybear_jinni/domain/i_hub_connection_repository.dart';
+part of 'package:cybearjinni/domain/i_hub_connection_repository.dart';
 
 class _HubConnectionRepository implements IHubConnectionRepository {
   _HubConnectionRepository() {

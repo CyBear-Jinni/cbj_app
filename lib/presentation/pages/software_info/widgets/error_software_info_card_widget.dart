@@ -1,5 +1,5 @@
-import 'package:cybear_jinni/domain/home_user/home_user_entity.dart';
-import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/domain/home_user/home_user_entity.dart';
+import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:flutter/material.dart';
 
 class ErrorSoftwareInfoCard extends StatelessWidget {

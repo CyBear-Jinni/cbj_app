@@ -1,4 +1,4 @@
-part of 'package:cybear_jinni/domain/security_bear/i_security_bear_connection_repository.dart';
+part of 'package:cybearjinni/domain/security_bear/i_security_bear_connection_repository.dart';
 
 class _SecurityBearConnectionRepository
     implements ISecurityBearConnectionRepository {

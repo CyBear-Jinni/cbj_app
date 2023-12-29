@@ -53,6 +53,9 @@ class _SwitchAtomState extends State<SwitchAtom> {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData themeData = Theme.of(context);
+    final ColorScheme colorScheme = themeData.colorScheme;
+
     final Size screenSize = MediaQuery.of(context).size;
     final double sizeBoxWidth = screenSize.width * 0.25;
 
@@ -74,10 +77,7 @@ class _SwitchAtomState extends State<SwitchAtom> {
         inactiveIcon = MdiIcons.lightSwitch;
     }
 
-    final Color toggleColor = getToggleColor();
-
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 5),
+    return SizedBox(
       width: sizeBoxWidth + 15,
       child: FlutterSwitch(
         width: screenSize.width * 0.25,
@@ -86,23 +86,23 @@ class _SwitchAtomState extends State<SwitchAtom> {
         value: toggleValue,
         borderRadius: 25.0,
         padding: 0.0,
-        activeToggleColor: const Color(0xFF2F363D),
-        inactiveToggleColor: Colors.deepPurple,
+        activeToggleColor: colorScheme.onPrimary,
+        inactiveToggleColor: colorScheme.onBackground,
         activeSwitchBorder: Border.all(
-          color: Theme.of(context).textTheme.bodyLarge!.color!,
+          color: colorScheme.onBackground,
         ),
         inactiveSwitchBorder: Border.all(
-          color: Theme.of(context).textTheme.bodyLarge!.color!,
+          color: colorScheme.onBackground,
         ),
-        activeColor: toggleColor,
-        inactiveColor: toggleColor,
+        activeColor: colorScheme.primary,
+        inactiveColor: colorScheme.background,
         activeIcon: Icon(
           activeIcon,
-          color: const Color(0xFFF8E3A1),
+          color: colorScheme.primary,
         ),
         inactiveIcon: Icon(
           inactiveIcon,
-          color: Theme.of(context).textTheme.bodyLarge!.color,
+          color: colorScheme.background,
         ),
         onToggle: onToggle,
       ),

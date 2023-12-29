@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/domain/manage_network/manage_network_failures.dart';
+import 'package:cybearjinni/domain/manage_network/manage_network_failures.dart';
 
 class ManageNetworkUnexpectedValueError extends Error {
   ManageNetworkUnexpectedValueError(this.homeUserValueFailure);

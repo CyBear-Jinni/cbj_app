@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/presentation/core/theme_data.dart';
+import 'package:cybearjinni/presentation/core/theme_data.dart';
 import 'package:flutter/widgets.dart';
 
 class MarginedExpandedAtom extends StatelessWidget {
