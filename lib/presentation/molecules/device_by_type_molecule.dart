@@ -11,8 +11,8 @@ import 'package:cbj_integrations_controller/infrastructure/generic_entities/gene
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_smart_plug_entity/generic_smart_plug_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_smart_tv_entity/generic_smart_tv_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_switch_entity/generic_switch_entity.dart';
-import 'package:cybear_jinni/presentation/atoms/atoms.dart';
-import 'package:cybear_jinni/presentation/molecules/molecules.dart';
+import 'package:cybearjinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:flutter/material.dart';
 
 class DeviceByTypeMolecule extends StatelessWidget {
@@ -48,7 +48,7 @@ class DeviceByTypeMolecule extends StatelessWidget {
         return DimmableLightMolecule(entity as GenericDimmableLightDE);
 
       default:
-        return TextAtom('Device type not supported ${type?.name ?? 'null'}');
+        return TextAtom('Entity type is unsupported ${type?.name ?? 'null'}');
     }
   }
 }

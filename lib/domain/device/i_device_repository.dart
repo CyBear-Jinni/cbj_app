@@ -26,9 +26,9 @@ import 'package:cbj_integrations_controller/infrastructure/generic_entities/gene
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_switch_entity/generic_switch_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_switch_entity/generic_switch_value_objects.dart';
 import 'package:cbj_integrations_controller/infrastructure/hub_client/hub_client.dart';
-import 'package:cybear_jinni/domain/device/devices_failures.dart';
-import 'package:cybear_jinni/infrastructure/core/logger.dart';
-import 'package:cybear_jinni/infrastructure/hub_client/hub_requests_routing.dart';
+import 'package:cybearjinni/domain/device/devices_failures.dart';
+import 'package:cybearjinni/infrastructure/core/logger.dart';
+import 'package:cybearjinni/infrastructure/hub_client/hub_requests_routing.dart';
 import 'package:dartz/dartz.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
@@ -40,7 +40,7 @@ import 'package:network_info_plus/network_info_plus.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:rxdart/rxdart.dart';
 
-part 'package:cybear_jinni/infrastructure/device_repository.dart';
+part 'package:cybearjinni/infrastructure/device_repository.dart';
 
 abstract interface class IDeviceRepository {
   static IDeviceRepository? _instance;
@@ -55,7 +55,7 @@ abstract interface class IDeviceRepository {
 
   Future<void> initiateHubConnection();
 
-  Future<Either<DevicesFailure, KtList<DeviceEntityBase?>>> getAllDevices();
+  Future<Either<DevicesFailure, KtList<DeviceEntityBase?>>> getAllEntites();
 
   Stream<Either<dynamic, KtList<dynamic>>> watchAll();
 

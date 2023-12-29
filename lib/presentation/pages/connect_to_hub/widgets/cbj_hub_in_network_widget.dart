@@ -3,9 +3,9 @@ import 'dart:collection';
 import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/domain/hub/hub_failures.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
-import 'package:cybear_jinni/domain/connections_service.dart';
-import 'package:cybear_jinni/presentation/atoms/atoms.dart';
-import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
+import 'package:cybearjinni/domain/connections_service.dart';
+import 'package:cybearjinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 
 class CbjHubInNetworkWidget extends StatefulWidget {
@@ -51,7 +51,9 @@ class _CbjHubInNetworkWidgetState extends State<CbjHubInNetworkWidget> {
       }
       foundEntity = true;
 
-      context.router.replace(const HomeRoute());
+      if (mounted) {
+        context.router.replace(const HomeRoute());
+      }
       return;
     }
 

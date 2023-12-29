@@ -1,5 +1,5 @@
-import 'package:cybear_jinni/domain/manage_network/manage_network_failures.dart';
-import 'package:cybear_jinni/domain/manage_network/manage_network_value_objects.dart';
+import 'package:cybearjinni/domain/manage_network/manage_network_failures.dart';
+import 'package:cybearjinni/domain/manage_network/manage_network_value_objects.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

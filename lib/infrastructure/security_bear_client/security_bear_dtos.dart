@@ -1,5 +1,5 @@
-import 'package:cybear_jinni/domain/security_bear/security_bear_entity.dart';
-import 'package:cybear_jinni/domain/security_bear/security_bear_value_objects.dart';
+import 'package:cybearjinni/domain/security_bear/security_bear_entity.dart';
+import 'package:cybearjinni/domain/security_bear/security_bear_value_objects.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'security_bear_dtos.freezed.dart';

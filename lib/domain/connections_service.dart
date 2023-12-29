@@ -8,9 +8,9 @@ import 'package:cbj_integrations_controller/infrastructure/generic_entities/abst
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/entity_type_utils.dart';
 import 'package:cbj_integrations_controller/infrastructure/search_devices.dart';
 
-part 'package:cybear_jinni/infrastructure/connection_service/app_connection_service.dart';
-part 'package:cybear_jinni/infrastructure/connection_service/demo_connection_service.dart';
-part 'package:cybear_jinni/infrastructure/connection_service/none_connection_service.dart';
+part 'package:cybearjinni/infrastructure/connection_service/app_connection_service.dart';
+part 'package:cybearjinni/infrastructure/connection_service/demo_connection_service.dart';
+part 'package:cybearjinni/infrastructure/connection_service/none_connection_service.dart';
 
 enum ConnectionType {
   appAsHub,

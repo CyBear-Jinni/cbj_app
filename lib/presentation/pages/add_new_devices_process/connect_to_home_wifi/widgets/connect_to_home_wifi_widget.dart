@@ -1,10 +1,10 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/domain/home_user/home_user_failures.dart';
-import 'package:cybear_jinni/domain/manage_network/i_manage_network_repository.dart';
-import 'package:cybear_jinni/domain/manage_network/manage_network_entity.dart';
-import 'package:cybear_jinni/domain/manage_network/manage_network_value_objects.dart';
-import 'package:cybear_jinni/presentation/atoms/atoms.dart';
-import 'package:cybear_jinni/presentation/core/routes/app_router.gr.dart';
+import 'package:cybearjinni/domain/home_user/home_user_failures.dart';
+import 'package:cybearjinni/domain/manage_network/i_manage_network_repository.dart';
+import 'package:cybearjinni/domain/manage_network/manage_network_entity.dart';
+import 'package:cybearjinni/domain/manage_network/manage_network_value_objects.dart';
+import 'package:cybearjinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
 import 'package:dartz/dartz.dart' as dartz;
 import 'package:flutter/material.dart';
 

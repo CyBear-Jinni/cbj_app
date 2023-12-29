@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cybear_jinni/presentation/atoms/atoms.dart';
-import 'package:cybear_jinni/presentation/pages/add_new_room/widgets/add_new_room_form.dart';
+import 'package:cybearjinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/presentation/pages/add_new_room/widgets/add_new_room_form.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()

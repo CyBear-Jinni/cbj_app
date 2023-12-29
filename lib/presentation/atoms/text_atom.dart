@@ -11,6 +11,7 @@ class TextAtom extends StatelessWidget {
     this.maxLines,
     this.translationArgs,
     this.translate = true,
+    this.veriant = TextVeriant.regular,
   });
 
   final String text;
@@ -20,15 +21,38 @@ class TextAtom extends StatelessWidget {
   final int? maxLines;
   final List<String>? translationArgs;
   final bool translate;
+  final TextVeriant veriant;
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData themeData = Theme.of(context);
+    final TextTheme textTheme = themeData.textTheme;
+    TextStyle? tempStyle = style;
+
+    switch (veriant) {
+      case TextVeriant.regular:
+        break;
+      case TextVeriant.smallTitle:
+        tempStyle = textTheme.titleLarge;
+      case TextVeriant.medium:
+        tempStyle = textTheme.bodyMedium;
+    }
+
     return Text(
       translate && text.isNotEmpty ? text.tr(args: translationArgs) : text,
-      style: style,
+      style: tempStyle,
       maxLines: maxLines,
       overflow: overflow,
       textAlign: textAlign,
     );
   }
+}
+
+enum TextVeriant {
+  smallTitle,
+
+  /// define out side, trying to deprecate
+  regular,
+  medium,
+  ;
 }

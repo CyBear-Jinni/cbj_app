@@ -1,4 +1,4 @@
-import 'package:cybear_jinni/domain/device/devices_failures.dart';
+import 'package:cybearjinni/domain/device/devices_failures.dart';
 
 class DevicesUnexpectedValueError extends Error {
   DevicesUnexpectedValueError(this.deviceValueFailure);

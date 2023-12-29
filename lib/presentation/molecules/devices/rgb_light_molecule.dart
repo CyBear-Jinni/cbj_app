@@ -4,9 +4,10 @@ import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/pr
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/entity_type_utils.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_rgbw_light_entity/generic_rgbw_light_entity.dart';
-import 'package:cybear_jinni/domain/connections_service.dart';
-import 'package:cybear_jinni/domain/device/i_device_repository.dart';
-import 'package:cybear_jinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/domain/connections_service.dart';
+import 'package:cybearjinni/domain/device/i_device_repository.dart';
+import 'package:cybearjinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -106,70 +107,48 @@ class _RgbwLightMoleculeState extends State<RgbwLightMolecule> {
 
   @override
   Widget build(BuildContext context) {
-    return ColoredBox(
-      color: Colors.white,
-      child: Column(
-        children: [
-          Container(
-            margin: const EdgeInsets.symmetric(horizontal: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Flexible(
-                  child: TextAtom(
-                    widget.entity.cbjEntityName.getOrCrash()!,
-                    style: const TextStyle(
-                      overflow: TextOverflow.clip,
-                      fontSize: 20.0,
-                      color: Colors.black,
-                    ),
-                  ),
-                ),
-                SwitchAtom(
-                  variant: SwitchVariant.light,
-                  onToggle: _onChange,
-                  action: widget.entity.lightSwitchState.action,
-                  state: widget.entity.entityStateGRPC.state,
-                ),
-              ],
+    final ThemeData themeData = Theme.of(context);
+    final ColorScheme colorScheme = themeData.colorScheme;
+    final TextTheme textTheme = themeData.textTheme;
+
+    return Column(
+      children: [
+        DeviceNameRow(
+          widget.entity.cbjEntityName.getOrCrash()!,
+          SwitchAtom(
+            variant: SwitchVariant.light,
+            onToggle: _onChange,
+            action: widget.entity.lightSwitchState.action,
+            state: widget.entity.entityStateGRPC.state,
+          ),
+        ),
+        const SeparatorAtom(variant: SeparatorVariant.reletedElements),
+        LightColorMods(deviceEntity: widget.entity),
+        Row(
+          children: [
+            const FaIcon(FontAwesomeIcons.solidSun),
+            Expanded(
+              child: Slider(
+                thumbColor: colorScheme.onBackground,
+                activeColor: colorScheme.tertiary,
+                inactiveColor: colorScheme.outline,
+                value: brightness,
+                divisions: 100,
+                min: 1,
+                max: 100,
+                onChanged: _changeBrightness,
+              ),
             ),
-          ),
-          const SizedBox(
-            height: 3,
-          ),
-          LightColorMods(deviceEntity: widget.entity),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Row(
-              children: [
-                const FaIcon(
-                  FontAwesomeIcons.solidSun,
-                  color: Colors.blueGrey,
-                ),
-                Expanded(
-                  child: Slider(
-                    thumbColor: Colors.white,
-                    activeColor: Colors.orangeAccent.shade100,
-                    inactiveColor: Colors.grey,
-                    value: brightness,
-                    divisions: 100,
-                    min: 1,
-                    max: 100,
-                    onChanged: _changeBrightness,
-                  ),
-                ),
-                SizedBox(
-                  width: 45,
-                  child: TextAtom(
-                    '${brightness.round()}%',
-                    style: const TextStyle(color: Colors.black),
-                  ),
-                ),
-              ],
+            SizedBox(
+              width: 45,
+              child: TextAtom(
+                '${brightness.round()}%',
+                style: textTheme.bodyMedium,
+              ),
             ),
-          ),
-        ],
-      ),
+          ],
+        ),
+      ],
     );
   }
 }
@@ -305,41 +284,45 @@ class _LightColorMods extends State<LightColorMods> {
   }
 
   Widget lightModBarFocus() {
+    final ThemeData themeData = Theme.of(context);
+    final ColorScheme colorScheme = themeData.colorScheme;
+
     return Column(
       children: [
         colorModeWidget,
-        Container(
-          color: Colors.white,
-          margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              TextButton(
-                child: TextAtom(
-                  'White',
-                  style: TextStyle(
-                    color: (colorModFocus == 0) ? Colors.red : Colors.grey,
-                    fontSize: 18,
-                  ),
+        const SeparatorAtom(variant: SeparatorVariant.reletedElements),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            OutlinedButton(
+              child: TextAtom(
+                'White',
+                style: TextStyle(
+                  color: (colorModFocus == 0)
+                      ? colorScheme.primary
+                      : colorScheme.onBackground,
+                  fontSize: 18,
                 ),
-                onPressed: () {
-                  _showWhiteMode();
-                },
               ),
-              TextButton(
-                child: TextAtom(
-                  'Color',
-                  style: TextStyle(
-                    color: (colorModFocus == 1) ? Colors.red : Colors.grey,
-                    fontSize: 18,
-                  ),
+              onPressed: () {
+                _showWhiteMode();
+              },
+            ),
+            OutlinedButton(
+              child: TextAtom(
+                'Color',
+                style: TextStyle(
+                  color: (colorModFocus == 1)
+                      ? colorScheme.primary
+                      : colorScheme.onBackground,
+                  fontSize: 18,
                 ),
-                onPressed: () {
-                  _showColorMode();
-                },
               ),
-            ],
-          ),
+              onPressed: () {
+                _showColorMode();
+              },
+            ),
+          ],
         ),
       ],
     );
