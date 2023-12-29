@@ -1,6 +1,6 @@
 name: cybearjinni
 description: CyBear Jinni app to interact with your CyBear Jinni Smart Devices
-version: 1.4.6+70
+version: 1.4.7+71
 homepage: https://cybearjinni.com
 
 publish_to: 'none'
@@ -21,9 +21,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
-    - assets/symbols/
     - assets/translations/
-    - assets/gif/
 
   fonts:
     - family: gidole_regular
