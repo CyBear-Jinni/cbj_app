@@ -8,15 +8,6 @@ publish_to: 'none'
 environment:
   sdk: '>=3.0.0 <4.0.0'
 
-# Don't get confuse, this is from the package flutter_launcher_icons and not flutter_icons
-flutter_icons:
-  ios: true
-  android: true
-  windows: true
-  image_path: "assets/cbj_icon.png"
-  adaptive_icon_background: "#FFFFFF"
-  adaptive_icon_foreground: "assets/cbj_icon_adaptive.png"
-
 flutter:
   uses-material-design: true
   assets:
@@ -41,6 +32,7 @@ dependencies:
   auto_route: ^7.8.4
   # Automatically resizes text to fit perfectly within its bounds.
   auto_size_text: ^3.0.0
+  bonsoir: ^5.1.1
   cbj_integrations_controller:
     git: https://github.com/CyBear-Jinni/cbj_integrations_controller.git
   cbj_smart_device_flutter:
@@ -130,6 +122,7 @@ dependencies:
   # Helps you discover open ports, devices on subnet and more.
   network_tools: ^4.0.1
   # Querying information about the application package, such as CFBundleVersion
+  network_tools_flutter: ^1.0.4
   package_info_plus: ^4.2.0
   # Finding commonly used locations on the filesystem
   path_provider: ^2.1.1

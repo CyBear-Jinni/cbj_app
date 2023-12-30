@@ -51,7 +51,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.cybearjinni.app"
+        applicationId "com.cybearjinni.devapp"
         minSdkVersion 22
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()

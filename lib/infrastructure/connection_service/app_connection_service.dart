@@ -13,7 +13,8 @@ class _AppConnectionService implements ConnectionsService {
       DevicesService().getEntities();
 
   @override
-  Future searchDevices() async => searchDevicesInstance.startSearchIsolate();
+  Future searchDevices() =>
+      searchDevicesInstance.startSearchIsolate(NetworkUtilitiesFlutter());
 
   @override
   Stream<MapEntry<String, DeviceEntityBase>> watchEntities() =>

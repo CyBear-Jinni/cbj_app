@@ -226,7 +226,7 @@ class _SmartTvMoleculeState extends State<SmartTvMolecule> {
                         color: Theme.of(context).textTheme.bodyLarge!.color,
                       ),
                       child: TextAtom(
-                        'Pause',
+                        'YouTube Pause',
                         style: TextStyle(
                           color: Theme.of(context).textTheme.bodyLarge!.color,
                           fontSize: 16,
@@ -255,7 +255,7 @@ class _SmartTvMoleculeState extends State<SmartTvMolecule> {
                         color: Theme.of(context).textTheme.bodyLarge!.color,
                       ),
                       child: TextAtom(
-                        'Play',
+                        'YouTube Play',
                         style: TextStyle(
                           color: Theme.of(context).textTheme.bodyLarge!.color,
                           fontSize: 16,

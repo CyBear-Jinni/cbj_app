@@ -7,6 +7,7 @@ import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/pr
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/entity_type_utils.dart';
 import 'package:cbj_integrations_controller/infrastructure/search_devices.dart';
+import 'package:cybearjinni/infrastructure/network_utilities_flutter.dart';
 
 part 'package:cybearjinni/infrastructure/connection_service/app_connection_service.dart';
 part 'package:cybearjinni/infrastructure/connection_service/demo_connection_service.dart';
