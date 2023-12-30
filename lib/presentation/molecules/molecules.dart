@@ -9,6 +9,7 @@ export 'devices/light_card_molecule.dart';
 export 'devices/light_molecule.dart';
 export 'devices/printer_molecule.dart';
 export 'devices/rgb_light_molecule.dart';
+export 'devices/security_camera_molecule.dart';
 export 'devices/smart_computer_molecule.dart';
 export 'devices/smart_plug_molecule.dart';
 export 'devices/smart_tv_molecule.dart';

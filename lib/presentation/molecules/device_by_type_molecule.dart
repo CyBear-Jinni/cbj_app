@@ -7,6 +7,7 @@ import 'package:cbj_integrations_controller/infrastructure/generic_entities/gene
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_light_entity/generic_light_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_printer_entity/generic_printer_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_rgbw_light_entity/generic_rgbw_light_entity.dart';
+import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_security_camera_entity/generic_security_camera_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_smart_computer_entity/generic_smart_computer_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_smart_plug_entity/generic_smart_plug_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_smart_tv_entity/generic_smart_tv_entity.dart';
@@ -46,6 +47,8 @@ class DeviceByTypeMolecule extends StatelessWidget {
         return RgbwLightMolecule(entity as GenericRgbwLightDE);
       case EntityTypes.dimmableLight:
         return DimmableLightMolecule(entity as GenericDimmableLightDE);
+      case EntityTypes.securityCamera:
+        return SecurityCameraMolecule(entity as GenericSecurityCameraDE);
 
       default:
         return TextAtom('Entity type is unsupported ${type?.name ?? 'null'}');
