@@ -2,8 +2,6 @@ import 'dart:convert';
 
 import 'package:cbj_integrations_controller/domain/core/request_types.dart';
 import 'package:cbj_integrations_controller/domain/i_mqtt_server_repository.dart';
-import 'package:cbj_integrations_controller/domain/i_saved_devices_repo.dart';
-import 'package:cbj_integrations_controller/domain/i_saved_rooms_repo.dart';
 import 'package:cbj_integrations_controller/infrastructure/devices/device_helper/device_helper.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
@@ -83,7 +81,7 @@ class MqttServerRepository extends IMqttServerRepository {
           EntityState.state(EntityStateGRPC.waitingInComp);
 
       /// Sends directly to device connector conjecture
-      ISavedDevicesRepo.instance.addOrUpdateFromMqtt(deviceEntityBase);
+      // ISavedDevicesRepo.instance.addOrUpdateFromMqtt(deviceEntityBase);
 
       return;
     } else if (entityFromTheApp is DeviceEntityBase) {
@@ -94,7 +92,7 @@ class MqttServerRepository extends IMqttServerRepository {
       // ConnectorDevicesStreamFromMqtt.fromMqttStream.add(entityFromTheApp);
     } else if (entityFromTheApp is RoomEntityDtos) {
       logger.i('Loop?');
-      ISavedRoomsRepo.instance.addOrUpdateRoom(entityFromTheApp.toDomain());
+      // ISavedRoomsRepo.instance.addOrUpdateRoom(entityFromTheApp.toDomain());
 
       /// Sends directly to device connector conjecture
       HubRequestsToApp.streamRequestsToApp.add(

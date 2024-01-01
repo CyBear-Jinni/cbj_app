@@ -1,27 +1,32 @@
 import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/domain/core/request_types.dart';
-import 'package:cbj_integrations_controller/domain/scene/i_scene_cbj_repository.dart';
+import 'package:cbj_integrations_controller/domain/routine/i_routine_cbj_repository.dart';
+import 'package:cbj_integrations_controller/domain/routine/value_objects_routine_cbj.dart';
 import 'package:cbj_integrations_controller/domain/vendors/login_abstract/core_login_failures.dart';
-import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
 import 'package:cybearjinni/domain/device/i_device_repository.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
 import 'package:cybearjinni/presentation/core/snack_bar_service.dart';
-import 'package:cybearjinni/presentation/pages/add_new_automation_process/add_scene/widgets/scene_action_widget.dart';
+import 'package:cybearjinni/presentation/pages/add_routine/widgets/routine_action_widget.dart';
 import 'package:dartz/dartz.dart' as dartz;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class AddSceneWidget extends StatefulWidget {
+class AddRoutineWidget extends StatefulWidget {
   @override
-  State<AddSceneWidget> createState() => _AddSceneWidgetState();
+  State<AddRoutineWidget> createState() => _AddRoutineWidgetState();
 }
 
-class _AddSceneWidgetState extends State<AddSceneWidget> {
-  String sceneName = '';
-  Set<DeviceEntityBase> allDevices = {};
+class _AddRoutineWidgetState extends State<AddRoutineWidget> {
+  Set<DeviceEntityBase> _allDevices = {};
+
+  String? routineName;
+
+  RoutineCbjRepeatDateDays? daysToRepeat;
+  RoutineCbjRepeatDateHour? hourToRepeat;
+  RoutineCbjRepeatDateMinute? minutesToRepeat;
 
   /// List of devices with entities, will be treated as actions
   Set<MapEntry<DeviceEntityBase, MapEntry<String?, String?>>>
@@ -33,59 +38,56 @@ class _AddSceneWidgetState extends State<AddSceneWidget> {
       authFailureOrSuccessOption = dartz.none();
 
   @override
+  @override
   void initState() {
     super.initState();
     _initialized();
   }
 
   Future<void> _initialized() async {
-    Set<DeviceEntityBase?> allDevicesTemp = {};
+    Set<DeviceEntityBase?> temp = {};
     (await IDeviceRepository.instance.getAllEntites()).fold((l) => null, (r) {
-      allDevicesTemp = Set<DeviceEntityBase>.from(r.iter);
+      temp = Set<DeviceEntityBase?>.from(r.iter);
     });
+    temp.removeWhere((element) => element == null);
 
-    allDevicesTemp.removeWhere((element) => element == null);
     setState(() {
-      allDevices = allDevicesTemp.map((e) => e!).toSet();
+      _allDevices = temp.map((e) => e!).toSet();
     });
   }
 
-  Future<void> _sendSceneToHub() async {
-    ISceneCbjRepository.instance
-        .addOrUpdateNewSceneInHubFromDevicesPropertyActionList(
-      sceneName,
+  Future<void> _sendRoutineToHub() async {
+    if (daysToRepeat == null ||
+        hourToRepeat == null ||
+        minutesToRepeat == null ||
+        routineName == null) {
+      return;
+    }
+    IRoutineCbjRepository.instance
+        .addOrUpdateNewRoutineInHubFromDevicesPropertyActionList(
+      routineName!,
       allDevicesWithNewAction,
-      // TODO: Check what value to use
-      AreaPurposesTypes.laundryRoom,
+      daysToRepeat!,
+      hourToRepeat!,
+      minutesToRepeat!,
     );
   }
 
-  Future<void> _sceneNameChange(String value) async {
-    sceneName = value;
+  Future<void> _routineNameChange(String value) async {
+    routineName = value;
   }
 
   Future<void> _addDevicesWithNewActions(
-    Set<MapEntry<DeviceEntityBase, MapEntry<String?, String?>>> value,
+    Iterable<MapEntry<DeviceEntityBase, MapEntry<String?, String?>>> value,
   ) async {
     setState(() {
       allDevicesWithNewAction.addAll(value);
     });
   }
 
-  // Set<MapEntry<DeviceEntityBase, MapEntry<String?, String?>>>
-  // smartDevicesWithActionToAdd,
-  //     required String actionsName,
-  //     required Set<DeviceEntityBase> allDevices,
-  //     required Set<MapEntry<DeviceEntityBase, MapEntry<String?, String?>>>
-  // allDevicesWithNewAction,
-  //     required Set<MapEntry<String, String>> allEntityActions,
-  //     required bool showErrorMessages,
-  //     required bool isSubmitting,
-  //     required Option<Either<CoreLoginFailure, Unit>> authFailureOrSuccessOption,
-
   @override
   Widget build(BuildContext context) {
-    if (allEntityActions.isNotEmpty) {
+    if (_allDevices.isNotEmpty) {
       return const CircularProgressIndicatorAtom();
     }
 
@@ -99,10 +101,9 @@ class _AddSceneWidgetState extends State<AddSceneWidget> {
           TextFormField(
             decoration: const InputDecoration(
               prefixIcon: FaIcon(FontAwesomeIcons.fileSignature),
-              labelText: 'Scene Name',
+              labelText: 'Routine Name',
             ),
-            style: const TextStyle(color: Colors.black),
-            onChanged: _sceneNameChange,
+            onChanged: _routineNameChange,
           ),
           SizedBox(
             height: 300,
@@ -115,7 +116,7 @@ class _AddSceneWidgetState extends State<AddSceneWidget> {
 
                 return Container(
                   margin: const EdgeInsets.symmetric(vertical: 1),
-                  child: SceneActionWidget(
+                  child: RoutineActionWidget(
                     deviceEntityBase: currentDevice.key,
                     propertyToChange:
                         currentDevice.value.key ?? 'Missing property',
@@ -127,7 +128,7 @@ class _AddSceneWidgetState extends State<AddSceneWidget> {
             ),
           ),
           const SizedBox(height: 30),
-          DecoratedBox(
+          Container(
             decoration: BoxDecoration(
               color: Colors.lightBlueAccent.withOpacity(0.5),
               // Red border with the width is equal to 5
@@ -157,9 +158,7 @@ class _AddSceneWidgetState extends State<AddSceneWidget> {
                           const AddActionRoute(),
                         );
                         if (actionList != null) {
-                          _addDevicesWithNewActions(
-                            actionList,
-                          );
+                          _addDevicesWithNewActions(actionList);
                         }
                       },
                     ),
@@ -200,7 +199,7 @@ class _AddSceneWidgetState extends State<AddSceneWidget> {
             ),
           ),
           const SizedBox(height: 10),
-          DecoratedBox(
+          Container(
             decoration: BoxDecoration(
               color: Colors.lightBlueAccent.withOpacity(0.5),
               // Red border with the width is equal to 5
@@ -210,11 +209,11 @@ class _AddSceneWidgetState extends State<AddSceneWidget> {
               onPressed: () {
                 SnackBarService().show(
                   context,
-                  'Adding Scene',
+                  'Adding Routine',
                 );
-                _sendSceneToHub();
+                _sendRoutineToHub();
               },
-              child: const TextAtom('Add Scene'),
+              child: const TextAtom('Add Routine'),
             ),
           ),
         ],

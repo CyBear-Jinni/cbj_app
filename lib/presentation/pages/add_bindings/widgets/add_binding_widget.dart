@@ -1,32 +1,27 @@
 import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:cbj_integrations_controller/domain/binding/i_binding_cbj_repository.dart';
 import 'package:cbj_integrations_controller/domain/core/request_types.dart';
-import 'package:cbj_integrations_controller/domain/routine/i_routine_cbj_repository.dart';
-import 'package:cbj_integrations_controller/domain/routine/value_objects_routine_cbj.dart';
 import 'package:cbj_integrations_controller/domain/vendors/login_abstract/core_login_failures.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
 import 'package:cybearjinni/domain/device/i_device_repository.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
 import 'package:cybearjinni/presentation/core/snack_bar_service.dart';
-import 'package:cybearjinni/presentation/pages/add_new_automation_process/add_routine/widgets/routine_action_widget.dart';
+import 'package:cybearjinni/presentation/pages/add_bindings/widgets/binding_action_widget.dart';
 import 'package:dartz/dartz.dart' as dartz;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class AddRoutineWidget extends StatefulWidget {
+class AddBindingWidget extends StatefulWidget {
   @override
-  State<AddRoutineWidget> createState() => _AddRoutineWidgetState();
+  State<AddBindingWidget> createState() => _AddBindingWidgetState();
 }
 
-class _AddRoutineWidgetState extends State<AddRoutineWidget> {
+class _AddBindingWidgetState extends State<AddBindingWidget> {
   Set<DeviceEntityBase> _allDevices = {};
 
-  String? routineName;
-
-  RoutineCbjRepeatDateDays? daysToRepeat;
-  RoutineCbjRepeatDateHour? hourToRepeat;
-  RoutineCbjRepeatDateMinute? minutesToRepeat;
+  String bindingName = '';
 
   /// List of devices with entities, will be treated as actions
   Set<MapEntry<DeviceEntityBase, MapEntry<String?, String?>>>
@@ -38,47 +33,33 @@ class _AddRoutineWidgetState extends State<AddRoutineWidget> {
       authFailureOrSuccessOption = dartz.none();
 
   @override
-  @override
   void initState() {
     super.initState();
     _initialized();
   }
 
   Future<void> _initialized() async {
-    Set<DeviceEntityBase?> temp = {};
+    Set<DeviceEntityBase?> value = {};
     (await IDeviceRepository.instance.getAllEntites()).fold((l) => null, (r) {
-      temp = Set<DeviceEntityBase?>.from(r.iter);
+      value = Set<DeviceEntityBase?>.from(r.iter);
     });
-    temp.removeWhere((element) => element == null);
+    value.removeWhere((element) => element == null);
 
     setState(() {
-      _allDevices = temp.map((e) => e!).toSet();
+      _allDevices = value.map((e) => e!).toSet();
     });
   }
 
-  Future<void> _sendRoutineToHub() async {
-    if (daysToRepeat == null ||
-        hourToRepeat == null ||
-        minutesToRepeat == null ||
-        routineName == null) {
-      return;
-    }
-    IRoutineCbjRepository.instance
-        .addOrUpdateNewRoutineInHubFromDevicesPropertyActionList(
-      routineName!,
+  Future<void> _sendBindingToHub() async {
+    IBindingCbjRepository.instance
+        .addOrUpdateNewBindingInHubFromDevicesPropertyActionList(
+      bindingName,
       allDevicesWithNewAction,
-      daysToRepeat!,
-      hourToRepeat!,
-      minutesToRepeat!,
     );
   }
 
-  Future<void> _routineNameChange(String value) async {
-    routineName = value;
-  }
-
   Future<void> _addDevicesWithNewActions(
-    Iterable<MapEntry<DeviceEntityBase, MapEntry<String?, String?>>> value,
+    Set<MapEntry<DeviceEntityBase, MapEntry<String?, String?>>> value,
   ) async {
     setState(() {
       allDevicesWithNewAction.addAll(value);
@@ -87,7 +68,7 @@ class _AddRoutineWidgetState extends State<AddRoutineWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (_allDevices.isNotEmpty) {
+    if (_allDevices.isEmpty) {
       return const CircularProgressIndicatorAtom();
     }
 
@@ -101,9 +82,11 @@ class _AddRoutineWidgetState extends State<AddRoutineWidget> {
           TextFormField(
             decoration: const InputDecoration(
               prefixIcon: FaIcon(FontAwesomeIcons.fileSignature),
-              labelText: 'Routine Name',
+              labelText: 'Binding Name',
             ),
-            onChanged: _routineNameChange,
+            onChanged: (value) {
+              bindingName = value;
+            },
           ),
           SizedBox(
             height: 300,
@@ -116,7 +99,7 @@ class _AddRoutineWidgetState extends State<AddRoutineWidget> {
 
                 return Container(
                   margin: const EdgeInsets.symmetric(vertical: 1),
-                  child: RoutineActionWidget(
+                  child: BindingActionWidget(
                     deviceEntityBase: currentDevice.key,
                     propertyToChange:
                         currentDevice.value.key ?? 'Missing property',
@@ -158,7 +141,9 @@ class _AddRoutineWidgetState extends State<AddRoutineWidget> {
                           const AddActionRoute(),
                         );
                         if (actionList != null) {
-                          _addDevicesWithNewActions(actionList);
+                          _addDevicesWithNewActions(
+                            actionList,
+                          );
                         }
                       },
                     ),
@@ -209,11 +194,11 @@ class _AddRoutineWidgetState extends State<AddRoutineWidget> {
               onPressed: () {
                 SnackBarService().show(
                   context,
-                  'Adding Routine',
+                  'Adding Binding',
                 );
-                _sendRoutineToHub();
+                _sendBindingToHub();
               },
-              child: const TextAtom('Add Routine'),
+              child: const TextAtom('Add Binding'),
             ),
           ),
         ],

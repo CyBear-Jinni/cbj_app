@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/domain/routine/value_objects_routine_cbj.dart';
 import 'package:cybearjinni/presentation/molecules/molecules.dart';
-import 'package:cybearjinni/presentation/pages/add_new_automation_process/add_routine/widgets/add_routine_widget.dart';
+import 'package:cybearjinni/presentation/pages/add_routine/widgets/add_routine_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';

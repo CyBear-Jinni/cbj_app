@@ -1,11 +1,57 @@
+import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/domain/remote_pipes/i_remote_pipes_repository.dart';
 import 'package:cbj_integrations_controller/domain/remote_pipes/remote_pipes_entity.dart';
 import 'package:cbj_integrations_controller/domain/remote_pipes/remote_pipes_value_objects.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/core/snack_bar_service.dart';
+import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+@RoutePage()
+class RemotePipesPage extends StatelessWidget {
+  /// Execute when remote pipes press the icon in top right side
+  void userCogFunction(BuildContext context) {
+    showAdaptiveActionSheet(
+      context: context,
+      actions: <BottomSheetAction>[
+        BottomSheetAction(
+          title: const TextAtom(
+            '➕ Add remote pipes',
+            style: TextStyle(color: Colors.green, fontSize: 23),
+          ),
+          onPressed: (_) {
+            // context.router.push(const AddUserToHomeRoute());
+          },
+        ),
+      ],
+    );
+  }
+
+  void leftIconFunction(BuildContext context) {
+    context.router.pop();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        children: [
+          TopBarMolecule(
+            pageName: 'Remote Pipes',
+            rightIconFunction: userCogFunction,
+            leftIcon: FontAwesomeIcons.arrowLeft,
+            leftIconFunction: leftIconFunction,
+          ),
+          Expanded(
+            child: RemotePipesWidget(),
+          ),
+        ],
+      ),
+    );
+  }
+}
 
 /// Show light toggles in a container with the background color from smart room
 /// object

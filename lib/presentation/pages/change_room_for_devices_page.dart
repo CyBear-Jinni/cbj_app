@@ -7,9 +7,34 @@ import 'package:cybearjinni/domain/device/i_device_repository.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
 import 'package:cybearjinni/presentation/core/snack_bar_service.dart';
+import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:dartz/dartz.dart' as dartz;
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
+
+@RoutePage()
+class ChangeRoomForDevicesPage extends StatelessWidget {
+  void backButtonFunction(BuildContext context) {
+    context.router.pop();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        children: [
+          TopBarMolecule(
+            pageName: 'Change Area For Devices',
+            leftIcon: FontAwesomeIcons.arrowLeft,
+            leftIconFunction: backButtonFunction,
+          ),
+          ChangeRoomForDevicesWidget(),
+        ],
+      ),
+    );
+  }
+}
 
 class ChangeRoomForDevicesWidget extends StatefulWidget {
   @override

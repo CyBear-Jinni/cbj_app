@@ -1,27 +1,27 @@
 import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:cbj_integrations_controller/domain/binding/i_binding_cbj_repository.dart';
 import 'package:cbj_integrations_controller/domain/core/request_types.dart';
+import 'package:cbj_integrations_controller/domain/scene/i_scene_cbj_repository.dart';
 import 'package:cbj_integrations_controller/domain/vendors/login_abstract/core_login_failures.dart';
+import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
 import 'package:cybearjinni/domain/device/i_device_repository.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
 import 'package:cybearjinni/presentation/core/snack_bar_service.dart';
-import 'package:cybearjinni/presentation/pages/add_new_automation_process/add_bindings/widgets/binding_action_widget.dart';
+import 'package:cybearjinni/presentation/pages/add_scene/widgets/scene_action_widget.dart';
 import 'package:dartz/dartz.dart' as dartz;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class AddBindingWidget extends StatefulWidget {
+class AddSceneWidget extends StatefulWidget {
   @override
-  State<AddBindingWidget> createState() => _AddBindingWidgetState();
+  State<AddSceneWidget> createState() => _AddSceneWidgetState();
 }
 
-class _AddBindingWidgetState extends State<AddBindingWidget> {
-  Set<DeviceEntityBase> _allDevices = {};
-
-  String bindingName = '';
+class _AddSceneWidgetState extends State<AddSceneWidget> {
+  String sceneName = '';
+  Set<DeviceEntityBase> allDevices = {};
 
   /// List of devices with entities, will be treated as actions
   Set<MapEntry<DeviceEntityBase, MapEntry<String?, String?>>>
@@ -39,23 +39,29 @@ class _AddBindingWidgetState extends State<AddBindingWidget> {
   }
 
   Future<void> _initialized() async {
-    Set<DeviceEntityBase?> value = {};
+    Set<DeviceEntityBase?> allDevicesTemp = {};
     (await IDeviceRepository.instance.getAllEntites()).fold((l) => null, (r) {
-      value = Set<DeviceEntityBase?>.from(r.iter);
+      allDevicesTemp = Set<DeviceEntityBase>.from(r.iter);
     });
-    value.removeWhere((element) => element == null);
 
+    allDevicesTemp.removeWhere((element) => element == null);
     setState(() {
-      _allDevices = value.map((e) => e!).toSet();
+      allDevices = allDevicesTemp.map((e) => e!).toSet();
     });
   }
 
-  Future<void> _sendBindingToHub() async {
-    IBindingCbjRepository.instance
-        .addOrUpdateNewBindingInHubFromDevicesPropertyActionList(
-      bindingName,
+  Future<void> _sendSceneToHub() async {
+    ISceneCbjRepository.instance
+        .addOrUpdateNewSceneInHubFromDevicesPropertyActionList(
+      sceneName,
       allDevicesWithNewAction,
+      // TODO: Check what value to use
+      AreaPurposesTypes.laundryRoom,
     );
+  }
+
+  Future<void> _sceneNameChange(String value) async {
+    sceneName = value;
   }
 
   Future<void> _addDevicesWithNewActions(
@@ -66,9 +72,20 @@ class _AddBindingWidgetState extends State<AddBindingWidget> {
     });
   }
 
+  // Set<MapEntry<DeviceEntityBase, MapEntry<String?, String?>>>
+  // smartDevicesWithActionToAdd,
+  //     required String actionsName,
+  //     required Set<DeviceEntityBase> allDevices,
+  //     required Set<MapEntry<DeviceEntityBase, MapEntry<String?, String?>>>
+  // allDevicesWithNewAction,
+  //     required Set<MapEntry<String, String>> allEntityActions,
+  //     required bool showErrorMessages,
+  //     required bool isSubmitting,
+  //     required Option<Either<CoreLoginFailure, Unit>> authFailureOrSuccessOption,
+
   @override
   Widget build(BuildContext context) {
-    if (_allDevices.isEmpty) {
+    if (allEntityActions.isNotEmpty) {
       return const CircularProgressIndicatorAtom();
     }
 
@@ -82,11 +99,10 @@ class _AddBindingWidgetState extends State<AddBindingWidget> {
           TextFormField(
             decoration: const InputDecoration(
               prefixIcon: FaIcon(FontAwesomeIcons.fileSignature),
-              labelText: 'Binding Name',
+              labelText: 'Scene Name',
             ),
-            onChanged: (value) {
-              bindingName = value;
-            },
+            style: const TextStyle(color: Colors.black),
+            onChanged: _sceneNameChange,
           ),
           SizedBox(
             height: 300,
@@ -99,7 +115,7 @@ class _AddBindingWidgetState extends State<AddBindingWidget> {
 
                 return Container(
                   margin: const EdgeInsets.symmetric(vertical: 1),
-                  child: BindingActionWidget(
+                  child: SceneActionWidget(
                     deviceEntityBase: currentDevice.key,
                     propertyToChange:
                         currentDevice.value.key ?? 'Missing property',
@@ -111,7 +127,7 @@ class _AddBindingWidgetState extends State<AddBindingWidget> {
             ),
           ),
           const SizedBox(height: 30),
-          Container(
+          DecoratedBox(
             decoration: BoxDecoration(
               color: Colors.lightBlueAccent.withOpacity(0.5),
               // Red border with the width is equal to 5
@@ -184,7 +200,7 @@ class _AddBindingWidgetState extends State<AddBindingWidget> {
             ),
           ),
           const SizedBox(height: 10),
-          Container(
+          DecoratedBox(
             decoration: BoxDecoration(
               color: Colors.lightBlueAccent.withOpacity(0.5),
               // Red border with the width is equal to 5
@@ -194,11 +210,11 @@ class _AddBindingWidgetState extends State<AddBindingWidget> {
               onPressed: () {
                 SnackBarService().show(
                   context,
-                  'Adding Binding',
+                  'Adding Scene',
                 );
-                _sendBindingToHub();
+                _sendSceneToHub();
               },
-              child: const TextAtom('Add Binding'),
+              child: const TextAtom('Add Scene'),
             ),
           ),
         ],

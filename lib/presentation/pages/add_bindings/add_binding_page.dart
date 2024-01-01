@@ -1,13 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cybearjinni/presentation/molecules/molecules.dart';
-import 'package:cybearjinni/presentation/pages/add_new_automation_process/add_scene/widgets/add_scene_widget.dart';
+import 'package:cybearjinni/presentation/pages/add_bindings/widgets/add_binding_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-/// Page for adding new scene
+/// Page for adding new binding
 @RoutePage()
-class AddScenePage extends StatelessWidget {
+class AddBindingPage extends StatelessWidget {
   void backButtonFunction(BuildContext context) {
     context.router.pop();
   }
@@ -20,12 +20,12 @@ class AddScenePage extends StatelessWidget {
         child: Column(
           children: [
             TopBarMolecule(
-              pageName: 'Add Scene',
+              pageName: 'Add Binding',
               rightIconFunction: backButtonFunction,
               leftIcon: FontAwesomeIcons.arrowLeft,
               leftIconFunction: backButtonFunction,
             ),
-            AddSceneWidget(),
+            AddBindingWidget(),
           ],
         ),
       ),

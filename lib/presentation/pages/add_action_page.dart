@@ -5,8 +5,31 @@ import 'package:cbj_integrations_controller/infrastructure/generic_entities/abst
 import 'package:cybearjinni/domain/device/i_device_repository.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/core/snack_bar_service.dart';
+import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
+
+@RoutePage<List<MapEntry<DeviceEntityBase, MapEntry<String?, String?>>>>()
+class AddActionPage extends StatelessWidget {
+  void backButtonFunction(BuildContext context) {}
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        children: [
+          TopBarMolecule(
+            pageName: 'Add Action',
+            leftIcon: FontAwesomeIcons.arrowLeft,
+            leftIconFunction: (_) => context.router.pop(),
+          ),
+          ActionChooseInformation(),
+        ],
+      ),
+    );
+  }
+}
 
 class ActionChooseInformation extends StatefulWidget {
   @override

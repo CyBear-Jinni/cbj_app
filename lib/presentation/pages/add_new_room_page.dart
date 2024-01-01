@@ -14,6 +14,20 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
 
+@RoutePage()
+class AddNewRoomPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.purple,
+        title: const TextAtom('Add New Area'),
+      ),
+      body: AddNewRoomForm(),
+    );
+  }
+}
+
 class AddNewRoomForm extends StatefulWidget {
   @override
   State<AddNewRoomForm> createState() => _AddNewRoomFormState();
