@@ -19,7 +19,7 @@ class ScanForNewCBJCompsWidget extends StatefulWidget {
 }
 
 class _ScanForNewCBJCompsWidgetState extends State<ScanForNewCBJCompsWidget> {
-  StreamSubscription<dartz.Either<CBJCompFailure, String>>?
+  StreamSubscription<dartz.Either<CbjCompFailure, String>>?
       _cbjCompStreamSubscription;
 
   @override
@@ -30,7 +30,7 @@ class _ScanForNewCBJCompsWidgetState extends State<ScanForNewCBJCompsWidget> {
 
   Future<void> _watchAllStarted() async {
     await _cbjCompStreamSubscription?.cancel();
-    _cbjCompStreamSubscription = ICBJCompRepository.instance
+    _cbjCompStreamSubscription = ICbjCompRepository.instance
         .getConnectedComputersIP()
         .listen((failureOrCBJCompList) {
       final dynamic failureOrCompListDynamic = failureOrCBJCompList.fold(
@@ -38,7 +38,7 @@ class _ScanForNewCBJCompsWidgetState extends State<ScanForNewCBJCompsWidget> {
         (ip) => ip,
       );
 
-      if (failureOrCompListDynamic == CBJCompFailure) {
+      if (failureOrCompListDynamic == CbjCompFailure) {
       } else {
         _compDevicesReceived(failureOrCBJCompList);
       }
@@ -46,14 +46,14 @@ class _ScanForNewCBJCompsWidgetState extends State<ScanForNewCBJCompsWidget> {
   }
 
   Future<void> _compDevicesReceived(
-    dartz.Either<CBJCompFailure, String> failureOrCBJCompList,
+    dartz.Either<CbjCompFailure, String> failureOrCBJCompList,
   ) async {
     final dynamic failureOrCompListDynamic = failureOrCBJCompList.fold(
       (f) => f,
       (ip) => ip,
     );
 
-    if (failureOrCompListDynamic == CBJCompFailure) {
+    if (failureOrCompListDynamic == CbjCompFailure) {
     } else {
       final String ipAsString = failureOrCompListDynamic as String;
       routeToConfigure(ipAsString);
@@ -61,8 +61,8 @@ class _ScanForNewCBJCompsWidgetState extends State<ScanForNewCBJCompsWidget> {
   }
 
   void routeToConfigure(String ipAsString) {
-    final CBJCompEntity compEntity = CBJCompEntity.empty().copyWith(
-      lastKnownIp: CBJCompLastKnownIp(ipAsString),
+    final CbjCompEntity compEntity = CbjCompEntity.empty().copyWith(
+      lastKnownIp: CbjCompLastKnownIp(ipAsString),
     );
 
     context.router.replace(
@@ -73,7 +73,7 @@ class _ScanForNewCBJCompsWidgetState extends State<ScanForNewCBJCompsWidget> {
   @override
   Future<void> dispose() async {
     await _cbjCompStreamSubscription?.cancel();
-    await ICBJCompRepository.instance.shutdownServer();
+    await ICbjCompRepository.instance.shutdownServer();
     return super.dispose();
   }
 

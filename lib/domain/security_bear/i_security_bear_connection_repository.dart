@@ -37,7 +37,7 @@ abstract interface class ISecurityBearConnectionRepository {
   Future<Either<SecurityBearFailures, Unit>> searchForSecurityBear();
 
   Future<Either<SecurityBearFailures, Unit>> setSecurityBearWiFiInformation(
-    CBJCompEntity compEntity,
+    CbjCompEntity compEntity,
   );
 
   Future<Either<SecurityBearFailures, Unit>>

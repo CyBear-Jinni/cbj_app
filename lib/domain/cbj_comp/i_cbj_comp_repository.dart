@@ -8,26 +8,26 @@ import 'package:dartz/dartz.dart';
 
 part 'package:cybearjinni/infrastructure/cbj_comp_repository.dart';
 
-abstract interface class ICBJCompRepository {
-  static ICBJCompRepository? _instance;
+abstract interface class ICbjCompRepository {
+  static ICbjCompRepository? _instance;
 
-  static ICBJCompRepository get instance {
-    return _instance ??= _CBJCompRepository();
+  static ICbjCompRepository get instance {
+    return _instance ??= _CbjCompRepository();
   }
 
-  Future<Either<CBJCompFailure, Unit>> shutdownServer();
+  Future<Either<CbjCompFailure, Unit>> shutdownServer();
 
-  Stream<Either<CBJCompFailure, String>> getConnectedComputersIP();
+  Stream<Either<CbjCompFailure, String>> getConnectedComputersIP();
 
-  Future<Either<CBJCompFailure, CBJCompEntity>> getInformationFromDeviceByIp(
+  Future<Either<CbjCompFailure, CbjCompEntity>> getInformationFromDeviceByIp(
     String compIp,
   );
 
-  Future<Either<CBJCompFailure, Unit>> firstSetup(CBJCompEntity cBJCompEntity);
+  Future<Either<CbjCompFailure, Unit>> firstSetup(CbjCompEntity cBJCompEntity);
 
-  Future<Either<CBJCompFailure, Unit>> devicesList(CBJCompEntity cBJCompEntity);
+  Future<Either<CbjCompFailure, Unit>> devicesList(CbjCompEntity cBJCompEntity);
 
-  Future<Either<CBJCompFailure, Unit>> create(CBJCompEntity cBJCompEntity);
+  Future<Either<CbjCompFailure, Unit>> create(CbjCompEntity cBJCompEntity);
 
-  Future<Either<CBJCompFailure, Unit>> updateCompInfo(CBJCompEntity compEntity);
+  Future<Either<CbjCompFailure, Unit>> updateCompInfo(CbjCompEntity compEntity);
 }

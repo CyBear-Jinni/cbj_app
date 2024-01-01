@@ -23,7 +23,7 @@ class ComputerConnectionCheckWidget extends StatefulWidget {
     required this.cbjCompEntity,
   });
 
-  final CBJCompEntity cbjCompEntity;
+  final CbjCompEntity cbjCompEntity;
 
   static String deviceNameFieldKey = 'deviceNameField';
   static String devicesDefaultRoomNameField = '';
@@ -103,8 +103,8 @@ class _ComputerConnectionCheckWidgetState
   }
 
   /// Organize all the data from the text fields to updated CBJCompEntity
-  CBJCompEntity newCBJCompEntity(
-    CBJCompEntity cbjCompEntity,
+  CbjCompEntity newCBJCompEntity(
+    CbjCompEntity cbjCompEntity,
     Map<String, TextEditingController> textEditingController,
   ) {
     final String deviceNameFieldKey =
@@ -129,18 +129,18 @@ class _ComputerConnectionCheckWidgetState
         icLogger.w("Can't add unsupported device");
       }
     });
-    final CBJCompEntity compUpdatedData = cbjCompEntity.copyWith(
-      cBJCompDevices: CBJCompDevices(deviceEntityList.toImmutableList()),
+    final CbjCompEntity compUpdatedData = cbjCompEntity.copyWith(
+      cBJCompDevices: CbjCompDevices(deviceEntityList.toImmutableList()),
     );
 
     return compUpdatedData;
   }
 
-  Future<bool> initialNewDevice(CBJCompEntity compUpdatedData) async {
+  Future<bool> initialNewDevice(CbjCompEntity compUpdatedData) async {
     bool error = false;
 
-    final dartz.Either<CBJCompFailure, dartz.Unit> updateAllDevices =
-        await ICBJCompRepository.instance.firstSetup(compUpdatedData);
+    final dartz.Either<CbjCompFailure, dartz.Unit> updateAllDevices =
+        await ICbjCompRepository.instance.firstSetup(compUpdatedData);
 
     updateAllDevices.fold(
       (l) {

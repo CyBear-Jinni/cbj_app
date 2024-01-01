@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cbj_integrations_controller/domain/core/request_types.dart';
 import 'package:cbj_integrations_controller/infrastructure/core/utils.dart';
-import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/value_objects_core.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_light_entity/generic_light_entity.dart';
 import 'package:cybearjinni/domain/cbj_comp/cbj_comp_entity.dart';
@@ -26,7 +26,7 @@ class ConfigureNewCbjCompWidgets extends StatefulWidget {
     required this.cbjCompEntity,
   });
 
-  final CBJCompEntity cbjCompEntity;
+  final CbjCompEntity cbjCompEntity;
 
   static String deviceNameFieldKey = 'deviceNameField';
   static String devicesDefaultRoomNameField = '';
@@ -50,13 +50,13 @@ class _ConfigureNewCbjCompWidgetsState
     _sendHotSpotInformation(widget.cbjCompEntity);
   }
 
-  Future<void> _sendHotSpotInformation(CBJCompEntity cBJCompEntity) async {
+  Future<void> _sendHotSpotInformation(CbjCompEntity cBJCompEntity) async {
     progressPercentage += 0.3;
     setState(() {
       state = ConfigureNewCbjCompState.actionInProgress;
     });
 
-    final CBJCompEntity compUpdatedData = cBJCompEntity;
+    final CbjCompEntity compUpdatedData = cBJCompEntity;
     final dartz.Either<SecurityBearFailures, dartz.Unit> setSecurityBearWiFi =
         await ISecurityBearConnectionRepository.instance
             .setSecurityBearWiFiInformation(compUpdatedData);
@@ -92,8 +92,8 @@ class _ConfigureNewCbjCompWidgetsState
   }
 
   /// Organize all the data from the text fields to updated CBJCompEntity
-  CBJCompEntity newCBJCompEntity(
-    CBJCompEntity cbjCompEntity,
+  CbjCompEntity newCBJCompEntity(
+    CbjCompEntity cbjCompEntity,
     Map<String, TextEditingController> textEditingController,
   ) {
     final String deviceNameFieldKey =
@@ -118,18 +118,18 @@ class _ConfigureNewCbjCompWidgetsState
         icLogger.w("Can't add unsupported device");
       }
     });
-    final CBJCompEntity compUpdatedData = cbjCompEntity.copyWith(
-      cBJCompDevices: CBJCompDevices(deviceEntityList.toImmutableList()),
+    final CbjCompEntity compUpdatedData = cbjCompEntity.copyWith(
+      cBJCompDevices: CbjCompDevices(deviceEntityList.toImmutableList()),
     );
 
     return compUpdatedData;
   }
 
-  Future<bool> initialNewDevice(CBJCompEntity compUpdatedData) async {
+  Future<bool> initialNewDevice(CbjCompEntity compUpdatedData) async {
     bool error = false;
 
-    final dartz.Either<CBJCompFailure, dartz.Unit> updateAllDevices =
-        await ICBJCompRepository.instance.firstSetup(compUpdatedData);
+    final dartz.Either<CbjCompFailure, dartz.Unit> updateAllDevices =
+        await ICbjCompRepository.instance.firstSetup(compUpdatedData);
 
     updateAllDevices.fold(
       (l) {
@@ -141,7 +141,7 @@ class _ConfigureNewCbjCompWidgetsState
   }
 
   Widget devicesList(
-    CBJCompEntity cbjCompEntityForDeviceList,
+    CbjCompEntity cbjCompEntityForDeviceList,
     Map<String, TextEditingController> textEditingController,
     BuildContext context,
   ) {

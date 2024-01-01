@@ -1,4 +1,4 @@
-import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
+import 'package:cbj_integrations_controller/domain/core/request_types.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -6,7 +6,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 class EntitiesUtils {
   static IconData iconOfDeviceType(EntityTypes deviceType) {
     switch (deviceType) {
-      case EntityTypes.AirConditioner:
+      case EntityTypes.airConditioner:
         // TODO: Handle this case.
         break;
       case EntityTypes.babyMonitor:
