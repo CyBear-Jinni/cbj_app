@@ -1,12 +1,7 @@
 import 'dart:async';
 import 'dart:collection';
 
-import 'package:cbj_integrations_controller/domain/core/request_types.dart';
-import 'package:cbj_integrations_controller/infrastructure/demo_connection_service_integrations_controller.dart';
-import 'package:cbj_integrations_controller/infrastructure/devices_service.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/entity_type_utils.dart';
-import 'package:cbj_integrations_controller/infrastructure/search_devices.dart';
+import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:cybearjinni/infrastructure/network_utilities_flutter.dart';
 
 part 'package:cybearjinni/infrastructure/connection_service/app_connection_service.dart';

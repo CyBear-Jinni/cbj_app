@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cbj_integrations_controller/domain/routine/value_objects_routine_cbj.dart';
+import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
 import 'package:cybearjinni/presentation/molecules/molecules.dart';
@@ -121,9 +121,9 @@ class PickRepeatTimePage extends StatelessWidget {
                                 minutesToRepeat != null) {
                               context.router.push(
                                 AddRoutineRoute(
-                                  daysToRepeat: daysToRepeat!,
-                                  hourToRepeat: hourToRepeat!,
-                                  minutesToRepeat: minutesToRepeat!,
+                                  daysToRepeat: daysToRepeat,
+                                  hourToRepeat: hourToRepeat,
+                                  minutesToRepeat: minutesToRepeat,
                                 ),
                               );
                             } else {

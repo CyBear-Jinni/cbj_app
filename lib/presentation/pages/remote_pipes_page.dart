@@ -1,8 +1,6 @@
 import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:cbj_integrations_controller/domain/remote_pipes/i_remote_pipes_repository.dart';
-import 'package:cbj_integrations_controller/domain/remote_pipes/remote_pipes_entity.dart';
-import 'package:cbj_integrations_controller/domain/remote_pipes/remote_pipes_value_objects.dart';
+import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/core/snack_bar_service.dart';
 import 'package:cybearjinni/presentation/molecules/molecules.dart';

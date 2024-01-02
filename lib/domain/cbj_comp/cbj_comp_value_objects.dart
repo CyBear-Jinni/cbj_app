@@ -1,4 +1,4 @@
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_light_entity/generic_light_entity.dart';
+import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:cybearjinni/domain/cbj_comp/cbj_comp_errors.dart';
 import 'package:cybearjinni/domain/cbj_comp/cbj_comp_failures.dart';
 import 'package:cybearjinni/domain/cbj_comp/cbj_comp_validators.dart';

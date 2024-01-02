@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:cbj_integrations_controller/domain/i_network_utilities.dart';
+import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:network_tools_flutter/network_tools_flutter.dart'
     as network_flutter;
 

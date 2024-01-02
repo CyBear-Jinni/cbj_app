@@ -1,7 +1,6 @@
 import 'dart:collection';
 
-import 'package:cbj_integrations_controller/domain/area/area_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
+import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:cybearjinni/presentation/pages/home_page/tabs/smart_devices_tab/areas_widgets/area_widget.dart';
 import 'package:flutter/material.dart';
 

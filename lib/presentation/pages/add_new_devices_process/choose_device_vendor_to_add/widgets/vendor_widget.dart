@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cbj_integrations_controller/domain/core/request_types.dart';
-import 'package:cbj_integrations_controller/domain/vendors/vendor_data.dart';
+import 'package:cbj_integrations_controller/integrations_controller.dart';	
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
 import 'package:cybearjinni/presentation/core/snack_bar_service.dart';

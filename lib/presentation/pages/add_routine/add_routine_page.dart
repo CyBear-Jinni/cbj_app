@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cbj_integrations_controller/domain/routine/value_objects_routine_cbj.dart';
+import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:cybearjinni/presentation/pages/add_routine/widgets/add_routine_widget.dart';
 import 'package:flutter/material.dart';

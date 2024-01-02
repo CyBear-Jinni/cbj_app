@@ -1,7 +1,4 @@
-import 'package:cbj_integrations_controller/domain/area/area_entity.dart';
-import 'package:cbj_integrations_controller/domain/scene/i_scene_cbj_repository.dart';
-import 'package:cbj_integrations_controller/domain/scene/scene_cbj_entity.dart';
-import 'package:cbj_integrations_controller/domain/scene/scene_cbj_failures.dart';
+import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/pages/scenes/widgets/scene_widget.dart';
 import 'package:dartz/dartz.dart' as dartz;

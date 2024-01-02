@@ -10,7 +10,7 @@ class _AppConnectionService implements ConnectionsService {
 
   @override
   Future<HashMap<String, DeviceEntityBase>> get getAllEntities async =>
-      DevicesService().getEntities();
+      EntitiesService().getEntities();
 
   @override
   Future searchDevices() =>
@@ -18,7 +18,7 @@ class _AppConnectionService implements ConnectionsService {
 
   @override
   Stream<MapEntry<String, DeviceEntityBase>> watchEntities() =>
-      DevicesService().watchEntities();
+      EntitiesService().watchEntities();
 
   @override
   void setEntityState({
@@ -27,7 +27,7 @@ class _AppConnectionService implements ConnectionsService {
     required EntityActions actionType,
     HashMap<ActionValues, dynamic>? value,
   }) =>
-      DevicesService().setEntityState(
+      EntitiesService().setEntityState(
         uniqueIdByVendor: uniqueIdByVendor,
         action: actionType,
         property: property,

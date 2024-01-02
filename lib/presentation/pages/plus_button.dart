@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cbj_integrations_controller/domain/hub/hub_entity.dart';
+import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:cybearjinni/domain/connections_service.dart';
 import 'package:cybearjinni/domain/i_hub_connection_repository.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
