@@ -1,11 +1,7 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cbj_integrations_controller/domain/room/i_room_repository.dart';
-import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
-import 'package:cbj_integrations_controller/domain/room/room_failures.dart';
-import 'package:cbj_integrations_controller/domain/room/value_objects_room.dart';
+import 'package:cbj_integrations_controller/domain/area/area_failures.dart';
+import 'package:cbj_integrations_controller/domain/area/value_objects_area.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
-import 'package:cybearjinni/domain/device/i_device_repository.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/core/snack_bar_service.dart';
 import 'package:dartz/dartz.dart' as dartz;
@@ -15,7 +11,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
 
 @RoutePage()
-class AddNewRoomPage extends StatelessWidget {
+class AddNewAreaPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,84 +19,77 @@ class AddNewRoomPage extends StatelessWidget {
         backgroundColor: Colors.purple,
         title: const TextAtom('Add New Area'),
       ),
-      body: AddNewRoomForm(),
+      body: AddNewAreaForm(),
     );
   }
 }
 
-class AddNewRoomForm extends StatefulWidget {
+class AddNewAreaForm extends StatefulWidget {
   @override
-  State<AddNewRoomForm> createState() => _AddNewRoomFormState();
+  State<AddNewAreaForm> createState() => _AddNewAreaFormState();
 }
 
-class _AddNewRoomFormState extends State<AddNewRoomForm> {
-  Set<RoomEntity?> _allRooms = {};
-  Set<DeviceEntityBase?> _allDevices = {};
-  RoomUniqueId roomUniqueId = RoomUniqueId();
-  RoomDefaultName cbjEntityName = RoomDefaultName('');
-  RoomBackground background = RoomBackground(
+class _AddNewAreaFormState extends State<AddNewAreaForm> {
+  // final Set<DeviceEntityBase?> _allDevices = {};
+  AreaUniqueId areaUniqueId = AreaUniqueId();
+  AreaDefaultName cbjEntityName = AreaDefaultName('');
+  AreaBackground background = AreaBackground(
     'https://live.staticflickr.com/5220/5486044345_f67abff3e9_h.jpg',
   );
-  RoomTypes roomTypes = RoomTypes(const {});
-  RoomDevicesId roomDevicesId = RoomDevicesId(const {});
-  RoomScenesId roomScenesId = RoomScenesId(const {});
-  RoomRoutinesId roomRoutinesId = RoomRoutinesId(const {});
-  RoomBindingsId roomBindingsId = RoomBindingsId(const {});
-  RoomMostUsedBy roomMostUsedBy = RoomMostUsedBy(const {});
-  RoomPermissions roomPermissions = RoomPermissions(const {});
+  AreaTypes areaTypes = AreaTypes(const {});
+  AreaDevicesId areaDevicesId = AreaDevicesId(const {});
+  AreaScenesId areaScenesId = AreaScenesId(const {});
+  AreaRoutinesId areaRoutinesId = AreaRoutinesId(const {});
+  AreaBindingsId areaBindingsId = AreaBindingsId(const {});
+  AreaMostUsedBy areaMostUsedBy = AreaMostUsedBy(const {});
+  AreaPermissions areaPermissions = AreaPermissions(const {});
   bool showErrorMessages = false;
   bool isSubmitting = false;
   dartz.Option authFailureOrSuccessOption = dartz.none();
 
-  @override
-  void initState() {
-    super.initState();
-    _initialized();
-  }
+  // Future<void> _initialized() async {
+  //   IAreaRepository.instance.getAllAreas().fold((l) => null, (r) {
+  //     _allAreas = Set<AreaEntity>.from(r.iter);
+  //   });
 
-  Future<void> _initialized() async {
-    IRoomRepository.instance.getAllRooms().fold((l) => null, (r) {
-      _allRooms = Set<RoomEntity>.from(r.iter);
-    });
+  //   (await IDeviceRepository.instance.getAllEntites()).fold((l) => null, (r) {
+  //     _allDevices = Set<DeviceEntityBase>.from(r.iter);
+  //   });
+  //   _allAreas.removeWhere((element) => element == null);
+  //   _allDevices.removeWhere((element) => element == null);
+  //   setState(() {
+  //     _allAreas = _allAreas as Set<AreaEntity>;
+  //     _allDevices = _allDevices as Set<DeviceEntityBase>;
+  //   });
+  // }
 
-    (await IDeviceRepository.instance.getAllEntites()).fold((l) => null, (r) {
-      _allDevices = Set<DeviceEntityBase>.from(r.iter);
-    });
-    _allRooms.removeWhere((element) => element == null);
-    _allDevices.removeWhere((element) => element == null);
-    setState(() {
-      _allRooms = _allRooms as Set<RoomEntity>;
-      _allDevices = _allDevices as Set<DeviceEntityBase>;
-    });
-  }
+  Future<void> _createArea() async {
+    // final AreaEntity areaEntity = AreaEntity(
+    //   uniqueId: AreaUniqueId.fromUniqueString(areaUniqueId.getOrCrash()),
+    //   cbjEntityName: AreaDefaultName(cbjEntityName.getOrCrash()),
+    //   background: AreaBackground(background.getOrCrash()),
+    //   areaTypes: AreaTypes(areaTypes.getOrCrash()),
+    //   areaDevicesId: AreaDevicesId(areaDevicesId.getOrCrash()),
+    //   areaScenesId: AreaScenesId(areaScenesId.getOrCrash()),
+    //   areaRoutinesId: AreaRoutinesId(areaRoutinesId.getOrCrash()),
+    //   areaBindingsId: AreaBindingsId(areaBindingsId.getOrCrash()),
+    //   areaMostUsedBy: AreaMostUsedBy(areaMostUsedBy.getOrCrash()),
+    //   areaPermissions: AreaPermissions(areaPermissions.getOrCrash()),
+    // );
 
-  Future<void> _createRoom() async {
-    final RoomEntity roomEntity = RoomEntity(
-      uniqueId: RoomUniqueId.fromUniqueString(roomUniqueId.getOrCrash()),
-      cbjEntityName: RoomDefaultName(cbjEntityName.getOrCrash()),
-      background: RoomBackground(background.getOrCrash()),
-      roomTypes: RoomTypes(roomTypes.getOrCrash()),
-      roomDevicesId: RoomDevicesId(roomDevicesId.getOrCrash()),
-      roomScenesId: RoomScenesId(roomScenesId.getOrCrash()),
-      roomRoutinesId: RoomRoutinesId(roomRoutinesId.getOrCrash()),
-      roomBindingsId: RoomBindingsId(roomBindingsId.getOrCrash()),
-      roomMostUsedBy: RoomMostUsedBy(roomMostUsedBy.getOrCrash()),
-      roomPermissions: RoomPermissions(roomPermissions.getOrCrash()),
-    );
-
-    IRoomRepository.instance.create(roomEntity);
+    // IAreaRepository.instance.create(areaEntity);
   }
 
   Future<void> _defaultNameChanged(String value) async {
     setState(() {
-      cbjEntityName = RoomDefaultName(value);
+      cbjEntityName = AreaDefaultName(value);
       authFailureOrSuccessOption = dartz.none();
     });
   }
 
-  Future<void> _roomTypesChanged(Set<String> value) async {
+  Future<void> _areaTypesChanged(Set<String> value) async {
     setState(() {
-      roomTypes = RoomTypes(value);
+      areaTypes = AreaTypes(value);
       authFailureOrSuccessOption = dartz.none();
     });
   }
@@ -132,7 +121,7 @@ class _AddNewRoomFormState extends State<AddNewRoomForm> {
                         value,
                       ),
                       validator: (_) => cbjEntityName.value.fold(
-                        (RoomFailure f) => 'Validation error',
+                        (AreaFailure f) => 'Validation error',
                         (r) => null,
                       ),
                     ),
@@ -170,7 +159,7 @@ class _AddNewRoomFormState extends State<AddNewRoomForm> {
                       }).toList(),
                       listType: MultiSelectListType.CHIP,
                       onConfirm: (List<int> values) {
-                        _roomTypesChanged(
+                        _areaTypesChanged(
                           values.map((e) => e.toString()).toSet(),
                         );
                       },
@@ -187,7 +176,7 @@ class _AddNewRoomFormState extends State<AddNewRoomForm> {
                 Expanded(
                   child: TextButton(
                     onPressed: () {
-                      _createRoom();
+                      _createArea();
                       SnackBarService().show(
                         context,
                         'Adding area',

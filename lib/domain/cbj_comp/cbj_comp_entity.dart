@@ -11,7 +11,7 @@ part 'cbj_comp_entity.freezed.dart';
 abstract class CbjCompEntity implements _$CbjCompEntity {
   const factory CbjCompEntity({
     required CbjCompUniqueId id,
-    required CbjCompRoomId roomId,
+    required CbjCompAreaId areaId,
     required CbjCompLastKnownIp lastKnownIp,
     CbjCompDevices? cBJCompDevices,
     CbjCompDefaultName? name,
@@ -28,7 +28,7 @@ abstract class CbjCompEntity implements _$CbjCompEntity {
 
   factory CbjCompEntity.empty() => CbjCompEntity(
         id: CbjCompUniqueId(),
-        roomId: CbjCompRoomId(),
+        areaId: CbjCompAreaId(),
         lastKnownIp: CbjCompLastKnownIp(''),
         cBJCompDevices: CbjCompDevices(<GenericLightDE>[].toImmutableList()),
         name: CbjCompDefaultName(''),
@@ -40,6 +40,6 @@ abstract class CbjCompEntity implements _$CbjCompEntity {
       );
 
   Option<CbjCompFailure<dynamic>> get failureOption {
-    return roomId.value.fold((f) => some(f), (_) => none());
+    return areaId.value.fold((f) => some(f), (_) => none());
   }
 }

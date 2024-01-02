@@ -9,7 +9,7 @@ import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:flutter/material.dart';
 
-/// Show switch toggles in a container with the background color from smart room
+/// Show switch toggles in a container with the background color from smart area
 /// object
 class SwitchMolecule extends StatefulWidget {
   const SwitchMolecule(this.entity);

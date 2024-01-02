@@ -60,16 +60,16 @@ class CbjCompUniqueId extends CbjCompValueObjectAbstract<String> {
   final Either<CbjCompFailure<String>, String> value;
 }
 
-class CbjCompRoomId extends CbjCompValueObjectAbstract<String> {
-  factory CbjCompRoomId() {
-    return CbjCompRoomId._(right(const Uuid().v1()));
+class CbjCompAreaId extends CbjCompValueObjectAbstract<String> {
+  factory CbjCompAreaId() {
+    return CbjCompAreaId._(right(const Uuid().v1()));
   }
 
-  factory CbjCompRoomId.fromUniqueString(String uniqueId) {
-    return CbjCompRoomId._(right(uniqueId));
+  factory CbjCompAreaId.fromUniqueString(String uniqueId) {
+    return CbjCompAreaId._(right(uniqueId));
   }
 
-  const CbjCompRoomId._(this.value);
+  const CbjCompAreaId._(this.value);
 
   @override
   final Either<CbjCompFailure<String>, String> value;

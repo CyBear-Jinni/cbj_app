@@ -6,7 +6,7 @@ import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-/// Show switch toggles in a container with the background color from smart room
+/// Show switch toggles in a container with the background color from smart area
 /// object
 class SmartComputerMolecule extends StatefulWidget {
   const SmartComputerMolecule(this.entity);

@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:flutter/material.dart';
 
-class EmptyOpenRoomOrganism extends StatelessWidget {
+class EmptyOpenAreaOrganism extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(

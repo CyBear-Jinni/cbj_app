@@ -10,7 +10,7 @@ import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-/// Show light toggles in a container with the background color from smart room
+/// Show light toggles in a container with the background color from smart area
 /// object
 class DimmableLightMolecule extends StatefulWidget {
   const DimmableLightMolecule(this.entity);
@@ -83,6 +83,7 @@ class _DimmableLightMoleculeState extends State<DimmableLightMolecule> {
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = themeData.colorScheme;
+    final TextTheme textTheme = themeData.textTheme;
 
     return Column(
       children: [
@@ -121,7 +122,7 @@ class _DimmableLightMoleculeState extends State<DimmableLightMolecule> {
                 width: 45,
                 child: TextAtom(
                   '${brightness.round()}%',
-                  style: const TextStyle(color: Colors.black),
+                  style: textTheme.bodyMedium,
                 ),
               ),
             ],

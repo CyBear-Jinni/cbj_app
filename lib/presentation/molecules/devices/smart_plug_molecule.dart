@@ -9,7 +9,7 @@ import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:flutter/material.dart';
 
-/// Show smartPlug toggles in a container with the background color from smart room
+/// Show smartPlug toggles in a container with the background color from smart area
 /// object
 class SmartPlugsMolecule extends StatefulWidget {
   const SmartPlugsMolecule(this.entity);

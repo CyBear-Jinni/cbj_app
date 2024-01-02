@@ -1,14 +1,10 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cbj_integrations_controller/domain/room/i_room_repository.dart';
-import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
-import 'package:cbj_integrations_controller/domain/room/room_failures.dart';
+import 'package:cbj_integrations_controller/domain/area/area_entity.dart';
 import 'package:cbj_integrations_controller/domain/scene/i_scene_cbj_repository.dart';
 import 'package:cbj_integrations_controller/domain/scene/scene_cbj_entity.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
-import 'package:dartz/dartz.dart' as dartz;
 import 'package:flutter/material.dart';
-import 'package:kt_dart/collection.dart';
 
 class ScenesInFoldersL extends StatefulWidget {
   @override
@@ -17,7 +13,7 @@ class ScenesInFoldersL extends StatefulWidget {
 
 class _ScenesInFoldersLState extends State<ScenesInFoldersL> {
   List<SceneCbjEntity> allScenes = <SceneCbjEntity>[];
-  List<RoomEntity>? allRoomsWithScenes;
+  List<AreaEntity>? allAreasWithScenes;
 
   @override
   void initState() {
@@ -26,7 +22,7 @@ class _ScenesInFoldersLState extends State<ScenesInFoldersL> {
   }
 
   Future<void> _initialized() async {
-    final List<RoomEntity> temp = [];
+    final List<AreaEntity> temp = [];
     final Set<SceneCbjEntity> eitherAllScenes =
         await ISceneCbjRepository.instance.getAllScenesAsList();
     allScenes.addAll(eitherAllScenes);
@@ -35,24 +31,24 @@ class _ScenesInFoldersLState extends State<ScenesInFoldersL> {
       return;
     }
 
-    final dartz.Either<RoomFailure, KtList<RoomEntity>> eitherAllRooms =
-        IRoomRepository.instance.getAllRooms();
-    eitherAllRooms.fold((l) => null, (KtList<RoomEntity> r) {
-      for (final RoomEntity rE in r.asList()) {
-        if (rE.roomScenesId.getOrCrash().isNotEmpty) {
-          temp.add(rE);
-        }
-      }
-    });
+    // final dartz.Either<AreaFailure, KtList<AreaEntity>> eitherAllAreas =
+    //     IAreaRepository.instance.getAllAreas();
+    // eitherAllAreas.fold((l) => null, (KtList<AreaEntity> r) {
+    //   for (final AreaEntity rE in r.asList()) {
+    //     if (rE.areaScenesId.getOrCrash().isNotEmpty) {
+    //       temp.add(rE);
+    //     }
+    //   }
+    // });
 
     setState(() {
-      allRoomsWithScenes = temp;
+      allAreasWithScenes = temp;
     });
   }
 
   Widget scenesFoldersWidget(
     BuildContext context,
-    RoomEntity folderOfScenes,
+    AreaEntity folderOfScenes,
   ) {
     const double borderRadius = 5;
     return Container(
@@ -115,7 +111,7 @@ class _ScenesInFoldersLState extends State<ScenesInFoldersL> {
 
   @override
   Widget build(BuildContext context) {
-    if (allRoomsWithScenes == null) {
+    if (allAreasWithScenes == null) {
       return const Center(
         child: TextAtom(
           'In development',
@@ -124,7 +120,7 @@ class _ScenesInFoldersLState extends State<ScenesInFoldersL> {
       );
     }
 
-    if (allRoomsWithScenes!.isEmpty) {
+    if (allAreasWithScenes!.isEmpty) {
       return const Center(
         child: TextAtom(
           'You can add automations in the plus button',
@@ -140,13 +136,13 @@ class _ScenesInFoldersLState extends State<ScenesInFoldersL> {
       reverse: true,
       padding: EdgeInsets.zero,
       itemBuilder: (context, index) {
-        final RoomEntity sceneFolder = allRoomsWithScenes![index];
+        final AreaEntity sceneFolder = allAreasWithScenes![index];
         return scenesFoldersWidget(
           context,
           sceneFolder,
         );
       },
-      itemCount: allRoomsWithScenes!.length,
+      itemCount: allAreasWithScenes!.length,
     );
   }
 }

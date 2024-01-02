@@ -1,4 +1,4 @@
-import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
+import 'package:cbj_integrations_controller/domain/area/area_entity.dart';
 import 'package:cbj_integrations_controller/domain/scene/i_scene_cbj_repository.dart';
 import 'package:cbj_integrations_controller/domain/scene/scene_cbj_entity.dart';
 import 'package:cbj_integrations_controller/domain/scene/scene_cbj_failures.dart';
@@ -10,16 +10,16 @@ import 'package:flutter/material.dart';
 class FolderOfScenesWidget extends StatefulWidget {
   const FolderOfScenesWidget({required this.folderOfScenes});
 
-  final RoomEntity folderOfScenes;
+  final AreaEntity folderOfScenes;
 
   @override
   State<FolderOfScenesWidget> createState() => _FolderOfScenesWidgetState();
 }
 
 class _FolderOfScenesWidgetState extends State<FolderOfScenesWidget> {
-  late RoomEntity folderOfScenes;
+  late AreaEntity folderOfScenes;
 
-  List<SceneCbjEntity> allScenesInTheRoom = [];
+  List<SceneCbjEntity> allScenesInTheArea = [];
   List<SceneCbjEntity>? scenesList;
 
   late SceneCbjEntity sceneCbj;
@@ -35,18 +35,18 @@ class _FolderOfScenesWidgetState extends State<FolderOfScenesWidget> {
 
     final Map<String, SceneCbjEntity> eitherAllScenes =
         await ISceneCbjRepository.instance.getAllScenesAsMap();
-    for (final String sceneId in folderOfScenes.roomScenesId.getOrCrash()) {
+    for (final String sceneId in folderOfScenes.areaScenesId.getOrCrash()) {
       if (eitherAllScenes.containsKey(sceneId)) {
-        allScenesInTheRoom.add(eitherAllScenes[sceneId]!);
+        allScenesInTheArea.add(eitherAllScenes[sceneId]!);
       }
     }
 
-    if (allScenesInTheRoom.isEmpty) {
+    if (allScenesInTheArea.isEmpty) {
       return;
     }
 
     setState(() {
-      scenesList = allScenesInTheRoom;
+      scenesList = allScenesInTheArea;
     });
   }
 
@@ -67,7 +67,7 @@ class _FolderOfScenesWidgetState extends State<FolderOfScenesWidget> {
     if (scenesList == null) {
       return const CircularProgressIndicatorAtom();
     }
-    if (scenesList!.isEmpty || allScenesInTheRoom.isEmpty) {
+    if (scenesList!.isEmpty || allScenesInTheArea.isEmpty) {
       return const Center(
         child: TextAtom(
           'You can add automations in the plus button',

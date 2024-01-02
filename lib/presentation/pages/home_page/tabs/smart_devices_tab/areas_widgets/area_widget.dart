@@ -1,34 +1,34 @@
 import 'dart:collection';
 
 import 'package:auto_route/auto_route.dart';
-import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
+import 'package:cbj_integrations_controller/domain/area/area_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
 import 'package:cybearjinni/presentation/organisms/organisms.dart';
 import 'package:flutter/material.dart';
 
-class RoomWidget extends StatefulWidget {
-  const RoomWidget({
-    required this.room,
-    required this.rooms,
+class AreaWidget extends StatefulWidget {
+  const AreaWidget({
+    required this.area,
+    required this.areas,
     required this.entities,
-    required this.entitiesInTheRoom,
+    required this.entitiesInTheArea,
   });
 
-  final RoomEntity room;
-  final HashMap<String, RoomEntity> rooms;
-  final Set<String> entitiesInTheRoom;
+  final AreaEntity area;
+  final HashMap<String, AreaEntity> areas;
+  final Set<String> entitiesInTheArea;
   final HashMap<String, DeviceEntityBase> entities;
 
   @override
-  State<RoomWidget> createState() => _RoomWidgetState();
+  State<AreaWidget> createState() => _AreaWidgetState();
 }
 
-class _RoomWidgetState extends State<RoomWidget> {
+class _AreaWidgetState extends State<AreaWidget> {
   @override
   Widget build(BuildContext context) {
-    if (widget.entitiesInTheRoom.isEmpty) {
+    if (widget.entitiesInTheArea.isEmpty) {
       return const SizedBox();
     }
 
@@ -36,7 +36,7 @@ class _RoomWidgetState extends State<RoomWidget> {
     final TextTheme textTheme = themeData.textTheme;
     final ColorScheme colorScheme = themeData.colorScheme;
 
-    final int numberOfDevicesInTheRoom = widget.entitiesInTheRoom.length;
+    final int numberOfDevicesInTheArea = widget.entitiesInTheArea.length;
 
     return AnimatedSize(
       duration: const Duration(milliseconds: 300),
@@ -45,9 +45,9 @@ class _RoomWidgetState extends State<RoomWidget> {
           TextButton(
             onPressed: () {
               context.router.push(
-                EntitiesInRoomRoute(
+                EntitiesInAreaRoute(
                   entityTypes: const {},
-                  roomEntity: widget.room,
+                  areaEntity: widget.area,
                 ),
               );
             },
@@ -56,7 +56,7 @@ class _RoomWidgetState extends State<RoomWidget> {
               child: Row(
                 children: [
                   TextAtom(
-                    widget.room.cbjEntityName.getOrCrash(),
+                    widget.area.cbjEntityName.getOrCrash(),
                     style: textTheme.headlineSmall!
                         .copyWith(color: colorScheme.secondary),
                   ),
@@ -64,8 +64,8 @@ class _RoomWidgetState extends State<RoomWidget> {
                     child: SizedBox(),
                   ),
                   TextAtom(
-                    numberOfDevicesInTheRoom >= 2
-                        ? numberOfDevicesInTheRoom.toString()
+                    numberOfDevicesInTheArea >= 2
+                        ? numberOfDevicesInTheArea.toString()
                         : '',
                     style: textTheme.bodyLarge,
                   ),
@@ -78,9 +78,9 @@ class _RoomWidgetState extends State<RoomWidget> {
             HashSet.from(widget.entities.values),
             (entity) {
               context.router.push(
-                EntitiesInRoomRoute(
+                EntitiesInAreaRoute(
                   entityTypes: entity,
-                  roomEntity: widget.room,
+                  areaEntity: widget.area,
                 ),
               );
             },

@@ -11,7 +11,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-/// Show light toggles in a container with the background color from smart room
+/// Show light toggles in a container with the background color from smart area
 /// object
 class BlindMolecule extends StatefulWidget {
   const BlindMolecule(this.entity);

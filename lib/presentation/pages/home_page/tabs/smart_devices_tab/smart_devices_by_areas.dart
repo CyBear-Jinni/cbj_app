@@ -1,30 +1,30 @@
 import 'dart:async';
 import 'dart:collection';
 
+import 'package:cbj_integrations_controller/domain/area/area_entity.dart';
+import 'package:cbj_integrations_controller/domain/area/value_objects_area.dart';
 import 'package:cbj_integrations_controller/domain/core/request_types.dart';
-import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
-import 'package:cbj_integrations_controller/domain/room/value_objects_room.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
 import 'package:cybearjinni/domain/connections_service.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/core/snack_bar_service.dart';
 import 'package:cybearjinni/presentation/organisms/organisms.dart';
-import 'package:cybearjinni/presentation/pages/home_page/tabs/smart_devices_tab/rooms_widgets/rooms_list_view_widget.dart';
+import 'package:cybearjinni/presentation/pages/home_page/tabs/smart_devices_tab/areas_widgets/areas_list_view_widget.dart';
 import 'package:flutter/material.dart';
 
-class SmartDevicesByRooms extends StatefulWidget {
+class SmartDevicesByAreas extends StatefulWidget {
   @override
-  State<SmartDevicesByRooms> createState() => _SmartDevicesByRoomsState();
+  State<SmartDevicesByAreas> createState() => _SmartDevicesByAreasState();
 }
 
-class _SmartDevicesByRoomsState extends State<SmartDevicesByRooms> {
-  HashMap<String, RoomEntity> rooms = HashMap();
+class _SmartDevicesByAreasState extends State<SmartDevicesByAreas> {
+  HashMap<String, AreaEntity> areas = HashMap();
   HashMap<String, DeviceEntityBase> devices = HashMap();
 
   @override
   void initState() {
     super.initState();
-    addDiscoveredRoom();
+    addDiscoveredArea();
     _watchEntities();
   }
 
@@ -34,22 +34,22 @@ class _SmartDevicesByRoomsState extends State<SmartDevicesByRooms> {
     super.dispose();
   }
 
-  void addDiscoveredRoom() {
-    final RoomEntity discoveredRoom = RoomEntity(
-      uniqueId: RoomUniqueId.discovered(),
-      cbjEntityName: RoomDefaultName('Discovered'),
-      roomTypes: RoomTypes(const {}),
-      roomDevicesId: RoomDevicesId(const {}),
-      roomScenesId: RoomScenesId(const {}),
-      roomRoutinesId: RoomRoutinesId(const {}),
-      roomBindingsId: RoomBindingsId(const {}),
-      roomMostUsedBy: RoomMostUsedBy(const {}),
-      roomPermissions: RoomPermissions(const {}),
-      background: RoomBackground(
+  void addDiscoveredArea() {
+    final AreaEntity discoveredArea = AreaEntity(
+      uniqueId: AreaUniqueId.discovered(),
+      cbjEntityName: AreaDefaultName('Discovered'),
+      areaTypes: AreaTypes(const {}),
+      areaDevicesId: AreaDevicesId(const {}),
+      areaScenesId: AreaScenesId(const {}),
+      areaRoutinesId: AreaRoutinesId(const {}),
+      areaBindingsId: AreaBindingsId(const {}),
+      areaMostUsedBy: AreaMostUsedBy(const {}),
+      areaPermissions: AreaPermissions(const {}),
+      background: AreaBackground(
         'https://images.pexels.com/photos/459654/pexels-photo-459654.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
       ),
     );
-    rooms[RoomUniqueId.discovered().getOrCrash()] = discoveredRoom;
+    areas[AreaUniqueId.discovered().getOrCrash()] = discoveredArea;
   }
 
   StreamSubscription<MapEntry<String, DeviceEntityBase>>? entitiesStream;
@@ -65,38 +65,38 @@ class _SmartDevicesByRoomsState extends State<SmartDevicesByRooms> {
         return;
       }
 
-      final RoomEntity? discoverRoom = rooms[RoomUniqueId.discovereId];
+      final AreaEntity? discoverArea = areas[AreaUniqueId.discovereId];
 
-      if (discoverRoom == null) {
+      if (discoverArea == null) {
         return;
       }
-      discoverRoom.addDeviceId(entityEntery.key);
+      discoverArea.addDeviceId(entityEntery.key);
 
       setState(() {
-        rooms[RoomUniqueId.discovered().getOrCrash()] = discoverRoom;
+        areas[AreaUniqueId.discovered().getOrCrash()] = discoverArea;
         devices.addEntries([entityEntery]);
       });
     });
-    _initialzeRoomsAndDevices();
+    _initialzeAreasAndDevices();
   }
 
-  Future<void> _initialzeRoomsAndDevices() async {
+  Future<void> _initialzeAreasAndDevices() async {
     final HashMap<String, DeviceEntityBase> allDevice =
         await ConnectionsService.instance.getAllEntities;
 
     final HashMap<String, DeviceEntityBase> supportedEntities =
         getSupportedEnities(allDevice);
-    final RoomEntity? tempDiscoverRoom =
-        rooms[RoomUniqueId.discovered().getOrCrash()];
-    if (tempDiscoverRoom == null) {
+    final AreaEntity? tempDiscoverArea =
+        areas[AreaUniqueId.discovered().getOrCrash()];
+    if (tempDiscoverArea == null) {
       return;
     }
     for (final String deviceId in supportedEntities.keys) {
-      tempDiscoverRoom.addDeviceId(deviceId);
+      tempDiscoverArea.addDeviceId(deviceId);
     }
 
     setState(() {
-      rooms[RoomUniqueId.discovered().getOrCrash()] = tempDiscoverRoom;
+      areas[AreaUniqueId.discovered().getOrCrash()] = tempDiscoverArea;
       devices.addAll(supportedEntities);
     });
   }
@@ -117,7 +117,7 @@ class _SmartDevicesByRoomsState extends State<SmartDevicesByRooms> {
 
   @override
   Widget build(BuildContext context) {
-    if (devices.isEmpty || rooms.isEmpty) {
+    if (devices.isEmpty || areas.isEmpty) {
       return GestureDetector(
         onTap: () {
           SnackBarService().show(
@@ -125,7 +125,7 @@ class _SmartDevicesByRoomsState extends State<SmartDevicesByRooms> {
             'Add new device by pressing the plus button',
           );
         },
-        child: EmptyOpenRoomOrganism(),
+        child: EmptyOpenAreaOrganism(),
       );
     }
 
@@ -144,9 +144,9 @@ class _SmartDevicesByRoomsState extends State<SmartDevicesByRooms> {
           ),
           const SeparatorAtom(variant: SeparatorVariant.farAppart),
           MarginedExpandedAtom(
-            child: RoomsListViewWidget(
+            child: AreasListViewWidget(
               entities: devices,
-              rooms: rooms,
+              areas: areas,
             ),
           ),
         ],

@@ -26,7 +26,7 @@ class ComputerConnectionCheckWidget extends StatefulWidget {
   final CbjCompEntity cbjCompEntity;
 
   static String deviceNameFieldKey = 'deviceNameField';
-  static String devicesDefaultRoomNameField = '';
+  static String devicesDefaultAreaNameField = '';
 
   @override
   State<ComputerConnectionCheckWidget> createState() =>
@@ -111,7 +111,7 @@ class _ComputerConnectionCheckWidgetState
         ConfigureNewCbjCompWidgets.deviceNameFieldKey;
     final List<GenericLightDE> deviceEntityList = [];
 
-    textEditingController['allInSameRoom']!.text;
+    textEditingController['allInSameArea']!.text;
 
     final ManageNetworkEntity manageWiFiEntity =
         IManageNetworkRepository.manageWiFiEntity!;

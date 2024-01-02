@@ -12,7 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-/// Show light toggles in a container with the background color from smart room
+/// Show light toggles in a container with the background color from smart area
 /// object
 class RgbwLightMolecule extends StatefulWidget {
   const RgbwLightMolecule(this.entity);

@@ -29,7 +29,7 @@ class ConfigureNewCbjCompWidgets extends StatefulWidget {
   final CbjCompEntity cbjCompEntity;
 
   static String deviceNameFieldKey = 'deviceNameField';
-  static String devicesDefaultRoomNameField = '';
+  static String devicesDefaultAreaNameField = '';
 
   @override
   State<ConfigureNewCbjCompWidgets> createState() =>
@@ -100,7 +100,7 @@ class _ConfigureNewCbjCompWidgetsState
         ConfigureNewCbjCompWidgets.deviceNameFieldKey;
     final List<GenericLightDE> deviceEntityList = [];
 
-    textEditingController['allInSameRoom']!.text;
+    textEditingController['allInSameArea']!.text;
 
     final ManageNetworkEntity manageWiFiEntity =
         IManageNetworkRepository.manageWiFiEntity!;
@@ -236,7 +236,7 @@ class _ConfigureNewCbjCompWidgetsState
                     ),
                     autocorrect: false,
                     onChanged: (value) {
-                      // roomName = value;
+                      // areaName = value;
                     },
                   ),
                 ),
@@ -276,7 +276,7 @@ class _ConfigureNewCbjCompWidgetsState
   @override
   Widget build(BuildContext context) {
     final Map<String, TextEditingController> textEditingController = {};
-    textEditingController['allInSameRoom'] = TextEditingController();
+    textEditingController['allInSameArea'] = TextEditingController();
 
     switch (state) {
       case ConfigureNewCbjCompState.actionInProgress:

@@ -10,7 +10,7 @@ import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
 import 'package:dartz/dartz.dart' as dartz;
 import 'package:flutter/material.dart';
 
-/// Show light toggles in a container with the background color from smart room
+/// Show light toggles in a container with the background color from smart area
 /// object
 class ScanForNewCBJCompsWidget extends StatefulWidget {
   @override

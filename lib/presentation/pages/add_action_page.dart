@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cbj_integrations_controller/domain/room/i_room_repository.dart';
-import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
+import 'package:cbj_integrations_controller/domain/area/area_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
 import 'package:cybearjinni/domain/device/i_device_repository.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
@@ -38,7 +37,7 @@ class ActionChooseInformation extends StatefulWidget {
 }
 
 class _ActionChooseInformationState extends State<ActionChooseInformation> {
-  List<RoomEntity> _allRooms = [];
+  List<AreaEntity> _allAreas = [];
   List<DeviceEntityBase> _allEntities = [];
 
   String actionsName = '';
@@ -57,11 +56,11 @@ class _ActionChooseInformationState extends State<ActionChooseInformation> {
   }
 
   Future<void> _initialized() async {
-    List<RoomEntity?> allRoomsTemp = [];
-    IRoomRepository.instance.getAllRooms().fold((l) => null, (r) {
-      allRoomsTemp = List<RoomEntity?>.from(r.iter);
-    });
-    allRoomsTemp.removeWhere((element) => element == null);
+    final List<AreaEntity?> allAreasTemp = [];
+    // IAreaRepository.instance.getAllAreas().fold((l) => null, (r) {
+    //   allAreasTemp = List<AreaEntity?>.from(r.iter);
+    // });
+    allAreasTemp.removeWhere((element) => element == null);
 
     List<DeviceEntityBase?> allEntitiesTemp = [];
     (await IDeviceRepository.instance.getAllEntites()).fold((l) => null, (r) {
@@ -69,7 +68,7 @@ class _ActionChooseInformationState extends State<ActionChooseInformation> {
     });
     allEntitiesTemp.removeWhere((element) => element == null);
     setState(() {
-      _allRooms = allRoomsTemp.map((e) => e!).toList();
+      _allAreas = allAreasTemp.map((e) => e!).toList();
       _allEntities = allEntitiesTemp.map((e) => e!).toList();
     });
   }
@@ -131,7 +130,7 @@ class _ActionChooseInformationState extends State<ActionChooseInformation> {
 
   @override
   Widget build(BuildContext context) {
-    if (_allEntities.isEmpty || _allRooms.isEmpty) {
+    if (_allEntities.isEmpty || _allAreas.isEmpty) {
       return const Expanded(
         child: Center(
           child: TextAtom(

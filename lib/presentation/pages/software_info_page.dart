@@ -51,7 +51,7 @@ class SoftwareInfoPage extends StatelessWidget {
   }
 }
 
-/// Show light toggles in a container with the background color from smart room
+/// Show light toggles in a container with the background color from smart area
 /// object
 class SoftwareInfoWidget extends StatefulWidget {
   @override

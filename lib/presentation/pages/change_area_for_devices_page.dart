@@ -1,9 +1,7 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cbj_integrations_controller/domain/room/i_room_repository.dart';
-import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
-import 'package:cbj_integrations_controller/domain/room/value_objects_room.dart';
+import 'package:cbj_integrations_controller/domain/area/area_entity.dart';
+import 'package:cbj_integrations_controller/domain/area/value_objects_area.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
-import 'package:cybearjinni/domain/device/i_device_repository.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
 import 'package:cybearjinni/presentation/core/snack_bar_service.dart';
@@ -14,7 +12,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
 
 @RoutePage()
-class ChangeRoomForDevicesPage extends StatelessWidget {
+class ChangeAreaForDevicesPage extends StatelessWidget {
   void backButtonFunction(BuildContext context) {
     context.router.pop();
   }
@@ -29,84 +27,84 @@ class ChangeRoomForDevicesPage extends StatelessWidget {
             leftIcon: FontAwesomeIcons.arrowLeft,
             leftIconFunction: backButtonFunction,
           ),
-          ChangeRoomForDevicesWidget(),
+          ChangeAreaForDevicesWidget(),
         ],
       ),
     );
   }
 }
 
-class ChangeRoomForDevicesWidget extends StatefulWidget {
+class ChangeAreaForDevicesWidget extends StatefulWidget {
   @override
-  State<ChangeRoomForDevicesWidget> createState() =>
-      _ChangeRoomForDevicesWidgetState();
+  State<ChangeAreaForDevicesWidget> createState() =>
+      _ChangeAreaForDevicesWidgetState();
 }
 
-class _ChangeRoomForDevicesWidgetState
-    extends State<ChangeRoomForDevicesWidget> {
-  Set<RoomEntity?> _allRooms = {};
-  Set<DeviceEntityBase?> _allDevices = {};
-  RoomUniqueId roomUniqueId = RoomUniqueId();
-  RoomDefaultName cbjEntityName = RoomDefaultName('');
-  RoomBackground background = RoomBackground(
+class _ChangeAreaForDevicesWidgetState
+    extends State<ChangeAreaForDevicesWidget> {
+  final Set<AreaEntity?> _allAreas = {};
+  final Set<DeviceEntityBase?> _allDevices = {};
+  AreaUniqueId areaUniqueId = AreaUniqueId();
+  AreaDefaultName cbjEntityName = AreaDefaultName('');
+  AreaBackground background = AreaBackground(
     'https://live.staticflickr.com/5220/5486044345_f67abff3e9_h.jpg',
   );
-  RoomTypes roomTypes = RoomTypes(const {});
-  RoomDevicesId roomDevicesId = RoomDevicesId(const {});
-  RoomScenesId roomScenesId = RoomScenesId(const {});
-  RoomRoutinesId roomRoutinesId = RoomRoutinesId(const {});
-  RoomBindingsId roomBindingsId = RoomBindingsId(const {});
-  RoomMostUsedBy roomMostUsedBy = RoomMostUsedBy(const {});
-  RoomPermissions roomPermissions = RoomPermissions(const {});
+  AreaTypes areaTypes = AreaTypes(const {});
+  AreaDevicesId areaDevicesId = AreaDevicesId(const {});
+  AreaScenesId areaScenesId = AreaScenesId(const {});
+  AreaRoutinesId areaRoutinesId = AreaRoutinesId(const {});
+  AreaBindingsId areaBindingsId = AreaBindingsId(const {});
+  AreaMostUsedBy areaMostUsedBy = AreaMostUsedBy(const {});
+  AreaPermissions areaPermissions = AreaPermissions(const {});
   bool showErrorMessages = false;
   bool isSubmitting = false;
   dartz.Option authFailureOrSuccessOption = dartz.none();
 
-  @override
-  void initState() {
-    super.initState();
-    _initialized();
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   _initialized();
+  // }
+
+  // Future<void> _initialized() async {
+  //   IAreaRepository.instance.getAllAreas().fold((l) => null, (r) {
+  //     _allAreas = Set<AreaEntity>.from(r.iter);
+  //   });
+
+  //   (await IDeviceRepository.instance.getAllEntites()).fold((l) => null, (r) {
+  //     _allDevices = Set<DeviceEntityBase>.from(r.iter);
+  //   });
+  //   _allAreas.removeWhere((element) => element == null);
+  //   _allDevices.removeWhere((element) => element == null);
+  //   setState(() {
+  //     _allAreas = _allAreas as Set<AreaEntity>;
+  //     _allDevices = _allDevices as Set<DeviceEntityBase>;
+  //   });
+  // }
+
+  Future<void> _changeAreaDevices() async {
+    // final AreaEntity areaEntity = AreaEntity(
+    //   uniqueId: AreaUniqueId.fromUniqueString(areaUniqueId.getOrCrash()),
+    //   cbjEntityName: AreaDefaultName(cbjEntityName.getOrCrash()),
+    //   background: AreaBackground(background.getOrCrash()),
+    //   areaTypes: AreaTypes(areaTypes.getOrCrash()),
+    //   areaDevicesId: AreaDevicesId(areaDevicesId.getOrCrash()),
+    //   areaScenesId: AreaScenesId(areaScenesId.getOrCrash()),
+    //   areaRoutinesId: AreaRoutinesId(areaRoutinesId.getOrCrash()),
+    //   areaBindingsId: AreaBindingsId(areaBindingsId.getOrCrash()),
+    //   areaMostUsedBy: AreaMostUsedBy(areaMostUsedBy.getOrCrash()),
+    //   areaPermissions: AreaPermissions(areaPermissions.getOrCrash()),
+    // );
+
+    // IAreaRepository.instance.create(areaEntity);
   }
 
-  Future<void> _initialized() async {
-    IRoomRepository.instance.getAllRooms().fold((l) => null, (r) {
-      _allRooms = Set<RoomEntity>.from(r.iter);
-    });
-
-    (await IDeviceRepository.instance.getAllEntites()).fold((l) => null, (r) {
-      _allDevices = Set<DeviceEntityBase>.from(r.iter);
-    });
-    _allRooms.removeWhere((element) => element == null);
-    _allDevices.removeWhere((element) => element == null);
-    setState(() {
-      _allRooms = _allRooms as Set<RoomEntity>;
-      _allDevices = _allDevices as Set<DeviceEntityBase>;
-    });
-  }
-
-  Future<void> _changeRoomDevices() async {
-    final RoomEntity roomEntity = RoomEntity(
-      uniqueId: RoomUniqueId.fromUniqueString(roomUniqueId.getOrCrash()),
-      cbjEntityName: RoomDefaultName(cbjEntityName.getOrCrash()),
-      background: RoomBackground(background.getOrCrash()),
-      roomTypes: RoomTypes(roomTypes.getOrCrash()),
-      roomDevicesId: RoomDevicesId(roomDevicesId.getOrCrash()),
-      roomScenesId: RoomScenesId(roomScenesId.getOrCrash()),
-      roomRoutinesId: RoomRoutinesId(roomRoutinesId.getOrCrash()),
-      roomBindingsId: RoomBindingsId(roomBindingsId.getOrCrash()),
-      roomMostUsedBy: RoomMostUsedBy(roomMostUsedBy.getOrCrash()),
-      roomPermissions: RoomPermissions(roomPermissions.getOrCrash()),
-    );
-
-    IRoomRepository.instance.create(roomEntity);
-  }
-
-  Future<void> _roomIdChanged(String value) async {
-    for (final RoomEntity? roomEntity in _allRooms) {
-      if (roomEntity != null && roomEntity.uniqueId.getOrCrash() == value) {
+  Future<void> _areaIdChanged(String value) async {
+    for (final AreaEntity? areaEntity in _allAreas) {
+      if (areaEntity != null && areaEntity.uniqueId.getOrCrash() == value) {
         setState(() {
-          roomUniqueId = roomEntity.uniqueId;
-          cbjEntityName = roomEntity.cbjEntityName;
+          areaUniqueId = areaEntity.uniqueId;
+          cbjEntityName = areaEntity.cbjEntityName;
           authFailureOrSuccessOption = dartz.none();
         });
 
@@ -115,9 +113,9 @@ class _ChangeRoomForDevicesWidgetState
     }
   }
 
-  Future<void> _roomDevicesIdChanged(Set<String> value) async {
+  Future<void> _areaDevicesIdChanged(Set<String> value) async {
     setState(() {
-      roomDevicesId = RoomDevicesId(value);
+      areaDevicesId = AreaDevicesId(value);
       authFailureOrSuccessOption = dartz.none();
     });
   }
@@ -141,7 +139,7 @@ class _ChangeRoomForDevicesWidgetState
               ),
               TextButton(
                 onPressed: () {
-                  context.router.push(const AddNewRoomRoute());
+                  context.router.push(const AddNewAreaRoute());
                 },
                 child: const TextAtom(
                   'Add New Area',
@@ -167,9 +165,9 @@ class _ChangeRoomForDevicesWidgetState
               height: 2,
             ),
             onChanged: (value) {
-              _roomIdChanged(value!);
+              _areaIdChanged(value!);
             },
-            items: _allRooms.map<DropdownMenuItem<String>>((e) {
+            items: _allAreas.map<DropdownMenuItem<String>>((e) {
               //     .map<DropdownMenuItem<String>>((String value) {
               return DropdownMenuItem<String>(
                 value: e?.uniqueId.getOrCrash(),
@@ -202,7 +200,7 @@ class _ChangeRoomForDevicesWidgetState
                 ),
                 listType: MultiSelectListType.CHIP,
                 onConfirm: (List<String?> values) {
-                  _roomDevicesIdChanged(
+                  _areaDevicesIdChanged(
                     Set<String>.from(values),
                   );
                 },
@@ -218,7 +216,7 @@ class _ChangeRoomForDevicesWidgetState
                     context,
                     'Changing devices for area',
                   );
-                  _changeRoomDevices();
+                  _changeAreaDevices();
                 },
                 child: const TextAtom(
                   'Done',

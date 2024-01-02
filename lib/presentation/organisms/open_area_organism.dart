@@ -1,32 +1,32 @@
+import 'package:cbj_integrations_controller/domain/area/area_entity.dart';
 import 'package:cbj_integrations_controller/domain/core/request_types.dart';
-import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:cybearjinni/presentation/organisms/organisms.dart';
 import 'package:flutter/material.dart';
 
-class OpenRoomOrganism extends StatefulWidget {
-  const OpenRoomOrganism({
-    required this.roomEntity,
+class OpenAreaOrganism extends StatefulWidget {
+  const OpenAreaOrganism({
+    required this.areaEntity,
     required this.entityTypes,
     required this.devices,
   });
 
-  /// If it have value will only show Printers in this room
-  final RoomEntity roomEntity;
+  /// If it have value will only show Printers in this area
+  final AreaEntity areaEntity;
   final Set<EntityTypes> entityTypes;
   final Set<DeviceEntityBase> devices;
 
   @override
-  State<OpenRoomOrganism> createState() => _OpenRoomOrganismState();
+  State<OpenAreaOrganism> createState() => _OpenAreaOrganismState();
 }
 
-class _OpenRoomOrganismState extends State<OpenRoomOrganism> {
+class _OpenAreaOrganismState extends State<OpenAreaOrganism> {
   @override
   Widget build(BuildContext context) {
     if (widget.devices.isEmpty) {
-      return EmptyOpenRoomOrganism();
+      return EmptyOpenAreaOrganism();
     }
 
     return Container(

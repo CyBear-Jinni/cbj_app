@@ -2,8 +2,8 @@ import 'dart:async';
 import 'dart:collection';
 import 'dart:io';
 
+import 'package:cbj_integrations_controller/domain/area/area_entity.dart';
 import 'package:cbj_integrations_controller/domain/core/request_types.dart';
-import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
 import 'package:cbj_integrations_controller/infrastructure/devices/device_helper/device_helper.dart';
 import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
 import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
@@ -178,8 +178,8 @@ abstract interface class IDeviceRepository {
   BehaviorSubject<KtList<dynamic>> allResponseFromTheHubStreamController =
       BehaviorSubject<KtList<dynamic>>();
 
-  BehaviorSubject<KtList<RoomEntity>> roomsResponseFromTheHubStreamController =
-      BehaviorSubject<KtList<RoomEntity>>();
+  BehaviorSubject<KtList<AreaEntity>> areasResponseFromTheHubStreamController =
+      BehaviorSubject<KtList<AreaEntity>>();
 
   BehaviorSubject<KtList<DeviceEntityBase>>
       devicesResponseFromTheHubStreamController =

@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-/// Show switch toggles in a container with the background color from smart room
+/// Show switch toggles in a container with the background color from smart area
 /// object
 class PrinterMolecule extends StatefulWidget {
   const PrinterMolecule(this.entity);

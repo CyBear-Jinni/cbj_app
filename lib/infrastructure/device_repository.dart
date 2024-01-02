@@ -8,8 +8,8 @@ class _DeviceRepository implements IDeviceRepository {
 
   // @override
   // void addOrUpdateFromApp(dynamic entity) {
-  //   if (entity is RoomEntity) {
-  //     _addOrUpdateRoom(entity);
+  //   if (entity is AreaEntity) {
+  //     _addOrUpdateArea(entity);
   //   } else if (entity is DeviceEntityBase) {
   //     _addOrUpdateDevice(entity);
   //   } else {
@@ -1247,6 +1247,6 @@ class _DeviceRepository implements IDeviceRepository {
       BehaviorSubject<KtList<DeviceEntityBase>>();
 
   @override
-  BehaviorSubject<KtList<RoomEntity>> roomsResponseFromTheHubStreamController =
-      BehaviorSubject<KtList<RoomEntity>>();
+  BehaviorSubject<KtList<AreaEntity>> areasResponseFromTheHubStreamController =
+      BehaviorSubject<KtList<AreaEntity>>();
 }

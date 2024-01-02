@@ -56,7 +56,7 @@ class _AddSceneWidgetState extends State<AddSceneWidget> {
       sceneName,
       allDevicesWithNewAction,
       // TODO: Check what value to use
-      AreaPurposesTypes.laundryRoom,
+      AreaPurposesTypes.laundryArea,
     );
   }
 

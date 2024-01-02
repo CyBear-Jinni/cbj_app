@@ -11,7 +11,7 @@ import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-/// Show switch toggles in a container with the background color from smart room
+/// Show switch toggles in a container with the background color from smart area
 /// object
 class SmartTvMolecule extends StatefulWidget {
   const SmartTvMolecule(this.entity);
@@ -219,64 +219,6 @@ class _SmartTvMoleculeState extends State<SmartTvMolecule> {
                         ),
                       ),
                     ),
-                    onPressed: onPause,
-                    child: Tab(
-                      icon: FaIcon(
-                        FontAwesomeIcons.pause,
-                        color: Theme.of(context).textTheme.bodyLarge!.color,
-                      ),
-                      child: TextAtom(
-                        'YouTube Pause',
-                        style: TextStyle(
-                          color: Theme.of(context).textTheme.bodyLarge!.color,
-                          fontSize: 16,
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SeparatorAtom(variant: SeparatorVariant.closeWidgets),
-                  TextButton(
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(
-                        Colors.grey,
-                      ),
-                      side: MaterialStateProperty.all(
-                        BorderSide.lerp(
-                          const BorderSide(color: Colors.white60),
-                          const BorderSide(color: Colors.white60),
-                          22,
-                        ),
-                      ),
-                    ),
-                    onPressed: onPlay,
-                    child: Tab(
-                      icon: FaIcon(
-                        FontAwesomeIcons.play,
-                        color: Theme.of(context).textTheme.bodyLarge!.color,
-                      ),
-                      child: TextAtom(
-                        'YouTube Play',
-                        style: TextStyle(
-                          color: Theme.of(context).textTheme.bodyLarge!.color,
-                          fontSize: 16,
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SeparatorAtom(),
-                  TextButton(
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(
-                        Colors.grey,
-                      ),
-                      side: MaterialStateProperty.all(
-                        BorderSide.lerp(
-                          const BorderSide(color: Colors.white60),
-                          const BorderSide(color: Colors.white60),
-                          22,
-                        ),
-                      ),
-                    ),
                     onPressed: onVolumeDown,
                     child: Tab(
                       icon: FaIcon(
@@ -372,6 +314,64 @@ class _SmartTvMoleculeState extends State<SmartTvMolecule> {
                       ),
                       child: TextAtom(
                         'Video',
+                        style: TextStyle(
+                          color: Theme.of(context).textTheme.bodyLarge!.color,
+                          fontSize: 16,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SeparatorAtom(),
+                  TextButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(
+                        Colors.grey,
+                      ),
+                      side: MaterialStateProperty.all(
+                        BorderSide.lerp(
+                          const BorderSide(color: Colors.white60),
+                          const BorderSide(color: Colors.white60),
+                          22,
+                        ),
+                      ),
+                    ),
+                    onPressed: onPause,
+                    child: Tab(
+                      icon: FaIcon(
+                        FontAwesomeIcons.pause,
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
+                      ),
+                      child: TextAtom(
+                        'YouTube Pause',
+                        style: TextStyle(
+                          color: Theme.of(context).textTheme.bodyLarge!.color,
+                          fontSize: 16,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SeparatorAtom(variant: SeparatorVariant.closeWidgets),
+                  TextButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(
+                        Colors.grey,
+                      ),
+                      side: MaterialStateProperty.all(
+                        BorderSide.lerp(
+                          const BorderSide(color: Colors.white60),
+                          const BorderSide(color: Colors.white60),
+                          22,
+                        ),
+                      ),
+                    ),
+                    onPressed: onPlay,
+                    child: Tab(
+                      icon: FaIcon(
+                        FontAwesomeIcons.play,
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
+                      ),
+                      child: TextAtom(
+                        'YouTube Play',
                         style: TextStyle(
                           color: Theme.of(context).textTheme.bodyLarge!.color,
                           fontSize: 16,
