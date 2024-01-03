@@ -35,7 +35,7 @@ class _EntitiesInAreaPageState extends State<EntitiesInAreaPage> {
     final Map<String, DeviceEntityBase> devicesMap =
         await ConnectionsService.instance.getAllEntities;
     final Set<String> deviceIdsInArea =
-        widget.areaEntity.areaDevicesId.getOrCrash();
+        widget.areaEntity.entitiesId.getOrCrash();
     final Set<EntityTypes> entityTypes = widget.entityTypes;
     final Set<DeviceEntityBase> tempDevices;
 

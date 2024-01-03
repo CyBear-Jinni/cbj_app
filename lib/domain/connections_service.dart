@@ -59,9 +59,17 @@ abstract interface class ConnectionsService {
     HashMap<ActionValues, dynamic>? value,
   });
 
+  Future setEtitiesToArea(String areaId, HashSet<String> entities);
+
   Future<HashMap<String, DeviceEntityBase>> get getAllEntities;
+
+  Future<HashMap<String, AreaEntity>> get getAllAreas;
 
   Stream<MapEntry<String, DeviceEntityBase>> watchEntities();
 
+  Stream<MapEntry<String, AreaEntity>> watchAreas();
+
   Future dispose();
+
+  Future setNewArea(AreaEntity area);
 }

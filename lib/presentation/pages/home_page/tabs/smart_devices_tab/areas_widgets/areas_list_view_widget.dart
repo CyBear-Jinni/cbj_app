@@ -1,6 +1,8 @@
 import 'dart:collection';
 
 import 'package:cbj_integrations_controller/integrations_controller.dart';
+import 'package:cybearjinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:cybearjinni/presentation/pages/home_page/tabs/smart_devices_tab/areas_widgets/area_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -17,8 +19,7 @@ class AreasListViewWidget extends StatelessWidget {
     final HashMap<String, Set<String>> devicesByAreas = HashMap();
 
     devicesByAreas.addAll(
-      areas
-          .map((key, value) => MapEntry(key, value.areaDevicesId.getOrCrash())),
+      areas.map((key, value) => MapEntry(key, value.entitiesId.getOrCrash())),
     );
     return devicesByAreas;
   }
@@ -28,10 +29,11 @@ class AreasListViewWidget extends StatelessWidget {
     final HashMap<String, Set<String>> devicesByAreas =
         initialzeEntitiesByAreas();
 
-    return ListView.builder(
+    return ListViewMolecule(
+      ListViewVeriant.separated,
+      separatorVariant: SeparatorVariant.generalSpacing,
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
-      padding: EdgeInsets.zero,
       itemBuilder: (context, index) {
         final String areaId = devicesByAreas.keys.elementAt(index);
         final Set<String>? entitiesInTheArea = devicesByAreas[areaId];
@@ -44,8 +46,9 @@ class AreasListViewWidget extends StatelessWidget {
         return AreaWidget(
           area: area,
           areas: areas,
-          entities: entities,
-          entitiesInTheArea: entitiesInTheArea,
+          entities: HashMap.fromEntries(
+            entitiesInTheArea.map((e) => MapEntry(e, entities[e]!)),
+          ),
         );
       },
       itemCount: devicesByAreas.length,

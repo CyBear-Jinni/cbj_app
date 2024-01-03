@@ -1,20 +1,18 @@
+import 'dart:collection';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/integrations_controller.dart';
+import 'package:cybearjinni/domain/connections_service.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
 import 'package:cybearjinni/presentation/core/snack_bar_service.dart';
 import 'package:cybearjinni/presentation/molecules/molecules.dart';
-import 'package:dartz/dartz.dart' as dartz;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
 
 @RoutePage()
 class ChangeAreaForDevicesPage extends StatelessWidget {
-  void backButtonFunction(BuildContext context) {
-    context.router.pop();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +21,7 @@ class ChangeAreaForDevicesPage extends StatelessWidget {
           TopBarMolecule(
             pageName: 'Change Area For Devices',
             leftIcon: FontAwesomeIcons.arrowLeft,
-            leftIconFunction: backButtonFunction,
+            leftIconFunction: context.router.pop,
           ),
           ChangeAreaForDevicesWidget(),
         ],
@@ -40,86 +38,64 @@ class ChangeAreaForDevicesWidget extends StatefulWidget {
 
 class _ChangeAreaForDevicesWidgetState
     extends State<ChangeAreaForDevicesWidget> {
-  final Set<AreaEntity?> _allAreas = {};
-  final Set<DeviceEntityBase?> _allDevices = {};
-  AreaUniqueId areaUniqueId = AreaUniqueId();
-  AreaDefaultName cbjEntityName = AreaDefaultName('');
+  HashMap<String, AreaEntity>? areas;
+  HashMap<String, DeviceEntityBase>? entities;
+  AreaEntity? selectedArea;
+  HashSet<String> selectedEntities = HashSet();
   AreaBackground background = AreaBackground(
     'https://live.staticflickr.com/5220/5486044345_f67abff3e9_h.jpg',
   );
-  AreaTypes areaTypes = AreaTypes(const {});
-  AreaDevicesId areaDevicesId = AreaDevicesId(const {});
-  AreaScenesId areaScenesId = AreaScenesId(const {});
-  AreaRoutinesId areaRoutinesId = AreaRoutinesId(const {});
-  AreaBindingsId areaBindingsId = AreaBindingsId(const {});
-  AreaMostUsedBy areaMostUsedBy = AreaMostUsedBy(const {});
-  AreaPermissions areaPermissions = AreaPermissions(const {});
-  bool showErrorMessages = false;
-  bool isSubmitting = false;
-  dartz.Option authFailureOrSuccessOption = dartz.none();
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   _initialized();
-  // }
-
-  // Future<void> _initialized() async {
-  //   IAreaRepository.instance.getAllAreas().fold((l) => null, (r) {
-  //     _allAreas = Set<AreaEntity>.from(r.iter);
-  //   });
-
-  //   (await IDeviceRepository.instance.getAllEntites()).fold((l) => null, (r) {
-  //     _allDevices = Set<DeviceEntityBase>.from(r.iter);
-  //   });
-  //   _allAreas.removeWhere((element) => element == null);
-  //   _allDevices.removeWhere((element) => element == null);
-  //   setState(() {
-  //     _allAreas = _allAreas as Set<AreaEntity>;
-  //     _allDevices = _allDevices as Set<DeviceEntityBase>;
-  //   });
-  // }
-
-  Future<void> _changeAreaDevices() async {
-    // final AreaEntity areaEntity = AreaEntity(
-    //   uniqueId: AreaUniqueId.fromUniqueString(areaUniqueId.getOrCrash()),
-    //   cbjEntityName: AreaDefaultName(cbjEntityName.getOrCrash()),
-    //   background: AreaBackground(background.getOrCrash()),
-    //   areaTypes: AreaTypes(areaTypes.getOrCrash()),
-    //   areaDevicesId: AreaDevicesId(areaDevicesId.getOrCrash()),
-    //   areaScenesId: AreaScenesId(areaScenesId.getOrCrash()),
-    //   areaRoutinesId: AreaRoutinesId(areaRoutinesId.getOrCrash()),
-    //   areaBindingsId: AreaBindingsId(areaBindingsId.getOrCrash()),
-    //   areaMostUsedBy: AreaMostUsedBy(areaMostUsedBy.getOrCrash()),
-    //   areaPermissions: AreaPermissions(areaPermissions.getOrCrash()),
-    // );
-
-    // IAreaRepository.instance.create(areaEntity);
+  @override
+  void initState() {
+    super.initState();
+    _initialized();
   }
 
-  Future<void> _areaIdChanged(String value) async {
-    for (final AreaEntity? areaEntity in _allAreas) {
-      if (areaEntity != null && areaEntity.uniqueId.getOrCrash() == value) {
-        setState(() {
-          areaUniqueId = areaEntity.uniqueId;
-          cbjEntityName = areaEntity.cbjEntityName;
-          authFailureOrSuccessOption = dartz.none();
-        });
-
-        return;
-      }
-    }
+  Future<void> _initialized() async {
+    getAreas();
+    getEntities();
   }
 
-  Future<void> _areaDevicesIdChanged(Set<String> value) async {
+  Future getAreas() async {
+    final HashMap<String, AreaEntity> areasTemp =
+        await ConnectionsService.instance.getAllAreas;
     setState(() {
-      areaDevicesId = AreaDevicesId(value);
-      authFailureOrSuccessOption = dartz.none();
+      areas = areasTemp;
     });
   }
 
+  Future getEntities() async {
+    final HashMap<String, DeviceEntityBase> entitiesTemp =
+        await ConnectionsService.instance.getAllEntities;
+    setState(() {
+      entities = entitiesTemp;
+    });
+  }
+
+  Future _addEtitiesToArea() async {
+    final String? id = selectedArea?.uniqueId.getOrCrash();
+    if (id == null) {
+      return;
+    }
+    ConnectionsService.instance.setEtitiesToArea(id, selectedEntities);
+  }
+
+  void onAreaSelected(String? value) {
+    setState(() {
+      selectedArea = areas?[value];
+    });
+  }
+
+  void onEntitiesSelected(List<String?> values) =>
+      selectedEntities = HashSet.from(values);
+
   @override
   Widget build(BuildContext context) {
+    if (areas == null || entities == null) {
+      return const CircularProgressIndicatorAtom();
+    }
+
     final Size screenSize = MediaQuery.of(context).size;
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 10),
@@ -136,8 +112,9 @@ class _ChangeAreaForDevicesWidgetState
                 style: TextStyle(fontSize: 27),
               ),
               TextButton(
-                onPressed: () {
-                  context.router.push(const AddNewAreaRoute());
+                onPressed: () async {
+                  await context.router.push(const AddNewAreaRoute());
+                  getAreas();
                 },
                 child: const TextAtom(
                   'Add New Area',
@@ -154,22 +131,17 @@ class _ChangeAreaForDevicesWidgetState
             dropdownColor: Colors.black,
             icon: const Icon(Icons.arrow_drop_down),
             hint: TextAtom(
-              cbjEntityName.isValid()
-                  ? cbjEntityName.getOrCrash()
-                  : 'Choose Area',
+              selectedArea?.cbjEntityName.getOrCrash() ?? 'Choose Area',
             ),
             elevation: 16,
             underline: Container(
               height: 2,
             ),
-            onChanged: (value) {
-              _areaIdChanged(value!);
-            },
-            items: _allAreas.map<DropdownMenuItem<String>>((e) {
-              //     .map<DropdownMenuItem<String>>((String value) {
+            onChanged: onAreaSelected,
+            items: areas!.values.map<DropdownMenuItem<String>>((e) {
               return DropdownMenuItem<String>(
-                value: e?.uniqueId.getOrCrash(),
-                child: TextAtom(e?.cbjEntityName.getOrCrash() ?? ''),
+                value: e.uniqueId.getOrCrash(),
+                child: TextAtom(e.cbjEntityName.getOrCrash()),
               );
             }).toList(),
           ),
@@ -188,20 +160,18 @@ class _ChangeAreaForDevicesWidgetState
             constraints: BoxConstraints(maxHeight: screenSize.height * 0.5),
             child: SingleChildScrollView(
               child: MultiSelectDialogField(
+                initialValue: selectedArea?.entitiesId.getOrCrash().toList() ??
+                    List<String>.empty(),
                 items: List<MultiSelectItem<String?>>.of(
-                  _allDevices.map(
+                  entities!.values.map(
                     (e) => MultiSelectItem(
-                      e?.uniqueId.getOrCrash(),
-                      e?.cbjEntityName.getOrCrash()! ?? '',
+                      e.getCbjDeviceId,
+                      e.cbjEntityName.getOrCrash()!,
                     ),
                   ),
                 ),
                 listType: MultiSelectListType.CHIP,
-                onConfirm: (List<String?> values) {
-                  _areaDevicesIdChanged(
-                    Set<String>.from(values),
-                  );
-                },
+                onConfirm: onEntitiesSelected,
               ),
             ),
           ),
@@ -214,10 +184,10 @@ class _ChangeAreaForDevicesWidgetState
                     context,
                     'Changing devices for area',
                   );
-                  _changeAreaDevices();
+                  _addEtitiesToArea();
                 },
                 child: const TextAtom(
-                  'Done',
+                  'Save',
                   style: TextStyle(fontSize: 20),
                 ),
               ),

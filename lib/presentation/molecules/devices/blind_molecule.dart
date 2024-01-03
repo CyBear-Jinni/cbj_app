@@ -28,7 +28,6 @@ class _BlindMoleculeState extends State<BlindMolecule> {
     ).show(context);
 
     setEntityState(EntityActions.moveUp);
-    // IDeviceRepository.instance.moveUpStateDevices(devicesId: blindsIdToTurnUp);
   }
 
   void setEntityState(EntityActions action) {
@@ -64,8 +63,6 @@ class _BlindMoleculeState extends State<BlindMolecule> {
     ).show(context);
 
     setEntityState(EntityActions.stop);
-
-    // IDeviceRepository.instance.stopStateDevices(devicesId: blindsIdToStop);
   }
 
   Future<void> _moveDownAllBlinds(List<String> blindsIdToTurnDown) async {
@@ -75,9 +72,6 @@ class _BlindMoleculeState extends State<BlindMolecule> {
     ).show(context);
 
     setEntityState(EntityActions.moveDown);
-
-    // IDeviceRepository.instance
-    // .moveDownStateDevices(devicesId: blindsIdToTurnDown);
   }
 
   @override

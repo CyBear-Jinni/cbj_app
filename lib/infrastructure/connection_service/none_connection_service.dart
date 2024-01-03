@@ -1,16 +1,20 @@
 part of 'package:cybearjinni/domain/connections_service.dart';
 
 class _NoneConnectionService implements ConnectionsService {
-  StreamController<MapEntry<String, DeviceEntityBase>>? stream;
+  StreamController<MapEntry<String, DeviceEntityBase>>? entitiesStream;
+  StreamController<MapEntry<String, AreaEntity>>? areasStream;
 
   @override
   Future dispose() async {
-    stream?.close();
+    entitiesStream?.close();
   }
 
   @override
   Future<HashMap<String, DeviceEntityBase>> get getAllEntities async =>
       HashMap();
+
+  @override
+  Future<HashMap<String, AreaEntity>> get getAllAreas async => HashMap();
 
   @override
   Future searchDevices() async {}
@@ -25,9 +29,23 @@ class _NoneConnectionService implements ConnectionsService {
 
   @override
   Stream<MapEntry<String, DeviceEntityBase>> watchEntities() {
-    stream?.close();
+    entitiesStream?.close();
 
-    stream = StreamController.broadcast();
-    return stream!.stream;
+    entitiesStream = StreamController.broadcast();
+    return entitiesStream!.stream;
   }
+
+  @override
+  Stream<MapEntry<String, AreaEntity>> watchAreas() {
+    areasStream?.close();
+
+    areasStream = StreamController.broadcast();
+    return areasStream!.stream;
+  }
+
+  @override
+  Future setNewArea(AreaEntity area) async {}
+
+  @override
+  Future setEtitiesToArea(String areaId, HashSet entities) async {}
 }

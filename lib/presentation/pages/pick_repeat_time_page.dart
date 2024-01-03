@@ -121,9 +121,9 @@ class PickRepeatTimePage extends StatelessWidget {
                                 minutesToRepeat != null) {
                               context.router.push(
                                 AddRoutineRoute(
-                                  daysToRepeat: daysToRepeat,
-                                  hourToRepeat: hourToRepeat,
-                                  minutesToRepeat: minutesToRepeat,
+                                  daysToRepeat: daysToRepeat!,
+                                  hourToRepeat: hourToRepeat!,
+                                  minutesToRepeat: minutesToRepeat!,
                                 ),
                               );
                             } else {

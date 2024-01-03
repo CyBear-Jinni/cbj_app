@@ -3,7 +3,7 @@ import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
 import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:cybearjinni/presentation/pages/home_page/tabs/scenes_in_folders_tab/scenes_in_folders_tab.dart';
-import 'package:cybearjinni/presentation/pages/home_page/tabs/smart_devices_tab/smart_devices_widgets.dart';
+import 'package:cybearjinni/presentation/pages/home_page/tabs/smart_devices_tab/entities_by_area_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -25,7 +25,7 @@ class _HomePageState extends State<HomePage> {
   int _currentTabNum = 1;
   final _pages = [
     ScenesInFoldersTab(),
-    SmartDevicesWidgets(),
+    EntitiesByAreaTab(),
     // BindingsPage(),
   ];
   final _pageController = PageController(initialPage: 1);

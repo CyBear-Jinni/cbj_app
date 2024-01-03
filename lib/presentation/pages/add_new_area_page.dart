@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/integrations_controller.dart';
+import 'package:cybearjinni/domain/connections_service.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/core/snack_bar_service.dart';
-import 'package:dartz/dartz.dart' as dartz;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -35,7 +35,7 @@ class _AddNewAreaFormState extends State<AddNewAreaForm> {
     'https://live.staticflickr.com/5220/5486044345_f67abff3e9_h.jpg',
   );
   AreaTypes areaTypes = AreaTypes(const {});
-  AreaDevicesId areaDevicesId = AreaDevicesId(const {});
+  AreaEntitiesId areaDevicesId = AreaEntitiesId(const {});
   AreaScenesId areaScenesId = AreaScenesId(const {});
   AreaRoutinesId areaRoutinesId = AreaRoutinesId(const {});
   AreaBindingsId areaBindingsId = AreaBindingsId(const {});
@@ -43,7 +43,6 @@ class _AddNewAreaFormState extends State<AddNewAreaForm> {
   AreaPermissions areaPermissions = AreaPermissions(const {});
   bool showErrorMessages = false;
   bool isSubmitting = false;
-  dartz.Option authFailureOrSuccessOption = dartz.none();
 
   // Future<void> _initialized() async {
   //   IAreaRepository.instance.getAllAreas().fold((l) => null, (r) {
@@ -62,33 +61,31 @@ class _AddNewAreaFormState extends State<AddNewAreaForm> {
   // }
 
   Future<void> _createArea() async {
-    // final AreaEntity areaEntity = AreaEntity(
-    //   uniqueId: AreaUniqueId.fromUniqueString(areaUniqueId.getOrCrash()),
-    //   cbjEntityName: AreaDefaultName(cbjEntityName.getOrCrash()),
-    //   background: AreaBackground(background.getOrCrash()),
-    //   areaTypes: AreaTypes(areaTypes.getOrCrash()),
-    //   areaDevicesId: AreaDevicesId(areaDevicesId.getOrCrash()),
-    //   areaScenesId: AreaScenesId(areaScenesId.getOrCrash()),
-    //   areaRoutinesId: AreaRoutinesId(areaRoutinesId.getOrCrash()),
-    //   areaBindingsId: AreaBindingsId(areaBindingsId.getOrCrash()),
-    //   areaMostUsedBy: AreaMostUsedBy(areaMostUsedBy.getOrCrash()),
-    //   areaPermissions: AreaPermissions(areaPermissions.getOrCrash()),
-    // );
+    final AreaEntity areaEntity = AreaEntity(
+      uniqueId: AreaUniqueId.fromUniqueString(areaUniqueId.getOrCrash()),
+      cbjEntityName: AreaDefaultName(cbjEntityName.getOrCrash()),
+      background: AreaBackground(background.getOrCrash()),
+      areaTypes: AreaTypes(areaTypes.getOrCrash()),
+      entitiesId: AreaEntitiesId(areaDevicesId.getOrCrash()),
+      areaScenesId: AreaScenesId(areaScenesId.getOrCrash()),
+      areaRoutinesId: AreaRoutinesId(areaRoutinesId.getOrCrash()),
+      areaBindingsId: AreaBindingsId(areaBindingsId.getOrCrash()),
+      areaMostUsedBy: AreaMostUsedBy(areaMostUsedBy.getOrCrash()),
+      areaPermissions: AreaPermissions(areaPermissions.getOrCrash()),
+    );
 
-    // IAreaRepository.instance.create(areaEntity);
+    ConnectionsService.instance.setNewArea(areaEntity);
   }
 
   Future<void> _defaultNameChanged(String value) async {
     setState(() {
       cbjEntityName = AreaDefaultName(value);
-      authFailureOrSuccessOption = dartz.none();
     });
   }
 
   Future<void> _areaTypesChanged(Set<String> value) async {
     setState(() {
       areaTypes = AreaTypes(value);
-      authFailureOrSuccessOption = dartz.none();
     });
   }
 
@@ -173,12 +170,16 @@ class _AddNewAreaFormState extends State<AddNewAreaForm> {
               children: [
                 Expanded(
                   child: TextButton(
-                    onPressed: () {
-                      _createArea();
+                    onPressed: () async {
                       SnackBarService().show(
                         context,
                         'Adding area',
                       );
+                      await _createArea();
+                      if (!mounted) {
+                        return;
+                      }
+
                       context.router.pop();
                     },
                     child: const TextAtom('ADD'),

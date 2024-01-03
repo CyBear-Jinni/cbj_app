@@ -12,12 +12,10 @@ class AreaWidget extends StatefulWidget {
     required this.area,
     required this.areas,
     required this.entities,
-    required this.entitiesInTheArea,
   });
 
   final AreaEntity area;
   final HashMap<String, AreaEntity> areas;
-  final Set<String> entitiesInTheArea;
   final HashMap<String, DeviceEntityBase> entities;
 
   @override
@@ -27,7 +25,7 @@ class AreaWidget extends StatefulWidget {
 class _AreaWidgetState extends State<AreaWidget> {
   @override
   Widget build(BuildContext context) {
-    if (widget.entitiesInTheArea.isEmpty) {
+    if (widget.entities.isEmpty) {
       return const SizedBox();
     }
 
@@ -35,7 +33,7 @@ class _AreaWidgetState extends State<AreaWidget> {
     final TextTheme textTheme = themeData.textTheme;
     final ColorScheme colorScheme = themeData.colorScheme;
 
-    final int numberOfDevicesInTheArea = widget.entitiesInTheArea.length;
+    final int numberOfDevicesInTheArea = widget.entities.length;
 
     return AnimatedSize(
       duration: const Duration(milliseconds: 300),
@@ -72,7 +70,7 @@ class _AreaWidgetState extends State<AreaWidget> {
               ),
             ),
           ),
-          const SeparatorAtom(variant: SeparatorVariant.closeWidgets),
+          const SeparatorAtom(variant: SeparatorVariant.extenstionOfElement),
           DevicesListView(
             HashSet.from(widget.entities.values),
             (entity) {

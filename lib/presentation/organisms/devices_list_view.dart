@@ -68,9 +68,9 @@ class DevicesListView extends StatelessWidget {
 
         if (numberOfType == 1) {
           headline = firstEntityOfType.cbjEntityName.getOrCrash();
-          supportingText = firstEntityOfType.entityStateGRPC.getOrCrash();
+          supportingText = firstEntityOfType.entityStateGRPC.state.name;
         } else {
-          headline = '$numberOfType ${type}s';
+          headline = '$numberOfType ${type.name}s';
           supportingText = '';
         }
 

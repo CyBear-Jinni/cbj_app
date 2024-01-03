@@ -10,7 +10,11 @@ class _AppConnectionService implements ConnectionsService {
 
   @override
   Future<HashMap<String, DeviceEntityBase>> get getAllEntities async =>
-      EntitiesService().getEntities();
+      IcSynchronizer().getEntities();
+
+  @override
+  Future<HashMap<String, AreaEntity>> get getAllAreas async =>
+      IcSynchronizer().getAreas();
 
   @override
   Future searchDevices() =>
@@ -18,7 +22,11 @@ class _AppConnectionService implements ConnectionsService {
 
   @override
   Stream<MapEntry<String, DeviceEntityBase>> watchEntities() =>
-      EntitiesService().watchEntities();
+      IcSynchronizer().entitiesChangesStream.stream;
+
+  @override
+  Stream<MapEntry<String, AreaEntity>> watchAreas() =>
+      IcSynchronizer().areasChangesStream.stream;
 
   @override
   void setEntityState({
@@ -27,7 +35,7 @@ class _AppConnectionService implements ConnectionsService {
     required EntityActions actionType,
     HashMap<ActionValues, dynamic>? value,
   }) =>
-      EntitiesService().setEntityState(
+      IcSynchronizer().setEntityState(
         uniqueIdByVendor: uniqueIdByVendor,
         action: actionType,
         property: property,
@@ -36,4 +44,13 @@ class _AppConnectionService implements ConnectionsService {
 
   @override
   Future dispose() async => searchDevicesInstance.dispose();
+
+  @override
+  Future setNewArea(AreaEntity area) async {
+    IcSynchronizer().setNewArea(area);
+  }
+
+  @override
+  Future setEtitiesToArea(String areaId, HashSet<String> entities) =>
+      IcSynchronizer().setEtitiesToArea(areaId, entities);
 }

@@ -11,6 +11,7 @@ class ListViewMolecule extends StatelessWidget {
     this.reverse = false,
     this.physics,
     this.shrinkWrap = false,
+    this.separatorVariant = SeparatorVariant.reletedElements,
   });
 
   final int itemCount;
@@ -20,6 +21,7 @@ class ListViewMolecule extends StatelessWidget {
   final ScrollPhysics? physics;
   final bool shrinkWrap;
   final ListViewVeriant veriant;
+  final SeparatorVariant separatorVariant;
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +33,7 @@ class ListViewMolecule extends StatelessWidget {
           itemCount: itemCount,
           scrollDirection: scrollDirection,
           reverse: reverse,
+          padding: EdgeInsets.zero,
           itemBuilder: (BuildContext context, int index) =>
               itemBuilder(context, index),
         );
@@ -41,10 +44,11 @@ class ListViewMolecule extends StatelessWidget {
           itemCount: itemCount,
           scrollDirection: scrollDirection,
           reverse: reverse,
+          padding: EdgeInsets.zero,
           itemBuilder: (BuildContext context, int index) =>
               itemBuilder(context, index),
           separatorBuilder: (context, index) =>
-              const SeparatorAtom(variant: SeparatorVariant.reletedElements),
+              SeparatorAtom(variant: separatorVariant),
         );
     }
   }
