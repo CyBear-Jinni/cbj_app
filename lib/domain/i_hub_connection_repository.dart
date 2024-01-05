@@ -16,6 +16,9 @@ import 'package:wifi_iot/wifi_iot.dart';
 
 part 'package:cybearjinni/infrastructure/hub_client/hub_connection_repository.dart';
 
+@Deprecated(
+  'Old architecture. Replaced with ConnectionsService. Delete after Re adding Hub comunication',
+)
 abstract class IHubConnectionRepository {
   static IHubConnectionRepository? _instance;
 

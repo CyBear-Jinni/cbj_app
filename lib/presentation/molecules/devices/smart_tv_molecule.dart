@@ -94,10 +94,12 @@ class _SmartTvMoleculeState extends State<SmartTvMolecule> {
       ],
     );
     ConnectionsService.instance.setEntityState(
-      uniqueIdByVendor: uniqueIdByVendor,
-      property: property,
-      actionType: action,
-      value: value,
+      ActionObject(
+        uniqueIdByVendor: uniqueIdByVendor,
+        property: property,
+        actionType: action,
+        value: value,
+      ),
     );
   }
 

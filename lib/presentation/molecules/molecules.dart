@@ -18,3 +18,4 @@ export 'list_tile_molecule.dart';
 export 'list_view_molecule.dart';
 export 'loading_page_molecule.dart';
 export 'top_bar_molecule.dart';
+export 'scenes_grid.dart';

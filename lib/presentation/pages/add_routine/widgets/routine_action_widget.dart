@@ -8,19 +8,19 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class RoutineActionWidget extends StatelessWidget {
   /// Get all and store all info about the action
   const RoutineActionWidget({
-    required this.deviceEntityBase,
+    required this.entity,
     required this.propertyToChange,
     required this.actionToChange,
   });
 
   /// Cbj unique id of a device
-  final DeviceEntityBase deviceEntityBase;
+  final DeviceEntityBase entity;
 
   /// The action for the device
-  final String propertyToChange;
+  final EntityProperties propertyToChange;
 
   /// The action for the device
-  final String actionToChange;
+  final EntityActions actionToChange;
 
   @override
   Widget build(BuildContext context) {
@@ -32,11 +32,11 @@ class RoutineActionWidget extends StatelessWidget {
           color: Colors.yellow,
         ),
         title: AutoSizeText(
-          '${deviceEntityBase.cbjEntityName.getOrCrash()!} - $propertyToChange',
+          '${entity.cbjEntityName.getOrCrash()!} - ${propertyToChange.name}',
           maxLines: 2,
         ),
         trailing: AutoSizeText(
-          actionToChange,
+          actionToChange.name,
           style: const TextStyle(color: Colors.black),
         ),
       ),

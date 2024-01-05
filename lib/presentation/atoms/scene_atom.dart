@@ -1,24 +1,24 @@
 import 'package:cbj_integrations_controller/integrations_controller.dart';
+import 'package:cybearjinni/domain/connections_service.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/core/snack_bar_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class SceneWidget extends StatefulWidget {
-  const SceneWidget(this.currentScene);
+class SceneAtom extends StatefulWidget {
+  const SceneAtom(this.currentScene);
 
   final SceneCbjEntity currentScene;
 
   @override
-  State<SceneWidget> createState() => _SceneWidgetState();
+  State<SceneAtom> createState() => _SceneAtomState();
 }
 
-class _SceneWidgetState extends State<SceneWidget> {
+class _SceneAtomState extends State<SceneAtom> {
   late SceneCbjEntity sceneCbj;
 
-  Future<void> _activateScene() async {
-    ISceneCbjRepository.instance.activateScenes({sceneCbj});
-  }
+  Future<void> _activateScene() async => ConnectionsService.instance
+      .activateScene(widget.currentScene.uniqueId.getOrCrash());
 
   @override
   Widget build(BuildContext context) {
@@ -26,9 +26,10 @@ class _SceneWidgetState extends State<SceneWidget> {
       margin: const EdgeInsets.fromLTRB(5, 0, 5, 10),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: Color(
-            int.parse(widget.currentScene.backgroundColor.getOrCrash()),
-          ),
+          backgroundColor: Colors.blue,
+          // Color(
+          // int.parse(widget.currentScene.backgroundColor.getOrCrash()),
+          // ),
           padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),

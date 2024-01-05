@@ -151,7 +151,7 @@ class _ChangeAreaForDevicesWidgetState
           const Row(
             children: [
               TextAtom(
-                'Choose Device',
+                'Choose Entity',
                 style: TextStyle(fontSize: 27),
               ),
             ],

@@ -19,6 +19,7 @@ import 'package:rxdart/rxdart.dart';
 
 part 'package:cybearjinni/infrastructure/device_repository.dart';
 
+@Deprecated('Old architecture. Replaced by EntitiesService')
 abstract interface class IDeviceRepository {
   static IDeviceRepository? _instance;
 

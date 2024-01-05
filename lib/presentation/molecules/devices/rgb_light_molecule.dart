@@ -84,10 +84,12 @@ class _RgbwLightMoleculeState extends State<RgbwLightMolecule> {
       ],
     );
     ConnectionsService.instance.setEntityState(
-      uniqueIdByVendor: uniqueIdByVendor,
-      property: entityProperties,
-      actionType: action,
-      value: value,
+      ActionObject(
+        uniqueIdByVendor: uniqueIdByVendor,
+        property: entityProperties,
+        actionType: action,
+        value: value,
+      ),
     );
   }
 

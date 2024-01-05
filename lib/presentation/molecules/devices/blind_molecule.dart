@@ -50,9 +50,11 @@ class _BlindMoleculeState extends State<BlindMolecule> {
     );
 
     ConnectionsService.instance.setEntityState(
-      uniqueIdByVendor: uniqueIdByVendor,
-      property: EntityProperties.blindsSwitchState,
-      actionType: action,
+      ActionObject(
+        uniqueIdByVendor: uniqueIdByVendor,
+        property: EntityProperties.blindsSwitchState,
+        actionType: action,
+      ),
     );
   }
 

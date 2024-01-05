@@ -9,6 +9,9 @@ import 'package:cybearjinni/infrastructure/core/injection.dart';
 import 'package:cybearjinni/infrastructure/core/logger.dart';
 import 'package:grpc/grpc.dart';
 
+@Deprecated(
+  'Old architecture. Replaced with ConnectionsService. Delete after Re adding Hub comunication',
+)
 class HubRequestRouting {
   static StreamSubscription<dynamic>? requestsFromHubSubscription;
 

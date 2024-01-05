@@ -69,10 +69,12 @@ class _DimmableLightMoleculeState extends State<DimmableLightMolecule> {
       ],
     );
     ConnectionsService.instance.setEntityState(
-      uniqueIdByVendor: uniqueIdByVendor,
-      property: property,
-      actionType: action,
-      value: value,
+      ActionObject(
+        uniqueIdByVendor: uniqueIdByVendor,
+        property: property,
+        actionType: action,
+        value: value,
+      ),
     );
   }
 

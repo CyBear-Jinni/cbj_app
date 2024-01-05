@@ -29,18 +29,8 @@ class _AppConnectionService implements ConnectionsService {
       IcSynchronizer().areasChangesStream.stream;
 
   @override
-  void setEntityState({
-    required HashMap<VendorsAndServices, HashSet<String>> uniqueIdByVendor,
-    required EntityProperties property,
-    required EntityActions actionType,
-    HashMap<ActionValues, dynamic>? value,
-  }) =>
-      IcSynchronizer().setEntityState(
-        uniqueIdByVendor: uniqueIdByVendor,
-        action: actionType,
-        property: property,
-        value: value,
-      );
+  void setEntityState(ActionObject action) =>
+      IcSynchronizer().setEntitiesState(action);
 
   @override
   Future dispose() async => searchDevicesInstance.dispose();
@@ -53,4 +43,14 @@ class _AppConnectionService implements ConnectionsService {
   @override
   Future setEtitiesToArea(String areaId, HashSet<String> entities) =>
       IcSynchronizer().setEtitiesToArea(areaId, entities);
+
+  @override
+  Future<HashMap<String, SceneCbjEntity>> getScenes() async =>
+      IcSynchronizer().getScenes();
+
+  @override
+  Future activateScene(String id) => IcSynchronizer().activateScene(id);
+
+  @override
+  Future addScene(SceneCbjEntity scene) => IcSynchronizer().addScene(scene);
 }

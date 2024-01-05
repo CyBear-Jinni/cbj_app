@@ -52,12 +52,7 @@ abstract interface class ConnectionsService {
 
   Future searchDevices();
 
-  void setEntityState({
-    required HashMap<VendorsAndServices, HashSet<String>> uniqueIdByVendor,
-    required EntityProperties property,
-    required EntityActions actionType,
-    HashMap<ActionValues, dynamic>? value,
-  });
+  void setEntityState(ActionObject action);
 
   Future setEtitiesToArea(String areaId, HashSet<String> entities);
 
@@ -72,4 +67,10 @@ abstract interface class ConnectionsService {
   Future dispose();
 
   Future setNewArea(AreaEntity area);
+
+  Future<HashMap<String, SceneCbjEntity>> getScenes();
+
+  Future activateScene(String id);
+
+  Future addScene(SceneCbjEntity scene);
 }

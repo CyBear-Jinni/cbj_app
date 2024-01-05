@@ -47,9 +47,11 @@ class _BoilerMoleculeState extends State<BoilerMolecule> {
     );
 
     ConnectionsService.instance.setEntityState(
-      uniqueIdByVendor: uniqueIdByVendor,
-      property: EntityProperties.boilerSwitchState,
-      actionType: action,
+      ActionObject(
+        uniqueIdByVendor: uniqueIdByVendor,
+        property: EntityProperties.boilerSwitchState,
+        actionType: action,
+      ),
     );
   }
 

@@ -45,9 +45,11 @@ class _SmartPlugsMoleculeState extends State<SmartPlugsMolecule> {
       ],
     );
     ConnectionsService.instance.setEntityState(
-      uniqueIdByVendor: uniqueIdByVendor,
-      property: EntityProperties.lightSwitchState,
-      actionType: action,
+      ActionObject(
+        uniqueIdByVendor: uniqueIdByVendor,
+        property: EntityProperties.lightSwitchState,
+        actionType: action,
+      ),
     );
   }
 
