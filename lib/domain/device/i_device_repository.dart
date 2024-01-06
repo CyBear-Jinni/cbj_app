@@ -62,12 +62,6 @@ abstract interface class IDeviceRepository {
     DeviceEntityBase deviceEntity,
   );
 
-  /// Update document in the database in the following fields
-  Future<Either<DevicesFailure, Unit>> updateDatabase({
-    required Map<String, dynamic> documentPath,
-    required Map<String, dynamic> fieldsToUpdate,
-  });
-
   Future<Either<DevicesFailure, Unit>> updateWithDeviceEntity({
     required DeviceEntityBase deviceEntity,
   });
@@ -115,11 +109,6 @@ abstract interface class IDeviceRepository {
     required List<String>? devicesId,
   });
 
-  Future<Either<DevicesFailure, Unit>> openUrlOnDevices({
-    required List<String>? devicesId,
-    required String url,
-  });
-
   Future<Either<DevicesFailure, Unit>> closeStateDevices({
     required List<String>? devicesId,
   });
@@ -129,10 +118,6 @@ abstract interface class IDeviceRepository {
   });
 
   Future<Either<DevicesFailure, Unit>> playStateDevices({
-    required List<String>? devicesId,
-  });
-
-  Future<Either<DevicesFailure, Unit>> skipVideoDevices({
     required List<String>? devicesId,
   });
 
@@ -147,10 +132,6 @@ abstract interface class IDeviceRepository {
   Future<Either<DevicesFailure, Unit>> queueNextStateDevices({
     required List<String>? devicesId,
   });
-
-  Future<Either<DevicesFailure, Unit>> delete(
-    DeviceEntityBase deviceEntity,
-  );
 
   BehaviorSubject<KtList<dynamic>> allResponseFromTheHubStreamController =
       BehaviorSubject<KtList<dynamic>>();

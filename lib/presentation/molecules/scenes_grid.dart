@@ -18,19 +18,19 @@ class _ScenesGridState extends State<ScenesGrid> {
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
 
+    final ThemeData themeData = Theme.of(context);
+    final TextTheme textTheme = themeData.textTheme;
+
     int gridCrossAxisCount = 2;
     if (screenSize.width > 700) {
       gridCrossAxisCount = 4;
     }
 
     if (widget.scenes.isEmpty) {
-      return const Center(
+      return Center(
         child: TextAtom(
           'You can add automations in the plus button',
-          style: TextStyle(
-            fontSize: 18,
-            color: Colors.black,
-          ),
+          style: textTheme.bodyLarge,
         ),
       );
     }

@@ -1,7 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:cybearjinni/domain/connections_service.dart';
-import 'package:cybearjinni/domain/i_hub_connection_repository.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
 import 'package:cybearjinni/presentation/molecules/molecules.dart';
@@ -9,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/simple_icons.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 @RoutePage()
 class PlusButtonPage extends StatelessWidget {
@@ -53,27 +50,25 @@ class PlusButtonPage extends StatelessWidget {
                   color: Colors.white,
                   child: Column(
                     children: [
-                      const SizedBox(height: 1),
+                      const SizedBox(
+                        height: 1,
+                      ),
                       ColoredBox(
-                        color: Colors.indigoAccent.withOpacity(0.7),
+                        color: Colors.teal.withOpacity(0.9),
                         child: ListTile(
                           leading: FaIcon(
-                            FontAwesomeIcons.camera,
+                            FontAwesomeIcons.solidLightbulb,
                             color: colorScheme.background,
                           ),
                           title: TextAtom(
-                            'Turn Phone To a Security Camera',
+                            'Manage Entities',
                             style: TextStyle(
                               color:
                                   Theme.of(context).textTheme.bodyLarge!.color,
                             ),
                           ),
-                          onTap: () async {
-                            context.router
-                                .push(const SmartCameraContainerRoute());
-                            await IHubConnectionRepository.instance
-                                .closeConnection();
-                          },
+                          onTap: () => context.router
+                              .push(const ChangeAreaForDevicesRoute()),
                         ),
                       ),
                       const SizedBox(
@@ -83,11 +78,11 @@ class PlusButtonPage extends StatelessWidget {
                         color: Colors.brown.withOpacity(0.9),
                         child: ListTile(
                           leading: FaIcon(
-                            FontAwesomeIcons.solidLightbulb,
+                            FontAwesomeIcons.arrowRightToBracket,
                             color: colorScheme.background,
                           ),
                           title: TextAtom(
-                            'Add Entity',
+                            'Login To Vendor',
                             style: TextStyle(
                               color:
                                   Theme.of(context).textTheme.bodyLarge!.color,
@@ -99,26 +94,31 @@ class PlusButtonPage extends StatelessWidget {
                           },
                         ),
                       ),
-                      const SizedBox(height: 1),
-                      ColoredBox(
-                        color: Colors.blue,
-                        child: ListTile(
-                          leading: FaIcon(
-                            FontAwesomeIcons.globe,
-                            color: colorScheme.background,
-                          ),
-                          title: TextAtom(
-                            'Add Remote Control Support',
-                            style: TextStyle(
-                              color:
-                                  Theme.of(context).textTheme.bodyLarge!.color,
+                      if (ConnectionsService.getCurrentConnectionType() ==
+                          ConnectionType.hub) ...[
+                        const SizedBox(height: 1),
+                        ColoredBox(
+                          color: Colors.blue,
+                          child: ListTile(
+                            leading: FaIcon(
+                              FontAwesomeIcons.globe,
+                              color: colorScheme.background,
                             ),
+                            title: TextAtom(
+                              'Add Remote Control Support',
+                              style: TextStyle(
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .bodyLarge!
+                                    .color,
+                              ),
+                            ),
+                            onTap: () {
+                              context.router.push(const RemotePipesRoute());
+                            },
                           ),
-                          onTap: () {
-                            context.router.push(const RemotePipesRoute());
-                          },
                         ),
-                      ),
+                      ],
                       const SizedBox(height: 1),
                       ColoredBox(
                         color: Colors.purple.withOpacity(0.7),
@@ -137,6 +137,29 @@ class PlusButtonPage extends StatelessWidget {
                           onTap: () {
                             context.router
                                 .push(const ChooseAutomationTypeToAddRoute());
+                          },
+                        ),
+                      ),
+                      const SizedBox(height: 1),
+                      ColoredBox(
+                        color: Colors.indigoAccent.withOpacity(0.7),
+                        child: ListTile(
+                          leading: FaIcon(
+                            FontAwesomeIcons.camera,
+                            color: colorScheme.background,
+                          ),
+                          title: TextAtom(
+                            'Turn Phone To a Security Camera',
+                            style: TextStyle(
+                              color:
+                                  Theme.of(context).textTheme.bodyLarge!.color,
+                            ),
+                          ),
+                          onTap: () async {
+                            context.router
+                                .push(const SmartCameraContainerRoute());
+                            // await IHubConnectionRepository.instance
+                            //     .closeConnection();
                           },
                         ),
                       ),
@@ -183,47 +206,52 @@ class PlusButtonPage extends StatelessWidget {
                               .push(const EntitiesInNetworkRoute()),
                         ),
                       ),
-                      const SizedBox(
-                        height: 1,
-                      ),
-                      ColoredBox(
-                        color: Colors.redAccent.withOpacity(0.9),
-                        child: ListTile(
-                          leading: Iconify(
-                            SimpleIcons.node_red,
-                            color: colorScheme.background,
-                          ),
-                          title: TextAtom(
-                            'Open Node-RED of Hub',
-                            style: TextStyle(
-                              color:
-                                  Theme.of(context).textTheme.bodyLarge!.color,
-                            ),
-                          ),
-                          onTap: () {
-                            final HubEntity? hubEntity =
-                                IHubConnectionRepository.hubEntity;
-                            if (hubEntity != null &&
-                                hubEntity.lastKnownIp.isValid()) {
-                              final String lastKnownIp =
-                                  hubEntity.lastKnownIp.getOrCrash();
-                              launchUrl(
-                                Uri.parse('http://$lastKnownIp:1880'),
-                                mode: LaunchMode.externalApplication,
-                              );
-                            } else {
-                              showDialog(
-                                context: context,
-                                builder: (_) => const AlertDialog(
-                                  title: TextAtom(
-                                    "Can't find Hub/Node-Red IP to connect to",
-                                  ),
-                                ),
-                              );
-                            }
-                          },
+                      if (ConnectionsService.getCurrentConnectionType() ==
+                          ConnectionType.hub) ...[
+                        const SizedBox(
+                          height: 1,
                         ),
-                      ),
+                        ColoredBox(
+                          color: Colors.redAccent.withOpacity(0.9),
+                          child: ListTile(
+                            leading: Iconify(
+                              SimpleIcons.node_red,
+                              color: colorScheme.background,
+                            ),
+                            title: TextAtom(
+                              'Open Node-RED of Hub',
+                              style: TextStyle(
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .bodyLarge!
+                                    .color,
+                              ),
+                            ),
+                            onTap: () {
+                              // final HubEntity? hubEntity =
+                              //     IHubConnectionRepository.hubEntity;
+                              // if (hubEntity != null &&
+                              //     hubEntity.lastKnownIp.isValid()) {
+                              //   final String lastKnownIp =
+                              //       hubEntity.lastKnownIp.getOrCrash();
+                              //   launchUrl(
+                              //     Uri.parse('http://$lastKnownIp:1880'),
+                              //     mode: LaunchMode.externalApplication,
+                              //   );
+                              // } else {
+                              //   showDialog(
+                              //     context: context,
+                              //     builder: (_) => const AlertDialog(
+                              //       title: TextAtom(
+                              //         "Can't find Hub/Node-Red IP to connect to",
+                              //       ),
+                              //     ),
+                              //   );
+                              // }
+                            },
+                          ),
+                        ),
+                      ],
                       const SizedBox(
                         height: 1,
                       ),
@@ -253,7 +281,7 @@ class PlusButtonPage extends StatelessWidget {
                         color: Colors.greenAccent,
                         child: ListTile(
                           leading: FaIcon(
-                            FontAwesomeIcons.rightFromBracket,
+                            FontAwesomeIcons.personThroughWindow,
                             color: colorScheme.background,
                           ),
                           title: TextAtom(

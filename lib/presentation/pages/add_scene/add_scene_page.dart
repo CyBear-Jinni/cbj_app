@@ -7,12 +7,11 @@ import 'package:cybearjinni/domain/connections_service.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
 import 'package:cybearjinni/presentation/core/snack_bar_service.dart';
-import 'package:cybearjinni/presentation/molecules/molecules.dart';
+import 'package:cybearjinni/presentation/organisms/organisms.dart';
 import 'package:cybearjinni/presentation/pages/add_action_page.dart';
 import 'package:cybearjinni/presentation/pages/add_scene/widgets/scene_action_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:hexcolor/hexcolor.dart';
 
 /// Page for adding new scene
 @RoutePage()
@@ -109,138 +108,125 @@ class _AddScenePageState extends State<AddScenePage> {
       return const CircularProgressIndicatorAtom();
     }
 
-    return Scaffold(
-      body: ColoredBox(
-        color: HexColor('#FBF5F9'),
+    return PageOrganism(
+      pageName: 'Add Scene',
+      child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
-            TopBarMolecule(
-              pageName: 'Add Scene',
-              rightIconFunction: context.router.pop,
-              leftIcon: FontAwesomeIcons.arrowLeft,
-              leftIconFunction: context.router.pop,
+            const SizedBox(
+              height: 30,
             ),
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 20),
-              child: Column(
-                children: [
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  TextFormField(
-                    decoration: const InputDecoration(
-                      prefixIcon: FaIcon(FontAwesomeIcons.fileSignature),
-                      labelText: 'Scene Name',
-                    ),
-                    style: const TextStyle(color: Colors.black),
-                    onChanged: _sceneNameChange,
-                  ),
-                  SizedBox(
-                    height: 300,
-                    width: 500,
-                    child: ListView.builder(
-                      itemCount: entitiesWithActions.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        final EntityActionObject currentDevice =
-                            entitiesWithActions.elementAt(index);
+            TextFormField(
+              decoration: const InputDecoration(
+                prefixIcon: FaIcon(FontAwesomeIcons.fileSignature),
+                labelText: 'Scene Name',
+              ),
+              style: const TextStyle(color: Colors.black),
+              onChanged: _sceneNameChange,
+            ),
+            SizedBox(
+              height: 300,
+              width: 500,
+              child: ListView.builder(
+                itemCount: entitiesWithActions.length,
+                itemBuilder: (BuildContext context, int index) {
+                  final EntityActionObject currentDevice =
+                      entitiesWithActions.elementAt(index);
 
-                        return Container(
-                          margin: const EdgeInsets.symmetric(vertical: 1),
-                          child: SceneActionWidget(
-                            entity: currentDevice.entity,
-                            propertyToChange: currentDevice.property,
-                            actionToChange: currentDevice.action,
+                  return Container(
+                    margin: const EdgeInsets.symmetric(vertical: 1),
+                    child: SceneActionWidget(
+                      entity: currentDevice.entity,
+                      propertyToChange: currentDevice.property,
+                      actionToChange: currentDevice.action,
+                    ),
+                  );
+                },
+              ),
+            ),
+            const SizedBox(height: 30),
+            DecoratedBox(
+              decoration: BoxDecoration(
+                color: Colors.lightBlueAccent.withOpacity(0.5),
+                // Red border with the width is equal to 5
+                border: Border.all(),
+              ),
+              child: TextButton(
+                onPressed: () {
+                  showAdaptiveActionSheet(
+                    context: context,
+                    actions: <BottomSheetAction>[
+                      BottomSheetAction(
+                        title: const TextAtom(
+                          'Add device action',
+                          style: TextStyle(
+                            color: Colors.blueGrey,
+                            fontSize: 23,
                           ),
-                        );
-                      },
-                    ),
-                  ),
-                  const SizedBox(height: 30),
-                  DecoratedBox(
-                    decoration: BoxDecoration(
-                      color: Colors.lightBlueAccent.withOpacity(0.5),
-                      // Red border with the width is equal to 5
-                      border: Border.all(),
-                    ),
-                    child: TextButton(
-                      onPressed: () {
-                        showAdaptiveActionSheet(
-                          context: context,
-                          actions: <BottomSheetAction>[
-                            BottomSheetAction(
-                              title: const TextAtom(
-                                'Add device action',
-                                style: TextStyle(
-                                  color: Colors.blueGrey,
-                                  fontSize: 23,
-                                ),
-                              ),
-                              onPressed: (_) async {
-                                final EntityActionObject? actionList =
-                                    await context.router
-                                        .push<EntityActionObject?>(
-                                  AddActionRoute(entities: entities!),
-                                );
-                                if (actionList != null) {
-                                  _addFullAction(actionList);
-                                }
-                              },
-                            ),
-                            BottomSheetAction(
-                              title: TextAtom(
-                                'Add service action',
-                                style: TextStyle(
-                                  color: Colors.green.shade600,
-                                  fontSize: 23,
-                                ),
-                              ),
-                              onPressed: (_) {
-                                SnackBarService().show(
-                                  context,
-                                  'Adding service action will be added in the future',
-                                );
-                              },
-                            ),
-                            BottomSheetAction(
-                              title: const TextAtom(
-                                'Add time based action',
-                                style: TextStyle(
-                                  color: Colors.blue,
-                                  fontSize: 23,
-                                ),
-                              ),
-                              onPressed: (_) {
-                                SnackBarService().show(
-                                  context,
-                                  'Adding time based action will be added in the future',
-                                );
-                              },
-                            ),
-                          ],
-                        );
-                      },
-                      child: const TextAtom('+ Add action'),
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                  DecoratedBox(
-                    decoration: BoxDecoration(
-                      color: Colors.lightBlueAccent.withOpacity(0.5),
-                      // Red border with the width is equal to 5
-                      border: Border.all(),
-                    ),
-                    child: TextButton(
-                      onPressed: () {
-                        SnackBarService().show(
-                          context,
-                          'Adding Scene',
-                        );
-                        _sendSceneToHub();
-                      },
-                      child: const TextAtom('Add Scene'),
-                    ),
-                  ),
-                ],
+                        ),
+                        onPressed: (_) async {
+                          final EntityActionObject? actionList =
+                              await context.router.push<EntityActionObject?>(
+                            AddActionRoute(entities: entities!),
+                          );
+                          if (actionList != null) {
+                            _addFullAction(actionList);
+                          }
+                        },
+                      ),
+                      BottomSheetAction(
+                        title: TextAtom(
+                          'Add service action',
+                          style: TextStyle(
+                            color: Colors.green.shade600,
+                            fontSize: 23,
+                          ),
+                        ),
+                        onPressed: (_) {
+                          SnackBarService().show(
+                            context,
+                            'Adding service action will be added in the future',
+                          );
+                        },
+                      ),
+                      BottomSheetAction(
+                        title: const TextAtom(
+                          'Add time based action',
+                          style: TextStyle(
+                            color: Colors.blue,
+                            fontSize: 23,
+                          ),
+                        ),
+                        onPressed: (_) {
+                          SnackBarService().show(
+                            context,
+                            'Adding time based action will be added in the future',
+                          );
+                        },
+                      ),
+                    ],
+                  );
+                },
+                child: const TextAtom('+ Add action'),
+              ),
+            ),
+            const SizedBox(height: 10),
+            DecoratedBox(
+              decoration: BoxDecoration(
+                color: Colors.lightBlueAccent.withOpacity(0.5),
+                // Red border with the width is equal to 5
+                border: Border.all(),
+              ),
+              child: TextButton(
+                onPressed: () {
+                  SnackBarService().show(
+                    context,
+                    'Adding Scene',
+                  );
+                  _sendSceneToHub();
+                },
+                child: const TextAtom('Add Scene'),
               ),
             ),
           ],

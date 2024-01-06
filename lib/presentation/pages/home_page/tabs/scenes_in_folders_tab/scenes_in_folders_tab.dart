@@ -1,68 +1,16 @@
 import 'dart:collection';
 
-import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
-import 'package:cybearjinni/domain/connections_service.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
-import 'package:cybearjinni/presentation/core/snack_bar_service.dart';
+import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
 import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:auto_route/auto_route.dart';
-import 'package:cbj_integrations_controller/integrations_controller.dart';
-import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
 
-class ScenesInFoldersTab extends StatefulWidget {
-  @override
-  State<ScenesInFoldersTab> createState() => _ScenesInFoldersTabState();
-}
-
-class _ScenesInFoldersTabState extends State<ScenesInFoldersTab> {
-  /// Execute when user press the icon in top right side
-  void userCogFunction(BuildContext context) {
-    showAdaptiveActionSheet(
-      context: context,
-      actions: <BottomSheetAction>[
-        BottomSheetAction(
-          title: const TextAtom(
-            '⚙️ Scenes Settings',
-            style: TextStyle(
-              color: Colors.blueGrey,
-              fontSize: 23,
-            ),
-          ),
-          onPressed: (_) {
-            SnackBarService().show(
-              context,
-              'Settings page will be added in the future',
-            );
-          },
-        ),
-      ],
-    );
-  }
-
-  void leftIconFunction(BuildContext context) {
-    Scaffold.of(context).openDrawer();
-  }
-
-  void rightSecondFunction(BuildContext context) {}
-
-  HashMap<String, SceneCbjEntity>? scenes;
-
-  @override
-  void initState() {
-    super.initState();
-    _initialized();
-  }
-
-  Future<void> _initialized() async {
-    final HashMap<String, SceneCbjEntity> scenecsTemp =
-        await ConnectionsService.instance.getScenes();
-
-    setState(() {
-      scenes = scenecsTemp;
-    });
-  }
+class ScenesInFoldersTab extends StatelessWidget {
+  const ScenesInFoldersTab(this.scenes);
+  final HashMap<String, SceneCbjEntity>? scenes;
 
   Widget scenesFoldersWidget(
     BuildContext context,
@@ -130,13 +78,13 @@ class _ScenesInFoldersTabState extends State<ScenesInFoldersTab> {
   @override
   Widget build(BuildContext context) {
     if (scenes == null || scenes!.isEmpty) {
-      return const Center(
+      final ThemeData themeData = Theme.of(context);
+      final TextTheme textTheme = themeData.textTheme;
+
+      return Center(
         child: TextAtom(
           'You can add automations in the plus button',
-          style: TextStyle(
-            fontSize: 18,
-            color: Colors.black,
-          ),
+          style: textTheme.bodyLarge,
         ),
       );
     }
@@ -145,12 +93,8 @@ class _ScenesInFoldersTabState extends State<ScenesInFoldersTab> {
       children: <Widget>[
         TopBarMolecule(
           pageName: 'Automations',
-
-          rightIconFunction: userCogFunction,
           leftIcon: FontAwesomeIcons.sitemap,
           leftIconFunction: (BuildContext context) {},
-          // rightSecondIcon: FontAwesomeIcons.magnifyingGlass,
-          // rightSecondFunction: rightSecondFunction,
         ),
         Expanded(
           child: ScenesGrid(

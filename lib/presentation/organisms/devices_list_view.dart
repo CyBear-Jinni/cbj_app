@@ -51,7 +51,7 @@ class DevicesListView extends StatelessWidget {
         geEntitiesByType();
 
     return ListViewMolecule(
-      ListViewVeriant.builder,
+      ListViewVeriant.separated,
       shrinkWrap: true,
       itemBuilder: (context, index) {
         final EntityTypes type = entitiesByType.keys.elementAt(index);

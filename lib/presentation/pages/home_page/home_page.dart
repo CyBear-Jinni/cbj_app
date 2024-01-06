@@ -1,4 +1,9 @@
+import 'dart:async';
+import 'dart:collection';
+
 import 'package:auto_route/auto_route.dart';
+import 'package:cbj_integrations_controller/integrations_controller.dart';
+import 'package:cybearjinni/domain/connections_service.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
 import 'package:cybearjinni/presentation/molecules/molecules.dart';
@@ -19,22 +24,113 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
+    _watchEntities();
+    _watchAreas();
+    initializedScenes();
+  }
+
+  @override
+  void dispose() {
+    entitiesStream?.cancel();
+    areasStream?.cancel();
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  HashMap<String, SceneCbjEntity>? scenes;
+
+  StreamSubscription<MapEntry<String, DeviceEntityBase>>? entitiesStream;
+  StreamSubscription<MapEntry<String, AreaEntity>>? areasStream;
+
+  HashMap<String, AreaEntity>? areas;
+  HashMap<String, DeviceEntityBase>? entities;
+
+  Future<void> initializedScenes() async {
+    final HashMap<String, SceneCbjEntity> scenecsTemp =
+        await ConnectionsService.instance.getScenes();
+
+    setState(() {
+      scenes = scenecsTemp;
+    });
+  }
+
+  Future _watchAreas() async {
+    await areasStream?.cancel();
+
+    areasStream = ConnectionsService.instance.watchAreas().listen((areaEntery) {
+      if (!mounted) {
+        return;
+      }
+
+      setState(() {
+        areas ??= HashMap();
+        areas!.addEntries([areaEntery]);
+      });
+    });
+    _initialzeAreas();
+  }
+
+  Future _initialzeAreas() async {
+    final HashMap<String, AreaEntity> areasTemp =
+        await ConnectionsService.instance.getAllAreas;
+    setState(() {
+      areas ??= HashMap();
+
+      areas!.addAll(areasTemp);
+    });
+  }
+
+  Future _watchEntities() async {
+    await entitiesStream?.cancel();
+
+    entitiesStream = ConnectionsService.instance
+        .watchEntities()
+        .listen((MapEntry<String, DeviceEntityBase> entityEntery) {
+      if (!mounted ||
+          supportedDeviceType(entityEntery.value.entityTypes.type)) {
+        return;
+      }
+
+      setState(() {
+        entities ??= HashMap();
+        entities!.addEntries([entityEntery]);
+      });
+    });
+    _initialzeEntities();
+  }
+
+  Future _initialzeEntities() async {
+    final HashMap<String, DeviceEntityBase> entitiesTemp =
+        await ConnectionsService.instance.getAllEntities;
+    entitiesTemp.removeWhere(
+      (key, value) =>
+          value.entityTypes.type == EntityTypes.smartTypeNotSupported ||
+          value.entityTypes.type == EntityTypes.emptyEntity,
+    );
+    setState(() {
+      entities ??= HashMap();
+      entities!.addAll(entitiesTemp);
+    });
+  }
+
+  HashMap<String, DeviceEntityBase> getSupportedEnities(
+    HashMap<String, DeviceEntityBase> entities,
+  ) {
+    entities.removeWhere(
+      (key, value) => supportedDeviceType(value.entityTypes.type),
+    );
+    return entities;
+  }
+
+  bool supportedDeviceType(EntityTypes type) {
+    return type == EntityTypes.smartTypeNotSupported ||
+        type == EntityTypes.emptyEntity;
   }
 
   /// Tab num, value will be the default tab to show
   int _currentTabNum = 1;
-  final _pages = [
-    ScenesInFoldersTab(),
-    EntitiesByAreaTab(),
-    // BindingsPage(),
-  ];
-  final _pageController = PageController(initialPage: 1);
 
-  @override
-  void dispose() {
-    _pageController.dispose();
-    super.dispose();
-  }
+  final _pageController = PageController(initialPage: 1);
 
   static List<BottomNavigationBarItemAtom> getBottomNavigationBarItems() {
     return [
@@ -72,6 +168,12 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    if (entities == null || areas == null || scenes == null) {
+      return const Scaffold(
+        body: CircularProgressIndicatorAtom(),
+      );
+    }
+
     return Scaffold(
       body: Stack(
         children: [
@@ -83,19 +185,22 @@ class _HomePageState extends State<HomePage> {
                 });
               },
               controller: _pageController,
-              children: _pages,
+              children: [
+                ScenesInFoldersTab(scenes),
+                EntitiesByAreaTab(areas: areas!, entities: entities!),
+                // BindingsPage(),
+              ],
             ),
             bottomNavigationBar: BottomNavigationBarMolecule(
               bottomNaviList: getBottomNavigationBarItems(),
               onTap: changeByTabNumber,
               pageIndex: _currentTabNum,
             ),
-            // BottomNavigationBarHomePage(callback, _currentTabNum),
           ),
           Column(
             children: [
               const Expanded(
-                child: TextAtom(''),
+                child: SizedBox(),
               ),
               SizedBox(
                 height: 55,
@@ -103,8 +208,10 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {
-                        context.router.push(const PlusButtonRoute());
+                      onTap: () async {
+                        await context.router.push(const PlusButtonRoute());
+                        _initialzeAreas();
+                        initializedScenes();
                       },
                       child: CircleAvatar(
                         backgroundColor: Colors.blue.withOpacity(0.9),
