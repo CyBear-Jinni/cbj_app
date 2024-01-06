@@ -8,13 +8,13 @@ class OpenAreaOrganism extends StatefulWidget {
   const OpenAreaOrganism({
     required this.areaEntity,
     required this.entityTypes,
-    required this.devices,
+    required this.entities,
   });
 
   /// If it have value will only show Printers in this area
   final AreaEntity areaEntity;
   final Set<EntityTypes> entityTypes;
-  final Set<DeviceEntityBase> devices;
+  final Set<DeviceEntityBase> entities;
 
   @override
   State<OpenAreaOrganism> createState() => _OpenAreaOrganismState();
@@ -23,7 +23,7 @@ class OpenAreaOrganism extends StatefulWidget {
 class _OpenAreaOrganismState extends State<OpenAreaOrganism> {
   @override
   Widget build(BuildContext context) {
-    if (widget.devices.isEmpty) {
+    if (widget.entities.isEmpty) {
       return EmptyOpenAreaOrganism();
     }
 
@@ -33,11 +33,11 @@ class _OpenAreaOrganismState extends State<OpenAreaOrganism> {
         reverse: true,
         padding: EdgeInsets.zero,
         itemBuilder: (context, index) {
-          final DeviceEntityBase device = widget.devices.elementAt(index);
+          final DeviceEntityBase device = widget.entities.elementAt(index);
 
           return DeviceByTypeMolecule(device);
         },
-        itemCount: widget.devices.length,
+        itemCount: widget.entities.length,
         separatorBuilder: (BuildContext context, int index) =>
             const SeparatorAtom(variant: SeparatorVariant.farAppart),
       ),

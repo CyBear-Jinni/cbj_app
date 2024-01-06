@@ -87,7 +87,7 @@ class _HomePageState extends State<HomePage> {
         .watchEntities()
         .listen((MapEntry<String, DeviceEntityBase> entityEntery) {
       if (!mounted ||
-          supportedDeviceType(entityEntery.value.entityTypes.type)) {
+          unSupportedEntityType(entityEntery.value.entityTypes.type)) {
         return;
       }
 
@@ -117,12 +117,12 @@ class _HomePageState extends State<HomePage> {
     HashMap<String, DeviceEntityBase> entities,
   ) {
     entities.removeWhere(
-      (key, value) => supportedDeviceType(value.entityTypes.type),
+      (key, value) => unSupportedEntityType(value.entityTypes.type),
     );
     return entities;
   }
 
-  bool supportedDeviceType(EntityTypes type) {
+  bool unSupportedEntityType(EntityTypes type) {
     return type == EntityTypes.smartTypeNotSupported ||
         type == EntityTypes.emptyEntity;
   }

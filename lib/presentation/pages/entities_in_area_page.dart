@@ -21,7 +21,7 @@ class EntitiesInAreaPage extends StatefulWidget {
 }
 
 class _EntitiesInAreaPageState extends State<EntitiesInAreaPage> {
-  Set<DeviceEntityBase>? devices;
+  Set<DeviceEntityBase>? entities;
   late bool showAllTypes;
 
   @override
@@ -32,24 +32,31 @@ class _EntitiesInAreaPageState extends State<EntitiesInAreaPage> {
   }
 
   Future initialzeDevices() async {
-    final Map<String, DeviceEntityBase> devicesMap =
+    final Map<String, DeviceEntityBase> entitiesMap =
         await ConnectionsService.instance.getAllEntities;
-    final Set<String> deviceIdsInArea =
+    final Set<String> entityIdsInArea =
         widget.areaEntity.entitiesId.getOrCrash();
     final Set<EntityTypes> entityTypes = widget.entityTypes;
-    final Set<DeviceEntityBase> tempDevices;
+    final Set<DeviceEntityBase> tempEntities;
 
-    tempDevices = devicesMap.values
+    tempEntities = entitiesMap.values
         .where(
           (element) =>
-              deviceIdsInArea.contains(element.getCbjDeviceId) &&
-              (showAllTypes || entityTypes.contains(element.entityTypes.type)),
+              entityIdsInArea.contains(element.getCbjDeviceId) &&
+              (showAllTypes ||
+                  entityTypes.contains(element.entityTypes.type)) &&
+              supportedEntityType(element.entityTypes.type),
         )
         .toSet();
 
     setState(() {
-      devices = tempDevices;
+      entities = tempEntities;
     });
+  }
+
+  bool supportedEntityType(EntityTypes type) {
+    return !(type == EntityTypes.smartTypeNotSupported ||
+        type == EntityTypes.emptyEntity);
   }
 
   @override
@@ -58,18 +65,18 @@ class _EntitiesInAreaPageState extends State<EntitiesInAreaPage> {
 
     if (showAllTypes) {
       pageName = '${widget.areaEntity.cbjEntityName.getOrCrash()} Entities';
-    } else if (devices != null) {
+    } else if (entities != null) {
       pageName =
           '${widget.areaEntity.cbjEntityName.getOrCrash()} ${widget.entityTypes.firstOrNull?.name}';
     }
 
     return PageOrganism(
       pageName: pageName,
-      child: devices != null
+      child: entities != null
           ? OpenAreaOrganism(
               areaEntity: widget.areaEntity,
               entityTypes: widget.entityTypes,
-              devices: devices!,
+              entities: entities!,
             )
           : const CircularProgressIndicatorAtom(),
     );
