@@ -142,7 +142,8 @@ class _AddBindingPageState extends State<AddBindingPage> {
                               ),
                               onPressed: (_) async {
                                 final EntityActionObject? actionList =
-                                    await context.router.push<EntityActionObject?>(
+                                    await context.router
+                                        .push<EntityActionObject?>(
                                   AddActionRoute(entities: entities!),
                                 );
                                 if (actionList != null) {
