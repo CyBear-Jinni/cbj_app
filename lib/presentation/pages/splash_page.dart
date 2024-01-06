@@ -1,10 +1,7 @@
 import 'dart:io';
 
 import 'package:auto_route/auto_route.dart';
-import 'package:cbj_integrations_controller/domain/i_saved_devices_repo.dart';
-import 'package:cbj_integrations_controller/domain/local_db/i_local_db_repository.dart';
-import 'package:cbj_integrations_controller/infrastructure/node_red/node_red_repository.dart';
-import 'package:cbj_integrations_controller/infrastructure/system_commands/system_commands_manager_d.dart';
+import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:cbj_smart_device_flutter/commands/flutter_commands.dart';
 import 'package:cybearjinni/domain/connections_service.dart';
 import 'package:cybearjinni/domain/i_local_db_repository.dart';
@@ -36,7 +33,7 @@ class _SplashPageState extends State<SplashPage> {
     await Future.value([
       IDbRepository.instance.initializeDb(isFlutter: true),
       ILocalDbRepository.instance.asyncConstructor(),
-      ISavedDevicesRepo.instance.setUpAllFromDb(),
+      // ISavedDevicesRepo.instance.setUpAllFromDb(),
     ]);
     MqttServerRepository();
     PhoneCommandsD();

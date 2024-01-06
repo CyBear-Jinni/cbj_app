@@ -1,11 +1,12 @@
 part of 'package:cybearjinni/domain/connections_service.dart';
 
 class _NoneConnectionService implements ConnectionsService {
-  StreamController<MapEntry<String, DeviceEntityBase>>? stream;
+  StreamController<MapEntry<String, DeviceEntityBase>>? entitiesStream;
+  StreamController<MapEntry<String, AreaEntity>>? areasStream;
 
   @override
   Future dispose() async {
-    stream?.close();
+    entitiesStream?.close();
   }
 
   @override
@@ -13,21 +14,42 @@ class _NoneConnectionService implements ConnectionsService {
       HashMap();
 
   @override
+  Future<HashMap<String, AreaEntity>> get getAllAreas async => HashMap();
+
+  @override
   Future searchDevices() async {}
 
   @override
-  void setEntityState({
-    required HashMap<VendorsAndServices, HashSet<String>> uniqueIdByVendor,
-    required EntityProperties property,
-    required EntityActions actionType,
-    HashMap<ActionValues, dynamic>? value,
-  }) {}
+  void setEntityState(ActionObject action) {}
 
   @override
   Stream<MapEntry<String, DeviceEntityBase>> watchEntities() {
-    stream?.close();
+    entitiesStream?.close();
 
-    stream = StreamController.broadcast();
-    return stream!.stream;
+    entitiesStream = StreamController.broadcast();
+    return entitiesStream!.stream;
   }
+
+  @override
+  Stream<MapEntry<String, AreaEntity>> watchAreas() {
+    areasStream?.close();
+
+    areasStream = StreamController.broadcast();
+    return areasStream!.stream;
+  }
+
+  @override
+  Future setNewArea(AreaEntity area) async {}
+
+  @override
+  Future setEtitiesToArea(String areaId, HashSet entities) async {}
+
+  @override
+  Future<HashMap<String, SceneCbjEntity>> getScenes() async => HashMap();
+
+  @override
+  Future addScene(SceneCbjEntity scene) async {}
+
+  @override
+  Future activateScene(String id) async {}
 }

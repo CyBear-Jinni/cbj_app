@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:cbj_integrations_controller/infrastructure/gen/security_bear_server_d/protoc_as_dart/security_bear_connections.pbgrpc.dart';
+import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:cybearjinni/infrastructure/core/logger.dart';
 import 'package:grpc/grpc.dart';
 

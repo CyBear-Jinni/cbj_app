@@ -244,7 +244,7 @@ class _SecurityBearConnectionRepository
 
   @override
   Future<Either<SecurityBearFailures, Unit>> setSecurityBearWiFiInformation(
-    CBJCompEntity compEntity,
+    CbjCompEntity compEntity,
   ) async {
     try {
       final ManageNetworkEntity firstWifiEntityOrFailure =

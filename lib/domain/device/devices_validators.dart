@@ -1,4 +1,4 @@
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/entity_type_utils.dart';
+import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:cybearjinni/domain/device/devices_failures.dart';
 import 'package:dartz/dartz.dart';
 
@@ -38,7 +38,7 @@ Either<DevicesFailure<String>, String> validatePowerConsumptionNotEmpty(
   }
 }
 
-Either<DevicesFailure<String>, String> validateRoomNameNotEmpty(String input) {
+Either<DevicesFailure<String>, String> validateAreaNameNotEmpty(String input) {
   return right(input);
 }
 

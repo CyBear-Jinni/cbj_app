@@ -1,4 +1,4 @@
-import 'package:cbj_integrations_controller/domain/local_db/local_db_failures.dart';
+import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:cybearjinni/infrastructure/core/logger.dart';
 import 'package:cybearjinni/infrastructure/isar_local_db/isar_objects/home_entity_isar_model.dart';
 import 'package:cybearjinni/infrastructure/isar_local_db/isar_objects/hub_entity_isar_model.dart';

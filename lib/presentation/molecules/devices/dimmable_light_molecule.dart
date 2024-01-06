@@ -1,16 +1,13 @@
 import 'dart:collection';
 
-import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/entity_type_utils.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_dimmable_light_entity/generic_dimmable_light_entity.dart';
+import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:cybearjinni/domain/connections_service.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-/// Show light toggles in a container with the background color from smart room
+/// Show light toggles in a container with the background color from smart area
 /// object
 class DimmableLightMolecule extends StatefulWidget {
   const DimmableLightMolecule(this.entity);
@@ -72,10 +69,12 @@ class _DimmableLightMoleculeState extends State<DimmableLightMolecule> {
       ],
     );
     ConnectionsService.instance.setEntityState(
-      uniqueIdByVendor: uniqueIdByVendor,
-      property: property,
-      actionType: action,
-      value: value,
+      ActionObject(
+        uniqueIdByVendor: uniqueIdByVendor,
+        property: property,
+        actionType: action,
+        value: value,
+      ),
     );
   }
 
@@ -83,6 +82,7 @@ class _DimmableLightMoleculeState extends State<DimmableLightMolecule> {
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = themeData.colorScheme;
+    final TextTheme textTheme = themeData.textTheme;
 
     return Column(
       children: [
@@ -121,7 +121,7 @@ class _DimmableLightMoleculeState extends State<DimmableLightMolecule> {
                 width: 45,
                 child: TextAtom(
                   '${brightness.round()}%',
-                  style: const TextStyle(color: Colors.black),
+                  style: textTheme.bodyMedium,
                 ),
               ),
             ],

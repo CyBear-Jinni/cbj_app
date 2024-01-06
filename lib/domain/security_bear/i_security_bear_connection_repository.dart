@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:cbj_integrations_controller/infrastructure/gen/security_bear_server_d/protoc_as_dart/security_bear_connections.pbgrpc.dart';
+import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:cybearjinni/domain/cbj_comp/cbj_comp_entity.dart';
 import 'package:cybearjinni/domain/manage_network/i_manage_network_repository.dart';
@@ -37,7 +37,7 @@ abstract interface class ISecurityBearConnectionRepository {
   Future<Either<SecurityBearFailures, Unit>> searchForSecurityBear();
 
   Future<Either<SecurityBearFailures, Unit>> setSecurityBearWiFiInformation(
-    CBJCompEntity compEntity,
+    CbjCompEntity compEntity,
   );
 
   Future<Either<SecurityBearFailures, Unit>>

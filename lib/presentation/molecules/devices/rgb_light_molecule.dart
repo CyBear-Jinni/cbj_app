@@ -1,18 +1,14 @@
 import 'dart:collection';
 
-import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/entity_type_utils.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_rgbw_light_entity/generic_rgbw_light_entity.dart';
+import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:cybearjinni/domain/connections_service.dart';
-import 'package:cybearjinni/domain/device/i_device_repository.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-/// Show light toggles in a container with the background color from smart room
+/// Show light toggles in a container with the background color from smart area
 /// object
 class RgbwLightMolecule extends StatefulWidget {
   const RgbwLightMolecule(this.entity);
@@ -87,10 +83,12 @@ class _RgbwLightMoleculeState extends State<RgbwLightMolecule> {
       ],
     );
     ConnectionsService.instance.setEntityState(
-      uniqueIdByVendor: uniqueIdByVendor,
-      property: entityProperties,
-      actionType: action,
-      value: value,
+      ActionObject(
+        uniqueIdByVendor: uniqueIdByVendor,
+        property: entityProperties,
+        actionType: action,
+        value: value,
+      ),
     );
   }
 
@@ -123,7 +121,7 @@ class _RgbwLightMoleculeState extends State<RgbwLightMolecule> {
           ),
         ),
         const SeparatorAtom(variant: SeparatorVariant.reletedElements),
-        LightColorMods(deviceEntity: widget.entity),
+        LightColorMods(entity: widget.entity),
         Row(
           children: [
             const FaIcon(FontAwesomeIcons.solidSun),
@@ -155,13 +153,13 @@ class _RgbwLightMoleculeState extends State<RgbwLightMolecule> {
 
 class LightColorMods extends StatefulWidget {
   const LightColorMods({
-    required this.deviceEntity,
+    required this.entity,
     this.brightness = 100,
     this.colorTemperature = 4500,
     this.hsvColor,
   });
 
-  final GenericRgbwLightDE deviceEntity;
+  final GenericRgbwLightDE entity;
   final int colorTemperature;
   final HSVColor? hsvColor;
   final double brightness;
@@ -187,7 +185,7 @@ class _LightColorMods extends State<LightColorMods> {
   }
 
   Future<void> _initialized() async {
-    final GenericRgbwLightDE rgbwLightDe = widget.deviceEntity;
+    final GenericRgbwLightDE rgbwLightDe = widget.entity;
 
     int lightColorTemperature =
         int.parse(rgbwLightDe.lightColorTemperature.getOrCrash());
@@ -209,21 +207,63 @@ class _LightColorMods extends State<LightColorMods> {
     });
   }
 
+  void setEntityState(
+    EntityProperties entityProperties,
+    EntityActions action, {
+    HashMap<ActionValues, dynamic>? value,
+  }) {
+    final VendorsAndServices? vendor =
+        widget.entity.cbjDeviceVendor.vendorsAndServices;
+    if (vendor == null) {
+      return;
+    }
+
+    final HashMap<VendorsAndServices, HashSet<String>> uniqueIdByVendor =
+        HashMap();
+    uniqueIdByVendor.addEntries(
+      [
+        MapEntry(
+          vendor,
+          HashSet<String>()
+            ..addAll([widget.entity.deviceCbjUniqueId.getOrCrash()]),
+        ),
+      ],
+    );
+    ConnectionsService.instance.setEntityState(
+      ActionObject(
+        uniqueIdByVendor: uniqueIdByVendor,
+        property: entityProperties,
+        actionType: action,
+        value: value,
+      ),
+    );
+  }
+
   Future<void> _changeColorTemperature(int newColorTemperature) async {
     setState(() {
       colorTemperature = newColorTemperature;
     });
-    IDeviceRepository.instance.changeColorTemperatureDevices(
-      devicesId: [widget.deviceEntity.cbjDeviceVendor.getOrCrash()],
-      colorTemperatureToChange: newColorTemperature,
+    setEntityState(
+      EntityProperties.lightColorTemperature,
+      EntityActions.changeTemperature,
+      value: HashMap.from({ActionValues.temperature: newColorTemperature}),
     );
   }
 
   Future<void> _changeHsvColor(HSVColor newHsvColor) async {
-    hsvColor = newHsvColor;
-    IDeviceRepository.instance.changeHsvColorDevices(
-      devicesId: [widget.deviceEntity.cbjDeviceVendor.getOrCrash()],
-      hsvColorToChange: newHsvColor,
+    setState(() {
+      hsvColor = newHsvColor;
+    });
+
+    setEntityState(
+      EntityProperties.color,
+      EntityActions.hsvColor,
+      value: HashMap.from({
+        ActionValues.alpha: newHsvColor.alpha,
+        ActionValues.hue: newHsvColor.hue,
+        ActionValues.saturation: newHsvColor.saturation,
+        ActionValues.value: newHsvColor.value,
+      }),
     );
   }
 
