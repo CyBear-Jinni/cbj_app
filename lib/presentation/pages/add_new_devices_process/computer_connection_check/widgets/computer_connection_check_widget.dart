@@ -1,7 +1,5 @@
 import 'package:another_flushbar/flushbar_helper.dart';
-import 'package:cbj_integrations_controller/infrastructure/core/utils.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/value_objects_core.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_light_entity/generic_light_entity.dart';
+import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:cybearjinni/domain/cbj_comp/cbj_comp_entity.dart';
 import 'package:cybearjinni/domain/cbj_comp/cbj_comp_failures.dart';
 import 'package:cybearjinni/domain/cbj_comp/cbj_comp_value_objects.dart';
@@ -23,10 +21,10 @@ class ComputerConnectionCheckWidget extends StatefulWidget {
     required this.cbjCompEntity,
   });
 
-  final CBJCompEntity cbjCompEntity;
+  final CbjCompEntity cbjCompEntity;
 
   static String deviceNameFieldKey = 'deviceNameField';
-  static String devicesDefaultRoomNameField = '';
+  static String devicesDefaultAreaNameField = '';
 
   @override
   State<ComputerConnectionCheckWidget> createState() =>
@@ -103,15 +101,15 @@ class _ComputerConnectionCheckWidgetState
   }
 
   /// Organize all the data from the text fields to updated CBJCompEntity
-  CBJCompEntity newCBJCompEntity(
-    CBJCompEntity cbjCompEntity,
+  CbjCompEntity newCBJCompEntity(
+    CbjCompEntity cbjCompEntity,
     Map<String, TextEditingController> textEditingController,
   ) {
     final String deviceNameFieldKey =
         ConfigureNewCbjCompWidgets.deviceNameFieldKey;
     final List<GenericLightDE> deviceEntityList = [];
 
-    textEditingController['allInSameRoom']!.text;
+    textEditingController['allInSameArea']!.text;
 
     final ManageNetworkEntity manageWiFiEntity =
         IManageNetworkRepository.manageWiFiEntity!;
@@ -129,18 +127,18 @@ class _ComputerConnectionCheckWidgetState
         icLogger.w("Can't add unsupported device");
       }
     });
-    final CBJCompEntity compUpdatedData = cbjCompEntity.copyWith(
-      cBJCompDevices: CBJCompDevices(deviceEntityList.toImmutableList()),
+    final CbjCompEntity compUpdatedData = cbjCompEntity.copyWith(
+      cBJCompDevices: CbjCompDevices(deviceEntityList.toImmutableList()),
     );
 
     return compUpdatedData;
   }
 
-  Future<bool> initialNewDevice(CBJCompEntity compUpdatedData) async {
+  Future<bool> initialNewDevice(CbjCompEntity compUpdatedData) async {
     bool error = false;
 
-    final dartz.Either<CBJCompFailure, dartz.Unit> updateAllDevices =
-        await ICBJCompRepository.instance.firstSetup(compUpdatedData);
+    final dartz.Either<CbjCompFailure, dartz.Unit> updateAllDevices =
+        await ICbjCompRepository.instance.firstSetup(compUpdatedData);
 
     updateAllDevices.fold(
       (l) {

@@ -1,26 +1,26 @@
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_light_entity/generic_light_entity.dart';
+import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:cybearjinni/domain/cbj_comp/cbj_comp_failures.dart';
 import 'package:dartz/dartz.dart';
 import 'package:kt_dart/kt.dart';
 
-Either<CBJCompFailure<String>, String> validateCBJCompNotEmpty(String input) {
+Either<CbjCompFailure<String>, String> validateCBJCompNotEmpty(String input) {
   if (input.isNotEmpty) {
     return right(input);
   } else {
     return left(
-      CBJCompFailure.empty(
+      CbjCompFailure.empty(
         failedValue: input,
       ),
     );
   }
 }
 
-Either<CBJCompFailure<KtList<GenericLightDE>>, KtList<GenericLightDE>>
+Either<CbjCompFailure<KtList<GenericLightDE>>, KtList<GenericLightDE>>
     validateCBJCompDevicesNotNull(KtList<GenericLightDE> input) {
   return right(input);
 }
 
-Either<CBJCompFailure<String>, String> validateCBJCompMaxNameLength(
+Either<CbjCompFailure<String>, String> validateCBJCompMaxNameLength(
   String input,
   int maxLength,
 ) {
@@ -28,7 +28,7 @@ Either<CBJCompFailure<String>, String> validateCBJCompMaxNameLength(
     return right(input);
   } else {
     return left(
-      CBJCompFailure.exceedingLength(
+      CbjCompFailure.exceedingLength(
         failedValue: input,
         max: maxLength,
       ),
@@ -36,21 +36,21 @@ Either<CBJCompFailure<String>, String> validateCBJCompMaxNameLength(
   }
 }
 
-Either<CBJCompFailure<String>, String> validateCBJCompStateExist(String input) {
+Either<CbjCompFailure<String>, String> validateCBJCompStateExist(String input) {
   return right(input);
 }
 
-Either<CBJCompFailure<String>, String> validateCBJCompActionExist(
+Either<CbjCompFailure<String>, String> validateCBJCompActionExist(
   String input,
 ) {
   return right(input);
 }
 
-Either<CBJCompFailure<String>, String> validateCBJCompTypeExist(String input) {
+Either<CbjCompFailure<String>, String> validateCBJCompTypeExist(String input) {
   return right(input);
 }
 
-Either<CBJCompFailure<String>, String> validateCBJCompStateInTypeExist(
+Either<CbjCompFailure<String>, String> validateCBJCompStateInTypeExist(
   String input,
 ) {
   return right(input);

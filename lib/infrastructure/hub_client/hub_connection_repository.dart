@@ -1,5 +1,8 @@
 part of 'package:cybearjinni/domain/i_hub_connection_repository.dart';
 
+@Deprecated(
+  'Old architecture. Replaced with ConnectionsService. Delete after Re adding Hub comunication',
+)
 class _HubConnectionRepository implements IHubConnectionRepository {
   _HubConnectionRepository() {
     if (currentEnvApp == EnvApp.prod) {

@@ -1,14 +1,12 @@
 import 'dart:collection';
 
-import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/entity_type_utils.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_light_entity/generic_light_entity.dart';
+import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:cybearjinni/domain/connections_service.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:flutter/material.dart';
 
-/// Show light toggles in a container with the background color from smart room
+/// Show light toggles in a container with the background color from smart area
 /// object
 class LightMolecule extends StatelessWidget {
   const LightMolecule(this.entity);
@@ -37,9 +35,11 @@ class LightMolecule extends StatelessWidget {
       ],
     );
     ConnectionsService.instance.setEntityState(
-      uniqueIdByVendor: uniqueIdByVendor,
-      property: EntityProperties.lightSwitchState,
-      actionType: action,
+      ActionObject(
+        uniqueIdByVendor: uniqueIdByVendor,
+        property: EntityProperties.lightSwitchState,
+        actionType: action,
+      ),
     );
   }
 

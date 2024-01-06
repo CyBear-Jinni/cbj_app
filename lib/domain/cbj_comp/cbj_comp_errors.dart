@@ -1,9 +1,9 @@
 import 'package:cybearjinni/domain/cbj_comp/cbj_comp_failures.dart';
 
-class CBJCompUnexpectedValueError extends Error {
-  CBJCompUnexpectedValueError(this.cBJCompFailure);
+class CbjCompUnexpectedValueError extends Error {
+  CbjCompUnexpectedValueError(this.cBJCompFailure);
 
-  final CBJCompFailure cBJCompFailure;
+  final CbjCompFailure cBJCompFailure;
 
   @override
   String toString() {

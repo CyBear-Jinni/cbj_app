@@ -1,28 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:cbj_integrations_controller/domain/room/i_room_repository.dart';
-import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
-import 'package:cbj_integrations_controller/domain/scene/i_scene_cbj_repository.dart';
-import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/entity_type_utils.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_blinds_entity/generic_blinds_device_dtos.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_boiler_entity/generic_boiler_device_dtos.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_dimmable_light_entity/generic_dimmable_light_device_dtos.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_empty_entity/generic_empty_device_dtos.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_light_entity/generic_light_device_dtos.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_ping_entity/generic_ping_device_dtos.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_printer_entity/generic_printer_device_dtos.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_rgbw_light_entity/generic_rgbw_light_device_dtos.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_security_camera_entity/generic_security_camera_device_dtos.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_smart_computer_entity/generic_smart_computer_device_dtos.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_smart_plug_entity/generic_smart_plug_device_dtos.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_smart_tv_entity/generic_smart_tv_device_dtos.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_switch_entity/generic_switch_device_dtos.dart';
-import 'package:cbj_integrations_controller/infrastructure/hub_client/hub_client.dart';
-import 'package:cbj_integrations_controller/infrastructure/room/room_entity_dtos.dart';
-import 'package:cbj_integrations_controller/infrastructure/scenes/scene_cbj_dtos.dart';
+import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:cybearjinni/domain/device/i_device_repository.dart';
 import 'package:cybearjinni/domain/i_hub_connection_repository.dart';
@@ -30,6 +9,9 @@ import 'package:cybearjinni/infrastructure/core/injection.dart';
 import 'package:cybearjinni/infrastructure/core/logger.dart';
 import 'package:grpc/grpc.dart';
 
+@Deprecated(
+  'Old architecture. Replaced with ConnectionsService. Delete after Re adding Hub comunication',
+)
 class HubRequestRouting {
   static StreamSubscription<dynamic>? requestsFromHubSubscription;
 
@@ -63,8 +45,8 @@ class HubRequestRouting {
       }
       if (requestsAndStatusFromHub.sendingType == SendingType.entityType) {
         navigateDeviceRequest(requestsAndStatusFromHub.allRemoteCommands);
-      } else if (requestsAndStatusFromHub.sendingType == SendingType.roomType) {
-        navigateRoomRequest(requestsAndStatusFromHub.allRemoteCommands);
+      } else if (requestsAndStatusFromHub.sendingType == SendingType.areaType) {
+        navigateAreaRequest(requestsAndStatusFromHub.allRemoteCommands);
       } else if (requestsAndStatusFromHub.sendingType ==
           SendingType.sceneType) {
         navigateSceneRequest(requestsAndStatusFromHub.allRemoteCommands);
@@ -106,34 +88,34 @@ class HubRequestRouting {
     await IHubConnectionRepository.instance.connectWithHub();
   }
 
-  static Future<void> navigateRoomRequest(
+  static Future<void> navigateAreaRequest(
     String allRemoteCommands,
   ) async {
-    final Map<String, dynamic> requestAsJson =
-        jsonDecode(allRemoteCommands) as Map<String, dynamic>;
+    // final Map<String, dynamic> requestAsJson =
+    // jsonDecode(allRemoteCommands) as Map<String, dynamic>;
 
-    final RoomEntityDtos roomEntityDtos = RoomEntityDtos(
-      uniqueId: requestAsJson['uniqueId'] as String,
-      cbjEntityName: requestAsJson['cbjEntityName'] as String,
-      background: requestAsJson['background'] as String,
-      roomTypes: Set<String>.from(requestAsJson['roomTypes'] as Set<dynamic>),
-      roomDevicesId:
-          Set<String>.from(requestAsJson['roomDevicesId'] as Set<dynamic>),
-      roomScenesId:
-          Set<String>.from(requestAsJson['roomScenesId'] as Set<dynamic>),
-      roomRoutinesId:
-          Set<String>.from(requestAsJson['roomRoutinesId'] as Set<dynamic>),
-      roomBindingsId:
-          Set<String>.from(requestAsJson['roomBindingsId'] as Set<dynamic>),
-      roomMostUsedBy:
-          Set<String>.from(requestAsJson['roomMostUsedBy'] as Set<dynamic>),
-      roomPermissions:
-          Set<String>.from(requestAsJson['roomPermissions'] as Set<dynamic>),
-    );
+    // final AreaEntityDtos areaEntityDtos = AreaEntityDtos(
+    //   uniqueId: requestAsJson['uniqueId'] as String,
+    //   cbjEntityName: requestAsJson['cbjEntityName'] as String,
+    //   background: requestAsJson['background'] as String,
+    //   areaTypes: Set<String>.from(requestAsJson['areaTypes'] as Set<dynamic>),
+    //   areaDevicesId:
+    //       Set<String>.from(requestAsJson['areaDevicesId'] as Set<dynamic>),
+    //   areaScenesId:
+    //       Set<String>.from(requestAsJson['areaScenesId'] as Set<dynamic>),
+    //   areaRoutinesId:
+    //       Set<String>.from(requestAsJson['areaRoutinesId'] as Set<dynamic>),
+    //   areaBindingsId:
+    //       Set<String>.from(requestAsJson['areaBindingsId'] as Set<dynamic>),
+    //   areaMostUsedBy:
+    //       Set<String>.from(requestAsJson['areaMostUsedBy'] as Set<dynamic>),
+    //   areaPermissions:
+    //       Set<String>.from(requestAsJson['areaPermissions'] as Set<dynamic>),
+    // );
 
-    final RoomEntity roomEntity = roomEntityDtos.toDomain();
+    // final AreaEntity areaEntity = areaEntityDtos.toDomain();
 
-    IRoomRepository.instance.addOrUpdateRoom(roomEntity);
+    // IAreaRepository.instance.addOrUpdateArea(areaEntity);
   }
 
   static Future<void> navigateDeviceRequest(

@@ -1,48 +1,48 @@
 part of 'package:cybearjinni/domain/cbj_comp/i_cbj_comp_repository.dart';
 
-class _CBJCompRepository implements ICBJCompRepository {
+class _CbjCompRepository implements ICbjCompRepository {
   @override
-  Future<Either<CBJCompFailure, Unit>> shutdownServer() async {
+  Future<Either<CbjCompFailure, Unit>> shutdownServer() async {
     await CreateTheCBJAppServer().shutdownServer();
     return right(unit);
   }
 
   @override
-  Future<Either<CBJCompFailure, Unit>> firstSetup(
-    CBJCompEntity cBJCompEntity,
+  Future<Either<CbjCompFailure, Unit>> firstSetup(
+    CbjCompEntity cBJCompEntity,
   ) async {
     try {
-      return left(const CBJCompFailure.unexpected());
+      return left(const CbjCompFailure.unexpected());
     } catch (e) {
-      return left(const CBJCompFailure.unexpected());
+      return left(const CbjCompFailure.unexpected());
     }
   }
 
   @override
-  Future<Either<CBJCompFailure, Unit>> create(CBJCompEntity deviceEntity) {
+  Future<Either<CbjCompFailure, Unit>> create(CbjCompEntity deviceEntity) {
     // TODO: implement create
     throw UnimplementedError();
   }
 
   @override
-  Future<Either<CBJCompFailure, Unit>> devicesList(CBJCompEntity deviceEntity) {
+  Future<Either<CbjCompFailure, Unit>> devicesList(CbjCompEntity deviceEntity) {
     // TODO: implement devicesList
     throw UnimplementedError();
   }
 
   @override
-  Future<Either<CBJCompFailure, Unit>> updateCompInfo(
-    CBJCompEntity compEntity,
+  Future<Either<CbjCompFailure, Unit>> updateCompInfo(
+    CbjCompEntity compEntity,
   ) async {
     try {
-      return left(const CBJCompFailure.unexpected());
+      return left(const CbjCompFailure.unexpected());
     } catch (e) {
-      return left(const CBJCompFailure.unexpected());
+      return left(const CbjCompFailure.unexpected());
     }
   }
 
   @override
-  Stream<Either<CBJCompFailure, String>> getConnectedComputersIP() async* {
+  Stream<Either<CbjCompFailure, String>> getConnectedComputersIP() async* {
     try {
       final CreateTheCBJAppServer createTheCBJAppServer =
           CreateTheCBJAppServer();
@@ -56,18 +56,18 @@ class _CBJCompRepository implements ICBJCompRepository {
         return right(compInfoSB.compIP);
       });
     } catch (e) {
-      yield left(const CBJCompFailure.unexpected());
+      yield left(const CbjCompFailure.unexpected());
     }
-    yield left(const CBJCompFailure.unexpected());
+    yield left(const CbjCompFailure.unexpected());
   }
 
   @override
-  Future<Either<CBJCompFailure, CBJCompEntity>> getInformationFromDeviceByIp(
+  Future<Either<CbjCompFailure, CbjCompEntity>> getInformationFromDeviceByIp(
     String compIp,
   ) async {
     try {} catch (e) {
-      return left(const CBJCompFailure.unexpected());
+      return left(const CbjCompFailure.unexpected());
     }
-    return left(const CBJCompFailure.unexpected());
+    return left(const CbjCompFailure.unexpected());
   }
 }

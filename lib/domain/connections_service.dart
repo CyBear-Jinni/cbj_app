@@ -1,12 +1,8 @@
 import 'dart:async';
 import 'dart:collection';
 
-import 'package:cbj_integrations_controller/infrastructure/demo_connection_service_integrations_controller.dart';
-import 'package:cbj_integrations_controller/infrastructure/devices_service.dart';
-import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/entity_type_utils.dart';
-import 'package:cbj_integrations_controller/infrastructure/search_devices.dart';
+import 'package:cbj_integrations_controller/integrations_controller.dart';
+import 'package:cybearjinni/infrastructure/network_utilities_flutter.dart';
 
 part 'package:cybearjinni/infrastructure/connection_service/app_connection_service.dart';
 part 'package:cybearjinni/infrastructure/connection_service/demo_connection_service.dart';
@@ -56,16 +52,25 @@ abstract interface class ConnectionsService {
 
   Future searchDevices();
 
-  void setEntityState({
-    required HashMap<VendorsAndServices, HashSet<String>> uniqueIdByVendor,
-    required EntityProperties property,
-    required EntityActions actionType,
-    HashMap<ActionValues, dynamic>? value,
-  });
+  void setEntityState(ActionObject action);
+
+  Future setEtitiesToArea(String areaId, HashSet<String> entities);
 
   Future<HashMap<String, DeviceEntityBase>> get getAllEntities;
 
+  Future<HashMap<String, AreaEntity>> get getAllAreas;
+
   Stream<MapEntry<String, DeviceEntityBase>> watchEntities();
 
+  Stream<MapEntry<String, AreaEntity>> watchAreas();
+
   Future dispose();
+
+  Future setNewArea(AreaEntity area);
+
+  Future<HashMap<String, SceneCbjEntity>> getScenes();
+
+  Future activateScene(String id);
+
+  Future addScene(SceneCbjEntity scene);
 }

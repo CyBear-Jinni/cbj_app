@@ -5,7 +5,7 @@
   "History_Settings_Page": "Seite Verlaufseinstellungen",
   "Lamps_Page": "Lampen Seite",
   "Name:_": "der Name: {}",
-  "Room:_": "Zimmer: {}",
+  "Area:_": "Zimmer: {}",
   "Lamps_Settings_Page": "Seite Lampeneinstellungen",
   "Welcome_to_your_Smart_Home": "Willkommen in Ihrem Smart Home",
   "Scene_Settings_Page": "Seite Szeneneinstellungen",
@@ -50,13 +50,12 @@
   "New_devices": "Neue Geräte",
   "Add_devices": "Geräte hinzufügen",
   "Device_type:_": "Gerätetyp: {}",
-  "Room_name_is_required": "Raumname ist erforderlich",
-  "Room_name:": "Raumname:",
+  "Area_name_is_required": "Raumname ist erforderlich",
+  "Area_name:": "Raumname:",
   "Device_name_is_required": "Gerätename ist erforderlich",
   "Device_name:": "Gerätename:",
   "Update": "Aktualisieren",
   "IP": "IP",
   "This_is_firebase": "Das ist Feuerbasis",
   "Device_with_ip:_": "Gerät mit IP: {}"
-  }
-  
+}

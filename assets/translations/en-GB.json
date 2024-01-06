@@ -1,4 +1,3 @@
-
 {
   "Create_new_account": "Create new account",
   "Actions_History": "Actions History",
@@ -6,7 +5,7 @@
   "History_Settings_Page": "History Settings Page",
   "Lamps_Page": "Lamps Page",
   "Name:_": "Name: {}",
-  "Room:_": "Room: {}",
+  "Area:_": "Area: {}",
   "Lamps_Settings_Page": "Lamps Settings Page",
   "Welcome_to_your_Smart_Home": "Welcome to your Smart Home",
   "Scene_Settings_Page": "Scene Settings Page",
@@ -49,8 +48,8 @@
   "New_devices": "New devices",
   "Add_devices": "Add devices",
   "Device_type:_": "Device type: {}",
-  "Room_name_is_required": "Room name is required",
-  "Room_name:": "Room name:",
+  "Area_name_is_required": "Area name is required",
+  "Area_name:": "Area name:",
   "Device_name_is_required": "Device name is required",
   "Device_name:": "Device name:",
   "Update": "Update",

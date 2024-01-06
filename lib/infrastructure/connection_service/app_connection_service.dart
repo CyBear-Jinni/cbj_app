@@ -10,29 +10,47 @@ class _AppConnectionService implements ConnectionsService {
 
   @override
   Future<HashMap<String, DeviceEntityBase>> get getAllEntities async =>
-      DevicesService().getEntities();
+      IcSynchronizer().getEntities();
 
   @override
-  Future searchDevices() async => searchDevicesInstance.startSearchIsolate();
+  Future<HashMap<String, AreaEntity>> get getAllAreas async =>
+      IcSynchronizer().getAreas();
+
+  @override
+  Future searchDevices() =>
+      searchDevicesInstance.startSearchIsolate(NetworkUtilitiesFlutter());
 
   @override
   Stream<MapEntry<String, DeviceEntityBase>> watchEntities() =>
-      DevicesService().watchEntities();
+      IcSynchronizer().entitiesChangesStream.stream;
 
   @override
-  void setEntityState({
-    required HashMap<VendorsAndServices, HashSet<String>> uniqueIdByVendor,
-    required EntityProperties property,
-    required EntityActions actionType,
-    HashMap<ActionValues, dynamic>? value,
-  }) =>
-      DevicesService().setEntityState(
-        uniqueIdByVendor: uniqueIdByVendor,
-        action: actionType,
-        property: property,
-        value: value,
-      );
+  Stream<MapEntry<String, AreaEntity>> watchAreas() =>
+      IcSynchronizer().areasChangesStream.stream;
+
+  @override
+  void setEntityState(ActionObject action) =>
+      IcSynchronizer().setEntitiesState(action);
 
   @override
   Future dispose() async => searchDevicesInstance.dispose();
+
+  @override
+  Future setNewArea(AreaEntity area) async {
+    IcSynchronizer().setNewArea(area);
+  }
+
+  @override
+  Future setEtitiesToArea(String areaId, HashSet<String> entities) =>
+      IcSynchronizer().setEtitiesToArea(areaId, entities);
+
+  @override
+  Future<HashMap<String, SceneCbjEntity>> getScenes() async =>
+      IcSynchronizer().getScenes();
+
+  @override
+  Future activateScene(String id) => IcSynchronizer().activateScene(id);
+
+  @override
+  Future addScene(SceneCbjEntity scene) => IcSynchronizer().addScene(scene);
 }

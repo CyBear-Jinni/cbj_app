@@ -1,15 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:cbj_integrations_controller/domain/hub/hub_entity.dart';
-import 'package:cbj_integrations_controller/domain/hub/hub_failures.dart';
-import 'package:cbj_integrations_controller/domain/hub/hub_value_objects.dart';
-import 'package:cbj_integrations_controller/domain/local_db/local_db_failures.dart';
-import 'package:cbj_integrations_controller/infrastructure/core/utils.dart';
-import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/hub_client/hub_client.dart';
-import 'package:cbj_integrations_controller/infrastructure/hub_client/hub_client_demo.dart';
-import 'package:cbj_integrations_controller/infrastructure/hub_client/hub_dtos.dart';
+import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:cybearjinni/domain/i_local_db_repository.dart';
 import 'package:cybearjinni/infrastructure/core/injection.dart';
@@ -24,6 +16,9 @@ import 'package:wifi_iot/wifi_iot.dart';
 
 part 'package:cybearjinni/infrastructure/hub_client/hub_connection_repository.dart';
 
+@Deprecated(
+  'Old architecture. Replaced with ConnectionsService. Delete after Re adding Hub comunication',
+)
 abstract class IHubConnectionRepository {
   static IHubConnectionRepository? _instance;
 

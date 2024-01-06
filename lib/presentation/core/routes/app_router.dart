@@ -11,8 +11,8 @@ class AppRouter extends $AppRouter {
     AutoRoute(page: ConnectToHubMoreRoute.page),
     AutoRoute(page: ChooseDeviceVendorToAddRoute.page),
     AutoRoute(page: HomeRoute.page),
-    AutoRoute(page: ChangeRoomForDevicesRoute.page),
-    AutoRoute(page: AddNewRoomRoute.page),
+    AutoRoute(page: ChangeAreaForDevicesRoute.page),
+    AutoRoute(page: AddNewAreaRoute.page),
     AutoRoute(page: PlusButtonRoute.page),
     AutoRoute(page: RemotePipesRoute.page),
     AutoRoute(page: SoftwareInfoRoute.page),
@@ -33,7 +33,7 @@ class AppRouter extends $AppRouter {
     AutoRoute(page: ConfigureNewCbjCompRoute.page),
     AutoRoute(page: ComputerConnectionCheckRoute.page),
     AutoRoute(page: EntitiesInNetworkRoute.page),
-    AutoRoute(page: EntitiesInRoomRoute.page),
+    AutoRoute(page: EntitiesInAreaRoute.page),
 
     // Pages from packages
     AutoRoute(page: SmartCameraContainerRoute.page),

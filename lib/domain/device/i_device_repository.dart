@@ -2,30 +2,7 @@ import 'dart:async';
 import 'dart:collection';
 import 'dart:io';
 
-import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/devices/device_helper/device_helper.dart';
-import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_dto_base.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_blinds_entity/generic_blinds_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_blinds_entity/generic_blinds_value_objects.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_boiler_entity/generic_boiler_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_boiler_entity/generic_boiler_value_objects.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_dimmable_light_entity/generic_dimmable_light_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_dimmable_light_entity/generic_dimmable_light_value_objects.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_light_entity/generic_light_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_light_entity/generic_light_value_objects.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_rgbw_light_entity/generic_rgbw_light_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_rgbw_light_entity/generic_rgbw_light_value_objects.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_smart_computer_entity/generic_smart_computer_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_smart_computer_entity/generic_smart_computer_value_objects.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_smart_plug_entity/generic_smart_plug_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_smart_plug_entity/generic_smart_plug_value_objects.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_smart_tv_entity/generic_smart_tv_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_smart_tv_entity/generic_smart_tv_value_objects.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_switch_entity/generic_switch_entity.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/generic_switch_entity/generic_switch_value_objects.dart';
-import 'package:cbj_integrations_controller/infrastructure/hub_client/hub_client.dart';
+import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:cybearjinni/domain/device/devices_failures.dart';
 import 'package:cybearjinni/infrastructure/core/logger.dart';
 import 'package:cybearjinni/infrastructure/hub_client/hub_requests_routing.dart';
@@ -42,6 +19,7 @@ import 'package:rxdart/rxdart.dart';
 
 part 'package:cybearjinni/infrastructure/device_repository.dart';
 
+@Deprecated('Old architecture. Replaced by EntitiesService')
 abstract interface class IDeviceRepository {
   static IDeviceRepository? _instance;
 
@@ -83,12 +61,6 @@ abstract interface class IDeviceRepository {
   Future<Either<DevicesFailure, Unit>> create(
     DeviceEntityBase deviceEntity,
   );
-
-  /// Update document in the database in the following fields
-  Future<Either<DevicesFailure, Unit>> updateDatabase({
-    required Map<String, dynamic> documentPath,
-    required Map<String, dynamic> fieldsToUpdate,
-  });
 
   Future<Either<DevicesFailure, Unit>> updateWithDeviceEntity({
     required DeviceEntityBase deviceEntity,
@@ -137,11 +109,6 @@ abstract interface class IDeviceRepository {
     required List<String>? devicesId,
   });
 
-  Future<Either<DevicesFailure, Unit>> openUrlOnDevices({
-    required List<String>? devicesId,
-    required String url,
-  });
-
   Future<Either<DevicesFailure, Unit>> closeStateDevices({
     required List<String>? devicesId,
   });
@@ -151,10 +118,6 @@ abstract interface class IDeviceRepository {
   });
 
   Future<Either<DevicesFailure, Unit>> playStateDevices({
-    required List<String>? devicesId,
-  });
-
-  Future<Either<DevicesFailure, Unit>> skipVideoDevices({
     required List<String>? devicesId,
   });
 
@@ -170,15 +133,11 @@ abstract interface class IDeviceRepository {
     required List<String>? devicesId,
   });
 
-  Future<Either<DevicesFailure, Unit>> delete(
-    DeviceEntityBase deviceEntity,
-  );
-
   BehaviorSubject<KtList<dynamic>> allResponseFromTheHubStreamController =
       BehaviorSubject<KtList<dynamic>>();
 
-  BehaviorSubject<KtList<RoomEntity>> roomsResponseFromTheHubStreamController =
-      BehaviorSubject<KtList<RoomEntity>>();
+  BehaviorSubject<KtList<AreaEntity>> areasResponseFromTheHubStreamController =
+      BehaviorSubject<KtList<AreaEntity>>();
 
   BehaviorSubject<KtList<DeviceEntityBase>>
       devicesResponseFromTheHubStreamController =

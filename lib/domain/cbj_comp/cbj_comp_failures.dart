@@ -3,24 +3,24 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'cbj_comp_failures.freezed.dart';
 
 @freezed
-class CBJCompFailure<T> {
-  const factory CBJCompFailure.empty({
+class CbjCompFailure<T> {
+  const factory CbjCompFailure.empty({
     required T failedValue,
   }) = _Empty;
 
-  const factory CBJCompFailure.actionExcecuter({
+  const factory CbjCompFailure.actionExcecuter({
     required T failedValue,
   }) = _ActionExcecuter;
 
-  const factory CBJCompFailure.exceedingLength({
+  const factory CbjCompFailure.exceedingLength({
     required T failedValue,
     required int max,
   }) = _ExceedingLength;
 
-  const factory CBJCompFailure.unexpected() = _Unexpected;
+  const factory CbjCompFailure.unexpected() = _Unexpected;
 
-  const factory CBJCompFailure.insufficientPermission() =
+  const factory CbjCompFailure.insufficientPermission() =
       _InsufficientPermission;
 
-  const factory CBJCompFailure.unableToUpdate() = _UnableToUpdate;
+  const factory CbjCompFailure.unableToUpdate() = _UnableToUpdate;
 }

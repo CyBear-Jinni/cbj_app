@@ -8,8 +8,8 @@ class _DeviceRepository implements IDeviceRepository {
 
   // @override
   // void addOrUpdateFromApp(dynamic entity) {
-  //   if (entity is RoomEntity) {
-  //     _addOrUpdateRoom(entity);
+  //   if (entity is AreaEntity) {
+  //     _addOrUpdateArea(entity);
   //   } else if (entity is DeviceEntityBase) {
   //     _addOrUpdateDevice(entity);
   //   } else {
@@ -252,43 +252,10 @@ class _DeviceRepository implements IDeviceRepository {
   }
 
   @override
-  Future<Either<DevicesFailure, Unit>> updateDatabase({
-    required Map<String, dynamic> documentPath,
-    required Map<String, dynamic> fieldsToUpdate,
-    String? forceUpdateLocation,
-  }) async {
-    try {
-      // await documentPath.update(fieldsToUpdate);
-      return right(unit);
-    } on PlatformException catch (e) {
-      if (e.message!.contains('NOT_FOUND')) {
-        return left(const DevicesFailure.unableToUpdate());
-      } else {
-        // log.error(e.toString());
-        return left(const DevicesFailure.unexpected());
-      }
-    }
-  }
-
-  @override
   Future<Either<DevicesFailure, Unit>> updateWithDeviceEntity({
     required DeviceEntityBase deviceEntity,
   }) async {
-    const String updateLocation = 'L';
-
-    try {
-      if (updateLocation == 'L') {
-        return updateComputer(deviceEntity);
-      }
-      return updateRemoteDB(deviceEntity);
-    } on PlatformException catch (e) {
-      if (e.message!.contains('NOT_FOUND')) {
-        return left(const DevicesFailure.unableToUpdate());
-      } else {
-        // log.error(e.toString());
-        return left(const DevicesFailure.unexpected());
-      }
-    }
+    return left(const DevicesFailure.unexpected());
   }
 
   @override
@@ -853,44 +820,6 @@ class _DeviceRepository implements IDeviceRepository {
   }
 
   @override
-  Future<Either<DevicesFailure, Unit>> openUrlOnDevices({
-    required List<String>? devicesId,
-    required String url,
-  }) async {
-    final List<DeviceEntityBase?> deviceEntityListToUpdate =
-        await getDeviceEntityListFromId(devicesId!);
-
-    try {
-      for (final DeviceEntityBase? deviceEntity in deviceEntityListToUpdate) {
-        if (deviceEntity == null) {
-          continue;
-        }
-        if (deviceEntity is GenericSmartTvDE) {
-          deviceEntity.openUrl = GenericSmartTvOpenUrl(url);
-        } else {
-          logger.w(
-            'Open url action not supported for'
-            ' ${deviceEntity.entityTypes.getOrCrash()} type',
-          );
-          continue;
-        }
-
-        updateWithDeviceEntity(deviceEntity: deviceEntity);
-      }
-    } on PlatformException catch (e) {
-      if (e.message!.contains('PERMISSION_DENIED')) {
-        return left(const DevicesFailure.insufficientPermission());
-      } else if (e.message!.contains('NOT_FOUND')) {
-        return left(const DevicesFailure.unableToUpdate());
-      } else {
-        // log.error(e.toString());
-        return left(const DevicesFailure.unexpected());
-      }
-    }
-    return right(unit);
-  }
-
-  @override
   Future<Either<DevicesFailure, Unit>> closeStateDevices({
     List<String>? devicesId,
     String? forceUpdateLocation,
@@ -1085,27 +1014,6 @@ class _DeviceRepository implements IDeviceRepository {
     return right(unit);
   }
 
-  @override
-  Future<Either<DevicesFailure, Unit>> skipVideoDevices({
-    required List<String>? devicesId,
-  }) async {
-    // TODO: implement skipVideoDevices
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<Either<DevicesFailure, Unit>> delete(
-    DeviceEntityBase deviceEntity,
-  ) async {
-    return left(const DevicesFailure.unexpected());
-  }
-
-  Future<Either<DevicesFailure, Unit>> updateRemoteDB(
-    DeviceEntityBase deviceEntity,
-  ) async {
-    return left(const DevicesFailure.unexpected());
-  }
-
   Future<Either<DevicesFailure, Unit>> updateComputer(
     DeviceEntityBase deviceEntity,
   ) async {
@@ -1247,6 +1155,6 @@ class _DeviceRepository implements IDeviceRepository {
       BehaviorSubject<KtList<DeviceEntityBase>>();
 
   @override
-  BehaviorSubject<KtList<RoomEntity>> roomsResponseFromTheHubStreamController =
-      BehaviorSubject<KtList<RoomEntity>>();
+  BehaviorSubject<KtList<AreaEntity>> areasResponseFromTheHubStreamController =
+      BehaviorSubject<KtList<AreaEntity>>();
 }

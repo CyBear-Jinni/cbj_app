@@ -1,19 +1,52 @@
+import 'dart:collection';
 import 'dart:ui';
 
 import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:cbj_integrations_controller/domain/room/room_entity.dart';
+import 'package:cbj_integrations_controller/integrations_controller.dart';
+import 'package:cybearjinni/domain/connections_service.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/molecules/molecules.dart';
-import 'package:cybearjinni/presentation/pages/scenes/widgets/folder_of_scenes.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 @RoutePage()
-class ScenesPage extends StatelessWidget {
-  const ScenesPage(this.folderOfScenes);
+class ScenesPage extends StatefulWidget {
+  const ScenesPage(this.area);
 
-  final RoomEntity folderOfScenes;
+  final AreaEntity area;
+
+  @override
+  State<ScenesPage> createState() => _ScenesPageState();
+}
+
+class _ScenesPageState extends State<ScenesPage> {
+  HashMap<String, SceneCbjEntity>? scenes;
+
+  @override
+  void initState() {
+    super.initState();
+    _initialized();
+  }
+
+  Future<void> _initialized() async {
+    final HashMap<String, SceneCbjEntity> scenecsTemp =
+        await ConnectionsService.instance.getScenes();
+
+    final HashMap<String, SceneCbjEntity> scenesInArea = HashMap.fromEntries(
+      widget.area.areaScenesId.getOrCrash().map((e) {
+        final SceneCbjEntity? scene = scenecsTemp[e];
+        if (scene == null) {
+          return null;
+        }
+        return MapEntry(scene.uniqueId.getOrCrash(), scene);
+      }).nonNulls,
+    );
+
+    setState(() {
+      scenes = scenesInArea;
+    });
+  }
 
   /// Execute when user press the icon in top right side
   void userCogFunction(BuildContext context) {
@@ -44,12 +77,18 @@ class ScenesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (scenes == null) {
+      return Scaffold(
+        body: LoadingPageMolecule(),
+      );
+    }
+
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
             image: NetworkImage(
-              folderOfScenes.background.getOrCrash(),
+              widget.area.background.getOrCrash(),
             ),
             fit: BoxFit.cover,
           ),
@@ -62,15 +101,15 @@ class ScenesPage extends StatelessWidget {
               children: [
                 TopBarMolecule(
                   pageName: 'Scenes_In_Folder',
-
                   rightIconFunction: userCogFunction,
                   leftIcon: FontAwesomeIcons.arrowLeft,
                   leftIconFunction: leftIconFunction,
                   // rightSecondIcon: FontAwesomeIcons.magnifyingGlass,
-                  //
                 ),
                 Expanded(
-                  child: FolderOfScenesWidget(folderOfScenes: folderOfScenes),
+                  child: ScenesGrid(
+                    scenes: scenes!.values.toList(),
+                  ),
                 ),
               ],
             ),

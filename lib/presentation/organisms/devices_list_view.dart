@@ -1,7 +1,6 @@
 import 'dart:collection';
 
-import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
+import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/core/entities_utils.dart';
 import 'package:cybearjinni/presentation/molecules/molecules.dart';
@@ -52,7 +51,7 @@ class DevicesListView extends StatelessWidget {
         geEntitiesByType();
 
     return ListViewMolecule(
-      ListViewVeriant.builder,
+      ListViewVeriant.separated,
       shrinkWrap: true,
       itemBuilder: (context, index) {
         final EntityTypes type = entitiesByType.keys.elementAt(index);
@@ -69,9 +68,9 @@ class DevicesListView extends StatelessWidget {
 
         if (numberOfType == 1) {
           headline = firstEntityOfType.cbjEntityName.getOrCrash();
-          supportingText = firstEntityOfType.entityStateGRPC.getOrCrash();
+          supportingText = firstEntityOfType.entityStateGRPC.state.name;
         } else {
-          headline = '$numberOfType ${type}s';
+          headline = '$numberOfType ${type.name}s';
           supportingText = '';
         }
 

@@ -1,15 +1,6 @@
 import 'dart:convert';
 
-import 'package:cbj_integrations_controller/domain/i_mqtt_server_repository.dart';
-import 'package:cbj_integrations_controller/domain/i_saved_devices_repo.dart';
-import 'package:cbj_integrations_controller/domain/i_saved_rooms_repo.dart';
-import 'package:cbj_integrations_controller/infrastructure/devices/device_helper/device_helper.dart';
-import 'package:cbj_integrations_controller/infrastructure/gen/cbj_hub_server/protoc_as_dart/cbj_hub_server.pbgrpc.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_base.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/device_entity_dto_base.dart';
-import 'package:cbj_integrations_controller/infrastructure/generic_entities/abstract_entity/value_objects_core.dart';
-import 'package:cbj_integrations_controller/infrastructure/hub_client/hub_client.dart';
-import 'package:cbj_integrations_controller/infrastructure/room/room_entity_dtos.dart';
+import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:cybearjinni/infrastructure/core/logger.dart';
 import 'package:mqtt_client/mqtt_client.dart';
 import 'package:mqtt_client/mqtt_server_client.dart';
@@ -82,7 +73,7 @@ class MqttServerRepository extends IMqttServerRepository {
           EntityState.state(EntityStateGRPC.waitingInComp);
 
       /// Sends directly to device connector conjecture
-      ISavedDevicesRepo.instance.addOrUpdateFromMqtt(deviceEntityBase);
+      // ISavedDevicesRepo.instance.addOrUpdateFromMqtt(deviceEntityBase);
 
       return;
     } else if (entityFromTheApp is DeviceEntityBase) {
@@ -91,14 +82,14 @@ class MqttServerRepository extends IMqttServerRepository {
 
       /// Sends directly to device connector conjecture
       // ConnectorDevicesStreamFromMqtt.fromMqttStream.add(entityFromTheApp);
-    } else if (entityFromTheApp is RoomEntityDtos) {
+    } else if (entityFromTheApp is AreaEntityDtos) {
       logger.i('Loop?');
-      ISavedRoomsRepo.instance.addOrUpdateRoom(entityFromTheApp.toDomain());
+      // ISavedAreasRepo.instance.addOrUpdateArea(entityFromTheApp.toDomain());
 
       /// Sends directly to device connector conjecture
       HubRequestsToApp.streamRequestsToApp.add(
         RequestsAndStatusFromHub(
-          sendingType: SendingType.roomType,
+          sendingType: SendingType.areaType,
           allRemoteCommands: jsonEncode(entityFromTheApp.toJson()),
         ),
       );

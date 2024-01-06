@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cbj_integrations_controller/domain/vendors/vendor_data.dart';
+import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/pages/add_vendors_pages/add_esphome_vendor/widgets/esphome_sign_in_form.dart';
 import 'package:flutter/material.dart';

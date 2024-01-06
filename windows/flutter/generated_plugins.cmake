@@ -3,6 +3,7 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
+  bonsoir_windows
   connectivity_plus
   file_selector_windows
   isar_flutter_libs
