@@ -75,6 +75,9 @@ class _SwitchAtomState extends State<SwitchAtom> {
       case SwitchVariant.switchVariant:
         activeIcon = MdiIcons.lightSwitch;
         inactiveIcon = MdiIcons.lightSwitch;
+      case SwitchVariant.ac:
+        activeIcon = MdiIcons.airConditioner;
+        inactiveIcon = MdiIcons.airConditioner;
     }
 
     return SizedBox(
@@ -115,5 +118,6 @@ enum SwitchVariant {
   boiler,
   smartPlug,
   switchVariant,
+  ac,
   ;
 }

@@ -1,7 +1,8 @@
 import 'package:cbj_integrations_controller/integrations_controller.dart';
+import 'package:cybearjinni/domain/connections_service.dart';
+import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/pages/add_new_devices_process/choose_device_vendor_to_add/widgets/vendor_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:kt_dart/kt.dart';
 
 class VendorsList extends StatefulWidget {
   @override
@@ -9,7 +10,7 @@ class VendorsList extends StatefulWidget {
 }
 
 class _VendorsListState extends State<VendorsList> {
-  KtList<VendorData> vendorsList = <VendorData>[].toImmutableList();
+  List<VendorEntityInformation>? vendorsList;
 
   @override
   void initState() {
@@ -18,10 +19,12 @@ class _VendorsListState extends State<VendorsList> {
   }
 
   Future<void> initializeVendors() async {
-    final KtList<VendorData> temp =
-        (await IVendorsRepository.instance.getVendors()).fold(
-      (f) => <VendorData>[].toImmutableList(),
-      (vendorsListSuccess) => vendorsListSuccess,
+    final List<VendorEntityInformation> temp =
+        await ConnectionsService.instance.getVendors();
+    temp.removeWhere(
+      (element) =>
+          element.vendorsAndServices ==
+          VendorsAndServices.vendorsAndServicesNotSupported,
     );
     setState(() {
       vendorsList = temp;
@@ -30,6 +33,10 @@ class _VendorsListState extends State<VendorsList> {
 
   @override
   Widget build(BuildContext context) {
+    if (vendorsList == null) {
+      return const CircularProgressIndicatorAtom();
+    }
+
     return ListView.separated(
       separatorBuilder: (_, __) => const SizedBox(
         height: 16,
@@ -37,12 +44,10 @@ class _VendorsListState extends State<VendorsList> {
       reverse: true,
       padding: EdgeInsets.zero,
       itemBuilder: (context, index) {
-        final vendor = vendorsList[index];
-        return VendorWidget(
-          vendor,
-        );
+        final vendor = vendorsList![index];
+        return VendorWidget(vendor);
       },
-      itemCount: vendorsList.size,
+      itemCount: vendorsList!.length,
     );
   }
 }

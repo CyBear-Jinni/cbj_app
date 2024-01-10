@@ -53,4 +53,12 @@ class _AppConnectionService implements ConnectionsService {
 
   @override
   Future addScene(SceneCbjEntity scene) => IcSynchronizer().addScene(scene);
+
+  @override
+  Future loginVendor(VendorLoginEntity value) async =>
+      IcSynchronizer().loginVendor(value);
+
+  @override
+  Future<List<VendorEntityInformation>> getVendors() async =>
+      IcSynchronizer().getVendors();
 }

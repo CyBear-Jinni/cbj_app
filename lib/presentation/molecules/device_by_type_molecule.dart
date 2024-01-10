@@ -1,5 +1,4 @@
 import 'package:cbj_integrations_controller/integrations_controller.dart';
-import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:flutter/material.dart';
 
@@ -36,9 +35,13 @@ class DeviceByTypeMolecule extends StatelessWidget {
         return DimmableLightMolecule(entity as GenericDimmableLightDE);
       case EntityTypes.securityCamera:
         return SecurityCameraMolecule(entity as GenericSecurityCameraDE);
-
-      default:
-        return TextAtom('Entity type is unsupported ${type?.name ?? 'null'}');
+      case EntityTypes.ac:
+        return AcMolecule(entity as GenericAcDE);
+      case EntityTypes.smartTypeNotSupported:
+      case EntityTypes.emptyEntity:
+      case EntityTypes.pingEntity:
+      case null:
+        return const SizedBox();
     }
   }
 }
