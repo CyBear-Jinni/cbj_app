@@ -73,4 +73,8 @@ abstract interface class ConnectionsService {
   Future activateScene(String id);
 
   Future addScene(SceneCbjEntity scene);
+
+  Future<void> loginVendor(VendorLoginEntity value);
+
+  Future<List<VendorEntityInformation>> getVendors();
 }

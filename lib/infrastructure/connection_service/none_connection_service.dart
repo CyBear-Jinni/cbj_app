@@ -52,4 +52,10 @@ class _NoneConnectionService implements ConnectionsService {
 
   @override
   Future activateScene(String id) async {}
+
+  @override
+  Future<void> loginVendor(VendorLoginEntity value) async {}
+
+  @override
+  Future<List<VendorEntityInformation>> getVendors() async => [];
 }

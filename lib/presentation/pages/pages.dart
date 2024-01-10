@@ -9,9 +9,6 @@ export 'package:cybearjinni/presentation/pages/add_new_devices_process/open_acce
 export 'package:cybearjinni/presentation/pages/add_new_devices_process/scan_for_new_cbj_comps/scan_for_new_cbj_comps_page.dart';
 export 'package:cybearjinni/presentation/pages/add_routine/add_routine_page.dart';
 export 'package:cybearjinni/presentation/pages/add_scene/add_scene_page.dart';
-export 'package:cybearjinni/presentation/pages/add_vendors_pages/add_esphome_vendor/add_esphome_vendor_page.dart';
-export 'package:cybearjinni/presentation/pages/add_vendors_pages/add_ewelink_vendor/add_ewelink_vendor_page.dart';
-export 'package:cybearjinni/presentation/pages/add_vendors_pages/add_lifx_vendor/add_lifx_vendor_page.dart';
 export 'package:cybearjinni/presentation/pages/change_area_for_devices_page.dart';
 export 'package:cybearjinni/presentation/pages/choose_automation_type_to_add_page.dart';
 export 'package:cybearjinni/presentation/pages/connect_to_hub/connect_to_hub_page.dart';

@@ -46,6 +46,7 @@ class EntitiesByAreaTab extends StatelessWidget {
                     areas: areas,
                   ),
                 ),
+                const SeparatorAtom(),
               ],
             ),
           ),

@@ -10,7 +10,6 @@ import 'package:cybearjinni/presentation/core/snack_bar_service.dart';
 import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:cybearjinni/presentation/pages/add_action_page.dart';
 import 'package:cybearjinni/presentation/pages/add_routine/widgets/routine_action_widget.dart';
-import 'package:dartz/dartz.dart' as dartz;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -51,9 +50,6 @@ class _AddRoutinePageState extends State<AddRoutinePage> {
   Set<MapEntry<String, String>> allEntityActions = {};
   bool showErrorMessages = false;
   bool isSubmitting = false;
-  dartz.Option<dartz.Either<CoreLoginFailure, dartz.Unit>>
-      authFailureOrSuccessOption = dartz.none();
-
   HashMap<String, DeviceEntityBase>? entities;
 
   Future<void> initialzeEntities() async {
@@ -170,7 +166,8 @@ class _AddRoutinePageState extends State<AddRoutinePage> {
                               ),
                               onPressed: (_) async {
                                 final EntityActionObject? actionList =
-                                    await context.router.push<EntityActionObject?>(
+                                    await context.router
+                                        .push<EntityActionObject?>(
                                   AddActionRoute(entities: entities!),
                                 );
                                 if (actionList != null) {
