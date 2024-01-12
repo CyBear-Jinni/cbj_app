@@ -97,7 +97,7 @@ class ScenesInFoldersTab extends StatelessWidget {
           leftIconFunction: (BuildContext context) {},
         ),
         Expanded(
-          child: ScenesGrid(
+          child: ScenesGridMolecule(
             scenes: scenes!.values.toList(),
           ),
         ),

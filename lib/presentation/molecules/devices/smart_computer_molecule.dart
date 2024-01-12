@@ -48,7 +48,7 @@ class _SmartComputerMoleculeState extends State<SmartComputerMolecule> {
 
   @override
   Widget build(BuildContext context) {
-    return DeviceNameRow(
+    return DeviceNameRowMolecule(
       widget.entity.cbjEntityName.getOrCrash()!,
       Row(
         mainAxisAlignment: MainAxisAlignment.center,

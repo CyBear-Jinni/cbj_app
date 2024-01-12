@@ -280,7 +280,7 @@ class _SmartTvMoleculeState extends State<SmartTvMolecule> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        DeviceNameRow(
+        DeviceNameRowMolecule(
           widget.entity.cbjEntityName.getOrCrash()!,
           const SizedBox(),
         ),

@@ -21,15 +21,36 @@ class DimmableLightMolecule extends StatefulWidget {
 class _DimmableLightMoleculeState extends State<DimmableLightMolecule> {
   double brightness = 100;
 
+  @override
+  void initState() {
+    super.initState();
+    _initialized();
+  }
+
+  Future<void> _initialized() async {
+    final GenericDimmableLightDE rgbwLightDe = widget.entity;
+
+    double lightBrightness =
+        double.parse(rgbwLightDe.lightBrightness.getOrCrash());
+
+    if (lightBrightness > 100) {
+      lightBrightness = 100;
+    }
+
+    setState(() {
+      brightness = lightBrightness;
+    });
+  }
+
   Future<void> _changeBrightness(double value) async {
     setState(() {
       brightness = value;
     });
 
-    final HashMap<ActionValues, String> hashValue =
-        HashMap<ActionValues, String>()
+    final HashMap<ActionValues, dynamic> hashValue =
+        HashMap<ActionValues, dynamic>()
           ..addEntries([
-            MapEntry(ActionValues.brightness, value.round().toString()),
+            MapEntry(ActionValues.brightness, value.round()),
           ]);
 
     setEntityState(
@@ -86,7 +107,7 @@ class _DimmableLightMoleculeState extends State<DimmableLightMolecule> {
 
     return Column(
       children: [
-        DeviceNameRow(
+        DeviceNameRowMolecule(
           widget.entity.cbjEntityName.getOrCrash()!,
           SwitchAtom(
             variant: SwitchVariant.light,

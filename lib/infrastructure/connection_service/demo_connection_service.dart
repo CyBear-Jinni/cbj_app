@@ -57,5 +57,6 @@ class _DemoConnectionService implements ConnectionsService {
   Future<void> loginVendor(VendorLoginEntity value) async {}
 
   @override
-  Future<List<VendorEntityInformation>> getVendors() async => [];
+  Future<List<VendorEntityInformation>> getVendors() async =>
+      IcSynchronizer().getVendors();
 }

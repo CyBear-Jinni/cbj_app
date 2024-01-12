@@ -74,7 +74,7 @@ class _AcMoleculeState extends State<AcMolecule> {
 
   @override
   Widget build(BuildContext context) {
-    return DeviceNameRow(
+    return DeviceNameRowMolecule(
       widget.entity.cbjEntityName.getOrCrash()!,
       SwitchAtom(
         variant: SwitchVariant.ac,

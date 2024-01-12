@@ -45,7 +45,7 @@ class LightMolecule extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DeviceNameRow(
+    return DeviceNameRowMolecule(
       entity.cbjEntityName.getOrCrash()!,
       SwitchAtom(
         variant: SwitchVariant.light,

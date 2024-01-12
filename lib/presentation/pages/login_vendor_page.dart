@@ -3,8 +3,8 @@ import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:cybearjinni/domain/connections_service.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/core/snack_bar_service.dart';
+import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 @RoutePage()
@@ -18,21 +18,42 @@ class LoginVendorPage extends StatefulWidget {
 }
 
 class _LoginVendorPageState extends State<LoginVendorPage> {
-  String? apiKey;
+  VendorLoginEntity? loginEntity;
 
   Future _signInWithApiKey() async {
+    if (loginEntity == null) {
+      return;
+    }
+
     SnackBarService().show(
       context,
       'Sign in to ${widget.vendorInformation.displayName}, devices will appear in the shortly',
     );
 
-    ConnectionsService.instance.loginVendor(
-      VendorLoginEntity(
-        widget.vendorInformation.vendorsAndServices,
-        apiKey: apiKey,
-      ),
-    );
+    ConnectionsService.instance.loginVendor(loginEntity!);
     context.router.pop();
+  }
+
+  Widget authTypeWidget() {
+    InsertloginMoleculeType type;
+    switch (widget.vendorInformation.loginType) {
+      case VendorLoginTypes.notNeeded:
+        return const TextAtom('Not needed');
+      case VendorLoginTypes.authToken:
+        type = InsertloginMoleculeType.authToken;
+      case VendorLoginTypes.apiKey:
+        type = InsertloginMoleculeType.apiKey;
+
+      case VendorLoginTypes.emailAndPassword:
+        type = InsertloginMoleculeType.emailAndPassword;
+    }
+    return InsertLoginMolecule(
+      type: type,
+      vendorsAndServices: widget.vendorInformation.vendorsAndServices,
+      onChange: (VendorLoginEntity value) {
+        loginEntity = value;
+      },
+    );
   }
 
   @override
@@ -72,16 +93,7 @@ class _LoginVendorPageState extends State<LoginVendorPage> {
                   const SizedBox(
                     height: 8,
                   ),
-                  TextFormField(
-                    decoration: const InputDecoration(
-                      prefixIcon: FaIcon(FontAwesomeIcons.key),
-                      labelText: 'value',
-                    ),
-                    autocorrect: false,
-                    onChanged: (value) {
-                      apiKey = value;
-                    },
-                  ),
+                  authTypeWidget(),
                   const SizedBox(
                     height: 8,
                   ),
@@ -107,8 +119,11 @@ class _LoginVendorPageState extends State<LoginVendorPage> {
                   backgroundColor: MaterialStateProperty.all(Colors.pink),
                 ),
                 onPressed: () {
-                  launchUrl(Uri.parse(
-                      widget.vendorInformation.urlToLoginCredantials!));
+                  launchUrl(
+                    Uri.parse(
+                      widget.vendorInformation.urlToLoginCredantials!,
+                    ),
+                  );
                 },
                 child: TextAtom(
                   widget.vendorInformation.loginType.name,

@@ -111,7 +111,7 @@ class _RgbwLightMoleculeState extends State<RgbwLightMolecule> {
 
     return Column(
       children: [
-        DeviceNameRow(
+        DeviceNameRowMolecule(
           widget.entity.cbjEntityName.getOrCrash()!,
           SwitchAtom(
             variant: SwitchVariant.light,

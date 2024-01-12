@@ -107,7 +107,7 @@ class _ScenesPageState extends State<ScenesPage> {
                   // rightSecondIcon: FontAwesomeIcons.magnifyingGlass,
                 ),
                 Expanded(
-                  child: ScenesGrid(
+                  child: ScenesGridMolecule(
                     scenes: scenes!.values.toList(),
                   ),
                 ),

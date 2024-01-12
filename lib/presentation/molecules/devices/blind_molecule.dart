@@ -100,7 +100,7 @@ class _BlindMoleculeState extends State<BlindMolecule> {
       }
     }
 
-    return DeviceNameRow(
+    return DeviceNameRowMolecule(
       widget.entity.cbjEntityName.getOrCrash()!,
       Row(
         children: [

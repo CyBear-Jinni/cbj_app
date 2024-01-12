@@ -55,7 +55,7 @@ class _SmartPlugsMoleculeState extends State<SmartPlugsMolecule> {
 
   @override
   Widget build(BuildContext context) {
-    return DeviceNameRow(
+    return DeviceNameRowMolecule(
       widget.entity.cbjEntityName.getOrCrash()!,
       SwitchAtom(
         variant: SwitchVariant.smartPlug,

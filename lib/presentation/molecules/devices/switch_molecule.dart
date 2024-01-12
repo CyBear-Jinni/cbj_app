@@ -55,7 +55,7 @@ class _SwitchMoleculeState extends State<SwitchMolecule> {
 
   @override
   Widget build(BuildContext context) {
-    return DeviceNameRow(
+    return DeviceNameRowMolecule(
       widget.entity.cbjEntityName.getOrCrash()!,
       SwitchAtom(
         variant: SwitchVariant.switchVariant,
