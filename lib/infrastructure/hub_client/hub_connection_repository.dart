@@ -43,7 +43,7 @@ class _HubConnectionRepository implements IHubConnectionRepository {
     try {
       connectivityResult = await Connectivity().checkConnectivity();
     } catch (e) {
-      icLogger.w('Cant check connectivity this is probably PC, error\n$e');
+      logger.w('Cant check connectivity this is probably PC, error\n$e');
     }
 
     // Last Number of bssid can change fix?, need to check if more numbers
@@ -59,7 +59,7 @@ class _HubConnectionRepository implements IHubConnectionRepository {
       wifiBSSIDWithoutLastNumber =
           wifiBSSID?.substring(0, wifiBSSID.lastIndexOf(':'));
     } catch (e) {
-      icLogger.w("Can't get WiFi BSSID");
+      logger.w("Can't get WiFi BSSID");
     }
     final Either<LocalDbFailures, String> remotePipesInformation =
         await ILocalDbRepository.instance.getRemotePipesDnsName();
@@ -81,14 +81,14 @@ class _HubConnectionRepository implements IHubConnectionRepository {
         (kIsWeb && savedWifiBssidWithoutLastNumber == 'no:Network:Bssid')) {
       (await openAndroidWifiSettingIfPossible()).fold(
         (l) {
-          icLogger
+          logger
               .w('No way to establish connection with the Hub, WiFi or location'
                   ' permission is closed for here');
           return;
         },
         (r) async {},
       );
-      icLogger.i('Connect using direct connection to Hub');
+      logger.i('Connect using direct connection to Hub');
 
       await connectDirectlyToHub();
       return;
@@ -126,7 +126,7 @@ class _HubConnectionRepository implements IHubConnectionRepository {
           networkName: hubNetworkName!,
         ).toDomain();
       } catch (e) {
-        icLogger.e('Crashed while setting Hub info from local db\n$e');
+        logger.e('Crashed while setting Hub info from local db\n$e');
       }
     }
 
@@ -134,7 +134,7 @@ class _HubConnectionRepository implements IHubConnectionRepository {
     try {
       connectivityResult = await Connectivity().checkConnectivity();
     } catch (e) {
-      icLogger.w('Cant check connectivity this is probably PC, error\n$e');
+      logger.w('Cant check connectivity this is probably PC, error\n$e');
     }
 
     // Last Number of bssid can change fix?, need to check if more numbers
@@ -158,7 +158,7 @@ class _HubConnectionRepository implements IHubConnectionRepository {
         savedWifiBssidWithoutLastNumber != null &&
         wifiBSSIDWithoutLastNumber != null &&
         savedWifiBssidWithoutLastNumber == wifiBSSIDWithoutLastNumber) {
-      icLogger.i('Connect using direct connection to Hub');
+      logger.i('Connect using direct connection to Hub');
 
       if (IHubConnectionRepository.hubEntity?.lastKnownIp.getOrCrash() !=
           null) {
@@ -191,16 +191,16 @@ class _HubConnectionRepository implements IHubConnectionRepository {
         }
         return right(compHubInfo);
       } catch (e) {
-        icLogger.e('Error getting hubInfo\n$e');
+        logger.e('Error getting hubInfo\n$e');
         return left(const HubFailures.unexpected());
       }
 
       // return;
     } else {
-      icLogger.i('Connect using Remote Pipes');
+      logger.i('Connect using Remote Pipes');
       return (await ILocalDbRepository.instance.getRemotePipesDnsName()).fold(
           (l) {
-        icLogger.e('Cant find local Remote Pipes Dns name');
+        logger.e('Cant find local Remote Pipes Dns name');
         return left(const HubFailures.unexpected());
       }, (r) async {
         try {
@@ -212,7 +212,7 @@ class _HubConnectionRepository implements IHubConnectionRepository {
           }
           return right(compHubInfo);
         } catch (e) {
-          icLogger.e('Error getting hubInfo\n$e');
+          logger.e('Error getting hubInfo\n$e');
           return left(const HubFailures.unexpected());
         }
       });
@@ -250,7 +250,7 @@ class _HubConnectionRepository implements IHubConnectionRepository {
       ResourceRecordQuery.addressIPv4(mDnsName),
     )) {
       deviceIp = record.address.address;
-      icLogger.i('Found address (${record.address}).');
+      logger.i('Found address (${record.address}).');
     }
 
     // await for (final IPAddressResourceRecord record
@@ -261,7 +261,7 @@ class _HubConnectionRepository implements IHubConnectionRepository {
 
     client.stop();
 
-    icLogger.t('Done.');
+    logger.t('Done.');
 
     return deviceIp;
   }
@@ -279,7 +279,7 @@ class _HubConnectionRepository implements IHubConnectionRepository {
         return locationRequest;
       }
 
-      icLogger.i('searchForHub');
+      logger.i('searchForHub');
 
       String? currentDeviceIP;
       String? networkBSSID;
@@ -314,7 +314,7 @@ class _HubConnectionRepository implements IHubConnectionRepository {
       final String subnet =
           currentDeviceIP!.substring(0, currentDeviceIP.lastIndexOf('.'));
 
-      icLogger.i('Hub Search subnet IP $subnet');
+      logger.i('Hub Search subnet IP $subnet');
 
       // TODO: Search for hub
       // final Stream<ActiveHost> devicesWithPort =
@@ -328,7 +328,7 @@ class _HubConnectionRepository implements IHubConnectionRepository {
       // );
 
       // await for (final ActiveHost activeHost in devicesWithPort) {
-      //   icLogger.i('Found Cbj Hub device: ${activeHost.address}');
+      //   logger.i('Found Cbj Hub device: ${activeHost.address}');
       //   if (networkBSSID != null && networkName != null) {
       //     return insertHubInfo(
       //       networkIp: activeHost.address,
@@ -338,7 +338,7 @@ class _HubConnectionRepository implements IHubConnectionRepository {
       //   }
       // }
     } catch (e) {
-      icLogger.w('Exception searchForHub\n$e');
+      logger.w('Exception searchForHub\n$e');
     }
     await Future.delayed(const Duration(seconds: 5));
     return left(const HubFailures.cantFindHubInNetwork());
@@ -346,7 +346,7 @@ class _HubConnectionRepository implements IHubConnectionRepository {
 
   @override
   Future<void> saveHubIP(String hubIP) async {
-    icLogger.w('saveHubIP');
+    logger.w('saveHubIP');
   }
 
   Future<Either<HubFailures, Unit>> askLocationPermissionAndLocationOn() async {
@@ -368,7 +368,7 @@ class _HubConnectionRepository implements IHubConnectionRepository {
       if (permissionGranted == PermissionStatus.denied) {
         permissionGranted = await location.requestPermission();
         if (permissionGranted != PermissionStatus.granted) {
-          icLogger.e('Permission to use location is denied');
+          logger.e('Permission to use location is denied');
           await Future.delayed(const Duration(seconds: 10));
 
           permissionCounter++;
@@ -389,7 +389,7 @@ class _HubConnectionRepository implements IHubConnectionRepository {
           if (disabledCounter > 2) {
             return const Left(HubFailures.unexpected());
           }
-          icLogger.w('Location is disabled');
+          logger.w('Location is disabled');
           await Future.delayed(const Duration(seconds: 5));
           continue;
         }
@@ -420,8 +420,8 @@ class _HubConnectionRepository implements IHubConnectionRepository {
       lastKnownIp: hubDtos.lastKnownIp,
     ))
         .fold(
-      (l) => icLogger.e('Cant find local Remote Pipes Dns name'),
-      (r) => icLogger.i('Found CyBear Jinni Hub'),
+      (l) => logger.e('Cant find local Remote Pipes Dns name'),
+      (r) => logger.i('Found CyBear Jinni Hub'),
     );
     return right(unit);
   }
@@ -457,7 +457,7 @@ class _HubConnectionRepository implements IHubConnectionRepository {
         networkName: hubNetworkName!,
       ).toDomain();
     } catch (e) {
-      icLogger.e('Crashed while setting Hub info from local db\n$e');
+      logger.e('Crashed while setting Hub info from local db\n$e');
     }
   }
 
@@ -508,7 +508,7 @@ class _HubConnectionRepository implements IHubConnectionRepository {
       (l) async {
         (await openAndroidWifiSettingIfPossible()).fold(
           (l) {
-            icLogger.w(
+            logger.w(
                 'No way to establish connection with the Hub, WiFi or location'
                 ' permission is closed');
           },
@@ -518,7 +518,7 @@ class _HubConnectionRepository implements IHubConnectionRepository {
         );
       },
       (r) {
-        icLogger.i('Connect using Remote Pipes');
+        logger.i('Connect using Remote Pipes');
         HubClient.createStreamWithHub(r, 50056);
         tryAgainConnectToTheHubOnceMore = 0;
       },
@@ -556,7 +556,7 @@ class _HubConnectionRepository implements IHubConnectionRepository {
       //   }
       // }
     } else {
-      icLogger.w(
+      logger.w(
         'Will ask the user to open WiFi and gps to try local connection',
       );
       final bool wifiEnabled = await WiFiForIoTPlugin.isEnabled();
@@ -568,7 +568,7 @@ class _HubConnectionRepository implements IHubConnectionRepository {
       }
 
       (await askLocationPermissionAndLocationOn()).fold((l) {
-        icLogger.e(
+        logger.e(
           'User does not allow opening location and does not have remote pipes info',
         );
       }, (r) async {

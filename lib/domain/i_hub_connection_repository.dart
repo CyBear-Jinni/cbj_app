@@ -5,6 +5,7 @@ import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:cybearjinni/domain/i_local_db_repository.dart';
 import 'package:cybearjinni/infrastructure/core/injection.dart';
+import 'package:cybearjinni/infrastructure/core/logger.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:location/location.dart';

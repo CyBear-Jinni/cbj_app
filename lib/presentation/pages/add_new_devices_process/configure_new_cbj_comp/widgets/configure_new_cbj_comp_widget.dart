@@ -8,6 +8,7 @@ import 'package:cybearjinni/domain/manage_network/i_manage_network_repository.da
 import 'package:cybearjinni/domain/manage_network/manage_network_entity.dart';
 import 'package:cybearjinni/domain/security_bear/i_security_bear_connection_repository.dart';
 import 'package:cybearjinni/domain/security_bear/security_bear_failures.dart';
+import 'package:cybearjinni/infrastructure/core/logger.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
 import 'package:cybearjinni/presentation/molecules/molecules.dart';
@@ -112,7 +113,7 @@ class _ConfigureNewCbjCompWidgetsState
           deviceE..cbjEntityName = CbjEntityName(deviceName),
         );
       } catch (e) {
-        icLogger.w("Can't add unsupported device");
+        logger.w("Can't add unsupported device");
       }
     });
     final CbjCompEntity compUpdatedData = cbjCompEntity.copyWith(

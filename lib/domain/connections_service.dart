@@ -1,10 +1,24 @@
 import 'dart:async';
 import 'dart:collection';
+import 'dart:io';
 
 import 'package:cbj_integrations_controller/integrations_controller.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:cybearjinni/infrastructure/core/injection.dart';
+import 'package:cybearjinni/infrastructure/core/logger.dart';
 import 'package:cybearjinni/infrastructure/network_utilities_flutter.dart';
+import 'package:dartz/dartz.dart';
+import 'package:flutter/foundation.dart';
+import 'package:grpc/grpc.dart';
+import 'package:location/location.dart';
+import 'package:network_info_plus/network_info_plus.dart';
+import 'package:network_tools_flutter/network_tools_flutter.dart';
+import 'package:permission_handler/permission_handler.dart'
+    as permission_handler;
+import 'package:rxdart/rxdart.dart';
 
 part 'package:cybearjinni/infrastructure/connection_service/app_connection_service.dart';
+part 'package:cybearjinni/infrastructure/connection_service/hub_connection_service.dart';
 part 'package:cybearjinni/infrastructure/connection_service/demo_connection_service.dart';
 part 'package:cybearjinni/infrastructure/connection_service/none_connection_service.dart';
 
@@ -30,13 +44,16 @@ abstract interface class ConnectionsService {
     if (connectionType == _currentConnectionType) {
       return;
     }
-    final ConnectionsService? oldInstance = _instance;
+    _instance?.dispose();
+
     switch (connectionType) {
       case ConnectionType.appAsHub:
         _instance = _AppConnectionService();
         _currentConnectionType = ConnectionType.appAsHub;
-      case ConnectionType.demo:
       case ConnectionType.hub:
+        _currentConnectionType = ConnectionType.hub;
+        _instance = _HubConnectionService();
+      case ConnectionType.demo:
       case ConnectionType.remotePipes:
         _instance = _DemoConnectionService();
         _currentConnectionType = ConnectionType.demo;
@@ -45,10 +62,11 @@ abstract interface class ConnectionsService {
         _instance = _NoneConnectionService();
         _currentConnectionType = ConnectionType.none;
     }
-    oldInstance?.dispose();
   }
 
   static ConnectionType getCurrentConnectionType() => _currentConnectionType;
+
+  Future<bool> connect();
 
   Future searchDevices();
 

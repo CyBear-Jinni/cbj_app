@@ -61,4 +61,7 @@ class _AppConnectionService implements ConnectionsService {
   @override
   Future<List<VendorEntityInformation>> getVendors() async =>
       IcSynchronizer().getVendors();
+
+  @override
+  Future<bool> connect() async => true;
 }

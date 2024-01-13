@@ -210,7 +210,11 @@ class _HomePageState extends State<HomePage> {
                     GestureDetector(
                       onTap: () async {
                         await context.router.push(const PlusButtonRoute());
+                        areas = null;
+                        entities = null;
                         _initialzeAreas();
+                        _initialzeEntities();
+
                         initializedScenes();
                       },
                       child: CircleAvatar(
