@@ -48,7 +48,7 @@ class _ConfigureNewCbjCompWidgetsState
     _sendHotSpotInformation(widget.cbjCompEntity);
   }
 
-  Future<void> _sendHotSpotInformation(CbjCompEntity cBJCompEntity) async {
+  Future _sendHotSpotInformation(CbjCompEntity cBJCompEntity) async {
     progressPercentage += 0.3;
     setState(() {
       state = ConfigureNewCbjCompState.actionInProgress;

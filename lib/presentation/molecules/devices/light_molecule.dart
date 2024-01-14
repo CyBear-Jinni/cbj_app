@@ -35,7 +35,7 @@ class LightMolecule extends StatelessWidget {
       ],
     );
     ConnectionsService.instance.setEntityState(
-      ActionObject(
+      RequestActionObject(
         uniqueIdByVendor: uniqueIdByVendor,
         property: EntityProperties.lightSwitchState,
         actionType: action,

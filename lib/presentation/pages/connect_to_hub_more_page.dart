@@ -1,16 +1,12 @@
 import 'dart:async';
 
 import 'package:auto_route/auto_route.dart';
-import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:cybearjinni/domain/connections_service.dart';
-import 'package:cybearjinni/domain/device/devices_failures.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
-import 'package:dartz/dartz.dart' as dartz;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:kt_dart/kt.dart';
 
 @RoutePage()
 class ConnectToHubMorePage extends StatelessWidget {
@@ -88,21 +84,11 @@ class ConnectToHubMoreWidget extends StatefulWidget {
 }
 
 class _ConnectToHubMoreWidgetState extends State<ConnectToHubMoreWidget> {
-  StreamSubscription<dartz.Either<DevicesFailure, KtList<DeviceEntityBase?>>>?
-      _deviceStreamSubscription;
-
   bool isLoading = false;
 
-  Future<void> _connectInDemoMode() async {
+  Future _connectInDemoMode() async {
     ConnectionsService.setCurrentConnectionType(ConnectionType.demo);
     context.router.replace(const HomeRoute());
-  }
-
-  @override
-  void dispose() {
-    _deviceStreamSubscription?.cancel();
-
-    super.dispose();
   }
 
   @override

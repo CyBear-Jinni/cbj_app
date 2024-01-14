@@ -21,7 +21,7 @@ class BlindMolecule extends StatefulWidget {
 }
 
 class _BlindMoleculeState extends State<BlindMolecule> {
-  Future<void> _moveUpAllBlinds() async {
+  Future _moveUpAllBlinds() async {
     FlushbarHelper.createLoading(
       message: 'Pulling_Up_all_blinds'.tr(),
       linearProgressIndicator: const LinearProgressIndicator(),
@@ -50,7 +50,7 @@ class _BlindMoleculeState extends State<BlindMolecule> {
     );
 
     ConnectionsService.instance.setEntityState(
-      ActionObject(
+      RequestActionObject(
         uniqueIdByVendor: uniqueIdByVendor,
         property: EntityProperties.blindsSwitchState,
         actionType: action,
@@ -58,7 +58,7 @@ class _BlindMoleculeState extends State<BlindMolecule> {
     );
   }
 
-  Future<void> _stopAllBlinds(List<String> blindsIdToStop) async {
+  Future _stopAllBlinds(List<String> blindsIdToStop) async {
     FlushbarHelper.createLoading(
       message: 'Stopping_all_blinds'.tr(),
       linearProgressIndicator: const LinearProgressIndicator(),
@@ -67,7 +67,7 @@ class _BlindMoleculeState extends State<BlindMolecule> {
     setEntityState(EntityActions.stop);
   }
 
-  Future<void> _moveDownAllBlinds(List<String> blindsIdToTurnDown) async {
+  Future _moveDownAllBlinds(List<String> blindsIdToTurnDown) async {
     FlushbarHelper.createLoading(
       message: 'Pulling_down_all_blinds'.tr(),
       linearProgressIndicator: const LinearProgressIndicator(),

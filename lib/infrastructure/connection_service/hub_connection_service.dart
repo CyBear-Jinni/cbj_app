@@ -37,18 +37,117 @@ class _HubConnectionService implements ConnectionsService {
   }
 
   @override
-  Future<HashMap<String, DeviceEntityBase>> get getAllEntities async {
-    appMessagesToHub.sink
-        .add(ClientStatusRequests(sendingType: SendingType.firstConnection));
+  Future<HashMap<String, DeviceEntityBase>> get getEntities async {
+    appMessagesToHub.sink.add(
+      ClientStatusRequests(sendingType: SendingType.allEntities.name),
+    );
+    final HashMap<String, DeviceEntityBase> entities = HashMap();
+
     await for (final RequestsAndStatusFromHub message
         in hubMessagesToApp.stream) {
-      logger.i('message from hub is $message');
+      final SendingType sendingType =
+          SendingTypeExtension.fromString(message.sendingType);
+      if (sendingType != SendingType.allEntities) {
+        continue;
+      }
+
+      try {
+        final Map<String, String> entitiesMap = Map<String, String>.from(
+          jsonDecode(message.allRemoteCommands) as Map<String, dynamic>,
+        );
+        entities.addEntries(
+          entitiesMap.entries.map(
+            (e) => MapEntry(
+              e.key,
+              DeviceHelper.convertJsonStringToDomain(e.value),
+            ),
+          ),
+        );
+      } catch (e) {
+        logger.e('Error converting entities\n$e');
+      }
+      break;
     }
-    return HashMap();
+
+    return entities;
   }
 
   @override
-  Future<HashMap<String, AreaEntity>> get getAllAreas async => HashMap();
+  Future<HashMap<String, AreaEntity>> get getAreas async {
+    appMessagesToHub.sink.add(
+      ClientStatusRequests(sendingType: SendingType.allAreas.name),
+    );
+
+    final HashMap<String, AreaEntity> areas = HashMap();
+
+    await for (final RequestsAndStatusFromHub message
+        in hubMessagesToApp.stream) {
+      final SendingType sendingType =
+          SendingTypeExtension.fromString(message.sendingType);
+      if (sendingType != SendingType.allAreas) {
+        continue;
+      }
+
+      try {
+        final Map<String, String> entitiesMap = Map<String, String>.from(
+          jsonDecode(message.allRemoteCommands) as Map<String, dynamic>,
+        );
+        areas.addEntries(
+          entitiesMap.entries.map(
+            (e) => MapEntry(
+              e.key,
+              AreaEntityDtos.fromJson(
+                jsonDecode(e.value) as Map<String, dynamic>,
+              ).toDomain(),
+            ),
+          ),
+        );
+      } catch (e) {
+        logger.e('Error converting areas\n$e');
+      }
+      break;
+    }
+
+    return areas;
+  }
+
+  @override
+  Future<HashMap<String, SceneCbjEntity>> get getScenes async {
+    appMessagesToHub.sink.add(
+      ClientStatusRequests(sendingType: SendingType.allScenes.name),
+    );
+
+    final HashMap<String, SceneCbjEntity> scenesMap = HashMap();
+
+    await for (final RequestsAndStatusFromHub message
+        in hubMessagesToApp.stream) {
+      final SendingType sendingType =
+          SendingTypeExtension.fromString(message.sendingType);
+      if (sendingType != SendingType.allScenes) {
+        continue;
+      }
+
+      try {
+        final Map<String, String> entities = Map<String, String>.from(
+          jsonDecode(message.allRemoteCommands) as Map<String, dynamic>,
+        );
+        scenesMap.addEntries(
+          entities.entries.map(
+            (e) => MapEntry(
+              e.key,
+              SceneCbjDtos.fromJson(jsonDecode(e.value) as Map<String, dynamic>)
+                  .toDomain(),
+            ),
+          ),
+        );
+      } catch (e) {
+        logger.e('Error converting scenes\n$e');
+      }
+      break;
+    }
+
+    return scenesMap;
+  }
 
   @override
   Future searchDevices() async {
@@ -126,7 +225,14 @@ class _HubConnectionService implements ConnectionsService {
   }
 
   @override
-  void setEntityState(ActionObject action) {}
+  void setEntityState(RequestActionObject action) {
+    appMessagesToHub.sink.add(
+      ClientStatusRequests(
+        sendingType: SendingType.setEntitiesAction.name,
+        allRemoteCommands: action.toInfrastructure().toJsonString(),
+      ),
+    );
+  }
 
   @override
   Stream<MapEntry<String, DeviceEntityBase>> watchEntities() {
@@ -154,13 +260,10 @@ class _HubConnectionService implements ConnectionsService {
   Future addScene(SceneCbjEntity scene) async {}
 
   @override
-  Future<HashMap<String, SceneCbjEntity>> getScenes() async => HashMap();
-
-  @override
   Future activateScene(String id) async {}
 
   @override
-  Future<void> loginVendor(VendorLoginEntity value) async {}
+  Future loginVendor(VendorLoginEntity value) async {}
 
   @override
   Future<List<VendorEntityInformation>> getVendors() async =>
@@ -229,7 +332,7 @@ class _HubConnectionService implements ConnectionsService {
   }
 
   /// Connect directly to the Hub if possible
-  Future<void> connectDirectlyToHub() async {
+  Future connectDirectlyToHub() async {
     if (hubIp == null) {
       return;
     }

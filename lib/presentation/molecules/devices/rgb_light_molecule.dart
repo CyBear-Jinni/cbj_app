@@ -30,7 +30,7 @@ class _RgbwLightMoleculeState extends State<RgbwLightMolecule> {
     _initialized();
   }
 
-  Future<void> _initialized() async {
+  Future _initialized() async {
     final GenericRgbwLightDE rgbwLightDe = widget.entity;
 
     int lightColorTemperature =
@@ -83,7 +83,7 @@ class _RgbwLightMoleculeState extends State<RgbwLightMolecule> {
       ],
     );
     ConnectionsService.instance.setEntityState(
-      ActionObject(
+      RequestActionObject(
         uniqueIdByVendor: uniqueIdByVendor,
         property: entityProperties,
         actionType: action,
@@ -92,7 +92,7 @@ class _RgbwLightMoleculeState extends State<RgbwLightMolecule> {
     );
   }
 
-  Future<void> _changeBrightness(double value) async {
+  Future _changeBrightness(double value) async {
     setState(() {
       brightness = value;
     });
@@ -184,7 +184,7 @@ class _LightColorMods extends State<LightColorMods> {
     _initialized();
   }
 
-  Future<void> _initialized() async {
+  Future _initialized() async {
     final GenericRgbwLightDE rgbwLightDe = widget.entity;
 
     int lightColorTemperature =
@@ -230,7 +230,7 @@ class _LightColorMods extends State<LightColorMods> {
       ],
     );
     ConnectionsService.instance.setEntityState(
-      ActionObject(
+      RequestActionObject(
         uniqueIdByVendor: uniqueIdByVendor,
         property: entityProperties,
         actionType: action,
@@ -239,7 +239,7 @@ class _LightColorMods extends State<LightColorMods> {
     );
   }
 
-  Future<void> _changeColorTemperature(int newColorTemperature) async {
+  Future _changeColorTemperature(int newColorTemperature) async {
     setState(() {
       colorTemperature = newColorTemperature;
     });
@@ -250,7 +250,7 @@ class _LightColorMods extends State<LightColorMods> {
     );
   }
 
-  Future<void> _changeHsvColor(HSVColor newHsvColor) async {
+  Future _changeHsvColor(HSVColor newHsvColor) async {
     setState(() {
       hsvColor = newHsvColor;
     });
@@ -309,14 +309,14 @@ class _LightColorMods extends State<LightColorMods> {
     );
   }
 
-  Future<void> _showWhiteMode() async {
+  Future _showWhiteMode() async {
     setState(() {
       colorModFocus = 0;
       colorModeWidget = getWhiteModeWidget();
     });
   }
 
-  Future<void> _showColorMode() async {
+  Future _showColorMode() async {
     setState(() {
       colorModFocus = 1;
       colorModeWidget = getHsvColorModeWidget();

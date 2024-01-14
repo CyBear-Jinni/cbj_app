@@ -52,7 +52,7 @@ class _ComputerConnectionCheckWidgetState
     ).show(context);
   }
 
-  Future<void> _checkConnectedToWiFiNetwork() async {
+  Future _checkConnectedToWiFiNetwork() async {
     if ((await WiFiScan.instance.canStartScan()) == CanStartScan.yes) {
       await WiFiScan.instance.startScan();
       if ((await WiFiScan.instance.canGetScannedResults()) ==
@@ -79,7 +79,7 @@ class _ComputerConnectionCheckWidgetState
     _searchIfHubOnTheSameWifiNetwork();
   }
 
-  Future<void> _searchIfHubOnTheSameWifiNetwork() async {
+  Future _searchIfHubOnTheSameWifiNetwork() async {
     int connectionTimeout = 0;
 
     while (true) {

@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:cybearjinni/infrastructure/core/logger.dart';
 import 'package:mqtt_client/mqtt_client.dart';
@@ -13,10 +11,10 @@ class MqttServerRepository extends IMqttServerRepository {
   }
 
   @override
-  Future<void> allHubDevicesSubscriptions() async {}
+  Future allHubDevicesSubscriptions() async {}
 
   @override
-  Future<void> asyncConstructor() async {}
+  Future asyncConstructor() async {}
 
   @override
   Future<MqttServerClient> connect() async {
@@ -45,25 +43,25 @@ class MqttServerRepository extends IMqttServerRepository {
   String getScenesTopicTypeName() => '';
 
   @override
-  Future<void> postSmartDeviceToAppMqtt({
+  Future postSmartDeviceToAppMqtt({
     required DeviceEntityBase entityFromTheHub,
   }) async {
-    HubRequestsToApp.streamRequestsToApp.sink.add(
-      RequestsAndStatusFromHub(
-        sendingType: SendingType.entityType,
-        allRemoteCommands:
-            DeviceHelper.convertDomainToJsonString(entityFromTheHub),
-      ),
-    );
+    // HubRequestsToApp.streamRequestsToApp.sink.add(
+    //   RequestsAndStatusFromHub(
+    //     sendingType: SendingType.entityType.name,
+    //     allRemoteCommands:
+    //         DeviceHelper.convertDomainToJsonString(entityFromTheHub),
+    //   ),
+    // );
   }
 
   @override
-  Future<void> postToAppMqtt({
+  Future postToAppMqtt({
     required DeviceEntityBase entityFromTheHub,
   }) async {}
 
   @override
-  Future<void> postToHubMqtt({
+  Future postToHubMqtt({
     required dynamic entityFromTheApp,
     bool? gotFromApp,
   }) async {
@@ -87,24 +85,24 @@ class MqttServerRepository extends IMqttServerRepository {
       // ISavedAreasRepo.instance.addOrUpdateArea(entityFromTheApp.toDomain());
 
       /// Sends directly to device connector conjecture
-      HubRequestsToApp.streamRequestsToApp.add(
-        RequestsAndStatusFromHub(
-          sendingType: SendingType.areaType,
-          allRemoteCommands: jsonEncode(entityFromTheApp.toJson()),
-        ),
-      );
+      // HubRequestsToApp.streamRequestsToApp.add(
+      //   RequestsAndStatusFromHub(
+      //     sendingType: SendingType.areaType.name,
+      //     allRemoteCommands: jsonEncode(entityFromTheApp.toJson()),
+      //   ),
+      // );
       return;
     }
     logger.i('Type interaction support is missing $entityFromTheApp');
   }
 
   @override
-  Future<void> publishDeviceEntity(
+  Future publishDeviceEntity(
     DeviceEntityBase deviceEntityDtoAbstract,
   ) async {}
 
   @override
-  Future<void> publishMessage(String topic, String message) async {}
+  Future publishMessage(String topic, String message) async {}
 
   @override
   Future<List<ChangeRecord>?> readingFromMqttOnce(String topic) async {
@@ -112,7 +110,7 @@ class MqttServerRepository extends IMqttServerRepository {
   }
 
   @override
-  Future<void> sendToApp() async {}
+  Future sendToApp() async {}
 
   @override
   Stream<List<MqttReceivedMessage<MqttMessage?>>>
@@ -150,5 +148,5 @@ class MqttServerRepository extends IMqttServerRepository {
   }
 
   @override
-  Future<void> subscribeToTopic(String topic) async {}
+  Future subscribeToTopic(String topic) async {}
 }

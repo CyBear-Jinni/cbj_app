@@ -61,13 +61,13 @@ class RemotePipesWidget extends StatefulWidget {
 class _RemotePipesWidgetState extends State<RemotePipesWidget> {
   String? remotePipesDomainName;
 
-  Future<void> _remotePipesDomainChanged(String value) async {
+  Future _remotePipesDomainChanged(String value) async {
     setState(() {
       remotePipesDomainName = value;
     });
   }
 
-  Future<void> _addRemotePipeUrl() async {
+  Future _addRemotePipeUrl() async {
     if (remotePipesDomainName == null || remotePipesDomainName!.isEmpty) {
       return;
     }

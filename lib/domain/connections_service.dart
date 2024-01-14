@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:collection';
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:cbj_integrations_controller/integrations_controller.dart';
@@ -70,13 +71,13 @@ abstract interface class ConnectionsService {
 
   Future searchDevices();
 
-  void setEntityState(ActionObject action);
+  void setEntityState(RequestActionObject action);
 
   Future setEtitiesToArea(String areaId, HashSet<String> entities);
 
-  Future<HashMap<String, DeviceEntityBase>> get getAllEntities;
+  Future<HashMap<String, DeviceEntityBase>> get getEntities;
 
-  Future<HashMap<String, AreaEntity>> get getAllAreas;
+  Future<HashMap<String, AreaEntity>> get getAreas;
 
   Stream<MapEntry<String, DeviceEntityBase>> watchEntities();
 
@@ -86,13 +87,13 @@ abstract interface class ConnectionsService {
 
   Future setNewArea(AreaEntity area);
 
-  Future<HashMap<String, SceneCbjEntity>> getScenes();
+  Future<HashMap<String, SceneCbjEntity>> get getScenes;
 
   Future activateScene(String id);
 
   Future addScene(SceneCbjEntity scene);
 
-  Future<void> loginVendor(VendorLoginEntity value);
+  Future loginVendor(VendorLoginEntity value);
 
   Future<List<VendorEntityInformation>> getVendors();
 }

@@ -18,7 +18,7 @@ class PrinterMolecule extends StatefulWidget {
 }
 
 class _PrinterMoleculeState extends State<PrinterMolecule> {
-  Future<void> _openPrintersWebPage() async {
+  Future _openPrintersWebPage() async {
     FlushbarHelper.createLoading(
       message: 'Opening printers Web Page',
       linearProgressIndicator: const LinearProgressIndicator(),

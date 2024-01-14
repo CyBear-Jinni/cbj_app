@@ -52,16 +52,17 @@ class _AddRoutinePageState extends State<AddRoutinePage> {
   bool isSubmitting = false;
   HashMap<String, DeviceEntityBase>? entities;
 
-  Future<void> initialzeEntities() async {
+  Future initialzeEntities() async {
     final HashMap<String, DeviceEntityBase> entitiesTemp =
-        await ConnectionsService.instance.getAllEntities;
+        await ConnectionsService.instance.getEntities;
 
     setState(() {
       entities = entitiesTemp;
     });
   }
 
-  Future<void> _sendRoutineToHub() async {
+  Future
+ _sendRoutineToHub() async {
     if (daysToRepeat == null ||
         hourToRepeat == null ||
         minutesToRepeat == null ||
@@ -78,11 +79,11 @@ class _AddRoutinePageState extends State<AddRoutinePage> {
     // );
   }
 
-  Future<void> _routineNameChange(String value) async {
+  Future _routineNameChange(String value) async {
     routineName = value;
   }
 
-  Future<void> _addFullAction(EntityActionObject value) async {
+  Future _addFullAction(EntityActionObject value) async {
     setState(() {
       allDevicesWithNewAction.add(value);
     });

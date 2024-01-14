@@ -45,9 +45,9 @@ class _HomePageState extends State<HomePage> {
   HashMap<String, AreaEntity>? areas;
   HashMap<String, DeviceEntityBase>? entities;
 
-  Future<void> initializedScenes() async {
+  Future initializedScenes() async {
     final HashMap<String, SceneCbjEntity> scenecsTemp =
-        await ConnectionsService.instance.getScenes();
+        await ConnectionsService.instance.getScenes;
 
     setState(() {
       scenes = scenecsTemp;
@@ -72,7 +72,7 @@ class _HomePageState extends State<HomePage> {
 
   Future _initialzeAreas() async {
     final HashMap<String, AreaEntity> areasTemp =
-        await ConnectionsService.instance.getAllAreas;
+        await ConnectionsService.instance.getAreas;
     setState(() {
       areas ??= HashMap();
 
@@ -101,7 +101,7 @@ class _HomePageState extends State<HomePage> {
 
   Future _initialzeEntities() async {
     final HashMap<String, DeviceEntityBase> entitiesTemp =
-        await ConnectionsService.instance.getAllEntities;
+        await ConnectionsService.instance.getEntities;
     entitiesTemp.removeWhere(
       (key, value) =>
           value.entityTypes.type == EntityTypes.smartTypeNotSupported ||

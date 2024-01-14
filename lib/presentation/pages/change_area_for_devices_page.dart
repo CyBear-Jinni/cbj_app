@@ -52,14 +52,14 @@ class _ChangeAreaForDevicesWidgetState
     _initialized();
   }
 
-  Future<void> _initialized() async {
+  Future _initialized() async {
     getAreas();
     getEntities();
   }
 
   Future getAreas() async {
     final HashMap<String, AreaEntity> areasTemp =
-        await ConnectionsService.instance.getAllAreas;
+        await ConnectionsService.instance.getAreas;
     setState(() {
       areas = areasTemp;
     });
@@ -67,7 +67,7 @@ class _ChangeAreaForDevicesWidgetState
 
   Future getEntities() async {
     final HashMap<String, DeviceEntityBase> entitiesTemp =
-        await ConnectionsService.instance.getAllEntities;
+        await ConnectionsService.instance.getEntities;
     setState(() {
       entities = entitiesTemp;
     });

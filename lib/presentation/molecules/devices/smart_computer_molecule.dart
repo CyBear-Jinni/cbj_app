@@ -1,6 +1,5 @@
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:cbj_integrations_controller/integrations_controller.dart';
-import 'package:cybearjinni/domain/device/i_device_repository.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:flutter/material.dart';
@@ -18,22 +17,22 @@ class SmartComputerMolecule extends StatefulWidget {
 }
 
 class _SmartComputerMoleculeState extends State<SmartComputerMolecule> {
-  Future<void> _suspendAllSmartComputers(List<String> smartComputersId) async {
+  Future _suspendAllSmartComputers(List<String> smartComputersId) async {
     FlushbarHelper.createLoading(
       message: 'Suspending all Smart Computers',
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(context);
 
-    IDeviceRepository.instance.suspendDevices(devicesId: smartComputersId);
+    // IDeviceRepository.instance.suspendDevices(deviDscesId: smartComputersId);
   }
 
-  Future<void> _shutdownAllSmartComputers(List<String> smartComputersId) async {
+  Future _shutdownAllSmartComputers(List<String> smartComputersId) async {
     FlushbarHelper.createLoading(
       message: 'Suspending all Smart Computers',
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(context);
 
-    IDeviceRepository.instance.shutdownDevices(devicesId: smartComputersId);
+    // IDeviceRepository.instance.shutdownDevices(devicesId: smartComputersId);
   }
 
   void suspendComputer(BuildContext context) {

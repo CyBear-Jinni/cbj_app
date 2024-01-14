@@ -19,7 +19,7 @@ class SecurityCameraMolecule extends StatefulWidget {
 }
 
 class _SecurityCameraMoleculeState extends State<SecurityCameraMolecule> {
-  Future<void> _openCameraPage() async {
+  Future _openCameraPage() async {
     FlushbarHelper.createLoading(
       message: 'Opening Camera',
       linearProgressIndicator: const LinearProgressIndicator(),

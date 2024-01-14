@@ -33,9 +33,9 @@ class _AddScenePageState extends State<AddScenePage> {
   /// List of devices with entities, will be treated as actions
   HashSet<EntityActionObject> entitiesWithActions = HashSet();
 
-  Future<void> initialzeEntities() async {
+  Future initialzeEntities() async {
     final HashMap<String, DeviceEntityBase> entitiesTemp =
-        await ConnectionsService.instance.getAllEntities;
+        await ConnectionsService.instance.getEntities;
 
     setState(() {
       entities = entitiesTemp;
@@ -54,7 +54,7 @@ class _AddScenePageState extends State<AddScenePage> {
           )
           .toList();
 
-  Future<void> _sendSceneToHub() async {
+  Future _sendSceneToHub() async {
     final List<ActionObjectSingle> actions =
         entitiesWithActionsToActionsByVendor();
 
@@ -81,11 +81,7 @@ class _AddScenePageState extends State<AddScenePage> {
     ConnectionsService.instance.addScene(scene);
   }
 
-  void _sceneNameChange(String value) {
-    sceneName = value;
-  }
-
-  Future<void> _addFullAction(EntityActionObject value) async {
+  Future _addFullAction(EntityActionObject value) async {
     setState(() {
       entitiesWithActions.add(value);
     });
@@ -123,7 +119,7 @@ class _AddScenePageState extends State<AddScenePage> {
                 labelText: 'Scene Name',
               ),
               style: const TextStyle(color: Colors.black),
-              onChanged: _sceneNameChange,
+              onChanged: (value) => sceneName = value,
             ),
             SizedBox(
               height: 300,

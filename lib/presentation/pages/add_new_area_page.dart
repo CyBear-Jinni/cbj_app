@@ -44,7 +44,7 @@ class _AddNewAreaFormState extends State<AddNewAreaForm> {
   bool showErrorMessages = false;
   bool isSubmitting = false;
 
-  // Future<void> _initialized() async {
+  // Future _initialized() async {
   //   IAreaRepository.instance.getAllAreas().fold((l) => null, (r) {
   //     _allAreas = Set<AreaEntity>.from(r.iter);
   //   });
@@ -60,7 +60,7 @@ class _AddNewAreaFormState extends State<AddNewAreaForm> {
   //   });
   // }
 
-  Future<void> _createArea() async {
+  Future _createArea() async {
     final AreaEntity areaEntity = AreaEntity(
       uniqueId: AreaUniqueId.fromUniqueString(areaUniqueId.getOrCrash()),
       cbjEntityName: AreaDefaultName(cbjEntityName.getOrCrash()),
@@ -77,13 +77,13 @@ class _AddNewAreaFormState extends State<AddNewAreaForm> {
     ConnectionsService.instance.setNewArea(areaEntity);
   }
 
-  Future<void> _defaultNameChanged(String value) async {
+  Future _defaultNameChanged(String value) async {
     setState(() {
       cbjEntityName = AreaDefaultName(value);
     });
   }
 
-  Future<void> _areaTypesChanged(Set<String> value) async {
+  Future _areaTypesChanged(Set<String> value) async {
     setState(() {
       areaTypes = AreaTypes(value);
     });
@@ -148,14 +148,14 @@ class _AddNewAreaFormState extends State<AddNewAreaForm> {
                         }
 
                         return MultiSelectItem(
-                          areaPurposeType.value,
+                          areaPurposeType.name,
                           areaNameEdited,
                         );
                       }).toList(),
                       listType: MultiSelectListType.CHIP,
-                      onConfirm: (List<int> values) {
+                      onConfirm: (List<String> values) {
                         _areaTypesChanged(
-                          values.map((e) => e.toString()).toSet(),
+                          values.map((e) => e).toSet(),
                         );
                       },
                     ),

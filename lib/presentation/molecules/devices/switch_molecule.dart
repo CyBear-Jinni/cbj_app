@@ -23,7 +23,7 @@ class _SwitchMoleculeState extends State<SwitchMolecule> {
   Timer? timeFromLastColorChange;
   HSVColor? lastColoredPicked;
 
-  Future<void> _changeAction(bool value) async {
+  Future _changeAction(bool value) async {
     setEntityState(value ? EntityActions.on : EntityActions.off);
   }
 
@@ -45,7 +45,7 @@ class _SwitchMoleculeState extends State<SwitchMolecule> {
       ],
     );
     ConnectionsService.instance.setEntityState(
-      ActionObject(
+      RequestActionObject(
         uniqueIdByVendor: uniqueIdByVendor,
         property: EntityProperties.lightSwitchState,
         actionType: action,

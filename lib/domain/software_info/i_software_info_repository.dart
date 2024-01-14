@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:cbj_integrations_controller/integrations_controller.dart';
-import 'package:cybearjinni/domain/i_hub_connection_repository.dart';
 import 'package:cybearjinni/domain/security_bear/i_security_bear_connection_repository.dart';
 import 'package:cybearjinni/domain/security_bear/security_bear_failures.dart';
 import 'package:cybearjinni/domain/software_info/software_info_entity.dart';

@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cybearjinni/domain/i_hub_connection_repository.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
 import 'package:cybearjinni/presentation/pages/connect_to_hub/widgets/cbj_hub_in_network_widget.dart';
@@ -160,7 +159,7 @@ class ConnectToHubPage extends StatelessWidget {
                   GestureDetector(
                     onTap: () {
                       context.router.push(const SmartCameraContainerRoute());
-                      IHubConnectionRepository.instance.closeConnection();
+                      // IHubConnectionRepository.instance.closeConnection();
                     },
                     child: Container(
                       margin: const EdgeInsets.symmetric(horizontal: 30),

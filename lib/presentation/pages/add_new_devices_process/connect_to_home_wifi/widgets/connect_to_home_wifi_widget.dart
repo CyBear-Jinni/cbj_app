@@ -25,7 +25,7 @@ class _ConnectToHomeWiFiWidgetState extends State<ConnectToHomeWiFiWidget> {
     _initialized();
   }
 
-  Future<void> _initialized() async {
+  Future _initialized() async {
     final dartz.Either<HomeUserFailures, String?> doesWiFiEnabled =
         await IManageNetworkRepository.instance.doesWiFiEnabled();
 
@@ -41,7 +41,7 @@ class _ConnectToHomeWiFiWidgetState extends State<ConnectToHomeWiFiWidget> {
     });
   }
 
-  Future<void> _connectToWiFi() async {
+  Future _connectToWiFi() async {
     final ManageNetworkEntity manageWiFiEntity = ManageNetworkEntity(
       name: wifiName,
       pass: wifiPassword,

@@ -28,13 +28,13 @@ class _AddActionPageState extends State<AddActionPage> {
     });
   }
 
-  Future<void> onActionSelected(String value) async {
+  Future onActionSelected(String value) async {
     setState(() {
       selectedAction = EntityActions.values.elementAt(int.parse(value));
     });
   }
 
-  Future<void> _onPropertySelected(String property) async {
+  Future _onPropertySelected(String property) async {
     setState(() {
       selectedProperty = EntityProperties.values.elementAt(int.parse(property));
     });

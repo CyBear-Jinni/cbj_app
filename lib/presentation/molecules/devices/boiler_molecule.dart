@@ -18,7 +18,7 @@ class BoilerMolecule extends StatefulWidget {
 }
 
 class _BoilerMoleculeState extends State<BoilerMolecule> {
-  Future<void> _turnOnAllBoilers() async {
+  Future _turnOnAllBoilers() async {
     FlushbarHelper.createLoading(
       message: 'Turning_On_boiler'.tr(),
       linearProgressIndicator: const LinearProgressIndicator(),
@@ -47,7 +47,7 @@ class _BoilerMoleculeState extends State<BoilerMolecule> {
     );
 
     ConnectionsService.instance.setEntityState(
-      ActionObject(
+      RequestActionObject(
         uniqueIdByVendor: uniqueIdByVendor,
         property: EntityProperties.boilerSwitchState,
         actionType: action,
@@ -55,7 +55,7 @@ class _BoilerMoleculeState extends State<BoilerMolecule> {
     );
   }
 
-  Future<void> _turnOffAllBoilers() async {
+  Future _turnOffAllBoilers() async {
     FlushbarHelper.createLoading(
       message: 'Turning_Off_boiler'.tr(),
       linearProgressIndicator: const LinearProgressIndicator(),

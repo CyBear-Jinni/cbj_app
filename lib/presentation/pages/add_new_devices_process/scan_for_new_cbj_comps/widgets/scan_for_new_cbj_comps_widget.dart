@@ -28,7 +28,8 @@ class _ScanForNewCBJCompsWidgetState extends State<ScanForNewCBJCompsWidget> {
     _watchAllStarted();
   }
 
-  Future<void> _watchAllStarted() async {
+  Future
+ _watchAllStarted() async {
     await _cbjCompStreamSubscription?.cancel();
     _cbjCompStreamSubscription = ICbjCompRepository.instance
         .getConnectedComputersIP()
@@ -45,7 +46,7 @@ class _ScanForNewCBJCompsWidgetState extends State<ScanForNewCBJCompsWidget> {
     });
   }
 
-  Future<void> _compDevicesReceived(
+  Future _compDevicesReceived(
     dartz.Either<CbjCompFailure, String> failureOrCBJCompList,
   ) async {
     final dynamic failureOrCompListDynamic = failureOrCBJCompList.fold(
@@ -71,7 +72,8 @@ class _ScanForNewCBJCompsWidgetState extends State<ScanForNewCBJCompsWidget> {
   }
 
   @override
-  Future<void> dispose() async {
+  Future
+   dispose() async {
     await _cbjCompStreamSubscription?.cancel();
     await ICbjCompRepository.instance.shutdownServer();
     return super.dispose();

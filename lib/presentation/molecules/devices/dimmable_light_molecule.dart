@@ -27,7 +27,7 @@ class _DimmableLightMoleculeState extends State<DimmableLightMolecule> {
     _initialized();
   }
 
-  Future<void> _initialized() async {
+  Future _initialized() async {
     final GenericDimmableLightDE rgbwLightDe = widget.entity;
 
     double lightBrightness =
@@ -42,7 +42,7 @@ class _DimmableLightMoleculeState extends State<DimmableLightMolecule> {
     });
   }
 
-  Future<void> _changeBrightness(double value) async {
+  Future _changeBrightness(double value) async {
     setState(() {
       brightness = value;
     });
@@ -90,7 +90,7 @@ class _DimmableLightMoleculeState extends State<DimmableLightMolecule> {
       ],
     );
     ConnectionsService.instance.setEntityState(
-      ActionObject(
+      RequestActionObject(
         uniqueIdByVendor: uniqueIdByVendor,
         property: property,
         actionType: action,

@@ -18,7 +18,7 @@ class AcMolecule extends StatefulWidget {
 }
 
 class _AcMoleculeState extends State<AcMolecule> {
-  Future<void> _turnOnAllAcs() async {
+  Future _turnOnAllAcs() async {
     FlushbarHelper.createLoading(
       message: 'Turning_On_ac'.tr(),
       linearProgressIndicator: const LinearProgressIndicator(),
@@ -47,7 +47,7 @@ class _AcMoleculeState extends State<AcMolecule> {
     );
 
     ConnectionsService.instance.setEntityState(
-      ActionObject(
+      RequestActionObject(
         uniqueIdByVendor: uniqueIdByVendor,
         property: EntityProperties.acSwitchState,
         actionType: action,
@@ -55,7 +55,7 @@ class _AcMoleculeState extends State<AcMolecule> {
     );
   }
 
-  Future<void> _turnOffAllAcs() async {
+  Future _turnOffAllAcs() async {
     FlushbarHelper.createLoading(
       message: 'Turning_Off_ac'.tr(),
       linearProgressIndicator: const LinearProgressIndicator(),
