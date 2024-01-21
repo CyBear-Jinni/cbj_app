@@ -22,6 +22,7 @@ part 'package:cybearjinni/infrastructure/connection_service/app_connection_servi
 part 'package:cybearjinni/infrastructure/connection_service/hub_connection_service.dart';
 part 'package:cybearjinni/infrastructure/connection_service/demo_connection_service.dart';
 part 'package:cybearjinni/infrastructure/connection_service/none_connection_service.dart';
+part 'package:cybearjinni/infrastructure/connection_service/remote_pipes_connection_service.dart';
 
 enum ConnectionType {
   appAsHub,
@@ -41,33 +42,31 @@ abstract interface class ConnectionsService {
 
   static ConnectionType _currentConnectionType = ConnectionType.appAsHub;
 
-  static void setCurrentConnectionType(ConnectionType? connectionType) {
+  static void setCurrentConnectionType(ConnectionType connectionType) {
     if (connectionType == _currentConnectionType) {
       return;
     }
     _instance?.dispose();
 
+    _currentConnectionType = connectionType;
+
     switch (connectionType) {
       case ConnectionType.appAsHub:
         _instance = _AppConnectionService();
-        _currentConnectionType = ConnectionType.appAsHub;
       case ConnectionType.hub:
-        _currentConnectionType = ConnectionType.hub;
         _instance = _HubConnectionService();
-      case ConnectionType.demo:
       case ConnectionType.remotePipes:
+        _instance = _RemotePipesConnectionService();
+      case ConnectionType.demo:
         _instance = _DemoConnectionService();
-        _currentConnectionType = ConnectionType.demo;
       case ConnectionType.none:
-      case null:
         _instance = _NoneConnectionService();
-        _currentConnectionType = ConnectionType.none;
     }
   }
 
   static ConnectionType getCurrentConnectionType() => _currentConnectionType;
 
-  Future<bool> connect();
+  Future<bool> connect({String? address});
 
   Future searchDevices();
 

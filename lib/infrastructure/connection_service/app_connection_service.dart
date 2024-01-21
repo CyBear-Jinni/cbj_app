@@ -63,5 +63,5 @@ class _AppConnectionService implements ConnectionsService {
       IcSynchronizer().getVendors();
 
   @override
-  Future<bool> connect() async => true;
+  Future<bool> connect({String? address}) async => true;
 }

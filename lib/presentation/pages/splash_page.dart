@@ -28,16 +28,21 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   Future initilizeApp() async {
+    // TODO: can we remove
     await Hive.initFlutter();
     AppCommands();
+    // TODO: can we remove
     await Future.value([
       IDbRepository.instance.initializeDb(isFlutter: true),
       ILocalDbRepository.instance.asyncConstructor(),
       // ISavedDevicesRepo.instance.setUpAllFromDb(),
     ]);
+    // TODO: can we remove
     MqttServerRepository();
+    // TODO: Same as App Command?
     PhoneCommandsD();
     SystemCommandsManager();
+    // TODO: can we remove
     NodeRedRepository();
     ConnectionsService.instance;
     _navigate();

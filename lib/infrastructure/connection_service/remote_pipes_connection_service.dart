@@ -1,19 +1,11 @@
 part of 'package:cybearjinni/domain/connections_service.dart';
 
-class _HubConnectionService implements ConnectionsService {
-  _HubConnectionService() {
-    if (currentEnvApp == EnvApp.prod) {
-      hubPort = 50055;
-    } else {
-      hubPort = 60055;
-    }
-  }
-
+class _RemotePipesConnectionService implements ConnectionsService {
   /// Port to connect to the cbj hub, will change according to the current
   /// running environment
-  late int hubPort;
+  int hubPort = 50051;
 
-  String? hubIp;
+  String? address;
   String? networkBssid;
   String? networkName;
 
@@ -150,79 +142,7 @@ class _HubConnectionService implements ConnectionsService {
   }
 
   @override
-  Future searchDevices() async {
-    try {
-      final Either<HubFailures, Unit> locationRequest =
-          await askLocationPermissionAndLocationOn();
-
-      if (locationRequest.isLeft()) {
-        return locationRequest;
-      }
-
-      logger.i('searchForHub');
-      String? appDeviceIp;
-      if (await Connectivity().checkConnectivity() == ConnectivityResult.wifi &&
-          !kIsWeb) {
-        final NetworkInfo networkInfo = NetworkInfo();
-        networkName = await networkInfo.getWifiName();
-        appDeviceIp = await networkInfo.getWifiIP();
-        networkBssid = await networkInfo.getWifiBSSID();
-      } else {
-        return false;
-        // if (deviceIpOnTheNetwork == null) {
-        //   // Issue https://github.com/CyBear-Jinni/cbj_app/issues/256
-        //   return left(
-        //     const HubFailures
-        //         .findingHubWhenConnectedToEthernetCableIsNotSupported(),
-        //   );
-        // }
-
-        // currentDeviceIP = deviceIpOnTheNetwork;
-        // networkBSSID = 'no:Network:Bssid:Found';
-        // networkName = 'noNetworkNameFound';
-        // if (isThatTheIpOfTheHub != null && isThatTheIpOfTheHub) {
-        //   return insertHubInfo(
-        //     networkIp: currentDeviceIP,
-        //     networkBSSID: networkBSSID,
-        //     networkName: networkName,
-        //   );
-        // }
-      }
-      if (appDeviceIp == null) {
-        return false;
-      }
-      final String subnet =
-          appDeviceIp.substring(0, appDeviceIp.lastIndexOf('.'));
-
-      logger.i('Hub Search subnet IP $subnet');
-
-      // TODO: Search for hub
-      final Stream<ActiveHost> devicesWithPort =
-          HostScanner.scanDevicesForSinglePort(
-        subnet,
-        hubPort,
-
-        /// TODO: return this settings when can use with the await for loop
-        // resultsInIpAscendingOrder: false,
-        timeout: const Duration(milliseconds: 600),
-      );
-
-      await for (final ActiveHost activeHost in devicesWithPort) {
-        logger.i('Found Cbj Hub device: ${activeHost.address}');
-        hubIp = activeHost.address;
-        return true;
-        // if (networkBSSID != null && networkName != null) {
-        // return insertHubInfo(
-        //   networkIp: activeHost.address,
-        //   networkBSSID: networkBSSID,
-        //   networkName: networkName,
-        // );
-        // }
-      }
-    } catch (e) {
-      logger.w('Exception searchForHub\n$e');
-    }
-  }
+  Future searchDevices() async {}
 
   @override
   void setEntityState(RequestActionObject action) {
@@ -271,96 +191,25 @@ class _HubConnectionService implements ConnectionsService {
 
   @override
   Future<bool> connect({String? address}) async {
-    searchDevices();
-    if (hubIp == null) {
+    this.address = address;
+    if (this.address == null) {
       return false;
     }
 
-    connectDirectlyToHub();
+    connectHelper();
 
     return true;
   }
 
-  Future<Either<HubFailures, Unit>> askLocationPermissionAndLocationOn() async {
-    final Location location = Location();
-
-    bool serviceEnabled;
-    PermissionStatus permissionGranted;
-
-    int permissionCounter = 0;
-    int disabledCounter = 0;
-
-    // Get location permission is not supported on Linux
-    if (Platform.isLinux || Platform.isWindows) {
-      return right(unit);
-    }
-
-    while (true) {
-      permissionGranted = await location.hasPermission();
-      if (permissionGranted == PermissionStatus.denied) {
-        permissionGranted = await location.requestPermission();
-        if (permissionGranted != PermissionStatus.granted) {
-          logger.e('Permission to use location is denied');
-          await Future.delayed(const Duration(seconds: 10));
-
-          permissionCounter++;
-          if (permissionCounter > 5) {
-            permission_handler.openAppSettings();
-          } else if (permissionCounter > 7) {
-            return const Left(HubFailures.unexpected());
-          }
-          continue;
-        }
-      }
-
-      serviceEnabled = await location.serviceEnabled();
-      if (!serviceEnabled) {
-        serviceEnabled = await location.requestService();
-        if (!serviceEnabled) {
-          disabledCounter++;
-          if (disabledCounter > 2) {
-            return const Left(HubFailures.unexpected());
-          }
-          logger.w('Location is disabled');
-          await Future.delayed(const Duration(seconds: 5));
-          continue;
-        }
-      }
-      break;
-    }
-    return right(unit);
-  }
-
   /// Connect directly to the Hub if possible
-  Future connectDirectlyToHub() async {
-    if (hubIp == null) {
+  Future connectHelper() async {
+    if (address == null) {
       return;
     }
 
-    // Socket? testHubConnection;
-    // try {
-    //   testHubConnection = await Socket.connect(
-    //     hubIP,
-    //     hubPort,
-    //     timeout: const Duration(milliseconds: 500),
-    //   );
-    //   await testHubConnection.close();
-    //   testHubConnection.destroy();
-    //   testHubConnection = null;
-    // } catch (e) {
-    //   await testHubConnection?.close();
-    //   testHubConnection?.destroy();
-    // }
-
     try {
-      // // TODO: DELTE
-      // await HubClient.createStreamWithHub(
-      //   hubIp!,
-      //   hubPort,
-      // );
-
       channel = ClientChannel(
-        hubIp!,
+        address!,
         port: hubPort,
         options:
             const ChannelOptions(credentials: ChannelCredentials.insecure()),

@@ -59,5 +59,5 @@ class _NoneConnectionService implements ConnectionsService {
   Future<List<VendorEntityInformation>> getVendors() async => [];
 
   @override
-  Future<bool> connect() async => true;
+  Future<bool> connect({String? address}) async => true;
 }

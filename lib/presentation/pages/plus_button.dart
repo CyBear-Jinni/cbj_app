@@ -12,7 +12,7 @@ import 'package:iconify_flutter/icons/simple_icons.dart';
 class PlusButtonPage extends StatelessWidget {
   Future _logout(BuildContext context) async {
     context.router.replace(const ConnectToHubRoute());
-    ConnectionsService.setCurrentConnectionType(null);
+    ConnectionsService.setCurrentConnectionType(ConnectionType.none);
   }
 
   @override
