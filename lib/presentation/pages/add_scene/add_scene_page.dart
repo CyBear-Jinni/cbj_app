@@ -42,12 +42,11 @@ class _AddScenePageState extends State<AddScenePage> {
     });
   }
 
-  List<ActionObjectSingle> entitiesWithActionsToActionsByVendor() =>
+  List<RequestActionObject> entitiesWithActionsToActionsByVendor() =>
       entitiesWithActions
           .map(
-            (e) => ActionObjectSingle(
-              vendor: e.entity.cbjDeviceVendor.vendorsAndServices!,
-              entityId: e.entity.getCbjDeviceId,
+            (e) => RequestActionObject(
+              entityIds: HashSet.from([e.entity.getCbjDeviceId]),
               property: e.property,
               actionType: e.action,
             ),
@@ -55,7 +54,7 @@ class _AddScenePageState extends State<AddScenePage> {
           .toList();
 
   Future _sendSceneToHub() async {
-    final List<ActionObjectSingle> actions =
+    final List<RequestActionObject> actions =
         entitiesWithActionsToActionsByVendor();
 
     final SceneCbjEntity scene = SceneCbjEntity(
@@ -76,6 +75,7 @@ class _AddScenePageState extends State<AddScenePage> {
       compUuid: SceneCbjCompUuid(''),
       entityStateGRPC: SceneCbjDeviceStateGRPC(EntityStateGRPC.ack.name),
       actions: actions,
+      areaPurposeType: AreaPurposesTypes.undefinedType,
     );
 
     ConnectionsService.instance.addScene(scene);

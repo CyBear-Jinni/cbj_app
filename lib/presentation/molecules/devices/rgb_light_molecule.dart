@@ -65,26 +65,12 @@ class _RgbwLightMoleculeState extends State<RgbwLightMolecule> {
     EntityActions action, {
     HashMap<ActionValues, dynamic>? value,
   }) {
-    final VendorsAndServices? vendor =
-        widget.entity.cbjDeviceVendor.vendorsAndServices;
-    if (vendor == null) {
-      return;
-    }
+    final HashSet<String> uniqueIdByVendor =
+        HashSet.from([widget.entity.deviceCbjUniqueId.getOrCrash()]);
 
-    final HashMap<VendorsAndServices, HashSet<String>> uniqueIdByVendor =
-        HashMap();
-    uniqueIdByVendor.addEntries(
-      [
-        MapEntry(
-          vendor,
-          HashSet<String>()
-            ..addAll([widget.entity.deviceCbjUniqueId.getOrCrash()]),
-        ),
-      ],
-    );
     ConnectionsService.instance.setEntityState(
       RequestActionObject(
-        uniqueIdByVendor: uniqueIdByVendor,
+        entityIds: uniqueIdByVendor,
         property: entityProperties,
         actionType: action,
         value: value,
@@ -212,26 +198,12 @@ class _LightColorMods extends State<LightColorMods> {
     EntityActions action, {
     HashMap<ActionValues, dynamic>? value,
   }) {
-    final VendorsAndServices? vendor =
-        widget.entity.cbjDeviceVendor.vendorsAndServices;
-    if (vendor == null) {
-      return;
-    }
+    final HashSet<String> uniqueIdByVendor =
+        HashSet.from([widget.entity.deviceCbjUniqueId.getOrCrash()]);
 
-    final HashMap<VendorsAndServices, HashSet<String>> uniqueIdByVendor =
-        HashMap();
-    uniqueIdByVendor.addEntries(
-      [
-        MapEntry(
-          vendor,
-          HashSet<String>()
-            ..addAll([widget.entity.deviceCbjUniqueId.getOrCrash()]),
-        ),
-      ],
-    );
     ConnectionsService.instance.setEntityState(
       RequestActionObject(
-        uniqueIdByVendor: uniqueIdByVendor,
+        entityIds: uniqueIdByVendor,
         property: entityProperties,
         actionType: action,
         value: value,
@@ -246,7 +218,7 @@ class _LightColorMods extends State<LightColorMods> {
     setEntityState(
       EntityProperties.lightColorTemperature,
       EntityActions.changeTemperature,
-      value: HashMap.from({ActionValues.temperature: newColorTemperature}),
+      value: HashMap.from({ActionValues.colorTemperature: newColorTemperature}),
     );
   }
 
@@ -262,7 +234,7 @@ class _LightColorMods extends State<LightColorMods> {
         ActionValues.alpha: newHsvColor.alpha,
         ActionValues.hue: newHsvColor.hue,
         ActionValues.saturation: newHsvColor.saturation,
-        ActionValues.value: newHsvColor.value,
+        ActionValues.colorValue: newHsvColor.value,
       }),
     );
   }

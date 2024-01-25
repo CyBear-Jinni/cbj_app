@@ -28,25 +28,12 @@ class _SwitchMoleculeState extends State<SwitchMolecule> {
   }
 
   void setEntityState(EntityActions action) {
-    final VendorsAndServices? vendor =
-        widget.entity.cbjDeviceVendor.vendorsAndServices;
-    if (vendor == null) {
-      return;
-    }
-    final HashMap<VendorsAndServices, HashSet<String>> uniqueIdByVendor =
-        HashMap();
-    uniqueIdByVendor.addEntries(
-      [
-        MapEntry(
-          vendor,
-          HashSet<String>()
-            ..addAll([widget.entity.deviceCbjUniqueId.getOrCrash()]),
-        ),
-      ],
-    );
+    final HashSet<String> uniqueIdByVendor =
+        HashSet.from([widget.entity.deviceCbjUniqueId.getOrCrash()]);
+
     ConnectionsService.instance.setEntityState(
       RequestActionObject(
-        uniqueIdByVendor: uniqueIdByVendor,
+        entityIds: uniqueIdByVendor,
         property: EntityProperties.lightSwitchState,
         actionType: action,
       ),

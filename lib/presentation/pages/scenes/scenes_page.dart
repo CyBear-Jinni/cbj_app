@@ -34,7 +34,7 @@ class _ScenesPageState extends State<ScenesPage> {
         await ConnectionsService.instance.getScenes;
 
     final HashMap<String, SceneCbjEntity> scenesInArea = HashMap.fromEntries(
-      widget.area.areaScenesId.getOrCrash().map((e) {
+      widget.area.scenesId.getOrCrash().map((e) {
         final SceneCbjEntity? scene = scenecsTemp[e];
         if (scene == null) {
           return null;
