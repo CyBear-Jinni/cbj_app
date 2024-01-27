@@ -30,7 +30,7 @@ class EntitiesUtils {
         return MdiIcons.airConditioner;
       case EntityTypes.emptyEntity:
       case EntityTypes.pingEntity:
-      case EntityTypes.smartTypeNotSupported:
+      case EntityTypes.undefined:
         return Icons.question_mark;
     }
   }

@@ -37,7 +37,7 @@ class DeviceByTypeMolecule extends StatelessWidget {
         return SecurityCameraMolecule(entity as GenericSecurityCameraDE);
       case EntityTypes.ac:
         return AcMolecule(entity as GenericAcDE);
-      case EntityTypes.smartTypeNotSupported:
+      case EntityTypes.undefined:
       case EntityTypes.emptyEntity:
       case EntityTypes.pingEntity:
       case null:

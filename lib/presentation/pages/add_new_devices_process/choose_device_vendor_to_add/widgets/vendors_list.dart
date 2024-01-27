@@ -22,9 +22,7 @@ class _VendorsListState extends State<VendorsList> {
     final List<VendorEntityInformation> temp =
         await ConnectionsService.instance.getVendors();
     temp.removeWhere(
-      (element) =>
-          element.vendorsAndServices ==
-          VendorsAndServices.vendorsAndServicesNotSupported,
+      (element) => element.vendorsAndServices == VendorsAndServices.undefined,
     );
     setState(() {
       vendorsList = temp;

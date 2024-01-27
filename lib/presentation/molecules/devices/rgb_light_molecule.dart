@@ -84,7 +84,7 @@ class _RgbwLightMoleculeState extends State<RgbwLightMolecule> {
     });
     setEntityState(
       EntityProperties.lightBrightness,
-      EntityActions.actionNotSupported,
+      EntityActions.undefined,
       value: HashMap.from({ActionValues.brightness: value.round()}),
     );
   }
@@ -160,13 +160,18 @@ class _LightColorMods extends State<LightColorMods> {
   late int colorTemperature;
   late HSVColor hsvColor;
   late double brightness;
+  late ColorMode colorMode;
+  late Widget colorModeWidget;
 
   @override
   void initState() {
     super.initState();
+    colorMode = widget.entity.colorMode.mode;
     hsvColor = widget.hsvColor ?? HSVColor.fromColor(Colors.white);
     colorTemperature = widget.colorTemperature;
     brightness = widget.brightness;
+    colorModeWidget = getColorModeWidget(colorMode);
+
     _initialized();
   }
 
@@ -239,9 +244,6 @@ class _LightColorMods extends State<LightColorMods> {
     );
   }
 
-  late Widget colorModeWidget;
-  int colorModFocus = 0;
-
   Widget getWhiteModeWidget() {
     return Container(
       height: 100,
@@ -281,21 +283,27 @@ class _LightColorMods extends State<LightColorMods> {
     );
   }
 
-  Future _showWhiteMode() async {
+  Widget getColorModeWidget(ColorMode colorMode) {
+    switch (colorMode) {
+      case ColorMode.undefined:
+        return const SizedBox();
+      case ColorMode.rgb:
+        return getHsvColorModeWidget();
+      case ColorMode.white:
+        return getWhiteModeWidget();
+    }
+  }
+
+  void setColorModeState(ColorMode colorMode) {
+    final Widget colorModeWidget = getColorModeWidget(colorMode);
     setState(() {
-      colorModFocus = 0;
-      colorModeWidget = getWhiteModeWidget();
+      this.colorMode = colorMode;
+      this.colorModeWidget = colorModeWidget;
     });
   }
 
-  Future _showColorMode() async {
-    setState(() {
-      colorModFocus = 1;
-      colorModeWidget = getHsvColorModeWidget();
-    });
-  }
-
-  Widget lightModBarFocus() {
+  @override
+  Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = themeData.colorScheme;
 
@@ -310,44 +318,29 @@ class _LightColorMods extends State<LightColorMods> {
               child: TextAtom(
                 'White',
                 style: TextStyle(
-                  color: (colorModFocus == 0)
+                  color: (colorMode == ColorMode.white)
                       ? colorScheme.primary
                       : colorScheme.onBackground,
                   fontSize: 18,
                 ),
               ),
-              onPressed: () {
-                _showWhiteMode();
-              },
+              onPressed: () => setColorModeState(ColorMode.white),
             ),
             OutlinedButton(
               child: TextAtom(
                 'Color',
                 style: TextStyle(
-                  color: (colorModFocus == 1)
+                  color: (colorMode == ColorMode.rgb)
                       ? colorScheme.primary
                       : colorScheme.onBackground,
                   fontSize: 18,
                 ),
               ),
-              onPressed: () {
-                _showColorMode();
-              },
+              onPressed: () => setColorModeState(ColorMode.rgb),
             ),
           ],
         ),
       ],
     );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    if (colorModFocus == 0) {
-      colorModeWidget = getWhiteModeWidget();
-    } else {
-      colorModeWidget = getHsvColorModeWidget();
-    }
-
-    return lightModBarFocus();
   }
 }

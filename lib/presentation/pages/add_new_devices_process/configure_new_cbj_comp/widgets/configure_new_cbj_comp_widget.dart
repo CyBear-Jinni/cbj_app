@@ -149,8 +149,7 @@ class _ConfigureNewCbjCompWidgetsState
     final List<Widget> widgetList = [];
 
     for (final GenericLightDE device in devicesList) {
-      if (device.entityTypes.getOrCrash() !=
-          EntityTypes.smartTypeNotSupported.toString()) {
+      if (device.entityTypes.getOrCrash() != EntityTypes.undefined.toString()) {
         final TextEditingController textEditingControllerTemp =
             TextEditingController(
           text: device.cbjEntityName.value.getOrElse(() => ''),

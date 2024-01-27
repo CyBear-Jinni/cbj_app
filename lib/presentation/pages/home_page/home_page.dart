@@ -104,7 +104,7 @@ class _HomePageState extends State<HomePage> {
         await ConnectionsService.instance.getEntities;
     entitiesTemp.removeWhere(
       (key, value) =>
-          value.entityTypes.type == EntityTypes.smartTypeNotSupported ||
+          value.entityTypes.type == EntityTypes.undefined ||
           value.entityTypes.type == EntityTypes.emptyEntity,
     );
     setState(() {
@@ -123,8 +123,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   bool unSupportedEntityType(EntityTypes type) {
-    return type == EntityTypes.smartTypeNotSupported ||
-        type == EntityTypes.emptyEntity;
+    return type == EntityTypes.undefined || type == EntityTypes.emptyEntity;
   }
 
   /// Tab num, value will be the default tab to show

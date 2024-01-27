@@ -55,7 +55,7 @@ class _DimmableLightMoleculeState extends State<DimmableLightMolecule> {
 
     setEntityState(
       EntityProperties.lightBrightness,
-      EntityActions.actionNotSupported,
+      EntityActions.undefined,
       value: hashValue,
     );
   }

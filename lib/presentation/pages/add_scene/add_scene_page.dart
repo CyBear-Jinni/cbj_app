@@ -75,7 +75,7 @@ class _AddScenePageState extends State<AddScenePage> {
       compUuid: SceneCbjCompUuid(''),
       entityStateGRPC: SceneCbjDeviceStateGRPC(EntityStateGRPC.ack.name),
       actions: actions,
-      areaPurposeType: AreaPurposesTypes.undefinedType,
+      areaPurposeType: AreaPurposesTypes.undefined,
     );
 
     ConnectionsService.instance.addScene(scene);

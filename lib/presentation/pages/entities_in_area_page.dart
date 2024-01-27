@@ -55,8 +55,7 @@ class _EntitiesInAreaPageState extends State<EntitiesInAreaPage> {
   }
 
   bool supportedEntityType(EntityTypes type) {
-    return !(type == EntityTypes.smartTypeNotSupported ||
-        type == EntityTypes.emptyEntity);
+    return !(type == EntityTypes.undefined || type == EntityTypes.emptyEntity);
   }
 
   @override

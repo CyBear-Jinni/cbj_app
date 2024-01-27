@@ -24,9 +24,10 @@ class _PrinterMoleculeState extends State<PrinterMolecule> {
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(context);
 
-    final String printerIp = widget.entity.deviceLastKnownIp.getOrCrash()!;
+    final String printerAddress = widget.entity.srvTarget.getOrCrash() ??
+        widget.entity.deviceLastKnownIp.getOrCrash()!;
     launchUrl(
-      Uri.parse('http://$printerIp'),
+      Uri.parse('http://$printerAddress'),
       mode: LaunchMode.externalApplication,
     );
   }
