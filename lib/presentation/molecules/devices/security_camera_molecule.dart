@@ -19,7 +19,7 @@ class SecurityCameraMolecule extends StatefulWidget {
 }
 
 class _SecurityCameraMoleculeState extends State<SecurityCameraMolecule> {
-  Future<void> _openCameraPage() async {
+  Future _openCameraPage() async {
     FlushbarHelper.createLoading(
       message: 'Opening Camera',
       linearProgressIndicator: const LinearProgressIndicator(),
@@ -33,7 +33,7 @@ class _SecurityCameraMoleculeState extends State<SecurityCameraMolecule> {
 
   @override
   Widget build(BuildContext context) {
-    return DeviceNameRow(
+    return DeviceNameRowMolecule(
       widget.entity.cbjEntityName.getOrCrash()!,
       TextButton(
         style: ButtonStyle(

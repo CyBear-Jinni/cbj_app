@@ -29,7 +29,7 @@ class _OpenAccessPointWidgetState extends State<OpenAccessPointWidget> {
     _initialized();
   }
 
-  Future<void> _initialized() async {
+  Future _initialized() async {
     OpenAccessPointState stateTemp;
     if (Platform.isAndroid) {
       final ManageNetworkEntity manageNetworkEntity = ManageNetworkEntity(
@@ -52,7 +52,7 @@ class _OpenAccessPointWidgetState extends State<OpenAccessPointWidget> {
     });
   }
 
-  Future<void> _doesAccessPointOpen() async {
+  Future _doesAccessPointOpen() async {
     OpenAccessPointState stateTemp;
 
     if (Platform.isAndroid) {

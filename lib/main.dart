@@ -1,4 +1,3 @@
-import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:cybearjinni/infrastructure/core/injection.dart';
 import 'package:cybearjinni/presentation/core/app_widget.dart';
 import 'package:cybearjinni/presentation/core/routes/app_router.dart';
@@ -8,7 +7,6 @@ import 'package:flutter/material.dart';
 
 Future<Unit> main() async {
   configureDependencies(EnvApp.dev);
-  configureInjection(Env.devPc);
 
   WidgetsFlutterBinding.ensureInitialized();
 

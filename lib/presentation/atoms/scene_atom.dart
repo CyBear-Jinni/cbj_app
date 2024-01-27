@@ -17,7 +17,7 @@ class SceneAtom extends StatefulWidget {
 class _SceneAtomState extends State<SceneAtom> {
   late SceneCbjEntity sceneCbj;
 
-  Future<void> _activateScene() async => ConnectionsService.instance
+  Future _activateScene() async => ConnectionsService.instance
       .activateScene(widget.currentScene.uniqueId.getOrCrash());
 
   @override

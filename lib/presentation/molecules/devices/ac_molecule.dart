@@ -18,7 +18,7 @@ class AcMolecule extends StatefulWidget {
 }
 
 class _AcMoleculeState extends State<AcMolecule> {
-  Future<void> _turnOnAllAcs() async {
+  Future _turnOnAllAcs() async {
     FlushbarHelper.createLoading(
       message: 'Turning_On_ac'.tr(),
       linearProgressIndicator: const LinearProgressIndicator(),
@@ -29,33 +29,19 @@ class _AcMoleculeState extends State<AcMolecule> {
   }
 
   void setEntityState(EntityActions action) {
-    final VendorsAndServices? vendor =
-        widget.entity.cbjDeviceVendor.vendorsAndServices;
-    if (vendor == null) {
-      return;
-    }
-    final HashMap<VendorsAndServices, HashSet<String>> uniqueIdByVendor =
-        HashMap();
-    uniqueIdByVendor.addEntries(
-      [
-        MapEntry(
-          vendor,
-          HashSet<String>()
-            ..addAll([widget.entity.deviceCbjUniqueId.getOrCrash()]),
-        ),
-      ],
-    );
+    final HashSet<String> entitiesId =
+        HashSet.from([widget.entity.deviceCbjUniqueId.getOrCrash()]);
 
     ConnectionsService.instance.setEntityState(
-      ActionObject(
-        uniqueIdByVendor: uniqueIdByVendor,
+      RequestActionObject(
+        entityIds: entitiesId,
         property: EntityProperties.acSwitchState,
         actionType: action,
       ),
     );
   }
 
-  Future<void> _turnOffAllAcs() async {
+  Future _turnOffAllAcs() async {
     FlushbarHelper.createLoading(
       message: 'Turning_Off_ac'.tr(),
       linearProgressIndicator: const LinearProgressIndicator(),
@@ -74,7 +60,7 @@ class _AcMoleculeState extends State<AcMolecule> {
 
   @override
   Widget build(BuildContext context) {
-    return DeviceNameRow(
+    return DeviceNameRowMolecule(
       widget.entity.cbjEntityName.getOrCrash()!,
       SwitchAtom(
         variant: SwitchVariant.ac,

@@ -32,6 +32,7 @@ class AppRouter extends $AppRouter {
     AutoRoute(page: EntitiesInNetworkRoute.page),
     AutoRoute(page: EntitiesInAreaRoute.page),
     AutoRoute(page: LoginVendorRoute.page),
+    AutoRoute(page: ComunicationMethodRoute.page),
 
     // Pages from packages
     AutoRoute(page: SmartCameraContainerRoute.page),

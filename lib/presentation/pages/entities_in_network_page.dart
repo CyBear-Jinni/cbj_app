@@ -23,7 +23,7 @@ class _EntitiesInNetworkPageState extends State<EntitiesInNetworkPage> {
 
   Future initializeAllEntities() async {
     final Map<String, DeviceEntityBase> entities =
-        await ConnectionsService.instance.getAllEntities;
+        await ConnectionsService.instance.getEntities;
     setState(() {
       allEntities = entities.values.toList();
     });

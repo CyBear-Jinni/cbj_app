@@ -16,7 +16,7 @@ class _SecurityBearConnectionRepository
 
   static SecurityBearEntity? securityBearEntity;
 
-  // Future<void> connectWithSecurityBear() async {
+  // Future connectWithSecurityBear() async {
   //   if (securityBearEntity == null) {
   //     try {
   //       String? securityBearNetworkBssid;

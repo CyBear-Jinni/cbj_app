@@ -21,7 +21,7 @@ class CBJCompCardWithDevicesControll extends StatelessWidget {
     for (final GenericLightDE deviceEntity in deviceEntityList.asList()) {
       //
       if (deviceEntity.entityTypes.getOrCrash() !=
-          EntityTypes.smartTypeNotSupported.toString()) {
+          EntityTypes.undefined.toString()) {
         typesList.add(
           ColoredBox(
             color: Colors.yellowAccent.withOpacity(0.3),

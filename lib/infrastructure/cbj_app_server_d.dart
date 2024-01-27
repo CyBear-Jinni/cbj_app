@@ -25,7 +25,7 @@ class _CBJAppServerD extends CyBearJinniAppServiceBase {
     return Future<CompAppInfo>.value(CompAppInfo());
   }
 
-//   Future<void> cBJAppGetSmartDeviceInformationAsync(
+//   Future cBJAppGetSmartDeviceInformationAsync(
 //       SmartDeviceInfo smartDevice) async {
 //     final String smartDeviceIp = smartDevice.smartDeviceIP;
 //
@@ -54,14 +54,14 @@ class CreateTheCBJAppServer {
   Server? server;
 
   ///  This function will create the server
-  Future<void> createServer(StreamController<CompInfoSB> compInfoStream) async {
+  Future createServer(StreamController<CompInfoSB> compInfoStream) async {
     await server?.shutdown();
     server = Server.create(services: [_CBJAppServerD(compInfoStream)]);
     await server!.serve(port: 30055);
     logger.i('App server listening on port ${server!.port}...');
   }
 
-  Future<void> shutdownServer() async {
+  Future shutdownServer() async {
     await server?.shutdown();
     return;
   }

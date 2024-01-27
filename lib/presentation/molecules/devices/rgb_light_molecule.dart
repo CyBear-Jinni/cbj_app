@@ -30,7 +30,7 @@ class _RgbwLightMoleculeState extends State<RgbwLightMolecule> {
     _initialized();
   }
 
-  Future<void> _initialized() async {
+  Future _initialized() async {
     final GenericRgbwLightDE rgbwLightDe = widget.entity;
 
     int lightColorTemperature =
@@ -65,26 +65,12 @@ class _RgbwLightMoleculeState extends State<RgbwLightMolecule> {
     EntityActions action, {
     HashMap<ActionValues, dynamic>? value,
   }) {
-    final VendorsAndServices? vendor =
-        widget.entity.cbjDeviceVendor.vendorsAndServices;
-    if (vendor == null) {
-      return;
-    }
+    final HashSet<String> uniqueIdByVendor =
+        HashSet.from([widget.entity.deviceCbjUniqueId.getOrCrash()]);
 
-    final HashMap<VendorsAndServices, HashSet<String>> uniqueIdByVendor =
-        HashMap();
-    uniqueIdByVendor.addEntries(
-      [
-        MapEntry(
-          vendor,
-          HashSet<String>()
-            ..addAll([widget.entity.deviceCbjUniqueId.getOrCrash()]),
-        ),
-      ],
-    );
     ConnectionsService.instance.setEntityState(
-      ActionObject(
-        uniqueIdByVendor: uniqueIdByVendor,
+      RequestActionObject(
+        entityIds: uniqueIdByVendor,
         property: entityProperties,
         actionType: action,
         value: value,
@@ -92,13 +78,13 @@ class _RgbwLightMoleculeState extends State<RgbwLightMolecule> {
     );
   }
 
-  Future<void> _changeBrightness(double value) async {
+  Future _changeBrightness(double value) async {
     setState(() {
       brightness = value;
     });
     setEntityState(
       EntityProperties.lightBrightness,
-      EntityActions.actionNotSupported,
+      EntityActions.undefined,
       value: HashMap.from({ActionValues.brightness: value.round()}),
     );
   }
@@ -111,7 +97,7 @@ class _RgbwLightMoleculeState extends State<RgbwLightMolecule> {
 
     return Column(
       children: [
-        DeviceNameRow(
+        DeviceNameRowMolecule(
           widget.entity.cbjEntityName.getOrCrash()!,
           SwitchAtom(
             variant: SwitchVariant.light,
@@ -174,17 +160,22 @@ class _LightColorMods extends State<LightColorMods> {
   late int colorTemperature;
   late HSVColor hsvColor;
   late double brightness;
+  late ColorMode colorMode;
+  late Widget colorModeWidget;
 
   @override
   void initState() {
     super.initState();
+    colorMode = widget.entity.colorMode.mode;
     hsvColor = widget.hsvColor ?? HSVColor.fromColor(Colors.white);
     colorTemperature = widget.colorTemperature;
     brightness = widget.brightness;
+    colorModeWidget = getColorModeWidget(colorMode);
+
     _initialized();
   }
 
-  Future<void> _initialized() async {
+  Future _initialized() async {
     final GenericRgbwLightDE rgbwLightDe = widget.entity;
 
     int lightColorTemperature =
@@ -212,26 +203,12 @@ class _LightColorMods extends State<LightColorMods> {
     EntityActions action, {
     HashMap<ActionValues, dynamic>? value,
   }) {
-    final VendorsAndServices? vendor =
-        widget.entity.cbjDeviceVendor.vendorsAndServices;
-    if (vendor == null) {
-      return;
-    }
+    final HashSet<String> uniqueIdByVendor =
+        HashSet.from([widget.entity.deviceCbjUniqueId.getOrCrash()]);
 
-    final HashMap<VendorsAndServices, HashSet<String>> uniqueIdByVendor =
-        HashMap();
-    uniqueIdByVendor.addEntries(
-      [
-        MapEntry(
-          vendor,
-          HashSet<String>()
-            ..addAll([widget.entity.deviceCbjUniqueId.getOrCrash()]),
-        ),
-      ],
-    );
     ConnectionsService.instance.setEntityState(
-      ActionObject(
-        uniqueIdByVendor: uniqueIdByVendor,
+      RequestActionObject(
+        entityIds: uniqueIdByVendor,
         property: entityProperties,
         actionType: action,
         value: value,
@@ -239,18 +216,18 @@ class _LightColorMods extends State<LightColorMods> {
     );
   }
 
-  Future<void> _changeColorTemperature(int newColorTemperature) async {
+  Future _changeColorTemperature(int newColorTemperature) async {
     setState(() {
       colorTemperature = newColorTemperature;
     });
     setEntityState(
       EntityProperties.lightColorTemperature,
       EntityActions.changeTemperature,
-      value: HashMap.from({ActionValues.temperature: newColorTemperature}),
+      value: HashMap.from({ActionValues.colorTemperature: newColorTemperature}),
     );
   }
 
-  Future<void> _changeHsvColor(HSVColor newHsvColor) async {
+  Future _changeHsvColor(HSVColor newHsvColor) async {
     setState(() {
       hsvColor = newHsvColor;
     });
@@ -262,13 +239,10 @@ class _LightColorMods extends State<LightColorMods> {
         ActionValues.alpha: newHsvColor.alpha,
         ActionValues.hue: newHsvColor.hue,
         ActionValues.saturation: newHsvColor.saturation,
-        ActionValues.value: newHsvColor.value,
+        ActionValues.colorValue: newHsvColor.value,
       }),
     );
   }
-
-  late Widget colorModeWidget;
-  int colorModFocus = 0;
 
   Widget getWhiteModeWidget() {
     return Container(
@@ -309,21 +283,27 @@ class _LightColorMods extends State<LightColorMods> {
     );
   }
 
-  Future<void> _showWhiteMode() async {
+  Widget getColorModeWidget(ColorMode colorMode) {
+    switch (colorMode) {
+      case ColorMode.undefined:
+        return const SizedBox();
+      case ColorMode.rgb:
+        return getHsvColorModeWidget();
+      case ColorMode.white:
+        return getWhiteModeWidget();
+    }
+  }
+
+  void setColorModeState(ColorMode colorMode) {
+    final Widget colorModeWidget = getColorModeWidget(colorMode);
     setState(() {
-      colorModFocus = 0;
-      colorModeWidget = getWhiteModeWidget();
+      this.colorMode = colorMode;
+      this.colorModeWidget = colorModeWidget;
     });
   }
 
-  Future<void> _showColorMode() async {
-    setState(() {
-      colorModFocus = 1;
-      colorModeWidget = getHsvColorModeWidget();
-    });
-  }
-
-  Widget lightModBarFocus() {
+  @override
+  Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = themeData.colorScheme;
 
@@ -338,44 +318,29 @@ class _LightColorMods extends State<LightColorMods> {
               child: TextAtom(
                 'White',
                 style: TextStyle(
-                  color: (colorModFocus == 0)
+                  color: (colorMode == ColorMode.white)
                       ? colorScheme.primary
                       : colorScheme.onBackground,
                   fontSize: 18,
                 ),
               ),
-              onPressed: () {
-                _showWhiteMode();
-              },
+              onPressed: () => setColorModeState(ColorMode.white),
             ),
             OutlinedButton(
               child: TextAtom(
                 'Color',
                 style: TextStyle(
-                  color: (colorModFocus == 1)
+                  color: (colorMode == ColorMode.rgb)
                       ? colorScheme.primary
                       : colorScheme.onBackground,
                   fontSize: 18,
                 ),
               ),
-              onPressed: () {
-                _showColorMode();
-              },
+              onPressed: () => setColorModeState(ColorMode.rgb),
             ),
           ],
         ),
       ],
     );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    if (colorModFocus == 0) {
-      colorModeWidget = getWhiteModeWidget();
-    } else {
-      colorModeWidget = getHsvColorModeWidget();
-    }
-
-    return lightModBarFocus();
   }
 }

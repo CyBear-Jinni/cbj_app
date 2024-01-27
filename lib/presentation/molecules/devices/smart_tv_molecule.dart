@@ -77,25 +77,12 @@ class _SmartTvMoleculeState extends State<SmartTvMolecule> {
     EntityActions action, {
     HashMap<ActionValues, dynamic>? value,
   }) {
-    final VendorsAndServices? vendor =
-        widget.entity.cbjDeviceVendor.vendorsAndServices;
-    if (vendor == null) {
-      return;
-    }
-    final HashMap<VendorsAndServices, HashSet<String>> uniqueIdByVendor =
-        HashMap();
-    uniqueIdByVendor.addEntries(
-      [
-        MapEntry(
-          vendor,
-          HashSet<String>()
-            ..addAll([widget.entity.deviceCbjUniqueId.getOrCrash()]),
-        ),
-      ],
-    );
+    final HashSet<String> uniqueIdByVendor =
+        HashSet.from([widget.entity.deviceCbjUniqueId.getOrCrash()]);
+
     ConnectionsService.instance.setEntityState(
-      ActionObject(
-        uniqueIdByVendor: uniqueIdByVendor,
+      RequestActionObject(
+        entityIds: uniqueIdByVendor,
         property: property,
         actionType: action,
         value: value,
@@ -280,7 +267,7 @@ class _SmartTvMoleculeState extends State<SmartTvMolecule> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        DeviceNameRow(
+        DeviceNameRowMolecule(
           widget.entity.cbjEntityName.getOrCrash()!,
           const SizedBox(),
         ),

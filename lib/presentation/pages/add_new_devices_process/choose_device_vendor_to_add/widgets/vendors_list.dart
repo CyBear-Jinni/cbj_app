@@ -18,13 +18,11 @@ class _VendorsListState extends State<VendorsList> {
     initializeVendors();
   }
 
-  Future<void> initializeVendors() async {
+  Future initializeVendors() async {
     final List<VendorEntityInformation> temp =
         await ConnectionsService.instance.getVendors();
     temp.removeWhere(
-      (element) =>
-          element.vendorsAndServices ==
-          VendorsAndServices.vendorsAndServicesNotSupported,
+      (element) => element.vendorsAndServices == VendorsAndServices.undefined,
     );
     setState(() {
       vendorsList = temp;

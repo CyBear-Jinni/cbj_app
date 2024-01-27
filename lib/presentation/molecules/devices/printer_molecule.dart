@@ -18,22 +18,23 @@ class PrinterMolecule extends StatefulWidget {
 }
 
 class _PrinterMoleculeState extends State<PrinterMolecule> {
-  Future<void> _openPrintersWebPage() async {
+  Future _openPrintersWebPage() async {
     FlushbarHelper.createLoading(
       message: 'Opening printers Web Page',
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(context);
 
-    final String printerIp = widget.entity.deviceLastKnownIp.getOrCrash()!;
+    final String printerAddress = widget.entity.srvTarget.getOrCrash() ??
+        widget.entity.deviceLastKnownIp.getOrCrash()!;
     launchUrl(
-      Uri.parse('http://$printerIp'),
+      Uri.parse('http://$printerAddress'),
       mode: LaunchMode.externalApplication,
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return DeviceNameRow(
+    return DeviceNameRowMolecule(
       widget.entity.cbjEntityName.getOrCrash()!,
       TextButton(
         style: ButtonStyle(

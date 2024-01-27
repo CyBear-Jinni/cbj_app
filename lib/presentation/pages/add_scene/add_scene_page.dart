@@ -33,29 +33,28 @@ class _AddScenePageState extends State<AddScenePage> {
   /// List of devices with entities, will be treated as actions
   HashSet<EntityActionObject> entitiesWithActions = HashSet();
 
-  Future<void> initialzeEntities() async {
+  Future initialzeEntities() async {
     final HashMap<String, DeviceEntityBase> entitiesTemp =
-        await ConnectionsService.instance.getAllEntities;
+        await ConnectionsService.instance.getEntities;
 
     setState(() {
       entities = entitiesTemp;
     });
   }
 
-  List<ActionObjectSingle> entitiesWithActionsToActionsByVendor() =>
+  List<RequestActionObject> entitiesWithActionsToActionsByVendor() =>
       entitiesWithActions
           .map(
-            (e) => ActionObjectSingle(
-              vendor: e.entity.cbjDeviceVendor.vendorsAndServices!,
-              entityId: e.entity.getCbjDeviceId,
+            (e) => RequestActionObject(
+              entityIds: HashSet.from([e.entity.getCbjDeviceId]),
               property: e.property,
               actionType: e.action,
             ),
           )
           .toList();
 
-  Future<void> _sendSceneToHub() async {
-    final List<ActionObjectSingle> actions =
+  Future _sendSceneToHub() async {
+    final List<RequestActionObject> actions =
         entitiesWithActionsToActionsByVendor();
 
     final SceneCbjEntity scene = SceneCbjEntity(
@@ -76,16 +75,13 @@ class _AddScenePageState extends State<AddScenePage> {
       compUuid: SceneCbjCompUuid(''),
       entityStateGRPC: SceneCbjDeviceStateGRPC(EntityStateGRPC.ack.name),
       actions: actions,
+      areaPurposeType: AreaPurposesTypes.undefined,
     );
 
     ConnectionsService.instance.addScene(scene);
   }
 
-  void _sceneNameChange(String value) {
-    sceneName = value;
-  }
-
-  Future<void> _addFullAction(EntityActionObject value) async {
+  Future _addFullAction(EntityActionObject value) async {
     setState(() {
       entitiesWithActions.add(value);
     });
@@ -123,7 +119,7 @@ class _AddScenePageState extends State<AddScenePage> {
                 labelText: 'Scene Name',
               ),
               style: const TextStyle(color: Colors.black),
-              onChanged: _sceneNameChange,
+              onChanged: (value) => sceneName = value,
             ),
             SizedBox(
               height: 300,

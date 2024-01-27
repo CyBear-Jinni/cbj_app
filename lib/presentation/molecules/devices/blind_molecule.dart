@@ -21,7 +21,7 @@ class BlindMolecule extends StatefulWidget {
 }
 
 class _BlindMoleculeState extends State<BlindMolecule> {
-  Future<void> _moveUpAllBlinds() async {
+  Future _moveUpAllBlinds() async {
     FlushbarHelper.createLoading(
       message: 'Pulling_Up_all_blinds'.tr(),
       linearProgressIndicator: const LinearProgressIndicator(),
@@ -31,34 +31,19 @@ class _BlindMoleculeState extends State<BlindMolecule> {
   }
 
   void setEntityState(EntityActions action) {
-    final VendorsAndServices? vendor =
-        widget.entity.cbjDeviceVendor.vendorsAndServices;
-    if (vendor == null) {
-      return;
-    }
-
-    final HashMap<VendorsAndServices, HashSet<String>> uniqueIdByVendor =
-        HashMap();
-    uniqueIdByVendor.addEntries(
-      [
-        MapEntry(
-          vendor,
-          HashSet<String>()
-            ..addAll([widget.entity.deviceCbjUniqueId.getOrCrash()]),
-        ),
-      ],
-    );
+    final HashSet<String> uniqueIdByVendor =
+        HashSet.from([widget.entity.deviceCbjUniqueId.getOrCrash()]);
 
     ConnectionsService.instance.setEntityState(
-      ActionObject(
-        uniqueIdByVendor: uniqueIdByVendor,
+      RequestActionObject(
+        entityIds: uniqueIdByVendor,
         property: EntityProperties.blindsSwitchState,
         actionType: action,
       ),
     );
   }
 
-  Future<void> _stopAllBlinds(List<String> blindsIdToStop) async {
+  Future _stopAllBlinds(List<String> blindsIdToStop) async {
     FlushbarHelper.createLoading(
       message: 'Stopping_all_blinds'.tr(),
       linearProgressIndicator: const LinearProgressIndicator(),
@@ -67,7 +52,7 @@ class _BlindMoleculeState extends State<BlindMolecule> {
     setEntityState(EntityActions.stop);
   }
 
-  Future<void> _moveDownAllBlinds(List<String> blindsIdToTurnDown) async {
+  Future _moveDownAllBlinds(List<String> blindsIdToTurnDown) async {
     FlushbarHelper.createLoading(
       message: 'Pulling_down_all_blinds'.tr(),
       linearProgressIndicator: const LinearProgressIndicator(),
@@ -100,7 +85,7 @@ class _BlindMoleculeState extends State<BlindMolecule> {
       }
     }
 
-    return DeviceNameRow(
+    return DeviceNameRowMolecule(
       widget.entity.cbjEntityName.getOrCrash()!,
       Row(
         children: [

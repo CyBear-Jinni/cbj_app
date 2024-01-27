@@ -1,6 +1,6 @@
 import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:cbj_integrations_controller/integrations_controller.dart';
+import 'package:cybearjinni/domain/connections_service.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/core/snack_bar_service.dart';
 import 'package:cybearjinni/presentation/molecules/molecules.dart';
@@ -61,25 +61,19 @@ class RemotePipesWidget extends StatefulWidget {
 class _RemotePipesWidgetState extends State<RemotePipesWidget> {
   String? remotePipesDomainName;
 
-  Future<void> _remotePipesDomainChanged(String value) async {
+  Future _remotePipesDomainChanged(String value) async {
     setState(() {
       remotePipesDomainName = value;
     });
   }
 
-  Future<void> _addRemotePipeUrl() async {
+  Future _addRemotePipeUrl() async {
     if (remotePipesDomainName == null || remotePipesDomainName!.isEmpty) {
       return;
     }
-
-    final RemotePipesEntity remotePipesEntity =
-        RemotePipesEntity.empty().copyWith(
-      domainName: RemotePipesDomain(remotePipesDomainName!),
-    );
-
+    ConnectionsService.setCurrentConnectionType(ConnectionType.remotePipes);
+    ConnectionsService.instance.connect(address: remotePipesDomainName);
     context.router.pop();
-    await IRemotePipesRepository.instance
-        .setRemotePipesDomainName(remotePipesEntity);
   }
 
   @override
@@ -91,7 +85,6 @@ class _RemotePipesWidgetState extends State<RemotePipesWidget> {
         children: [
           const TextAtom(
             'Please insert the Remote Pipes domain',
-            style: TextStyle(color: Colors.black, fontSize: 25),
           ),
           const SizedBox(
             height: 60,

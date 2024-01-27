@@ -29,12 +29,12 @@ class _ScenesPageState extends State<ScenesPage> {
     _initialized();
   }
 
-  Future<void> _initialized() async {
+  Future _initialized() async {
     final HashMap<String, SceneCbjEntity> scenecsTemp =
-        await ConnectionsService.instance.getScenes();
+        await ConnectionsService.instance.getScenes;
 
     final HashMap<String, SceneCbjEntity> scenesInArea = HashMap.fromEntries(
-      widget.area.areaScenesId.getOrCrash().map((e) {
+      widget.area.scenesId.getOrCrash().map((e) {
         final SceneCbjEntity? scene = scenecsTemp[e];
         if (scene == null) {
           return null;
@@ -107,7 +107,7 @@ class _ScenesPageState extends State<ScenesPage> {
                   // rightSecondIcon: FontAwesomeIcons.magnifyingGlass,
                 ),
                 Expanded(
-                  child: ScenesGrid(
+                  child: ScenesGridMolecule(
                     scenes: scenes!.values.toList(),
                   ),
                 ),

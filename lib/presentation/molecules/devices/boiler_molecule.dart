@@ -18,7 +18,7 @@ class BoilerMolecule extends StatefulWidget {
 }
 
 class _BoilerMoleculeState extends State<BoilerMolecule> {
-  Future<void> _turnOnAllBoilers() async {
+  Future _turnOnAllBoilers() async {
     FlushbarHelper.createLoading(
       message: 'Turning_On_boiler'.tr(),
       linearProgressIndicator: const LinearProgressIndicator(),
@@ -29,33 +29,19 @@ class _BoilerMoleculeState extends State<BoilerMolecule> {
   }
 
   void setEntityState(EntityActions action) {
-    final VendorsAndServices? vendor =
-        widget.entity.cbjDeviceVendor.vendorsAndServices;
-    if (vendor == null) {
-      return;
-    }
-    final HashMap<VendorsAndServices, HashSet<String>> uniqueIdByVendor =
-        HashMap();
-    uniqueIdByVendor.addEntries(
-      [
-        MapEntry(
-          vendor,
-          HashSet<String>()
-            ..addAll([widget.entity.deviceCbjUniqueId.getOrCrash()]),
-        ),
-      ],
-    );
+    final HashSet<String> uniqueIdByVendor =
+        HashSet.from([widget.entity.deviceCbjUniqueId.getOrCrash()]);
 
     ConnectionsService.instance.setEntityState(
-      ActionObject(
-        uniqueIdByVendor: uniqueIdByVendor,
+      RequestActionObject(
+        entityIds: uniqueIdByVendor,
         property: EntityProperties.boilerSwitchState,
         actionType: action,
       ),
     );
   }
 
-  Future<void> _turnOffAllBoilers() async {
+  Future _turnOffAllBoilers() async {
     FlushbarHelper.createLoading(
       message: 'Turning_Off_boiler'.tr(),
       linearProgressIndicator: const LinearProgressIndicator(),
@@ -74,7 +60,7 @@ class _BoilerMoleculeState extends State<BoilerMolecule> {
 
   @override
   Widget build(BuildContext context) {
-    return DeviceNameRow(
+    return DeviceNameRowMolecule(
       widget.entity.cbjEntityName.getOrCrash()!,
       SwitchAtom(
         variant: SwitchVariant.boiler,
