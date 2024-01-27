@@ -42,16 +42,16 @@ class _AddBindingPageState extends State<AddBindingPage> {
   bool showErrorMessages = false;
   bool isSubmitting = false;
 
-  Future<void> initialzeEntities() async {
+  Future initialzeEntities() async {
     final HashMap<String, DeviceEntityBase> entitiesTemp =
-        await ConnectionsService.instance.getAllEntities;
+        await ConnectionsService.instance.getEntities;
 
     setState(() {
       entities = entitiesTemp;
     });
   }
 
-  Future<void> _sendBindingToHub() async {
+  Future _sendBindingToHub() async {
     // IBindingCbjRepository.instance
     //     .addOrUpdateNewBindingInHubFromDevicesPropertyActionList(
     //   bindingName,
@@ -59,7 +59,7 @@ class _AddBindingPageState extends State<AddBindingPage> {
     // );
   }
 
-  Future<void> _addFullAction(EntityActionObject value) async {
+  Future _addFullAction(EntityActionObject value) async {
     setState(() {
       allDevicesWithNewAction.add(value);
     });

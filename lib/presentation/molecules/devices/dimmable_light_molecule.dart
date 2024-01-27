@@ -21,20 +21,41 @@ class DimmableLightMolecule extends StatefulWidget {
 class _DimmableLightMoleculeState extends State<DimmableLightMolecule> {
   double brightness = 100;
 
-  Future<void> _changeBrightness(double value) async {
+  @override
+  void initState() {
+    super.initState();
+    _initialized();
+  }
+
+  Future _initialized() async {
+    final GenericDimmableLightDE rgbwLightDe = widget.entity;
+
+    double lightBrightness =
+        double.parse(rgbwLightDe.lightBrightness.getOrCrash());
+
+    if (lightBrightness > 100) {
+      lightBrightness = 100;
+    }
+
+    setState(() {
+      brightness = lightBrightness;
+    });
+  }
+
+  Future _changeBrightness(double value) async {
     setState(() {
       brightness = value;
     });
 
-    final HashMap<ActionValues, String> hashValue =
-        HashMap<ActionValues, String>()
+    final HashMap<ActionValues, dynamic> hashValue =
+        HashMap<ActionValues, dynamic>()
           ..addEntries([
-            MapEntry(ActionValues.brightness, value.round().toString()),
+            MapEntry(ActionValues.brightness, value.round()),
           ]);
 
     setEntityState(
       EntityProperties.lightBrightness,
-      EntityActions.actionNotSupported,
+      EntityActions.undefined,
       value: hashValue,
     );
   }
@@ -51,26 +72,12 @@ class _DimmableLightMoleculeState extends State<DimmableLightMolecule> {
     EntityActions action, {
     HashMap<ActionValues, dynamic>? value,
   }) {
-    final VendorsAndServices? vendor =
-        widget.entity.cbjDeviceVendor.vendorsAndServices;
-    if (vendor == null) {
-      return;
-    }
+    final HashSet<String> uniqueIdByVendor =
+        HashSet.from([widget.entity.deviceCbjUniqueId.getOrCrash()]);
 
-    final HashMap<VendorsAndServices, HashSet<String>> uniqueIdByVendor =
-        HashMap();
-    uniqueIdByVendor.addEntries(
-      [
-        MapEntry(
-          vendor,
-          HashSet<String>()
-            ..addAll([widget.entity.deviceCbjUniqueId.getOrCrash()]),
-        ),
-      ],
-    );
     ConnectionsService.instance.setEntityState(
-      ActionObject(
-        uniqueIdByVendor: uniqueIdByVendor,
+      RequestActionObject(
+        entityIds: uniqueIdByVendor,
         property: property,
         actionType: action,
         value: value,
@@ -86,7 +93,7 @@ class _DimmableLightMoleculeState extends State<DimmableLightMolecule> {
 
     return Column(
       children: [
-        DeviceNameRow(
+        DeviceNameRowMolecule(
           widget.entity.cbjEntityName.getOrCrash()!,
           SwitchAtom(
             variant: SwitchVariant.light,

@@ -10,40 +10,12 @@ class EntitiesUtils {
         return FontAwesomeIcons.alignJustify;
       case EntityTypes.boiler:
         return FontAwesomeIcons.temperatureThreeQuarters;
-      case EntityTypes.browserApp:
-        // TODO: Handle this case.
-        break;
-      case EntityTypes.button:
-        return Icons.smart_button;
-      case EntityTypes.computerApp:
-        return Icons.computer;
-      case EntityTypes.emptyEntity:
-        // TODO: Handle this case.
-        break;
-      case EntityTypes.hub:
-        // TODO: Handle this case.
-        break;
       case EntityTypes.light:
       case EntityTypes.dimmableLight:
-      case EntityTypes.rgbLights:
-      case EntityTypes.rgbcctLights:
       case EntityTypes.rgbwLights:
-      case EntityTypes.cctLight:
         return FontAwesomeIcons.lightbulb;
-      case EntityTypes.phoneApp:
-        return Icons.phone;
-      case EntityTypes.pingEntity:
-        // TODO: Handle this case.
-        break;
-      case EntityTypes.playerEntity:
-        // TODO: Handle this case.
-        break;
       case EntityTypes.printer:
-      case EntityTypes.scanner:
-      case EntityTypes.printerWithScanner:
         return Icons.print;
-      case EntityTypes.routerEntity:
-        return Icons.router;
       case EntityTypes.securityCamera:
         return Icons.camera;
       case EntityTypes.smartComputer:
@@ -52,14 +24,14 @@ class EntitiesUtils {
         return MdiIcons.powerSocketAu;
       case EntityTypes.smartTV:
         return Icons.tv;
-      case EntityTypes.smartTypeNotSupported:
-        // TODO: Handle this case.
-        break;
       case EntityTypes.switch_:
         return MdiIcons.lightSwitch;
-      case EntityTypes.voiceAssistant:
-        return MdiIcons.voicemail;
+      case EntityTypes.ac:
+        return MdiIcons.airConditioner;
+      case EntityTypes.emptyEntity:
+      case EntityTypes.pingEntity:
+      case EntityTypes.undefined:
+        return Icons.question_mark;
     }
-    return Icons.question_mark;
   }
 }

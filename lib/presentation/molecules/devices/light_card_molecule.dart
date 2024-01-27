@@ -1,5 +1,4 @@
 import 'package:cbj_integrations_controller/integrations_controller.dart';
-import 'package:cybearjinni/domain/device/i_device_repository.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:flutter/material.dart';
 
@@ -8,19 +7,19 @@ class LightCardMolecule extends StatelessWidget {
 
   final GenericLightDE? entity;
 
-  Future<void> _onChange(bool value) async {
-    final GenericLightDE tempDeviceEntity = entity!
-      ..entityStateGRPC = EntityState.state(EntityStateGRPC.waitingInCloud)
-      ..lightSwitchState = GenericLightSwitchState(value.toString());
+  Future _onChange(bool value) async {
+    // final GenericLightDE tempDeviceEntity = entity!
+    //   ..entityStateGRPC = EntityState.state(EntityStateGRPC.waitingInCloud)
+    //   ..lightSwitchState = GenericLightSwitchState(value.toString());
 
     if (value) {
-      await IDeviceRepository.instance.turnOnDevices(
-        devicesId: [tempDeviceEntity.deviceCbjUniqueId.getOrCrash()],
-      );
+      // await IDeviceRepository.instance.turnOnDevices(
+      //   devicesId: [tempDeviceEntity.deviceCbjUniqueId.getOrCrash()],
+      // );
     } else {
-      await IDeviceRepository.instance.turnOffDevices(
-        devicesId: [tempDeviceEntity.deviceCbjUniqueId.getOrCrash()],
-      );
+      // await IDeviceRepository.instance.turnOffDevices(
+      //   devicesId: [tempDeviceEntity.deviceCbjUniqueId.getOrCrash()],
+      // );
     }
   }
 

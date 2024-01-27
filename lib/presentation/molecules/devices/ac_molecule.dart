@@ -8,19 +8,19 @@ import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-class BoilerMolecule extends StatefulWidget {
-  const BoilerMolecule(this.entity);
+class AcMolecule extends StatefulWidget {
+  const AcMolecule(this.entity);
 
-  final GenericBoilerDE entity;
+  final GenericAcDE entity;
 
   @override
-  State<BoilerMolecule> createState() => _BoilerMoleculeState();
+  State<AcMolecule> createState() => _AcMoleculeState();
 }
 
-class _BoilerMoleculeState extends State<BoilerMolecule> {
-  Future _turnOnAllBoilers() async {
+class _AcMoleculeState extends State<AcMolecule> {
+  Future _turnOnAllAcs() async {
     FlushbarHelper.createLoading(
-      message: 'Turning_On_boiler'.tr(),
+      message: 'Turning_On_ac'.tr(),
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(context);
 
@@ -29,21 +29,21 @@ class _BoilerMoleculeState extends State<BoilerMolecule> {
   }
 
   void setEntityState(EntityActions action) {
-    final HashSet<String> uniqueIdByVendor =
+    final HashSet<String> entitiesId =
         HashSet.from([widget.entity.deviceCbjUniqueId.getOrCrash()]);
 
     ConnectionsService.instance.setEntityState(
       RequestActionObject(
-        entityIds: uniqueIdByVendor,
-        property: EntityProperties.boilerSwitchState,
+        entityIds: entitiesId,
+        property: EntityProperties.acSwitchState,
         actionType: action,
       ),
     );
   }
 
-  Future _turnOffAllBoilers() async {
+  Future _turnOffAllAcs() async {
     FlushbarHelper.createLoading(
-      message: 'Turning_Off_boiler'.tr(),
+      message: 'Turning_Off_ac'.tr(),
       linearProgressIndicator: const LinearProgressIndicator(),
     ).show(context);
 
@@ -52,9 +52,9 @@ class _BoilerMoleculeState extends State<BoilerMolecule> {
 
   void _onChange(bool value) {
     if (value) {
-      _turnOnAllBoilers();
+      _turnOnAllAcs();
     } else {
-      _turnOffAllBoilers();
+      _turnOffAllAcs();
     }
   }
 
@@ -63,9 +63,9 @@ class _BoilerMoleculeState extends State<BoilerMolecule> {
     return DeviceNameRowMolecule(
       widget.entity.cbjEntityName.getOrCrash()!,
       SwitchAtom(
-        variant: SwitchVariant.boiler,
+        variant: SwitchVariant.ac,
         onToggle: _onChange,
-        action: widget.entity.boilerSwitchState.action,
+        action: widget.entity.acSwitchState.action!,
         state: widget.entity.entityStateGRPC.state,
       ),
     );

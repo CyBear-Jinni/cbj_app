@@ -7,41 +7,25 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 class VendorWidget extends StatelessWidget {
-  const VendorWidget(this.vendor);
+  const VendorWidget(this.vendorInformation);
 
-  final VendorData vendor;
+  final VendorEntityInformation vendorInformation;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        final String vendorName = vendor.name
-            .getOrCrash()
-            .toLowerCase()
-            .replaceAll(' ', '')
-            .replaceAll('_', '');
-
-        if (vendorName == VendorsAndServices.lifx.name.toLowerCase()) {
-          context.router.push(AddLifxVendorRoute(vendor: vendor));
-        } else if (vendorName ==
-            VendorsAndServices.espHome.name.toLowerCase()) {
-          context.router.push(AddEspHomeVendorRoute(vendor: vendor));
-        } else if (vendorName ==
-            VendorsAndServices.sonoffEweLink.name.toLowerCase()) {
-          context.router.push(AddEwelinkVendorRoute(vendor: vendor));
-        } else if (vendorName ==
-            VendorsAndServices.philipsHue.name.toLowerCase()) {
+        if (vendorInformation.loginType == VendorLoginTypes.notNeeded) {
           SnackBarService().show(
             context,
-            'Please press the button on top of the Philips Hue Hub for and wait 20s',
-          );
-        } else {
-          SnackBarService().show(
-            context,
-            '${vendor.name.getOrCrash()} devices will be add automatically'
+            '${vendorInformation.displayName} devices will be add automatically'
             ' for you',
           );
+          return;
         }
+
+        context.router
+            .push(LoginVendorRoute(vendorInformation: vendorInformation));
       },
       child: Container(
         height: 100,
@@ -54,10 +38,7 @@ class VendorWidget extends StatelessWidget {
               height: 180,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: NetworkImage(
-                    vendor.image ??
-                        'http://www.clker.com/cliparts/f/Z/G/4/h/Q/no-image-available-th.png',
-                  ),
+                  image: NetworkImage(vendorInformation.imageUrl),
                   fit: BoxFit.fitHeight,
                 ),
               ),
@@ -66,7 +47,7 @@ class VendorWidget extends StatelessWidget {
               width: 10,
             ),
             TextAtom(
-              vendor.name.getOrCrash(),
+              vendorInformation.displayName,
               style: const TextStyle(
                 color: Colors.black,
                 fontSize: 22,

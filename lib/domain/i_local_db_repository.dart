@@ -16,7 +16,7 @@ abstract interface class ILocalDbRepository {
     return _instance ??= _IsarRepository();
   }
 
-  Future<void> asyncConstructor();
+  Future asyncConstructor();
 
   Future<Either<LocalDbFailures, Unit>> saveHubEntity({
     required String hubNetworkBssid,

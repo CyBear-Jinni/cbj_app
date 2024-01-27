@@ -8,6 +8,7 @@ import 'package:cybearjinni/domain/manage_network/i_manage_network_repository.da
 import 'package:cybearjinni/domain/manage_network/manage_network_entity.dart';
 import 'package:cybearjinni/domain/security_bear/i_security_bear_connection_repository.dart';
 import 'package:cybearjinni/domain/security_bear/security_bear_failures.dart';
+import 'package:cybearjinni/infrastructure/core/logger.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
 import 'package:cybearjinni/presentation/molecules/molecules.dart';
@@ -47,7 +48,7 @@ class _ConfigureNewCbjCompWidgetsState
     _sendHotSpotInformation(widget.cbjCompEntity);
   }
 
-  Future<void> _sendHotSpotInformation(CbjCompEntity cBJCompEntity) async {
+  Future _sendHotSpotInformation(CbjCompEntity cBJCompEntity) async {
     progressPercentage += 0.3;
     setState(() {
       state = ConfigureNewCbjCompState.actionInProgress;
@@ -112,7 +113,7 @@ class _ConfigureNewCbjCompWidgetsState
           deviceE..cbjEntityName = CbjEntityName(deviceName),
         );
       } catch (e) {
-        icLogger.w("Can't add unsupported device");
+        logger.w("Can't add unsupported device");
       }
     });
     final CbjCompEntity compUpdatedData = cbjCompEntity.copyWith(
@@ -148,8 +149,7 @@ class _ConfigureNewCbjCompWidgetsState
     final List<Widget> widgetList = [];
 
     for (final GenericLightDE device in devicesList) {
-      if (device.entityTypes.getOrCrash() !=
-          EntityTypes.smartTypeNotSupported.toString()) {
+      if (device.entityTypes.getOrCrash() != EntityTypes.undefined.toString()) {
         final TextEditingController textEditingControllerTemp =
             TextEditingController(
           text: device.cbjEntityName.value.getOrElse(() => ''),

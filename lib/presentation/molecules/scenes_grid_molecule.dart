@@ -2,16 +2,16 @@ import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:flutter/material.dart';
 
-class ScenesGrid extends StatefulWidget {
-  const ScenesGrid({required this.scenes});
+class ScenesGridMolecule extends StatefulWidget {
+  const ScenesGridMolecule({required this.scenes});
 
   final List<SceneCbjEntity> scenes;
 
   @override
-  State<ScenesGrid> createState() => _ScenesGridState();
+  State<ScenesGridMolecule> createState() => _ScenesGridMoleculeState();
 }
 
-class _ScenesGridState extends State<ScenesGrid> {
+class _ScenesGridMoleculeState extends State<ScenesGridMolecule> {
   late AreaEntity folderOfScenes;
 
   @override

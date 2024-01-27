@@ -18,25 +18,12 @@ class LightMolecule extends StatelessWidget {
   }
 
   void setEntityState(EntityActions action) {
-    final VendorsAndServices? vendor =
-        entity.cbjDeviceVendor.vendorsAndServices;
-    if (vendor == null) {
-      return;
-    }
+    final HashSet<String> uniqueIdByVendor =
+        HashSet.from([entity.deviceCbjUniqueId.getOrCrash()]);
 
-    final HashMap<VendorsAndServices, HashSet<String>> uniqueIdByVendor =
-        HashMap();
-    uniqueIdByVendor.addEntries(
-      [
-        MapEntry(
-          vendor,
-          HashSet<String>()..addAll([entity.deviceCbjUniqueId.getOrCrash()]),
-        ),
-      ],
-    );
     ConnectionsService.instance.setEntityState(
-      ActionObject(
-        uniqueIdByVendor: uniqueIdByVendor,
+      RequestActionObject(
+        entityIds: uniqueIdByVendor,
         property: EntityProperties.lightSwitchState,
         actionType: action,
       ),
@@ -45,7 +32,7 @@ class LightMolecule extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DeviceNameRow(
+    return DeviceNameRowMolecule(
       entity.cbjEntityName.getOrCrash()!,
       SwitchAtom(
         variant: SwitchVariant.light,

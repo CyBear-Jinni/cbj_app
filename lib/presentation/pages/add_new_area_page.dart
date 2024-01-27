@@ -34,7 +34,7 @@ class _AddNewAreaFormState extends State<AddNewAreaForm> {
   AreaBackground background = AreaBackground(
     'https://live.staticflickr.com/5220/5486044345_f67abff3e9_h.jpg',
   );
-  AreaTypes areaTypes = AreaTypes(const {});
+  AreaPurposes areaTypes = AreaPurposes(const {});
   AreaEntitiesId areaDevicesId = AreaEntitiesId(const {});
   AreaScenesId areaScenesId = AreaScenesId(const {});
   AreaRoutinesId areaRoutinesId = AreaRoutinesId(const {});
@@ -44,7 +44,7 @@ class _AddNewAreaFormState extends State<AddNewAreaForm> {
   bool showErrorMessages = false;
   bool isSubmitting = false;
 
-  // Future<void> _initialized() async {
+  // Future _initialized() async {
   //   IAreaRepository.instance.getAllAreas().fold((l) => null, (r) {
   //     _allAreas = Set<AreaEntity>.from(r.iter);
   //   });
@@ -60,32 +60,32 @@ class _AddNewAreaFormState extends State<AddNewAreaForm> {
   //   });
   // }
 
-  Future<void> _createArea() async {
+  Future _createArea() async {
     final AreaEntity areaEntity = AreaEntity(
       uniqueId: AreaUniqueId.fromUniqueString(areaUniqueId.getOrCrash()),
-      cbjEntityName: AreaDefaultName(cbjEntityName.getOrCrash()),
-      background: AreaBackground(background.getOrCrash()),
-      areaTypes: AreaTypes(areaTypes.getOrCrash()),
-      entitiesId: AreaEntitiesId(areaDevicesId.getOrCrash()),
-      areaScenesId: AreaScenesId(areaScenesId.getOrCrash()),
-      areaRoutinesId: AreaRoutinesId(areaRoutinesId.getOrCrash()),
-      areaBindingsId: AreaBindingsId(areaBindingsId.getOrCrash()),
-      areaMostUsedBy: AreaMostUsedBy(areaMostUsedBy.getOrCrash()),
-      areaPermissions: AreaPermissions(areaPermissions.getOrCrash()),
+      cbjEntityName: cbjEntityName,
+      background: background,
+      purposes: areaTypes,
+      entitiesId: areaDevicesId,
+      scenesId: areaScenesId,
+      routinesId: areaRoutinesId,
+      bindingsId: areaBindingsId,
+      areaMostUsedBy: areaMostUsedBy,
+      areaPermissions: areaPermissions,
     );
 
     ConnectionsService.instance.setNewArea(areaEntity);
   }
 
-  Future<void> _defaultNameChanged(String value) async {
+  Future _defaultNameChanged(String value) async {
     setState(() {
       cbjEntityName = AreaDefaultName(value);
     });
   }
 
-  Future<void> _areaTypesChanged(Set<String> value) async {
+  Future _areaTypesChanged(Set<AreaPurposesTypes> value) async {
     setState(() {
-      areaTypes = AreaTypes(value);
+      areaTypes = AreaPurposes(value);
     });
   }
 
@@ -148,15 +148,13 @@ class _AddNewAreaFormState extends State<AddNewAreaForm> {
                         }
 
                         return MultiSelectItem(
-                          areaPurposeType.value,
+                          areaPurposeType,
                           areaNameEdited,
                         );
                       }).toList(),
                       listType: MultiSelectListType.CHIP,
-                      onConfirm: (List<int> values) {
-                        _areaTypesChanged(
-                          values.map((e) => e.toString()).toSet(),
-                        );
+                      onConfirm: (List<AreaPurposesTypes> values) {
+                        _areaTypesChanged(values.toSet());
                       },
                     ),
                   ],

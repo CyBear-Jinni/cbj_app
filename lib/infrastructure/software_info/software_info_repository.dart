@@ -44,19 +44,19 @@ class _SoftwareInfoRepository implements ISoftwareInfoRepository {
 
       appInfoForHub ??= CompHubInfo();
 
-      final Either<HubFailures, CompHubInfo> hubResponse =
-          await IHubConnectionRepository.instance.getHubCompInfo(appInfoForHub);
+      // final Either<HubFailures, CompHubInfo> hubResponse =
+      //     await IHubConnectionRepository.instance.getHubCompInfo(appInfoForHub);
 
-      return hubResponse.fold(
-        (l) => left(const SoftwareInfoFailures.unexpected()),
-        (r) {
-          return right(SoftwareInfoEntity.compHubInfo(r));
-        },
-      );
+      // return hubResponse.fold(
+      //   (l) => left(const SoftwareInfoFailures.unexpected()),
+      //   (r) {
+      //     return right(SoftwareInfoEntity.compHubInfo(r));
+      //   },
+      // );
     } catch (e) {
       logger.e('Software info from hub error\n$e');
-      return left(const SoftwareInfoFailures.unexpected());
     }
+    return left(const SoftwareInfoFailures.unexpected());
   }
 
   @override

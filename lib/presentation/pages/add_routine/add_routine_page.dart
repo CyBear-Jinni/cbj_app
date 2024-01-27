@@ -10,7 +10,6 @@ import 'package:cybearjinni/presentation/core/snack_bar_service.dart';
 import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:cybearjinni/presentation/pages/add_action_page.dart';
 import 'package:cybearjinni/presentation/pages/add_routine/widgets/routine_action_widget.dart';
-import 'package:dartz/dartz.dart' as dartz;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -51,21 +50,18 @@ class _AddRoutinePageState extends State<AddRoutinePage> {
   Set<MapEntry<String, String>> allEntityActions = {};
   bool showErrorMessages = false;
   bool isSubmitting = false;
-  dartz.Option<dartz.Either<CoreLoginFailure, dartz.Unit>>
-      authFailureOrSuccessOption = dartz.none();
-
   HashMap<String, DeviceEntityBase>? entities;
 
-  Future<void> initialzeEntities() async {
+  Future initialzeEntities() async {
     final HashMap<String, DeviceEntityBase> entitiesTemp =
-        await ConnectionsService.instance.getAllEntities;
+        await ConnectionsService.instance.getEntities;
 
     setState(() {
       entities = entitiesTemp;
     });
   }
 
-  Future<void> _sendRoutineToHub() async {
+  Future _sendRoutineToHub() async {
     if (daysToRepeat == null ||
         hourToRepeat == null ||
         minutesToRepeat == null ||
@@ -82,11 +78,11 @@ class _AddRoutinePageState extends State<AddRoutinePage> {
     // );
   }
 
-  Future<void> _routineNameChange(String value) async {
+  Future _routineNameChange(String value) async {
     routineName = value;
   }
 
-  Future<void> _addFullAction(EntityActionObject value) async {
+  Future _addFullAction(EntityActionObject value) async {
     setState(() {
       allDevicesWithNewAction.add(value);
     });

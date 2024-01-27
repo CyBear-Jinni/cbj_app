@@ -10,17 +10,16 @@ class _NoneConnectionService implements ConnectionsService {
   }
 
   @override
-  Future<HashMap<String, DeviceEntityBase>> get getAllEntities async =>
-      HashMap();
+  Future<HashMap<String, DeviceEntityBase>> get getEntities async => HashMap();
 
   @override
-  Future<HashMap<String, AreaEntity>> get getAllAreas async => HashMap();
+  Future<HashMap<String, AreaEntity>> get getAreas async => HashMap();
 
   @override
   Future searchDevices() async {}
 
   @override
-  void setEntityState(ActionObject action) {}
+  void setEntityState(RequestActionObject action) {}
 
   @override
   Stream<MapEntry<String, DeviceEntityBase>> watchEntities() {
@@ -45,11 +44,20 @@ class _NoneConnectionService implements ConnectionsService {
   Future setEtitiesToArea(String areaId, HashSet entities) async {}
 
   @override
-  Future<HashMap<String, SceneCbjEntity>> getScenes() async => HashMap();
+  Future<HashMap<String, SceneCbjEntity>> get getScenes async => HashMap();
 
   @override
   Future addScene(SceneCbjEntity scene) async {}
 
   @override
   Future activateScene(String id) async {}
+
+  @override
+  Future loginVendor(VendorLoginEntity value) async {}
+
+  @override
+  Future<List<VendorEntityInformation>> getVendors() async => [];
+
+  @override
+  Future<bool> connect({String? address}) async => true;
 }

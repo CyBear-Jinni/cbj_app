@@ -116,7 +116,7 @@ class _IntroductionScreenBodyState extends State<IntroductionScreenBody> {
         ),
         onDone: () async {
           final HashMap<String, DeviceEntityBase> entities =
-              await ConnectionsService.instance.getAllEntities;
+              await ConnectionsService.instance.getEntities;
           if (!mounted) {
             return;
           }

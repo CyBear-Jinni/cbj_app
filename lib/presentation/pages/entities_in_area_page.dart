@@ -33,7 +33,7 @@ class _EntitiesInAreaPageState extends State<EntitiesInAreaPage> {
 
   Future initialzeDevices() async {
     final Map<String, DeviceEntityBase> entitiesMap =
-        await ConnectionsService.instance.getAllEntities;
+        await ConnectionsService.instance.getEntities;
     final Set<String> entityIdsInArea =
         widget.areaEntity.entitiesId.getOrCrash();
     final Set<EntityTypes> entityTypes = widget.entityTypes;
@@ -55,8 +55,7 @@ class _EntitiesInAreaPageState extends State<EntitiesInAreaPage> {
   }
 
   bool supportedEntityType(EntityTypes type) {
-    return !(type == EntityTypes.smartTypeNotSupported ||
-        type == EntityTypes.emptyEntity);
+    return !(type == EntityTypes.undefined || type == EntityTypes.emptyEntity);
   }
 
   @override

@@ -7,6 +7,7 @@ import 'package:cybearjinni/domain/cbj_comp/i_cbj_comp_repository.dart';
 import 'package:cybearjinni/domain/manage_network/i_manage_network_repository.dart';
 import 'package:cybearjinni/domain/manage_network/manage_network_entity.dart';
 import 'package:cybearjinni/domain/security_bear/i_security_bear_connection_repository.dart';
+import 'package:cybearjinni/infrastructure/core/logger.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/pages/add_new_devices_process/configure_new_cbj_comp/widgets/configure_new_cbj_comp_widget.dart';
 import 'package:dartz/dartz.dart' as dartz;
@@ -51,7 +52,7 @@ class _ComputerConnectionCheckWidgetState
     ).show(context);
   }
 
-  Future<void> _checkConnectedToWiFiNetwork() async {
+  Future _checkConnectedToWiFiNetwork() async {
     if ((await WiFiScan.instance.canStartScan()) == CanStartScan.yes) {
       await WiFiScan.instance.startScan();
       if ((await WiFiScan.instance.canGetScannedResults()) ==
@@ -61,7 +62,7 @@ class _ComputerConnectionCheckWidgetState
     }
 
     bool isConnectedToWifi = false;
-    icLogger.i('Waiting for user to get connected to WiFi');
+    logger.i('Waiting for user to get connected to WiFi');
 
     while (true) {
       isConnectedToWifi = await WiFiForIoTPlugin.isConnected();
@@ -78,7 +79,7 @@ class _ComputerConnectionCheckWidgetState
     _searchIfHubOnTheSameWifiNetwork();
   }
 
-  Future<void> _searchIfHubOnTheSameWifiNetwork() async {
+  Future _searchIfHubOnTheSameWifiNetwork() async {
     int connectionTimeout = 0;
 
     while (true) {
@@ -124,7 +125,7 @@ class _ComputerConnectionCheckWidgetState
           deviceE..cbjEntityName = CbjEntityName(deviceName),
         );
       } catch (e) {
-        icLogger.w("Can't add unsupported device");
+        logger.w("Can't add unsupported device");
       }
     });
     final CbjCompEntity compUpdatedData = cbjCompEntity.copyWith(

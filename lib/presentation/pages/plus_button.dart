@@ -10,9 +10,9 @@ import 'package:iconify_flutter/icons/simple_icons.dart';
 
 @RoutePage()
 class PlusButtonPage extends StatelessWidget {
-  Future<void> _logout(BuildContext context) async {
+  Future _logout(BuildContext context) async {
     context.router.replace(const ConnectToHubRoute());
-    ConnectionsService.setCurrentConnectionType(null);
+    ConnectionsService.setCurrentConnectionType(ConnectionType.none);
   }
 
   @override
@@ -94,31 +94,6 @@ class PlusButtonPage extends StatelessWidget {
                           },
                         ),
                       ),
-                      if (ConnectionsService.getCurrentConnectionType() ==
-                          ConnectionType.hub) ...[
-                        const SizedBox(height: 1),
-                        ColoredBox(
-                          color: Colors.blue,
-                          child: ListTile(
-                            leading: FaIcon(
-                              FontAwesomeIcons.globe,
-                              color: colorScheme.background,
-                            ),
-                            title: TextAtom(
-                              'Add Remote Control Support',
-                              style: TextStyle(
-                                color: Theme.of(context)
-                                    .textTheme
-                                    .bodyLarge!
-                                    .color,
-                              ),
-                            ),
-                            onTap: () {
-                              context.router.push(const RemotePipesRoute());
-                            },
-                          ),
-                        ),
-                      ],
                       const SizedBox(height: 1),
                       ColoredBox(
                         color: Colors.purple.withOpacity(0.7),
@@ -185,9 +160,28 @@ class PlusButtonPage extends StatelessWidget {
                   color: Colors.white,
                   child: Column(
                     children: [
-                      const SizedBox(
-                        height: 1,
+                      const SizedBox(height: 1),
+                      ColoredBox(
+                        color: Colors.blue,
+                        child: ListTile(
+                          leading: FaIcon(
+                            FontAwesomeIcons.globe,
+                            color: colorScheme.background,
+                          ),
+                          title: TextAtom(
+                            'Comunication Method',
+                            style: TextStyle(
+                              color:
+                                  Theme.of(context).textTheme.bodyLarge!.color,
+                            ),
+                          ),
+                          onTap: () {
+                            context.router
+                                .push(const ComunicationMethodRoute());
+                          },
+                        ),
                       ),
+                      const SizedBox(height: 1),
                       ColoredBox(
                         color: Colors.pink.withOpacity(0.9),
                         child: ListTile(

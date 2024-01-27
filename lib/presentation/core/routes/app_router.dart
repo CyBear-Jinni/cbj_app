@@ -24,9 +24,6 @@ class AppRouter extends $AppRouter {
     AutoRoute(page: AddActionRoute.page),
     AutoRoute(page: ChooseAutomationTypeToAddRoute.page),
     AutoRoute(page: ChooseDeviceVendorToAddRoute.page),
-    AutoRoute(page: AddLifxVendorRoute.page),
-    AutoRoute(page: AddEspHomeVendorRoute.page),
-    AutoRoute(page: AddEwelinkVendorRoute.page),
     AutoRoute(page: ConnectToHomeWifiRoute.page),
     AutoRoute(page: OpenAccessPointRoute.page),
     AutoRoute(page: ScanForNewCBJCompsRoute.page),
@@ -34,6 +31,8 @@ class AppRouter extends $AppRouter {
     AutoRoute(page: ComputerConnectionCheckRoute.page),
     AutoRoute(page: EntitiesInNetworkRoute.page),
     AutoRoute(page: EntitiesInAreaRoute.page),
+    AutoRoute(page: LoginVendorRoute.page),
+    AutoRoute(page: ComunicationMethodRoute.page),
 
     // Pages from packages
     AutoRoute(page: SmartCameraContainerRoute.page),

@@ -67,7 +67,7 @@ class _SoftwareInfoWidgetState extends State<SoftwareInfoWidget> {
     _initialized();
   }
 
-  Future<void> _initialized() async {
+  Future _initialized() async {
     SoftwareInfoEntity? appInfoEntity;
     (await ISoftwareInfoRepository.instance.getAppSoftwareInfo()).fold(
       (l) => l,

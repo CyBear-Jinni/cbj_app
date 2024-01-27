@@ -42,7 +42,7 @@ class _CbjHubInNetworkWidgetState extends State<CbjHubInNetworkWidget> {
     });
 
     final HashMap<String, DeviceEntityBase> entities =
-        await ConnectionsService.instance.getAllEntities;
+        await ConnectionsService.instance.getEntities;
 
     if (entities.isNotEmpty) {
       if (!mounted || foundEntity) {

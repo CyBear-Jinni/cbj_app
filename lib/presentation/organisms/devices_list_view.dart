@@ -14,15 +14,11 @@ class DevicesListView extends StatelessWidget {
 
   HashSet<EntityTypes> getReleatedTypes(EntityTypes type) {
     if (type == EntityTypes.light ||
-        type == EntityTypes.rgbLights ||
         type == EntityTypes.rgbwLights ||
-        type == EntityTypes.cctLight ||
         type == EntityTypes.dimmableLight) {
       return HashSet.from({
         EntityTypes.light,
-        EntityTypes.rgbLights,
         EntityTypes.rgbwLights,
-        EntityTypes.cctLight,
         EntityTypes.dimmableLight,
       });
     }

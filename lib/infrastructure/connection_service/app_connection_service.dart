@@ -9,11 +9,11 @@ class _AppConnectionService implements ConnectionsService {
   late SearchDevices searchDevicesInstance;
 
   @override
-  Future<HashMap<String, DeviceEntityBase>> get getAllEntities async =>
+  Future<HashMap<String, DeviceEntityBase>> get getEntities async =>
       IcSynchronizer().getEntities();
 
   @override
-  Future<HashMap<String, AreaEntity>> get getAllAreas async =>
+  Future<HashMap<String, AreaEntity>> get getAreas async =>
       IcSynchronizer().getAreas();
 
   @override
@@ -29,7 +29,7 @@ class _AppConnectionService implements ConnectionsService {
       IcSynchronizer().areasChangesStream.stream;
 
   @override
-  void setEntityState(ActionObject action) =>
+  void setEntityState(RequestActionObject action) =>
       IcSynchronizer().setEntitiesState(action);
 
   @override
@@ -45,7 +45,7 @@ class _AppConnectionService implements ConnectionsService {
       IcSynchronizer().setEtitiesToArea(areaId, entities);
 
   @override
-  Future<HashMap<String, SceneCbjEntity>> getScenes() async =>
+  Future<HashMap<String, SceneCbjEntity>> get getScenes async =>
       IcSynchronizer().getScenes();
 
   @override
@@ -53,4 +53,15 @@ class _AppConnectionService implements ConnectionsService {
 
   @override
   Future addScene(SceneCbjEntity scene) => IcSynchronizer().addScene(scene);
+
+  @override
+  Future loginVendor(VendorLoginEntity value) async =>
+      IcSynchronizer().loginVendor(value);
+
+  @override
+  Future<List<VendorEntityInformation>> getVendors() async =>
+      IcSynchronizer().getVendors();
+
+  @override
+  Future<bool> connect({String? address}) async => true;
 }

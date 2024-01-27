@@ -26,19 +26,12 @@ class ChooseAutomationTypeToAddPage extends StatelessWidget {
             const TextAtom(
               'Do several things at once or start actions'
               ' automatically by adding a trigger.',
-              style: TextStyle(
-                color: Colors.black,
-              ),
             ),
             const SizedBox(
               height: 13,
             ),
             const TextAtom(
               'Please choose your automation trigger',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 18,
-              ),
             ),
             const SizedBox(
               height: 30,
