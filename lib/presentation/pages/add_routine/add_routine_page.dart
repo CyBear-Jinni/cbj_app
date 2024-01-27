@@ -61,8 +61,7 @@ class _AddRoutinePageState extends State<AddRoutinePage> {
     });
   }
 
-  Future
- _sendRoutineToHub() async {
+  Future _sendRoutineToHub() async {
     if (daysToRepeat == null ||
         hourToRepeat == null ||
         minutesToRepeat == null ||

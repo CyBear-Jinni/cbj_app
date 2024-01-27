@@ -28,8 +28,7 @@ class _ScanForNewCBJCompsWidgetState extends State<ScanForNewCBJCompsWidget> {
     _watchAllStarted();
   }
 
-  Future
- _watchAllStarted() async {
+  Future _watchAllStarted() async {
     await _cbjCompStreamSubscription?.cancel();
     _cbjCompStreamSubscription = ICbjCompRepository.instance
         .getConnectedComputersIP()
@@ -72,8 +71,7 @@ class _ScanForNewCBJCompsWidgetState extends State<ScanForNewCBJCompsWidget> {
   }
 
   @override
-  Future
-   dispose() async {
+  Future dispose() async {
     await _cbjCompStreamSubscription?.cancel();
     await ICbjCompRepository.instance.shutdownServer();
     return super.dispose();
