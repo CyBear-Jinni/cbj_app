@@ -161,7 +161,6 @@ class _LightColorMods extends State<LightColorMods> {
   late HSVColor hsvColor;
   late double brightness;
   late ColorMode colorMode;
-  late Widget colorModeWidget;
 
   @override
   void initState() {
@@ -170,7 +169,6 @@ class _LightColorMods extends State<LightColorMods> {
     hsvColor = widget.hsvColor ?? HSVColor.fromColor(Colors.white);
     colorTemperature = widget.colorTemperature;
     brightness = widget.brightness;
-    colorModeWidget = getColorModeWidget(colorMode);
 
     _initialized();
   }
@@ -283,22 +281,9 @@ class _LightColorMods extends State<LightColorMods> {
     );
   }
 
-  Widget getColorModeWidget(ColorMode colorMode) {
-    switch (colorMode) {
-      case ColorMode.undefined:
-        return const SizedBox();
-      case ColorMode.rgb:
-        return getHsvColorModeWidget();
-      case ColorMode.white:
-        return getWhiteModeWidget();
-    }
-  }
-
   void setColorModeState(ColorMode colorMode) {
-    final Widget colorModeWidget = getColorModeWidget(colorMode);
     setState(() {
       this.colorMode = colorMode;
-      this.colorModeWidget = colorModeWidget;
     });
   }
 
@@ -309,7 +294,10 @@ class _LightColorMods extends State<LightColorMods> {
 
     return Column(
       children: [
-        colorModeWidget,
+        if (colorMode == ColorMode.white)
+          getHsvColorModeWidget()
+        else if (colorMode == ColorMode.rgb)
+          getWhiteModeWidget(),
         const SeparatorAtom(variant: SeparatorVariant.reletedElements),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
