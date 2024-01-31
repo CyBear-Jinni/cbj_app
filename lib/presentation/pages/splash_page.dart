@@ -2,9 +2,8 @@ import 'dart:io';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/integrations_controller.dart';
-import 'package:cbj_smart_device_flutter/commands/flutter_commands.dart';
 import 'package:cybearjinni/domain/connections_service.dart';
-import 'package:cybearjinni/domain/i_local_db_repository.dart';
+import 'package:cybearjinni/domain/manage_network/i_manage_network_repository.dart';
 import 'package:cybearjinni/infrastructure/app_commands.dart';
 import 'package:cybearjinni/infrastructure/mqtt.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
@@ -28,24 +27,16 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   Future initilizeApp() async {
-    // TODO: can we remove
+    SystemCommandsBaseClassD.instance = AppCommands();
     await Hive.initFlutter();
-    AppCommands();
-    // TODO: can we remove
-    await Future.value([
-      IDbRepository.instance.initializeDb(isFlutter: true),
-      ILocalDbRepository.instance.asyncConstructor(),
-      // ISavedDevicesRepo.instance.setUpAllFromDb(),
-    ]);
-    // TODO: can we remove
-    MqttServerRepository();
-    // TODO: Same as App Command?
-    PhoneCommandsD();
-    SystemCommandsManager();
-    // TODO: can we remove
-    NodeRedRepository();
-    ConnectionsService.instance;
+    IcSynchronizer.initializeIntegrationsController();
+    await IManageNetworkRepository.instance.loadWifi();
+    ConnectionsService.setCurrentConnectionType(ConnectionType.appAsHub);
     _navigate();
+
+    // TODO: Only here so that app will not crash
+    MqttServerRepository();
+    NodeRedRepository();
   }
 
   void _navigate() {

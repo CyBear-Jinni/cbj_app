@@ -10,7 +10,6 @@ import 'package:cybearjinni/infrastructure/core/logger.dart';
 import 'package:cybearjinni/infrastructure/network_utilities_flutter.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/services.dart';
 import 'package:grpc/grpc.dart';
 import 'package:location/location.dart';
 import 'package:network_info_plus/network_info_plus.dart';
