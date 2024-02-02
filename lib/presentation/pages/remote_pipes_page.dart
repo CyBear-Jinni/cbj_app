@@ -1,6 +1,8 @@
 import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:cybearjinni/domain/connections_service.dart';
+import 'package:cybearjinni/infrastructure/core/logger.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/core/snack_bar_service.dart';
 import 'package:cybearjinni/presentation/molecules/molecules.dart';
@@ -71,7 +73,15 @@ class _RemotePipesWidgetState extends State<RemotePipesWidget> {
     if (remotePipesDomainName == null || remotePipesDomainName!.isEmpty) {
       return;
     }
-    ConnectionsService.setCurrentConnectionType(ConnectionType.remotePipes);
+    final String? bssid = NetworksManager().currentNetwork?.bssid;
+    if (bssid == null) {
+      logger.e('Please set up network');
+      return;
+    }
+    ConnectionsService.setCurrentConnectionType(
+      networkBssid: bssid,
+      connectionType: ConnectionType.remotePipes,
+    );
     ConnectionsService.instance.connect(address: remotePipesDomainName);
     context.router.pop();
   }

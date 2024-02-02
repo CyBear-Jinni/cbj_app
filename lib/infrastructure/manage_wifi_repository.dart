@@ -120,7 +120,6 @@ class _ManageWiFiRepository implements IManageNetworkRepository {
       }
     } on PlatformException catch (e) {
       logger.e('Failed to get Wifi Name\n$e');
-//      wifiName = "Failed to get Wifi Name";
     } catch (exception) {
       logger.e(exception.toString());
     }
@@ -129,8 +128,31 @@ class _ManageWiFiRepository implements IManageNetworkRepository {
 
   @override
   Future loadWifi() async {
-    // TODO: Get  bssid
     final NetworkInfo info = NetworkInfo();
+
+    if (Platform.isLinux) {
+      final String? bssid = await info.getWifiBSSID();
+      final String? wifiName = await info.getWifiName();
+      final String? ip = await info.getWifiIP();
+      if (bssid == null || wifiName == null || ip == null) {
+        return;
+      }
+      final String subnet = ipToSubnet(ip);
+
+      final NetworkObject network = NetworkObject(
+        bssid: bssid,
+        ssid: wifiName,
+        subNet: subnet,
+        longitude: null,
+        latitude: null,
+        remotePipe: null,
+        type: null,
+      );
+      NetworksManager().addNetwork(network);
+      NetworksManager().setCurrentNetwork(network.uniqueId);
+      return;
+    }
+
     final PermissionStatus locationStatus = await Permission.location.status;
     if (locationStatus.isDenied) {
       await Permission.locationWhenInUse.request();
@@ -146,6 +168,7 @@ class _ManageWiFiRepository implements IManageNetworkRepository {
       logger.w('Not connected to WiFi');
       exit(0);
     }
+
     String bssid;
     if (await Permission.location.isGranted) {
       final String? bssidTemp = await info.getWifiBSSID();
@@ -161,17 +184,16 @@ class _ManageWiFiRepository implements IManageNetworkRepository {
       exit(0);
     }
     final String? ssid = await WiFiForIoTPlugin.getSSID();
-    final List<String>? ipSplit = (await WiFiForIoTPlugin.getIP())?.split('.');
-    String? subNet;
-    if (ipSplit != null) {
-      subNet = ipSplit.sublist(0, ipSplit.length - 1).join();
-    }
+    final String? ip = await WiFiForIoTPlugin.getIP();
     final location.LocationData locationData =
         await location.Location().getLocation();
-    if (ssid == null || subNet == null) {
-      logger.w('Ssid or subnet is null');
+
+    if (ssid == null || ip == null) {
+      logger.w('Ssid is null');
       exit(0);
     }
+
+    final String subNet = ipToSubnet(ip);
 
     final NetworkObject network = NetworkObject(
       bssid: bssid,
@@ -184,5 +206,10 @@ class _ManageWiFiRepository implements IManageNetworkRepository {
     );
     NetworksManager().addNetwork(network);
     NetworksManager().setCurrentNetwork(network.uniqueId);
+  }
+
+  String ipToSubnet(String ip) {
+    final List<String> ipSplit = ip.split('.');
+    return ipSplit.sublist(0, ipSplit.length - 1).join();
   }
 }

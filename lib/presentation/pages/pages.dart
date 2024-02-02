@@ -1,5 +1,5 @@
 export 'package:cybearjinni/presentation/pages/add_action_page.dart';
-export 'package:cybearjinni/presentation/pages/add_bindings/add_binding_page.dart';
+export 'package:cybearjinni/presentation/pages/add_binding_page.dart';
 export 'package:cybearjinni/presentation/pages/add_new_area_page.dart';
 export 'package:cybearjinni/presentation/pages/add_new_devices_process/choose_device_vendor_to_add/choose_device_vendor_to_add_page.dart';
 export 'package:cybearjinni/presentation/pages/add_new_devices_process/computer_connection_check/computer_connection_check_page.dart';
@@ -7,8 +7,8 @@ export 'package:cybearjinni/presentation/pages/add_new_devices_process/configure
 export 'package:cybearjinni/presentation/pages/add_new_devices_process/connect_to_home_wifi/connect_to_home_wifi_page.dart';
 export 'package:cybearjinni/presentation/pages/add_new_devices_process/open_access_point/open_access_pointi_page.dart';
 export 'package:cybearjinni/presentation/pages/add_new_devices_process/scan_for_new_cbj_comps/scan_for_new_cbj_comps_page.dart';
-export 'package:cybearjinni/presentation/pages/add_routine/add_routine_page.dart';
-export 'package:cybearjinni/presentation/pages/add_scene/add_scene_page.dart';
+export 'package:cybearjinni/presentation/pages/add_routine_page.dart';
+export 'package:cybearjinni/presentation/pages/add_scene_page.dart';
 export 'package:cybearjinni/presentation/pages/change_area_for_devices_page.dart';
 export 'package:cybearjinni/presentation/pages/choose_automation_type_to_add_page.dart';
 export 'package:cybearjinni/presentation/pages/connect_to_hub/connect_to_hub_page.dart';
@@ -20,7 +20,7 @@ export 'package:cybearjinni/presentation/pages/introduction_screen/introduction_
 export 'package:cybearjinni/presentation/pages/pick_repeat_time_page.dart';
 export 'package:cybearjinni/presentation/pages/plus_button.dart';
 export 'package:cybearjinni/presentation/pages/remote_pipes_page.dart';
-export 'package:cybearjinni/presentation/pages/scenes/scenes_page.dart';
+export 'package:cybearjinni/presentation/pages/scenes_page.dart';
 export 'package:cybearjinni/presentation/pages/smart_camera_container_page.dart';
 export 'package:cybearjinni/presentation/pages/software_info_page.dart';
 export 'package:cybearjinni/presentation/pages/splash_page.dart';

@@ -165,7 +165,7 @@ class _ChangeAreaForDevicesWidgetState
                 items: List<MultiSelectItem<String?>>.of(
                   entities!.values.map(
                     (e) => MultiSelectItem(
-                      e.getCbjDeviceId,
+                      e.getCbjEntityId,
                       e.cbjEntityName.getOrCrash()!,
                     ),
                   ),

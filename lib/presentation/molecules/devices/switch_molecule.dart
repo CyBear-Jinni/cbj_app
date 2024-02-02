@@ -29,7 +29,7 @@ class _SwitchMoleculeState extends State<SwitchMolecule> {
 
   void setEntityState(EntityActions action) {
     final HashSet<String> uniqueIdByVendor =
-        HashSet.from([widget.entity.deviceCbjUniqueId.getOrCrash()]);
+        HashSet.from([widget.entity.entitiyCbjUniqueId.getOrCrash()]);
 
     ConnectionsService.instance.setEntityState(
       RequestActionObject(

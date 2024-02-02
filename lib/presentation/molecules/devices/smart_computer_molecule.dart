@@ -36,12 +36,12 @@ class _SmartComputerMoleculeState extends State<SmartComputerMolecule> {
   }
 
   void suspendComputer(BuildContext context) {
-    final String deviceId = widget.entity.getCbjDeviceId;
+    final String deviceId = widget.entity.getCbjEntityId;
     _suspendAllSmartComputers([deviceId]);
   }
 
   void shutdownComputer(BuildContext context) {
-    final String deviceId = widget.entity.getCbjDeviceId;
+    final String deviceId = widget.entity.getCbjEntityId;
     _shutdownAllSmartComputers([deviceId]);
   }
 

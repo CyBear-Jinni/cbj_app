@@ -66,7 +66,7 @@ class _RgbwLightMoleculeState extends State<RgbwLightMolecule> {
     HashMap<ActionValues, dynamic>? value,
   }) {
     final HashSet<String> uniqueIdByVendor =
-        HashSet.from([widget.entity.deviceCbjUniqueId.getOrCrash()]);
+        HashSet.from([widget.entity.entitiyCbjUniqueId.getOrCrash()]);
 
     ConnectionsService.instance.setEntityState(
       RequestActionObject(
@@ -202,7 +202,7 @@ class _LightColorMods extends State<LightColorMods> {
     HashMap<ActionValues, dynamic>? value,
   }) {
     final HashSet<String> uniqueIdByVendor =
-        HashSet.from([widget.entity.deviceCbjUniqueId.getOrCrash()]);
+        HashSet.from([widget.entity.entitiyCbjUniqueId.getOrCrash()]);
 
     ConnectionsService.instance.setEntityState(
       RequestActionObject(

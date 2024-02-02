@@ -19,7 +19,7 @@ class LightMolecule extends StatelessWidget {
 
   void setEntityState(EntityActions action) {
     final HashSet<String> uniqueIdByVendor =
-        HashSet.from([entity.deviceCbjUniqueId.getOrCrash()]);
+        HashSet.from([entity.entitiyCbjUniqueId.getOrCrash()]);
 
     ConnectionsService.instance.setEntityState(
       RequestActionObject(

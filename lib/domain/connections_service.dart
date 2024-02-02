@@ -37,12 +37,15 @@ abstract interface class ConnectionsService {
   static ConnectionsService? _instance;
 
   static ConnectionsService get instance {
-    return _instance ??= _AppConnectionService();
+    return _instance ??= _NoneConnectionService();
   }
 
-  static ConnectionType _currentConnectionType = ConnectionType.appAsHub;
+  static ConnectionType _currentConnectionType = ConnectionType.none;
 
-  static void setCurrentConnectionType(ConnectionType connectionType) {
+  static void setCurrentConnectionType({
+    required String networkBssid,
+    required ConnectionType connectionType,
+  }) {
     if (connectionType == _currentConnectionType) {
       return;
     }
@@ -52,13 +55,13 @@ abstract interface class ConnectionsService {
 
     switch (connectionType) {
       case ConnectionType.appAsHub:
-        _instance = _AppConnectionService();
+        _instance = _AppConnectionService(networkBssid);
       case ConnectionType.hub:
-        _instance = _HubConnectionService();
+        _instance = _HubConnectionService(networkBssid);
       case ConnectionType.remotePipes:
-        _instance = _RemotePipesConnectionService();
+        _instance = _RemotePipesConnectionService(networkBssid);
       case ConnectionType.demo:
-        _instance = _DemoConnectionService();
+        _instance = _DemoConnectionService(networkBssid);
       case ConnectionType.none:
         _instance = _NoneConnectionService();
     }

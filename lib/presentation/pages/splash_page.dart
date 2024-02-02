@@ -1,3 +1,4 @@
+import 'dart:collection';
 import 'dart:io';
 
 import 'package:auto_route/auto_route.dart';
@@ -5,6 +6,7 @@ import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:cybearjinni/domain/connections_service.dart';
 import 'package:cybearjinni/domain/manage_network/i_manage_network_repository.dart';
 import 'package:cybearjinni/infrastructure/app_commands.dart';
+import 'package:cybearjinni/infrastructure/core/logger.dart';
 import 'package:cybearjinni/infrastructure/mqtt.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
@@ -29,17 +31,39 @@ class _SplashPageState extends State<SplashPage> {
   Future initilizeApp() async {
     SystemCommandsBaseClassD.instance = AppCommands();
     await Hive.initFlutter();
-    IcSynchronizer.initializeIntegrationsController();
+    await IDbRepository.instance.asyncConstactor();
+    NetworksManager().loadFromDb();
     await IManageNetworkRepository.instance.loadWifi();
-    ConnectionsService.setCurrentConnectionType(ConnectionType.appAsHub);
-    _navigate();
+    final String? bssid = NetworksManager().currentNetwork?.bssid;
+    if (bssid == null) {
+      logger.e('Please set up network');
+      return;
+    }
+    await IcSynchronizer().loadAllFromDb();
+    ConnectionsService.setCurrentConnectionType(
+      networkBssid: bssid,
+      connectionType: ConnectionType.appAsHub,
+    );
+
+    ConnectionsService.instance.searchDevices();
 
     // TODO: Only here so that app will not crash
     MqttServerRepository();
     NodeRedRepository();
+
+    _navigate();
   }
 
-  void _navigate() {
+  Future _navigate() async {
+    final HashMap<String, DeviceEntityBase> entities =
+        await IcSynchronizer().getEntities();
+    if (!mounted) {
+      return;
+    }
+    if (entities.isNotEmpty) {
+      context.router.replace(const HomeRoute());
+      return;
+    }
     if (kIsWeb || Platform.isLinux || Platform.isWindows) {
       context.router.replace(const ConnectToHubRoute());
       return;
