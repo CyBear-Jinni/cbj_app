@@ -1,13 +1,14 @@
 part of 'package:cybearjinni/domain/connections_service.dart';
 
 class _RemotePipesConnectionService implements ConnectionsService {
+  _RemotePipesConnectionService(this.networkBssid);
+
   /// Port to connect to the cbj hub, will change according to the current
   /// running environment
   int hubPort = 50051;
 
   String? address;
-  String? networkBssid;
-  String? networkName;
+  String networkBssid;
 
   ClientChannel? channel;
   CbjHubClient? stub;

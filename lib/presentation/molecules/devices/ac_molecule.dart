@@ -30,7 +30,7 @@ class _AcMoleculeState extends State<AcMolecule> {
 
   void setEntityState(EntityActions action) {
     final HashSet<String> entitiesId =
-        HashSet.from([widget.entity.deviceCbjUniqueId.getOrCrash()]);
+        HashSet.from([widget.entity.entitiyCbjUniqueId.getOrCrash()]);
 
     ConnectionsService.instance.setEntityState(
       RequestActionObject(

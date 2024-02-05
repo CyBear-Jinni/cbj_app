@@ -1,12 +1,10 @@
 part of 'package:cybearjinni/domain/connections_service.dart';
 
 class _AppConnectionService implements ConnectionsService {
-  _AppConnectionService() {
-    searchDevicesInstance = SearchDevices();
-    searchDevices();
-  }
+  _AppConnectionService(this.networkBssid);
 
-  late SearchDevices searchDevicesInstance;
+  String networkBssid;
+  SearchDevices? searchDevicesInstance;
 
   @override
   Future<HashMap<String, DeviceEntityBase>> get getEntities async =>
@@ -17,8 +15,12 @@ class _AppConnectionService implements ConnectionsService {
       IcSynchronizer().getAreas();
 
   @override
-  Future searchDevices() =>
-      searchDevicesInstance.startSearchIsolate(NetworkUtilitiesFlutter());
+  Future searchDevices() async =>
+      searchDevicesInstance = (searchDevicesInstance ?? SearchDevices())
+        ..startSearchIsolate(
+          networkUtilitiesType: NetworkUtilitiesFlutter(),
+          systemCommands: SystemCommandsBaseClassD.instance,
+        );
 
   @override
   Stream<MapEntry<String, DeviceEntityBase>> watchEntities() =>
@@ -33,7 +35,7 @@ class _AppConnectionService implements ConnectionsService {
       IcSynchronizer().setEntitiesState(action);
 
   @override
-  Future dispose() async => searchDevicesInstance.dispose();
+  Future dispose() async => searchDevicesInstance?.dispose();
 
   @override
   Future setNewArea(AreaEntity area) async {

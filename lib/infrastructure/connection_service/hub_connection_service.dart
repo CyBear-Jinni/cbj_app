@@ -1,7 +1,7 @@
 part of 'package:cybearjinni/domain/connections_service.dart';
 
 class _HubConnectionService implements ConnectionsService {
-  _HubConnectionService() {
+  _HubConnectionService(this.networkBssid) {
     if (currentEnvApp == EnvApp.prod) {
       hubPort = 50055;
     } else {
@@ -9,12 +9,13 @@ class _HubConnectionService implements ConnectionsService {
     }
   }
 
+  String networkBssid;
+
   /// Port to connect to the cbj hub, will change according to the current
   /// running environment
   late int hubPort;
 
   String? hubIp;
-  String? networkBssid;
   String? networkName;
 
   ClientChannel? channel;
@@ -166,7 +167,6 @@ class _HubConnectionService implements ConnectionsService {
         final NetworkInfo networkInfo = NetworkInfo();
         networkName = await networkInfo.getWifiName();
         appDeviceIp = await networkInfo.getWifiIP();
-        networkBssid = await networkInfo.getWifiBSSID();
       } else {
         return false;
         // if (deviceIpOnTheNetwork == null) {

@@ -14,11 +14,11 @@ class LightCardMolecule extends StatelessWidget {
 
     if (value) {
       // await IDeviceRepository.instance.turnOnDevices(
-      //   devicesId: [tempDeviceEntity.deviceCbjUniqueId.getOrCrash()],
+      //   devicesId: [tempDeviceEntity.entitiyCbjUniqueId.getOrCrash()],
       // );
     } else {
       // await IDeviceRepository.instance.turnOffDevices(
-      //   devicesId: [tempDeviceEntity.deviceCbjUniqueId.getOrCrash()],
+      //   devicesId: [tempDeviceEntity.entitiyCbjUniqueId.getOrCrash()],
       // );
     }
   }

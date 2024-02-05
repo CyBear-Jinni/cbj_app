@@ -1,11 +1,12 @@
+import 'dart:collection';
 import 'dart:io';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:cbj_integrations_controller/integrations_controller.dart';
-import 'package:cbj_smart_device_flutter/commands/flutter_commands.dart';
 import 'package:cybearjinni/domain/connections_service.dart';
-import 'package:cybearjinni/domain/i_local_db_repository.dart';
+import 'package:cybearjinni/domain/manage_network/i_manage_network_repository.dart';
 import 'package:cybearjinni/infrastructure/app_commands.dart';
+import 'package:cybearjinni/infrastructure/core/logger.dart';
 import 'package:cybearjinni/infrastructure/mqtt.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
@@ -28,27 +29,41 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   Future initilizeApp() async {
-    // TODO: can we remove
+    SystemCommandsBaseClassD.instance = AppCommands();
     await Hive.initFlutter();
-    AppCommands();
-    // TODO: can we remove
-    await Future.value([
-      IDbRepository.instance.initializeDb(isFlutter: true),
-      ILocalDbRepository.instance.asyncConstructor(),
-      // ISavedDevicesRepo.instance.setUpAllFromDb(),
-    ]);
-    // TODO: can we remove
+    await IDbRepository.instance.asyncConstactor();
+    NetworksManager().loadFromDb();
+    await IManageNetworkRepository.instance.loadWifi();
+    final String? bssid = NetworksManager().currentNetwork?.bssid;
+    if (bssid == null) {
+      logger.e('Please set up network');
+      return;
+    }
+    await IcSynchronizer().loadAllFromDb();
+    ConnectionsService.setCurrentConnectionType(
+      networkBssid: bssid,
+      connectionType: ConnectionType.appAsHub,
+    );
+
+    ConnectionsService.instance.searchDevices();
+
+    // TODO: Only here so that app will not crash
     MqttServerRepository();
-    // TODO: Same as App Command?
-    PhoneCommandsD();
-    SystemCommandsManager();
-    // TODO: can we remove
     NodeRedRepository();
-    ConnectionsService.instance;
+
     _navigate();
   }
 
-  void _navigate() {
+  Future _navigate() async {
+    final HashMap<String, DeviceEntityBase> entities =
+        await IcSynchronizer().getEntities();
+    if (!mounted) {
+      return;
+    }
+    if (entities.isNotEmpty) {
+      context.router.replace(const HomeRoute());
+      return;
+    }
     if (kIsWeb || Platform.isLinux || Platform.isWindows) {
       context.router.replace(const ConnectToHubRoute());
       return;

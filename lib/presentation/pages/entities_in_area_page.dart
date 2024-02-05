@@ -42,7 +42,7 @@ class _EntitiesInAreaPageState extends State<EntitiesInAreaPage> {
     tempEntities = entitiesMap.values
         .where(
           (element) =>
-              entityIdsInArea.contains(element.getCbjDeviceId) &&
+              entityIdsInArea.contains(element.getCbjEntityId) &&
               (showAllTypes ||
                   entityTypes.contains(element.entityTypes.type)) &&
               supportedEntityType(element.entityTypes.type),

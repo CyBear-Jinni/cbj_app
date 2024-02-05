@@ -71,10 +71,6 @@ class _ScenesPageState extends State<ScenesPage> {
     );
   }
 
-  void leftIconFunction(BuildContext context) {
-    context.router.pop();
-  }
-
   @override
   Widget build(BuildContext context) {
     if (scenes == null) {
@@ -103,7 +99,7 @@ class _ScenesPageState extends State<ScenesPage> {
                   pageName: 'Scenes_In_Folder',
                   rightIconFunction: userCogFunction,
                   leftIcon: FontAwesomeIcons.arrowLeft,
-                  leftIconFunction: leftIconFunction,
+                  leftIconFunction: context.router.pop,
                   // rightSecondIcon: FontAwesomeIcons.magnifyingGlass,
                 ),
                 Expanded(

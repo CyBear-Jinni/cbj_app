@@ -110,7 +110,7 @@ class _ConfigureNewCbjCompWidgetsState
                 '$deviceNameFieldKey/${deviceE.uniqueId.getOrCrash()}']!
             .text;
         deviceEntityList.add(
-          deviceE..cbjEntityName = CbjEntityName(deviceName),
+          deviceE..cbjEntityName = CbjEntityName(value: deviceName),
         );
       } catch (e) {
         logger.w("Can't add unsupported device");

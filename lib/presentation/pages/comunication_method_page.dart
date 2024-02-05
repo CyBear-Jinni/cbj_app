@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:cybearjinni/domain/connections_service.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
@@ -9,6 +10,11 @@ import 'package:flutter/material.dart';
 class ComunicationMethodPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final String? bssid = NetworksManager().currentNetwork?.bssid;
+    if (bssid == null) {
+      return const TextAtom('Please set up network');
+    }
+
     return PageOrganism(
       pageName: 'Comunication type',
       child: Column(
@@ -24,7 +30,8 @@ class ComunicationMethodPage extends StatelessWidget {
                   variant: ButtonVariant.primary,
                   text: 'App as a Hub',
                   onPressed: () => ConnectionsService.setCurrentConnectionType(
-                    ConnectionType.appAsHub,
+                    networkBssid: bssid,
+                    connectionType: ConnectionType.appAsHub,
                   ),
                 ),
                 ButtonWidgetAtom(
@@ -32,7 +39,8 @@ class ComunicationMethodPage extends StatelessWidget {
                   text: 'Hub',
                   onPressed: () {
                     ConnectionsService.setCurrentConnectionType(
-                      ConnectionType.hub,
+                      networkBssid: bssid,
+                      connectionType: ConnectionType.hub,
                     );
                     ConnectionsService.instance.connect();
                   },
@@ -41,7 +49,8 @@ class ComunicationMethodPage extends StatelessWidget {
                   variant: ButtonVariant.primary,
                   text: 'Demo',
                   onPressed: () => ConnectionsService.setCurrentConnectionType(
-                    ConnectionType.demo,
+                    networkBssid: bssid,
+                    connectionType: ConnectionType.demo,
                   ),
                 ),
               ],

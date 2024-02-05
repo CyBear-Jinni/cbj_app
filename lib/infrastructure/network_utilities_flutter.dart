@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:network_tools_flutter/network_tools_flutter.dart'
     as network_flutter;
+import 'package:network_tools_flutter/network_tools_flutter.dart';
 
 class NetworkUtilitiesFlutter extends NetworkUtilities {
   @override
@@ -13,7 +14,8 @@ class NetworkUtilitiesFlutter extends NetworkUtilities {
   }) =>
       network_flutter.HostScannerFlutter.getAllPingableDevices(
         subnet,
-        firstHostId: 127,
+        firstHostId: firstHostId ?? HostScanner.defaultFirstHostId,
+        lastHostId: lastHostId ?? HostScanner.defaultLastHostId,
       );
 
   @override
