@@ -295,9 +295,9 @@ class _LightColorMods extends State<LightColorMods> {
     return Column(
       children: [
         if (colorMode == ColorMode.white)
-          getHsvColorModeWidget()
+          getWhiteModeWidget()
         else if (colorMode == ColorMode.rgb)
-          getWhiteModeWidget(),
+          getHsvColorModeWidget(),
         const SeparatorAtom(variant: SeparatorVariant.reletedElements),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
