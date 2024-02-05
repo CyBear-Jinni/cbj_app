@@ -79,7 +79,7 @@ class _AddActionPageState extends State<AddActionPage> {
                 items:
                     widget.entities.values.map<DropdownMenuItem<String>>((e) {
                   return DropdownMenuItem<String>(
-                    value: e.getCbjDeviceId,
+                    value: e.getCbjEntityId,
                     child: TextAtom(e.cbjEntityName.getOrCrash()!),
                   );
                 }).toList(),

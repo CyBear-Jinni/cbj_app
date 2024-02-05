@@ -4,11 +4,7 @@ import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:path_provider/path_provider.dart';
 
-class AppCommands implements IPhoneCommandsD {
-  AppCommands() {
-    IPhoneCommandsD.instance = this;
-  }
-
+class AppCommands extends SystemCommandsBaseClassD {
   @override
   Future<String> getAllEtcReleaseFilesText() {
     // TODO: implement getAllEtcReleaseFilesText
@@ -62,7 +58,7 @@ class AppCommands implements IPhoneCommandsD {
   }
 
   @override
-  Future<String> getLocalDbPath(Future<String?> currentUserName) async {
+  Future<String> getLocalDbPath() async {
     final Directory appDocDirectory = await getApplicationDocumentsDirectory();
     return appDocDirectory.path;
   }
@@ -86,8 +82,8 @@ class AppCommands implements IPhoneCommandsD {
   }
 
   @override
-  Future<String?> suspendComputer() {
-    // TODO: implement suspendComputer
-    throw UnimplementedError();
-  }
+  Future<String?> suspendComputer() async => null;
+
+  @override
+  Future<String?> getRaspberryPiDeviceVersion() async => null;
 }

@@ -24,6 +24,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
+
     _watchEntities();
     _watchAreas();
     initializedScenes();
@@ -33,7 +34,7 @@ class _HomePageState extends State<HomePage> {
   void dispose() {
     entitiesStream?.cancel();
     areasStream?.cancel();
-    _pageController.dispose();
+    _pageController?.dispose();
     super.dispose();
   }
 
@@ -45,11 +46,23 @@ class _HomePageState extends State<HomePage> {
   HashMap<String, AreaEntity>? areas;
   HashMap<String, DeviceEntityBase>? entities;
 
+  /// Tab num, value will be the default tab to show
+  int? _currentTabNum;
+
+  PageController? _pageController;
+
   Future initializedScenes() async {
     final HashMap<String, SceneCbjEntity> scenecsTemp =
         await ConnectionsService.instance.getScenes;
 
     setState(() {
+      if (scenecsTemp.isNotEmpty) {
+        _currentTabNum = 0;
+      } else {
+        _currentTabNum = 1;
+      }
+      _pageController = PageController(initialPage: _currentTabNum!);
+
       scenes = scenecsTemp;
     });
   }
@@ -126,11 +139,6 @@ class _HomePageState extends State<HomePage> {
     return type == EntityTypes.undefined || type == EntityTypes.emptyEntity;
   }
 
-  /// Tab num, value will be the default tab to show
-  int _currentTabNum = 1;
-
-  final _pageController = PageController(initialPage: 1);
-
   static List<BottomNavigationBarItemAtom> getBottomNavigationBarItems() {
     return [
       BottomNavigationBarItemAtom(
@@ -157,8 +165,8 @@ class _HomePageState extends State<HomePage> {
   void changeByTabNumber(int index) {
     setState(() {
       _currentTabNum = index;
-      _pageController.animateToPage(
-        _currentTabNum,
+      _pageController!.animateToPage(
+        _currentTabNum!,
         duration: const Duration(milliseconds: 200),
         curve: Curves.linear,
       );
@@ -167,7 +175,11 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    if (entities == null || areas == null || scenes == null) {
+    if (_currentTabNum == null ||
+        _pageController == null ||
+        entities == null ||
+        areas == null ||
+        scenes == null) {
       return const Scaffold(
         body: CircularProgressIndicatorAtom(),
       );
@@ -193,7 +205,7 @@ class _HomePageState extends State<HomePage> {
             bottomNavigationBar: BottomNavigationBarMolecule(
               bottomNaviList: getBottomNavigationBarItems(),
               onTap: changeByTabNumber,
-              pageIndex: _currentTabNum,
+              pageIndex: _currentTabNum!,
             ),
           ),
           Column(

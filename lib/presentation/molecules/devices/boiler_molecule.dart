@@ -30,7 +30,7 @@ class _BoilerMoleculeState extends State<BoilerMolecule> {
 
   void setEntityState(EntityActions action) {
     final HashSet<String> uniqueIdByVendor =
-        HashSet.from([widget.entity.deviceCbjUniqueId.getOrCrash()]);
+        HashSet.from([widget.entity.entitiyCbjUniqueId.getOrCrash()]);
 
     ConnectionsService.instance.setEntityState(
       RequestActionObject(

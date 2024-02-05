@@ -69,10 +69,6 @@ class MqttServerRepository extends IMqttServerRepository {
       final DeviceEntityBase deviceEntityBase = entityFromTheApp.toDomain();
       deviceEntityBase.entityStateGRPC =
           EntityState.state(EntityStateGRPC.waitingInComp);
-
-      /// Sends directly to device connector conjecture
-      // ISavedDevicesRepo.instance.addOrUpdateFromMqtt(deviceEntityBase);
-
       return;
     } else if (entityFromTheApp is DeviceEntityBase) {
       entityFromTheApp.entityStateGRPC =

@@ -1,6 +1,10 @@
 part of 'package:cybearjinni/domain/connections_service.dart';
 
 class _DemoConnectionService implements ConnectionsService {
+  _DemoConnectionService(this.networkBssid);
+
+  String networkBssid;
+
   StreamController<MapEntry<String, DeviceEntityBase>>? entitiesStream;
   StreamController<MapEntry<String, AreaEntity>>? areasStream;
 

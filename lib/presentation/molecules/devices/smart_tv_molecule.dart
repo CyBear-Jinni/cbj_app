@@ -78,7 +78,7 @@ class _SmartTvMoleculeState extends State<SmartTvMolecule> {
     HashMap<ActionValues, dynamic>? value,
   }) {
     final HashSet<String> uniqueIdByVendor =
-        HashSet.from([widget.entity.deviceCbjUniqueId.getOrCrash()]);
+        HashSet.from([widget.entity.entitiyCbjUniqueId.getOrCrash()]);
 
     ConnectionsService.instance.setEntityState(
       RequestActionObject(

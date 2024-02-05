@@ -2,6 +2,7 @@ import 'dart:collection';
 
 import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:cybearjinni/domain/connections_service.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
@@ -9,7 +10,6 @@ import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
 import 'package:cybearjinni/presentation/core/snack_bar_service.dart';
 import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:cybearjinni/presentation/pages/add_action_page.dart';
-import 'package:cybearjinni/presentation/pages/add_bindings/widgets/binding_action_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -111,10 +111,22 @@ class _AddBindingPageState extends State<AddBindingPage> {
 
                         return Container(
                           margin: const EdgeInsets.symmetric(vertical: 1),
-                          child: BindingActionWidget(
-                            entity: currentDevice.entity,
-                            propertyToChange: currentDevice.property,
-                            actionToChange: currentDevice.action,
+                          child: ColoredBox(
+                            color: Colors.blue.withOpacity(0.3),
+                            child: ListTile(
+                              leading: const FaIcon(
+                                FontAwesomeIcons.lightbulb,
+                                color: Colors.yellow,
+                              ),
+                              title: AutoSizeText(
+                                '${currentDevice.entity.cbjEntityName.getOrCrash()!} - ${currentDevice.property.name}',
+                                maxLines: 2,
+                              ),
+                              trailing: AutoSizeText(
+                                currentDevice.action.name,
+                                style: const TextStyle(color: Colors.black),
+                              ),
+                            ),
                           ),
                         );
                       },

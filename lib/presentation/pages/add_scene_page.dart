@@ -2,6 +2,7 @@ import 'dart:collection';
 
 import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:cybearjinni/domain/connections_service.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
@@ -9,7 +10,6 @@ import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
 import 'package:cybearjinni/presentation/core/snack_bar_service.dart';
 import 'package:cybearjinni/presentation/organisms/organisms.dart';
 import 'package:cybearjinni/presentation/pages/add_action_page.dart';
-import 'package:cybearjinni/presentation/pages/add_scene/widgets/scene_action_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -46,7 +46,7 @@ class _AddScenePageState extends State<AddScenePage> {
       entitiesWithActions
           .map(
             (e) => RequestActionObject(
-              entityIds: HashSet.from([e.entity.getCbjDeviceId]),
+              entityIds: HashSet.from([e.entity.getCbjEntityId]),
               property: e.property,
               actionType: e.action,
             ),
@@ -61,7 +61,6 @@ class _AddScenePageState extends State<AddScenePage> {
       uniqueId: UniqueId(),
       name: SceneCbjName(sceneName),
       backgroundColor: SceneCbjBackgroundColor(Colors.red.toString()),
-      automationString: SceneCbjAutomationString(''),
       nodeRedFlowId: SceneCbjNodeRedFlowId(''),
       firstNodeId: SceneCbjFirstNodeId(''),
       iconCodePoint:
@@ -76,6 +75,7 @@ class _AddScenePageState extends State<AddScenePage> {
       entityStateGRPC: SceneCbjDeviceStateGRPC(EntityStateGRPC.ack.name),
       actions: actions,
       areaPurposeType: AreaPurposesTypes.undefined,
+      entitiesWithAutomaticPurpose: EntitiesWithAutomaticPurpose(HashSet()),
     );
 
     ConnectionsService.instance.addScene(scene);
@@ -132,10 +132,22 @@ class _AddScenePageState extends State<AddScenePage> {
 
                   return Container(
                     margin: const EdgeInsets.symmetric(vertical: 1),
-                    child: SceneActionWidget(
-                      entity: currentDevice.entity,
-                      propertyToChange: currentDevice.property,
-                      actionToChange: currentDevice.action,
+                    child: ColoredBox(
+                      color: Colors.blue.withOpacity(0.3),
+                      child: ListTile(
+                        leading: const FaIcon(
+                          FontAwesomeIcons.lightbulb,
+                          color: Colors.yellow,
+                        ),
+                        title: AutoSizeText(
+                          '${currentDevice.entity.cbjEntityName.getOrCrash()!} - ${currentDevice.property.name}',
+                          maxLines: 2,
+                        ),
+                        trailing: AutoSizeText(
+                          currentDevice.action.name,
+                          style: const TextStyle(color: Colors.black),
+                        ),
+                      ),
                     ),
                   );
                 },

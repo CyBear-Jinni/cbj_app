@@ -2,6 +2,7 @@ part of 'package:cybearjinni/domain/manage_network/i_manage_network_repository.d
 
 class _ManageWiFiRepository implements IManageNetworkRepository {
   final NetworkSecurity networkSecurity = NetworkSecurity.WPA;
+  NetworkObject? network;
 
   @override
   Future<Either<HomeUserFailures, String?>> doesWiFiEnabled() async {
@@ -119,10 +120,96 @@ class _ManageWiFiRepository implements IManageNetworkRepository {
       }
     } on PlatformException catch (e) {
       logger.e('Failed to get Wifi Name\n$e');
-//      wifiName = "Failed to get Wifi Name";
     } catch (exception) {
       logger.e(exception.toString());
     }
     return wifiName;
+  }
+
+  @override
+  Future loadWifi() async {
+    final NetworkInfo info = NetworkInfo();
+
+    if (Platform.isLinux) {
+      final String? bssid = await info.getWifiBSSID();
+      final String? wifiName = await info.getWifiName();
+      final String? ip = await info.getWifiIP();
+      if (bssid == null || wifiName == null || ip == null) {
+        return;
+      }
+      final String subnet = ipToSubnet(ip);
+
+      final NetworkObject network = NetworkObject(
+        bssid: bssid,
+        ssid: wifiName,
+        subNet: subnet,
+        longitude: null,
+        latitude: null,
+        remotePipe: null,
+        type: null,
+      );
+      NetworksManager().addNetwork(network);
+      NetworksManager().setCurrentNetwork(network.uniqueId);
+      return;
+    }
+
+    final PermissionStatus locationStatus = await Permission.location.status;
+    if (locationStatus.isDenied) {
+      await Permission.locationWhenInUse.request();
+    }
+    if (await Permission.location.isRestricted) {
+      await openAppSettings();
+    }
+
+    final bool isWifiEnabled = await WiFiForIoTPlugin.isEnabled();
+    final bool isWifiConnected = await WiFiForIoTPlugin.isConnected();
+
+    if (!isWifiEnabled || !isWifiConnected) {
+      logger.w('Not connected to WiFi');
+      exit(0);
+    }
+
+    String bssid;
+    if (await Permission.location.isGranted) {
+      final String? bssidTemp = await info.getWifiBSSID();
+      if (bssidTemp == null || bssidTemp == "02:00:00:00:00:00") {
+        logger.w(
+          'Location is not on or user-allowed approximate location instead of precise location',
+        );
+        exit(0);
+      }
+      bssid = bssidTemp;
+    } else {
+      logger.w('Missing location permission');
+      exit(0);
+    }
+    final String? ssid = await WiFiForIoTPlugin.getSSID();
+    final String? ip = await WiFiForIoTPlugin.getIP();
+    final location.LocationData locationData =
+        await location.Location().getLocation();
+
+    if (ssid == null || ip == null) {
+      logger.w('Ssid is null');
+      exit(0);
+    }
+
+    final String subNet = ipToSubnet(ip);
+
+    final NetworkObject network = NetworkObject(
+      bssid: bssid,
+      ssid: ssid,
+      subNet: subNet,
+      longitude: locationData.longitude,
+      latitude: locationData.latitude,
+      remotePipe: null,
+      type: null,
+    );
+    NetworksManager().addNetwork(network);
+    NetworksManager().setCurrentNetwork(network.uniqueId);
+  }
+
+  String ipToSubnet(String ip) {
+    final List<String> ipSplit = ip.split('.');
+    return ipSplit.sublist(0, ipSplit.length - 1).join();
   }
 }

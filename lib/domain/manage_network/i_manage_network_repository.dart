@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:cybearjinni/domain/home_user/home_user_failures.dart';
 import 'package:cybearjinni/domain/manage_network/manage_network_entity.dart';
 import 'package:cybearjinni/domain/manage_network/manage_network_value_objects.dart';
@@ -7,6 +8,7 @@ import 'package:cybearjinni/infrastructure/core/logger.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/services.dart';
 import 'package:kt_dart/collection.dart';
+import 'package:location/location.dart' as location;
 import 'package:network_info_plus/network_info_plus.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:wifi_iot/wifi_iot.dart';
@@ -21,6 +23,8 @@ abstract interface class IManageNetworkRepository {
   }
 
   static ManageNetworkEntity? manageWiFiEntity;
+
+  Future loadWifi();
 
   Future<Either<HomeUserFailures, String?>> doesWiFiEnabled();
 

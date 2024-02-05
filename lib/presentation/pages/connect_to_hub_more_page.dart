@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:auto_route/auto_route.dart';
+import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:cybearjinni/domain/connections_service.dart';
+import 'package:cybearjinni/infrastructure/core/logger.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
@@ -87,7 +89,16 @@ class _ConnectToHubMoreWidgetState extends State<ConnectToHubMoreWidget> {
   bool isLoading = false;
 
   Future _connectInDemoMode() async {
-    ConnectionsService.setCurrentConnectionType(ConnectionType.demo);
+    final String? bssid = NetworksManager().currentNetwork?.bssid;
+    if (bssid == null) {
+      logger.e('Please set up network');
+      return;
+    }
+
+    ConnectionsService.setCurrentConnectionType(
+      networkBssid: bssid,
+      connectionType: ConnectionType.demo,
+    );
     context.router.replace(const HomeRoute());
   }
 
