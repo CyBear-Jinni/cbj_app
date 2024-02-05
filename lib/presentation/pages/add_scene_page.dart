@@ -61,7 +61,6 @@ class _AddScenePageState extends State<AddScenePage> {
       uniqueId: UniqueId(),
       name: SceneCbjName(sceneName),
       backgroundColor: SceneCbjBackgroundColor(Colors.red.toString()),
-      automationString: SceneCbjAutomationString(''),
       nodeRedFlowId: SceneCbjNodeRedFlowId(''),
       firstNodeId: SceneCbjFirstNodeId(''),
       iconCodePoint:
@@ -76,6 +75,7 @@ class _AddScenePageState extends State<AddScenePage> {
       entityStateGRPC: SceneCbjDeviceStateGRPC(EntityStateGRPC.ack.name),
       actions: actions,
       areaPurposeType: AreaPurposesTypes.undefined,
+      entitiesWithAutomaticPurpose: EntitiesWithAutomaticPurpose(HashSet()),
     );
 
     ConnectionsService.instance.addScene(scene);
