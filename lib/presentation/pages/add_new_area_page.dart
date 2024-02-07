@@ -93,6 +93,12 @@ class _AddNewAreaFormState extends State<AddNewAreaForm> {
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
 
+    final List<AreaPurposesTypes> purposesList =
+        List.from(AreaPurposesTypes.values);
+
+    purposesList
+        .removeWhere((element) => element == AreaPurposesTypes.undefined);
+
     return MarginedExpandedAtom(
       child: Column(
         children: [
@@ -133,8 +139,8 @@ class _AddNewAreaFormState extends State<AddNewAreaForm> {
                       cancelText: const Text('CANCEL').tr(),
                       confirmText: const Text('OK').tr(),
                       title: const TextAtom('Select'),
-                      items: AreaPurposesTypes.values
-                          .map((AreaPurposesTypes areaPurposeType) {
+                      items:
+                          purposesList.map((AreaPurposesTypes areaPurposeType) {
                         final String tempAreaName = areaPurposeType.name
                             .substring(1, areaPurposeType.name.length);
                         String areaNameEdited =
