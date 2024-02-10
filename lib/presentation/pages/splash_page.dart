@@ -12,7 +12,6 @@ import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 @RoutePage()
@@ -74,24 +73,11 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.centerRight,
-            end: Alignment.centerLeft,
-            stops: const [0.06, 0.9],
-            colors: [
-              HexColor('#ca6ce3'),
-              HexColor('#aa5fe4'),
-            ],
-          ),
-        ),
-        child: const Center(
-          child: ImageAtom(
-            'assets/cbj_logo.png',
-            hero: 'full_logo',
-          ),
+    return const Scaffold(
+      body: Center(
+        child: ImageAtom(
+          'assets/cbj_logo.png',
+          hero: 'full_logo',
         ),
       ),
     );

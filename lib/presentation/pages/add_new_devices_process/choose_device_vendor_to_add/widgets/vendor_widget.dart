@@ -49,7 +49,6 @@ class VendorWidget extends StatelessWidget {
             TextAtom(
               vendorInformation.displayName,
               style: const TextStyle(
-                color: Colors.black,
                 fontSize: 22,
               ),
             ),

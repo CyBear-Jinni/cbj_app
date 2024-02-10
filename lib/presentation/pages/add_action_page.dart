@@ -7,7 +7,7 @@ import 'package:cybearjinni/presentation/core/snack_bar_service.dart';
 import 'package:cybearjinni/presentation/organisms/organisms.dart';
 import 'package:flutter/material.dart';
 
-@RoutePage<EntityActionObject?>()
+@RoutePage<RequestActionObject?>()
 class AddActionPage extends StatefulWidget {
   const AddActionPage({required this.entities});
 
@@ -21,6 +21,9 @@ class _AddActionPageState extends State<AddActionPage> {
   DeviceEntityBase? selectedEntity;
   EntityProperties? selectedProperty;
   EntityActions? selectedAction;
+  String? fieldValues;
+  ActionValues? actionType;
+  String? actionValue;
 
   void onEntitySelect(String entityId) {
     setState(() {
@@ -40,160 +43,194 @@ class _AddActionPageState extends State<AddActionPage> {
     });
   }
 
+  void onSelectedActionType(String value) {
+    setState(() {
+      actionType = ActionValues.values.elementAt(int.parse(value));
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return PageOrganism(
       pageName: 'Add Action',
-      child: SingleChildScrollView(
-        child: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 10),
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 30,
-              ),
-              const SizedBox(
-                height: 70,
-              ),
-              const Row(
+      child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 10),
+        child: Column(
+          children: [
+            const SeparatorAtom(),
+            const Row(
+              children: [
+                TextAtom(
+                  'Choose Action',
+                  style: TextStyle(fontSize: 27),
+                ),
+              ],
+            ),
+            Expanded(
+              child: Column(
                 children: [
-                  TextAtom(
-                    'Choose Action',
-                    style: TextStyle(fontSize: 27),
-                  ),
-                ],
-              ),
-              DropdownButton<String>(
-                dropdownColor: Colors.black,
-                style: const TextStyle(color: Colors.white),
-                icon: const Icon(Icons.arrow_drop_down),
-                hint: TextAtom(
-                  selectedEntity?.cbjEntityName.getOrCrash() ?? 'Choose Entity',
-                  style: const TextStyle(color: Colors.white),
-                ),
-                elevation: 16,
-                underline: Container(
-                  height: 2,
-                ),
-                onChanged: (value) => onEntitySelect(value!),
-                items:
-                    widget.entities.values.map<DropdownMenuItem<String>>((e) {
-                  return DropdownMenuItem<String>(
-                    value: e.getCbjEntityId,
-                    child: TextAtom(e.cbjEntityName.getOrCrash()!),
-                  );
-                }).toList(),
-              ),
-              const SizedBox(
-                height: 40,
-              ),
-              DropdownButton<String>(
-                dropdownColor: Colors.black,
-                style: const TextStyle(color: Colors.white),
-                icon: const Icon(Icons.arrow_drop_down),
-                hint: TextAtom(
-                  selectedProperty?.name ?? 'Select Property',
-                  style: const TextStyle(color: Colors.white),
-                ),
-                elevation: 16,
-                underline: Container(
-                  height: 2,
-                ),
-                onChanged: (value) => _onPropertySelected(value!),
-                items: selectedEntity
-                        ?.getListOfPropertiesToChange()
+                  DropdownButton<String>(
+                    dropdownColor: Colors.black,
+                    style: const TextStyle(color: Colors.white),
+                    icon: const Icon(Icons.arrow_drop_down),
+                    hint: TextAtom(
+                      selectedEntity?.cbjEntityName.getOrCrash() ?? 'Entity',
+                      style: const TextStyle(color: Colors.white),
+                    ),
+                    elevation: 16,
+                    underline: Container(
+                      height: 2,
+                    ),
+                    onChanged: (value) => onEntitySelect(value!),
+                    items: widget.entities.values
                         .map<DropdownMenuItem<String>>((e) {
                       return DropdownMenuItem<String>(
-                        value: e.index.toString(),
-                        child: TextAtom(e.name),
+                        value: e.getCbjEntityId,
+                        child: TextAtom(e.cbjEntityName.getOrCrash()!),
                       );
-                    }).toList() ??
-                    <DropdownMenuItem<String>>[
-                      const DropdownMenuItem<String>(
-                        value: 'Choose entity first',
-                        child: TextAtom('Choose entity first'),
-                      ),
-                    ],
-              ),
-              const SizedBox(
-                height: 40,
-              ),
-              DropdownButton<String>(
-                dropdownColor: Colors.black,
-                style: const TextStyle(color: Colors.white),
-                icon: const Icon(Icons.arrow_drop_down),
-                hint: TextAtom(
-                  selectedAction?.name ?? 'Choose Action',
-                  style: const TextStyle(color: Colors.white),
-                ),
-                elevation: 16,
-                underline: Container(
-                  height: 2,
-                ),
-                onChanged: (value) => onActionSelected(value!),
-                items: (selectedProperty != null &&
-                        selectedProperty!.getActions.isNotEmpty)
-                    ? selectedProperty!.getActions
-                        .map<DropdownMenuItem<String>>((e) {
-                        return DropdownMenuItem<String>(
-                          value: e.index.toString(),
-                          child: TextAtom(e.name),
-                        );
-                      }).toList()
-                    : const <DropdownMenuItem<String>>[
-                        DropdownMenuItem<String>(
-                          value: 'Choose property first',
-                          child: TextAtom('Choose property first'),
-                        ),
-                      ],
-              ),
-              const SizedBox(
-                height: 70,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  TextButton(
-                    onPressed: () {
-                      SnackBarService().show(context, 'Add action');
-                      if (selectedEntity == null ||
-                          selectedProperty == null ||
-                          selectedAction == null) {
-                        return;
-                      }
-                      final EntityActionObject entityActionObject =
-                          EntityActionObject(
-                        entity: selectedEntity!,
-                        property: selectedProperty!,
-                        action: selectedAction!,
-                      );
-                      // TODO: Add pop
-                      context.router
-                          .pop<EntityActionObject?>(entityActionObject);
-                    },
-                    child: const TextAtom(
-                      'Done',
-                      style: TextStyle(fontSize: 20),
+                    }).toList(),
+                  ),
+                  const SeparatorAtom(variant: SeparatorVariant.farAppart),
+                  DropdownButton<String>(
+                    dropdownColor: Colors.black,
+                    style: const TextStyle(color: Colors.white),
+                    icon: const Icon(Icons.arrow_drop_down),
+                    hint: TextAtom(
+                      selectedProperty?.name ?? 'Property',
+                      style: const TextStyle(color: Colors.white),
+                    ),
+                    elevation: 16,
+                    underline: Container(
+                      height: 2,
+                    ),
+                    onChanged: (value) => _onPropertySelected(value!),
+                    items: selectedEntity
+                            ?.getListOfPropertiesToChange()
+                            .map<DropdownMenuItem<String>>((e) {
+                          return DropdownMenuItem<String>(
+                            value: e.index.toString(),
+                            child: TextAtom(e.name),
+                          );
+                        }).toList() ??
+                        <DropdownMenuItem<String>>[
+                          const DropdownMenuItem<String>(
+                            value: 'Choose entity first',
+                            child: TextAtom('Choose entity first'),
+                          ),
+                        ],
+                  ),
+                  const SeparatorAtom(variant: SeparatorVariant.farAppart),
+                  DropdownButton<String>(
+                    dropdownColor: Colors.black,
+                    style: const TextStyle(color: Colors.white),
+                    icon: const Icon(Icons.arrow_drop_down),
+                    hint: TextAtom(
+                      selectedAction?.name ?? 'Action',
+                      style: const TextStyle(color: Colors.white),
+                    ),
+                    elevation: 16,
+                    underline: Container(
+                      height: 2,
+                    ),
+                    onChanged: (value) => onActionSelected(value!),
+                    items: (selectedProperty != null &&
+                            selectedProperty!.getActions.isNotEmpty)
+                        ? selectedProperty!.getActions
+                            .map<DropdownMenuItem<String>>((e) {
+                            return DropdownMenuItem<String>(
+                              value: e.index.toString(),
+                              child: TextAtom(e.name),
+                            );
+                          }).toList()
+                        : const <DropdownMenuItem<String>>[
+                            DropdownMenuItem<String>(
+                              value: 'Choose property first',
+                              child: TextAtom('Choose property first'),
+                            ),
+                          ],
+                  ),
+                  const SeparatorAtom(variant: SeparatorVariant.farAppart),
+                  const TextAtom('Field value'),
+                  const SeparatorAtom(),
+                  DropdownButton<String>(
+                    dropdownColor: Colors.black,
+                    style: const TextStyle(color: Colors.white),
+                    icon: const Icon(Icons.arrow_drop_down),
+                    hint: TextAtom(
+                      actionType?.name ?? 'Value',
+                      style: const TextStyle(color: Colors.white),
+                    ),
+                    elevation: 16,
+                    underline: Container(
+                      height: 2,
+                    ),
+                    onChanged: (value) => onSelectedActionType(value!),
+                    items: (selectedAction != null)
+                        ? ActionValues.values
+                            .map<DropdownMenuItem<String>>((e) {
+                            return DropdownMenuItem<String>(
+                              value: e.index.toString(),
+                              child: TextAtom(e.name),
+                            );
+                          }).toList()
+                        : const <DropdownMenuItem<String>>[
+                            DropdownMenuItem<String>(
+                              value: 'Choose action first',
+                              child: TextAtom('Choose action first'),
+                            ),
+                          ],
+                  ),
+                  const SeparatorAtom(),
+                  Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 100),
+                    child: TextFormFieldAtom(
+                      onChanged: (c) {
+                        fieldValues = c;
+                      },
                     ),
                   ),
                 ],
               ),
-            ],
-          ),
+            ),
+            const SeparatorAtom(variant: SeparatorVariant.farAppart),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                TextButton(
+                  onPressed: () {
+                    SnackBarService().show(context, 'Add action');
+                    if (selectedEntity == null ||
+                        selectedProperty == null ||
+                        selectedAction == null) {
+                      return;
+                    }
+                    final RequestActionObject entityActionObject =
+                        RequestActionObject(
+                      entityIds: HashSet.from([selectedEntity!.getCbjEntityId]),
+                      property: selectedProperty!,
+                      actionType: selectedAction!,
+                      value: actionType == null ||
+                              fieldValues == null ||
+                              fieldValues!.isEmpty
+                          ? null
+                          : HashMap.fromEntries(
+                              [MapEntry(actionType!, fieldValues)],
+                            ),
+                    );
+                    context.router
+                        .pop<RequestActionObject?>(entityActionObject);
+                  },
+                  child: const TextAtom(
+                    'Done',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ),
+              ],
+            ),
+            const SeparatorAtom(),
+          ],
         ),
       ),
     );
   }
-}
-
-class EntityActionObject {
-  EntityActionObject({
-    required this.entity,
-    required this.property,
-    required this.action,
-  });
-
-  final DeviceEntityBase entity;
-  final EntityProperties property;
-  final EntityActions action;
 }

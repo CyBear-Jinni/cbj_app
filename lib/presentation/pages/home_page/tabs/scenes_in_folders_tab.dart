@@ -9,8 +9,10 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ScenesInFoldersTab extends StatelessWidget {
-  const ScenesInFoldersTab(this.scenes);
+  const ScenesInFoldersTab({required this.scenes, this.areas});
+
   final HashMap<String, SceneCbjEntity>? scenes;
+  final HashMap<String, AreaEntity>? areas;
 
   Widget scenesFoldersWidget(
     BuildContext context,
@@ -88,6 +90,7 @@ class ScenesInFoldersTab extends StatelessWidget {
         ),
       );
     }
+    areas!.removeWhere((key, value) => value.scenesId.getOrCrash().isEmpty);
 
     return Column(
       children: <Widget>[
@@ -97,25 +100,20 @@ class ScenesInFoldersTab extends StatelessWidget {
           leftIconFunction: (BuildContext context) {},
         ),
         Expanded(
-          child: ScenesGridMolecule(
-            scenes: scenes!.values.toList(),
+          child: ListView.builder(
+            reverse: true,
+            padding: EdgeInsets.zero,
+            itemBuilder: (context, index) {
+              final AreaEntity sceneFolder = areas!.values.elementAt(index);
+
+              return scenesFoldersWidget(
+                context,
+                sceneFolder,
+              );
+            },
+            itemCount: areas!.length,
           ),
         ),
-        // TODO: Code for room folders
-        // Expanded(
-        //   child: ListView.builder(
-        //     reverse: true,
-        //     padding: EdgeInsets.zero,
-        //     itemBuilder: (context, index) {
-        //       final AreaEntity sceneFolder = scenes![index];
-        //       return scenesFoldersWidget(
-        //         context,
-        //         sceneFolder,
-        //       );
-        //     },
-        //     itemCount: allAreasWithScenes!.length,
-        //   ),
-        // ),
       ],
     );
   }
