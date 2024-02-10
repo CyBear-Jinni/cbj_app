@@ -132,9 +132,6 @@ class _AddNewAreaFormState extends State<AddNewAreaForm> {
                     MultiSelectDialogField(
                       buttonText: const Text(
                         'Select_Purposes_Of_The_Area',
-                        style: TextStyle(
-                          color: Colors.black,
-                        ),
                       ).tr(),
                       cancelText: const Text('CANCEL').tr(),
                       confirmText: const Text('OK').tr(),
