@@ -9,7 +9,6 @@ import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
 import 'package:cybearjinni/presentation/core/snack_bar_service.dart';
 import 'package:cybearjinni/presentation/molecules/molecules.dart';
-import 'package:cybearjinni/presentation/pages/add_action_page.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -37,7 +36,7 @@ class _AddBindingPageState extends State<AddBindingPage> {
   String bindingName = '';
 
   /// List of devices with entities, will be treated as actions
-  HashSet<EntityActionObject> allDevicesWithNewAction = HashSet();
+  HashSet<RequestActionObject> allDevicesWithNewAction = HashSet();
   Set<MapEntry<String, String>> allEntityActions = {};
   bool showErrorMessages = false;
   bool isSubmitting = false;
@@ -59,7 +58,7 @@ class _AddBindingPageState extends State<AddBindingPage> {
     // );
   }
 
-  Future _addFullAction(EntityActionObject value) async {
+  Future _addFullAction(RequestActionObject value) async {
     setState(() {
       allDevicesWithNewAction.add(value);
     });
@@ -106,7 +105,7 @@ class _AddBindingPageState extends State<AddBindingPage> {
                     child: ListView.builder(
                       itemCount: allDevicesWithNewAction.length,
                       itemBuilder: (BuildContext context, int index) {
-                        final EntityActionObject currentDevice =
+                        final RequestActionObject currentDevice =
                             allDevicesWithNewAction.elementAt(index);
 
                         return Container(
@@ -119,11 +118,11 @@ class _AddBindingPageState extends State<AddBindingPage> {
                                 color: Colors.yellow,
                               ),
                               title: AutoSizeText(
-                                '${currentDevice.entity.cbjEntityName.getOrCrash()!} - ${currentDevice.property.name}',
+                                '${entities![currentDevice.entityIds.first]!.cbjEntityName.getOrCrash()!} - ${currentDevice.property.name}',
                                 maxLines: 2,
                               ),
                               trailing: AutoSizeText(
-                                currentDevice.action.name,
+                                currentDevice.actionType.name,
                                 style: const TextStyle(color: Colors.black),
                               ),
                             ),
@@ -153,9 +152,9 @@ class _AddBindingPageState extends State<AddBindingPage> {
                                 ),
                               ),
                               onPressed: (_) async {
-                                final EntityActionObject? actionList =
+                                final RequestActionObject? actionList =
                                     await context.router
-                                        .push<EntityActionObject?>(
+                                        .push<RequestActionObject?>(
                                   AddActionRoute(entities: entities!),
                                 );
                                 if (actionList != null) {

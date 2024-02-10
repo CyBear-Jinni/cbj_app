@@ -4,7 +4,6 @@ import 'package:cybearjinni/presentation/molecules/molecules.dart';
 import 'package:cybearjinni/presentation/pages/add_new_devices_process/choose_device_vendor_to_add/widgets/vendors_list.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:hexcolor/hexcolor.dart';
 
 @RoutePage()
 class ChooseDeviceVendorToAddPage extends StatelessWidget {
@@ -26,9 +25,9 @@ class ChooseDeviceVendorToAddPage extends StatelessWidget {
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 40),
             alignment: Alignment.centerLeft,
-            child: TextAtom(
+            child: const TextAtom(
               'Vendors:',
-              style: TextStyle(color: HexColor('#6599CA'), fontSize: 20),
+              style: TextStyle(fontSize: 20),
             ),
           ),
           Expanded(

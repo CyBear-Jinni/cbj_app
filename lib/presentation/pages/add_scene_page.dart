@@ -6,10 +6,10 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:cybearjinni/domain/connections_service.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
+import 'package:cybearjinni/presentation/core/entities_utils.dart';
 import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
 import 'package:cybearjinni/presentation/core/snack_bar_service.dart';
 import 'package:cybearjinni/presentation/organisms/organisms.dart';
-import 'package:cybearjinni/presentation/pages/add_action_page.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -31,7 +31,7 @@ class _AddScenePageState extends State<AddScenePage> {
   HashMap<String, DeviceEntityBase>? entities;
 
   /// List of devices with entities, will be treated as actions
-  HashSet<EntityActionObject> entitiesWithActions = HashSet();
+  HashSet<RequestActionObject> entitiesWithActions = HashSet();
 
   Future initialzeEntities() async {
     final HashMap<String, DeviceEntityBase> entitiesTemp =
@@ -42,21 +42,7 @@ class _AddScenePageState extends State<AddScenePage> {
     });
   }
 
-  List<RequestActionObject> entitiesWithActionsToActionsByVendor() =>
-      entitiesWithActions
-          .map(
-            (e) => RequestActionObject(
-              entityIds: HashSet.from([e.entity.getCbjEntityId]),
-              property: e.property,
-              actionType: e.action,
-            ),
-          )
-          .toList();
-
   Future _sendSceneToHub() async {
-    final List<RequestActionObject> actions =
-        entitiesWithActionsToActionsByVendor();
-
     final SceneCbjEntity scene = SceneCbjEntity(
       uniqueId: UniqueId(),
       name: SceneCbjName(sceneName),
@@ -73,7 +59,7 @@ class _AddScenePageState extends State<AddScenePage> {
       senderId: SceneCbjSenderId(''),
       compUuid: SceneCbjCompUuid(''),
       entityStateGRPC: SceneCbjDeviceStateGRPC(EntityStateGRPC.ack.name),
-      actions: actions,
+      actions: entitiesWithActions.toList(),
       areaPurposeType: AreaPurposesTypes.undefined,
       entitiesWithAutomaticPurpose: EntitiesWithAutomaticPurpose(HashSet()),
     );
@@ -81,22 +67,11 @@ class _AddScenePageState extends State<AddScenePage> {
     ConnectionsService.instance.addScene(scene);
   }
 
-  Future _addFullAction(EntityActionObject value) async {
+  Future _addFullAction(RequestActionObject value) async {
     setState(() {
       entitiesWithActions.add(value);
     });
   }
-
-  // Set<MapEntry<DeviceEntityBase, MapEntry<String?, String?>>>
-  // smartDevicesWithActionToAdd,
-  //     required String actionsName,
-  //     required Set<DeviceEntityBase> allDevices,
-  //     required Set<MapEntry<DeviceEntityBase, MapEntry<String?, String?>>>
-  // allDevicesWithNewAction,
-  //     required Set<MapEntry<String, String>> allEntityActions,
-  //     required bool showErrorMessages,
-  //     required bool isSubmitting,
-  //     required Option<Either<CoreLoginFailure, Unit>> authFailureOrSuccessOption,
 
   @override
   Widget build(BuildContext context) {
@@ -118,7 +93,6 @@ class _AddScenePageState extends State<AddScenePage> {
                 prefixIcon: FaIcon(FontAwesomeIcons.fileSignature),
                 labelText: 'Scene Name',
               ),
-              style: const TextStyle(color: Colors.black),
               onChanged: (value) => sceneName = value,
             ),
             SizedBox(
@@ -127,25 +101,30 @@ class _AddScenePageState extends State<AddScenePage> {
               child: ListView.builder(
                 itemCount: entitiesWithActions.length,
                 itemBuilder: (BuildContext context, int index) {
-                  final EntityActionObject currentDevice =
+                  final RequestActionObject currentDevice =
                       entitiesWithActions.elementAt(index);
+                  final DeviceEntityBase? entity =
+                      entities![currentDevice.entityIds.first];
+                  if (entity == null) {
+                    return const SizedBox();
+                  }
 
                   return Container(
                     margin: const EdgeInsets.symmetric(vertical: 1),
                     child: ColoredBox(
                       color: Colors.blue.withOpacity(0.3),
                       child: ListTile(
-                        leading: const FaIcon(
-                          FontAwesomeIcons.lightbulb,
-                          color: Colors.yellow,
+                        leading: FaIcon(
+                          EntitiesUtils.iconOfDeviceType(
+                            entity.entityTypes.type,
+                          ),
                         ),
                         title: AutoSizeText(
-                          '${currentDevice.entity.cbjEntityName.getOrCrash()!} - ${currentDevice.property.name}',
+                          '${entity.cbjEntityName.getOrCrash()!} - ${currentDevice.property.name}',
                           maxLines: 2,
                         ),
                         trailing: AutoSizeText(
-                          currentDevice.action.name,
-                          style: const TextStyle(color: Colors.black),
+                          currentDevice.actionType.name,
                         ),
                       ),
                     ),
@@ -157,7 +136,6 @@ class _AddScenePageState extends State<AddScenePage> {
             DecoratedBox(
               decoration: BoxDecoration(
                 color: Colors.lightBlueAccent.withOpacity(0.5),
-                // Red border with the width is equal to 5
                 border: Border.all(),
               ),
               child: TextButton(
@@ -174,8 +152,8 @@ class _AddScenePageState extends State<AddScenePage> {
                           ),
                         ),
                         onPressed: (_) async {
-                          final EntityActionObject? actionList =
-                              await context.router.push<EntityActionObject?>(
+                          final RequestActionObject? actionList =
+                              await context.router.push<RequestActionObject?>(
                             AddActionRoute(entities: entities!),
                           );
                           if (actionList != null) {
@@ -191,12 +169,10 @@ class _AddScenePageState extends State<AddScenePage> {
                             fontSize: 23,
                           ),
                         ),
-                        onPressed: (_) {
-                          SnackBarService().show(
-                            context,
-                            'Adding service action will be added in the future',
-                          );
-                        },
+                        onPressed: (_) => SnackBarService().show(
+                          context,
+                          'Adding service action will be added in the future',
+                        ),
                       ),
                       BottomSheetAction(
                         title: const TextAtom(
@@ -206,12 +182,10 @@ class _AddScenePageState extends State<AddScenePage> {
                             fontSize: 23,
                           ),
                         ),
-                        onPressed: (_) {
-                          SnackBarService().show(
-                            context,
-                            'Adding time based action will be added in the future',
-                          );
-                        },
+                        onPressed: (_) => SnackBarService().show(
+                          context,
+                          'Adding time based action will be added in the future',
+                        ),
                       ),
                     ],
                   );
@@ -228,6 +202,8 @@ class _AddScenePageState extends State<AddScenePage> {
               ),
               child: TextButton(
                 onPressed: () {
+                  context.router.pop();
+
                   SnackBarService().show(
                     context,
                     'Adding Scene',
