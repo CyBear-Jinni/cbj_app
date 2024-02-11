@@ -24,7 +24,7 @@ abstract interface class IManageNetworkRepository {
 
   static ManageNetworkEntity? manageWiFiEntity;
 
-  Future loadWifi();
+  Future<bool> loadWifi();
 
   Future<Either<HomeUserFailures, String?>> doesWiFiEnabled();
 
