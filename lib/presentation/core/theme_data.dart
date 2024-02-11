@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-// TODO: Add at least 4 more colors
 ///List of all the GradientColors to iterate on
 final Set<List<Color>> gradientColorsList = {
   GradientColors.sky,
