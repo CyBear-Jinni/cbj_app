@@ -127,7 +127,7 @@ class _ManageWiFiRepository implements IManageNetworkRepository {
   }
 
   @override
-  Future loadWifi() async {
+  Future<bool> loadWifi() async {
     final NetworkInfo info = NetworkInfo();
 
     if (Platform.isLinux) {
@@ -135,7 +135,7 @@ class _ManageWiFiRepository implements IManageNetworkRepository {
       final String? wifiName = await info.getWifiName();
       final String? ip = await info.getWifiIP();
       if (bssid == null || wifiName == null || ip == null) {
-        return;
+        return false;
       }
       final String subnet = ipToSubnet(ip);
 
@@ -150,7 +150,7 @@ class _ManageWiFiRepository implements IManageNetworkRepository {
       );
       NetworksManager().addNetwork(network);
       NetworksManager().setCurrentNetwork(network.uniqueId);
-      return;
+      return true;
     }
 
     final PermissionStatus locationStatus = await Permission.location.status;
@@ -166,7 +166,7 @@ class _ManageWiFiRepository implements IManageNetworkRepository {
 
     if (!isWifiEnabled || !isWifiConnected) {
       logger.w('Not connected to WiFi');
-      exit(0);
+      return false;
     }
 
     String bssid;
@@ -176,12 +176,12 @@ class _ManageWiFiRepository implements IManageNetworkRepository {
         logger.w(
           'Location is not on or user-allowed approximate location instead of precise location',
         );
-        exit(0);
+        return false;
       }
       bssid = bssidTemp;
     } else {
       logger.w('Missing location permission');
-      exit(0);
+      return false;
     }
     final String? ssid = await WiFiForIoTPlugin.getSSID();
     final String? ip = await WiFiForIoTPlugin.getIP();
@@ -190,7 +190,7 @@ class _ManageWiFiRepository implements IManageNetworkRepository {
 
     if (ssid == null || ip == null) {
       logger.w('Ssid is null');
-      exit(0);
+      return false;
     }
 
     final String subNet = ipToSubnet(ip);
@@ -206,6 +206,7 @@ class _ManageWiFiRepository implements IManageNetworkRepository {
     );
     NetworksManager().addNetwork(network);
     NetworksManager().setCurrentNetwork(network.uniqueId);
+    return true;
   }
 
   String ipToSubnet(String ip) {

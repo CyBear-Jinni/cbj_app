@@ -10,6 +10,7 @@ import 'package:cybearjinni/infrastructure/core/logger.dart';
 import 'package:cybearjinni/infrastructure/mqtt.dart';
 import 'package:cybearjinni/presentation/atoms/atoms.dart';
 import 'package:cybearjinni/presentation/core/routes/app_router.gr.dart';
+import 'package:cybearjinni/presentation/molecules/permissions_dialog_molecule.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -32,7 +33,13 @@ class _SplashPageState extends State<SplashPage> {
     await Hive.initFlutter();
     await IDbRepository.instance.asyncConstactor();
     NetworksManager().loadFromDb();
-    await IManageNetworkRepository.instance.loadWifi();
+    final bool sucess = await IManageNetworkRepository.instance.loadWifi();
+    if (!sucess) {
+      if (mounted) {
+        permsissionsDialog(context);
+      }
+      return;
+    }
     final String? bssid = NetworksManager().currentNetwork?.bssid;
     if (bssid == null) {
       logger.e('Please set up network');
