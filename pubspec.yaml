@@ -120,9 +120,12 @@ dependencies:
   # Discover network info and configure themselves accordingly
   network_info_plus: ^4.1.0
   # Helps you discover open ports, devices on subnet and more.
-  network_tools: ^4.0.1
   # Querying information about the application package, such as CFBundleVersion
-  network_tools_flutter: ^1.0.4
+  network_tools_flutter:
+    path: "../../network_tools_flutter"
+    # git:
+    #  url: "https://github.com/guyluz11/network_tools_flutter.git"
+    #  ref: "adding_mdns_ios_support"
   package_info_plus: ^4.2.0
   # Finding commonly used locations on the filesystem
   path_provider: ^2.1.1
