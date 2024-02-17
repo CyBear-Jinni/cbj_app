@@ -144,8 +144,6 @@ dependencies:
   # Plugin for launching a URL
   timezone: ^0.9.2
   url_launcher: ^6.2.1
-  # Simple, fast generation of RFC4122 UUIDs.
-  uuid: ^4.2.1
   # Get available wifi ssid list, user can connect to wifi with ssid and password, and create hotspot
   wifi_iot: ^0.3.18+1
   # Scan for nearby visible WiFi access points.
